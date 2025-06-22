@@ -4299,7 +4299,6 @@ define void @_ZN2cv11randpattern25RandomPatternCornerFinder18crossCheckMatchingE
   %50 = sub i64 %48, %49
   %51 = ashr exact i64 %50, 4
   %52 = load ptr, ptr %8, align 8, !tbaa !136
-  %umax83 = call i64 @llvm.umax.i64(i64 %51, i64 1)
   br label %72
 
 ._crit_edge77:                                    ; preds = %.loopexit, %37
@@ -4409,12 +4408,11 @@ _ZNSt6vectorIN2cv6DMatchESaIS1_EE9push_backERKS1_.exit.preheader: ; preds = %72
   %80 = ptrtoint ptr %78 to i64
   %81 = sub i64 %79, %80
   %82 = ashr exact i64 %81, 4
-  %umax = call i64 @llvm.umax.i64(i64 %82, i64 1)
   br label %_ZNSt6vectorIN2cv6DMatchESaIS1_EE9push_backERKS1_.exit
 
 83:                                               ; preds = %_ZNSt6vectorIN2cv6DMatchESaIS1_EE9push_backERKS1_.exit
   %84 = add nuw i64 %.03074, 1
-  %exitcond.not = icmp eq i64 %84, %umax
+  %exitcond.not = icmp eq i64 %84, %82
   br i1 %exitcond.not, label %._crit_edge, label %_ZNSt6vectorIN2cv6DMatchESaIS1_EE9push_backERKS1_.exit, !llvm.loop !138
 
 _ZNSt6vectorIN2cv6DMatchESaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorIN2cv6DMatchESaIS1_EE9push_backERKS1_.exit.preheader, %83
@@ -4527,7 +4525,7 @@ _ZNSt6vectorIN2cv6DMatchESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__no
 
 ._crit_edge:                                      ; preds = %83, %72
   %112 = add nuw i64 %.03175, 1
-  %exitcond84.not = icmp eq i64 %112, %umax83
+  %exitcond84.not = icmp eq i64 %112, %51
   br i1 %exitcond84.not, label %.loopexit, label %72, !llvm.loop !144
 
 .loopexit:                                        ; preds = %._crit_edge, %.preheader, %.thread

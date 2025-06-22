@@ -887,19 +887,15 @@ define noundef zeroext i1 @_ZN10open_spiel18StatePoliciesEqualERKSt6vectorISt4pa
 
 .preheader:                                       ; preds = %3
   %.not22 = icmp eq ptr %5, %6
-  br i1 %.not22, label %.loopexit, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %.preheader
-  %umax = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
-  br label %.lr.ph
+  br i1 %.not22, label %.loopexit, label %.lr.ph
 
 17:                                               ; preds = %22
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %10
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !15
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %17
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %17 ]
+.lr.ph:                                           ; preds = %.preheader, %17
+  %indvars.iv = phi i64 [ %indvars.iv.next, %17 ], [ 0, %.preheader ]
   %18 = getelementptr inbounds nuw %"struct.std::pair", ptr %6, i64 %indvars.iv
   %19 = load i64, ptr %18, align 8
   %20 = getelementptr inbounds nuw %"struct.std::pair", ptr %13, i64 %indvars.iv

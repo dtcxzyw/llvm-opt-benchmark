@@ -2090,7 +2090,6 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit253.us:     ; preds = %_ZNSt6vectorIiSaIiE
   %228 = load ptr, ptr %227, align 8, !tbaa !74
   %229 = getelementptr inbounds nuw %"class.std::vector", ptr %.sroa.0436.0, i64 %.0183619
   %230 = load ptr, ptr %229, align 8, !tbaa !34
-  %umax = tail call i64 @llvm.umax.i64(i64 %226, i64 1)
   br label %233
 
 .preheader580:                                    ; preds = %._crit_edge
@@ -2116,7 +2115,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit253.us:     ; preds = %_ZNSt6vectorIiSaIiE
   %239 = fdiv float %238, %236
   store float %239, ptr %237, align 4, !tbaa !89
   %240 = add nuw i64 %.0184618, 1
-  %exitcond688.not = icmp eq i64 %240, %umax
+  %exitcond688.not = icmp eq i64 %240, %226
   br i1 %exitcond688.not, label %._crit_edge, label %233, !llvm.loop !126
 
 ._crit_edge624:                                   ; preds = %.preheader580

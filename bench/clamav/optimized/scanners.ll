@@ -8210,21 +8210,17 @@ fmap_need_off_once_len.exit:                      ; preds = %10, %16
 
 .preheader:                                       ; preds = %fmap_need_off_once_len.exit
   %.not48 = icmp eq i64 %21, %.047
-  br i1 %.not48, label %._crit_edge, label %.lr.ph.preheader
+  br i1 %.not48, label %._crit_edge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %.preheader
-  %umax = tail call i64 @llvm.umax.i64(i64 %spec.select.i, i64 1)
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+.lr.ph:                                           ; preds = %.preheader, %.lr.ph
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 %indvars.iv
   %28 = load i8, ptr %27, align 1, !tbaa !13
   %29 = xor i8 %28, -1
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   store i8 %29, ptr %30, align 1, !tbaa !13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %spec.select.i
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
@@ -11977,9 +11973,6 @@ declare void @cli_events_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #17
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #17
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

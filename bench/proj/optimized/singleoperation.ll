@@ -8465,14 +8465,10 @@ define hidden noundef zeroext i1 @_ZNK5osgeo4proj9operation15OperationMethod15_i
   br i1 %32, label %.preheader, label %46
 
 .preheader:                                       ; preds = %31
-  br i1 %.not64117.not, label %.thread, label %.lr.ph.preheader
+  br i1 %.not64117.not, label %.thread, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %.preheader
-  %umax129 = tail call i64 @llvm.umax.i64(i64 %24, i64 1)
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
-  %.050118 = phi i64 [ 0, %.lr.ph.preheader ], [ %45, %.lr.ph ]
+.lr.ph:                                           ; preds = %.preheader, %.lr.ph
+  %.050118 = phi i64 [ %45, %.lr.ph ], [ 0, %.preheader ]
   %33 = load ptr, ptr %14, align 8, !tbaa !224
   %34 = getelementptr inbounds nuw %"class.dropbox::oxygen::nn.185", ptr %33, i64 %.050118
   %35 = load ptr, ptr %34, align 8, !tbaa !226
@@ -8487,7 +8483,7 @@ define hidden noundef zeroext i1 @_ZNK5osgeo4proj9operation15OperationMethod15_i
   %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef zeroext i1 %43(ptr noundef nonnull align 8 dereferenceable(48) %35, ptr noundef %spec.select, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(16) %3)
   %45 = add nuw i64 %.050118, 1
-  %exitcond130.not = icmp ne i64 %45, %umax129
+  %exitcond130.not = icmp ne i64 %45, %24
   %or.cond.not = select i1 %44, i1 %exitcond130.not, i1 false
   br i1 %or.cond.not, label %.lr.ph, label %.thread, !llvm.loop !254
 
@@ -8502,7 +8498,6 @@ define hidden noundef zeroext i1 @_ZNK5osgeo4proj9operation15OperationMethod15_i
   %51 = lshr i64 %47, 6
   %.idx.i = shl nuw nsw i64 %51, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %50, i8 -1, i64 %.idx.i, i1 false)
-  %umax = tail call i64 @llvm.umax.i64(i64 %24, i64 1)
   br label %.preheader111
 
 .preheader111:                                    ; preds = %.preheader111.preheader, %78
@@ -8552,7 +8547,7 @@ define hidden noundef zeroext i1 @_ZNK5osgeo4proj9operation15OperationMethod15_i
 
 .critedge:                                        ; preds = %52, %75
   %77 = add nuw i64 %.0114, 1
-  %exitcond.not = icmp eq i64 %77, %umax
+  %exitcond.not = icmp eq i64 %77, %24
   br i1 %exitcond.not, label %.thread.sink.split, label %52, !llvm.loop !255
 
 78:                                               ; preds = %75
@@ -8562,7 +8557,7 @@ define hidden noundef zeroext i1 @_ZNK5osgeo4proj9operation15OperationMethod15_i
   %81 = and i64 %80, %79
   store i64 %81, ptr %storemerge.i.i.i.i.i71.le, align 8, !tbaa !21
   %82 = add nuw i64 %.046116, 1
-  %exitcond128.not = icmp eq i64 %82, %umax
+  %exitcond128.not = icmp eq i64 %82, %24
   br i1 %exitcond128.not, label %.thread.sink.split, label %.preheader111, !llvm.loop !256
 
 .thread.sink.split:                               ; preds = %78, %.critedge
@@ -12616,14 +12611,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i333: ; preds = %252, %2
 
 .preheader:                                       ; preds = %273
   %.not300590 = icmp eq ptr %260, %261
-  br i1 %.not300590, label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit, label %.lr.ph592.preheader
+  br i1 %.not300590, label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit, label %.lr.ph592
 
-.lr.ph592.preheader:                              ; preds = %.preheader
-  %umax613 = tail call i64 @llvm.umax.i64(i64 %265, i64 1)
-  br label %.lr.ph592
-
-.lr.ph592:                                        ; preds = %.lr.ph592, %.lr.ph592.preheader
-  %.0259591 = phi i64 [ 0, %.lr.ph592.preheader ], [ %286, %.lr.ph592 ]
+.lr.ph592:                                        ; preds = %.preheader, %.lr.ph592
+  %.0259591 = phi i64 [ %286, %.lr.ph592 ], [ 0, %.preheader ]
   %274 = load ptr, ptr %257, align 8, !tbaa !312
   %275 = getelementptr inbounds nuw %"class.dropbox::oxygen::nn.292", ptr %274, i64 %.0259591
   %276 = load ptr, ptr %275, align 8, !tbaa !314
@@ -12638,7 +12629,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i333: ; preds = %252, %2
   %284 = load ptr, ptr %283, align 8
   %285 = tail call noundef zeroext i1 %284(ptr noundef nonnull align 8 dereferenceable(48) %276, ptr noundef %spec.select33, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(16) %3)
   %286 = add nuw i64 %.0259591, 1
-  %exitcond614.not = icmp ne i64 %286, %umax613
+  %exitcond614.not = icmp ne i64 %286, %265
   %or.cond.not658 = select i1 %285, i1 %exitcond614.not, i1 false
   br i1 %or.cond.not658, label %.lr.ph592, label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit, !llvm.loop !353
 

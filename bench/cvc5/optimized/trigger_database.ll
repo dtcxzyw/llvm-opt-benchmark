@@ -2214,7 +2214,6 @@ _ZNSt4pairIKN4cvc58internal12NodeTemplateILb1EEESt6vectorIS3_SaIS3_EEED2Ev.exit3
   %601 = sub i64 %599, %600
   %602 = ashr exact i64 %601, 3
   %603 = load ptr, ptr %28, align 8, !tbaa !19
-  %umax = call i64 @llvm.umax.i64(i64 %602, i64 1)
   br label %606
 
 604:                                              ; preds = %.noexc290, %.critedge.i236
@@ -2363,7 +2362,7 @@ _ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit.i.i: 
 
 669:                                              ; preds = %606
   %670 = add nuw i64 %.078452, 1
-  %exitcond.not = icmp eq i64 %670, %umax
+  %exitcond.not = icmp eq i64 %670, %602
   br i1 %exitcond.not, label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EESA_.exit241, label %606, !llvm.loop !78
 
 _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EESA_.exit241: ; preds = %669, %594, %_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i

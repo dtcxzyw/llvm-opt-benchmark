@@ -1834,7 +1834,6 @@ define void @_Z13mk_chi_lookupPPiiN3gmx8ArrayRefIK7t_dlistEE(ptr noundef readonl
   %8 = ptrtoint ptr %2 to i64
   %9 = sub i64 %7, %8
   %10 = sdiv exact i64 %9, 400
-  %umax = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
   %smax = tail call i32 @llvm.smax.i32(i32 %6, i32 4)
   %wide.trip.count = zext nneg i32 %smax to i64
   br label %.lr.ph.split.split.us42.preheader
@@ -1863,7 +1862,7 @@ define void @_Z13mk_chi_lookupPPiiN3gmx8ArrayRefIK7t_dlistEE(ptr noundef readonl
 19:                                               ; preds = %18, %.thread.us38
   %.2.us = phi i32 [ %17, %.thread.us38 ], [ %.126.us36, %18 ]
   %20 = add nuw i64 %.02024.us37, 1
-  %exitcond.not = icmp eq i64 %20, %umax
+  %exitcond.not = icmp eq i64 %20, %10
   br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph.split.split.us42, !llvm.loop !56
 
 .lr.ph.split.split.us42.preheader:                ; preds = %.preheader.us.preheader, %._crit_edge.us
@@ -3923,9 +3922,6 @@ declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unname
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #23
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #23
 
 attributes #0 = { cold mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

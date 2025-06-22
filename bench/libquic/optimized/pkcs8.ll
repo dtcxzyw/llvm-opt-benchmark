@@ -1020,7 +1020,6 @@ define internal fastcc range(i32 0, 2) i32 @pkcs12_key_gen_raw(ptr noundef reado
   %.not156 = icmp eq i64 %32, 0
   %.0141 = add i64 %.fr, -1
   %51 = call i32 @llvm.umax.i32(i32 %5, i32 2)
-  %umax = call i64 @llvm.umax.i64(i64 %.fr, i64 1)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12) #12
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #12
   %52 = call i32 @EVP_DigestInit_ex(ptr noundef nonnull %11, ptr noundef %8, ptr noundef null) #12
@@ -1123,7 +1122,7 @@ define internal fastcc range(i32 0, 2) i32 @pkcs12_key_gen_raw(ptr noundef reado
   %93 = getelementptr inbounds nuw [128 x i8], ptr %14, i64 0, i64 %.295140
   store i8 %92, ptr %93, align 1, !tbaa !27
   %94 = add nuw i64 %.295140, 1
-  %exitcond159.not = icmp eq i64 %94, %umax
+  %exitcond159.not = icmp eq i64 %94, %.fr
   br i1 %exitcond159.not, label %.preheader129, label %89, !llvm.loop !49
 
 ._crit_edge147:                                   ; preds = %._crit_edge145.us, %.preheader129
@@ -2306,9 +2305,6 @@ declare i64 @sk_push(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #11
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #11

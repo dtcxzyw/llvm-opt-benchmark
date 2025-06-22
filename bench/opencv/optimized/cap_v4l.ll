@@ -13868,7 +13868,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %46 = shl nuw nsw i64 %44, 3
   %47 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %46) #35
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %47, i8 0, i64 %46, i1 false), !tbaa !448
-  %umax = tail call i64 @llvm.umax.i64(i64 %44, i64 1)
   br label %.lr.ph
 
 _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i: ; preds = %_ZNSt6vectorIPN2cv16CvCaptureCAM_V4LESaIS2_EEC2EmRKS2_RKS3_.exit
@@ -13878,7 +13877,6 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i: ; preds = %_ZNSt6vectorIPN2cv
 
 .lr.ph159.preheader:                              ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i
   %50 = getelementptr inbounds nuw i32, ptr %49, i64 %44
-  %umax188 = tail call i64 @llvm.umax.i64(i64 %44, i64 1)
   br label %.lr.ph159
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNSt6vectorIPN2cv16CvCaptureCAM_V4LESaIS2_EEC2EmRKS2_RKS3_.exit
@@ -13940,7 +13938,7 @@ _ZNSt6vectorIPN2cv16CvCaptureCAM_V4LESaIS2_EEC2EmRKS2_RKS3_.exit: ; preds = %54
   %70 = getelementptr inbounds nuw ptr, ptr %47, i64 %.049154
   store ptr %52, ptr %70, align 8, !tbaa !448
   %71 = add nuw i64 %.049154, 1
-  %exitcond.not = icmp eq i64 %71, %umax
+  %exitcond.not = icmp eq i64 %71, %44
   br i1 %exitcond.not, label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i, label %.lr.ph, !llvm.loop !449
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
@@ -14075,7 +14073,6 @@ _ZNSt6vectorIiSaIiEE7reserveEm.exit.i:            ; preds = %_ZNSt12_Vector_base
   %127 = getelementptr i8, ptr %125, i64 -24
   %128 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %129 = getelementptr inbounds nuw i8, ptr %6, i64 128
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %90, i64 1)
   br label %131
 
 ._crit_edge.i:                                    ; preds = %_ZNSt6vectorI6pollfdSaIS0_EE9push_backEOS0_.exit.i
@@ -14383,8 +14380,8 @@ _ZNSt6vectorI6pollfdSaIS0_EE9push_backEOS0_.exit.i: ; preds = %_ZNSt6vectorI6pol
   %.pn191.i = phi ptr [ %224, %_ZNSt6vectorI6pollfdSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i.i ], [ %.sroa.12.0228.i, %210 ]
   %.sroa.0172.3.i = phi ptr [ %223, %_ZNSt6vectorI6pollfdSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i.i ], [ %.sroa.0172.0229.i, %210 ]
   %.sroa.12.2.i = getelementptr inbounds nuw i8, ptr %.pn191.i, i64 8
-  %228 = add nuw nsw i64 %.070230.i, 1
-  %exitcond.not.i = icmp eq i64 %228, %umax.i
+  %228 = add nuw i64 %.070230.i, 1
+  %exitcond.not.i = icmp eq i64 %228, %90
   br i1 %exitcond.not.i, label %._crit_edge.i, label %131, !llvm.loop !461
 
 .loopexit193.i:                                   ; preds = %_ZNKSt6vectorI6pollfdSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i.i
@@ -14778,7 +14775,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit154.i: ; preds = %
 
 _ZNSt6vectorIiSaIiEE9push_backEOi.exit.i:         ; preds = %358, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i, %336
   %376 = add nuw i64 %.051231.i, 1
-  %exitcond253.not.i = icmp eq i64 %376, %umax.i
+  %exitcond253.not.i = icmp eq i64 %376, %90
   br i1 %exitcond253.not.i, label %_ZN2cvL33VideoCapture_V4L_deviceHandlePollERKSt6vectorIiSaIiEERS2_l.exit, label %254, !llvm.loop !474
 
 .thread.i:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit154.i, %.loopexit.split-lp.i, %.loopexit192.i, %327, %257, %252, %.loopexit.split-lp194.i, %.loopexit193.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit116.i, %194, %135
@@ -14981,7 +14978,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
   %.sroa.19.2 = phi ptr [ %438, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %.sroa.19.0157, %420 ]
   %.sroa.13.2 = getelementptr inbounds nuw i8, ptr %.pn124, i64 4
   %439 = add nuw i64 %.050158, 1
-  %exitcond189.not = icmp eq i64 %439, %umax188
+  %exitcond189.not = icmp eq i64 %439, %44
   br i1 %exitcond189.not, label %._crit_edge, label %.lr.ph159, !llvm.loop !475
 
 440:                                              ; preds = %458

@@ -2885,7 +2885,6 @@ _ZNSt6vectorIPKcSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = %._crit_edg
   %437 = sub i64 %435, %436
   %438 = ashr exact i64 %437, 3
   %439 = load ptr, ptr %397, align 8, !tbaa !64
-  %umax = tail call i64 @llvm.umax.i64(i64 %438, i64 1)
   br label %446
 
 ._crit_edge335:                                   ; preds = %446, %.thread383
@@ -2907,7 +2906,7 @@ _ZNSt6vectorIPKcSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = %._crit_edg
   %449 = getelementptr inbounds nuw ptr, ptr %410, i64 %.0107332
   store ptr %448, ptr %449, align 8, !tbaa !168
   %450 = add nuw i64 %.0107332, 1
-  %exitcond367.not = icmp eq i64 %450, %umax
+  %exitcond367.not = icmp eq i64 %450, %438
   br i1 %exitcond367.not, label %._crit_edge335, label %446, !llvm.loop !171
 
 451:                                              ; preds = %._crit_edge335
@@ -4144,7 +4143,6 @@ _ZNSt6vectorIPKfSaIS1_EED2Ev.exit79.thread.i:     ; preds = %31
   %72 = ashr exact i64 %71, 3
   %73 = load ptr, ptr %12, align 8, !tbaa !139
   %74 = load ptr, ptr %73, align 8, !tbaa !107
-  %umax.i = call i64 @llvm.umax.i64(i64 %72, i64 1)
   br label %75
 
 75:                                               ; preds = %75, %.lr.ph135.i
@@ -4156,7 +4154,7 @@ _ZNSt6vectorIPKfSaIS1_EED2Ev.exit79.thread.i:     ; preds = %31
   %80 = getelementptr inbounds nuw ptr, ptr %.sroa.094.0.i, i64 %.064134.i
   store ptr %79, ptr %80, align 8, !tbaa !160
   %81 = add nuw i64 %.064134.i, 1
-  %exitcond142.not.i = icmp eq i64 %81, %umax.i
+  %exitcond142.not.i = icmp eq i64 %81, %72
   br i1 %exitcond142.not.i, label %.loopexit.i, label %75, !llvm.loop !208
 
 82:                                               ; preds = %64

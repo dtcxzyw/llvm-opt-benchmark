@@ -2583,7 +2583,6 @@ _ZNK4cvc58internal8TypeNode10isDatatypeEv.exit:   ; preds = %88
   %133 = ptrtoint ptr %131 to i64
   %134 = sub i64 %132, %133
   %135 = ashr exact i64 %134, 3
-  %umax58 = call i64 @llvm.umax.i64(i64 %135, i64 1)
   br label %.lr.ph53
 
 ._crit_edge54:                                    ; preds = %143, %128
@@ -2613,7 +2612,7 @@ _ZNK4cvc58internal8TypeNode10isDatatypeEv.exit:   ; preds = %88
 
 143:                                              ; preds = %141
   %144 = add nuw i64 %.03750, 1
-  %exitcond59.not = icmp eq i64 %144, %umax58
+  %exitcond59.not = icmp eq i64 %144, %135
   br i1 %exitcond59.not, label %._crit_edge54, label %.lr.ph53, !llvm.loop !139
 
 145:                                              ; preds = %141, %.lr.ph53
@@ -2637,7 +2636,6 @@ _ZNK4cvc58internal8TypeNode10isDatatypeEv.exit:   ; preds = %88
   %152 = ptrtoint ptr %150 to i64
   %153 = sub i64 %151, %152
   %154 = ashr exact i64 %153, 3
-  %umax = call i64 @llvm.umax.i64(i64 %154, i64 1)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %160, %147
@@ -2660,7 +2658,7 @@ _ZNK4cvc58internal8TypeNode10isDatatypeEv.exit:   ; preds = %88
 
 160:                                              ; preds = %158
   %161 = add nuw i64 %.03248, 1
-  %exitcond.not = icmp eq i64 %161, %umax
+  %exitcond.not = icmp eq i64 %161, %154
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !140
 
 162:                                              ; preds = %158, %.lr.ph
@@ -6840,7 +6838,6 @@ define void @_ZNK4cvc58internal8TypeNode13getTupleTypesEv(ptr dead_on_unwind noa
   %19 = trunc nsw i64 %18 to i32
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %umax = tail call i32 @llvm.umax.i32(i32 %19, i32 1)
   br label %24
 
 22:                                               ; preds = %2
@@ -6972,7 +6969,7 @@ _ZNSt6vectorIN4cvc58internal8TypeNodeESaIS2_EE9push_backEOS2_.exit: ; preds = %_
 _ZN4cvc58internal8TypeNodeD2Ev.exit:              ; preds = %_ZNSt6vectorIN4cvc58internal8TypeNodeESaIS2_EE9push_backEOS2_.exit, %79, %85
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #24
   %89 = add nuw i32 %.0916, 1
-  %exitcond.not = icmp eq i32 %89, %umax
+  %exitcond.not = icmp eq i32 %89, %19
   br i1 %exitcond.not, label %._crit_edge, label %24, !llvm.loop !218
 
 90:                                               ; preds = %52, %24

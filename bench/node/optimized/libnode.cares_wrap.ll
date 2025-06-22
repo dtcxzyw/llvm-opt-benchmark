@@ -15614,12 +15614,11 @@ _ZNSt6vectorI19ares_addr_port_nodeSaIS0_EEC2EmRKS1_.exit: ; preds = %for.body.i.
   %isolate_.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i, i64 88
   %buf_.i133 = getelementptr inbounds nuw i8, ptr %ip, i64 16
   %buf_st_.i.i.i = getelementptr inbounds nuw i8, ptr %ip, i64 24
-  %wide.trip.count = zext i32 %call42 to i64
   br label %do.body53
 
 for.cond:                                         ; preds = %_ZN4node9Utf8ValueD2Ev.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %conv
   br i1 %exitcond.not, label %if.end346, label %do.body53, !llvm.loop !98
 
 do.body53:                                        ; preds = %_ZNSt6vectorI19ares_addr_port_nodeSaIS0_EEC2EmRKS1_.exit, %for.cond

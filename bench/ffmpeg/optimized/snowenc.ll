@@ -10341,13 +10341,12 @@ put_rac.exit:                                     ; preds = %5, %renorm_encoder.
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  %umax = tail call i32 @llvm.umax.i32(i32 %15, i32 1)
-  %wide.trip.count = zext nneg i32 %umax to i64
+  %wide.trip.count = zext nneg i32 %15 to i64
   br label %79
 
 .preheader116:                                    ; preds = %put_rac.exit56, %put_rac.exit
   %72 = phi i32 [ %66, %put_rac.exit ], [ %127, %put_rac.exit56 ]
-  %.0.lcssa = phi i32 [ 0, %put_rac.exit ], [ %umax, %put_rac.exit56 ]
+  %.0.lcssa = phi i32 [ 0, %put_rac.exit ], [ %15, %put_rac.exit56 ]
   %73 = icmp samesign ult i32 %.0.lcssa, %14
   br i1 %73, label %.lr.ph119, label %._crit_edge
 

@@ -317,7 +317,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit192: ; preds 
   %128 = lshr exact i64 %125, 1
   %129 = call noalias noundef nonnull ptr @_Znam(i64 noundef %128) #13
   %130 = getelementptr inbounds nuw i8, ptr %12, i64 %9
-  %umax480 = call i64 @llvm.umax.i64(i64 %127, i64 1)
   br label %.lr.ph416
 
 ._crit_edge417:                                   ; preds = %175
@@ -435,7 +434,7 @@ _ZN6Assimp17HexDigitToDecimalEc.exit.i209:        ; preds = %162, %160, %152
   store i16 %181, ptr %182, align 2
   %183 = add nuw nsw i64 %.0157413, 1
   %184 = getelementptr inbounds nuw i8, ptr %.0156414, i64 4
-  %exitcond481.not = icmp eq i64 %183, %umax480
+  %exitcond481.not = icmp eq i64 %183, %127
   br i1 %exitcond481.not, label %._crit_edge417, label %.lr.ph416, !llvm.loop !6
 
 185:                                              ; preds = %._crit_edge417
@@ -489,7 +488,6 @@ _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit221: ; preds = %197, %195
   %203 = lshr exact i64 %200, 1
   %204 = call noalias noundef nonnull ptr @_Znam(i64 noundef %203) #13
   %205 = getelementptr inbounds nuw i8, ptr %12, i64 %9
-  %umax = call i64 @llvm.umax.i64(i64 %202, i64 1)
   br label %.lr.ph411
 
 ._crit_edge412:                                   ; preds = %296
@@ -713,7 +711,7 @@ _ZN6Assimp17HexDigitToDecimalEc.exit.i265:        ; preds = %283, %281, %273
   store i32 %308, ptr %309, align 4
   %310 = add nuw nsw i64 %.0154409, 1
   %311 = getelementptr inbounds nuw i8, ptr %.0155408, i64 8
-  %exitcond479.not = icmp eq i64 %310, %umax
+  %exitcond479.not = icmp eq i64 %310, %202
   br i1 %exitcond479.not, label %._crit_edge412, label %.lr.ph411, !llvm.loop !7
 
 312:                                              ; preds = %._crit_edge412
@@ -1018,9 +1016,6 @@ define linkonce_odr hidden noundef ptr @_ZNK4utf813invalid_utf164whatEv(ptr noun
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #10
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #10
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

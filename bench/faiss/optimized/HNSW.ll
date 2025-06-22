@@ -906,7 +906,6 @@ define noundef i32 @_ZN5faiss4HNSW12random_levelEv(ptr noundef nonnull align 8 d
 
 .lr.ph.preheader:                                 ; preds = %1
   %11 = fpext float %3 to double
-  %umax = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %15
@@ -920,7 +919,7 @@ define noundef i32 @_ZN5faiss4HNSW12random_levelEv(ptr noundef nonnull align 8 d
 15:                                               ; preds = %.lr.ph
   %16 = fsub double %.01016, %13
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %10
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !59
 
 ._crit_edge:                                      ; preds = %15, %1
@@ -965,7 +964,6 @@ define void @_ZN5faiss4HNSW21clear_neighbor_tablesEi(ptr noundef nonnull readonl
   %17 = getelementptr i8, ptr %16, i64 4
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %19 = load ptr, ptr %18, align 8
-  %umax = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %20
 
 ._crit_edge14:                                    ; preds = %._crit_edge, %2
@@ -994,7 +992,7 @@ define void @_ZN5faiss4HNSW21clear_neighbor_tablesEi(ptr noundef nonnull readonl
 
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %10
   br i1 %exitcond.not, label %._crit_edge14, label %20, !llvm.loop !60
 }
 
@@ -2177,7 +2175,6 @@ define void @_ZN5faiss4HNSW22fill_with_random_linksEm(ptr noundef nonnull align 
 
 .lr.ph75:                                         ; preds = %._crit_edge
   %17 = trunc i64 %13 to i32
-  %umax = call i64 @llvm.umax.i64(i64 %13, i64 1)
   br label %45
 
 .lr.ph:                                           ; preds = %.preheader54, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
@@ -2285,7 +2282,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
 
 ._crit_edge73:                                    ; preds = %68, %45
   %indvars.iv.next93 = add nuw i64 %indvars.iv92, 1
-  %exitcond95.not = icmp eq i64 %indvars.iv.next93, %umax
+  %exitcond95.not = icmp eq i64 %indvars.iv.next93, %13
   br i1 %exitcond95.not, label %.loopexit.thread, label %45, !llvm.loop !92
 
 61:                                               ; preds = %.preheader, %63
@@ -2429,7 +2426,6 @@ define noundef range(i32 0, 2147483647) i32 @_ZN5faiss4HNSW17prepare_level_tabEm
 
 .lr.ph.preheader.i:                               ; preds = %44
   %52 = fpext float %45 to double
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %51, i64 1)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %56, %.lr.ph.preheader.i
@@ -2443,7 +2439,7 @@ define noundef range(i32 0, 2147483647) i32 @_ZN5faiss4HNSW17prepare_level_tabEm
 56:                                               ; preds = %.lr.ph.i
   %57 = fsub double %.01016.i, %54
   %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %umax.i
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %51
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !59
 
 ._crit_edge.i:                                    ; preds = %56, %44

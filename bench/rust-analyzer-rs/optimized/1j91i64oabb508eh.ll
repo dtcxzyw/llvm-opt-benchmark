@@ -4650,7 +4650,6 @@ define hidden { ptr, i64 } @"_ZN121_$LT$triomphe..unique_arc..UniqueArc$LT$$u5b$
 
 .lr.ph.i:                                         ; preds = %"_ZN8triomphe3arc63Arc$LT$triomphe..header..HeaderSlice$LT$H$C$$u5b$T$u5d$$GT$$GT$29allocate_for_header_and_slice17h6a297a636b6ae1bbE.exit.i"
   %23 = getelementptr i8, ptr %12, i64 8
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %8, i64 1)
   br label %30
 
 ._crit_edge.i:                                    ; preds = %41
@@ -4715,7 +4714,7 @@ define hidden { ptr, i64 } @"_ZN121_$LT$triomphe..unique_arc..UniqueArc$LT$$u5b$
   %43 = getelementptr inbounds nuw i8, ptr %.040.i, i64 8
   store ptr %42, ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %.040.i, i64 16
-  %exitcond.not.i = icmp eq i64 %31, %umax.i
+  %exitcond.not.i = icmp eq i64 %31, %8
   br i1 %exitcond.not.i, label %._crit_edge.i, label %30
 
 45:                                               ; preds = %"_ZN138_$LT$triomphe..iterator_as_exact_size_iterator..IteratorAsExactSizeIterator$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc596ec9e01ca4aebE.exit.i", %"_ZN138_$LT$triomphe..iterator_as_exact_size_iterator..IteratorAsExactSizeIterator$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc596ec9e01ca4aebE.exit.thread.sink.split.i", %16

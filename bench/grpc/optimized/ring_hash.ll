@@ -14919,7 +14919,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit168: ; preds = %_Z
 .lr.ph:                                           ; preds = %.preheader
   %234 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.val149 = load ptr, ptr %234, align 8, !tbaa !311
-  %umax = call i64 @llvm.umax.i64(i64 %215, i64 1)
   br label %235
 
 235:                                              ; preds = %.lr.ph, %293
@@ -15058,7 +15057,7 @@ _ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_18RingHashEED2Ev.exit176: ; preds =
 
 293:                                              ; preds = %235
   %294 = add nuw i64 %.0103252, 1
-  %exitcond.not = icmp eq i64 %294, %umax
+  %exitcond.not = icmp eq i64 %294, %215
   br i1 %exitcond.not, label %.critedge122, label %235, !llvm.loop !475
 
 295:                                              ; preds = %.thread

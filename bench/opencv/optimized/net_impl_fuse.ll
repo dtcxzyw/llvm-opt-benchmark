@@ -3315,12 +3315,11 @@ _ZNSt3mapIiN2cv3dnn14dnn4_v202412236detail9LayerDataESt4lessIiESaISt4pairIKiS4_E
   %1281 = sub i64 %1279, %1280
   %1282 = ashr exact i64 %1281, 3
   %1283 = load i32, ptr %.54551354, align 8, !tbaa !204
-  %umax = call i64 @llvm.umax.i64(i64 %1282, i64 1)
   br label %1287
 
 1284:                                             ; preds = %1287
   %indvars.iv.next1671 = add nuw i64 %indvars.iv1670, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next1671, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next1671, %1282
   br i1 %exitcond.not, label %.loopexit1463, label %1287, !llvm.loop !233
 
 1285:                                             ; preds = %.critedge.i982
@@ -5297,12 +5296,11 @@ _ZNSt3mapIiN2cv3dnn14dnn4_v202412236detail9LayerDataESt4lessIiESaISt4pairIKiS4_E
   %1997 = sub i64 %1995, %1996
   %1998 = ashr exact i64 %1997, 3
   %1999 = load i32, ptr %46, align 8, !tbaa !117
-  %umax1682 = call i64 @llvm.umax.i64(i64 %1998, i64 1)
   br label %2003
 
 2000:                                             ; preds = %2003
   %indvars.iv.next1680 = add nuw i64 %indvars.iv1679, 1
-  %exitcond1683.not = icmp eq i64 %indvars.iv.next1680, %umax1682
+  %exitcond1683.not = icmp eq i64 %indvars.iv.next1680, %1998
   br i1 %exitcond1683.not, label %_ZN2cv3PtrINS_3dnn14dnn4_v2024122314BackendWrapperEEaSERKS4_.exit1173, label %2003, !llvm.loop !267
 
 2001:                                             ; preds = %.critedge.i1159
@@ -5870,12 +5868,11 @@ _ZNSt3mapIiN2cv3dnn14dnn4_v202412236detail9LayerDataESt4lessIiESaISt4pairIKiS4_E
   %2229 = sub i64 %2227, %2228
   %2230 = ashr exact i64 %2229, 3
   %2231 = load i32, ptr %.54551354, align 8, !tbaa !204
-  %umax1690 = call i64 @llvm.umax.i64(i64 %2230, i64 1)
   br label %2235
 
 2232:                                             ; preds = %2235
   %indvars.iv.next1688 = add nuw i64 %indvars.iv1687, 1
-  %exitcond1691.not = icmp eq i64 %indvars.iv.next1688, %umax1690
+  %exitcond1691.not = icmp eq i64 %indvars.iv.next1688, %2230
   br i1 %exitcond1691.not, label %.loopexit1457, label %2235, !llvm.loop !269
 
 2233:                                             ; preds = %.critedge.i1203
@@ -6173,7 +6170,6 @@ _ZNSt6vectorIN2cv3dnn14dnn4_v202412236detail8LayerPinESaIS4_EE17_S_check_init_le
 
 .lr.ph1596.preheader:                             ; preds = %.lr.ph.preheader.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %2358, i8 -1, i64 %2354, i1 false), !tbaa !108
-  %umax1695 = call i64 @llvm.umax.i64(i64 %2355, i64 1)
   br label %.lr.ph1596
 
 .lr.ph1596:                                       ; preds = %.lr.ph1596.preheader, %2416
@@ -6358,7 +6354,7 @@ _ZNSt3mapIiN2cv3dnn14dnn4_v202412236detail9LayerDataESt4lessIiESaISt4pairIKiS4_E
   store i64 %2418, ptr %2417, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %146) #25
   %2419 = add nuw i64 %.04611595, 1
-  %exitcond1696.not = icmp eq i64 %2419, %umax1695
+  %exitcond1696.not = icmp eq i64 %2419, %2355
   br i1 %exitcond1696.not, label %.thread1409, label %.lr.ph1596, !llvm.loop !283
 
 .thread1744:                                      ; preds = %.critedge21, %.lr.ph1593, %2384
@@ -6428,7 +6424,6 @@ _ZNSt12_Vector_baseIN2cv5RangeESaIS1_EEC2EmRKS2_.exit.i: ; preds = %_ZNSt6vector
 .lr.ph1600:                                       ; preds = %.loopexit1475
   %2433 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 512
   %2434 = sext i32 %2343 to i64
-  %umax1697 = call i64 @llvm.umax.i64(i64 %2355, i64 1)
   br label %2435
 
 2435:                                             ; preds = %.lr.ph1600, %2514
@@ -6659,7 +6654,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1282: ; preds = %_
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %150) #25
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %149) #25
   %2515 = add nuw i64 %.14621597, 1
-  %exitcond1698.not = icmp eq i64 %2515, %umax1697
+  %exitcond1698.not = icmp eq i64 %2515, %2355
   br i1 %exitcond1698.not, label %._crit_edge1601.loopexit, label %2435, !llvm.loop !293
 
 2516:                                             ; preds = %2499, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1282, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1279

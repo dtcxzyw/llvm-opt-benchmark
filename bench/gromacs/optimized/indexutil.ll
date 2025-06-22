@@ -2490,7 +2490,6 @@ define noundef zeroext i1 @_Z22gmx_ana_indexgrps_findP15gmx_ana_index_tPNSt7__cx
 .lr.ph:                                           ; preds = %4
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %22 = load ptr, ptr %21, align 8, !tbaa !86
-  %umax = tail call i64 @llvm.umax.i64(i64 %20, i64 1)
   br label %26
 
 ._crit_edge:                                      ; preds = %26, %4
@@ -2507,7 +2506,7 @@ define noundef zeroext i1 @_Z22gmx_ana_indexgrps_findP15gmx_ana_index_tPNSt7__cx
   %29 = getelementptr inbounds nuw ptr, ptr %14, i64 %.01620
   store ptr %28, ptr %29, align 8, !tbaa !35
   %30 = add nuw i64 %.01620, 1
-  %exitcond.not = icmp eq i64 %30, %umax
+  %exitcond.not = icmp eq i64 %30, %20
   br i1 %exitcond.not, label %._crit_edge, label %26, !llvm.loop !109
 
 31:                                               ; preds = %._crit_edge

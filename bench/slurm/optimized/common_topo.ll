@@ -382,7 +382,6 @@ _set_span.exit.thread.thread:                     ; preds = %10
 .split78.us.i:                                    ; preds = %16
   %25 = sdiv i32 %23, %11
   %.recomposed = srem i32 %23, %11
-  %wide.trip.count99.i = zext i16 %spec.select.i to i64
   br label %28
 
 26:                                               ; preds = %28
@@ -397,7 +396,7 @@ _set_span.exit.thread.thread:                     ; preds = %10
   %31 = add nsw i32 %30, %25
   store i32 %31, ptr %29, align 4
   %indvars.iv.next97.i = add nuw nsw i64 %indvars.iv96.i, 1
-  %exitcond100.not.i = icmp eq i64 %indvars.iv.next97.i, %wide.trip.count99.i
+  %exitcond100.not.i = icmp eq i64 %indvars.iv.next97.i, %14
   br i1 %exitcond100.not.i, label %26, label %28, !llvm.loop !14
 
 .lr.ph.i:                                         ; preds = %26, %.lr.ph.i

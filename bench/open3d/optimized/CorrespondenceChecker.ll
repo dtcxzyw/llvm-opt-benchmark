@@ -79,11 +79,10 @@ define noundef zeroext i1 @_ZNK6open3d9pipelines12registration38CorrespondenceCh
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load double, ptr %18, align 8
-  %umax = tail call i64 @llvm.umax.i64(i64 %12, i64 1)
   br label %20
 
 .loopexit:                                        ; preds = %36, %20
-  %exitcond50.not = icmp eq i64 %21, %umax
+  %exitcond50.not = icmp eq i64 %21, %12
   br i1 %exitcond50.not, label %.thread, label %20
 
 20:                                               ; preds = %.lr.ph, %.loopexit
@@ -599,9 +598,6 @@ declare void @llvm.assume(i1 noundef) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.sqrt.f64(double) #13
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #13
 
 attributes #0 = { mustprogress nounwind ssp uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind ssp willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

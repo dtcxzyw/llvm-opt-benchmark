@@ -123,7 +123,6 @@ define hidden void @_ZN5ceres8internal27CompressedRowJacobianWriter40PopulateJac
   %27 = sub i64 %25, %26
   %28 = ashr exact i64 %27, 3
   %29 = load ptr, ptr %15, align 8, !tbaa !14
-  %umax = tail call i64 @llvm.umax.i64(i64 %28, i64 1)
   br label %57
 
 .lr.ph:                                           ; preds = %2, %_ZNK5ceres8internal14ParameterBlock11TangentSizeEv.exit
@@ -187,7 +186,7 @@ _ZNK5ceres8internal14ParameterBlock11TangentSizeEv.exit: ; preds = %37, %40
   store i32 %.03340, ptr %64, align 4, !tbaa !43
   %65 = add nsw i32 %62, %.03340
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next48, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next48, %28
   br i1 %exitcond.not, label %._crit_edge44, label %57, !llvm.loop !65
 }
 

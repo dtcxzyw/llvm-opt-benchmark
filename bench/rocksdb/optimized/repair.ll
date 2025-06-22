@@ -8450,11 +8450,7 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   %2258 = sub i64 %2256, %2257
   %2259 = sdiv exact i64 %2258, 352
   %.not266 = icmp eq ptr %.val35, %.val
-  br i1 %.not266, label %._crit_edge264, label %.lr.ph263.preheader
-
-.lr.ph263.preheader:                              ; preds = %.preheader
-  %umax = call i64 @llvm.umax.i64(i64 %2259, i64 1)
-  br label %.lr.ph263
+  br i1 %.not266, label %._crit_edge264, label %.lr.ph263
 
 ._crit_edge264:                                   ; preds = %.lr.ph263, %.preheader
   %.014.lcssa = phi i64 [ 0, %.preheader ], [ %2264, %.lr.ph263 ]
@@ -8463,14 +8459,14 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   invoke void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelERKSt10shared_ptrINS_6LoggerEEPKcz(i8 noundef zeroext 2, ptr noundef nonnull align 8 dereferenceable(16) %2260, ptr noundef nonnull @.str.43, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.44, i64 93), ptr noundef %2261, i64 noundef %2259, i64 noundef %.014.lcssa)
           to label %.thread165 unwind label %2266
 
-.lr.ph263:                                        ; preds = %.lr.ph263.preheader, %.lr.ph263
-  %.0262 = phi i64 [ %2265, %.lr.ph263 ], [ 0, %.lr.ph263.preheader ]
-  %.014261 = phi i64 [ %2264, %.lr.ph263 ], [ 0, %.lr.ph263.preheader ]
+.lr.ph263:                                        ; preds = %.preheader, %.lr.ph263
+  %.0262 = phi i64 [ %2265, %.lr.ph263 ], [ 0, %.preheader ]
+  %.014261 = phi i64 [ %2264, %.lr.ph263 ], [ 0, %.preheader ]
   %2262 = getelementptr inbounds nuw %"struct.rocksdb::(anonymous namespace)::Repairer::TableInfo", ptr %.val, i64 %.0262, i32 0, i32 0, i32 2
   %2263 = load i64, ptr %2262, align 8, !tbaa !381
   %2264 = add i64 %2263, %.014261
   %2265 = add nuw i64 %.0262, 1
-  %exitcond.not = icmp eq i64 %2265, %umax
+  %exitcond.not = icmp eq i64 %2265, %2259
   br i1 %exitcond.not, label %._crit_edge264, label %.lr.ph263, !llvm.loop !791
 
 2266:                                             ; preds = %._crit_edge264

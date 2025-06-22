@@ -3776,7 +3776,6 @@ _ZL22XXH3_accumulate_avx512PmPKhS1_m.exit40.i:    ; preds = %.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit40.i
   %62 = sub nsw i64 %19, %29
-  %umax = tail call i64 @llvm.umax.i64(i64 %62, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -3798,7 +3797,7 @@ _ZL22XXH3_accumulate_avx512PmPKhS1_m.exit40.i:    ; preds = %.preheader
   %76 = add <8 x i64> %63, %75
   %77 = add <8 x i64> %76, %74
   %78 = add nuw i64 %.0.i37.i24, 1
-  %exitcond35.not = icmp eq i64 %78, %umax
+  %exitcond35.not = icmp eq i64 %78, %62
   br i1 %exitcond35.not, label %_ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit, label %.lr.ph, !llvm.loop !29
 
 79:                                               ; preds = %16
@@ -7274,7 +7273,6 @@ _ZL22XXH3_accumulate_avx512PmPKhS1_m.exit40.i:    ; preds = %.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit40.i
   %62 = sub nsw i64 %19, %29
-  %umax = tail call i64 @llvm.umax.i64(i64 %62, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -7296,7 +7294,7 @@ _ZL22XXH3_accumulate_avx512PmPKhS1_m.exit40.i:    ; preds = %.preheader
   %76 = add <8 x i64> %63, %75
   %77 = add <8 x i64> %76, %74
   %78 = add nuw i64 %.0.i37.i36, 1
-  %exitcond48.not = icmp eq i64 %78, %umax
+  %exitcond48.not = icmp eq i64 %78, %62
   br i1 %exitcond48.not, label %_ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit, label %.lr.ph, !llvm.loop !29
 
 79:                                               ; preds = %16

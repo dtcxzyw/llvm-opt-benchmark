@@ -1510,7 +1510,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
   %52 = getelementptr inbounds nuw [4 x i32], ptr %51, i64 0, i64 %33
   %53 = load i32, ptr %52, align 4, !tbaa !91
   %54 = icmp eq i32 %39, 0
-  br i1 %54, label %.loopexit83, label %55
+  br i1 %54, label %.loopexit84, label %55
 
 55:                                               ; preds = %32
   %56 = zext nneg i32 %39 to i64
@@ -1716,7 +1716,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
   %193 = and i32 %191, %192
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #11
   %194 = icmp eq i32 %182, 0
-  br i1 %194, label %.loopexit93, label %195
+  br i1 %194, label %.loopexit94, label %195
 
 195:                                              ; preds = %188
   %196 = load ptr, ptr %21, align 8, !tbaa !23
@@ -1736,15 +1736,15 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
   store i32 %206, ptr %207, align 4, !tbaa !91
   %208 = add nuw nsw i64 %199, 1
   %209 = icmp eq i64 %208, %197
-  br i1 %209, label %.loopexit93, label %198, !llvm.loop !156
+  br i1 %209, label %.loopexit94, label %198, !llvm.loop !156
 
-.loopexit93:                                      ; preds = %198, %188
+.loopexit94:                                      ; preds = %198, %188
   %210 = getelementptr inbounds nuw i8, ptr %183, i64 16
   %211 = load i32, ptr %210, align 4, !tbaa !153
   %212 = icmp eq i32 %211, 0
   br i1 %212, label %271, label %213
 
-213:                                              ; preds = %.loopexit93
+213:                                              ; preds = %.loopexit94
   %214 = load ptr, ptr %0, align 8
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 320
   %216 = zext nneg i32 %182 to i64
@@ -1821,13 +1821,13 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
   br i1 %269, label %271, label %270
 
 270:                                              ; preds = %268
-  br i1 %194, label %.loopexit92, label %.preheader91
+  br i1 %194, label %.loopexit93, label %.preheader92
 
-271:                                              ; preds = %268, %.loopexit93
+271:                                              ; preds = %268, %.loopexit94
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #11
   br label %.loopexit72
 
-.preheader91:                                     ; preds = %270, %310
+.preheader92:                                     ; preds = %270, %310
   %272 = phi i64 [ %314, %310 ], [ 0, %270 ]
   %273 = phi i32 [ %313, %310 ], [ %171, %270 ]
   %274 = phi i32 [ %312, %310 ], [ %170, %270 ]
@@ -1849,7 +1849,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
   %289 = icmp eq i32 %277, %286
   br i1 %289, label %290, label %304
 
-290:                                              ; preds = %.preheader91
+290:                                              ; preds = %.preheader92
   %291 = getelementptr inbounds nuw i8, ptr %279, i64 8
   %292 = load i32, ptr %291, align 4, !tbaa !150
   %293 = or i32 %292, 256
@@ -1871,7 +1871,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
   %303 = add i32 %275, -1
   br label %310
 
-304:                                              ; preds = %.preheader91
+304:                                              ; preds = %.preheader92
   %305 = load ptr, ptr %22, align 8, !tbaa !22
   %306 = getelementptr inbounds nuw [4 x i32], ptr %305, i64 0, i64 %33
   %307 = load i32, ptr %306, align 4, !tbaa !91
@@ -1885,22 +1885,22 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
   %313 = or i32 %280, %273
   %314 = add nuw nsw i64 %272, 1
   %315 = icmp eq i64 %314, %216
-  br i1 %315, label %.loopexit92, label %.preheader91, !llvm.loop !160
+  br i1 %315, label %.loopexit93, label %.preheader92, !llvm.loop !160
 
-.loopexit92:                                      ; preds = %310, %270
+.loopexit93:                                      ; preds = %310, %270
   %316 = phi i32 [ %169, %270 ], [ %311, %310 ]
   %317 = phi i32 [ %170, %270 ], [ %312, %310 ]
   %318 = phi i32 [ %171, %270 ], [ %313, %310 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #11
   br label %319
 
-319:                                              ; preds = %.loopexit92, %180, %174
-  %320 = phi i32 [ %182, %.loopexit92 ], [ 0, %174 ], [ %182, %180 ]
-  %321 = phi i32 [ %316, %.loopexit92 ], [ %169, %174 ], [ %169, %180 ]
-  %322 = phi i32 [ %317, %.loopexit92 ], [ %170, %174 ], [ %170, %180 ]
-  %323 = phi i32 [ %318, %.loopexit92 ], [ %171, %174 ], [ %171, %180 ]
+319:                                              ; preds = %.loopexit93, %180, %174
+  %320 = phi i32 [ %182, %.loopexit93 ], [ 0, %174 ], [ %182, %180 ]
+  %321 = phi i32 [ %316, %.loopexit93 ], [ %169, %174 ], [ %169, %180 ]
+  %322 = phi i32 [ %317, %.loopexit93 ], [ %170, %174 ], [ %170, %180 ]
+  %323 = phi i32 [ %318, %.loopexit93 ], [ %171, %174 ], [ %171, %180 ]
   %324 = icmp eq i32 %321, 0
-  br i1 %324, label %.loopexit90, label %325
+  br i1 %324, label %.loopexit91, label %325
 
 325:                                              ; preds = %319
   %326 = load ptr, ptr %22, align 8, !tbaa !22
@@ -2195,17 +2195,17 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
   %540 = phi i8 [ %334, %530 ], [ %334, %410 ], [ 1, %395 ], [ %334, %332 ]
   %541 = add nuw nsw i64 %333, 1
   %542 = icmp eq i64 %541, %56
-  br i1 %542, label %.loopexit90, label %332, !llvm.loop !167
+  br i1 %542, label %.loopexit91, label %332, !llvm.loop !167
 
-.loopexit90:                                      ; preds = %535, %319
+.loopexit91:                                      ; preds = %535, %319
   %543 = phi i32 [ 0, %319 ], [ %537, %535 ]
   %544 = phi i32 [ %322, %319 ], [ %538, %535 ]
   %545 = phi i32 [ %323, %319 ], [ %539, %535 ]
   %546 = phi i8 [ %34, %319 ], [ %540, %535 ]
   %547 = icmp eq i32 %544, 0
-  br i1 %547, label %.loopexit87, label %548
+  br i1 %547, label %.loopexit88, label %548
 
-548:                                              ; preds = %.loopexit90
+548:                                              ; preds = %.loopexit91
   %549 = getelementptr inbounds nuw [4 x i32], ptr %23, i64 0, i64 %33
   %550 = load i32, ptr %549, align 4, !tbaa !91
   %551 = load ptr, ptr %22, align 8, !tbaa !22
@@ -2341,13 +2341,13 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
 651:                                              ; preds = %649, %635, %560
   %652 = phi i32 [ %650, %649 ], [ %562, %635 ], [ %562, %560 ]
   %653 = icmp eq i32 %565, 0
-  br i1 %653, label %.loopexit87, label %560, !llvm.loop !168
+  br i1 %653, label %.loopexit88, label %560, !llvm.loop !168
 
-.loopexit87:                                      ; preds = %651, %.loopexit90
+.loopexit88:                                      ; preds = %651, %.loopexit91
   %654 = icmp eq i32 %543, 0
-  br i1 %654, label %.loopexit84, label %655
+  br i1 %654, label %.loopexit85, label %655
 
-655:                                              ; preds = %.loopexit87
+655:                                              ; preds = %.loopexit88
   %656 = getelementptr inbounds nuw [4 x ptr], ptr %25, i64 0, i64 %33
   br label %657
 
@@ -2649,13 +2649,13 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
 868:                                              ; preds = %.loopexit
   %869 = icmp ne i32 %659, %865
   %870 = icmp eq i32 %865, 0
-  br i1 %870, label %.loopexit84, label %657, !llvm.loop !171
+  br i1 %870, label %.loopexit85, label %657, !llvm.loop !171
 
-.loopexit84:                                      ; preds = %868, %.loopexit87
+.loopexit85:                                      ; preds = %868, %.loopexit88
   %871 = icmp eq i32 %92, 0
-  br i1 %871, label %.loopexit83, label %872
+  br i1 %871, label %.loopexit84, label %872
 
-872:                                              ; preds = %.loopexit84
+872:                                              ; preds = %.loopexit85
   %873 = getelementptr inbounds nuw [4 x ptr], ptr %25, i64 0, i64 %33
   %874 = zext i32 %92 to i64
   br label %875
@@ -2706,27 +2706,27 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
   %910 = add i32 %909, %908
   %911 = add nuw nsw i64 %876, 1
   %912 = icmp eq i64 %911, %874
-  br i1 %912, label %.loopexit83.loopexit, label %875, !llvm.loop !172
+  br i1 %912, label %.loopexit84.loopexit, label %875, !llvm.loop !172
 
-.loopexit83.loopexit:                             ; preds = %903
+.loopexit84.loopexit:                             ; preds = %903
   %913 = icmp eq i32 %910, 0
   %914 = zext i32 %92 to i64
-  br label %.loopexit83
+  br label %.loopexit84
 
-.loopexit83:                                      ; preds = %.loopexit83.loopexit, %.loopexit84, %32
-  %915 = phi i1 [ true, %.loopexit84 ], [ true, %32 ], [ false, %.loopexit83.loopexit ]
-  %916 = phi i32 [ %545, %.loopexit84 ], [ %50, %32 ], [ %545, %.loopexit83.loopexit ]
-  %917 = phi i8 [ %546, %.loopexit84 ], [ %34, %32 ], [ %546, %.loopexit83.loopexit ]
-  %918 = phi i64 [ 0, %.loopexit84 ], [ 0, %32 ], [ %914, %.loopexit83.loopexit ]
-  %919 = phi i32 [ %100, %.loopexit84 ], [ 0, %32 ], [ %100, %.loopexit83.loopexit ]
-  %920 = phi i32 [ %320, %.loopexit84 ], [ 0, %32 ], [ %320, %.loopexit83.loopexit ]
-  %921 = phi i1 [ true, %.loopexit84 ], [ true, %32 ], [ %913, %.loopexit83.loopexit ]
-  %922 = phi i32 [ %53, %.loopexit84 ], [ %53, %32 ], [ %904, %.loopexit83.loopexit ]
+.loopexit84:                                      ; preds = %.loopexit84.loopexit, %.loopexit85, %32
+  %915 = phi i1 [ true, %.loopexit85 ], [ true, %32 ], [ false, %.loopexit84.loopexit ]
+  %916 = phi i32 [ %545, %.loopexit85 ], [ %50, %32 ], [ %545, %.loopexit84.loopexit ]
+  %917 = phi i8 [ %546, %.loopexit85 ], [ %34, %32 ], [ %546, %.loopexit84.loopexit ]
+  %918 = phi i64 [ 0, %.loopexit85 ], [ 0, %32 ], [ %914, %.loopexit84.loopexit ]
+  %919 = phi i32 [ %100, %.loopexit85 ], [ 0, %32 ], [ %100, %.loopexit84.loopexit ]
+  %920 = phi i32 [ %320, %.loopexit85 ], [ 0, %32 ], [ %320, %.loopexit84.loopexit ]
+  %921 = phi i1 [ true, %.loopexit85 ], [ true, %32 ], [ %913, %.loopexit84.loopexit ]
+  %922 = phi i32 [ %53, %.loopexit85 ], [ %53, %32 ], [ %904, %.loopexit84.loopexit ]
   %923 = or i32 %916, %53
   %924 = icmp eq i32 %922, 0
-  br i1 %924, label %.loopexit82, label %925
+  br i1 %924, label %.loopexit83, label %925
 
-925:                                              ; preds = %.loopexit83
+925:                                              ; preds = %.loopexit84
   %926 = getelementptr inbounds nuw [4 x ptr], ptr %25, i64 0, i64 %33
   %927 = load ptr, ptr %926, align 8, !tbaa !24
   br label %928
@@ -2788,13 +2788,13 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
 969:                                              ; preds = %955, %928
   %970 = phi ptr [ %929, %928 ], [ %959, %955 ]
   %971 = icmp eq i32 %933, 0
-  br i1 %971, label %.loopexit82, label %928, !llvm.loop !173
+  br i1 %971, label %.loopexit83, label %928, !llvm.loop !173
 
-.loopexit82:                                      ; preds = %969, %.loopexit83
+.loopexit83:                                      ; preds = %969, %.loopexit84
   %972 = icmp eq i32 %919, 0
-  br i1 %972, label %.loopexit80, label %973
+  br i1 %972, label %.loopexit81, label %973
 
-973:                                              ; preds = %.loopexit82
+973:                                              ; preds = %.loopexit83
   %974 = zext i32 %919 to i64
   br label %975
 
@@ -2834,23 +2834,23 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
 .loopexit71:                                      ; preds = %997, %975
   %999 = add nuw nsw i64 %976, 1
   %1000 = icmp eq i64 %999, %974
-  br i1 %1000, label %.loopexit80, label %975, !llvm.loop !175
+  br i1 %1000, label %.loopexit81, label %975, !llvm.loop !175
 
-.loopexit80:                                      ; preds = %.loopexit71, %.loopexit82
+.loopexit81:                                      ; preds = %.loopexit71, %.loopexit83
   %1001 = load i8, ptr %27, align 8, !tbaa !16
   %1002 = icmp eq i8 %1001, 18
   %1003 = icmp eq i64 %33, 1
   %1004 = and i1 %1003, %1002
-  br i1 %1004, label %1005, label %.loopexit79
+  br i1 %1004, label %1005, label %.loopexit80
 
-1005:                                             ; preds = %.loopexit80
+1005:                                             ; preds = %.loopexit81
   %1006 = load i32, ptr %29, align 4, !tbaa !91
   %1007 = load ptr, ptr %22, align 8, !tbaa !22
   %1008 = getelementptr inbounds nuw i8, ptr %1007, i64 4
   %1009 = load i32, ptr %1008, align 4, !tbaa !91
   %1010 = and i32 %1009, %1006
   %1011 = icmp eq i32 %1010, 0
-  br i1 %1011, label %.loopexit79, label %1012
+  br i1 %1011, label %.loopexit80, label %1012
 
 1012:                                             ; preds = %1005
   %1013 = load i8, ptr %30, align 1, !tbaa !16
@@ -2922,17 +2922,17 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
   %1064 = phi ptr [ %1017, %1016 ], [ %1056, %1051 ]
   %1065 = phi ptr [ %1018, %1016 ], [ %1054, %1051 ]
   %1066 = icmp eq i32 %1022, 0
-  br i1 %1066, label %.loopexit79, label %1016, !llvm.loop !176
+  br i1 %1066, label %.loopexit80, label %1016, !llvm.loop !176
 
-.loopexit79:                                      ; preds = %1063, %1005, %.loopexit80
+.loopexit80:                                      ; preds = %1063, %1005, %.loopexit81
   br i1 %921, label %1344, label %1067
 
-1067:                                             ; preds = %.loopexit79
+1067:                                             ; preds = %.loopexit80
   %1068 = load ptr, ptr %22, align 8, !tbaa !22
   %1069 = getelementptr inbounds nuw [4 x i32], ptr %1068, i64 0, i64 %33
   %1070 = load i32, ptr %1069, align 4, !tbaa !91
   %1071 = icmp eq i32 %920, 0
-  br i1 %1071, label %.loopexit77, label %1072
+  br i1 %1071, label %.loopexit78, label %1072
 
 1072:                                             ; preds = %1067
   %1073 = load ptr, ptr %5, align 16, !tbaa !24
@@ -2940,7 +2940,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
   %1075 = load i32, ptr %1074, align 4, !tbaa !155
   %1076 = and i32 %1075, 2048
   %1077 = icmp eq i32 %1076, 0
-  br i1 %1077, label %.loopexit77, label %1078
+  br i1 %1077, label %.loopexit78, label %1078
 
 1078:                                             ; preds = %1072
   %1079 = getelementptr inbounds nuw [4 x i32], ptr %23, i64 0, i64 %33
@@ -3015,10 +3015,10 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
 
 1133:                                             ; preds = %1129
   %1134 = icmp eq i32 %1131, -1
-  br i1 %1134, label %.loopexit72, label %.preheader196
+  br i1 %1134, label %.loopexit72, label %.preheader77
 
-.preheader196:                                    ; preds = %1133, %.preheader196
-  %1135 = phi i64 [ %1142, %.preheader196 ], [ 0, %1133 ]
+.preheader77:                                     ; preds = %1133, %.preheader77
+  %1135 = phi i64 [ %1142, %.preheader77 ], [ 0, %1133 ]
   %1136 = trunc i64 %1135 to i32
   %1137 = add i32 %1131, %1136
   %1138 = getelementptr inbounds nuw [4 x ptr], ptr %5, i64 0, i64 %1135
@@ -3028,12 +3028,12 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
   store i8 %1140, ptr %1141, align 1, !tbaa !16
   %1142 = add nuw nsw i64 %1135, 1
   %1143 = icmp eq i64 %1142, %1087
-  br i1 %1143, label %.loopexit77, label %.preheader196, !llvm.loop !180
+  br i1 %1143, label %.loopexit78, label %.preheader77, !llvm.loop !180
 
-.loopexit77:                                      ; preds = %.preheader196, %1072, %1067
+.loopexit78:                                      ; preds = %.preheader77, %1072, %1067
   br i1 %915, label %.loopexit76, label %1144
 
-1144:                                             ; preds = %.loopexit77
+1144:                                             ; preds = %.loopexit78
   %1145 = getelementptr inbounds nuw [4 x ptr], ptr %25, i64 0, i64 %33
   br label %1146
 
@@ -3289,13 +3289,13 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
   %1341 = icmp eq i64 %1340, %918
   br i1 %1341, label %.loopexit76, label %1146, !llvm.loop !185
 
-.loopexit76:                                      ; preds = %1337, %.loopexit77
-  %1342 = phi i32 [ 0, %.loopexit77 ], [ %1339, %1337 ]
+.loopexit76:                                      ; preds = %1337, %.loopexit78
+  %1342 = phi i32 [ 0, %.loopexit78 ], [ %1339, %1337 ]
   %1343 = or i32 %1342, %923
   br label %1344
 
-1344:                                             ; preds = %.loopexit76, %.loopexit79
-  %1345 = phi i32 [ %1343, %.loopexit76 ], [ %923, %.loopexit79 ]
+1344:                                             ; preds = %.loopexit76, %.loopexit80
+  %1345 = phi i32 [ %1343, %.loopexit76 ], [ %923, %.loopexit80 ]
   %1346 = getelementptr inbounds nuw [4 x i32], ptr %28, i64 0, i64 %33
   %1347 = load i32, ptr %1346, align 4, !tbaa !91
   %1348 = or i32 %1347, %1345

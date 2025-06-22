@@ -493,7 +493,6 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %152, %153
   %160 = sub i64 %158, %159
   %161 = ashr exact i64 %160, 2
   %162 = load float, ptr %.sroa.0106.3142, align 4, !tbaa !23
-  %umax = call i64 @llvm.umax.i64(i64 %161, i64 1)
   br label %.lr.ph
 
 .thread161:                                       ; preds = %176
@@ -527,7 +526,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %152, %153
   %.151 = phi float [ %.050464, %175 ], [ %.050464, %173 ], [ %170, %.lr.ph ]
   %.1 = phi float [ %170, %175 ], [ %.049465, %173 ], [ %.049465, %.lr.ph ]
   %177 = add nuw i64 %.0467, 1
-  %exitcond516.not = icmp eq i64 %177, %umax
+  %exitcond516.not = icmp eq i64 %177, %161
   br i1 %exitcond516.not, label %.thread161, label %.lr.ph, !llvm.loop !27
 
 .loopexit170:                                     ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit93, %.thread151

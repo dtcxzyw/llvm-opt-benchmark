@@ -875,11 +875,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit132: ; preds = %_Z
   %261 = sub i64 %259, %260
   %262 = sdiv exact i64 %261, 24
   %.not68 = icmp eq ptr %257, %258
-  br i1 %.not68, label %.noexc.i134, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %255
-  %umax = call i64 @llvm.umax.i64(i64 %262, i64 1)
-  br label %.lr.ph
+  br i1 %.not68, label %.noexc.i134, label %.lr.ph
 
 .noexc.i134:                                      ; preds = %255
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16) #22
@@ -953,11 +949,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit142: ; preds = %_Z
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16) #22
   br label %411
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0189 = phi i64 [ %295, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.sroa.17.0188 = phi double [ %294, %.lr.ph ], [ 0.000000e+00, %.lr.ph.preheader ]
-  %.sroa.0.0187 = phi double [ %288, %.lr.ph ], [ 0.000000e+00, %.lr.ph.preheader ]
-  %.sroa.10.0186 = phi double [ %291, %.lr.ph ], [ 0.000000e+00, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %255, %.lr.ph
+  %.0189 = phi i64 [ %295, %.lr.ph ], [ 0, %255 ]
+  %.sroa.17.0188 = phi double [ %294, %.lr.ph ], [ 0.000000e+00, %255 ]
+  %.sroa.0.0187 = phi double [ %288, %.lr.ph ], [ 0.000000e+00, %255 ]
+  %.sroa.10.0186 = phi double [ %291, %.lr.ph ], [ 0.000000e+00, %255 ]
   %286 = getelementptr inbounds nuw %"class.colvarmodule::rvector", ptr %258, i64 %.0189
   %287 = load double, ptr %286, align 8, !tbaa !122
   %288 = fadd double %.sroa.0.0187, %287
@@ -968,7 +964,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit142: ; preds = %_Z
   %293 = load double, ptr %292, align 8, !tbaa !124
   %294 = fadd double %.sroa.17.0188, %293
   %295 = add nuw i64 %.0189, 1
-  %exitcond.not = icmp eq i64 %295, %umax
+  %exitcond.not = icmp eq i64 %295, %262
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !125
 
 ._crit_edge:                                      ; preds = %.lr.ph
@@ -1146,7 +1142,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit158: ; preds = %_Z
   %363 = ptrtoint ptr %361 to i64
   %364 = sub i64 %362, %363
   %365 = sdiv exact i64 %364, 24
-  %umax198 = call i64 @llvm.umax.i64(i64 %365, i64 1)
   br label %.lr.ph193
 
 .lr.ph193:                                        ; preds = %.lr.ph193.preheader, %.lr.ph193
@@ -1164,7 +1159,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit158: ; preds = %_Z
   %374 = fsub double %373, %299
   store double %374, ptr %372, align 8, !tbaa !124
   %375 = add nuw i64 %.1192, 1
-  %exitcond199.not = icmp eq i64 %375, %umax198
+  %exitcond199.not = icmp eq i64 %375, %365
   br i1 %exitcond199.not, label %._crit_edge194, label %.lr.ph193, !llvm.loop !135
 
 376:                                              ; preds = %._crit_edge

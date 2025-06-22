@@ -524,7 +524,6 @@ for.body.lr.ph.i:                                 ; preds = %if.end80
   %sub.ptr.sub.i.i93 = sub i64 %sub.ptr.lhs.cast.i.i91, %sub.ptr.rhs.cast.i.i92
   %sub.ptr.div.i.i94 = ashr exact i64 %sub.ptr.sub.i.i93, 3
   %56 = load ptr, ptr %coordinates_.i60, align 8, !tbaa !12
-  %umax.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i94, i64 1)
   br label %for.body.i96
 
 for.body.i96:                                     ; preds = %if.then.i97, %for.body.lr.ph.i
@@ -541,7 +540,7 @@ for.body.i96:                                     ; preds = %if.then.i97, %for.b
 if.then.i97:                                      ; preds = %for.body.i96
   store i64 0, ptr %add.ptr.i.i, align 8, !tbaa !14
   %inc9.i = add nuw i64 %i.08.i, 1
-  %exitcond.not.i = icmp eq i64 %inc9.i, %umax.i
+  %exitcond.not.i = icmp eq i64 %inc9.i, %sub.ptr.div.i.i94
   br i1 %exitcond.not.i, label %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit.loopexit, label %for.body.i96, !llvm.loop !35
 
 _ZN8QuantLib19FdmLinearOpIteratorppEv.exit.loopexit: ; preds = %if.then.i97, %for.body.i96

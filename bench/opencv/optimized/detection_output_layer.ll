@@ -9106,7 +9106,6 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %7, %._crit_edge272.
 .lr.ph277.preheader:                              ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit
   %220 = sub i64 %.sroa.12.0, %219
   %221 = ashr exact i64 %220, 2
-  %umax = call i64 @llvm.umax.i64(i64 %221, i64 1)
   br label %.lr.ph277
 
 ._crit_edge278:                                   ; preds = %.lr.ph277, %_ZNSt6vectorIiSaIiEE6resizeEm.exit
@@ -9134,7 +9133,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %7, %._crit_edge272.
   %235 = getelementptr inbounds nuw i32, ptr %.sroa.0181.1, i64 %234
   store i32 %231, ptr %235, align 4, !tbaa !29
   %236 = add nuw i64 %.080276, 1
-  %exitcond.not = icmp eq i64 %236, %umax
+  %exitcond.not = icmp eq i64 %236, %221
   br i1 %exitcond.not, label %._crit_edge278, label %.lr.ph277, !llvm.loop !287
 
 ._crit_edge290:                                   ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit133, %._crit_edge278
@@ -9351,7 +9350,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131: ; preds = %_Z
   %300 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 40
   %301 = load ptr, ptr %300, align 8, !tbaa !97
   %302 = sitofp i32 %241 to float
-  %umax322 = call i64 @llvm.umax.i64(i64 %299, i64 1)
   br label %304
 
 ._crit_edge283:                                   ; preds = %291
@@ -9406,7 +9404,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit133:                 ; preds = %._crit_edge283, %._
   store float %327, ptr %328, align 4, !tbaa !63
   %329 = add nuw i64 %.078280, 1
   %330 = add i64 %.182279, 1
-  %exitcond323.not = icmp eq i64 %329, %umax322
+  %exitcond323.not = icmp eq i64 %329, %299
   br i1 %exitcond323.not, label %._crit_edge283.thread, label %304, !llvm.loop !295
 
 331:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131
@@ -10464,7 +10462,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit70: ; preds = %_ZN
 
 _ZNSt6vectorIN2cv3dnn4util14NormalizedBBoxESaIS3_EE6resizeEm.exit.thread: ; preds = %.split, %81
   tail call void @_ZNSt6vectorIN2cv3dnn4util14NormalizedBBoxESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %22)
-  %umax83 = tail call i64 @llvm.umax.i64(i64 %22, i64 1)
   br i1 %3, label %.lr.ph76, label %.lr.ph
 
 .lr.ph76:                                         ; preds = %_ZNSt6vectorIN2cv3dnn4util14NormalizedBBoxESaIS3_EE6resizeEm.exit.thread, %.lr.ph76
@@ -10479,7 +10476,7 @@ _ZNSt6vectorIN2cv3dnn4util14NormalizedBBoxESaIS3_EE6resizeEm.exit.thread: ; pred
   %102 = getelementptr inbounds nuw %"class.cv::dnn::util::NormalizedBBox", ptr %101, i64 %indvars.iv80
   tail call void @_ZN2cv3dnn24DetectionOutputLayerImpl10DecodeBBoxILb1EEEvRKNS0_4util14NormalizedBBoxERKSt6vectorIfSaIfEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbS6_bS6_RS4_(ptr noundef nonnull align 4 dereferenceable(24) %96, ptr noundef nonnull align 8 dereferenceable(24) %98, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %4, ptr noundef nonnull align 4 dereferenceable(24) %5, i1 noundef zeroext %6, ptr noundef nonnull align 4 dereferenceable(24) %100, ptr noundef nonnull align 4 dereferenceable(24) %102)
   %indvars.iv.next81 = add nuw i64 %indvars.iv80, 1
-  %exitcond84.not = icmp eq i64 %indvars.iv.next81, %umax83
+  %exitcond84.not = icmp eq i64 %indvars.iv.next81, %22
   br i1 %exitcond84.not, label %.loopexit, label %.lr.ph76, !llvm.loop !320
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIN2cv3dnn4util14NormalizedBBoxESaIS3_EE6resizeEm.exit.thread, %.lr.ph
@@ -10494,7 +10491,7 @@ _ZNSt6vectorIN2cv3dnn4util14NormalizedBBoxESaIS3_EE6resizeEm.exit.thread: ; pred
   %110 = getelementptr inbounds nuw %"class.cv::dnn::util::NormalizedBBox", ptr %109, i64 %indvars.iv
   tail call void @_ZN2cv3dnn24DetectionOutputLayerImpl10DecodeBBoxILb0EEEvRKNS0_4util14NormalizedBBoxERKSt6vectorIfSaIfEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbS6_bS6_RS4_(ptr noundef nonnull align 4 dereferenceable(24) %104, ptr noundef nonnull align 8 dereferenceable(24) %106, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %4, ptr noundef nonnull align 4 dereferenceable(24) %5, i1 noundef zeroext %6, ptr noundef nonnull align 4 dereferenceable(24) %108, ptr noundef nonnull align 4 dereferenceable(24) %110)
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax83
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %22
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !321
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph76, %.split50, %69

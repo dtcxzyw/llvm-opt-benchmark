@@ -160297,7 +160297,7 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
 
 .lr.ph499.preheader:                              ; preds = %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6resizeEmm.exit423
   %573 = shl nuw i64 %470, 3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %572, i8 0, i64 %573, i1 false), !tbaa !1538
+  call void @llvm.memset.p0.i64(ptr align 8 %572, i8 0, i64 %573, i1 false), !tbaa !1538
   br label %.preheader482
 
 .preheader482:                                    ; preds = %.lr.ph499.preheader, %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6resizeEmm.exit423

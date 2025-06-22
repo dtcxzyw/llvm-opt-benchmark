@@ -2168,13 +2168,10 @@ if.then.i.i.i49:                                  ; preds = %if.else.i18
   unreachable
 
 _ZNKSt6vectorIN3irr5video6SColorESaIS2_EE12_M_check_lenEmPKc.exit.i.i23: ; preds = %if.else.i18
-  %.sroa.speculated.i.i.i25 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
-  %add.i.i.i26 = add nsw i64 %.sroa.speculated.i.i.i25, %sub.ptr.div.i
+  %add.i.i.i26 = ashr exact i64 %sub.ptr.sub.i, 1
   %cmp7.i.i.i27 = icmp ult i64 %add.i.i.i26, %sub.ptr.div.i
   %15 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i26, i64 2305843009213693951)
   %cond.i.i.i28 = select i1 %cmp7.i.i.i27, i64 2305843009213693951, i64 %15
-  %cmp.not.i.i.i29 = icmp ne i64 %cond.i.i.i28, 0
-  tail call void @llvm.assume(i1 %cmp.not.i.i.i29)
   %mul.i.i.i.i.i31 = shl nuw nsw i64 %cond.i.i.i28, 2
   %call5.i.i.i.i.i32 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i31) #26
   %add.ptr.i.i35 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i32, i64 %sub.ptr.sub.i

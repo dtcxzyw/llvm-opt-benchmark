@@ -1176,7 +1176,6 @@ do.body268.preheader:                             ; preds = %do.body207
   %exposureSum_ = getelementptr inbounds nuw i8, ptr %this, i64 264
   %el_ = getelementptr inbounds nuw i8, ptr %this, i64 272
   %el2_ = getelementptr inbounds nuw i8, ptr %this, i64 280
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exposureSum_, i8 0, i64 24, i1 false)
   br label %do.body268
 
@@ -1786,7 +1785,7 @@ do.end436:                                        ; preds = %do.body378
   %231 = tail call double @llvm.fmuladd.f64(double %mul, double %230, double %149)
   store double %231, ptr %el2_, align 8, !tbaa !45
   %inc = add nuw i64 %i.0636, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i
   br i1 %exitcond.not, label %for.cond.cleanup, label %do.body268, !llvm.loop !46
 
 if.then457:                                       ; preds = %for.cond.cleanup

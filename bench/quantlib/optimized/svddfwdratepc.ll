@@ -1854,7 +1854,6 @@ invoke.cont252:                                   ; preds = %invoke.cont250
   %div = udiv i64 %sub266, %187
   %189 = load ptr, ptr %_M_data.i, align 8, !tbaa !46
   %190 = getelementptr i8, ptr %189, i64 %.sroa.speculated
-  %umax = call i64 @llvm.umax.i64(i64 %187, i64 1)
   br label %for.body272
 
 for.cond.cleanup271:                              ; preds = %for.body272
@@ -1866,7 +1865,7 @@ for.body272:                                      ; preds = %invoke.cont252, %fo
   %arrayidx.i = getelementptr i8, ptr %190, i64 %mul275
   store i8 1, ptr %arrayidx.i, align 1, !tbaa !47
   %inc279 = add nuw i64 %i.0675, 1
-  %exitcond677.not = icmp eq i64 %inc279, %umax
+  %exitcond677.not = icmp eq i64 %inc279, %187
   br i1 %exitcond677.not, label %for.cond.cleanup271, label %for.body272, !llvm.loop !88
 
 ehcleanup283:                                     ; preds = %lpad162, %lpad178, %ehcleanup239, %lpad190, %lpad154, %ehcleanup153
@@ -2942,7 +2941,6 @@ for.body.lr.ph:                                   ; preds = %_ZNK5boost10shared_
   %12 = load ptr, ptr %brownians_, align 8
   %volBrownians_ = getelementptr inbounds nuw i8, ptr %this, i64 608
   %13 = load ptr, ptr %volBrownians_, align 8
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %for.inc, %_ZNK5boost10shared_ptrIN8QuantLib17BrownianGeneratorEEptEv.exit
@@ -3053,7 +3051,7 @@ for.inc:                                          ; preds = %if.then23, %if.else
   %k.1 = phi i64 [ %k.066, %if.then23 ], [ %inc31, %if.else27 ]
   %j.1 = phi i64 [ %inc, %if.then23 ], [ %j.067, %if.else27 ]
   %inc33 = add nuw i64 %i.068, 1
-  %exitcond.not = icmp eq i64 %inc33, %umax
+  %exitcond.not = icmp eq i64 %inc33, %sub.ptr.div.i
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !97
 
 for.cond.cleanup56:                               ; preds = %_ZSt13inner_productIPKdN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdET1_T_SA_T0_S9_.exit, %_ZNK5boost10shared_ptrIN8QuantLib11MarketModelEEptEv.exit

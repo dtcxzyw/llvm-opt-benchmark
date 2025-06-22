@@ -4343,7 +4343,6 @@ _ZN7rocksdb6Status15InvalidArgumentERKNS_5SliceES3_.exit: ; preds = %31
   %37 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %38 = getelementptr inbounds nuw i8, ptr %8, i64 5
   %39 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %umax70 = call i64 @llvm.umax.i64(i64 %19, i64 1)
   br label %44
 
 ._crit_edge68:                                    ; preds = %_ZN7rocksdb6StatusaSERKS0_.exit, %_ZN7rocksdb6Status15InvalidArgumentERKNS_5SliceES3_.exit
@@ -4429,7 +4428,7 @@ _ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNKSt14de
 
 _ZN7rocksdb6StatusaSERKS0_.exit:                  ; preds = %_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EED2Ev.exit.i, %44
   %64 = add nuw i64 %.02466, 1
-  %exitcond71.not = icmp eq i64 %64, %umax70
+  %exitcond71.not = icmp eq i64 %64, %19
   br i1 %exitcond71.not, label %._crit_edge68, label %44, !llvm.loop !593
 
 65:                                               ; preds = %59
@@ -4568,7 +4567,6 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resize
   %123 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %124 = getelementptr inbounds nuw i8, ptr %12, i64 5
   %125 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %umax = call i64 @llvm.umax.i64(i64 %19, i64 1)
   br label %134
 
 ._crit_edge:                                      ; preds = %_ZN7rocksdb6StatusD2Ev.exit61, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit
@@ -4666,7 +4664,7 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
 _ZN7rocksdb6StatusD2Ev.exit61:                    ; preds = %147, %_ZN7rocksdb6StatusaSEOS0_.exit, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i59
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #29
   %162 = add nuw i64 %.065, 1
-  %exitcond.not = icmp eq i64 %162, %umax
+  %exitcond.not = icmp eq i64 %162, %19
   br i1 %exitcond.not, label %._crit_edge, label %134, !llvm.loop !603
 
 163:                                              ; preds = %134
@@ -5180,7 +5178,6 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resize
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit
   %66 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %umax = tail call i64 @llvm.umax.i64(i64 %18, i64 1)
   br label %67
 
 67:                                               ; preds = %.lr.ph, %93
@@ -5258,7 +5255,7 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
 93:                                               ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i64, %.critedge
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #29
   %94 = add nuw i64 %.03184, 1
-  %exitcond.not = icmp eq i64 %94, %umax
+  %exitcond.not = icmp eq i64 %94, %18
   br i1 %exitcond.not, label %.critedge43, label %67, !llvm.loop !606
 
 .body57:                                          ; preds = %90, %86
@@ -5320,7 +5317,6 @@ _ZNSt6vectorIN7rocksdb6StatusESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i69: ; pre
   %108 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %109 = getelementptr inbounds nuw i8, ptr %11, i64 5
   %110 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %umax88 = call i64 @llvm.umax.i64(i64 %18, i64 1)
   br label %111
 
 111:                                              ; preds = %.lr.ph86, %_ZN7rocksdb6StatusD2Ev.exit79
@@ -5385,7 +5381,7 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
 _ZN7rocksdb6StatusD2Ev.exit79:                    ; preds = %122, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i.i, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i78
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #29
   %137 = add nuw i64 %.085, 1
-  %exitcond89.not = icmp eq i64 %137, %umax88
+  %exitcond89.not = icmp eq i64 %137, %18
   br i1 %exitcond89.not, label %.loopexit, label %111, !llvm.loop !607
 
 138:                                              ; preds = %111

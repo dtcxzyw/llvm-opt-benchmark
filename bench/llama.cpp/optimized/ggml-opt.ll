@@ -1435,7 +1435,6 @@ define void @ggml_opt_result_pred(ptr noundef readonly captures(none) %0, ptr no
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 2
-  %umax = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
@@ -1448,7 +1447,7 @@ define void @ggml_opt_result_pred(ptr noundef readonly captures(none) %0, ptr no
   %13 = getelementptr inbounds nuw i32, ptr %1, i64 %.06
   store i32 %12, ptr %13, align 4, !tbaa !130
   %14 = add nuw i64 %.06, 1
-  %exitcond.not = icmp eq i64 %14, %umax
+  %exitcond.not = icmp eq i64 %14, %10
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !131
 }
 

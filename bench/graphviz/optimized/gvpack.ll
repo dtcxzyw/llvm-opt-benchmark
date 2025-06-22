@@ -1311,7 +1311,6 @@ _ZL9initAttrsP8Agraph_sRSt6vectorIS0_SaIS0_EE.exit.i: ; preds = %.noexc34.i.i, %
   %428 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %429 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %430 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %umax = call i64 @llvm.umax.i64(i64 %372, i64 1)
   br label %446
 
 .lr.ph.i:                                         ; preds = %.noexc37, %.noexc40
@@ -1768,7 +1767,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit123.i: ; preds = %
 
 633:                                              ; preds = %632
   %634 = add nuw i64 %.068161.i, 1
-  %exitcond.not = icmp eq i64 %634, %umax
+  %exitcond.not = icmp eq i64 %634, %372
   br i1 %exitcond.not, label %._crit_edge165.i, label %446, !llvm.loop !127
 
 635:                                              ; preds = %620, %618

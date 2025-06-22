@@ -13576,11 +13576,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit564: ; preds = %_Z
 
 .preheader1399:                                   ; preds = %._crit_edge1682
   %.not1752 = icmp eq ptr %.pre, %.pre1947
-  br i1 %.not1752, label %._crit_edge1685, label %.lr.ph1684.preheader
-
-.lr.ph1684.preheader:                             ; preds = %.preheader1399
-  %umax = call i64 @llvm.umax.i64(i64 %458, i64 1)
-  br label %.lr.ph1684
+  br i1 %.not1752, label %._crit_edge1685, label %.lr.ph1684
 
 460:                                              ; preds = %.lr.ph1681, %469
   %.sroa.01191.01679 = phi ptr [ %440, %.lr.ph1681 ], [ %470, %469 ]
@@ -14225,8 +14221,8 @@ _ZNSt6vectorIN6casadi6SXElemESaIS1_EE5clearEv.exit599: ; preds = %_ZNSt6vectorIN
   %694 = getelementptr inbounds nuw i8, ptr %0, i64 1456
   br label %708
 
-.lr.ph1684:                                       ; preds = %.lr.ph1684.preheader, %700
-  %.03681683 = phi i64 [ %701, %700 ], [ 0, %.lr.ph1684.preheader ]
+.lr.ph1684:                                       ; preds = %.preheader1399, %700
+  %.03681683 = phi i64 [ %701, %700 ], [ 0, %.preheader1399 ]
   %695 = getelementptr inbounds nuw ptr, ptr %.pre1947, i64 %.03681683
   %696 = load ptr, ptr %695, align 8, !tbaa !426
   %.not516 = icmp eq ptr %696, null
@@ -14240,7 +14236,7 @@ _ZNSt6vectorIN6casadi6SXElemESaIS1_EE5clearEv.exit599: ; preds = %_ZNSt6vectorIN
 
 700:                                              ; preds = %.lr.ph1684, %697
   %701 = add nuw nsw i64 %.03681683, 1
-  %exitcond.not = icmp eq i64 %701, %umax
+  %exitcond.not = icmp eq i64 %701, %458
   br i1 %exitcond.not, label %._crit_edge1685, label %.lr.ph1684, !llvm.loop !443
 
 ._crit_edge1689:                                  ; preds = %757, %_ZNSt6vectorIN6casadi6SXElemESaIS1_EE5clearEv.exit599
@@ -17821,7 +17817,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit866: ; preds = %_Z
   %2056 = ptrtoint ptr %2054 to i64
   %2057 = sub i64 %2055, %2056
   %2058 = ashr exact i64 %2057, 3
-  %umax1941 = call i64 @llvm.umax.i64(i64 %2058, i64 1)
   br label %.lr.ph1740
 
 .preheader1369:                                   ; preds = %2063, %.preheader1370
@@ -17842,7 +17837,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit866: ; preds = %_Z
 
 2063:                                             ; preds = %.lr.ph1740, %2061
   %2064 = add nuw nsw i64 %.01801739, 1
-  %exitcond1942.not = icmp eq i64 %2064, %umax1941
+  %exitcond1942.not = icmp eq i64 %2064, %2058
   br i1 %exitcond1942.not, label %.preheader1369, label %.lr.ph1740, !llvm.loop !502
 
 ._crit_edge1744:                                  ; preds = %.lr.ph1743, %.preheader1369
@@ -60421,11 +60416,7 @@ define void @_ZN6casadi10SXFunction5orderERKSt6vectorINS_6MatrixINS_6SXElemEEESa
   %24 = sub i64 %22, %23
   %25 = ashr exact i64 %24, 3
   %.not73 = icmp eq ptr %.pre, %.pre78
-  br i1 %.not73, label %._crit_edge, label %.lr.ph66.preheader
-
-.lr.ph66.preheader:                               ; preds = %.preheader
-  %umax = call i64 @llvm.umax.i64(i64 %25, i64 1)
-  br label %.lr.ph66
+  br i1 %.not73, label %._crit_edge, label %.lr.ph66
 
 26:                                               ; preds = %.lr.ph, %35
   %.sroa.041.064 = phi ptr [ %8, %.lr.ph ], [ %36, %35 ]
@@ -60676,14 +60667,14 @@ _ZNSt5stackIPN6casadi6SXNodeESt5dequeIS2_SaIS2_EEE4pushEOS2_.exit: ; preds = %.n
   invoke void @_ZNSt6vectorIN6casadi6MatrixINS0_6SXElemEEESaIS3_EEC2EmRKS4_(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %133, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %139 unwind label %147
 
-.lr.ph66:                                         ; preds = %.lr.ph66.preheader, %.lr.ph66
-  %.01365 = phi i64 [ %138, %.lr.ph66 ], [ 0, %.lr.ph66.preheader ]
+.lr.ph66:                                         ; preds = %.preheader, %.lr.ph66
+  %.01365 = phi i64 [ %138, %.lr.ph66 ], [ 0, %.preheader ]
   %135 = getelementptr inbounds nuw ptr, ptr %.pre78, i64 %.01365
   %136 = load ptr, ptr %135, align 8, !tbaa !426
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 8
   store i32 0, ptr %137, align 8, !tbaa !441
   %138 = add nuw nsw i64 %.01365, 1
-  %exitcond.not = icmp eq i64 %138, %umax
+  %exitcond.not = icmp eq i64 %138, %25
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph66, !llvm.loop !843
 
 139:                                              ; preds = %._crit_edge

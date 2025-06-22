@@ -3072,7 +3072,6 @@ _ZN2cvL21createGaussianKernelsISt6vectorINS_12_GLOBAL__N_113ufixedpoint16ESaIS3_
   %222 = ptrtoint ptr %.val7.i to i64
   %223 = sub i64 %221, %222
   %224 = ashr exact i64 %223, 1
-  %umax685 = call i64 @llvm.umax.i64(i64 %224, i64 1)
   br label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.noexc390, %219
@@ -3099,7 +3098,7 @@ _ZN2cvL21createGaussianKernelsISt6vectorINS_12_GLOBAL__N_113ufixedpoint16ESaIS3_
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #24
   %231 = add nuw i64 %.09.i, 1
-  %exitcond686.not = icmp eq i64 %231, %umax685
+  %exitcond686.not = icmp eq i64 %231, %224
   br i1 %exitcond686.not, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !268
 
 232:                                              ; preds = %._crit_edge.i
@@ -3401,7 +3400,6 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i40
   %336 = ptrtoint ptr %.val7.i412 to i64
   %337 = sub i64 %335, %336
   %338 = ashr exact i64 %337, 1
-  %umax687 = call i64 @llvm.umax.i64(i64 %338, i64 1)
   br label %.lr.ph.i415
 
 ._crit_edge.i420:                                 ; preds = %.noexc422, %333
@@ -3428,7 +3426,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i40
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #24
   %345 = add nuw i64 %.09.i417, 1
-  %exitcond688.not = icmp eq i64 %345, %umax687
+  %exitcond688.not = icmp eq i64 %345, %338
   br i1 %exitcond688.not, label %._crit_edge.i420, label %.lr.ph.i415, !llvm.loop !268
 
 346:                                              ; preds = %._crit_edge.i420
@@ -4262,7 +4260,6 @@ _ZN2cvL21createGaussianKernelsISt6vectorINS_12_GLOBAL__N_113ufixedpoint32ESaIS3_
   %646 = ptrtoint ptr %.val7.i526 to i64
   %647 = sub i64 %645, %646
   %648 = ashr exact i64 %647, 2
-  %umax = call i64 @llvm.umax.i64(i64 %648, i64 1)
   br label %.lr.ph.i529
 
 ._crit_edge.i534:                                 ; preds = %.noexc536, %643
@@ -4289,7 +4286,7 @@ _ZN2cvL21createGaussianKernelsISt6vectorINS_12_GLOBAL__N_113ufixedpoint32ESaIS3_
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #24
   %655 = add nuw i64 %.09.i531, 1
-  %exitcond.not = icmp eq i64 %655, %umax
+  %exitcond.not = icmp eq i64 %655, %648
   br i1 %exitcond.not, label %._crit_edge.i534, label %.lr.ph.i529, !llvm.loop !332
 
 656:                                              ; preds = %._crit_edge.i534
@@ -4586,7 +4583,6 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i56
   %758 = ptrtoint ptr %.val7.i572 to i64
   %759 = sub i64 %757, %758
   %760 = ashr exact i64 %759, 2
-  %umax683 = call i64 @llvm.umax.i64(i64 %760, i64 1)
   br label %.lr.ph.i575
 
 ._crit_edge.i580:                                 ; preds = %.noexc582, %755
@@ -4613,7 +4609,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i56
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #24
   %767 = add nuw i64 %.09.i577, 1
-  %exitcond684.not = icmp eq i64 %767, %umax683
+  %exitcond684.not = icmp eq i64 %767, %760
   br i1 %exitcond684.not, label %._crit_edge.i580, label %.lr.ph.i575, !llvm.loop !332
 
 768:                                              ; preds = %._crit_edge.i580

@@ -397,18 +397,14 @@ invoke.cont16:                                    ; preds = %invoke.cont14
   br i1 %cmp.i.not223, label %for.end71, label %for.cond21.preheader.lr.ph
 
 for.cond21.preheader.lr.ph:                       ; preds = %invoke.cont16
-  br i1 %cmp.not.i.i.i.i, label %for.cond21.preheader, label %for.cond21.preheader.us.preheader
+  br i1 %cmp.not.i.i.i.i, label %for.cond21.preheader, label %for.cond21.preheader.us
 
-for.cond21.preheader.us.preheader:                ; preds = %for.cond21.preheader.lr.ph
-  %umax = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
-  br label %for.cond21.preheader.us
-
-for.cond21.preheader.us:                          ; preds = %for.cond21.preheader.us.preheader, %invoke.cont67.us
-  %isFirst.0228.us = phi i1 [ %isFirst.1.us, %invoke.cont67.us ], [ true, %for.cond21.preheader.us.preheader ]
-  %sample.sroa.0.0227.us = phi ptr [ %sample.sroa.0.5.us, %invoke.cont67.us ], [ %sample.sroa.0.6145157, %for.cond21.preheader.us.preheader ]
-  %prevSample.sroa.14.0226.us = phi ptr [ %prevSample.sroa.14.4.us, %invoke.cont67.us ], [ %prevSample.sroa.14.5163, %for.cond21.preheader.us.preheader ]
-  %prevSample.sroa.0.0225.us = phi ptr [ %prevSample.sroa.0.4.us, %invoke.cont67.us ], [ %prevSample.sroa.0.5161, %for.cond21.preheader.us.preheader ]
-  %sample.sroa.15.0224.us = phi ptr [ %sample.sroa.15.5.us, %invoke.cont67.us ], [ %sample.sroa.15.6143159, %for.cond21.preheader.us.preheader ]
+for.cond21.preheader.us:                          ; preds = %for.cond21.preheader.lr.ph, %invoke.cont67.us
+  %isFirst.0228.us = phi i1 [ %isFirst.1.us, %invoke.cont67.us ], [ true, %for.cond21.preheader.lr.ph ]
+  %sample.sroa.0.0227.us = phi ptr [ %sample.sroa.0.5.us, %invoke.cont67.us ], [ %sample.sroa.0.6145157, %for.cond21.preheader.lr.ph ]
+  %prevSample.sroa.14.0226.us = phi ptr [ %prevSample.sroa.14.4.us, %invoke.cont67.us ], [ %prevSample.sroa.14.5163, %for.cond21.preheader.lr.ph ]
+  %prevSample.sroa.0.0225.us = phi ptr [ %prevSample.sroa.0.4.us, %invoke.cont67.us ], [ %prevSample.sroa.0.5161, %for.cond21.preheader.lr.ph ]
+  %sample.sroa.15.0224.us = phi ptr [ %sample.sroa.15.5.us, %invoke.cont67.us ], [ %sample.sroa.15.6143159, %for.cond21.preheader.lr.ph ]
   br label %for.body22.us
 
 for.cond.cleanup48.us:                            ; preds = %for.body49.us
@@ -426,7 +422,7 @@ for.body49.us:                                    ; preds = %for.cond21.for.cond
   %add.ptr.i77.us = getelementptr inbounds nuw double, ptr %sampleDiff.sroa.0.0, i64 %i45.0222.us
   store double %sub.us, ptr %add.ptr.i77.us, align 8, !tbaa !29
   %inc54.us = add nuw i64 %i45.0222.us, 1
-  %exitcond359.not = icmp eq i64 %inc54.us, %umax
+  %exitcond359.not = icmp eq i64 %inc54.us, %sub.ptr.div.i
   br i1 %exitcond359.not, label %for.cond.cleanup48.us, label %for.body49.us, !llvm.loop !36
 
 for.body22.us:                                    ; preds = %for.cond21.preheader.us, %invoke.cont29.us
@@ -502,7 +498,7 @@ invoke.cont29.us:                                 ; preds = %invoke.cont25.us
   %add.ptr.i73.us = getelementptr inbounds nuw double, ptr %sample.sroa.0.0227.us, i64 %i.0220.us
   store double %call30.us, ptr %add.ptr.i73.us, align 8, !tbaa !29
   %inc.us = add nuw i64 %i.0220.us, 1
-  %exitcond.not = icmp eq i64 %inc.us, %umax
+  %exitcond.not = icmp eq i64 %inc.us, %sub.ptr.div.i
   br i1 %exitcond.not, label %for.cond21.for.cond.cleanup_crit_edge.us, label %for.body22.us, !llvm.loop !39
 
 for.cond21.for.cond.cleanup_crit_edge.us:         ; preds = %invoke.cont29.us

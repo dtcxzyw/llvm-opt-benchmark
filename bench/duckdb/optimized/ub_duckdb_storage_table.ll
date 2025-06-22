@@ -14969,14 +14969,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %17
   %53 = load ptr, ptr %28, align 8, !tbaa !924
   %54 = load i8, ptr %53, align 1, !tbaa !925, !range !74, !noundef !75
   %55 = trunc nuw i8 %54 to i1
-  br i1 %55, label %.lr.ph.preheader, label %69
+  br i1 %55, label %.lr.ph, label %69
 
-.lr.ph.preheader:                                 ; preds = %52
-  %umax = call i64 @llvm.umax.i64(i64 %48, i64 1)
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN6duckdb13ColumnSegment8FetchRowERNS_16ColumnFetchStateElRNS_6VectorEm.exit
-  %.05485 = phi i64 [ %66, %_ZN6duckdb13ColumnSegment8FetchRowERNS_16ColumnFetchStateElRNS_6VectorEm.exit ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %52, %_ZN6duckdb13ColumnSegment8FetchRowERNS_16ColumnFetchStateElRNS_6VectorEm.exit
+  %.05485 = phi i64 [ %66, %_ZN6duckdb13ColumnSegment8FetchRowERNS_16ColumnFetchStateElRNS_6VectorEm.exit ], [ 0, %52 ]
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %9) #44
   store ptr %29, ptr %9, align 8, !tbaa !927
   store i64 1, ptr %30, align 8, !tbaa !929
@@ -15000,7 +14996,7 @@ _ZN6duckdb13ColumnSegment8FetchRowERNS_16ColumnFetchStateElRNS_6VectorEm.exit: ;
   call void @_ZN6duckdb16ColumnFetchStateD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %9) #44
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9) #44
   %66 = add nuw i64 %.05485, 1
-  %exitcond.not = icmp eq i64 %66, %umax
+  %exitcond.not = icmp eq i64 %66, %48
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !932
 
 67:                                               ; preds = %.lr.ph

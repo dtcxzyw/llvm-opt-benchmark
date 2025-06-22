@@ -8382,7 +8382,6 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i:
   %79 = add nsw i64 %78, -1
   %80 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %81 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %umax = tail call i64 @llvm.umax.i64(i64 %78, i64 1)
   br label %.preheader336
 
 82:                                               ; preds = %72
@@ -8520,7 +8519,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
 
 119:                                              ; preds = %118, %.preheader336.split.us
   %120 = add nuw i64 %.0132413.us, 1
-  %exitcond491.not = icmp eq i64 %120, %umax
+  %exitcond491.not = icmp eq i64 %120, %78
   br i1 %exitcond491.not, label %.split418.us, label %.preheader336.split.us, !llvm.loop !243
 
 .split.us:                                        ; preds = %106
@@ -8547,7 +8546,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
 
 .split418.us:                                     ; preds = %119, %140
   %124 = add nuw i64 %.0129419, 1
-  %exitcond495.not = icmp eq i64 %124, %umax
+  %exitcond495.not = icmp eq i64 %124, %78
   br i1 %exitcond495.not, label %._crit_edge, label %.preheader336, !llvm.loop !250
 
 .preheader336.split:                              ; preds = %.preheader336, %140
@@ -8607,7 +8606,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
 
 140:                                              ; preds = %.preheader336.split, %139
   %141 = add nuw i64 %.0132413, 1
-  %exitcond493.not = icmp eq i64 %141, %umax
+  %exitcond493.not = icmp eq i64 %141, %78
   br i1 %exitcond493.not, label %.split418.us, label %.preheader336.split, !llvm.loop !243
 
 .split:                                           ; preds = %127

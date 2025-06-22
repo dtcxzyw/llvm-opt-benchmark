@@ -9767,7 +9767,6 @@ define dso_local noundef zeroext i1 @_ZNK20cmComputeLinkDepends25CheckCircularDe
   %16 = sdiv exact i64 %15, 24
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %18 = load ptr, ptr %17, align 8
-  %umax = tail call i64 @llvm.umax.i64(i64 %16, i64 1)
   br label %19
 
 19:                                               ; preds = %.lr.ph125, %.critedge
@@ -10235,7 +10234,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i88
 
 .critedge:                                        ; preds = %28, %19
   %211 = add nuw i64 %.035122, 1
-  %exitcond.not = icmp eq i64 %211, %umax
+  %exitcond.not = icmp eq i64 %211, %16
   br i1 %exitcond.not, label %.critedge68, label %19, !llvm.loop !715
 
 .critedge68:                                      ; preds = %.critedge, %1, %208

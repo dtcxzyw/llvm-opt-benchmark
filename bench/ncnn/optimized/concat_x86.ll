@@ -85,7 +85,6 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn10Concat_x867forwardERKSt
   %40 = ptrtoint ptr %23 to i64
   %41 = sub i64 %39, %40
   %42 = sdiv exact i64 %41, 72
-  %umax = tail call i64 @llvm.umax.i64(i64 %42, i64 1)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %32
@@ -137,7 +136,7 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %._crit_edge
   %73 = mul nsw i32 %72, %70
   %74 = add nsw i32 %73, %.0340677
   %75 = add nuw i64 %.0343676, 1
-  %exitcond.not = icmp eq i64 %75, %umax
+  %exitcond.not = icmp eq i64 %75, %42
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !42
 
 .lr.ph680:                                        ; preds = %.preheader672, %.lr.ph680
@@ -196,7 +195,6 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %._crit_edge
   %112 = ptrtoint ptr %23 to i64
   %113 = sub i64 %111, %112
   %114 = sdiv exact i64 %113, 72
-  %umax791 = tail call i64 @llvm.umax.i64(i64 %114, i64 1)
   br label %.lr.ph686
 
 ._crit_edge687:                                   ; preds = %.lr.ph686, %102
@@ -250,7 +248,7 @@ _ZNK4ncnn3Mat5emptyEv.exit440:                    ; preds = %._crit_edge687
   %145 = mul nsw i32 %144, %142
   %146 = add nsw i32 %145, %.0358684
   %147 = add nuw i64 %.0361683, 1
-  %exitcond792.not = icmp eq i64 %147, %umax791
+  %exitcond792.not = icmp eq i64 %147, %114
   br i1 %exitcond792.not, label %._crit_edge687, label %.lr.ph686, !llvm.loop !48
 
 148:                                              ; preds = %_ZNK4ncnn3Mat5emptyEv.exit440
@@ -594,7 +592,6 @@ _ZN4ncnn3MatD2Ev.exit450:                         ; preds = %290, %288, %296, %3
   %320 = ptrtoint ptr %310 to i64
   %321 = sub i64 %319, %320
   %322 = sdiv exact i64 %321, 72
-  %umax796 = call i64 @llvm.umax.i64(i64 %322, i64 1)
   br label %.lr.ph712
 
 ._crit_edge713:                                   ; preds = %.lr.ph712, %309
@@ -624,7 +621,7 @@ _ZNK4ncnn3Mat5emptyEv.exit442:                    ; preds = %._crit_edge713
   %336 = load i32, ptr %335, align 4, !tbaa !41
   %337 = add nsw i32 %336, %.0408710
   %338 = add nuw i64 %.0409709, 1
-  %exitcond797.not = icmp eq i64 %338, %umax796
+  %exitcond797.not = icmp eq i64 %338, %322
   br i1 %exitcond797.not, label %._crit_edge713, label %.lr.ph712, !llvm.loop !60
 
 339:                                              ; preds = %_ZNK4ncnn3Mat5emptyEv.exit442
@@ -667,7 +664,6 @@ _ZNK4ncnn3Mat5emptyEv.exit442:                    ; preds = %._crit_edge713
   %361 = ptrtoint ptr %347 to i64
   %362 = sub i64 %360, %361
   %363 = sdiv exact i64 %362, 72
-  %umax798 = call i64 @llvm.umax.i64(i64 %363, i64 1)
   br label %.lr.ph720
 
 ._crit_edge721:                                   ; preds = %.lr.ph720, %346
@@ -721,7 +717,7 @@ _ZNK4ncnn3Mat5emptyEv.exit443:                    ; preds = %._crit_edge721
   %394 = mul nsw i32 %393, %391
   %395 = add nsw i32 %394, %.0403717
   %396 = add nuw i64 %.0402718, 1
-  %exitcond799.not = icmp eq i64 %396, %umax798
+  %exitcond799.not = icmp eq i64 %396, %363
   br i1 %exitcond799.not, label %._crit_edge721, label %.lr.ph720, !llvm.loop !62
 
 397:                                              ; preds = %_ZNK4ncnn3Mat5emptyEv.exit443
@@ -1096,7 +1092,6 @@ _ZN4ncnn3MatD2Ev.exit458:                         ; preds = %551, %549, %557, %5
   %583 = ptrtoint ptr %569 to i64
   %584 = sub i64 %582, %583
   %585 = sdiv exact i64 %584, 72
-  %umax810 = call i64 @llvm.umax.i64(i64 %585, i64 1)
   br label %.lr.ph755
 
 ._crit_edge756:                                   ; preds = %.lr.ph755, %568
@@ -1126,7 +1121,7 @@ _ZNK4ncnn3Mat5emptyEv.exit445:                    ; preds = %._crit_edge756
   %599 = load i32, ptr %598, align 8, !tbaa !47
   %600 = add nsw i32 %599, %.0360752
   %601 = add nuw i64 %.0359753, 1
-  %exitcond811.not = icmp eq i64 %601, %umax810
+  %exitcond811.not = icmp eq i64 %601, %585
   br i1 %exitcond811.not, label %._crit_edge756, label %.lr.ph755, !llvm.loop !75
 
 602:                                              ; preds = %_ZNK4ncnn3Mat5emptyEv.exit445
@@ -1181,7 +1176,6 @@ _ZNK4ncnn3Mat5emptyEv.exit445:                    ; preds = %._crit_edge756
   %623 = ptrtoint ptr %609 to i64
   %624 = sub i64 %622, %623
   %625 = sdiv exact i64 %624, 72
-  %umax812 = call i64 @llvm.umax.i64(i64 %625, i64 1)
   br label %.lr.ph761
 
 ._crit_edge762:                                   ; preds = %.lr.ph761, %608
@@ -1211,7 +1205,7 @@ _ZNK4ncnn3Mat5emptyEv.exit446:                    ; preds = %._crit_edge762
   %639 = load i32, ptr %638, align 4, !tbaa !41
   %640 = add nsw i32 %639, %.0356758
   %641 = add nuw i64 %.0355759, 1
-  %exitcond813.not = icmp eq i64 %641, %umax812
+  %exitcond813.not = icmp eq i64 %641, %625
   br i1 %exitcond813.not, label %._crit_edge762, label %.lr.ph761, !llvm.loop !76
 
 .thread:                                          ; preds = %_ZNK4ncnn3Mat5emptyEv.exit446
@@ -1260,7 +1254,6 @@ _ZNK4ncnn3Mat5emptyEv.exit446:                    ; preds = %._crit_edge762
   %661 = ptrtoint ptr %647 to i64
   %662 = sub i64 %660, %661
   %663 = sdiv exact i64 %662, 72
-  %umax814 = call i64 @llvm.umax.i64(i64 %663, i64 1)
   br label %.lr.ph767
 
 ._crit_edge768:                                   ; preds = %.lr.ph767, %646
@@ -1290,7 +1283,7 @@ _ZNK4ncnn3Mat5emptyEv.exit447:                    ; preds = %._crit_edge768
   %677 = load i32, ptr %676, align 4, !tbaa !51
   %678 = add nsw i32 %677, %.0342764
   %679 = add nuw i64 %.0341765, 1
-  %exitcond815.not = icmp eq i64 %679, %umax814
+  %exitcond815.not = icmp eq i64 %679, %663
   br i1 %exitcond815.not, label %._crit_edge768, label %.lr.ph767, !llvm.loop !77
 
 680:                                              ; preds = %_ZNK4ncnn3Mat5emptyEv.exit447
@@ -2061,9 +2054,6 @@ declare i32 @llvm.smin.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #12
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #12
 
 attributes #0 = { nounwind "approx-func-fp-math"="true" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "reciprocal-estimates"="none" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "unsafe-fp-math"="true" }
 attributes #1 = { inlinehint mustprogress nounwind uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "reciprocal-estimates"="none" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "unsafe-fp-math"="true" }

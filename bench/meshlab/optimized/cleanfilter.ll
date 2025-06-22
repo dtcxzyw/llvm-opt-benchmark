@@ -14763,7 +14763,6 @@ _ZNSt6vectorIP6CFaceOSaIS1_EE9push_backEOS1_.exit: ; preds = %_ZN3vcg4face10IsMa
 
 .lr.ph117:                                        ; preds = %.noexc39, %.noexc38, %124
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 584
-  %umax = tail call i64 @llvm.umax.i64(i64 %116, i64 1)
   br label %126
 
 126:                                              ; preds = %.lr.ph117, %_ZN3vcg4face10IsManifoldI6CFaceOEEbRKT_i.exit55.thread
@@ -15014,7 +15013,7 @@ _ZN3vcg4face8FFDetachI6CFaceOEEvRT_i.exit:        ; preds = %.lr.ph.i, %_ZN3vcg4
 _ZN3vcg4face10IsManifoldI6CFaceOEEbRKT_i.exit55.thread: ; preds = %_ZN3vcg4face10IsManifoldI6CFaceOEEbRKT_i.exit50.thread, %126, %289, %_ZN3vcg4face10IsManifoldI6CFaceOEEbRKT_i.exit55
   %.1 = phi i32 [ %.022116, %126 ], [ %.022116, %_ZN3vcg4face10IsManifoldI6CFaceOEEbRKT_i.exit55 ], [ %294, %289 ], [ %.022116, %_ZN3vcg4face10IsManifoldI6CFaceOEEbRKT_i.exit50.thread ]
   %295 = add nuw i64 %.023115, 1
-  %exitcond127.not = icmp eq i64 %295, %umax
+  %exitcond127.not = icmp eq i64 %295, %116
   br i1 %exitcond127.not, label %._crit_edge118, label %126, !llvm.loop !110
 
 ._crit_edge118:                                   ; preds = %_ZN3vcg4face10IsManifoldI6CFaceOEEbRKT_i.exit55.thread, %._crit_edge
@@ -18611,7 +18610,6 @@ _ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit98:         ; preds = %341, %_ZNSt6vectorI
   %361 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %362 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %363 = getelementptr inbounds nuw i8, ptr %16, i64 40
-  %umax = call i64 @llvm.umax.i64(i64 %347, i64 1)
   br label %364
 
 364:                                              ; preds = %.lr.ph264, %389
@@ -18671,7 +18669,7 @@ _ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit98:         ; preds = %341, %_ZNSt6vectorI
   %402 = getelementptr inbounds nuw i8, ptr %.sroa.0.0262, i64 48
   %403 = getelementptr inbounds nuw i8, ptr %.sroa.0129.0261, i64 48
   %404 = add nuw i64 %.051263, 1
-  %exitcond295.not = icmp eq i64 %404, %umax
+  %exitcond295.not = icmp eq i64 %404, %347
   br i1 %exitcond295.not, label %._crit_edge265, label %364, !llvm.loop !167
 
 405:                                              ; preds = %._crit_edge265, %358

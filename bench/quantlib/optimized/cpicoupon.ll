@@ -6821,7 +6821,6 @@ for.cond.preheader:                               ; preds = %invoke.cont104
   %observationInterpolation_ = getelementptr inbounds nuw i8, ptr %this, i64 256
   %pn.i231 = getelementptr inbounds nuw i8, ptr %ref.tmp244, i64 8
   %pn3.i232 = getelementptr inbounds nuw i8, ptr %ref.tmp245, i64 8
-  %umax = call i64 @llvm.umax.i64(i64 %sub, i64 1)
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %if.end311
@@ -7645,7 +7644,7 @@ ehcleanup307:                                     ; preds = %ehcleanup306, %lpad
 if.end311:                                        ; preds = %_ZN5boost10shared_ptrIN8QuantLib9CPICouponEED2Ev.exit, %_ZNSt6vectorIdSaIdEED2Ev.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %exCouponDate) #31
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %paymentDate) #31
-  %exitcond.not = icmp eq i64 %add113, %umax
+  %exitcond.not = icmp eq i64 %add113, %sub
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !186
 
 ehcleanup312:                                     ; preds = %ehcleanup307, %ehcleanup265, %_ZNSt6vectorIdSaIdEED2Ev.exit202, %lpad198, %lpad161, %lpad131, %lpad123, %lpad120

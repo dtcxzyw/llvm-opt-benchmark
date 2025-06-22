@@ -4514,7 +4514,6 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLay
 
 .lr.ph87.i.i.i:                                   ; preds = %.preheader.i122.i.i
   %857 = getelementptr inbounds nuw i8, ptr %48, i64 32
-  %umax.i.i = call i64 @llvm.umax.i64(i64 %837, i64 1)
   br label %858
 
 858:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12SdfAssetPathEE9push_backEOS1_.exit.i.i.i, %.lr.ph87.i.i.i
@@ -4578,7 +4577,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12SdfAssetPathEE9push_backEOS1_
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %48) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %47) #24
   %873 = add nuw i64 %.086.i.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %873, %umax.i.i
+  %exitcond.not.i.i = icmp eq i64 %873, %837
   br i1 %exitcond.not.i.i, label %._crit_edge88.i.i.i, label %858, !llvm.loop !78
 
 .loopexit.i.i.i:                                  ; preds = %870, %868, %862

@@ -1061,7 +1061,6 @@ _ZNSt3mapIPK9Statement6EffectSt4lessIS2_ESaISt4pairIKS2_S3_EEE11lower_boundERS7_
   %324 = ptrtoint ptr %322 to i64
   %325 = sub i64 %323, %324
   %326 = ashr exact i64 %325, 3
-  %umax = call i64 @llvm.umax.i64(i64 %326, i64 1)
   br label %327
 
 327:                                              ; preds = %.lr.ph, %_ZNSt3mapIPK8VariablejSt4lessIS2_ESaISt4pairIKS2_jEEE5eraseERS6_.exit
@@ -1072,7 +1071,7 @@ _ZNSt3mapIPK9Statement6EffectSt4lessIS2_ESaISt4pairIKS2_S3_EEE11lower_boundERS7_
 
 _ZNSt3mapIPK8VariablejSt4lessIS2_ESaISt4pairIKS2_jEEE5eraseERS6_.exit: ; preds = %327
   %330 = add nuw i64 %.162230, 1
-  %exitcond.not = icmp eq i64 %330, %umax
+  %exitcond.not = icmp eq i64 %330, %326
   br i1 %exitcond.not, label %._crit_edge, label %327, !llvm.loop !117
 
 331:                                              ; preds = %.critedge.i, %318

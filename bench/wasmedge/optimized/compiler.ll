@@ -2057,7 +2057,6 @@ _ZNSt12_Vector_baseIN8WasmEdge4LLVM5ValueESaIS2_EE13_M_deallocateEPS2_m.exit.i: 
 
 .lr.ph323:                                        ; preds = %_ZNSt12_Vector_baseIN8WasmEdge4LLVM5ValueESaIS2_EE13_M_deallocateEPS2_m.exit.i, %60
   %88 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %umax = call i64 @llvm.umax.i64(i64 %33, i64 1)
   br label %89
 
 89:                                               ; preds = %.lr.ph323, %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE9push_backEOS2_.exit119
@@ -2976,7 +2975,7 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_c
 
 _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE9push_backEOS2_.exit119: ; preds = %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit147, %522, %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE9push_backERKS2_.exit109
   %549 = add nuw i64 %.048320, 1
-  %exitcond339.not = icmp eq i64 %549, %umax
+  %exitcond339.not = icmp eq i64 %549, %33
   br i1 %exitcond339.not, label %.loopexit, label %89, !llvm.loop !330
 
 .loopexit:                                        ; preds = %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE9push_backEOS2_.exit119, %2
@@ -7207,22 +7206,17 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS3_.exit.thread: ; preds = %_ZN
   %.0.in.in.i1398 = select i1 %395, ptr %396, ptr %397
   %.0.in.i1399 = load i8, ptr %.0.in.in.i1398, align 8
   %.0.i1400 = trunc i8 %.0.in.i1399 to i1
-  br i1 %.0.i1400, label %.lr.ph1359.preheader, label %.lr.ph1357
+  br i1 %.0.i1400, label %.lr.ph1359, label %.lr.ph1357
 
 .lr.ph1357:                                       ; preds = %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS3_.exit.thread
   %398 = getelementptr inbounds nuw i8, ptr %.0.val, i64 40
   %399 = getelementptr inbounds nuw i8, ptr %.0.val, i64 48
   %400 = getelementptr inbounds i8, ptr %.val2.i1397, i64 -136
   %401 = getelementptr i8, ptr %391, i64 %387
-  %umax1383 = call i64 @llvm.umax.i64(i64 %388, i64 1)
   br label %409
 
-.lr.ph1359.preheader:                             ; preds = %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS3_.exit.thread
-  %umax1385 = call i64 @llvm.umax.i64(i64 %388, i64 1)
-  br label %.lr.ph1359
-
-.lr.ph1359:                                       ; preds = %.lr.ph1359.preheader, %.lr.ph1359
-  %.01358 = phi i64 [ %408, %.lr.ph1359 ], [ 0, %.lr.ph1359.preheader ]
+.lr.ph1359:                                       ; preds = %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS3_.exit.thread, %.lr.ph1359
+  %.01358 = phi i64 [ %408, %.lr.ph1359 ], [ 0, %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS3_.exit.thread ]
   %.sroa.0187.0.copyload = load ptr, ptr %366, align 8
   %402 = load ptr, ptr %7, align 8
   %403 = getelementptr %"class.WasmEdge::ValType", ptr %402, i64 %.01358, i32 0, i32 0, i32 2
@@ -7234,7 +7228,7 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS3_.exit.thread: ; preds = %_ZN
   %407 = getelementptr inbounds %"class.WasmEdge::LLVM::Value", ptr %391, i64 %.01358
   store ptr %406, ptr %407, align 8
   %408 = add nuw i64 %.01358, 1
-  %exitcond1386.not = icmp eq i64 %408, %umax1385
+  %exitcond1386.not = icmp eq i64 %408, %388
   br i1 %exitcond1386.not, label %.loopexit.loopexit, label %.lr.ph1359, !llvm.loop !871
 
 409:                                              ; preds = %.lr.ph1357, %_ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit
@@ -7270,7 +7264,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit: ; preds = %.critedge.thread
   %426 = getelementptr %"class.WasmEdge::LLVM::Value", ptr %401, i64 %410
   store ptr %425, ptr %426, align 8
   %427 = add nuw i64 %.06051356, 1
-  %exitcond1384.not = icmp eq i64 %427, %umax1383
+  %exitcond1384.not = icmp eq i64 %427, %388
   br i1 %exitcond1384.not, label %.loopexit, label %409, !llvm.loop !875
 
 .loopexit.loopexit:                               ; preds = %.lr.ph1359
@@ -7482,12 +7476,10 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS3_.exit1065.thread: ; preds = 
   %531 = getelementptr inbounds nuw i8, ptr %.0.val, i64 48
   %532 = ptrtoint ptr %497 to i64
   %533 = getelementptr i8, ptr %523, i64 %519
-  %umax1379 = call i64 @llvm.umax.i64(i64 %520, i64 1)
   br label %547
 
 .lr.ph1355:                                       ; preds = %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS3_.exit1065.thread
   %534 = ptrtoint ptr %497 to i64
-  %umax1381 = call i64 @llvm.umax.i64(i64 %520, i64 1)
   br label %535
 
 535:                                              ; preds = %.lr.ph1355, %535
@@ -7510,7 +7502,7 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS3_.exit1065.thread: ; preds = 
   %545 = ptrtoint ptr %542 to i64
   store i64 %545, ptr %544, align 8
   %546 = add nuw i64 %.06061354, 1
-  %exitcond1382.not = icmp eq i64 %546, %umax1381
+  %exitcond1382.not = icmp eq i64 %546, %520
   br i1 %exitcond1382.not, label %.loopexit1338, label %535, !llvm.loop !894
 
 547:                                              ; preds = %.lr.ph1353, %_ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1076
@@ -7557,7 +7549,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1076: ; preds = %.critedge.th
   %570 = ptrtoint ptr %568 to i64
   store i64 %570, ptr %569, align 8
   %571 = add nuw i64 %.06071352, 1
-  %exitcond1380.not = icmp eq i64 %571, %umax1379
+  %exitcond1380.not = icmp eq i64 %571, %520
   br i1 %exitcond1380.not, label %.loopexit1338, label %547, !llvm.loop !904
 
 .loopexit1338:                                    ; preds = %_ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1076, %535, %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i1058
@@ -7817,22 +7809,17 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS3_.exit1118.thread: ; preds = 
   %.0.in.in.i11211443 = select i1 %708, ptr %656, ptr %709
   %.0.in.i11221444 = load i8, ptr %.0.in.in.i11211443, align 8
   %.0.i11231445 = trunc i8 %.0.in.i11221444 to i1
-  br i1 %.0.i11231445, label %.lr.ph1351.preheader, label %.lr.ph
+  br i1 %.0.i11231445, label %.lr.ph1351, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS3_.exit1118.thread
   %710 = getelementptr inbounds nuw i8, ptr %.0.val, i64 40
   %711 = getelementptr inbounds nuw i8, ptr %.0.val, i64 48
   %712 = getelementptr inbounds i8, ptr %.val2.i11201442, i64 -136
   %713 = getelementptr i8, ptr %706, i64 %702
-  %umax = call i64 @llvm.umax.i64(i64 %703, i64 1)
   br label %721
 
-.lr.ph1351.preheader:                             ; preds = %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS3_.exit1118.thread
-  %umax1377 = call i64 @llvm.umax.i64(i64 %703, i64 1)
-  br label %.lr.ph1351
-
-.lr.ph1351:                                       ; preds = %.lr.ph1351.preheader, %.lr.ph1351
-  %.06091350 = phi i64 [ %720, %.lr.ph1351 ], [ 0, %.lr.ph1351.preheader ]
+.lr.ph1351:                                       ; preds = %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS3_.exit1118.thread, %.lr.ph1351
+  %.06091350 = phi i64 [ %720, %.lr.ph1351 ], [ 0, %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS3_.exit1118.thread ]
   %.sroa.0161.0.copyload = load ptr, ptr %639, align 8
   %714 = load ptr, ptr %25, align 8
   %715 = getelementptr %"class.WasmEdge::ValType", ptr %714, i64 %.06091350, i32 0, i32 0, i32 2
@@ -7844,7 +7831,7 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS3_.exit1118.thread: ; preds = 
   %719 = getelementptr inbounds %"class.WasmEdge::LLVM::Value", ptr %706, i64 %.06091350
   store ptr %718, ptr %719, align 8
   %720 = add nuw i64 %.06091350, 1
-  %exitcond1378.not = icmp eq i64 %720, %umax1377
+  %exitcond1378.not = icmp eq i64 %720, %703
   br i1 %exitcond1378.not, label %.loopexit1342.loopexit, label %.lr.ph1351, !llvm.loop !942
 
 721:                                              ; preds = %.lr.ph, %_ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1129
@@ -7880,7 +7867,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1129: ; preds = %.critedge.th
   %738 = getelementptr %"class.WasmEdge::LLVM::Value", ptr %713, i64 %722
   store ptr %737, ptr %738, align 8
   %739 = add nuw i64 %.06101349, 1
-  %exitcond.not = icmp eq i64 %739, %umax
+  %exitcond.not = icmp eq i64 %739, %703
   br i1 %exitcond.not, label %.loopexit1342, label %721, !llvm.loop !946
 
 .loopexit1342.loopexit:                           ; preds = %.lr.ph1351
@@ -8515,13 +8502,12 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE9push_backEOS2_.exit.i: ; preds = %_Z
   %1043 = getelementptr inbounds nuw i8, ptr %1042, i64 %1035
   store ptr %1043, ptr %1040, align 8
   %1044 = getelementptr inbounds nuw i8, ptr %.0.val, i64 192
-  %umax.i = call i64 @llvm.umax.i64(i64 %1036, i64 1)
   br label %.lr.ph95.preheader.i
 
 .lr.ph95.preheader.i:                             ; preds = %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE9push_backERKS2_.exit.i, %.lr.ph98.i
   %1045 = phi ptr [ %1042, %.lr.ph98.i ], [ %1090, %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE9push_backERKS2_.exit.i ]
   %.097.i = phi i64 [ 0, %.lr.ph98.i ], [ %1091, %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE9push_backERKS2_.exit.i ]
-  %1046 = getelementptr inbounds nuw %"class.WasmEdge::LLVM::Type", ptr %1032, i64 %.097.i
+  %1046 = getelementptr inbounds %"class.WasmEdge::LLVM::Type", ptr %1032, i64 %.097.i
   %1047 = load i64, ptr %1046, align 8
   %1048 = inttoptr i64 %1047 to ptr
   %1049 = load ptr, ptr %1044, align 8, !noalias !958
@@ -8539,7 +8525,7 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE9push_backEOS2_.exit.i: ; preds = %_Z
   %1057 = sub i64 %1055, %1056
   %1058 = icmp eq i64 %1057, %1035
   call void @llvm.assume(i1 %1058)
-  %1059 = getelementptr inbounds nuw %"class.WasmEdge::LLVM::Value", ptr %1054, i64 %.097.i
+  %1059 = getelementptr inbounds %"class.WasmEdge::LLVM::Value", ptr %1054, i64 %.097.i
   %1060 = load i64, ptr %1059, align 8
   store i64 %1060, ptr %5, align 8
   %1061 = load i64, ptr %.02993.i, align 8
@@ -8623,8 +8609,8 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu
 
 _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE9push_backERKS2_.exit.i: ; preds = %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %1064
   %1090 = phi ptr [ %1067, %1064 ], [ %1087, %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ]
-  %1091 = add nuw nsw i64 %.097.i, 1
-  %exitcond.not.i = icmp eq i64 %1091, %umax.i
+  %1091 = add nuw i64 %.097.i, 1
+  %exitcond.not.i = icmp eq i64 %1091, %1036
   br i1 %exitcond.not.i, label %._crit_edge99.thread.i, label %.lr.ph95.preheader.i, !llvm.loop !966
 
 ._crit_edge99.i:                                  ; preds = %1039
@@ -20493,21 +20479,12 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS3_.exit: ; preds = %_ZNSt6vect
   %35 = ptrtoint ptr %34 to i64
   %36 = getelementptr inbounds i8, ptr %.val29, i64 -136
   %37 = getelementptr i8, ptr %29, i64 %26
-  br i1 %31, label %.lr.ph.split.us, label %.critedge.i.preheader
-
-.critedge.i.preheader:                            ; preds = %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS3_.exit
-  %umax = tail call i64 @llvm.umax.i64(i64 %30, i64 1)
-  %.pre = load ptr, ptr %33, align 8, !noalias !2807
-  br label %.critedge.i
-
-.lr.ph.split.us:                                  ; preds = %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS3_.exit
   %.promoted = load ptr, ptr %33, align 8, !noalias !2807
-  %umax101 = tail call i64 @llvm.umax.i64(i64 %30, i64 1)
-  br label %.critedge.thread.i.us
+  br i1 %31, label %.critedge.thread.i.us, label %.critedge.i
 
-.critedge.thread.i.us:                            ; preds = %.critedge.thread.i.us, %.lr.ph.split.us
-  %38 = phi ptr [ %.promoted, %.lr.ph.split.us ], [ %41, %.critedge.thread.i.us ]
-  %.02485.us = phi i64 [ 0, %.lr.ph.split.us ], [ %45, %.critedge.thread.i.us ]
+.critedge.thread.i.us:                            ; preds = %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS3_.exit, %.critedge.thread.i.us
+  %38 = phi ptr [ %41, %.critedge.thread.i.us ], [ %.promoted, %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS3_.exit ]
+  %.02485.us = phi i64 [ %45, %.critedge.thread.i.us ], [ 0, %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS3_.exit ]
   %39 = xor i64 %.02485.us, -1
   %40 = icmp ne ptr %34, %38
   tail call void @llvm.assume(i1 %40)
@@ -20518,7 +20495,7 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS3_.exit: ; preds = %_ZNSt6vect
   %44 = getelementptr %"class.WasmEdge::LLVM::Value", ptr %37, i64 %39
   store ptr %43, ptr %44, align 8
   %45 = add nuw i64 %.02485.us, 1
-  %exitcond102.not = icmp eq i64 %45, %umax101
+  %exitcond102.not = icmp eq i64 %45, %30
   br i1 %exitcond102.not, label %.lr.ph89, label %.critedge.thread.i.us, !llvm.loop !2810
 
 .lr.ph89:                                         ; preds = %.critedge.i, %.critedge.thread.i.us
@@ -20527,12 +20504,11 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS3_.exit: ; preds = %_ZNSt6vect
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %umax103 = tail call i64 @llvm.umax.i64(i64 %30, i64 1)
   br label %63
 
-.critedge.i:                                      ; preds = %.critedge.i.preheader, %.critedge.i
-  %51 = phi ptr [ %58, %.critedge.i ], [ %.pre, %.critedge.i.preheader ]
-  %.02485 = phi i64 [ %62, %.critedge.i ], [ 0, %.critedge.i.preheader ]
+.critedge.i:                                      ; preds = %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS3_.exit, %.critedge.i
+  %51 = phi ptr [ %58, %.critedge.i ], [ %.promoted, %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS3_.exit ]
+  %.02485 = phi i64 [ %62, %.critedge.i ], [ 0, %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS3_.exit ]
   %52 = xor i64 %.02485, -1
   %53 = ptrtoint ptr %51 to i64
   %54 = sub i64 %53, %35
@@ -20547,7 +20523,7 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS3_.exit: ; preds = %_ZNSt6vect
   %61 = getelementptr %"class.WasmEdge::LLVM::Value", ptr %37, i64 %52
   store ptr %60, ptr %61, align 8
   %62 = add nuw i64 %.02485, 1
-  %exitcond.not = icmp eq i64 %62, %umax
+  %exitcond.not = icmp eq i64 %62, %30
   br i1 %exitcond.not, label %.lr.ph89, label %.critedge.i, !llvm.loop !2810
 
 63:                                               ; preds = %.lr.ph89, %_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE.exit
@@ -20639,7 +20615,7 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu
 
 _ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE.exit: ; preds = %74, %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
   %101 = add nuw i64 %.02688, 1
-  %exitcond104.not = icmp eq i64 %101, %umax103
+  %exitcond104.not = icmp eq i64 %101, %30
   br i1 %exitcond104.not, label %._crit_edge, label %63, !llvm.loop !2819
 
 ._crit_edge:                                      ; preds = %_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE.exit
@@ -21365,7 +21341,6 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS2_RKS3_.exit: ; preds = %.lr.p
   %104 = load ptr, ptr %43, align 8
   %105 = ptrtoint ptr %104 to i64
   %106 = getelementptr inbounds i8, ptr %.val5.i61, i64 -136
-  %umax268 = tail call i64 @llvm.umax.i64(i64 %78, i64 1)
   br i1 %103, label %.critedge.thread.i64.us, label %.critedge.i62
 
 .critedge.thread.i64.us:                          ; preds = %.lr.ph, %.critedge.thread.i64.us
@@ -21381,7 +21356,7 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS2_RKS3_.exit: ; preds = %.lr.p
   %113 = getelementptr inbounds %"class.WasmEdge::LLVM::Value", ptr %.sroa.0212.0, i64 %108
   store ptr %112, ptr %113, align 8
   %114 = add nuw i64 %.053243.us, 1
-  %exitcond269.not = icmp eq i64 %114, %umax268
+  %exitcond269.not = icmp eq i64 %114, %78
   br i1 %exitcond269.not, label %._crit_edge, label %.critedge.thread.i64.us, !llvm.loop !2877
 
 .critedge.i62:                                    ; preds = %.lr.ph, %.critedge.i62
@@ -21401,7 +21376,7 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS2_RKS3_.exit: ; preds = %.lr.p
   %125 = getelementptr inbounds %"class.WasmEdge::LLVM::Value", ptr %.sroa.0212.0, i64 %116
   store ptr %124, ptr %125, align 8
   %126 = add nuw i64 %.053243, 1
-  %exitcond.not = icmp eq i64 %126, %umax268
+  %exitcond.not = icmp eq i64 %126, %78
   br i1 %exitcond.not, label %._crit_edge, label %.critedge.i62, !llvm.loop !2877
 
 ._crit_edge:                                      ; preds = %.critedge.i62, %.critedge.thread.i64.us, %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS2_RKS3_.exit
@@ -21724,14 +21699,10 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS3_.exit: ; preds = %_ZNSt6vect
 
 281:                                              ; preds = %271, %266
   %.sroa.0145.0 = phi ptr [ %270, %266 ], [ %280, %271 ]
-  br i1 %.not262, label %._crit_edge256, label %.lr.ph255.preheader
+  br i1 %.not262, label %._crit_edge256, label %.lr.ph255
 
-.lr.ph255.preheader:                              ; preds = %281
-  %umax270 = call i64 @llvm.umax.i64(i64 %78, i64 1)
-  br label %.lr.ph255
-
-.lr.ph255:                                        ; preds = %.lr.ph255.preheader, %.lr.ph255
-  %.054253 = phi i64 [ %292, %.lr.ph255 ], [ 0, %.lr.ph255.preheader ]
+.lr.ph255:                                        ; preds = %281, %.lr.ph255
+  %.054253 = phi i64 [ %292, %.lr.ph255 ], [ 0, %281 ]
   %282 = load ptr, ptr %0, align 8
   %283 = getelementptr inbounds nuw i8, ptr %282, i64 88
   %284 = load i64, ptr %283, align 8
@@ -21755,7 +21726,7 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS3_.exit: ; preds = %_ZNSt6vect
   %299 = call ptr @LLVMBuildBitCast(ptr noundef %298, ptr noundef %291, ptr noundef %297, ptr noundef nonnull @.str.11) #16, !noalias !2974
   %300 = load ptr, ptr %133, align 8, !noalias !2977
   %301 = call ptr @LLVMBuildStore(ptr noundef %300, ptr noundef %295, ptr noundef %299) #16, !noalias !2977
-  %exitcond271.not = icmp eq i64 %292, %umax270
+  %exitcond271.not = icmp eq i64 %292, %78
   br i1 %exitcond271.not, label %._crit_edge256, label %.lr.ph255, !llvm.loop !2980
 
 ._crit_edge256:                                   ; preds = %.lr.ph255, %281
@@ -22313,7 +22284,6 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS2_RKS3_.exit: ; preds = %.lr.p
   %94 = load ptr, ptr %33, align 8
   %95 = ptrtoint ptr %94 to i64
   %96 = getelementptr inbounds i8, ptr %.val5.i48, i64 -136
-  %umax174 = tail call i64 @llvm.umax.i64(i64 %68, i64 1)
   br i1 %93, label %.critedge.thread.i51.us, label %.critedge.i49
 
 .critedge.thread.i51.us:                          ; preds = %.lr.ph, %.critedge.thread.i51.us
@@ -22329,7 +22299,7 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS2_RKS3_.exit: ; preds = %.lr.p
   %103 = getelementptr inbounds %"class.WasmEdge::LLVM::Value", ptr %.sroa.0148.0, i64 %98
   store ptr %102, ptr %103, align 8
   %104 = add nuw i64 %.042166.us, 1
-  %exitcond175.not = icmp eq i64 %104, %umax174
+  %exitcond175.not = icmp eq i64 %104, %68
   br i1 %exitcond175.not, label %._crit_edge, label %.critedge.thread.i51.us, !llvm.loop !3096
 
 .critedge.i49:                                    ; preds = %.lr.ph, %.critedge.i49
@@ -22349,7 +22319,7 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS2_RKS3_.exit: ; preds = %.lr.p
   %115 = getelementptr inbounds %"class.WasmEdge::LLVM::Value", ptr %.sroa.0148.0, i64 %106
   store ptr %114, ptr %115, align 8
   %116 = add nuw i64 %.042166, 1
-  %exitcond.not = icmp eq i64 %116, %umax174
+  %exitcond.not = icmp eq i64 %116, %68
   br i1 %exitcond.not, label %._crit_edge, label %.critedge.i49, !llvm.loop !3096
 
 ._crit_edge:                                      ; preds = %.critedge.i49, %.critedge.thread.i51.us, %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS2_RKS3_.exit
@@ -22510,14 +22480,10 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS2_RKS3_.exit: ; preds = %.lr.p
 
 221:                                              ; preds = %211, %206
   %.sroa.0110.0 = phi ptr [ %210, %206 ], [ %220, %211 ]
-  br i1 %.not, label %._crit_edge170, label %.lr.ph169.preheader
+  br i1 %.not, label %._crit_edge170, label %.lr.ph169
 
-.lr.ph169.preheader:                              ; preds = %221
-  %umax176 = call i64 @llvm.umax.i64(i64 %68, i64 1)
-  br label %.lr.ph169
-
-.lr.ph169:                                        ; preds = %.lr.ph169.preheader, %.lr.ph169
-  %.043167 = phi i64 [ %232, %.lr.ph169 ], [ 0, %.lr.ph169.preheader ]
+.lr.ph169:                                        ; preds = %221, %.lr.ph169
+  %.043167 = phi i64 [ %232, %.lr.ph169 ], [ 0, %221 ]
   %222 = load ptr, ptr %0, align 8
   %223 = getelementptr inbounds nuw i8, ptr %222, i64 88
   %224 = load i64, ptr %223, align 8
@@ -22541,7 +22507,7 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS2_RKS3_.exit: ; preds = %.lr.p
   %239 = call ptr @LLVMBuildBitCast(ptr noundef %238, ptr noundef %231, ptr noundef %237, ptr noundef nonnull @.str.11) #16, !noalias !3191
   %240 = load ptr, ptr %117, align 8, !noalias !3194
   %241 = call ptr @LLVMBuildStore(ptr noundef %240, ptr noundef %235, ptr noundef %239) #16, !noalias !3194
-  %exitcond177.not = icmp eq i64 %232, %umax176
+  %exitcond177.not = icmp eq i64 %232, %68
   br i1 %exitcond177.not, label %._crit_edge170, label %.lr.ph169, !llvm.loop !3197
 
 ._crit_edge170:                                   ; preds = %.lr.ph169, %221
@@ -22987,7 +22953,6 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS2_RKS3_.exit: ; preds = %.lr.p
   %188 = load ptr, ptr %49, align 8
   %189 = ptrtoint ptr %188 to i64
   %190 = getelementptr inbounds i8, ptr %.val5.i57, i64 -136
-  %umax294 = call i64 @llvm.umax.i64(i64 %162, i64 1)
   br i1 %187, label %.critedge.thread.i60.us, label %.critedge.i58
 
 .critedge.thread.i60.us:                          ; preds = %.lr.ph, %.critedge.thread.i60.us
@@ -23003,7 +22968,7 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS2_RKS3_.exit: ; preds = %.lr.p
   %197 = getelementptr inbounds %"class.WasmEdge::LLVM::Value", ptr %.sroa.0211.0, i64 %192
   store ptr %196, ptr %197, align 8
   %198 = add nuw i64 %.049263.us, 1
-  %exitcond295.not = icmp eq i64 %198, %umax294
+  %exitcond295.not = icmp eq i64 %198, %162
   br i1 %exitcond295.not, label %._crit_edge, label %.critedge.thread.i60.us, !llvm.loop !3338
 
 .critedge.i58:                                    ; preds = %.lr.ph, %.critedge.i58
@@ -23023,7 +22988,7 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS2_RKS3_.exit: ; preds = %.lr.p
   %209 = getelementptr inbounds %"class.WasmEdge::LLVM::Value", ptr %.sroa.0211.0, i64 %200
   store ptr %208, ptr %209, align 8
   %210 = add nuw i64 %.049263, 1
-  %exitcond.not = icmp eq i64 %210, %umax294
+  %exitcond.not = icmp eq i64 %210, %162
   br i1 %exitcond.not, label %._crit_edge, label %.critedge.i58, !llvm.loop !3338
 
 ._crit_edge:                                      ; preds = %.critedge.i58, %.critedge.thread.i60.us, %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS2_RKS3_.exit
@@ -23326,14 +23291,10 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS3_.exit: ; preds = %_ZNSt6vect
 
 353:                                              ; preds = %343, %338
   %.sroa.0144.0 = phi ptr [ %342, %338 ], [ %352, %343 ]
-  br i1 %.not282, label %._crit_edge276, label %.lr.ph275.preheader
+  br i1 %.not282, label %._crit_edge276, label %.lr.ph275
 
-.lr.ph275.preheader:                              ; preds = %353
-  %umax296 = call i64 @llvm.umax.i64(i64 %162, i64 1)
-  br label %.lr.ph275
-
-.lr.ph275:                                        ; preds = %.lr.ph275.preheader, %.lr.ph275
-  %.050273 = phi i64 [ %364, %.lr.ph275 ], [ 0, %.lr.ph275.preheader ]
+.lr.ph275:                                        ; preds = %353, %.lr.ph275
+  %.050273 = phi i64 [ %364, %.lr.ph275 ], [ 0, %353 ]
   %354 = load ptr, ptr %0, align 8
   %355 = getelementptr inbounds nuw i8, ptr %354, i64 88
   %356 = load i64, ptr %355, align 8
@@ -23357,7 +23318,7 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS3_.exit: ; preds = %_ZNSt6vect
   %371 = call ptr @LLVMBuildBitCast(ptr noundef %370, ptr noundef %363, ptr noundef %369, ptr noundef nonnull @.str.11) #16, !noalias !3415
   %372 = load ptr, ptr %45, align 8, !noalias !3418
   %373 = call ptr @LLVMBuildStore(ptr noundef %372, ptr noundef %367, ptr noundef %371) #16, !noalias !3418
-  %exitcond297.not = icmp eq i64 %364, %umax296
+  %exitcond297.not = icmp eq i64 %364, %162
   br i1 %exitcond297.not, label %._crit_edge276, label %.lr.ph275, !llvm.loop !3421
 
 ._crit_edge276:                                   ; preds = %.lr.ph275, %353
@@ -23878,7 +23839,6 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS2_RKS3_.exit: ; preds = %.lr.p
   %178 = load ptr, ptr %39, align 8
   %179 = ptrtoint ptr %178 to i64
   %180 = getelementptr inbounds i8, ptr %.val5.i44, i64 -136
-  %umax198 = call i64 @llvm.umax.i64(i64 %152, i64 1)
   br i1 %177, label %.critedge.thread.i47.us, label %.critedge.i45
 
 .critedge.thread.i47.us:                          ; preds = %.lr.ph, %.critedge.thread.i47.us
@@ -23894,7 +23854,7 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS2_RKS3_.exit: ; preds = %.lr.p
   %187 = getelementptr inbounds %"class.WasmEdge::LLVM::Value", ptr %.sroa.0145.0, i64 %182
   store ptr %186, ptr %187, align 8
   %188 = add nuw i64 %.038184.us, 1
-  %exitcond199.not = icmp eq i64 %188, %umax198
+  %exitcond199.not = icmp eq i64 %188, %152
   br i1 %exitcond199.not, label %._crit_edge, label %.critedge.thread.i47.us, !llvm.loop !3545
 
 .critedge.i45:                                    ; preds = %.lr.ph, %.critedge.i45
@@ -23914,7 +23874,7 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS2_RKS3_.exit: ; preds = %.lr.p
   %199 = getelementptr inbounds %"class.WasmEdge::LLVM::Value", ptr %.sroa.0145.0, i64 %190
   store ptr %198, ptr %199, align 8
   %200 = add nuw i64 %.038184, 1
-  %exitcond.not = icmp eq i64 %200, %umax198
+  %exitcond.not = icmp eq i64 %200, %152
   br i1 %exitcond.not, label %._crit_edge, label %.critedge.i45, !llvm.loop !3545
 
 ._crit_edge:                                      ; preds = %.critedge.i45, %.critedge.thread.i47.us, %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS2_RKS3_.exit
@@ -24055,14 +24015,10 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS2_RKS3_.exit: ; preds = %.lr.p
 
 293:                                              ; preds = %283, %278
   %.sroa.0107.0 = phi ptr [ %282, %278 ], [ %292, %283 ]
-  br i1 %.not, label %._crit_edge188, label %.lr.ph187.preheader
+  br i1 %.not, label %._crit_edge188, label %.lr.ph187
 
-.lr.ph187.preheader:                              ; preds = %293
-  %umax200 = call i64 @llvm.umax.i64(i64 %152, i64 1)
-  br label %.lr.ph187
-
-.lr.ph187:                                        ; preds = %.lr.ph187.preheader, %.lr.ph187
-  %.039185 = phi i64 [ %304, %.lr.ph187 ], [ 0, %.lr.ph187.preheader ]
+.lr.ph187:                                        ; preds = %293, %.lr.ph187
+  %.039185 = phi i64 [ %304, %.lr.ph187 ], [ 0, %293 ]
   %294 = load ptr, ptr %0, align 8
   %295 = getelementptr inbounds nuw i8, ptr %294, i64 88
   %296 = load i64, ptr %295, align 8
@@ -24086,7 +24042,7 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS2_RKS3_.exit: ; preds = %.lr.p
   %311 = call ptr @LLVMBuildBitCast(ptr noundef %310, ptr noundef %303, ptr noundef %309, ptr noundef nonnull @.str.11) #16, !noalias !3620
   %312 = load ptr, ptr %35, align 8, !noalias !3623
   %313 = call ptr @LLVMBuildStore(ptr noundef %312, ptr noundef %307, ptr noundef %311) #16, !noalias !3623
-  %exitcond201.not = icmp eq i64 %304, %umax200
+  %exitcond201.not = icmp eq i64 %304, %152
   br i1 %exitcond201.not, label %._crit_edge188, label %.lr.ph187, !llvm.loop !3626
 
 ._crit_edge188:                                   ; preds = %.lr.ph187, %293

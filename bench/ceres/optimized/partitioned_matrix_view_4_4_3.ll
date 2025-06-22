@@ -859,7 +859,6 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i: ; preds = %19
 
 .lr.ph77.preheader:                               ; preds = %._crit_edge
   %69 = sext i32 %50 to i64
-  %umax = tail call i64 @llvm.umax.i64(i64 %58, i64 1)
   br label %.lr.ph77
 
 .lr.ph:                                           ; preds = %.critedge, %77
@@ -923,7 +922,7 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i: ; preds = %19
   %100 = phi i32 [ %91, %97 ], [ %96, %95 ]
   %101 = phi i32 [ %98, %97 ], [ %90, %95 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %58
   br i1 %exitcond.not, label %._crit_edge78.loopexit, label %.lr.ph77, !llvm.loop !66
 
 102:                                              ; preds = %._crit_edge78

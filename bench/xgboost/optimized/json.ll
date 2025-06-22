@@ -830,14 +830,10 @@ define weak_odr noundef zeroext i1 @_ZNK7xgboost14JsonTypedArrayIfLNS_5Value9Val
 
 .preheader:                                       ; preds = %6
   %.not2324 = icmp eq ptr %11, %12
-  br i1 %.not2324, label %.loopexit, label %.lr.ph.preheader
+  br i1 %.not2324, label %.loopexit, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %.preheader
-  %umax = tail call i64 @llvm.umax.i64(i64 %16, i64 1)
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %40
-  %.01925 = phi i64 [ %41, %40 ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %40
+  %.01925 = phi i64 [ %41, %40 ], [ 0, %.preheader ]
   %23 = getelementptr inbounds nuw float, ptr %12, i64 %.01925
   %24 = load float, ptr %23, align 4, !tbaa !21
   %25 = fcmp uno float %24, 0.000000e+00
@@ -867,7 +863,7 @@ define weak_odr noundef zeroext i1 @_ZNK7xgboost14JsonTypedArrayIfLNS_5Value9Val
 
 40:                                               ; preds = %35, %26, %38
   %41 = add nuw i64 %.01925, 1
-  %exitcond.not = icmp eq i64 %41, %umax
+  %exitcond.not = icmp eq i64 %41, %16
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !23
 
 .loopexit:                                        ; preds = %35, %26, %40, %38, %.preheader, %6, %2
@@ -7852,7 +7848,6 @@ _ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit.i: ; preds = %_ZNSt6vectorI
   %39 = sub i64 %37, %38
   %40 = ashr exact i64 %39, 3
   %41 = add nsw i64 %40, -1
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %40, i64 1)
   br label %70
 
 ._crit_edge.i:                                    ; preds = %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit32.i, %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit.i
@@ -8062,7 +8057,7 @@ _ZN7xgboost4JsonD2Ev.exit34.i:                    ; preds = %125, %121, %118
 
 _ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit32.i: ; preds = %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i31.i, %95, %_ZN7xgboost4JsonD2Ev.exit.i
   %129 = add nuw i64 %.06.i, 1
-  %exitcond.not.i = icmp eq i64 %129, %umax.i
+  %exitcond.not.i = icmp eq i64 %129, %40
   br i1 %exitcond.not.i, label %._crit_edge.i, label %70, !llvm.loop !190
 
 "_ZN7xgboost10JsonWriter10WriteArrayINS_9JsonArrayEZNS0_5VisitEPKS2_E3$_0EEvPKT_OT0_.exit": ; preds = %47, %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i21.i
@@ -8156,7 +8151,6 @@ _ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit.i: ; preds = %_ZNSt6vectorI
   %39 = sub i64 %37, %38
   %40 = ashr exact i64 %39, 2
   %41 = add nsw i64 %40, -1
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %40, i64 1)
   br label %70
 
 ._crit_edge.i:                                    ; preds = %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit32.i, %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit.i
@@ -8366,7 +8360,7 @@ _ZN7xgboost4JsonD2Ev.exit34.i:                    ; preds = %128, %124, %121
 
 _ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit32.i: ; preds = %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i31.i, %98, %_ZN7xgboost4JsonD2Ev.exit.i
   %132 = add nuw i64 %.06.i, 1
-  %exitcond.not.i = icmp eq i64 %132, %umax.i
+  %exitcond.not.i = icmp eq i64 %132, %40
   br i1 %exitcond.not.i, label %._crit_edge.i, label %70, !llvm.loop !196
 
 "_ZN7xgboost10JsonWriter10WriteArrayINS_14JsonTypedArrayIfLNS_5Value9ValueKindE7EEEZNS0_5VisitEPKS5_E3$_0EEvPKT_OT0_.exit": ; preds = %47, %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i21.i
@@ -8459,7 +8453,6 @@ _ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit.i: ; preds = %_ZNSt6vectorI
   %38 = ptrtoint ptr %36 to i64
   %39 = sub i64 %37, %38
   %40 = add i64 %39, -1
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %39, i64 1)
   br label %69
 
 ._crit_edge.i:                                    ; preds = %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit32.i, %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit.i
@@ -8670,7 +8663,7 @@ _ZN7xgboost4JsonD2Ev.exit34.i:                    ; preds = %128, %124, %121
 
 _ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit32.i: ; preds = %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i31.i, %98, %_ZN7xgboost4JsonD2Ev.exit.i
   %132 = add nuw i64 %.06.i, 1
-  %exitcond.not.i = icmp eq i64 %132, %umax.i
+  %exitcond.not.i = icmp eq i64 %132, %39
   br i1 %exitcond.not.i, label %._crit_edge.i, label %69, !llvm.loop !202
 
 "_ZN7xgboost10JsonWriter10WriteArrayINS_14JsonTypedArrayIaLNS_5Value9ValueKindE9EEERNS_12_GLOBAL__N_13$_2EEEvPKT_OT0_.exit": ; preds = %46, %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i21.i
@@ -8763,7 +8756,6 @@ _ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit.i: ; preds = %_ZNSt6vectorI
   %38 = ptrtoint ptr %36 to i64
   %39 = sub i64 %37, %38
   %40 = add i64 %39, -1
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %39, i64 1)
   br label %69
 
 ._crit_edge.i:                                    ; preds = %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit32.i, %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit.i
@@ -8974,7 +8966,7 @@ _ZN7xgboost4JsonD2Ev.exit34.i:                    ; preds = %128, %124, %121
 
 _ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit32.i: ; preds = %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i31.i, %98, %_ZN7xgboost4JsonD2Ev.exit.i
   %132 = add nuw i64 %.06.i, 1
-  %exitcond.not.i = icmp eq i64 %132, %umax.i
+  %exitcond.not.i = icmp eq i64 %132, %39
   br i1 %exitcond.not.i, label %._crit_edge.i, label %69, !llvm.loop !206
 
 "_ZN7xgboost10JsonWriter10WriteArrayINS_14JsonTypedArrayIhLNS_5Value9ValueKindE10EEERNS_12_GLOBAL__N_13$_2EEEvPKT_OT0_.exit": ; preds = %46, %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i21.i
@@ -9068,7 +9060,6 @@ _ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit.i: ; preds = %_ZNSt6vectorI
   %39 = sub i64 %37, %38
   %40 = ashr exact i64 %39, 1
   %41 = add nsw i64 %40, -1
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %40, i64 1)
   br label %70
 
 ._crit_edge.i:                                    ; preds = %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit32.i, %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit.i
@@ -9279,7 +9270,7 @@ _ZN7xgboost4JsonD2Ev.exit34.i:                    ; preds = %129, %125, %122
 
 _ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit32.i: ; preds = %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i31.i, %99, %_ZN7xgboost4JsonD2Ev.exit.i
   %133 = add nuw i64 %.06.i, 1
-  %exitcond.not.i = icmp eq i64 %133, %umax.i
+  %exitcond.not.i = icmp eq i64 %133, %40
   br i1 %exitcond.not.i, label %._crit_edge.i, label %70, !llvm.loop !210
 
 "_ZN7xgboost10JsonWriter10WriteArrayINS_14JsonTypedArrayIsLNS_5Value9ValueKindE11EEERNS_12_GLOBAL__N_13$_2EEEvPKT_OT0_.exit": ; preds = %47, %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i21.i
@@ -9373,7 +9364,6 @@ _ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit.i: ; preds = %_ZNSt6vectorI
   %39 = sub i64 %37, %38
   %40 = ashr exact i64 %39, 2
   %41 = add nsw i64 %40, -1
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %40, i64 1)
   br label %70
 
 ._crit_edge.i:                                    ; preds = %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit32.i, %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit.i
@@ -9584,7 +9574,7 @@ _ZN7xgboost4JsonD2Ev.exit34.i:                    ; preds = %129, %125, %122
 
 _ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit32.i: ; preds = %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i31.i, %99, %_ZN7xgboost4JsonD2Ev.exit.i
   %133 = add nuw i64 %.06.i, 1
-  %exitcond.not.i = icmp eq i64 %133, %umax.i
+  %exitcond.not.i = icmp eq i64 %133, %40
   br i1 %exitcond.not.i, label %._crit_edge.i, label %70, !llvm.loop !214
 
 "_ZN7xgboost10JsonWriter10WriteArrayINS_14JsonTypedArrayIiLNS_5Value9ValueKindE12EEERNS_12_GLOBAL__N_13$_2EEEvPKT_OT0_.exit": ; preds = %47, %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i21.i
@@ -9678,7 +9668,6 @@ _ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit.i: ; preds = %_ZNSt6vectorI
   %39 = sub i64 %37, %38
   %40 = ashr exact i64 %39, 3
   %41 = add nsw i64 %40, -1
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %40, i64 1)
   br label %70
 
 ._crit_edge.i:                                    ; preds = %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit32.i, %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit.i
@@ -9888,7 +9877,7 @@ _ZN7xgboost4JsonD2Ev.exit34.i:                    ; preds = %128, %124, %121
 
 _ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit32.i: ; preds = %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i31.i, %98, %_ZN7xgboost4JsonD2Ev.exit.i
   %132 = add nuw i64 %.06.i, 1
-  %exitcond.not.i = icmp eq i64 %132, %umax.i
+  %exitcond.not.i = icmp eq i64 %132, %40
   br i1 %exitcond.not.i, label %._crit_edge.i, label %70, !llvm.loop !218
 
 "_ZN7xgboost10JsonWriter10WriteArrayINS_14JsonTypedArrayIlLNS_5Value9ValueKindE13EEERNS_12_GLOBAL__N_13$_2EEEvPKT_OT0_.exit": ; preds = %47, %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i21.i

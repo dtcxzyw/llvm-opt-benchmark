@@ -1158,7 +1158,6 @@ _ZNK2cv12_GLOBAL__N_120VideoBackendRegistry18getEnabledBackendsEv.exit: ; preds 
   %45 = sdiv exact i64 %44, 40
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %umax = tail call i64 @llvm.umax.i64(i64 %45, i64 1)
   br label %48
 
 48:                                               ; preds = %.lr.ph, %_ZNSt6vectorIN2cv16VideoCaptureAPIsESaIS1_EE9push_backEOS1_.exit
@@ -1235,7 +1234,7 @@ _ZNSt6vectorIN2cv16VideoCaptureAPIsESaIS1_EE9push_backEOS1_.exit: ; preds = %_ZN
   %76 = phi ptr [ %72, %_ZNSt6vectorIN2cv16VideoCaptureAPIsESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %55, %54 ]
   %77 = phi ptr [ %68, %_ZNSt6vectorIN2cv16VideoCaptureAPIsESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %51, %54 ]
   %78 = add nuw i64 %.020, 1
-  %exitcond.not = icmp eq i64 %78, %umax
+  %exitcond.not = icmp eq i64 %78, %45
   br i1 %exitcond.not, label %._crit_edge, label %48, !llvm.loop !75
 
 .loopexit:                                        ; preds = %_ZNKSt6vectorIN2cv16VideoCaptureAPIsESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
@@ -2787,12 +2786,11 @@ _ZNK2cv12_GLOBAL__N_120VideoBackendRegistry18getEnabledBackendsEv.exit: ; preds 
   %46 = ptrtoint ptr %.pre to i64
   %47 = sub i64 %45, %46
   %48 = sdiv exact i64 %47, 40
-  %umax = tail call i64 @llvm.umax.i64(i64 %48, i64 1)
   br label %.lr.ph
 
 49:                                               ; preds = %.lr.ph
   %50 = add nuw i64 %.01828, 1
-  %exitcond.not = icmp eq i64 %50, %umax
+  %exitcond.not = icmp eq i64 %50, %48
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !95
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %49
@@ -3125,12 +3123,11 @@ _ZNK2cv12_GLOBAL__N_120VideoBackendRegistry18getEnabledBackendsEv.exit: ; preds 
   %44 = ptrtoint ptr %.pre to i64
   %45 = sub i64 %43, %44
   %46 = sdiv exact i64 %45, 40
-  %umax = tail call i64 @llvm.umax.i64(i64 %46, i64 1)
   br label %.lr.ph
 
 47:                                               ; preds = %.lr.ph
   %48 = add nuw i64 %.01829, 1
-  %exitcond.not = icmp eq i64 %48, %umax
+  %exitcond.not = icmp eq i64 %48, %46
   br i1 %exitcond.not, label %.thread, label %.lr.ph, !llvm.loop !102
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %47
@@ -3425,12 +3422,11 @@ _ZNK2cv12_GLOBAL__N_120VideoBackendRegistry35getAvailableBackends_CaptureByIndex
   %64 = ptrtoint ptr %.pre45 to i64
   %65 = sub i64 %63, %64
   %66 = sdiv exact i64 %65, 40
-  %umax = call i64 @llvm.umax.i64(i64 %66, i64 1)
   br label %.critedge
 
 67:                                               ; preds = %.critedge
   %68 = add nuw i64 %.01943, 1
-  %exitcond.not = icmp eq i64 %68, %umax
+  %exitcond.not = icmp eq i64 %68, %66
   br i1 %exitcond.not, label %.critedge31, label %.critedge, !llvm.loop !106
 
 .critedge:                                        ; preds = %.critedge.preheader, %67
@@ -3817,12 +3813,11 @@ _ZNK2cv12_GLOBAL__N_120VideoBackendRegistry38getAvailableBackends_CaptureByFilen
   %64 = ptrtoint ptr %.pre45 to i64
   %65 = sub i64 %63, %64
   %66 = sdiv exact i64 %65, 40
-  %umax = call i64 @llvm.umax.i64(i64 %66, i64 1)
   br label %.critedge
 
 67:                                               ; preds = %.critedge
   %68 = add nuw i64 %.01943, 1
-  %exitcond.not = icmp eq i64 %68, %umax
+  %exitcond.not = icmp eq i64 %68, %66
   br i1 %exitcond.not, label %.critedge31, label %.critedge, !llvm.loop !110
 
 .critedge:                                        ; preds = %.critedge.preheader, %67
@@ -4207,12 +4202,11 @@ _ZNK2cv12_GLOBAL__N_120VideoBackendRegistry36getAvailableBackends_CaptureByStrea
   %64 = ptrtoint ptr %.pre45 to i64
   %65 = sub i64 %63, %64
   %66 = sdiv exact i64 %65, 40
-  %umax = call i64 @llvm.umax.i64(i64 %66, i64 1)
   br label %.critedge
 
 67:                                               ; preds = %.critedge
   %68 = add nuw i64 %.01943, 1
-  %exitcond.not = icmp eq i64 %68, %umax
+  %exitcond.not = icmp eq i64 %68, %66
   br i1 %exitcond.not, label %.critedge31, label %.critedge, !llvm.loop !114
 
 .critedge:                                        ; preds = %.critedge.preheader, %67
@@ -4597,12 +4591,11 @@ _ZNK2cv12_GLOBAL__N_120VideoBackendRegistry27getAvailableBackends_WriterEv.exit:
   %64 = ptrtoint ptr %.pre45 to i64
   %65 = sub i64 %63, %64
   %66 = sdiv exact i64 %65, 40
-  %umax = call i64 @llvm.umax.i64(i64 %66, i64 1)
   br label %.critedge
 
 67:                                               ; preds = %.critedge
   %68 = add nuw i64 %.01943, 1
-  %exitcond.not = icmp eq i64 %68, %umax
+  %exitcond.not = icmp eq i64 %68, %66
   br i1 %exitcond.not, label %.critedge31, label %.critedge, !llvm.loop !118
 
 .critedge:                                        ; preds = %.critedge.preheader, %67

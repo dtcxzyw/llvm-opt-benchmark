@@ -379,11 +379,7 @@ define { i64, i64 } @_ZN2cv6detail9resultRoiERKSt6vectorINS_6Point_IiEESaIS3_EER
 
 .preheader:                                       ; preds = %2
   %.not = icmp eq ptr %12, %13
-  br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %.preheader
-  %umax = tail call i64 @llvm.umax.i64(i64 %17, i64 1)
-  br label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 19:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #18
@@ -442,12 +438,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.3.8.insert.insert, 1
   ret { i64, i64 } %.fca.1.insert
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.056 = phi i64 [ %45, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.sroa.035.055 = phi i32 [ %.sroa.speculated44, %.lr.ph ], [ 2147483647, %.lr.ph.preheader ]
-  %.sroa.838.054 = phi i32 [ %.sroa.speculated41, %.lr.ph ], [ 2147483647, %.lr.ph.preheader ]
-  %.sroa.0.053 = phi i32 [ %.sroa.speculated26, %.lr.ph ], [ -2147483648, %.lr.ph.preheader ]
-  %.sroa.8.052 = phi i32 [ %.sroa.speculated, %.lr.ph ], [ -2147483648, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %.lr.ph
+  %.056 = phi i64 [ %45, %.lr.ph ], [ 0, %.preheader ]
+  %.sroa.035.055 = phi i32 [ %.sroa.speculated44, %.lr.ph ], [ 2147483647, %.preheader ]
+  %.sroa.838.054 = phi i32 [ %.sroa.speculated41, %.lr.ph ], [ 2147483647, %.preheader ]
+  %.sroa.0.053 = phi i32 [ %.sroa.speculated26, %.lr.ph ], [ -2147483648, %.preheader ]
+  %.sroa.8.052 = phi i32 [ %.sroa.speculated, %.lr.ph ], [ -2147483648, %.preheader ]
   %35 = getelementptr inbounds nuw %"class.cv::Point_", ptr %13, i64 %.056
   %36 = load i32, ptr %35, align 4, !tbaa !3
   %.sroa.speculated44 = tail call i32 @llvm.smin.i32(i32 %36, i32 %.sroa.035.055)
@@ -463,7 +459,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %44 = add nsw i32 %43, %38
   %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %.sroa.8.052, i32 %44)
   %45 = add nuw i64 %.056, 1
-  %exitcond.not = icmp eq i64 %45, %umax
+  %exitcond.not = icmp eq i64 %45, %17
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !52
 }
 
@@ -495,11 +491,7 @@ define { i64, i64 } @_ZN2cv6detail21resultRoiIntersectionERKSt6vectorINS_6Point_
 
 .preheader:                                       ; preds = %2
   %.not = icmp eq ptr %12, %13
-  br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %.preheader
-  %umax = tail call i64 @llvm.umax.i64(i64 %17, i64 1)
-  br label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 19:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #18
@@ -558,12 +550,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.3.8.insert.insert, 1
   ret { i64, i64 } %.fca.1.insert
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.056 = phi i64 [ %45, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.sroa.035.055 = phi i32 [ %.sroa.speculated44, %.lr.ph ], [ -2147483648, %.lr.ph.preheader ]
-  %.sroa.838.054 = phi i32 [ %.sroa.speculated41, %.lr.ph ], [ -2147483648, %.lr.ph.preheader ]
-  %.sroa.0.053 = phi i32 [ %.sroa.speculated26, %.lr.ph ], [ 2147483647, %.lr.ph.preheader ]
-  %.sroa.8.052 = phi i32 [ %.sroa.speculated, %.lr.ph ], [ 2147483647, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %.lr.ph
+  %.056 = phi i64 [ %45, %.lr.ph ], [ 0, %.preheader ]
+  %.sroa.035.055 = phi i32 [ %.sroa.speculated44, %.lr.ph ], [ -2147483648, %.preheader ]
+  %.sroa.838.054 = phi i32 [ %.sroa.speculated41, %.lr.ph ], [ -2147483648, %.preheader ]
+  %.sroa.0.053 = phi i32 [ %.sroa.speculated26, %.lr.ph ], [ 2147483647, %.preheader ]
+  %.sroa.8.052 = phi i32 [ %.sroa.speculated, %.lr.ph ], [ 2147483647, %.preheader ]
   %35 = getelementptr inbounds nuw %"class.cv::Point_", ptr %13, i64 %.056
   %36 = load i32, ptr %35, align 4, !tbaa !3
   %.sroa.speculated44 = tail call i32 @llvm.smax.i32(i32 %.sroa.035.055, i32 %36)
@@ -579,7 +571,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %44 = add nsw i32 %43, %38
   %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %44, i32 %.sroa.8.052)
   %45 = add nuw i64 %.056, 1
-  %exitcond.not = icmp eq i64 %45, %umax
+  %exitcond.not = icmp eq i64 %45, %17
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !53
 }
 
@@ -596,7 +588,6 @@ define i64 @_ZN2cv6detail8resultTlERKSt6vectorINS_6Point_IiEESaIS3_EE(ptr nounde
   %6 = ptrtoint ptr %4 to i64
   %7 = sub i64 %5, %6
   %8 = ashr exact i64 %7, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %8, i64 1)
   br label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
@@ -621,7 +612,7 @@ define i64 @_ZN2cv6detail8resultTlERKSt6vectorINS_6Point_IiEESaIS3_EE(ptr nounde
   %16 = load i32, ptr %15, align 4, !tbaa !3
   %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %16, i32 %.sroa.5.016)
   %17 = add nuw i64 %.017, 1
-  %exitcond.not = icmp eq i64 %17, %umax
+  %exitcond.not = icmp eq i64 %17, %8
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !54
 }
 

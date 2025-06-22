@@ -557,8 +557,7 @@ define internal range(i32 -107, 1) i32 @CVAhermiteGetY(ptr noundef readonly capt
   br i1 %52, label %.loopexit, label %.lr.ph.i
 
 .thread129:                                       ; preds = %.lr.ph.i
-  %..i = tail call i64 @llvm.umax.i64(i64 %storemerge5155.i, i64 1)
-  store i64 %..i, ptr %35, align 8, !tbaa !29
+  store i64 %storemerge5155.i, ptr %35, align 8, !tbaa !29
   br label %91
 
 .loopexit:                                        ; preds = %50, %43
@@ -1231,8 +1230,7 @@ define internal range(i32 -107, 1) i32 @CVApolynomialGetY(ptr noundef readonly c
   br i1 %49, label %.loopexit211, label %.lr.ph.i
 
 .thread195:                                       ; preds = %.lr.ph.i
-  %..i = tail call i64 @llvm.umax.i64(i64 %storemerge5155.i, i64 1)
-  store i64 %..i, ptr %32, align 8, !tbaa !29
+  store i64 %storemerge5155.i, ptr %32, align 8, !tbaa !29
   br label %88
 
 .loopexit211:                                     ; preds = %47, %40
@@ -5687,9 +5685,6 @@ declare i32 @N_VLinearCombinationVectorArray(i32 noundef, i32 noundef, ptr nound
 declare void @N_VLinearSum(double noundef, ptr noundef, double noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare i32 @N_VLinearSumVectorArray(i32 noundef, double noundef, ptr noundef, double noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #6

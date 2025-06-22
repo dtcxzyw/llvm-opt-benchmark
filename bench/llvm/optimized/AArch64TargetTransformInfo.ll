@@ -26381,8 +26381,7 @@ _ZNK4llvm4Type13getScalarTypeEv.exit:             ; preds = %_ZNK4llvm3MVT20getV
   %123 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %124 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %125 = getelementptr inbounds nuw i8, ptr %17, i64 12
-  %umax = call i32 @llvm.umax.i32(i32 %67, i32 1)
-  %wide.trip.count = zext nneg i32 %umax to i64
+  %wide.trip.count = zext i16 %66 to i64
   br label %126
 
 126:                                              ; preds = %.lr.ph, %_ZN4llvm11SmallVectorIiLj12EED2Ev.exit

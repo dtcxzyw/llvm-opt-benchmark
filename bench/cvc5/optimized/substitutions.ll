@@ -1379,13 +1379,10 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit: ; preds = %215, %209, %217
 
 _ZNKSt6vectorIN4cvc58internal6theory26substitution_stack_elementESaIS3_EE12_M_check_lenEmPKc.exit.i654: ; preds = %258
   %264 = ashr exact i64 %261, 4
-  %.sroa.speculated.i.i655 = call i64 @llvm.umax.i64(i64 %264, i64 1)
-  %265 = add nsw i64 %.sroa.speculated.i.i655, %264
+  %265 = ashr exact i64 %261, 3
   %266 = icmp ult i64 %265, %264
   %267 = call i64 @llvm.umin.i64(i64 %265, i64 576460752303423487)
   %268 = select i1 %266, i64 576460752303423487, i64 %267
-  %.not.i.i656 = icmp ne i64 %268, 0
-  call void @llvm.assume(i1 %.not.i.i656)
   %269 = shl nuw nsw i64 %268, 4
   %270 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %269) #25
           to label %.noexc673 unwind label %.loopexit956
@@ -2480,13 +2477,10 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit353: ; preds = %716, %710, %71
 
 _ZNKSt6vectorIN4cvc58internal6theory26substitution_stack_elementESaIS3_EE12_M_check_lenEmPKc.exit.i675: ; preds = %758
   %764 = ashr exact i64 %761, 4
-  %.sroa.speculated.i.i676 = call i64 @llvm.umax.i64(i64 %764, i64 1)
-  %765 = add nsw i64 %.sroa.speculated.i.i676, %764
+  %765 = ashr exact i64 %761, 3
   %766 = icmp ult i64 %765, %764
   %767 = call i64 @llvm.umin.i64(i64 %765, i64 576460752303423487)
   %768 = select i1 %766, i64 576460752303423487, i64 %767
-  %.not.i.i677 = icmp ne i64 %768, 0
-  call void @llvm.assume(i1 %.not.i.i677)
   %769 = shl nuw nsw i64 %768, 4
   %770 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %769) #25
           to label %.noexc694 unwind label %.loopexit966
@@ -3237,13 +3231,10 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit512: ; preds = %_ZNSt13unordered_m
 
 _ZNKSt6vectorIN4cvc58internal6theory26substitution_stack_elementESaIS3_EE12_M_check_lenEmPKc.exit.i707: ; preds = %1089
   %1095 = ashr exact i64 %1092, 4
-  %.sroa.speculated.i.i708 = call i64 @llvm.umax.i64(i64 %1095, i64 1)
-  %1096 = add nsw i64 %.sroa.speculated.i.i708, %1095
+  %1096 = ashr exact i64 %1092, 3
   %1097 = icmp ult i64 %1096, %1095
   %1098 = call i64 @llvm.umin.i64(i64 %1096, i64 576460752303423487)
   %1099 = select i1 %1097, i64 576460752303423487, i64 %1098
-  %.not.i.i709 = icmp ne i64 %1099, 0
-  call void @llvm.assume(i1 %.not.i.i709)
   %1100 = shl nuw nsw i64 %1099, 4
   %1101 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %1100) #25
           to label %.noexc726 unwind label %.loopexit961

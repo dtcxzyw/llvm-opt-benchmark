@@ -20636,7 +20636,6 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1747: ; preds = %2713, %2723, %272
   %2740 = getelementptr inbounds nuw i8, ptr %127, i64 8
   %2741 = getelementptr inbounds nuw i8, ptr %126, i64 8
   %2742 = getelementptr inbounds nuw i8, ptr %126, i64 16
-  %umax = call i32 @llvm.umax.i32(i32 %2720, i32 1)
   br label %2776
 
 ._crit_edge3324:                                  ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1888, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1747
@@ -22052,7 +22051,7 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backERKS3_.exit: 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1888: ; preds = %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backERKS3_.exit, %3388, %3394
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %122) #20
   %3398 = add nuw i32 %.05693322, 1
-  %exitcond3368.not = icmp eq i32 %3398, %umax
+  %exitcond3368.not = icmp eq i32 %3398, %2720
   br i1 %exitcond3368.not, label %._crit_edge3324, label %2776, !llvm.loop !526
 
 3399:                                             ; preds = %.critedge940

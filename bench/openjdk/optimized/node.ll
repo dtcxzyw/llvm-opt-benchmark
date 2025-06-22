@@ -4464,12 +4464,12 @@ _ZN4Node4growEj.exit:                             ; preds = %44, %_ZN5Arena7Amal
   %68 = getelementptr inbounds nuw ptr, ptr %65, i64 %67
   %69 = load ptr, ptr %68, align 8
   %.not26 = icmp eq ptr %69, null
-  br i1 %.not26, label %_ZN4Copy24conjoint_words_to_higherEPKP12HeapWordImplPS1_m.exit, label %.preheader29
+  br i1 %.not26, label %_ZN4Copy24conjoint_words_to_higherEPKP12HeapWordImplPS1_m.exit.preheader, label %.preheader29
 
 .preheader29:                                     ; preds = %_ZN4Node4growEj.exit
   %70 = load i32, ptr %11, align 4
   %71 = icmp ult i32 %66, %70
-  br i1 %71, label %.lr.ph, label %_ZN4Copy24conjoint_words_to_higherEPKP12HeapWordImplPS1_m.exit
+  br i1 %71, label %.lr.ph, label %_ZN4Copy24conjoint_words_to_higherEPKP12HeapWordImplPS1_m.exit.preheader
 
 .lr.ph:                                           ; preds = %.preheader29, %76
   %.02230 = phi i32 [ %77, %76 ], [ %66, %.preheader29 ]
@@ -4487,7 +4487,7 @@ _ZN4Node4growEj.exit:                             ; preds = %44, %_ZN5Arena7Amal
 ._crit_edge:                                      ; preds = %76, %.lr.ph
   %.022.lcssa = phi i32 [ %70, %76 ], [ %.02230, %.lr.ph ]
   %78 = icmp eq i32 %.022.lcssa, %66
-  br i1 %78, label %_ZN4Copy24conjoint_words_to_higherEPKP12HeapWordImplPS1_m.exit, label %.lr.ph.preheader.i
+  br i1 %78, label %_ZN4Copy24conjoint_words_to_higherEPKP12HeapWordImplPS1_m.exit.preheader, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %._crit_edge
   %79 = sub i32 %.022.lcssa, %66
@@ -4510,123 +4510,122 @@ _ZN4Node4growEj.exit:                             ; preds = %44, %_ZN5Arena7Amal
   %90 = getelementptr inbounds i8, ptr %.01215.i, i64 -8
   store ptr %89, ptr %.01215.i, align 8
   %.not.i = icmp eq i64 %87, 0
-  br i1 %.not.i, label %_ZN4Copy24conjoint_words_to_higherEPKP12HeapWordImplPS1_m.exit, label %.lr.ph.i, !llvm.loop !19
+  br i1 %.not.i, label %_ZN4Copy24conjoint_words_to_higherEPKP12HeapWordImplPS1_m.exit.preheader, label %.lr.ph.i, !llvm.loop !19
 
-_ZN4Copy24conjoint_words_to_higherEPKP12HeapWordImplPS1_m.exit: ; preds = %.lr.ph.i, %.preheader29, %._crit_edge, %_ZN4Node4growEj.exit
-  %umax = tail call i32 @llvm.umax.i32(i32 %2, i32 1)
-  br label %91
+_ZN4Copy24conjoint_words_to_higherEPKP12HeapWordImplPS1_m.exit.preheader: ; preds = %.lr.ph.i, %.preheader29, %._crit_edge, %_ZN4Node4growEj.exit
+  br label %_ZN4Copy24conjoint_words_to_higherEPKP12HeapWordImplPS1_m.exit
 
-91:                                               ; preds = %_ZN4Copy24conjoint_words_to_higherEPKP12HeapWordImplPS1_m.exit, %91
-  %.02133 = phi i32 [ 0, %_ZN4Copy24conjoint_words_to_higherEPKP12HeapWordImplPS1_m.exit ], [ %97, %91 ]
-  %92 = load ptr, ptr %64, align 8
-  %93 = load i32, ptr %8, align 8
-  %94 = add i32 %93, 1
-  store i32 %94, ptr %8, align 8
-  %95 = zext i32 %93 to i64
-  %96 = getelementptr inbounds nuw ptr, ptr %92, i64 %95
-  store ptr %1, ptr %96, align 8
-  %97 = add nuw nsw i32 %.02133, 1
-  %exitcond36.not = icmp eq i32 %97, %umax
-  br i1 %exitcond36.not, label %98, label %91, !llvm.loop !20
+_ZN4Copy24conjoint_words_to_higherEPKP12HeapWordImplPS1_m.exit: ; preds = %_ZN4Copy24conjoint_words_to_higherEPKP12HeapWordImplPS1_m.exit.preheader, %_ZN4Copy24conjoint_words_to_higherEPKP12HeapWordImplPS1_m.exit
+  %.02133 = phi i32 [ %96, %_ZN4Copy24conjoint_words_to_higherEPKP12HeapWordImplPS1_m.exit ], [ 0, %_ZN4Copy24conjoint_words_to_higherEPKP12HeapWordImplPS1_m.exit.preheader ]
+  %91 = load ptr, ptr %64, align 8
+  %92 = load i32, ptr %8, align 8
+  %93 = add i32 %92, 1
+  store i32 %93, ptr %8, align 8
+  %94 = zext i32 %92 to i64
+  %95 = getelementptr inbounds nuw ptr, ptr %91, i64 %94
+  store ptr %1, ptr %95, align 8
+  %96 = add nuw nsw i32 %.02133, 1
+  %exitcond36.not = icmp eq i32 %96, %2
+  br i1 %exitcond36.not, label %97, label %_ZN4Copy24conjoint_words_to_higherEPKP12HeapWordImplPS1_m.exit, !llvm.loop !20
 
-98:                                               ; preds = %91
+97:                                               ; preds = %_ZN4Copy24conjoint_words_to_higherEPKP12HeapWordImplPS1_m.exit
   %.not27 = icmp eq ptr %1, null
-  br i1 %.not27, label %.loopexit, label %99
+  br i1 %.not27, label %.loopexit, label %98
 
-99:                                               ; preds = %98
-  %100 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %101 = load ptr, ptr %100, align 8
-  %102 = icmp eq ptr %101, null
-  br i1 %102, label %.loopexit, label %.preheader.split.preheader
+98:                                               ; preds = %97
+  %99 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %100 = load ptr, ptr %99, align 8
+  %101 = icmp eq ptr %100, null
+  br i1 %101, label %.loopexit, label %.preheader.split.preheader
 
-.preheader.split.preheader:                       ; preds = %99
-  %103 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %104 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %105 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+.preheader.split.preheader:                       ; preds = %98
+  %102 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %103 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  %104 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   br label %.preheader.split
 
 .preheader.split:                                 ; preds = %.preheader.split.preheader, %_ZN4Node7add_outEPS_.exit
-  %.034 = phi i32 [ %149, %_ZN4Node7add_outEPS_.exit ], [ 0, %.preheader.split.preheader ]
-  %106 = load ptr, ptr %100, align 8
-  %107 = icmp eq ptr %106, null
-  br i1 %107, label %_ZN4Node7add_outEPS_.exit, label %108
+  %.034 = phi i32 [ %148, %_ZN4Node7add_outEPS_.exit ], [ 0, %.preheader.split.preheader ]
+  %105 = load ptr, ptr %99, align 8
+  %106 = icmp eq ptr %105, null
+  br i1 %106, label %_ZN4Node7add_outEPS_.exit, label %107
 
-108:                                              ; preds = %.preheader.split
-  %109 = load i32, ptr %103, align 8
-  %110 = load i32, ptr %104, align 4
-  %111 = icmp eq i32 %109, %110
-  br i1 %111, label %112, label %_ZN4Node8out_growEj.exit.i
+107:                                              ; preds = %.preheader.split
+  %108 = load i32, ptr %102, align 8
+  %109 = load i32, ptr %103, align 4
+  %110 = icmp eq i32 %108, %109
+  br i1 %110, label %111, label %_ZN4Node8out_growEj.exit.i
 
-112:                                              ; preds = %108
-  %113 = load ptr, ptr %105, align 8
-  %114 = getelementptr inbounds nuw i8, ptr %113, i64 1808
-  %115 = load ptr, ptr %114, align 8
-  %116 = getelementptr inbounds nuw i8, ptr %115, i64 128
-  %117 = load ptr, ptr %116, align 8
-  %118 = getelementptr inbounds nuw i8, ptr %117, i64 728
-  %119 = load ptr, ptr %118, align 8
-  %120 = icmp eq i32 %109, 0
-  br i1 %120, label %121, label %133
+111:                                              ; preds = %107
+  %112 = load ptr, ptr %104, align 8
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 1808
+  %114 = load ptr, ptr %113, align 8
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 128
+  %116 = load ptr, ptr %115, align 8
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 728
+  %118 = load ptr, ptr %117, align 8
+  %119 = icmp eq i32 %108, 0
+  br i1 %119, label %120, label %132
 
-121:                                              ; preds = %112
-  store i32 4, ptr %104, align 4
-  %122 = getelementptr inbounds nuw i8, ptr %119, i64 40
-  %123 = load ptr, ptr %122, align 8
-  %124 = getelementptr inbounds nuw i8, ptr %119, i64 32
-  %125 = load ptr, ptr %124, align 8
-  %126 = ptrtoint ptr %123 to i64
-  %127 = ptrtoint ptr %125 to i64
-  %128 = sub i64 %126, %127
-  %.not.i.i.i.i = icmp ult i64 %128, 32
-  br i1 %.not.i.i.i.i, label %131, label %129
+120:                                              ; preds = %111
+  store i32 4, ptr %103, align 4
+  %121 = getelementptr inbounds nuw i8, ptr %118, i64 40
+  %122 = load ptr, ptr %121, align 8
+  %123 = getelementptr inbounds nuw i8, ptr %118, i64 32
+  %124 = load ptr, ptr %123, align 8
+  %125 = ptrtoint ptr %122 to i64
+  %126 = ptrtoint ptr %124 to i64
+  %127 = sub i64 %125, %126
+  %.not.i.i.i.i = icmp ult i64 %127, 32
+  br i1 %.not.i.i.i.i, label %130, label %128
 
-129:                                              ; preds = %121
-  %130 = getelementptr inbounds nuw i8, ptr %125, i64 32
-  store ptr %130, ptr %124, align 8
+128:                                              ; preds = %120
+  %129 = getelementptr inbounds nuw i8, ptr %124, i64 32
+  store ptr %129, ptr %123, align 8
   br label %_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i.i
 
-131:                                              ; preds = %121
-  %132 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %119, i64 noundef 32, i32 noundef 0) #15
+130:                                              ; preds = %120
+  %131 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %118, i64 noundef 32, i32 noundef 0) #15
   br label %_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i.i
 
-_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i.i: ; preds = %131, %129
-  %.0.i.i.i.i = phi ptr [ %125, %129 ], [ %132, %131 ]
-  store ptr %.0.i.i.i.i, ptr %100, align 8
+_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i.i: ; preds = %130, %128
+  %.0.i.i.i.i = phi ptr [ %124, %128 ], [ %131, %130 ]
+  store ptr %.0.i.i.i.i, ptr %99, align 8
   br label %_ZN4Node8out_growEj.exit.i
 
-133:                                              ; preds = %112
-  %134 = add i32 %109, 1
-  %135 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %134)
-  %or.cond.i.i.i.i = icmp eq i32 %135, 1
-  %136 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %134, i1 true)
-  %137 = sub nuw nsw i32 32, %136
-  %138 = shl nuw i32 1, %137
-  %.0.i.i6.i.i = select i1 %or.cond.i.i.i.i, i32 %134, i32 %138
-  %139 = zext i32 %109 to i64
-  %140 = shl nuw nsw i64 %139, 3
-  %141 = zext i32 %.0.i.i6.i.i to i64
-  %142 = shl nuw nsw i64 %141, 3
-  %143 = tail call noundef ptr @_ZN5Arena8AreallocEPvmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %119, ptr noundef nonnull %106, i64 noundef %140, i64 noundef %142, i32 noundef 0) #15
-  store ptr %143, ptr %100, align 8
-  store i32 %.0.i.i6.i.i, ptr %104, align 4
+132:                                              ; preds = %111
+  %133 = add i32 %108, 1
+  %134 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %133)
+  %or.cond.i.i.i.i = icmp eq i32 %134, 1
+  %135 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %133, i1 true)
+  %136 = sub nuw nsw i32 32, %135
+  %137 = shl nuw i32 1, %136
+  %.0.i.i6.i.i = select i1 %or.cond.i.i.i.i, i32 %133, i32 %137
+  %138 = zext i32 %108 to i64
+  %139 = shl nuw nsw i64 %138, 3
+  %140 = zext i32 %.0.i.i6.i.i to i64
+  %141 = shl nuw nsw i64 %140, 3
+  %142 = tail call noundef ptr @_ZN5Arena8AreallocEPvmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %118, ptr noundef nonnull %105, i64 noundef %139, i64 noundef %141, i32 noundef 0) #15
+  store ptr %142, ptr %99, align 8
+  store i32 %.0.i.i6.i.i, ptr %103, align 4
   br label %_ZN4Node8out_growEj.exit.i
 
-_ZN4Node8out_growEj.exit.i:                       ; preds = %133, %_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i.i, %108
-  %144 = phi ptr [ %143, %133 ], [ %.0.i.i.i.i, %_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i.i ], [ %106, %108 ]
-  %145 = load i32, ptr %103, align 8
-  %146 = add i32 %145, 1
-  store i32 %146, ptr %103, align 8
-  %147 = zext i32 %145 to i64
-  %148 = getelementptr inbounds nuw ptr, ptr %144, i64 %147
-  store ptr %0, ptr %148, align 8
+_ZN4Node8out_growEj.exit.i:                       ; preds = %132, %_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i.i, %107
+  %143 = phi ptr [ %142, %132 ], [ %.0.i.i.i.i, %_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i.i ], [ %105, %107 ]
+  %144 = load i32, ptr %102, align 8
+  %145 = add i32 %144, 1
+  store i32 %145, ptr %102, align 8
+  %146 = zext i32 %144 to i64
+  %147 = getelementptr inbounds nuw ptr, ptr %143, i64 %146
+  store ptr %0, ptr %147, align 8
   br label %_ZN4Node7add_outEPS_.exit
 
 _ZN4Node7add_outEPS_.exit:                        ; preds = %.preheader.split, %_ZN4Node8out_growEj.exit.i
-  %149 = add nuw i32 %.034, 1
-  %exitcond37.not = icmp eq i32 %149, %umax
+  %148 = add nuw i32 %.034, 1
+  %exitcond37.not = icmp eq i32 %148, %2
   br i1 %exitcond37.not, label %.loopexit, label %.preheader.split, !llvm.loop !21
 
-.loopexit:                                        ; preds = %_ZN4Node7add_outEPS_.exit, %98, %99, %5, %6
+.loopexit:                                        ; preds = %_ZN4Node7add_outEPS_.exit, %97, %98, %5, %6
   ret void
 }
 
@@ -9073,9 +9072,6 @@ declare noundef zeroext i1 @_ZNK8ciMethod16is_boxing_methodEv(ptr noundef nonnul
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #13
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14

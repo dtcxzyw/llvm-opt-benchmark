@@ -780,7 +780,6 @@ define hidden void @_ZN4cvc58internal6theory11quantifiers13SygusInterpol14collec
   %23 = ptrtoint ptr %21 to i64
   %24 = sub i64 %22, %23
   %25 = ashr exact i64 %24, 3
-  %umax = call i64 @llvm.umax.i64(i64 %25, i64 1)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %30, %3
@@ -800,7 +799,7 @@ define hidden void @_ZN4cvc58internal6theory11quantifiers13SygusInterpol14collec
 
 30:                                               ; preds = %.lr.ph
   %31 = add nuw i64 %.0149, 1
-  %exitcond.not = icmp eq i64 %31, %umax
+  %exitcond.not = icmp eq i64 %31, %25
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !44
 
 32:                                               ; preds = %.lr.ph

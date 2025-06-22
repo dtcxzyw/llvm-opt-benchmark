@@ -11768,8 +11768,7 @@ _ZL14fstGetVarint32PhPi.exit1209:                 ; preds = %.preheader2413
   br i1 %664, label %666, label %.preheader1403.preheader
 
 .preheader1403.preheader:                         ; preds = %659
-  %umax = call i32 @llvm.umax.i32(i32 %660, i32 1)
-  %665 = add i32 %.6889, %umax
+  %665 = add i32 %.6889, %660
   br label %.preheader1403
 
 666:                                              ; preds = %659
@@ -14262,8 +14261,7 @@ _ZL14fstGetVarint32PhPi.exit730:                  ; preds = %.preheader1025
 
 457:                                              ; preds = %441
   %458 = lshr exact i32 %409, 1
-  %umax = call i32 @llvm.umax.i32(i32 %458, i32 1)
-  %459 = add i32 %.5531, %umax
+  %459 = add i32 %.5531, %458
   br label %460
 
 460:                                              ; preds = %457, %460

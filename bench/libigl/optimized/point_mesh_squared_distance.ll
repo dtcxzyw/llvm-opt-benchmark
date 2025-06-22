@@ -13032,7 +13032,7 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
 
 .lr.ph493.preheader:                              ; preds = %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6resizeEmm.exit417
   %573 = shl nuw i64 %470, 3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %572, i8 0, i64 %573, i1 false), !tbaa !161
+  call void @llvm.memset.p0.i64(ptr align 8 %572, i8 0, i64 %573, i1 false), !tbaa !161
   br label %.preheader476
 
 .preheader476:                                    ; preds = %.lr.ph493.preheader, %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6resizeEmm.exit417
@@ -110032,7 +110032,6 @@ _ZNKSt6vectorISt4pairIN4CGAL7Point_3INS1_16Simple_cartesianIdEEEEN9__gnu_cxx17__
 .lr.ph76:                                         ; preds = %.lr.ph.i.i.i30.i
   %199 = getelementptr inbounds nuw i8, ptr %195, i64 %191
   %200 = load ptr, ptr %8, align 8, !tbaa !2760
-  %umax = call i64 @llvm.umax.i64(i64 %192, i64 1)
   br label %239
 
 .preheader:                                       ; preds = %239, %186
@@ -110094,7 +110093,7 @@ _ZNKSt6vectorISt4pairIN4CGAL7Point_3INS1_16Simple_cartesianIdEEEEN9__gnu_cxx17__
   %245 = load i64, ptr %243, align 8, !tbaa !133
   store i64 %245, ptr %244, align 8, !tbaa !133
   %246 = add nuw i64 %.01875, 1
-  %exitcond.not = icmp eq i64 %246, %umax
+  %exitcond.not = icmp eq i64 %246, %192
   br i1 %exitcond.not, label %.preheader, label %239, !llvm.loop !2844
 
 _ZNK5boost9container3dtl14deque_iteratorIPN4CGAL17Kd_tree_leaf_nodeINS3_21Search_traits_adapterISt4pairINS3_7Point_3INS3_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS3_10Triangle_3IS9_EESt6vectorISE_SaISE_EEEEENS3_26First_of_pair_property_mapISK_EENS3_13AABB_traits_3IS9_NS3_25AABB_triangle_primitive_3IS9_SJ_St17integral_constantIbLb0EEEENS3_7DefaultEEEEENS3_16Sliding_midpointISU_NS3_15Plane_separatorIdEEEESP_IbLb1EESQ_EELb0EEmiERKS12_.exit._crit_edge: ; preds = %_ZN5boost9container3dtl14deque_iteratorIPN4CGAL17Kd_tree_leaf_nodeINS3_21Search_traits_adapterISt4pairINS3_7Point_3INS3_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS3_10Triangle_3IS9_EESt6vectorISE_SaISE_EEEEENS3_26First_of_pair_property_mapISK_EENS3_13AABB_traits_3IS9_NS3_25AABB_triangle_primitive_3IS9_SJ_St17integral_constantIbLb0EEEENS3_7DefaultEEEEENS3_16Sliding_midpointISU_NS3_15Plane_separatorIdEEEESP_IbLb1EESQ_EELb0EEpLEl.exit26, %.preheader

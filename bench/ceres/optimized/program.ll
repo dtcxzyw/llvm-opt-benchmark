@@ -1262,7 +1262,6 @@ define hidden noundef zeroext i1 @_ZNK5ceres8internal7Program7IsValidEv(ptr noun
   %14 = ptrtoint ptr %12 to i64
   %15 = sub i64 %13, %14
   %16 = ashr exact i64 %15, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %16, i64 1)
   br label %.lr.ph
 
 .preheader:                                       ; preds = %.critedge, %1
@@ -1323,7 +1322,7 @@ _ZN4absl12lts_2024011612log_internal10LogMessagelsILi23EEERS2_RAT__Kc.exit: ; pr
 
 .critedge:                                        ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %16
   br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !140
 
 .lr.ph84:                                         ; preds = %.preheader, %118

@@ -703,7 +703,6 @@ tailrecurse.us.preheader.i:                       ; preds = %2
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %tailrecurse.us.i
 
 tailrecurse.us.i:                                 ; preds = %._crit_edge.us.i, %tailrecurse.us.preheader.i
@@ -712,7 +711,7 @@ tailrecurse.us.i:                                 ; preds = %._crit_edge.us.i, %
 
 11:                                               ; preds = %13
   %12 = add nuw i64 %.012.us.i, 1
-  %exitcond.not.i = icmp eq i64 %12, %umax.i
+  %exitcond.not.i = icmp eq i64 %12, %10
   br i1 %exitcond.not.i, label %._crit_edge.us.i, label %13, !llvm.loop !73
 
 13:                                               ; preds = %11, %tailrecurse.us.i
@@ -820,7 +819,6 @@ tailrecurse.us.preheader:                         ; preds = %2
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %tailrecurse.us
 
 tailrecurse.us:                                   ; preds = %tailrecurse.us.preheader, %._crit_edge.us
@@ -829,7 +827,7 @@ tailrecurse.us:                                   ; preds = %tailrecurse.us.preh
 
 11:                                               ; preds = %13
   %12 = add nuw i64 %.012.us, 1
-  %exitcond.not = icmp eq i64 %12, %umax
+  %exitcond.not = icmp eq i64 %12, %10
   br i1 %exitcond.not, label %._crit_edge.us, label %13, !llvm.loop !73
 
 13:                                               ; preds = %tailrecurse.us, %11
@@ -897,7 +895,6 @@ define dso_local void @_ZN6Effect10add_effectERKS_b(ptr noundef nonnull align 8 
   %12 = ashr exact i64 %11, 3
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %umax = tail call i64 @llvm.umax.i64(i64 %12, i64 1)
   br label %15
 
 15:                                               ; preds = %.lr.ph, %_ZNSt6vectorIPK8VariableSaIS2_EE9push_backERKS2_.exit
@@ -971,7 +968,7 @@ _ZNSt6vectorIPK8VariableSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__nor
 
 _ZNSt6vectorIPK8VariableSaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vectorIPK8VariableSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %23, %15
   %46 = add nuw i64 %.032, 1
-  %exitcond.not = icmp eq i64 %46, %umax
+  %exitcond.not = icmp eq i64 %46, %12
   br i1 %exitcond.not, label %._crit_edge, label %15, !llvm.loop !75
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIPK8VariableSaIS2_EE9push_backERKS2_.exit, %5
@@ -990,7 +987,6 @@ _ZNSt6vectorIPK8VariableSaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vectorIP
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %umax38 = tail call i64 @llvm.umax.i64(i64 %54, i64 1)
   %.pre = load ptr, ptr %56, align 8, !tbaa !16
   %.pre40 = load ptr, ptr %55, align 8, !tbaa !17
   br label %58
@@ -1010,7 +1006,6 @@ tailrecurse.us.preheader.i:                       ; preds = %58
   %65 = ptrtoint ptr %59 to i64
   %66 = sub i64 %64, %65
   %67 = ashr exact i64 %66, 3
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %67, i64 1)
   br label %tailrecurse.us.i
 
 tailrecurse.us.i:                                 ; preds = %._crit_edge.us.i, %tailrecurse.us.preheader.i
@@ -1019,7 +1014,7 @@ tailrecurse.us.i:                                 ; preds = %._crit_edge.us.i, %
 
 68:                                               ; preds = %70
   %69 = add nuw i64 %.012.us.i, 1
-  %exitcond.not.i = icmp eq i64 %69, %umax.i
+  %exitcond.not.i = icmp eq i64 %69, %67
   br i1 %exitcond.not.i, label %._crit_edge.us.i, label %70, !llvm.loop !73
 
 70:                                               ; preds = %68, %tailrecurse.us.i
@@ -1098,7 +1093,7 @@ _ZNK6Effect10is_writtenEPK8Variable.exit:         ; preds = %70, %_ZNSt6vectorIP
   %99 = phi ptr [ %91, %_ZNSt6vectorIPK8VariableSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i29 ], [ %59, %77 ], [ %59, %70 ]
   %100 = phi ptr [ %96, %_ZNSt6vectorIPK8VariableSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i29 ], [ %78, %77 ], [ %60, %70 ]
   %101 = add nuw i64 %.133, 1
-  %exitcond39.not = icmp eq i64 %101, %umax38
+  %exitcond39.not = icmp eq i64 %101, %54
   br i1 %exitcond39.not, label %._crit_edge36, label %58, !llvm.loop !76
 
 ._crit_edge36:                                    ; preds = %_ZNK6Effect10is_writtenEPK8Variable.exit, %._crit_edge
@@ -1148,7 +1143,6 @@ define dso_local void @_ZN6Effect19add_external_effectERKS_(ptr noundef nonnull 
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
   %11 = ashr exact i64 %10, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %11, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %23
@@ -1171,7 +1165,7 @@ define dso_local void @_ZN6Effect19add_external_effectERKS_(ptr noundef nonnull 
 
 23:                                               ; preds = %.lr.ph, %19
   %24 = add nuw i64 %.020, 1
-  %exitcond.not = icmp eq i64 %24, %umax
+  %exitcond.not = icmp eq i64 %24, %11
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !79
 
 ._crit_edge:                                      ; preds = %23, %4
@@ -1188,7 +1182,6 @@ define dso_local void @_ZN6Effect19add_external_effectERKS_(ptr noundef nonnull 
   %31 = sub i64 %29, %30
   %32 = ashr exact i64 %31, 3
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %umax26 = tail call i64 @llvm.umax.i64(i64 %32, i64 1)
   br label %34
 
 34:                                               ; preds = %.lr.ph23, %46
@@ -1212,7 +1205,7 @@ define dso_local void @_ZN6Effect19add_external_effectERKS_(ptr noundef nonnull 
 
 46:                                               ; preds = %34, %42
   %47 = add nuw i64 %.121, 1
-  %exitcond27.not = icmp eq i64 %47, %umax26
+  %exitcond27.not = icmp eq i64 %47, %32
   br i1 %exitcond27.not, label %._crit_edge24, label %34, !llvm.loop !80
 
 ._crit_edge24:                                    ; preds = %46, %._crit_edge
@@ -1246,7 +1239,6 @@ define dso_local void @_ZN6Effect19add_external_effectERKS_St6vectorIPK5BlockSaI
   %11 = sub i64 %9, %10
   %12 = ashr exact i64 %11, 3
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %umax = tail call i64 @llvm.umax.i64(i64 %12, i64 1)
   br label %14
 
 14:                                               ; preds = %.lr.ph48, %42
@@ -1302,7 +1294,7 @@ define dso_local void @_ZN6Effect19add_external_effectERKS_St6vectorIPK5BlockSaI
 
 42:                                               ; preds = %.sink.split, %._crit_edge
   %43 = add nuw i64 %.046, 1
-  %exitcond.not = icmp eq i64 %43, %umax
+  %exitcond.not = icmp eq i64 %43, %12
   br i1 %exitcond.not, label %._crit_edge49, label %14, !llvm.loop !88
 
 ._crit_edge49:                                    ; preds = %42, %5
@@ -1320,7 +1312,6 @@ define dso_local void @_ZN6Effect19add_external_effectERKS_St6vectorIPK5BlockSaI
   %51 = ashr exact i64 %50, 3
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %umax63 = tail call i64 @llvm.umax.i64(i64 %51, i64 1)
   br label %54
 
 54:                                               ; preds = %.lr.ph58, %82
@@ -1377,7 +1368,7 @@ define dso_local void @_ZN6Effect19add_external_effectERKS_St6vectorIPK5BlockSaI
 
 82:                                               ; preds = %.sink.split68, %._crit_edge52
   %83 = add nuw i64 %.156, 1
-  %exitcond64.not = icmp eq i64 %83, %umax63
+  %exitcond64.not = icmp eq i64 %83, %51
   br i1 %exitcond64.not, label %._crit_edge59, label %54, !llvm.loop !90
 
 ._crit_edge59:                                    ; preds = %82, %._crit_edge49
@@ -1425,7 +1416,6 @@ define dso_local noundef zeroext i1 @_ZNK6Effect7is_readENSt7__cxx1112basic_stri
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %25 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %26 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %umax = tail call i64 @llvm.umax.i64(i64 %17, i64 1)
   br label %27
 
 27:                                               ; preds = %.lr.ph, %.critedge33
@@ -1955,7 +1945,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68: ; preds = %_ZN
 
 .critedge33:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68, %123
   %206 = add nuw i64 %.02594, 1
-  %exitcond.not = icmp eq i64 %206, %umax
+  %exitcond.not = icmp eq i64 %206, %17
   br i1 %exitcond.not, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread, label %27, !llvm.loop !104
 
 .critedge:                                        ; preds = %105, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit35
@@ -2036,7 +2026,6 @@ define dso_local noundef zeroext i1 @_ZNK6Effect10is_writtenENSt7__cxx1112basic_
   %25 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %26 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %27 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %umax = tail call i64 @llvm.umax.i64(i64 %18, i64 1)
   br label %28
 
 28:                                               ; preds = %.lr.ph, %.critedge33
@@ -2566,7 +2555,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68: ; preds = %_ZN
 
 .critedge33:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68, %124
   %207 = add nuw i64 %.02594, 1
-  %exitcond.not = icmp eq i64 %207, %umax
+  %exitcond.not = icmp eq i64 %207, %18
   br i1 %exitcond.not, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread, label %28, !llvm.loop !113
 
 .critedge:                                        ; preds = %106, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit35
@@ -2642,12 +2631,11 @@ _ZNK8Variable12is_aggregateEv.exit:               ; preds = %2
   %12 = ptrtoint ptr %10 to i64
   %13 = sub i64 %11, %12
   %14 = ashr exact i64 %13, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %14, i64 1)
   br label %.lr.ph
 
 15:                                               ; preds = %.critedge
   %16 = add nuw i64 %.01112, 1
-  %exitcond.not = icmp eq i64 %16, %umax
+  %exitcond.not = icmp eq i64 %16, %14
   br i1 %exitcond.not, label %_ZNK8Variable12is_aggregateEv.exit.thread, label %.lr.ph, !llvm.loop !116
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %15
@@ -2684,14 +2672,14 @@ _ZNK8Variable12is_aggregateEv.exit:               ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !114
   %10 = load ptr, ptr %7, align 8, !tbaa !115
-  %.not = icmp eq ptr %9, %10
-  br i1 %.not, label %_ZNK6Effect10is_writtenEPK8Variable.exit, label %.lr.ph
-
-.lr.ph:                                           ; preds = %.preheader
   %11 = ptrtoint ptr %9 to i64
   %12 = ptrtoint ptr %10 to i64
   %13 = sub i64 %11, %12
   %14 = ashr exact i64 %13, 3
+  %.not = icmp eq ptr %9, %10
+  br i1 %.not, label %_ZNK6Effect10is_writtenEPK8Variable.exit, label %.lr.ph
+
+.lr.ph:                                           ; preds = %.preheader
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load ptr, ptr %16, align 8, !tbaa !16
@@ -2701,8 +2689,6 @@ _ZNK8Variable12is_aggregateEv.exit:               ; preds = %2
   %20 = ptrtoint ptr %18 to i64
   %21 = sub i64 %19, %20
   %22 = ashr exact i64 %21, 3
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %22, i64 1)
-  %umax20 = tail call i64 @llvm.umax.i64(i64 %14, i64 1)
   br i1 %.not13.i, label %.critedge.us, label %tailrecurse.us.preheader.i
 
 .critedge.us:                                     ; preds = %.lr.ph, %.critedge.us
@@ -2711,7 +2697,7 @@ _ZNK8Variable12is_aggregateEv.exit:               ; preds = %2
   %24 = load ptr, ptr %23, align 8, !tbaa !23
   %25 = tail call noundef zeroext i1 @_ZNK6Effect16field_is_writtenEPK8Variable(ptr noundef nonnull align 8 dereferenceable(74) %0, ptr noundef %24)
   %26 = add nuw i64 %.01114.us, 1
-  %exitcond21.not = icmp eq i64 %26, %umax20
+  %exitcond21.not = icmp eq i64 %26, %14
   %or.cond = select i1 %25, i1 true, i1 %exitcond21.not
   br i1 %or.cond, label %_ZNK6Effect10is_writtenEPK8Variable.exit, label %.critedge.us, !llvm.loop !117
 
@@ -2727,7 +2713,7 @@ tailrecurse.us.i:                                 ; preds = %._crit_edge.us.i, %
 
 29:                                               ; preds = %31
   %30 = add nuw i64 %.012.us.i, 1
-  %exitcond.not.i = icmp eq i64 %30, %umax.i
+  %exitcond.not.i = icmp eq i64 %30, %22
   br i1 %exitcond.not.i, label %._crit_edge.us.i, label %31, !llvm.loop !73
 
 31:                                               ; preds = %29, %tailrecurse.us.i
@@ -2746,7 +2732,7 @@ tailrecurse.us.i:                                 ; preds = %._crit_edge.us.i, %
 .loopexit:                                        ; preds = %._crit_edge.us.i
   %37 = tail call noundef zeroext i1 @_ZNK6Effect16field_is_writtenEPK8Variable(ptr noundef nonnull align 8 dereferenceable(74) %0, ptr noundef %28)
   %38 = add nuw i64 %.01114, 1
-  %exitcond.not = icmp eq i64 %38, %umax20
+  %exitcond.not = icmp eq i64 %38, %14
   %or.cond28 = select i1 %37, i1 true, i1 %exitcond.not
   br i1 %or.cond28, label %_ZNK6Effect10is_writtenEPK8Variable.exit, label %tailrecurse.us.preheader.i, !llvm.loop !117
 
@@ -2918,7 +2904,6 @@ tailrecurse.us.preheader.i:                       ; preds = %2
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %tailrecurse.us.i
 
 tailrecurse.us.i:                                 ; preds = %._crit_edge.us.i, %tailrecurse.us.preheader.i
@@ -2927,7 +2912,7 @@ tailrecurse.us.i:                                 ; preds = %._crit_edge.us.i, %
 
 11:                                               ; preds = %13
   %12 = add nuw i64 %.012.us.i, 1
-  %exitcond.not.i = icmp eq i64 %12, %umax.i
+  %exitcond.not.i = icmp eq i64 %12, %10
   br i1 %exitcond.not.i, label %._crit_edge.us.i, label %13, !llvm.loop !73
 
 13:                                               ; preds = %11, %tailrecurse.us.i
@@ -3086,7 +3071,6 @@ tailrecurse.us.preheader.i:                       ; preds = %38
   %47 = ptrtoint ptr %41 to i64
   %48 = sub i64 %46, %47
   %49 = ashr exact i64 %48, 3
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %49, i64 1)
   br label %tailrecurse.us.i
 
 tailrecurse.us.i:                                 ; preds = %._crit_edge.us.i, %tailrecurse.us.preheader.i
@@ -3095,7 +3079,7 @@ tailrecurse.us.i:                                 ; preds = %._crit_edge.us.i, %
 
 50:                                               ; preds = %52
   %51 = add nuw i64 %.012.us.i, 1
-  %exitcond.not.i = icmp eq i64 %51, %umax.i
+  %exitcond.not.i = icmp eq i64 %51, %49
   br i1 %exitcond.not.i, label %._crit_edge.us.i, label %52, !llvm.loop !73
 
 52:                                               ; preds = %50, %tailrecurse.us.i
@@ -3151,34 +3135,29 @@ define dso_local noundef zeroext i1 @_ZNK6Effect13has_race_withERKS_(ptr noundef
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !16
   %6 = load ptr, ptr %0, align 8, !tbaa !17
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %8 = load ptr, ptr %7, align 8, !tbaa !16
-  %9 = load ptr, ptr %3, align 8, !tbaa !17
-  %.not.i = icmp eq ptr %5, %6
-  %.not23.i = icmp eq ptr %8, %9
-  %or.cond.i = select i1 %.not.i, i1 true, i1 %.not23.i
-  br i1 %or.cond.i, label %_ZL22non_empty_intersectionRKSt6vectorIPK8VariableSaIS2_EES6_.exit, label %.preheader.us.preheader.i
-
-.preheader.us.preheader.i:                        ; preds = %2
-  %10 = ptrtoint ptr %8 to i64
-  %11 = ptrtoint ptr %9 to i64
-  %12 = sub i64 %10, %11
-  %13 = ashr exact i64 %12, 3
-  %14 = ptrtoint ptr %5 to i64
-  %15 = ptrtoint ptr %6 to i64
+  %7 = ptrtoint ptr %5 to i64
+  %8 = ptrtoint ptr %6 to i64
+  %9 = sub i64 %7, %8
+  %10 = ashr exact i64 %9, 3
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %12 = load ptr, ptr %11, align 8, !tbaa !16
+  %13 = load ptr, ptr %3, align 8, !tbaa !17
+  %14 = ptrtoint ptr %12 to i64
+  %15 = ptrtoint ptr %13 to i64
   %16 = sub i64 %14, %15
   %17 = ashr exact i64 %16, 3
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %13, i64 1)
-  %umax26.i = tail call i64 @llvm.umax.i64(i64 %17, i64 1)
-  br label %.preheader.us.i
+  %.not.i = icmp eq ptr %5, %6
+  %.not23.i = icmp eq ptr %12, %13
+  %or.cond.i = select i1 %.not.i, i1 true, i1 %.not23.i
+  br i1 %or.cond.i, label %_ZL22non_empty_intersectionRKSt6vectorIPK8VariableSaIS2_EES6_.exit, label %.preheader.us.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.us.preheader.i
-  %.01621.us.i = phi i64 [ %36, %._crit_edge.us.i ], [ 0, %.preheader.us.preheader.i ]
+.preheader.us.i:                                  ; preds = %2, %._crit_edge.us.i
+  %.01621.us.i = phi i64 [ %36, %._crit_edge.us.i ], [ 0, %2 ]
   br label %20
 
 18:                                               ; preds = %28
   %19 = add nuw i64 %.020.us.i, 1
-  %exitcond.not.i = icmp eq i64 %19, %umax.i
+  %exitcond.not.i = icmp eq i64 %19, %17
   br i1 %exitcond.not.i, label %._crit_edge.us.i, label %20, !llvm.loop !122
 
 20:                                               ; preds = %18, %.preheader.us.i
@@ -3190,7 +3169,7 @@ define dso_local noundef zeroext i1 @_ZNK6Effect13has_race_withERKS_(ptr noundef
   %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %.020.us.i
   %26 = load ptr, ptr %25, align 8, !tbaa !23
   %27 = tail call noundef zeroext i1 @_ZNK8Variable5matchEPKS_(ptr noundef nonnull align 8 dereferenceable(200) %23, ptr noundef %26)
-  br i1 %27, label %_ZL22non_empty_intersectionRKSt6vectorIPK8VariableSaIS2_EES6_.exit29, label %28
+  br i1 %27, label %_ZL22non_empty_intersectionRKSt6vectorIPK8VariableSaIS2_EES6_.exit23, label %28
 
 28:                                               ; preds = %20
   %29 = load ptr, ptr %3, align 8, !tbaa !17
@@ -3200,11 +3179,11 @@ define dso_local noundef zeroext i1 @_ZNK6Effect13has_race_withERKS_(ptr noundef
   %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %.01621.us.i
   %34 = load ptr, ptr %33, align 8, !tbaa !23
   %35 = tail call noundef zeroext i1 @_ZNK8Variable5matchEPKS_(ptr noundef nonnull align 8 dereferenceable(200) %31, ptr noundef %34)
-  br i1 %35, label %_ZL22non_empty_intersectionRKSt6vectorIPK8VariableSaIS2_EES6_.exit29, label %18
+  br i1 %35, label %_ZL22non_empty_intersectionRKSt6vectorIPK8VariableSaIS2_EES6_.exit23, label %18
 
 ._crit_edge.us.i:                                 ; preds = %18
   %36 = add nuw i64 %.01621.us.i, 1
-  %exitcond27.not.i = icmp eq i64 %36, %umax26.i
+  %exitcond27.not.i = icmp eq i64 %36, %10
   br i1 %exitcond27.not.i, label %_ZL22non_empty_intersectionRKSt6vectorIPK8VariableSaIS2_EES6_.exit, label %.preheader.us.i, !llvm.loop !123
 
 _ZL22non_empty_intersectionRKSt6vectorIPK8VariableSaIS2_EES6_.exit: ; preds = %._crit_edge.us.i, %2
@@ -3212,128 +3191,119 @@ _ZL22non_empty_intersectionRKSt6vectorIPK8VariableSaIS2_EES6_.exit: ; preds = %.
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %39 = load ptr, ptr %38, align 8, !tbaa !16
   %40 = load ptr, ptr %37, align 8, !tbaa !17
-  %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %42 = load ptr, ptr %41, align 8, !tbaa !16
-  %43 = load ptr, ptr %1, align 8, !tbaa !17
-  %.not.i4 = icmp eq ptr %39, %40
-  %.not23.i5 = icmp eq ptr %42, %43
-  %or.cond.i6 = select i1 %.not.i4, i1 true, i1 %.not23.i5
-  br i1 %or.cond.i6, label %_ZL22non_empty_intersectionRKSt6vectorIPK8VariableSaIS2_EES6_.exit16, label %.preheader.us.preheader.i7
-
-.preheader.us.preheader.i7:                       ; preds = %_ZL22non_empty_intersectionRKSt6vectorIPK8VariableSaIS2_EES6_.exit
-  %44 = ptrtoint ptr %42 to i64
-  %45 = ptrtoint ptr %43 to i64
-  %46 = sub i64 %44, %45
-  %47 = ashr exact i64 %46, 3
-  %48 = ptrtoint ptr %39 to i64
-  %49 = ptrtoint ptr %40 to i64
+  %41 = ptrtoint ptr %39 to i64
+  %42 = ptrtoint ptr %40 to i64
+  %43 = sub i64 %41, %42
+  %44 = ashr exact i64 %43, 3
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %46 = load ptr, ptr %45, align 8, !tbaa !16
+  %47 = load ptr, ptr %1, align 8, !tbaa !17
+  %48 = ptrtoint ptr %46 to i64
+  %49 = ptrtoint ptr %47 to i64
   %50 = sub i64 %48, %49
   %51 = ashr exact i64 %50, 3
-  %umax.i8 = tail call i64 @llvm.umax.i64(i64 %47, i64 1)
-  %umax26.i9 = tail call i64 @llvm.umax.i64(i64 %51, i64 1)
-  br label %.preheader.us.i10
+  %.not.i4 = icmp eq ptr %39, %40
+  %.not23.i5 = icmp eq ptr %46, %47
+  %or.cond.i6 = select i1 %.not.i4, i1 true, i1 %.not23.i5
+  br i1 %or.cond.i6, label %_ZL22non_empty_intersectionRKSt6vectorIPK8VariableSaIS2_EES6_.exit13, label %.preheader.us.i7
 
-.preheader.us.i10:                                ; preds = %._crit_edge.us.i14, %.preheader.us.preheader.i7
-  %.01621.us.i11 = phi i64 [ %70, %._crit_edge.us.i14 ], [ 0, %.preheader.us.preheader.i7 ]
+.preheader.us.i7:                                 ; preds = %_ZL22non_empty_intersectionRKSt6vectorIPK8VariableSaIS2_EES6_.exit, %._crit_edge.us.i11
+  %.01621.us.i8 = phi i64 [ %70, %._crit_edge.us.i11 ], [ 0, %_ZL22non_empty_intersectionRKSt6vectorIPK8VariableSaIS2_EES6_.exit ]
   br label %54
 
 52:                                               ; preds = %62
-  %53 = add nuw i64 %.020.us.i12, 1
-  %exitcond.not.i13 = icmp eq i64 %53, %umax.i8
-  br i1 %exitcond.not.i13, label %._crit_edge.us.i14, label %54, !llvm.loop !122
+  %53 = add nuw i64 %.020.us.i9, 1
+  %exitcond.not.i10 = icmp eq i64 %53, %51
+  br i1 %exitcond.not.i10, label %._crit_edge.us.i11, label %54, !llvm.loop !122
 
-54:                                               ; preds = %52, %.preheader.us.i10
-  %.020.us.i12 = phi i64 [ 0, %.preheader.us.i10 ], [ %53, %52 ]
+54:                                               ; preds = %52, %.preheader.us.i7
+  %.020.us.i9 = phi i64 [ 0, %.preheader.us.i7 ], [ %53, %52 ]
   %55 = load ptr, ptr %37, align 8, !tbaa !17
-  %56 = getelementptr inbounds nuw ptr, ptr %55, i64 %.01621.us.i11
+  %56 = getelementptr inbounds nuw ptr, ptr %55, i64 %.01621.us.i8
   %57 = load ptr, ptr %56, align 8, !tbaa !23
   %58 = load ptr, ptr %1, align 8, !tbaa !17
-  %59 = getelementptr inbounds nuw ptr, ptr %58, i64 %.020.us.i12
+  %59 = getelementptr inbounds nuw ptr, ptr %58, i64 %.020.us.i9
   %60 = load ptr, ptr %59, align 8, !tbaa !23
   %61 = tail call noundef zeroext i1 @_ZNK8Variable5matchEPKS_(ptr noundef nonnull align 8 dereferenceable(200) %57, ptr noundef %60)
-  br i1 %61, label %_ZL22non_empty_intersectionRKSt6vectorIPK8VariableSaIS2_EES6_.exit29, label %62
+  br i1 %61, label %_ZL22non_empty_intersectionRKSt6vectorIPK8VariableSaIS2_EES6_.exit23, label %62
 
 62:                                               ; preds = %54
   %63 = load ptr, ptr %1, align 8, !tbaa !17
-  %64 = getelementptr inbounds nuw ptr, ptr %63, i64 %.020.us.i12
+  %64 = getelementptr inbounds nuw ptr, ptr %63, i64 %.020.us.i9
   %65 = load ptr, ptr %64, align 8, !tbaa !23
   %66 = load ptr, ptr %37, align 8, !tbaa !17
-  %67 = getelementptr inbounds nuw ptr, ptr %66, i64 %.01621.us.i11
+  %67 = getelementptr inbounds nuw ptr, ptr %66, i64 %.01621.us.i8
   %68 = load ptr, ptr %67, align 8, !tbaa !23
   %69 = tail call noundef zeroext i1 @_ZNK8Variable5matchEPKS_(ptr noundef nonnull align 8 dereferenceable(200) %65, ptr noundef %68)
-  br i1 %69, label %_ZL22non_empty_intersectionRKSt6vectorIPK8VariableSaIS2_EES6_.exit29, label %52
+  br i1 %69, label %_ZL22non_empty_intersectionRKSt6vectorIPK8VariableSaIS2_EES6_.exit23, label %52
 
-._crit_edge.us.i14:                               ; preds = %52
-  %70 = add nuw i64 %.01621.us.i11, 1
-  %exitcond27.not.i15 = icmp eq i64 %70, %umax26.i9
-  br i1 %exitcond27.not.i15, label %_ZL22non_empty_intersectionRKSt6vectorIPK8VariableSaIS2_EES6_.exit16.loopexit, label %.preheader.us.i10, !llvm.loop !123
+._crit_edge.us.i11:                               ; preds = %52
+  %70 = add nuw i64 %.01621.us.i8, 1
+  %exitcond27.not.i12 = icmp eq i64 %70, %44
+  br i1 %exitcond27.not.i12, label %_ZL22non_empty_intersectionRKSt6vectorIPK8VariableSaIS2_EES6_.exit13.loopexit, label %.preheader.us.i7, !llvm.loop !123
 
-_ZL22non_empty_intersectionRKSt6vectorIPK8VariableSaIS2_EES6_.exit16.loopexit: ; preds = %._crit_edge.us.i14
+_ZL22non_empty_intersectionRKSt6vectorIPK8VariableSaIS2_EES6_.exit13.loopexit: ; preds = %._crit_edge.us.i11
   %.pre = load ptr, ptr %38, align 8, !tbaa !16
-  %.pre36 = load ptr, ptr %37, align 8, !tbaa !17
-  br label %_ZL22non_empty_intersectionRKSt6vectorIPK8VariableSaIS2_EES6_.exit16
+  %.pre30 = load ptr, ptr %37, align 8, !tbaa !17
+  %.pre31 = ptrtoint ptr %.pre to i64
+  %.pre32 = ptrtoint ptr %.pre30 to i64
+  %.pre34 = sub i64 %.pre31, %.pre32
+  %.pre36 = ashr exact i64 %.pre34, 3
+  br label %_ZL22non_empty_intersectionRKSt6vectorIPK8VariableSaIS2_EES6_.exit13
 
-_ZL22non_empty_intersectionRKSt6vectorIPK8VariableSaIS2_EES6_.exit16: ; preds = %_ZL22non_empty_intersectionRKSt6vectorIPK8VariableSaIS2_EES6_.exit16.loopexit, %_ZL22non_empty_intersectionRKSt6vectorIPK8VariableSaIS2_EES6_.exit
-  %71 = phi ptr [ %.pre36, %_ZL22non_empty_intersectionRKSt6vectorIPK8VariableSaIS2_EES6_.exit16.loopexit ], [ %40, %_ZL22non_empty_intersectionRKSt6vectorIPK8VariableSaIS2_EES6_.exit ]
-  %72 = phi ptr [ %.pre, %_ZL22non_empty_intersectionRKSt6vectorIPK8VariableSaIS2_EES6_.exit16.loopexit ], [ %39, %_ZL22non_empty_intersectionRKSt6vectorIPK8VariableSaIS2_EES6_.exit ]
-  %73 = load ptr, ptr %7, align 8, !tbaa !16
+_ZL22non_empty_intersectionRKSt6vectorIPK8VariableSaIS2_EES6_.exit13: ; preds = %_ZL22non_empty_intersectionRKSt6vectorIPK8VariableSaIS2_EES6_.exit13.loopexit, %_ZL22non_empty_intersectionRKSt6vectorIPK8VariableSaIS2_EES6_.exit
+  %.pre-phi37 = phi i64 [ %.pre36, %_ZL22non_empty_intersectionRKSt6vectorIPK8VariableSaIS2_EES6_.exit13.loopexit ], [ %44, %_ZL22non_empty_intersectionRKSt6vectorIPK8VariableSaIS2_EES6_.exit ]
+  %71 = phi ptr [ %.pre30, %_ZL22non_empty_intersectionRKSt6vectorIPK8VariableSaIS2_EES6_.exit13.loopexit ], [ %40, %_ZL22non_empty_intersectionRKSt6vectorIPK8VariableSaIS2_EES6_.exit ]
+  %72 = phi ptr [ %.pre, %_ZL22non_empty_intersectionRKSt6vectorIPK8VariableSaIS2_EES6_.exit13.loopexit ], [ %39, %_ZL22non_empty_intersectionRKSt6vectorIPK8VariableSaIS2_EES6_.exit ]
+  %73 = load ptr, ptr %11, align 8, !tbaa !16
   %74 = load ptr, ptr %3, align 8, !tbaa !17
-  %.not.i17 = icmp eq ptr %72, %71
-  %.not23.i18 = icmp eq ptr %73, %74
-  %or.cond.i19 = select i1 %.not.i17, i1 true, i1 %.not23.i18
-  br i1 %or.cond.i19, label %_ZL22non_empty_intersectionRKSt6vectorIPK8VariableSaIS2_EES6_.exit29, label %.preheader.us.preheader.i20
-
-.preheader.us.preheader.i20:                      ; preds = %_ZL22non_empty_intersectionRKSt6vectorIPK8VariableSaIS2_EES6_.exit16
   %75 = ptrtoint ptr %73 to i64
   %76 = ptrtoint ptr %74 to i64
   %77 = sub i64 %75, %76
   %78 = ashr exact i64 %77, 3
-  %79 = ptrtoint ptr %72 to i64
-  %80 = ptrtoint ptr %71 to i64
-  %81 = sub i64 %79, %80
-  %82 = ashr exact i64 %81, 3
-  %umax.i21 = tail call i64 @llvm.umax.i64(i64 %78, i64 1)
-  %umax26.i22 = tail call i64 @llvm.umax.i64(i64 %82, i64 1)
-  br label %.preheader.us.i23
+  %.not.i14 = icmp eq ptr %72, %71
+  %.not23.i15 = icmp eq ptr %73, %74
+  %or.cond.i16 = select i1 %.not.i14, i1 true, i1 %.not23.i15
+  br i1 %or.cond.i16, label %_ZL22non_empty_intersectionRKSt6vectorIPK8VariableSaIS2_EES6_.exit23, label %.preheader.us.i17
 
-.preheader.us.i23:                                ; preds = %._crit_edge.us.i27, %.preheader.us.preheader.i20
-  %.01621.us.i24 = phi i64 [ %101, %._crit_edge.us.i27 ], [ 0, %.preheader.us.preheader.i20 ]
-  br label %85
+.preheader.us.i17:                                ; preds = %_ZL22non_empty_intersectionRKSt6vectorIPK8VariableSaIS2_EES6_.exit13, %._crit_edge.us.i21
+  %.01621.us.i18 = phi i64 [ %97, %._crit_edge.us.i21 ], [ 0, %_ZL22non_empty_intersectionRKSt6vectorIPK8VariableSaIS2_EES6_.exit13 ]
+  br label %81
 
-83:                                               ; preds = %93
-  %84 = add nuw i64 %.020.us.i25, 1
-  %exitcond.not.i26 = icmp eq i64 %84, %umax.i21
-  br i1 %exitcond.not.i26, label %._crit_edge.us.i27, label %85, !llvm.loop !122
+79:                                               ; preds = %89
+  %80 = add nuw i64 %.020.us.i19, 1
+  %exitcond.not.i20 = icmp eq i64 %80, %78
+  br i1 %exitcond.not.i20, label %._crit_edge.us.i21, label %81, !llvm.loop !122
 
-85:                                               ; preds = %83, %.preheader.us.i23
-  %.020.us.i25 = phi i64 [ 0, %.preheader.us.i23 ], [ %84, %83 ]
-  %86 = load ptr, ptr %37, align 8, !tbaa !17
-  %87 = getelementptr inbounds nuw ptr, ptr %86, i64 %.01621.us.i24
-  %88 = load ptr, ptr %87, align 8, !tbaa !23
-  %89 = load ptr, ptr %3, align 8, !tbaa !17
-  %90 = getelementptr inbounds nuw ptr, ptr %89, i64 %.020.us.i25
-  %91 = load ptr, ptr %90, align 8, !tbaa !23
-  %92 = tail call noundef zeroext i1 @_ZNK8Variable5matchEPKS_(ptr noundef nonnull align 8 dereferenceable(200) %88, ptr noundef %91)
-  br i1 %92, label %_ZL22non_empty_intersectionRKSt6vectorIPK8VariableSaIS2_EES6_.exit29, label %93
+81:                                               ; preds = %79, %.preheader.us.i17
+  %.020.us.i19 = phi i64 [ 0, %.preheader.us.i17 ], [ %80, %79 ]
+  %82 = load ptr, ptr %37, align 8, !tbaa !17
+  %83 = getelementptr inbounds nuw ptr, ptr %82, i64 %.01621.us.i18
+  %84 = load ptr, ptr %83, align 8, !tbaa !23
+  %85 = load ptr, ptr %3, align 8, !tbaa !17
+  %86 = getelementptr inbounds nuw ptr, ptr %85, i64 %.020.us.i19
+  %87 = load ptr, ptr %86, align 8, !tbaa !23
+  %88 = tail call noundef zeroext i1 @_ZNK8Variable5matchEPKS_(ptr noundef nonnull align 8 dereferenceable(200) %84, ptr noundef %87)
+  br i1 %88, label %_ZL22non_empty_intersectionRKSt6vectorIPK8VariableSaIS2_EES6_.exit23, label %89
 
-93:                                               ; preds = %85
-  %94 = load ptr, ptr %3, align 8, !tbaa !17
-  %95 = getelementptr inbounds nuw ptr, ptr %94, i64 %.020.us.i25
-  %96 = load ptr, ptr %95, align 8, !tbaa !23
-  %97 = load ptr, ptr %37, align 8, !tbaa !17
-  %98 = getelementptr inbounds nuw ptr, ptr %97, i64 %.01621.us.i24
-  %99 = load ptr, ptr %98, align 8, !tbaa !23
-  %100 = tail call noundef zeroext i1 @_ZNK8Variable5matchEPKS_(ptr noundef nonnull align 8 dereferenceable(200) %96, ptr noundef %99)
-  br i1 %100, label %_ZL22non_empty_intersectionRKSt6vectorIPK8VariableSaIS2_EES6_.exit29, label %83
+89:                                               ; preds = %81
+  %90 = load ptr, ptr %3, align 8, !tbaa !17
+  %91 = getelementptr inbounds nuw ptr, ptr %90, i64 %.020.us.i19
+  %92 = load ptr, ptr %91, align 8, !tbaa !23
+  %93 = load ptr, ptr %37, align 8, !tbaa !17
+  %94 = getelementptr inbounds nuw ptr, ptr %93, i64 %.01621.us.i18
+  %95 = load ptr, ptr %94, align 8, !tbaa !23
+  %96 = tail call noundef zeroext i1 @_ZNK8Variable5matchEPKS_(ptr noundef nonnull align 8 dereferenceable(200) %92, ptr noundef %95)
+  br i1 %96, label %_ZL22non_empty_intersectionRKSt6vectorIPK8VariableSaIS2_EES6_.exit23, label %79
 
-._crit_edge.us.i27:                               ; preds = %83
-  %101 = add nuw i64 %.01621.us.i24, 1
-  %exitcond27.not.i28 = icmp eq i64 %101, %umax26.i22
-  br i1 %exitcond27.not.i28, label %_ZL22non_empty_intersectionRKSt6vectorIPK8VariableSaIS2_EES6_.exit29, label %.preheader.us.i23, !llvm.loop !123
+._crit_edge.us.i21:                               ; preds = %79
+  %97 = add nuw i64 %.01621.us.i18, 1
+  %exitcond27.not.i22 = icmp eq i64 %97, %.pre-phi37
+  br i1 %exitcond27.not.i22, label %_ZL22non_empty_intersectionRKSt6vectorIPK8VariableSaIS2_EES6_.exit23, label %.preheader.us.i17, !llvm.loop !123
 
-_ZL22non_empty_intersectionRKSt6vectorIPK8VariableSaIS2_EES6_.exit29: ; preds = %28, %20, %62, %54, %._crit_edge.us.i27, %93, %85, %_ZL22non_empty_intersectionRKSt6vectorIPK8VariableSaIS2_EES6_.exit16
-  %102 = phi i1 [ false, %_ZL22non_empty_intersectionRKSt6vectorIPK8VariableSaIS2_EES6_.exit16 ], [ true, %85 ], [ true, %93 ], [ false, %._crit_edge.us.i27 ], [ true, %54 ], [ true, %62 ], [ true, %20 ], [ true, %28 ]
-  ret i1 %102
+_ZL22non_empty_intersectionRKSt6vectorIPK8VariableSaIS2_EES6_.exit23: ; preds = %28, %20, %62, %54, %._crit_edge.us.i21, %89, %81, %_ZL22non_empty_intersectionRKSt6vectorIPK8VariableSaIS2_EES6_.exit13
+  %98 = phi i1 [ false, %_ZL22non_empty_intersectionRKSt6vectorIPK8VariableSaIS2_EES6_.exit13 ], [ true, %81 ], [ true, %89 ], [ false, %._crit_edge.us.i21 ], [ true, %54 ], [ true, %62 ], [ true, %20 ], [ true, %28 ]
+  ret i1 %98
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -3445,7 +3415,6 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %_ZNSols
   %28 = ptrtoint ptr %26 to i64
   %29 = sub i64 %27, %28
   %30 = ashr exact i64 %29, 3
-  %umax = call i64 @llvm.umax.i64(i64 %30, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %35
@@ -3462,7 +3431,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit18: ; preds = %.lr.p
 
 35:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit18
   %36 = add nuw i64 %.01355, 1
-  %exitcond.not = icmp eq i64 %36, %umax
+  %exitcond.not = icmp eq i64 %36, %30
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !144
 
 .loopexit:                                        ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit21, %.lr.ph57
@@ -3538,7 +3507,6 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit20: ; preds = %_ZNSo
   %61 = ptrtoint ptr %59 to i64
   %62 = sub i64 %60, %61
   %63 = ashr exact i64 %62, 3
-  %umax60 = call i64 @llvm.umax.i64(i64 %63, i64 1)
   br label %.lr.ph57
 
 .lr.ph57:                                         ; preds = %.lr.ph57.preheader, %68
@@ -3555,7 +3523,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit21: ; preds = %.lr.p
 
 68:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit21
   %69 = add nuw i64 %.11456, 1
-  %exitcond61.not = icmp eq i64 %69, %umax60
+  %exitcond61.not = icmp eq i64 %69, %63
   br i1 %exitcond61.not, label %._crit_edge58, label %.lr.ph57, !llvm.loop !145
 
 ._crit_edge58:                                    ; preds = %68, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit20
@@ -3773,12 +3741,11 @@ define dso_local void @_ZN6Effect13update_purityEv(ptr noundef nonnull align 8 c
   %6 = ptrtoint ptr %4 to i64
   %7 = sub i64 %5, %6
   %8 = ashr exact i64 %7, 3
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %8, i64 1)
   br label %.lr.ph.i
 
 9:                                                ; preds = %.lr.ph.i
   %10 = add nuw i64 %.011.i, 1
-  %exitcond.not.i = icmp eq i64 %10, %umax.i
+  %exitcond.not.i = icmp eq i64 %10, %8
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !156
 
 .lr.ph.i:                                         ; preds = %9, %.lr.ph.preheader.i
@@ -3805,12 +3772,11 @@ define dso_local void @_ZN6Effect13update_purityEv(ptr noundef nonnull align 8 c
   %23 = ptrtoint ptr %21 to i64
   %24 = sub i64 %22, %23
   %25 = ashr exact i64 %24, 3
-  %umax19.i = tail call i64 @llvm.umax.i64(i64 %25, i64 1)
   br label %.lr.ph14.i
 
 26:                                               ; preds = %.lr.ph14.i
   %27 = add nuw i64 %.112.i, 1
-  %exitcond20.not.i = icmp eq i64 %27, %umax19.i
+  %exitcond20.not.i = icmp eq i64 %27, %25
   br i1 %exitcond20.not.i, label %_ZNK6Effect17has_global_effectEv.exit, label %.lr.ph14.i, !llvm.loop !157
 
 .lr.ph14.i:                                       ; preds = %26, %.lr.ph14.preheader.i
@@ -3846,12 +3812,11 @@ define dso_local noundef zeroext i1 @_ZNK6Effect17has_global_effectEv(ptr nounde
   %6 = ptrtoint ptr %4 to i64
   %7 = sub i64 %5, %6
   %8 = ashr exact i64 %7, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %8, i64 1)
   br label %.lr.ph
 
 9:                                                ; preds = %.lr.ph
   %10 = add nuw i64 %.011, 1
-  %exitcond.not = icmp eq i64 %10, %umax
+  %exitcond.not = icmp eq i64 %10, %8
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !156
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %9
@@ -3878,7 +3843,6 @@ define dso_local noundef zeroext i1 @_ZNK6Effect17has_global_effectEv(ptr nounde
   %23 = ptrtoint ptr %21 to i64
   %24 = sub i64 %22, %23
   %25 = ashr exact i64 %24, 3
-  %umax19 = tail call i64 @llvm.umax.i64(i64 %25, i64 1)
   br label %.lr.ph14
 
 .lr.ph14:                                         ; preds = %.lr.ph14, %.lr.ph14.preheader
@@ -3891,7 +3855,7 @@ define dso_local noundef zeroext i1 @_ZNK6Effect17has_global_effectEv(ptr nounde
   %31 = load ptr, ptr %30, align 8
   %32 = tail call noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(200) %28)
   %33 = add nuw i64 %.112, 1
-  %exitcond20.not = icmp eq i64 %33, %umax19
+  %exitcond20.not = icmp eq i64 %33, %25
   %or.cond = select i1 %32, i1 true, i1 %exitcond20.not
   br i1 %or.cond, label %.loopexit, label %.lr.ph14, !llvm.loop !157
 
@@ -3913,7 +3877,6 @@ define dso_local noundef zeroext i1 @_ZNK6Effect19union_field_is_readEv(ptr noun
   %6 = ptrtoint ptr %4 to i64
   %7 = sub i64 %5, %6
   %8 = ashr exact i64 %7, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %8, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNK8Variable21is_inside_union_fieldEv.exit
@@ -3938,7 +3901,7 @@ _ZNK8Variable14is_union_fieldEv.exit.i:           ; preds = %tailrecurse.i
 
 _ZNK8Variable21is_inside_union_fieldEv.exit:      ; preds = %tailrecurse.i
   %17 = add nuw i64 %.0511, 1
-  %exitcond.not = icmp eq i64 %17, %umax
+  %exitcond.not = icmp eq i64 %17, %8
   br i1 %exitcond.not, label %_ZNK8Variable21is_inside_union_fieldEv.exit.thread, label %.lr.ph, !llvm.loop !158
 
 _ZNK8Variable21is_inside_union_fieldEv.exit.thread: ; preds = %_ZNK8Variable21is_inside_union_fieldEv.exit, %_ZNK8Variable14is_union_fieldEv.exit.i, %1

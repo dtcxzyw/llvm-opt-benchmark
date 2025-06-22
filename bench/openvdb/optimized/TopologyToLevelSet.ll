@@ -17891,7 +17891,6 @@ for.body77.preheader:                             ; preds = %invoke.cont71
   %sub.ptr.rhs.cast.i77 = ptrtoint ptr %14 to i64
   %sub.ptr.sub.i78 = sub i64 %sub.ptr.lhs.cast.i76, %sub.ptr.rhs.cast.i77
   %sub.ptr.div.i79 = ashr exact i64 %sub.ptr.sub.i78, 2
-  %umax = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i79, i64 1)
   br label %for.body77
 
 for.body77:                                       ; preds = %for.body77.preheader, %for.body77
@@ -17902,7 +17901,7 @@ for.body77:                                       ; preds = %for.body77.preheade
   %conv = zext i32 %17 to i64
   %add = add i64 %totalNodeCount.0198, %conv
   %inc80 = add nuw i64 %i73.0197, 1
-  %exitcond.not = icmp eq i64 %inc80, %umax
+  %exitcond.not = icmp eq i64 %inc80, %sub.ptr.div.i79
   br i1 %exitcond.not, label %for.end81.loopexit, label %for.body77, !llvm.loop !119
 
 for.end81.loopexit:                               ; preds = %for.body77
@@ -85581,7 +85580,6 @@ for.body72.preheader:                             ; preds = %invoke.cont66
   %sub.ptr.rhs.cast.i77 = ptrtoint ptr %11 to i64
   %sub.ptr.sub.i78 = sub i64 %sub.ptr.lhs.cast.i76, %sub.ptr.rhs.cast.i77
   %sub.ptr.div.i79 = ashr exact i64 %sub.ptr.sub.i78, 2
-  %umax = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i79, i64 1)
   br label %for.body72
 
 for.body72:                                       ; preds = %for.body72.preheader, %for.body72
@@ -85592,7 +85590,7 @@ for.body72:                                       ; preds = %for.body72.preheade
   %conv = zext i32 %14 to i64
   %add = add i64 %totalNodeCount.0201, %conv
   %inc75 = add nuw i64 %i68.0200, 1
-  %exitcond.not = icmp eq i64 %inc75, %umax
+  %exitcond.not = icmp eq i64 %inc75, %sub.ptr.div.i79
   br i1 %exitcond.not, label %for.end76.loopexit, label %for.body72, !llvm.loop !1079
 
 for.end76.loopexit:                               ; preds = %for.body72
@@ -137640,20 +137638,19 @@ if.then.i.i.i.i.i:                                ; preds = %entry
   %call5.i.i.i.i2.i.i8 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #26
   store i16 0, ptr %call5.i.i.i.i2.i.i8, align 2
   %cmp.i.i.i.i.i.i.i = icmp eq i32 %count, 1
-  br i1 %cmp.i.i.i.i.i.i.i, label %invoke.cont, label %if.end.i.i.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i, label %for.body.preheader, label %if.end.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i8, i64 2
   %0 = add nsw i64 %mul.i.i.i.i.i.i, -2
   tail call void @llvm.memset.p0.i64(ptr align 2 %incdec.ptr.i.i.i.i.i, i8 0, i64 %0, i1 false)
-  br label %invoke.cont
+  br label %for.body.preheader
 
-invoke.cont:                                      ; preds = %if.end.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
-  %wide.trip.count = zext i32 %count to i64
+for.body.preheader:                               ; preds = %if.end.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
   br label %for.body
 
-for.body:                                         ; preds = %invoke.cont, %_ZN7openvdb5v11_02io10RealToHalfIfE7convertEf.exit
-  %indvars.iv = phi i64 [ 0, %invoke.cont ], [ %indvars.iv.next, %_ZN7openvdb5v11_02io10RealToHalfIfE7convertEf.exit ]
+for.body:                                         ; preds = %for.body.preheader, %_ZN7openvdb5v11_02io10RealToHalfIfE7convertEf.exit
+  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN7openvdb5v11_02io10RealToHalfIfE7convertEf.exit ], [ 0, %for.body.preheader ]
   %arrayidx = getelementptr inbounds nuw float, ptr %data, i64 %indvars.iv
   %1 = load float, ptr %arrayidx, align 4
   %2 = bitcast float %1 to i32
@@ -137737,7 +137734,7 @@ _ZN7openvdb5v11_02io10RealToHalfIfE7convertEf.exit: ; preds = %if.then4.i.i.i, %
   %add.ptr.i = getelementptr inbounds nuw %"class.openvdb::v11_0::math::internal::half", ptr %call5.i.i.i.i2.i.i8, i64 %indvars.iv
   store i16 %retval.0.i.i.i, ptr %add.ptr.i, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %conv
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !1737
 
 for.end:                                          ; preds = %_ZN7openvdb5v11_02io10RealToHalfIfE7convertEf.exit

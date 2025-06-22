@@ -377,7 +377,6 @@ define noundef nonnull ptr @_ZN3gmx10init_lincsEP8_IO_FILERK10gmx_mtop_tiNS_8Arr
   %35 = ptrtoint ptr %33 to i64
   %36 = sub i64 %34, %35
   %37 = sdiv exact i64 %36, 2408
-  %umax = tail call i64 @llvm.umax.i64(i64 %37, i64 1)
   br label %.lr.ph117
 
 ._crit_edge118:                                   ; preds = %._crit_edge, %15
@@ -407,7 +406,7 @@ define noundef nonnull ptr @_ZN3gmx10init_lincsEP8_IO_FILERK10gmx_mtop_tiNS_8Arr
 ._crit_edge:                                      ; preds = %49, %.lr.ph117
   %.promoted130 = phi i32 [ %.promoted, %.lr.ph117 ], [ %.sroa.speculated, %49 ]
   %48 = add nuw i64 %.077115, 1
-  %exitcond129.not = icmp eq i64 %48, %umax
+  %exitcond129.not = icmp eq i64 %48, %37
   br i1 %exitcond129.not, label %._crit_edge118, label %.lr.ph117, !llvm.loop !94
 
 49:                                               ; preds = %.lr.ph, %49

@@ -462,7 +462,6 @@ _ZN4cvc58internal8TypeNodeC2ERKS1_.exit:          ; preds = %130, %124, %132
   %146 = ashr exact i64 %145, 3
   %147 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %148 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %umax = call i64 @llvm.umax.i64(i64 %146, i64 1)
   br label %160
 
 ._crit_edge:                                      ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit55, %134
@@ -804,7 +803,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit53: ; preds = %_ZNSt6vectorIN4cvc5
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit55: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit53, %281, %287
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #20
   %291 = add nuw i64 %.079, 1
-  %exitcond.not = icmp eq i64 %291, %umax
+  %exitcond.not = icmp eq i64 %291, %146
   br i1 %exitcond.not, label %._crit_edge, label %160, !llvm.loop !132
 
 292:                                              ; preds = %160
@@ -9334,11 +9333,7 @@ _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit1438: ; preds = %_ZN4cvc58interna
   %2527 = sub i64 %2525, %2526
   %2528 = ashr exact i64 %2527, 3
   %.not2201 = icmp eq ptr %2523, %2524
-  br i1 %.not2201, label %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit1509, label %.lr.ph2198.preheader
-
-.lr.ph2198.preheader:                             ; preds = %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit1438
-  %umax = call i64 @llvm.umax.i64(i64 %2528, i64 1)
-  br label %.lr.ph2198
+  br i1 %.not2201, label %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit1509, label %.lr.ph2198
 
 2529:                                             ; preds = %.critedge437
   %2530 = landingpad { ptr, i32 }
@@ -9367,8 +9362,8 @@ _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit1438: ; preds = %_ZN4cvc58interna
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %70) #20
   br label %2689
 
-.lr.ph2198:                                       ; preds = %.lr.ph2198.preheader, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1459
-  %.01422197 = phi i64 [ %2648, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1459 ], [ 0, %.lr.ph2198.preheader ]
+.lr.ph2198:                                       ; preds = %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit1438, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1459
+  %.01422197 = phi i64 [ %2648, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1459 ], [ 0, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit1438 ]
   %2537 = xor i64 %.01422197, -1
   %2538 = add i64 %2528, %2537
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %72) #20
@@ -9611,7 +9606,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit1456: ; preds = %2631, %2625, 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1459: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit1456, %2638, %2644
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %73) #20
   %2648 = add nuw i64 %.01422197, 1
-  %exitcond2232.not = icmp eq i64 %2648, %umax
+  %exitcond2232.not = icmp eq i64 %2648, %2528
   br i1 %exitcond2232.not, label %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit1509, label %.lr.ph2198, !llvm.loop !319
 
 2649:                                             ; preds = %.lr.ph2198

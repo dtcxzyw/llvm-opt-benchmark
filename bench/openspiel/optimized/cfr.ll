@@ -4360,7 +4360,6 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open
   %225 = sub i64 %223, %224
   %226 = ashr exact i64 %225, 3
   %227 = zext i32 %142 to i64
-  %umax.i = call i64 @llvm.umax.i64(i64 %226, i64 1)
   br label %.lr.ph.i110
 
 .lr.ph.i110:                                      ; preds = %232, %.lr.ph.preheader.i
@@ -4378,7 +4377,7 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open
 232:                                              ; preds = %228, %.lr.ph.i110
   %.1.i = phi double [ %231, %228 ], [ %.081.i, %.lr.ph.i110 ]
   %indvars.iv.next.i113 = add nuw nsw i64 %indvars.iv.i111, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i113, %umax.i
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i113, %226
   br i1 %exitcond.not.i, label %_ZN10open_spiel10algorithmsL23CounterFactualReachProbERKSt6vectorIdSaIdEEi.exit, label %.lr.ph.i110, !llvm.loop !54
 
 _ZN10open_spiel10algorithmsL23CounterFactualReachProbERKSt6vectorIdSaIdEEi.exit: ; preds = %232, %217
@@ -9021,7 +9020,6 @@ define noundef i32 @_ZN10open_spiel10algorithms18CFRInfoStateValues17SampleActio
   %15 = uitofp i64 %14 to double
   %16 = fdiv double %1, %15
   %17 = fsub double 1.000000e+00, %1
-  %umax = tail call i64 @llvm.umax.i64(i64 %14, i64 1)
   br label %18
 
 18:                                               ; preds = %.lr.ph, %27
@@ -9042,7 +9040,7 @@ define noundef i32 @_ZN10open_spiel10algorithms18CFRInfoStateValues17SampleActio
 
 27:                                               ; preds = %18
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %14
   br i1 %exitcond.not, label %_ZN4absl7debian28AlphaNumC2EPKc.exit, label %18, !llvm.loop !168
 
 _ZN4absl7debian28AlphaNumC2EPKc.exit:             ; preds = %27, %3

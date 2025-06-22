@@ -28412,7 +28412,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit165: ; preds = %_Z
   %391 = sub i64 %389, %390
   %392 = ashr exact i64 %391, 2
   %393 = load ptr, ptr %4, align 8, !tbaa !502
-  %umax = call i64 @llvm.umax.i64(i64 %392, i64 1)
   br label %.critedge94
 
 .critedge94._crit_edge:                           ; preds = %.critedge94, %.critedge94.preheader
@@ -28455,7 +28454,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit168: ; preds = %_Z
   %406 = getelementptr inbounds nuw i32, ptr %388, i64 %.0206
   store i32 %405, ptr %406, align 4, !tbaa !158
   %407 = add nuw i64 %.0206, 1
-  %exitcond.not = icmp eq i64 %407, %umax
+  %exitcond.not = icmp eq i64 %407, %392
   br i1 %exitcond.not, label %.critedge94._crit_edge, label %.critedge94, !llvm.loop !565
 
 408:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit165, %_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED1Ev.exit, %.critedge94._crit_edge, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit132, %362
@@ -30839,7 +30838,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit168: ; preds = %_Z
   %391 = sub i64 %389, %390
   %392 = ashr exact i64 %391, 3
   %393 = load ptr, ptr %4, align 8, !tbaa !596
-  %umax = call i64 @llvm.umax.i64(i64 %392, i64 1)
   br label %.critedge94
 
 .critedge94._crit_edge:                           ; preds = %.critedge94, %.critedge94.preheader
@@ -30882,7 +30880,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit171: ; preds = %_Z
   %406 = getelementptr inbounds nuw i64, ptr %388, i64 %.0209
   store i64 %405, ptr %406, align 8, !tbaa !62
   %407 = add nuw i64 %.0209, 1
-  %exitcond.not = icmp eq i64 %407, %umax
+  %exitcond.not = icmp eq i64 %407, %392
   br i1 %exitcond.not, label %.critedge94._crit_edge, label %.critedge94, !llvm.loop !609
 
 408:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit168, %_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED1Ev.exit, %.critedge94._crit_edge, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135, %362
@@ -33266,7 +33264,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit168: ; preds = %_Z
   %391 = sub i64 %389, %390
   %392 = ashr exact i64 %391, 3
   %393 = load ptr, ptr %4, align 8, !tbaa !639
-  %umax = call i64 @llvm.umax.i64(i64 %392, i64 1)
   br label %.critedge94
 
 .critedge94._crit_edge:                           ; preds = %.critedge94, %.critedge94.preheader
@@ -33309,7 +33306,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit171: ; preds = %_Z
   %406 = getelementptr inbounds nuw i64, ptr %388, i64 %.0209
   store i64 %405, ptr %406, align 8, !tbaa !62
   %407 = add nuw i64 %.0209, 1
-  %exitcond.not = icmp eq i64 %407, %umax
+  %exitcond.not = icmp eq i64 %407, %392
   br i1 %exitcond.not, label %.critedge94._crit_edge, label %.critedge94, !llvm.loop !652
 
 408:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit168, %_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED1Ev.exit, %.critedge94._crit_edge, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135, %362
@@ -39050,7 +39047,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit168: ; preds = %_Z
   %391 = sub i64 %389, %390
   %392 = ashr exact i64 %391, 3
   %393 = load ptr, ptr %4, align 8, !tbaa !506
-  %umax = call i64 @llvm.umax.i64(i64 %392, i64 1)
   br label %.critedge94
 
 .critedge94._crit_edge:                           ; preds = %.critedge94, %.critedge94.preheader
@@ -39093,7 +39089,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit171: ; preds = %_Z
   %406 = getelementptr inbounds nuw double, ptr %388, i64 %.0208
   store double %405, ptr %406, align 8, !tbaa !358
   %407 = add nuw i64 %.0208, 1
-  %exitcond.not = icmp eq i64 %407, %umax
+  %exitcond.not = icmp eq i64 %407, %392
   br i1 %exitcond.not, label %.critedge94._crit_edge, label %.critedge94, !llvm.loop !737
 
 408:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit168, %_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED1Ev.exit, %.critedge94._crit_edge, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135, %362

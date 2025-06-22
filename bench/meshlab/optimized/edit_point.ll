@@ -1086,7 +1086,6 @@ _ZN3vcg12glMultMatrixERKNS_8Matrix44IfEE.exit:    ; preds = %60
   %104 = ptrtoint ptr %86 to i64
   %105 = sub i64 %103, %104
   %106 = sdiv exact i64 %105, 48
-  %umax = call i64 @llvm.umax.i64(i64 %106, i64 1)
   %.sroa.0.i.i.12.i.i.12.i.i.12.i.12.i.12..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 12
   br label %107
 
@@ -1160,7 +1159,7 @@ _ZN3vcg12glMultMatrixERKNS_8Matrix44IfEE.exit:    ; preds = %60
 _ZNK3vcg4Box3IfE4IsInERKNS_6Point3IfEE.exit.thread.i: ; preds = %147, %142, %137, %112, %107
   %.1.i = phi float [ %.030.i, %107 ], [ %.sroa.016.8.vec.extract.i.i, %147 ], [ %.030.i, %112 ], [ %.030.i, %142 ], [ %.030.i, %137 ]
   %148 = add nuw i64 %.01829.i, 1
-  %exitcond.not = icmp eq i64 %148, %umax
+  %exitcond.not = icmp eq i64 %148, %106
   br i1 %exitcond.not, label %_ZN3vcg9GLPickTriI6CMeshOE15PickClosestVertEiiRS1_RP8CVertexOii.exit, label %107, !llvm.loop !18
 
 _ZN3vcg9GLPickTriI6CMeshOE15PickClosestVertEiiRS1_RP8CVertexOii.exit: ; preds = %_ZNK3vcg4Box3IfE4IsInERKNS_6Point3IfEE.exit.thread.i, %_ZN3vcg12glMultMatrixERKNS_8Matrix44IfEE.exit
@@ -1201,7 +1200,6 @@ _ZN3vcg9GLPickTriI6CMeshOE15PickClosestVertEiiRS1_RP8CVertexOii.exit: ; preds = 
   %175 = call float @llvm.fmuladd.f32(float %170, float %170, float %174)
   %176 = call float @llvm.fmuladd.f32(float %167, float %167, float %175)
   %sqrt.i.i = call noundef float @llvm.sqrt.f32(float %176)
-  %umax160 = call i64 @llvm.umax.i64(i64 %164, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -1226,7 +1224,7 @@ _ZN3vcg9GLPickTriI6CMeshOE15PickClosestVertEiiRS1_RP8CVertexOii.exit: ; preds = 
   %.139 = select i1 %189, i32 %190, i32 %.038117
   %.1 = select i1 %189, float %sqrt.i.i54, float %.037118
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond161.not = icmp eq i64 %indvars.iv.next, %umax160
+  %exitcond161.not = icmp eq i64 %indvars.iv.next, %164
   br i1 %exitcond161.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !19
 
 191:                                              ; preds = %27

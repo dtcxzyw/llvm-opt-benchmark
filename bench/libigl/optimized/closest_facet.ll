@@ -3689,7 +3689,6 @@ define linkonce_odr dso_local noundef i64 @_ZZN3igl8copyleft4cgal13closest_facet
   %59 = sub i64 %57, %58
   %60 = ashr exact i64 %59, 3
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %umax = call i64 @llvm.umax.i64(i64 %60, i64 1)
   br label %83
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorImSaImEE9push_backERKm.exit101, %44
@@ -3733,7 +3732,6 @@ define linkonce_odr dso_local noundef i64 @_ZZN3igl8copyleft4cgal13closest_facet
   %78 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %79 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %80 = getelementptr inbounds nuw i8, ptr %26, i64 32
-  %umax324 = call i64 @llvm.umax.i64(i64 %75, i64 1)
   br label %152
 
 81:                                               ; preds = %4
@@ -3915,7 +3913,7 @@ _ZNSt6vectorImSaImEE9push_backERKm.exit101:       ; preds = %_ZNSt6vectorImSaImE
   %.sroa.11215.1 = phi ptr [ %.sroa.11215.0273, %83 ], [ %.sroa.11215.2, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i98 ], [ %.sroa.11215.2, %119 ]
   %.sroa.0209.2 = phi ptr [ %.sroa.0209.0274, %83 ], [ %.sroa.0209.4, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i98 ], [ %.sroa.0209.4, %119 ]
   %142 = add nuw i64 %.072275, 1
-  %exitcond.not = icmp eq i64 %142, %umax
+  %exitcond.not = icmp eq i64 %142, %60
   br i1 %exitcond.not, label %._crit_edge, label %83, !llvm.loop !160
 
 ._crit_edge283:                                   ; preds = %216
@@ -4113,7 +4111,7 @@ _ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nod
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %26) #23
   %217 = add nuw i64 %.073280, 1
-  %exitcond325.not = icmp eq i64 %217, %umax324
+  %exitcond325.not = icmp eq i64 %217, %75
   br i1 %exitcond325.not, label %._crit_edge283, label %152, !llvm.loop !172
 
 218:                                              ; preds = %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i124, %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i
@@ -7011,7 +7009,6 @@ define linkonce_odr dso_local noundef i64 @_ZZN3igl8copyleft4cgal13closest_facet
   %60 = sub i64 %58, %59
   %61 = ashr exact i64 %60, 3
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %umax = call i64 @llvm.umax.i64(i64 %61, i64 1)
   br label %84
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorImSaImEE9push_backERKm.exit99, %45
@@ -7055,7 +7052,6 @@ define linkonce_odr dso_local noundef i64 @_ZZN3igl8copyleft4cgal13closest_facet
   %79 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %80 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %81 = getelementptr inbounds nuw i8, ptr %26, i64 32
-  %umax324 = call i64 @llvm.umax.i64(i64 %76, i64 1)
   br label %153
 
 82:                                               ; preds = %4
@@ -7237,7 +7233,7 @@ _ZNSt6vectorImSaImEE9push_backERKm.exit99:        ; preds = %_ZNSt6vectorImSaImE
   %.sroa.11213.1 = phi ptr [ %.sroa.11213.0273, %84 ], [ %.sroa.11213.2, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i96 ], [ %.sroa.11213.2, %120 ]
   %.sroa.0207.2 = phi ptr [ %.sroa.0207.0274, %84 ], [ %.sroa.0207.4, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i96 ], [ %.sroa.0207.4, %120 ]
   %143 = add nuw i64 %.072275, 1
-  %exitcond.not = icmp eq i64 %143, %umax
+  %exitcond.not = icmp eq i64 %143, %61
   br i1 %exitcond.not, label %._crit_edge, label %84, !llvm.loop !319
 
 ._crit_edge283:                                   ; preds = %217
@@ -7435,7 +7431,7 @@ _ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nod
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %26) #23
   %218 = add nuw i64 %.073280, 1
-  %exitcond325.not = icmp eq i64 %218, %umax324
+  %exitcond325.not = icmp eq i64 %218, %76
   br i1 %exitcond325.not, label %._crit_edge283, label %153, !llvm.loop !324
 
 219:                                              ; preds = %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i122, %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i
@@ -10278,7 +10274,6 @@ define linkonce_odr dso_local noundef i64 @_ZZN3igl8copyleft4cgal13closest_facet
   %62 = sub i64 %60, %61
   %63 = ashr exact i64 %62, 3
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %umax = call i64 @llvm.umax.i64(i64 %63, i64 1)
   br label %86
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorImSaImEE9push_backERKm.exit99, %47
@@ -10322,7 +10317,6 @@ define linkonce_odr dso_local noundef i64 @_ZZN3igl8copyleft4cgal13closest_facet
   %81 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %82 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %83 = getelementptr inbounds nuw i8, ptr %26, i64 32
-  %umax322 = call i64 @llvm.umax.i64(i64 %78, i64 1)
   br label %155
 
 84:                                               ; preds = %4
@@ -10504,7 +10498,7 @@ _ZNSt6vectorImSaImEE9push_backERKm.exit99:        ; preds = %_ZNSt6vectorImSaImE
   %.sroa.11213.1 = phi ptr [ %.sroa.11213.0271, %86 ], [ %.sroa.11213.2, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i96 ], [ %.sroa.11213.2, %122 ]
   %.sroa.0207.2 = phi ptr [ %.sroa.0207.0272, %86 ], [ %.sroa.0207.4, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i96 ], [ %.sroa.0207.4, %122 ]
   %145 = add nuw i64 %.072273, 1
-  %exitcond.not = icmp eq i64 %145, %umax
+  %exitcond.not = icmp eq i64 %145, %63
   br i1 %exitcond.not, label %._crit_edge, label %86, !llvm.loop !429
 
 ._crit_edge281:                                   ; preds = %219
@@ -10702,7 +10696,7 @@ _ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nod
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %26) #23
   %220 = add nuw i64 %.073278, 1
-  %exitcond323.not = icmp eq i64 %220, %umax322
+  %exitcond323.not = icmp eq i64 %220, %78
   br i1 %exitcond323.not, label %._crit_edge281, label %155, !llvm.loop !434
 
 221:                                              ; preds = %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i122, %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i
@@ -13578,7 +13572,6 @@ define linkonce_odr dso_local noundef i64 @_ZZN3igl8copyleft4cgal13closest_facet
   %60 = sub i64 %58, %59
   %61 = ashr exact i64 %60, 3
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %umax = call i64 @llvm.umax.i64(i64 %61, i64 1)
   br label %84
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorImSaImEE9push_backERKm.exit99, %45
@@ -13622,7 +13615,6 @@ define linkonce_odr dso_local noundef i64 @_ZZN3igl8copyleft4cgal13closest_facet
   %79 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %80 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %81 = getelementptr inbounds nuw i8, ptr %26, i64 32
-  %umax324 = call i64 @llvm.umax.i64(i64 %76, i64 1)
   br label %153
 
 82:                                               ; preds = %4
@@ -13804,7 +13796,7 @@ _ZNSt6vectorImSaImEE9push_backERKm.exit99:        ; preds = %_ZNSt6vectorImSaImE
   %.sroa.11213.1 = phi ptr [ %.sroa.11213.0273, %84 ], [ %.sroa.11213.2, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i96 ], [ %.sroa.11213.2, %120 ]
   %.sroa.0207.2 = phi ptr [ %.sroa.0207.0274, %84 ], [ %.sroa.0207.4, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i96 ], [ %.sroa.0207.4, %120 ]
   %143 = add nuw i64 %.072275, 1
-  %exitcond.not = icmp eq i64 %143, %umax
+  %exitcond.not = icmp eq i64 %143, %61
   br i1 %exitcond.not, label %._crit_edge, label %84, !llvm.loop !550
 
 ._crit_edge283:                                   ; preds = %217
@@ -14002,7 +13994,7 @@ _ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nod
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %26) #23
   %218 = add nuw i64 %.073280, 1
-  %exitcond325.not = icmp eq i64 %218, %umax324
+  %exitcond325.not = icmp eq i64 %218, %76
   br i1 %exitcond325.not, label %._crit_edge283, label %153, !llvm.loop !555
 
 219:                                              ; preds = %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i122, %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i
@@ -24867,7 +24859,7 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
 
 .lr.ph493.preheader:                              ; preds = %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6resizeEmm.exit417
   %573 = shl nuw i64 %470, 3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %572, i8 0, i64 %573, i1 false), !tbaa !609
+  call void @llvm.memset.p0.i64(ptr align 8 %572, i8 0, i64 %573, i1 false), !tbaa !609
   br label %.preheader476
 
 .preheader476:                                    ; preds = %.lr.ph493.preheader, %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6resizeEmm.exit417

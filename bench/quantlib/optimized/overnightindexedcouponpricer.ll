@@ -3058,7 +3058,6 @@ invoke.cont14:                                    ; preds = %.noexc, %if.then.i
 land.end.lr.ph:                                   ; preds = %invoke.cont14
   %15 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  %umax = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %land.end
 
 land.end:                                         ; preds = %land.end.lr.ph, %do.end
@@ -3457,7 +3456,7 @@ do.end:                                           ; preds = %invoke.cont34
   %74 = load double, ptr %add.ptr.i165, align 8, !tbaa !80
   %75 = call double @llvm.fmuladd.f64(double %retval.0.i, double %74, double %accumulatedRate.0528)
   %inc = add nuw i64 %i.0529, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i
   br i1 %exitcond.not, label %if.end399, label %land.end, !llvm.loop !118
 
 land.lhs.true:                                    ; preds = %land.end

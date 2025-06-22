@@ -1480,7 +1480,6 @@ for.body.lr.ph:                                   ; preds = %_ZNSt6vectorImSaImE
   %add.ptr.i.i.i243468 = getelementptr inbounds nuw i8, ptr null, i64 %sub.ptr.sub.i.i48
   %_M_finish.i.i270 = getelementptr inbounds nuw i8, ptr %ref.tmp79, i64 8
   %_M_end_of_storage.i.i.i287 = getelementptr inbounds nuw i8, ptr %ref.tmp79, i64 16
-  %umax = call i64 @llvm.umax.i64(i64 %dim, i64 1)
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %for.cond.cleanup65, %_ZNSt6vectorImSaImEED2Ev.exit
@@ -2064,11 +2063,7 @@ _ZN8QuantLib12_GLOBAL__N_112check_tuplesERKSt6vectorIS1_ImSaImEESaIS3_EEmm.exit.
   store ptr %41, ptr %_M_left.i.i.i.i.i.i, align 8, !tbaa !67, !noalias !58
   store ptr %41, ptr %_M_right.i.i.i.i.i.i, align 8, !tbaa !68, !noalias !58
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i, align 8, !tbaa !69, !noalias !58
-  br i1 %cmp.i.not4.i.i, label %_ZNSt12_Vector_baseISt6vectorImSaImEESaIS2_EE11_M_allocateEm.exit.i.i.i, label %for.body.preheader.i
-
-for.body.preheader.i:                             ; preds = %_ZN8QuantLib12_GLOBAL__N_112check_tuplesERKSt6vectorIS1_ImSaImEESaIS3_EEmm.exit.i
-  %umax.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  br label %for.body.i
+  br i1 %cmp.i.not4.i.i, label %_ZNSt12_Vector_baseISt6vectorImSaImEESaIS2_EE11_M_allocateEm.exit.i.i.i, label %for.body.i
 
 for.cond.cleanup.i:                               ; preds = %for.cond.cleanup17.i
   %.pre95.i = load ptr, ptr %_M_left.i.i.i.i.i.i, align 8, !tbaa !67, !noalias !58
@@ -2130,16 +2125,16 @@ if.then.i.i3.i.i:                                 ; preds = %lpad.i15.i
   call void @_ZdlPvm(ptr noundef nonnull %cond.i.i.i.i192, i64 noundef %add.ptr.i.i19.idx.i) #26, !noalias !58
   br label %ehcleanup.i
 
-for.body.i:                                       ; preds = %for.cond.cleanup17.i, %for.body.preheader.i
-  %x.i.sroa.0.1 = phi ptr [ null, %for.body.preheader.i ], [ %x.i.sroa.0.3, %for.cond.cleanup17.i ]
-  %x.i.sroa.10.1 = phi ptr [ null, %for.body.preheader.i ], [ %add.ptr72.i.i, %for.cond.cleanup17.i ]
-  %x.i.sroa.16.1 = phi ptr [ null, %for.body.preheader.i ], [ %x.i.sroa.16.3, %for.cond.cleanup17.i ]
-  %i.089.i = phi i64 [ 0, %for.body.preheader.i ], [ %inc.i, %for.cond.cleanup17.i ]
+for.body.i:                                       ; preds = %_ZN8QuantLib12_GLOBAL__N_112check_tuplesERKSt6vectorIS1_ImSaImEESaIS3_EEmm.exit.i, %for.cond.cleanup17.i
+  %x.i.sroa.0.1 = phi ptr [ %x.i.sroa.0.3, %for.cond.cleanup17.i ], [ null, %_ZN8QuantLib12_GLOBAL__N_112check_tuplesERKSt6vectorIS1_ImSaImEESaIS3_EEmm.exit.i ]
+  %x.i.sroa.10.1 = phi ptr [ %add.ptr72.i.i, %for.cond.cleanup17.i ], [ null, %_ZN8QuantLib12_GLOBAL__N_112check_tuplesERKSt6vectorIS1_ImSaImEESaIS3_EEmm.exit.i ]
+  %x.i.sroa.16.1 = phi ptr [ %x.i.sroa.16.3, %for.cond.cleanup17.i ], [ null, %_ZN8QuantLib12_GLOBAL__N_112check_tuplesERKSt6vectorIS1_ImSaImEESaIS3_EEmm.exit.i ]
+  %i.089.i = phi i64 [ %inc.i, %for.cond.cleanup17.i ], [ 0, %_ZN8QuantLib12_GLOBAL__N_112check_tuplesERKSt6vectorIS1_ImSaImEESaIS3_EEmm.exit.i ]
   br label %for.body18.i
 
 for.cond.cleanup17.i:                             ; preds = %invoke.cont22.i
   %inc.i = add nuw i64 %i.089.i, 1
-  %exitcond.not.i = icmp eq i64 %inc.i, %umax.i
+  %exitcond.not.i = icmp eq i64 %inc.i, %sub.ptr.div.i.i
   br i1 %exitcond.not.i, label %for.cond.cleanup.i, label %for.body.i, !llvm.loop !71
 
 for.body18.i:                                     ; preds = %for.body.i, %invoke.cont22.i
@@ -2788,7 +2783,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i4.i
 for.inc:                                          ; preds = %if.then.i4.i, %_ZNSt8functionIFddEEC2ERKS1_.exit.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i) #24
   %inc = add nuw i64 %k.0642, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %dim
   br i1 %exitcond.not, label %for.cond.cleanup70, label %for.body71, !llvm.loop !79
 
 invoke.cont82:                                    ; preds = %for.inc.i, %invoke.cont.i240.thread

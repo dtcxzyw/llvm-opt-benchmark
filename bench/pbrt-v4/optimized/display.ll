@@ -2859,7 +2859,6 @@ _ZNSt6vectorIN4pstd4spanIfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i: ; preds =
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %66, i64 %65
   %68 = ptrtoint ptr %scevgep.i.i.i.i.i to i64
   %69 = ptrtoint ptr %67 to i64
-  %umax = call i64 @llvm.umax.i64(i64 %63, i64 1)
   br label %.lr.ph
 
 .preheader104:                                    ; preds = %.lr.ph, %_ZNSt6vectorIN4pstd4spanIfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i
@@ -2898,7 +2897,7 @@ _ZNSt6vectorIN4pstd4spanIfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i: ; preds =
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %89, i64 8
   store i64 16384, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %63
   br i1 %exitcond.not, label %.preheader104, label %.lr.ph, !llvm.loop !122
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.critedge73

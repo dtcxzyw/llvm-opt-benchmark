@@ -6815,7 +6815,6 @@ _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit192.preheader: ; preds = %_ZN4cvc
   %310 = ptrtoint ptr %308 to i64
   %311 = sub i64 %309, %310
   %312 = ashr exact i64 %311, 3
-  %umax = call i64 @llvm.umax.i64(i64 %312, i64 1)
   br label %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit192
 
 ._crit_edge247.loopexit:                          ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit197
@@ -7278,7 +7277,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit194: ; preds = %478, %472, %48
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit197: ; preds = %483, %487, %493
   %497 = add nuw i64 %.0244246, 1
-  %exitcond249.not = icmp eq i64 %497, %umax
+  %exitcond249.not = icmp eq i64 %497, %312
   br i1 %exitcond249.not, label %._crit_edge247.loopexit, label %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit192, !llvm.loop !487
 
 498:                                              ; preds = %480

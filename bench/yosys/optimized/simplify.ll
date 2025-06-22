@@ -15439,7 +15439,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit4568: ; preds 
   %5540 = sub i64 %5538, %5539
   %5541 = ashr exact i64 %5540, 3
   %5542 = load ptr, ptr @_ZN5Yosys12AST_INTERNAL19current_block_childE, align 8, !tbaa !51
-  %umax8650 = call i64 @llvm.umax.i64(i64 %5541, i64 1)
   br label %5543
 
 5543:                                             ; preds = %.lr.ph8105, %5546
@@ -15451,7 +15450,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit4568: ; preds 
 
 5546:                                             ; preds = %5543
   %5547 = add nuw i64 %.023848104, 1
-  %exitcond8651.not = icmp eq i64 %5547, %umax8650
+  %exitcond8651.not = icmp eq i64 %5547, %5541
   br i1 %exitcond8651.not, label %.critedge125, label %5543, !llvm.loop !318
 
 5548:                                             ; preds = %5505
@@ -15481,7 +15480,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit4568: ; preds 
   br label %5612
 
 .critedge125:                                     ; preds = %5546, %5543, %.preheader
-  %.02384.lcssa = phi i64 [ 0, %.preheader ], [ %.023848104, %5543 ], [ %umax8650, %5546 ]
+  %.02384.lcssa = phi i64 [ 0, %.preheader ], [ %.023848104, %5543 ], [ %5541, %5546 ]
   %5557 = getelementptr inbounds ptr, ptr %5537, i64 %.02384.lcssa
   %5558 = invoke ptr @_ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE6insertEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EERS8_(ptr noundef nonnull align 8 dereferenceable(24) %5534, ptr %5557, ptr noundef nonnull align 8 dereferenceable(8) %130)
           to label %5559 unwind label %5562
@@ -16164,7 +16163,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit4594: ; preds 
   %5829 = sub i64 %5827, %5828
   %5830 = ashr exact i64 %5829, 3
   %5831 = load ptr, ptr @_ZN5Yosys12AST_INTERNAL19current_block_childE, align 8, !tbaa !51
-  %umax = call i64 @llvm.umax.i64(i64 %5830, i64 1)
   br label %5832
 
 5832:                                             ; preds = %.lr.ph7873, %5835
@@ -16176,7 +16174,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit4594: ; preds 
 
 5835:                                             ; preds = %5832
   %5836 = add nuw i64 %.123927872, 1
-  %exitcond.not = icmp eq i64 %5836, %umax
+  %exitcond.not = icmp eq i64 %5836, %5830
   br i1 %exitcond.not, label %.critedge129, label %5832, !llvm.loop !323
 
 5837:                                             ; preds = %5809
@@ -16191,7 +16189,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit4594: ; preds 
   br label %_ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EED2Ev.exit4900
 
 .critedge129:                                     ; preds = %5835, %5832, %.preheader6740, %5819
-  %.02391 = phi i64 [ 0, %5819 ], [ 0, %.preheader6740 ], [ %umax, %5835 ], [ %.123927872, %5832 ]
+  %.02391 = phi i64 [ 0, %5819 ], [ 0, %.preheader6740 ], [ %5830, %5835 ], [ %.123927872, %5832 ]
   %5841 = getelementptr inbounds nuw i8, ptr %5808, i64 8
   %5842 = getelementptr inbounds nuw i8, ptr %138, i64 16
   %5843 = getelementptr inbounds nuw i8, ptr %139, i64 16
@@ -17331,7 +17329,6 @@ thread-pre-split6174:                             ; preds = %.thread-pre-split61
   %6272 = ptrtoint ptr %6270 to i64
   %6273 = sub i64 %6271, %6272
   %6274 = ashr exact i64 %6273, 3
-  %umax8600 = call i64 @llvm.umax.i64(i64 %6274, i64 1)
   br label %.lr.ph7885
 
 .lr.ph7885:                                       ; preds = %.lr.ph7885.preheader, %6283
@@ -17362,7 +17359,7 @@ thread-pre-split6174:                             ; preds = %.thread-pre-split61
 
 6283:                                             ; preds = %.lr.ph7885
   %6284 = add nuw i64 %.024077884, 1
-  %exitcond8601.not = icmp eq i64 %6284, %umax8600
+  %exitcond8601.not = icmp eq i64 %6284, %6274
   br i1 %exitcond8601.not, label %_ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EED2Ev.exit4898, label %.lr.ph7885, !llvm.loop !341
 
 6285:                                             ; preds = %.thread6176.thread8897
@@ -44048,7 +44045,6 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE9push_backERKS3_.exit489: ; preds = %_
   %787 = ptrtoint ptr %785 to i64
   %788 = sub i64 %786, %787
   %789 = ashr exact i64 %788, 3
-  %umax = call i64 @llvm.umax.i64(i64 %789, i64 1)
   br label %.lr.ph
 
 .loopexit973:                                     ; preds = %_ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE9push_backERKS3_.exit489
@@ -44092,11 +44088,11 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE9push_backERKS3_.exit489: ; preds = %_
 
 799:                                              ; preds = %.lr.ph
   %800 = add nuw i64 %.02261143, 1
-  %exitcond1270.not = icmp eq i64 %800, %umax
+  %exitcond1270.not = icmp eq i64 %800, %789
   br i1 %exitcond1270.not, label %.critedge3, label %.lr.ph, !llvm.loop !509
 
 .critedge3:                                       ; preds = %799, %.lr.ph, %.preheader972
-  %.0226.lcssa = phi i64 [ 0, %.preheader972 ], [ %.02261143, %.lr.ph ], [ %umax, %799 ]
+  %.0226.lcssa = phi i64 [ 0, %.preheader972 ], [ %.02261143, %.lr.ph ], [ %789, %799 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28) #35
   %801 = invoke noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #40
           to label %802 unwind label %845
@@ -47635,7 +47631,6 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EEC2ERKS5_.exit: ; preds = %2235
   %2237 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %2234) #40
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %2237, ptr align 8 %2231, i64 %2234, i1 false)
   %2238 = lshr exact i64 %2234, 3
-  %umax1276 = call i64 @llvm.umax.i64(i64 %2238, i64 1)
   br label %.lr.ph1162
 
 ._crit_edge1163:                                  ; preds = %2242
@@ -47653,7 +47648,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EEC2ERKS5_.exit: ; preds = %2235
 2242:                                             ; preds = %.lr.ph1162
   %spec.select358 = select i1 %2241, i1 true, i1 %.41160
   %2243 = add nuw i64 %.01161, 1
-  %exitcond1277.not = icmp eq i64 %2243, %umax1276
+  %exitcond1277.not = icmp eq i64 %2243, %2238
   br i1 %exitcond1277.not, label %._crit_edge1163, label %.lr.ph1162, !llvm.loop !537
 
 _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EED2Ev.exit834: ; preds = %.lr.ph1162

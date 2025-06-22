@@ -7727,7 +7727,6 @@ if.end5.i:                                        ; preds = %if.end.i
 for.cond2.preheader:                              ; preds = %for.body, %if.end5.i, %if.then3.i, %for.body.us, %if.end.i.us
   %.us-phi72 = phi i64 [ %i.066.us, %if.end.i.us ], [ %i.066.us, %for.body.us ], [ %i.066, %if.then3.i ], [ %i.066, %if.end5.i ], [ %i.066, %for.body ]
   %arrayidx14 = getelementptr inbounds nuw double, ptr %4, i64 %.us-phi72
-  %umax = tail call i64 @llvm.umax.i64(i64 %0, i64 1)
   br label %for.body6
 
 for.body6:                                        ; preds = %for.cond2.preheader, %for.inc
@@ -7753,7 +7752,7 @@ if.then8:                                         ; preds = %for.body6
 for.inc:                                          ; preds = %for.body6, %if.then8
   %p.1 = phi double [ %19, %if.then8 ], [ %p.078, %for.body6 ]
   %inc = add nuw i64 %j.079, 1
-  %exitcond88.not = icmp eq i64 %inc, %umax
+  %exitcond88.not = icmp eq i64 %inc, %0
   br i1 %exitcond88.not, label %cleanup, label %for.body6, !llvm.loop !195
 
 cleanup.thread:                                   ; preds = %if.then3.i, %if.end5.i

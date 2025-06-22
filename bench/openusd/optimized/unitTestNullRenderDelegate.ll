@@ -3705,7 +3705,6 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__12Hd_NullRprim13_
   %18 = ptrtoint ptr %16 to i64
   %19 = sub i64 %17, %18
   %20 = ashr exact i64 %19, 5
-  %umax = call i64 @llvm.umax.i64(i64 %20, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %43
@@ -3761,7 +3760,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit: ; preds = %_ZNK32pxrInte
 
 43:                                               ; preds = %24, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit
   %44 = add nuw i64 %.01516, 1
-  %exitcond.not = icmp eq i64 %44, %umax
+  %exitcond.not = icmp eq i64 %44, %20
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge.loopexit:                             ; preds = %43

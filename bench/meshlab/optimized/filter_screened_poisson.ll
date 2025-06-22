@@ -75613,7 +75613,6 @@ _ZNSt6vectorIN6OctreeIfE8_IsoEdgeESaIS2_EE9push_backEOS2_.exit246: ; preds = %_Z
   %552 = ptrtoint ptr %.sroa.0418.3 to i64
   %553 = sub i64 %551, %552
   %554 = sdiv exact i64 %553, 24
-  %umax = call i64 @llvm.umax.i64(i64 %554, i64 1)
   br label %.lr.ph705
 
 .lr.ph697:                                        ; preds = %.preheader526, %_ZNSt6vectorIxSaIxEE9push_backERKx.exit325
@@ -76549,7 +76548,7 @@ _ZNKSt13unordered_mapIxSt4pairIi22PlyColorAndValueVertexIfEESt4hashIxESt8equal_t
 
 _ZNSt6vectorISt4pairIi22PlyColorAndValueVertexIfEESaIS3_EED2Ev.exit: ; preds = %940, %942
   %943 = add nuw i64 %.0158704, 1
-  %exitcond887.not = icmp eq i64 %943, %umax
+  %exitcond887.not = icmp eq i64 %943, %554
   br i1 %exitcond887.not, label %.lr.ph.i.i.i.i367, label %.lr.ph705, !llvm.loop !1034
 
 .lr.ph.i.i.i.i367:                                ; preds = %_ZNSt6vectorISt4pairIi22PlyColorAndValueVertexIfEESaIS3_EED2Ev.exit, %_ZSt8_DestroyISt6vectorIxSaIxEEEvPT_.exit.i.i.i.i

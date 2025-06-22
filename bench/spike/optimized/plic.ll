@@ -1352,12 +1352,11 @@ define void @_ZN6plic_t19set_interrupt_levelEji(ptr noundef nonnull align 8 capt
   %35 = sub i64 %33, %34
   %36 = sdiv exact i64 %35, 1424
   %37 = zext nneg i32 %12 to i64
-  %umax = tail call i64 @llvm.umax.i64(i64 %36, i64 1)
   br label %.critedge
 
 38:                                               ; preds = %.critedge
   %39 = add nuw i64 %.039, 1
-  %exitcond.not = icmp eq i64 %39, %umax
+  %exitcond.not = icmp eq i64 %39, %36
   br i1 %exitcond.not, label %.loopexit, label %.critedge, !llvm.loop !65
 
 .critedge:                                        ; preds = %.critedge.lr.ph, %38

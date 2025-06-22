@@ -3072,7 +3072,6 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev11Lut3DOpDataELN9__gnu_cxx12_Lock_poli
 .lr.ph:                                           ; preds = %983
   %990 = getelementptr inbounds nuw i8, ptr %984, i64 200
   %991 = load ptr, ptr %990, align 8, !tbaa !125
-  %umax = call i64 @llvm.umax.i64(i64 %776, i64 1)
   br label %1010
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_115LocalCachedFileELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %983
@@ -3142,7 +3141,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit519: ; preds = %_Z
   %1015 = getelementptr inbounds nuw float, ptr %991, i64 %.0745
   store float %1014, ptr %1015, align 4, !tbaa !129
   %1016 = add nuw i64 %.0745, 1
-  %exitcond.not = icmp eq i64 %1016, %umax
+  %exitcond.not = icmp eq i64 %1016, %776
   br i1 %exitcond.not, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_115LocalCachedFileELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.thread, label %1010, !llvm.loop !131
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_115LocalCachedFileELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.thread: ; preds = %1010

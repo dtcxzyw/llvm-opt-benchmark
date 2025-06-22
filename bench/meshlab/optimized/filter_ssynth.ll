@@ -23827,12 +23827,11 @@ _ZN3vcg8Matrix33IfEaSERKS1_.exit592:              ; preds = %1157
   %1213 = ptrtoint ptr %1211 to i64
   %1214 = sub i64 %1212, %1213
   %1215 = sdiv exact i64 %1214, 80
-  %umax = call i64 @llvm.umax.i64(i64 %1215, i64 1)
   br label %.lr.ph
 
 1216:                                             ; preds = %.lr.ph
   %1217 = add nuw i64 %.01691123, 1
-  %exitcond.not = icmp eq i64 %1217, %umax
+  %exitcond.not = icmp eq i64 %1217, %1215
   br i1 %exitcond.not, label %.loopexit777, label %.lr.ph, !llvm.loop !164
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %1216
@@ -33477,7 +33476,6 @@ _ZN3vcg3tri9AllocatorI6CMeshOE11AddVerticesERS2_m.exit: ; preds = %222, %225
   %233 = getelementptr inbounds nuw i8, ptr %1, i64 255
   %234 = getelementptr inbounds nuw i8, ptr %8, i64 264
   %235 = getelementptr inbounds nuw i8, ptr %8, i64 265
-  %umax = call i64 @llvm.umax.i64(i64 %220, i64 1)
   br label %236
 
 236:                                              ; preds = %.lr.ph1109, %291
@@ -33596,7 +33594,7 @@ _ZN3vcg3tri2io11ImporterX3DI6CMeshOE25loadDefaultValuePerVertexEP8CVertexORKS3_i
 
 291:                                              ; preds = %_ZN3vcg3tri2io11ImporterX3DI6CMeshOE25loadDefaultValuePerVertexEP8CVertexORKS3_i.exit, %284, %287
   %292 = add nuw i64 %.03681108, 1
-  %exitcond.not = icmp eq i64 %292, %umax
+  %exitcond.not = icmp eq i64 %292, %220
   br i1 %exitcond.not, label %._crit_edge1110, label %236, !llvm.loop !218
 
 ._crit_edge1110:                                  ; preds = %291, %_ZN3vcg3tri9AllocatorI6CMeshOE11AddVerticesERS2_m.exit
@@ -45527,7 +45525,6 @@ _ZN3vcg3tri9AllocatorI6CMeshOE11AddVerticesERS2_m.exit: ; preds = %166, %169
   %175 = ashr exact i64 %sext, 32
   %176 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %177 = getelementptr inbounds nuw i8, ptr %1, i64 255
-  %umax = call i64 @llvm.umax.i64(i64 %164, i64 1)
   br label %178
 
 178:                                              ; preds = %.lr.ph206, %_ZN3vcg3tri2io11ImporterX3DI6CMeshOE25loadDefaultValuePerVertexEP8CVertexORKS3_i.exit
@@ -45628,7 +45625,7 @@ _ZN3vcg3tri9AllocatorI6CMeshOE11AddVerticesERS2_m.exit: ; preds = %166, %169
 
 _ZN3vcg3tri2io11ImporterX3DI6CMeshOE25loadDefaultValuePerVertexEP8CVertexORKS3_i.exit: ; preds = %204, %200
   %224 = add nuw i64 %.059205, 1
-  %exitcond.not = icmp eq i64 %224, %umax
+  %exitcond.not = icmp eq i64 %224, %164
   br i1 %exitcond.not, label %._crit_edge207, label %178, !llvm.loop !288
 
 ._crit_edge207:                                   ; preds = %_ZN3vcg3tri2io11ImporterX3DI6CMeshOE25loadDefaultValuePerVertexEP8CVertexORKS3_i.exit, %_ZN3vcg3tri9AllocatorI6CMeshOE11AddVerticesERS2_m.exit

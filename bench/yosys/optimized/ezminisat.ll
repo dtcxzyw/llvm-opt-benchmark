@@ -1529,7 +1529,6 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit.preheader:    ; preds = %447
   %460 = load ptr, ptr %56, align 8
   %461 = getelementptr inbounds nuw i8, ptr %460, i64 8
   %462 = load ptr, ptr %2, align 8
-  %umax = call i64 @llvm.umax.i64(i64 %453, i64 1)
   br label %463
 
 463:                                              ; preds = %.lr.ph502, %_ZNSt14_Bit_referenceaSEb.exit
@@ -1584,7 +1583,7 @@ _ZNSt14_Bit_referenceaSEb.exit:                   ; preds = %483, %486
   %storemerge = phi i64 [ %489, %486 ], [ %485, %483 ]
   store i64 %storemerge, ptr %storemerge.i.i.i.i.i, align 8, !tbaa !77
   %490 = add nuw i64 %.058501, 1
-  %exitcond600.not = icmp eq i64 %490, %umax
+  %exitcond600.not = icmp eq i64 %490, %453
   br i1 %exitcond600.not, label %.loopexit, label %463, !llvm.loop !144
 
 491:                                              ; preds = %468

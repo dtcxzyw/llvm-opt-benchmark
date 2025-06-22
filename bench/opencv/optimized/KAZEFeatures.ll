@@ -1700,7 +1700,6 @@ _ZN2cv12KAZEFeatures30Compute_Multiscale_DerivativesEv.exit: ; preds = %1
   br i1 %or.cond, label %.preheader24.us.us.preheader, label %._crit_edge
 
 .preheader24.us.us.preheader:                     ; preds = %.preheader24.lr.ph
-  %umax = call i64 @llvm.umax.i64(i64 %22, i64 1)
   %wide.trip.count39 = zext nneg i32 %24 to i64
   %wide.trip.count = zext nneg i32 %27 to i64
   br label %.preheader24.us.us
@@ -1766,7 +1765,7 @@ _ZN2cv12KAZEFeatures30Compute_Multiscale_DerivativesEv.exit: ; preds = %1
 
 ._crit_edge27.split.us.us.us:                     ; preds = %._crit_edge.us.us.us
   %69 = add nuw i64 %.02328.us.us, 1
-  %exitcond41.not = icmp eq i64 %69, %umax
+  %exitcond41.not = icmp eq i64 %69, %22
   br i1 %exitcond41.not, label %._crit_edge, label %.preheader24.us.us, !llvm.loop !136
 
 ._crit_edge:                                      ; preds = %._crit_edge27.split.us.us.us, %.preheader24.lr.ph, %_ZN2cv12KAZEFeatures30Compute_Multiscale_DerivativesEv.exit
@@ -2478,7 +2477,6 @@ _ZNSt16allocator_traitsISaIN2cv8KeyPointEEE8allocateERS2_m.exit.i.i.i.i: ; preds
   %68 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %umax = call i64 @llvm.umax.i64(i64 %53, i64 1)
   br label %86
 
 ._crit_edge.loopexit:                             ; preds = %261
@@ -2504,7 +2502,6 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE5clearEv.exit: ; preds = %._crit_edge, %75
 
 .lr.ph246:                                        ; preds = %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE5clearEv.exit
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %umax250 = call i64 @llvm.umax.i64(i64 %71, i64 1)
   br label %263
 
 78:                                               ; preds = %_ZNK2cv7MatExprcvNS_3MatEEv.exit
@@ -2764,7 +2761,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE5clearEv.exit: ; preds = %._crit_edge, %75
 
 261:                                              ; preds = %237, %259
   %262 = add nuw i64 %.0147244, 1
-  %exitcond.not = icmp eq i64 %262, %umax
+  %exitcond.not = icmp eq i64 %262, %53
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %86, !llvm.loop !179
 
 ._crit_edge247:                                   ; preds = %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE5clearEv.exit
@@ -2878,7 +2875,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__
 _ZNSt6vectorIN2cv8KeyPointESaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %271, %263
   %294 = phi ptr [ %291, %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %273, %271 ], [ %264, %263 ]
   %295 = add nuw i64 %.0245, 1
-  %exitcond251.not = icmp eq i64 %295, %umax250
+  %exitcond251.not = icmp eq i64 %295, %71
   br i1 %exitcond251.not, label %._crit_edge247.thread, label %263, !llvm.loop !184
 
 .thread:                                          ; preds = %.thread.loopexit, %.thread.loopexit.split-lp, %.thread235
@@ -2945,12 +2942,11 @@ define hidden void @_ZN2cv12KAZEFeatures19Feature_DescriptionERSt6vectorINS_8Key
   %23 = sub i64 %21, %22
   %24 = sdiv exact i64 %23, 792
   %25 = trunc i64 %24 to i32
-  %umax = tail call i64 @llvm.umax.i64(i64 %16, i64 1)
   br label %32
 
 26:                                               ; preds = %32
   %27 = add nuw i64 %.01825, 1
-  %exitcond.not = icmp eq i64 %27, %umax
+  %exitcond.not = icmp eq i64 %27, %16
   br i1 %exitcond.not, label %._crit_edge, label %32, !llvm.loop !185
 
 ._crit_edge:                                      ; preds = %26, %3

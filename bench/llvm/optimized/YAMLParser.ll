@@ -16808,12 +16808,12 @@ _ZNK4llvm4yaml4Node8setErrorERKNS_5TwineERNS0_5TokenE.exit.i.i.i: ; preds = %35
   %43 = trunc nuw i8 %42 to i1
   call void @_ZNK4llvm9SourceMgr12PrintMessageENS_5SMLocENS0_8DiagKindERKNS_5TwineENS_8ArrayRefINS_7SMRangeEEENS6_INS_7SMFixItEEEb(ptr noundef nonnull align 8 dereferenceable(64) %40, ptr %spec.select.i.i.i.i.i.i, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %10, ptr null, i64 0, ptr noundef nonnull byval(%"class.llvm::ArrayRef.71") align 8 %8, i1 noundef zeroext %43) #29
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  %.pre52.i.i.i = load ptr, ptr %18, align 8, !tbaa !22
+  %.pre53.i.i.i = load ptr, ptr %18, align 8, !tbaa !22
   store i8 1, ptr %36, align 1, !tbaa !123
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #29
   %44 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 0, ptr %44, align 8, !tbaa !80
-  %45 = icmp eq ptr %.pre52.i.i.i, %19
+  %45 = icmp eq ptr %.pre53.i.i.i, %19
   br i1 %45, label %_ZNK4llvm4yaml4Node8setErrorERKNS_5TwineERNS0_5TokenE.exit.i._ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i_crit_edge.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i
 
 _ZNK4llvm4yaml4Node8setErrorERKNS_5TwineERNS0_5TokenE.exit.i._ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i_crit_edge.i.i: ; preds = %_ZNK4llvm4yaml4Node8setErrorERKNS_5TwineERNS0_5TokenE.exit.i.i.i
@@ -16829,7 +16829,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i: ; preds = %_ZNK4llvm4yaml4Node8setErrorERKNS_5TwineERNS0_5TokenE.exit.i.i.i
   %48 = load i64, ptr %19, align 8, !tbaa !24
   %49 = add i64 %48, 1
-  call void @_ZdlPvm(ptr noundef %.pre52.i.i.i, i64 noundef %49) #30
+  call void @_ZdlPvm(ptr noundef %.pre53.i.i.i, i64 noundef %49) #30
   br label %_ZN4llvm4yaml5TokenD2Ev.exit.i.i.i
 
 _ZN4llvm4yaml5TokenD2Ev.exit.i.i.i:               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i
@@ -16971,12 +16971,12 @@ _ZN4llvm4yaml5TokenD2Ev.exit34.i.i.i:             ; preds = %_ZNKSt7__cxx1112bas
   %95 = icmp eq i8 %94, 10
   %spec.select.i.i.i = select i1 %95, ptr %93, ptr %52
   %96 = sext i1 %95 to i64
-  %spec.select53.i.i.i = add i64 %53, %96
+  %spec.select52.i.i.i = add i64 %53, %96
   br label %97
 
 97:                                               ; preds = %92, %90, %50
   %.sroa.08.0.i.i.i = phi ptr [ %52, %90 ], [ %52, %50 ], [ %spec.select.i.i.i, %92 ]
-  %.sroa.17.0.i.i.i = phi i64 [ %53, %90 ], [ %53, %50 ], [ %spec.select53.i.i.i, %92 ]
+  %.sroa.17.0.i.i.i = phi i64 [ %53, %90 ], [ %53, %50 ], [ %spec.select52.i.i.i, %92 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #29
   %98 = icmp ne i64 %.sroa.17.0.i.i.i, 0
   %.sroa.speculated4.i.i38.i.i.i = zext i1 %98 to i64

@@ -1377,16 +1377,12 @@ check_pixel_ptr.exit447.i:                        ; preds = %.critedge.i446.i, %
 
 .preheader.i:                                     ; preds = %check_pixel_ptr.exit447.i
   %.not800.i = icmp eq i32 %556, 0
-  br i1 %.not800.i, label %.loopexit.i46, label %.lr.ph766.preheader.i
+  br i1 %.not800.i, label %.loopexit.i46, label %.lr.ph766.i
 
-.lr.ph766.preheader.i:                            ; preds = %.preheader.i
-  %umax.i = tail call i32 @llvm.umax.i32(i32 %557, i32 1)
-  br label %.lr.ph766.i
-
-.lr.ph766.i:                                      ; preds = %bytestream2_get_byte.exit414.i, %.lr.ph766.preheader.i
-  %.2292765.i = phi i64 [ %574, %bytestream2_get_byte.exit414.i ], [ %526, %.lr.ph766.preheader.i ]
-  %.2328763.i = phi i32 [ %576, %bytestream2_get_byte.exit414.i ], [ 0, %.lr.ph766.preheader.i ]
-  %.sroa.0.10762.i = phi ptr [ %.sroa.0.42.i, %bytestream2_get_byte.exit414.i ], [ %.sroa.0.39620.i, %.lr.ph766.preheader.i ]
+.lr.ph766.i:                                      ; preds = %.preheader.i, %bytestream2_get_byte.exit414.i
+  %.2292765.i = phi i64 [ %574, %bytestream2_get_byte.exit414.i ], [ %526, %.preheader.i ]
+  %.2328763.i = phi i32 [ %576, %bytestream2_get_byte.exit414.i ], [ 0, %.preheader.i ]
+  %.sroa.0.10762.i = phi ptr [ %.sroa.0.42.i, %bytestream2_get_byte.exit414.i ], [ %.sroa.0.39620.i, %.preheader.i ]
   %568 = ptrtoint ptr %.sroa.0.10762.i to i64
   %569 = sub i64 %298, %568
   %570 = icmp slt i64 %569, 1
@@ -1404,7 +1400,7 @@ bytestream2_get_byte.exit414.i:                   ; preds = %571, %.lr.ph766.i
   %575 = getelementptr inbounds i8, ptr %291, i64 %.2292765.i
   store i8 %.0.i413.i, ptr %575, align 1, !tbaa !34
   %576 = add nuw nsw i32 %.2328763.i, 1
-  %exitcond841.not.i = icmp eq i32 %576, %umax.i
+  %exitcond841.not.i = icmp eq i32 %576, %557
   br i1 %exitcond841.not.i, label %.loopexit.i46, label %.lr.ph766.i, !llvm.loop !57
 
 .loopexit.i46:                                    ; preds = %.lr.ph759.i, %bytestream2_get_byte.exit414.i, %.preheader.i
@@ -3956,9 +3952,6 @@ declare i32 @llvm.umin.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #6
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #6

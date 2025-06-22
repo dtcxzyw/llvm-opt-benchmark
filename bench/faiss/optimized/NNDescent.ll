@@ -1119,19 +1119,15 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %3
   %15 = sub i64 %13, %14
   %16 = sdiv exact i64 %15, 12
   %.not60.not = icmp eq ptr %12, %7
-  br i1 %.not60.not, label %.critedge.thread, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %.preheader
-  %umax = tail call i64 @llvm.umax.i64(i64 %16, i64 1)
-  br label %.lr.ph
+  br i1 %.not60.not, label %.critedge.thread, label %.lr.ph
 
 17:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %16
   br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !43
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %17
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %17 ]
+.lr.ph:                                           ; preds = %.preheader, %17
+  %indvars.iv = phi i64 [ %indvars.iv.next, %17 ], [ 0, %.preheader ]
   %18 = getelementptr inbounds nuw %"struct.faiss::nndescent::Neighbor", ptr %7, i64 %indvars.iv
   %19 = load i32, ptr %18, align 4, !tbaa !44
   %20 = icmp eq i32 %1, %19
@@ -4906,7 +4902,6 @@ _ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EEC2EmRKS3_.exit.thread.i: ; preds = 
 .lr.ph.i26.us:                                    ; preds = %.loopexit31.us
   %86 = load ptr, ptr %63, align 8, !tbaa !81
   %87 = load ptr, ptr %8, align 8, !tbaa !110
-  %umax41.i.us = call i64 @llvm.umax.i64(i64 %85, i64 1)
   br label %88
 
 88:                                               ; preds = %._crit_edge.i.us, %.lr.ph.i26.us
@@ -4939,8 +4934,6 @@ _ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EEC2EmRKS3_.exit.thread.i: ; preds = 
 .preheader.us.preheader.i.us:                     ; preds = %.preheader.lr.ph.i.us
   %101 = sub i64 %.pre44.i.us, %.pre45.i.us
   %102 = ashr exact i64 %101, 2
-  %umax.i.us = call i64 @llvm.umax.i64(i64 %102, i64 1)
-  %umax39.i.us = call i64 @llvm.umax.i64(i64 %100, i64 1)
   br label %.preheader.us.i.us
 
 .preheader.us.i.us:                               ; preds = %..loopexit_crit_edge.us.i.us, %.preheader.us.preheader.i.us
@@ -4959,7 +4952,7 @@ _ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EEC2EmRKS3_.exit.thread.i: ; preds = 
 
 109:                                              ; preds = %105
   %110 = add nuw i64 %.027.us.i.us, 1
-  %exitcond.not.i.us = icmp eq i64 %110, %umax.i.us
+  %exitcond.not.i.us = icmp eq i64 %110, %102
   br i1 %exitcond.not.i.us, label %..loopexit_crit_edge.us.i.us, label %105, !llvm.loop !115
 
 111:                                              ; preds = %105
@@ -4969,7 +4962,7 @@ _ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EEC2EmRKS3_.exit.thread.i: ; preds = 
 ..loopexit_crit_edge.us.i.us:                     ; preds = %109, %111
   %.1.us.i.us = phi float [ %112, %111 ], [ %.02628.us.i.us, %109 ]
   %113 = add nuw i64 %.02329.us.i.us, 1
-  %exitcond40.not.i.us = icmp eq i64 %113, %umax39.i.us
+  %exitcond40.not.i.us = icmp eq i64 %113, %100
   br i1 %exitcond40.not.i.us, label %._crit_edge.i.us, label %.preheader.us.i.us, !llvm.loop !116
 
 ._crit_edge.i.us:                                 ; preds = %..loopexit_crit_edge.us.i.us, %.preheader.lr.ph.i.us, %88
@@ -4981,7 +4974,7 @@ _ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EEC2EmRKS3_.exit.thread.i: ; preds = 
   %117 = fdiv float %.026.lcssa.i.us, %116
   %118 = fadd float %.02432.i.us, %117
   %119 = add nuw i64 %.02531.i.us, 1
-  %exitcond42.not.i.us = icmp eq i64 %119, %umax41.i.us
+  %exitcond42.not.i.us = icmp eq i64 %119, %85
   br i1 %exitcond42.not.i.us, label %_ZN5faiss9NNDescent11eval_recallERSt6vectorIiSaIiEERS1_IS3_SaIS3_EE.exit.us, label %88, !llvm.loop !117
 
 _ZN5faiss9NNDescent11eval_recallERSt6vectorIiSaIiEERS1_IS3_SaIS3_EE.exit.us: ; preds = %._crit_edge.i.us, %.loopexit31.us
@@ -5192,7 +5185,6 @@ define noundef float @_ZN5faiss9NNDescent11eval_recallERSt6vectorIiSaIiEERS1_IS3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load ptr, ptr %11, align 8, !tbaa !81
   %13 = load ptr, ptr %2, align 8, !tbaa !110
-  %umax41 = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %16
 
 ._crit_edge34:                                    ; preds = %._crit_edge, %3
@@ -5231,8 +5223,6 @@ define noundef float @_ZN5faiss9NNDescent11eval_recallERSt6vectorIiSaIiEERS1_IS3
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
   %29 = sub i64 %.pre44, %.pre45
   %30 = ashr exact i64 %29, 2
-  %umax = tail call i64 @llvm.umax.i64(i64 %30, i64 1)
-  %umax39 = tail call i64 @llvm.umax.i64(i64 %28, i64 1)
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %..loopexit_crit_edge.us
@@ -5244,7 +5234,7 @@ define noundef float @_ZN5faiss9NNDescent11eval_recallERSt6vectorIiSaIiEERS1_IS3
 
 33:                                               ; preds = %35
   %34 = add nuw i64 %.027.us, 1
-  %exitcond.not = icmp eq i64 %34, %umax
+  %exitcond.not = icmp eq i64 %34, %30
   br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %35, !llvm.loop !115
 
 35:                                               ; preds = %.preheader.us, %33
@@ -5261,7 +5251,7 @@ define noundef float @_ZN5faiss9NNDescent11eval_recallERSt6vectorIiSaIiEERS1_IS3
 ..loopexit_crit_edge.us:                          ; preds = %33, %39
   %.1.us = phi float [ %40, %39 ], [ %.02628.us, %33 ]
   %41 = add nuw i64 %.02329.us, 1
-  %exitcond40.not = icmp eq i64 %41, %umax39
+  %exitcond40.not = icmp eq i64 %41, %28
   br i1 %exitcond40.not, label %._crit_edge, label %.preheader.us, !llvm.loop !116
 
 ._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %16, %.preheader.lr.ph
@@ -5273,7 +5263,7 @@ define noundef float @_ZN5faiss9NNDescent11eval_recallERSt6vectorIiSaIiEERS1_IS3
   %45 = fdiv float %.026.lcssa, %44
   %46 = fadd float %.02432, %45
   %47 = add nuw i64 %.02531, 1
-  %exitcond42.not = icmp eq i64 %47, %umax41
+  %exitcond42.not = icmp eq i64 %47, %10
   br i1 %exitcond42.not, label %._crit_edge34, label %16, !llvm.loop !117
 }
 

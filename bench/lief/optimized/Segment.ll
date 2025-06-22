@@ -13,7 +13,7 @@ define hidden void @_ZN4LIEF5MachO15init_c_segmentsEP14Macho_Binary_tPNS0_6Binar
   %8 = ptrtoint ptr %4 to i64
   %9 = sub i64 %7, %8
   %10 = add i64 %9, 8
-  %11 = tail call noalias ptr @malloc(i64 noundef %10) #6
+  %11 = tail call noalias ptr @malloc(i64 noundef %10) #5
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %11, ptr %12, align 8, !tbaa !14
   %.not = icmp eq ptr %6, %4
@@ -21,7 +21,6 @@ define hidden void @_ZN4LIEF5MachO15init_c_segmentsEP14Macho_Binary_tPNS0_6Binar
 
 _ZN4LIEF12ref_iteratorIRSt6vectorIPNS_5MachO14SegmentCommandESaIS4_EES4_N9__gnu_cxx17__normal_iteratorIPS4_S6_EEEixEm.exit.lr.ph: ; preds = %2
   %13 = ashr exact i64 %9, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %13, i64 1)
   br label %_ZN4LIEF12ref_iteratorIRSt6vectorIPNS_5MachO14SegmentCommandESaIS4_EES4_N9__gnu_cxx17__normal_iteratorIPS4_S6_EEEixEm.exit
 
 ._crit_edge:                                      ; preds = %_ZSt4copyIPKhPhET0_T_S4_S3_.exit, %2
@@ -33,7 +32,7 @@ _ZN4LIEF12ref_iteratorIRSt6vectorIPNS_5MachO14SegmentCommandESaIS4_EES4_N9__gnu_
   %.050 = phi i64 [ 0, %_ZN4LIEF12ref_iteratorIRSt6vectorIPNS_5MachO14SegmentCommandESaIS4_EES4_N9__gnu_cxx17__normal_iteratorIPS4_S6_EEEixEm.exit.lr.ph ], [ %57, %_ZSt4copyIPKhPhET0_T_S4_S3_.exit ]
   %15 = getelementptr inbounds ptr, ptr %4, i64 %.050
   %16 = load ptr, ptr %15, align 8, !tbaa !27
-  %17 = tail call noalias dereferenceable_or_null(80) ptr @malloc(i64 noundef 80) #6
+  %17 = tail call noalias dereferenceable_or_null(80) ptr @malloc(i64 noundef 80) #5
   %18 = getelementptr inbounds nuw ptr, ptr %11, i64 %.050
   store ptr %17, ptr %18, align 8, !tbaa !25
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 144
@@ -43,7 +42,7 @@ _ZN4LIEF12ref_iteratorIRSt6vectorIPNS_5MachO14SegmentCommandESaIS4_EES4_N9__gnu_
   %23 = ptrtoint ptr %22 to i64
   %24 = ptrtoint ptr %20 to i64
   %25 = sub i64 %23, %24
-  %26 = tail call noalias ptr @malloc(i64 noundef %25) #6
+  %26 = tail call noalias ptr @malloc(i64 noundef %25) #5
   %.not.i.i.i.i.i = icmp eq ptr %22, %20
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPKhPhET0_T_S4_S3_.exit, label %27
 
@@ -94,7 +93,7 @@ _ZSt4copyIPKhPhET0_T_S4_S3_.exit:                 ; preds = %_ZN4LIEF12ref_itera
   %56 = getelementptr inbounds nuw i8, ptr %17, i64 72
   store ptr null, ptr %56, align 8, !tbaa !73
   %57 = add nuw i64 %.050, 1
-  %exitcond.not = icmp eq i64 %57, %umax
+  %exitcond.not = icmp eq i64 %57, %13
   br i1 %exitcond.not, label %._crit_edge, label %_ZN4LIEF12ref_iteratorIRSt6vectorIPNS_5MachO14SegmentCommandESaIS4_EES4_N9__gnu_cxx17__normal_iteratorIPS4_S6_EEEixEm.exit, !llvm.loop !74
 }
 
@@ -115,7 +114,7 @@ define hidden void @_ZN4LIEF5MachO16destroy_segmentsEP14Macho_Binary_t(ptr nound
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %1
   %5 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %3, %1 ]
-  tail call void @free(ptr noundef %5) #7
+  tail call void @free(ptr noundef %5) #6
   ret void
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
@@ -124,9 +123,9 @@ define hidden void @_ZN4LIEF5MachO16destroy_segmentsEP14Macho_Binary_t(ptr nound
   %7 = getelementptr inbounds nuw ptr, ptr %3, i64 %.010
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %9 = load ptr, ptr %8, align 8, !tbaa !71
-  tail call void @free(ptr noundef %9) #7
+  tail call void @free(ptr noundef %9) #6
   %10 = load ptr, ptr %7, align 8, !tbaa !25
-  tail call void @free(ptr noundef %10) #7
+  tail call void @free(ptr noundef %10) #6
   %11 = add i64 %.010, 1
   %12 = getelementptr inbounds nuw ptr, ptr %3, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !25
@@ -140,17 +139,13 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #5
-
 attributes #0 = { mustprogress nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nounwind allocsize(0) }
-attributes #7 = { nounwind }
+attributes #5 = { nounwind allocsize(0) }
+attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

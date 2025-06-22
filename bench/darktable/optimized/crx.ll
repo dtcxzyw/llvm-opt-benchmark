@@ -21998,7 +21998,6 @@ _ZN13libraw_memmgr6callocEmm.exit:                ; preds = %38
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #21
   store ptr %2, ptr %6, align 8, !tbaa !194
   %135 = getelementptr inbounds nuw i8, ptr %1, i64 9
-  %umax = tail call i32 @llvm.umax.i32(i32 %15, i32 1)
   br label %136
 
 136:                                              ; preds = %.loopexit365, %313
@@ -22383,7 +22382,7 @@ _ZN6LibRaw5sgetnEiPh.exit345:                     ; preds = %.lr.ph.i341
 313:                                              ; preds = %._crit_edge
   %314 = add nuw nsw i32 %.0252412, 1
   %315 = getelementptr inbounds nuw i8, ptr %.0253411, i64 56
-  %exitcond479.not = icmp eq i32 %314, %umax
+  %exitcond479.not = icmp eq i32 %314, %15
   br i1 %exitcond479.not, label %.critedge286, label %136, !llvm.loop !208
 
 .critedge286:                                     ; preds = %313
@@ -22671,7 +22670,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit349:                 ; preds = %.loopexit, %.loopex
 439:                                              ; preds = %326, %_ZNSt6vectorIiSaIiEED2Ev.exit
   %440 = add nuw nsw i32 %.0246434, 1
   %441 = getelementptr inbounds nuw i8, ptr %.1254433, i64 56
-  %exitcond493.not = icmp eq i32 %440, %umax
+  %exitcond493.not = icmp eq i32 %440, %15
   br i1 %exitcond493.not, label %.thread, label %326, !llvm.loop !211
 
 .thread:                                          ; preds = %_ZN6LibRaw5sgetnEiPh.exit315, %_ZN6LibRaw5sgetnEiPh.exit305, %_ZN6LibRaw5sgetnEiPh.exit300, %174, %160, %158, %159, %._crit_edge, %136, %_ZN6LibRaw5sgetnEiPh.exit335, %259, %_ZN6LibRaw5sgetnEiPh.exit340, %303, %297, %_ZNSt6vectorIiSaIiEED2Ev.exit, %439, %.critedge288, %.critedge286
@@ -23641,9 +23640,6 @@ declare i32 @llvm.ctlz.i32(i32, i1 immarg) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #20
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #20
 
 attributes #0 = { mustprogress uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

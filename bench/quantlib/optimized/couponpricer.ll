@@ -5989,7 +5989,6 @@ for.body.lr.ph:                                   ; preds = %do.end
   %39 = getelementptr inbounds nuw i8, ptr %setter, i64 120
   %pricer_.i = getelementptr inbounds nuw i8, ptr %setter, i64 128
   %pn.i.i = getelementptr inbounds nuw i8, ptr %setter, i64 136
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %for.body
 
 if.then28:                                        ; preds = %do.end
@@ -6285,7 +6284,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i.i, 
 _ZN8QuantLib12_GLOBAL__N_112PricerSetterD2Ev.exit: ; preds = %invoke.cont86, %if.then.i.i.i89, %.noexc.i.i.i, %if.then.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %setter) #29
   %inc = add nuw i64 %i.0132, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !162
 
 lpad83:                                           ; preds = %cond.false.i, %invoke.cont84

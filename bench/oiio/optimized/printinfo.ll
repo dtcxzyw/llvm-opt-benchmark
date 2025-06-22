@@ -3167,7 +3167,7 @@ _ZNSt6vectorImSaImEE6resizeEmRKm.exit.i:          ; preds = %594, %_ZNSt12_Vecto
   %647 = sub i64 %645, %646
   %648 = ashr exact i64 %647, 3
   %.not305.i = icmp eq ptr %.sroa.15.0.lcssa.i, %.sroa.0.0.lcssa.i
-  br i1 %.not305.i, label %._crit_edge298.thread.i, label %.lr.ph297.preheader.i
+  br i1 %.not305.i, label %._crit_edge298.thread.i, label %.lr.ph297.i
 
 ._crit_edge298.thread.i:                          ; preds = %644
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26) #24
@@ -3176,10 +3176,6 @@ _ZNSt6vectorImSaImEE6resizeEmRKm.exit.i:          ; preds = %594, %_ZNSt12_Vecto
   store i64 0, ptr %27, align 8, !tbaa !40
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28) #24
   br label %._crit_edge303.i
-
-.lr.ph297.preheader.i:                            ; preds = %644
-  %umax.i = call i64 @llvm.umax.i64(i64 %648, i64 1)
-  br label %.lr.ph297.i
 
 .lr.ph302.i:                                      ; preds = %.lr.ph297.i
   %649 = uitofp i64 %661 to double
@@ -3215,14 +3211,14 @@ _ZNSt6vectorImSaImEE6resizeEmRKm.exit.i:          ; preds = %594, %_ZNSt12_Vecto
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #24
   br label %715
 
-.lr.ph297.i:                                      ; preds = %.lr.ph297.i, %.lr.ph297.preheader.i
-  %.0105295.i = phi i64 [ %662, %.lr.ph297.i ], [ 0, %.lr.ph297.preheader.i ]
-  %.0106294.i = phi i64 [ %661, %.lr.ph297.i ], [ 0, %.lr.ph297.preheader.i ]
+.lr.ph297.i:                                      ; preds = %644, %.lr.ph297.i
+  %.0105295.i = phi i64 [ %662, %.lr.ph297.i ], [ 0, %644 ]
+  %.0106294.i = phi i64 [ %661, %.lr.ph297.i ], [ 0, %644 ]
   %659 = getelementptr inbounds nuw i64, ptr %.sroa.0.0.lcssa.i, i64 %.0105295.i
   %660 = load i64, ptr %659, align 8, !tbaa !40
   %661 = add i64 %660, %.0106294.i
   %662 = add nuw i64 %.0105295.i, 1
-  %exitcond326.not.i = icmp eq i64 %662, %umax.i
+  %exitcond326.not.i = icmp eq i64 %662, %648
   br i1 %exitcond326.not.i, label %.lr.ph302.i, label %.lr.ph297.i, !llvm.loop !123
 
 ._crit_edge303.i:                                 ; preds = %692, %._crit_edge298.thread.i

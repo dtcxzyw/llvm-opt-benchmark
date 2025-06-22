@@ -7657,7 +7657,6 @@ define linkonce_odr void @_ZN6duckdb19AlpCompressionStateIfE6AppendERNS_19Unifie
   %17 = load ptr, ptr %16, align 8, !tbaa !136
   %.not.i38 = icmp eq ptr %17, null
   %.promoted = load i64, ptr %9, align 8, !tbaa !421
-  %umax60 = tail call i64 @llvm.umax.i64(i64 %14, i64 1)
   br i1 %.not.i38, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.us, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.preheader
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.preheader: ; preds = %.lr.ph
@@ -7686,7 +7685,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.us: ; preds = %.lr.ph, 
   %33 = getelementptr inbounds nuw [1024 x float], ptr %10, i64 0, i64 %26
   store float %21, ptr %33, align 4, !tbaa !131
   %34 = add nuw i64 %.03644.us, 1
-  %exitcond61.not = icmp eq i64 %34, %umax60
+  %exitcond61.not = icmp eq i64 %34, %14
   br i1 %exitcond61.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.us, !llvm.loop !422
 
 .preheader:                                       ; preds = %11
@@ -7696,7 +7695,6 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.us: ; preds = %.lr.ph, 
   %35 = load ptr, ptr %1, align 8, !tbaa !135
   %36 = load ptr, ptr %35, align 8, !tbaa !136
   %.not.i37 = icmp eq ptr %36, null
-  %umax66 = tail call i64 @llvm.umax.i64(i64 %14, i64 1)
   br i1 %.not.i37, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us.preheader, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.preheader
 
 _ZNK6duckdb15SelectionVector9get_indexEm.exit.preheader: ; preds = %.lr.ph46
@@ -7715,7 +7713,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit.us: ; preds = %_ZNK6duckdb15Select
   %39 = getelementptr inbounds nuw [1024 x float], ptr %10, i64 0, i64 %38
   store float %37, ptr %39, align 4, !tbaa !131
   %40 = add nuw i64 %.03545.us, 1
-  %exitcond67.not = icmp eq i64 %40, %umax66
+  %exitcond67.not = icmp eq i64 %40, %14
   br i1 %exitcond67.not, label %.loopexit, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us, !llvm.loop !423
 
 _ZNK6duckdb15SelectionVector9get_indexEm.exit:    ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit.preheader, %_ZNK6duckdb15SelectionVector9get_indexEm.exit
@@ -7729,7 +7727,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit:    ; preds = %_ZNK6duckdb15Select
   %46 = getelementptr inbounds nuw [1024 x float], ptr %10, i64 0, i64 %45
   store float %44, ptr %46, align 4, !tbaa !131
   %47 = add nuw i64 %.03545, 1
-  %exitcond63.not = icmp eq i64 %47, %umax66
+  %exitcond63.not = icmp eq i64 %47, %14
   br i1 %exitcond63.not, label %.loopexit, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit, !llvm.loop !423
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.preheader, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit
@@ -7756,7 +7754,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %_ZNK6duckdb
   %64 = getelementptr inbounds nuw [1024 x float], ptr %10, i64 0, i64 %57
   store float %52, ptr %64, align 4, !tbaa !131
   %65 = add nuw i64 %.03644, 1
-  %exitcond.not = icmp eq i64 %65, %umax60
+  %exitcond.not = icmp eq i64 %65, %14
   br i1 %exitcond.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit, !llvm.loop !422
 
 .loopexit:                                        ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.us, %_ZNK6duckdb15SelectionVector9get_indexEm.exit, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us, %.preheader42, %.preheader
@@ -12125,7 +12123,6 @@ define linkonce_odr void @_ZN6duckdb19AlpCompressionStateIdE6AppendERNS_19Unifie
   %17 = load ptr, ptr %16, align 8, !tbaa !136
   %.not.i38 = icmp eq ptr %17, null
   %.promoted = load i64, ptr %9, align 8, !tbaa !496
-  %umax60 = tail call i64 @llvm.umax.i64(i64 %14, i64 1)
   br i1 %.not.i38, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.us, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.preheader
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.preheader: ; preds = %.lr.ph
@@ -12154,7 +12151,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.us: ; preds = %.lr.ph, 
   %33 = getelementptr inbounds nuw [1024 x double], ptr %10, i64 0, i64 %26
   store double %21, ptr %33, align 8, !tbaa !228
   %34 = add nuw i64 %.03644.us, 1
-  %exitcond61.not = icmp eq i64 %34, %umax60
+  %exitcond61.not = icmp eq i64 %34, %14
   br i1 %exitcond61.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.us, !llvm.loop !497
 
 .preheader:                                       ; preds = %11
@@ -12164,7 +12161,6 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.us: ; preds = %.lr.ph, 
   %35 = load ptr, ptr %1, align 8, !tbaa !135
   %36 = load ptr, ptr %35, align 8, !tbaa !136
   %.not.i37 = icmp eq ptr %36, null
-  %umax66 = tail call i64 @llvm.umax.i64(i64 %14, i64 1)
   br i1 %.not.i37, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us.preheader, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.preheader
 
 _ZNK6duckdb15SelectionVector9get_indexEm.exit.preheader: ; preds = %.lr.ph46
@@ -12183,7 +12179,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit.us: ; preds = %_ZNK6duckdb15Select
   %39 = getelementptr inbounds nuw [1024 x double], ptr %10, i64 0, i64 %38
   store double %37, ptr %39, align 8, !tbaa !228
   %40 = add nuw i64 %.03545.us, 1
-  %exitcond67.not = icmp eq i64 %40, %umax66
+  %exitcond67.not = icmp eq i64 %40, %14
   br i1 %exitcond67.not, label %.loopexit, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us, !llvm.loop !498
 
 _ZNK6duckdb15SelectionVector9get_indexEm.exit:    ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit.preheader, %_ZNK6duckdb15SelectionVector9get_indexEm.exit
@@ -12197,7 +12193,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit:    ; preds = %_ZNK6duckdb15Select
   %46 = getelementptr inbounds nuw [1024 x double], ptr %10, i64 0, i64 %45
   store double %44, ptr %46, align 8, !tbaa !228
   %47 = add nuw i64 %.03545, 1
-  %exitcond63.not = icmp eq i64 %47, %umax66
+  %exitcond63.not = icmp eq i64 %47, %14
   br i1 %exitcond63.not, label %.loopexit, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit, !llvm.loop !498
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.preheader, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit
@@ -12224,7 +12220,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %_ZNK6duckdb
   %64 = getelementptr inbounds nuw [1024 x double], ptr %10, i64 0, i64 %57
   store double %52, ptr %64, align 8, !tbaa !228
   %65 = add nuw i64 %.03644, 1
-  %exitcond.not = icmp eq i64 %65, %umax60
+  %exitcond.not = icmp eq i64 %65, %14
   br i1 %exitcond.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit, !llvm.loop !497
 
 .loopexit:                                        ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.us, %_ZNK6duckdb15SelectionVector9get_indexEm.exit, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us, %.preheader42, %.preheader

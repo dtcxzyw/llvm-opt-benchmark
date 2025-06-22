@@ -1897,11 +1897,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit79: ; pred
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 %154
   store i8 0, ptr %166, align 1, !tbaa !7
   %.not = icmp eq i64 %2, %1
-  br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit79
-  %umax = tail call i64 @llvm.umax.i64(i64 %.sroa.speculated, i64 1)
-  br label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit91, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit79
   %167 = sub nuw nsw i64 16, %.sroa.speculated
@@ -1922,14 +1918,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit79: ; pred
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit: ; preds = %._crit_edge
   %178 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.68, i64 noundef 3)
-  br i1 %.not, label %._crit_edge104, label %.lr.ph103.preheader
+  br i1 %.not, label %._crit_edge104, label %.lr.ph103
 
-.lr.ph103.preheader:                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit
-  %umax106 = tail call i64 @llvm.umax.i64(i64 %.sroa.speculated, i64 1)
-  br label %.lr.ph103
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit91
-  %.0101 = phi i64 [ %249, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit91 ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit79, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit91
+  %.0101 = phi i64 [ %249, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit91 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit79 ]
   %179 = icmp eq i64 %.0101, 8
   br i1 %179, label %180, label %195
 
@@ -2069,7 +2061,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit91: ; pred
   %248 = getelementptr inbounds nuw i8, ptr %247, i64 %236
   store i8 0, ptr %248, align 1, !tbaa !7
   %249 = add nuw nsw i64 %.0101, 1
-  %exitcond.not = icmp eq i64 %249, %umax
+  %exitcond.not = icmp eq i64 %249, %.sroa.speculated
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !80
 
 ._crit_edge104:                                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit97, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit
@@ -2107,8 +2099,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit94: ; pred
   store i8 0, ptr %265, align 1, !tbaa !7
   ret i64 %.sroa.speculated
 
-.lr.ph103:                                        ; preds = %.lr.ph103.preheader, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit97
-  %.053102 = phi i64 [ %284, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit97 ], [ 0, %.lr.ph103.preheader ]
+.lr.ph103:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit97
+  %.053102 = phi i64 [ %284, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit97 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit ]
   %266 = getelementptr inbounds nuw i8, ptr %7, i64 %.053102
   %267 = load i8, ptr %266, align 1, !tbaa !7
   %268 = add i8 %267, -32
@@ -2145,7 +2137,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit97: ; pred
   %283 = getelementptr inbounds nuw i8, ptr %282, i64 %271
   store i8 0, ptr %283, align 1, !tbaa !7
   %284 = add nuw nsw i64 %.053102, 1
-  %exitcond107.not = icmp eq i64 %284, %umax106
+  %exitcond107.not = icmp eq i64 %284, %.sroa.speculated
   br i1 %exitcond107.not, label %._crit_edge104, label %.lr.ph103, !llvm.loop !81
 }
 

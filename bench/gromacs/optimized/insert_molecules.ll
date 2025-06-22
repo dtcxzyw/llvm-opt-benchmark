@@ -4970,7 +4970,6 @@ _ZNSt16allocator_traitsISaIN3gmx11BasicVectorIfEEEE8allocateERS3_m.exit.i.i.i.i:
   %438 = ptrtoint ptr %436 to i64
   %439 = sub i64 %437, %438
   %440 = sdiv exact i64 %439, 12
-  %umax.i = call i64 @llvm.umax.i64(i64 %440, i64 1)
   br label %441
 
 441:                                              ; preds = %441, %.lr.ph.i
@@ -4988,7 +4987,7 @@ _ZNSt16allocator_traitsISaIN3gmx11BasicVectorIfEEEE8allocateERS3_m.exit.i.i.i.i:
   store float %447, ptr %445, align 4, !tbaa !101
   store float %450, ptr %448, align 4, !tbaa !101
   %451 = add nuw i64 %.060.i, 1
-  %exitcond.not.i = icmp eq i64 %451, %umax.i
+  %exitcond.not.i = icmp eq i64 %451, %440
   br i1 %exitcond.not.i, label %.loopexit, label %441, !llvm.loop !291
 
 452:                                              ; preds = %415

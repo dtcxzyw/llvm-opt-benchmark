@@ -10459,7 +10459,6 @@ _ZNSt6vectorIdSaIdEE7reserveEm.exit:              ; preds = %if.end.i, %_ZNSt12_
 for.body.lr.ph:                                   ; preds = %_ZNSt6vectorIdSaIdEE7reserveEm.exit
   %pn.i.i76 = getelementptr inbounds nuw i8, ptr %cpn, i64 8
   %_M_finish.i.i85 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %umax = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %_ZN5boost10shared_ptrIN8QuantLib6CouponEED2Ev.exit, %_ZNSt6vectorIdSaIdEE7reserveEm.exit
@@ -10799,7 +10798,7 @@ terminate.lpad.i.i102:                            ; preds = %if.then.i.i.i.i106,
 _ZN5boost10shared_ptrIN8QuantLib6CouponEED2Ev.exit: ; preds = %invoke.cont109, %if.then.i.i96, %.noexc.i.i103, %if.then.i.i.i.i106
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %cpn) #36
   %inc = add nuw i64 %i.0116, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !241
 
 lpad104.loopexit:                                 ; preds = %invoke.cont105, %cond.false.i82, %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i.i
@@ -12016,7 +12015,6 @@ for.body.lr.ph:                                   ; preds = %_ZNSt6vectorIdSaIdE
   %_M_finish.i.i184 = getelementptr inbounds nuw i8, ptr %this, i64 56
   %_M_finish.i.i225 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %_M_finish.i.i266 = getelementptr inbounds nuw i8, ptr %this, i64 80
-  %umax = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %_ZN5boost10shared_ptrIN8QuantLib6CouponEED2Ev.exit, %_ZNSt6vectorIdSaIdEE7reserveEm.exit142
@@ -12598,7 +12596,7 @@ terminate.lpad.i.i306:                            ; preds = %if.then.i.i.i.i310,
 _ZN5boost10shared_ptrIN8QuantLib6CouponEED2Ev.exit: ; preds = %invoke.cont156, %if.then.i.i300, %.noexc.i.i307, %if.then.i.i.i.i310
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %cpn) #36
   %inc = add nuw i64 %i.0342, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !256
 
 lpad106.loopexit:                                 ; preds = %invoke.cont107, %cond.false.i181, %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i.i
@@ -12967,7 +12965,6 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %3 = load ptr, ptr %swapPaymentDiscounts_, align 8, !tbaa !232
   %shapedSwapPaymentTimes_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %4 = load ptr, ptr %shapedSwapPaymentTimes_, align 8, !tbaa !232
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %for.body, %for.cond.preheader
@@ -13011,7 +13008,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %12 = load double, ptr %add.ptr.i43, align 8, !tbaa !159
   %13 = tail call double @llvm.fmuladd.f64(double %mul, double %12, double %D.0105)
   %inc = add nuw i64 %i.0104, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !263
 
 invoke.cont:                                      ; preds = %for.cond.cleanup, %cond.false.i
@@ -13375,7 +13372,6 @@ for.body.lr.ph:                                   ; preds = %entry
   %2 = load ptr, ptr %swapPaymentDiscounts_, align 8, !tbaa !232
   %shapedSwapPaymentTimes_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load ptr, ptr %shapedSwapPaymentTimes_, align 8, !tbaa !232
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %for.body, %entry
@@ -13420,7 +13416,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %neg = fmul double %mul13, %13
   %14 = tail call double @llvm.fmuladd.f64(double %neg, double %call21, double %derSqrtDenominator.071)
   %inc = add nuw i64 %i.072, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !267
 
 if.then:                                          ; preds = %for.cond.cleanup
@@ -13619,7 +13615,6 @@ for.body.lr.ph:                                   ; preds = %entry
   %2 = load ptr, ptr %swapPaymentDiscounts_, align 8, !tbaa !232
   %shapedSwapPaymentTimes_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load ptr, ptr %shapedSwapPaymentTimes_, align 8, !tbaa !232
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %for.body, %entry
@@ -13675,7 +13670,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %call38 = tail call double @exp(double noundef %mul6) #36, !tbaa !58
   %15 = tail call double @llvm.fmuladd.f64(double %mul33, double %call38, double %der2DenOfRfunztion.0122)
   %inc = add nuw i64 %i.0121, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !268
 
 if.then:                                          ; preds = %for.cond.cleanup
@@ -14369,7 +14364,6 @@ for.body.lr.ph:                                   ; preds = %entry
   %3 = load ptr, ptr %swapPaymentDiscounts_, align 8, !tbaa !232
   %shapedSwapPaymentTimes_ = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %shapedSwapPaymentTimes_, align 8, !tbaa !232
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %for.body, %entry
@@ -14421,7 +14415,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %19 = tail call double @llvm.fmuladd.f64(double %fneg, double %mul11, double %14)
   store double %19, ptr %derivative_, align 8, !tbaa !269
   %inc = add nuw i64 %i.020, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !270
 }
 

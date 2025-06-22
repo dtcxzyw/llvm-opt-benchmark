@@ -1299,11 +1299,7 @@ _ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit71: ; preds = %108, %.noexc107,
 
 .preheader:                                       ; preds = %_ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit71
   %.not168 = icmp eq ptr %.sroa.19.0, %.sroa.0121.0
-  br i1 %.not168, label %._crit_edge167, label %.lr.ph166.preheader
-
-.lr.ph166.preheader:                              ; preds = %.preheader
-  %umax = tail call i64 @llvm.umax.i64(i64 %66, i64 1)
-  br label %.lr.ph166
+  br i1 %.not168, label %._crit_edge167, label %.lr.ph166
 
 123:                                              ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i61, %.noexc.i.i63
   %124 = landingpad { ptr, i32 }
@@ -1319,7 +1315,7 @@ _ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit71: ; preds = %108, %.noexc107,
 
 127:                                              ; preds = %.lr.ph166
   %128 = add nuw i64 %.0165, 1
-  %exitcond177.not = icmp eq i64 %128, %umax
+  %exitcond177.not = icmp eq i64 %128, %66
   br i1 %exitcond177.not, label %._crit_edge167.thread, label %.lr.ph166, !llvm.loop !80
 
 ._crit_edge167:                                   ; preds = %.preheader
@@ -1331,8 +1327,8 @@ _ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit71: ; preds = %108, %.noexc107,
   %.pre = load ptr, ptr %1, align 8, !tbaa !73
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
-.lr.ph166:                                        ; preds = %.lr.ph166.preheader, %127
-  %.0165 = phi i64 [ %128, %127 ], [ 0, %.lr.ph166.preheader ]
+.lr.ph166:                                        ; preds = %.preheader, %127
+  %.0165 = phi i64 [ %128, %127 ], [ 0, %.preheader ]
   %129 = getelementptr inbounds nuw i32, ptr %.sroa.0121.0, i64 %.0165
   %130 = load i32, ptr %129, align 4, !tbaa !79
   %131 = getelementptr inbounds nuw i32, ptr %.sroa.0.0, i64 %.0165
@@ -2484,9 +2480,6 @@ declare i64 @llvm.umin.i64(i64, i64) #19
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #20
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #19
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }

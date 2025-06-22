@@ -36666,7 +36666,6 @@ _ZNSt15__new_allocatorIN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEEE8allocateEmPKv.exi
 
 .lr.ph.preheader:                                 ; preds = %_ZNSt15__new_allocatorIN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEEE8allocateEmPKv.exit.i.i.i.i
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %142, i64 %141
-  %umax = call i64 @llvm.umax.i64(i64 %138, i64 1)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
@@ -37020,7 +37019,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5Eigen6MatrixIiLi4ELi1ELi0E
   %264 = trunc i64 %.024101 to i32
   store i32 %264, ptr %263, align 4, !tbaa !28
   %265 = add nuw i64 %.024101, 1
-  %exitcond.not = icmp eq i64 %265, %umax
+  %exitcond.not = icmp eq i64 %265, %138
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !728
 
 .loopexit:                                        ; preds = %240, %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZN6open3d1t9pipelines4slac11ControlGrid10CompactifyEvE3$_0EEEvT_T0_.exit.i18.i.i.i", %_ZNSt6vectorIN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i, %.preheader.i26.i.i.i

@@ -3860,7 +3860,6 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN6Assimp3DXF5Bl
   %58 = getelementptr inbounds nuw i8, ptr %.sroa.0157.0175, i64 24
   %59 = getelementptr inbounds nuw i8, ptr %.sroa.0157.0175, i64 4
   %60 = getelementptr inbounds nuw i8, ptr %.sroa.0157.0175, i64 8
-  %umax = tail call i64 @llvm.umax.i64(i64 %51, i64 1)
   br label %61
 
 61:                                               ; preds = %.lr.ph173, %_ZNSt12__shared_ptrIKN6Assimp3DXF8PolyLineELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
@@ -4361,7 +4360,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i57: ; preds = %309, %30
 _ZNSt12__shared_ptrIKN6Assimp3DXF8PolyLineELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %290, %297, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i57, %312
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #28
   %313 = add nuw i64 %.029172, 1
-  %exitcond.not = icmp eq i64 %313, %umax
+  %exitcond.not = icmp eq i64 %313, %51
   br i1 %exitcond.not, label %.loopexit163, label %61, !llvm.loop !28
 
 314:                                              ; preds = %.loopexit164, %.loopexit.split-lp, %197

@@ -425,7 +425,6 @@ for.body.lr.ph:                                   ; preds = %if.end
   %57 = getelementptr inbounds nuw i8, ptr %data.i, i64 16
   %_M_string_length.i.i.i29.i = getelementptr inbounds nuw i8, ptr %data.i, i64 8
   %position.i = getelementptr inbounds nuw i8, ptr %ref.tmp66, i64 8
-  %umax = call i16 @llvm.umax.i16(i16 %rev.i.i.i101, i16 1)
   %.not = icmp eq ptr @_ZTH13warningstream, null
   br label %for.body
 
@@ -2602,7 +2601,7 @@ lpad60:                                           ; preds = %if.end58
 
 cleanup:                                          ; preds = %if.then65, %_ZL40content_nodemeta_deserialize_legacy_metaRSiP12NodeMetadata.exit, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit, %_ZN11StreamProxylsIRA13_KcEERS_OT_.exit, %_ZN11StreamProxylsIRsEERS_OT_.exit138, %_ZN11StreamProxylsIRA2_KcEERS_OT_.exit134, %_ZN11StreamProxylsIRsEERS_OT_.exit129, %_ZN11StreamProxylsIRA2_KcEERS_OT_.exit125, %_ZN11StreamProxylsIRsEERS_OT_.exit, %_ZN11StreamProxylsIRA2_KcEERS_OT_.exit, %_ZN11StreamProxylsIRA29_KcEERS_OT_.exit, %_ZN11StreamProxylsIRA3_KcEERS_OT_.exit, %_ZN9LogStreamlsIRA113_KcEER11StreamProxyOT_.exit, %_ZTW13warningstream.exit
   %inc = add nuw i16 %i.0491, 1
-  %exitcond.not = icmp eq i16 %inc, %umax
+  %exitcond.not = icmp eq i16 %inc, %rev.i.i.i101
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !83
 
 unreachable:                                      ; preds = %invoke.cont
@@ -4046,9 +4045,6 @@ declare i32 @llvm.bswap.i32(i32) #19
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #21
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.umax.i16(i16, i16) #19
 
 attributes #0 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

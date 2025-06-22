@@ -1391,8 +1391,6 @@ _ZN6bufferIP4exprLb0ELj16EE9push_backERKS1_.exit.i121: ; preds = %183, %_ZN6buff
   store i32 0, ptr %217, align 8, !tbaa !126
   %218 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 16, ptr %218, align 4, !tbaa !125
-  %umax = call i32 @llvm.umax.i32(i32 %39, i32 1)
-  %wide.trip.count = zext i32 %umax to i64
   br label %226
 
 219:                                              ; preds = %249
@@ -1488,7 +1486,7 @@ _ZN6bufferIP4exprLb0ELj16EE6expandEv.exit.i143:   ; preds = %.noexc148, %._crit_
   store ptr %234, ptr %253, align 8, !tbaa !24
   %254 = add i32 %250, 1
   store i32 %254, ptr %217, align 8, !tbaa !126
-  %exitcond303.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %exitcond303.not = icmp eq i64 %indvars.iv.next, %wide.trip.count.i
   br i1 %exitcond303.not, label %219, label %226, !llvm.loop !133
 
 255:                                              ; preds = %244, %237, %226

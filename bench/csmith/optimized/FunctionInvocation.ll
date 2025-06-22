@@ -1721,7 +1721,6 @@ define dso_local noundef zeroext i1 @_ZNK18FunctionInvocation17has_simple_params
   %8 = ptrtoint ptr %5 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
@@ -1732,7 +1731,7 @@ define dso_local noundef zeroext i1 @_ZNK18FunctionInvocation17has_simple_params
   %14 = load i32, ptr %13, align 8, !tbaa !115
   %.not.not = icmp ne i32 %14, 2
   %15 = add nuw i64 %.078, 1
-  %exitcond.not = icmp ne i64 %15, %umax
+  %exitcond.not = icmp ne i64 %15, %10
   %or.cond.not = select i1 %.not.not, i1 %exitcond.not, i1 false
   br i1 %or.cond.not, label %.lr.ph, label %._crit_edge, !llvm.loop !132
 

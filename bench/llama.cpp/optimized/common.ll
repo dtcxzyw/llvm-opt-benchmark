@@ -10431,11 +10431,7 @@ define void @_Z16common_batch_addR11llama_batchiiRKSt6vectorIiSaIiEEb(ptr nounde
   %34 = getelementptr inbounds i32, ptr %31, i64 %33
   store i32 %29, ptr %34, align 4, !tbaa !72
   %.not23 = icmp eq ptr %23, %24
-  br i1 %.not23, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %13
-  %umax = tail call i64 @llvm.umax.i64(i64 %28, i64 1)
-  br label %.lr.ph
+  br i1 %.not23, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %13
   %35 = zext i1 %4 to i8
@@ -10450,8 +10446,8 @@ define void @_Z16common_batch_addR11llama_batchiiRKSt6vectorIiSaIiEEb(ptr nounde
   store i32 %42, ptr %0, align 8, !tbaa !227
   ret void
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.022 = phi i64 [ %50, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %13, %.lr.ph
+  %.022 = phi i64 [ %50, %.lr.ph ], [ 0, %13 ]
   %43 = getelementptr inbounds nuw i32, ptr %24, i64 %.022
   %44 = load i32, ptr %43, align 4, !tbaa !72
   %45 = load i32, ptr %0, align 8, !tbaa !227
@@ -10461,7 +10457,7 @@ define void @_Z16common_batch_addR11llama_batchiiRKSt6vectorIiSaIiEEb(ptr nounde
   %49 = getelementptr inbounds nuw i32, ptr %48, i64 %.022
   store i32 %44, ptr %49, align 4, !tbaa !72
   %50 = add nuw i64 %.022, 1
-  %exitcond.not = icmp eq i64 %50, %umax
+  %exitcond.not = icmp eq i64 %50, %28
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !464
 }
 
@@ -10485,7 +10481,6 @@ define noundef i64 @_Z10common_lcpRKSt6vectorIiSaIiEES3_(ptr noundef nonnull rea
   %14 = ptrtoint ptr %12 to i64
   %15 = sub i64 %13, %14
   %16 = ashr exact i64 %15, 2
-  %umax = tail call i64 @llvm.umax.i64(i64 %9, i64 1)
   br label %17
 
 17:                                               ; preds = %.lr.ph, %24
@@ -10503,11 +10498,11 @@ define noundef i64 @_Z10common_lcpRKSt6vectorIiSaIiEES3_(ptr noundef nonnull rea
 
 24:                                               ; preds = %18
   %25 = add nuw i64 %.09, 1
-  %exitcond14.not = icmp eq i64 %25, %umax
+  %exitcond14.not = icmp eq i64 %25, %9
   br i1 %exitcond14.not, label %.critedge, label %17, !llvm.loop !465
 
 .critedge:                                        ; preds = %18, %24, %17, %2
-  %.0.lcssa = phi i64 [ 0, %2 ], [ %16, %17 ], [ %umax, %24 ], [ %.09, %18 ]
+  %.0.lcssa = phi i64 [ 0, %2 ], [ %16, %17 ], [ %9, %24 ], [ %.09, %18 ]
   ret i64 %.0.lcssa
 }
 

@@ -6625,18 +6625,14 @@ invoke.cont46.i:                                  ; preds = %if.end38.i
   %sub.ptr.lhs.cast.i39.i = ptrtoint ptr %defaultValueRowNumbers.sroa.12.1.i to i64
   %sub.ptr.rhs.cast.i40.i = ptrtoint ptr %defaultValueRowNumbers.sroa.0.2.i to i64
   %sub.ptr.sub.i41.i = sub i64 %sub.ptr.lhs.cast.i39.i, %sub.ptr.rhs.cast.i40.i
+  %sub.ptr.div.i42.i = ashr exact i64 %sub.ptr.sub.i41.i, 2
   %add.ptr.i43.i = getelementptr inbounds i8, ptr %defaultValueRowNumbers.sroa.0.2.i, i64 %sub.ptr.sub.i41.i
   %defaultValues_.i = getelementptr inbounds nuw i8, ptr %this, i64 168
   invoke void @_ZNK8facebook5velox4exec15WindowPartition13extractColumnEiN5folly5RangeIPKiEEiRKSt10shared_ptrINS0_10BaseVectorEE(ptr noundef nonnull align 8 dereferenceable(72) %144, i32 noundef %145, ptr %defaultValueRowNumbers.sroa.0.2.i, ptr nonnull %add.ptr.i43.i, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(16) %defaultValues_.i)
-          to label %for.body53.lr.ph.i unwind label %lpad.loopexit.split-lp.i
+          to label %for.body53.i unwind label %lpad.loopexit.split-lp.i
 
-for.body53.lr.ph.i:                               ; preds = %invoke.cont46.i
-  %sub.ptr.div.i42.i = ashr exact i64 %sub.ptr.sub.i41.i, 2
-  %umax.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i42.i, i64 1)
-  br label %for.body53.i
-
-for.body53.i:                                     ; preds = %for.inc64.i, %for.body53.lr.ph.i
-  %indvars.iv116.i = phi i64 [ 0, %for.body53.lr.ph.i ], [ %indvars.iv.next117.i, %for.inc64.i ]
+for.body53.i:                                     ; preds = %invoke.cont46.i, %for.inc64.i
+  %indvars.iv116.i = phi i64 [ %indvars.iv.next117.i, %for.inc64.i ], [ 0, %invoke.cont46.i ]
   %146 = load ptr, ptr %result, align 8
   %147 = load ptr, ptr %defaultValues_.i, align 8
   %add.ptr.i50.i = getelementptr inbounds nuw i32, ptr %defaultValueRowNumbers.sroa.0.2.i, i64 %indvars.iv116.i
@@ -6658,7 +6654,7 @@ lpad.thread75.i:                                  ; preds = %for.body53.i
 
 for.inc64.i:                                      ; preds = %for.body53.i
   %indvars.iv.next117.i = add nuw i64 %indvars.iv116.i, 1
-  %exitcond.not.i136 = icmp eq i64 %indvars.iv.next117.i, %umax.i
+  %exitcond.not.i136 = icmp eq i64 %indvars.iv.next117.i, %sub.ptr.div.i42.i
   br i1 %exitcond.not.i136, label %if.then.i.i.i52.i, label %for.body53.i, !llvm.loop !59
 
 if.then.i.i.i52.i:                                ; preds = %for.inc64.i, %for.end35.i
@@ -11051,18 +11047,14 @@ invoke.cont46.i:                                  ; preds = %if.end38.i
   %sub.ptr.lhs.cast.i39.i = ptrtoint ptr %defaultValueRowNumbers.sroa.12.1.i to i64
   %sub.ptr.rhs.cast.i40.i = ptrtoint ptr %defaultValueRowNumbers.sroa.0.2.i to i64
   %sub.ptr.sub.i41.i = sub i64 %sub.ptr.lhs.cast.i39.i, %sub.ptr.rhs.cast.i40.i
+  %sub.ptr.div.i42.i = ashr exact i64 %sub.ptr.sub.i41.i, 2
   %add.ptr.i43.i = getelementptr inbounds i8, ptr %defaultValueRowNumbers.sroa.0.2.i, i64 %sub.ptr.sub.i41.i
   %defaultValues_.i = getelementptr inbounds nuw i8, ptr %this, i64 168
   invoke void @_ZNK8facebook5velox4exec15WindowPartition13extractColumnEiN5folly5RangeIPKiEEiRKSt10shared_ptrINS0_10BaseVectorEE(ptr noundef nonnull align 8 dereferenceable(72) %148, i32 noundef %149, ptr %defaultValueRowNumbers.sroa.0.2.i, ptr nonnull %add.ptr.i43.i, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(16) %defaultValues_.i)
-          to label %for.body53.lr.ph.i unwind label %lpad.loopexit.split-lp.i
+          to label %for.body53.i unwind label %lpad.loopexit.split-lp.i
 
-for.body53.lr.ph.i:                               ; preds = %invoke.cont46.i
-  %sub.ptr.div.i42.i = ashr exact i64 %sub.ptr.sub.i41.i, 2
-  %umax.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i42.i, i64 1)
-  br label %for.body53.i
-
-for.body53.i:                                     ; preds = %for.inc64.i, %for.body53.lr.ph.i
-  %indvars.iv116.i = phi i64 [ 0, %for.body53.lr.ph.i ], [ %indvars.iv.next117.i, %for.inc64.i ]
+for.body53.i:                                     ; preds = %invoke.cont46.i, %for.inc64.i
+  %indvars.iv116.i = phi i64 [ %indvars.iv.next117.i, %for.inc64.i ], [ 0, %invoke.cont46.i ]
   %150 = load ptr, ptr %result, align 8
   %151 = load ptr, ptr %defaultValues_.i, align 8
   %add.ptr.i50.i = getelementptr inbounds nuw i32, ptr %defaultValueRowNumbers.sroa.0.2.i, i64 %indvars.iv116.i
@@ -11084,7 +11076,7 @@ lpad.thread75.i:                                  ; preds = %for.body53.i
 
 for.inc64.i:                                      ; preds = %for.body53.i
   %indvars.iv.next117.i = add nuw i64 %indvars.iv116.i, 1
-  %exitcond.not.i141 = icmp eq i64 %indvars.iv.next117.i, %umax.i
+  %exitcond.not.i141 = icmp eq i64 %indvars.iv.next117.i, %sub.ptr.div.i42.i
   br i1 %exitcond.not.i141, label %if.then.i.i.i52.i, label %for.body53.i, !llvm.loop !108
 
 if.then.i.i.i52.i:                                ; preds = %for.inc64.i, %for.end35.i

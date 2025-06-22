@@ -18778,7 +18778,6 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIi
 .lr.ph323:                                        ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i19.i.i.i, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i7.i.i.i, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_less_iterEEvT_S9_T0_.exit.i.i.i, %156
   %172 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %umax = call i64 @llvm.umax.i64(i64 %134, i64 1)
   br label %396
 
 174:                                              ; preds = %.lr.ph319, %._crit_edge
@@ -19573,7 +19572,7 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase6DeleteINS0_16RepeatedPtrField
 
 _ZN6google8protobuf16RepeatedPtrFieldIN17opencv_tensorflow7NodeDefEE14DeleteSubrangeEii.exit: ; preds = %_ZN6google8protobuf8internal20RepeatedPtrFieldBase6DeleteINS0_16RepeatedPtrFieldIN17opencv_tensorflow7NodeDefEE11TypeHandlerEEEvi.exit.i
   %409 = add nuw i64 %.030322, 1
-  %exitcond358.not = icmp eq i64 %409, %umax
+  %exitcond358.not = icmp eq i64 %409, %134
   br i1 %exitcond358.not, label %._crit_edge324.thread, label %396, !llvm.loop !282
 
 .thread:                                          ; preds = %_ZN6google8protobuf8internal20RepeatedPtrFieldBase6DeleteINS0_16RepeatedPtrFieldIN17opencv_tensorflow7NodeDefEE11TypeHandlerEEEvi.exit.i
@@ -28530,7 +28529,6 @@ _ZN17opencv_tensorflow7NodeDef9set_inputEiRKNSt7__cxx1112basic_stringIcSt11char_
   %112 = ashr exact i64 %111, 2
   %113 = getelementptr inbounds nuw i8, ptr %77, i64 52
   %114 = getelementptr inbounds nuw i8, ptr %77, i64 56
-  %umax = call i64 @llvm.umax.i64(i64 %112, i64 1)
   br label %123
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %138, %_ZN17opencv_tensorflow7NodeDef9set_inputEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
@@ -28596,7 +28594,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit55: ; preds = %_ZN
   %.pre-phi.i.i.i = phi i32 [ %.pre.i.i.i, %134 ], [ %130, %.noexc56 ]
   store i32 %.pre-phi.i.i.i, ptr %108, align 8, !tbaa !311
   %indvars.iv.next76 = add nuw i64 %indvars.iv75, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next76, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next76, %112
   br i1 %exitcond.not, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %123, !llvm.loop !551
 
 139:                                              ; preds = %129

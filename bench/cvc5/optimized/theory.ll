@@ -2413,7 +2413,6 @@ define hidden void @_ZN4cvc58internal6theory6Theory16computeCareGraphEv(ptr noun
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %umax = tail call i64 @llvm.umax.i64(i64 %17, i64 1)
   br label %21
 
 ._crit_edge90:                                    ; preds = %_ZN4cvc58internal8TypeNodeD2Ev.exit, %1
@@ -2462,7 +2461,7 @@ define hidden void @_ZN4cvc58internal6theory6Theory16computeCareGraphEv(ptr noun
 _ZN4cvc58internal8TypeNodeD2Ev.exit:              ; preds = %._crit_edge, %30, %36
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #27
-  %exitcond93.not = icmp eq i64 %25, %umax
+  %exitcond93.not = icmp eq i64 %25, %17
   br i1 %exitcond93.not, label %._crit_edge90, label %21, !llvm.loop !131
 
 .lr.ph:                                           ; preds = %21, %.noexc

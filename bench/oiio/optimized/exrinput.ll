@@ -7804,7 +7804,6 @@ _ZNSt6vectorIN11OpenImageIO6v3_1_07ustringESaIS2_EE17_S_check_init_lenEmRKS3_.ex
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %755, i64 %754
   %757 = ptrtoint ptr %scevgep.i.i.i.i.i to i64
   %758 = ptrtoint ptr %756 to i64
-  %umax = call i64 @llvm.umax.i64(i64 %751, i64 1)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %768, %_ZNSt6vectorIN11OpenImageIO6v3_1_07ustringESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i
@@ -7864,7 +7863,7 @@ _ZN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit.i.i.i
   store ptr %769, ptr %764, align 8, !tbaa !145
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   %770 = add nuw i64 %.0174749, 1
-  %exitcond.not = icmp eq i64 %770, %umax
+  %exitcond.not = icmp eq i64 %770, %751
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !265
 
 _ZNSt6vectorIN11OpenImageIO6v3_1_07ustringESaIS2_EED2Ev.exit: ; preds = %._crit_edge
@@ -42972,20 +42971,19 @@ define linkonce_odr hidden noundef i32 @_ZN11OpenImageIO6v3_1_07Strutil24extract
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %26 = load ptr, ptr %25, align 8, !tbaa !829
   %27 = load ptr, ptr %6, align 8, !tbaa !832
-  %.not38 = icmp eq ptr %26, %27
-  br i1 %.not38, label %._crit_edge, label %.lr.ph
-
-.lr.ph:                                           ; preds = %24
   %28 = ptrtoint ptr %26 to i64
   %29 = ptrtoint ptr %27 to i64
   %30 = sub i64 %28, %29
   %31 = ashr exact i64 %30, 4
+  %.not38 = icmp eq ptr %26, %27
+  br i1 %.not38, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %24
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %33 = icmp eq ptr %10, %11
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.fr = freeze i1 %33
-  %umax40 = call i64 @llvm.umax.i64(i64 %31, i64 1)
   br i1 %.fr, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZNSt6vectorIfSaIfEE9push_backERKf.exit.us
@@ -43063,7 +43061,7 @@ _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIP
 
 _ZNSt6vectorIfSaIfEE9push_backERKf.exit.us:       ; preds = %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.us, %45
   %66 = add nuw i64 %.02037.us, 1
-  %exitcond41.not = icmp eq i64 %66, %umax40
+  %exitcond41.not = icmp eq i64 %66, %31
   br i1 %exitcond41.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !833
 
 .loopexit.split.us:                               ; preds = %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i.us, %.lr.ph.split.us
@@ -43153,7 +43151,7 @@ _ZNSt6vectorIfSaIfEE9push_backERKf.exit.us:       ; preds = %_ZNSt6vectorIfSaIfE
 
 _ZNSt6vectorIfSaIfEE9push_backERKf.exit:          ; preds = %82, %98, %87
   %101 = add nuw i64 %.02037, 1
-  %exitcond.not = icmp eq i64 %101, %umax40
+  %exitcond.not = icmp eq i64 %101, %31
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !833
 
 102:                                              ; preds = %._crit_edge

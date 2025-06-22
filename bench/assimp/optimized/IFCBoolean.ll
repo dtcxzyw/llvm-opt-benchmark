@@ -2303,11 +2303,7 @@ define hidden noundef zeroext i1 @_ZN6Assimp3IFC25IntersectsBoundaryProfileERK10
   %12 = sub i64 %10, %11
   %13 = sdiv exact i64 %12, 24
   %.not = icmp eq ptr %8, %9
-  br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %6
-  %umax = tail call i64 @llvm.umax.i64(i64 %13, i64 1)
-  br label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %14 = fcmp ogt double %56, 0.000000e+00
@@ -2335,12 +2331,11 @@ define hidden noundef zeroext i1 @_ZN6Assimp3IFC25IntersectsBoundaryProfileERK10
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %31 = tail call double @llvm.copysign.f64(double 0.000000e+00, double %.0.lcssa)
-  %umax225 = tail call i64 @llvm.umax.i64(i64 %13, i64 1)
   br label %61
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0217 = phi double [ %56, %.lr.ph ], [ 0.000000e+00, %.lr.ph.preheader ]
-  %.086216 = phi i64 [ %32, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %6, %.lr.ph
+  %.0217 = phi double [ %56, %.lr.ph ], [ 0.000000e+00, %6 ]
+  %.086216 = phi i64 [ %32, %.lr.ph ], [ 0, %6 ]
   %32 = add nuw i64 %.086216, 1
   %33 = icmp eq i64 %32, %13
   %34 = select i1 %33, i64 0, i64 %32
@@ -2366,7 +2361,7 @@ define hidden noundef zeroext i1 @_ZN6Assimp3IFC25IntersectsBoundaryProfileERK10
   %54 = fmul double %52, %53
   %55 = tail call double @llvm.fmuladd.f64(double %44, double %49, double %54)
   %56 = fadd double %.0217, %55
-  %exitcond.not = icmp eq i64 %32, %umax
+  %exitcond.not = icmp eq i64 %32, %13
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !77
 
 ._crit_edge221:                                   ; preds = %_ZNSt6vectorISt4pairIm10aiVector3tIdEESaIS3_EE12emplace_backIJRmRKS2_EEERS3_DpOT_.exit, %._crit_edge
@@ -2697,7 +2692,7 @@ _ZNSt6vectorISt4pairIm10aiVector3tIdEESaIS3_EE17_M_realloc_insertIJRmRKS2_EEEvN9
   br label %_ZNSt6vectorISt4pairIm10aiVector3tIdEESaIS3_EE12emplace_backIJRmRKS2_EEERS3_DpOT_.exit
 
 _ZNSt6vectorISt4pairIm10aiVector3tIdEESaIS3_EE12emplace_backIJRmRKS2_EEERS3_DpOT_.exit: ; preds = %220, %81, %206, %203, %_ZNSt6vectorISt4pairIm10aiVector3tIdEESaIS3_EE17_M_realloc_insertIJRmRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, %179, %150, %167, %232, %_ZNSt6vectorISt4pairIm10aiVector3tIdEESaIS3_EE17_M_realloc_insertIJRmRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i109, %61
-  %exitcond226.not = icmp eq i64 %64, %umax225
+  %exitcond226.not = icmp eq i64 %64, %13
   br i1 %exitcond226.not, label %._crit_edge221, label %61, !llvm.loop !99
 }
 

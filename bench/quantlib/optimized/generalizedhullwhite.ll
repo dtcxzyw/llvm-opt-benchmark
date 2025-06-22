@@ -2457,7 +2457,6 @@ for.body164.lr.ph:                                ; preds = %for.cond159.prehead
   %88 = load ptr, ptr %speed, align 8, !tbaa !58
   %params_.i174 = getelementptr inbounds nuw i8, ptr %.pre, i64 16
   %89 = load ptr, ptr %params_.i174, align 8, !tbaa !3
-  %umax = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i163, i64 1)
   br label %for.body164
 
 for.cond.cleanup163:                              ; preds = %for.body164, %for.cond159.preheader.for.cond.cleanup163_crit_edge
@@ -2551,7 +2550,7 @@ for.body164:                                      ; preds = %for.body164.lr.ph, 
   %arrayidx.i.i = getelementptr inbounds nuw double, ptr %89, i64 %i158.0486
   store double %104, ptr %arrayidx.i.i, align 8, !tbaa !64
   %inc = add nuw i64 %i158.0486, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i163
   br i1 %exitcond.not, label %for.cond.cleanup163, label %for.body164, !llvm.loop !103
 
 invoke.cont186:                                   ; preds = %.noexc173
@@ -2739,7 +2738,6 @@ for.body214.lr.ph:                                ; preds = %for.cond209.prehead
   %131 = load ptr, ptr %vol, align 8, !tbaa !58
   %params_.i261 = getelementptr inbounds nuw i8, ptr %.pre500, i64 16
   %132 = load ptr, ptr %params_.i261, align 8, !tbaa !3
-  %umax493 = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i230, i64 1)
   br label %for.body214
 
 for.cond.cleanup213:                              ; preds = %for.body214, %for.cond209.preheader.for.cond.cleanup213_crit_edge
@@ -2841,7 +2839,7 @@ for.body214:                                      ; preds = %for.body214.lr.ph, 
   %arrayidx.i.i262 = getelementptr inbounds nuw double, ptr %132, i64 %i208.0489
   store double %148, ptr %arrayidx.i.i262, align 8, !tbaa !64
   %inc220 = add nuw i64 %i208.0489, 1
-  %exitcond494.not = icmp eq i64 %inc220, %umax493
+  %exitcond494.not = icmp eq i64 %inc220, %sub.ptr.div.i230
   br i1 %exitcond494.not, label %for.cond.cleanup213, label %for.body214, !llvm.loop !108
 
 invoke.cont237:                                   ; preds = %.noexc258
@@ -5492,7 +5490,6 @@ for.body164.lr.ph:                                ; preds = %for.cond159.prehead
   %88 = load ptr, ptr %speed, align 8, !tbaa !58
   %params_.i174 = getelementptr inbounds nuw i8, ptr %.pre, i64 16
   %89 = load ptr, ptr %params_.i174, align 8, !tbaa !3
-  %umax = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i163, i64 1)
   br label %for.body164
 
 for.cond.cleanup163:                              ; preds = %for.body164, %for.cond159.preheader.for.cond.cleanup163_crit_edge
@@ -5586,7 +5583,7 @@ for.body164:                                      ; preds = %for.body164.lr.ph, 
   %arrayidx.i.i = getelementptr inbounds nuw double, ptr %89, i64 %i158.0486
   store double %104, ptr %arrayidx.i.i, align 8, !tbaa !64
   %inc = add nuw i64 %i158.0486, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i163
   br i1 %exitcond.not, label %for.cond.cleanup163, label %for.body164, !llvm.loop !119
 
 invoke.cont183:                                   ; preds = %.noexc173
@@ -5774,7 +5771,6 @@ for.body210.lr.ph:                                ; preds = %for.cond205.prehead
   %131 = load ptr, ptr %vol, align 8, !tbaa !58
   %params_.i261 = getelementptr inbounds nuw i8, ptr %.pre500, i64 16
   %132 = load ptr, ptr %params_.i261, align 8, !tbaa !3
-  %umax493 = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i230, i64 1)
   br label %for.body210
 
 for.cond.cleanup209:                              ; preds = %for.body210, %for.cond205.preheader.for.cond.cleanup209_crit_edge
@@ -5876,7 +5872,7 @@ for.body210:                                      ; preds = %for.body210.lr.ph, 
   %arrayidx.i.i262 = getelementptr inbounds nuw double, ptr %132, i64 %i204.0489
   store double %148, ptr %arrayidx.i.i262, align 8, !tbaa !64
   %inc214 = add nuw i64 %i204.0489, 1
-  %exitcond494.not = icmp eq i64 %inc214, %umax493
+  %exitcond494.not = icmp eq i64 %inc214, %sub.ptr.div.i230
   br i1 %exitcond494.not, label %for.cond.cleanup209, label %for.body210, !llvm.loop !123
 
 invoke.cont230:                                   ; preds = %.noexc258

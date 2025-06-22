@@ -349,7 +349,6 @@ define hidden noundef nonnull ptr @_Z16buildSymbolTableR8CountersSt6vectorIPhSaI
   %59 = ptrtoint ptr %57 to i64
   %60 = sub i64 %58, %59
   %61 = ashr exact i64 %60, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %61, i64 1)
   br label %.lr.ph85
 
 .outer:                                           ; preds = %.outer.preheader, %83
@@ -383,7 +382,7 @@ define hidden noundef nonnull ptr @_Z16buildSymbolTableR8CountersSt6vectorIPhSaI
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph85
   %75 = add nuw i64 %.04483, 1
-  %exitcond.not = icmp eq i64 %75, %umax
+  %exitcond.not = icmp eq i64 %75, %61
   br i1 %exitcond.not, label %.outer.preheader, label %.lr.ph85, !llvm.loop !44
 
 .outer.preheader:                                 ; preds = %._crit_edge, %54

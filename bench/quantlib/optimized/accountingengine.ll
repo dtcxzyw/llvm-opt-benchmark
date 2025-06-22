@@ -1026,7 +1026,6 @@ for.body85.lr.ph:                                 ; preds = %for.cond80.preheade
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %initialNumeraireValue_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %59 = load ptr, ptr %values, align 8, !tbaa !41
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %for.body85
 
 for.cond.cleanup84:                               ; preds = %for.body85, %for.cond80.preheader
@@ -1041,7 +1040,7 @@ for.body85:                                       ; preds = %for.body85.lr.ph, %
   %add.ptr.i54 = getelementptr inbounds nuw double, ptr %59, i64 %i79.061
   store double %mul88, ptr %add.ptr.i54, align 8, !tbaa !43
   %inc91 = add nuw i64 %i79.061, 1
-  %exitcond.not = icmp eq i64 %inc91, %umax
+  %exitcond.not = icmp eq i64 %inc91, %sub.ptr.div.i
   br i1 %exitcond.not, label %for.cond.cleanup84, label %for.body85, !llvm.loop !74
 }
 

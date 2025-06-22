@@ -2477,7 +2477,6 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc, %_ZN4pstd3p
 
 .lr.ph.preheader:                                 ; preds = %.preheader104
   %119 = ashr exact i64 %118, 2
-  %umax = call i64 @llvm.umax.i64(i64 %119, i64 1)
   br label %.lr.ph
 
 120:                                              ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit, %173
@@ -2595,7 +2594,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc, %_ZN4pstd3p
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #29
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #29
   %indvars.iv.next111 = add nuw i64 %indvars.iv110, 1
-  %exitcond113.not = icmp eq i64 %indvars.iv.next111, %umax
+  %exitcond113.not = icmp eq i64 %indvars.iv.next111, %119
   br i1 %exitcond113.not, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %.lr.ph, !llvm.loop !198
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %181, %.preheader104

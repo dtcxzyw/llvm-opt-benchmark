@@ -4339,7 +4339,6 @@ _ZL13bitmask_unionPSt5arrayImLm2EES0_.exit.critedge.lr.ph.us.preheader.i: ; pred
   %688 = ptrtoint ptr %683 to i64
   %689 = sub i64 %687, %688
   %690 = ashr exact i64 %689, 4
-  %umax.i = call i64 @llvm.umax.i64(i64 %690, i64 1)
   %wide.trip.count.i169 = zext nneg i32 %681 to i64
   br label %_ZL13bitmask_unionPSt5arrayImLm2EES0_.exit.critedge.lr.ph.us.i
 
@@ -4364,7 +4363,7 @@ _ZL13bitmask_unionPSt5arrayImLm2EES0_.exit.critedge.us.i: ; preds = %_ZL13bitmas
   %699 = or i64 %698, %.sroa.2.0.copyload.us.i
   store i64 %699, ptr %697, align 8, !tbaa !162
   %700 = add nuw i64 %.0815.us.i, 1
-  %exitcond.not.i171 = icmp eq i64 %700, %umax.i
+  %exitcond.not.i171 = icmp eq i64 %700, %690
   br i1 %exitcond.not.i171, label %._crit_edge.us.i, label %_ZL13bitmask_unionPSt5arrayImLm2EES0_.exit.critedge.us.i, !llvm.loop !399
 
 ._crit_edge.us.i:                                 ; preds = %_ZL13bitmask_unionPSt5arrayImLm2EES0_.exit.critedge.us.i

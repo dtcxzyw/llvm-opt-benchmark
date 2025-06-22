@@ -3232,7 +3232,6 @@ define hidden void @_ZN19G1HeapRegionManager17rebuild_free_listEP13WorkerThreads
   store i32 %25, ptr %20, align 8
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 44
   store i32 %11, ptr %26, align 4
-  %umax = tail call i64 @llvm.umax.i64(i64 %17, i64 1)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %2
@@ -3240,7 +3239,7 @@ define hidden void @_ZN19G1HeapRegionManager17rebuild_free_listEP13WorkerThreads
   %27 = getelementptr inbounds nuw %class.G1FreeRegionList, ptr %19, i64 %indvars.iv.i
   tail call void @_ZN16G1FreeRegionListC1EPKcP22G1HeapRegionSetChecker(ptr noundef nonnull align 8 dereferenceable(72) %27, ptr noundef nonnull @.str.57, ptr noundef null) #16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next.i, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next.i, %17
   br i1 %exitcond.not, label %_ZN21G1RebuildFreeListTaskC2EP19G1HeapRegionManagerj.exit, label %.lr.ph.i, !llvm.loop !36
 
 _ZN21G1RebuildFreeListTaskC2EP19G1HeapRegionManagerj.exit: ; preds = %.lr.ph.i
@@ -3255,8 +3254,6 @@ _ZN21G1RebuildFreeListTaskC2EP19G1HeapRegionManagerj.exit: ; preds = %.lr.ph.i
 30:                                               ; preds = %_ZN21G1RebuildFreeListTaskC2EP19G1HeapRegionManagerj.exit, %29
   call void @_ZN13WorkerThreads8run_taskEP10WorkerTaskj(ptr noundef nonnull align 8 dereferenceable(120) %1, ptr noundef nonnull %3, i32 noundef %11) #16
   %31 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #16
-  %umax18 = call i32 @llvm.umax.i32(i32 %11, i32 1)
-  %wide.trip.count = zext i32 %umax18 to i64
   br label %32
 
 32:                                               ; preds = %30, %32
@@ -3265,7 +3262,7 @@ _ZN21G1RebuildFreeListTaskC2EP19G1HeapRegionManagerj.exit: ; preds = %.lr.ph.i
   %34 = getelementptr inbounds nuw %class.G1FreeRegionList, ptr %33, i64 %indvars.iv
   call void @_ZN16G1FreeRegionList14append_orderedEPS_(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef %34) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond19.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %exitcond19.not = icmp eq i64 %indvars.iv.next, %17
   br i1 %exitcond19.not, label %35, label %32, !llvm.loop !37
 
 35:                                               ; preds = %32
@@ -16267,9 +16264,6 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #14
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

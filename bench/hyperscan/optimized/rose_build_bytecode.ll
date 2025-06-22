@@ -12438,7 +12438,6 @@ _ZNSt6vectorIS_IN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_9RoseGra
   %4172 = ashr exact i64 %4171, 7
   %4173 = getelementptr inbounds nuw i8, ptr %46, i64 24
   %4174 = getelementptr inbounds nuw i8, ptr %47, i64 24
-  %umax.i.i = call i64 @llvm.umax.i64(i64 %4172, i64 1)
   br label %4177
 
 .preheader170.i.i:                                ; preds = %_ZNSt6vectorIjSaIjEE9push_backEOj.exit.i.i
@@ -12639,7 +12638,7 @@ _ZNSt6vectorIjSaIjEE9push_backEOj.exit.i.i:       ; preds = %.lr.ph.i.i.i.i.i37.
   %.sroa.9.1.i.i = phi ptr [ %4247, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i.i.i ], [ %4230, %4229 ], [ %.sroa.9.0199.i.i, %4209 ], [ %.sroa.9.0199.i.i, %..loopexit_crit_edge21.i.i.i.i.i41.i.i ], [ %.sroa.9.0199.i.i, %.preheader171.i.i ], [ %.sroa.9.0199.i.i, %.lr.ph.i.i.i.i.i37.i.i ]
   %.sroa.0143.1.i.i = phi ptr [ %4243, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i.i.i ], [ %.sroa.0143.0200.i.i, %4229 ], [ %.sroa.0143.0200.i.i, %4209 ], [ %.sroa.0143.0200.i.i, %..loopexit_crit_edge21.i.i.i.i.i41.i.i ], [ %.sroa.0143.0200.i.i, %.preheader171.i.i ], [ %.sroa.0143.0200.i.i, %.lr.ph.i.i.i.i.i37.i.i ]
   %4250 = add nuw i64 %.028201.i.i, 1
-  %exitcond.not.i.i513 = icmp eq i64 %4250, %umax.i.i
+  %exitcond.not.i.i513 = icmp eq i64 %4250, %4172
   br i1 %exitcond.not.i.i513, label %.preheader170.i.i, label %4177, !llvm.loop !227
 
 ._crit_edge.i.i514:                               ; preds = %.thread157.i.i, %.preheader170.i.i
@@ -15371,7 +15370,6 @@ _ZNSt6vectorIjSaIjEED2Ev.exit10.i:                ; preds = %5144, %5142
   %5154 = ptrtoint ptr %.sroa.01167.1 to i64
   %5155 = sub i64 %5153, %5154
   %5156 = ashr exact i64 %5155, 5
-  %umax = call i64 @llvm.umax.i64(i64 %5156, i64 1)
   br label %5158
 
 ._crit_edge.i.i778:                               ; preds = %_ZNSt6vectorIjSaIjEE9push_backEOj.exit.i.i777
@@ -15489,7 +15487,7 @@ _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS
 _ZNSt6vectorIjSaIjEE9push_backEOj.exit.i.i777:    ; preds = %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i.i.i805, %5171, %5158
   %5194 = phi ptr [ %5173, %5171 ], [ %5191, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i.i.i805 ], [ %5159, %5158 ]
   %5195 = add nuw i64 %.01244.i.i, 1
-  %exitcond.not = icmp eq i64 %5195, %umax
+  %exitcond.not = icmp eq i64 %5195, %5156
   br i1 %exitcond.not, label %._crit_edge.i.i778, label %5158, !llvm.loop !269
 
 5196:                                             ; preds = %._crit_edge.i.i778

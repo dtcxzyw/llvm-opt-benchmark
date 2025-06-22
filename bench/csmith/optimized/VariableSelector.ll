@@ -5338,7 +5338,6 @@ _ZNSt6vectorIP8VariableSaIS1_EEC2ERKS3_.exit:     ; preds = %7
   %10 = lshr exact i64 %6, 3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %umax = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %13
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIPK8VariableSaIS2_EE9push_backERKS2_.exit
@@ -5441,7 +5440,7 @@ _ZNSt6vectorIP8VariableSaIS1_EED2Ev.exit9:        ; preds = %_ZNSt6vectorIP8Vari
 
 _ZNSt6vectorIPK8VariableSaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vectorIPK8VariableSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %22, %13
   %45 = add nuw i64 %.017, 1
-  %exitcond.not = icmp eq i64 %45, %umax
+  %exitcond.not = icmp eq i64 %45, %10
   br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !177
 }
 
@@ -8385,7 +8384,6 @@ define dso_local noundef ptr @_ZN16VariableSelector13itemize_arrayER9CGContextPK
   %81 = getelementptr inbounds nuw i8, ptr %48, i64 40
   %82 = load i64, ptr %81, align 8, !tbaa !156
   %83 = getelementptr inbounds nuw i8, ptr %48, i64 32
-  %umax = call i64 @llvm.umax.i64(i64 %80, i64 1)
   br label %84
 
 84:                                               ; preds = %.lr.ph, %131
@@ -8513,7 +8511,7 @@ _ZNSt6vectorIPK8VariableSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__nor
 
 131:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_.exit
   %132 = add nuw i64 %.037306, 1
-  %exitcond.not = icmp eq i64 %132, %umax
+  %exitcond.not = icmp eq i64 %132, %80
   br i1 %exitcond.not, label %.critedge, label %84, !llvm.loop !213
 
 .critedge:                                        ; preds = %131
@@ -10079,13 +10077,10 @@ _ZNSt6vectorIP10TableEntryIj14eVariableScopeESaIS3_EE9push_backERKS3_.exit: ; pr
 
 _ZNKSt6vectorIP10TableEntryIj14eVariableScopeESaIS3_EE12_M_check_lenEmPKc.exit.i.i6: ; preds = %30
   %36 = ashr exact i64 %33, 3
-  %.sroa.speculated.i.i.i7 = tail call i64 @llvm.umax.i64(i64 %36, i64 1)
-  %37 = add nsw i64 %.sroa.speculated.i.i.i7, %36
+  %37 = ashr exact i64 %33, 2
   %38 = icmp ult i64 %37, %36
   %39 = tail call i64 @llvm.umin.i64(i64 %37, i64 1152921504606846975)
   %40 = select i1 %38, i64 1152921504606846975, i64 %39
-  %.not.i.i.i8 = icmp ne i64 %40, 0
-  tail call void @llvm.assume(i1 %.not.i.i.i8)
   %41 = shl nuw nsw i64 %40, 3
   %42 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %41) #23
   %43 = getelementptr inbounds i8, ptr %42, i64 %33

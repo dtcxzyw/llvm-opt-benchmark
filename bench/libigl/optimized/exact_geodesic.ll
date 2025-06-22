@@ -4462,7 +4462,6 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc111
   %47 = sub i64 %45, %46
   %48 = ashr exact i64 %47, 3
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %umax = tail call i64 @llvm.umax.i64(i64 %48, i64 1)
   br label %57
 
 .preheader283:                                    ; preds = %73, %42
@@ -4475,7 +4474,6 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc111
   %52 = sub i64 %50, %51
   %53 = ashr exact i64 %52, 2
   %54 = load ptr, ptr %1, align 8, !tbaa !208
-  %umax366 = tail call i64 @llvm.umax.i64(i64 %53, i64 1)
   br label %76
 
 55:                                               ; preds = %34, %33
@@ -4511,7 +4509,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc111
   %75 = getelementptr inbounds nuw double, ptr %25, i64 %indvars.iv
   store double %74, ptr %75, align 8, !tbaa !77
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %48
   br i1 %exitcond.not, label %.preheader283, label %57, !llvm.loop !211
 
 ._crit_edge:                                      ; preds = %76, %.preheader283
@@ -4533,7 +4531,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc111
   %86 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv363
   store i32 %85, ptr %86, align 4, !tbaa !24
   %indvars.iv.next364 = add nuw nsw i64 %indvars.iv363, 1
-  %exitcond367.not = icmp eq i64 %indvars.iv.next364, %umax366
+  %exitcond367.not = icmp eq i64 %indvars.iv.next364, %53
   br i1 %exitcond367.not, label %._crit_edge, label %76, !llvm.loop !212
 
 87:                                               ; preds = %._crit_edge
@@ -5381,7 +5379,6 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit: 
 
 .lr.ph345:                                        ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit
   %490 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %umax383 = call i64 @llvm.umax.i64(i64 %479, i64 1)
   br label %523
 
 ._crit_edge346:                                   ; preds = %.loopexit, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit
@@ -5525,7 +5522,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %_ZNSt6vectorIiSaIiE
   %554 = getelementptr inbounds nuw double, ptr %553, i64 %indvars.iv380
   store double %.09.i, ptr %554, align 8, !tbaa !77
   %indvars.iv.next381 = add nuw i64 %indvars.iv380, 1
-  %exitcond384.not = icmp eq i64 %indvars.iv.next381, %umax383
+  %exitcond384.not = icmp eq i64 %indvars.iv.next381, %479
   br i1 %exitcond384.not, label %._crit_edge346, label %523, !llvm.loop !250
 
 555:                                              ; preds = %523

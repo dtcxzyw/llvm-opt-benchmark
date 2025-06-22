@@ -3320,13 +3320,9 @@ invoke.cont162:                                   ; preds = %if.end.i.i.i.i.i.i.
   %sub.ptr.lhs.cast.i200 = ptrtoint ptr %__first.addr.0.i.i.i.i.i to i64
   %sub.ptr.rhs.cast.i201 = ptrtoint ptr %stoppingTimes.sroa.0.0 to i64
   %sub.ptr.sub.i202 = sub i64 %sub.ptr.lhs.cast.i200, %sub.ptr.rhs.cast.i201
-  %cmp166403.not = icmp eq i64 %sub.ptr.sub.i202, 0
-  br i1 %cmp166403.not, label %for.cond.cleanup, label %for.body.preheader
-
-for.body.preheader:                               ; preds = %invoke.cont162
   %sub.ptr.div.i203 = ashr exact i64 %sub.ptr.sub.i202, 3
-  %umax = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i203, i64 1)
-  br label %for.body
+  %cmp166403.not = icmp eq i64 %sub.ptr.sub.i202, 0
+  br i1 %cmp166403.not, label %for.cond.cleanup, label %for.body
 
 for.cond.cleanup:                                 ; preds = %invoke.cont183, %invoke.cont162
   %add.ptr.i.i = getelementptr inbounds i8, ptr %__first.addr.0.i.i.i.i.i, i64 -8
@@ -3417,8 +3413,8 @@ lpad161:                                          ; preds = %if.then.i.i.i.i.i19
           cleanup
   br label %ehcleanup216
 
-for.body:                                         ; preds = %for.body.preheader, %invoke.cont183
-  %i.0404 = phi i64 [ %inc, %invoke.cont183 ], [ 0, %for.body.preheader ]
+for.body:                                         ; preds = %invoke.cont162, %invoke.cont183
+  %i.0404 = phi i64 [ %inc, %invoke.cont183 ], [ 0, %invoke.cont162 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp167) #26
   %147 = load ptr, ptr %exercise, align 8, !tbaa !131
   %cmp.not.i225 = icmp eq ptr %147, null
@@ -3459,7 +3455,7 @@ invoke.cont183:                                   ; preds = %invoke.cont182
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp177) #26
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp167) #26
   %inc = add nuw i64 %i.0404, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i203
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !134
 
 lpad171:                                          ; preds = %cond.false.i226

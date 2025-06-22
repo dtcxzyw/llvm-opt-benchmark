@@ -4233,11 +4233,7 @@ _ZZN4moldL11create_phdrINS_6X86_64EEESt6vectorINS_7ElfPhdrIT_EESaIS5_EERNS_7Cont
 
 .preheader.i:                                     ; preds = %._crit_edge436.i
   %.not451.i = icmp eq ptr %.pre.i, %.pre466.i
-  br i1 %.not451.i, label %.critedge10.i, label %.lr.ph438.preheader.i
-
-.lr.ph438.preheader.i:                            ; preds = %.preheader.i
-  %umax.i = call i64 @llvm.umax.i64(i64 %730, i64 1)
-  br label %.lr.ph438.i
+  br i1 %.not451.i, label %.critedge10.i, label %.lr.ph438.i
 
 .lr.ph435.i:                                      ; preds = %.loopexit.i, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.thread.i
   %.sroa.0233.0433.i = phi ptr [ %735, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.thread.i ], [ %720, %.loopexit.i ]
@@ -4263,8 +4259,8 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_
   %736 = icmp eq ptr %735, %721
   br i1 %736, label %._crit_edge436.loopexit.i, label %.lr.ph435.i
 
-.lr.ph438.i:                                      ; preds = %815, %.lr.ph438.preheader.i
-  %.0129437.i = phi i64 [ %816, %815 ], [ 0, %.lr.ph438.preheader.i ]
+.lr.ph438.i:                                      ; preds = %.preheader.i, %815
+  %.0129437.i = phi i64 [ %816, %815 ], [ 0, %.preheader.i ]
   %737 = getelementptr inbounds nuw %"struct.mold::ElfPhdr", ptr %.pre466.i, i64 %.0129437.i
   %738 = load i32, ptr %737, align 1, !noalias !321
   %.not153.i = icmp eq i32 %738, 1
@@ -4393,7 +4389,7 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_
 
 815:                                              ; preds = %.lr.ph438.i
   %816 = add nuw i64 %.0129437.i, 1
-  %exitcond465.not.i = icmp eq i64 %816, %umax.i
+  %exitcond465.not.i = icmp eq i64 %816, %730
   br i1 %exitcond465.not.i, label %.critedge10.i, label %.lr.ph438.i, !llvm.loop !354
 
 .critedge10.i:                                    ; preds = %815, %811, %772, %739, %.preheader.i, %._crit_edge436.i
@@ -4723,7 +4719,6 @@ define weak_odr dso_local void @_ZN4mold13OutputSectionINS_6X86_64EE20compute_se
   %17 = sub i64 %16, %15
   %18 = ashr exact i64 %17, 5
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %umax = call i64 @llvm.umax.i64(i64 %18, i64 1)
   br label %68
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNSt6vectorIZN4mold13OutputSectionINS0_6X86_64EE20compute_section_sizeERNS0_7ContextIS2_EEE5GroupSaIS7_EE9push_backEOS7_.exit
@@ -4875,7 +4870,7 @@ _ZNSt6vectorIZN4mold13OutputSectionINS0_6X86_64EE20compute_section_sizeERNS0_7Co
   %78 = load i64, ptr %77, align 8, !tbaa !374
   %79 = add nsw i64 %.0.i16, %78
   %80 = add nuw nsw i64 %.057, 1
-  %exitcond.not = icmp eq i64 %80, %umax
+  %exitcond.not = icmp eq i64 %80, %18
   br i1 %exitcond.not, label %._crit_edge60, label %68, !llvm.loop !375
 }
 
@@ -20200,7 +20195,6 @@ _ZN4mold4sortISt6vectorIPNS_6SymbolINS_6X86_64EEESaIS5_EEZNS_14VerneedSectionIS3
   store ptr %9, ptr %136, align 8, !tbaa !434
   %invariant.gep = getelementptr i8, ptr %.sroa.0.1, i64 -8
   %137 = getelementptr inbounds nuw i8, ptr %1, i64 3144
-  %umax = call i64 @llvm.umax.i64(i64 %81, i64 1)
   br label %141
 
 .thread104:                                       ; preds = %_ZNK4mold6SymbolINS_6X86_64EE14get_dynsym_idxERNS_7ContextIS1_EE.exit
@@ -20338,7 +20332,7 @@ _ZNK4mold6SymbolINS_6X86_64EE14get_dynsym_idxERNS_7ContextIS1_EE.exit: ; preds =
   %206 = trunc i64 %205 to i8
   store i8 %206, ptr %204, align 1, !tbaa !17
   %207 = add nuw i64 %.03280, 1
-  %exitcond.not = icmp eq i64 %207, %umax
+  %exitcond.not = icmp eq i64 %207, %81
   br i1 %exitcond.not, label %.thread104, label %141, !llvm.loop !981
 
 208:                                              ; preds = %._crit_edge

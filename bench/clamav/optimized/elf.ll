@@ -642,16 +642,14 @@ define internal fastcc range(i32 0, 27) i32 @cli_elf_ph64(ptr noundef %0, ptr no
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %.not157 = icmp eq i8 %4, 0
-  %umax = tail call i32 @llvm.umax.i32(i32 %8, i32 1)
-  %wide.trip.count = zext nneg i32 %umax to i64
+  %wide.trip.count = zext nneg i16 %7 to i64
   br label %.split
 
 .split.us.preheader:                              ; preds = %43
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %.not157202 = icmp eq i8 %4, 0
-  %umax198 = tail call i32 @llvm.umax.i32(i32 %8, i32 1)
-  %wide.trip.count199 = zext nneg i32 %umax198 to i64
+  %wide.trip.count199 = zext nneg i16 %7 to i64
   br label %.split.us
 
 .split.us:                                        ; preds = %.split.us.preheader, %59
@@ -995,16 +993,14 @@ define internal fastcc range(i32 0, 27) i32 @cli_elf_ph32(ptr noundef %0, ptr no
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %.not125 = icmp eq i8 %4, 0
-  %umax = tail call i32 @llvm.umax.i32(i32 %8, i32 1)
-  %wide.trip.count = zext nneg i32 %umax to i64
+  %wide.trip.count = zext nneg i16 %7 to i64
   br label %.split
 
 .split.us.preheader:                              ; preds = %43
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %.not125170 = icmp eq i8 %4, 0
-  %umax166 = tail call i32 @llvm.umax.i32(i32 %8, i32 1)
-  %wide.trip.count167 = zext nneg i32 %umax166 to i64
+  %wide.trip.count167 = zext nneg i16 %7 to i64
   br label %.split.us
 
 .split.us:                                        ; preds = %.split.us.preheader, %60
@@ -2097,9 +2093,6 @@ declare i64 @llvm.bswap.i64(i64) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #8
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

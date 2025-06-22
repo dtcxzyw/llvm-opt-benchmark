@@ -3073,7 +3073,6 @@ define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_014SoftimageInput27read_
   %57 = ptrtoint ptr %55 to i64
   %58 = sub i64 %56, %57
   %59 = ashr exact i64 %58, 2
-  %umax = call i64 @llvm.umax.i64(i64 %59, i64 1)
   br label %.preheader51.us.us.us
 
 .preheader51.us.us.us:                            ; preds = %.preheader51.us.us.us.preheader, %._crit_edge58.split.us.us.us.us
@@ -3110,7 +3109,7 @@ define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_014SoftimageInput27read_
 
 ._crit_edge.us.us.us.us:                          ; preds = %64
   %79 = add nuw i64 %.04057.us.us.us.us, 1
-  %exitcond108.not = icmp eq i64 %79, %umax
+  %exitcond108.not = icmp eq i64 %79, %59
   br i1 %exitcond108.not, label %._crit_edge58.split.us.us.us.us, label %.preheader.us.us.us.us, !llvm.loop !158
 
 ._crit_edge58.split.us.us.us.us:                  ; preds = %._crit_edge.us.us.us.us
@@ -3388,20 +3387,16 @@ _ZN11OpenImageIO6v3_1_011swap_endianItEEvPT_i.exit: ; preds = %.lr.ph.i.preheade
 .preheader125.lr.ph:                              ; preds = %.preheader127
   %96 = load ptr, ptr %15, align 8, !tbaa !78
   %97 = load ptr, ptr %5, align 8, !tbaa !81
-  %.not168 = icmp eq ptr %96, %97
-  %brmerge = select i1 %.not168, i1 true, i1 %.not166
-  br i1 %brmerge, label %._crit_edge, label %.preheader125.us.us.preheader
-
-.preheader125.us.us.preheader:                    ; preds = %.preheader125.lr.ph
   %98 = ptrtoint ptr %96 to i64
   %99 = ptrtoint ptr %97 to i64
   %100 = sub i64 %98, %99
   %101 = ashr exact i64 %100, 2
-  %umax = call i64 @llvm.umax.i64(i64 %101, i64 1)
-  br label %.preheader125.us.us
+  %.not168 = icmp eq ptr %96, %97
+  %brmerge = select i1 %.not168, i1 true, i1 %.not166
+  br i1 %brmerge, label %._crit_edge, label %.preheader125.us.us
 
-.preheader125.us.us:                              ; preds = %.preheader125.us.us.preheader, %._crit_edge137.split.us.us.us
-  %.080138.us.us = phi i64 [ %122, %._crit_edge137.split.us.us.us ], [ %.081153, %.preheader125.us.us.preheader ]
+.preheader125.us.us:                              ; preds = %.preheader125.lr.ph, %._crit_edge137.split.us.us.us
+  %.080138.us.us = phi i64 [ %122, %._crit_edge137.split.us.us.us ], [ %.081153, %.preheader125.lr.ph ]
   %102 = mul nuw nsw i64 %.080138.us.us, %10
   br label %.preheader.us.us.us
 
@@ -3434,7 +3429,7 @@ _ZN11OpenImageIO6v3_1_011swap_endianItEEvPT_i.exit: ; preds = %.lr.ph.i.preheade
 
 ._crit_edge.us.us.us:                             ; preds = %106
   %121 = add nuw i64 %.079136.us.us.us, 1
-  %exitcond178.not = icmp eq i64 %121, %umax
+  %exitcond178.not = icmp eq i64 %121, %101
   br i1 %exitcond178.not, label %._crit_edge137.split.us.us.us, label %.preheader.us.us.us, !llvm.loop !164
 
 ._crit_edge137.split.us.us.us:                    ; preds = %._crit_edge.us.us.us

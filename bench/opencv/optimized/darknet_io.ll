@@ -4189,7 +4189,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1055: ; preds = %_
 
 .lr.ph:                                           ; preds = %1402
   %1409 = load ptr, ptr %706, align 8, !tbaa !99
-  %umax = call i64 @llvm.umax.i64(i64 %1408, i64 1)
   br label %1420
 
 ._crit_edge2420:                                  ; preds = %1420
@@ -4238,7 +4237,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i10
   %1431 = add nsw i32 %1430, %1429
   store i32 %1431, ptr %702, align 4, !tbaa !16
   %1432 = add nuw i64 %.03512418, 1
-  %exitcond.not = icmp eq i64 %1432, %umax
+  %exitcond.not = icmp eq i64 %1432, %1408
   br i1 %exitcond.not, label %._crit_edge2420, label %1420, !llvm.loop !117
 
 ._crit_edge.i.i1059:                              ; preds = %._crit_edge2420.thread, %._crit_edge2420

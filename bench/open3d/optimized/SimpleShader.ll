@@ -1667,7 +1667,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit49: ; preds = %_ZN
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %88 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %89 = load ptr, ptr %5, align 8, !tbaa !34
-  %umax = tail call i64 @llvm.umax.i64(i64 %84, i64 1)
   br label %99
 
 ._crit_edge:                                      ; preds = %_ZN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEaSINS_14CwiseNullaryOpINS_8internal18scalar_constant_opIdEES1_EEEERS1_RKNS_9DenseBaseIT_EE.exit, %68
@@ -1772,7 +1771,7 @@ _ZN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEaSINS_14CwiseNullaryOpINS_8internal18scal
   %150 = getelementptr inbounds nuw i8, ptr %148, i64 8
   store float %.sroa.6.1, ptr %150, align 4, !tbaa !73
   %151 = add nuw i64 %.057, 1
-  %exitcond.not = icmp eq i64 %151, %umax
+  %exitcond.not = icmp eq i64 %151, %84
   br i1 %exitcond.not, label %._crit_edge, label %99, !llvm.loop !86
 
 152:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46, %._crit_edge, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -2511,7 +2510,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35: ; preds = %_ZN
   %67 = getelementptr inbounds nuw i8, ptr %54, i64 96
   %68 = getelementptr inbounds nuw i8, ptr %54, i64 104
   %69 = load ptr, ptr %5, align 8, !tbaa !34
-  %umax = call i64 @llvm.umax.i64(i64 %62, i64 1)
   br label %104
 
 ._crit_edge:                                      ; preds = %.loopexit, %.preheader
@@ -2674,7 +2672,7 @@ _ZNK6open3d8geometry7LineSet9HasColorsEv.exit:    ; preds = %104
   %155 = getelementptr inbounds nuw i8, ptr %153, i64 8
   store float %.sroa.6.1, ptr %155, align 4, !tbaa !73
   %156 = add nuw i64 %.043, 1
-  %exitcond.not = icmp eq i64 %156, %umax
+  %exitcond.not = icmp eq i64 %156, %62
   br i1 %exitcond.not, label %._crit_edge, label %104, !llvm.loop !116
 
 157:                                              ; preds = %_ZNSt12__shared_ptrIN6open3d8geometry7LineSetELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -2965,7 +2963,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35: ; preds = %_ZN
   %67 = getelementptr inbounds nuw i8, ptr %54, i64 96
   %68 = getelementptr inbounds nuw i8, ptr %54, i64 104
   %69 = load ptr, ptr %5, align 8, !tbaa !34
-  %umax = call i64 @llvm.umax.i64(i64 %62, i64 1)
   br label %104
 
 ._crit_edge:                                      ; preds = %.loopexit, %.preheader
@@ -3128,7 +3125,7 @@ _ZNK6open3d8geometry7LineSet9HasColorsEv.exit:    ; preds = %104
   %155 = getelementptr inbounds nuw i8, ptr %153, i64 8
   store float %.sroa.6.1, ptr %155, align 4, !tbaa !73
   %156 = add nuw i64 %.043, 1
-  %exitcond.not = icmp eq i64 %156, %umax
+  %exitcond.not = icmp eq i64 %156, %62
   br i1 %exitcond.not, label %._crit_edge, label %104, !llvm.loop !120
 
 157:                                              ; preds = %_ZNSt12__shared_ptrIN6open3d8geometry7LineSetELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit

@@ -10362,14 +10362,14 @@ define void @_ZNK10open_spiel10bargaining14BargainingGame20GetOfferByQuantitiesE
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 312
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %4, align 8
-  %.not = icmp eq ptr %6, %7
-  br i1 %.not, label %_ZN10open_spiel10bargaining5OfferD2Ev.exit, label %.lr.ph
-
-.lr.ph:                                           ; preds = %3
   %8 = ptrtoint ptr %6 to i64
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
   %11 = sdiv exact i64 %10, 24
+  %.not = icmp eq ptr %6, %7
+  br i1 %.not, label %_ZN10open_spiel10bargaining5OfferD2Ev.exit, label %.lr.ph
+
+.lr.ph:                                           ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %2, align 8
@@ -10378,7 +10378,6 @@ define void @_ZNK10open_spiel10bargaining14BargainingGame20GetOfferByQuantitiesE
   %17 = sub i64 %15, %16
   %.not.i.i.i.i.i = icmp eq ptr %13, %14
   %.not.i.i.i.i.i.fr = freeze i1 %.not.i.i.i.i.i
-  %umax58 = tail call i64 @llvm.umax.i64(i64 %11, i64 1)
   br i1 %.not.i.i.i.i.i.fr, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread10.us
@@ -10395,7 +10394,7 @@ define void @_ZNK10open_spiel10bargaining14BargainingGame20GetOfferByQuantitiesE
 
 _ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread10.us: ; preds = %.lr.ph.split.us
   %indvars.iv.next56 = add nuw i64 %indvars.iv55, 1
-  %exitcond59.not = icmp eq i64 %indvars.iv.next56, %umax58
+  %exitcond59.not = icmp eq i64 %indvars.iv.next56, %11
   br i1 %exitcond59.not, label %_ZN10open_spiel10bargaining5OfferD2Ev.exit, label %.lr.ph.split.us, !llvm.loop !185
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread10
@@ -10461,7 +10460,7 @@ _ZNSt4pairIN10open_spiel10bargaining5OfferElEC2IRKS2_RiTnNSt9enable_ifIXaaclsr5_
 
 _ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread10: ; preds = %.lr.ph.split, %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax58
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %11
   br i1 %exitcond.not, label %_ZN10open_spiel10bargaining5OfferD2Ev.exit, label %.lr.ph.split, !llvm.loop !185
 
 _ZN10open_spiel10bargaining5OfferD2Ev.exit:       ; preds = %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread10, %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread10.us, %3

@@ -563,7 +563,6 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit180:          ; preds = %249
   %261 = load i64, ptr %61, align 8, !tbaa !40
   %.idx.i.i.i.i.i.i.i.i.i.i148 = shl nsw i64 %261, 4
   %262 = ashr exact i64 %74, 1
-  %umax = call i64 @llvm.umax.i64(i64 %75, i64 1)
   br label %263
 
 263:                                              ; preds = %.lr.ph, %323
@@ -663,7 +662,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit180:          ; preds = %249
   %330 = select i1 %.not, double %329, double %328
   store double %330, ptr %326, align 8, !tbaa !41
   %331 = add nuw i64 %.095369, 1
-  %exitcond391.not = icmp eq i64 %331, %umax
+  %exitcond391.not = icmp eq i64 %331, %75
   br i1 %exitcond391.not, label %._crit_edge, label %263, !llvm.loop !71
 
 ._crit_edge:                                      ; preds = %323, %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2ImiEERKT_RKT0_.exit
@@ -748,7 +747,6 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %370, %363
   %372 = load ptr, ptr %68, align 8, !tbaa !15
   %373 = load ptr, ptr %334, align 8, !tbaa !15
   %374 = load ptr, ptr %336, align 8, !tbaa !24
-  %umax392 = call i64 @llvm.umax.i64(i64 %75, i64 1)
   br label %388
 
 ._crit_edge372:                                   ; preds = %_ZNSt6vectorIbSaIbEE6resizeEmb.exit
@@ -833,7 +831,7 @@ _ZNSt14_Bit_referenceaSERKS_.exit:                ; preds = %411, %414
   %storemerge = phi i64 [ %413, %411 ], [ %417, %414 ]
   store i64 %storemerge, ptr %storemerge.i.i.i.i.i165, align 8, !tbaa !70
   %418 = add nuw i64 %.0370, 1
-  %exitcond393.not = icmp eq i64 %418, %umax392
+  %exitcond393.not = icmp eq i64 %418, %75
   br i1 %exitcond393.not, label %._crit_edge372.thread, label %388, !llvm.loop !76
 
 ._crit_edge372.thread:                            ; preds = %_ZNSt14_Bit_referenceaSERKS_.exit
@@ -1075,7 +1073,6 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc91
   %.0.i.i.i.i.i.ph = phi ptr [ %98, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %99, %.noexc91 ]
   store ptr %.0.i.i.i.i.i.ph, ptr %60, align 8, !tbaa !32
   %103 = load ptr, ptr %63, align 8, !tbaa !83
-  %umax = call i64 @llvm.umax.i64(i64 %70, i64 1)
   br label %104
 
 _ZNSt6vectorIiSaIiEED2Ev.exit110.thread.loopexit: ; preds = %95
@@ -1139,7 +1136,7 @@ _ZNSt14_Bit_referenceaSEb.exit:                   ; preds = %125, %122
   %134 = getelementptr inbounds nuw i32, ptr %97, i64 %.074183
   store i32 %133, ptr %134, align 4, !tbaa !33
   %135 = add nuw i64 %.074183, 1
-  %exitcond.not = icmp eq i64 %135, %umax
+  %exitcond.not = icmp eq i64 %135, %70
   br i1 %exitcond.not, label %._crit_edge, label %104, !llvm.loop !88
 
 ._crit_edge:                                      ; preds = %_ZNSt14_Bit_referenceaSEb.exit, %102
@@ -1226,7 +1223,6 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %176, %169
   %178 = load ptr, ptr %63, align 8, !tbaa !83
   %179 = load ptr, ptr %140, align 8, !tbaa !83
   %180 = load ptr, ptr %142, align 8, !tbaa !24
-  %umax202 = call i64 @llvm.umax.i64(i64 %70, i64 1)
   br label %199
 
 ._crit_edge186:                                   ; preds = %_ZNSt14_Bit_referenceaSERKS_.exit, %_ZNSt6vectorIbSaIbEE6resizeEmb.exit
@@ -1320,7 +1316,7 @@ _ZNSt14_Bit_referenceaSERKS_.exit:                ; preds = %220, %223
   %storemerge = phi i64 [ %222, %220 ], [ %226, %223 ]
   store i64 %storemerge, ptr %storemerge.i.i.i.i.i106, align 8, !tbaa !70
   %227 = add nuw i64 %.0184, 1
-  %exitcond203.not = icmp eq i64 %227, %umax202
+  %exitcond203.not = icmp eq i64 %227, %70
   br i1 %exitcond203.not, label %._crit_edge186, label %199, !llvm.loop !90
 
 228:                                              ; preds = %197, %195
@@ -1571,7 +1567,6 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc91
   %.0.i.i.i.i.i.ph = phi ptr [ %98, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %99, %.noexc91 ]
   store ptr %.0.i.i.i.i.i.ph, ptr %60, align 8, !tbaa !32
   %103 = load ptr, ptr %63, align 8, !tbaa !83
-  %umax = call i64 @llvm.umax.i64(i64 %70, i64 1)
   br label %104
 
 _ZNSt6vectorIiSaIiEED2Ev.exit110.thread.loopexit: ; preds = %95
@@ -1635,7 +1630,7 @@ _ZNSt14_Bit_referenceaSEb.exit:                   ; preds = %125, %122
   %134 = getelementptr inbounds nuw i32, ptr %97, i64 %.074183
   store i32 %133, ptr %134, align 4, !tbaa !33
   %135 = add nuw i64 %.074183, 1
-  %exitcond.not = icmp eq i64 %135, %umax
+  %exitcond.not = icmp eq i64 %135, %70
   br i1 %exitcond.not, label %._crit_edge, label %104, !llvm.loop !94
 
 ._crit_edge:                                      ; preds = %_ZNSt14_Bit_referenceaSEb.exit, %102
@@ -1722,7 +1717,6 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %176, %169
   %178 = load ptr, ptr %63, align 8, !tbaa !83
   %179 = load ptr, ptr %140, align 8, !tbaa !83
   %180 = load ptr, ptr %142, align 8, !tbaa !24
-  %umax202 = call i64 @llvm.umax.i64(i64 %70, i64 1)
   br label %199
 
 ._crit_edge186:                                   ; preds = %_ZNSt14_Bit_referenceaSERKS_.exit, %_ZNSt6vectorIbSaIbEE6resizeEmb.exit
@@ -1816,7 +1810,7 @@ _ZNSt14_Bit_referenceaSERKS_.exit:                ; preds = %220, %223
   %storemerge = phi i64 [ %222, %220 ], [ %226, %223 ]
   store i64 %storemerge, ptr %storemerge.i.i.i.i.i106, align 8, !tbaa !70
   %227 = add nuw i64 %.0184, 1
-  %exitcond203.not = icmp eq i64 %227, %umax202
+  %exitcond203.not = icmp eq i64 %227, %70
   br i1 %exitcond203.not, label %._crit_edge186, label %199, !llvm.loop !96
 
 228:                                              ; preds = %197, %195
@@ -2067,7 +2061,6 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc91
   %.0.i.i.i.i.i.ph = phi ptr [ %98, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %99, %.noexc91 ]
   store ptr %.0.i.i.i.i.i.ph, ptr %60, align 8, !tbaa !32
   %103 = load ptr, ptr %63, align 8, !tbaa !15
-  %umax = call i64 @llvm.umax.i64(i64 %70, i64 1)
   br label %104
 
 _ZNSt6vectorIiSaIiEED2Ev.exit110.thread.loopexit: ; preds = %96
@@ -2132,7 +2125,7 @@ _ZNSt14_Bit_referenceaSEb.exit:                   ; preds = %126, %123
   %135 = getelementptr inbounds nuw i32, ptr %97, i64 %.074183
   store i32 %134, ptr %135, align 4, !tbaa !33
   %136 = add nuw i64 %.074183, 1
-  %exitcond.not = icmp eq i64 %136, %umax
+  %exitcond.not = icmp eq i64 %136, %70
   br i1 %exitcond.not, label %._crit_edge, label %104, !llvm.loop !97
 
 ._crit_edge:                                      ; preds = %_ZNSt14_Bit_referenceaSEb.exit, %102
@@ -2219,7 +2212,6 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %177, %170
   %179 = load ptr, ptr %63, align 8, !tbaa !15
   %180 = load ptr, ptr %141, align 8, !tbaa !15
   %181 = load ptr, ptr %143, align 8, !tbaa !24
-  %umax202 = call i64 @llvm.umax.i64(i64 %70, i64 1)
   br label %200
 
 ._crit_edge186:                                   ; preds = %_ZNSt14_Bit_referenceaSERKS_.exit, %_ZNSt6vectorIbSaIbEE6resizeEmb.exit
@@ -2315,7 +2307,7 @@ _ZNSt14_Bit_referenceaSERKS_.exit:                ; preds = %223, %226
   %storemerge = phi i64 [ %225, %223 ], [ %229, %226 ]
   store i64 %storemerge, ptr %storemerge.i.i.i.i.i106, align 8, !tbaa !70
   %230 = add nuw i64 %.0184, 1
-  %exitcond203.not = icmp eq i64 %230, %umax202
+  %exitcond203.not = icmp eq i64 %230, %70
   br i1 %exitcond203.not, label %._crit_edge186, label %200, !llvm.loop !99
 
 231:                                              ; preds = %198, %196
@@ -2566,7 +2558,6 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc91
   %.0.i.i.i.i.i.ph = phi ptr [ %98, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %99, %.noexc91 ]
   store ptr %.0.i.i.i.i.i.ph, ptr %60, align 8, !tbaa !32
   %103 = load ptr, ptr %63, align 8, !tbaa !83
-  %umax = call i64 @llvm.umax.i64(i64 %70, i64 1)
   br label %104
 
 _ZNSt6vectorIiSaIiEED2Ev.exit110.thread.loopexit: ; preds = %95
@@ -2630,7 +2621,7 @@ _ZNSt14_Bit_referenceaSEb.exit:                   ; preds = %125, %122
   %134 = getelementptr inbounds nuw i32, ptr %97, i64 %.074183
   store i32 %133, ptr %134, align 4, !tbaa !33
   %135 = add nuw i64 %.074183, 1
-  %exitcond.not = icmp eq i64 %135, %umax
+  %exitcond.not = icmp eq i64 %135, %70
   br i1 %exitcond.not, label %._crit_edge, label %104, !llvm.loop !100
 
 ._crit_edge:                                      ; preds = %_ZNSt14_Bit_referenceaSEb.exit, %102
@@ -2717,7 +2708,6 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %176, %169
   %178 = load ptr, ptr %63, align 8, !tbaa !83
   %179 = load ptr, ptr %140, align 8, !tbaa !83
   %180 = load ptr, ptr %142, align 8, !tbaa !24
-  %umax202 = call i64 @llvm.umax.i64(i64 %70, i64 1)
   br label %199
 
 ._crit_edge186:                                   ; preds = %_ZNSt14_Bit_referenceaSERKS_.exit, %_ZNSt6vectorIbSaIbEE6resizeEmb.exit
@@ -2811,7 +2801,7 @@ _ZNSt14_Bit_referenceaSERKS_.exit:                ; preds = %220, %223
   %storemerge = phi i64 [ %222, %220 ], [ %226, %223 ]
   store i64 %storemerge, ptr %storemerge.i.i.i.i.i106, align 8, !tbaa !70
   %227 = add nuw i64 %.0184, 1
-  %exitcond203.not = icmp eq i64 %227, %umax202
+  %exitcond203.not = icmp eq i64 %227, %70
   br i1 %exitcond203.not, label %._crit_edge186, label %199, !llvm.loop !102
 
 228:                                              ; preds = %197, %195
@@ -3060,7 +3050,6 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc91
   %.0.i.i.i.i.i.ph = phi ptr [ %98, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %99, %.noexc91 ]
   store ptr %.0.i.i.i.i.i.ph, ptr %60, align 8, !tbaa !32
   %103 = load ptr, ptr %63, align 8, !tbaa !83
-  %umax = call i64 @llvm.umax.i64(i64 %70, i64 1)
   br label %104
 
 _ZNSt6vectorIiSaIiEED2Ev.exit110.thread.loopexit: ; preds = %95
@@ -3124,7 +3113,7 @@ _ZNSt14_Bit_referenceaSEb.exit:                   ; preds = %125, %122
   %134 = getelementptr inbounds nuw i32, ptr %97, i64 %.074183
   store i32 %133, ptr %134, align 4, !tbaa !33
   %135 = add nuw i64 %.074183, 1
-  %exitcond.not = icmp eq i64 %135, %umax
+  %exitcond.not = icmp eq i64 %135, %70
   br i1 %exitcond.not, label %._crit_edge, label %104, !llvm.loop !103
 
 ._crit_edge:                                      ; preds = %_ZNSt14_Bit_referenceaSEb.exit, %102
@@ -3211,7 +3200,6 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %176, %169
   %178 = load ptr, ptr %63, align 8, !tbaa !83
   %179 = load ptr, ptr %140, align 8, !tbaa !83
   %180 = load ptr, ptr %142, align 8, !tbaa !24
-  %umax202 = call i64 @llvm.umax.i64(i64 %70, i64 1)
   br label %199
 
 ._crit_edge186:                                   ; preds = %_ZNSt14_Bit_referenceaSERKS_.exit, %_ZNSt6vectorIbSaIbEE6resizeEmb.exit
@@ -3305,7 +3293,7 @@ _ZNSt14_Bit_referenceaSERKS_.exit:                ; preds = %220, %223
   %storemerge = phi i64 [ %222, %220 ], [ %226, %223 ]
   store i64 %storemerge, ptr %storemerge.i.i.i.i.i106, align 8, !tbaa !70
   %227 = add nuw i64 %.0184, 1
-  %exitcond203.not = icmp eq i64 %227, %umax202
+  %exitcond203.not = icmp eq i64 %227, %70
   br i1 %exitcond203.not, label %._crit_edge186, label %199, !llvm.loop !105
 
 228:                                              ; preds = %197, %195

@@ -2450,11 +2450,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit: ; preds = %_ZN4dmlc11LogCheck_EQImmEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS7_EERKT_RKT0_.exit, %_ZN4dmlc11LogCheck_EQImmEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS7_EERKT_RKT0_.exit.thread, %504, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29) #12
   %.not304 = icmp eq i64 %.pre-phi132.i, 0
-  br i1 %.not304, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
-  %umax = call i64 @llvm.umax.i64(i64 %480, i64 1)
-  br label %.lr.ph
+  br i1 %.not304, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
   %.not.i.i.i129 = icmp eq ptr %412, null
@@ -2478,8 +2474,8 @@ _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %._crit_edge, %._cri
   call void @_ZdlPvm(ptr noundef nonnull %412, i64 noundef %407) #34
   br label %.body117
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.071293 = phi i64 [ %522, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit, %.lr.ph
+  %.071293 = phi i64 [ %522, %.lr.ph ], [ 0, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit ]
   %517 = getelementptr inbounds nuw i64, ptr %412, i64 %.071293
   %518 = load i64, ptr %517, align 8, !tbaa !65
   %519 = getelementptr inbounds nuw i64, ptr %.sroa.0232.0, i64 %.071293
@@ -2487,7 +2483,7 @@ _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %._crit_edge, %._cri
   %521 = add i64 %520, %518
   store i64 %521, ptr %519, align 8, !tbaa !65
   %522 = add nuw i64 %.071293, 1
-  %exitcond.not = icmp eq i64 %522, %umax
+  %exitcond.not = icmp eq i64 %522, %480
   br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !168
 
 .body117:                                         ; preds = %.loopexit257, %.loopexit.split-lp258, %.split301, %.split301.us, %.split298, %.split298.us, %.split, %.split.us294, %516, %515, %.body.i

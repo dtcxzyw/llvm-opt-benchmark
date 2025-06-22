@@ -1388,7 +1388,6 @@ _ZNK3ue212_GLOBAL__N_115Automaton_Merge8canPruneERKNS_8flat_setIjSt4lessIjESaIjE
   %407 = ptrtoint ptr %405 to i64
   %408 = sub i64 %406, %407
   %409 = ashr exact i64 %408, 3
-  %umax.i = call i64 @llvm.umax.i64(i64 %409, i64 1)
   br label %466
 
 .lr.ph.i210:                                      ; preds = %_ZNK3ue212_GLOBAL__N_115Automaton_Merge8canPruneERKNS_8flat_setIjSt4lessIjESaIjEEE.exit.thread, %_ZNSt6vectorItSaItEE6resizeEm.exit.i
@@ -1537,7 +1536,7 @@ _ZNSt6vectorItSaItEE6resizeEm.exit.i:             ; preds = %_ZSt27__uninitializ
 ._crit_edge22.i:                                  ; preds = %.lr.ph21.i, %.noexc213
   %473 = phi i16 [ 0, %.noexc213 ], [ %483, %.lr.ph21.i ]
   %474 = add nuw i64 %.01723.i, 1
-  %exitcond.not.i = icmp eq i64 %474, %umax.i
+  %exitcond.not.i = icmp eq i64 %474, %409
   br i1 %exitcond.not.i, label %_ZN3ue212_GLOBAL__N_115Automaton_Merge10transitionERKSt6vectorItSaItEEPS4_.exit, label %466, !llvm.loop !19
 
 .lr.ph21.i:                                       ; preds = %.noexc213, %.lr.ph21.i
@@ -8154,7 +8153,6 @@ define internal fastcc void @_ZNK3ue212_GLOBAL__N_115Automaton_Merge9reports_iER
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %umax = tail call i64 @llvm.umax.i64(i64 %12, i64 1)
   br label %16
 
 ._crit_edge:                                      ; preds = %_ZN3ue26insertINS_8flat_setIjSt4lessIjESaIjEEES5_EEvPT_RKT0_.exit, %4
@@ -8379,7 +8377,7 @@ _ZN3ue28flat_setIjSt4lessIjESaIjEE6insertERKj.exit: ; preds = %99, %_ZN5boost9co
 
 _ZN3ue26insertINS_8flat_setIjSt4lessIjESaIjEEES5_EEvPT_RKT0_.exit: ; preds = %_ZN3ue28flat_setIjSt4lessIjESaIjEE6insertERKj.exit, %16
   %118 = add nuw i64 %.012, 1
-  %exitcond.not = icmp eq i64 %118, %umax
+  %exitcond.not = icmp eq i64 %118, %12
   br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !226
 }
 

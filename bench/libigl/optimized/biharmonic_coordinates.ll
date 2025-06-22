@@ -1832,7 +1832,6 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2ImmEERKT_RKT0_.exit: ; preds = %_ZN
   %662 = icmp sgt i64 %618, 1
   %663 = trunc i64 %619 to i32
   %664 = add i32 %663, 1
-  %umax519 = call i64 @llvm.umax.i64(i64 %658, i64 1)
   br label %667
 
 665:                                              ; preds = %._crit_edge
@@ -1875,14 +1874,12 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2ImmEERKT_RKT0_.exit: ; preds = %_ZN
 
 .preheader.preheader:                             ; preds = %.preheader.lr.ph
   %682 = sext i32 %.086460 to i64
-  %umax514 = call i64 @llvm.umax.i64(i64 %675, i64 1)
   br label %.preheader
 
 .preheader.lr.ph.split.us:                        ; preds = %.preheader.lr.ph
   %683 = load ptr, ptr %0, align 8, !tbaa !123
   %684 = load i64, ptr %84, align 8, !tbaa !25
   %685 = sext i32 %.086460 to i64
-  %umax = call i64 @llvm.umax.i64(i64 %675, i64 1)
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %._crit_edge454.us, %.preheader.lr.ph.split.us
@@ -1915,7 +1912,7 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2ImmEERKT_RKT0_.exit: ; preds = %_ZN
   store i32 %687, ptr %698, align 4, !tbaa !29
   %indvars.iv.next502 = add nsw i64 %indvars.iv501, 1
   %indvars.iv.next500 = add nuw nsw i64 %indvars.iv499, 1
-  %exitcond506.not = icmp eq i64 %indvars.iv.next500, %umax
+  %exitcond506.not = icmp eq i64 %indvars.iv.next500, %675
   br i1 %exitcond506.not, label %._crit_edge457.loopexit469, label %.preheader.us, !llvm.loop !125
 
 699:                                              ; preds = %667
@@ -1963,7 +1960,7 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2ImmEERKT_RKT0_.exit: ; preds = %_ZN
   store i32 %721, ptr %722, align 4, !tbaa !29
   %indvars.iv.next510 = add nsw i64 %indvars.iv509, 1
   %indvars.iv.next508 = add nuw nsw i64 %indvars.iv507, 1
-  %exitcond515.not = icmp eq i64 %indvars.iv.next508, %umax514
+  %exitcond515.not = icmp eq i64 %indvars.iv.next508, %675
   br i1 %exitcond515.not, label %._crit_edge457.thread, label %.preheader, !llvm.loop !125
 
 ._crit_edge457.thread:                            ; preds = %.preheader
@@ -2010,7 +2007,7 @@ _ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELin1E
   %.2 = phi i32 [ %719, %.loopexit ], [ %.187.lcssa535, %_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELin1ELb0EEEE11setIdentityEv.exit ]
   %.1 = phi i32 [ %714, %.loopexit ], [ %734, %_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELin1ELb0EEEE11setIdentityEv.exit ]
   %indvars.iv.next517 = add nuw nsw i64 %indvars.iv516, 1
-  %exitcond520.not = icmp eq i64 %indvars.iv.next517, %umax519
+  %exitcond520.not = icmp eq i64 %indvars.iv.next517, %658
   br i1 %exitcond520.not, label %._crit_edge465, label %667, !llvm.loop !132
 
 ._crit_edge465:                                   ; preds = %735, %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2ImmEERKT_RKT0_.exit
@@ -13650,9 +13647,6 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #19
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #22

@@ -24998,7 +24998,7 @@ _ZN2dd11pdd_manager4zeroEv.exit:                  ; preds = %41, %46
 _ZN2dd3pddD2Ev.exit:                              ; preds = %52, %56
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #29
   %61 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN2dd3pddaSERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %1)
-  br label %935
+  br label %934
 
 62:                                               ; preds = %_ZN2dd11pdd_manager4zeroEv.exit
   %63 = landingpad { ptr, i32 }
@@ -25019,7 +25019,7 @@ _ZN2dd3pddD2Ev.exit:                              ; preds = %52, %56
 
 _ZN2dd3pddD2Ev.exit112:                           ; preds = %62, %67
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #29
-  br label %936
+  br label %935
 
 72:                                               ; preds = %6
   %73 = load i32, ptr %1, align 8, !tbaa !119
@@ -25072,7 +25072,7 @@ _ZN2dd11pdd_manager4zeroEv.exit114:               ; preds = %80, %84
 _ZN2dd3pddD2Ev.exit116:                           ; preds = %90, %94
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18) #29
   %99 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN2dd3pddaSERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %1)
-  br label %935
+  br label %934
 
 100:                                              ; preds = %_ZN2dd11pdd_manager4zeroEv.exit114
   %101 = landingpad { ptr, i32 }
@@ -25093,7 +25093,7 @@ _ZN2dd3pddD2Ev.exit116:                           ; preds = %90, %94
 
 _ZN2dd3pddD2Ev.exit118:                           ; preds = %100, %105
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18) #29
-  br label %936
+  br label %935
 
 110:                                              ; preds = %72
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -25206,7 +25206,7 @@ _ZN2dd3pddC2EjPNS_11pdd_managerE.exit123:         ; preds = %_ZN2dd3pddD2Ev.exit
 
 _ZN2dd3pddD2Ev.exit125:                           ; preds = %153, %158
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #29
-  br label %935
+  br label %934
 
 163:                                              ; preds = %_ZN2dd3pddC2EjPNS_11pdd_managerE.exit
   %164 = landingpad { ptr, i32 }
@@ -25228,7 +25228,7 @@ _ZN2dd3pddD2Ev.exit125:                           ; preds = %153, %158
 
 _ZN2dd3pddD2Ev.exit127:                           ; preds = %163, %169
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #29
-  br label %936
+  br label %935
 
 174:                                              ; preds = %_ZN2dd3pddC2EjPNS_11pdd_managerE.exit123
   %175 = landingpad { ptr, i32 }
@@ -25250,7 +25250,7 @@ _ZN2dd3pddD2Ev.exit127:                           ; preds = %163, %169
 
 _ZN2dd3pddD2Ev.exit129:                           ; preds = %174, %180
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #29
-  br label %936
+  br label %935
 
 185:                                              ; preds = %110
   %186 = load i32, ptr %1, align 8, !tbaa !119
@@ -25731,7 +25731,7 @@ _ZN2dd3pddD2Ev.exit166:                           ; preds = %_ZN2dd3pddD2Ev.exit
 
 _ZN2dd3pddD2Ev.exit168:                           ; preds = %_ZN2dd3pddD2Ev.exit166, %447
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21) #29
-  br label %927
+  br label %926
 
 452:                                              ; preds = %209
   %453 = landingpad { ptr, i32 }
@@ -25850,7 +25850,7 @@ _ZN2dd3pddD2Ev.exit176:                           ; preds = %497, %_ZN2dd3pddD2E
 
 _ZN2dd3pddD2Ev.exit178:                           ; preds = %_ZN2dd3pddD2Ev.exit176, %509
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21) #29
-  br label %936
+  br label %935
 
 514:                                              ; preds = %185
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %26) #29
@@ -25967,12 +25967,12 @@ _ZNK2dd3pdd2hiEv.exit183:                         ; preds = %559, %553
 _ZN2dd3pddD2Ev.exit185:                           ; preds = %565, %570
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27) #29
   %exitcond.not = icmp eq i32 %554, %3
-  br i1 %exitcond.not, label %.critedge, label %533, !llvm.loop !327
+  br i1 %exitcond.not, label %.critedge.thread, label %533, !llvm.loop !327
 
-575:                                              ; preds = %_ZN2dd3pddD2Ev.exit245, %591, %589
+575:                                              ; preds = %_ZN2dd3pddD2Ev.exit245, %590, %.critedge.thread
   %576 = landingpad { ptr, i32 }
           cleanup
-  br label %914
+  br label %913
 
 577:                                              ; preds = %_ZNK2dd3pdd2hiEv.exit183
   %578 = landingpad { ptr, i32 }
@@ -25994,672 +25994,671 @@ _ZN2dd3pddD2Ev.exit185:                           ; preds = %565, %570
 
 _ZN2dd3pddD2Ev.exit187:                           ; preds = %583, %577
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27) #29
-  br label %914
+  br label %913
 
-.critedge:                                        ; preds = %542, %_ZNK2dd3pdd6is_valEv.exit, %_ZN2dd3pddD2Ev.exit185, %_ZNK2dd3pdd6is_valEv.exit.thread257
-  %.062.lcssa = phi i32 [ %.062280, %542 ], [ %.062280, %_ZNK2dd3pdd6is_valEv.exit ], [ %3, %_ZN2dd3pddD2Ev.exit185 ], [ %.062280, %_ZNK2dd3pdd6is_valEv.exit.thread257 ]
-  %588 = icmp eq i32 %.062.lcssa, %3
-  br i1 %588, label %589, label %870
+.critedge:                                        ; preds = %542, %_ZNK2dd3pdd6is_valEv.exit, %_ZNK2dd3pdd6is_valEv.exit.thread257
+  %588 = icmp eq i32 %.062280, %3
+  br i1 %588, label %.critedge.thread, label %869
 
-589:                                              ; preds = %.critedge
-  %590 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN2dd3pddaSERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %26)
-          to label %591 unwind label %575
+.critedge.thread:                                 ; preds = %_ZN2dd3pddD2Ev.exit185, %.critedge
+  %589 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN2dd3pddaSERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %26)
+          to label %590 unwind label %575
 
-591:                                              ; preds = %589
-  %592 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN2dd3pddaSERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(16) %1)
-          to label %593 unwind label %575
+590:                                              ; preds = %.critedge.thread
+  %591 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN2dd3pddaSERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(16) %1)
+          to label %592 unwind label %575
 
-593:                                              ; preds = %591
+592:                                              ; preds = %590
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %28) #29
   call void @llvm.experimental.noalias.scope.decl(metadata !328)
   store i32 0, ptr %28, align 8, !tbaa !119, !alias.scope !328
-  %594 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  store ptr %0, ptr %594, align 8, !tbaa !122, !alias.scope !328
-  %595 = load ptr, ptr %0, align 8, !tbaa !91, !noalias !328
-  %596 = load i32, ptr %595, align 4, !noalias !328
-  %597 = and i32 %596, 1023
-  %.not.i.i.i188 = icmp eq i32 %597, 1023
-  br i1 %.not.i.i.i188, label %_ZN2dd11pdd_manager4zeroEv.exit190, label %598
+  %593 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  store ptr %0, ptr %593, align 8, !tbaa !122, !alias.scope !328
+  %594 = load ptr, ptr %0, align 8, !tbaa !91, !noalias !328
+  %595 = load i32, ptr %594, align 4, !noalias !328
+  %596 = and i32 %595, 1023
+  %.not.i.i.i188 = icmp eq i32 %596, 1023
+  br i1 %.not.i.i.i188, label %_ZN2dd11pdd_manager4zeroEv.exit190, label %597
 
-598:                                              ; preds = %593
-  %599 = add i32 %596, 1
-  %600 = and i32 %599, 1023
-  %601 = and i32 %596, -1024
-  %602 = or disjoint i32 %600, %601
-  store i32 %602, ptr %595, align 4, !noalias !328
+597:                                              ; preds = %592
+  %598 = add i32 %595, 1
+  %599 = and i32 %598, 1023
+  %600 = and i32 %595, -1024
+  %601 = or disjoint i32 %599, %600
+  store i32 %601, ptr %594, align 4, !noalias !328
   br label %_ZN2dd11pdd_manager4zeroEv.exit190
 
-_ZN2dd11pdd_manager4zeroEv.exit190:               ; preds = %598, %593
-  %603 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN2dd3pddaSERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %28)
-          to label %604 unwind label %643
+_ZN2dd11pdd_manager4zeroEv.exit190:               ; preds = %597, %592
+  %602 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN2dd3pddaSERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %28)
+          to label %603 unwind label %642
 
-604:                                              ; preds = %_ZN2dd11pdd_manager4zeroEv.exit190
-  %605 = load ptr, ptr %0, align 8, !tbaa !91
-  %606 = load i32, ptr %605, align 4
-  %607 = and i32 %606, 1023
-  %.not.i.i191 = icmp eq i32 %607, 1023
-  br i1 %.not.i.i191, label %_ZN2dd3pddD2Ev.exit192, label %608
+603:                                              ; preds = %_ZN2dd11pdd_manager4zeroEv.exit190
+  %604 = load ptr, ptr %0, align 8, !tbaa !91
+  %605 = load i32, ptr %604, align 4
+  %606 = and i32 %605, 1023
+  %.not.i.i191 = icmp eq i32 %606, 1023
+  br i1 %.not.i.i191, label %_ZN2dd3pddD2Ev.exit192, label %607
 
-608:                                              ; preds = %604
-  %609 = add i32 %606, 1023
-  %610 = and i32 %609, 1023
-  %611 = and i32 %606, -1024
-  %612 = or disjoint i32 %610, %611
-  store i32 %612, ptr %605, align 4
+607:                                              ; preds = %603
+  %608 = add i32 %605, 1023
+  %609 = and i32 %608, 1023
+  %610 = and i32 %605, -1024
+  %611 = or disjoint i32 %609, %610
+  store i32 %611, ptr %604, align 4
   %.pre298 = load ptr, ptr %0, align 8, !tbaa !91, !noalias !331
   br label %_ZN2dd3pddD2Ev.exit192
 
-_ZN2dd3pddD2Ev.exit192:                           ; preds = %604, %608
-  %613 = phi ptr [ %605, %604 ], [ %.pre298, %608 ]
+_ZN2dd3pddD2Ev.exit192:                           ; preds = %603, %607
+  %612 = phi ptr [ %604, %603 ], [ %.pre298, %607 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %28) #29
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %29) #29
   call void @llvm.experimental.noalias.scope.decl(metadata !331)
   store i32 1, ptr %29, align 8, !tbaa !119, !alias.scope !331
-  %614 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  store ptr %0, ptr %614, align 8, !tbaa !122, !alias.scope !331
-  %615 = getelementptr inbounds nuw i8, ptr %613, i64 16
-  %616 = load i32, ptr %615, align 4, !noalias !331
-  %617 = and i32 %616, 1023
-  %.not.i.i.i193 = icmp eq i32 %617, 1023
-  br i1 %.not.i.i.i193, label %_ZN2dd11pdd_manager3oneEv.exit, label %618
+  %613 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  store ptr %0, ptr %613, align 8, !tbaa !122, !alias.scope !331
+  %614 = getelementptr inbounds nuw i8, ptr %612, i64 16
+  %615 = load i32, ptr %614, align 4, !noalias !331
+  %616 = and i32 %615, 1023
+  %.not.i.i.i193 = icmp eq i32 %616, 1023
+  br i1 %.not.i.i.i193, label %_ZN2dd11pdd_manager3oneEv.exit, label %617
 
-618:                                              ; preds = %_ZN2dd3pddD2Ev.exit192
-  %619 = add i32 %616, 1
-  %620 = and i32 %619, 1023
-  %621 = and i32 %616, -1024
-  %622 = or disjoint i32 %620, %621
-  store i32 %622, ptr %615, align 4, !noalias !331
+617:                                              ; preds = %_ZN2dd3pddD2Ev.exit192
+  %618 = add i32 %615, 1
+  %619 = and i32 %618, 1023
+  %620 = and i32 %615, -1024
+  %621 = or disjoint i32 %619, %620
+  store i32 %621, ptr %614, align 4, !noalias !331
   br label %_ZN2dd11pdd_manager3oneEv.exit
 
-_ZN2dd11pdd_manager3oneEv.exit:                   ; preds = %_ZN2dd3pddD2Ev.exit192, %618
-  %623 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %624 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %625 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %626 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %627 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %628 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %629 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  br label %653
+_ZN2dd11pdd_manager3oneEv.exit:                   ; preds = %_ZN2dd3pddD2Ev.exit192, %617
+  %622 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %623 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %624 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %625 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %626 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %627 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %628 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  br label %652
 
-630:                                              ; preds = %_ZN2dd3pddD2Ev.exit230
-  %631 = load ptr, ptr %614, align 8, !tbaa !122
-  %632 = load i32, ptr %29, align 8, !tbaa !119
-  %633 = load ptr, ptr %631, align 8, !tbaa !91
-  %634 = zext i32 %632 to i64
-  %635 = getelementptr inbounds nuw %"struct.dd::pdd_manager::node", ptr %633, i64 %634
-  %636 = load i32, ptr %635, align 4
-  %637 = and i32 %636, 1023
-  %.not.i.i195 = icmp eq i32 %637, 1023
-  br i1 %.not.i.i195, label %_ZN2dd3pddD2Ev.exit196, label %638
+629:                                              ; preds = %_ZN2dd3pddD2Ev.exit230
+  %630 = load ptr, ptr %613, align 8, !tbaa !122
+  %631 = load i32, ptr %29, align 8, !tbaa !119
+  %632 = load ptr, ptr %630, align 8, !tbaa !91
+  %633 = zext i32 %631 to i64
+  %634 = getelementptr inbounds nuw %"struct.dd::pdd_manager::node", ptr %632, i64 %633
+  %635 = load i32, ptr %634, align 4
+  %636 = and i32 %635, 1023
+  %.not.i.i195 = icmp eq i32 %636, 1023
+  br i1 %.not.i.i195, label %_ZN2dd3pddD2Ev.exit196, label %637
 
-638:                                              ; preds = %630
-  %639 = add i32 %636, 1023
-  %640 = and i32 %639, 1023
-  %641 = and i32 %636, -1024
-  %642 = or disjoint i32 %640, %641
-  store i32 %642, ptr %635, align 4
+637:                                              ; preds = %629
+  %638 = add i32 %635, 1023
+  %639 = and i32 %638, 1023
+  %640 = and i32 %635, -1024
+  %641 = or disjoint i32 %639, %640
+  store i32 %641, ptr %634, align 4
   br label %_ZN2dd3pddD2Ev.exit196
 
-_ZN2dd3pddD2Ev.exit196:                           ; preds = %630, %638
+_ZN2dd3pddD2Ev.exit196:                           ; preds = %629, %637
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %29) #29
-  br label %901
+  br label %900
 
-643:                                              ; preds = %_ZN2dd11pdd_manager4zeroEv.exit190
-  %644 = landingpad { ptr, i32 }
+642:                                              ; preds = %_ZN2dd11pdd_manager4zeroEv.exit190
+  %643 = landingpad { ptr, i32 }
           cleanup
-  %645 = load ptr, ptr %0, align 8, !tbaa !91
-  %646 = load i32, ptr %645, align 4
-  %647 = and i32 %646, 1023
-  %.not.i.i197 = icmp eq i32 %647, 1023
-  br i1 %.not.i.i197, label %_ZN2dd3pddD2Ev.exit198, label %648
+  %644 = load ptr, ptr %0, align 8, !tbaa !91
+  %645 = load i32, ptr %644, align 4
+  %646 = and i32 %645, 1023
+  %.not.i.i197 = icmp eq i32 %646, 1023
+  br i1 %.not.i.i197, label %_ZN2dd3pddD2Ev.exit198, label %647
 
-648:                                              ; preds = %643
-  %649 = add i32 %646, 1023
-  %650 = and i32 %649, 1023
-  %651 = and i32 %646, -1024
-  %652 = or disjoint i32 %650, %651
-  store i32 %652, ptr %645, align 4
+647:                                              ; preds = %642
+  %648 = add i32 %645, 1023
+  %649 = and i32 %648, 1023
+  %650 = and i32 %645, -1024
+  %651 = or disjoint i32 %649, %650
+  store i32 %651, ptr %644, align 4
   br label %_ZN2dd3pddD2Ev.exit198
 
-_ZN2dd3pddD2Ev.exit198:                           ; preds = %648, %643
+_ZN2dd3pddD2Ev.exit198:                           ; preds = %647, %642
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %28) #29
-  br label %914
+  br label %913
 
-653:                                              ; preds = %_ZN2dd11pdd_manager3oneEv.exit, %_ZN2dd3pddD2Ev.exit230
-  %.0281 = phi i32 [ 0, %_ZN2dd11pdd_manager3oneEv.exit ], [ %779, %_ZN2dd3pddD2Ev.exit230 ]
+652:                                              ; preds = %_ZN2dd11pdd_manager3oneEv.exit, %_ZN2dd3pddD2Ev.exit230
+  %.0281 = phi i32 [ 0, %_ZN2dd11pdd_manager3oneEv.exit ], [ %778, %_ZN2dd3pddD2Ev.exit230 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %30) #29
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %31) #29
   call void @llvm.experimental.noalias.scope.decl(metadata !334)
-  %654 = load ptr, ptr %517, align 8, !tbaa !122, !noalias !334
-  %655 = load i32, ptr %26, align 8, !tbaa !119, !noalias !334
-  %656 = load ptr, ptr %654, align 8, !tbaa !91, !noalias !334
-  %657 = zext i32 %655 to i64
-  %658 = getelementptr inbounds nuw %"struct.dd::pdd_manager::node", ptr %656, i64 %657, i32 1
-  %659 = load i32, ptr %658, align 4, !tbaa !94, !noalias !334
-  store i32 %659, ptr %31, align 8, !tbaa !119, !alias.scope !334
-  store ptr %654, ptr %623, align 8, !tbaa !122, !alias.scope !334
-  %660 = zext i32 %659 to i64
-  %661 = getelementptr inbounds nuw %"struct.dd::pdd_manager::node", ptr %656, i64 %660
-  %662 = load i32, ptr %661, align 4, !noalias !334
-  %663 = and i32 %662, 1023
-  %.not.i.i.i199 = icmp eq i32 %663, 1023
-  br i1 %.not.i.i.i199, label %_ZNK2dd3pdd2loEv.exit201, label %664
+  %653 = load ptr, ptr %517, align 8, !tbaa !122, !noalias !334
+  %654 = load i32, ptr %26, align 8, !tbaa !119, !noalias !334
+  %655 = load ptr, ptr %653, align 8, !tbaa !91, !noalias !334
+  %656 = zext i32 %654 to i64
+  %657 = getelementptr inbounds nuw %"struct.dd::pdd_manager::node", ptr %655, i64 %656, i32 1
+  %658 = load i32, ptr %657, align 4, !tbaa !94, !noalias !334
+  store i32 %658, ptr %31, align 8, !tbaa !119, !alias.scope !334
+  store ptr %653, ptr %622, align 8, !tbaa !122, !alias.scope !334
+  %659 = zext i32 %658 to i64
+  %660 = getelementptr inbounds nuw %"struct.dd::pdd_manager::node", ptr %655, i64 %659
+  %661 = load i32, ptr %660, align 4, !noalias !334
+  %662 = and i32 %661, 1023
+  %.not.i.i.i199 = icmp eq i32 %662, 1023
+  br i1 %.not.i.i.i199, label %_ZNK2dd3pdd2loEv.exit201, label %663
 
-664:                                              ; preds = %653
-  %665 = add i32 %662, 1
-  %666 = and i32 %665, 1023
-  %667 = and i32 %662, -1024
-  %668 = or disjoint i32 %666, %667
-  store i32 %668, ptr %661, align 4, !noalias !334
+663:                                              ; preds = %652
+  %664 = add i32 %661, 1
+  %665 = and i32 %664, 1023
+  %666 = and i32 %661, -1024
+  %667 = or disjoint i32 %665, %666
+  store i32 %667, ptr %660, align 4, !noalias !334
   br label %_ZNK2dd3pdd2loEv.exit201
 
-_ZNK2dd3pdd2loEv.exit201:                         ; preds = %664, %653
+_ZNK2dd3pdd2loEv.exit201:                         ; preds = %663, %652
   invoke void @_ZNK2dd3pddmlERKS0_(ptr dead_on_unwind nonnull writable sret(%"class.dd::pdd") align 8 %30, ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %31)
-          to label %669 unwind label %801
+          to label %668 unwind label %800
 
-669:                                              ; preds = %_ZNK2dd3pdd2loEv.exit201
+668:                                              ; preds = %_ZNK2dd3pdd2loEv.exit201
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #29
   invoke void @_ZNK2dd3pddplERKS0_(ptr dead_on_unwind nonnull writable sret(%"class.dd::pdd") align 8 %10, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %30)
-          to label %.noexc205 unwind label %803
+          to label %.noexc205 unwind label %802
 
-.noexc205:                                        ; preds = %669
-  %670 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN2dd3pddaSERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %10)
-          to label %671 unwind label %684
+.noexc205:                                        ; preds = %668
+  %669 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN2dd3pddaSERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %10)
+          to label %670 unwind label %683
 
-671:                                              ; preds = %.noexc205
-  %672 = load ptr, ptr %624, align 8, !tbaa !122
-  %673 = load i32, ptr %10, align 8, !tbaa !119
-  %674 = load ptr, ptr %672, align 8, !tbaa !91
-  %675 = zext i32 %673 to i64
-  %676 = getelementptr inbounds nuw %"struct.dd::pdd_manager::node", ptr %674, i64 %675
-  %677 = load i32, ptr %676, align 4
-  %678 = and i32 %677, 1023
-  %.not.i.i.i204 = icmp eq i32 %678, 1023
-  br i1 %.not.i.i.i204, label %698, label %679
+670:                                              ; preds = %.noexc205
+  %671 = load ptr, ptr %623, align 8, !tbaa !122
+  %672 = load i32, ptr %10, align 8, !tbaa !119
+  %673 = load ptr, ptr %671, align 8, !tbaa !91
+  %674 = zext i32 %672 to i64
+  %675 = getelementptr inbounds nuw %"struct.dd::pdd_manager::node", ptr %673, i64 %674
+  %676 = load i32, ptr %675, align 4
+  %677 = and i32 %676, 1023
+  %.not.i.i.i204 = icmp eq i32 %677, 1023
+  br i1 %.not.i.i.i204, label %697, label %678
 
-679:                                              ; preds = %671
-  %680 = add i32 %677, 1023
-  %681 = and i32 %680, 1023
-  %682 = and i32 %677, -1024
-  %683 = or disjoint i32 %681, %682
-  store i32 %683, ptr %676, align 4
-  br label %698
+678:                                              ; preds = %670
+  %679 = add i32 %676, 1023
+  %680 = and i32 %679, 1023
+  %681 = and i32 %676, -1024
+  %682 = or disjoint i32 %680, %681
+  store i32 %682, ptr %675, align 4
+  br label %697
 
-684:                                              ; preds = %.noexc205
-  %685 = landingpad { ptr, i32 }
+683:                                              ; preds = %.noexc205
+  %684 = landingpad { ptr, i32 }
           cleanup
-  %686 = load ptr, ptr %624, align 8, !tbaa !122
-  %687 = load i32, ptr %10, align 8, !tbaa !119
-  %688 = load ptr, ptr %686, align 8, !tbaa !91
-  %689 = zext i32 %687 to i64
-  %690 = getelementptr inbounds nuw %"struct.dd::pdd_manager::node", ptr %688, i64 %689
-  %691 = load i32, ptr %690, align 4
-  %692 = and i32 %691, 1023
-  %.not.i.i5.i202 = icmp eq i32 %692, 1023
-  br i1 %.not.i.i5.i202, label %_ZN2dd3pddD2Ev.exit6.i203, label %693
+  %685 = load ptr, ptr %623, align 8, !tbaa !122
+  %686 = load i32, ptr %10, align 8, !tbaa !119
+  %687 = load ptr, ptr %685, align 8, !tbaa !91
+  %688 = zext i32 %686 to i64
+  %689 = getelementptr inbounds nuw %"struct.dd::pdd_manager::node", ptr %687, i64 %688
+  %690 = load i32, ptr %689, align 4
+  %691 = and i32 %690, 1023
+  %.not.i.i5.i202 = icmp eq i32 %691, 1023
+  br i1 %.not.i.i5.i202, label %_ZN2dd3pddD2Ev.exit6.i203, label %692
 
-693:                                              ; preds = %684
-  %694 = add i32 %691, 1023
-  %695 = and i32 %694, 1023
-  %696 = and i32 %691, -1024
-  %697 = or disjoint i32 %695, %696
-  store i32 %697, ptr %690, align 4
+692:                                              ; preds = %683
+  %693 = add i32 %690, 1023
+  %694 = and i32 %693, 1023
+  %695 = and i32 %690, -1024
+  %696 = or disjoint i32 %694, %695
+  store i32 %696, ptr %689, align 4
   br label %_ZN2dd3pddD2Ev.exit6.i203
 
-_ZN2dd3pddD2Ev.exit6.i203:                        ; preds = %693, %684
+_ZN2dd3pddD2Ev.exit6.i203:                        ; preds = %692, %683
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #29
   br label %.body206
 
-698:                                              ; preds = %679, %671
+697:                                              ; preds = %678, %670
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #29
-  %699 = load ptr, ptr %625, align 8, !tbaa !122
-  %700 = load i32, ptr %30, align 8, !tbaa !119
-  %701 = load ptr, ptr %699, align 8, !tbaa !91
-  %702 = zext i32 %700 to i64
-  %703 = getelementptr inbounds nuw %"struct.dd::pdd_manager::node", ptr %701, i64 %702
-  %704 = load i32, ptr %703, align 4
-  %705 = and i32 %704, 1023
-  %.not.i.i209 = icmp eq i32 %705, 1023
-  br i1 %.not.i.i209, label %_ZN2dd3pddD2Ev.exit210, label %706
+  %698 = load ptr, ptr %624, align 8, !tbaa !122
+  %699 = load i32, ptr %30, align 8, !tbaa !119
+  %700 = load ptr, ptr %698, align 8, !tbaa !91
+  %701 = zext i32 %699 to i64
+  %702 = getelementptr inbounds nuw %"struct.dd::pdd_manager::node", ptr %700, i64 %701
+  %703 = load i32, ptr %702, align 4
+  %704 = and i32 %703, 1023
+  %.not.i.i209 = icmp eq i32 %704, 1023
+  br i1 %.not.i.i209, label %_ZN2dd3pddD2Ev.exit210, label %705
 
-706:                                              ; preds = %698
-  %707 = add i32 %704, 1023
-  %708 = and i32 %707, 1023
-  %709 = and i32 %704, -1024
-  %710 = or disjoint i32 %708, %709
-  store i32 %710, ptr %703, align 4
+705:                                              ; preds = %697
+  %706 = add i32 %703, 1023
+  %707 = and i32 %706, 1023
+  %708 = and i32 %703, -1024
+  %709 = or disjoint i32 %707, %708
+  store i32 %709, ptr %702, align 4
   br label %_ZN2dd3pddD2Ev.exit210
 
-_ZN2dd3pddD2Ev.exit210:                           ; preds = %698, %706
-  %711 = load ptr, ptr %623, align 8, !tbaa !122
-  %712 = load i32, ptr %31, align 8, !tbaa !119
-  %713 = load ptr, ptr %711, align 8, !tbaa !91
-  %714 = zext i32 %712 to i64
-  %715 = getelementptr inbounds nuw %"struct.dd::pdd_manager::node", ptr %713, i64 %714
-  %716 = load i32, ptr %715, align 4
-  %717 = and i32 %716, 1023
-  %.not.i.i211 = icmp eq i32 %717, 1023
-  br i1 %.not.i.i211, label %_ZN2dd3pddD2Ev.exit212, label %718
+_ZN2dd3pddD2Ev.exit210:                           ; preds = %697, %705
+  %710 = load ptr, ptr %622, align 8, !tbaa !122
+  %711 = load i32, ptr %31, align 8, !tbaa !119
+  %712 = load ptr, ptr %710, align 8, !tbaa !91
+  %713 = zext i32 %711 to i64
+  %714 = getelementptr inbounds nuw %"struct.dd::pdd_manager::node", ptr %712, i64 %713
+  %715 = load i32, ptr %714, align 4
+  %716 = and i32 %715, 1023
+  %.not.i.i211 = icmp eq i32 %716, 1023
+  br i1 %.not.i.i211, label %_ZN2dd3pddD2Ev.exit212, label %717
 
-718:                                              ; preds = %_ZN2dd3pddD2Ev.exit210
-  %719 = add i32 %716, 1023
-  %720 = and i32 %719, 1023
-  %721 = and i32 %716, -1024
-  %722 = or disjoint i32 %720, %721
-  store i32 %722, ptr %715, align 4
+717:                                              ; preds = %_ZN2dd3pddD2Ev.exit210
+  %718 = add i32 %715, 1023
+  %719 = and i32 %718, 1023
+  %720 = and i32 %715, -1024
+  %721 = or disjoint i32 %719, %720
+  store i32 %721, ptr %714, align 4
   br label %_ZN2dd3pddD2Ev.exit212
 
-_ZN2dd3pddD2Ev.exit212:                           ; preds = %_ZN2dd3pddD2Ev.exit210, %718
+_ZN2dd3pddD2Ev.exit212:                           ; preds = %_ZN2dd3pddD2Ev.exit210, %717
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %31) #29
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %30) #29
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %32) #29
   call void @llvm.experimental.noalias.scope.decl(metadata !337)
-  %723 = load ptr, ptr %654, align 8, !tbaa !91, !noalias !337
-  %724 = getelementptr inbounds nuw %"struct.dd::pdd_manager::node", ptr %723, i64 %657, i32 2
-  %725 = load i32, ptr %724, align 4, !tbaa !92, !noalias !337
-  store i32 %725, ptr %32, align 8, !tbaa !119, !alias.scope !337
-  store ptr %654, ptr %626, align 8, !tbaa !122, !alias.scope !337
-  %726 = zext i32 %725 to i64
-  %727 = getelementptr inbounds nuw %"struct.dd::pdd_manager::node", ptr %723, i64 %726
-  %728 = load i32, ptr %727, align 4, !noalias !337
-  %729 = and i32 %728, 1023
-  %.not.i.i.i213 = icmp eq i32 %729, 1023
-  br i1 %.not.i.i.i213, label %_ZNK2dd3pdd2hiEv.exit215, label %730
+  %722 = load ptr, ptr %653, align 8, !tbaa !91, !noalias !337
+  %723 = getelementptr inbounds nuw %"struct.dd::pdd_manager::node", ptr %722, i64 %656, i32 2
+  %724 = load i32, ptr %723, align 4, !tbaa !92, !noalias !337
+  store i32 %724, ptr %32, align 8, !tbaa !119, !alias.scope !337
+  store ptr %653, ptr %625, align 8, !tbaa !122, !alias.scope !337
+  %725 = zext i32 %724 to i64
+  %726 = getelementptr inbounds nuw %"struct.dd::pdd_manager::node", ptr %722, i64 %725
+  %727 = load i32, ptr %726, align 4, !noalias !337
+  %728 = and i32 %727, 1023
+  %.not.i.i.i213 = icmp eq i32 %728, 1023
+  br i1 %.not.i.i.i213, label %_ZNK2dd3pdd2hiEv.exit215, label %729
 
-730:                                              ; preds = %_ZN2dd3pddD2Ev.exit212
-  %731 = add i32 %728, 1
-  %732 = and i32 %731, 1023
-  %733 = and i32 %728, -1024
-  %734 = or disjoint i32 %732, %733
-  store i32 %734, ptr %727, align 4, !noalias !337
+729:                                              ; preds = %_ZN2dd3pddD2Ev.exit212
+  %730 = add i32 %727, 1
+  %731 = and i32 %730, 1023
+  %732 = and i32 %727, -1024
+  %733 = or disjoint i32 %731, %732
+  store i32 %733, ptr %726, align 4, !noalias !337
   br label %_ZNK2dd3pdd2hiEv.exit215
 
-_ZNK2dd3pdd2hiEv.exit215:                         ; preds = %730, %_ZN2dd3pddD2Ev.exit212
-  %735 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN2dd3pddaSERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(16) %32)
-          to label %736 unwind label %829
+_ZNK2dd3pdd2hiEv.exit215:                         ; preds = %729, %_ZN2dd3pddD2Ev.exit212
+  %734 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN2dd3pddaSERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(16) %32)
+          to label %735 unwind label %828
 
-736:                                              ; preds = %_ZNK2dd3pdd2hiEv.exit215
+735:                                              ; preds = %_ZNK2dd3pdd2hiEv.exit215
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %33) #29
   call void @llvm.experimental.noalias.scope.decl(metadata !340)
   invoke void @_ZN2dd11pdd_manager11reserve_varEj(ptr noundef nonnull align 8 dereferenceable(952) %0, i32 noundef %2)
-          to label %.noexc218 unwind label %831
+          to label %.noexc218 unwind label %830
 
-.noexc218:                                        ; preds = %736
-  %737 = load ptr, ptr %627, align 8, !tbaa !53, !noalias !340
-  %738 = getelementptr inbounds nuw i32, ptr %737, i64 %37
-  %739 = load i32, ptr %738, align 4, !tbaa !83, !noalias !340
-  store i32 %739, ptr %33, align 8, !tbaa !119, !alias.scope !340
-  store ptr %0, ptr %628, align 8, !tbaa !122, !alias.scope !340
-  %740 = load ptr, ptr %0, align 8, !tbaa !91, !noalias !340
-  %741 = zext i32 %739 to i64
-  %742 = getelementptr inbounds nuw %"struct.dd::pdd_manager::node", ptr %740, i64 %741
-  %743 = load i32, ptr %742, align 4, !noalias !340
-  %744 = and i32 %743, 1023
-  %.not.i.i.i216 = icmp eq i32 %744, 1023
-  br i1 %.not.i.i.i216, label %_ZN2dd11pdd_manager6mk_varEj.exit219, label %745
+.noexc218:                                        ; preds = %735
+  %736 = load ptr, ptr %626, align 8, !tbaa !53, !noalias !340
+  %737 = getelementptr inbounds nuw i32, ptr %736, i64 %37
+  %738 = load i32, ptr %737, align 4, !tbaa !83, !noalias !340
+  store i32 %738, ptr %33, align 8, !tbaa !119, !alias.scope !340
+  store ptr %0, ptr %627, align 8, !tbaa !122, !alias.scope !340
+  %739 = load ptr, ptr %0, align 8, !tbaa !91, !noalias !340
+  %740 = zext i32 %738 to i64
+  %741 = getelementptr inbounds nuw %"struct.dd::pdd_manager::node", ptr %739, i64 %740
+  %742 = load i32, ptr %741, align 4, !noalias !340
+  %743 = and i32 %742, 1023
+  %.not.i.i.i216 = icmp eq i32 %743, 1023
+  br i1 %.not.i.i.i216, label %_ZN2dd11pdd_manager6mk_varEj.exit219, label %744
 
-745:                                              ; preds = %.noexc218
-  %746 = add i32 %743, 1
-  %747 = and i32 %746, 1023
-  %748 = and i32 %743, -1024
-  %749 = or disjoint i32 %747, %748
-  store i32 %749, ptr %742, align 4, !noalias !340
+744:                                              ; preds = %.noexc218
+  %745 = add i32 %742, 1
+  %746 = and i32 %745, 1023
+  %747 = and i32 %742, -1024
+  %748 = or disjoint i32 %746, %747
+  store i32 %748, ptr %741, align 4, !noalias !340
   br label %_ZN2dd11pdd_manager6mk_varEj.exit219
 
-_ZN2dd11pdd_manager6mk_varEj.exit219:             ; preds = %745, %.noexc218
+_ZN2dd11pdd_manager6mk_varEj.exit219:             ; preds = %744, %.noexc218
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #29
   invoke void @_ZNK2dd3pddmlERKS0_(ptr dead_on_unwind nonnull writable sret(%"class.dd::pdd") align 8 %9, ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %33)
-          to label %.noexc223 unwind label %833
+          to label %.noexc223 unwind label %832
 
 .noexc223:                                        ; preds = %_ZN2dd11pdd_manager6mk_varEj.exit219
-  %750 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN2dd3pddaSERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %9)
-          to label %751 unwind label %764
+  %749 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN2dd3pddaSERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %9)
+          to label %750 unwind label %763
 
-751:                                              ; preds = %.noexc223
-  %752 = load ptr, ptr %629, align 8, !tbaa !122
-  %753 = load i32, ptr %9, align 8, !tbaa !119
-  %754 = load ptr, ptr %752, align 8, !tbaa !91
-  %755 = zext i32 %753 to i64
-  %756 = getelementptr inbounds nuw %"struct.dd::pdd_manager::node", ptr %754, i64 %755
-  %757 = load i32, ptr %756, align 4
-  %758 = and i32 %757, 1023
-  %.not.i.i.i222 = icmp eq i32 %758, 1023
-  br i1 %.not.i.i.i222, label %778, label %759
+750:                                              ; preds = %.noexc223
+  %751 = load ptr, ptr %628, align 8, !tbaa !122
+  %752 = load i32, ptr %9, align 8, !tbaa !119
+  %753 = load ptr, ptr %751, align 8, !tbaa !91
+  %754 = zext i32 %752 to i64
+  %755 = getelementptr inbounds nuw %"struct.dd::pdd_manager::node", ptr %753, i64 %754
+  %756 = load i32, ptr %755, align 4
+  %757 = and i32 %756, 1023
+  %.not.i.i.i222 = icmp eq i32 %757, 1023
+  br i1 %.not.i.i.i222, label %777, label %758
 
-759:                                              ; preds = %751
-  %760 = add i32 %757, 1023
-  %761 = and i32 %760, 1023
-  %762 = and i32 %757, -1024
-  %763 = or disjoint i32 %761, %762
-  store i32 %763, ptr %756, align 4
-  br label %778
+758:                                              ; preds = %750
+  %759 = add i32 %756, 1023
+  %760 = and i32 %759, 1023
+  %761 = and i32 %756, -1024
+  %762 = or disjoint i32 %760, %761
+  store i32 %762, ptr %755, align 4
+  br label %777
 
-764:                                              ; preds = %.noexc223
-  %765 = landingpad { ptr, i32 }
+763:                                              ; preds = %.noexc223
+  %764 = landingpad { ptr, i32 }
           cleanup
-  %766 = load ptr, ptr %629, align 8, !tbaa !122
-  %767 = load i32, ptr %9, align 8, !tbaa !119
-  %768 = load ptr, ptr %766, align 8, !tbaa !91
-  %769 = zext i32 %767 to i64
-  %770 = getelementptr inbounds nuw %"struct.dd::pdd_manager::node", ptr %768, i64 %769
-  %771 = load i32, ptr %770, align 4
-  %772 = and i32 %771, 1023
-  %.not.i.i5.i220 = icmp eq i32 %772, 1023
-  br i1 %.not.i.i5.i220, label %_ZN2dd3pddD2Ev.exit6.i221, label %773
+  %765 = load ptr, ptr %628, align 8, !tbaa !122
+  %766 = load i32, ptr %9, align 8, !tbaa !119
+  %767 = load ptr, ptr %765, align 8, !tbaa !91
+  %768 = zext i32 %766 to i64
+  %769 = getelementptr inbounds nuw %"struct.dd::pdd_manager::node", ptr %767, i64 %768
+  %770 = load i32, ptr %769, align 4
+  %771 = and i32 %770, 1023
+  %.not.i.i5.i220 = icmp eq i32 %771, 1023
+  br i1 %.not.i.i5.i220, label %_ZN2dd3pddD2Ev.exit6.i221, label %772
 
-773:                                              ; preds = %764
-  %774 = add i32 %771, 1023
-  %775 = and i32 %774, 1023
-  %776 = and i32 %771, -1024
-  %777 = or disjoint i32 %775, %776
-  store i32 %777, ptr %770, align 4
+772:                                              ; preds = %763
+  %773 = add i32 %770, 1023
+  %774 = and i32 %773, 1023
+  %775 = and i32 %770, -1024
+  %776 = or disjoint i32 %774, %775
+  store i32 %776, ptr %769, align 4
   br label %_ZN2dd3pddD2Ev.exit6.i221
 
-_ZN2dd3pddD2Ev.exit6.i221:                        ; preds = %773, %764
+_ZN2dd3pddD2Ev.exit6.i221:                        ; preds = %772, %763
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #29
   br label %.body224
 
-778:                                              ; preds = %759, %751
+777:                                              ; preds = %758, %750
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #29
-  %779 = add nuw i32 %.0281, 1
-  %780 = load ptr, ptr %628, align 8, !tbaa !122
-  %781 = load i32, ptr %33, align 8, !tbaa !119
-  %782 = load ptr, ptr %780, align 8, !tbaa !91
-  %783 = zext i32 %781 to i64
-  %784 = getelementptr inbounds nuw %"struct.dd::pdd_manager::node", ptr %782, i64 %783
-  %785 = load i32, ptr %784, align 4
-  %786 = and i32 %785, 1023
-  %.not.i.i227 = icmp eq i32 %786, 1023
-  br i1 %.not.i.i227, label %_ZN2dd3pddD2Ev.exit228, label %787
+  %778 = add nuw i32 %.0281, 1
+  %779 = load ptr, ptr %627, align 8, !tbaa !122
+  %780 = load i32, ptr %33, align 8, !tbaa !119
+  %781 = load ptr, ptr %779, align 8, !tbaa !91
+  %782 = zext i32 %780 to i64
+  %783 = getelementptr inbounds nuw %"struct.dd::pdd_manager::node", ptr %781, i64 %782
+  %784 = load i32, ptr %783, align 4
+  %785 = and i32 %784, 1023
+  %.not.i.i227 = icmp eq i32 %785, 1023
+  br i1 %.not.i.i227, label %_ZN2dd3pddD2Ev.exit228, label %786
 
-787:                                              ; preds = %778
-  %788 = add i32 %785, 1023
-  %789 = and i32 %788, 1023
-  %790 = and i32 %785, -1024
-  %791 = or disjoint i32 %789, %790
-  store i32 %791, ptr %784, align 4
+786:                                              ; preds = %777
+  %787 = add i32 %784, 1023
+  %788 = and i32 %787, 1023
+  %789 = and i32 %784, -1024
+  %790 = or disjoint i32 %788, %789
+  store i32 %790, ptr %783, align 4
   br label %_ZN2dd3pddD2Ev.exit228
 
-_ZN2dd3pddD2Ev.exit228:                           ; preds = %778, %787
+_ZN2dd3pddD2Ev.exit228:                           ; preds = %777, %786
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %33) #29
-  %792 = load ptr, ptr %654, align 8, !tbaa !91
-  %793 = getelementptr inbounds nuw %"struct.dd::pdd_manager::node", ptr %792, i64 %726
-  %794 = load i32, ptr %793, align 4
-  %795 = and i32 %794, 1023
-  %.not.i.i229 = icmp eq i32 %795, 1023
-  br i1 %.not.i.i229, label %_ZN2dd3pddD2Ev.exit230, label %796
+  %791 = load ptr, ptr %653, align 8, !tbaa !91
+  %792 = getelementptr inbounds nuw %"struct.dd::pdd_manager::node", ptr %791, i64 %725
+  %793 = load i32, ptr %792, align 4
+  %794 = and i32 %793, 1023
+  %.not.i.i229 = icmp eq i32 %794, 1023
+  br i1 %.not.i.i229, label %_ZN2dd3pddD2Ev.exit230, label %795
 
-796:                                              ; preds = %_ZN2dd3pddD2Ev.exit228
-  %797 = add i32 %794, 1023
-  %798 = and i32 %797, 1023
-  %799 = and i32 %794, -1024
-  %800 = or disjoint i32 %798, %799
-  store i32 %800, ptr %793, align 4
+795:                                              ; preds = %_ZN2dd3pddD2Ev.exit228
+  %796 = add i32 %793, 1023
+  %797 = and i32 %796, 1023
+  %798 = and i32 %793, -1024
+  %799 = or disjoint i32 %797, %798
+  store i32 %799, ptr %792, align 4
   br label %_ZN2dd3pddD2Ev.exit230
 
-_ZN2dd3pddD2Ev.exit230:                           ; preds = %_ZN2dd3pddD2Ev.exit228, %796
+_ZN2dd3pddD2Ev.exit230:                           ; preds = %_ZN2dd3pddD2Ev.exit228, %795
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %32) #29
-  %exitcond297.not = icmp eq i32 %779, %3
-  br i1 %exitcond297.not, label %630, label %653, !llvm.loop !343
+  %exitcond297.not = icmp eq i32 %778, %3
+  br i1 %exitcond297.not, label %629, label %652, !llvm.loop !343
 
-801:                                              ; preds = %_ZNK2dd3pdd2loEv.exit201
-  %802 = landingpad { ptr, i32 }
+800:                                              ; preds = %_ZNK2dd3pdd2loEv.exit201
+  %801 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN2dd3pddD2Ev.exit232
 
-803:                                              ; preds = %669
-  %804 = landingpad { ptr, i32 }
+802:                                              ; preds = %668
+  %803 = landingpad { ptr, i32 }
           cleanup
   br label %.body206
 
-.body206:                                         ; preds = %_ZN2dd3pddD2Ev.exit6.i203, %803
-  %eh.lpad-body207 = phi { ptr, i32 } [ %804, %803 ], [ %685, %_ZN2dd3pddD2Ev.exit6.i203 ]
-  %805 = load ptr, ptr %625, align 8, !tbaa !122
-  %806 = load i32, ptr %30, align 8, !tbaa !119
-  %807 = load ptr, ptr %805, align 8, !tbaa !91
-  %808 = zext i32 %806 to i64
-  %809 = getelementptr inbounds nuw %"struct.dd::pdd_manager::node", ptr %807, i64 %808
-  %810 = load i32, ptr %809, align 4
-  %811 = and i32 %810, 1023
-  %.not.i.i231 = icmp eq i32 %811, 1023
-  br i1 %.not.i.i231, label %_ZN2dd3pddD2Ev.exit232, label %812
+.body206:                                         ; preds = %_ZN2dd3pddD2Ev.exit6.i203, %802
+  %eh.lpad-body207 = phi { ptr, i32 } [ %803, %802 ], [ %684, %_ZN2dd3pddD2Ev.exit6.i203 ]
+  %804 = load ptr, ptr %624, align 8, !tbaa !122
+  %805 = load i32, ptr %30, align 8, !tbaa !119
+  %806 = load ptr, ptr %804, align 8, !tbaa !91
+  %807 = zext i32 %805 to i64
+  %808 = getelementptr inbounds nuw %"struct.dd::pdd_manager::node", ptr %806, i64 %807
+  %809 = load i32, ptr %808, align 4
+  %810 = and i32 %809, 1023
+  %.not.i.i231 = icmp eq i32 %810, 1023
+  br i1 %.not.i.i231, label %_ZN2dd3pddD2Ev.exit232, label %811
 
-812:                                              ; preds = %.body206
-  %813 = add i32 %810, 1023
-  %814 = and i32 %813, 1023
-  %815 = and i32 %810, -1024
-  %816 = or disjoint i32 %814, %815
-  store i32 %816, ptr %809, align 4
+811:                                              ; preds = %.body206
+  %812 = add i32 %809, 1023
+  %813 = and i32 %812, 1023
+  %814 = and i32 %809, -1024
+  %815 = or disjoint i32 %813, %814
+  store i32 %815, ptr %808, align 4
   br label %_ZN2dd3pddD2Ev.exit232
 
-_ZN2dd3pddD2Ev.exit232:                           ; preds = %812, %.body206, %801
-  %.pn89 = phi { ptr, i32 } [ %802, %801 ], [ %eh.lpad-body207, %.body206 ], [ %eh.lpad-body207, %812 ]
-  %817 = load ptr, ptr %623, align 8, !tbaa !122
-  %818 = load i32, ptr %31, align 8, !tbaa !119
-  %819 = load ptr, ptr %817, align 8, !tbaa !91
-  %820 = zext i32 %818 to i64
-  %821 = getelementptr inbounds nuw %"struct.dd::pdd_manager::node", ptr %819, i64 %820
-  %822 = load i32, ptr %821, align 4
-  %823 = and i32 %822, 1023
-  %.not.i.i233 = icmp eq i32 %823, 1023
-  br i1 %.not.i.i233, label %_ZN2dd3pddD2Ev.exit234, label %824
+_ZN2dd3pddD2Ev.exit232:                           ; preds = %811, %.body206, %800
+  %.pn89 = phi { ptr, i32 } [ %801, %800 ], [ %eh.lpad-body207, %.body206 ], [ %eh.lpad-body207, %811 ]
+  %816 = load ptr, ptr %622, align 8, !tbaa !122
+  %817 = load i32, ptr %31, align 8, !tbaa !119
+  %818 = load ptr, ptr %816, align 8, !tbaa !91
+  %819 = zext i32 %817 to i64
+  %820 = getelementptr inbounds nuw %"struct.dd::pdd_manager::node", ptr %818, i64 %819
+  %821 = load i32, ptr %820, align 4
+  %822 = and i32 %821, 1023
+  %.not.i.i233 = icmp eq i32 %822, 1023
+  br i1 %.not.i.i233, label %_ZN2dd3pddD2Ev.exit234, label %823
 
-824:                                              ; preds = %_ZN2dd3pddD2Ev.exit232
-  %825 = add i32 %822, 1023
-  %826 = and i32 %825, 1023
-  %827 = and i32 %822, -1024
-  %828 = or disjoint i32 %826, %827
-  store i32 %828, ptr %821, align 4
+823:                                              ; preds = %_ZN2dd3pddD2Ev.exit232
+  %824 = add i32 %821, 1023
+  %825 = and i32 %824, 1023
+  %826 = and i32 %821, -1024
+  %827 = or disjoint i32 %825, %826
+  store i32 %827, ptr %820, align 4
   br label %_ZN2dd3pddD2Ev.exit234
 
-_ZN2dd3pddD2Ev.exit234:                           ; preds = %824, %_ZN2dd3pddD2Ev.exit232
+_ZN2dd3pddD2Ev.exit234:                           ; preds = %823, %_ZN2dd3pddD2Ev.exit232
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %31) #29
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %30) #29
-  br label %857
+  br label %856
 
-829:                                              ; preds = %_ZNK2dd3pdd2hiEv.exit215
-  %830 = landingpad { ptr, i32 }
+828:                                              ; preds = %_ZNK2dd3pdd2hiEv.exit215
+  %829 = landingpad { ptr, i32 }
           cleanup
-  br label %847
+  br label %846
 
-831:                                              ; preds = %736
-  %832 = landingpad { ptr, i32 }
+830:                                              ; preds = %735
+  %831 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN2dd3pddD2Ev.exit236
 
-833:                                              ; preds = %_ZN2dd11pdd_manager6mk_varEj.exit219
-  %834 = landingpad { ptr, i32 }
+832:                                              ; preds = %_ZN2dd11pdd_manager6mk_varEj.exit219
+  %833 = landingpad { ptr, i32 }
           cleanup
   br label %.body224
 
-.body224:                                         ; preds = %_ZN2dd3pddD2Ev.exit6.i221, %833
-  %eh.lpad-body225 = phi { ptr, i32 } [ %834, %833 ], [ %765, %_ZN2dd3pddD2Ev.exit6.i221 ]
-  %835 = load ptr, ptr %628, align 8, !tbaa !122
-  %836 = load i32, ptr %33, align 8, !tbaa !119
-  %837 = load ptr, ptr %835, align 8, !tbaa !91
-  %838 = zext i32 %836 to i64
-  %839 = getelementptr inbounds nuw %"struct.dd::pdd_manager::node", ptr %837, i64 %838
-  %840 = load i32, ptr %839, align 4
-  %841 = and i32 %840, 1023
-  %.not.i.i235 = icmp eq i32 %841, 1023
-  br i1 %.not.i.i235, label %_ZN2dd3pddD2Ev.exit236, label %842
+.body224:                                         ; preds = %_ZN2dd3pddD2Ev.exit6.i221, %832
+  %eh.lpad-body225 = phi { ptr, i32 } [ %833, %832 ], [ %764, %_ZN2dd3pddD2Ev.exit6.i221 ]
+  %834 = load ptr, ptr %627, align 8, !tbaa !122
+  %835 = load i32, ptr %33, align 8, !tbaa !119
+  %836 = load ptr, ptr %834, align 8, !tbaa !91
+  %837 = zext i32 %835 to i64
+  %838 = getelementptr inbounds nuw %"struct.dd::pdd_manager::node", ptr %836, i64 %837
+  %839 = load i32, ptr %838, align 4
+  %840 = and i32 %839, 1023
+  %.not.i.i235 = icmp eq i32 %840, 1023
+  br i1 %.not.i.i235, label %_ZN2dd3pddD2Ev.exit236, label %841
 
-842:                                              ; preds = %.body224
-  %843 = add i32 %840, 1023
-  %844 = and i32 %843, 1023
-  %845 = and i32 %840, -1024
-  %846 = or disjoint i32 %844, %845
-  store i32 %846, ptr %839, align 4
+841:                                              ; preds = %.body224
+  %842 = add i32 %839, 1023
+  %843 = and i32 %842, 1023
+  %844 = and i32 %839, -1024
+  %845 = or disjoint i32 %843, %844
+  store i32 %845, ptr %838, align 4
   br label %_ZN2dd3pddD2Ev.exit236
 
-_ZN2dd3pddD2Ev.exit236:                           ; preds = %842, %.body224, %831
-  %.pn92 = phi { ptr, i32 } [ %832, %831 ], [ %eh.lpad-body225, %.body224 ], [ %eh.lpad-body225, %842 ]
+_ZN2dd3pddD2Ev.exit236:                           ; preds = %841, %.body224, %830
+  %.pn92 = phi { ptr, i32 } [ %831, %830 ], [ %eh.lpad-body225, %.body224 ], [ %eh.lpad-body225, %841 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %33) #29
-  br label %847
+  br label %846
 
-847:                                              ; preds = %_ZN2dd3pddD2Ev.exit236, %829
-  %.pn92.pn = phi { ptr, i32 } [ %.pn92, %_ZN2dd3pddD2Ev.exit236 ], [ %830, %829 ]
-  %848 = load ptr, ptr %654, align 8, !tbaa !91
-  %849 = getelementptr inbounds nuw %"struct.dd::pdd_manager::node", ptr %848, i64 %726
-  %850 = load i32, ptr %849, align 4
-  %851 = and i32 %850, 1023
-  %.not.i.i237 = icmp eq i32 %851, 1023
-  br i1 %.not.i.i237, label %_ZN2dd3pddD2Ev.exit238, label %852
+846:                                              ; preds = %_ZN2dd3pddD2Ev.exit236, %828
+  %.pn92.pn = phi { ptr, i32 } [ %.pn92, %_ZN2dd3pddD2Ev.exit236 ], [ %829, %828 ]
+  %847 = load ptr, ptr %653, align 8, !tbaa !91
+  %848 = getelementptr inbounds nuw %"struct.dd::pdd_manager::node", ptr %847, i64 %725
+  %849 = load i32, ptr %848, align 4
+  %850 = and i32 %849, 1023
+  %.not.i.i237 = icmp eq i32 %850, 1023
+  br i1 %.not.i.i237, label %_ZN2dd3pddD2Ev.exit238, label %851
 
-852:                                              ; preds = %847
-  %853 = add i32 %850, 1023
-  %854 = and i32 %853, 1023
-  %855 = and i32 %850, -1024
-  %856 = or disjoint i32 %854, %855
-  store i32 %856, ptr %849, align 4
+851:                                              ; preds = %846
+  %852 = add i32 %849, 1023
+  %853 = and i32 %852, 1023
+  %854 = and i32 %849, -1024
+  %855 = or disjoint i32 %853, %854
+  store i32 %855, ptr %848, align 4
   br label %_ZN2dd3pddD2Ev.exit238
 
-_ZN2dd3pddD2Ev.exit238:                           ; preds = %852, %847
+_ZN2dd3pddD2Ev.exit238:                           ; preds = %851, %846
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %32) #29
-  br label %857
+  br label %856
 
-857:                                              ; preds = %_ZN2dd3pddD2Ev.exit238, %_ZN2dd3pddD2Ev.exit234
+856:                                              ; preds = %_ZN2dd3pddD2Ev.exit238, %_ZN2dd3pddD2Ev.exit234
   %.pn92.pn.pn.pn = phi { ptr, i32 } [ %.pn92.pn, %_ZN2dd3pddD2Ev.exit238 ], [ %.pn89, %_ZN2dd3pddD2Ev.exit234 ]
-  %858 = load ptr, ptr %614, align 8, !tbaa !122
-  %859 = load i32, ptr %29, align 8, !tbaa !119
-  %860 = load ptr, ptr %858, align 8, !tbaa !91
-  %861 = zext i32 %859 to i64
-  %862 = getelementptr inbounds nuw %"struct.dd::pdd_manager::node", ptr %860, i64 %861
-  %863 = load i32, ptr %862, align 4
-  %864 = and i32 %863, 1023
-  %.not.i.i239 = icmp eq i32 %864, 1023
-  br i1 %.not.i.i239, label %_ZN2dd3pddD2Ev.exit240, label %865
+  %857 = load ptr, ptr %613, align 8, !tbaa !122
+  %858 = load i32, ptr %29, align 8, !tbaa !119
+  %859 = load ptr, ptr %857, align 8, !tbaa !91
+  %860 = zext i32 %858 to i64
+  %861 = getelementptr inbounds nuw %"struct.dd::pdd_manager::node", ptr %859, i64 %860
+  %862 = load i32, ptr %861, align 4
+  %863 = and i32 %862, 1023
+  %.not.i.i239 = icmp eq i32 %863, 1023
+  br i1 %.not.i.i239, label %_ZN2dd3pddD2Ev.exit240, label %864
 
-865:                                              ; preds = %857
-  %866 = add i32 %863, 1023
-  %867 = and i32 %866, 1023
-  %868 = and i32 %863, -1024
-  %869 = or disjoint i32 %867, %868
-  store i32 %869, ptr %862, align 4
+864:                                              ; preds = %856
+  %865 = add i32 %862, 1023
+  %866 = and i32 %865, 1023
+  %867 = and i32 %862, -1024
+  %868 = or disjoint i32 %866, %867
+  store i32 %868, ptr %861, align 4
   br label %_ZN2dd3pddD2Ev.exit240
 
-_ZN2dd3pddD2Ev.exit240:                           ; preds = %865, %857
+_ZN2dd3pddD2Ev.exit240:                           ; preds = %864, %856
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %29) #29
-  br label %914
+  br label %913
 
-870:                                              ; preds = %.critedge
+869:                                              ; preds = %.critedge
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %34) #29
   call void @llvm.experimental.noalias.scope.decl(metadata !344)
   store i32 0, ptr %34, align 8, !tbaa !119, !alias.scope !344
-  %871 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  store ptr %0, ptr %871, align 8, !tbaa !122, !alias.scope !344
-  %872 = load ptr, ptr %0, align 8, !tbaa !91, !noalias !344
-  %873 = load i32, ptr %872, align 4, !noalias !344
-  %874 = and i32 %873, 1023
-  %.not.i.i.i241 = icmp eq i32 %874, 1023
-  br i1 %.not.i.i.i241, label %_ZN2dd11pdd_manager4zeroEv.exit243, label %875
+  %870 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  store ptr %0, ptr %870, align 8, !tbaa !122, !alias.scope !344
+  %871 = load ptr, ptr %0, align 8, !tbaa !91, !noalias !344
+  %872 = load i32, ptr %871, align 4, !noalias !344
+  %873 = and i32 %872, 1023
+  %.not.i.i.i241 = icmp eq i32 %873, 1023
+  br i1 %.not.i.i.i241, label %_ZN2dd11pdd_manager4zeroEv.exit243, label %874
 
-875:                                              ; preds = %870
-  %876 = add i32 %873, 1
-  %877 = and i32 %876, 1023
-  %878 = and i32 %873, -1024
-  %879 = or disjoint i32 %877, %878
-  store i32 %879, ptr %872, align 4, !noalias !344
+874:                                              ; preds = %869
+  %875 = add i32 %872, 1
+  %876 = and i32 %875, 1023
+  %877 = and i32 %872, -1024
+  %878 = or disjoint i32 %876, %877
+  store i32 %878, ptr %871, align 4, !noalias !344
   br label %_ZN2dd11pdd_manager4zeroEv.exit243
 
-_ZN2dd11pdd_manager4zeroEv.exit243:               ; preds = %875, %870
-  %880 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN2dd3pddaSERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %34)
-          to label %881 unwind label %891
+_ZN2dd11pdd_manager4zeroEv.exit243:               ; preds = %874, %869
+  %879 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN2dd3pddaSERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %34)
+          to label %880 unwind label %890
 
-881:                                              ; preds = %_ZN2dd11pdd_manager4zeroEv.exit243
-  %882 = load ptr, ptr %0, align 8, !tbaa !91
-  %883 = load i32, ptr %882, align 4
-  %884 = and i32 %883, 1023
-  %.not.i.i244 = icmp eq i32 %884, 1023
-  br i1 %.not.i.i244, label %_ZN2dd3pddD2Ev.exit245, label %885
+880:                                              ; preds = %_ZN2dd11pdd_manager4zeroEv.exit243
+  %881 = load ptr, ptr %0, align 8, !tbaa !91
+  %882 = load i32, ptr %881, align 4
+  %883 = and i32 %882, 1023
+  %.not.i.i244 = icmp eq i32 %883, 1023
+  br i1 %.not.i.i244, label %_ZN2dd3pddD2Ev.exit245, label %884
 
-885:                                              ; preds = %881
-  %886 = add i32 %883, 1023
-  %887 = and i32 %886, 1023
-  %888 = and i32 %883, -1024
-  %889 = or disjoint i32 %887, %888
-  store i32 %889, ptr %882, align 4
+884:                                              ; preds = %880
+  %885 = add i32 %882, 1023
+  %886 = and i32 %885, 1023
+  %887 = and i32 %882, -1024
+  %888 = or disjoint i32 %886, %887
+  store i32 %888, ptr %881, align 4
   br label %_ZN2dd3pddD2Ev.exit245
 
-_ZN2dd3pddD2Ev.exit245:                           ; preds = %881, %885
+_ZN2dd3pddD2Ev.exit245:                           ; preds = %880, %884
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %34) #29
-  %890 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN2dd3pddaSERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %1)
-          to label %901 unwind label %575
+  %889 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN2dd3pddaSERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %1)
+          to label %900 unwind label %575
 
-891:                                              ; preds = %_ZN2dd11pdd_manager4zeroEv.exit243
-  %892 = landingpad { ptr, i32 }
+890:                                              ; preds = %_ZN2dd11pdd_manager4zeroEv.exit243
+  %891 = landingpad { ptr, i32 }
           cleanup
-  %893 = load ptr, ptr %0, align 8, !tbaa !91
-  %894 = load i32, ptr %893, align 4
-  %895 = and i32 %894, 1023
-  %.not.i.i246 = icmp eq i32 %895, 1023
-  br i1 %.not.i.i246, label %_ZN2dd3pddD2Ev.exit247, label %896
+  %892 = load ptr, ptr %0, align 8, !tbaa !91
+  %893 = load i32, ptr %892, align 4
+  %894 = and i32 %893, 1023
+  %.not.i.i246 = icmp eq i32 %894, 1023
+  br i1 %.not.i.i246, label %_ZN2dd3pddD2Ev.exit247, label %895
 
-896:                                              ; preds = %891
-  %897 = add i32 %894, 1023
-  %898 = and i32 %897, 1023
-  %899 = and i32 %894, -1024
-  %900 = or disjoint i32 %898, %899
-  store i32 %900, ptr %893, align 4
+895:                                              ; preds = %890
+  %896 = add i32 %893, 1023
+  %897 = and i32 %896, 1023
+  %898 = and i32 %893, -1024
+  %899 = or disjoint i32 %897, %898
+  store i32 %899, ptr %892, align 4
   br label %_ZN2dd3pddD2Ev.exit247
 
-_ZN2dd3pddD2Ev.exit247:                           ; preds = %896, %891
+_ZN2dd3pddD2Ev.exit247:                           ; preds = %895, %890
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %34) #29
-  br label %914
+  br label %913
 
-901:                                              ; preds = %_ZN2dd3pddD2Ev.exit245, %_ZN2dd3pddD2Ev.exit196
-  %902 = load ptr, ptr %517, align 8, !tbaa !122
-  %903 = load i32, ptr %26, align 8, !tbaa !119
-  %904 = load ptr, ptr %902, align 8, !tbaa !91
-  %905 = zext i32 %903 to i64
-  %906 = getelementptr inbounds nuw %"struct.dd::pdd_manager::node", ptr %904, i64 %905
-  %907 = load i32, ptr %906, align 4
-  %908 = and i32 %907, 1023
-  %.not.i.i248 = icmp eq i32 %908, 1023
-  br i1 %.not.i.i248, label %_ZN2dd3pddD2Ev.exit249, label %909
+900:                                              ; preds = %_ZN2dd3pddD2Ev.exit245, %_ZN2dd3pddD2Ev.exit196
+  %901 = load ptr, ptr %517, align 8, !tbaa !122
+  %902 = load i32, ptr %26, align 8, !tbaa !119
+  %903 = load ptr, ptr %901, align 8, !tbaa !91
+  %904 = zext i32 %902 to i64
+  %905 = getelementptr inbounds nuw %"struct.dd::pdd_manager::node", ptr %903, i64 %904
+  %906 = load i32, ptr %905, align 4
+  %907 = and i32 %906, 1023
+  %.not.i.i248 = icmp eq i32 %907, 1023
+  br i1 %.not.i.i248, label %_ZN2dd3pddD2Ev.exit249, label %908
 
-909:                                              ; preds = %901
-  %910 = add i32 %907, 1023
-  %911 = and i32 %910, 1023
-  %912 = and i32 %907, -1024
-  %913 = or disjoint i32 %911, %912
-  store i32 %913, ptr %906, align 4
+908:                                              ; preds = %900
+  %909 = add i32 %906, 1023
+  %910 = and i32 %909, 1023
+  %911 = and i32 %906, -1024
+  %912 = or disjoint i32 %910, %911
+  store i32 %912, ptr %905, align 4
   br label %_ZN2dd3pddD2Ev.exit249
 
-_ZN2dd3pddD2Ev.exit249:                           ; preds = %901, %909
+_ZN2dd3pddD2Ev.exit249:                           ; preds = %900, %908
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %26) #29
-  br label %927
+  br label %926
 
-914:                                              ; preds = %_ZN2dd3pddD2Ev.exit247, %_ZN2dd3pddD2Ev.exit240, %_ZN2dd3pddD2Ev.exit198, %_ZN2dd3pddD2Ev.exit187, %575
-  %.pn92.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn92.pn.pn.pn, %_ZN2dd3pddD2Ev.exit240 ], [ %644, %_ZN2dd3pddD2Ev.exit198 ], [ %576, %575 ], [ %892, %_ZN2dd3pddD2Ev.exit247 ], [ %578, %_ZN2dd3pddD2Ev.exit187 ]
-  %915 = load ptr, ptr %517, align 8, !tbaa !122
-  %916 = load i32, ptr %26, align 8, !tbaa !119
-  %917 = load ptr, ptr %915, align 8, !tbaa !91
-  %918 = zext i32 %916 to i64
-  %919 = getelementptr inbounds nuw %"struct.dd::pdd_manager::node", ptr %917, i64 %918
-  %920 = load i32, ptr %919, align 4
-  %921 = and i32 %920, 1023
-  %.not.i.i250 = icmp eq i32 %921, 1023
-  br i1 %.not.i.i250, label %_ZN2dd3pddD2Ev.exit251, label %922
+913:                                              ; preds = %_ZN2dd3pddD2Ev.exit247, %_ZN2dd3pddD2Ev.exit240, %_ZN2dd3pddD2Ev.exit198, %_ZN2dd3pddD2Ev.exit187, %575
+  %.pn92.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn92.pn.pn.pn, %_ZN2dd3pddD2Ev.exit240 ], [ %643, %_ZN2dd3pddD2Ev.exit198 ], [ %576, %575 ], [ %891, %_ZN2dd3pddD2Ev.exit247 ], [ %578, %_ZN2dd3pddD2Ev.exit187 ]
+  %914 = load ptr, ptr %517, align 8, !tbaa !122
+  %915 = load i32, ptr %26, align 8, !tbaa !119
+  %916 = load ptr, ptr %914, align 8, !tbaa !91
+  %917 = zext i32 %915 to i64
+  %918 = getelementptr inbounds nuw %"struct.dd::pdd_manager::node", ptr %916, i64 %917
+  %919 = load i32, ptr %918, align 4
+  %920 = and i32 %919, 1023
+  %.not.i.i250 = icmp eq i32 %920, 1023
+  br i1 %.not.i.i250, label %_ZN2dd3pddD2Ev.exit251, label %921
 
-922:                                              ; preds = %914
-  %923 = add i32 %920, 1023
-  %924 = and i32 %923, 1023
-  %925 = and i32 %920, -1024
-  %926 = or disjoint i32 %924, %925
-  store i32 %926, ptr %919, align 4
+921:                                              ; preds = %913
+  %922 = add i32 %919, 1023
+  %923 = and i32 %922, 1023
+  %924 = and i32 %919, -1024
+  %925 = or disjoint i32 %923, %924
+  store i32 %925, ptr %918, align 4
   br label %_ZN2dd3pddD2Ev.exit251
 
-_ZN2dd3pddD2Ev.exit251:                           ; preds = %914, %922
+_ZN2dd3pddD2Ev.exit251:                           ; preds = %913, %921
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %26) #29
-  br label %936
+  br label %935
 
-927:                                              ; preds = %_ZN2dd3pddD2Ev.exit249, %_ZN2dd3pddD2Ev.exit168
-  %928 = load i32, ptr %1, align 8, !tbaa !119
+926:                                              ; preds = %_ZN2dd3pddD2Ev.exit249, %_ZN2dd3pddD2Ev.exit168
+  %927 = load i32, ptr %1, align 8, !tbaa !119
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #29
   store ptr null, ptr %8, align 8, !tbaa !306
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %7) #29
-  store i32 %928, ptr %7, align 4, !tbaa !83
+  store i32 %927, ptr %7, align 4, !tbaa !83
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 %2, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !83
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -26668,22 +26667,22 @@ _ZN2dd3pddD2Ev.exit251:                           ; preds = %914, %922
   store i32 -1, ptr %.sroa.6.0..sroa_idx, align 4, !tbaa !83
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 -1, ptr %.sroa.7.0..sroa_idx, align 4, !tbaa !83
-  %929 = call noundef zeroext i1 @_ZN14core_hashtableI18default_hash_entryIN2dd11pdd_manager12factor_entryEENS2_17hash_factor_entryENS2_15eq_factor_entryEE24insert_if_not_there_coreEOS3_RPS4_(ptr noundef nonnull align 8 dereferenceable(20) %111, ptr noundef nonnull align 4 dereferenceable(20) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
+  %928 = call noundef zeroext i1 @_ZN14core_hashtableI18default_hash_entryIN2dd11pdd_manager12factor_entryEENS2_17hash_factor_entryENS2_15eq_factor_entryEE24insert_if_not_there_coreEOS3_RPS4_(ptr noundef nonnull align 8 dereferenceable(20) %111, ptr noundef nonnull align 4 dereferenceable(20) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %7) #29
-  %930 = load ptr, ptr %8, align 8, !tbaa !306
+  %929 = load ptr, ptr %8, align 8, !tbaa !306
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #29
-  %931 = load i32, ptr %4, align 8, !tbaa !119
-  %932 = getelementptr inbounds nuw i8, ptr %930, i64 20
-  store i32 %931, ptr %932, align 4, !tbaa !18
-  %933 = load i32, ptr %5, align 8, !tbaa !119
-  %934 = getelementptr inbounds nuw i8, ptr %930, i64 24
-  store i32 %933, ptr %934, align 4, !tbaa !20
-  br label %935
+  %930 = load i32, ptr %4, align 8, !tbaa !119
+  %931 = getelementptr inbounds nuw i8, ptr %929, i64 20
+  store i32 %930, ptr %931, align 4, !tbaa !18
+  %932 = load i32, ptr %5, align 8, !tbaa !119
+  %933 = getelementptr inbounds nuw i8, ptr %929, i64 24
+  store i32 %932, ptr %933, align 4, !tbaa !20
+  br label %934
 
-935:                                              ; preds = %_ZN2dd3pddD2Ev.exit125, %927, %_ZN2dd3pddD2Ev.exit116, %_ZN2dd3pddD2Ev.exit
+934:                                              ; preds = %_ZN2dd3pddD2Ev.exit125, %926, %_ZN2dd3pddD2Ev.exit116, %_ZN2dd3pddD2Ev.exit
   ret void
 
-936:                                              ; preds = %_ZN2dd3pddD2Ev.exit127, %_ZN2dd3pddD2Ev.exit129, %_ZN2dd3pddD2Ev.exit178, %_ZN2dd3pddD2Ev.exit251, %_ZN2dd3pddD2Ev.exit118, %_ZN2dd3pddD2Ev.exit112
+935:                                              ; preds = %_ZN2dd3pddD2Ev.exit127, %_ZN2dd3pddD2Ev.exit129, %_ZN2dd3pddD2Ev.exit178, %_ZN2dd3pddD2Ev.exit251, %_ZN2dd3pddD2Ev.exit118, %_ZN2dd3pddD2Ev.exit112
   %.pn109 = phi { ptr, i32 } [ %63, %_ZN2dd3pddD2Ev.exit112 ], [ %101, %_ZN2dd3pddD2Ev.exit118 ], [ %175, %_ZN2dd3pddD2Ev.exit129 ], [ %164, %_ZN2dd3pddD2Ev.exit127 ], [ %.pn103.pn, %_ZN2dd3pddD2Ev.exit178 ], [ %.pn92.pn.pn.pn.pn.pn, %_ZN2dd3pddD2Ev.exit251 ]
   resume { ptr, i32 } %.pn109
 }

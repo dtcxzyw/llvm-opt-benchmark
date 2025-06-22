@@ -9213,7 +9213,6 @@ for.body.lr.ph.i.i:                               ; preds = %if.end167.i
   %sub.ptr.sub.i.i.i1497 = sub i64 %sub.ptr.lhs.cast.i.i.i1495, %sub.ptr.rhs.cast.i.i.i1496
   %sub.ptr.div.i.i.i1498 = ashr exact i64 %sub.ptr.sub.i.i.i1497, 3
   %862 = load ptr, ptr %coordinates_.i242.i, align 8, !tbaa !185, !noalias !289
-  %umax.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i1498, i64 1)
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.then.i.i1509, %for.body.lr.ph.i.i
@@ -9230,7 +9229,7 @@ for.body.i.i:                                     ; preds = %if.then.i.i1509, %f
 if.then.i.i1509:                                  ; preds = %for.body.i.i
   store i64 0, ptr %add.ptr.i.i.i1499, align 8, !tbaa !36, !noalias !289
   %inc9.i.i = add nuw i64 %i.08.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %inc9.i.i, %umax.i.i
+  %exitcond.not.i.i = icmp eq i64 %inc9.i.i, %sub.ptr.div.i.i.i1498
   br i1 %exitcond.not.i.i, label %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit.loopexit.i, label %for.body.i.i, !llvm.loop !315
 
 _ZN8QuantLib19FdmLinearOpIteratorppEv.exit.loopexit.i: ; preds = %if.then.i.i1509, %for.body.i.i
@@ -16658,7 +16657,6 @@ for.body.lr.ph.i.i:                               ; preds = %invoke.cont32.i
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
   %44 = load ptr, ptr %coordinates_.i63.i, align 8, !tbaa !185
-  %umax.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i, i64 1)
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.then.i64.i, %for.body.lr.ph.i.i
@@ -16675,7 +16673,7 @@ for.body.i.i:                                     ; preds = %if.then.i64.i, %for
 if.then.i64.i:                                    ; preds = %for.body.i.i
   store i64 0, ptr %add.ptr.i.i.i, align 8, !tbaa !36
   %inc9.i.i = add nuw i64 %i.08.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %inc9.i.i, %umax.i.i
+  %exitcond.not.i.i = icmp eq i64 %inc9.i.i, %sub.ptr.div.i.i.i
   br i1 %exitcond.not.i.i, label %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit.loopexit.i, label %for.body.i.i, !llvm.loop !315
 
 _ZN8QuantLib19FdmLinearOpIteratorppEv.exit.loopexit.i: ; preds = %if.then.i64.i, %for.body.i.i

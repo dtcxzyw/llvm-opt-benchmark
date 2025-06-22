@@ -99917,15 +99917,11 @@ _ZL10stbi__get8P13stbi__context.exit.i208.i:      ; preds = %_ZL19stbi__refill_b
 
 _ZL13stbi__readvalP13stbi__contextiPh.exit215.preheader.i: ; preds = %370
   %.not364.i = icmp eq i8 %.0.i188.i, 0
-  br i1 %.not364.i, label %_ZL13stbi__readvalP13stbi__contextiPh.exit215._crit_edge.i, label %.lr.ph352.preheader.i
+  br i1 %.not364.i, label %_ZL13stbi__readvalP13stbi__contextiPh.exit215._crit_edge.i, label %.lr.ph352.i
 
-.lr.ph352.preheader.i:                            ; preds = %_ZL13stbi__readvalP13stbi__contextiPh.exit215.preheader.i
-  %umax.i = tail call i32 @llvm.umax.i32(i32 %spec.select328.i, i32 1)
-  br label %.lr.ph352.i
-
-.lr.ph352.i:                                      ; preds = %_ZL13stbi__copyvaliPhPKh.exit.i, %.lr.ph352.preheader.i
-  %.0104351.i = phi i32 [ %382, %_ZL13stbi__copyvaliPhPKh.exit.i ], [ 0, %.lr.ph352.preheader.i ]
-  %.3350.i = phi ptr [ %383, %_ZL13stbi__copyvaliPhPKh.exit.i ], [ %.1109354.i, %.lr.ph352.preheader.i ]
+.lr.ph352.i:                                      ; preds = %_ZL13stbi__readvalP13stbi__contextiPh.exit215.preheader.i, %_ZL13stbi__copyvaliPhPKh.exit.i
+  %.0104351.i = phi i32 [ %382, %_ZL13stbi__copyvaliPhPKh.exit.i ], [ 0, %_ZL13stbi__readvalP13stbi__contextiPh.exit215.preheader.i ]
+  %.3350.i = phi ptr [ %383, %_ZL13stbi__copyvaliPhPKh.exit.i ], [ %.1109354.i, %_ZL13stbi__readvalP13stbi__contextiPh.exit215.preheader.i ]
   %372 = load i8, ptr %232, align 1, !tbaa !2839
   %373 = zext i8 %372 to i32
   br label %374
@@ -99953,7 +99949,7 @@ _ZL13stbi__readvalP13stbi__contextiPh.exit215.preheader.i: ; preds = %370
 _ZL13stbi__copyvaliPhPKh.exit.i:                  ; preds = %380
   %382 = add nuw nsw i32 %.0104351.i, 1
   %383 = getelementptr inbounds nuw i8, ptr %.3350.i, i64 4
-  %exitcond378.not.i = icmp eq i32 %382, %umax.i
+  %exitcond378.not.i = icmp eq i32 %382, %spec.select328.i
   br i1 %exitcond378.not.i, label %_ZL13stbi__readvalP13stbi__contextiPh.exit215._crit_edge.i, label %.lr.ph352.i, !llvm.loop !2844
 
 _ZL13stbi__readvalP13stbi__contextiPh.exit215._crit_edge.i: ; preds = %_ZL13stbi__copyvaliPhPKh.exit.i, %_ZL13stbi__readvalP13stbi__contextiPh.exit215.preheader.i

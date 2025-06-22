@@ -370,7 +370,6 @@ _ZN6vectorI8rationalLb1EjE3endEv.exit37:          ; preds = %_ZSt6uniqueIP8ratio
   %66 = ptrtoint ptr %57 to i64
   %67 = sub i64 %65, %66
   %68 = ashr exact i64 %67, 5
-  %umax = tail call i64 @llvm.umax.i64(i64 %68, i64 1)
   br label %.lr.ph45
 
 ._crit_edge46:                                    ; preds = %84, %_ZN6vectorI8rationalLb1EjE3endEv.exit37
@@ -430,7 +429,7 @@ _ZN6vectorI8rationalLb1EjE4backEv.exit.i:         ; preds = %73, %.lr.ph45
   %88 = add i32 %87, -1
   store i32 %88, ptr %86, align 4, !tbaa !87
   %89 = add nuw i64 %.01344, 1
-  %exitcond.not = icmp eq i64 %89, %umax
+  %exitcond.not = icmp eq i64 %89, %68
   br i1 %exitcond.not, label %._crit_edge46, label %.lr.ph45, !llvm.loop !101
 
 90:                                               ; preds = %.loopexit, %.loopexit.split-lp, %48, %69
@@ -7044,9 +7043,6 @@ declare i32 @llvm.umax.i32(i32, i32) #19
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #20
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #19
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

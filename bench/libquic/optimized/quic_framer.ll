@@ -1052,7 +1052,6 @@ define noundef zeroext i1 @_ZNK3net10QuicFramer18IsSupportedVersionENS_11QuicVer
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 2
-  %umax = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
@@ -1061,7 +1060,7 @@ define noundef zeroext i1 @_ZNK3net10QuicFramer18IsSupportedVersionENS_11QuicVer
   %12 = load i32, ptr %11, align 4, !tbaa !66
   %13 = icmp eq i32 %1, %12
   %14 = add nuw i64 %.069, 1
-  %exitcond.not = icmp eq i64 %14, %umax
+  %exitcond.not = icmp eq i64 %14, %10
   %or.cond = select i1 %13, i1 true, i1 %exitcond.not
   br i1 %or.cond, label %._crit_edge, label %.lr.ph, !llvm.loop !79
 

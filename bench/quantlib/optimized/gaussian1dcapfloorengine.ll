@@ -1164,7 +1164,6 @@ for.body84.lr.ph:                                 ; preds = %_ZN8QuantLib5ArrayC
   %pn.i.i.i877 = getelementptr inbounds nuw i8, ptr %ref.tmp.i857, i64 8
   %impl_.i.i623 = getelementptr inbounds nuw i8, ptr %payoff539, i64 16
   %pn.i.i668 = getelementptr inbounds nuw i8, ptr %payoff539, i64 24
-  %umax = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %for.body84
 
 for.cond.cleanup83:                               ; preds = %_ZN5boost10shared_ptrIN8QuantLib9IborIndexEED2Ev.exit, %_ZN8QuantLib5ArrayC2Em.exit
@@ -3372,7 +3371,7 @@ _ZN5boost10shared_ptrIN8QuantLib9IborIndexEED2Ev.exit: ; preds = %if.end675, %if
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %paymentDate) #26
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %valueDate) #26
   %inc681 = add nuw i64 %i.01169, 1
-  %exitcond.not = icmp eq i64 %inc681, %umax
+  %exitcond.not = icmp eq i64 %inc681, %sub.ptr.div.i
   br i1 %exitcond.not, label %for.cond.cleanup83, label %for.body84, !llvm.loop !122
 
 invoke.cont691:                                   ; preds = %for.cond.cleanup83
@@ -16476,9 +16475,6 @@ declare i64 @llvm.smax.i64(i64, i64) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #24
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #24
 
 attributes #0 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #1 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

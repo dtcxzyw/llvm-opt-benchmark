@@ -606,8 +606,7 @@ define internal range(i32 -107, 1) i32 @IDAAhermiteGetY(ptr noundef readonly cap
   br i1 %54, label %.loopexit, label %.lr.ph.i
 
 .thread162:                                       ; preds = %.lr.ph.i
-  %..i = tail call i64 @llvm.umax.i64(i64 %storemerge5256.i, i64 1)
-  store i64 %..i, ptr %37, align 8, !tbaa !24
+  store i64 %storemerge5256.i, ptr %37, align 8, !tbaa !24
   br label %100
 
 .loopexit:                                        ; preds = %52, %45
@@ -1550,8 +1549,7 @@ define internal range(i32 -107, 1) i32 @IDAApolynomialGetY(ptr noundef readonly 
   br i1 %51, label %.loopexit255, label %.lr.ph.i
 
 .thread239:                                       ; preds = %.lr.ph.i
-  %..i = tail call i64 @llvm.umax.i64(i64 %storemerge5256.i, i64 1)
-  store i64 %..i, ptr %34, align 8, !tbaa !24
+  store i64 %storemerge5256.i, ptr %34, align 8, !tbaa !24
   br label %97
 
 .loopexit255:                                     ; preds = %49, %42
@@ -5722,9 +5720,6 @@ declare void @N_VLinearSum(double noundef, ptr noundef, double noundef, ptr noun
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #6
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #6

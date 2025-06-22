@@ -1318,7 +1318,6 @@ st_mult.exit66:                                   ; preds = %st_mult.exit63
 
 .lr.ph76:                                         ; preds = %st_mult.exit66
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %umax = tail call i64 @llvm.umax.i64(i64 %spec.select, i64 1)
   br label %49
 
 36:                                               ; preds = %.lr.ph71, %45
@@ -1396,7 +1395,7 @@ st_mult.exit66:                                   ; preds = %st_mult.exit63
   %70 = getelementptr inbounds nuw ptr, ptr %57, i64 %.05173
   store ptr %68, ptr %70, align 8, !tbaa !94
   %71 = add nuw i64 %.05173, 1
-  %exitcond83.not = icmp eq i64 %71, %umax
+  %exitcond83.not = icmp eq i64 %71, %spec.select
   br i1 %exitcond83.not, label %62, label %64, !llvm.loop !95
 
 72:                                               ; preds = %49, %62
@@ -9603,9 +9602,6 @@ declare i64 @llvm.umin.i64(i64, i64) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #23
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64, i64) #23

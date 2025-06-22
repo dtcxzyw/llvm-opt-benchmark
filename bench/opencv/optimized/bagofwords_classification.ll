@@ -2770,7 +2770,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54: ; preds = %_ZN
   %.fr97 = freeze i64 %160
   %161 = load ptr, ptr %1, align 8, !noalias !85
   %162 = load ptr, ptr %16, align 8, !noalias !85
-  %umax.i = call i64 @llvm.umax.i64(i64 %159, i64 1)
   %163 = icmp eq i64 %.fr97, 0
   br i1 %163, label %.lr.ph.i.split.us, label %.lr.ph.i.split
 
@@ -2795,7 +2794,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread15.i.us: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.us, %164
   %.1.us = phi i32 [ %.083.us, %164 ], [ 1, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.us ]
   %170 = add nuw i64 %.016.i.us, 1
-  %exitcond.not.i.us = icmp eq i64 %170, %umax.i
+  %exitcond.not.i.us = icmp eq i64 %170, %159
   br i1 %exitcond.not.i.us, label %_ZN7VocData10getObjectsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_RSt6vectorI9ObdObjectSaIS9_EERS8_I13VocObjectDataSaISD_EER5VocGT.exit, label %164, !llvm.loop !93
 
 .lr.ph.i.split:                                   ; preds = %.lr.ph.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread15.i
@@ -2822,7 +2821,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread15.i: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i, %.lr.ph.i.split
   %.1 = phi i32 [ %.083, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i ], [ %.083, %.lr.ph.i.split ], [ 1, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i ]
   %180 = add nuw i64 %.016.i, 1
-  %exitcond.not.i = icmp eq i64 %180, %umax.i
+  %exitcond.not.i = icmp eq i64 %180, %159
   br i1 %exitcond.not.i, label %_ZN7VocData10getObjectsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_RSt6vectorI9ObdObjectSaIS9_EERS8_I13VocObjectDataSaISD_EER5VocGT.exit, label %.lr.ph.i.split, !llvm.loop !93
 
 _ZN7VocData10getObjectsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_RSt6vectorI9ObdObjectSaIS9_EERS8_I13VocObjectDataSaISD_EER5VocGT.exit: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread15.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread15.i.us, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.us, %.noexc55
@@ -3271,7 +3270,6 @@ define hidden void @_ZN7VocData10getObjectsERKNSt7__cxx1112basic_stringIcSt11cha
   %16 = load i64, ptr %15, align 8, !tbaa !10
   %17 = load ptr, ptr %2, align 8
   %18 = load ptr, ptr %5, align 8
-  %umax = tail call i64 @llvm.umax.i64(i64 %14, i64 1)
   %19 = icmp eq i64 %16, 0
   br label %20
 
@@ -3308,7 +3306,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread15: ; preds = %20, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit, %32
   %33 = add nuw i64 %.016, 1
-  %exitcond.not = icmp eq i64 %33, %umax
+  %exitcond.not = icmp eq i64 %33, %14
   br i1 %exitcond.not, label %.loopexit, label %20, !llvm.loop !93
 
 .loopexit:                                        ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread15, %7, %31
@@ -8171,7 +8169,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit202: ; preds = %_Z
   %133 = ashr exact i64 %132, 2
   %134 = trunc i64 %.0164447 to i32
   %135 = sext i32 %.0162448 to i64
-  %umax493 = tail call i64 @llvm.umax.i64(i64 %133, i64 1)
   br label %146
 
 ._crit_edge449:                                   ; preds = %._crit_edge445
@@ -8217,7 +8214,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit202: ; preds = %_Z
   store i32 %151, ptr %152, align 4, !tbaa !145
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %153 = add nuw i64 %.0171442, 1
-  %exitcond494.not = icmp eq i64 %153, %umax493
+  %exitcond494.not = icmp eq i64 %153, %133
   br i1 %exitcond494.not, label %._crit_edge445.loopexit, label %146, !llvm.loop !146
 
 _ZSt4sortIN9__gnu_cxx17__normal_iteratorIP19ObdScoreIndexSorterSt6vectorIS2_SaIS2_EEEEEvT_S8_.exit: ; preds = %._crit_edge449, %.noexc204
@@ -9145,7 +9142,6 @@ _ZNSt6vectorI8ObdImageSaIS0_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIP8Obd
   %497 = sub i64 %495, %496
   %498 = sdiv exact i64 %497, 12
   %499 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  %umax501 = call i64 @llvm.umax.i64(i64 %498, i64 1)
   %.pre507 = load ptr, ptr %20, align 8, !tbaa !74
   br label %592
 
@@ -9221,7 +9217,6 @@ _ZN8ObdImageD2Ev.exit311:                         ; preds = %_ZNKSt7__cxx1112bas
   %520 = sdiv exact i64 %519, 48
   %521 = load i64, ptr %354, align 8, !tbaa !10
   %522 = load ptr, ptr %1, align 8
-  %umax497 = call i64 @llvm.umax.i64(i64 %520, i64 1)
   %523 = icmp eq i64 %521, 0
   br label %548
 
@@ -9339,7 +9334,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit324.thread424: ; preds = %548, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit324.thread, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit324
   %.2 = phi i32 [ %.1459, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit324 ], [ %spec.select, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit324.thread ], [ %.1459, %548 ]
   %560 = add nuw i64 %.0166458, 1
-  %exitcond498.not = icmp eq i64 %560, %umax497
+  %exitcond498.not = icmp eq i64 %560, %520
   br i1 %exitcond498.not, label %._crit_edge461, label %548, !llvm.loop !158
 
 ._crit_edge480:                                   ; preds = %._crit_edge474.thread, %_ZNSt6vectorI8ObdImageSaIS0_EED2Ev.exit
@@ -9532,7 +9527,6 @@ _ZNSt6vectorIcSaIcEED2Ev.exit370:                 ; preds = %.body, %591
   %621 = load float, ptr %499, align 8
   %622 = load ptr, ptr %21, align 8
   %623 = getelementptr inbounds nuw %"class.std::vector.30", ptr %622, i64 %598
-  %umax499 = call i64 @llvm.umax.i64(i64 %615, i64 1)
   br label %625
 
 ._crit_edge474:                                   ; preds = %_ZN7VocData27testBoundingBoxesForOverlapEN2cv5Rect_IiEES2_.exit.thread
@@ -9621,7 +9615,7 @@ _ZN7VocData27testBoundingBoxesForOverlapEN2cv5Rect_IiEES2_.exit.thread: ; preds 
   %.2158 = phi i8 [ %.0156469, %625 ], [ %663, %659 ], [ %.0156469, %_ZN7VocData27testBoundingBoxesForOverlapEN2cv5Rect_IiEES2_.exit ], [ %.0156469, %629 ]
   %.2155 = phi i32 [ %.0153470, %625 ], [ %660, %659 ], [ %.0153470, %_ZN7VocData27testBoundingBoxesForOverlapEN2cv5Rect_IiEES2_.exit ], [ %.0153470, %629 ]
   %664 = add nuw i64 %.0152471, 1
-  %exitcond500.not = icmp eq i64 %664, %umax499
+  %exitcond500.not = icmp eq i64 %664, %615
   br i1 %exitcond500.not, label %._crit_edge474, label %625, !llvm.loop !159
 
 665:                                              ; preds = %._crit_edge474
@@ -9692,7 +9686,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit374: ; preds = %_Z
 
 ._crit_edge474.thread:                            ; preds = %592, %679, %._crit_edge474
   %693 = add nuw i64 %.0165478, 1
-  %exitcond502.not = icmp eq i64 %693, %umax501
+  %exitcond502.not = icmp eq i64 %693, %498
   br i1 %exitcond502.not, label %._crit_edge480, label %592, !llvm.loop !160
 
 694:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit374, %_ZNSt6vectorIcSaIcEED2Ev.exit370, %502
@@ -14969,7 +14963,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit90: ; preds = %_ZN
 .lr.ph196:                                        ; preds = %.preheader
   %207 = lshr exact i64 %64, 2
   %208 = load ptr, ptr %17, align 8
-  %umax = call i64 @llvm.umax.i64(i64 %207, i64 1)
   br label %252
 
 ._crit_edge197:                                   ; preds = %_ZNSolsEPFRSoS_E.exit, %.preheader
@@ -15203,7 +15196,7 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i: ; preds = %.noexc171, %291
 
 _ZNSolsEPFRSoS_E.exit:                            ; preds = %.noexc173
   %301 = add nuw i64 %.0195, 1
-  %exitcond.not = icmp eq i64 %301, %umax
+  %exitcond.not = icmp eq i64 %301, %207
   br i1 %exitcond.not, label %._crit_edge197, label %252, !llvm.loop !265
 
 .loopexit:                                        ; preds = %252, %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit, %_ZNSolsEf.exit, %277, %279, %294, %.noexc171, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i, %.noexc173
@@ -17386,7 +17379,6 @@ _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %_ZNSt6vectorImSaImE
 
 .lr.ph58:                                         ; preds = %_ZNSt6vectorImSaImEED2Ev.exit
   %51 = load ptr, ptr %2, align 8, !tbaa !245
-  %umax = tail call i64 @llvm.umax.i64(i64 %37, i64 1)
   br label %52
 
 ._crit_edge59:                                    ; preds = %_ZNSt6vectorImSaImEED2Ev.exit
@@ -17407,7 +17399,7 @@ _ZNSt6vectorISt4pairImN9__gnu_cxx17__normal_iteratorIPKfS_IfSaIfEEEEESaIS8_EED2E
   %55 = getelementptr inbounds nuw i64, ptr %51, i64 %.057
   store i64 %54, ptr %55, align 8, !tbaa !15
   %56 = add nuw i64 %.057, 1
-  %exitcond.not = icmp eq i64 %56, %umax
+  %exitcond.not = icmp eq i64 %56, %37
   br i1 %exitcond.not, label %._crit_edge59.thread, label %52, !llvm.loop !282
 
 57:                                               ; preds = %39, %40
@@ -18872,8 +18864,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit183: ; preds = %_Z
 
 .preheader317:                                    ; preds = %.lr.ph334
   %.not376 = icmp eq ptr %93, %94
-  %umax = tail call i64 @llvm.umax.i64(i64 %98, i64 1)
-  %108 = trunc i64 %umax to i32
+  %108 = trunc i64 %98 to i32
   %109 = select i1 %.not376, i32 0, i32 %108
   %.1126.lcssa = add i32 %.0125333, %109
   %110 = add nuw i64 %.0127332, 1
@@ -19425,7 +19416,6 @@ _ZN8ObdImageD2Ev.exit:                            ; preds = %_ZNKSt7__cxx1112bas
   %303 = sdiv exact i64 %302, 48
   %304 = load i64, ptr %252, align 8, !tbaa !10
   %305 = load ptr, ptr %1, align 8
-  %umax390 = call i64 @llvm.umax.i64(i64 %303, i64 1)
   %306 = icmp eq i64 %304, 0
   br label %331
 
@@ -19543,7 +19533,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread310: ; preds = %331, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
   %.3137 = phi i32 [ %.2136346, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ %spec.select, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread ], [ %.2136346, %331 ]
   %343 = add nuw i64 %.0148345, 1
-  %exitcond391.not = icmp eq i64 %343, %umax390
+  %exitcond391.not = icmp eq i64 %343, %303
   br i1 %exitcond391.not, label %._crit_edge348, label %331, !llvm.loop !296
 
 .body:                                            ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %_ZNSt6vectorI13VocObjectDataSaIS0_EED2Ev.exit224
@@ -19662,7 +19652,6 @@ _ZN8ObdImageD2Ev.exit232:                         ; preds = %_ZNKSt7__cxx1112bas
   %394 = sdiv exact i64 %393, 48
   %395 = load ptr, ptr %29, align 8
   %396 = load float, ptr %358, align 8
-  %umax392 = call i64 @llvm.umax.i64(i64 %394, i64 1)
   br label %401
 
 ._crit_edge359:                                   ; preds = %438
@@ -19758,7 +19747,7 @@ _ZN7VocData27testBoundingBoxesForOverlapEN2cv5Rect_IiEES2_.exit: ; preds = %419,
   %.2144 = phi float [ %.1143, %_ZN7VocData27testBoundingBoxesForOverlapEN2cv5Rect_IiEES2_.exit ], [ %.0142355, %402 ]
   %.2141 = phi i32 [ %.1140, %_ZN7VocData27testBoundingBoxesForOverlapEN2cv5Rect_IiEES2_.exit ], [ %.0139356, %402 ]
   %439 = add nuw i64 %.0138357, 1
-  %exitcond393.not = icmp eq i64 %439, %umax392
+  %exitcond393.not = icmp eq i64 %439, %394
   br i1 %exitcond393.not, label %._crit_edge359, label %401, !llvm.loop !298
 
 440:                                              ; preds = %._crit_edge359

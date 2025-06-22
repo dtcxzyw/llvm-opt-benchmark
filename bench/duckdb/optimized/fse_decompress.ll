@@ -94,8 +94,7 @@ define internal fastcc noundef range(i64 -46, 1) i64 @_ZN11duckdb_zstdL24FSE_bui
   %42 = add nuw nsw i32 %41, 3
   %43 = add nuw nsw i32 %42, %39
   %44 = zext nneg i32 %43 to i64
-  %umax183 = tail call i32 @llvm.umax.i32(i32 %11, i32 1)
-  %wide.trip.count184 = zext nneg i32 %umax183 to i64
+  %wide.trip.count184 = zext nneg i32 %11 to i64
   br label %.lr.ph164
 
 .preheader138:                                    ; preds = %._crit_edge159
@@ -160,8 +159,7 @@ define internal fastcc noundef range(i64 -46, 1) i64 @_ZN11duckdb_zstdL24FSE_bui
   %68 = lshr i32 %12, 3
   %69 = add nuw nsw i32 %68, 3
   %70 = add nuw nsw i32 %69, %39
-  %umax = tail call i32 @llvm.umax.i32(i32 %11, i32 1)
-  %wide.trip.count175 = zext nneg i32 %umax to i64
+  %wide.trip.count175 = zext nneg i32 %11 to i64
   br label %.preheader140
 
 .preheader140:                                    ; preds = %.preheader140.lr.ph, %._crit_edge150
@@ -265,8 +263,8 @@ define noundef i64 @_ZN11duckdb_zstd24FSE_decompress_wksp_bmi2EPvmPKvmjS0_mi(ptr
   br label %507
 
 19:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #9
   store i32 255, ptr %16, align 4, !tbaa !23
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 512
   %21 = icmp ult i64 %6, 512
@@ -323,9 +321,9 @@ define noundef i64 @_ZN11duckdb_zstd24FSE_decompress_wksp_bmi2EPvmPKvmjS0_mi(ptr
   br i1 %.not48.i.i, label %316, label %60
 
 60:                                               ; preds = %55
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #10
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #9
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #9
   %61 = icmp eq i64 %30, 0
   br i1 %61, label %_ZN11duckdb_zstdL34FSE_decompress_usingDTable_genericEPvmPKvmPKjj.exit13.i, label %62
 
@@ -769,15 +767,15 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i: ; preds = %293
 
 _ZN11duckdb_zstdL34FSE_decompress_usingDTable_genericEPvmPKvmPKjj.exit13.i: ; preds = %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i, %265, %312, %.preheader176.i, %_ZN11duckdb_zstdL15BIT_initDStreamEPNS_13BIT_DStream_tEPKvm.exit.i, %116, %67, %60
   %.1.i9.i = phi i64 [ %315, %312 ], [ %30, %_ZN11duckdb_zstdL15BIT_initDStreamEPNS_13BIT_DStream_tEPKvm.exit.i ], [ -72, %60 ], [ -1, %67 ], [ -20, %116 ], [ -70, %.preheader176.i ], [ -70, %265 ], [ -70, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #10
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #10
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #9
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #9
   br label %_ZN11duckdb_zstdL32FSE_decompress_wksp_body_defaultEPvmPKvmjS0_m.exit
 
 316:                                              ; preds = %55
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #10
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12) #9
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #9
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #9
   %317 = call fastcc noundef i64 @_ZN11duckdb_zstdL15BIT_initDStreamEPNS_13BIT_DStream_tEPKvm(ptr noundef %12, ptr noundef %29, i64 noundef %30)
   %318 = icmp ult i64 %317, -119
   br i1 %318, label %319, label %_ZN11duckdb_zstdL34FSE_decompress_usingDTable_genericEPvmPKvmPKjj.exit.i
@@ -1113,15 +1111,15 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit36.i: ; preds = %4
 
 _ZN11duckdb_zstdL34FSE_decompress_usingDTable_genericEPvmPKvmPKjj.exit.i: ; preds = %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit36.i, %456, %503, %.preheader.i, %316
   %.1.i7.i = phi i64 [ %506, %503 ], [ %317, %316 ], [ -70, %.preheader.i ], [ -70, %456 ], [ -70, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit36.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #10
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12) #10
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #9
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12) #9
   br label %_ZN11duckdb_zstdL32FSE_decompress_wksp_body_defaultEPvmPKvmjS0_m.exit
 
 _ZN11duckdb_zstdL32FSE_decompress_wksp_body_defaultEPvmPKvmjS0_m.exit: ; preds = %19, %22, %25, %28, %47, %_ZN11duckdb_zstdL34FSE_decompress_usingDTable_genericEPvmPKvmPKjj.exit13.i, %_ZN11duckdb_zstdL34FSE_decompress_usingDTable_genericEPvmPKvmPKjj.exit.i
   %.0.i.i = phi i64 [ %53, %47 ], [ -1, %19 ], [ -44, %28 ], [ %.1.i9.i, %_ZN11duckdb_zstdL34FSE_decompress_usingDTable_genericEPvmPKvmPKjj.exit13.i ], [ %.1.i7.i, %_ZN11duckdb_zstdL34FSE_decompress_usingDTable_genericEPvmPKvmPKjj.exit.i ], [ -44, %25 ], [ %23, %22 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #9
   br label %507
 
 507:                                              ; preds = %_ZN11duckdb_zstdL32FSE_decompress_wksp_body_defaultEPvmPKvmjS0_m.exit, %17
@@ -1139,8 +1137,8 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL29FSE_decompress_wksp_body_
   %13 = alloca %"struct.duckdb_zstd::FSE_DState_t", align 8
   %14 = alloca i32, align 4
   %15 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #9
   store i32 255, ptr %15, align 4, !tbaa !23
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 512
   %17 = icmp ult i64 %6, 512
@@ -1197,9 +1195,9 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL29FSE_decompress_wksp_body_
   br i1 %.not48.i, label %313, label %56
 
 56:                                               ; preds = %51
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #10
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #9
   %57 = icmp eq i64 %26, 0
   br i1 %57, label %_ZN11duckdb_zstdL34FSE_decompress_usingDTable_genericEPvmPKvmPKjj.exit13, label %58
 
@@ -1643,15 +1641,15 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit: ; preds = %288, 
 
 _ZN11duckdb_zstdL34FSE_decompress_usingDTable_genericEPvmPKvmPKjj.exit13: ; preds = %262, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit, %.preheader176, %112, %63, %56, %_ZN11duckdb_zstdL15BIT_initDStreamEPNS_13BIT_DStream_tEPKvm.exit, %309
   %.1.i9 = phi i64 [ %312, %309 ], [ %26, %_ZN11duckdb_zstdL15BIT_initDStreamEPNS_13BIT_DStream_tEPKvm.exit ], [ -72, %56 ], [ -1, %63 ], [ -20, %112 ], [ -70, %.preheader176 ], [ -70, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit ], [ -70, %262 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #10
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #9
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #9
   br label %_ZN11duckdb_zstdL24FSE_decompress_wksp_bodyEPvmPKvmjS0_mi.exit
 
 313:                                              ; preds = %51
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #10
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11) #9
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #9
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #9
   %314 = call fastcc noundef i64 @_ZN11duckdb_zstdL15BIT_initDStreamEPNS_13BIT_DStream_tEPKvm(ptr noundef %11, ptr noundef %25, i64 noundef %26)
   %315 = icmp ult i64 %314, -119
   br i1 %315, label %316, label %_ZN11duckdb_zstdL34FSE_decompress_usingDTable_genericEPvmPKvmPKjj.exit
@@ -1987,15 +1985,15 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit36: ; preds = %480
 
 _ZN11duckdb_zstdL34FSE_decompress_usingDTable_genericEPvmPKvmPKjj.exit: ; preds = %454, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit36, %.preheader, %313, %501
   %.1.i7 = phi i64 [ %504, %501 ], [ %314, %313 ], [ -70, %.preheader ], [ -70, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit36 ], [ -70, %454 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #10
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11) #10
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #9
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11) #9
   br label %_ZN11duckdb_zstdL24FSE_decompress_wksp_bodyEPvmPKvmjS0_mi.exit
 
 _ZN11duckdb_zstdL24FSE_decompress_wksp_bodyEPvmPKvmjS0_mi.exit: ; preds = %21, %18, %7, %24, %43, %_ZN11duckdb_zstdL34FSE_decompress_usingDTable_genericEPvmPKvmPKjj.exit13, %_ZN11duckdb_zstdL34FSE_decompress_usingDTable_genericEPvmPKvmPKjj.exit
   %.0.i = phi i64 [ %49, %43 ], [ -1, %7 ], [ -44, %24 ], [ %.1.i9, %_ZN11duckdb_zstdL34FSE_decompress_usingDTable_genericEPvmPKvmPKjj.exit13 ], [ %.1.i7, %_ZN11duckdb_zstdL34FSE_decompress_usingDTable_genericEPvmPKvmPKjj.exit ], [ -44, %21 ], [ %19, %18 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #9
   ret i64 %.0.i
 }
 
@@ -2239,9 +2237,6 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit: ; preds = %30, %
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #9
-
 attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+bmi,+bmi2,+cmov,+cx8,+fxsr,+lzcnt,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2251,8 +2246,7 @@ attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "t
 attributes #6 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nounwind }
+attributes #9 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

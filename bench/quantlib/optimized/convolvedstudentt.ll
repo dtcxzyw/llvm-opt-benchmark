@@ -981,7 +981,6 @@ for.body232.lr.ph:                                ; preds = %while.end
   %sub.ptr.div.i202 = ashr exact i64 %sub.ptr.sub.i201, 2
   %a_.promoted = load double, ptr %a_, align 8
   %115 = load ptr, ptr %factors_, align 8, !tbaa !14
-  %umax = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i202, i64 1)
   br label %for.body232
 
 for.cond.cleanup231:                              ; preds = %for.body232, %while.end.for.cond.cleanup231_crit_edge
@@ -1004,7 +1003,7 @@ for.body232:                                      ; preds = %for.body232.lr.ph, 
   %121 = call double @llvm.fmuladd.f64(double %call235, double %120, double %117)
   store double %121, ptr %a_, align 8, !tbaa !18
   %inc244 = add nuw i64 %i226.0309, 1
-  %exitcond312.not = icmp eq i64 %inc244, %umax
+  %exitcond312.not = icmp eq i64 %inc244, %sub.ptr.div.i202
   br i1 %exitcond312.not, label %for.cond.cleanup231, label %for.body232, !llvm.loop !52
 
 ehcleanup251:                                     ; preds = %ehcleanup79, %ehcleanup122, %lpad198, %ehcleanup146, %ehcleanup34
@@ -1301,7 +1300,6 @@ for.cond33.preheader:                             ; preds = %invoke.cont30
 for.body37.lr.ph:                                 ; preds = %for.cond33.preheader
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %6 = load ptr, ptr %lowUp, align 8, !tbaa !14
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %for.body37
 
 for.cond.cleanup36:                               ; preds = %for.body37
@@ -1415,7 +1413,7 @@ for.body37:                                       ; preds = %for.body37.lr.ph, %
   %add40 = fadd double %10, %11
   store double %add40, ptr %add.ptr.i119, align 8, !tbaa !16
   %inc = add nuw i64 %i.0315, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i
   br i1 %exitcond.not, label %for.cond.cleanup36, label %for.body37, !llvm.loop !60
 
 invoke.cont42:                                    ; preds = %if.else.i, %if.then.i.i.i.i.i.i.i.i.i, %_ZSt4copyIPdS0_ET0_T_S2_S1_.exit.i, %if.then.i.i.i.i.i.i114, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit.i

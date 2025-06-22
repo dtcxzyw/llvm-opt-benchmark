@@ -207,7 +207,6 @@ define hidden noundef i32 @_ZN4cvc58internal13preprocessing6passes11BvIntroPow21
   %18 = ptrtoint ptr %16 to i64
   %19 = sub i64 %17, %18
   %20 = ashr exact i64 %19, 3
-  %umax = call i64 @llvm.umax.i64(i64 %20, i64 1)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit28
@@ -496,7 +495,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit26: ; preds = %122, %125, %131
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit28: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit26, %137, %143
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #20
   %147 = add nuw i64 %.01529, 1
-  %exitcond.not = icmp eq i64 %147, %umax
+  %exitcond.not = icmp eq i64 %147, %20
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !38
 
 148:                                              ; preds = %120, %118
@@ -810,7 +809,6 @@ _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit: ; preds = %126, %132, %134
   %157 = trunc nsw i64 %156 to i32
   %158 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %159 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %umax = tail call i32 @llvm.umax.i32(i32 %157, i32 1)
   br label %162
 
 ._crit_edge:                                      ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit66
@@ -1035,7 +1033,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit64: ; preds = %_ZNSt6vectorIN4cvc5
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit66: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit64, %260, %266
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #20
   %270 = add nuw i32 %.031128, 1
-  %exitcond.not = icmp eq i32 %270, %umax
+  %exitcond.not = icmp eq i32 %270, %157
   br i1 %exitcond.not, label %._crit_edge, label %162, !llvm.loop !54
 
 271:                                              ; preds = %190, %162
@@ -4160,9 +4158,6 @@ declare i64 @llvm.umin.i64(i64, i64) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #19
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #18
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

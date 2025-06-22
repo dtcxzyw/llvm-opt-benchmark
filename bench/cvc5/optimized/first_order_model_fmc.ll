@@ -1989,7 +1989,6 @@ _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEPNS1_6theory11quantifiers7fmcheck3
   %282 = getelementptr inbounds nuw i8, ptr %273, i64 88
   %283 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %284 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  %umax = call i64 @llvm.umax.i64(i64 %281, i64 1)
   br label %289
 
 285:                                              ; preds = %._crit_edge
@@ -3142,7 +3141,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %347, %341, %_ZN4c
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit345: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit, %793, %799
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #26
   %803 = add nuw i64 %.040605, 1
-  %exitcond649.not = icmp eq i64 %803, %umax
+  %exitcond649.not = icmp eq i64 %803, %281
   br i1 %exitcond649.not, label %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit395, label %289, !llvm.loop !205
 
 .body173:                                         ; preds = %353, %319, %788

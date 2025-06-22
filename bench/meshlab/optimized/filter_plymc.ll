@@ -10931,7 +10931,6 @@ _ZN3vcg6VolumeINS_7VoxelfcEfED2Ev.exit:           ; preds = %_ZSt8_DestroyIPSt6v
   %332 = ptrtoint ptr %330 to i64
   %333 = sub i64 %331, %332
   %334 = sdiv exact i64 %333, 24
-  %umax.i = call i64 @llvm.umax.i64(i64 %334, i64 1)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -10945,7 +10944,7 @@ _ZN3vcg6VolumeINS_7VoxelfcEfED2Ev.exit:           ; preds = %_ZSt8_DestroyIPSt6v
   %340 = zext i1 %339 to i32
   %spec.select.i = add nuw nsw i32 %.056.i, %340
   %341 = add nuw i64 %.07.i, 1
-  %exitcond.not.i = icmp eq i64 %341, %umax.i
+  %exitcond.not.i = icmp eq i64 %341, %334
   br i1 %exitcond.not.i, label %_ZN3vcg6VolumeINS_7VoxelfcEfE9AllocatedEv.exit, label %.lr.ph.i, !llvm.loop !75
 
 _ZN3vcg6VolumeINS_7VoxelfcEfE9AllocatedEv.exit:   ; preds = %.lr.ph.i, %325
@@ -45174,19 +45173,15 @@ define linkonce_odr noundef zeroext i1 @_ZN3vcg3tri2io11ImporterSTLINS_5SMeshEE1
 24:                                               ; preds = %20
   %25 = tail call i32 @fclose(ptr noundef %5)
   %.not39 = icmp eq i64 %21, 0
-  br i1 %.not39, label %.loopexit, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %24
-  %umax = tail call i64 @llvm.umax.i64(i64 %.sroa.speculated, i64 1)
-  br label %.lr.ph
+  br i1 %.not39, label %.loopexit, label %.lr.ph
 
 26:                                               ; preds = %.lr.ph
   %27 = add nuw nsw i64 %.03038, 1
-  %exitcond.not = icmp eq i64 %27, %umax
+  %exitcond.not = icmp eq i64 %27, %.sroa.speculated
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !342
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %26
-  %.03038 = phi i64 [ %27, %26 ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %24, %26
+  %.03038 = phi i64 [ %27, %26 ], [ 0, %24 ]
   %28 = getelementptr inbounds nuw [1000 x i8], ptr %4, i64 0, i64 %.03038
   %29 = load i8, ptr %28, align 1
   %30 = icmp slt i8 %29, 0
@@ -101237,7 +101232,6 @@ _ZN3vcg4face8VFDetachINS_3tri5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS4_EEE6MCF
   %448 = ptrtoint ptr %.sroa.0169.1.lcssa to i64
   %449 = sub i64 %447, %448
   %450 = ashr exact i64 %449, 3
-  %umax337 = call i64 @llvm.umax.i64(i64 %450, i64 1)
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %..loopexit_crit_edge.us
@@ -101259,7 +101253,7 @@ _ZN3vcg4face8VFDetachINS_3tri5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS4_EEE6MCF
 
 464:                                              ; preds = %470
   %465 = add nuw i64 %.0308.us, 1
-  %exitcond338.not = icmp eq i64 %465, %umax337
+  %exitcond338.not = icmp eq i64 %465, %450
   br i1 %exitcond338.not, label %..loopexit_crit_edge.us, label %466, !llvm.loop !802
 
 466:                                              ; preds = %.preheader.us, %464
@@ -123996,7 +123990,6 @@ _ZNSt6vectorIP8CVertexOSaIS1_EED2Ev.exit99.thread204: ; preds = %_ZNSt12_Vector_
   %294 = ptrtoint ptr %.sroa.0169.1.lcssa to i64
   %295 = sub i64 %293, %294
   %296 = ashr exact i64 %295, 3
-  %umax348 = call i64 @llvm.umax.i64(i64 %296, i64 1)
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %..loopexit_crit_edge.us
@@ -124018,7 +124011,7 @@ _ZNSt6vectorIP8CVertexOSaIS1_EED2Ev.exit99.thread204: ; preds = %_ZNSt12_Vector_
 
 310:                                              ; preds = %316
   %311 = add nuw i64 %.0320.us, 1
-  %exitcond349.not = icmp eq i64 %311, %umax348
+  %exitcond349.not = icmp eq i64 %311, %296
   br i1 %exitcond349.not, label %..loopexit_crit_edge.us, label %312, !llvm.loop !1025
 
 312:                                              ; preds = %.preheader.us, %310

@@ -6279,8 +6279,7 @@ _ZN4llvm12StringSwitchIjjE10StartsWithENS_13StringLiteralEj.exit402: ; preds = %
   %1124 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %1125 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %1126 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %umax = call i32 @llvm.umax.i32(i32 %.sroa.10.16.extract.trunc, i32 1)
-  %wide.trip.count = zext nneg i32 %umax to i64
+  %wide.trip.count = and i64 %.sroa.10.2, 7
   br label %1127
 
 1127:                                             ; preds = %.lr.ph, %1127

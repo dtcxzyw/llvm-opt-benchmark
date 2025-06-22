@@ -3207,7 +3207,6 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_18TraceAggregateNodeEEptEv.ex
   %84 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %85 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %86 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %umax = tail call i64 @llvm.umax.i64(i64 %73, i64 1)
   br label %87
 
 87:                                               ; preds = %.lr.ph173, %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_18TraceAggregateNodeEED2Ev.exit123
@@ -3954,7 +3953,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefE
 
 _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_18TraceAggregateNodeEED2Ev.exit123: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit117, %388, %.noexc.i122, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i119, %394
   %401 = add nuw i64 %.0172, 1
-  %exitcond.not = icmp eq i64 %401, %umax
+  %exitcond.not = icmp eq i64 %401, %73
   br i1 %exitcond.not, label %.loopexit, label %87, !llvm.loop !57
 
 .body:                                            ; preds = %.loopexit141, %.loopexit.split-lp, %334, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i90, %329, %325, %323, %264, %259

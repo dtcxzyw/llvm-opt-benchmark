@@ -433,19 +433,15 @@ _ZN7glslang14TStringAtomMap10getAddAtomEPKc.exit86: ; preds = %65, %68
   %72 = ptrtoint ptr %56 to i64
   %73 = sub i64 %71, %72
   %74 = ashr exact i64 %73, 2
-  br i1 %57, label %.critedge.thread, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %_ZN7glslang14TStringAtomMap10getAddAtomEPKc.exit86
-  %umax = tail call i64 @llvm.umax.i64(i64 %74, i64 1)
-  br label %.lr.ph
+  br i1 %57, label %.critedge.thread, label %.lr.ph
 
 75:                                               ; preds = %.lr.ph
   %76 = add nuw i64 %.067104, 1
-  %exitcond.not = icmp eq i64 %76, %umax
+  %exitcond.not = icmp eq i64 %76, %74
   br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !4
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %75
-  %.067104 = phi i64 [ %76, %75 ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %_ZN7glslang14TStringAtomMap10getAddAtomEPKc.exit86, %75
+  %.067104 = phi i64 [ %76, %75 ], [ 0, %_ZN7glslang14TStringAtomMap10getAddAtomEPKc.exit86 ]
   %77 = getelementptr inbounds i32, ptr %56, i64 %.067104
   %78 = load i32, ptr %77, align 4
   %79 = icmp eq i32 %78, %.0.i85

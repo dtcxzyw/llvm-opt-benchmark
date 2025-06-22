@@ -9226,7 +9226,6 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %.loopexit202
 
 .lr.ph224.preheader:                              ; preds = %_ZN4LuauL13getJumpTargetEjj.exit.thread
   %196 = lshr exact i64 %187, 2
-  %umax = tail call i64 @llvm.umax.i64(i64 %196, i64 1)
   br label %.lr.ph224
 
 197:                                              ; preds = %190, %189
@@ -9389,7 +9388,7 @@ _ZN4LuauL13getJumpTargetEjj.exit.thread:          ; preds = %213, %219, %_ZN4Lua
 256:                                              ; preds = %.lr.ph224, %254
   %.1107 = phi i32 [ %255, %254 ], [ %.0106222, %.lr.ph224 ]
   %257 = add nuw i64 %.0105223, 1
-  %exitcond.not = icmp eq i64 %257, %umax
+  %exitcond.not = icmp eq i64 %257, %196
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph224, !llvm.loop !313
 
 _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %._ZNSt6vectorIiSaIiEE6resizeEmRKi.exit_crit_edge, %250, %248, %246

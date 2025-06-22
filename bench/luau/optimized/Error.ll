@@ -3303,27 +3303,19 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
 
 .preheader32:                                     ; preds = %32
   %.not39 = icmp eq ptr %20, %21
-  br i1 %.not39, label %.preheader, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %.preheader32
-  %umax = tail call i64 @llvm.umax.i64(i64 %25, i64 1)
-  br label %.lr.ph
+  br i1 %.not39, label %.preheader, label %.lr.ph
 
 48:                                               ; preds = %.lr.ph
   %49 = add nuw i64 %.01834, 1
-  %exitcond.not = icmp eq i64 %49, %umax
+  %exitcond.not = icmp eq i64 %49, %25
   br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !115
 
 .preheader:                                       ; preds = %48, %.preheader32
   %50 = icmp eq ptr %35, %36
-  br i1 %50, label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread, label %.lr.ph36.preheader
+  br i1 %50, label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread, label %.lr.ph36
 
-.lr.ph36.preheader:                               ; preds = %.preheader
-  %umax42 = tail call i64 @llvm.umax.i64(i64 %40, i64 1)
-  br label %.lr.ph36
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %48
-  %.01834 = phi i64 [ %49, %48 ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.preheader32, %48
+  %.01834 = phi i64 [ %49, %48 ], [ 0, %.preheader32 ]
   %51 = getelementptr inbounds nuw %"struct.Luau::GenericTypeDefinition", ptr %21, i64 %.01834
   %52 = load ptr, ptr %51, align 8, !tbaa !116
   %53 = getelementptr inbounds nuw %"struct.Luau::GenericTypeDefinition", ptr %28, i64 %.01834
@@ -3331,15 +3323,15 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
   %.not23 = icmp eq ptr %52, %54
   br i1 %.not23, label %48, label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread
 
-.lr.ph36:                                         ; preds = %.lr.ph36, %.lr.ph36.preheader
-  %.035 = phi i64 [ 0, %.lr.ph36.preheader ], [ %59, %.lr.ph36 ]
+.lr.ph36:                                         ; preds = %.preheader, %.lr.ph36
+  %.035 = phi i64 [ %59, %.lr.ph36 ], [ 0, %.preheader ]
   %55 = getelementptr inbounds nuw %"struct.Luau::GenericTypePackDefinition", ptr %36, i64 %.035
   %56 = load ptr, ptr %55, align 8, !tbaa !122
   %57 = getelementptr inbounds nuw %"struct.Luau::GenericTypePackDefinition", ptr %44, i64 %.035
   %58 = load ptr, ptr %57, align 8, !tbaa !122
   %.not24 = icmp eq ptr %56, %58
   %59 = add nuw i64 %.035, 1
-  %exitcond43.not = icmp ne i64 %59, %umax42
+  %exitcond43.not = icmp ne i64 %59, %40
   %or.cond.not = select i1 %.not24, i1 %exitcond43.not, i1 false
   br i1 %or.cond.not, label %.lr.ph36, label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread, !llvm.loop !129
 
@@ -50887,9 +50879,6 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #29
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #30
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #30

@@ -2243,11 +2243,7 @@ _ZNK6open3d8geometry8MeshBase15HasVertexColorsEv.exit: ; preds = %330, %336
 
 _ZNK6open3d8geometry12TriangleMesh18HasTriangleNormalsEv.exit: ; preds = %_ZNK6open3d8geometry8MeshBase15HasVertexColorsEv.exit, %366
   %376 = phi i1 [ %375, %366 ], [ false, %_ZNK6open3d8geometry8MeshBase15HasVertexColorsEv.exit ]
-  br i1 %.not.i, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %_ZNK6open3d8geometry12TriangleMesh18HasTriangleNormalsEv.exit
-  %umax = call i64 @llvm.umax.i64(i64 %355, i64 1)
-  br label %.lr.ph
+  br i1 %.not.i, label %._crit_edge, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %449
   %.pre = load ptr, ptr %17, align 8, !tbaa !55
@@ -2320,9 +2316,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit302: ; preds = %_Z
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %28) #16
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit306
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %449
-  %.089367 = phi i64 [ %450, %449 ], [ 0, %.lr.ph.preheader ]
-  %.095366 = phi i64 [ %.196, %449 ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %_ZNK6open3d8geometry12TriangleMesh18HasTriangleNormalsEv.exit, %449
+  %.089367 = phi i64 [ %450, %449 ], [ 0, %_ZNK6open3d8geometry12TriangleMesh18HasTriangleNormalsEv.exit ]
+  %.095366 = phi i64 [ %.196, %449 ], [ 0, %_ZNK6open3d8geometry12TriangleMesh18HasTriangleNormalsEv.exit ]
   %401 = load ptr, ptr %21, align 8, !tbaa !71
   %402 = sdiv i64 %.089367, 64
   %403 = getelementptr inbounds i64, ptr %401, i64 %402
@@ -2399,7 +2395,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit302: ; preds = %_Z
 449:                                              ; preds = %441, %446
   %.196 = phi i64 [ %445, %441 ], [ %.095366, %446 ]
   %450 = add nuw i64 %.089367, 1
-  %exitcond.not = icmp eq i64 %450, %umax
+  %exitcond.not = icmp eq i64 %450, %355
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !77
 
 451:                                              ; preds = %._crit_edge
@@ -2431,11 +2427,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit302: ; preds = %_Z
 
 .preheader:                                       ; preds = %461
   %.not375 = icmp eq ptr %358, %359
-  br i1 %.not375, label %._crit_edge372, label %.lr.ph371.preheader
-
-.lr.ph371.preheader:                              ; preds = %.preheader
-  %umax376 = call i64 @llvm.umax.i64(i64 %365, i64 1)
-  br label %.lr.ph371
+  br i1 %.not375, label %._crit_edge372, label %.lr.ph371
 
 ._crit_edge372:                                   ; preds = %499, %.preheader
   %.191.lcssa = phi i64 [ 0, %.preheader ], [ %.292, %499 ]
@@ -2444,9 +2436,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit302: ; preds = %_Z
   invoke void @_ZNSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS2_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %464, i64 noundef %.191.lcssa)
           to label %501 unwind label %455
 
-.lr.ph371:                                        ; preds = %.lr.ph371.preheader, %499
-  %.088369 = phi i64 [ %500, %499 ], [ 0, %.lr.ph371.preheader ]
-  %.191368 = phi i64 [ %.292, %499 ], [ 0, %.lr.ph371.preheader ]
+.lr.ph371:                                        ; preds = %.preheader, %499
+  %.088369 = phi i64 [ %500, %499 ], [ 0, %.preheader ]
+  %.191368 = phi i64 [ %.292, %499 ], [ 0, %.preheader ]
   %465 = load ptr, ptr %17, align 8, !tbaa !55
   %466 = getelementptr inbounds nuw i8, ptr %465, i64 120
   %467 = load ptr, ptr %466, align 8, !tbaa !78
@@ -2505,7 +2497,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit302: ; preds = %_Z
 499:                                              ; preds = %497, %.lr.ph371
   %.292 = phi i64 [ %498, %497 ], [ %.191368, %.lr.ph371 ]
   %500 = add nuw i64 %.088369, 1
-  %exitcond377.not = icmp eq i64 %500, %umax376
+  %exitcond377.not = icmp eq i64 %500, %365
   br i1 %exitcond377.not, label %._crit_edge372, label %.lr.ph371, !llvm.loop !81
 
 501:                                              ; preds = %._crit_edge372

@@ -8339,7 +8339,6 @@ _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit367.lr.ph: ; preds = %464
   %471 = ashr exact i64 %470, 3
   %472 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %473 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %umax = call i64 @llvm.umax.i64(i64 %471, i64 1)
   br label %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit367
 
 474:                                              ; preds = %299, %272
@@ -9415,7 +9414,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit438: ; preds = %_ZN4cvc58internal1
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit441: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit438, %959, %965
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #22
   %969 = add nuw i64 %.0138932, 1
-  %exitcond.not = icmp eq i64 %969, %umax
+  %exitcond.not = icmp eq i64 %969, %471
   br i1 %exitcond.not, label %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit467, label %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit367, !llvm.loop !202
 
 970:                                              ; preds = %769, %742

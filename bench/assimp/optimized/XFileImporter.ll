@@ -2959,8 +2959,6 @@ _ZNSt6vectorIjSaIjEE6resizeEmRKj.exit._crit_edge: ; preds = %_ZNSt6vectorIjSaIjE
 
 .lr.ph788:                                        ; preds = %_ZNSt6vectorIjSaIjEE6resizeEmRKj.exit._crit_edge
   %266 = shl nuw nsw i64 %188, 3
-  %umax = tail call i32 @llvm.umax.i32(i32 %.2163, i32 1)
-  %wide.trip.count = zext i32 %umax to i64
   br label %390
 
 267:                                              ; preds = %.lr.ph773, %_ZNSt6vectorIjSaIjEE6resizeEmRKj.exit
@@ -3353,7 +3351,7 @@ _ZNSt6vectorI14aiVertexWeightSaIS0_EE12emplace_backIJRjRfEEERS0_DpOT_.exit: ; pr
   %.sroa.14.6 = phi ptr [ %.sroa.14.5777, %433 ], [ %464, %_ZNSt6vectorI14aiVertexWeightSaIS0_EE17_M_realloc_insertIJRjRfEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ %444, %441 ]
   %.sroa.23.7 = phi ptr [ %.sroa.23.5778, %433 ], [ %465, %_ZNSt6vectorI14aiVertexWeightSaIS0_EE17_M_realloc_insertIJRjRfEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ %.sroa.23.5778, %441 ]
   %indvars.iv.next1044 = add nuw nsw i64 %indvars.iv1043, 1
-  %exitcond1046.not = icmp eq i64 %indvars.iv.next1044, %wide.trip.count
+  %exitcond1046.not = icmp eq i64 %indvars.iv.next1044, %188
   br i1 %exitcond1046.not, label %431, label %433, !llvm.loop !37
 
 466:                                              ; preds = %431

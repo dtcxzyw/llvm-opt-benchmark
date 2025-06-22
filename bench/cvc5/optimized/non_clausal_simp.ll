@@ -686,7 +686,6 @@ define hidden noundef range(i32 0, 2) i32 @_ZN4cvc58internal13preprocessing6pass
   %72 = ptrtoint ptr %70 to i64
   %73 = sub i64 %71, %72
   %74 = ashr exact i64 %73, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %74, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %80
@@ -704,7 +703,7 @@ define hidden noundef range(i32 0, 2) i32 @_ZN4cvc58internal13preprocessing6pass
 
 80:                                               ; preds = %76, %.lr.ph
   %81 = add nuw i64 %.02541823, 1
-  %exitcond.not = icmp eq i64 %81, %umax
+  %exitcond.not = icmp eq i64 %81, %74
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !257
 
 ._crit_edge:                                      ; preds = %80, %2
@@ -1169,14 +1168,14 @@ _ZN4cvc58internal9TrustNodeD2Ev.exit565:          ; preds = %279, %283, %289
   %298 = getelementptr inbounds nuw i8, ptr %66, i64 192
   %299 = load ptr, ptr %298, align 8, !tbaa !302
   %300 = load ptr, ptr %158, align 8, !tbaa !304
-  %.not1828.not = icmp eq ptr %299, %300
-  br i1 %.not1828.not, label %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit849.thread, label %.lr.ph1834
-
-.lr.ph1834:                                       ; preds = %.loopexit1735
   %301 = ptrtoint ptr %299 to i64
   %302 = ptrtoint ptr %300 to i64
   %303 = sub i64 %301, %302
   %304 = sdiv exact i64 %303, 24
+  %.not1828.not = icmp eq ptr %299, %300
+  br i1 %.not1828.not, label %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit849.thread, label %.lr.ph1834
+
+.lr.ph1834:                                       ; preds = %.loopexit1735
   %305 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %306 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %307 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -1184,7 +1183,6 @@ _ZN4cvc58internal9TrustNodeD2Ev.exit565:          ; preds = %279, %283, %289
   %309 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %310 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %311 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  %umax1866 = call i64 @llvm.umax.i64(i64 %304, i64 1)
   br label %312
 
 312:                                              ; preds = %.lr.ph1834, %1120
@@ -2887,7 +2885,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit823: ; preds = %1106, %1110, %1116
 
 1120:                                             ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit823, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit823
   %1121 = add nuw i64 %.02641830, 1
-  %exitcond1867.not = icmp eq i64 %1121, %umax1866
+  %exitcond1867.not = icmp eq i64 %1121, %304
   br i1 %exitcond1867.not, label %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit849, label %312, !llvm.loop !342
 
 .body724:                                         ; preds = %548, %791, %792, %794, %869, %871, %956, %1091, %786, %1048, %965, %774, %.body.i, %1042, %1046, %1044, %560, %537, %535
@@ -3008,12 +3006,11 @@ _ZNSt6vectorIN4cvc58internal9TrustNodeESaIS2_EE6resizeEm.exit: ; preds = %_ZSt8_
   %1166 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %1167 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %1168 = getelementptr inbounds nuw i8, ptr %1, i64 208
-  %umax1868 = call i64 @llvm.umax.i64(i64 %1158, i64 1)
   br label %1171
 
 1169:                                             ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1011
   %1170 = add nuw i64 %.02571836, 1
-  %exitcond1869.not = icmp eq i64 %1170, %umax1868
+  %exitcond1869.not = icmp eq i64 %1170, %1158
   br i1 %exitcond1869.not, label %.critedge405, label %1171, !llvm.loop !353
 
 1171:                                             ; preds = %.lr.ph1837, %1169

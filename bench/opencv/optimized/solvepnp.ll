@@ -8689,7 +8689,6 @@ _ZNSt6vectorIdSaIdEEC2EmRKS0_.exit:               ; preds = %.noexc243
   %322 = getelementptr inbounds nuw i8, ptr %58, i64 112
   %323 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %324 = getelementptr inbounds nuw i8, ptr %55, i64 16
-  %umax = call i64 @llvm.umax.i64(i64 %295, i64 1)
   br label %328
 
 .preheader308:                                    ; preds = %_ZN2cv3MataSERKNS_7MatExprE.exit249
@@ -8861,7 +8860,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit249:              ; preds = %358
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %46) #26
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %46) #26
   %366 = add nuw i64 %.085309, 1
-  %exitcond.not = icmp eq i64 %366, %umax
+  %exitcond.not = icmp eq i64 %366, %295
   br i1 %exitcond.not, label %.preheader308, label %328, !llvm.loop !245
 
 367:                                              ; preds = %332, %328

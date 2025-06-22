@@ -882,7 +882,6 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i:             ; preds = %33, %39, %37, %35
   %45 = sub i64 %43, %44
   %46 = ashr exact i64 %45, 3
   %47 = load ptr, ptr %12, align 8, !tbaa !101
-  %umax.i = call i64 @llvm.umax.i64(i64 %46, i64 1)
   br label %48
 
 48:                                               ; preds = %48, %.lr.ph.i
@@ -897,7 +896,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i:             ; preds = %33, %39, %37, %35
   store i32 %.015.i, ptr %54, align 4, !tbaa !56
   %55 = add nsw i32 %53, %.015.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %umax.i
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %46
   br i1 %exitcond.not.i, label %_ZN5ceres8internal16ProgramEvaluatorINS0_23ScratchEvaluatePreparerENS0_19DenseJacobianWriterENS0_21NullJacobianFinalizerEE19BuildResidualLayoutERKNS0_7ProgramEPSt6vectorIiSaIiEE.exit, label %48, !llvm.loop !121
 
 _ZN5ceres8internal16ProgramEvaluatorINS0_23ScratchEvaluatePreparerENS0_19DenseJacobianWriterENS0_21NullJacobianFinalizerEE19BuildResidualLayoutERKNS0_7ProgramEPSt6vectorIiSaIiEE.exit: ; preds = %48, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i
@@ -6884,7 +6883,6 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i:             ; preds = %34, %40, %38, %36
   %46 = sub i64 %44, %45
   %47 = ashr exact i64 %46, 3
   %48 = load ptr, ptr %13, align 8, !tbaa !101
-  %umax.i = call i64 @llvm.umax.i64(i64 %47, i64 1)
   br label %49
 
 49:                                               ; preds = %49, %.lr.ph.i
@@ -6899,7 +6897,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i:             ; preds = %34, %40, %38, %36
   store i32 %.015.i, ptr %55, align 4, !tbaa !56
   %56 = add nsw i32 %54, %.015.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %umax.i
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %47
   br i1 %exitcond.not.i, label %_ZN5ceres8internal16ProgramEvaluatorINS0_21BlockEvaluatePreparerENS0_19BlockJacobianWriterENS0_21NullJacobianFinalizerEE19BuildResidualLayoutERKNS0_7ProgramEPSt6vectorIiSaIiEE.exit, label %49, !llvm.loop !381
 
 _ZN5ceres8internal16ProgramEvaluatorINS0_21BlockEvaluatePreparerENS0_19BlockJacobianWriterENS0_21NullJacobianFinalizerEE19BuildResidualLayoutERKNS0_7ProgramEPSt6vectorIiSaIiEE.exit: ; preds = %49, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i
@@ -9582,7 +9580,6 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i:             ; preds = %33, %39, %37, %35
   %45 = sub i64 %43, %44
   %46 = ashr exact i64 %45, 3
   %47 = load ptr, ptr %12, align 8, !tbaa !101
-  %umax.i = call i64 @llvm.umax.i64(i64 %46, i64 1)
   br label %48
 
 48:                                               ; preds = %48, %.lr.ph.i
@@ -9597,7 +9594,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i:             ; preds = %33, %39, %37, %35
   store i32 %.015.i, ptr %54, align 4, !tbaa !56
   %55 = add nsw i32 %53, %.015.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %umax.i
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %46
   br i1 %exitcond.not.i, label %_ZN5ceres8internal16ProgramEvaluatorINS0_23ScratchEvaluatePreparerENS0_27CompressedRowJacobianWriterENS0_21NullJacobianFinalizerEE19BuildResidualLayoutERKNS0_7ProgramEPSt6vectorIiSaIiEE.exit, label %48, !llvm.loop !440
 
 _ZN5ceres8internal16ProgramEvaluatorINS0_23ScratchEvaluatePreparerENS0_27CompressedRowJacobianWriterENS0_21NullJacobianFinalizerEE19BuildResidualLayoutERKNS0_7ProgramEPSt6vectorIiSaIiEE.exit: ; preds = %48, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i
@@ -12170,7 +12167,6 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i:             ; preds = %33, %39, %37, %35
   %45 = sub i64 %43, %44
   %46 = ashr exact i64 %45, 3
   %47 = load ptr, ptr %12, align 8, !tbaa !101
-  %umax.i = call i64 @llvm.umax.i64(i64 %46, i64 1)
   br label %48
 
 48:                                               ; preds = %48, %.lr.ph.i
@@ -12185,7 +12181,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i:             ; preds = %33, %39, %37, %35
   store i32 %.015.i, ptr %54, align 4, !tbaa !56
   %55 = add nsw i32 %53, %.015.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %umax.i
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %46
   br i1 %exitcond.not.i, label %_ZN5ceres8internal16ProgramEvaluatorINS0_23ScratchEvaluatePreparerENS0_34DynamicCompressedRowJacobianWriterENS0_37DynamicCompressedRowJacobianFinalizerEE19BuildResidualLayoutERKNS0_7ProgramEPSt6vectorIiSaIiEE.exit, label %48, !llvm.loop !497
 
 _ZN5ceres8internal16ProgramEvaluatorINS0_23ScratchEvaluatePreparerENS0_34DynamicCompressedRowJacobianWriterENS0_37DynamicCompressedRowJacobianFinalizerEE19BuildResidualLayoutERKNS0_7ProgramEPSt6vectorIiSaIiEE.exit: ; preds = %48, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i

@@ -54730,7 +54730,6 @@ define linkonce_odr void @_ZNK7xgboost13JsonGenerator11CategoricalB5cxx11ERKNS_7
   %29 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %30 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %31 = add nsw i64 %28, -1
-  %umax = call i64 @llvm.umax.i64(i64 %28, i64 1)
   br label %37
 
 ._crit_edge:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit30
@@ -54977,7 +54976,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit33: ; preds = %_ZN
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit30: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i27, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %124 = add nuw i64 %.081, 1
-  %exitcond.not = icmp eq i64 %124, %umax
+  %exitcond.not = icmp eq i64 %124, %28
   br i1 %exitcond.not, label %._crit_edge, label %37, !llvm.loop !989
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i

@@ -23569,7 +23569,6 @@ _ZNK5Eigen18TriangularViewImplIKNS_5BlockIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EE
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %143 = load ptr, ptr %142, align 8, !tbaa !122
   %144 = load ptr, ptr %2, align 8, !tbaa !13, !noalias !983
-  %umax = call i64 @llvm.umax.i64(i64 %42, i64 1)
   br label %150
 
 .preheader:                                       ; preds = %150
@@ -23598,7 +23597,7 @@ _ZNK5Eigen18TriangularViewImplIKNS_5BlockIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EE
   %156 = load double, ptr %151, align 8, !tbaa !19
   store double %156, ptr %155, align 8, !tbaa !19
   %157 = add nuw nsw i64 %.024111, 1
-  %exitcond.not = icmp eq i64 %157, %umax
+  %exitcond.not = icmp eq i64 %157, %42
   br i1 %exitcond.not, label %.preheader, label %150, !llvm.loop !989
 
 ._crit_edge:                                      ; preds = %159, %.preheader
@@ -24425,9 +24424,6 @@ declare double @llvm.sqrt.f64(double) #26
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #29
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #26
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

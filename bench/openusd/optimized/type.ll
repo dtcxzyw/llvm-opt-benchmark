@@ -7148,7 +7148,6 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__6TfType9_TypeInfo
 .lr.ph:                                           ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
-  %umax = tail call i64 @llvm.umax.i64(i64 %11, i64 1)
   br label %14
 
 14:                                               ; preds = %.lr.ph, %_ZNKSt9type_infoeqERKS_.exit.thread12
@@ -7182,7 +7181,7 @@ _ZNKSt9type_infoeqERKS_.exit.thread:              ; preds = %14, %_ZNKSt9type_in
 
 _ZNKSt9type_infoeqERKS_.exit.thread12:            ; preds = %20, %_ZNKSt9type_infoeqERKS_.exit
   %29 = add nuw i64 %.027, 1
-  %exitcond.not = icmp eq i64 %29, %umax
+  %exitcond.not = icmp eq i64 %29, %11
   br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !58
 
 ._crit_edge:                                      ; preds = %_ZNKSt9type_infoeqERKS_.exit.thread12
@@ -7332,8 +7331,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSpinRWMutex14TryAcquireReadEv.exit.i.i.
 
 _ZN32pxrInternal_v0_24__pxrReserved__12TfBigRWMutex10ScopedLock7AcquireEb.exit: ; preds = %26, %33
   store i32 %22, ptr %18, align 8
-  %storemerge71 = load i64, ptr %0, align 8
-  %34 = inttoptr i64 %storemerge71 to ptr
+  %storemerge70 = load i64, ptr %0, align 8
+  %34 = inttoptr i64 %storemerge70 to ptr
   %35 = icmp eq ptr %1, %34
   br i1 %35, label %_ZN32pxrInternal_v0_24__pxrReserved__6TfType9_TypeInfo11GetCastFuncERKSt9type_info.exit.thread, label %.lr.ph
 
@@ -7354,7 +7353,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12TfBigRWMutex10ScopedLock7AcquireEb.exit: 
 
 .lr.ph:                                           ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12TfBigRWMutex10ScopedLock7AcquireEb.exit, %83
   %37 = phi ptr [ %85, %83 ], [ %34, %_ZN32pxrInternal_v0_24__pxrReserved__12TfBigRWMutex10ScopedLock7AcquireEb.exit ]
-  %.01772 = phi ptr [ %82, %83 ], [ %2, %_ZN32pxrInternal_v0_24__pxrReserved__12TfBigRWMutex10ScopedLock7AcquireEb.exit ]
+  %.01771 = phi ptr [ %82, %83 ], [ %2, %_ZN32pxrInternal_v0_24__pxrReserved__12TfBigRWMutex10ScopedLock7AcquireEb.exit ]
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 64
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 72
   %40 = load ptr, ptr %39, align 8
@@ -7368,9 +7367,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__12TfBigRWMutex10ScopedLock7AcquireEb.exit: 
 .preheader:                                       ; preds = %.lr.ph
   %46 = getelementptr inbounds nuw i8, ptr %37, i64 72
   %.not = icmp eq ptr %40, %41
-  br i1 %.not, label %_ZN32pxrInternal_v0_24__pxrReserved__6TfType9_TypeInfo11GetCastFuncERKSt9type_info.exit.threadthread-pre-split, label %.lr.ph76
+  br i1 %.not, label %_ZN32pxrInternal_v0_24__pxrReserved__6TfType9_TypeInfo11GetCastFuncERKSt9type_info.exit.threadthread-pre-split, label %.lr.ph75
 
-.lr.ph76:                                         ; preds = %.preheader
+.lr.ph75:                                         ; preds = %.preheader
   %47 = getelementptr inbounds nuw i8, ptr %37, i64 248
   %48 = getelementptr inbounds nuw i8, ptr %37, i64 256
   br label %87
@@ -7396,7 +7395,6 @@ _ZN32pxrInternal_v0_24__pxrReserved__12TfBigRWMutex10ScopedLock7AcquireEb.exit: 
   %62 = ashr exact i64 %61, 4
   %63 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %64 = load ptr, ptr %63, align 8
-  %umax.i = call i64 @llvm.umax.i64(i64 %62, i64 1)
   br label %65
 
 65:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17TfSafeTypeCompareERKSt9type_infoS2_.exit.thread8.i, %.lr.ph.i
@@ -7424,13 +7422,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__17TfSafeTypeCompareERKSt9type_infoS2_.exit.
 
 _ZN32pxrInternal_v0_24__pxrReserved__17TfSafeTypeCompareERKSt9type_infoS2_.exit.thread8.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17TfSafeTypeCompareERKSt9type_infoS2_.exit.i, %71
   %78 = add nuw i64 %.010.i, 1
-  %exitcond.not.i = icmp eq i64 %78, %umax.i
+  %exitcond.not.i = icmp eq i64 %78, %62
   br i1 %exitcond.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__6TfType9_TypeInfo11GetCastFuncERKSt9type_info.exit.threadthread-pre-split, label %65, !llvm.loop !64
 
 79:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17TfSafeTypeCompareERKSt9type_infoS2_.exit.i, %65
   %80 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %81 = load ptr, ptr %80, align 8
-  %82 = invoke noundef ptr %81(ptr noundef %.01772, i1 noundef zeroext true)
+  %82 = invoke noundef ptr %81(ptr noundef %.01771, i1 noundef zeroext true)
           to label %83 unwind label %.loopexit.split-lp
 
 83:                                               ; preds = %79
@@ -7440,17 +7438,17 @@ _ZN32pxrInternal_v0_24__pxrReserved__17TfSafeTypeCompareERKSt9type_infoS2_.exit.
   %86 = icmp eq ptr %1, %85
   br i1 %86, label %_ZN32pxrInternal_v0_24__pxrReserved__6TfType9_TypeInfo11GetCastFuncERKSt9type_info.exit.threadthread-pre-split, label %.lr.ph, !llvm.loop !65
 
-87:                                               ; preds = %.lr.ph76, %_ZN32pxrInternal_v0_24__pxrReserved__6TfType9_TypeInfo11GetCastFuncERKSt9type_info.exit38.thread
-  %88 = phi ptr [ %41, %.lr.ph76 ], [ %128, %_ZN32pxrInternal_v0_24__pxrReserved__6TfType9_TypeInfo11GetCastFuncERKSt9type_info.exit38.thread ]
-  %.01875 = phi i64 [ 0, %.lr.ph76 ], [ %126, %_ZN32pxrInternal_v0_24__pxrReserved__6TfType9_TypeInfo11GetCastFuncERKSt9type_info.exit38.thread ]
-  %89 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfType", ptr %88, i64 %.01875
+87:                                               ; preds = %.lr.ph75, %_ZN32pxrInternal_v0_24__pxrReserved__6TfType9_TypeInfo11GetCastFuncERKSt9type_info.exit37.thread
+  %88 = phi ptr [ %41, %.lr.ph75 ], [ %128, %_ZN32pxrInternal_v0_24__pxrReserved__6TfType9_TypeInfo11GetCastFuncERKSt9type_info.exit37.thread ]
+  %.01874 = phi i64 [ 0, %.lr.ph75 ], [ %126, %_ZN32pxrInternal_v0_24__pxrReserved__6TfType9_TypeInfo11GetCastFuncERKSt9type_info.exit37.thread ]
+  %89 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfType", ptr %88, i64 %.01874
   %90 = load ptr, ptr %89, align 8
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 48
   %92 = load atomic i64, ptr %91 seq_cst, align 8
   %93 = load ptr, ptr %48, align 8
   %94 = load ptr, ptr %47, align 8
   %.not.i27 = icmp eq ptr %93, %94
-  br i1 %.not.i27, label %_ZN32pxrInternal_v0_24__pxrReserved__6TfType9_TypeInfo11GetCastFuncERKSt9type_info.exit38.thread, label %.lr.ph.i28
+  br i1 %.not.i27, label %_ZN32pxrInternal_v0_24__pxrReserved__6TfType9_TypeInfo11GetCastFuncERKSt9type_info.exit37.thread, label %.lr.ph.i28
 
 .lr.ph.i28:                                       ; preds = %87
   %.not.i26 = icmp eq i64 %92, 0
@@ -7462,12 +7460,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__17TfSafeTypeCompareERKSt9type_infoS2_.exit.
   %100 = ashr exact i64 %99, 4
   %101 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %102 = load ptr, ptr %101, align 8
-  %umax.i29 = call i64 @llvm.umax.i64(i64 %100, i64 1)
   br label %103
 
-103:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17TfSafeTypeCompareERKSt9type_infoS2_.exit.thread8.i34, %.lr.ph.i28
-  %.010.i30 = phi i64 [ 0, %.lr.ph.i28 ], [ %116, %_ZN32pxrInternal_v0_24__pxrReserved__17TfSafeTypeCompareERKSt9type_infoS2_.exit.thread8.i34 ]
-  %104 = getelementptr inbounds %"struct.std::pair.263", ptr %94, i64 %.010.i30
+103:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17TfSafeTypeCompareERKSt9type_infoS2_.exit.thread8.i33, %.lr.ph.i28
+  %.010.i29 = phi i64 [ 0, %.lr.ph.i28 ], [ %116, %_ZN32pxrInternal_v0_24__pxrReserved__17TfSafeTypeCompareERKSt9type_infoS2_.exit.thread8.i33 ]
+  %104 = getelementptr inbounds %"struct.std::pair.263", ptr %94, i64 %.010.i29
   %105 = load ptr, ptr %104, align 8
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
   %107 = load ptr, ptr %106, align 8
@@ -7476,41 +7473,41 @@ _ZN32pxrInternal_v0_24__pxrReserved__17TfSafeTypeCompareERKSt9type_infoS2_.exit.
 
 109:                                              ; preds = %103
   %110 = load i8, ptr %102, align 1
-  %.not.i.i.i31 = icmp eq i8 %110, 42
-  br i1 %.not.i.i.i31, label %_ZN32pxrInternal_v0_24__pxrReserved__17TfSafeTypeCompareERKSt9type_infoS2_.exit.thread8.i34, label %_ZN32pxrInternal_v0_24__pxrReserved__17TfSafeTypeCompareERKSt9type_infoS2_.exit.i32
+  %.not.i.i.i30 = icmp eq i8 %110, 42
+  br i1 %.not.i.i.i30, label %_ZN32pxrInternal_v0_24__pxrReserved__17TfSafeTypeCompareERKSt9type_infoS2_.exit.thread8.i33, label %_ZN32pxrInternal_v0_24__pxrReserved__17TfSafeTypeCompareERKSt9type_infoS2_.exit.i31
 
-_ZN32pxrInternal_v0_24__pxrReserved__17TfSafeTypeCompareERKSt9type_infoS2_.exit.i32: ; preds = %109
+_ZN32pxrInternal_v0_24__pxrReserved__17TfSafeTypeCompareERKSt9type_infoS2_.exit.i31: ; preds = %109
   %111 = load i8, ptr %107, align 1
   %112 = icmp eq i8 %111, 42
-  %.idx.i.i.i.i33 = zext i1 %112 to i64
-  %113 = getelementptr inbounds nuw i8, ptr %107, i64 %.idx.i.i.i.i33
+  %.idx.i.i.i.i32 = zext i1 %112 to i64
+  %113 = getelementptr inbounds nuw i8, ptr %107, i64 %.idx.i.i.i.i32
   %114 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %102, ptr noundef nonnull dereferenceable(1) %113) #25
   %115 = icmp eq i32 %114, 0
-  br i1 %115, label %117, label %_ZN32pxrInternal_v0_24__pxrReserved__17TfSafeTypeCompareERKSt9type_infoS2_.exit.thread8.i34
+  br i1 %115, label %117, label %_ZN32pxrInternal_v0_24__pxrReserved__17TfSafeTypeCompareERKSt9type_infoS2_.exit.thread8.i33
 
-_ZN32pxrInternal_v0_24__pxrReserved__17TfSafeTypeCompareERKSt9type_infoS2_.exit.thread8.i34: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17TfSafeTypeCompareERKSt9type_infoS2_.exit.i32, %109
-  %116 = add nuw i64 %.010.i30, 1
-  %exitcond.not.i35 = icmp eq i64 %116, %umax.i29
-  br i1 %exitcond.not.i35, label %_ZN32pxrInternal_v0_24__pxrReserved__6TfType9_TypeInfo11GetCastFuncERKSt9type_info.exit38.thread, label %103, !llvm.loop !64
+_ZN32pxrInternal_v0_24__pxrReserved__17TfSafeTypeCompareERKSt9type_infoS2_.exit.thread8.i33: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17TfSafeTypeCompareERKSt9type_infoS2_.exit.i31, %109
+  %116 = add nuw i64 %.010.i29, 1
+  %exitcond.not.i34 = icmp eq i64 %116, %100
+  br i1 %exitcond.not.i34, label %_ZN32pxrInternal_v0_24__pxrReserved__6TfType9_TypeInfo11GetCastFuncERKSt9type_info.exit37.thread, label %103, !llvm.loop !64
 
-117:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17TfSafeTypeCompareERKSt9type_infoS2_.exit.i32, %103
+117:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17TfSafeTypeCompareERKSt9type_infoS2_.exit.i31, %103
   %118 = getelementptr inbounds nuw i8, ptr %104, i64 8
   %119 = load ptr, ptr %118, align 8
-  %120 = invoke noundef ptr %119(ptr noundef %.01772, i1 noundef zeroext true)
+  %120 = invoke noundef ptr %119(ptr noundef %.01771, i1 noundef zeroext true)
           to label %121 unwind label %.loopexit
 
 121:                                              ; preds = %117
   %122 = load ptr, ptr %38, align 8
-  %123 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfType", ptr %122, i64 %.01875
+  %123 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfType", ptr %122, i64 %.01874
   %124 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__6TfType14CastToAncestorES0_Pv(ptr noundef nonnull align 8 dereferenceable(8) %123, ptr %1, ptr noundef %120)
           to label %125 unwind label %.loopexit
 
 125:                                              ; preds = %121
   %.not22 = icmp eq ptr %124, null
-  br i1 %.not22, label %_ZN32pxrInternal_v0_24__pxrReserved__6TfType9_TypeInfo11GetCastFuncERKSt9type_info.exit38.thread, label %_ZN32pxrInternal_v0_24__pxrReserved__6TfType9_TypeInfo11GetCastFuncERKSt9type_info.exit.threadthread-pre-split
+  br i1 %.not22, label %_ZN32pxrInternal_v0_24__pxrReserved__6TfType9_TypeInfo11GetCastFuncERKSt9type_info.exit37.thread, label %_ZN32pxrInternal_v0_24__pxrReserved__6TfType9_TypeInfo11GetCastFuncERKSt9type_info.exit.threadthread-pre-split
 
-_ZN32pxrInternal_v0_24__pxrReserved__6TfType9_TypeInfo11GetCastFuncERKSt9type_info.exit38.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17TfSafeTypeCompareERKSt9type_infoS2_.exit.thread8.i34, %87, %125
-  %126 = add nuw i64 %.01875, 1
+_ZN32pxrInternal_v0_24__pxrReserved__6TfType9_TypeInfo11GetCastFuncERKSt9type_info.exit37.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17TfSafeTypeCompareERKSt9type_infoS2_.exit.thread8.i33, %87, %125
+  %126 = add nuw i64 %.01874, 1
   %127 = load ptr, ptr %46, align 8
   %128 = load ptr, ptr %38, align 8
   %129 = ptrtoint ptr %127 to i64
@@ -7520,8 +7517,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__6TfType9_TypeInfo11GetCastFuncERKSt9type_in
   %133 = icmp ult i64 %126, %132
   br i1 %133, label %87, label %_ZN32pxrInternal_v0_24__pxrReserved__6TfType9_TypeInfo11GetCastFuncERKSt9type_info.exit.threadthread-pre-split, !llvm.loop !66
 
-_ZN32pxrInternal_v0_24__pxrReserved__6TfType9_TypeInfo11GetCastFuncERKSt9type_info.exit.threadthread-pre-split: ; preds = %49, %83, %_ZN32pxrInternal_v0_24__pxrReserved__17TfSafeTypeCompareERKSt9type_infoS2_.exit.thread8.i, %_ZN32pxrInternal_v0_24__pxrReserved__6TfType9_TypeInfo11GetCastFuncERKSt9type_info.exit38.thread, %125, %.preheader
-  %.1.ph = phi ptr [ null, %.preheader ], [ null, %_ZN32pxrInternal_v0_24__pxrReserved__6TfType9_TypeInfo11GetCastFuncERKSt9type_info.exit38.thread ], [ %124, %125 ], [ null, %_ZN32pxrInternal_v0_24__pxrReserved__17TfSafeTypeCompareERKSt9type_infoS2_.exit.thread8.i ], [ null, %49 ], [ %82, %83 ]
+_ZN32pxrInternal_v0_24__pxrReserved__6TfType9_TypeInfo11GetCastFuncERKSt9type_info.exit.threadthread-pre-split: ; preds = %49, %83, %_ZN32pxrInternal_v0_24__pxrReserved__17TfSafeTypeCompareERKSt9type_infoS2_.exit.thread8.i, %_ZN32pxrInternal_v0_24__pxrReserved__6TfType9_TypeInfo11GetCastFuncERKSt9type_info.exit37.thread, %125, %.preheader
+  %.1.ph = phi ptr [ null, %.preheader ], [ null, %_ZN32pxrInternal_v0_24__pxrReserved__6TfType9_TypeInfo11GetCastFuncERKSt9type_info.exit37.thread ], [ %124, %125 ], [ null, %_ZN32pxrInternal_v0_24__pxrReserved__17TfSafeTypeCompareERKSt9type_infoS2_.exit.thread8.i ], [ null, %49 ], [ %82, %83 ]
   %.pr = load i32, ptr %18, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__6TfType9_TypeInfo11GetCastFuncERKSt9type_info.exit.thread
 
@@ -7692,7 +7689,6 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSpinRWMutex14TryAcquireReadEv.exit.i.i.
   %59 = ashr exact i64 %58, 4
   %60 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %61 = load ptr, ptr %60, align 8
-  %umax.i = call i64 @llvm.umax.i64(i64 %59, i64 1)
   br label %62
 
 62:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17TfSafeTypeCompareERKSt9type_infoS2_.exit.thread8.i, %.lr.ph.i
@@ -7720,7 +7716,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17TfSafeTypeCompareERKSt9type_infoS2_.exit.
 
 _ZN32pxrInternal_v0_24__pxrReserved__17TfSafeTypeCompareERKSt9type_infoS2_.exit.thread8.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17TfSafeTypeCompareERKSt9type_infoS2_.exit.i, %68
   %75 = add nuw i64 %.010.i, 1
-  %exitcond.not.i = icmp eq i64 %75, %umax.i
+  %exitcond.not.i = icmp eq i64 %75, %59
   br i1 %exitcond.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__6TfType9_TypeInfo11GetCastFuncERKSt9type_info.exit.thread, label %62, !llvm.loop !64
 
 76:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17TfSafeTypeCompareERKSt9type_infoS2_.exit.i, %62

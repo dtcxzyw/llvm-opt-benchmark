@@ -5221,7 +5221,6 @@ do.body.lr.ph:                                    ; preds = %entry
   %sub.ptr.rhs.cast.i74 = ptrtoint ptr %.pre227 to i64
   %sub.ptr.sub.i75 = sub i64 %sub.ptr.lhs.cast.i73, %sub.ptr.rhs.cast.i74
   %sub.ptr.div.i76 = ashr exact i64 %sub.ptr.sub.i75, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i40, i64 1)
   br label %do.body
 
 for.cond.cleanup:                                 ; preds = %entry
@@ -5636,7 +5635,7 @@ ehcleanup104:                                     ; preds = %ehcleanup103, %lpad
 
 for.inc:                                          ; preds = %do.body49
   %inc = add nuw i64 %j.0222, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i40
   br i1 %exitcond.not, label %if.then.i, label %do.body, !llvm.loop !72
 
 invoke.cont112:                                   ; preds = %for.cond.cleanup, %if.then.i.invoke.cont112_crit_edge
@@ -6268,11 +6267,9 @@ for.body.lr.ph:                                   ; preds = %entry
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
   %2 = load ptr, ptr %numberCashFlowsThisStep, align 8, !tbaa !35
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
-  %3 = shl nuw i64 %umax, 3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %2, i8 0, i64 %3, i1 false), !tbaa !40
+  %3 = ashr exact i64 %sub.ptr.sub.i, 1
+  tail call void @llvm.memset.p0.i64(ptr align 8 %2, i8 0, i64 %3, i1 false), !tbaa !40
   br label %for.cond4.preheader
 
 for.cond4.preheader:                              ; preds = %for.body.lr.ph, %entry

@@ -1414,7 +1414,6 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrRegAllocX647restoreERNS0_6IrInstE
   %18 = ptrtoint ptr %16 to i64
   %19 = sub i64 %17, %18
   %20 = ashr exact i64 %19, 4
-  %umax = tail call i64 @llvm.umax.i64(i64 %20, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %144
@@ -1659,7 +1658,7 @@ _ZN4Luau7CodeGen3X6413IrRegAllocX6417getRestoreAddressERKNS0_6IrInstENS0_4IrOpE.
 
 144:                                              ; preds = %.lr.ph
   %145 = add nuw i64 %.0111, 1
-  %exitcond.not = icmp eq i64 %145, %umax
+  %exitcond.not = icmp eq i64 %145, %20
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !127
 
 .loopexit:                                        ; preds = %144, %3, %134

@@ -8783,12 +8783,11 @@ _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit687: ; preds = %_ZN4cvc58internal
   %793 = sub i64 %791, %792
   %794 = ashr exact i64 %793, 3
   %795 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %umax = call i64 @llvm.umax.i64(i64 %794, i64 1)
   br label %798
 
 796:                                              ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit694
   %797 = add nuw i64 %.0841002, 1
-  %exitcond1009.not = icmp eq i64 %797, %umax
+  %exitcond1009.not = icmp eq i64 %797, %794
   br i1 %exitcond1009.not, label %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit719, label %798, !llvm.loop !476
 
 798:                                              ; preds = %.lr.ph1003, %796

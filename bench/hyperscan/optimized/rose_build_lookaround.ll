@@ -3921,7 +3921,6 @@ _ZNSt6vectorISt3mapIiN3ue29CharReachESt4lessIiESaISt4pairIKiS2_EEESaIS9_EE12empl
 
 .lr.ph515.i:                                      ; preds = %.preheader375.i
   %162 = sub i32 0, %.0159525.i
-  %umax.i = call i64 @llvm.umax.i64(i64 %159, i64 1)
   br label %.outer
 
 .outer:                                           ; preds = %.loopexit.i.thread, %.lr.ph515.i
@@ -4210,12 +4209,12 @@ _ZNSt16allocator_traitsISaISt3mapIiN3ue29CharReachESt4lessIiESaISt4pairIKiS2_EEE
 
 .loopexit.i:                                      ; preds = %.preheader.i, %.loopexit374.i, %163
   %256 = add nuw i64 %.0160511.i, 1
-  %exitcond.not.i = icmp eq i64 %256, %umax.i
+  %exitcond.not.i = icmp eq i64 %256, %159
   br i1 %exitcond.not.i, label %._crit_edge516.i, label %163, !llvm.loop !212
 
 .loopexit.i.thread:                               ; preds = %177
   %257 = add nuw i64 %.0160511.i, 1
-  %exitcond.not.i77 = icmp eq i64 %257, %umax.i
+  %exitcond.not.i77 = icmp eq i64 %257, %159
   br i1 %exitcond.not.i77, label %._crit_edge516.i.thread, label %.outer, !llvm.loop !212
 
 ._crit_edge516.i:                                 ; preds = %.loopexit.i

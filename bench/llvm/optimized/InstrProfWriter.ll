@@ -5664,7 +5664,6 @@ _ZN4llvm15SmallVectorImplISt4pairINS_9StringRefEPKNS_13SmallDenseMapImNS_15Instr
 
 .lr.ph280:                                        ; preds = %198
   %219 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %umax = call i32 @llvm.umax.i32(i32 %218, i32 1)
   br label %223
 
 ._crit_edge281:                                   ; preds = %223, %198
@@ -5682,7 +5681,7 @@ _ZN4llvm15SmallVectorImplISt4pairINS_9StringRefEPKNS_13SmallDenseMapImNS_15Instr
   %225 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %224, ptr noundef nonnull %52, i64 noundef 8) #25
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %52)
   %226 = add nuw nsw i32 %.093278, 1
-  %exitcond.not = icmp eq i32 %226, %umax
+  %exitcond.not = icmp eq i32 %226, %218
   br i1 %exitcond.not, label %._crit_edge281, label %223, !llvm.loop !362
 
 227:                                              ; preds = %._crit_edge281
@@ -5703,7 +5702,6 @@ _ZN4llvm15SmallVectorImplISt4pairINS_9StringRefEPKNS_13SmallDenseMapImNS_15Instr
 
 .lr.ph285:                                        ; preds = %227
   %241 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %umax319 = call i32 @llvm.umax.i32(i32 %218, i32 1)
   br label %242
 
 242:                                              ; preds = %.lr.ph285, %242
@@ -5714,7 +5712,7 @@ _ZN4llvm15SmallVectorImplISt4pairINS_9StringRefEPKNS_13SmallDenseMapImNS_15Instr
   %244 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %243, ptr noundef nonnull %51, i64 noundef 8) #25
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %51)
   %245 = add nuw nsw i32 %.096283, 1
-  %exitcond320.not = icmp eq i32 %245, %umax319
+  %exitcond320.not = icmp eq i32 %245, %218
   br i1 %exitcond320.not, label %.loopexit253, label %242, !llvm.loop !363
 
 .loopexit253:                                     ; preds = %242, %227, %._crit_edge281

@@ -734,14 +734,10 @@ _ZNSt6vectorIS_IbSaIbEESaIS1_EE6resizeEm.exit:    ; preds = %30, %32, %_ZSt8_Des
 .lr.ph34:                                         ; preds = %.preheader
   %50 = load ptr, ptr %0, align 8
   %51 = load ptr, ptr %1, align 8
-  br i1 %.not41, label %._crit_edge35, label %.lr.ph32.us.preheader
+  br i1 %.not41, label %._crit_edge35, label %.lr.ph32.us
 
-.lr.ph32.us.preheader:                            ; preds = %.lr.ph34
-  %umax = tail call i64 @llvm.umax.i64(i64 %9, i64 1)
-  br label %.lr.ph32.us
-
-.lr.ph32.us:                                      ; preds = %.lr.ph32.us.preheader, %._crit_edge.us
-  %.02433.us = phi i64 [ %78, %._crit_edge.us ], [ 0, %.lr.ph32.us.preheader ]
+.lr.ph32.us:                                      ; preds = %.lr.ph34, %._crit_edge.us
+  %.02433.us = phi i64 [ %78, %._crit_edge.us ], [ 0, %.lr.ph34 ]
   %52 = xor i64 %.02433.us, -1
   %53 = add i64 %9, %52
   %54 = getelementptr inbounds nuw %"class.std::vector.15", ptr %50, i64 %.02433.us
@@ -783,7 +779,7 @@ _ZNSt14_Bit_referenceaSEb.exit.us:                ; preds = %.lr.ph32.us, %_ZNSt
 
 ._crit_edge.us:                                   ; preds = %_ZNSt14_Bit_referenceaSEb.exit.us
   %78 = add nuw i64 %.02433.us, 1
-  %exitcond.not = icmp eq i64 %78, %umax
+  %exitcond.not = icmp eq i64 %78, %9
   br i1 %exitcond.not, label %._crit_edge35, label %.lr.ph32.us, !llvm.loop !42
 
 79:                                               ; preds = %.lr.ph, %_ZNSt6vectorIbSaIbEE6resizeEmb.exit

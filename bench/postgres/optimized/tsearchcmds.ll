@@ -2380,8 +2380,7 @@ list_length.exit168.i:                            ; preds = %72, %.thread.i
 
 .lr.ph32.i:                                       ; preds = %132
   %138 = getelementptr inbounds nuw i8, ptr %34, i64 64
-  %umax.i = call i32 @llvm.umax.i32(i32 %134, i32 1)
-  %wide.trip.count.i = zext nneg i32 %umax.i to i64
+  %wide.trip.count.i = zext nneg i32 %134 to i64
   br label %192
 
 .preheader14.i:                                   ; preds = %192, %132
@@ -2499,8 +2498,7 @@ list_length.exit168.i:                            ; preds = %72, %.thread.i
   br i1 %.not.i30, label %MakeConfigurationMapping.exit, label %.lr.ph57.preheader.i
 
 .lr.ph57.preheader.i:                             ; preds = %._crit_edge41.thread.i
-  %umax89.i = call i32 @llvm.umax.i32(i32 %134, i32 1)
-  %wide.trip.count90.i = zext nneg i32 %umax89.i to i64
+  %wide.trip.count90.i = zext nneg i32 %134 to i64
   br label %.lr.ph57.i
 
 .lr.ph57.i:                                       ; preds = %.lr.ph57.i, %.lr.ph57.preheader.i
@@ -2958,9 +2956,6 @@ declare void @llvm.assume(i1 noundef) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #9
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #9
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

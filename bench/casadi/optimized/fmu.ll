@@ -4780,7 +4780,6 @@ define noundef range(i64 0, -1) i64 @_ZNK6casadi11FmuInternal8index_inERKNSt7__c
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load i64, ptr %19, align 8, !tbaa !15
   %21 = load ptr, ptr %1, align 8
-  %umax = tail call i64 @llvm.umax.i64(i64 %18, i64 1)
   %22 = icmp eq i64 %20, 0
   br label %23
 
@@ -4803,7 +4802,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread47: ; preds = %23, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
   %31 = add nuw i64 %.02467, 1
-  %exitcond.not = icmp eq i64 %31, %umax
+  %exitcond.not = icmp eq i64 %31, %18
   br i1 %exitcond.not, label %._crit_edge, label %23, !llvm.loop !55
 
 ._crit_edge:                                      ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread47, %2
@@ -5549,7 +5548,6 @@ define noundef range(i64 0, -1) i64 @_ZNK6casadi11FmuInternal9index_outERKNSt7__
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load i64, ptr %19, align 8, !tbaa !15
   %21 = load ptr, ptr %1, align 8
-  %umax = tail call i64 @llvm.umax.i64(i64 %18, i64 1)
   %22 = icmp eq i64 %20, 0
   br label %23
 
@@ -5572,7 +5570,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread47: ; preds = %23, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
   %31 = add nuw i64 %.02467, 1
-  %exitcond.not = icmp eq i64 %31, %umax
+  %exitcond.not = icmp eq i64 %31, %18
   br i1 %exitcond.not, label %._crit_edge, label %23, !llvm.loop !59
 
 ._crit_edge:                                      ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread47, %2
@@ -34645,7 +34643,6 @@ define noundef range(i32 0, 2) i32 @_ZNK6casadi11FmuInternal7eval_fdEPNS_9FmuMem
   %103 = load ptr, ptr %76, align 8, !tbaa !54
   %104 = load ptr, ptr %102, align 8, !tbaa !69
   %105 = load ptr, ptr %93, align 8, !tbaa !69
-  %umax = tail call i64 @llvm.umax.i64(i64 %83, i64 1)
   br label %254
 
 .noexc.i:                                         ; preds = %85
@@ -34941,7 +34938,6 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit485:           ; preds = %232, %239
   %251 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %252 = load ptr, ptr %251, align 8
   %253 = fneg double %245
-  %umax1161 = tail call i64 @llvm.umax.i64(i64 %75, i64 1)
   br label %271
 
 254:                                              ; preds = %.lr.ph, %254
@@ -34955,7 +34951,7 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit485:           ; preds = %232, %239
   %261 = fdiv double %260, %258
   store double %261, ptr %259, align 8, !tbaa !70
   %262 = add nuw i64 %.03371055, 1
-  %exitcond.not = icmp eq i64 %262, %umax
+  %exitcond.not = icmp eq i64 %262, %83
   br i1 %exitcond.not, label %._crit_edge, label %254, !llvm.loop !349
 
 ._crit_edge1059:                                  ; preds = %548
@@ -34971,7 +34967,6 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit485:           ; preds = %232, %239
   %268 = load ptr, ptr %267, align 8
   %269 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %270 = load ptr, ptr %269, align 8
-  %umax1163 = tail call i64 @llvm.umax.i64(i64 %75, i64 1)
   br label %550
 
 271:                                              ; preds = %.lr.ph1058, %548
@@ -35711,7 +35706,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit542: ; preds = %_Z
 548:                                              ; preds = %537, %286
   %.1339 = phi i64 [ %.03381057, %286 ], [ %spec.select, %537 ]
   %549 = add nuw i64 %.03411056, 1
-  %exitcond1162.not = icmp eq i64 %549, %umax1161
+  %exitcond1162.not = icmp eq i64 %549, %75
   br i1 %exitcond1162.not, label %._crit_edge1059, label %271, !llvm.loop !353
 
 550:                                              ; preds = %.lr.ph1061, %699
@@ -36104,7 +36099,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit577: ; preds = %_Z
 
 699:                                              ; preds = %550, %697
   %700 = add nuw i64 %.03641060, 1
-  %exitcond1164.not = icmp eq i64 %700, %umax1163
+  %exitcond1164.not = icmp eq i64 %700, %75
   br i1 %exitcond1164.not, label %.loopexit961, label %550, !llvm.loop !357
 
 .loopexit961:                                     ; preds = %699, %_ZNSt6vectorIbSaIbEE6resizeEmb.exit485, %._crit_edge1059
@@ -36125,7 +36120,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit577: ; preds = %_Z
   %709 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %710 = icmp sgt i64 %83, 0
   %umax1165 = tail call i64 @llvm.umax.i64(i64 %75, i64 1)
-  %umax1169 = tail call i64 @llvm.umax.i64(i64 %83, i64 1)
   br label %711
 
 711:                                              ; preds = %.lr.ph1077, %.loopexit958
@@ -36936,7 +36930,7 @@ _ZNSt6vectorIbSaIbEE2atEm.exit:                   ; preds = %._crit_edge1068
 
 1035:                                             ; preds = %1033, %1027
   %1036 = add nuw i64 %.03631072, 1
-  %exitcond1170.not = icmp eq i64 %1036, %umax1169
+  %exitcond1170.not = icmp eq i64 %1036, %83
   br i1 %exitcond1170.not, label %.loopexit958, label %996, !llvm.loop !364
 
 .loopexit958:                                     ; preds = %1035, %.lr.ph.i, %807, %.preheader16.i, %.preheader.i, %.lr.ph23.preheader.i

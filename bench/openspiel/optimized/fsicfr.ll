@@ -776,7 +776,6 @@ define void @_ZN10open_spiel10algorithms10FSICFRNode19ApplyRegretMatchingEv(ptr 
 .lr.ph:                                           ; preds = %1
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %21 = load ptr, ptr %20, align 8
-  %umax = tail call i64 @llvm.umax.i64(i64 %19, i64 1)
   br label %63
 
 .lr.ph36:                                         ; preds = %63
@@ -859,7 +858,7 @@ define void @_ZN10open_spiel10algorithms10FSICFRNode19ApplyRegretMatchingEv(ptr 
   %.sroa.speculated25 = select i1 %66, double %65, double 0.000000e+00
   %67 = fadd double %.01930, %.sroa.speculated25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %19
   br i1 %exitcond.not, label %.lr.ph36, label %63, !llvm.loop !10
 
 68:                                               ; preds = %93

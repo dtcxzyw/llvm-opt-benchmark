@@ -11410,7 +11410,6 @@ _ZNSt6vectorISt8weak_ptrI4NodeESaIS2_EE6resizeEm.exit: ; preds = %121, %123, %12
 .lr.ph:                                           ; preds = %_ZNSt6vectorISt8weak_ptrI4NodeESaIS2_EE6resizeEm.exit
   %143 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %144 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %umax = call i64 @llvm.umax.i64(i64 %28, i64 1)
   br label %157
 
 ._crit_edge:                                      ; preds = %_ZNSt10__weak_ptrI4NodeLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %_ZNSt6vectorISt8weak_ptrI4NodeESaIS2_EE6resizeEm.exit
@@ -11645,7 +11644,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %222, %219
 _ZNSt10__weak_ptrI4NodeLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZN8DataNodeD2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %225
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #37
   %229 = add nuw i64 %.040111, 1
-  %exitcond.not = icmp eq i64 %229, %umax
+  %exitcond.not = icmp eq i64 %229, %28
   br i1 %exitcond.not, label %._crit_edge, label %157, !llvm.loop !449
 
 230:                                              ; preds = %157
@@ -15041,7 +15040,6 @@ _ZNSt10shared_ptrI4NodeEC2ERKS1_.exit:            ; preds = %122, %129, %132
   %139 = ptrtoint ptr %137 to i64
   %140 = sub i64 %138, %139
   %141 = ashr exact i64 %140, 4
-  %umax = tail call i64 @llvm.umax.i64(i64 %141, i64 1)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %241, %_ZNSt10shared_ptrI4NodeEC2ERKS1_.exit
@@ -15353,7 +15351,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit204: ; preds = %_Z
 
 241:                                              ; preds = %_ZNKSt10__weak_ptrI4NodeLN9__gnu_cxx12_Lock_policyE2EE7expiredEv.exit
   %242 = add nuw i64 %.0749, 1
-  %exitcond.not = icmp eq i64 %242, %umax
+  %exitcond.not = icmp eq i64 %242, %141
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !461
 
 .loopexit679.loopexit:                            ; preds = %_ZSt10_ConstructISt10shared_ptrI4NodeEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i

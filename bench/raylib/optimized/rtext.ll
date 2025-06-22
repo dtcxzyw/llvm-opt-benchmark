@@ -3810,16 +3810,11 @@ stbtt__find_table.exit336.thread.i.i:             ; preds = %717, %736, %stbtt__
   %830 = select i1 %829, i32 %4, i32 95
   %831 = icmp eq ptr %3, null
   %832 = zext nneg i32 %830 to i64
-  br i1 %831, label %833, label %..loopexit211_crit_edge
-
-..loopexit211_crit_edge:                          ; preds = %799
-  %.pre327 = zext nneg i32 %830 to i64
-  br label %.loopexit211
+  br i1 %831, label %833, label %.loopexit211
 
 833:                                              ; preds = %799
   %834 = shl nuw nsw i64 %832, 2
   %835 = tail call noalias ptr @malloc(i64 noundef %834) #47
-  %wide.trip.count = zext nneg i32 %830 to i64
   br label %836
 
 836:                                              ; preds = %833, %836
@@ -3829,12 +3824,11 @@ stbtt__find_table.exit336.thread.i.i:             ; preds = %717, %736, %stbtt__
   %839 = add i32 %838, 32
   store i32 %839, ptr %837, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %832
   br i1 %exitcond.not, label %.loopexit211, label %836
 
-.loopexit211:                                     ; preds = %836, %..loopexit211_crit_edge
-  %wide.trip.count324.pre-phi = phi i64 [ %.pre327, %..loopexit211_crit_edge ], [ %wide.trip.count, %836 ]
-  %.097 = phi ptr [ %3, %..loopexit211_crit_edge ], [ %835, %836 ]
+.loopexit211:                                     ; preds = %836, %799
+  %.097 = phi ptr [ %3, %799 ], [ %835, %836 ]
   %840 = tail call noalias ptr @calloc(i64 noundef %832, i64 noundef 40) #45
   %841 = fcmp oeq float %828, 0.000000e+00
   %842 = fneg float %828
@@ -7340,7 +7334,7 @@ stbtt_GetCodepointHMetrics.exit142:               ; preds = %2856
 
 .loopexit:                                        ; preds = %2896, %.preheader, %850, %2892
   %indvars.iv.next321 = add nuw nsw i64 %indvars.iv320, 1
-  %exitcond325.not = icmp eq i64 %indvars.iv.next321, %wide.trip.count324.pre-phi
+  %exitcond325.not = icmp eq i64 %indvars.iv.next321, %832
   br i1 %exitcond325.not, label %2900, label %850
 
 .thread:                                          ; preds = %stbtt__find_table.exit336.thread.i.i, %._crit_edge.i.i, %355, %stbtt__find_table.exit201.i.i, %stbtt__find_table.exit211.thread.i.i
@@ -7382,7 +7376,6 @@ define void @GenImageFontAtlas(ptr dead_on_unwind noalias writable writeonly sre
   %14 = shl nuw nsw i64 %13, 4
   %15 = tail call noalias ptr @malloc(i64 noundef %14) #47
   %16 = shl nsw i32 %5, 1
-  %wide.trip.count = zext nneg i32 %12 to i64
   br label %31
 
 17:                                               ; preds = %31
@@ -7410,7 +7403,7 @@ define void @GenImageFontAtlas(ptr dead_on_unwind noalias writable writeonly sre
   %34 = add i32 %.0193223, %16
   %35 = add i32 %34, %33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %13
   br i1 %exitcond.not, label %17, label %31
 
 36:                                               ; preds = %17
@@ -7534,7 +7527,7 @@ define void @GenImageFontAtlas(ptr dead_on_unwind noalias writable writeonly sre
   store float %86, ptr %87, align 4
   %88 = add nsw i32 %.1203, %51
   %indvars.iv.next279 = add nuw nsw i64 %indvars.iv278, 1
-  %exitcond283.not = icmp eq i64 %indvars.iv.next279, %wide.trip.count
+  %exitcond283.not = icmp eq i64 %indvars.iv.next279, %13
   %indvars.iv.next285 = add nuw nsw i64 %indvars.iv284, 1
   br i1 %exitcond283.not, label %.loopexit, label %47
 
@@ -7617,7 +7610,7 @@ stbrp_init_target.exit:                           ; preds = %.lr.ph.i, %89
   %128 = getelementptr inbounds nuw i8, ptr %118, i64 8
   store i32 %127, ptr %128, align 4
   %indvars.iv.next248 = add nuw nsw i64 %indvars.iv247, 1
-  %exitcond252.not = icmp eq i64 %indvars.iv.next248, %wide.trip.count
+  %exitcond252.not = icmp eq i64 %indvars.iv.next248, %13
   br i1 %exitcond252.not, label %114, label %117
 
 129:                                              ; preds = %.loopexit219
@@ -7709,7 +7702,7 @@ stbrp_init_target.exit:                           ; preds = %.lr.ph.i, %89
 
 .loopexit219:                                     ; preds = %._crit_edge.us, %.preheader217.lr.ph, %.preheader218, %172
   %indvars.iv.next264 = add nuw nsw i64 %indvars.iv263, 1
-  %exitcond267.not = icmp eq i64 %indvars.iv.next264, %wide.trip.count
+  %exitcond267.not = icmp eq i64 %indvars.iv.next264, %13
   br i1 %exitcond267.not, label %129, label %130
 
 .loopexit:                                        ; preds = %._crit_edge230, %.lr.ph, %.preheader, %38, %129

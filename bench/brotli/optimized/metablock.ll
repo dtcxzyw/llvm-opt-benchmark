@@ -1171,7 +1171,6 @@ BrotliBuildMetaBlockGreedyInternal.exit:          ; preds = %BlockSplitterAddSym
   store ptr %164, ptr %108, align 8, !tbaa !121
   %165 = getelementptr inbounds nuw i8, ptr %13, i64 56
   store ptr %164, ptr %165, align 8, !tbaa !122
-  %umax.i = tail call i64 @llvm.umax.i64(i64 range(i64 2, 1) %7, i64 1)
   br label %166
 
 166:                                              ; preds = %166, %163
@@ -1181,7 +1180,7 @@ BrotliBuildMetaBlockGreedyInternal.exit:          ; preds = %BlockSplitterAddSym
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1032) %167, i8 0, i64 1032, i1 false)
   store double 0x7FF0000000000000, ptr %168, align 8, !tbaa !58
   %169 = add nuw i64 %.0.i96.i, 1
-  %exitcond.not.i = icmp eq i64 %169, %umax.i
+  %exitcond.not.i = icmp eq i64 %169, %7
   br i1 %exitcond.not.i, label %170, label %166, !llvm.loop !60
 
 170:                                              ; preds = %166

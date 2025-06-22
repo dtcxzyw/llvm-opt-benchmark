@@ -7484,7 +7484,6 @@ _ZNSt6vectorIdSaIdEE7reserveEm.exit130:           ; preds = %if.end.i108, %_ZNSt
 
 for.body.lr.ph:                                   ; preds = %_ZNSt6vectorIdSaIdEE7reserveEm.exit130
   %pn.i.i = getelementptr inbounds nuw i8, ptr %softCall, i64 8
-  %umax = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %for.inc, %_ZNSt6vectorIdSaIdEE7reserveEm.exit130
@@ -8047,7 +8046,7 @@ ehcleanup109:                                     ; preds = %lpad102.loopexit, %
 
 for.inc:                                          ; preds = %_ZNK5boost10shared_ptrIN8QuantLib11CallabilityEEptEv.exit, %_ZN5boost10shared_ptrIN8QuantLib15SoftCallabilityEED2Ev.exit
   %inc = add nuw i64 %i.0323, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !173
 
 ehcleanup117:                                     ; preds = %ehcleanup109, %ehcleanup23

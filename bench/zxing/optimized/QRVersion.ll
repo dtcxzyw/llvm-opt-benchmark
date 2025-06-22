@@ -4517,7 +4517,6 @@ _ZN5ZXing6QRCode7Version10SymbolSizeEiNS0_4TypeE.exit: ; preds = %7, %10
   %29 = ashr exact i64 %28, 2
   %30 = add nsw i32 %.sroa.15.0.i, -3
   %31 = add nsw i32 %.sroa.15.0.i, -6
-  %umax88 = tail call i64 @llvm.umax.i64(i64 %29, i64 1)
   br label %36
 
 ._crit_edge85:                                    ; preds = %43, %21
@@ -4550,7 +4549,7 @@ _ZN5ZXing6QRCode7Version10SymbolSizeEiNS0_4TypeE.exit: ; preds = %7, %10
 
 43:                                               ; preds = %42
   %44 = add nuw i64 %.06382, 1
-  %exitcond89.not = icmp eq i64 %44, %umax88
+  %exitcond89.not = icmp eq i64 %44, %29
   br i1 %exitcond89.not, label %._crit_edge85, label %36, !llvm.loop !34
 
 45:                                               ; preds = %42, %41, %36
@@ -4679,7 +4678,6 @@ _ZN5ZXing9BitMatrix3setEiib.exit76:               ; preds = %71
   %106 = sub i64 %104, %105
   %107 = ashr exact i64 %106, 2
   %108 = add nsw i64 %107, -1
-  %umax = tail call i64 @llvm.umax.i64(i64 %107, i64 1)
   br label %112
 
 ._crit_edge:                                      ; preds = %119, %99
@@ -4704,7 +4702,7 @@ _ZN5ZXing9BitMatrix3setEiib.exit76:               ; preds = %71
 
 119:                                              ; preds = %130
   %120 = add nuw i64 %.05681, 1
-  %exitcond87.not = icmp eq i64 %120, %umax
+  %exitcond87.not = icmp eq i64 %120, %107
   br i1 %exitcond87.not, label %._crit_edge, label %112, !llvm.loop !45
 
 121:                                              ; preds = %112, %130
@@ -4731,7 +4729,7 @@ _ZN5ZXing9BitMatrix3setEiib.exit76:               ; preds = %71
 
 130:                                              ; preds = %.thread, %123, %125
   %131 = add nuw i64 %.080, 1
-  %exitcond.not = icmp eq i64 %131, %umax
+  %exitcond.not = icmp eq i64 %131, %107
   br i1 %exitcond.not, label %119, label %121, !llvm.loop !46
 
 132:                                              ; preds = %.thread
@@ -5249,9 +5247,6 @@ declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) local_unnamed
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #14
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #14
 
 attributes #0 = { mustprogress optsize uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind }

@@ -9586,7 +9586,6 @@ _ZNSt6vectorIdSaIdEEC2ERKS1_.exit:                ; preds = %.thread, %23
   %31 = ptrtoint ptr %28 to i64
   %32 = sub i64 %30, %31
   %33 = ashr exact i64 %32, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %33, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -9596,7 +9595,7 @@ _ZNSt6vectorIdSaIdEEC2ERKS1_.exit:                ; preds = %.thread, %23
   %36 = fsub double 2.600000e+01, %35
   store double %36, ptr %34, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %33
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !101
 
 .loopexit:                                        ; preds = %.lr.ph, %_ZNSt6vectorIdSaIdEEC2ERKS1_.exit, %.noexc

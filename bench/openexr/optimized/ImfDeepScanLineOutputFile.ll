@@ -3410,7 +3410,6 @@ _ZN7Imf_3_412_GLOBAL__N_110LineBuffer4postEv.exit: ; preds = %247, %291
   %304 = ptrtoint ptr %.val to i64
   %305 = sub i64 %303, %304
   %306 = ashr exact i64 %305, 3
-  %umax = call i64 @llvm.umax.i64(i64 %306, i64 1)
   br label %.lr.ph240
 
 ._crit_edge241:                                   ; preds = %.lr.ph240
@@ -3441,7 +3440,7 @@ _ZN7Imf_3_412_GLOBAL__N_110LineBuffer4postEv.exit: ; preds = %247, %291
   %spec.select = select i1 %or.cond.not, ptr %315, ptr %.085237
   store i8 0, ptr %311, align 1, !tbaa !129
   %316 = add nuw i64 %.084238, 1
-  %exitcond278.not = icmp eq i64 %316, %umax
+  %exitcond278.not = icmp eq i64 %316, %306
   br i1 %exitcond278.not, label %._crit_edge241, label %.lr.ph240, !llvm.loop !196
 
 317:                                              ; preds = %._crit_edge241

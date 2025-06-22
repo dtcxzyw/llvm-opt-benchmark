@@ -184,17 +184,13 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable
 define hidden i64 @pm_encoding_utf_8_char_width(ptr noundef readonly captures(none) %0, i64 noundef %1) #0 {
-  %.not16.not = icmp eq i64 %1, 0
-  br i1 %.not16.not, label %.loopexit, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %2
   %3 = tail call i64 @llvm.smin.i64(i64 %1, i64 4)
-  %umax = tail call i64 @llvm.umax.i64(i64 %3, i64 1)
-  br label %.lr.ph
+  %.not16.not = icmp eq i64 %1, 0
+  br i1 %.not16.not, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %18
-  %.01118 = phi i64 [ %20, %18 ], [ 0, %.lr.ph.preheader ]
-  %.01217 = phi i64 [ %19, %18 ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %2, %18
+  %.01118 = phi i64 [ %20, %18 ], [ 0, %2 ]
+  %.01217 = phi i64 [ %19, %18 ], [ 0, %2 ]
   %4 = shl nuw nsw i64 %.01217, 4
   %5 = add nuw nsw i64 %4, 256
   %6 = getelementptr i8, ptr %0, i64 %.01118
@@ -216,7 +212,7 @@ define hidden i64 @pm_encoding_utf_8_char_width(ptr noundef readonly captures(no
 18:                                               ; preds = %.lr.ph
   %19 = zext i8 %14 to i64
   %20 = add nuw i64 %.01118, 1
-  %exitcond.not = icmp eq i64 %20, %umax
+  %exitcond.not = icmp eq i64 %20, %3
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
 
 .loopexit:                                        ; preds = %18, %2, %16
@@ -245,18 +241,14 @@ define hidden i64 @pm_encoding_utf_8_alpha_char(ptr noundef readonly captures(no
   br label %pm_unicode_codepoint_match.exit
 
 11:                                               ; preds = %2
-  %.not2934.not.i = icmp eq i64 %1, 0
-  br i1 %.not2934.not.i, label %pm_utf_8_codepoint.exit.thread, label %.lr.ph.preheader.i
-
-.lr.ph.preheader.i:                               ; preds = %11
   %12 = tail call i64 @llvm.smin.i64(i64 %1, i64 4)
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %12, i64 1)
-  br label %.lr.ph.i
+  %.not2934.not.i = icmp eq i64 %1, 0
+  br i1 %.not2934.not.i, label %pm_utf_8_codepoint.exit.thread, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %35, %.lr.ph.preheader.i
-  %.02337.i = phi i32 [ %28, %35 ], [ undef, %.lr.ph.preheader.i ]
-  %.02636.i = phi i64 [ %37, %35 ], [ 0, %.lr.ph.preheader.i ]
-  %.02735.i = phi i32 [ %36, %35 ], [ 0, %.lr.ph.preheader.i ]
+.lr.ph.i:                                         ; preds = %11, %35
+  %.02337.i = phi i32 [ %28, %35 ], [ undef, %11 ]
+  %.02636.i = phi i64 [ %37, %35 ], [ 0, %11 ]
+  %.02735.i = phi i32 [ %36, %35 ], [ 0, %11 ]
   %13 = getelementptr i8, ptr %0, i64 %.02636.i
   %14 = load i8, ptr %13, align 1, !tbaa !7
   %15 = zext i8 %14 to i32
@@ -292,7 +284,7 @@ define hidden i64 @pm_encoding_utf_8_alpha_char(ptr noundef readonly captures(no
 35:                                               ; preds = %27
   %36 = zext i8 %34 to i32
   %37 = add nuw i64 %.02636.i, 1
-  %exitcond.not.i = icmp eq i64 %37, %umax.i
+  %exitcond.not.i = icmp eq i64 %37, %12
   br i1 %exitcond.not.i, label %pm_utf_8_codepoint.exit.thread, label %.lr.ph.i, !llvm.loop !12
 
 pm_utf_8_codepoint.exit:                          ; preds = %27
@@ -357,18 +349,14 @@ define hidden i64 @pm_encoding_utf_8_alnum_char(ptr noundef readonly captures(no
   br label %pm_unicode_codepoint_match.exit
 
 11:                                               ; preds = %2
-  %.not2934.not.i = icmp eq i64 %1, 0
-  br i1 %.not2934.not.i, label %pm_utf_8_codepoint.exit.thread, label %.lr.ph.preheader.i
-
-.lr.ph.preheader.i:                               ; preds = %11
   %12 = tail call i64 @llvm.smin.i64(i64 %1, i64 4)
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %12, i64 1)
-  br label %.lr.ph.i
+  %.not2934.not.i = icmp eq i64 %1, 0
+  br i1 %.not2934.not.i, label %pm_utf_8_codepoint.exit.thread, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %35, %.lr.ph.preheader.i
-  %.02337.i = phi i32 [ %28, %35 ], [ undef, %.lr.ph.preheader.i ]
-  %.02636.i = phi i64 [ %37, %35 ], [ 0, %.lr.ph.preheader.i ]
-  %.02735.i = phi i32 [ %36, %35 ], [ 0, %.lr.ph.preheader.i ]
+.lr.ph.i:                                         ; preds = %11, %35
+  %.02337.i = phi i32 [ %28, %35 ], [ undef, %11 ]
+  %.02636.i = phi i64 [ %37, %35 ], [ 0, %11 ]
+  %.02735.i = phi i32 [ %36, %35 ], [ 0, %11 ]
   %13 = getelementptr i8, ptr %0, i64 %.02636.i
   %14 = load i8, ptr %13, align 1, !tbaa !7
   %15 = zext i8 %14 to i32
@@ -404,7 +392,7 @@ define hidden i64 @pm_encoding_utf_8_alnum_char(ptr noundef readonly captures(no
 35:                                               ; preds = %27
   %36 = zext i8 %34 to i32
   %37 = add nuw i64 %.02636.i, 1
-  %exitcond.not.i = icmp eq i64 %37, %umax.i
+  %exitcond.not.i = icmp eq i64 %37, %12
   br i1 %exitcond.not.i, label %pm_utf_8_codepoint.exit.thread, label %.lr.ph.i, !llvm.loop !12
 
 pm_utf_8_codepoint.exit:                          ; preds = %27
@@ -464,18 +452,14 @@ define hidden zeroext i1 @pm_encoding_utf_8_isupper_char(ptr noundef readonly ca
   br label %pm_unicode_codepoint_match.exit.sink.split
 
 7:                                                ; preds = %2
-  %.not2934.not.i = icmp eq i64 %1, 0
-  br i1 %.not2934.not.i, label %pm_utf_8_codepoint.exit.thread, label %.lr.ph.preheader.i
-
-.lr.ph.preheader.i:                               ; preds = %7
   %8 = tail call i64 @llvm.smin.i64(i64 %1, i64 4)
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %8, i64 1)
-  br label %.lr.ph.i
+  %.not2934.not.i = icmp eq i64 %1, 0
+  br i1 %.not2934.not.i, label %pm_utf_8_codepoint.exit.thread, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %31, %.lr.ph.preheader.i
-  %.02337.i = phi i32 [ %24, %31 ], [ undef, %.lr.ph.preheader.i ]
-  %.02636.i = phi i64 [ %33, %31 ], [ 0, %.lr.ph.preheader.i ]
-  %.02735.i = phi i32 [ %32, %31 ], [ 0, %.lr.ph.preheader.i ]
+.lr.ph.i:                                         ; preds = %7, %31
+  %.02337.i = phi i32 [ %24, %31 ], [ undef, %7 ]
+  %.02636.i = phi i64 [ %33, %31 ], [ 0, %7 ]
+  %.02735.i = phi i32 [ %32, %31 ], [ 0, %7 ]
   %9 = getelementptr i8, ptr %0, i64 %.02636.i
   %10 = load i8, ptr %9, align 1, !tbaa !7
   %11 = zext i8 %10 to i32
@@ -511,7 +495,7 @@ define hidden zeroext i1 @pm_encoding_utf_8_isupper_char(ptr noundef readonly ca
 31:                                               ; preds = %23
   %32 = zext i8 %30 to i32
   %33 = add nuw i64 %.02636.i, 1
-  %exitcond.not.i = icmp eq i64 %33, %umax.i
+  %exitcond.not.i = icmp eq i64 %33, %8
   br i1 %exitcond.not.i, label %pm_utf_8_codepoint.exit.thread, label %.lr.ph.i, !llvm.loop !12
 
 pm_utf_8_codepoint.exit:                          ; preds = %23
@@ -4683,9 +4667,6 @@ define internal fastcc range(i32 0, 1114112) i32 @pm_cesu_8_codepoint(ptr nounde
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #8
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #8
 
 attributes #0 = { nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

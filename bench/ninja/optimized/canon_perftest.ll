@@ -25,11 +25,7 @@ define dso_local noundef i32 @main() local_unnamed_addr #0 personality ptr @__gx
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 2
   %.not = icmp eq ptr %.sroa.17.1, %.sroa.0.1
-  br i1 %.not, label %_ZNSt6vectorIiSaIiEED2Ev.exit35, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %4
-  %umax = call i64 @llvm.umax.i64(i64 %9, i64 1)
-  br label %.lr.ph
+  br i1 %.not, label %_ZNSt6vectorIiSaIiEED2Ev.exit35, label %.lr.ph
 
 10:                                               ; preds = %0, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
   %.02976 = phi i32 [ 0, %0 ], [ %44, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
@@ -183,11 +179,11 @@ _ZNSt6vectorIiSaIiEED2Ev.exit35:                  ; preds = %.lr.ph, %4
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.1, i64 noundef %56) #14
   ret i32 0
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.080 = phi i64 [ %62, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.02079 = phi float [ %60, %.lr.ph ], [ 0.000000e+00, %.lr.ph.preheader ]
-  %.02178 = phi i32 [ %.1, %.lr.ph ], [ %5, %.lr.ph.preheader ]
-  %.02277 = phi i32 [ %.123, %.lr.ph ], [ %5, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %4, %.lr.ph
+  %.080 = phi i64 [ %62, %.lr.ph ], [ 0, %4 ]
+  %.02079 = phi float [ %60, %.lr.ph ], [ 0.000000e+00, %4 ]
+  %.02178 = phi i32 [ %.1, %.lr.ph ], [ %5, %4 ]
+  %.02277 = phi i32 [ %.123, %.lr.ph ], [ %5, %4 ]
   %57 = getelementptr inbounds nuw i32, ptr %.sroa.0.1, i64 %.080
   %58 = load i32, ptr %57, align 4, !tbaa !8
   %59 = sitofp i32 %58 to float
@@ -197,7 +193,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit35:                  ; preds = %.lr.ph, %4
   %.123 = call i32 @llvm.smin.i32(i32 %58, i32 %.02277)
   %.1 = select i1 %61, i32 %.02178, i32 %spec.select
   %62 = add nuw i64 %.080, 1
-  %exitcond98.not = icmp eq i64 %62, %umax
+  %exitcond98.not = icmp eq i64 %62, %9
   br i1 %exitcond98.not, label %_ZNSt6vectorIiSaIiEED2Ev.exit35, label %.lr.ph, !llvm.loop !13
 }
 

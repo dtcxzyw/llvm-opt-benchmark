@@ -47151,7 +47151,6 @@ invoke.cont.i.i:                                  ; preds = %_ZSt8_DestroyINSt7_
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit: ; preds = %if.end3, %invoke.cont.i.i
   tail call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %item, i64 noundef %size.0.insert.ext)
   %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %item, i64 16
-  %umax = tail call i64 @llvm.umax.i64(i64 %size.0.insert.ext, i64 1)
   br label %for.body
 
 for.body:                                         ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit, %for.inc
@@ -47248,7 +47247,7 @@ if.end.i.i:                                       ; preds = %if.then10
 
 for.inc:                                          ; preds = %if.end.i11, %if.end7.i, %if.end.i13.i
   %inc = add nuw nsw i64 %i.022, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %size.0.insert.ext
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !830
 
 return:                                           ; preds = %for.inc, %if.end.i.i, %if.then10, %entry, %if.end
@@ -47755,7 +47754,6 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearE
   tail call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %item, i64 noundef %.sroa.speculated)
   %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %item, i64 16
   %reader_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %umax = tail call i64 @llvm.umax.i64(i64 %size.0, i64 1)
   br label %for.body
 
 for.body:                                         ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit, %for.inc
@@ -47888,7 +47886,7 @@ if.end.i.i:                                       ; preds = %if.then20
 
 for.inc:                                          ; preds = %if.end.i29.i, %if.end17.i, %sw.epilog.i
   %inc = add nuw i64 %i.046, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %size.0
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !851
 
 return:                                           ; preds = %for.inc, %if.end.i.i, %if.then20, %sw.bb7, %sw.bb2, %sw.bb, %sw.epilog
@@ -49684,7 +49682,6 @@ invoke.cont.i.i:                                  ; preds = %_ZSt8_DestroyI6Weap
 _ZNSt6vectorI6WeaponSaIS0_EE5clearEv.exit:        ; preds = %if.end3, %invoke.cont.i.i
   tail call void @_ZNSt6vectorI6WeaponSaIS0_EE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %item, i64 noundef %size.0.insert.ext)
   %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %item, i64 16
-  %umax = tail call i64 @llvm.umax.i64(i64 %size.0.insert.ext, i64 1)
   br label %for.body
 
 for.body:                                         ; preds = %_ZNSt6vectorI6WeaponSaIS0_EE5clearEv.exit, %for.inc
@@ -49796,7 +49793,7 @@ for.inc:                                          ; preds = %if.end.i.i
   %add.ptr.i.i8.i = getelementptr inbounds nuw i8, ptr %30, i64 2
   store ptr %add.ptr.i.i8.i, ptr %24, align 8
   %inc = add nuw nsw i64 %i.027, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %size.0.insert.ext
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !895
 
 return:                                           ; preds = %for.inc, %if.end.i.i14, %if.then10, %entry, %if.end
@@ -50809,7 +50806,6 @@ _ZNSt6vectorI6WeaponSaIS0_EE5clearEv.exit:        ; preds = %if.end13, %invoke.c
   tail call void @_ZNSt6vectorI6WeaponSaIS0_EE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %item, i64 noundef %.sroa.speculated)
   %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %item, i64 16
   %reader_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %umax = tail call i64 @llvm.umax.i64(i64 %size.0, i64 1)
   br label %for.body
 
 for.body:                                         ; preds = %_ZNSt6vectorI6WeaponSaIS0_EE5clearEv.exit, %for.inc
@@ -50957,7 +50953,7 @@ for.inc:                                          ; preds = %if.end.i.i
   %add.ptr.i.i.i28 = getelementptr inbounds nuw i8, ptr %32, i64 2
   store ptr %add.ptr.i.i.i28, ptr %26, align 8
   %inc = add nuw i64 %i.051, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %size.0
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !916
 
 return:                                           ; preds = %for.inc, %if.end.i.i30, %if.then20, %sw.bb7, %sw.bb2, %sw.bb, %sw.epilog

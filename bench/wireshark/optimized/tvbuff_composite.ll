@@ -239,7 +239,6 @@ define void @tvb_composite_finalize(ptr noundef %0) local_unnamed_addr #0 {
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %36, ptr %37, align 8
   %38 = load ptr, ptr %28, align 8
-  %wide.trip.count = zext i32 %30 to i64
   br label %39
 
 39:                                               ; preds = %32, %39
@@ -271,7 +270,7 @@ define void @tvb_composite_finalize(ptr noundef %0) local_unnamed_addr #0 {
   store i32 %55, ptr %57, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %58 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %33
   br i1 %exitcond.not, label %59, label %39, !llvm.loop !8
 
 59:                                               ; preds = %39

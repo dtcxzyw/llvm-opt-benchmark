@@ -6382,11 +6382,7 @@ _ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit:         ; preds = %_ZL13gmx_snew_implI
           to label %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit485.preheader unwind label %377
 
 _ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit485.preheader: ; preds = %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit
-  br i1 %.not109303, label %.preheader139.split, label %.lr.ph314.preheader
-
-.lr.ph314.preheader:                              ; preds = %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit485.preheader
-  %umax = call i64 @llvm.umax.i64(i64 %347, i64 1)
-  br label %.lr.ph314
+  br i1 %.not109303, label %.preheader139.split, label %.lr.ph314
 
 .preheader139.split:                              ; preds = %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit485, %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit485.preheader
   %350 = icmp sgt i32 %3, -3
@@ -6429,8 +6425,8 @@ _ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit485.preheader: ; preds = %_ZL13gmx_snew_
           cleanup
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit480
 
-.lr.ph314:                                        ; preds = %.lr.ph314.preheader, %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit485
-  %.0349313 = phi i64 [ %384, %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit485 ], [ 0, %.lr.ph314.preheader ]
+.lr.ph314:                                        ; preds = %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit485.preheader, %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit485
+  %.0349313 = phi i64 [ %384, %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit485 ], [ 0, %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit485.preheader ]
   %379 = invoke noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.185, ptr noundef nonnull @.str.133, i32 noundef 564, i64 noundef range(i64 -2147483648, 2147483648) 8, i64 noundef 4)
           to label %380 unwind label %385
 
@@ -6444,7 +6440,7 @@ _ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit485:      ; preds = %380
   %383 = getelementptr inbounds nuw ptr, ptr %349, i64 %.0349313
   store ptr %382, ptr %383, align 8, !tbaa !42
   %384 = add nuw i64 %.0349313, 1
-  %exitcond.not = icmp eq i64 %384, %umax
+  %exitcond.not = icmp eq i64 %384, %347
   br i1 %exitcond.not, label %.preheader139.split, label %.lr.ph314, !llvm.loop !165
 
 385:                                              ; preds = %380, %.lr.ph314
@@ -8910,18 +8906,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit759: ; preds = %_Z
   br label %.body938
 
 _ZL14gmx_sfree_implIcEvPKcS1_iPT_.exit:           ; preds = %1249, %._crit_edge444
-  br i1 %.not109303, label %._crit_edge447, label %.lr.ph446.preheader
-
-.lr.ph446.preheader:                              ; preds = %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.exit
-  %umax549 = call i64 @llvm.umax.i64(i64 %347, i64 1)
-  br label %.lr.ph446
+  br i1 %.not109303, label %._crit_edge447, label %.lr.ph446
 
 ._crit_edge447:                                   ; preds = %_ZL14gmx_sfree_implIfEvPKcS1_iPT_.exit831, %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.exit
   invoke void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.183, ptr noundef nonnull @.str.133, i32 noundef 861, ptr noundef %348)
           to label %_ZL14gmx_sfree_implIPfEvPKcS2_iPT_.exit unwind label %1250
 
-.lr.ph446:                                        ; preds = %.lr.ph446.preheader, %_ZL14gmx_sfree_implIfEvPKcS1_iPT_.exit831
-  %.0445 = phi i64 [ %1256, %_ZL14gmx_sfree_implIfEvPKcS1_iPT_.exit831 ], [ 0, %.lr.ph446.preheader ]
+.lr.ph446:                                        ; preds = %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.exit, %_ZL14gmx_sfree_implIfEvPKcS1_iPT_.exit831
+  %.0445 = phi i64 [ %1256, %_ZL14gmx_sfree_implIfEvPKcS1_iPT_.exit831 ], [ 0, %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.exit ]
   %1252 = getelementptr inbounds nuw ptr, ptr %348, i64 %.0445
   %1253 = load ptr, ptr %1252, align 8, !tbaa !42
   invoke void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.185, ptr noundef nonnull @.str.133, i32 noundef 858, ptr noundef %1253)
@@ -8935,7 +8927,7 @@ _ZL14gmx_sfree_implIfEvPKcS1_iPT_.exit:           ; preds = %.lr.ph446
 
 _ZL14gmx_sfree_implIfEvPKcS1_iPT_.exit831:        ; preds = %_ZL14gmx_sfree_implIfEvPKcS1_iPT_.exit
   %1256 = add nuw i64 %.0445, 1
-  %exitcond550.not = icmp eq i64 %1256, %umax549
+  %exitcond550.not = icmp eq i64 %1256, %347
   br i1 %exitcond550.not, label %._crit_edge447, label %.lr.ph446, !llvm.loop !189
 
 1257:                                             ; preds = %_ZL14gmx_sfree_implIfEvPKcS1_iPT_.exit, %.lr.ph446

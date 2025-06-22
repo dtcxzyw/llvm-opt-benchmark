@@ -15230,18 +15230,11 @@ _ZN4llvm15SmallVectorImplIjE6resizeEm.exit:       ; preds = %12, %.sink.split.i.
   %.not127 = icmp eq i32 %29, 0
   %30 = mul i32 %29, %2
   %31 = load ptr, ptr %4, align 8
-  br i1 %.not127, label %.preheader.preheader, label %.preheader.us.preheader
+  br i1 %.not127, label %.preheader, label %.preheader.us.preheader
 
 .preheader.us.preheader:                          ; preds = %_ZN4llvm15SmallVectorImplIjE6resizeEm.exit
   %32 = zext i32 %29 to i64
-  %umax = tail call i32 @llvm.umax.i32(i32 %2, i32 1)
-  %wide.trip.count = zext i32 %umax to i64
   br label %.preheader.us
-
-.preheader.preheader:                             ; preds = %_ZN4llvm15SmallVectorImplIjE6resizeEm.exit
-  %umax138 = tail call i32 @llvm.umax.i32(i32 %2, i32 1)
-  %wide.trip.count139 = zext i32 %umax138 to i64
-  br label %.preheader
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %49
   %indvars.iv132 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next133, %49 ]
@@ -15284,7 +15277,7 @@ _ZN4llvm15SmallVectorImplIjE6resizeEm.exit:       ; preds = %12, %.sink.split.i.
   %50 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv132
   store i32 %.0.us, ptr %50, align 4, !tbaa !108
   %indvars.iv.next133 = add nuw nsw i64 %indvars.iv132, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next133, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next133, %13
   br i1 %exitcond.not, label %.critedge, label %.preheader.us, !llvm.loop !326
 
 51:                                               ; preds = %.preheader.us, %select.unfold.us
@@ -15339,8 +15332,8 @@ select.unfold.us:                                 ; preds = %68, %64
   %75 = icmp sgt i32 %74, -1
   br i1 %75, label %45, label %34
 
-.preheader:                                       ; preds = %.preheader.preheader, %79
-  %indvars.iv135 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next136, %79 ]
+.preheader:                                       ; preds = %_ZN4llvm15SmallVectorImplIjE6resizeEm.exit, %79
+  %indvars.iv135 = phi i64 [ %indvars.iv.next136, %79 ], [ 0, %_ZN4llvm15SmallVectorImplIjE6resizeEm.exit ]
   %76 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv135
   %77 = load i32, ptr %76, align 4, !tbaa !108
   %spec.select = tail call i32 @llvm.smax.i32(i32 %77, i32 0)
@@ -15352,7 +15345,7 @@ select.unfold.us:                                 ; preds = %68, %64
   %80 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv135
   store i32 %spec.select, ptr %80, align 4, !tbaa !108
   %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
-  %exitcond140.not = icmp eq i64 %indvars.iv.next136, %wide.trip.count139
+  %exitcond140.not = icmp eq i64 %indvars.iv.next136, %13
   br i1 %exitcond140.not, label %.critedge, label %.preheader, !llvm.loop !326
 
 .critedge:                                        ; preds = %49, %45, %68, %51, %79, %.preheader, %9, %5

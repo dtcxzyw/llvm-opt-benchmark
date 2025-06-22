@@ -2521,13 +2521,12 @@ for.body.lr.ph:                                   ; preds = %invoke.cont
   %sub24 = add i64 %1, -1
   %covariance_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %columns_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   %10 = load ptr, ptr %covariance_, align 8
   %11 = load i64, ptr %columns_.i.i, align 8
   br label %for.body
 
 for.cond.loopexit:                                ; preds = %for.cond28.for.cond.cleanup32_crit_edge.us, %cond.end
-  %exitcond29.not = icmp eq i64 %add, %umax
+  %exitcond29.not = icmp eq i64 %add, %sub.ptr.div.i
   br i1 %exitcond29.not, label %nrvo.skipdtor, label %for.body, !llvm.loop !72
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond.loopexit

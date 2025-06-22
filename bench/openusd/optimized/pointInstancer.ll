@@ -13678,12 +13678,11 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_10GfMatrix4dEEESaIS
   %550 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %551 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %552 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %umax = call i64 @llvm.umax.i64(i64 %44, i64 1)
   br label %555
 
 553:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21UsdGeomPointInstancer31ComputeInstanceTransformsAtTimeEPNS_7VtArrayINS_10GfMatrix4dEEERNS_9TfWeakPtrINS_8UsdStageEEENS_11UsdTimeCodeERKNS1_IiEERKNS1_INS_7GfVec3fEEESG_S9_SG_SG_RKNS1_INS_7GfQuatfEEESG_S9_RKSt6vectorINS_7SdfPathESaISM_EERKSL_IbSaIbEEf.exit
   %554 = add nuw i64 %.060235, 1
-  %exitcond.not = icmp eq i64 %554, %umax
+  %exitcond.not = icmp eq i64 %554, %44
   br i1 %exitcond.not, label %._crit_edge238, label %555, !llvm.loop !43
 
 555:                                              ; preds = %.lr.ph237, %553
@@ -15439,12 +15438,11 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_10GfMatrix4dEEESaIS
   %550 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %551 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %552 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %umax = call i64 @llvm.umax.i64(i64 %44, i64 1)
   br label %555
 
 553:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21UsdGeomPointInstancer31ComputeInstanceTransformsAtTimeEPNS_7VtArrayINS_10GfMatrix4dEEERNS_9TfWeakPtrINS_8UsdStageEEENS_11UsdTimeCodeERKNS1_IiEERKNS1_INS_7GfVec3fEEESG_S9_SG_SG_RKNS1_INS_7GfQuathEEESG_S9_RKSt6vectorINS_7SdfPathESaISM_EERKSL_IbSaIbEEf.exit
   %554 = add nuw i64 %.060235, 1
-  %exitcond.not = icmp eq i64 %554, %umax
+  %exitcond.not = icmp eq i64 %554, %44
   br i1 %exitcond.not, label %._crit_edge238, label %555, !llvm.loop !47
 
 555:                                              ; preds = %.lr.ph237, %553

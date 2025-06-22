@@ -17347,7 +17347,6 @@ _ZNK8facebook5velox6Buffer9asMutableIiEEPT_v.exit87: ; preds = %_ZNK8facebook5ve
   %containerVariableLength = getelementptr inbounds nuw i8, ptr %this, i64 72
   %rng_ = getelementptr inbounds nuw i8, ptr %this, i64 112
   %mul = shl i64 %.sroa.speculated, 1
-  %umax = tail call i64 @llvm.umax.i64(i64 %size, i64 1)
   br label %for.body
 
 for.body:                                         ; preds = %_ZNK8facebook5velox6Buffer9asMutableIiEEPT_v.exit87, %if.end
@@ -17376,7 +17375,7 @@ if.end:                                           ; preds = %for.body, %if.then
   store i32 %conv20, ptr %arrayidx22, align 4
   %add23 = add i64 %spec.store.select, %childSize.093
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %size
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !264
 
 for.end:                                          ; preds = %if.end

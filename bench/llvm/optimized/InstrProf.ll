@@ -6905,7 +6905,6 @@ define dso_local void @_ZN4llvm15InstrProfRecord5mergeERS0_mNS_12function_refIFv
 .lr.ph:                                           ; preds = %.preheader66
   %24 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %2, i1 false)
   %25 = trunc nuw nsw i64 %24 to i32
-  %umax = tail call i64 @llvm.umax.i64(i64 %18, i64 1)
   br label %47
 
 26:                                               ; preds = %20
@@ -7014,7 +7013,7 @@ _ZN4llvm18SaturatingMultiplyImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4t
 
 73:                                               ; preds = %.thread81, %72
   %74 = add nuw i64 %.067, 1
-  %exitcond.not = icmp eq i64 %74, %umax
+  %exitcond.not = icmp eq i64 %74, %18
   br i1 %exitcond.not, label %._crit_edge, label %47, !llvm.loop !454
 
 75:                                               ; preds = %._crit_edge

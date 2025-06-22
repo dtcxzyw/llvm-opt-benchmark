@@ -2259,7 +2259,6 @@ _ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit144: ; preds = %.lr.
 
 .lr.ph:                                           ; preds = %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit144
   %335 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %umax = call i64 @llvm.umax.i64(i64 %320, i64 1)
   br label %338
 
 336:                                              ; preds = %328
@@ -2287,7 +2286,7 @@ _ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit144: ; preds = %.lr.
   %349 = getelementptr float, ptr %340, i64 %.0342
   store float %348, ptr %349, align 4, !tbaa !111
   %350 = add nuw i64 %.0342, 1
-  %exitcond352.not = icmp eq i64 %350, %umax
+  %exitcond352.not = icmp eq i64 %350, %320
   br i1 %exitcond352.not, label %341, label %344, !llvm.loop !114
 
 351:                                              ; preds = %313
@@ -3794,19 +3793,15 @@ _ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit135: ; preds = %184, %.noexc188
   %224 = sub nsw i64 %219, %223
   %invariant.gep = getelementptr i32, ptr %.sroa.speculated226, i64 %224
   %.not341 = icmp eq ptr %.sroa.speculated209, %.sroa.speculated220
-  br i1 %.not341, label %.loopexit, label %.lr.ph339.preheader
-
-.lr.ph339.preheader:                              ; preds = %208
-  %umax = tail call i64 @llvm.umax.i64(i64 %223, i64 1)
-  br label %.lr.ph339
+  br i1 %.not341, label %.loopexit, label %.lr.ph339
 
 225:                                              ; preds = %.lr.ph339
   %226 = add nuw i64 %.083337, 1
-  %exitcond344.not = icmp eq i64 %226, %umax
+  %exitcond344.not = icmp eq i64 %226, %223
   br i1 %exitcond344.not, label %.loopexit, label %.lr.ph339, !llvm.loop !164
 
-.lr.ph339:                                        ; preds = %.lr.ph339.preheader, %225
-  %.083337 = phi i64 [ %226, %225 ], [ 0, %.lr.ph339.preheader ]
+.lr.ph339:                                        ; preds = %208, %225
+  %.083337 = phi i64 [ %226, %225 ], [ 0, %208 ]
   %227 = getelementptr inbounds nuw i32, ptr %.sroa.speculated220, i64 %.083337
   %228 = load i32, ptr %227, align 4, !tbaa !107
   %gep = getelementptr i32, ptr %invariant.gep, i64 %.083337

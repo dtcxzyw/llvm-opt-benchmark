@@ -282,7 +282,6 @@ define hidden void @_ZN4cvc58internal6theory11quantifiers11SygusAbduct21mkAbduct
   %94 = ptrtoint ptr %92 to i64
   %95 = sub i64 %93, %94
   %96 = ashr exact i64 %95, 3
-  %umax = call i64 @llvm.umax.i64(i64 %96, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %100
@@ -296,7 +295,7 @@ define hidden void @_ZN4cvc58internal6theory11quantifiers11SygusAbduct21mkAbduct
 
 100:                                              ; preds = %.lr.ph
   %101 = add nuw i64 %.01432, 1
-  %exitcond.not = icmp eq i64 %101, %umax
+  %exitcond.not = icmp eq i64 %101, %96
   br i1 %exitcond.not, label %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit322.loopexit, label %.lr.ph, !llvm.loop !25
 
 102:                                              ; preds = %.lr.ph

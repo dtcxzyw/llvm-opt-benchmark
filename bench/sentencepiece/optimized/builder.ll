@@ -1396,15 +1396,14 @@ _ZSt6fill_nIPPKcmS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc217
   store i32 0, ptr %375, align 4, !tbaa !38
   br i1 %371, label %.lr.ph420.preheader, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
 
+.lr.ph420.preheader:                              ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc221
+  br label %.lr.ph420
+
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc221
   %377 = getelementptr i8, ptr %375, i64 4
   %378 = add nsw i64 %374, -4
   call void @llvm.memset.p0.i64(ptr align 4 %377, i8 0, i64 %378, i1 false), !tbaa !38
   br label %.lr.ph420.preheader
-
-.lr.ph420.preheader:                              ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc221
-  %umax = call i64 @llvm.umax.i64(i64 %363, i64 1)
-  br label %.lr.ph420
 
 ._crit_edge421.loopexit:                          ; preds = %.lr.ph420
   %379 = ptrtoint ptr %376 to i64
@@ -1459,7 +1458,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit294.thread:          ; preds = %373
   %394 = getelementptr inbounds nuw i32, ptr %375, i64 %.091419
   store i32 %393, ptr %394, align 4, !tbaa !38
   %395 = add nuw i64 %.091419, 1
-  %exitcond.not = icmp eq i64 %395, %umax
+  %exitcond.not = icmp eq i64 %395, %363
   br i1 %exitcond.not, label %._crit_edge421.loopexit, label %.lr.ph420, !llvm.loop !59
 
 396:                                              ; preds = %._crit_edge421
@@ -12896,7 +12895,6 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %154 = ptrtoint ptr %147 to i64
   %155 = sub i64 %153, %154
   %156 = ashr exact i64 %155, 5
-  %umax = call i64 @llvm.umax.i64(i64 %156, i64 1)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm.exit.i, %.lr.ph.preheader.i
@@ -12914,7 +12912,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm.exit.i: ; preds = %.lr.ph.i
   %166 = add nuw i64 %.013.i, 1
-  %exitcond.not = icmp eq i64 %166, %umax
+  %exitcond.not = icmp eq i64 %166, %156
   br i1 %exitcond.not, label %_ZNK4absl8internal8SplittercvSt6vectorIT_SaIS3_EEINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEv.exit.loopexit, label %.lr.ph.i, !llvm.loop !309
 
 167:                                              ; preds = %.lr.ph.i

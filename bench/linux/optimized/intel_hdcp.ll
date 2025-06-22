@@ -5953,7 +5953,7 @@ intel_hdcp_get_repeater_ctl.exit:                 ; preds = %280, %281, %282, %2
   %623 = getelementptr inbounds nuw i8, ptr %600, i64 8
   br label %624
 
-624:                                              ; preds = %618, %.thread54
+624:                                              ; preds = %.thread54, %618
   %625 = phi i64 [ 0, %618 ], [ %693, %.thread54 ]
   %626 = phi i32 [ 0, %618 ], [ %.ph60, %.thread54 ]
   %627 = phi i32 [ 0, %618 ], [ %.ph59, %.thread54 ]
@@ -5963,7 +5963,7 @@ intel_hdcp_get_repeater_ctl.exit:                 ; preds = %280, %281, %282, %2
   %631 = sub nuw nsw i32 4, %627
   br label %632
 
-632:                                              ; preds = %632, %624
+632:                                              ; preds = %624, %632
   %633 = phi i32 [ %644, %632 ], [ %626, %624 ]
   %634 = phi i32 [ %645, %632 ], [ 0, %624 ]
   %635 = sext i32 %634 to i64

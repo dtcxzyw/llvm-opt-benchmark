@@ -235,7 +235,6 @@ define hidden noundef float @_ZN2cv3mcc9perimeterERKSt6vectorINS_6Point_IfEESaIS
   %8 = ashr exact i64 %7, 3
   %sext = shl i64 %7, 29
   %9 = ashr exact i64 %sext, 32
-  %umax = tail call i64 @llvm.umax.i64(i64 %8, i64 1)
   br label %10
 
 ._crit_edge:                                      ; preds = %10, %1
@@ -263,7 +262,7 @@ define hidden noundef float @_ZN2cv3mcc9perimeterERKSt6vectorINS_6Point_IfEESaIS
   %25 = tail call float @llvm.fmuladd.f32(float %18, float %18, float %24)
   %sqrt = tail call float @llvm.sqrt.f32(float %25)
   %26 = fadd float %.021, %sqrt
-  %exitcond.not = icmp eq i64 %11, %umax
+  %exitcond.not = icmp eq i64 %11, %8
   br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !27
 }
 
@@ -409,9 +408,6 @@ declare i32 @llvm.smax.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #12
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #12
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }

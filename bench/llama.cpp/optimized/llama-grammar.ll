@@ -6640,7 +6640,6 @@ define void @_ZN20llama_grammar_parser5printEP8_IO_FILE(ptr noundef nonnull read
   %36 = ptrtoint ptr %34 to i64
   %37 = sub i64 %35, %36
   %38 = sdiv exact i64 %37, 24
-  %umax = call i64 @llvm.umax.i64(i64 %38, i64 1)
   br label %.lr.ph51
 
 .lr.ph:                                           ; preds = %2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit
@@ -7546,7 +7545,7 @@ _ZL18print_grammar_charP8_IO_FILEj.exit.i:        ; preds = %335, %330, %_ZNKSt3
 .loopexit:                                        ; preds = %_ZL18print_grammar_charP8_IO_FILEj.exit.i, %_ZNKSt3mapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIjESaISt4pairIKjS5_EEE2atERS9_.exit.i
   %fputc.i = call i32 @fputc(i32 10, ptr %1)
   %339 = add nuw i64 %.01649, 1
-  %exitcond.not = icmp eq i64 %339, %umax
+  %exitcond.not = icmp eq i64 %339, %38
   br i1 %exitcond.not, label %._crit_edge52, label %.lr.ph51, !llvm.loop !99
 
 340:                                              ; preds = %.critedge.i123.i.invoke
@@ -10784,12 +10783,11 @@ define internal fastcc noundef zeroext i1 @_ZL35llama_grammar_detect_left_recurs
   %23 = ptrtoint ptr %21 to i64
   %24 = sub i64 %22, %23
   %25 = ashr exact i64 %24, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %25, i64 1)
   br label %.lr.ph
 
 26:                                               ; preds = %.lr.ph
   %27 = add nuw i64 %.03982, 1
-  %exitcond.not = icmp eq i64 %27, %umax
+  %exitcond.not = icmp eq i64 %27, %25
   br i1 %exitcond.not, label %.lr.ph86.preheader, label %.lr.ph, !llvm.loop !158
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %26
@@ -11286,7 +11284,6 @@ _ZNSt6vectorIS_I21llama_grammar_elementSaIS0_EESaIS2_EE17_S_check_init_lenEmRKS3
   %124 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store ptr %122, ptr %124, align 8, !tbaa !129
   store ptr %scevgep.i.i.i.i.i, ptr %123, align 8, !tbaa !44
-  %umax = call i64 @llvm.umax.i64(i64 %73, i64 1)
   br label %.lr.ph355
 
 ._crit_edge356:                                   ; preds = %_ZNSt6vectorI21llama_grammar_elementSaIS0_EE9push_backEOS0_.exit
@@ -11524,7 +11521,7 @@ _ZNSt6vectorI21llama_grammar_elementSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_
 
 _ZNSt6vectorI21llama_grammar_elementSaIS0_EE9push_backEOS0_.exit: ; preds = %_ZNSt6vectorI21llama_grammar_elementSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i, %187
   %210 = add nuw i64 %.043353, 1
-  %exitcond.not = icmp eq i64 %210, %umax
+  %exitcond.not = icmp eq i64 %210, %73
   br i1 %exitcond.not, label %._crit_edge356, label %.lr.ph355, !llvm.loop !161
 
 .loopexit320:                                     ; preds = %_ZNKSt6vectorI21llama_grammar_elementSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i
@@ -11597,7 +11594,6 @@ _ZNSt6vectorI21llama_grammar_elementSaIS0_EE9push_backEOS0_.exit: ; preds = %_ZN
   store ptr %234, ptr %228, align 8
   store i32 %217, ptr %229, align 8
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %231, i8 0, i64 %.idx.i.i, i1 false)
-  %umax381 = call i64 @llvm.umax.i64(i64 %73, i64 1)
   br label %.lr.ph359
 
 .lr.ph359:                                        ; preds = %.lr.ph359.preheader, %247
@@ -11630,7 +11626,7 @@ _ZNSt6vectorI21llama_grammar_elementSaIS0_EE9push_backEOS0_.exit: ; preds = %_ZN
 
 247:                                              ; preds = %243, %.lr.ph359
   %248 = add nuw i64 %.042358, 1
-  %exitcond382.not = icmp eq i64 %248, %umax381
+  %exitcond382.not = icmp eq i64 %248, %73
   br i1 %exitcond382.not, label %.critedge, label %.lr.ph359, !llvm.loop !162
 
 .critedge:                                        ; preds = %247
@@ -12925,7 +12921,6 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7
   %141 = sub i64 %139, %140
   %142 = sdiv exact i64 %141, 24
   %umax = call i64 @llvm.umax.i64(i64 %142, i64 1)
-  %umax85 = call i64 @llvm.umax.i64(i64 %135, i64 1)
   br label %.preheader71.us
 
 .preheader71.us:                                  ; preds = %.preheader71.us.preheader, %._crit_edge76.split.us.us
@@ -12942,12 +12937,11 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7
   %148 = ptrtoint ptr %146 to i64
   %149 = sub i64 %147, %148
   %150 = ashr exact i64 %149, 3
-  %umax83 = call i64 @llvm.umax.i64(i64 %150, i64 1)
   br label %.preheader70.us.us
 
 ._crit_edge76.split.us.us:                        ; preds = %._crit_edge74.us.us, %.preheader71.us
   %151 = add nuw i64 %.03977.us, 1
-  %exitcond86.not = icmp eq i64 %151, %umax85
+  %exitcond86.not = icmp eq i64 %151, %135
   br i1 %exitcond86.not, label %._crit_edge, label %.preheader71.us, !llvm.loop !179
 
 .preheader70.us.us:                               ; preds = %.preheader70.us.us.preheader, %._crit_edge74.us.us
@@ -13008,7 +13002,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7
 
 ._crit_edge74.us.us:                              ; preds = %._crit_edge.us.us
   %182 = add nuw i64 %.03875.us.us, 1
-  %exitcond84.not = icmp eq i64 %182, %umax83
+  %exitcond84.not = icmp eq i64 %182, %150
   br i1 %exitcond84.not, label %._crit_edge76.split.us.us, label %.preheader70.us.us, !llvm.loop !182
 
 ._crit_edge:                                      ; preds = %._crit_edge76.split.us.us, %.preheader71.lr.ph, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7_.exit

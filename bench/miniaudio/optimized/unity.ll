@@ -24297,8 +24297,7 @@ cdce.end10.i.i:                                   ; preds = %cdce.call102, %cdce
   %.sroa.7.0..sroa_idx128 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.sroa.8.0..sroa_idx129 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %66 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %umax121 = tail call i32 @llvm.umax.i32(i32 %24, i32 1)
-  %wide.trip.count122 = zext nneg i32 %umax121 to i64
+  %wide.trip.count122 = zext nneg i32 %24 to i64
   br label %ma_bpf2_get_heap_size.exit.us
 
 .lr.ph.split.preheader:                           ; preds = %59, %.thread134
@@ -24313,8 +24312,7 @@ cdce.end10.i.i:                                   ; preds = %cdce.call102, %cdce
   %.pn = zext nneg i32 %.pn.in to i64
   %70 = getelementptr i8, ptr %1, i64 %.pn
   %71 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %umax = tail call i32 @llvm.umax.i32(i32 %24, i32 1)
-  %wide.trip.count = zext nneg i32 %umax to i64
+  %wide.trip.count = zext nneg i32 %24 to i64
   br label %.lr.ph.split
 
 ma_bpf2_get_heap_size.exit.us:                    ; preds = %.lr.ph.thread, %79

@@ -15322,7 +15322,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit253: ; preds = %_Z
   %539 = sub i64 %537, %538
   %540 = ashr exact i64 %539, 5
   %541 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  %umax = call i64 @llvm.umax.i64(i64 %540, i64 1)
   br label %542
 
 542:                                              ; preds = %.lr.ph, %604
@@ -15509,7 +15508,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit274: ; preds = %_Z
 604:                                              ; preds = %542
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %41) #33
   %605 = add nuw i64 %.070380, 1
-  %exitcond.not = icmp eq i64 %605, %umax
+  %exitcond.not = icmp eq i64 %605, %540
   br i1 %exitcond.not, label %.critedge152, label %542, !llvm.loop !293
 
 606:                                              ; preds = %.noexc.i.i267, %575, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i269, %_ZN7testing7MessageD2Ev.exit265
@@ -15776,7 +15775,6 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i: ; preds =
   store ptr %694, ptr %696, align 8, !tbaa !302
   store ptr %694, ptr %695, align 8, !tbaa !199
   %697 = lshr exact i64 %690, 3
-  %umax384 = call i64 @llvm.umax.i64(i64 %697, i64 1)
   br label %.lr.ph382
 
 ._crit_edge.i.i301:                               ; preds = %.lr.ph382, %.thread
@@ -15821,7 +15819,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i: ; preds =
   %713 = getelementptr inbounds nuw %"class.cv::Point_", ptr %693, i64 %.069381
   store i64 %.sroa.0.0.insert.insert.i, ptr %713, align 4
   %714 = add nuw i64 %.069381, 1
-  %exitcond385.not = icmp eq i64 %714, %umax384
+  %exitcond385.not = icmp eq i64 %714, %697
   br i1 %exitcond385.not, label %._crit_edge.i.i301, label %.lr.ph382, !llvm.loop !307
 
 715:                                              ; preds = %._crit_edge.i.i301

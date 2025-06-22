@@ -2566,7 +2566,6 @@ _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_18ArgumentESt14default_deleteIS2_EESaI
   %425 = sub i64 %423, %424
   %426 = ashr exact i64 %425, 3
   %427 = add nsw i64 %426, -1
-  %umax = call i64 @llvm.umax.i64(i64 %426, i64 1)
   br label %428
 
 428:                                              ; preds = %.lr.ph888, %_ZL22isVariadicExprArgumentPKN4llvm6RecordE.exit.thread
@@ -2689,7 +2688,7 @@ _ZL22isVariadicExprArgumentPKN4llvm6RecordE.exit: ; preds = %_ZL14isTypeArgument
 
 _ZL22isVariadicExprArgumentPKN4llvm6RecordE.exit.thread: ; preds = %_ZL14isTypeArgumentPKN4llvm6RecordE.exit, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i, %428, %_ZL14isTypeArgumentPKN4llvm6RecordE.exit.thread.thread, %_ZL22isVariadicExprArgumentPKN4llvm6RecordE.exit
   %466 = add nuw i64 %.0155886, 1
-  %exitcond.not = icmp eq i64 %466, %umax
+  %exitcond.not = icmp eq i64 %466, %426
   br i1 %exitcond.not, label %.loopexit, label %428, !llvm.loop !101
 
 .loopexit:                                        ; preds = %_ZL22isVariadicExprArgumentPKN4llvm6RecordE.exit.thread, %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_18ArgumentESt14default_deleteIS2_EESaIS5_EE7reserveEm.exit

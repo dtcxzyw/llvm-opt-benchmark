@@ -2262,12 +2262,11 @@ _ZSt8_DestroyIPN6open3d1t2io13PCLPointFieldES3_EvT_S5_RSaIT0_E.exit.i.i.i: ; pre
   br label %_ZNSt6vectorIN6open3d1t2io13PCLPointFieldESaIS3_EE6resizeEm.exit.i
 
 _ZNSt6vectorIN6open3d1t2io13PCLPointFieldESaIS3_EE6resizeEm.exit.i: ; preds = %_ZSt8_DestroyIPN6open3d1t2io13PCLPointFieldES3_EvT_S5_RSaIT0_E.exit.i.i.i, %415, %413, %411
-  %umax.i = call i64 @llvm.umax.i64(i64 %400, i64 1)
   %.pre362.i = load ptr, ptr %181, align 8, !tbaa !73
   br label %427
 
 426:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit166.i
-  %indvars.le.i = trunc i64 %umax.i to i32
+  %indvars.le.i = trunc i64 %400 to i32
   store i32 %indvars.le.i, ptr %291, align 8, !tbaa !75
   store i32 %440, ptr %292, align 4, !tbaa !83
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit.i
@@ -2298,7 +2297,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit166.i: ; preds
   %439 = getelementptr inbounds nuw i8, ptr %434, i64 48
   store i32 %.091344.i, ptr %439, align 8, !tbaa !89
   %440 = add nuw nsw i32 %.091344.i, 4
-  %exitcond361.not.i = icmp eq i64 %429, %umax.i
+  %exitcond361.not.i = icmp eq i64 %429, %400
   br i1 %exitcond361.not.i, label %426, label %427, !llvm.loop !90
 
 441:                                              ; preds = %427

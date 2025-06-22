@@ -5897,7 +5897,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit537: ; preds = %_Z
   %960 = ptrtoint ptr %958 to i64
   %961 = sub i64 %959, %960
   %962 = ashr exact i64 %961, 4
-  %umax = call i64 @llvm.umax.i64(i64 %962, i64 1)
   br label %.lr.ph684
 
 .lr.ph684:                                        ; preds = %.lr.ph684.preheader, %.lr.ph684
@@ -5913,7 +5912,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit537: ; preds = %_Z
   %970 = fcmp ogt double %969, 1.000000e-10
   %.186 = select i1 %970, i8 0, i8 %.085682
   %971 = add nuw i64 %.3161681, 1
-  %exitcond717.not = icmp eq i64 %971, %umax
+  %exitcond717.not = icmp eq i64 %971, %962
   br i1 %exitcond717.not, label %._crit_edge685, label %.lr.ph684, !llvm.loop !292
 
 ._crit_edge685:                                   ; preds = %.lr.ph684, %._crit_edge679
@@ -56607,7 +56606,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit23: ; preds = %_ZN
   %111 = ptrtoint ptr %50 to i64
   %112 = sub i64 %111, %52
   %113 = ashr exact i64 %112, 4
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %113, i64 1)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %126, %.lr.ph.preheader.i
@@ -56632,7 +56630,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit23: ; preds = %_ZN
 126:                                              ; preds = %122, %.lr.ph.i
   %127 = phi double [ %114, %.lr.ph.i ], [ %125, %122 ]
   %128 = add nuw i64 %.05.i, 1
-  %exitcond.not.i = icmp eq i64 %128, %umax.i
+  %exitcond.not.i = icmp eq i64 %128, %113
   br i1 %exitcond.not.i, label %_ZN6colvar29update_active_cvc_square_normEv.exit, label %.lr.ph.i, !llvm.loop !684
 
 _ZN6colvar29update_active_cvc_square_normEv.exit: ; preds = %126, %108, %1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17
@@ -59417,7 +59415,6 @@ define noundef i32 @_ZN6colvar21collect_cvc_JacobiansEv(ptr noundef nonnull alig
   %75 = ptrtoint ptr %73 to i64
   %76 = sub i64 %74, %75
   %77 = ashr exact i64 %76, 3
-  %umax.i.i = call i64 @llvm.umax.i64(i64 %77, i64 1)
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
@@ -59427,7 +59424,7 @@ define noundef i32 @_ZN6colvar21collect_cvc_JacobiansEv(ptr noundef nonnull alig
   %80 = fmul double %40, %79
   store double %80, ptr %78, align 8, !tbaa !291
   %81 = add nuw i64 %.04.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %81, %umax.i.i
+  %exitcond.not.i.i = icmp eq i64 %81, %77
   br i1 %exitcond.not.i.i, label %_ZN11colvarvaluemLERKd.exit, label %.lr.ph.i.i, !llvm.loop !721
 
 82:                                               ; preds = %._crit_edge
@@ -61732,7 +61729,6 @@ define linkonce_odr void @_ZN11colvarvaluepLERKS_(ptr noundef nonnull align 8 de
   %56 = sub i64 %54, %55
   %57 = ashr exact i64 %56, 3
   %58 = load ptr, ptr %49, align 8, !tbaa !222
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %57, i64 1)
   br label %59
 
 59:                                               ; preds = %59, %.lr.ph.i
@@ -61744,7 +61740,7 @@ define linkonce_odr void @_ZN11colvarvaluepLERKS_(ptr noundef nonnull align 8 de
   %64 = fadd double %61, %63
   store double %64, ptr %62, align 8, !tbaa !291
   %65 = add nuw i64 %.06.i, 1
-  %exitcond.not.i = icmp eq i64 %65, %umax.i
+  %exitcond.not.i = icmp eq i64 %65, %57
   br i1 %exitcond.not.i, label %_ZN12colvarmodule8vector1dIdEpLERKS1_.exit, label %59, !llvm.loop !735
 
 66:                                               ; preds = %2
@@ -62618,7 +62614,6 @@ define linkonce_odr void @_ZN11colvarvaluemIERKS_(ptr noundef nonnull align 8 de
   %56 = sub i64 %54, %55
   %57 = ashr exact i64 %56, 3
   %58 = load ptr, ptr %49, align 8, !tbaa !222
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %57, i64 1)
   br label %59
 
 59:                                               ; preds = %59, %.lr.ph.i
@@ -62630,7 +62625,7 @@ define linkonce_odr void @_ZN11colvarvaluemIERKS_(ptr noundef nonnull align 8 de
   %64 = fsub double %63, %61
   store double %64, ptr %62, align 8, !tbaa !291
   %65 = add nuw i64 %.06.i, 1
-  %exitcond.not.i = icmp eq i64 %65, %umax.i
+  %exitcond.not.i = icmp eq i64 %65, %57
   br i1 %exitcond.not.i, label %_ZN12colvarmodule8vector1dIdEmIERKS1_.exit, label %59, !llvm.loop !751
 
 66:                                               ; preds = %2
@@ -65747,7 +65742,6 @@ _ZN11colvarvalueD2Ev.exit414:                     ; preds = %_ZNSt6vectorIdSaIdE
   %1207 = ptrtoint ptr %1205 to i64
   %1208 = sub i64 %1206, %1207
   %1209 = ashr exact i64 %1208, 3
-  %umax.i.i = call i64 @llvm.umax.i64(i64 %1209, i64 1)
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
@@ -65757,7 +65751,7 @@ _ZN11colvarvalueD2Ev.exit414:                     ; preds = %_ZNSt6vectorIdSaIdE
   %1212 = fmul double %1211, %1172
   store double %1212, ptr %1210, align 8, !tbaa !291
   %1213 = add nuw i64 %.04.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %1213, %umax.i.i
+  %exitcond.not.i.i = icmp eq i64 %1213, %1209
   br i1 %exitcond.not.i.i, label %_ZN11colvarvalueaSERKS_.exit367, label %.lr.ph.i.i, !llvm.loop !721
 
 1214:                                             ; preds = %_ZN11colvarvalueD2Ev.exit414
@@ -73595,7 +73589,6 @@ define void @_ZN6colvar29update_active_cvc_square_normEv(ptr noundef nonnull ali
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 4
-  %umax = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %23, %1
@@ -73623,7 +73616,7 @@ define void @_ZN6colvar29update_active_cvc_square_normEv(ptr noundef nonnull ali
 23:                                               ; preds = %.lr.ph, %19
   %24 = phi double [ %11, %.lr.ph ], [ %22, %19 ]
   %25 = add nuw i64 %.05, 1
-  %exitcond.not = icmp eq i64 %25, %umax
+  %exitcond.not = icmp eq i64 %25, %10
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !684
 }
 
@@ -74108,7 +74101,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73: ; preds = %_ZN
   %190 = ptrtoint ptr %186 to i64
   %191 = sub i64 %189, %190
   %192 = ashr exact i64 %191, 4
-  %umax.i = call i64 @llvm.umax.i64(i64 %192, i64 1)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %205, %.lr.ph.preheader.i
@@ -74133,7 +74125,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73: ; preds = %_ZN
 205:                                              ; preds = %201, %.lr.ph.i
   %206 = phi double [ %193, %.lr.ph.i ], [ %204, %201 ]
   %207 = add nuw i64 %.05.i, 1
-  %exitcond.not.i = icmp eq i64 %207, %umax.i
+  %exitcond.not.i = icmp eq i64 %207, %192
   br i1 %exitcond.not.i, label %_ZN6colvar29update_active_cvc_square_normEv.exit, label %.lr.ph.i, !llvm.loop !684
 
 _ZN6colvar29update_active_cvc_square_normEv.exit: ; preds = %205, %185, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46
@@ -81502,7 +81494,6 @@ _ZN11colvarvalueaSERKS_.exit:                     ; preds = %288, %292, %295, %2
   %354 = ptrtoint ptr %352 to i64
   %355 = sub i64 %353, %354
   %356 = ashr exact i64 %355, 3
-  %umax.i.i = call i64 @llvm.umax.i64(i64 %356, i64 1)
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
@@ -81512,7 +81503,7 @@ _ZN11colvarvalueaSERKS_.exit:                     ; preds = %288, %292, %295, %2
   %359 = fmul double %319, %358
   store double %359, ptr %357, align 8, !tbaa !291
   %360 = add nuw i64 %.04.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %360, %umax.i.i
+  %exitcond.not.i.i = icmp eq i64 %360, %356
   br i1 %exitcond.not.i.i, label %_ZN11colvarvaluemLERKd.exit, label %.lr.ph.i.i, !llvm.loop !721
 
 361:                                              ; preds = %._crit_edge

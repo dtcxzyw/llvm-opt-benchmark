@@ -1218,13 +1218,9 @@ _ZN2cv10AutoBufferIfLm100EED2Ev.exit368.i:        ; preds = %483, %_ZN2cv10AutoB
   %492 = ptrtoint ptr %.sroa.29.1 to i64
   %493 = ptrtoint ptr %.sroa.0.4 to i64
   %494 = sub i64 %492, %493
-  %.not126 = icmp eq ptr %.sroa.29.1, %.sroa.0.4
-  br i1 %.not126, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %.preheader
   %495 = ashr exact i64 %494, 3
-  %umax = call i64 @llvm.umax.i64(i64 %495, i64 1)
-  br label %.lr.ph
+  %.not126 = icmp eq ptr %.sroa.29.1, %.sroa.0.4
+  br i1 %.not126, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %16) #17
@@ -1276,8 +1272,8 @@ _ZN2cv10AutoBufferIfLm100EED2Ev.exit368.i:        ; preds = %483, %_ZN2cv10AutoB
           cleanup
   br label %.body
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0125 = phi i64 [ %523, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %.lr.ph
+  %.0125 = phi i64 [ %523, %.lr.ph ], [ 0, %.preheader ]
   %517 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.sroa.0.4, i64 %.0125
   %518 = load float, ptr %517, align 4, !tbaa !8
   %519 = fadd float %39, %518
@@ -1287,7 +1283,7 @@ _ZN2cv10AutoBufferIfLm100EED2Ev.exit368.i:        ; preds = %483, %_ZN2cv10AutoB
   %522 = fadd float %40, %521
   store float %522, ptr %520, align 4, !tbaa !10
   %523 = add nuw i64 %.0125, 1
-  %exitcond.not = icmp eq i64 %523, %umax
+  %exitcond.not = icmp eq i64 %523, %495
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !89
 
 _ZN2cv3MatC2INS_6Point_IfEEEERKSt6vectorIT_SaIS5_EEb.exit: ; preds = %506, %._crit_edge

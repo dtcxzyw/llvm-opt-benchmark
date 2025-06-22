@@ -9734,7 +9734,6 @@ _ZN6Assimp4Ogre20OgreBinarySerializer10ReadHeaderEb.exit: ; preds = %2
   %94 = ptrtoint ptr %92 to i64
   %95 = sub i64 %93, %94
   %96 = ashr exact i64 %95, 3
-  %umax = call i64 @llvm.umax.i64(i64 %96, i64 1)
   br label %.lr.ph44
 
 ._crit_edge45:                                    ; preds = %113, %._crit_edge
@@ -9782,7 +9781,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 113:                                              ; preds = %110, %109
   %114 = add nuw i64 %.02042, 1
-  %exitcond.not = icmp eq i64 %114, %umax
+  %exitcond.not = icmp eq i64 %114, %96
   br i1 %exitcond.not, label %._crit_edge45, label %.lr.ph44, !llvm.loop !41
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %62, %111, %32, %30

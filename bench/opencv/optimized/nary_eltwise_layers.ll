@@ -3344,7 +3344,6 @@ define linkonce_odr hidden void @_ZN2cv3dnn20NaryEltwiseLayerImpl8finalizeERKNS_
   %17 = sdiv exact i64 %16, 96
   %18 = load ptr, ptr %5, align 8, !tbaa !76
   %19 = load i32, ptr %18, align 8, !tbaa !77
-  %umax = call i64 @llvm.umax.i64(i64 %17, i64 1)
   br label %22
 
 20:                                               ; preds = %47, %.loopexit, %7, %3
@@ -3406,7 +3405,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 42:                                               ; preds = %22
   %43 = add nuw i64 %.026, 1
-  %exitcond.not = icmp eq i64 %43, %umax
+  %exitcond.not = icmp eq i64 %43, %17
   br i1 %exitcond.not, label %.loopexit, label %22, !llvm.loop !83
 
 .loopexit:                                        ; preds = %42, %.preheader, %8
@@ -6691,7 +6690,6 @@ _ZNSt6vectorImSaImEEC2ERKS1_.exit:                ; preds = %_ZNSt6vectorImSaImE
   %21 = ptrtoint ptr %19 to i64
   %22 = sub i64 %20, %21
   %23 = sdiv exact i64 %22, 24
-  %umax24.i = tail call i64 @llvm.umax.i64(i64 %23, i64 1)
   br label %24
 
 24:                                               ; preds = %._crit_edge.i, %.lr.ph21.i
@@ -6716,13 +6714,12 @@ _ZNSt6vectorImSaImEEC2ERKS1_.exit:                ; preds = %_ZNSt6vectorImSaImE
   %36 = ashr exact i64 %sext.i, 32
   %sext17.i = shl i64 %.pre, 32
   %37 = ashr exact i64 %sext17.i, 32
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %34, i64 1)
   br label %40
 
 ._crit_edge.i:                                    ; preds = %40, %24
   store i64 %.pre, ptr %26, align 8, !tbaa !24
   %38 = add nuw i64 %.01619.i, 1
-  %exitcond25.not.i = icmp eq i64 %38, %umax24.i
+  %exitcond25.not.i = icmp eq i64 %38, %23
   br i1 %exitcond25.not.i, label %_ZN2cv3dnn17NaryEltwiseHelper6reInitESt6vectorImSaImEE.exit.thread, label %24, !llvm.loop !160
 
 _ZN2cv3dnn17NaryEltwiseHelper6reInitESt6vectorImSaImEE.exit.thread: ; preds = %._crit_edge.i
@@ -6737,7 +6734,7 @@ _ZN2cv3dnn17NaryEltwiseHelper6reInitESt6vectorImSaImEE.exit.thread: ; preds = %.
   %44 = mul i64 %43, %37
   store i64 %44, ptr %41, align 8, !tbaa !24
   %45 = add nuw i64 %.018.i, 1
-  %exitcond.not.i = icmp eq i64 %45, %umax.i
+  %exitcond.not.i = icmp eq i64 %45, %34
   br i1 %exitcond.not.i, label %._crit_edge.i, label %40, !llvm.loop !161
 
 _ZN2cv3dnn17NaryEltwiseHelper6reInitESt6vectorImSaImEE.exit: ; preds = %_ZNSt6vectorImSaImEEC2ERKS1_.exit
@@ -75876,21 +75873,17 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %._crit_edge
   %65 = load ptr, ptr %1, align 8, !tbaa !183
   %66 = load ptr, ptr %9, align 8, !tbaa !183
   %.not5255 = icmp eq ptr %65, %66
-  br i1 %.not5255, label %._crit_edge63, label %.lr.ph58.preheader
+  br i1 %.not5255, label %._crit_edge63, label %.lr.ph58
 
-.lr.ph58.preheader:                               ; preds = %.lr.ph62
-  %umax = call i64 @llvm.umax.i64(i64 %49, i64 1)
-  br label %.lr.ph58
-
-.lr.ph58:                                         ; preds = %.lr.ph58.preheader, %._crit_edge59
-  %.03060 = phi i64 [ %68, %._crit_edge59 ], [ 0, %.lr.ph58.preheader ]
+.lr.ph58:                                         ; preds = %.lr.ph62, %._crit_edge59
+  %.03060 = phi i64 [ %68, %._crit_edge59 ], [ 0, %.lr.ph62 ]
   %67 = getelementptr inbounds nuw i32, ptr %51, i64 %.03060
   %.promoted = load i32, ptr %67, align 4, !tbaa !96
   br label %69
 
 ._crit_edge59:                                    ; preds = %93
   %68 = add nuw i64 %.03060, 1
-  %exitcond.not = icmp eq i64 %68, %umax
+  %exitcond.not = icmp eq i64 %68, %49
   br i1 %exitcond.not, label %._crit_edge63, label %.lr.ph58, !llvm.loop !2220
 
 69:                                               ; preds = %.lr.ph58, %93

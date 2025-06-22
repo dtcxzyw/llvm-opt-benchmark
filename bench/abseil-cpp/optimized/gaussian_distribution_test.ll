@@ -4435,11 +4435,7 @@ _ZN4absl15random_internal21ChiSquareWithExpectedIN9__gnu_cxx17__normal_iteratorI
   br i1 %134, label %.preheader.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit.i
 
 .preheader.i:                                     ; preds = %133
-  br i1 %.not.i.i.i.i71.i, label %._crit_edge.i, label %.lr.ph.preheader.i
-
-.lr.ph.preheader.i:                               ; preds = %.preheader.i
-  %umax.i = call i64 @llvm.umax.i64(i64 %86, i64 1)
-  br label %.lr.ph.i
+  br i1 %.not.i.i.i.i71.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %149, %.preheader.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #40
@@ -4456,8 +4452,8 @@ _ZN4absl15random_internal21ChiSquareWithExpectedIN9__gnu_cxx17__normal_iteratorI
           cleanup
   br label %.thread.i
 
-.lr.ph.i:                                         ; preds = %149, %.lr.ph.preheader.i
-  %.0163.i = phi i64 [ %150, %149 ], [ 0, %.lr.ph.preheader.i ]
+.lr.ph.i:                                         ; preds = %.preheader.i, %149
+  %.0163.i = phi i64 [ %150, %149 ], [ 0, %.preheader.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #40
   invoke void @_ZN4absl12log_internal10LogMessageC1EPKciNS1_7InfoTagE(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull @.str.2, i32 noundef 299) #43
           to label %139 unwind label %151
@@ -4499,7 +4495,7 @@ _ZN4absl12log_internal10LogMessagelsILi5EEERS1_RAT__Kc.exit79.i: ; preds = %145
   call void @_ZN4absl12log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #44
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #40
   %150 = add nuw i64 %.0163.i, 1
-  %exitcond169.not.i = icmp eq i64 %150, %umax.i
+  %exitcond169.not.i = icmp eq i64 %150, %86
   br i1 %exitcond169.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !144
 
 151:                                              ; preds = %.lr.ph.i

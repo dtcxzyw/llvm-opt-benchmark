@@ -5019,7 +5019,6 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEvT_S7_RKT0_.exit
   %154 = ptrtoint ptr %152 to i64
   %155 = sub i64 %153, %154
   %156 = ashr exact i64 %155, 2
-  %umax = call i64 @llvm.umax.i64(i64 %156, i64 1)
   br label %.lr.ph194
 
 157:                                              ; preds = %118
@@ -5042,7 +5041,7 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEvT_S7_RKT0_.exit
   %166 = getelementptr inbounds nuw float, ptr %142, i64 %165
   store float %162, ptr %166, align 4, !tbaa !182
   %167 = add nuw i64 %.0118193, 1
-  %exitcond.not = icmp eq i64 %167, %umax
+  %exitcond.not = icmp eq i64 %167, %156
   br i1 %exitcond.not, label %_ZSt4copyIPfN9__gnu_cxx17__normal_iteratorIS0_St6vectorIfSaIfEEEEET0_T_S8_S7_.exit, label %.lr.ph194, !llvm.loop !237
 
 168:                                              ; preds = %137

@@ -7938,12 +7938,11 @@ _ZL13getGTKWindowsv.exit.i:                       ; preds = %22, %20, %_ZNSt10lo
   %27 = ptrtoint ptr %25 to i64
   %28 = sub i64 %26, %27
   %29 = ashr exact i64 %28, 4
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %29, i64 1)
   br label %.lr.ph.i
 
 30:                                               ; preds = %41
   %31 = add nuw i64 %.01725.i, 1
-  %exitcond.not.i = icmp eq i64 %31, %umax.i
+  %exitcond.not.i = icmp eq i64 %31, %29
   br i1 %exitcond.not.i, label %_ZL17icvWindowByWidgetP10_GtkWidget.exit, label %.lr.ph.i, !llvm.loop !157
 
 .lr.ph.i:                                         ; preds = %30, %.lr.ph.preheader.i

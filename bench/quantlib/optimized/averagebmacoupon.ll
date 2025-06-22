@@ -3389,7 +3389,6 @@ for.body.lr.ph:                                   ; preds = %if.then.i.i.i.i.i, 
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i36
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %index_ = getelementptr inbounds nuw i8, ptr %this, i64 88
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %invoke.cont9
@@ -3436,7 +3435,7 @@ invoke.cont9:                                     ; preds = %invoke.cont7
   %add.ptr.i = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i5, i64 %i.022
   store double %call10, ptr %add.ptr.i, align 8, !tbaa !128
   %inc = add nuw i64 %i.022, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i
   br i1 %exitcond.not, label %nrvo.skipdtor, label %for.body, !llvm.loop !130
 
 lpad3.loopexit:                                   ; preds = %invoke.cont7, %cond.false.i

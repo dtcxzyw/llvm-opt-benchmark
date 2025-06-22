@@ -478,12 +478,11 @@ define hidden noundef i32 @_ZN2cv3dnn8Subgraph14addNodeToMatchERKNSt7__cxx1112ba
   %20 = sub i64 %18, %19
   %21 = lshr exact i64 %20, 5
   %22 = trunc i64 %21 to i32
-  %umax = tail call i64 @llvm.umax.i64(i64 %13, i64 1)
   br label %85
 
 23:                                               ; preds = %85
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %13
   br i1 %exitcond.not, label %._crit_edge, label %85, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %23, %.._crit_edge_crit_edge
@@ -5547,7 +5546,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %103 = load ptr, ptr %15, align 8, !tbaa !6
   %104 = getelementptr inbounds nuw i32, ptr %103, i64 %indvars.iv134
   %105 = load i32, ptr %104, align 4, !tbaa !28
-  %umax = call i64 @llvm.umax.i64(i64 %84, i64 1)
   br label %106
 
 106:                                              ; preds = %.lr.ph, %149
@@ -5670,7 +5668,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit66: ; preds = %_ZN
 
 149:                                              ; preds = %106
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %84
   br i1 %exitcond.not, label %.loopexit, label %106, !llvm.loop !143
 
 .loopexit:                                        ; preds = %149, %64, %._crit_edge141, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit66
@@ -6630,7 +6628,6 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc90, %_ZNSt6ve
   %110 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %111 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %112 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %umax = call i64 @llvm.umax.i64(i64 %109, i64 1)
   br label %.preheader313
 
 .preheader313:                                    ; preds = %.preheader313.lr.ph, %130
@@ -6643,7 +6640,6 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc90, %_ZNSt6ve
   %115 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %116 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %117 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %umax404 = call i64 @llvm.umax.i64(i64 %109, i64 1)
   br label %247
 
 118:                                              ; preds = %87
@@ -6671,7 +6667,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc90, %_ZNSt6ve
 
 130:                                              ; preds = %128
   %indvars.iv.next398 = add nuw i64 %indvars.iv397, 1
-  %exitcond400.not = icmp eq i64 %indvars.iv.next398, %umax
+  %exitcond400.not = icmp eq i64 %indvars.iv.next398, %109
   br i1 %exitcond400.not, label %.lr.ph, label %.preheader313, !llvm.loop !162
 
 131:                                              ; preds = %122
@@ -7120,7 +7116,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %279, %277
 _ZNSt12__shared_ptrIN2cv3dnn17ImportNodeWrapperELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %260, %267, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %282
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #27
   %indvars.iv.next402 = add nuw i64 %indvars.iv401, 1
-  %exitcond405.not = icmp eq i64 %indvars.iv.next402, %umax404
+  %exitcond405.not = icmp eq i64 %indvars.iv.next402, %109
   br i1 %exitcond405.not, label %._crit_edge, label %247, !llvm.loop !174
 
 283:                                              ; preds = %247

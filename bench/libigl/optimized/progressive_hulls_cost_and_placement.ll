@@ -263,7 +263,6 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i.i142: ; preds = %
   %98 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %99 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %100 = getelementptr inbounds nuw i8, ptr %17, i64 48
-  %umax = call i64 @llvm.umax.i64(i64 %47, i64 1)
   br label %107
 
 101:                                              ; preds = %9
@@ -459,7 +458,7 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i.i142: ; preds = %
   store double %219, ptr %220, align 8, !tbaa !22
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %17) #18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %47
   br i1 %exitcond.not, label %._crit_edge, label %107, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %._crit_edge.i150.thread

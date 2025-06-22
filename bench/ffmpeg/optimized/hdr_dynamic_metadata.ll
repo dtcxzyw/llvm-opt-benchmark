@@ -407,8 +407,7 @@ define range(i32 -1094995529, 1) i32 @av_dynamic_hdr_plus_from_t35(ptr noundef w
 .loopexit298:                                     ; preds = %._crit_edge306.us, %.preheader297, %.preheader296.lr.ph, %165
   %.promoted321 = phi i32 [ %spec.select.i283, %165 ], [ %207, %.preheader297 ], [ %207, %.preheader296.lr.ph ], [ %233, %._crit_edge306.us ]
   %234 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %umax = call i32 @llvm.umax.i32(i32 %25, i32 1)
-  %wide.trip.count387 = zext nneg i32 %umax to i64
+  %wide.trip.count387 = zext nneg i32 %25 to i64
   br label %235
 
 235:                                              ; preds = %.loopexit298, %.critedge245
@@ -2680,9 +2679,6 @@ declare i32 @llvm.umin.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #8
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

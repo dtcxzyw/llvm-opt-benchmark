@@ -114,7 +114,6 @@ define hidden void @_ZN4cvc58internal6theory11quantifiers4inst11TriggerTrieD2Ev(
   %6 = ptrtoint ptr %4 to i64
   %7 = sub i64 %5, %6
   %8 = ashr exact i64 %7, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %8, i64 1)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %30, %1
@@ -165,7 +164,7 @@ _ZNSt6vectorIPN4cvc58internal6theory11quantifiers4inst7TriggerESaIS6_EED2Ev.exit
 
 30:                                               ; preds = %.lr.ph, %26
   %31 = add nuw i64 %.05, 1
-  %exitcond.not = icmp eq i64 %31, %umax
+  %exitcond.not = icmp eq i64 %31, %8
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 }
 
@@ -834,7 +833,6 @@ define linkonce_odr hidden void @_ZNSt15__new_allocatorISt13_Rb_tree_nodeISt4pai
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %32, %2
@@ -882,7 +880,7 @@ _ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_NS1_6theory11quan
 
 32:                                               ; preds = %28, %.lr.ph
   %33 = add nuw i64 %.0.i1, 1
-  %exitcond.not = icmp eq i64 %33, %umax
+  %exitcond.not = icmp eq i64 %33, %10
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 
 _ZN4cvc58internal6theory11quantifiers4inst11TriggerTrieD2Ev.exit: ; preds = %_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_NS1_6theory11quantifiers4inst11TriggerTrieEESt10_Select1stISA_ESt4lessIS3_ESaISA_EED2Ev.exit.i, %18

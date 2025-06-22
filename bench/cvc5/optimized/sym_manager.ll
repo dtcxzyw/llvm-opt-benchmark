@@ -2745,7 +2745,6 @@ define noundef zeroext i1 @_ZN4cvc56parser10SymManager23bindMutualDatatypeTypesE
   %92 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %93 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %94 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %umax = tail call i64 @llvm.umax.i64(i64 %35, i64 1)
   br label %95
 
 95:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit348, %.lr.ph480
@@ -3813,7 +3812,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit348: ; preds = %_Z
   call void @_ZN4cvc54SortD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #27
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #27
   %441 = add nuw i64 %.061479, 1
-  %exitcond485.not = icmp ne i64 %441, %umax
+  %exitcond485.not = icmp ne i64 %441, %35
   %or.cond.not = select i1 %cond1, i1 %exitcond485.not, i1 false
   br i1 %or.cond.not, label %95, label %._crit_edge, !llvm.loop !196
 

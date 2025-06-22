@@ -3775,7 +3775,6 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backEOS2_.exit: ; preds = %_ZNSt6vecto
   %483 = ashr exact i64 %482, 3
   %484 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %485 = getelementptr inbounds nuw i8, ptr %18, i64 72
-  %umax581 = call i64 @llvm.umax.i64(i64 %483, i64 1)
   br label %523
 
 486:                                              ; preds = %._crit_edge548
@@ -3942,7 +3941,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backEOS2_.exit: ; preds = %_ZNSt6vecto
   %.sroa.0385.0.insert.insert = or disjoint i32 %.sroa.5386.0.insert.ext, %.sroa.0385.0.insert.ext
   store i32 %.sroa.0385.0.insert.insert, ptr %548, align 2
   %549 = add nuw i64 %.057556, 1
-  %exitcond582.not = icmp eq i64 %549, %umax581
+  %exitcond582.not = icmp eq i64 %549, %483
   br i1 %exitcond582.not, label %.loopexit, label %523, !llvm.loop !223
 
 550:                                              ; preds = %470
@@ -3967,7 +3966,6 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backEOS2_.exit: ; preds = %_ZNSt6vecto
   %563 = getelementptr inbounds nuw i8, ptr %19, i64 72
   %564 = load ptr, ptr %563, align 8, !tbaa !113
   %565 = load i64, ptr %564, align 8, !tbaa !114
-  %umax = call i64 @llvm.umax.i64(i64 %554, i64 1)
   br label %591
 
 .preheader503:                                    ; preds = %550
@@ -3980,7 +3978,6 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backEOS2_.exit: ; preds = %_ZNSt6vecto
   %569 = ashr exact i64 %568, 3
   %570 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %571 = getelementptr inbounds nuw i8, ptr %18, i64 72
-  %umax579 = call i64 @llvm.umax.i64(i64 %569, i64 1)
   br label %572
 
 572:                                              ; preds = %.lr.ph555, %572
@@ -4006,7 +4003,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backEOS2_.exit: ; preds = %_ZNSt6vecto
   %.sroa_idx384 = getelementptr inbounds nuw i8, ptr %589, i64 4
   store i32 %577, ptr %.sroa_idx384, align 4
   %590 = add nuw i64 %.056554, 1
-  %exitcond580.not = icmp eq i64 %590, %umax579
+  %exitcond580.not = icmp eq i64 %590, %569
   br i1 %exitcond580.not, label %.loopexit, label %572, !llvm.loop !227
 
 591:                                              ; preds = %.lr.ph553, %591
@@ -4030,7 +4027,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backEOS2_.exit: ; preds = %_ZNSt6vecto
   %607 = getelementptr inbounds float, ptr %606, i64 %601
   store float %604, ptr %607, align 4, !tbaa !228
   %608 = add nuw i64 %.0552, 1
-  %exitcond.not = icmp eq i64 %608, %umax
+  %exitcond.not = icmp eq i64 %608, %554
   br i1 %exitcond.not, label %.loopexit, label %591, !llvm.loop !229
 
 .loopexit:                                        ; preds = %591, %572, %523, %.preheader505, %.preheader503, %.preheader

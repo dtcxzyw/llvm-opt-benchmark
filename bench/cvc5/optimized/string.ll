@@ -2249,7 +2249,6 @@ define hidden void @_ZNK4cvc58internal6String9toWStringB5cxx11Ev(ptr dead_on_unw
   %15 = sub i64 %13, %14
   %16 = ashr exact i64 %15, 2
   %17 = load ptr, ptr %0, align 8, !tbaa !11
-  %umax = tail call i64 @llvm.umax.i64(i64 %16, i64 1)
   br label %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEC2IS3_EEmwRKS3_.exit
 
 _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEC2IS3_EEmwRKS3_.exit: ; preds = %.lr.ph, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEC2IS3_EEmwRKS3_.exit
@@ -2259,7 +2258,7 @@ _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEC2IS3_EEmwRKS3_.exit: ; pre
   %20 = getelementptr inbounds nuw i32, ptr %17, i64 %.07
   store i32 %19, ptr %20, align 4, !tbaa !16
   %21 = add nuw i64 %.07, 1
-  %exitcond.not = icmp eq i64 %21, %umax
+  %exitcond.not = icmp eq i64 %21, %16
   br i1 %exitcond.not, label %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEC2IS3_EEmwRKS3_.exit._crit_edge, label %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEC2IS3_EEmwRKS3_.exit, !llvm.loop !101
 
 _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEC2IS3_EEmwRKS3_.exit._crit_edge: ; preds = %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEC2IS3_EEmwRKS3_.exit, %2
@@ -2540,21 +2539,17 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal6String9hasPrefixERKS1_(ptr 
 
 .preheader:                                       ; preds = %2
   %.not1415 = icmp eq ptr %10, %11
-  br i1 %.not1415, label %.loopexit, label %.lr.ph.preheader
+  br i1 %.not1415, label %.loopexit, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %.preheader
-  %umax = tail call i64 @llvm.umax.i64(i64 %15, i64 1)
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
-  %.016 = phi i64 [ 0, %.lr.ph.preheader ], [ %21, %.lr.ph ]
+.lr.ph:                                           ; preds = %.preheader, %.lr.ph
+  %.016 = phi i64 [ %21, %.lr.ph ], [ 0, %.preheader ]
   %17 = getelementptr inbounds nuw i32, ptr %5, i64 %.016
   %18 = load i32, ptr %17, align 4, !tbaa !18
   %19 = getelementptr inbounds nuw i32, ptr %11, i64 %.016
   %20 = load i32, ptr %19, align 4, !tbaa !18
   %.not = icmp eq i32 %18, %20
   %21 = add nuw i64 %.016, 1
-  %exitcond.not = icmp ne i64 %21, %umax
+  %exitcond.not = icmp ne i64 %21, %15
   %or.cond.not = select i1 %.not, i1 %exitcond.not, i1 false
   br i1 %or.cond.not, label %.lr.ph, label %.loopexit, !llvm.loop !111
 
@@ -2586,21 +2581,17 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal6String9hasSuffixERKS1_(ptr 
   %19 = sub nuw nsw i64 %9, %16
   %invariant.gep = getelementptr i32, ptr %5, i64 %19
   %.not18.not19.not = icmp eq ptr %11, %12
-  br i1 %.not18.not19.not, label %.critedge, label %.lr.ph.preheader
+  br i1 %.not18.not19.not, label %.critedge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %18
-  %umax = tail call i64 @llvm.umax.i64(i64 %16, i64 1)
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
-  %.020 = phi i64 [ 0, %.lr.ph.preheader ], [ %23, %.lr.ph ]
+.lr.ph:                                           ; preds = %18, %.lr.ph
+  %.020 = phi i64 [ %23, %.lr.ph ], [ 0, %18 ]
   %gep = getelementptr i32, ptr %invariant.gep, i64 %.020
   %20 = load i32, ptr %gep, align 4, !tbaa !18
   %21 = getelementptr inbounds nuw i32, ptr %12, i64 %.020
   %22 = load i32, ptr %21, align 4, !tbaa !18
   %.not = icmp eq i32 %20, %22
   %23 = add nuw i64 %.020, 1
-  %exitcond.not = icmp ne i64 %23, %umax
+  %exitcond.not = icmp ne i64 %23, %16
   %or.cond.not = select i1 %.not, i1 %exitcond.not, i1 false
   br i1 %or.cond.not, label %.lr.ph, label %.critedge, !llvm.loop !112
 

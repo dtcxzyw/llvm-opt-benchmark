@@ -1803,7 +1803,6 @@ _ZNSt6vectorIiSaIiEEC2ERKS1_.exit:                ; preds = %80, %84
   %92 = ptrtoint ptr %90 to i64
   %93 = sub i64 %91, %92
   %94 = ashr exact i64 %93, 2
-  %umax98 = tail call i64 @llvm.umax.i64(i64 %94, i64 1)
   br label %.lr.ph83
 
 .lr.ph83:                                         ; preds = %.lr.ph83.preheader, %.lr.ph83
@@ -1815,7 +1814,7 @@ _ZNSt6vectorIiSaIiEEC2ERKS1_.exit:                ; preds = %80, %84
   %99 = tail call i32 @llvm.smax.i32(i32 %97, i32 %98)
   store i32 %99, ptr %95, align 4, !tbaa !79
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
-  %exitcond99.not = icmp eq i64 %indvars.iv.next96, %umax98
+  %exitcond99.not = icmp eq i64 %indvars.iv.next96, %94
   br i1 %exitcond99.not, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %.lr.ph83, !llvm.loop !95
 
 100:                                              ; preds = %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit
@@ -1828,11 +1827,7 @@ _ZNSt6vectorIiSaIiEEC2ERKS1_.exit:                ; preds = %80, %84
 
 .preheader75:                                     ; preds = %100
   %.not88 = icmp eq ptr %89, %90
-  br i1 %.not88, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %.preheader75
-  %umax = tail call i64 @llvm.umax.i64(i64 %104, i64 1)
-  br label %.lr.ph
+  br i1 %.not88, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %.lr.ph
 
 106:                                              ; preds = %100
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #24
@@ -1871,8 +1866,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i56
   call void @_ZdlPv(ptr noundef %113) #25
   br label %149
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %137
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %137 ]
+.lr.ph:                                           ; preds = %.preheader75, %137
+  %indvars.iv = phi i64 [ %indvars.iv.next, %137 ], [ 0, %.preheader75 ]
   %.not47 = icmp eq i64 %indvars.iv, %64
   br i1 %.not47, label %137, label %119
 
@@ -1929,7 +1924,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i59
 
 137:                                              ; preds = %.lr.ph, %119
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %104
   br i1 %exitcond.not, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %.lr.ph, !llvm.loop !96
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %137, %.lr.ph83, %.preheader75, %.preheader
@@ -2598,7 +2593,6 @@ define linkonce_odr hidden void @_ZN2cv3dnn15ConcatLayerImpl20ChannelConcatInvok
 .lr.ph:                                           ; preds = %3
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 12
-  %umax = tail call i64 @llvm.umax.i64(i64 %22, i64 1)
   br label %28
 
 28:                                               ; preds = %.lr.ph, %68
@@ -2698,7 +2692,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %70 = load i32, ptr %69, align 4, !tbaa !79
   %71 = add nsw i32 %70, %.05782
   %72 = add nuw i64 %.083, 1
-  %exitcond.not = icmp eq i64 %72, %umax
+  %exitcond.not = icmp eq i64 %72, %22
   br i1 %exitcond.not, label %._crit_edge, label %28, !llvm.loop !122
 
 ._crit_edge:                                      ; preds = %68, %3
@@ -2857,7 +2851,6 @@ _ZNSt6vectorIPKaSaIS1_EE6resizeEm.exit:           ; preds = %107, %_ZNSt12_Vecto
 
 .preheader.lr.ph.us.preheader:                    ; preds = %_ZNSt6vectorIPKaSaIS1_EE6resizeEm.exit
   %122 = sext i32 %.057.lcssa to i64
-  %umax109 = tail call i64 @llvm.umax.i64(i64 %22, i64 1)
   %wide.trip.count107 = zext nneg i32 %25 to i64
   br label %.preheader.lr.ph.us
 
@@ -2876,7 +2869,7 @@ _ZNSt6vectorIPKaSaIS1_EE6resizeEm.exit:           ; preds = %107, %_ZNSt12_Vecto
 ._crit_edge88.us:                                 ; preds = %._crit_edge86.us.us, %.preheader.lr.ph.us
   %130 = add nsw i32 %127, %.05889.us
   %131 = add nuw i64 %.191.us, 1
-  %exitcond110.not = icmp eq i64 %131, %umax109
+  %exitcond110.not = icmp eq i64 %131, %22
   br i1 %exitcond110.not, label %._crit_edge93, label %.preheader.lr.ph.us, !llvm.loop !127
 
 .preheader.lr.ph.split.us.us:                     ; preds = %.preheader.lr.ph.us
@@ -2989,7 +2982,6 @@ define linkonce_odr hidden void @_ZN2cv3dnn15ConcatLayerImpl20ChannelConcatInvok
 .lr.ph:                                           ; preds = %3
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 12
-  %umax = tail call i64 @llvm.umax.i64(i64 %22, i64 1)
   br label %28
 
 28:                                               ; preds = %.lr.ph, %68
@@ -3089,7 +3081,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %70 = load i32, ptr %69, align 4, !tbaa !79
   %71 = add nsw i32 %70, %.05782
   %72 = add nuw i64 %.083, 1
-  %exitcond.not = icmp eq i64 %72, %umax
+  %exitcond.not = icmp eq i64 %72, %22
   br i1 %exitcond.not, label %._crit_edge, label %28, !llvm.loop !141
 
 ._crit_edge:                                      ; preds = %68, %3
@@ -3248,7 +3240,6 @@ _ZNSt6vectorIPKfSaIS1_EE6resizeEm.exit:           ; preds = %107, %_ZNSt12_Vecto
 
 .preheader.lr.ph.us.preheader:                    ; preds = %_ZNSt6vectorIPKfSaIS1_EE6resizeEm.exit
   %122 = sext i32 %.057.lcssa to i64
-  %umax109 = tail call i64 @llvm.umax.i64(i64 %22, i64 1)
   %wide.trip.count107 = zext nneg i32 %25 to i64
   br label %.preheader.lr.ph.us
 
@@ -3266,7 +3257,7 @@ _ZNSt6vectorIPKfSaIS1_EE6resizeEm.exit:           ; preds = %107, %_ZNSt12_Vecto
 ._crit_edge88.us:                                 ; preds = %._crit_edge86.us.us, %.preheader.lr.ph.us
   %129 = add nsw i32 %127, %.05889.us
   %130 = add nuw i64 %.191.us, 1
-  %exitcond110.not = icmp eq i64 %130, %umax109
+  %exitcond110.not = icmp eq i64 %130, %22
   br i1 %exitcond110.not, label %._crit_edge93, label %.preheader.lr.ph.us, !llvm.loop !147
 
 .preheader.lr.ph.split.us.us:                     ; preds = %.preheader.lr.ph.us

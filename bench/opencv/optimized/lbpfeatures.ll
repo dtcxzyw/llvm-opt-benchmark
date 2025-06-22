@@ -237,7 +237,6 @@ define hidden void @_ZN2cv10xobjdetect14CvLBPEvaluator8setImageERKNS_3MatEhiRKSt
   %28 = ashr exact i64 %27, 2
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %30 = load ptr, ptr %29, align 8, !tbaa !45
-  %umax = call i64 @llvm.umax.i64(i64 %28, i64 1)
   br label %31
 
 ._crit_edge:                                      ; preds = %31, %5
@@ -328,7 +327,7 @@ define hidden void @_ZN2cv10xobjdetect14CvLBPEvaluator8setImageERKNS_3MatEhiRKSt
   %89 = getelementptr inbounds nuw i8, ptr %35, i64 96
   store i32 %36, ptr %89, align 4, !tbaa !53
   %90 = add nuw i64 %.015, 1
-  %exitcond.not = icmp eq i64 %90, %umax
+  %exitcond.not = icmp eq i64 %90, %28
   br i1 %exitcond.not, label %._crit_edge, label %31, !llvm.loop !54
 }
 

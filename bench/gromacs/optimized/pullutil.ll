@@ -3364,7 +3364,6 @@ define void @_Z27setPrevStepPullComFromStateP6pull_tPK7t_state(ptr noundef reado
   %10 = sdiv exact i64 %9, 272
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 808
   %12 = load ptr, ptr %11, align 8, !tbaa !188
-  %umax = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %15
@@ -3379,7 +3378,7 @@ define void @_Z27setPrevStepPullComFromStateP6pull_tPK7t_state(ptr noundef reado
 
 15:                                               ; preds = %17
   %16 = add nuw i64 %.01012, 1
-  %exitcond15.not = icmp eq i64 %16, %umax
+  %exitcond15.not = icmp eq i64 %16, %10
   br i1 %exitcond15.not, label %._crit_edge, label %.preheader, !llvm.loop !244
 
 17:                                               ; preds = %.preheader, %17
@@ -3398,7 +3397,7 @@ define void @_Z21updatePrevStepPullComP6pull_tSt8optionalIN3gmx8ArrayRefIdEEE(pt
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i8, ptr %3, align 8, !tbaa !246, !range !62, !noundef !63
   %5 = trunc nuw i8 %4 to i1
-  br i1 %5, label %_ZNRSt8optionalIN3gmx8ArrayRefIdEEE5valueEv.exit, label %30
+  br i1 %5, label %_ZNRSt8optionalIN3gmx8ArrayRefIdEEE5valueEv.exit, label %29
 
 _ZNRSt8optionalIN3gmx8ArrayRefIdEEE5valueEv.exit: ; preds = %2
   %6 = load ptr, ptr %1, align 8, !tbaa !248
@@ -3414,86 +3413,84 @@ _ZNRSt8optionalIN3gmx8ArrayRefIdEEE5valueEv.exit: ; preds = %2
 
 .lr.ph.preheader.i:                               ; preds = %_ZNRSt8optionalIN3gmx8ArrayRefIdEEE5valueEv.exit
   %15 = udiv exact i64 %13, 272
-  %16 = tail call i64 @llvm.umax.i64(i64 %15, i64 1)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.loopexit.i, %.lr.ph.preheader.i
-  %.01719.i = phi i64 [ %29, %.loopexit.i ], [ 0, %.lr.ph.preheader.i ]
-  %17 = getelementptr inbounds nuw %struct.pull_group_work_t, ptr %10, i64 %.01719.i
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 64
-  %19 = load i8, ptr %18, align 8, !tbaa !123, !range !62, !noundef !63
-  %20 = trunc nuw i8 %19 to i1
-  br i1 %20, label %.preheader.i, label %.loopexit.i
+  %.01719.i = phi i64 [ %28, %.loopexit.i ], [ 0, %.lr.ph.preheader.i ]
+  %16 = getelementptr inbounds nuw %struct.pull_group_work_t, ptr %10, i64 %.01719.i
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 64
+  %18 = load i8, ptr %17, align 8, !tbaa !123, !range !62, !noundef !63
+  %19 = trunc nuw i8 %18 to i1
+  br i1 %19, label %.preheader.i, label %.loopexit.i
 
 .preheader.i:                                     ; preds = %.lr.ph.i
-  %21 = getelementptr inbounds nuw i8, ptr %17, i64 200
-  %22 = getelementptr inbounds nuw i8, ptr %17, i64 248
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 200
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 248
   %.idx.i = mul nuw nsw i64 %.01719.i, 24
-  %23 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i
-  br label %24
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i
+  br label %23
 
-24:                                               ; preds = %24, %.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %24 ]
-  %25 = getelementptr inbounds nuw [3 x double], ptr %21, i64 0, i64 %indvars.iv.i
-  %26 = load double, ptr %25, align 8, !tbaa !124
-  %27 = getelementptr inbounds nuw [3 x double], ptr %22, i64 0, i64 %indvars.iv.i
-  store double %26, ptr %27, align 8, !tbaa !124
-  %28 = getelementptr inbounds nuw double, ptr %23, i64 %indvars.iv.i
-  store double %26, ptr %28, align 8, !tbaa !124
+23:                                               ; preds = %23, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %23 ]
+  %24 = getelementptr inbounds nuw [3 x double], ptr %20, i64 0, i64 %indvars.iv.i
+  %25 = load double, ptr %24, align 8, !tbaa !124
+  %26 = getelementptr inbounds nuw [3 x double], ptr %21, i64 0, i64 %indvars.iv.i
+  store double %25, ptr %26, align 8, !tbaa !124
+  %27 = getelementptr inbounds nuw double, ptr %22, i64 %indvars.iv.i
+  store double %25, ptr %27, align 8, !tbaa !124
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %.loopexit.i, label %24, !llvm.loop !250
+  br i1 %exitcond.not.i, label %.loopexit.i, label %23, !llvm.loop !250
 
-.loopexit.i:                                      ; preds = %24, %.lr.ph.i
-  %29 = add nuw nsw i64 %.01719.i, 1
-  %exitcond21.not.i = icmp eq i64 %29, %16
+.loopexit.i:                                      ; preds = %23, %.lr.ph.i
+  %28 = add nuw nsw i64 %.01719.i, 1
+  %exitcond21.not.i = icmp eq i64 %28, %15
   br i1 %exitcond21.not.i, label %_ZL25updatePrevStepPullComImplIL13PullBackupCOM0EEvP6pull_tN3gmx8ArrayRefIdEE.exit, label %.lr.ph.i, !llvm.loop !251
 
-30:                                               ; preds = %2
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %33 = load ptr, ptr %32, align 8, !tbaa !89
-  %34 = load ptr, ptr %31, align 8, !tbaa !90
+29:                                               ; preds = %2
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %32 = load ptr, ptr %31, align 8, !tbaa !89
+  %33 = load ptr, ptr %30, align 8, !tbaa !90
+  %34 = ptrtoint ptr %32 to i64
   %35 = ptrtoint ptr %33 to i64
-  %36 = ptrtoint ptr %34 to i64
-  %37 = sub i64 %35, %36
-  %38 = icmp sgt i64 %37, 0
-  br i1 %38, label %.lr.ph.preheader.i2, label %_ZL25updatePrevStepPullComImplIL13PullBackupCOM0EEvP6pull_tN3gmx8ArrayRefIdEE.exit
+  %36 = sub i64 %34, %35
+  %37 = icmp sgt i64 %36, 0
+  br i1 %37, label %.lr.ph.preheader.i2, label %_ZL25updatePrevStepPullComImplIL13PullBackupCOM0EEvP6pull_tN3gmx8ArrayRefIdEE.exit
 
-.lr.ph.preheader.i2:                              ; preds = %30
-  %39 = udiv exact i64 %37, 272
-  %40 = tail call i64 @llvm.umax.i64(i64 %39, i64 1)
+.lr.ph.preheader.i2:                              ; preds = %29
+  %38 = udiv exact i64 %36, 272
   br label %.lr.ph.i3
 
 .lr.ph.i3:                                        ; preds = %.loopexit.i4, %.lr.ph.preheader.i2
-  %.0122.i = phi i64 [ %51, %.loopexit.i4 ], [ 0, %.lr.ph.preheader.i2 ]
-  %41 = getelementptr inbounds nuw %struct.pull_group_work_t, ptr %34, i64 %.0122.i
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 64
-  %43 = load i8, ptr %42, align 8, !tbaa !123, !range !62, !noundef !63
-  %44 = trunc nuw i8 %43 to i1
-  br i1 %44, label %.preheader.i5, label %.loopexit.i4
+  %.0122.i = phi i64 [ %49, %.loopexit.i4 ], [ 0, %.lr.ph.preheader.i2 ]
+  %39 = getelementptr inbounds nuw %struct.pull_group_work_t, ptr %33, i64 %.0122.i
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 64
+  %41 = load i8, ptr %40, align 8, !tbaa !123, !range !62, !noundef !63
+  %42 = trunc nuw i8 %41 to i1
+  br i1 %42, label %.preheader.i5, label %.loopexit.i4
 
 .preheader.i5:                                    ; preds = %.lr.ph.i3
-  %45 = getelementptr inbounds nuw i8, ptr %41, i64 200
-  %46 = getelementptr inbounds nuw i8, ptr %41, i64 248
-  br label %47
+  %43 = getelementptr inbounds nuw i8, ptr %39, i64 200
+  %44 = getelementptr inbounds nuw i8, ptr %39, i64 248
+  br label %45
 
-47:                                               ; preds = %47, %.preheader.i5
-  %indvars.iv.i6 = phi i64 [ 0, %.preheader.i5 ], [ %indvars.iv.next.i7, %47 ]
-  %48 = getelementptr inbounds nuw [3 x double], ptr %45, i64 0, i64 %indvars.iv.i6
-  %49 = load double, ptr %48, align 8, !tbaa !124
-  %50 = getelementptr inbounds nuw [3 x double], ptr %46, i64 0, i64 %indvars.iv.i6
-  store double %49, ptr %50, align 8, !tbaa !124
+45:                                               ; preds = %45, %.preheader.i5
+  %indvars.iv.i6 = phi i64 [ 0, %.preheader.i5 ], [ %indvars.iv.next.i7, %45 ]
+  %46 = getelementptr inbounds nuw [3 x double], ptr %43, i64 0, i64 %indvars.iv.i6
+  %47 = load double, ptr %46, align 8, !tbaa !124
+  %48 = getelementptr inbounds nuw [3 x double], ptr %44, i64 0, i64 %indvars.iv.i6
+  store double %47, ptr %48, align 8, !tbaa !124
   %indvars.iv.next.i7 = add nuw nsw i64 %indvars.iv.i6, 1
   %exitcond.not.i8 = icmp eq i64 %indvars.iv.next.i7, 3
-  br i1 %exitcond.not.i8, label %.loopexit.i4, label %47, !llvm.loop !252
+  br i1 %exitcond.not.i8, label %.loopexit.i4, label %45, !llvm.loop !252
 
-.loopexit.i4:                                     ; preds = %47, %.lr.ph.i3
-  %51 = add nuw nsw i64 %.0122.i, 1
-  %exitcond5.not.i = icmp eq i64 %51, %40
+.loopexit.i4:                                     ; preds = %45, %.lr.ph.i3
+  %49 = add nuw nsw i64 %.0122.i, 1
+  %exitcond5.not.i = icmp eq i64 %49, %38
   br i1 %exitcond5.not.i, label %_ZL25updatePrevStepPullComImplIL13PullBackupCOM0EEvP6pull_tN3gmx8ArrayRefIdEE.exit, label %.lr.ph.i3, !llvm.loop !253
 
-_ZL25updatePrevStepPullComImplIL13PullBackupCOM0EEvP6pull_tN3gmx8ArrayRefIdEE.exit: ; preds = %.loopexit.i4, %.loopexit.i, %30, %_ZNRSt8optionalIN3gmx8ArrayRefIdEEE5valueEv.exit
+_ZL25updatePrevStepPullComImplIL13PullBackupCOM0EEvP6pull_tN3gmx8ArrayRefIdEE.exit: ; preds = %.loopexit.i4, %.loopexit.i, %29, %_ZNRSt8optionalIN3gmx8ArrayRefIdEEE5valueEv.exit
   ret void
 }
 
@@ -3914,7 +3911,6 @@ define void @_Z23initPullComFromPrevStepPK9t_commrecP6pull_tN3gmx8ArrayRefIKfEER
   %31 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %32 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 248
-  %umax = tail call i64 @llvm.umax.i64(i64 %23, i64 1)
   br label %54
 
 ._crit_edge103:                                   ; preds = %172, %27
@@ -3954,7 +3950,6 @@ _ZL13pullAllReduceIdEvPK9t_commrecP11pull_comm_tiPT_.exit: ; preds = %._crit_edg
 .lr.ph106:                                        ; preds = %_ZL13pullAllReduceIdEvPK9t_commrecP11pull_comm_tiPT_.exit
   %52 = load ptr, ptr %8, align 8, !tbaa !4
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 104
-  %umax114 = call i64 @llvm.umax.i64(i64 %23, i64 1)
   br label %174
 
 54:                                               ; preds = %.lr.ph102, %172
@@ -4155,7 +4150,7 @@ _ZL13pullAllReduceIdEvPK9t_commrecP11pull_comm_tiPT_.exit: ; preds = %._crit_edg
 172:                                              ; preds = %150, %62, %54
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #14
   %173 = add nuw i64 %.064100, 1
-  %exitcond109.not = icmp eq i64 %173, %umax
+  %exitcond109.not = icmp eq i64 %173, %23
   br i1 %exitcond109.not, label %._crit_edge103, label %54, !llvm.loop !261
 
 174:                                              ; preds = %.lr.ph106, %220
@@ -4230,7 +4225,7 @@ _ZL13pullAllReduceIdEvPK9t_commrecP11pull_comm_tiPT_.exit: ; preds = %._crit_edg
 
 220:                                              ; preds = %180, %209, %174
   %221 = add nuw i64 %.066105, 1
-  %exitcond115.not = icmp eq i64 %221, %umax114
+  %exitcond115.not = icmp eq i64 %221, %23
   br i1 %exitcond115.not, label %.loopexit, label %174, !llvm.loop !263
 
 .loopexit:                                        ; preds = %220, %_ZL13pullAllReduceIdEvPK9t_commrecP11pull_comm_tiPT_.exit, %6

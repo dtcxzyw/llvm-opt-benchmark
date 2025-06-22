@@ -595,7 +595,6 @@ _ZL15getSomPrecisionj.exit:                       ; preds = %143, %149, %151
   %.not107 = icmp eq ptr %1, null
   %.not108 = icmp eq ptr %3, null
   %.not109 = icmp eq ptr %2, null
-  %wide.trip.count239 = zext i32 %4 to i64
   br i1 %.not107, label %.preheader.split.us, label %.preheader.split
 
 .preheader.split.us:                              ; preds = %.preheader
@@ -614,7 +613,7 @@ _ZL15getSomPrecisionj.exit:                       ; preds = %143, %149, %151
 
 165:                                              ; preds = %.preheader.split.us.split.us.split.us
   %indvars.iv.next236 = add nuw nsw i64 %indvars.iv235, 1
-  %exitcond240.not = icmp eq i64 %indvars.iv.next236, %wide.trip.count239
+  %exitcond240.not = icmp eq i64 %indvars.iv.next236, %161
   br i1 %exitcond240.not, label %.split164.us, label %.preheader.split.us.split.us.split.us, !llvm.loop !6
 
 .split.us.split.us.split.us:                      ; preds = %.preheader.split.us.split.us.split.us
@@ -636,7 +635,7 @@ _ZL15getSomPrecisionj.exit:                       ; preds = %143, %149, %151
 
 172:                                              ; preds = %.preheader.split.us.split.us.split
   %indvars.iv.next230 = add nuw nsw i64 %indvars.iv229, 1
-  %exitcond234.not = icmp eq i64 %indvars.iv.next230, %wide.trip.count239
+  %exitcond234.not = icmp eq i64 %indvars.iv.next230, %161
   br i1 %exitcond234.not, label %.split164.us, label %.preheader.split.us.split.us.split, !llvm.loop !6
 
 .split.us.split.us.split:                         ; preds = %.preheader.split.us.split.us.split
@@ -661,7 +660,7 @@ _ZL15getSomPrecisionj.exit:                       ; preds = %143, %149, %151
 
 179:                                              ; preds = %.preheader.split.us.split.split.us
   %indvars.iv.next224 = add nuw nsw i64 %indvars.iv223, 1
-  %exitcond228.not = icmp eq i64 %indvars.iv.next224, %wide.trip.count239
+  %exitcond228.not = icmp eq i64 %indvars.iv.next224, %161
   br i1 %exitcond228.not, label %.split164.us, label %.preheader.split.us.split.split.us, !llvm.loop !6
 
 .split.us.split.split.us:                         ; preds = %.preheader.split.us.split.split.us
@@ -685,7 +684,7 @@ _ZL15getSomPrecisionj.exit:                       ; preds = %143, %149, %151
 
 188:                                              ; preds = %.preheader.split.us.split.split
   %indvars.iv.next218 = add nuw nsw i64 %indvars.iv217, 1
-  %exitcond222.not = icmp eq i64 %indvars.iv.next218, %wide.trip.count239
+  %exitcond222.not = icmp eq i64 %indvars.iv.next218, %161
   br i1 %exitcond222.not, label %.split164.us, label %.preheader.split.us.split.split, !llvm.loop !6
 
 .split.us.split.split:                            ; preds = %.preheader.split.us.split.split
@@ -713,7 +712,7 @@ _ZL15getSomPrecisionj.exit:                       ; preds = %143, %149, %151
 
 195:                                              ; preds = %.preheader.split.split.us.split.us
   %indvars.iv.next212 = add nuw nsw i64 %indvars.iv211, 1
-  %exitcond216.not = icmp eq i64 %indvars.iv.next212, %wide.trip.count239
+  %exitcond216.not = icmp eq i64 %indvars.iv.next212, %161
   br i1 %exitcond216.not, label %.split164.us, label %.preheader.split.split.us.split.us, !llvm.loop !6
 
 .split.split.us.split.us:                         ; preds = %.preheader.split.split.us.split.us
@@ -737,7 +736,7 @@ _ZL15getSomPrecisionj.exit:                       ; preds = %143, %149, %151
 
 204:                                              ; preds = %.preheader.split.split.us.split
   %indvars.iv.next206 = add nuw nsw i64 %indvars.iv205, 1
-  %exitcond210.not = icmp eq i64 %indvars.iv.next206, %wide.trip.count239
+  %exitcond210.not = icmp eq i64 %indvars.iv.next206, %161
   br i1 %exitcond210.not, label %.split164.us, label %.preheader.split.split.us.split, !llvm.loop !6
 
 .split.split.us.split:                            ; preds = %.preheader.split.split.us.split
@@ -764,7 +763,7 @@ _ZL15getSomPrecisionj.exit:                       ; preds = %143, %149, %151
 
 213:                                              ; preds = %.preheader.split.split.split.us
   %indvars.iv.next200 = add nuw nsw i64 %indvars.iv199, 1
-  %exitcond204.not = icmp eq i64 %indvars.iv.next200, %wide.trip.count239
+  %exitcond204.not = icmp eq i64 %indvars.iv.next200, %161
   br i1 %exitcond204.not, label %.split164.us, label %.preheader.split.split.split.us, !llvm.loop !6
 
 .split.split.split.us:                            ; preds = %.preheader.split.split.split.us
@@ -851,7 +850,7 @@ _ZL15getSomPrecisionj.exit:                       ; preds = %143, %149, %151
 
 246:                                              ; preds = %.preheader.split.split.split
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count239
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %161
   br i1 %exitcond.not, label %.split164.us, label %.preheader.split.split.split, !llvm.loop !6
 
 247:                                              ; preds = %.split164.us
@@ -2114,7 +2113,6 @@ _ZL15getSomPrecisionj.exit:                       ; preds = %167, %173, %175
   %.not117 = icmp eq ptr %1, null
   %.not118 = icmp eq ptr %3, null
   %.not119 = icmp eq ptr %2, null
-  %wide.trip.count260 = zext i32 %5 to i64
   br i1 %.not117, label %.preheader.split.us, label %.preheader.split
 
 .preheader.split.us:                              ; preds = %.preheader
@@ -2135,7 +2133,7 @@ _ZL15getSomPrecisionj.exit:                       ; preds = %167, %173, %175
 
 191:                                              ; preds = %.preheader.split.us.split.us.split.us
   %indvars.iv.next257 = add nuw nsw i64 %indvars.iv256, 1
-  %exitcond261.not = icmp eq i64 %indvars.iv.next257, %wide.trip.count260
+  %exitcond261.not = icmp eq i64 %indvars.iv.next257, %185
   br i1 %exitcond261.not, label %.split185.us, label %.preheader.split.us.split.us.split.us, !llvm.loop !10
 
 .split.us.split.us.split.us:                      ; preds = %.preheader.split.us.split.us.split.us
@@ -2159,7 +2157,7 @@ _ZL15getSomPrecisionj.exit:                       ; preds = %167, %173, %175
 
 200:                                              ; preds = %.preheader.split.us.split.us.split
   %indvars.iv.next251 = add nuw nsw i64 %indvars.iv250, 1
-  %exitcond255.not = icmp eq i64 %indvars.iv.next251, %wide.trip.count260
+  %exitcond255.not = icmp eq i64 %indvars.iv.next251, %185
   br i1 %exitcond255.not, label %.split185.us, label %.preheader.split.us.split.us.split, !llvm.loop !10
 
 .split.us.split.us.split:                         ; preds = %.preheader.split.us.split.us.split
@@ -2186,7 +2184,7 @@ _ZL15getSomPrecisionj.exit:                       ; preds = %167, %173, %175
 
 209:                                              ; preds = %.preheader.split.us.split.split.us
   %indvars.iv.next245 = add nuw nsw i64 %indvars.iv244, 1
-  %exitcond249.not = icmp eq i64 %indvars.iv.next245, %wide.trip.count260
+  %exitcond249.not = icmp eq i64 %indvars.iv.next245, %185
   br i1 %exitcond249.not, label %.split185.us, label %.preheader.split.us.split.split.us, !llvm.loop !10
 
 .split.us.split.split.us:                         ; preds = %.preheader.split.us.split.split.us
@@ -2212,7 +2210,7 @@ _ZL15getSomPrecisionj.exit:                       ; preds = %167, %173, %175
 
 220:                                              ; preds = %.preheader.split.us.split.split
   %indvars.iv.next239 = add nuw nsw i64 %indvars.iv238, 1
-  %exitcond243.not = icmp eq i64 %indvars.iv.next239, %wide.trip.count260
+  %exitcond243.not = icmp eq i64 %indvars.iv.next239, %185
   br i1 %exitcond243.not, label %.split185.us, label %.preheader.split.us.split.split, !llvm.loop !10
 
 .split.us.split.split:                            ; preds = %.preheader.split.us.split.split
@@ -2242,7 +2240,7 @@ _ZL15getSomPrecisionj.exit:                       ; preds = %167, %173, %175
 
 229:                                              ; preds = %.preheader.split.split.us.split.us
   %indvars.iv.next233 = add nuw nsw i64 %indvars.iv232, 1
-  %exitcond237.not = icmp eq i64 %indvars.iv.next233, %wide.trip.count260
+  %exitcond237.not = icmp eq i64 %indvars.iv.next233, %185
   br i1 %exitcond237.not, label %.split185.us, label %.preheader.split.split.us.split.us, !llvm.loop !10
 
 .split.split.us.split.us:                         ; preds = %.preheader.split.split.us.split.us
@@ -2268,7 +2266,7 @@ _ZL15getSomPrecisionj.exit:                       ; preds = %167, %173, %175
 
 240:                                              ; preds = %.preheader.split.split.us.split
   %indvars.iv.next227 = add nuw nsw i64 %indvars.iv226, 1
-  %exitcond231.not = icmp eq i64 %indvars.iv.next227, %wide.trip.count260
+  %exitcond231.not = icmp eq i64 %indvars.iv.next227, %185
   br i1 %exitcond231.not, label %.split185.us, label %.preheader.split.split.us.split, !llvm.loop !10
 
 .split.split.us.split:                            ; preds = %.preheader.split.split.us.split
@@ -2297,7 +2295,7 @@ _ZL15getSomPrecisionj.exit:                       ; preds = %167, %173, %175
 
 251:                                              ; preds = %.preheader.split.split.split.us
   %indvars.iv.next221 = add nuw nsw i64 %indvars.iv220, 1
-  %exitcond225.not = icmp eq i64 %indvars.iv.next221, %wide.trip.count260
+  %exitcond225.not = icmp eq i64 %indvars.iv.next221, %185
   br i1 %exitcond225.not, label %.split185.us, label %.preheader.split.split.split.us, !llvm.loop !10
 
 .split.split.split.us:                            ; preds = %.preheader.split.split.split.us
@@ -2386,7 +2384,7 @@ _ZL15getSomPrecisionj.exit:                       ; preds = %167, %173, %175
 
 286:                                              ; preds = %.preheader.split.split.split
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count260
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %185
   br i1 %exitcond.not, label %.split185.us, label %.preheader.split.split.split, !llvm.loop !10
 
 287:                                              ; preds = %.split185.us

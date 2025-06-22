@@ -2003,8 +2003,7 @@ define internal ptr @hwloc_synthetic_component_instantiate(ptr noundef %0, ptr n
 .lr.ph456.i:                                      ; preds = %282
   %295 = getelementptr inbounds nuw i8, ptr %9, i64 52
   %.promoted.i = load i32, ptr %295, align 4, !tbaa !58
-  %umax.i = call i32 @llvm.umax.i32(i32 %294, i32 1)
-  %wide.trip.count.i = zext i32 %umax.i to i64
+  %wide.trip.count.i = zext i32 %294 to i64
   br label %296
 
 296:                                              ; preds = %296, %.lr.ph456.i
@@ -2017,7 +2016,7 @@ define internal ptr @hwloc_synthetic_component_instantiate(ptr noundef %0, ptr n
   br i1 %exitcond.not.i, label %._crit_edge457.i, label %296, !llvm.loop !106
 
 ._crit_edge457.i:                                 ; preds = %296
-  %297 = add i32 %.promoted.i, %umax.i
+  %297 = add i32 %.promoted.i, %294
   store i32 %297, ptr %295, align 4, !tbaa !58
   br label %298
 

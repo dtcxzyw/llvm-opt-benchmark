@@ -439,7 +439,6 @@ _ZNK5draco11CornerTable9SwingLeftENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.e
   %189 = sub i64 %187, %188
   %190 = ashr exact i64 %189, 2
   %191 = load ptr, ptr %14, align 8, !tbaa !17
-  %umax = tail call i64 @llvm.umax.i64(i64 %190, i64 1)
   br label %192
 
 ._crit_edge:                                      ; preds = %192, %_ZNK5draco11CornerTable9SwingLeftENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.thread
@@ -460,7 +459,7 @@ _ZNK5draco11CornerTable9SwingLeftENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.e
   %202 = and i64 %201, %200
   store i64 %202, ptr %196, align 8, !tbaa !20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %190
   br i1 %exitcond.not, label %._crit_edge, label %192, !llvm.loop !56
 }
 

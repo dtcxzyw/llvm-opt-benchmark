@@ -1564,7 +1564,6 @@ split.i.i:                                        ; preds = %282, %_ZNSt6vectorI
   %445 = ptrtoint ptr %443 to i64
   %446 = sub i64 %444, %445
   %447 = sdiv exact i64 %446, 24
-  %umax.i.i = call i64 @llvm.umax.i64(i64 %447, i64 1)
   br label %.lr.ph127.i.i
 
 ._crit_edge128.i.i:                               ; preds = %.lr.ph127.i.i, %split.i.i
@@ -1623,7 +1622,7 @@ _ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i.i.i.i.i.i: ; preds = %456
   %spec.select.i.i = call i64 @llvm.umax.i64(i64 %468, i64 %.030123.i.i)
   %spec.select84.i.i = select i1 %469, i64 %.0125.i.i, i64 %.029124.i.i
   %470 = add nuw i64 %.0125.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %470, %umax.i.i
+  %exitcond.not.i.i = icmp eq i64 %470, %447
   br i1 %exitcond.not.i.i, label %._crit_edge128.i.i, label %.lr.ph127.i.i, !llvm.loop !45
 
 471:                                              ; preds = %459, %.noexc61.thread.i.i

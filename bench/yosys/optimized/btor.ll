@@ -17255,13 +17255,10 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit1730:      ; preds = %_ZNSt6vectorIiSaIiE
 
 _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i1732: ; preds = %5949
   %5955 = ashr exact i64 %5952, 2
-  %.sroa.speculated.i.i.i1733 = call i64 @llvm.umax.i64(i64 %5955, i64 1)
-  %5956 = add nsw i64 %.sroa.speculated.i.i.i1733, %5955
+  %5956 = ashr exact i64 %5952, 1
   %5957 = icmp ult i64 %5956, %5955
   %5958 = call i64 @llvm.umin.i64(i64 %5956, i64 2305843009213693951)
   %5959 = select i1 %5957, i64 2305843009213693951, i64 %5958
-  %.not.i.i.i1734 = icmp ne i64 %5959, 0
-  call void @llvm.assume(i1 %.not.i.i.i1734)
   %5960 = shl nuw nsw i64 %5959, 2
   %5961 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %5960) #31
           to label %.noexc1739 unwind label %.loopexit3427

@@ -2089,8 +2089,7 @@ Py_DECREF.exit71.i.thread:                        ; preds = %82, %47, %49, %52, 
 
 .lr.ph.i28:                                       ; preds = %155
   %184 = getelementptr inbounds nuw i8, ptr %148, i64 32
-  %umax.i = tail call i32 @llvm.umax.i32(i32 %183, i32 1)
-  %wide.trip.count.i = zext nneg i32 %umax.i to i64
+  %wide.trip.count.i = zext nneg i32 %183 to i64
   br label %185
 
 185:                                              ; preds = %_Py_XNewRef.exit.i, %.lr.ph.i28
@@ -4780,8 +4779,7 @@ hamt_node_bitmap_new.exit:                        ; preds = %408
 
 .lr.ph:                                           ; preds = %hamt_node_bitmap_new.exit
   %443 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %umax = tail call i32 @llvm.umax.i32(i32 %409, i32 1)
-  %wide.trip.count = zext nneg i32 %umax to i64
+  %wide.trip.count = zext nneg i32 %409 to i64
   br label %444
 
 444:                                              ; preds = %.lr.ph, %_Py_XNewRef.exit
@@ -5434,9 +5432,6 @@ declare i32 @llvm.umin.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #10
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

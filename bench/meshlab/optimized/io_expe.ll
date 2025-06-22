@@ -3311,15 +3311,11 @@ _ZN10QByteArrayD2Ev.exit211:                      ; preds = %408, %_ZN9QtPrivate
 441:                                              ; preds = %435, %432
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
   %.not = icmp eq ptr %.sroa.10.0.ph, %.sroa.0255.1.ph
-  br i1 %.not, label %._crit_edge338, label %.lr.ph337.preheader
+  br i1 %.not, label %._crit_edge338, label %.lr.ph337
 
-.lr.ph337.preheader:                              ; preds = %441
-  %umax = call i64 @llvm.umax.i64(i64 %430, i64 1)
-  br label %.lr.ph337
-
-.lr.ph337:                                        ; preds = %.lr.ph337.preheader, %.lr.ph337
-  %.0335 = phi i64 [ %447, %.lr.ph337 ], [ 0, %.lr.ph337.preheader ]
-  %.sroa.0.0334 = phi ptr [ %446, %.lr.ph337 ], [ %431, %.lr.ph337.preheader ]
+.lr.ph337:                                        ; preds = %441, %.lr.ph337
+  %.0335 = phi i64 [ %447, %.lr.ph337 ], [ 0, %441 ]
+  %.sroa.0.0334 = phi ptr [ %446, %.lr.ph337 ], [ %431, %441 ]
   %442 = getelementptr inbounds %"class.vcg::Point3", ptr %.sroa.0255.1.ph, i64 %.0335
   %443 = getelementptr inbounds nuw i8, ptr %.sroa.0.0334, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %443, ptr noundef nonnull align 4 dereferenceable(12) %442, i64 12, i1 false)
@@ -3328,7 +3324,7 @@ _ZN10QByteArrayD2Ev.exit211:                      ; preds = %408, %_ZN9QtPrivate
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %445, ptr noundef nonnull align 4 dereferenceable(12) %444, i64 12, i1 false)
   %446 = getelementptr inbounds nuw i8, ptr %.sroa.0.0334, i64 48
   %447 = add nuw i64 %.0335, 1
-  %exitcond396.not = icmp eq i64 %447, %umax
+  %exitcond396.not = icmp eq i64 %447, %430
   br i1 %exitcond396.not, label %._crit_edge338.thread, label %.lr.ph337, !llvm.loop !50
 
 ._crit_edge338:                                   ; preds = %441

@@ -1019,7 +1019,6 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearE
   %36 = ptrtoint ptr %34 to i64
   %37 = sub i64 %35, %36
   %38 = ashr exact i64 %37, 5
-  %umax = call i64 @llvm.umax.i64(i64 %38, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -1032,7 +1031,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearE
   %spec.select = select i1 %41, i64 %.066172, i64 %.064173
   %spec.select129 = call i64 @llvm.umax.i64(i64 %40, i64 %.062174)
   %42 = add nuw i64 %.066172, 1
-  %exitcond.not = icmp eq i64 %42, %umax
+  %exitcond.not = icmp eq i64 %42, %38
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !58
 
 .loopexit:                                        ; preds = %26, %.noexc.i.i.i.i, %187

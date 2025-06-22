@@ -15463,12 +15463,11 @@ define internal fastcc noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_
   %13 = ptrtoint ptr %11 to i64
   %14 = sub i64 %12, %13
   %15 = ashr exact i64 %14, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %15, i64 1)
   br label %.lr.ph
 
 16:                                               ; preds = %.lr.ph
   %17 = add nuw i64 %.01828, 1
-  %exitcond.not = icmp eq i64 %17, %umax
+  %exitcond.not = icmp eq i64 %17, %15
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !393
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %16
@@ -16213,7 +16212,6 @@ define internal fastcc noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_
   %20 = ptrtoint ptr %18 to i64
   %21 = sub i64 %19, %20
   %22 = ashr exact i64 %21, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %22, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
@@ -16227,7 +16225,7 @@ define internal fastcc noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_
   %29 = tail call noundef i32 @_ZN19OpenColorIO_v2_5dev8Platform10StrcasecmpEPKcS2_(ptr noundef %25, ptr noundef %28)
   %30 = icmp eq i32 %29, 0
   %31 = add nuw i64 %.0174, 1
-  %exitcond.not = icmp eq i64 %31, %umax
+  %exitcond.not = icmp eq i64 %31, %22
   %or.cond8 = select i1 %30, i1 true, i1 %exitcond.not
   br i1 %or.cond8, label %.thread, label %.lr.ph, !llvm.loop !404
 

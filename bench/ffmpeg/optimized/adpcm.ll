@@ -1397,7 +1397,6 @@ thread-pre-split:                                 ; preds = %336, %340
   %notmask.i.i = shl nsw i32 -1, %446
   %451 = xor i32 %notmask.i.i, -1
   %umax4036 = tail call i32 @llvm.umax.i32(i32 %443, i32 1)
-  %umax4042 = tail call i32 @llvm.umax.i32(i32 %438, i32 1)
   %smax4048 = tail call i32 @llvm.smax.i32(i32 %21, i32 1)
   %452 = zext i8 %437 to i64
   %453 = zext i8 %440 to i64
@@ -1405,7 +1404,6 @@ thread-pre-split:                                 ; preds = %336, %340
   %454 = load ptr, ptr %449, align 8, !tbaa !54
   %wide.trip.count4049 = zext nneg i32 %smax4048 to i64
   %wide.trip.count4037 = zext nneg i32 %umax4036 to i64
-  %wide.trip.count4043 = zext nneg i32 %umax4042 to i64
   br label %.lr.ph3483
 
 .lr.ph3483:                                       ; preds = %._crit_edge3484, %.preheader2717.lr.ph
@@ -1496,7 +1494,7 @@ thread-pre-split:                                 ; preds = %336, %340
   %511 = getelementptr inbounds nuw i16, ptr %464, i64 %indvars.iv4039
   store i16 %.0.i.i1976, ptr %511, align 2, !tbaa !58
   %indvars.iv.next4040 = add nuw nsw i64 %indvars.iv4039, 1
-  %exitcond4044.not = icmp eq i64 %indvars.iv.next4040, %wide.trip.count4043
+  %exitcond4044.not = icmp eq i64 %indvars.iv.next4040, %452
   br i1 %exitcond4044.not, label %512, label %477, !llvm.loop !64
 
 512:                                              ; preds = %477

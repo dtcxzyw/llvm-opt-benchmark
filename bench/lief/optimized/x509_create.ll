@@ -62,14 +62,14 @@ define hidden range(i32 -10368, 1) i32 @mbedtls_x509_string_to_names(ptr noundef
   %3 = alloca %struct.mbedtls_asn1_buf, align 8
   %4 = alloca [256 x i8], align 16
   %5 = alloca i64, align 8
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #9
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 %6
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) @__const.mbedtls_x509_string_to_names.oid, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
   store i64 0, ptr %5, align 8, !tbaa !3
-  tail call void @mbedtls_asn1_free_named_data_list(ptr noundef %0) #10
+  tail call void @mbedtls_asn1_free_named_data_list(ptr noundef %0) #9
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br label %10
@@ -104,7 +104,7 @@ define hidden range(i32 -10368, 1) i32 @mbedtls_x509_string_to_names(ptr noundef
   br i1 %21, label %22, label %25
 
 22:                                               ; preds = %17
-  %23 = call i32 @strncmp(ptr noundef nonnull %18, ptr noundef readonly %.065146, i64 noundef %16) #9
+  %23 = call i32 @strncmp(ptr noundef nonnull %18, ptr noundef readonly %.065146, i64 noundef %16) #8
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %x509_attr_descr_from_name.exit, label %25
 
@@ -115,16 +115,16 @@ define hidden range(i32 -10368, 1) i32 @mbedtls_x509_string_to_names(ptr noundef
   br i1 %.not.i, label %28, label %17, !llvm.loop !14
 
 28:                                               ; preds = %25
-  %29 = call i32 @mbedtls_oid_from_numeric_string(ptr noundef nonnull %3, ptr noundef %.065146, i64 noundef %16) #10
+  %29 = call i32 @mbedtls_oid_from_numeric_string(ptr noundef nonnull %3, ptr noundef %.065146, i64 noundef %16) #9
   %.not77 = icmp eq i32 %29, 0
   br i1 %.not77, label %34, label %.thread127
 
 x509_attr_descr_from_name.exit:                   ; preds = %22
   %30 = getelementptr inbounds nuw i8, ptr %.012.i, i64 16
   %31 = load ptr, ptr %30, align 8, !tbaa !16
-  %32 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %31) #9
+  %32 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %31) #8
   store i64 %32, ptr %8, align 8, !tbaa !17
-  %33 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %32) #11
+  %33 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %32) #10
   store ptr %33, ptr %9, align 8, !tbaa !19
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %33, ptr nonnull align 1 %31, i64 %32, i1 false)
   br label %34
@@ -186,16 +186,12 @@ x509_attr_descr_from_name.exit:                   ; preds = %22
   br i1 %or.cond.i, label %parse_attribute_value_hex_der_encoded.exit.thread, label %61
 
 61:                                               ; preds = %58
-  %62 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %59) #11
+  %62 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %59) #10
   %63 = icmp eq ptr %62, null
-  br i1 %63, label %parse_attribute_value_hex_der_encoded.exit.thread, label %.lr.ph.preheader.i
+  br i1 %63, label %parse_attribute_value_hex_der_encoded.exit.thread, label %.lr.ph.i
 
-.lr.ph.preheader.i:                               ; preds = %61
-  %umax.i = call i64 @llvm.umax.i64(i64 %59, i64 1)
-  br label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %100, %.lr.ph.preheader.i
-  %.04059.i = phi i64 [ %103, %100 ], [ 0, %.lr.ph.preheader.i ]
+.lr.ph.i:                                         ; preds = %61, %100
+  %.04059.i = phi i64 [ %103, %100 ], [ 0, %61 ]
   %64 = shl nuw nsw i64 %.04059.i, 1
   %65 = getelementptr inbounds nuw i8, ptr %52, i64 %64
   %66 = load i8, ptr %65, align 1, !tbaa !7
@@ -269,17 +265,17 @@ hexpair_to_int.exit.i:                            ; preds = %90, %88, %84
   %102 = getelementptr inbounds nuw i8, ptr %62, i64 %.04059.i
   store i8 %101, ptr %102, align 1, !tbaa !7
   %103 = add nuw nsw i64 %.04059.i, 1
-  %exitcond.not.i = icmp eq i64 %103, %umax.i
+  %exitcond.not.i = icmp eq i64 %103, %59
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !20
 
 ._crit_edge.i:                                    ; preds = %100
   %.pre.i = load i8, ptr %62, align 1, !tbaa !7
   %104 = zext i8 %.pre.i to i32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
   %105 = getelementptr inbounds nuw i8, ptr %62, i64 1
   store ptr %105, ptr %2, align 8, !tbaa !21
   %106 = getelementptr inbounds nuw i8, ptr %62, i64 %59
-  %107 = call i32 @mbedtls_asn1_get_len(ptr noundef nonnull %2, ptr noundef nonnull %106, ptr noundef nonnull %5) #10
+  %107 = call i32 @mbedtls_asn1_get_len(ptr noundef nonnull %2, ptr noundef nonnull %106, ptr noundef nonnull %5) #9
   %.not49.i = icmp eq i32 %107, 0
   br i1 %.not49.i, label %108, label %parse_attribute_value_hex_der_encoded.exit.thread121
 
@@ -318,18 +314,18 @@ hexpair_to_int.exit.i:                            ; preds = %90, %88, %84
   br i1 %120, label %parse_attribute_value_hex_der_encoded.exit.thread121, label %116
 
 parse_attribute_value_hex_der_encoded.exit.thread121: ; preds = %._crit_edge.i, %108, %.lr.ph62.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
   br label %parse_attribute_value_hex_der_encoded.exit.thread.sink.split
 
 parse_attribute_value_hex_der_encoded.exit:       ; preds = %116, %..loopexit_crit_edge.i, %113
   %121 = phi ptr [ %.pre66.i, %..loopexit_crit_edge.i ], [ %.pre67.i, %113 ], [ %.pre67.i, %116 ]
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr align 1 %121, i64 %109, i1 false)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #10
-  call void @free(ptr noundef %62) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
+  call void @free(ptr noundef %62) #9
   br label %188
 
 parse_attribute_value_hex_der_encoded.exit.thread.sink.split: ; preds = %hexpair_to_int.exit.i, %parse_attribute_value_hex_der_encoded.exit.thread121
-  call void @free(ptr noundef %62) #10
+  call void @free(ptr noundef %62) #9
   br label %parse_attribute_value_hex_der_encoded.exit.thread
 
 parse_attribute_value_hex_der_encoded.exit.thread: ; preds = %61, %58, %51, %parse_attribute_value_hex_der_encoded.exit.thread.sink.split
@@ -482,9 +478,9 @@ hexpair_to_int.exit.i95:                          ; preds = %167, %165, %161
   %.2 = phi i32 [ %104, %parse_attribute_value_hex_der_encoded.exit ], [ %187, %.loopexit ]
   %190 = load ptr, ptr %9, align 8, !tbaa !19
   %191 = load i64, ptr %8, align 8, !tbaa !17
-  %192 = call ptr @mbedtls_asn1_store_named_data(ptr noundef %0, ptr noundef %190, i64 noundef %191, ptr noundef nonnull %4, i64 noundef %189) #10
+  %192 = call ptr @mbedtls_asn1_store_named_data(ptr noundef %0, ptr noundef %190, i64 noundef %191, ptr noundef nonnull %4, i64 noundef %189) #9
   %193 = load ptr, ptr %9, align 8, !tbaa !19
-  call void @free(ptr noundef %193) #10
+  call void @free(ptr noundef %193) #9
   store ptr null, ptr %9, align 8, !tbaa !19
   %.not83 = icmp eq ptr %192, null
   br i1 %.not83, label %.thread127, label %194
@@ -528,14 +524,14 @@ hexpair_to_int.exit.i95:                          ; preds = %167, %165, %161
 .thread127.sink.split:                            ; preds = %._crit_edge, %46, %parse_attribute_value_hex_der_encoded.exit.thread, %124, %184
   %.pre158.sink = phi ptr [ %185, %184 ], [ %125, %124 ], [ %122, %parse_attribute_value_hex_der_encoded.exit.thread ], [ %47, %46 ], [ %.pre158, %._crit_edge ]
   %.1.ph = phi i32 [ -9088, %184 ], [ -9088, %124 ], [ %.039.i115, %parse_attribute_value_hex_der_encoded.exit.thread ], [ -9088, %46 ], [ %.159, %._crit_edge ]
-  call void @free(ptr noundef %.pre158.sink) #10
+  call void @free(ptr noundef %.pre158.sink) #9
   br label %.thread127
 
 .thread127:                                       ; preds = %188, %28, %.thread127.sink.split, %._crit_edge
   %.1 = phi i32 [ %.159, %._crit_edge ], [ %.1.ph, %.thread127.sink.split ], [ -10368, %188 ], [ -9088, %28 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #10
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #9
   ret i32 %.1
 }
 
@@ -570,7 +566,7 @@ define hidden range(i32 -10368, 1) i32 @mbedtls_x509_set_extension(ptr noundef %
 
 8:                                                ; preds = %6
   %9 = add nuw i64 %5, 1
-  %10 = tail call ptr @mbedtls_asn1_store_named_data(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef null, i64 noundef %9) #10
+  %10 = tail call ptr @mbedtls_asn1_store_named_data(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef null, i64 noundef %9) #9
   %11 = icmp eq ptr %10, null
   br i1 %11, label %18, label %12
 
@@ -607,24 +603,24 @@ define hidden i32 @mbedtls_x509_write_names(ptr noundef %0, ptr noundef %1, ptr 
   %11 = getelementptr inbounds nuw i8, ptr %.032, i64 32
   %12 = load i64, ptr %11, align 8, !tbaa !33
   %13 = load i32, ptr %8, align 8, !tbaa !25
-  %14 = tail call i32 @mbedtls_asn1_write_tagged_string(ptr noundef %0, ptr noundef %1, i32 noundef %13, ptr noundef %10, i64 noundef %12) #10
+  %14 = tail call i32 @mbedtls_asn1_write_tagged_string(ptr noundef %0, ptr noundef %1, i32 noundef %13, ptr noundef %10, i64 noundef %12) #9
   %15 = icmp slt i32 %14, 0
   br i1 %15, label %x509_write_name.exit.thread, label %16
 
 16:                                               ; preds = %.lr.ph
-  %17 = tail call i32 @mbedtls_asn1_write_oid(ptr noundef %0, ptr noundef %1, ptr noundef %5, i64 noundef %7) #10
+  %17 = tail call i32 @mbedtls_asn1_write_oid(ptr noundef %0, ptr noundef %1, ptr noundef %5, i64 noundef %7) #9
   %18 = icmp slt i32 %17, 0
   br i1 %18, label %x509_write_name.exit.thread, label %19
 
 19:                                               ; preds = %16
   %narrow.i = add nuw i32 %17, %14
   %20 = zext i32 %narrow.i to i64
-  %21 = tail call i32 @mbedtls_asn1_write_len(ptr noundef %0, ptr noundef %1, i64 noundef %20) #10
+  %21 = tail call i32 @mbedtls_asn1_write_len(ptr noundef %0, ptr noundef %1, i64 noundef %20) #9
   %22 = icmp slt i32 %21, 0
   br i1 %22, label %x509_write_name.exit.thread, label %23
 
 23:                                               ; preds = %19
-  %24 = tail call i32 @mbedtls_asn1_write_tag(ptr noundef %0, ptr noundef %1, i8 noundef zeroext 48) #10
+  %24 = tail call i32 @mbedtls_asn1_write_tag(ptr noundef %0, ptr noundef %1, i8 noundef zeroext 48) #9
   %25 = icmp slt i32 %24, 0
   br i1 %25, label %x509_write_name.exit.thread, label %26
 
@@ -633,12 +629,12 @@ define hidden i32 @mbedtls_x509_write_names(ptr noundef %0, ptr noundef %1, ptr 
   %28 = add nuw nsw i64 %27, %20
   %29 = zext nneg i32 %24 to i64
   %30 = add nuw nsw i64 %28, %29
-  %31 = tail call i32 @mbedtls_asn1_write_len(ptr noundef %0, ptr noundef %1, i64 noundef %30) #10
+  %31 = tail call i32 @mbedtls_asn1_write_len(ptr noundef %0, ptr noundef %1, i64 noundef %30) #9
   %32 = icmp slt i32 %31, 0
   br i1 %32, label %x509_write_name.exit.thread, label %33
 
 33:                                               ; preds = %26
-  %34 = tail call i32 @mbedtls_asn1_write_tag(ptr noundef %0, ptr noundef %1, i8 noundef zeroext 49) #10
+  %34 = tail call i32 @mbedtls_asn1_write_tag(ptr noundef %0, ptr noundef %1, i8 noundef zeroext 49) #9
   %35 = icmp slt i32 %34, 0
   br i1 %35, label %x509_write_name.exit.thread, label %x509_write_name.exit
 
@@ -659,12 +655,12 @@ x509_write_name.exit:                             ; preds = %33
 
 ._crit_edge:                                      ; preds = %40, %3
   %.021.lcssa = phi i64 [ 0, %3 ], [ %42, %40 ]
-  %45 = tail call i32 @mbedtls_asn1_write_len(ptr noundef %0, ptr noundef %1, i64 noundef %.021.lcssa) #10
+  %45 = tail call i32 @mbedtls_asn1_write_len(ptr noundef %0, ptr noundef %1, i64 noundef %.021.lcssa) #9
   %46 = icmp slt i32 %45, 0
   br i1 %46, label %x509_write_name.exit.thread, label %47
 
 47:                                               ; preds = %._crit_edge
-  %48 = tail call i32 @mbedtls_asn1_write_tag(ptr noundef %0, ptr noundef %1, i8 noundef zeroext 48) #10
+  %48 = tail call i32 @mbedtls_asn1_write_tag(ptr noundef %0, ptr noundef %1, i8 noundef zeroext 48) #9
   %49 = icmp slt i32 %48, 0
   br i1 %49, label %x509_write_name.exit.thread, label %50
 
@@ -712,19 +708,19 @@ define hidden i32 @mbedtls_x509_write_sig(ptr noundef %0, ptr noundef %1, ptr no
   store ptr %23, ptr %0, align 8, !tbaa !21
   store i8 0, ptr %23, align 1, !tbaa !7
   %24 = add i64 %5, 1
-  %25 = tail call i32 @mbedtls_asn1_write_len(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %24) #10
+  %25 = tail call i32 @mbedtls_asn1_write_len(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %24) #9
   %26 = icmp slt i32 %25, 0
   br i1 %26, label %39, label %27
 
 27:                                               ; preds = %22
-  %28 = tail call i32 @mbedtls_asn1_write_tag(ptr noundef nonnull %0, ptr noundef %1, i8 noundef zeroext 3) #10
+  %28 = tail call i32 @mbedtls_asn1_write_tag(ptr noundef nonnull %0, ptr noundef %1, i8 noundef zeroext 3) #9
   %29 = icmp slt i32 %28, 0
   br i1 %29, label %39, label %30
 
 30:                                               ; preds = %27
   %31 = icmp ne i32 %6, 4
   %. = zext i1 %31 to i32
-  %32 = tail call i32 @mbedtls_asn1_write_algorithm_identifier_ext(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef 0, i32 noundef %.) #10
+  %32 = tail call i32 @mbedtls_asn1_write_algorithm_identifier_ext(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef 0, i32 noundef %.) #9
   %33 = icmp slt i32 %32, 0
   br i1 %33, label %39, label %34
 
@@ -756,19 +752,19 @@ define hidden i32 @mbedtls_x509_write_extensions(ptr noundef %0, ptr noundef %1,
   %7 = getelementptr inbounds nuw i8, ptr %.016, i64 32
   %8 = load i64, ptr %7, align 8, !tbaa !33
   %9 = add i64 %8, -1
-  %10 = tail call i32 @mbedtls_asn1_write_raw_buffer(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %6, i64 noundef %9) #10
+  %10 = tail call i32 @mbedtls_asn1_write_raw_buffer(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %6, i64 noundef %9) #9
   %11 = icmp slt i32 %10, 0
   br i1 %11, label %x509_write_extension.exit.thread, label %12
 
 12:                                               ; preds = %.lr.ph
   %13 = load i64, ptr %7, align 8, !tbaa !33
   %14 = add i64 %13, -1
-  %15 = tail call i32 @mbedtls_asn1_write_len(ptr noundef %0, ptr noundef %1, i64 noundef %14) #10
+  %15 = tail call i32 @mbedtls_asn1_write_len(ptr noundef %0, ptr noundef %1, i64 noundef %14) #9
   %16 = icmp slt i32 %15, 0
   br i1 %16, label %x509_write_extension.exit.thread, label %17
 
 17:                                               ; preds = %12
-  %18 = tail call i32 @mbedtls_asn1_write_tag(ptr noundef %0, ptr noundef %1, i8 noundef zeroext 4) #10
+  %18 = tail call i32 @mbedtls_asn1_write_tag(ptr noundef %0, ptr noundef %1, i8 noundef zeroext 4) #9
   %19 = icmp slt i32 %18, 0
   br i1 %19, label %x509_write_extension.exit.thread, label %20
 
@@ -783,7 +779,7 @@ define hidden i32 @mbedtls_x509_write_extensions(ptr noundef %0, ptr noundef %1,
   br i1 %.not.i, label %32, label %26
 
 26:                                               ; preds = %20
-  %27 = tail call i32 @mbedtls_asn1_write_bool(ptr noundef %0, ptr noundef %1, i32 noundef 1) #10
+  %27 = tail call i32 @mbedtls_asn1_write_bool(ptr noundef %0, ptr noundef %1, i32 noundef 1) #9
   %28 = icmp slt i32 %27, 0
   br i1 %28, label %x509_write_extension.exit.thread, label %29
 
@@ -798,18 +794,18 @@ define hidden i32 @mbedtls_x509_write_extensions(ptr noundef %0, ptr noundef %1,
   %34 = load ptr, ptr %33, align 8, !tbaa !31
   %35 = getelementptr inbounds nuw i8, ptr %.016, i64 8
   %36 = load i64, ptr %35, align 8, !tbaa !32
-  %37 = tail call i32 @mbedtls_asn1_write_raw_buffer(ptr noundef %0, ptr noundef %1, ptr noundef %34, i64 noundef %36) #10
+  %37 = tail call i32 @mbedtls_asn1_write_raw_buffer(ptr noundef %0, ptr noundef %1, ptr noundef %34, i64 noundef %36) #9
   %38 = icmp slt i32 %37, 0
   br i1 %38, label %x509_write_extension.exit.thread, label %39
 
 39:                                               ; preds = %32
   %40 = load i64, ptr %35, align 8, !tbaa !32
-  %41 = tail call i32 @mbedtls_asn1_write_len(ptr noundef %0, ptr noundef %1, i64 noundef %40) #10
+  %41 = tail call i32 @mbedtls_asn1_write_len(ptr noundef %0, ptr noundef %1, i64 noundef %40) #9
   %42 = icmp slt i32 %41, 0
   br i1 %42, label %x509_write_extension.exit.thread, label %43
 
 43:                                               ; preds = %39
-  %44 = tail call i32 @mbedtls_asn1_write_tag(ptr noundef %0, ptr noundef %1, i8 noundef zeroext 6) #10
+  %44 = tail call i32 @mbedtls_asn1_write_tag(ptr noundef %0, ptr noundef %1, i8 noundef zeroext 6) #9
   %45 = icmp slt i32 %44, 0
   br i1 %45, label %x509_write_extension.exit.thread, label %46
 
@@ -820,12 +816,12 @@ define hidden i32 @mbedtls_x509_write_extensions(ptr noundef %0, ptr noundef %1,
   %50 = add nuw nsw i64 %48, %49
   %51 = zext nneg i32 %44 to i64
   %52 = add nuw nsw i64 %50, %51
-  %53 = tail call i32 @mbedtls_asn1_write_len(ptr noundef %0, ptr noundef %1, i64 noundef %52) #10
+  %53 = tail call i32 @mbedtls_asn1_write_len(ptr noundef %0, ptr noundef %1, i64 noundef %52) #9
   %54 = icmp slt i32 %53, 0
   br i1 %54, label %x509_write_extension.exit.thread, label %55
 
 55:                                               ; preds = %46
-  %56 = tail call i32 @mbedtls_asn1_write_tag(ptr noundef %0, ptr noundef %1, i8 noundef zeroext 48) #10
+  %56 = tail call i32 @mbedtls_asn1_write_tag(ptr noundef %0, ptr noundef %1, i8 noundef zeroext 48) #9
   %57 = icmp slt i32 %56, 0
   br i1 %57, label %x509_write_extension.exit.thread, label %x509_write_extension.exit
 
@@ -864,9 +860,6 @@ declare i32 @mbedtls_asn1_write_bool(ptr noundef, ptr noundef, i32 noundef) loca
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare ptr @memchr(ptr, i32, i64) local_unnamed_addr #7
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #8
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -875,10 +868,9 @@ attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "t
 attributes #5 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nounwind willreturn memory(read) }
-attributes #10 = { nounwind }
-attributes #11 = { nounwind allocsize(0,1) }
+attributes #8 = { nounwind willreturn memory(read) }
+attributes #9 = { nounwind }
+attributes #10 = { nounwind allocsize(0,1) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

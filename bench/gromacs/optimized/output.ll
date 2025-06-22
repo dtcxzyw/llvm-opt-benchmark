@@ -213,7 +213,6 @@ define void @_Z17pull_print_outputP6pull_tld(ptr noundef readonly captures(none)
   %25 = sdiv exact i64 %24, 488
   %26 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !76
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %25, i64 1)
   br label %38
 
 .preheader.i:                                     ; preds = %.loopexit.i
@@ -231,7 +230,6 @@ define void @_Z17pull_print_outputP6pull_tld(ptr noundef readonly captures(none)
   %35 = sdiv exact i64 %34, 272
   %36 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %37 = load ptr, ptr %36, align 8, !tbaa !79
-  %umax68.i = tail call i64 @llvm.umax.i64(i64 %35, i64 1)
   br label %87
 
 38:                                               ; preds = %.loopexit.i, %.lr.ph.i
@@ -308,7 +306,7 @@ define void @_Z17pull_print_outputP6pull_tld(ptr noundef readonly captures(none)
 
 .loopexit.i:                                      ; preds = %80, %56
   %86 = add nuw i64 %.04552.i, 1
-  %exitcond63.not.i = icmp eq i64 %86, %umax.i
+  %exitcond63.not.i = icmp eq i64 %86, %25
   br i1 %exitcond63.not.i, label %.preheader.i, label %38, !llvm.loop !117
 
 87:                                               ; preds = %90, %.lr.ph55.i
@@ -319,7 +317,7 @@ define void @_Z17pull_print_outputP6pull_tld(ptr noundef readonly captures(none)
 
 90:                                               ; preds = %92
   %91 = add nuw i64 %.04654.i, 1
-  %exitcond69.not.i = icmp eq i64 %91, %umax68.i
+  %exitcond69.not.i = icmp eq i64 %91, %35
   br i1 %exitcond69.not.i, label %_ZL17addToPullxHistoryP6pull_t.exit, label %87, !llvm.loop !118
 
 92:                                               ; preds = %92, %87
@@ -841,7 +839,6 @@ _ZL12pull_print_xP8_IO_FILEP6pull_td.exit:        ; preds = %.lr.ph39.preheader.
   %367 = sdiv exact i64 %366, 488
   %368 = getelementptr inbounds nuw i8, ptr %359, i64 8
   %369 = load ptr, ptr %368, align 8, !tbaa !76
-  %umax.i31 = tail call i64 @llvm.umax.i64(i64 %367, i64 1)
   br label %370
 
 370:                                              ; preds = %370, %.lr.ph.i30
@@ -853,8 +850,8 @@ _ZL12pull_print_xP8_IO_FILEP6pull_td.exit:        ; preds = %.lr.ph39.preheader.
   %375 = fadd double %372, %374
   store double %375, ptr %373, align 8, !tbaa !142
   %376 = add nuw i64 %.010.i, 1
-  %exitcond.not.i32 = icmp eq i64 %376, %umax.i31
-  br i1 %exitcond.not.i32, label %_ZL17addToPullfHistoryP6pull_t.exit, label %370, !llvm.loop !143
+  %exitcond.not.i31 = icmp eq i64 %376, %367
+  br i1 %exitcond.not.i31, label %_ZL17addToPullfHistoryP6pull_t.exit, label %370, !llvm.loop !143
 
 _ZL17addToPullfHistoryP6pull_t.exit:              ; preds = %370, %357, %351, %347
   %377 = sext i32 %346 to i64
@@ -869,16 +866,16 @@ _ZL17addToPullfHistoryP6pull_t.exit:              ; preds = %370, %357, %351, %3
   %384 = load i8, ptr %348, align 1, !tbaa !139, !range !60, !noundef !61
   %385 = trunc nuw i8 %384 to i1
   %386 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  br i1 %385, label %.preheader.i38, label %410
+  br i1 %385, label %.preheader.i37, label %410
 
-.preheader.i38:                                   ; preds = %380
+.preheader.i37:                                   ; preds = %380
   %387 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %388 = load ptr, ptr %387, align 8, !tbaa !121
   %389 = load ptr, ptr %386, align 8, !tbaa !122
   %.not25.i = icmp eq ptr %388, %389
-  br i1 %.not25.i, label %.loopexit.i36, label %.lr.ph24.i
+  br i1 %.not25.i, label %.loopexit.i35, label %.lr.ph24.i
 
-.lr.ph24.i:                                       ; preds = %.preheader.i38
+.lr.ph24.i:                                       ; preds = %.preheader.i37
   %390 = getelementptr inbounds nuw i8, ptr %0, i64 320
   br label %391
 
@@ -902,31 +899,31 @@ _ZL17addToPullfHistoryP6pull_t.exit:              ; preds = %370, %357, %351, %3
   %407 = sub i64 %405, %406
   %408 = sdiv exact i64 %407, 488
   %409 = icmp ult i64 %402, %408
-  br i1 %409, label %391, label %.loopexit.i36, !llvm.loop !145
+  br i1 %409, label %391, label %.loopexit.i35, !llvm.loop !145
 
 410:                                              ; preds = %380
   %411 = load ptr, ptr %386, align 8, !tbaa !62
   %412 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %413 = load ptr, ptr %412, align 8, !tbaa !62
   %.not21.i = icmp eq ptr %411, %413
-  br i1 %.not21.i, label %.loopexit.i36, label %.lr.ph.i34
+  br i1 %.not21.i, label %.loopexit.i35, label %.lr.ph.i33
 
-.lr.ph.i34:                                       ; preds = %410, %.lr.ph.i34
-  %.sroa.017.022.i = phi ptr [ %417, %.lr.ph.i34 ], [ %411, %410 ]
+.lr.ph.i33:                                       ; preds = %410, %.lr.ph.i33
+  %.sroa.017.022.i = phi ptr [ %417, %.lr.ph.i33 ], [ %411, %410 ]
   %414 = getelementptr inbounds nuw i8, ptr %.sroa.017.022.i, i64 384
   %415 = load double, ptr %414, align 8, !tbaa !141
   %416 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %382, ptr noundef nonnull @.str.9, double noundef %415) #22
   %417 = getelementptr inbounds nuw i8, ptr %.sroa.017.022.i, i64 488
-  %.not.i35 = icmp eq ptr %417, %413
-  br i1 %.not.i35, label %.loopexit.i36, label %.lr.ph.i34
+  %.not.i34 = icmp eq ptr %417, %413
+  br i1 %.not.i34, label %.loopexit.i35, label %.lr.ph.i33
 
-.loopexit.i36:                                    ; preds = %.lr.ph.i34, %391, %410, %.preheader.i38
-  %fputc.i37 = tail call i32 @fputc(i32 10, ptr %382)
+.loopexit.i35:                                    ; preds = %.lr.ph.i33, %391, %410, %.preheader.i37
+  %fputc.i36 = tail call i32 @fputc(i32 10, ptr %382)
   %418 = load i8, ptr %348, align 1, !tbaa !139, !range !60, !noundef !61
   %419 = trunc nuw i8 %418 to i1
   br i1 %419, label %420, label %_ZL12pull_print_fP8_IO_FILEPK6pull_td.exit
 
-420:                                              ; preds = %.loopexit.i36
+420:                                              ; preds = %.loopexit.i35
   %421 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %422 = load ptr, ptr %421, align 8, !tbaa !63
   %423 = getelementptr inbounds nuw i8, ptr %422, i64 4
@@ -946,7 +943,7 @@ _ZL17addToPullfHistoryP6pull_t.exit:              ; preds = %370, %357, %351, %3
   %.not32.i.i = icmp eq ptr %429, %427
   br i1 %.not32.i.i, label %_ZL12pull_print_fP8_IO_FILEPK6pull_td.exit, label %.lr.ph43.i.i
 
-_ZL12pull_print_fP8_IO_FILEPK6pull_td.exit:       ; preds = %.lr.ph43.i.i, %420, %.loopexit.i36, %_ZL17addToPullfHistoryP6pull_t.exit, %_ZL12pull_print_xP8_IO_FILEP6pull_td.exit
+_ZL12pull_print_fP8_IO_FILEPK6pull_td.exit:       ; preds = %.lr.ph43.i.i, %420, %.loopexit.i35, %_ZL17addToPullfHistoryP6pull_t.exit, %_ZL12pull_print_xP8_IO_FILEP6pull_td.exit
   ret void
 }
 

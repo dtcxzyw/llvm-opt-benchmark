@@ -780,7 +780,6 @@ for.body63.lr.ph.i:                               ; preds = %for.cond60.preheade
   %capacity_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %indices_to_delete.i, i64 16
   %arena_.i.i.i96.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %capacity_proxy_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 28
-  %umax.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   br label %for.body63.i
 
 for.body63.i:                                     ; preds = %for.inc74.i, %for.body63.lr.ph.i
@@ -996,7 +995,7 @@ if.then19.i.i.i:                                  ; preds = %if.end13.i.i.i
 
 for.inc74.i:                                      ; preds = %if.then19.i.i.i, %if.end13.i.i.i, %if.then.i.i97.i, %delete.notnull.i, %if.then68.i
   %inc75.i = add nuw i64 %i59.0227.i, 1
-  %exitcond.not.i = icmp eq i64 %inc75.i, %umax.i
+  %exitcond.not.i = icmp eq i64 %inc75.i, %sub.ptr.div.i.i
   br i1 %exitcond.not.i, label %if.then.i.i.i102.i, label %for.body63.i, !llvm.loop !35
 
 for.end76.i:                                      ; preds = %for.cond60.preheader.i

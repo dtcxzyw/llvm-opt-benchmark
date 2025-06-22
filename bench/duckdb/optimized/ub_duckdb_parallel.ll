@@ -13657,7 +13657,6 @@ define void @_ZN6duckdb8Executor29VerifyScheduledEventsInternalEmRKNS_6vectorISt
   %25 = ptrtoint ptr %23 to i64
   %26 = sub i64 %24, %25
   %27 = ashr exact i64 %26, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %27, i64 1)
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %_ZNSt6vectorImSaImEE9push_backERKm.exit.us
@@ -13688,7 +13687,7 @@ define void @_ZN6duckdb8Executor29VerifyScheduledEventsInternalEmRKNS_6vectorISt
 
 41:                                               ; preds = %37
   %42 = add nuw i64 %storemerge72.us, 1
-  %exitcond100.not = icmp eq i64 %42, %umax
+  %exitcond100.not = icmp eq i64 %42, %27
   br i1 %exitcond100.not, label %_ZNSt6vectorImSaImEE9push_backERKm.exit.us, label %36, !llvm.loop !570
 
 43:                                               ; preds = %37
@@ -14350,7 +14349,6 @@ _ZNSt6vectorISt17reference_wrapperIN6duckdb16PhysicalOperatorEESaIS3_EED2Ev.exit
   %23 = ptrtoint ptr %21 to i64
   %24 = sub i64 %22, %23
   %25 = ashr exact i64 %24, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %25, i64 1)
   br label %.preheader.us.us
 
 ._crit_edge54.us:                                 ; preds = %.preheader50.us
@@ -14375,7 +14373,7 @@ _ZNSt6vectorISt17reference_wrapperIN6duckdb16PhysicalOperatorEESaIS3_EED2Ev.exit
 
 35:                                               ; preds = %27
   %36 = add nuw i64 %.01452.us.us, 1
-  %exitcond.not = icmp eq i64 %36, %umax
+  %exitcond.not = icmp eq i64 %36, %25
   br i1 %exitcond.not, label %._crit_edge.us.us, label %27, !llvm.loop !584
 
 ._crit_edge.us.us:                                ; preds = %35

@@ -6592,7 +6592,6 @@ define void @_ZNK10open_spiel11tiny_bridge22TinyBridgeAuctionState14ChanceOutcom
   %15 = ashr exact i64 %14, 2
   %16 = zext nneg i32 %.fr14.i to i64
   %invariant.umin.i = tail call i64 @llvm.umin.i64(i64 %15, i64 %16)
-  %umax = tail call i64 @llvm.umax.i64(i64 %invariant.umin.i, i64 1)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN10open_spiel11tiny_bridge12_GLOBAL__N_120ChanceOutcomeToCardsEi.exit.i, %.lr.ph.preheader.i
@@ -6622,7 +6621,7 @@ _ZN10open_spiel11tiny_bridge12_GLOBAL__N_120ChanceOutcomeToCardsEi.exit.i: ; pre
   %29 = getelementptr inbounds [8 x i32], ptr %3, i64 0, i64 %28
   store i32 %27, ptr %29, align 4, !alias.scope !40
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next.i, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next.i, %invariant.umin.i
   br i1 %exitcond.not, label %_ZNK10open_spiel11tiny_bridge22TinyBridgeAuctionState11CardHoldersEv.exit.preheader, label %.lr.ph.i, !llvm.loop !33
 
 _ZNK10open_spiel11tiny_bridge22TinyBridgeAuctionState11CardHoldersEv.exit.preheader: ; preds = %_ZN10open_spiel11tiny_bridge12_GLOBAL__N_120ChanceOutcomeToCardsEi.exit.i, %2

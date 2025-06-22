@@ -4865,7 +4865,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.015 = load i32, ptr %.015.in, align 4, !tbaa !87
   %47 = sext i32 %.015 to i64
   %48 = mul nsw i64 %47, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %46, i64 1)
   br label %49
 
 ._crit_edge:                                      ; preds = %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit, %39
@@ -4922,7 +4921,7 @@ _ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit: ; preds = %_ZN2cv3
   %65 = mul nsw i64 %48, %.024.i
   %66 = add nsw i64 %65, %.01622
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %46
   br i1 %exitcond.not, label %._crit_edge, label %49, !llvm.loop !168
 }
 

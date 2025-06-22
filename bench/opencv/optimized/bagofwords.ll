@@ -1616,7 +1616,6 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %97, %100
   %107 = ptrtoint ptr %105 to i64
   %108 = sub i64 %106, %107
   %109 = ashr exact i64 %108, 4
-  %umax = call i64 @llvm.umax.i64(i64 %109, i64 1)
   br label %110
 
 110:                                              ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.us, %.lr.ph.split.us
@@ -1636,7 +1635,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit.us:       ; preds = %110
   %120 = fadd float %119, 1.000000e+00
   store float %120, ptr %118, align 4, !tbaa !99
   %121 = add nuw i64 %.03679.us, 1
-  %exitcond.not = icmp eq i64 %121, %umax
+  %exitcond.not = icmp eq i64 %121, %109
   br i1 %exitcond.not, label %._crit_edge, label %110, !llvm.loop !100
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.us, %_ZNK2cv11_InputArray6getMatEi.exit

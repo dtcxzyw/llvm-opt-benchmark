@@ -411,15 +411,11 @@ if.then.i.i42:                                    ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %call5.i.i.i.i1.i, i8 -1, i64 %add.ptr.i.idx.i, i1 false)
   %sub = add nsw i64 %sub.ptr.div.i.i.i.i, -1
   %cmp34134 = icmp ugt i64 %sub.ptr.div.i.i.i.i, 1
-  br i1 %cmp34134, label %for.cond36.preheader.us.preheader, label %for.cond.cleanup
+  br i1 %cmp34134, label %for.cond36.preheader.us, label %for.cond.cleanup
 
-for.cond36.preheader.us.preheader:                ; preds = %if.then.i.i42
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  br label %for.cond36.preheader.us
-
-for.cond36.preheader.us:                          ; preds = %for.cond36.preheader.us.preheader, %for.cond36.invoke.cont66_crit_edge.us
-  %i.0136.us = phi i64 [ %inc74.us, %for.cond36.invoke.cont66_crit_edge.us ], [ 1, %for.cond36.preheader.us.preheader ]
-  %averagePrice.0135.us = phi double [ %add.us, %for.cond36.invoke.cont66_crit_edge.us ], [ 0.000000e+00, %for.cond36.preheader.us.preheader ]
+for.cond36.preheader.us:                          ; preds = %if.then.i.i42, %for.cond36.invoke.cont66_crit_edge.us
+  %i.0136.us = phi i64 [ %inc74.us, %for.cond36.invoke.cont66_crit_edge.us ], [ 1, %if.then.i.i42 ]
+  %averagePrice.0135.us = phi double [ %add.us, %for.cond36.invoke.cont66_crit_edge.us ], [ 0.000000e+00, %if.then.i.i42 ]
   br label %invoke.cont42.us
 
 invoke.cont42.us:                                 ; preds = %for.cond36.preheader.us, %for.inc.us
@@ -458,7 +454,7 @@ for.inc.us:                                       ; preds = %invoke.cont50.us, %
   %bestYield.2.us = phi double [ %bestYield.1.us, %invoke.cont50.us ], [ %bestYield.0130.us, %invoke.cont42.us ]
   %removeAsset.2.us = phi i64 [ %removeAsset.1.us, %invoke.cont50.us ], [ %removeAsset.0131.us, %invoke.cont42.us ]
   %inc.us = add nuw i64 %j.0132.us, 1
-  %exitcond.not = icmp eq i64 %inc.us, %umax
+  %exitcond.not = icmp eq i64 %inc.us, %sub.ptr.div.i.i
   br i1 %exitcond.not, label %for.cond36.invoke.cont66_crit_edge.us, label %invoke.cont42.us, !llvm.loop !32
 
 for.cond36.invoke.cont66_crit_edge.us:            ; preds = %for.inc.us
@@ -651,9 +647,6 @@ declare void @llvm.assume(i1 noundef) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #17
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #17
 
 attributes #0 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #1 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

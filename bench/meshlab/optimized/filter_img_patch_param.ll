@@ -31360,7 +31360,6 @@ define linkonce_odr noundef zeroext i1 @_ZN3vcg10RectPackerIfE13PackOccupancyERK
   %19 = ptrtoint ptr %17 to i64
   %20 = sub i64 %18, %19
   %21 = ashr exact i64 %20, 4
-  %umax = tail call i64 @llvm.umax.i64(i64 %21, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -31378,7 +31377,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3vcg10RectPackerIfE13PackOccupancyERK
   %31 = fsub float %28, %30
   %32 = tail call float @llvm.fmuladd.f32(float %26, float %31, float %.04681)
   %33 = add nuw i64 %.04880, 1
-  %exitcond.not = icmp eq i64 %33, %umax
+  %exitcond.not = icmp eq i64 %33, %21
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !288
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5

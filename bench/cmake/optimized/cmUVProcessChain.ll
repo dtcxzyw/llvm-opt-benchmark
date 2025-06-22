@@ -1724,7 +1724,6 @@ _ZNSt6vectorIPKN16cmUVProcessChain6StatusESaIS3_EE17_S_check_init_lenEmRKS4_.exi
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %13, ptr %19, align 8, !tbaa !142
   %20 = lshr exact i64 %10, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %20, i64 1)
   br label %21
 
 21:                                               ; preds = %.loopexit, %21
@@ -1735,7 +1734,7 @@ _ZNSt6vectorIPKN16cmUVProcessChain6StatusESaIS3_EE17_S_check_init_lenEmRKS4_.exi
   %25 = getelementptr inbounds nuw ptr, ptr %12, i64 %.08
   store ptr %24, ptr %25, align 8, !tbaa !140
   %26 = add nuw i64 %.08, 1
-  %exitcond.not = icmp eq i64 %26, %umax
+  %exitcond.not = icmp eq i64 %26, %20
   br i1 %exitcond.not, label %._crit_edge, label %21, !llvm.loop !143
 
 ._crit_edge:                                      ; preds = %21, %.loopexit.thread

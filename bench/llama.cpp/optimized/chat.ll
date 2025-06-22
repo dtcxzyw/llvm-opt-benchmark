@@ -107178,7 +107178,6 @@ define internal fastcc void @_ZN5minjaL15simple_functionERKNSt7__cxx1112basic_st
   %20 = ptrtoint ptr %18 to i64
   %21 = sub i64 %19, %20
   %22 = ashr exact i64 %21, 5
-  %umax = call i64 @llvm.umax.i64(i64 %22, i64 1)
   br label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %44
@@ -107250,7 +107249,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
 44:                                               ; preds = %.lr.ph
   store i64 %.01640, ptr %43, align 8, !tbaa !72
   %45 = add nuw i64 %.01640, 1
-  %exitcond.not = icmp eq i64 %45, %umax
+  %exitcond.not = icmp eq i64 %45, %22
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !1222
 
 46:                                               ; preds = %.lr.ph
@@ -108956,7 +108955,6 @@ _ZNSt6vectorIbSaIbEEC2EmRKS0_.exit.i.i.i:         ; preds = %55, %_ZNSt12__share
   %63 = ptrtoint ptr %61 to i64
   %64 = sub i64 %62, %63
   %65 = sdiv exact i64 %64, 80
-  %umax.i.i.i = tail call i64 @llvm.umax.i64(i64 %65, i64 1)
   br label %.lr.ph.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %84, %_ZNSt6vectorIbSaIbEEC2EmRKS0_.exit.i.i.i
@@ -109010,7 +109008,7 @@ _ZNSt6vectorIbSaIbEEC2EmRKS0_.exit.i.i.i:         ; preds = %55, %_ZNSt12__share
   %92 = or i64 %91, %90
   store i64 %92, ptr %storemerge.i.i.i.i.i.i.i.i, align 8, !tbaa !72, !noalias !1244
   %93 = add nuw i64 %.039131.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %93, %umax.i.i.i
+  %exitcond.not.i.i.i = icmp eq i64 %93, %65
   br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !1260
 
 94:                                               ; preds = %81
@@ -134779,7 +134777,6 @@ _ZNSt8__detail9_ExecutorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_st
   %42 = sub i64 %40, %41
   %43 = sdiv exact i64 %42, 24
   %44 = load ptr, ptr %0, align 8
-  %umax = call i64 @llvm.umax.i64(i64 %43, i64 1)
   br label %49
 
 45:                                               ; preds = %_ZNSt6vectorINSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNS0_12basic_stringIcSt11char_traitsIcESaIcEEEEEEESaISC_EEC2ERKSE_.exit
@@ -134815,7 +134812,7 @@ _ZNSt8__detail9_ExecutorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_st
 
 61:                                               ; preds = %54, %49
   %62 = add nuw i64 %.020, 1
-  %exitcond.not = icmp eq i64 %62, %umax
+  %exitcond.not = icmp eq i64 %62, %43
   br i1 %exitcond.not, label %.loopexit, label %49, !llvm.loop !1665
 
 .loopexit:                                        ; preds = %61, %.preheader, %_ZNSt8__detail9_ExecutorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS5_9sub_matchISB_EEENS5_12regex_traitsIcEELb0EE20_M_search_from_firstEv.exit
@@ -136211,7 +136208,6 @@ _ZNSt12_Vector_baseISt4pairIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic
   %77 = sub i64 %75, %76
   %78 = sdiv exact i64 %77, 24
   %79 = load ptr, ptr %0, align 8
-  %umax = call i64 @llvm.umax.i64(i64 %78, i64 1)
   br label %82
 
 80:                                               ; preds = %.noexc, %.loopexit.i
@@ -136242,7 +136238,7 @@ _ZNSt12_Vector_baseISt4pairIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic
 
 94:                                               ; preds = %87, %82
   %95 = add nuw i64 %.023, 1
-  %exitcond.not = icmp eq i64 %95, %umax
+  %exitcond.not = icmp eq i64 %95, %78
   br i1 %exitcond.not, label %.loopexit, label %82, !llvm.loop !1674
 
 .loopexit:                                        ; preds = %94, %.preheader, %70
@@ -282982,7 +282978,6 @@ _ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit:            ; preds = %44, %_ZNSt10shared_
   %52 = ptrtoint ptr %50 to i64
   %53 = sub i64 %51, %52
   %54 = sdiv exact i64 %53, 80
-  %umax = tail call i64 @llvm.umax.i64(i64 %54, i64 1)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %119, %_ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit
@@ -283142,7 +283137,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit78: ; preds = %_ZN
   call void @_ZN5minja5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %8) #38
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #38
   %120 = add nuw i64 %.053174, 1
-  %exitcond.not = icmp eq i64 %120, %umax
+  %exitcond.not = icmp eq i64 %120, %54
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !3542
 
 121:                                              ; preds = %104
@@ -283172,7 +283167,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit78: ; preds = %_ZN
   %129 = ptrtoint ptr %127 to i64
   %130 = sub i64 %128, %129
   %131 = sdiv exact i64 %130, 48
-  %umax190 = call i64 @llvm.umax.i64(i64 %131, i64 1)
   br label %.lr.ph182
 
 132:                                              ; preds = %.lr.ph178, %202
@@ -283494,7 +283488,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit92: ; preds = %_ZN
 
 .critedge:                                        ; preds = %.lr.ph182, %229, %242
   %251 = add nuw i64 %.032180, 1
-  %exitcond191.not = icmp eq i64 %251, %umax190
+  %exitcond191.not = icmp eq i64 %251, %131
   br i1 %exitcond191.not, label %._crit_edge183, label %.lr.ph182, !llvm.loop !3543
 
 252:                                              ; preds = %._crit_edge183

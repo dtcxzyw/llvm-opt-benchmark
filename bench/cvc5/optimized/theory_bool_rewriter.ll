@@ -5377,7 +5377,6 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EED2Ev.exit163.thread: ; 
 .lr.ph:                                           ; preds = %51
   %58 = trunc nsw i64 %57 to i32
   %59 = getelementptr inbounds nuw i8, ptr %43, i64 24
-  %umax = call i32 @llvm.umax.i32(i32 %58, i32 1)
   br label %62
 
 60:                                               ; preds = %40
@@ -5844,7 +5843,7 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE17_M_realloc_insertIJRK
   %.sroa.0206.5.ph = phi ptr [ %.sroa.0206.2409, %228 ], [ %.sroa.0206.2409, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i98 ], [ %220, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i82 ], [ %.sroa.0206.2409, %206 ], [ %.sroa.0206.2409, %87 ], [ %.sroa.0206.2409, %76 ], [ %.sroa.0206.2409, %96 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #21
   %250 = add nuw i32 %.042410, 1
-  %exitcond.not = icmp eq i32 %250, %umax
+  %exitcond.not = icmp eq i32 %250, %58
   br i1 %exitcond.not, label %._crit_edge, label %62, !llvm.loop !197
 
 .body172:                                         ; preds = %.loopexit286, %.loopexit.split-lp, %109, %158, %_ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb0EEES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit20.i, %107
@@ -16134,9 +16133,6 @@ declare i64 @llvm.umin.i64(i64, i64) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #20
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #19
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

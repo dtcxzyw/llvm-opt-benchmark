@@ -2865,11 +2865,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %169, %167, %_ZN4llv
   %173 = zext i32 %172 to i64
   %..i55 = call i64 @llvm.umin.i64(i64 %173, i64 %.sroa.6151.0226)
   %.not228 = icmp eq i32 %172, 0
-  br i1 %.not228, label %._crit_edge212, label %.lr.ph211.preheader
-
-.lr.ph211.preheader:                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
-  %umax = call i64 @llvm.umax.i64(i64 %..i55, i64 1)
-  br label %.lr.ph211
+  br i1 %.not228, label %._crit_edge212, label %.lr.ph211
 
 ._crit_edge212.loopexit:                          ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit57
   %174 = sub i32 -3, %.1
@@ -2881,9 +2877,9 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %169, %167, %_ZN4llv
   %176 = trunc nuw i8 %175 to i1
   br i1 %176, label %197, label %_ZN4llvm11raw_ostreamlsEc.exit
 
-.lr.ph211:                                        ; preds = %.lr.ph211.preheader, %_ZN4llvm11raw_ostreamlsEPKc.exit57
-  %.050210 = phi i32 [ %196, %_ZN4llvm11raw_ostreamlsEPKc.exit57 ], [ 0, %.lr.ph211.preheader ]
-  %.052209 = phi i64 [ %195, %_ZN4llvm11raw_ostreamlsEPKc.exit57 ], [ 0, %.lr.ph211.preheader ]
+.lr.ph211:                                        ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit, %_ZN4llvm11raw_ostreamlsEPKc.exit57
+  %.050210 = phi i32 [ %196, %_ZN4llvm11raw_ostreamlsEPKc.exit57 ], [ 0, %_ZN4llvm11raw_ostreamlsEPKc.exit ]
+  %.052209 = phi i64 [ %195, %_ZN4llvm11raw_ostreamlsEPKc.exit57 ], [ 0, %_ZN4llvm11raw_ostreamlsEPKc.exit ]
   %.not54 = icmp eq i64 %.052209, 0
   br i1 %.not54, label %_ZN4llvm11raw_ostreamlsEPKc.exit57, label %177
 
@@ -2920,7 +2916,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit57:               ; preds = %189, %187, %177, %.
   call void @_ZN4llvm9write_hexERNS_11raw_ostreamEmNS_13HexPrintStyleESt8optionalImE(ptr noundef nonnull align 8 dereferenceable(48) %0, i64 noundef %194, i32 noundef %not., i64 2, i8 1) #29
   %195 = add nuw nsw i64 %.052209, 1
   %196 = add i32 %.1, 2
-  %exitcond.not = icmp eq i64 %195, %umax
+  %exitcond.not = icmp eq i64 %195, %..i55
   br i1 %exitcond.not, label %._crit_edge212.loopexit, label %.lr.ph211, !llvm.loop !97
 
 197:                                              ; preds = %._crit_edge212

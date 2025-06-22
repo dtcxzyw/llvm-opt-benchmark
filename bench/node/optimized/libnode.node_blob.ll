@@ -2477,7 +2477,6 @@ for.body96.preheader:                             ; preds = %_ZNSt10unique_ptrIN
   %sub.ptr.rhs.cast.i = ptrtoint ptr %views.sroa.0.0.lcssa to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 5
-  %umax = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %for.body96
 
 for.body96:                                       ; preds = %for.body96.preheader, %_ZSt4copyIPhS0_ET0_T_S2_S1_.exit
@@ -2503,7 +2502,7 @@ _ZSt4copyIPhS0_ET0_T_S2_S1_.exit:                 ; preds = %for.body96, %if.the
   %66 = phi i64 [ 0, %for.body96 ], [ %.pre, %if.then.i.i.i.i.i128 ]
   %add.ptr109 = getelementptr inbounds i8, ptr %ptr.0198, i64 %66
   %inc111 = add nuw i64 %n92.0199, 1
-  %exitcond.not = icmp eq i64 %inc111, %umax
+  %exitcond.not = icmp eq i64 %inc111, %sub.ptr.div.i
   br i1 %exitcond.not, label %for.end112, label %for.body96, !llvm.loop !22
 
 for.end112:                                       ; preds = %_ZSt4copyIPhS0_ET0_T_S2_S1_.exit, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit

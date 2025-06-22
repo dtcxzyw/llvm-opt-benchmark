@@ -5905,18 +5905,15 @@ read_number.exit:                                 ; preds = %143
   ]
 
 opt_free_elem.exit.us162.preheader:               ; preds = %.loopexit
-  %umax187 = call i32 @llvm.umax.i32(i32 %4, i32 1)
-  %wide.trip.count188 = zext i32 %umax187 to i64
+  %wide.trip.count188 = zext i32 %4 to i64
   br label %opt_free_elem.exit.us162
 
 opt_free_elem.exit.us159.preheader:               ; preds = %.loopexit
-  %umax193 = call i32 @llvm.umax.i32(i32 %4, i32 1)
-  %wide.trip.count194 = zext i32 %umax193 to i64
+  %wide.trip.count194 = zext i32 %4 to i64
   br label %opt_free_elem.exit.us159
 
 .split.us156:                                     ; preds = %.loopexit, %.loopexit
-  %umax199 = call i32 @llvm.umax.i32(i32 %4, i32 1)
-  %wide.trip.count200 = zext i32 %umax199 to i64
+  %wide.trip.count200 = zext i32 %4 to i64
   br label %opt_free_elem.exit.us
 
 opt_free_elem.exit.us:                            ; preds = %opt_free_elem.exit.us, %.split.us156

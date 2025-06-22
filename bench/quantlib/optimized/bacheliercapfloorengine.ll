@@ -3464,7 +3464,6 @@ invoke.cont40.lr.ph:                              ; preds = %invoke.cont35
   %floorRates907 = getelementptr inbounds nuw i8, ptr %this, i64 248
   %capRates896 = getelementptr inbounds nuw i8, ptr %this, i64 224
   %cmp107904910 = icmp eq i32 %6, 1
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %invoke.cont40
 
 for.cond.cleanup:                                 ; preds = %if.end162, %invoke.cont35
@@ -3848,7 +3847,7 @@ if.end162:                                        ; preds = %if.end152, %invoke.
   %value.1 = phi double [ %add, %if.end152 ], [ %value.0996, %invoke.cont40 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %paymentDate) #25
   %inc = add nuw i64 %i.0991, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i
   br i1 %exitcond.not, label %for.cond.cleanup, label %invoke.cont40, !llvm.loop !123
 
 ehcleanup163:                                     ; preds = %lpad43, %ehcleanup156
@@ -8658,9 +8657,6 @@ declare i64 @llvm.smax.i64(i64, i64) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #23
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #23
 
 attributes #0 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #1 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

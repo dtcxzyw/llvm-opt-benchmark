@@ -2177,7 +2177,6 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc55, %_ZNSt6ve
 .lr.ph:                                           ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit
   %35 = getelementptr inbounds nuw i8, ptr %12, i64 80
   %36 = load ptr, ptr %35, align 8, !tbaa !92
-  %umax = tail call i64 @llvm.umax.i64(i64 %20, i64 1)
   br label %40
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i: ; preds = %40, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit
@@ -2201,7 +2200,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i: ; preds
   %48 = add nsw i32 %47, 1
   store i32 %48, ptr %46, align 4, !tbaa !91
   %49 = add nuw i64 %.023288, 1
-  %exitcond.not = icmp eq i64 %49, %umax
+  %exitcond.not = icmp eq i64 %49, %20
   br i1 %exitcond.not, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i, label %40, !llvm.loop !93
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -2556,7 +2555,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit141.preheader: ;
   %208 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %209 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %umax299 = call i64 @llvm.umax.i64(i64 %20, i64 1)
-  %umax301 = call i64 @llvm.umax.i64(i64 %205, i64 1)
   br label %254
 
 .preheader:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit182, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit141.preheader
@@ -2916,7 +2914,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i179: ; pr
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit182: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i179, %254
   %334 = add nuw i64 %.022291, 1
-  %exitcond302.not = icmp eq i64 %334, %umax301
+  %exitcond302.not = icmp eq i64 %334, %205
   br i1 %exitcond302.not, label %.preheader, label %254, !llvm.loop !97
 
 ._crit_edge:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit208, %.preheader
@@ -3423,7 +3421,6 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc50, %_ZNSt6ve
 .lr.ph:                                           ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit
   %48 = getelementptr inbounds nuw i8, ptr %16, i64 80
   %49 = load ptr, ptr %48, align 8, !tbaa !92
-  %umax = tail call i64 @llvm.umax.i64(i64 %24, i64 1)
   br label %53
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i: ; preds = %53, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit
@@ -3447,7 +3444,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i: ; preds
   %61 = add nsw i32 %60, 1
   store i32 %61, ptr %59, align 4, !tbaa !91
   %62 = add nuw i64 %.015406, 1
-  %exitcond.not = icmp eq i64 %62, %umax
+  %exitcond.not = icmp eq i64 %62, %24
   br i1 %exitcond.not, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i, label %53, !llvm.loop !102
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -3814,7 +3811,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit127.preheader: ;
   %229 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %230 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %231 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %umax410 = call i64 @llvm.umax.i64(i64 %219, i64 1)
   br label %282
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit127._crit_edge: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit202, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit127.preheader
@@ -4576,7 +4572,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit220: ; preds = %.l
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit202: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i199, %282
   %472 = add nuw i64 %.0407, 1
-  %exitcond411.not = icmp eq i64 %472, %umax410
+  %exitcond411.not = icmp eq i64 %472, %219
   br i1 %exitcond411.not, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit127._crit_edge, label %282, !llvm.loop !112
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit131: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i128

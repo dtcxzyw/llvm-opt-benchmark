@@ -1480,11 +1480,7 @@ _ZN3ue212_GLOBAL__N_16ScorerclEjj.exit168._crit_edge.i.i: ; preds = %500, %_ZN3u
   %544 = sub i64 %542, %543
   %545 = sdiv exact i64 %544, 24
   %.not383.i.i = icmp eq ptr %535, %534
-  br i1 %.not383.i.i, label %_ZSt8_DestroyIPSt6vectorIjSaIjEES2_EvT_S4_RSaIT0_E.exit.i.i.i, label %.lr.ph378.preheader.i.i
-
-.lr.ph378.preheader.i.i:                          ; preds = %._crit_edge375.i.i
-  %umax.i.i = call i64 @llvm.umax.i64(i64 %545, i64 1)
-  br label %.lr.ph378.i.i
+  br i1 %.not383.i.i, label %_ZSt8_DestroyIPSt6vectorIjSaIjEES2_EvT_S4_RSaIT0_E.exit.i.i.i, label %.lr.ph378.i.i
 
 546:                                              ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit.i.i, %.lr.ph374.i.i
   %indvars.iv442.i.i = phi i64 [ %240, %.lr.ph374.i.i ], [ %554, %_ZNSt6vectorIjSaIjEED2Ev.exit.i.i ]
@@ -1707,8 +1703,8 @@ _ZNSt6vectorIjSaIjEED2Ev.exit180.i.i:             ; preds = %626, %624
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %28) #24, !noalias !13
   br label %655
 
-.lr.ph378.i.i:                                    ; preds = %_ZNSt3mapIjSt6vectorIjSaIjEESt4lessIjESaISt4pairIKjS2_EEE7emplaceIJmS2_EEES5_ISt17_Rb_tree_iteratorIS7_EbEDpOT_.exit.i.i, %.lr.ph378.preheader.i.i
-  %.090376.i.i = phi i64 [ %632, %_ZNSt3mapIjSt6vectorIjSaIjEESt4lessIjESaISt4pairIKjS2_EEE7emplaceIJmS2_EEES5_ISt17_Rb_tree_iteratorIS7_EbEDpOT_.exit.i.i ], [ 0, %.lr.ph378.preheader.i.i ]
+.lr.ph378.i.i:                                    ; preds = %._crit_edge375.i.i, %_ZNSt3mapIjSt6vectorIjSaIjEESt4lessIjESaISt4pairIKjS2_EEE7emplaceIJmS2_EEES5_ISt17_Rb_tree_iteratorIS7_EbEDpOT_.exit.i.i
+  %.090376.i.i = phi i64 [ %632, %_ZNSt3mapIjSt6vectorIjSaIjEESt4lessIjESaISt4pairIKjS2_EEE7emplaceIJmS2_EEES5_ISt17_Rb_tree_iteratorIS7_EbEDpOT_.exit.i.i ], [ 0, %._crit_edge375.i.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29) #24, !noalias !13
   %627 = xor i64 %.090376.i.i, -1
   %628 = add i64 %545, %627
@@ -1721,7 +1717,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit180.i.i:             ; preds = %626, %624
 _ZNSt3mapIjSt6vectorIjSaIjEESt4lessIjESaISt4pairIKjS2_EEE7emplaceIJmS2_EEES5_ISt17_Rb_tree_iteratorIS7_EbEDpOT_.exit.i.i: ; preds = %.lr.ph378.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29) #24, !noalias !13
   %632 = add nuw i64 %.090376.i.i, 1
-  %exitcond445.not.i.i = icmp eq i64 %632, %umax.i.i
+  %exitcond445.not.i.i = icmp eq i64 %632, %545
   br i1 %exitcond445.not.i.i, label %._crit_edge379.i.i, label %.lr.ph378.i.i, !llvm.loop !77
 
 633:                                              ; preds = %.lr.ph378.i.i
@@ -2054,14 +2050,10 @@ _ZNSt10_HashtableIjSt4pairIKjSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEEES
   %737 = icmp ult i64 %736, 1001
   %738 = icmp ne ptr %731, %732
   %or.cond.i.i.i = and i1 %738, %737
-  br i1 %or.cond.i.i.i, label %.lr.ph.preheader.i.i.i, label %.loopexit20.i.i.i
+  br i1 %or.cond.i.i.i, label %.lr.ph.i.i32.i, label %.loopexit20.i.i.i
 
-.lr.ph.preheader.i.i.i:                           ; preds = %729
-  %umax.i.i.i = call i64 @llvm.umax.i64(i64 %736, i64 1)
-  br label %.lr.ph.i.i32.i
-
-.lr.ph.i.i32.i:                                   ; preds = %_ZN3ue212_GLOBAL__N_115buildSquashMaskERSt6vectorINS_11hwlmLiteralESaIS2_EEjjmRKS1_ISt4pairIjjESaIS7_EERSt13unordered_mapIjSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEESF_SH_SaIS6_IKjSJ_EEESO_.exit.i.i.i, %.lr.ph.preheader.i.i.i
-  %.01945.i.i.i = phi i64 [ %744, %_ZN3ue212_GLOBAL__N_115buildSquashMaskERSt6vectorINS_11hwlmLiteralESaIS2_EEjjmRKS1_ISt4pairIjjESaIS7_EERSt13unordered_mapIjSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEESF_SH_SaIS6_IKjSJ_EEESO_.exit.i.i.i ], [ 0, %.lr.ph.preheader.i.i.i ]
+.lr.ph.i.i32.i:                                   ; preds = %729, %_ZN3ue212_GLOBAL__N_115buildSquashMaskERSt6vectorINS_11hwlmLiteralESaIS2_EEjjmRKS1_ISt4pairIjjESaIS7_EERSt13unordered_mapIjSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEESF_SH_SaIS6_IKjSJ_EEESO_.exit.i.i.i
+  %.01945.i.i.i = phi i64 [ %744, %_ZN3ue212_GLOBAL__N_115buildSquashMaskERSt6vectorINS_11hwlmLiteralESaIS2_EEjjmRKS1_ISt4pairIjjESaIS7_EERSt13unordered_mapIjSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEESF_SH_SaIS6_IKjSJ_EEESO_.exit.i.i.i ], [ 0, %729 ]
   %739 = load ptr, ptr %.sroa.01.047.i.ptr.i.i, align 8
   %740 = getelementptr inbounds nuw %"struct.std::pair.137", ptr %739, i64 %.01945.i.i.i
   %741 = load i32, ptr %740, align 4
@@ -3300,7 +3292,7 @@ _ZNSt8__detail9_Map_baseIjSt4pairIKjSt13unordered_setIjSt4hashIjESt8equal_toIjES
 
 _ZN3ue212_GLOBAL__N_115buildSquashMaskERSt6vectorINS_11hwlmLiteralESaIS2_EEjjmRKS1_ISt4pairIjjESaIS7_EERSt13unordered_mapIjSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEESF_SH_SaIS6_IKjSJ_EEESO_.exit.i.i.i: ; preds = %1258, %_ZN3ue212_GLOBAL__N_18isSuffixERKNS_11hwlmLiteralES3_.exit.thread.i.i.i.i, %.noexc39.i.i.i, %1220, %1210, %.lr.ph.i.i32.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14), !noalias !7
-  %exitcond.not.i.i.i = icmp eq i64 %744, %umax.i.i.i
+  %exitcond.not.i.i.i = icmp eq i64 %744, %736
   br i1 %exitcond.not.i.i.i, label %.loopexit20.i.i.i, label %.lr.ph.i.i32.i
 
 .loopexit.i.i35.i:                                ; preds = %.loopexit.i64.i.i.i.i, %.critedge.i.i.i.i, %.loopexit.i.i.i.i.i

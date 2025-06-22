@@ -4806,7 +4806,6 @@ _ZNSt6vectorIPcSaIS0_EE12emplace_backIJRS0_EEES4_DpOT_.exit: ; preds = %163, %_Z
 .lr.ph458.preheader:                              ; preds = %214
   %218 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %217, ptr %218, align 8, !tbaa !204
-  %umax = tail call i64 @llvm.umax.i64(i64 %211, i64 1)
   br label %.lr.ph458
 
 219:                                              ; preds = %267, %250, %233, %214
@@ -4821,7 +4820,7 @@ _ZNSt6vectorIPcSaIS0_EE12emplace_backIJRS0_EEES4_DpOT_.exit: ; preds = %163, %_Z
   %223 = getelementptr inbounds nuw ptr, ptr %217, i64 %.056456
   store ptr %222, ptr %223, align 8, !tbaa !3
   %224 = add nuw i64 %.056456, 1
-  %exitcond540.not = icmp eq i64 %224, %umax
+  %exitcond540.not = icmp eq i64 %224, %211
   br i1 %exitcond540.not, label %.loopexit223, label %.lr.ph458, !llvm.loop !205
 
 225:                                              ; preds = %207
@@ -4848,7 +4847,6 @@ _ZNSt6vectorIPcSaIS0_EE12emplace_backIJRS0_EEES4_DpOT_.exit: ; preds = %163, %_Z
 .lr.ph461.preheader:                              ; preds = %233
   %237 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %236, ptr %237, align 8, !tbaa !207
-  %umax541 = tail call i64 @llvm.umax.i64(i64 %230, i64 1)
   br label %.lr.ph461
 
 .lr.ph461:                                        ; preds = %.lr.ph461.preheader, %.lr.ph461
@@ -4858,7 +4856,7 @@ _ZNSt6vectorIPcSaIS0_EE12emplace_backIJRS0_EEES4_DpOT_.exit: ; preds = %163, %_Z
   %240 = getelementptr inbounds nuw ptr, ptr %236, i64 %.055459
   store ptr %239, ptr %240, align 8, !tbaa !3
   %241 = add nuw i64 %.055459, 1
-  %exitcond542.not = icmp eq i64 %241, %umax541
+  %exitcond542.not = icmp eq i64 %241, %230
   br i1 %exitcond542.not, label %.loopexit222, label %.lr.ph461, !llvm.loop !208
 
 242:                                              ; preds = %.loopexit223
@@ -4885,7 +4883,6 @@ _ZNSt6vectorIPcSaIS0_EE12emplace_backIJRS0_EEES4_DpOT_.exit: ; preds = %163, %_Z
 .lr.ph464.preheader:                              ; preds = %250
   %254 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr %253, ptr %254, align 8, !tbaa !210
-  %umax543 = tail call i64 @llvm.umax.i64(i64 %247, i64 1)
   br label %.lr.ph464
 
 .lr.ph464:                                        ; preds = %.lr.ph464.preheader, %.lr.ph464
@@ -4895,7 +4892,7 @@ _ZNSt6vectorIPcSaIS0_EE12emplace_backIJRS0_EEES4_DpOT_.exit: ; preds = %163, %_Z
   %257 = getelementptr inbounds nuw ptr, ptr %253, i64 %.054462
   store ptr %256, ptr %257, align 8, !tbaa !3
   %258 = add nuw i64 %.054462, 1
-  %exitcond544.not = icmp eq i64 %258, %umax543
+  %exitcond544.not = icmp eq i64 %258, %247
   br i1 %exitcond544.not, label %.loopexit221, label %.lr.ph464, !llvm.loop !211
 
 259:                                              ; preds = %.loopexit222
@@ -4922,7 +4919,6 @@ _ZNSt6vectorIPcSaIS0_EE12emplace_backIJRS0_EEES4_DpOT_.exit: ; preds = %163, %_Z
 .lr.ph467.preheader:                              ; preds = %267
   %271 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store ptr %270, ptr %271, align 8, !tbaa !213
-  %umax545 = tail call i64 @llvm.umax.i64(i64 %264, i64 1)
   br label %.lr.ph467
 
 .lr.ph467:                                        ; preds = %.lr.ph467.preheader, %.lr.ph467
@@ -4932,7 +4928,7 @@ _ZNSt6vectorIPcSaIS0_EE12emplace_backIJRS0_EEES4_DpOT_.exit: ; preds = %163, %_Z
   %274 = getelementptr inbounds nuw ptr, ptr %270, i64 %.0465
   store ptr %273, ptr %274, align 8, !tbaa !3
   %275 = add nuw i64 %.0465, 1
-  %exitcond546.not = icmp eq i64 %275, %umax545
+  %exitcond546.not = icmp eq i64 %275, %264
   br i1 %exitcond546.not, label %.loopexit.thread, label %.lr.ph467, !llvm.loop !214
 
 .loopexit:                                        ; preds = %.loopexit221
@@ -5757,7 +5753,6 @@ define internal fastcc noundef ptr @_ZN9grpc_core12_GLOBAL__N_126ConvertToTsiPem
 .lr.ph.preheader:                                 ; preds = %12
   %18 = ashr exact i64 %10, 2
   %19 = tail call ptr @gpr_zalloc(i64 noundef %18)
-  %umax = tail call i64 @llvm.umax.i64(i64 %11, i64 1)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.critedge34, %1
@@ -5804,7 +5799,7 @@ define internal fastcc noundef ptr @_ZN9grpc_core12_GLOBAL__N_126ConvertToTsiPem
   %38 = tail call ptr @gpr_strdup(ptr noundef %37)
   store ptr %38, ptr %33, align 8, !tbaa !230
   %39 = add nuw i64 %.02841, 1
-  %exitcond.not = icmp eq i64 %39, %umax
+  %exitcond.not = icmp eq i64 %39, %11
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !231
 }
 

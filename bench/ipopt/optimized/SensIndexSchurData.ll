@@ -1994,7 +1994,6 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit:        ; preds = %35, %44
   %63 = ashr exact i64 %62, 2
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %65 = load ptr, ptr %64, align 8, !tbaa !18
-  %umax = tail call i64 @llvm.umax.i64(i64 %63, i64 1)
   br label %70
 
 .preheader:                                       ; preds = %70, %.preheader74
@@ -2024,7 +2023,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit:        ; preds = %35, %44
   %82 = tail call double @llvm.fmuladd.f64(double %75, double %78, double %81)
   store double %82, ptr %80, align 8, !tbaa !27
   %83 = add nuw i64 %.04381, 1
-  %exitcond.not = icmp eq i64 %83, %umax
+  %exitcond.not = icmp eq i64 %83, %63
   br i1 %exitcond.not, label %.preheader, label %70, !llvm.loop !115
 
 84:                                               ; preds = %.lr.ph85, %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit65
@@ -2301,7 +2300,6 @@ define void @_ZN5Ipopt14IndexSchurData12AddData_FlagEiPiRSt6vectorIiSaIiEEi(ptr 
   %28 = ptrtoint ptr %26 to i64
   %29 = sub i64 %27, %28
   %30 = ashr exact i64 %29, 2
-  %umax = tail call i64 @llvm.umax.i64(i64 %30, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %63
@@ -2381,7 +2379,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %39, %_ZNSt6vectorIi
 
 63:                                               ; preds = %.lr.ph
   %64 = add nuw i64 %.041, 1
-  %exitcond.not = icmp eq i64 %64, %umax
+  %exitcond.not = icmp eq i64 %64, %30
   br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !129
 
 .critedge:                                        ; preds = %63, %.preheader
@@ -2616,7 +2614,6 @@ define void @_ZN5Ipopt14IndexSchurData12AddData_ListESt6vectorIiSaIiEERS3_Rii(pt
   %30 = ashr exact i64 %29, 2
   %31 = getelementptr inbounds nuw i32, ptr %24, i64 %.01440
   %32 = load i32, ptr %31, align 4, !tbaa !24
-  %umax = tail call i64 @llvm.umax.i64(i64 %30, i64 1)
   br label %40
 
 ._crit_edge.loopexit:                             ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit31
@@ -2717,7 +2714,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %48, %_ZNSt6vectorIi
 
 72:                                               ; preds = %40
   %73 = add nuw i64 %.039, 1
-  %exitcond.not = icmp eq i64 %73, %umax
+  %exitcond.not = icmp eq i64 %73, %30
   br i1 %exitcond.not, label %.critedge, label %40, !llvm.loop !131
 
 .critedge:                                        ; preds = %72, %.preheader

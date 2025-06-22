@@ -373,7 +373,6 @@ define hidden void @_ZN4cvc58internal6theory5arith18getMacroSumUbCoeffERKSt6vect
   %21 = ashr exact i64 %20, 3
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %umax = call i64 @llvm.umax.i64(i64 %21, i64 1)
   br label %54
 
 ._crit_edge:                                      ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit91, %14
@@ -834,7 +833,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit89: ; preds = %_ZNSt6vectorIN4cvc5
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit91: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit89, %233, %239
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #20
   %243 = add nuw i64 %.05194, 1
-  %exitcond.not = icmp eq i64 %243, %umax
+  %exitcond.not = icmp eq i64 %243, %21
   br i1 %exitcond.not, label %._crit_edge, label %54, !llvm.loop !34
 
 244:                                              ; preds = %71

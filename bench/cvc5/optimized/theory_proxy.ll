@@ -911,7 +911,6 @@ define hidden void @_ZN4cvc58internal4prop11TheoryProxy19notifyInputFormulasERKS
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %umax = tail call i64 @llvm.umax.i64(i64 %17, i64 1)
   br label %23
 
 ._crit_edge:                                      ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit26, %3
@@ -1269,7 +1268,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit23: ; preds = %157, %161, %167
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit26: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit23, %173, %179
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #26
   %183 = add nuw i64 %.037, 1
-  %exitcond.not = icmp eq i64 %183, %umax
+  %exitcond.not = icmp eq i64 %183, %17
   br i1 %exitcond.not, label %._crit_edge, label %23, !llvm.loop !385
 
 184:                                              ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit20

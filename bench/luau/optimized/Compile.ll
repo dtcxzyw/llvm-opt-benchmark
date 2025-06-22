@@ -2191,20 +2191,19 @@ define dso_local void @_Z22serializeFunctionStatsP8_IO_FILERKN4Luau7CodeGen13Fun
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %24 = load ptr, ptr %23, align 8, !tbaa !25
   %25 = load ptr, ptr %22, align 8, !tbaa !26
-  %26 = icmp eq ptr %24, %25
-  br i1 %26, label %27, label %.lr.ph43.preheader
+  %26 = ptrtoint ptr %24 to i64
+  %27 = ptrtoint ptr %25 to i64
+  %28 = sub i64 %26, %27
+  %29 = sdiv exact i64 %28, 24
+  %30 = icmp eq ptr %24, %25
+  br i1 %30, label %31, label %.lr.ph43.preheader
 
-27:                                               ; preds = %2
-  %28 = tail call i64 @fwrite(ptr nonnull @.str.87, i64 2, i64 1, ptr %0)
+31:                                               ; preds = %2
+  %32 = tail call i64 @fwrite(ptr nonnull @.str.87, i64 2, i64 1, ptr %0)
   br label %71
 
 .lr.ph43.preheader:                               ; preds = %2
-  %29 = ptrtoint ptr %24 to i64
-  %30 = ptrtoint ptr %25 to i64
-  %31 = sub i64 %29, %30
-  %32 = sdiv exact i64 %31, 24
   %33 = tail call i64 @fwrite(ptr nonnull @.str.88, i64 2, i64 1, ptr %0)
-  %umax = tail call i64 @llvm.umax.i64(i64 %32, i64 1)
   br label %.lr.ph43
 
 ._crit_edge44:                                    ; preds = %69
@@ -2273,10 +2272,10 @@ define dso_local void @_Z22serializeFunctionStatsP8_IO_FILERKN4Luau7CodeGen13Fun
 
 69:                                               ; preds = %67, %._crit_edge
   %70 = add nuw i64 %.03841, 1
-  %exitcond.not = icmp eq i64 %70, %umax
+  %exitcond.not = icmp eq i64 %70, %29
   br i1 %exitcond.not, label %._crit_edge44, label %.lr.ph43, !llvm.loop !33
 
-71:                                               ; preds = %._crit_edge44, %27
+71:                                               ; preds = %._crit_edge44, %31
   %72 = tail call i64 @fwrite(ptr nonnull @.str.95, i64 18, i64 1, ptr %0)
   ret void
 }
@@ -2349,21 +2348,20 @@ define dso_local void @_Z22serializeLoweringStatsP8_IO_FILERKN4Luau7CodeGen13Low
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %46 = load ptr, ptr %45, align 8, !tbaa !54
   %47 = load ptr, ptr %44, align 8, !tbaa !55
-  %48 = icmp eq ptr %46, %47
-  br i1 %48, label %49, label %.lr.ph
+  %48 = ptrtoint ptr %46 to i64
+  %49 = ptrtoint ptr %47 to i64
+  %50 = sub i64 %48, %49
+  %51 = sdiv exact i64 %50, 80
+  %52 = icmp eq ptr %46, %47
+  br i1 %52, label %53, label %.lr.ph
 
-49:                                               ; preds = %2
-  %50 = tail call i64 @fwrite(ptr nonnull @.str.87, i64 2, i64 1, ptr %0)
+53:                                               ; preds = %2
+  %54 = tail call i64 @fwrite(ptr nonnull @.str.87, i64 2, i64 1, ptr %0)
   br label %66
 
 .lr.ph:                                           ; preds = %2
-  %51 = ptrtoint ptr %46 to i64
-  %52 = ptrtoint ptr %47 to i64
-  %53 = sub i64 %51, %52
-  %54 = sdiv exact i64 %53, 80
   %55 = tail call i64 @fwrite(ptr nonnull @.str.88, i64 2, i64 1, ptr %0)
-  %56 = add nsw i64 %54, -1
-  %umax = tail call i64 @llvm.umax.i64(i64 %54, i64 1)
+  %56 = add nsw i64 %51, -1
   br label %58
 
 ._crit_edge:                                      ; preds = %64
@@ -2384,10 +2382,10 @@ define dso_local void @_Z22serializeLoweringStatsP8_IO_FILERKN4Luau7CodeGen13Low
 
 64:                                               ; preds = %58, %62
   %65 = add nuw i64 %.041, 1
-  %exitcond.not = icmp eq i64 %65, %umax
+  %exitcond.not = icmp eq i64 %65, %51
   br i1 %exitcond.not, label %._crit_edge, label %58, !llvm.loop !56
 
-66:                                               ; preds = %._crit_edge, %49
+66:                                               ; preds = %._crit_edge, %53
   %67 = tail call i64 @fwrite(ptr nonnull @.str.113, i64 10, i64 1, ptr %0)
   ret void
 }
@@ -4300,7 +4298,6 @@ _ZNSt6vectorI12CompileStatsSaIS0_EE9push_backERKS0_.exit: ; preds = %.noexc205, 
   %708 = add nsw i64 %179, -1
   %709 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %710 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %umax = call i64 @llvm.umax.i64(i64 %179, i64 1)
   br label %711
 
 ._crit_edge385:                                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %706
@@ -4343,7 +4340,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %23) #29
   %728 = add nuw i64 %.0382, 1
-  %exitcond407.not = icmp eq i64 %728, %umax
+  %exitcond407.not = icmp eq i64 %728, %179
   br i1 %exitcond407.not, label %._crit_edge385, label %711, !llvm.loop !288
 
 729:                                              ; preds = %711

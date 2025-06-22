@@ -667,7 +667,6 @@ _ZNK3ue212_GLOBAL__N_18dfa_info13getAlphaShiftEv.exit.i: ; preds = %130
   %180 = ptrtoint ptr %.val.val.i.i to i64
   %181 = sub i64 %179, %180
   %182 = sdiv exact i64 %181, 96
-  %umax.i.i = call i64 @llvm.umax.i64(i64 %182, i64 1)
   br label %.lr.ph.i84.i
 
 .lr.ph.i84.i:                                     ; preds = %.lr.ph.i84.i, %.lr.ph.preheader.i.i
@@ -680,7 +679,7 @@ _ZNK3ue212_GLOBAL__N_18dfa_info13getAlphaShiftEv.exit.i: ; preds = %130
   %187 = zext nneg i8 %186 to i64
   %spec.select.i.i = add i64 %.061.i.i, %187
   %188 = add nuw i64 %.02.i.i, 1
-  %exitcond.not.i85.i = icmp eq i64 %188, %umax.i.i
+  %exitcond.not.i85.i = icmp eq i64 %188, %182
   br i1 %exitcond.not.i85.i, label %_ZN3ue2L21calcShermanRegionSizeERKNS_12_GLOBAL__N_18dfa_infoE.exit.i, label %.lr.ph.i84.i, !llvm.loop !14
 
 _ZN3ue2L21calcShermanRegionSizeERKNS_12_GLOBAL__N_18dfa_infoE.exit.i: ; preds = %.lr.ph.i84.i, %168
@@ -3697,7 +3696,6 @@ _ZNK3ue212_GLOBAL__N_18dfa_info13getAlphaShiftEv.exit.i: ; preds = %125
   %176 = ptrtoint ptr %.val.val.i.i to i64
   %177 = sub i64 %175, %176
   %178 = sdiv exact i64 %177, 96
-  %umax.i.i = call i64 @llvm.umax.i64(i64 %178, i64 1)
   br label %.lr.ph.i84.i
 
 .lr.ph.i84.i:                                     ; preds = %.lr.ph.i84.i, %.lr.ph.preheader.i.i
@@ -3710,7 +3708,7 @@ _ZNK3ue212_GLOBAL__N_18dfa_info13getAlphaShiftEv.exit.i: ; preds = %125
   %183 = zext nneg i8 %182 to i64
   %spec.select.i.i = add i64 %.061.i.i, %183
   %184 = add nuw i64 %.02.i.i, 1
-  %exitcond.not.i85.i = icmp eq i64 %184, %umax.i.i
+  %exitcond.not.i85.i = icmp eq i64 %184, %178
   br i1 %exitcond.not.i85.i, label %_ZN3ue2L21calcShermanRegionSizeERKNS_12_GLOBAL__N_18dfa_infoE.exit.i, label %.lr.ph.i84.i, !llvm.loop !14
 
 _ZN3ue2L21calcShermanRegionSizeERKNS_12_GLOBAL__N_18dfa_infoE.exit.i: ; preds = %.lr.ph.i84.i, %164

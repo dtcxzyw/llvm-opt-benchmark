@@ -11295,8 +11295,7 @@ _ZN6bufferIjLb0ELj16EE9push_backERKj.exit.i:      ; preds = %102, %_ZN6bufferIjL
   br i1 %exitcond.not.i, label %_ZN6bufferIjLb0ELj16EE6resizeEjRKj.exit.preheader, label %102, !llvm.loop !465
 
 _ZN6bufferIjLb0ELj16EE6resizeEjRKj.exit.preheader: ; preds = %_ZN6bufferIjLb0ELj16EE9push_backERKj.exit.i
-  %umax = call i32 @llvm.umax.i32(i32 %96, i32 1)
-  %wide.trip.count = zext i32 %umax to i64
+  %wide.trip.count = zext i32 %96 to i64
   br label %_ZN6bufferIjLb0ELj16EE6resizeEjRKj.exit
 
 124:                                              ; preds = %_ZN6bufferIjLb0ELj16EE6resizeEjRKj.exit
@@ -32548,9 +32547,6 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #24
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #24
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

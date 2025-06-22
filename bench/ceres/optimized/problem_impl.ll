@@ -3922,7 +3922,6 @@ _ZSt6fill_nIPPN5ceres8internal14ParameterBlockEmS3_ET_S5_T0_RKT1_.exit.loopexit.
   %144 = sub i64 %142, %143
   %145 = ashr exact i64 %144, 3
   %146 = load ptr, ptr %18, align 8, !tbaa !150
-  %umax = tail call i64 @llvm.umax.i64(i64 %145, i64 1)
   br label %160
 
 147:                                              ; preds = %126, %125
@@ -3973,7 +3972,7 @@ _ZSt6fill_nIPPN5ceres8internal14ParameterBlockEmS3_ET_S5_T0_RKT1_.exit.loopexit.
 
 173:                                              ; preds = %160
   %indvars.iv.next184 = add nuw i64 %indvars.iv183, 1
-  %exitcond186.not = icmp eq i64 %indvars.iv.next184, %umax
+  %exitcond186.not = icmp eq i64 %indvars.iv.next184, %145
   br i1 %exitcond186.not, label %.loopexit152, label %160, !llvm.loop !258
 
 174:                                              ; preds = %168
@@ -9263,7 +9262,6 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i:             ; preds = %34, %40, %38, %36
   %46 = sub i64 %44, %45
   %47 = ashr exact i64 %46, 3
   %48 = load ptr, ptr %13, align 8, !tbaa !150
-  %umax.i = call i64 @llvm.umax.i64(i64 %47, i64 1)
   br label %49
 
 49:                                               ; preds = %49, %.lr.ph.i
@@ -9278,7 +9276,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i:             ; preds = %34, %40, %38, %36
   store i32 %.015.i, ptr %55, align 4, !tbaa !9
   %56 = add nsw i32 %54, %.015.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %umax.i
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %47
   br i1 %exitcond.not.i, label %_ZN5ceres8internal16ProgramEvaluatorINS0_23ScratchEvaluatePreparerENS0_27CompressedRowJacobianWriterENS0_21NullJacobianFinalizerEE19BuildResidualLayoutERKNS0_7ProgramEPSt6vectorIiSaIiEE.exit, label %49, !llvm.loop !414
 
 _ZN5ceres8internal16ProgramEvaluatorINS0_23ScratchEvaluatePreparerENS0_27CompressedRowJacobianWriterENS0_21NullJacobianFinalizerEE19BuildResidualLayoutERKNS0_7ProgramEPSt6vectorIiSaIiEE.exit: ; preds = %49, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i

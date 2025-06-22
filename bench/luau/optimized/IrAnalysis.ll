@@ -319,7 +319,6 @@ define dso_local void @_ZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctio
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %0, align 8, !tbaa !32
   %12 = load ptr, ptr %10, align 8
-  %umax = tail call i64 @llvm.umax.i64(i64 %9, i64 1)
   br label %13
 
 ._crit_edge:                                      ; preds = %.loopexit, %2
@@ -458,7 +457,7 @@ define dso_local void @_ZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctio
 
 .loopexit:                                        ; preds = %"_ZZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctionERKSt6vectorIjSaIjEEENK3$_0clENS0_4IrOpE.exit45", %20, %13
   %79 = add nuw i64 %.055, 1
-  %exitcond.not = icmp eq i64 %79, %umax
+  %exitcond.not = icmp eq i64 %79, %9
   br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !42
 }
 
@@ -1475,13 +1474,10 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %_ZNSt6vectorIjSaIjE
   unreachable
 
 _ZNKSt6vectorIZN4Luau7CodeGen20computeBlockOrderingITnDaXadL_ZNS1_10successorsERKNS1_7CfgInfoEjEEEEvRNS1_10IrFunctionERS_INS1_13BlockOrderingESaIS8_EEPS_IjSaIjEESE_E9StackItemSaISF_EE12_M_check_lenEmPKc.exit.i.i.i68: ; preds = %169
-  %.sroa.speculated.i.i.i.i69 = tail call i64 @llvm.umax.i64(i64 %136, i64 1)
-  %172 = add nsw i64 %.sroa.speculated.i.i.i.i69, %136
+  %172 = ashr exact i64 %135, 2
   %173 = icmp ult i64 %172, %136
   %174 = tail call i64 @llvm.umin.i64(i64 %172, i64 1152921504606846975)
   %175 = select i1 %173, i64 1152921504606846975, i64 %174
-  %.not.i.i.i.i70 = icmp ne i64 %175, 0
-  tail call void @llvm.assume(i1 %.not.i.i.i.i70)
   %176 = shl nuw nsw i64 %175, 3
   %177 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %176) #16
           to label %.noexc75 unwind label %.loopexit140
@@ -1716,12 +1712,10 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %_ZNSt6vectorIjSaIjE
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %27 = load ptr, ptr %26, align 8, !tbaa !31
   %28 = load ptr, ptr %7, align 8
-  %umax = tail call i64 @llvm.umax.i64(i64 %25, i64 1)
   br label %30
 
 .lr.ph60:                                         ; preds = %38
   %29 = load ptr, ptr %7, align 8, !tbaa !31
-  %umax75 = tail call i64 @llvm.umax.i64(i64 %25, i64 1)
   br label %69
 
 30:                                               ; preds = %.lr.ph, %38
@@ -1741,7 +1735,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %_ZNSt6vectorIjSaIjE
 
 38:                                               ; preds = %33, %30
   %39 = add nuw i64 %.04457, 1
-  %exitcond.not = icmp eq i64 %39, %umax
+  %exitcond.not = icmp eq i64 %39, %25
   br i1 %exitcond.not, label %.lr.ph60, label %30, !llvm.loop !79
 
 ._crit_edge.thread:                               ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit
@@ -1815,7 +1809,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit55:             ; preds = %54, %56, %61, %63
   store i32 %.04659, ptr %70, align 4, !tbaa !34
   %72 = add i32 %71, %.04659
   %73 = add nuw i64 %.04758, 1
-  %exitcond76.not = icmp eq i64 %73, %umax75
+  %exitcond76.not = icmp eq i64 %73, %25
   br i1 %exitcond76.not, label %._crit_edge, label %69, !llvm.loop !80
 
 ._crit_edge64.loopexit:                           ; preds = %89
@@ -2220,13 +2214,10 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %_ZNSt6vectorIjSaIjE
   unreachable
 
 _ZNKSt6vectorIZN4Luau7CodeGen20computeBlockOrderingITnDaXadL_ZNS1_11domChildrenERKNS1_7CfgInfoEjEEEEvRNS1_10IrFunctionERS_INS1_13BlockOrderingESaIS8_EEPS_IjSaIjEESE_E9StackItemSaISF_EE12_M_check_lenEmPKc.exit.i.i.i68: ; preds = %169
-  %.sroa.speculated.i.i.i.i69 = tail call i64 @llvm.umax.i64(i64 %136, i64 1)
-  %172 = add nsw i64 %.sroa.speculated.i.i.i.i69, %136
+  %172 = ashr exact i64 %135, 2
   %173 = icmp ult i64 %172, %136
   %174 = tail call i64 @llvm.umin.i64(i64 %172, i64 1152921504606846975)
   %175 = select i1 %173, i64 1152921504606846975, i64 %174
-  %.not.i.i.i.i70 = icmp ne i64 %175, 0
-  tail call void @llvm.assume(i1 %.not.i.i.i.i70)
   %176 = shl nuw nsw i64 %175, 3
   %177 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %176) #16
           to label %.noexc75 unwind label %.loopexit140

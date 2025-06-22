@@ -36609,7 +36609,6 @@ _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEES3_St4lessIS3_ESaISt4pairIKS3_S3_E
 
 .lr.ph1413.preheader:                             ; preds = %1071
   %1078 = trunc nsw i64 %1077 to i32
-  %umax = call i32 @llvm.umax.i32(i32 %1078, i32 1)
   br label %.lr.ph1413
 
 .lr.ph1413:                                       ; preds = %.lr.ph1413.preheader, %_ZNSt6vectorIS_IN4cvc58internal12NodeTemplateILb1EEESaIS3_EESaIS5_EED2Ev.exit870
@@ -37871,7 +37870,7 @@ _ZSt8_DestroyIPSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS4_EES6_EvT_S8_R
 
 _ZNSt6vectorIS_IN4cvc58internal12NodeTemplateILb1EEESaIS3_EESaIS5_EED2Ev.exit870: ; preds = %_ZSt8_DestroyIPSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS4_EES6_EvT_S8_RSaIT0_E.exit.i868, %1615
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %67) #26
-  %exitcond.not = icmp eq i32 %1586, %umax
+  %exitcond.not = icmp eq i32 %1586, %1078
   br i1 %exitcond.not, label %.critedge, label %.lr.ph1413, !llvm.loop !813
 
 1620:                                             ; preds = %_ZNSt6vectorIS_IN4cvc58internal12NodeTemplateILb1EEESaIS3_EESaIS5_EE5clearEv.exit
@@ -58575,7 +58574,6 @@ _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEES3_St4lessIS3_ESaISt4pairIKS3_S3_E
 
 .lr.ph777.preheader:                              ; preds = %1070
   %1077 = trunc nsw i64 %1076 to i32
-  %umax = call i32 @llvm.umax.i32(i32 %1077, i32 1)
   br label %.lr.ph777
 
 .lr.ph777:                                        ; preds = %.lr.ph777.preheader, %_ZNSt6vectorIS_IN4cvc58internal12NodeTemplateILb1EEESaIS3_EESaIS5_EED2Ev.exit402
@@ -59859,7 +59857,7 @@ _ZSt8_DestroyIPSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS4_EES6_EvT_S8_R
 
 _ZNSt6vectorIS_IN4cvc58internal12NodeTemplateILb1EEESaIS3_EESaIS5_EED2Ev.exit402: ; preds = %_ZSt8_DestroyIPSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS4_EES6_EvT_S8_RSaIT0_E.exit.i400, %1626
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %66) #26
-  %exitcond.not = icmp eq i32 %1597, %umax
+  %exitcond.not = icmp eq i32 %1597, %1077
   br i1 %exitcond.not, label %.critedge, label %.lr.ph777, !llvm.loop !1073
 
 1631:                                             ; preds = %_ZNSt6vectorIS_IN4cvc58internal12NodeTemplateILb1EEESaIS3_EESaIS5_EE5clearEv.exit
@@ -62672,7 +62670,6 @@ _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEES3_St4lessIS3_ESaISt4pairIKS3_S3_E
 
 .lr.ph777.preheader:                              ; preds = %1070
   %1077 = trunc nsw i64 %1076 to i32
-  %umax = call i32 @llvm.umax.i32(i32 %1077, i32 1)
   br label %.lr.ph777
 
 .lr.ph777:                                        ; preds = %.lr.ph777.preheader, %_ZNSt6vectorIS_IN4cvc58internal12NodeTemplateILb1EEESaIS3_EESaIS5_EED2Ev.exit402
@@ -63956,7 +63953,7 @@ _ZSt8_DestroyIPSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS4_EES6_EvT_S8_R
 
 _ZNSt6vectorIS_IN4cvc58internal12NodeTemplateILb1EEESaIS3_EESaIS5_EED2Ev.exit402: ; preds = %_ZSt8_DestroyIPSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS4_EES6_EvT_S8_RSaIT0_E.exit.i400, %1626
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %66) #26
-  %exitcond.not = icmp eq i32 %1597, %umax
+  %exitcond.not = icmp eq i32 %1597, %1077
   br i1 %exitcond.not, label %.critedge, label %.lr.ph777, !llvm.loop !1100
 
 1631:                                             ; preds = %_ZNSt6vectorIS_IN4cvc58internal12NodeTemplateILb1EEESaIS3_EESaIS5_EE5clearEv.exit
@@ -66769,7 +66766,6 @@ _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEES3_St4lessIS3_ESaISt4pairIKS3_S3_E
 
 .lr.ph777.preheader:                              ; preds = %1070
   %1077 = trunc nsw i64 %1076 to i32
-  %umax = call i32 @llvm.umax.i32(i32 %1077, i32 1)
   br label %.lr.ph777
 
 .lr.ph777:                                        ; preds = %.lr.ph777.preheader, %_ZNSt6vectorIS_IN4cvc58internal12NodeTemplateILb1EEESaIS3_EESaIS5_EED2Ev.exit402
@@ -68053,7 +68049,7 @@ _ZSt8_DestroyIPSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS4_EES6_EvT_S8_R
 
 _ZNSt6vectorIS_IN4cvc58internal12NodeTemplateILb1EEESaIS3_EESaIS5_EED2Ev.exit402: ; preds = %_ZSt8_DestroyIPSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS4_EES6_EvT_S8_RSaIT0_E.exit.i400, %1626
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %66) #26
-  %exitcond.not = icmp eq i32 %1597, %umax
+  %exitcond.not = icmp eq i32 %1597, %1077
   br i1 %exitcond.not, label %.critedge, label %.lr.ph777, !llvm.loop !1127
 
 1631:                                             ; preds = %_ZNSt6vectorIS_IN4cvc58internal12NodeTemplateILb1EEESaIS3_EESaIS5_EE5clearEv.exit
@@ -70866,7 +70862,6 @@ _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEES3_St4lessIS3_ESaISt4pairIKS3_S3_E
 
 .lr.ph777.preheader:                              ; preds = %1070
   %1077 = trunc nsw i64 %1076 to i32
-  %umax = call i32 @llvm.umax.i32(i32 %1077, i32 1)
   br label %.lr.ph777
 
 .lr.ph777:                                        ; preds = %.lr.ph777.preheader, %_ZNSt6vectorIS_IN4cvc58internal12NodeTemplateILb1EEESaIS3_EESaIS5_EED2Ev.exit402
@@ -72150,7 +72145,7 @@ _ZSt8_DestroyIPSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS4_EES6_EvT_S8_R
 
 _ZNSt6vectorIS_IN4cvc58internal12NodeTemplateILb1EEESaIS3_EESaIS5_EED2Ev.exit402: ; preds = %_ZSt8_DestroyIPSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS4_EES6_EvT_S8_RSaIT0_E.exit.i400, %1626
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %66) #26
-  %exitcond.not = icmp eq i32 %1597, %umax
+  %exitcond.not = icmp eq i32 %1597, %1077
   br i1 %exitcond.not, label %.critedge, label %.lr.ph777, !llvm.loop !1154
 
 1631:                                             ; preds = %_ZNSt6vectorIS_IN4cvc58internal12NodeTemplateILb1EEESaIS3_EESaIS5_EE5clearEv.exit
@@ -74963,7 +74958,6 @@ _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEES3_St4lessIS3_ESaISt4pairIKS3_S3_E
 
 .lr.ph777.preheader:                              ; preds = %1070
   %1077 = trunc nsw i64 %1076 to i32
-  %umax = call i32 @llvm.umax.i32(i32 %1077, i32 1)
   br label %.lr.ph777
 
 .lr.ph777:                                        ; preds = %.lr.ph777.preheader, %_ZNSt6vectorIS_IN4cvc58internal12NodeTemplateILb1EEESaIS3_EESaIS5_EED2Ev.exit402
@@ -76247,7 +76241,7 @@ _ZSt8_DestroyIPSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS4_EES6_EvT_S8_R
 
 _ZNSt6vectorIS_IN4cvc58internal12NodeTemplateILb1EEESaIS3_EESaIS5_EED2Ev.exit402: ; preds = %_ZSt8_DestroyIPSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS4_EES6_EvT_S8_RSaIT0_E.exit.i400, %1626
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %66) #26
-  %exitcond.not = icmp eq i32 %1597, %umax
+  %exitcond.not = icmp eq i32 %1597, %1077
   br i1 %exitcond.not, label %.critedge, label %.lr.ph777, !llvm.loop !1181
 
 1631:                                             ; preds = %_ZNSt6vectorIS_IN4cvc58internal12NodeTemplateILb1EEESaIS3_EESaIS5_EE5clearEv.exit
@@ -76611,9 +76605,6 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #23
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #23
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

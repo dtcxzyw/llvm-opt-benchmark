@@ -6729,12 +6729,11 @@ _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit779: ; preds = %_ZN4cvc58internal
   %685 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %686 = icmp eq ptr %.sroa.03380.0.lcssa, %.sroa.103385.0.lcssa
   %687 = getelementptr inbounds nuw i8, ptr %0, i64 2280
-  %umax = call i64 @llvm.umax.i64(i64 %650, i64 1)
   br label %690
 
 688:                                              ; preds = %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit2183
   %689 = add nuw i64 %.04326, 1
-  %exitcond.not = icmp eq i64 %689, %umax
+  %exitcond.not = icmp eq i64 %689, %650
   br i1 %exitcond.not, label %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit2213, label %690, !llvm.loop !656
 
 690:                                              ; preds = %.lr.ph4330, %688

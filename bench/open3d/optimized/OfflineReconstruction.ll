@@ -72644,7 +72644,6 @@ define linkonce_odr dso_local void @_ZN6open3d4apps22offline_reconstruction22Rec
   %122 = getelementptr inbounds nuw i8, ptr %12, i64 144
   %123 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %124 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %umax = tail call i64 @llvm.umax.i64(i64 %36, i64 1)
   br label %128
 
 ._crit_edge:                                      ; preds = %_ZNSt12__shared_ptrIN6open3d8geometry10PointCloudELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit147, %7
@@ -73783,7 +73782,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i145: ; preds = %573, %5
 _ZNSt12__shared_ptrIN6open3d8geometry10PointCloudELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit147: ; preds = %_ZNSt12__shared_ptrIN6open3d8geometry10PointCloudELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %561, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i145, %576
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #33
   %577 = add nuw i64 %.043174, 1
-  %exitcond.not = icmp eq i64 %577, %umax
+  %exitcond.not = icmp eq i64 %577, %36
   br i1 %exitcond.not, label %._crit_edge, label %128, !llvm.loop !1381
 
 578:                                              ; preds = %524, %506, %503, %489, %384, %370, %262, %248, %_ZN6open3d9pipelines12registration18RegistrationResultD2Ev.exit72, %176

@@ -94,7 +94,6 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl8writeMSHIN5Eigen6MatrixIdL
 .lr.ph:                                           ; preds = %26
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %39 = load i64, ptr %38, align 8, !tbaa !13
-  %umax = tail call i64 @llvm.umax.i64(i64 %30, i64 1)
   br label %47
 
 40:                                               ; preds = %26
@@ -116,7 +115,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl8writeMSHIN5Eigen6MatrixIdL
 
 46:                                               ; preds = %47
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %30
   br i1 %exitcond.not, label %.loopexit447, label %47, !llvm.loop !17
 
 47:                                               ; preds = %.lr.ph, %46
@@ -197,7 +196,6 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl8writeMSHIN5Eigen6MatrixIdL
   %85 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %86 = load i64, ptr %85, align 8, !tbaa !19
   %87 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %umax473 = tail call i64 @llvm.umax.i64(i64 %65, i64 1)
   br label %94
 
 88:                                               ; preds = %77
@@ -222,7 +220,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl8writeMSHIN5Eigen6MatrixIdL
 
 93:                                               ; preds = %103
   %indvars.iv.next471 = add nuw i64 %indvars.iv470, 1
-  %exitcond474.not = icmp eq i64 %indvars.iv.next471, %umax473
+  %exitcond474.not = icmp eq i64 %indvars.iv.next471, %65
   br i1 %exitcond474.not, label %.loopexit445, label %94, !llvm.loop !22
 
 94:                                               ; preds = %.lr.ph455, %93

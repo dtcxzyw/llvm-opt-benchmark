@@ -3928,7 +3928,6 @@ define hidden void @_ZN4cvc58internal3smt17ProcessAssertions22dumpAssertionsToSt
   %33 = ashr exact i64 %32, 3
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %umax = call i64 @llvm.umax.i64(i64 %33, i64 1)
   br label %88
 
 36:                                               ; preds = %18, %3
@@ -4103,7 +4102,7 @@ _ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_J
 
 _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backERKS3_.exit: ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i, %112
   %113 = add nuw i64 %.01653, 1
-  %exitcond.not = icmp eq i64 %113, %umax
+  %exitcond.not = icmp eq i64 %113, %33
   br i1 %exitcond.not, label %._crit_edge56, label %88, !llvm.loop !391
 
 114:                                              ; preds = %._crit_edge56

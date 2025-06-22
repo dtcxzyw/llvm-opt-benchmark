@@ -624,7 +624,6 @@ for.body.lr.ph:                                   ; preds = %_ZNSt13unordered_ma
   %or7.i.i.i = call noundef i32 @llvm.bswap.i32(i32 %val.0.copyload.i.i)
   %7 = getelementptr inbounds nuw i8, ptr %name, i64 16
   %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %name, i64 8
-  %umax = call i32 @llvm.umax.i32(i32 %or7.i.i.i, i32 1)
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE16PointabilityTypeSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S6_EEE5clearEv.exit
@@ -666,7 +665,7 @@ if.then.i.i:                                      ; preds = %invoke.cont2
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %name) #21
   %inc = add nuw i32 %i.019, 1
-  %exitcond.not = icmp eq i32 %inc, %umax
+  %exitcond.not = icmp eq i32 %inc, %or7.i.i.i
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !33
 
 lpad:                                             ; preds = %invoke.cont, %for.body
@@ -1756,9 +1755,6 @@ declare i32 @llvm.bswap.i32(i32) #19
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #20
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #19
 
 attributes #0 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

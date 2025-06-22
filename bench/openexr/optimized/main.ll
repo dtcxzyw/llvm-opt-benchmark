@@ -547,7 +547,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %238 = ptrtoint ptr %236 to i64
   %239 = sub i64 %237, %238
   %240 = ashr exact i64 %239, 5
-  %umax = call i64 @llvm.umax.i64(i64 %240, i64 1)
   br label %.lr.ph452
 
 ._crit_edge453:                                   ; preds = %.lr.ph452, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -573,7 +572,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.sroa.speculated = call i64 @llvm.umax.i64(i64 %249, i64 %245)
   store i64 %.sroa.speculated, ptr %248, align 8, !tbaa !68
   %250 = add nuw i64 %.047451, 1
-  %exitcond.not = icmp eq i64 %250, %umax
+  %exitcond.not = icmp eq i64 %250, %240
   br i1 %exitcond.not, label %._crit_edge453, label %.lr.ph452, !llvm.loop !79
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %167

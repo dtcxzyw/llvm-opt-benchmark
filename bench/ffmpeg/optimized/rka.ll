@@ -1623,8 +1623,7 @@ ac_update.exit:                                   ; preds = %182, %187
 .lr.ph192:                                        ; preds = %.preheader170
   %225 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %226 = load ptr, ptr %225, align 8, !tbaa !74
-  %umax = tail call i32 @llvm.umax.i32(i32 %., i32 1)
-  %wide.trip.count = zext nneg i32 %umax to i64
+  %wide.trip.count = zext nneg i32 %. to i64
   br label %237
 
 227:                                              ; preds = %221
@@ -1655,7 +1654,7 @@ ac_update.exit:                                   ; preds = %182, %187
   br i1 %exitcond.not, label %._crit_edge193, label %237, !llvm.loop !106
 
 ._crit_edge193:                                   ; preds = %237
-  store i32 %umax, ptr %2, align 4, !tbaa !66
+  store i32 %., ptr %2, align 4, !tbaa !66
   %241 = icmp eq i32 %spec.select167, 0
   br i1 %241, label %ac_get_freq.exit133.thread, label %242
 
@@ -3215,9 +3214,6 @@ declare i32 @llvm.umin.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #9
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #9

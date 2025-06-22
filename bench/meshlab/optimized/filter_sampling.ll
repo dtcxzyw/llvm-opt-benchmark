@@ -28635,7 +28635,6 @@ _ZN3vcg27ApproximateGeodesicDistanceIfEET_RKNS_6Point3IS1_EES5_S5_S5_.exit.us: ;
   %4346 = ptrtoint ptr %4260 to i64
   %4347 = sub i64 %4345, %4346
   %4348 = ashr exact i64 %4347, 3
-  %umax = call i64 @llvm.umax.i64(i64 %4348, i64 1)
   br label %_ZN3vcg27ApproximateGeodesicDistanceIfEET_RKNS_6Point3IS1_EES5_S5_S5_.exit
 
 _ZN3vcg27ApproximateGeodesicDistanceIfEET_RKNS_6Point3IS1_EES5_S5_S5_.exit: ; preds = %.lr.ph.split, %4383
@@ -28691,7 +28690,7 @@ _ZN3vcg27ApproximateGeodesicDistanceIfEET_RKNS_6Point3IS1_EES5_S5_S5_.exit: ; pr
 
 4383:                                             ; preds = %_ZN3vcg27ApproximateGeodesicDistanceIfEET_RKNS_6Point3IS1_EES5_S5_S5_.exit, %4366, %4370
   %4384 = add nuw i64 %.05502450, 1
-  %exitcond.not = icmp eq i64 %4384, %umax
+  %exitcond.not = icmp eq i64 %4384, %4348
   br i1 %exitcond.not, label %.loopexit2447, label %_ZN3vcg27ApproximateGeodesicDistanceIfEET_RKNS_6Point3IS1_EES5_S5_S5_.exit, !llvm.loop !64
 
 .loopexit2447:                                    ; preds = %4383, %4337, %.preheader2446, %4226

@@ -1307,7 +1307,6 @@ define void @_ZN12colvarmodule8rotation24build_correlation_matrixERKSt6vectorINS
   %.promoted50 = load double, ptr %17, align 8, !tbaa !81
   %.promoted52 = load double, ptr %18, align 8, !tbaa !82
   %.promoted54 = load double, ptr %19, align 8, !tbaa !83
-  %umax = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %20
 
 20:                                               ; preds = %.lr.ph, %20
@@ -1343,7 +1342,7 @@ define void @_ZN12colvarmodule8rotation24build_correlation_matrixERKSt6vectorINS
   %49 = tail call double @llvm.fmuladd.f64(double %47, double %36, double %22)
   %50 = tail call double @llvm.fmuladd.f64(double %47, double %39, double %21)
   %51 = add nuw i64 %.039, 1
-  %exitcond.not = icmp eq i64 %51, %umax
+  %exitcond.not = icmp eq i64 %51, %10
   br i1 %exitcond.not, label %._crit_edge, label %20, !llvm.loop !84
 
 ._crit_edge:                                      ; preds = %20
@@ -1393,7 +1392,6 @@ define void @_ZN12colvarmodule8rotation24build_correlation_matrixERKSt6vectorINS
   %.promoted50 = load double, ptr %17, align 8, !tbaa !81
   %.promoted52 = load double, ptr %18, align 8, !tbaa !82
   %.promoted54 = load double, ptr %19, align 8, !tbaa !83
-  %umax = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %20
 
 20:                                               ; preds = %.lr.ph, %20
@@ -1430,7 +1428,7 @@ define void @_ZN12colvarmodule8rotation24build_correlation_matrixERKSt6vectorINS
   %50 = tail call double @llvm.fmuladd.f64(double %48, double %37, double %22)
   %51 = tail call double @llvm.fmuladd.f64(double %48, double %40, double %21)
   %52 = add nuw i64 %.039, 1
-  %exitcond.not = icmp eq i64 %52, %umax
+  %exitcond.not = icmp eq i64 %52, %10
   br i1 %exitcond.not, label %._crit_edge, label %20, !llvm.loop !95
 
 ._crit_edge:                                      ; preds = %20
@@ -1672,7 +1670,6 @@ define void @_ZN12colvarmodule8rotation21calc_optimal_rotationERKSt6vectorINS_7r
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %20
 
 20:                                               ; preds = %20, %.lr.ph.i
@@ -1708,7 +1705,7 @@ define void @_ZN12colvarmodule8rotation21calc_optimal_rotationERKSt6vectorINS_7r
   %49 = tail call double @llvm.fmuladd.f64(double %47, double %36, double %22)
   %50 = tail call double @llvm.fmuladd.f64(double %47, double %39, double %21)
   %51 = add nuw i64 %.039.i, 1
-  %exitcond.not.i = icmp eq i64 %51, %umax.i
+  %exitcond.not.i = icmp eq i64 %51, %10
   br i1 %exitcond.not.i, label %._crit_edge.i, label %20, !llvm.loop !84
 
 ._crit_edge.i:                                    ; preds = %20
@@ -10768,7 +10765,6 @@ define void @_ZN12colvarmodule8rotation21calc_optimal_rotationERKSt6vectorINS_4a
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %20
 
 20:                                               ; preds = %20, %.lr.ph.i
@@ -10805,7 +10801,7 @@ define void @_ZN12colvarmodule8rotation21calc_optimal_rotationERKSt6vectorINS_4a
   %50 = tail call double @llvm.fmuladd.f64(double %48, double %37, double %22)
   %51 = tail call double @llvm.fmuladd.f64(double %48, double %40, double %21)
   %52 = add nuw i64 %.039.i, 1
-  %exitcond.not.i = icmp eq i64 %52, %umax.i
+  %exitcond.not.i = icmp eq i64 %52, %10
   br i1 %exitcond.not.i, label %._crit_edge.i, label %20, !llvm.loop !95
 
 ._crit_edge.i:                                    ; preds = %20

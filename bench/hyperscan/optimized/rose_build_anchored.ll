@@ -8353,7 +8353,6 @@ _ZNSt6vectorIN3ue29CharReachESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i: ; pred
 
 .noexc40:                                         ; preds = %.lr.ph8.i
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %251, i8 0, i64 %250, i1 false), !noalias !431
-  %umax = call i64 @llvm.umax.i64(i64 %248, i64 1)
   br label %252
 
 252:                                              ; preds = %._crit_edge.i38, %.noexc40
@@ -8400,7 +8399,7 @@ _ZNK3ue29CharReach10find_firstEv.exit.i:          ; preds = %256
 
 ._crit_edge.i38:                                  ; preds = %259, %284, %.lr.ph.i37.preheader, %_ZNK3ue29CharReach10find_firstEv.exit.i
   %274 = add nuw i64 %.0206.i, 1
-  %exitcond.not = icmp eq i64 %274, %umax
+  %exitcond.not = icmp eq i64 %274, %248
   br i1 %exitcond.not, label %_ZN3ue2L10populateCRERKNS_8NGHolderERKSt6vectorINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESaISA_EERKSt5arrayItLm257EE.exit.loopexit, label %252, !llvm.loop !434
 
 .lr.ph88:                                         ; preds = %.lr.ph.i37.preheader, %_ZNK3ue29CharReach9find_nextEm.exit.i

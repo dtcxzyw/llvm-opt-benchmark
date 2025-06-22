@@ -41,7 +41,7 @@ define range(i32 0, 2) i32 @tls1_allocate_write_buffers(ptr noundef %0, ptr noun
   %12 = phi i64 [ %11, %7 ], [ %2, %4 ]
   %13 = phi i64 [ %spec.select, %7 ], [ 0, %4 ]
   store i64 %.sink, ptr %3, align 8, !tbaa !25
-  %14 = tail call i32 @tls_setup_write_buffer(ptr noundef nonnull %0, i64 noundef %12, i64 noundef %13, i64 noundef 0) #5
+  %14 = tail call i32 @tls_setup_write_buffer(ptr noundef nonnull %0, i64 noundef %12, i64 noundef %13, i64 noundef 0) #4
   %.not7 = icmp ne i32 %14, 0
   %. = zext i1 %.not7 to i32
   ret i32 %.
@@ -79,33 +79,33 @@ define i32 @tls1_initialise_write_packets(ptr noundef %0, ptr noundef %1, i64 no
   store i64 %22, ptr %23, align 8, !tbaa !30
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %25 = load i64, ptr %24, align 8, !tbaa !31
-  %26 = tail call i32 @WPACKET_init_static_len(ptr noundef %4, ptr noundef %19, i64 noundef %25, i64 noundef 0) #5
+  %26 = tail call i32 @WPACKET_init_static_len(ptr noundef %4, ptr noundef %19, i64 noundef %25, i64 noundef 0) #4
   %.not29 = icmp eq i32 %26, 0
   br i1 %.not29, label %27, label %28
 
 27:                                               ; preds = %13
-  tail call void @ERR_new() #5
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 637, ptr noundef nonnull @__func__.tls1_initialise_write_packets) #5
-  tail call void (ptr, i32, i32, ptr, ...) @ossl_rlayer_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 786691, ptr noundef null) #5
+  tail call void @ERR_new() #4
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 637, ptr noundef nonnull @__func__.tls1_initialise_write_packets) #4
+  tail call void (ptr, i32, i32, ptr, ...) @ossl_rlayer_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 786691, ptr noundef null) #4
   br label %35
 
 28:                                               ; preds = %13
   store i64 1, ptr %6, align 8, !tbaa !25
-  %29 = tail call i32 @WPACKET_allocate_bytes(ptr noundef %4, i64 noundef %22, ptr noundef null) #5
+  %29 = tail call i32 @WPACKET_allocate_bytes(ptr noundef %4, i64 noundef %22, ptr noundef null) #4
   %.not30 = icmp eq i32 %29, 0
   br i1 %.not30, label %30, label %.thread
 
 30:                                               ; preds = %28
-  tail call void @ERR_new() #5
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 642, ptr noundef nonnull @__func__.tls1_initialise_write_packets) #5
-  tail call void (ptr, i32, i32, ptr, ...) @ossl_rlayer_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 786691, ptr noundef null) #5
+  tail call void @ERR_new() #4
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 642, ptr noundef nonnull @__func__.tls1_initialise_write_packets) #4
+  tail call void (ptr, i32, i32, ptr, ...) @ossl_rlayer_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 786691, ptr noundef null) #4
   br label %35
 
 .thread:                                          ; preds = %7, %28, %10
   %31 = phi i64 [ 1, %28 ], [ 0, %10 ], [ 0, %7 ]
   %32 = getelementptr inbounds nuw %struct.wpacket_st, ptr %4, i64 %31
   %33 = getelementptr inbounds nuw %struct.tls_buffer_st, ptr %5, i64 %31
-  %34 = tail call i32 @tls_initialise_write_packets_default(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr noundef null, ptr noundef %32, ptr noundef %33, ptr noundef %6) #5
+  %34 = tail call i32 @tls_initialise_write_packets_default(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr noundef null, ptr noundef %32, ptr noundef %33, ptr noundef %6) #4
   br label %35
 
 35:                                               ; preds = %.thread, %30, %27
@@ -141,29 +141,29 @@ define internal range(i32 -2, 2) i32 @tls1_set_crypto_state(ptr noundef %0, i32 
   br i1 %.not, label %18, label %121
 
 18:                                               ; preds = %13
-  %19 = tail call ptr @EVP_CIPHER_CTX_new() #5
+  %19 = tail call ptr @EVP_CIPHER_CTX_new() #4
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 4128
   store ptr %19, ptr %20, align 8, !tbaa !33
   %21 = icmp eq ptr %19, null
   br i1 %21, label %22, label %23
 
 22:                                               ; preds = %18
-  tail call void @ERR_new() #5
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 37, ptr noundef nonnull @__func__.tls1_set_crypto_state) #5
-  tail call void (ptr, i32, i32, ptr, ...) @ossl_rlayer_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 524294, ptr noundef null) #5
+  tail call void @ERR_new() #4
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 37, ptr noundef nonnull @__func__.tls1_set_crypto_state) #4
+  tail call void (ptr, i32, i32, ptr, ...) @ossl_rlayer_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 524294, ptr noundef null) #4
   br label %121
 
 23:                                               ; preds = %18
-  %24 = tail call ptr @EVP_MD_CTX_new() #5
+  %24 = tail call ptr @EVP_MD_CTX_new() #4
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 4152
   store ptr %24, ptr %25, align 8, !tbaa !34
   %26 = icmp eq ptr %24, null
   br i1 %26, label %27, label %28
 
 27:                                               ; preds = %23
-  tail call void @ERR_new() #5
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 45, ptr noundef nonnull @__func__.tls1_set_crypto_state) #5
-  tail call void (ptr, i32, i32, ptr, ...) @ossl_rlayer_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 786691, ptr noundef null) #5
+  tail call void @ERR_new() #4
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 45, ptr noundef nonnull @__func__.tls1_set_crypto_state) #4
+  tail call void (ptr, i32, i32, ptr, ...) @ossl_rlayer_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 786691, ptr noundef null) #4
   br label %121
 
 28:                                               ; preds = %23
@@ -171,20 +171,20 @@ define internal range(i32 -2, 2) i32 @tls1_set_crypto_state(ptr noundef %0, i32 
   br i1 %.not92, label %34, label %29
 
 29:                                               ; preds = %28
-  %30 = tail call ptr @COMP_CTX_new(ptr noundef nonnull %12) #5
+  %30 = tail call ptr @COMP_CTX_new(ptr noundef nonnull %12) #4
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 4160
   store ptr %30, ptr %31, align 8, !tbaa !35
   %32 = icmp eq ptr %30, null
   br i1 %32, label %33, label %34
 
 33:                                               ; preds = %29
-  tail call void @ERR_new() #5
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 52, ptr noundef nonnull @__func__.tls1_set_crypto_state) #5
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 142, ptr noundef null) #5
+  tail call void @ERR_new() #4
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 52, ptr noundef nonnull @__func__.tls1_set_crypto_state) #4
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 142, ptr noundef null) #4
   br label %121
 
 34:                                               ; preds = %29, %28
-  %35 = tail call i64 @EVP_CIPHER_get_flags(ptr noundef %8) #5
+  %35 = tail call i64 @EVP_CIPHER_get_flags(ptr noundef %8) #4
   %36 = and i64 %35, 2097152
   %37 = icmp eq i64 %36, 0
   br i1 %37, label %38, label %60
@@ -197,12 +197,12 @@ define internal range(i32 -2, 2) i32 @tls1_set_crypto_state(ptr noundef %0, i32 
   %41 = load ptr, ptr %0, align 8, !tbaa !36
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %43 = load ptr, ptr %42, align 8, !tbaa !37
-  %44 = tail call ptr @EVP_PKEY_new_raw_private_key_ex(ptr noundef %41, ptr noundef nonnull @.str.1, ptr noundef %43, ptr noundef %6, i64 noundef %7) #5
+  %44 = tail call ptr @EVP_PKEY_new_raw_private_key_ex(ptr noundef %41, ptr noundef nonnull @.str.1, ptr noundef %43, ptr noundef %6, i64 noundef %7) #4
   br label %48
 
 45:                                               ; preds = %38
   %46 = trunc i64 %7 to i32
-  %47 = tail call ptr @EVP_PKEY_new_mac_key(i32 noundef %10, ptr noundef null, ptr noundef %6, i32 noundef %46) #5
+  %47 = tail call ptr @EVP_PKEY_new_mac_key(i32 noundef %10, ptr noundef null, ptr noundef %6, i32 noundef %46) #4
   br label %48
 
 48:                                               ; preds = %45, %40
@@ -212,98 +212,98 @@ define internal range(i32 -2, 2) i32 @tls1_set_crypto_state(ptr noundef %0, i32 
 
 50:                                               ; preds = %48
   %51 = load ptr, ptr %25, align 8, !tbaa !34
-  %52 = tail call ptr @EVP_MD_get0_name(ptr noundef %11) #5
+  %52 = tail call ptr @EVP_MD_get0_name(ptr noundef %11) #4
   %53 = load ptr, ptr %0, align 8, !tbaa !36
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %55 = load ptr, ptr %54, align 8, !tbaa !37
-  %56 = tail call i32 @EVP_DigestSignInit_ex(ptr noundef %51, ptr noundef null, ptr noundef %52, ptr noundef %53, ptr noundef %55, ptr noundef nonnull %.084, ptr noundef null) #5
+  %56 = tail call i32 @EVP_DigestSignInit_ex(ptr noundef %51, ptr noundef null, ptr noundef %52, ptr noundef %53, ptr noundef %55, ptr noundef nonnull %.084, ptr noundef null) #4
   %57 = icmp slt i32 %56, 1
   br i1 %57, label %58, label %59
 
 58:                                               ; preds = %50, %48
-  tail call void @EVP_PKEY_free(ptr noundef %.084) #5
-  tail call void @ERR_new() #5
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 81, ptr noundef nonnull @__func__.tls1_set_crypto_state) #5
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786691, ptr noundef null) #5
+  tail call void @EVP_PKEY_free(ptr noundef %.084) #4
+  tail call void @ERR_new() #4
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 81, ptr noundef nonnull @__func__.tls1_set_crypto_state) #4
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786691, ptr noundef null) #4
   br label %121
 
 59:                                               ; preds = %50
-  tail call void @EVP_PKEY_free(ptr noundef nonnull %.084) #5
+  tail call void @EVP_PKEY_free(ptr noundef nonnull %.084) #4
   br label %60
 
 60:                                               ; preds = %59, %34
-  %61 = tail call i32 @EVP_CIPHER_get_mode(ptr noundef %8) #5
+  %61 = tail call i32 @EVP_CIPHER_get_mode(ptr noundef %8) #4
   %62 = icmp eq i32 %61, 6
   br i1 %62, label %63, label %70
 
 63:                                               ; preds = %60
-  %64 = tail call i32 @EVP_CipherInit_ex(ptr noundef nonnull %19, ptr noundef %8, ptr noundef null, ptr noundef %2, ptr noundef null, i32 noundef %17) #5
+  %64 = tail call i32 @EVP_CipherInit_ex(ptr noundef nonnull %19, ptr noundef %8, ptr noundef null, ptr noundef %2, ptr noundef null, i32 noundef %17) #4
   %.not96 = icmp eq i32 %64, 0
   br i1 %.not96, label %69, label %65
 
 65:                                               ; preds = %63
   %66 = trunc i64 %5 to i32
-  %67 = tail call i32 @EVP_CIPHER_CTX_ctrl(ptr noundef nonnull %19, i32 noundef 18, i32 noundef %66, ptr noundef %4) #5
+  %67 = tail call i32 @EVP_CIPHER_CTX_ctrl(ptr noundef nonnull %19, i32 noundef 18, i32 noundef %66, ptr noundef %4) #4
   %68 = icmp slt i32 %67, 1
   br i1 %68, label %69, label %92
 
 69:                                               ; preds = %65, %63
-  tail call void @ERR_new() #5
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 91, ptr noundef nonnull @__func__.tls1_set_crypto_state) #5
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786691, ptr noundef null) #5
+  tail call void @ERR_new() #4
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 91, ptr noundef nonnull @__func__.tls1_set_crypto_state) #4
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786691, ptr noundef null) #4
   br label %121
 
 70:                                               ; preds = %60
-  %71 = tail call i32 @EVP_CIPHER_get_mode(ptr noundef %8) #5
+  %71 = tail call i32 @EVP_CIPHER_get_mode(ptr noundef %8) #4
   %72 = icmp eq i32 %71, 7
   br i1 %72, label %73, label %89
 
 73:                                               ; preds = %70
-  %74 = tail call i32 @EVP_CipherInit_ex(ptr noundef nonnull %19, ptr noundef %8, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef %17) #5
+  %74 = tail call i32 @EVP_CipherInit_ex(ptr noundef nonnull %19, ptr noundef %8, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef %17) #4
   %.not94 = icmp eq i32 %74, 0
   br i1 %.not94, label %88, label %75
 
 75:                                               ; preds = %73
-  %76 = tail call i32 @EVP_CIPHER_CTX_ctrl(ptr noundef nonnull %19, i32 noundef 9, i32 noundef 12, ptr noundef null) #5
+  %76 = tail call i32 @EVP_CIPHER_CTX_ctrl(ptr noundef nonnull %19, i32 noundef 9, i32 noundef 12, ptr noundef null) #4
   %77 = icmp slt i32 %76, 1
   br i1 %77, label %88, label %78
 
 78:                                               ; preds = %75
   %79 = trunc i64 %9 to i32
-  %80 = tail call i32 @EVP_CIPHER_CTX_ctrl(ptr noundef nonnull %19, i32 noundef 17, i32 noundef %79, ptr noundef null) #5
+  %80 = tail call i32 @EVP_CIPHER_CTX_ctrl(ptr noundef nonnull %19, i32 noundef 17, i32 noundef %79, ptr noundef null) #4
   %81 = icmp slt i32 %80, 1
   br i1 %81, label %88, label %82
 
 82:                                               ; preds = %78
   %83 = trunc i64 %5 to i32
-  %84 = tail call i32 @EVP_CIPHER_CTX_ctrl(ptr noundef nonnull %19, i32 noundef 18, i32 noundef %83, ptr noundef %4) #5
+  %84 = tail call i32 @EVP_CIPHER_CTX_ctrl(ptr noundef nonnull %19, i32 noundef 18, i32 noundef %83, ptr noundef %4) #4
   %85 = icmp slt i32 %84, 1
   br i1 %85, label %88, label %86
 
 86:                                               ; preds = %82
-  %87 = tail call i32 @EVP_CipherInit_ex(ptr noundef nonnull %19, ptr noundef null, ptr noundef null, ptr noundef %2, ptr noundef null, i32 noundef %17) #5
+  %87 = tail call i32 @EVP_CipherInit_ex(ptr noundef nonnull %19, ptr noundef null, ptr noundef null, ptr noundef %2, ptr noundef null, i32 noundef %17) #4
   %.not95 = icmp eq i32 %87, 0
   br i1 %.not95, label %88, label %92
 
 88:                                               ; preds = %86, %82, %78, %75, %73
-  tail call void @ERR_new() #5
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 103, ptr noundef nonnull @__func__.tls1_set_crypto_state) #5
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786691, ptr noundef null) #5
+  tail call void @ERR_new() #4
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 103, ptr noundef nonnull @__func__.tls1_set_crypto_state) #4
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786691, ptr noundef null) #4
   br label %121
 
 89:                                               ; preds = %70
-  %90 = tail call i32 @EVP_CipherInit_ex(ptr noundef nonnull %19, ptr noundef %8, ptr noundef null, ptr noundef %2, ptr noundef %4, i32 noundef %17) #5
+  %90 = tail call i32 @EVP_CipherInit_ex(ptr noundef nonnull %19, ptr noundef %8, ptr noundef null, ptr noundef %2, ptr noundef %4, i32 noundef %17) #4
   %.not93 = icmp eq i32 %90, 0
   br i1 %.not93, label %91, label %92
 
 91:                                               ; preds = %89
-  tail call void @ERR_new() #5
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 108, ptr noundef nonnull @__func__.tls1_set_crypto_state) #5
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786691, ptr noundef null) #5
+  tail call void @ERR_new() #4
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 108, ptr noundef nonnull @__func__.tls1_set_crypto_state) #4
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786691, ptr noundef null) #4
   br label %121
 
 92:                                               ; preds = %86, %89, %65
-  %93 = tail call i64 @EVP_CIPHER_get_flags(ptr noundef %8) #5
+  %93 = tail call i64 @EVP_CIPHER_get_flags(ptr noundef %8) #4
   %94 = and i64 %93, 2097152
   %95 = icmp ne i64 %94, 0
   %96 = icmp ne i64 %7, 0
@@ -312,24 +312,24 @@ define internal range(i32 -2, 2) i32 @tls1_set_crypto_state(ptr noundef %0, i32 
 
 97:                                               ; preds = %92
   %98 = trunc i64 %7 to i32
-  %99 = tail call i32 @EVP_CIPHER_CTX_ctrl(ptr noundef nonnull %19, i32 noundef 23, i32 noundef %98, ptr noundef %6) #5
+  %99 = tail call i32 @EVP_CIPHER_CTX_ctrl(ptr noundef nonnull %19, i32 noundef 23, i32 noundef %98, ptr noundef %6) #4
   %100 = icmp slt i32 %99, 1
   br i1 %100, label %101, label %102
 
 101:                                              ; preds = %97
-  tail call void @ERR_new() #5
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 117, ptr noundef nonnull @__func__.tls1_set_crypto_state) #5
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786691, ptr noundef null) #5
+  tail call void @ERR_new() #4
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 117, ptr noundef nonnull @__func__.tls1_set_crypto_state) #4
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786691, ptr noundef null) #4
   br label %121
 
 102:                                              ; preds = %97, %92
-  %103 = tail call ptr @EVP_CIPHER_CTX_get0_cipher(ptr noundef nonnull %19) #5
-  %104 = tail call ptr @EVP_CIPHER_get0_provider(ptr noundef %103) #5
+  %103 = tail call ptr @EVP_CIPHER_CTX_get0_cipher(ptr noundef nonnull %19) #4
+  %104 = tail call ptr @EVP_CIPHER_get0_provider(ptr noundef %103) #4
   %.not97 = icmp eq ptr %104, null
   br i1 %.not97, label %107, label %105
 
 105:                                              ; preds = %102
-  %106 = tail call i32 @ossl_set_tls_provider_parameters(ptr noundef nonnull %0, ptr noundef nonnull %19, ptr noundef %8, ptr noundef %11) #5
+  %106 = tail call i32 @ossl_set_tls_provider_parameters(ptr noundef nonnull %0, ptr noundef nonnull %19, ptr noundef %8, ptr noundef %11) #4
   %.not98 = icmp eq i32 %106, 0
   br i1 %.not98, label %121, label %107
 
@@ -345,8 +345,8 @@ define internal range(i32 -2, 2) i32 @tls1_set_crypto_state(ptr noundef %0, i32 
   ]
 
 110:                                              ; preds = %107, %107, %107, %107, %107
-  %111 = tail call ptr @EVP_CIPHER_CTX_get0_cipher(ptr noundef nonnull %19) #5
-  %112 = tail call i32 @EVP_CIPHER_get_mode(ptr noundef %111) #5
+  %111 = tail call ptr @EVP_CIPHER_CTX_get0_cipher(ptr noundef nonnull %19) #4
+  %112 = tail call i32 @EVP_CIPHER_get_mode(ptr noundef %111) #4
   switch i32 %112, label %.fold.split [
     i32 2, label %113
     i32 6, label %119
@@ -354,14 +354,14 @@ define internal range(i32 -2, 2) i32 @tls1_set_crypto_state(ptr noundef %0, i32 
   ]
 
 113:                                              ; preds = %110
-  %114 = tail call i32 @EVP_CIPHER_CTX_get_iv_length(ptr noundef nonnull %19) #5
+  %114 = tail call i32 @EVP_CIPHER_CTX_get_iv_length(ptr noundef nonnull %19) #4
   %115 = icmp slt i32 %114, 0
   br i1 %115, label %.critedge, label %116
 
 .critedge:                                        ; preds = %113
-  tail call void @ERR_new() #5
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 139, ptr noundef nonnull @__func__.tls1_set_crypto_state) #5
-  tail call void (ptr, i32, i32, ptr, ...) @ossl_rlayer_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 274, ptr noundef null) #5
+  tail call void @ERR_new() #4
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 139, ptr noundef nonnull @__func__.tls1_set_crypto_state) #4
+  tail call void (ptr, i32, i32, ptr, ...) @ossl_rlayer_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 274, ptr noundef null) #4
   br label %121
 
 116:                                              ; preds = %113
@@ -392,35 +392,35 @@ define internal range(i32 0, 2) i32 @tls1_cipher(ptr noundef %0, ptr noundef %1,
   %10 = alloca i32, align 4
   %11 = alloca [2 x %struct.ossl_param_st], align 16
   %12 = alloca %struct.ossl_param_st, align 8
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7) #5
-  call void @llvm.lifetime.start.p0(i64 416, ptr nonnull %8) #5
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(i64 416, ptr nonnull %8) #4
+  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %9) #4
   %13 = icmp eq i64 %2, 0
   br i1 %13, label %14, label %15
 
 14:                                               ; preds = %6
-  tail call void @ERR_new() #5
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 181, ptr noundef nonnull @__func__.tls1_cipher) #5
-  tail call void (ptr, i32, i32, ptr, ...) @ossl_rlayer_fatal(ptr noundef %0, i32 noundef 80, i32 noundef 786691, ptr noundef null) #5
+  tail call void @ERR_new() #4
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 181, ptr noundef nonnull @__func__.tls1_cipher) #4
+  tail call void (ptr, i32, i32, ptr, ...) @ossl_rlayer_fatal(ptr noundef %0, i32 noundef 80, i32 noundef 786691, ptr noundef null) #4
   br label %.critedge305
 
 15:                                               ; preds = %6
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 4152
   %17 = load ptr, ptr %16, align 8, !tbaa !34
-  %18 = tail call ptr @EVP_MD_CTX_get0_md(ptr noundef %17) #5
+  %18 = tail call ptr @EVP_MD_CTX_get0_md(ptr noundef %17) #4
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %.critedge, label %19
 
 19:                                               ; preds = %15
   %20 = load ptr, ptr %16, align 8, !tbaa !34
-  %21 = tail call i32 @EVP_MD_CTX_get_size_ex(ptr noundef %20) #5
+  %21 = tail call i32 @EVP_MD_CTX_get_size_ex(ptr noundef %20) #4
   %22 = icmp sgt i32 %21, -1
   br i1 %22, label %.critedge, label %23, !prof !40
 
 23:                                               ; preds = %19
-  tail call void @ERR_new() #5
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 189, ptr noundef nonnull @__func__.tls1_cipher) #5
-  tail call void (ptr, i32, i32, ptr, ...) @ossl_rlayer_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 786691, ptr noundef null) #5
+  tail call void @ERR_new() #4
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 189, ptr noundef nonnull @__func__.tls1_cipher) #4
+  tail call void (ptr, i32, i32, ptr, ...) @ossl_rlayer_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 786691, ptr noundef null) #4
   br label %.critedge305
 
 .critedge:                                        ; preds = %19, %15
@@ -430,13 +430,13 @@ define internal range(i32 0, 2) i32 @tls1_cipher(ptr noundef %0, ptr noundef %1,
   br i1 %.not281, label %26, label %27, !prof !41
 
 26:                                               ; preds = %.critedge
-  tail call void @ERR_new() #5
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 195, ptr noundef nonnull @__func__.tls1_cipher) #5
-  tail call void (ptr, i32, i32, ptr, ...) @ossl_rlayer_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 786691, ptr noundef null) #5
+  tail call void @ERR_new() #4
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 195, ptr noundef nonnull @__func__.tls1_cipher) #4
+  tail call void (ptr, i32, i32, ptr, ...) @ossl_rlayer_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 786691, ptr noundef null) #4
   br label %.critedge305
 
 27:                                               ; preds = %.critedge
-  %28 = tail call ptr @EVP_CIPHER_CTX_get0_cipher(ptr noundef nonnull %25) #5
+  %28 = tail call ptr @EVP_CIPHER_CTX_get0_cipher(ptr noundef nonnull %25) #4
   %29 = icmp eq i32 %3, 0
   br i1 %29, label %.thread, label %30
 
@@ -452,12 +452,12 @@ define internal range(i32 0, 2) i32 @tls1_cipher(ptr noundef %0, ptr noundef %1,
   ]
 
 33:                                               ; preds = %30, %30, %30, %30, %30
-  %34 = tail call i32 @EVP_CIPHER_get_mode(ptr noundef %28) #5
+  %34 = tail call i32 @EVP_CIPHER_get_mode(ptr noundef %28) #4
   %35 = icmp eq i32 %34, 2
   br i1 %35, label %36, label %.thread
 
 36:                                               ; preds = %33
-  %37 = tail call i32 @EVP_CIPHER_get_iv_length(ptr noundef %28) #5
+  %37 = tail call i32 @EVP_CIPHER_get_iv_length(ptr noundef %28) #4
   %38 = icmp sgt i32 %37, 1
   br i1 %38, label %.preheader331, label %.thread
 
@@ -481,21 +481,21 @@ define internal range(i32 0, 2) i32 @tls1_cipher(ptr noundef %0, ptr noundef %1,
   br i1 %.not282, label %49, label %48
 
 48:                                               ; preds = %42
-  tail call void @ERR_new() #5
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 213, ptr noundef nonnull @__func__.tls1_cipher) #5
-  tail call void (ptr, i32, i32, ptr, ...) @ossl_rlayer_fatal(ptr noundef %0, i32 noundef 80, i32 noundef 786691, ptr noundef null) #5
+  tail call void @ERR_new() #4
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 213, ptr noundef nonnull @__func__.tls1_cipher) #4
+  tail call void (ptr, i32, i32, ptr, ...) @ossl_rlayer_fatal(ptr noundef %0, i32 noundef 80, i32 noundef 786691, ptr noundef null) #4
   br label %.critedge305
 
 49:                                               ; preds = %42
   %50 = load ptr, ptr %0, align 8, !tbaa !36
-  %51 = tail call i32 @RAND_bytes_ex(ptr noundef %50, ptr noundef %47, i64 noundef %39, i32 noundef 0) #5
+  %51 = tail call i32 @RAND_bytes_ex(ptr noundef %50, ptr noundef %47, i64 noundef %39, i32 noundef 0) #4
   %52 = icmp slt i32 %51, 1
   br i1 %52, label %53, label %40
 
 53:                                               ; preds = %49
-  tail call void @ERR_new() #5
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 217, ptr noundef nonnull @__func__.tls1_cipher) #5
-  tail call void (ptr, i32, i32, ptr, ...) @ossl_rlayer_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 786691, ptr noundef null) #5
+  tail call void @ERR_new() #4
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 217, ptr noundef nonnull @__func__.tls1_cipher) #4
+  tail call void (ptr, i32, i32, ptr, ...) @ossl_rlayer_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 786691, ptr noundef null) #4
   br label %.critedge305
 
 .thread:                                          ; preds = %40, %33, %30, %36, %27
@@ -503,24 +503,24 @@ define internal range(i32 0, 2) i32 @tls1_cipher(ptr noundef %0, ptr noundef %1,
   br i1 %.not283, label %54, label %55, !prof !41
 
 54:                                               ; preds = %.thread
-  tail call void @ERR_new() #5
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 224, ptr noundef nonnull @__func__.tls1_cipher) #5
-  tail call void (ptr, i32, i32, ptr, ...) @ossl_rlayer_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 786691, ptr noundef null) #5
+  tail call void @ERR_new() #4
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 224, ptr noundef nonnull @__func__.tls1_cipher) #4
+  tail call void (ptr, i32, i32, ptr, ...) @ossl_rlayer_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 786691, ptr noundef null) #4
   br label %.critedge305
 
 55:                                               ; preds = %.thread
-  %56 = tail call ptr @EVP_CIPHER_get0_provider(ptr noundef nonnull %28) #5
+  %56 = tail call ptr @EVP_CIPHER_get0_provider(ptr noundef nonnull %28) #4
   %57 = icmp ne ptr %56, null
-  %58 = tail call ptr @EVP_CIPHER_CTX_get0_cipher(ptr noundef nonnull %25) #5
-  %59 = tail call i32 @EVP_CIPHER_get_block_size(ptr noundef %58) #5
+  %58 = tail call ptr @EVP_CIPHER_CTX_get0_cipher(ptr noundef nonnull %25) #4
+  %59 = tail call i32 @EVP_CIPHER_get_block_size(ptr noundef %58) #4
   %60 = sext i32 %59 to i64
   %61 = icmp eq i32 %59, 0
   br i1 %61, label %62, label %63
 
 62:                                               ; preds = %55
-  tail call void @ERR_new() #5
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 233, ptr noundef nonnull @__func__.tls1_cipher) #5
-  tail call void (ptr, i32, i32, ptr, ...) @ossl_rlayer_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 186, ptr noundef null) #5
+  tail call void @ERR_new() #4
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 233, ptr noundef nonnull @__func__.tls1_cipher) #4
+  tail call void (ptr, i32, i32, ptr, ...) @ossl_rlayer_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 186, ptr noundef null) #4
   br label %.critedge305
 
 63:                                               ; preds = %55
@@ -528,16 +528,16 @@ define internal range(i32 0, 2) i32 @tls1_cipher(ptr noundef %0, ptr noundef %1,
   br i1 %.not284, label %70, label %64
 
 64:                                               ; preds = %63
-  %65 = tail call ptr @EVP_CIPHER_CTX_get0_cipher(ptr noundef nonnull %25) #5
-  %66 = tail call i64 @EVP_CIPHER_get_flags(ptr noundef %65) #5
+  %65 = tail call ptr @EVP_CIPHER_CTX_get0_cipher(ptr noundef nonnull %25) #4
+  %66 = tail call i64 @EVP_CIPHER_get_flags(ptr noundef %65) #4
   %67 = and i64 %66, 8388608
   %68 = icmp eq i64 %67, 0
   br i1 %68, label %69, label %70
 
 69:                                               ; preds = %64
-  tail call void @ERR_new() #5
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 244, ptr noundef nonnull @__func__.tls1_cipher) #5
-  tail call void (ptr, i32, i32, ptr, ...) @ossl_rlayer_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 406, ptr noundef null) #5
+  tail call void @ERR_new() #4
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 244, ptr noundef nonnull @__func__.tls1_cipher) #4
+  tail call void (ptr, i32, i32, ptr, ...) @ossl_rlayer_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 406, ptr noundef null) #4
   br label %.critedge305
 
 70:                                               ; preds = %64, %63
@@ -549,7 +549,6 @@ define internal range(i32 0, 2) i32 @tls1_cipher(ptr noundef %0, ptr noundef %1,
   %76 = icmp eq i32 %59, 1
   %or.cond.not300 = or i1 %29, %76
   %or.cond8 = select i1 %or.cond.not300, i1 true, i1 %57
-  %umax345 = tail call i64 @llvm.umax.i64(i64 %2, i64 1)
   br label %77
 
 77:                                               ; preds = %70, %147
@@ -560,8 +559,8 @@ define internal range(i32 0, 2) i32 @tls1_cipher(ptr noundef %0, ptr noundef %1,
   %80 = load i64, ptr %79, align 8, !tbaa !47
   %81 = getelementptr inbounds nuw [32 x i64], ptr %7, i64 0, i64 %.1256337
   store i64 %80, ptr %81, align 8, !tbaa !25
-  %82 = call ptr @EVP_CIPHER_CTX_get0_cipher(ptr noundef nonnull %25) #5
-  %83 = call i64 @EVP_CIPHER_get_flags(ptr noundef %82) #5
+  %82 = call ptr @EVP_CIPHER_CTX_get0_cipher(ptr noundef nonnull %25) #4
+  %83 = call i64 @EVP_CIPHER_get_flags(ptr noundef %82) #4
   %84 = and i64 %83, 2097152
   %.not297 = icmp eq i64 %84, 0
   br i1 %.not297, label %121, label %85
@@ -588,7 +587,7 @@ define internal range(i32 0, 2) i32 @tls1_cipher(ptr noundef %0, ptr noundef %1,
   %94 = getelementptr inbounds nuw [32 x [13 x i8]], ptr %8, i64 0, i64 %.1256337
   %95 = load i64, ptr %74, align 1
   store i64 %95, ptr %94, align 1
-  %96 = call i32 @tls_increment_sequence_ctr(ptr noundef nonnull %0) #5
+  %96 = call i32 @tls_increment_sequence_ctr(ptr noundef nonnull %0) #4
   %.not302 = icmp eq i32 %96, 0
   br i1 %.not302, label %.critedge305, label %97
 
@@ -615,14 +614,14 @@ define internal range(i32 0, 2) i32 @tls1_cipher(ptr noundef %0, ptr noundef %1,
   %113 = trunc i64 %109 to i8
   %114 = getelementptr inbounds nuw i8, ptr %101, i64 12
   store i8 %113, ptr %114, align 1, !tbaa !51
-  %115 = call i32 @EVP_CIPHER_CTX_ctrl(ptr noundef nonnull %25, i32 noundef 22, i32 noundef 13, ptr noundef nonnull %101) #5
+  %115 = call i32 @EVP_CIPHER_CTX_ctrl(ptr noundef nonnull %25, i32 noundef 22, i32 noundef 13, ptr noundef nonnull %101) #4
   %116 = icmp slt i32 %115, 1
   br i1 %116, label %117, label %118
 
 117:                                              ; preds = %97
-  call void @ERR_new() #5
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 279, ptr noundef nonnull @__func__.tls1_cipher) #5
-  call void (ptr, i32, i32, ptr, ...) @ossl_rlayer_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 786691, ptr noundef null) #5
+  call void @ERR_new() #4
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 279, ptr noundef nonnull @__func__.tls1_cipher) #4
+  call void (ptr, i32, i32, ptr, ...) @ossl_rlayer_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 786691, ptr noundef null) #4
   br label %.critedge305
 
 118:                                              ; preds = %97
@@ -645,9 +644,9 @@ define internal range(i32 0, 2) i32 @tls1_cipher(ptr noundef %0, ptr noundef %1,
   br i1 %126, label %127, label %128
 
 127:                                              ; preds = %122
-  call void @ERR_new() #5
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 297, ptr noundef nonnull @__func__.tls1_cipher) #5
-  call void (ptr, i32, i32, ptr, ...) @ossl_rlayer_fatal(ptr noundef %0, i32 noundef 80, i32 noundef 786691, ptr noundef null) #5
+  call void @ERR_new() #4
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 297, ptr noundef nonnull @__func__.tls1_cipher) #4
+  call void (ptr, i32, i32, ptr, ...) @ossl_rlayer_fatal(ptr noundef %0, i32 noundef 80, i32 noundef 786691, ptr noundef null) #4
   br label %.critedge305
 
 128:                                              ; preds = %122
@@ -703,7 +702,7 @@ define internal range(i32 0, 2) i32 @tls1_cipher(ptr noundef %0, ptr noundef %1,
 147:                                              ; preds = %.sink.split, %.thread318, %143
   %.2254322 = phi i32 [ %.0252339, %.thread318 ], [ %.2254323, %143 ], [ %.2254322.ph, %.sink.split ]
   %148 = add nuw i64 %.1256337, 1
-  %exitcond346.not = icmp eq i64 %148, %umax345
+  %exitcond346.not = icmp eq i64 %148, %2
   br i1 %exitcond346.not, label %149, label %77, !llvm.loop !53
 
 149:                                              ; preds = %147
@@ -716,19 +715,19 @@ define internal range(i32 0, 2) i32 @tls1_cipher(ptr noundef %0, ptr noundef %1,
   %152 = getelementptr inbounds nuw [32 x ptr], ptr %9, i64 0, i64 %.2257340
   store ptr %151, ptr %152, align 8, !tbaa !54
   %153 = add nuw i64 %.2257340, 1
-  %exitcond347.not = icmp eq i64 %153, %umax345
+  %exitcond347.not = icmp eq i64 %153, %2
   br i1 %exitcond347.not, label %154, label %.preheader329, !llvm.loop !55
 
 154:                                              ; preds = %.preheader329
   %155 = trunc i64 %2 to i32
-  %156 = call i32 @EVP_CIPHER_CTX_ctrl(ptr noundef nonnull %25, i32 noundef 34, i32 noundef %155, ptr noundef nonnull %9) #5
+  %156 = call i32 @EVP_CIPHER_CTX_ctrl(ptr noundef nonnull %25, i32 noundef 34, i32 noundef %155, ptr noundef nonnull %9) #4
   %157 = icmp slt i32 %156, 1
   br i1 %157, label %158, label %.preheader328
 
 158:                                              ; preds = %154
-  call void @ERR_new() #5
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 322, ptr noundef nonnull @__func__.tls1_cipher) #5
-  call void (ptr, i32, i32, ptr, ...) @ossl_rlayer_fatal(ptr noundef %0, i32 noundef 80, i32 noundef 406, ptr noundef null) #5
+  call void @ERR_new() #4
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 322, ptr noundef nonnull @__func__.tls1_cipher) #4
+  call void (ptr, i32, i32, ptr, ...) @ossl_rlayer_fatal(ptr noundef %0, i32 noundef 80, i32 noundef 406, ptr noundef null) #4
   br label %.critedge305
 
 .preheader328:                                    ; preds = %154, %.preheader328
@@ -738,23 +737,23 @@ define internal range(i32 0, 2) i32 @tls1_cipher(ptr noundef %0, ptr noundef %1,
   %161 = getelementptr inbounds nuw [32 x ptr], ptr %9, i64 0, i64 %.3258341
   store ptr %160, ptr %161, align 8, !tbaa !54
   %162 = add nuw i64 %.3258341, 1
-  %exitcond348.not = icmp eq i64 %162, %umax345
+  %exitcond348.not = icmp eq i64 %162, %2
   br i1 %exitcond348.not, label %163, label %.preheader328, !llvm.loop !56
 
 163:                                              ; preds = %.preheader328
-  %164 = call i32 @EVP_CIPHER_CTX_ctrl(ptr noundef nonnull %25, i32 noundef 35, i32 noundef %155, ptr noundef nonnull %9) #5
+  %164 = call i32 @EVP_CIPHER_CTX_ctrl(ptr noundef nonnull %25, i32 noundef 35, i32 noundef %155, ptr noundef nonnull %9) #4
   %165 = icmp slt i32 %164, 1
   br i1 %165, label %169, label %166
 
 166:                                              ; preds = %163
-  %167 = call i32 @EVP_CIPHER_CTX_ctrl(ptr noundef nonnull %25, i32 noundef 36, i32 noundef %155, ptr noundef nonnull %7) #5
+  %167 = call i32 @EVP_CIPHER_CTX_ctrl(ptr noundef nonnull %25, i32 noundef 36, i32 noundef %155, ptr noundef nonnull %7) #4
   %168 = icmp slt i32 %167, 1
   br i1 %168, label %169, label %170
 
 169:                                              ; preds = %166, %163
-  call void @ERR_new() #5
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 333, ptr noundef nonnull @__func__.tls1_cipher) #5
-  call void (ptr, i32, i32, ptr, ...) @ossl_rlayer_fatal(ptr noundef %0, i32 noundef 80, i32 noundef 406, ptr noundef null) #5
+  call void @ERR_new() #4
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 333, ptr noundef nonnull @__func__.tls1_cipher) #4
+  call void (ptr, i32, i32, ptr, ...) @ossl_rlayer_fatal(ptr noundef %0, i32 noundef 80, i32 noundef 406, ptr noundef null) #4
   br label %.critedge305
 
 170:                                              ; preds = %166, %149
@@ -780,27 +779,27 @@ define internal range(i32 0, 2) i32 @tls1_cipher(ptr noundef %0, ptr noundef %1,
 
 179:                                              ; preds = %176, %175
   %.0251 = phi i32 [ 0, %175 ], [ %spec.select, %176 ]
-  %180 = call i32 @EVP_CIPHER_CTX_ctrl(ptr noundef nonnull %25, i32 noundef 42, i32 noundef %.0251, ptr noundef nonnull %74) #5
+  %180 = call i32 @EVP_CIPHER_CTX_ctrl(ptr noundef nonnull %25, i32 noundef 42, i32 noundef %.0251, ptr noundef nonnull %74) #4
   %181 = icmp sgt i32 %180, 0
   br i1 %181, label %.critedge307, label %182
 
 182:                                              ; preds = %179
-  call void @ERR_new() #5
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 352, ptr noundef nonnull @__func__.tls1_cipher) #5
-  call void (ptr, i32, i32, ptr, ...) @ossl_rlayer_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 786691, ptr noundef null) #5
+  call void @ERR_new() #4
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 352, ptr noundef nonnull @__func__.tls1_cipher) #4
+  call void (ptr, i32, i32, ptr, ...) @ossl_rlayer_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 786691, ptr noundef null) #4
   br label %.critedge305
 
 .critedge307:                                     ; preds = %179, %172, %170
   br i1 %57, label %183, label %231
 
 183:                                              ; preds = %.critedge307
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #4
   br i1 %.not284, label %185, label %184
 
 184:                                              ; preds = %183
-  call void @ERR_new() #5
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 362, ptr noundef nonnull @__func__.tls1_cipher) #5
-  call void (ptr, i32, i32, ptr, ...) @ossl_rlayer_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 786691, ptr noundef null) #5
+  call void @ERR_new() #4
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 362, ptr noundef nonnull @__func__.tls1_cipher) #4
+  call void (ptr, i32, i32, ptr, ...) @ossl_rlayer_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 786691, ptr noundef null) #4
   br label %.critedge311
 
 185:                                              ; preds = %183
@@ -810,7 +809,7 @@ define internal range(i32 0, 2) i32 @tls1_cipher(ptr noundef %0, ptr noundef %1,
   %189 = load ptr, ptr %188, align 8, !tbaa !46
   %190 = load i64, ptr %7, align 16, !tbaa !25
   %191 = trunc i64 %190 to i32
-  %192 = call i32 @EVP_CipherUpdate(ptr noundef nonnull %25, ptr noundef %187, ptr noundef nonnull %10, ptr noundef %189, i32 noundef %191) #5
+  %192 = call i32 @EVP_CipherUpdate(ptr noundef nonnull %25, ptr noundef %187, ptr noundef nonnull %10, ptr noundef %189, i32 noundef %191) #4
   %.not293 = icmp eq i32 %192, 0
   br i1 %.not293, label %.critedge311, label %193
 
@@ -822,7 +821,7 @@ define internal range(i32 0, 2) i32 @tls1_cipher(ptr noundef %0, ptr noundef %1,
   br i1 %29, label %197, label %230
 
 197:                                              ; preds = %193
-  %198 = call i32 @EVP_CIPHER_get_mode(ptr noundef nonnull %28) #5
+  %198 = call i32 @EVP_CIPHER_get_mode(ptr noundef nonnull %28) #4
   %199 = icmp eq i32 %198, 6
   br i1 %199, label %200, label %205
 
@@ -836,7 +835,7 @@ define internal range(i32 0, 2) i32 @tls1_cipher(ptr noundef %0, ptr noundef %1,
   br label %224
 
 205:                                              ; preds = %197
-  %206 = call i32 @EVP_CIPHER_get_mode(ptr noundef nonnull %28) #5
+  %206 = call i32 @EVP_CIPHER_get_mode(ptr noundef nonnull %28) #4
   %207 = icmp eq i32 %206, 7
   br i1 %207, label %208, label %213
 
@@ -880,32 +879,32 @@ define internal range(i32 0, 2) i32 @tls1_cipher(ptr noundef %0, ptr noundef %1,
   br i1 %.not295, label %230, label %225
 
 225:                                              ; preds = %224
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %11) #5
+  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %11) #4
   %226 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %226, align 8, !tbaa !61
   %227 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  call void @OSSL_PARAM_construct_octet_ptr(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %11, ptr noundef nonnull @.str.2, ptr noundef nonnull %4, i64 noundef %5) #5
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12) #5
-  call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %12) #5
+  call void @OSSL_PARAM_construct_octet_ptr(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %11, ptr noundef nonnull @.str.2, ptr noundef nonnull %4, i64 noundef %5) #4
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12) #4
+  call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %12) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %227, ptr noundef nonnull align 8 dereferenceable(40) %12, i64 40, i1 false), !tbaa.struct !63
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12) #5
-  %228 = call i32 @EVP_CIPHER_CTX_get_params(ptr noundef nonnull %25, ptr noundef nonnull %11) #5
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12) #4
+  %228 = call i32 @EVP_CIPHER_CTX_get_params(ptr noundef nonnull %25, ptr noundef nonnull %11) #4
   %.not296.not = icmp eq i32 %228, 0
   br i1 %.not296.not, label %229, label %.critedge309
 
 229:                                              ; preds = %225
-  call void @ERR_new() #5
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 404, ptr noundef nonnull @__func__.tls1_cipher) #5
-  call void (ptr, i32, i32, ptr, ...) @ossl_rlayer_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 786691, ptr noundef null) #5
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %11) #5
+  call void @ERR_new() #4
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 404, ptr noundef nonnull @__func__.tls1_cipher) #4
+  call void (ptr, i32, i32, ptr, ...) @ossl_rlayer_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 786691, ptr noundef null) #4
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %11) #4
   br label %.critedge311
 
 .critedge309:                                     ; preds = %225
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %11) #5
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %11) #4
   br label %230
 
 230:                                              ; preds = %.critedge309, %224, %193
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #4
   br label %.critedge305
 
 231:                                              ; preds = %.critedge307
@@ -915,9 +914,9 @@ define internal range(i32 0, 2) i32 @tls1_cipher(ptr noundef %0, ptr noundef %1,
   %235 = load ptr, ptr %234, align 8, !tbaa !46
   %236 = load i64, ptr %7, align 16, !tbaa !25
   %237 = trunc i64 %236 to i32
-  %238 = call i32 @EVP_Cipher(ptr noundef nonnull %25, ptr noundef %233, ptr noundef %235, i32 noundef %237) #5
-  %239 = call ptr @EVP_CIPHER_CTX_get0_cipher(ptr noundef nonnull %25) #5
-  %240 = call i64 @EVP_CIPHER_get_flags(ptr noundef %239) #5
+  %238 = call i32 @EVP_Cipher(ptr noundef nonnull %25, ptr noundef %233, ptr noundef %235, i32 noundef %237) #4
+  %239 = call ptr @EVP_CIPHER_CTX_get0_cipher(ptr noundef nonnull %25) #4
+  %240 = call i64 @EVP_CIPHER_get_flags(ptr noundef %239) #4
   %241 = and i64 %240, 1048576
   %.not288 = icmp eq i64 %241, 0
   br i1 %.not288, label %244, label %242
@@ -941,12 +940,12 @@ define internal range(i32 0, 2) i32 @tls1_cipher(ptr noundef %0, ptr noundef %1,
 
 248:                                              ; preds = %297
   %249 = add nuw i64 %.4259342, 1
-  %exitcond349.not = icmp eq i64 %249, %umax345
+  %exitcond349.not = icmp eq i64 %249, %2
   br i1 %exitcond349.not, label %.critedge305, label %250, !llvm.loop !65
 
 250:                                              ; preds = %.preheader, %248
   %.4259342 = phi i64 [ 0, %.preheader ], [ %249, %248 ]
-  %251 = call i32 @EVP_CIPHER_get_mode(ptr noundef nonnull %28) #5
+  %251 = call i32 @EVP_CIPHER_get_mode(ptr noundef nonnull %28) #4
   %252 = icmp eq i32 %251, 6
   br i1 %252, label %253, label %264
 
@@ -967,7 +966,7 @@ define internal range(i32 0, 2) i32 @tls1_cipher(ptr noundef %0, ptr noundef %1,
   br label %297
 
 264:                                              ; preds = %250
-  %265 = call i32 @EVP_CIPHER_get_mode(ptr noundef nonnull %28) #5
+  %265 = call i32 @EVP_CIPHER_get_mode(ptr noundef nonnull %28) #4
   %266 = icmp eq i32 %265, 7
   br i1 %266, label %267, label %278
 
@@ -1035,25 +1034,25 @@ define internal range(i32 0, 2) i32 @tls1_cipher(ptr noundef %0, ptr noundef %1,
   %305 = select i1 %.not290, ptr null, ptr %304
   %306 = getelementptr inbounds nuw i8, ptr %304, i64 8
   %307 = select i1 %.not290, ptr null, ptr %306
-  %308 = call i64 @EVP_CIPHER_get_flags(ptr noundef nonnull %28) #5
+  %308 = call i64 @EVP_CIPHER_get_flags(ptr noundef nonnull %28) #4
   %309 = trunc i64 %308 to i32
   %310 = lshr i32 %309, 21
   %311 = and i32 %310, 1
   %312 = load ptr, ptr %0, align 8, !tbaa !36
-  %313 = call i32 @tls1_cbc_remove_padding_and_mac(ptr noundef nonnull %299, i64 noundef %301, ptr noundef %303, ptr noundef %305, ptr noundef %307, i64 noundef %60, i64 noundef %247, i32 noundef %311, ptr noundef %312) #5
+  %313 = call i32 @tls1_cbc_remove_padding_and_mac(ptr noundef nonnull %299, i64 noundef %301, ptr noundef %303, ptr noundef %305, ptr noundef %307, i64 noundef %60, i64 noundef %247, i32 noundef %311, ptr noundef %312) #4
   %.not292 = icmp eq i32 %313, 0
   br i1 %.not292, label %.critedge305, label %248
 
 .critedge311:                                     ; preds = %229, %185, %184
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #4
   br label %.critedge305
 
 .critedge305:                                     ; preds = %93, %.thread318.thread, %143, %248, %297, %281, %117, %242, %244, %182, %23, %48, %53, %230, %.critedge311, %169, %158, %127, %69, %62, %54, %26, %14
   %.0.shrunk = phi i1 [ false, %14 ], [ false, %62 ], [ false, %69 ], [ false, %127 ], [ false, %158 ], [ false, %169 ], [ false, %182 ], [ false, %54 ], [ false, %26 ], [ false, %23 ], [ false, %.critedge311 ], [ %245, %244 ], [ %243, %242 ], [ true, %230 ], [ false, %53 ], [ false, %48 ], [ false, %117 ], [ true, %248 ], [ false, %297 ], [ false, %281 ], [ false, %143 ], [ false, %.thread318.thread ], [ false, %93 ]
   %.0 = zext i1 %.0.shrunk to i32
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %9) #5
-  call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %8) #4
+  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #4
   ret i32 %.0
 }
 
@@ -1064,11 +1063,11 @@ define internal range(i32 0, 2) i32 @tls1_mac(ptr noundef %0, ptr noundef %1, pt
   %7 = alloca [2 x %struct.ossl_param_st], align 16
   %8 = alloca %struct.ossl_param_st, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4096
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.start.p0(i64 13, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(i64 13, ptr nonnull %6) #4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 4152
   %11 = load ptr, ptr %10, align 8, !tbaa !34
-  %12 = tail call i32 @EVP_MD_CTX_get_size_ex(ptr noundef %11) #5
+  %12 = tail call i32 @EVP_MD_CTX_get_size_ex(ptr noundef %11) #4
   %13 = icmp sgt i32 %12, -1
   br i1 %13, label %14, label %94, !prof !40
 
@@ -1081,12 +1080,12 @@ define internal range(i32 0, 2) i32 @tls1_mac(ptr noundef %0, ptr noundef %1, pt
   br i1 %.not, label %18, label %23
 
 18:                                               ; preds = %14
-  %19 = tail call ptr @EVP_MD_CTX_new() #5
+  %19 = tail call ptr @EVP_MD_CTX_new() #4
   %20 = icmp eq ptr %19, null
   br i1 %20, label %93, label %21
 
 21:                                               ; preds = %18
-  %22 = tail call i32 @EVP_MD_CTX_copy(ptr noundef nonnull %19, ptr noundef %11) #5
+  %22 = tail call i32 @EVP_MD_CTX_copy(ptr noundef nonnull %19, ptr noundef %11) #4
   %.not55 = icmp eq i32 %22, 0
   br i1 %.not55, label %93, label %23
 
@@ -1105,7 +1104,7 @@ define internal range(i32 0, 2) i32 @tls1_mac(ptr noundef %0, ptr noundef %1, pt
   br i1 %.not57, label %.thread67, label %29
 
 29:                                               ; preds = %26
-  %30 = tail call i32 @EVP_MD_CTX_ctrl(ptr noundef %.049, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %9) #5
+  %30 = tail call i32 @EVP_MD_CTX_ctrl(ptr noundef %.049, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %9) #4
   %31 = icmp slt i32 %30, 1
   br i1 %31, label %93, label %32
 
@@ -1169,33 +1168,33 @@ define internal range(i32 0, 2) i32 @tls1_mac(ptr noundef %0, ptr noundef %1, pt
 63:                                               ; preds = %60
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 4128
   %65 = load ptr, ptr %64, align 8, !tbaa !33
-  %66 = tail call ptr @EVP_CIPHER_CTX_get0_cipher(ptr noundef %65) #5
-  %67 = tail call i32 @EVP_CIPHER_get_mode(ptr noundef %66) #5
+  %66 = tail call ptr @EVP_CIPHER_CTX_get0_cipher(ptr noundef %65) #4
+  %67 = tail call i32 @EVP_CIPHER_get_mode(ptr noundef %66) #4
   %68 = icmp eq i32 %67, 2
   br i1 %68, label %69, label %76
 
 69:                                               ; preds = %63
-  %70 = tail call signext i8 @ssl3_cbc_record_digest_supported(ptr noundef %.049) #5
+  %70 = tail call signext i8 @ssl3_cbc_record_digest_supported(ptr noundef %.049) #4
   %.not61 = icmp eq i8 %70, 0
   br i1 %.not61, label %76, label %71
 
 71:                                               ; preds = %69
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7) #4
   %72 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  call void @OSSL_PARAM_construct_size_t(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %7, ptr noundef nonnull @.str.3, ptr noundef nonnull %73) #5
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #5
-  call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %8) #5
+  call void @OSSL_PARAM_construct_size_t(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %7, ptr noundef nonnull @.str.3, ptr noundef nonnull %73) #4
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #4
+  call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %8) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %72, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false), !tbaa.struct !63
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #5
-  %74 = call ptr @EVP_MD_CTX_get_pkey_ctx(ptr noundef %.049) #5
-  %75 = call i32 @EVP_PKEY_CTX_set_params(ptr noundef %74, ptr noundef nonnull %7) #5
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #4
+  %74 = call ptr @EVP_MD_CTX_get_pkey_ctx(ptr noundef %.049) #4
+  %75 = call i32 @EVP_PKEY_CTX_set_params(ptr noundef %74, ptr noundef nonnull %7) #4
   %.not62 = icmp eq i32 %75, 0
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #4
   br i1 %.not62, label %93, label %76
 
 76:                                               ; preds = %71, %69, %63, %60, %41
-  %77 = call i32 @EVP_DigestSignUpdate(ptr noundef %.049, ptr noundef nonnull %6, i64 noundef 13) #5
+  %77 = call i32 @EVP_DigestSignUpdate(ptr noundef %.049, ptr noundef nonnull %6, i64 noundef 13) #4
   %78 = icmp slt i32 %77, 1
   br i1 %78, label %93, label %79
 
@@ -1203,12 +1202,12 @@ define internal range(i32 0, 2) i32 @tls1_mac(ptr noundef %0, ptr noundef %1, pt
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %81 = load ptr, ptr %80, align 8, !tbaa !46
   %82 = load i64, ptr %53, align 8, !tbaa !47
-  %83 = call i32 @EVP_DigestSignUpdate(ptr noundef %.049, ptr noundef %81, i64 noundef %82) #5
+  %83 = call i32 @EVP_DigestSignUpdate(ptr noundef %.049, ptr noundef %81, i64 noundef %82) #4
   %84 = icmp slt i32 %83, 1
   br i1 %84, label %93, label %85
 
 85:                                               ; preds = %79
-  %86 = call i32 @EVP_DigestSignFinal(ptr noundef %.049, ptr noundef %2, ptr noundef nonnull %5) #5
+  %86 = call i32 @EVP_DigestSignFinal(ptr noundef %.049, ptr noundef %2, ptr noundef nonnull %5) #4
   %87 = icmp slt i32 %86, 1
   br i1 %87, label %93, label %88
 
@@ -1218,7 +1217,7 @@ define internal range(i32 0, 2) i32 @tls1_mac(ptr noundef %0, ptr noundef %1, pt
   br i1 %.not63, label %90, label %92
 
 90:                                               ; preds = %88
-  %91 = call i32 @tls_increment_sequence_ctr(ptr noundef nonnull %0) #5
+  %91 = call i32 @tls_increment_sequence_ctr(ptr noundef nonnull %0) #4
   %.not64 = icmp eq i32 %91, 0
   br i1 %.not64, label %93, label %92
 
@@ -1228,13 +1227,13 @@ define internal range(i32 0, 2) i32 @tls1_mac(ptr noundef %0, ptr noundef %1, pt
 93:                                               ; preds = %71, %90, %76, %79, %85, %29, %18, %21, %92
   %.050 = phi i32 [ 0, %76 ], [ 0, %79 ], [ 0, %85 ], [ 1, %92 ], [ 0, %90 ], [ 0, %71 ], [ 0, %29 ], [ 0, %18 ], [ 0, %21 ]
   %.1 = phi ptr [ %.048, %76 ], [ %.048, %79 ], [ %.048, %85 ], [ %.048, %92 ], [ %.048, %90 ], [ %.048, %71 ], [ %.048, %29 ], [ null, %18 ], [ %19, %21 ]
-  call void @EVP_MD_CTX_free(ptr noundef %.1) #5
+  call void @EVP_MD_CTX_free(ptr noundef %.1) #4
   br label %94
 
 94:                                               ; preds = %4, %93
   %.0 = phi i32 [ %.050, %93 ], [ 0, %4 ]
-  call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
   ret i32 %.0
 }
 
@@ -1347,15 +1346,11 @@ declare i32 @EVP_DigestSignFinal(ptr noundef, ptr noundef, ptr noundef) local_un
 
 declare void @EVP_MD_CTX_free(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #4
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nounwind }
+attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

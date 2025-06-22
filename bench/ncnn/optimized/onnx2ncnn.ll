@@ -3312,7 +3312,6 @@ _ZNSt6vectorIiSaIiEEaSEOS1_.exit43.i:             ; preds = %.noexc3255
   %1157 = ptrtoint ptr %.sroa.010.1.i to i64
   %1158 = sub i64 %1156, %1157
   %1159 = ashr exact i64 %1158, 2
-  %umax.i = call i64 @llvm.umax.i64(i64 %1159, i64 1)
   br label %.lr.ph.i
 
 ._crit_edge.i3238:                                ; preds = %1228, %1154
@@ -3530,7 +3529,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
   store i64 %1220, ptr %1232, align 8, !tbaa !89
   store i32 %1226, ptr %1221, align 8, !tbaa !117
   %indvars.iv.next.i3237 = add nuw i64 %indvars.iv.i3232, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i3237, %umax.i
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i3237, %1159
   br i1 %exitcond.not.i, label %._crit_edge.i3238, label %.lr.ph.i, !llvm.loop !130
 
 1233:                                             ; preds = %1227, %.noexc68.i, %.critedge.i47.i

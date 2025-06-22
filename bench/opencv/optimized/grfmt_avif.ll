@@ -2671,7 +2671,6 @@ define hidden noundef zeroext i1 @_ZN2cv11AvifEncoder14writeanimationERKNS_9Anim
   %74 = sub i64 %72, %73
   %75 = ashr exact i64 %74, 3
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %umax = call i64 @llvm.umax.i64(i64 %75, i64 1)
   br label %224
 
 77:                                               ; preds = %.lr.ph186, %_ZNSt10unique_ptrI9avifImageN2cv12_GLOBAL__N_116AvifImageDeleterEED2Ev.exit
@@ -3096,7 +3095,7 @@ _ZNSt10unique_ptrI9avifImageN2cv12_GLOBAL__N_116AvifImageDeleterEED2Ev.exit: ; p
 
 219:                                              ; preds = %232
   %220 = add nuw i64 %.049188, 1
-  %exitcond.not = icmp eq i64 %220, %umax
+  %exitcond.not = icmp eq i64 %220, %75
   br i1 %exitcond.not, label %._crit_edge190, label %224, !llvm.loop !181
 
 ._crit_edge190:                                   ; preds = %219, %.preheader.thread, %.preheader

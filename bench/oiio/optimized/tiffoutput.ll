@@ -4799,7 +4799,6 @@ define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_010TIFFOutput15write_exi
   %23 = sub i64 %21, %22
   %24 = sdiv exact i64 %23, 40
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %umax = call i64 @llvm.umax.i64(i64 %24, i64 1)
   br label %26
 
 26:                                               ; preds = %.lr.ph, %42
@@ -4854,7 +4853,7 @@ _ZNK11OpenImageIO6v3_1_07ustringcvNS0_17basic_string_viewIcSt11char_traitsIcEEEE
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #32
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #32
   %43 = add nuw i64 %.05397, 1
-  %exitcond.not = icmp eq i64 %43, %umax
+  %exitcond.not = icmp eq i64 %43, %24
   br i1 %exitcond.not, label %.loopexit, label %26, !llvm.loop !174
 
 44:                                               ; preds = %.thread93
@@ -4883,7 +4882,6 @@ _ZNK11OpenImageIO6v3_1_07ustringcvNS0_17basic_string_viewIcSt11char_traitsIcEEEE
   %54 = sub i64 %52, %53
   %55 = sdiv exact i64 %54, 40
   %56 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %umax102 = call i64 @llvm.umax.i64(i64 %55, i64 1)
   br label %59
 
 ._crit_edge:                                      ; preds = %.critedge25, %49
@@ -5033,7 +5031,7 @@ _ZNK11OpenImageIO6v3_1_07ustringcvNS0_17basic_string_viewIcSt11char_traitsIcEEEE
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #32
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #32
   %134 = add nuw i64 %.05298, 1
-  %exitcond103.not = icmp eq i64 %134, %umax102
+  %exitcond103.not = icmp eq i64 %134, %55
   br i1 %exitcond103.not, label %._crit_edge, label %59, !llvm.loop !178
 
 135:                                              ; preds = %._crit_edge

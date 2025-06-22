@@ -7920,27 +7920,19 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN21ResourceHashtableBaseI29Fixe
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i32, ptr %5, align 8
   %.fr11.i.i = freeze i32 %6
-  %.0.i.i.i = tail call noundef i32 @llvm.abs.i32(i32 %.fr11.i.i, i1 true)
   %.not.i.i = icmp eq i32 %.fr11.i.i, 0
   br i1 %.not.i.i, label %_ZN18AdapterFingerPrint12compute_hashERKPS_.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %3
+  %.0.i.i.i = tail call noundef i32 @llvm.abs.i32(i32 %.fr11.i.i, i1 true)
   %7 = icmp slt i32 %.fr11.i.i, 0
   %8 = load ptr, ptr %4, align 8
-  br i1 %7, label %.lr.ph.split.us.preheader.i.i, label %.lr.ph.split.preheader.i.i
-
-.lr.ph.split.preheader.i.i:                       ; preds = %.lr.ph.i.i
-  %umax.i.i = tail call i32 @llvm.umax.i32(i32 %.0.i.i.i, i32 1)
-  %wide.trip.count.i.i = zext nneg i32 %umax.i.i to i64
-  br label %.lr.ph.split.i.i
-
-.lr.ph.split.us.preheader.i.i:                    ; preds = %.lr.ph.i.i
   %wide.trip.count18.i.i = zext nneg i32 %.0.i.i.i to i64
-  br label %.lr.ph.split.us.i.i
+  br i1 %7, label %.lr.ph.split.us.i.i, label %.lr.ph.split.i.i
 
-.lr.ph.split.us.i.i:                              ; preds = %.lr.ph.split.us.i.i, %.lr.ph.split.us.preheader.i.i
-  %indvars.iv15.i.i = phi i64 [ 0, %.lr.ph.split.us.preheader.i.i ], [ %indvars.iv.next16.i.i, %.lr.ph.split.us.i.i ]
-  %.010.us.i.i = phi i32 [ 0, %.lr.ph.split.us.preheader.i.i ], [ %13, %.lr.ph.split.us.i.i ]
+.lr.ph.split.us.i.i:                              ; preds = %.lr.ph.i.i, %.lr.ph.split.us.i.i
+  %indvars.iv15.i.i = phi i64 [ %indvars.iv.next16.i.i, %.lr.ph.split.us.i.i ], [ 0, %.lr.ph.i.i ]
+  %.010.us.i.i = phi i32 [ %13, %.lr.ph.split.us.i.i ], [ 0, %.lr.ph.i.i ]
   %9 = getelementptr inbounds nuw [3 x i32], ptr %4, i64 0, i64 %indvars.iv15.i.i
   %.0.i8.us.i.i = load i32, ptr %9, align 4
   %10 = shl i32 %.010.us.i.i, 8
@@ -7951,9 +7943,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN21ResourceHashtableBaseI29Fixe
   %exitcond19.not.i.i = icmp eq i64 %indvars.iv.next16.i.i, %wide.trip.count18.i.i
   br i1 %exitcond19.not.i.i, label %_ZN18AdapterFingerPrint12compute_hashERKPS_.exit, label %.lr.ph.split.us.i.i, !llvm.loop !75
 
-.lr.ph.split.i.i:                                 ; preds = %.lr.ph.split.i.i, %.lr.ph.split.preheader.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.split.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.split.i.i ]
-  %.010.i.i = phi i32 [ 0, %.lr.ph.split.preheader.i.i ], [ %18, %.lr.ph.split.i.i ]
+.lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i, %.lr.ph.split.i.i
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.split.i.i ], [ 0, %.lr.ph.i.i ]
+  %.010.i.i = phi i32 [ %18, %.lr.ph.split.i.i ], [ 0, %.lr.ph.i.i ]
   %14 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.i.i
   %.0.i8.i.i = load i32, ptr %14, align 4
   %15 = shl i32 %.010.i.i, 8
@@ -7961,7 +7953,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN21ResourceHashtableBaseI29Fixe
   %17 = xor i32 %16, %15
   %18 = xor i32 %17, %.0.i8.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count18.i.i
   br i1 %exitcond.not.i.i, label %_ZN18AdapterFingerPrint12compute_hashERKPS_.exit, label %.lr.ph.split.i.i, !llvm.loop !75
 
 _ZN18AdapterFingerPrint12compute_hashERKPS_.exit: ; preds = %.lr.ph.split.i.i, %.lr.ph.split.us.i.i, %3
@@ -10829,27 +10821,19 @@ define linkonce_odr hidden noundef ptr @_ZNK21ResourceHashtableBaseI29FixedResou
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load i32, ptr %4, align 8
   %.fr11.i.i = freeze i32 %5
-  %.0.i.i.i = tail call noundef i32 @llvm.abs.i32(i32 %.fr11.i.i, i1 true)
   %.not.i.i = icmp eq i32 %.fr11.i.i, 0
   br i1 %.not.i.i, label %_ZN18AdapterFingerPrint12compute_hashERKPS_.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %2
+  %.0.i.i.i = tail call noundef i32 @llvm.abs.i32(i32 %.fr11.i.i, i1 true)
   %6 = icmp slt i32 %.fr11.i.i, 0
   %7 = load ptr, ptr %3, align 8
-  br i1 %6, label %.lr.ph.split.us.preheader.i.i, label %.lr.ph.split.preheader.i.i
-
-.lr.ph.split.preheader.i.i:                       ; preds = %.lr.ph.i.i
-  %umax.i.i = tail call i32 @llvm.umax.i32(i32 %.0.i.i.i, i32 1)
-  %wide.trip.count.i.i = zext nneg i32 %umax.i.i to i64
-  br label %.lr.ph.split.i.i
-
-.lr.ph.split.us.preheader.i.i:                    ; preds = %.lr.ph.i.i
   %wide.trip.count18.i.i = zext nneg i32 %.0.i.i.i to i64
-  br label %.lr.ph.split.us.i.i
+  br i1 %6, label %.lr.ph.split.us.i.i, label %.lr.ph.split.i.i
 
-.lr.ph.split.us.i.i:                              ; preds = %.lr.ph.split.us.i.i, %.lr.ph.split.us.preheader.i.i
-  %indvars.iv15.i.i = phi i64 [ 0, %.lr.ph.split.us.preheader.i.i ], [ %indvars.iv.next16.i.i, %.lr.ph.split.us.i.i ]
-  %.010.us.i.i = phi i32 [ 0, %.lr.ph.split.us.preheader.i.i ], [ %12, %.lr.ph.split.us.i.i ]
+.lr.ph.split.us.i.i:                              ; preds = %.lr.ph.i.i, %.lr.ph.split.us.i.i
+  %indvars.iv15.i.i = phi i64 [ %indvars.iv.next16.i.i, %.lr.ph.split.us.i.i ], [ 0, %.lr.ph.i.i ]
+  %.010.us.i.i = phi i32 [ %12, %.lr.ph.split.us.i.i ], [ 0, %.lr.ph.i.i ]
   %8 = getelementptr inbounds nuw [3 x i32], ptr %3, i64 0, i64 %indvars.iv15.i.i
   %.0.i8.us.i.i = load i32, ptr %8, align 4
   %9 = shl i32 %.010.us.i.i, 8
@@ -10860,9 +10844,9 @@ define linkonce_odr hidden noundef ptr @_ZNK21ResourceHashtableBaseI29FixedResou
   %exitcond19.not.i.i = icmp eq i64 %indvars.iv.next16.i.i, %wide.trip.count18.i.i
   br i1 %exitcond19.not.i.i, label %_ZN18AdapterFingerPrint12compute_hashERKPS_.exit, label %.lr.ph.split.us.i.i, !llvm.loop !75
 
-.lr.ph.split.i.i:                                 ; preds = %.lr.ph.split.i.i, %.lr.ph.split.preheader.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.split.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.split.i.i ]
-  %.010.i.i = phi i32 [ 0, %.lr.ph.split.preheader.i.i ], [ %17, %.lr.ph.split.i.i ]
+.lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i, %.lr.ph.split.i.i
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.split.i.i ], [ 0, %.lr.ph.i.i ]
+  %.010.i.i = phi i32 [ %17, %.lr.ph.split.i.i ], [ 0, %.lr.ph.i.i ]
   %13 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i.i
   %.0.i8.i.i = load i32, ptr %13, align 4
   %14 = shl i32 %.010.i.i, 8
@@ -10870,7 +10854,7 @@ define linkonce_odr hidden noundef ptr @_ZNK21ResourceHashtableBaseI29FixedResou
   %16 = xor i32 %15, %14
   %17 = xor i32 %16, %.0.i8.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count18.i.i
   br i1 %exitcond.not.i.i, label %_ZN18AdapterFingerPrint12compute_hashERKPS_.exit, label %.lr.ph.split.i.i, !llvm.loop !75
 
 _ZN18AdapterFingerPrint12compute_hashERKPS_.exit: ; preds = %.lr.ph.split.i.i, %.lr.ph.split.us.i.i, %2

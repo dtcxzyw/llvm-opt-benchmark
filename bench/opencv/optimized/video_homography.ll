@@ -1080,15 +1080,11 @@ _ZNSt12_Vector_baseIN2cv8KeyPointESaIS1_EE13_M_deallocateEPS1_m.exit.i.i.i: ; pr
 
 _ZNSt6vectorIN2cv8KeyPointESaIS1_EE7reserveEm.exit.i.i: ; preds = %_ZNSt12_Vector_baseIN2cv8KeyPointESaIS1_EE13_M_deallocateEPS1_m.exit.i.i.i, %449
   %465 = phi ptr [ %445, %449 ], [ %463, %_ZNSt12_Vector_baseIN2cv8KeyPointESaIS1_EE13_M_deallocateEPS1_m.exit.i.i.i ]
-  br i1 %429, label %_ZN12_GLOBAL__N_116points2keypointsERKSt6vectorIN2cv6Point_IfEESaIS3_EERS0_INS1_8KeyPointESaIS8_EE.exit.i, label %.lr.ph.i31.preheader.i
+  br i1 %429, label %_ZN12_GLOBAL__N_116points2keypointsERKSt6vectorIN2cv6Point_IfEESaIS3_EERS0_INS1_8KeyPointESaIS8_EE.exit.i, label %.lr.ph.i31.i
 
-.lr.ph.i31.preheader.i:                           ; preds = %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE7reserveEm.exit.i.i
-  %umax.i = call i64 @llvm.umax.i64(i64 %446, i64 1)
-  br label %.lr.ph.i31.i
-
-.lr.ph.i31.i:                                     ; preds = %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE9push_backEOS1_.exit.i.i, %.lr.ph.i31.preheader.i
-  %466 = phi ptr [ %491, %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE9push_backEOS1_.exit.i.i ], [ %465, %.lr.ph.i31.preheader.i ]
-  %.021.i.i = phi i64 [ %492, %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE9push_backEOS1_.exit.i.i ], [ 0, %.lr.ph.i31.preheader.i ]
+.lr.ph.i31.i:                                     ; preds = %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE7reserveEm.exit.i.i, %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE9push_backEOS1_.exit.i.i
+  %466 = phi ptr [ %491, %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE9push_backEOS1_.exit.i.i ], [ %465, %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE7reserveEm.exit.i.i ]
+  %.021.i.i = phi i64 [ %492, %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE9push_backEOS1_.exit.i.i ], [ 0, %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE7reserveEm.exit.i.i ]
   %467 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.sroa.051.0.i, i64 %.021.i.i
   %.sroa.0.0.copyload.i.i = load <2 x float>, ptr %467, align 4
   %468 = load ptr, ptr %244, align 8, !tbaa !95
@@ -1178,7 +1174,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__no
 _ZNSt6vectorIN2cv8KeyPointESaIS1_EE9push_backEOS1_.exit.i.i: ; preds = %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i.i, %469
   %491 = phi ptr [ %471, %469 ], [ %488, %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i.i ]
   %492 = add nuw i64 %.021.i.i, 1
-  %exitcond.not.i = icmp eq i64 %492, %umax.i
+  %exitcond.not.i = icmp eq i64 %492, %446
   br i1 %exitcond.not.i, label %_ZN12_GLOBAL__N_116points2keypointsERKSt6vectorIN2cv6Point_IfEESaIS3_EERS0_INS1_8KeyPointESaIS8_EE.exit.thread.i, label %.lr.ph.i31.i, !llvm.loop !107
 
 _ZN12_GLOBAL__N_116points2keypointsERKSt6vectorIN2cv6Point_IfEESaIS3_EERS0_INS1_8KeyPointESaIS8_EE.exit.thread.i: ; preds = %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE9push_backEOS1_.exit.i.i

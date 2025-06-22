@@ -17596,13 +17596,10 @@ _ZNSt6vectorIPN4entt16basic_sparse_setINS0_6entityESaIS2_EEESaIS5_EE17_M_realloc
 
 _ZNKSt6vectorIPN4entt16basic_sparse_setINS0_6entityESaIS2_EEESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i5: ; preds = %53
   %59 = ashr exact i64 %56, 3
-  %.sroa.speculated.i.i.i.i6 = tail call i64 @llvm.umax.i64(i64 %59, i64 1)
-  %60 = add nsw i64 %.sroa.speculated.i.i.i.i6, %59
+  %60 = ashr exact i64 %56, 2
   %61 = icmp ult i64 %60, %59
   %62 = tail call i64 @llvm.umin.i64(i64 %60, i64 1152921504606846975)
   %63 = select i1 %61, i64 1152921504606846975, i64 %62
-  %.not.i.i.i.i7 = icmp ne i64 %63, 0
-  tail call void @llvm.assume(i1 %.not.i.i.i.i7)
   %64 = shl nuw nsw i64 %63, 3
   %65 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %64) #26
   %66 = getelementptr inbounds i8, ptr %65, i64 %56
@@ -29842,13 +29839,10 @@ _ZNSt6vectorIPKN4entt16basic_sparse_setINS0_6entityESaIS2_EEESaIS6_EE17_M_reallo
 
 _ZNKSt6vectorIPKN4entt16basic_sparse_setINS0_6entityESaIS2_EEESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i5: ; preds = %53
   %59 = ashr exact i64 %56, 3
-  %.sroa.speculated.i.i.i.i6 = tail call i64 @llvm.umax.i64(i64 %59, i64 1)
-  %60 = add nsw i64 %.sroa.speculated.i.i.i.i6, %59
+  %60 = ashr exact i64 %56, 2
   %61 = icmp ult i64 %60, %59
   %62 = tail call i64 @llvm.umin.i64(i64 %60, i64 1152921504606846975)
   %63 = select i1 %61, i64 1152921504606846975, i64 %62
-  %.not.i.i.i.i7 = icmp ne i64 %63, 0
-  tail call void @llvm.assume(i1 %.not.i.i.i.i7)
   %64 = shl nuw nsw i64 %63, 3
   %65 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %64) #26
   %66 = getelementptr inbounds i8, ptr %65, i64 %56

@@ -105,14 +105,10 @@ define dso_local void @_ZN3ozz2io6ExternINS_4math6Float3EE4SaveERNS0_8OArchiveEP
 
 .preheader.i.i:                                   ; preds = %3
   %.not8.i.i = icmp eq i64 %2, 0
-  br i1 %.not8.i.i, label %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKfEEEEvRKT_.exit, label %.lr.ph.i.i.preheader
+  br i1 %.not8.i.i, label %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKfEEEEvRKT_.exit, label %.lr.ph.i.i
 
-.lr.ph.i.i.preheader:                             ; preds = %.preheader.i.i
-  %umax = tail call i64 @llvm.umax.i64(i64 %5, i64 1)
-  br label %.lr.ph.i.i
-
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i
-  %.0.i5.i.i = phi i64 [ %21, %.lr.ph.i.i ], [ 0, %.lr.ph.i.i.preheader ]
+.lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
+  %.0.i5.i.i = phi i64 [ %21, %.lr.ph.i.i ], [ 0, %.preheader.i.i ]
   %9 = getelementptr inbounds nuw float, ptr %1, i64 %.0.i5.i.i
   %10 = load float, ptr %9, align 4, !tbaa !13
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #3
@@ -130,7 +126,7 @@ define dso_local void @_ZN3ozz2io6ExternINS_4math6Float3EE4SaveERNS0_8OArchiveEP
   %20 = call noundef i64 %19(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull %4, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #3
   %21 = add nuw i64 %.0.i5.i.i, 1
-  %exitcond.not = icmp eq i64 %21, %umax
+  %exitcond.not = icmp eq i64 %21, %5
   br i1 %exitcond.not, label %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKfEEEEvRKT_.exit, label %.lr.ph.i.i, !llvm.loop !18
 
 22:                                               ; preds = %3
@@ -693,9 +689,6 @@ _ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIiEEEEvRT_.exit: ; preds = %.lr.ph.i.i
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #2
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #2
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

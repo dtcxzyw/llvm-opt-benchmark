@@ -888,7 +888,6 @@ _ZN12_GLOBAL__N_121calcChessboardCornersEN2cv5Size_IiEEfRSt6vectorINS0_7Point3_I
   %296 = sdiv exact i64 %295, 12
   %297 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %298 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %umax.i = call i64 @llvm.umax.i64(i64 %296, i64 1)
   br label %309
 
 ._crit_edge.i:                                    ; preds = %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backEOS2_.exit.i, %_ZN12_GLOBAL__N_121calcChessboardCornersEN2cv5Size_IiEEfRSt6vectorINS0_7Point3_IfEESaIS5_EENS_7PatternE.exit.i, %_ZN12_GLOBAL__N_121calcChessboardCornersEN2cv5Size_IiEEfRSt6vectorINS0_7Point3_IfEESaIS5_EENS_7PatternE.exit.thread.i
@@ -1031,7 +1030,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__n
 _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backEOS2_.exit.i: ; preds = %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i, %316
   %340 = phi ptr [ %337, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i ], [ %318, %316 ]
   %341 = add nuw i64 %.026293.i, 1
-  %exitcond.not.i = icmp eq i64 %341, %umax.i
+  %exitcond.not.i = icmp eq i64 %341, %296
   br i1 %exitcond.not.i, label %._crit_edge.i, label %309, !llvm.loop !81
 
 .loopexit.i:                                      ; preds = %_ZNKSt6vectorIN2cv6Point_IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i

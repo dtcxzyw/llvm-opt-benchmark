@@ -1854,7 +1854,6 @@ _ZNSt6vectorIdSaIdEEC2ERKS1_.exit.i:              ; preds = %.noexc159, %.thread
   %287 = uitofp i64 %284 to double
   %288 = fdiv double %286, %287
   %289 = fsub double 1.000000e+00, %286
-  %umax.i = call i64 @llvm.umax.i64(i64 %284, i64 1)
   br label %290
 
 290:                                              ; preds = %290, %.lr.ph.i
@@ -1864,7 +1863,7 @@ _ZNSt6vectorIdSaIdEEC2ERKS1_.exit.i:              ; preds = %.noexc159, %.thread
   %293 = call double @llvm.fmuladd.f64(double %289, double %292, double %288)
   store double %293, ptr %291, align 8, !noalias !16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %umax.i
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %284
   br i1 %exitcond.not.i, label %_ZNK10open_spiel10algorithms26OutcomeSamplingMCCFRSolver12SamplePolicyERKNS0_18CFRInfoStateValuesE.exit, label %290, !llvm.loop !19
 
 294:                                              ; preds = %265
@@ -2121,13 +2120,11 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %375
   %390 = getelementptr inbounds nuw i8, ptr %385, i64 %380
   %391 = ptrtoint ptr %390 to i64
   %392 = zext i32 %301 to i64
-  %umax = call i64 @llvm.umax.i64(i64 %381, i64 1)
   br label %.lr.ph
 
 .lr.ph231:                                        ; preds = %.lr.ph
   %393 = getelementptr inbounds nuw i8, ptr %36, i64 72
   %394 = load ptr, ptr %393, align 8
-  %umax246 = call i64 @llvm.umax.i64(i64 %381, i64 1)
   br label %403
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -2141,7 +2138,7 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %375
   %400 = getelementptr inbounds nuw double, ptr %385, i64 %indvars.iv
   store double %.0.i, ptr %400, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %381
   br i1 %exitcond.not, label %.lr.ph231, label %.lr.ph, !llvm.loop !20
 
 401:                                              ; preds = %384, %383
@@ -2158,7 +2155,7 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %375
   %407 = load double, ptr %406, align 8
   %408 = call double @llvm.fmuladd.f64(double %405, double %407, double %.0130229)
   %indvars.iv.next244 = add nuw nsw i64 %indvars.iv243, 1
-  %exitcond247.not = icmp eq i64 %indvars.iv.next244, %umax246
+  %exitcond247.not = icmp eq i64 %indvars.iv.next244, %381
   br i1 %exitcond247.not, label %._crit_edge, label %403, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %403, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
@@ -3067,7 +3064,6 @@ _ZNSt6vectorIdSaIdEEC2ERKS1_.exit:                ; preds = %.thread, %15
   %28 = uitofp i64 %25 to double
   %29 = fdiv double %27, %28
   %30 = fsub double 1.000000e+00, %27
-  %umax = tail call i64 @llvm.umax.i64(i64 %25, i64 1)
   br label %31
 
 31:                                               ; preds = %.lr.ph, %31
@@ -3077,7 +3073,7 @@ _ZNSt6vectorIdSaIdEEC2ERKS1_.exit:                ; preds = %.thread, %15
   %34 = tail call double @llvm.fmuladd.f64(double %30, double %33, double %29)
   store double %34, ptr %32, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %25
   br i1 %exitcond.not, label %._crit_edge, label %31, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %31, %_ZNSt6vectorIdSaIdEEC2ERKS1_.exit

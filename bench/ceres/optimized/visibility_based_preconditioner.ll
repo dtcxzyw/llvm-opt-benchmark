@@ -3108,7 +3108,6 @@ _ZSt4sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPSt4pairIdS3_IiiEE
   %39 = sub i64 %37, %38
   %40 = ashr exact i64 %39, 4
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %umax = call i64 @llvm.umax.i64(i64 %40, i64 1)
   %.pre = load ptr, ptr %0, align 8, !tbaa !158
   br label %248
 
@@ -3700,7 +3699,7 @@ _ZNSt6vectorISt4pairIdS0_IiiEESaIS2_EED2Ev.exit:  ; preds = %_ZN4absl12lts_20240
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #32
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #32
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %40
   br i1 %exitcond.not, label %._crit_edge209, label %248, !llvm.loop !223
 
 334:                                              ; preds = %277, %304, %279, %269

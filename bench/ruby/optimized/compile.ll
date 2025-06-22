@@ -635,8 +635,6 @@ compile_data_alloc2.exit:                         ; preds = %20, %._crit_edge.i.
   store i32 %46, ptr %42, align 8, !tbaa !39
   %47 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %48 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %umax = call i32 @llvm.umax.i32(i32 %4, i32 1)
-  %wide.trip.count = zext nneg i32 %umax to i64
   br label %49
 
 49:                                               ; preds = %compile_data_alloc2.exit, %60
@@ -665,7 +663,7 @@ compile_data_alloc2.exit:                         ; preds = %20, %._crit_edge.i.
   %63 = getelementptr i64, ptr %44, i64 %indvars.iv
   store i64 %62, ptr %63, align 8, !tbaa !37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %8
   br i1 %exitcond.not, label %64, label %49, !llvm.loop !42
 
 64:                                               ; preds = %60

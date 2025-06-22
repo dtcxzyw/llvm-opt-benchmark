@@ -16177,7 +16177,6 @@ rb_absint_size.exit:                              ; preds = %.critedge.i, %67
 BIGNUM_DIGITS.exit42:                             ; preds = %84, %86
   %.0.i41 = phi ptr [ %85, %84 ], [ %88, %86 ]
   %89 = getelementptr i32, ptr %.0.i41, i64 %.0.i45475285
-  %umax = call i64 @llvm.umax.i64(i64 %.0.i45475285, i64 1)
   br label %90
 
 90:                                               ; preds = %BIGNUM_DIGITS.exit42, %90
@@ -16190,7 +16189,7 @@ BIGNUM_DIGITS.exit42:                             ; preds = %84, %86
   %95 = zext i32 %94 to i64
   %96 = or disjoint i64 %91, %95
   %97 = add nuw i64 %.02188, 1
-  %exitcond.not = icmp eq i64 %97, %umax
+  %exitcond.not = icmp eq i64 %97, %.0.i45475285
   br i1 %exitcond.not, label %.loopexit, label %90, !llvm.loop !192
 
 .loopexit:                                        ; preds = %90, %BIGNUM_LEN.exit.thread, %BIGNUM_LEN.exit
@@ -16421,7 +16420,6 @@ rb_absint_size.exit:                              ; preds = %.critedge.i, %67
   %.0.i45495561119 = phi i64 [ %.0.i45495561, %77 ], [ %13, %BIGNUM_LEN.exit27.thread ]
   %.0.i24505363118 = phi ptr [ %.0.i24505363, %77 ], [ %14, %BIGNUM_LEN.exit27.thread ]
   %80 = getelementptr i32, ptr %.0.i24505363118, i64 %.0.i45495561119
-  %umax = call i64 @llvm.umax.i64(i64 %.0.i45495561119, i64 1)
   br label %83
 
 81:                                               ; preds = %77
@@ -16439,7 +16437,7 @@ rb_absint_size.exit:                              ; preds = %.critedge.i, %67
   %88 = zext i32 %87 to i64
   %89 = or disjoint i64 %84, %88
   %90 = add nuw i64 %.021114, 1
-  %exitcond.not = icmp eq i64 %90, %umax
+  %exitcond.not = icmp eq i64 %90, %.0.i45495561119
   br i1 %exitcond.not, label %.loopexit, label %83, !llvm.loop !193
 
 .loopexit:                                        ; preds = %83, %BIGNUM_DIGITS.exit.thread, %BIGNUM_DIGITS.exit

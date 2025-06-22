@@ -2036,7 +2036,6 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit67: ; preds = %250, %244, %252
 
 .lr.ph152:                                        ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit67
   %400 = sext i32 %3 to i64
-  %umax = call i64 @llvm.umax.i64(i64 %399, i64 1)
   br label %403
 
 401:                                              ; preds = %252
@@ -2287,7 +2286,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit128: ; preds = %_ZN4cvc58internal1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #21
   %506 = add nuw i64 %.033151, 1
-  %exitcond.not = icmp eq i64 %506, %umax
+  %exitcond.not = icmp eq i64 %506, %399
   br i1 %exitcond.not, label %._crit_edge153, label %403, !llvm.loop !68
 
 507:                                              ; preds = %403

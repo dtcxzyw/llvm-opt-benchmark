@@ -11340,7 +11340,6 @@ for.body.preheader:                               ; preds = %_ZN6google8protobuf
   %sub.ptr.rhs.cast.i = ptrtoint ptr %nested_messages.sroa.0.2 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %umax = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
@@ -11352,7 +11351,7 @@ for.body:                                         ; preds = %for.body.preheader,
 
 for.inc:                                          ; preds = %for.body
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %sub.ptr.div.i
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !184
 
 lpad.loopexit:                                    ; preds = %for.body

@@ -2936,7 +2936,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 .lr.ph:                                           ; preds = %35
   %49 = load i32, ptr %0, align 8, !tbaa !112
-  %umax = tail call i64 @llvm.umax.i64(i64 %20, i64 1)
   br label %65
 
 50:                                               ; preds = %35
@@ -2984,7 +2983,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38: ; preds = %_ZN
 
 63:                                               ; preds = %65
   %64 = add nuw i64 %.044, 1
-  %exitcond.not = icmp eq i64 %64, %umax
+  %exitcond.not = icmp eq i64 %64, %20
   br i1 %exitcond.not, label %.loopexit, label %65, !llvm.loop !151
 
 65:                                               ; preds = %.lr.ph, %63
@@ -3156,7 +3155,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 .lr.ph:                                           ; preds = %35
   %49 = load i32, ptr %0, align 8, !tbaa !112
-  %umax = tail call i64 @llvm.umax.i64(i64 %20, i64 1)
   br label %65
 
 50:                                               ; preds = %35
@@ -3204,7 +3202,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38: ; preds = %_ZN
 
 63:                                               ; preds = %65
   %64 = add nuw i64 %.044, 1
-  %exitcond.not = icmp eq i64 %64, %umax
+  %exitcond.not = icmp eq i64 %64, %20
   br i1 %exitcond.not, label %.loopexit, label %65, !llvm.loop !152
 
 65:                                               ; preds = %.lr.ph, %63
@@ -3344,19 +3342,15 @@ define internal fastcc void @_ZN2cv4rgbdL18preparePyramidMaskERKNS_3MatERKSt6vec
   %54 = ptrtoint ptr %51 to i64
   %55 = ptrtoint ptr %49 to i64
   %56 = sub i64 %54, %55
-  %57 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %58 = load ptr, ptr %57, align 8, !tbaa !64
-  %59 = load ptr, ptr %1, align 8, !tbaa !61
-  %60 = ptrtoint ptr %58 to i64
+  %57 = sdiv exact i64 %56, 96
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %59 = load ptr, ptr %58, align 8, !tbaa !64
+  %60 = load ptr, ptr %1, align 8, !tbaa !61
   %61 = ptrtoint ptr %59 to i64
-  %62 = sub i64 %60, %61
-  %.not = icmp eq i64 %56, %62
-  br i1 %.not, label %.lr.ph.preheader, label %64
-
-.lr.ph.preheader:                                 ; preds = %53
-  %63 = sdiv exact i64 %56, 96
-  %umax = tail call i64 @llvm.umax.i64(i64 %63, i64 1)
-  br label %.lr.ph
+  %62 = ptrtoint ptr %60 to i64
+  %63 = sub i64 %61, %62
+  %.not = icmp eq i64 %56, %63
+  br i1 %.not, label %.lr.ph, label %64
 
 64:                                               ; preds = %53
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #31
@@ -3403,18 +3397,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 77:                                               ; preds = %106
   %78 = add nuw i64 %.073185, 1
-  %exitcond.not = icmp eq i64 %78, %umax
+  %exitcond.not = icmp eq i64 %78, %57
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !153
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %77
-  %.073185 = phi i64 [ %78, %77 ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %53, %77
+  %.073185 = phi i64 [ %78, %77 ], [ 0, %53 ]
   %79 = getelementptr inbounds nuw %"class.cv::Mat", ptr %49, i64 %.073185
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 64
   %81 = load ptr, ptr %80, align 8, !tbaa !116
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 4
   %83 = load i32, ptr %82, align 4, !tbaa !75
   %84 = load i32, ptr %81, align 4, !tbaa !75
-  %85 = getelementptr inbounds nuw %"class.cv::Mat", ptr %59, i64 %.073185, i32 10
+  %85 = getelementptr inbounds nuw %"class.cv::Mat", ptr %60, i64 %.073185, i32 10
   %86 = load ptr, ptr %85, align 8, !tbaa !116
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 4
   %88 = load i32, ptr %87, align 4, !tbaa !75
@@ -4355,11 +4349,7 @@ define internal fastcc void @_ZN2cv4rgbdL19preparePyramidCloudERKSt6vectorINS_3M
 
 .preheader:                                       ; preds = %19
   %.not69 = icmp eq ptr %24, %25
-  br i1 %.not69, label %.loopexit, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %.preheader
-  %umax = tail call i64 @llvm.umax.i64(i64 %29, i64 1)
-  br label %.lr.ph
+  br i1 %.not69, label %.loopexit, label %.lr.ph
 
 30:                                               ; preds = %19
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #31
@@ -4406,11 +4396,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 43:                                               ; preds = %72
   %44 = add nuw i64 %.02566, 1
-  %exitcond.not = icmp eq i64 %44, %umax
+  %exitcond.not = icmp eq i64 %44, %29
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !177
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %43
-  %.02566 = phi i64 [ %44, %43 ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %43
+  %.02566 = phi i64 [ %44, %43 ], [ 0, %.preheader ]
   %45 = getelementptr inbounds nuw %"class.cv::Mat", ptr %15, i64 %.02566
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 64
   %47 = load ptr, ptr %46, align 8, !tbaa !116
@@ -4731,19 +4721,15 @@ define internal fastcc void @_ZN2cv4rgbdL19preparePyramidSobelERKSt6vectorINS_3M
   %18 = ptrtoint ptr %15 to i64
   %19 = ptrtoint ptr %13 to i64
   %20 = sub i64 %18, %19
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %22 = load ptr, ptr %21, align 8, !tbaa !64
-  %23 = load ptr, ptr %0, align 8, !tbaa !61
-  %24 = ptrtoint ptr %22 to i64
+  %21 = sdiv exact i64 %20, 96
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %23 = load ptr, ptr %22, align 8, !tbaa !64
+  %24 = load ptr, ptr %0, align 8, !tbaa !61
   %25 = ptrtoint ptr %23 to i64
-  %26 = sub i64 %24, %25
-  %.not = icmp eq i64 %20, %26
-  br i1 %.not, label %.lr.ph.preheader, label %28
-
-.lr.ph.preheader:                                 ; preds = %17
-  %27 = sdiv exact i64 %20, 96
-  %umax = tail call i64 @llvm.umax.i64(i64 %27, i64 1)
-  br label %.lr.ph
+  %26 = ptrtoint ptr %24 to i64
+  %27 = sub i64 %25, %26
+  %.not = icmp eq i64 %20, %27
+  br i1 %.not, label %.lr.ph, label %28
 
 28:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #31
@@ -4790,18 +4776,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 41:                                               ; preds = %70
   %42 = add nuw i64 %.02457, 1
-  %exitcond.not = icmp eq i64 %42, %umax
+  %exitcond.not = icmp eq i64 %42, %21
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !179
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %41
-  %.02457 = phi i64 [ %42, %41 ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %17, %41
+  %.02457 = phi i64 [ %42, %41 ], [ 0, %17 ]
   %43 = getelementptr inbounds nuw %"class.cv::Mat", ptr %13, i64 %.02457
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 64
   %45 = load ptr, ptr %44, align 8, !tbaa !116
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 4
   %47 = load i32, ptr %46, align 4, !tbaa !75
   %48 = load i32, ptr %45, align 4, !tbaa !75
-  %49 = getelementptr inbounds nuw %"class.cv::Mat", ptr %23, i64 %.02457, i32 10
+  %49 = getelementptr inbounds nuw %"class.cv::Mat", ptr %24, i64 %.02457, i32 10
   %50 = load ptr, ptr %49, align 8, !tbaa !116
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 4
   %52 = load i32, ptr %51, align 4, !tbaa !75
@@ -4991,19 +4977,15 @@ define internal fastcc void @_ZN2cv4rgbdL26preparePyramidTexturedMaskERKSt6vecto
   %21 = ptrtoint ptr %18 to i64
   %22 = ptrtoint ptr %16 to i64
   %23 = sub i64 %21, %22
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %25 = load ptr, ptr %24, align 8, !tbaa !64
-  %26 = load ptr, ptr %0, align 8, !tbaa !61
-  %27 = ptrtoint ptr %25 to i64
+  %24 = sdiv exact i64 %23, 96
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %26 = load ptr, ptr %25, align 8, !tbaa !64
+  %27 = load ptr, ptr %0, align 8, !tbaa !61
   %28 = ptrtoint ptr %26 to i64
-  %29 = sub i64 %27, %28
-  %.not = icmp eq i64 %23, %29
-  br i1 %.not, label %.lr.ph.preheader, label %31
-
-.lr.ph.preheader:                                 ; preds = %20
-  %30 = sdiv exact i64 %23, 96
-  %umax = tail call i64 @llvm.umax.i64(i64 %30, i64 1)
-  br label %.lr.ph
+  %29 = ptrtoint ptr %27 to i64
+  %30 = sub i64 %28, %29
+  %.not = icmp eq i64 %23, %30
+  br i1 %.not, label %.lr.ph, label %31
 
 31:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #31
@@ -5050,18 +5032,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 44:                                               ; preds = %73
   %45 = add nuw i64 %.06599, 1
-  %exitcond.not = icmp eq i64 %45, %umax
+  %exitcond.not = icmp eq i64 %45, %24
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !181
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %44
-  %.06599 = phi i64 [ %45, %44 ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %20, %44
+  %.06599 = phi i64 [ %45, %44 ], [ 0, %20 ]
   %46 = getelementptr inbounds nuw %"class.cv::Mat", ptr %16, i64 %.06599
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 64
   %48 = load ptr, ptr %47, align 8, !tbaa !116
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %50 = load i32, ptr %49, align 4, !tbaa !75
   %51 = load i32, ptr %48, align 4, !tbaa !75
-  %52 = getelementptr inbounds nuw %"class.cv::Mat", ptr %26, i64 %.06599, i32 10
+  %52 = getelementptr inbounds nuw %"class.cv::Mat", ptr %27, i64 %.06599, i32 10
   %53 = load ptr, ptr %52, align 8, !tbaa !116
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 4
   %55 = load i32, ptr %54, align 4, !tbaa !75
@@ -9169,16 +9151,12 @@ define internal fastcc void @_ZN2cv4rgbdL21preparePyramidNormalsERKNS_3MatERKSt6
   %16 = ptrtoint ptr %13 to i64
   %17 = ptrtoint ptr %11 to i64
   %18 = sub i64 %16, %17
-  %19 = ptrtoint ptr %.8.val to i64
-  %20 = ptrtoint ptr %.0.val to i64
-  %21 = sub i64 %19, %20
-  %.not = icmp eq i64 %18, %21
-  br i1 %.not, label %.lr.ph.preheader, label %23
-
-.lr.ph.preheader:                                 ; preds = %15
-  %22 = sdiv exact i64 %18, 96
-  %umax = tail call i64 @llvm.umax.i64(i64 %22, i64 1)
-  br label %.lr.ph
+  %19 = sdiv exact i64 %18, 96
+  %20 = ptrtoint ptr %.8.val to i64
+  %21 = ptrtoint ptr %.0.val to i64
+  %22 = sub i64 %20, %21
+  %.not = icmp eq i64 %18, %22
+  br i1 %.not, label %.lr.ph, label %23
 
 23:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #31
@@ -9225,11 +9203,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 36:                                               ; preds = %65
   %37 = add nuw i64 %.0424, 1
-  %exitcond.not = icmp eq i64 %37, %umax
+  %exitcond.not = icmp eq i64 %37, %19
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !282
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %36
-  %.0424 = phi i64 [ %37, %36 ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %15, %36
+  %.0424 = phi i64 [ %37, %36 ], [ 0, %15 ]
   %38 = getelementptr inbounds nuw %"class.cv::Mat", ptr %11, i64 %.0424
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 64
   %40 = load ptr, ptr %39, align 8, !tbaa !116
@@ -9467,19 +9445,15 @@ define internal fastcc void @_ZN2cv4rgbdL25preparePyramidNormalsMaskERKSt6vector
   %17 = ptrtoint ptr %14 to i64
   %18 = ptrtoint ptr %12 to i64
   %19 = sub i64 %17, %18
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %21 = load ptr, ptr %20, align 8, !tbaa !64
-  %22 = load ptr, ptr %1, align 8, !tbaa !61
-  %23 = ptrtoint ptr %21 to i64
+  %20 = sdiv exact i64 %19, 96
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %22 = load ptr, ptr %21, align 8, !tbaa !64
+  %23 = load ptr, ptr %1, align 8, !tbaa !61
   %24 = ptrtoint ptr %22 to i64
-  %25 = sub i64 %23, %24
-  %.not = icmp eq i64 %19, %25
-  br i1 %.not, label %.lr.ph.preheader, label %27
-
-.lr.ph.preheader:                                 ; preds = %16
-  %26 = sdiv exact i64 %19, 96
-  %umax = tail call i64 @llvm.umax.i64(i64 %26, i64 1)
-  br label %.lr.ph
+  %25 = ptrtoint ptr %23 to i64
+  %26 = sub i64 %24, %25
+  %.not = icmp eq i64 %19, %26
+  br i1 %.not, label %.lr.ph, label %27
 
 27:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #31
@@ -9526,18 +9500,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 40:                                               ; preds = %70
   %41 = add nuw i64 %.05178, 1
-  %exitcond.not = icmp eq i64 %41, %umax
+  %exitcond.not = icmp eq i64 %41, %20
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !286
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %40
-  %.05178 = phi i64 [ %41, %40 ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %16, %40
+  %.05178 = phi i64 [ %41, %40 ], [ 0, %16 ]
   %42 = getelementptr inbounds nuw %"class.cv::Mat", ptr %12, i64 %.05178
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 64
   %44 = load ptr, ptr %43, align 8, !tbaa !116
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 4
   %46 = load i32, ptr %45, align 4, !tbaa !75
   %47 = load i32, ptr %44, align 4, !tbaa !75
-  %48 = getelementptr inbounds nuw %"class.cv::Mat", ptr %22, i64 %.05178
+  %48 = getelementptr inbounds nuw %"class.cv::Mat", ptr %23, i64 %.05178
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 64
   %50 = load ptr, ptr %49, align 8, !tbaa !116
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 4

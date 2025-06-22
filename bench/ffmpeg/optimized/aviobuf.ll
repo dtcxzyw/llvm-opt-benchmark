@@ -4388,57 +4388,57 @@ define void @ffio_write_lines(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   %15 = icmp sgt i32 %.035, 0
   br i1 %15, label %.preheader, label %._crit_edge
 
-.preheader:                                       ; preds = %14, %35
-  %.03342 = phi ptr [ %.134, %35 ], [ %1, %14 ]
-  %.13641 = phi i32 [ %.2, %35 ], [ %.035, %14 ]
-  %umax = zext nneg i32 %.13641 to i64
-  br label %16
+.preheader:                                       ; preds = %14, %36
+  %.03342 = phi ptr [ %.134, %36 ], [ %1, %14 ]
+  %.13641 = phi i32 [ %.2, %36 ], [ %.035, %14 ]
+  %16 = zext nneg i32 %.13641 to i64
+  br label %17
 
-16:                                               ; preds = %.preheader, %19
-  %.03240 = phi i64 [ 0, %.preheader ], [ %20, %19 ]
-  %17 = getelementptr inbounds nuw i8, ptr %.03342, i64 %.03240
-  %18 = load i8, ptr %17, align 1, !tbaa !33
-  switch i8 %18, label %19 [
-    i8 13, label %21
-    i8 10, label %21
+17:                                               ; preds = %.preheader, %20
+  %.03240 = phi i64 [ 0, %.preheader ], [ %21, %20 ]
+  %18 = getelementptr inbounds nuw i8, ptr %.03342, i64 %.03240
+  %19 = load i8, ptr %18, align 1, !tbaa !33
+  switch i8 %19, label %20 [
+    i8 13, label %22
+    i8 10, label %22
   ]
 
-19:                                               ; preds = %16
-  %20 = add nuw nsw i64 %.03240, 1
-  %exitcond.not = icmp eq i64 %20, %umax
-  br i1 %exitcond.not, label %21, label %16, !llvm.loop !68
+20:                                               ; preds = %17
+  %21 = add nuw nsw i64 %.03240, 1
+  %exitcond.not = icmp eq i64 %21, %16
+  br i1 %exitcond.not, label %22, label %17, !llvm.loop !68
 
-21:                                               ; preds = %16, %16, %19
-  %.032.lcssa = phi i64 [ %.03240, %16 ], [ %.03240, %16 ], [ %umax, %19 ]
-  %22 = trunc i64 %.032.lcssa to i32
-  tail call void @avio_write(ptr noundef %0, ptr noundef nonnull %.03342, i32 noundef %22)
+22:                                               ; preds = %17, %17, %20
+  %.032.lcssa = phi i64 [ %.03240, %17 ], [ %.03240, %17 ], [ %16, %20 ]
+  %23 = trunc i64 %.032.lcssa to i32
+  tail call void @avio_write(ptr noundef %0, ptr noundef nonnull %.03342, i32 noundef %23)
   tail call void @avio_write(ptr noundef %0, ptr noundef nonnull %spec.store.select, i32 noundef %9)
-  %23 = add nuw i64 %.032.lcssa, 1
-  %24 = getelementptr inbounds nuw i8, ptr %.03342, i64 %23
-  %25 = trunc i64 %23 to i32
-  %26 = sub i32 %.13641, %25
-  %27 = icmp sgt i32 %26, 0
-  %28 = icmp eq i8 %18, 13
-  %or.cond5 = and i1 %27, %28
-  br i1 %or.cond5, label %29, label %35
+  %24 = add nuw i64 %.032.lcssa, 1
+  %25 = getelementptr inbounds nuw i8, ptr %.03342, i64 %24
+  %26 = trunc i64 %24 to i32
+  %27 = sub i32 %.13641, %26
+  %28 = icmp sgt i32 %27, 0
+  %29 = icmp eq i8 %19, 13
+  %or.cond5 = and i1 %28, %29
+  br i1 %or.cond5, label %30, label %36
 
-29:                                               ; preds = %21
-  %30 = load i8, ptr %24, align 1, !tbaa !33
-  %31 = icmp eq i8 %30, 10
-  br i1 %31, label %32, label %35
+30:                                               ; preds = %22
+  %31 = load i8, ptr %25, align 1, !tbaa !33
+  %32 = icmp eq i8 %31, 10
+  br i1 %32, label %33, label %36
 
-32:                                               ; preds = %29
-  %33 = getelementptr inbounds nuw i8, ptr %24, i64 1
-  %34 = add nsw i32 %26, -1
-  br label %35
+33:                                               ; preds = %30
+  %34 = getelementptr inbounds nuw i8, ptr %25, i64 1
+  %35 = add nsw i32 %27, -1
+  br label %36
 
-35:                                               ; preds = %32, %29, %21
-  %.2 = phi i32 [ %34, %32 ], [ %26, %29 ], [ %26, %21 ]
-  %.134 = phi ptr [ %33, %32 ], [ %24, %29 ], [ %24, %21 ]
-  %36 = icmp sgt i32 %.2, 0
-  br i1 %36, label %.preheader, label %._crit_edge, !llvm.loop !69
+36:                                               ; preds = %33, %30, %22
+  %.2 = phi i32 [ %35, %33 ], [ %27, %30 ], [ %27, %22 ]
+  %.134 = phi ptr [ %34, %33 ], [ %25, %30 ], [ %25, %22 ]
+  %37 = icmp sgt i32 %.2, 0
+  br i1 %37, label %.preheader, label %._crit_edge, !llvm.loop !69
 
-._crit_edge:                                      ; preds = %35, %14
+._crit_edge:                                      ; preds = %36, %14
   ret void
 }
 

@@ -965,7 +965,6 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %13, %15, %16, %18
   %33 = sub i64 %31, %32
   %34 = ashr exact i64 %33, 2
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %umax = tail call i64 @llvm.umax.i64(i64 %26, i64 1)
   br label %36
 
 36:                                               ; preds = %.lr.ph70, %._crit_edge
@@ -1119,7 +1118,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %13, %15, %16, %18
 
 ._crit_edge:                                      ; preds = %100, %.split49.us, %.split.us.us, %80, %.thread.us.us, %42
   %103 = add nuw i64 %.04669, 1
-  %exitcond.not = icmp eq i64 %103, %umax
+  %exitcond.not = icmp eq i64 %103, %26
   br i1 %exitcond.not, label %.critedge, label %36, !llvm.loop !141
 
 .critedge:                                        ; preds = %._crit_edge, %36, %_ZNSt6vectorIiSaIiEE6resizeEm.exit
@@ -1325,7 +1324,6 @@ _ZN8rawspeed15BitStreamerJPEGCI2NS_11BitStreamerIS0_NS_39BitStreamerForwardSeque
   store i64 2199023256064, ptr %3, align 8
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %umax = tail call i32 @llvm.umax.i32(i32 %37, i32 1)
   br label %47
 
 40:                                               ; preds = %50
@@ -1357,7 +1355,7 @@ _ZN8rawspeed15BitStreamerJPEGCI2NS_11BitStreamerIS0_NS_39BitStreamerForwardSeque
 50:                                               ; preds = %66
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #20
   %51 = add nuw nsw i32 %.052230, 1
-  %exitcond254.not = icmp eq i32 %51, %umax
+  %exitcond254.not = icmp eq i32 %51, %37
   br i1 %exitcond254.not, label %40, label %47, !llvm.loop !164
 
 52:                                               ; preds = %47, %66
@@ -2377,7 +2375,6 @@ _ZSt13adjacent_findIN9__gnu_cxx17__normal_iteratorIPKN8rawspeed18AbstractPrefixC
   %25 = ptrtoint ptr %12 to i64
   %26 = sub i64 %24, %25
   %27 = ashr exact i64 %26, 2
-  %umax = tail call i64 @llvm.umax.i64(i64 %27, i64 1)
   br label %.preheader
 
 .lr.ph:                                           ; preds = %1, %32
@@ -2429,7 +2426,7 @@ _ZSt13adjacent_findIN9__gnu_cxx17__normal_iteratorIPKN8rawspeed18AbstractPrefixC
 
 ._crit_edge28:                                    ; preds = %44, %.preheader
   %46 = add nuw i64 %.01729, 1
-  %exitcond34.not = icmp eq i64 %46, %umax
+  %exitcond34.not = icmp eq i64 %46, %27
   br i1 %exitcond34.not, label %._crit_edge30, label %.preheader, !llvm.loop !179
 
 47:                                               ; preds = %.lr.ph27, %44
@@ -3568,9 +3565,6 @@ declare i64 @llvm.umin.i64(i64, i64) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #19
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #19
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

@@ -1298,13 +1298,10 @@ _ZNSt6vectorIjSaIjEE13_M_insert_auxIjEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEOT
   unreachable
 
 _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i: ; preds = %273
-  %.sroa.speculated.i.i.i = call i64 @llvm.umax.i64(i64 %189, i64 1)
-  %276 = add nsw i64 %.sroa.speculated.i.i.i, %189
+  %276 = ashr exact i64 %188, 1
   %277 = icmp ult i64 %276, %189
   %278 = call i64 @llvm.umin.i64(i64 %276, i64 2305843009213693951)
   %279 = select i1 %277, i64 2305843009213693951, i64 %278
-  %.not.i.i.i = icmp ne i64 %279, 0
-  call void @llvm.assume(i1 %.not.i.i.i)
   %280 = shl nuw nsw i64 %279, 2
   %281 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %280) #29
           to label %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit.i.i unwind label %328

@@ -5543,16 +5543,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %53 = load ptr, ptr %52, align 8, !tbaa !110
   %54 = load ptr, ptr %2, align 8, !tbaa !107
-  %55 = icmp eq ptr %53, %54
-  br i1 %55, label %60, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %51
-  %56 = ptrtoint ptr %53 to i64
-  %57 = ptrtoint ptr %54 to i64
-  %58 = sub i64 %56, %57
-  %59 = sdiv exact i64 %58, 68
-  %umax = call i64 @llvm.umax.i64(i64 %59, i64 1)
-  br label %.lr.ph
+  %55 = ptrtoint ptr %53 to i64
+  %56 = ptrtoint ptr %54 to i64
+  %57 = sub i64 %55, %56
+  %58 = sdiv exact i64 %57, 68
+  %59 = icmp eq ptr %53, %54
+  br i1 %59, label %60, label %.lr.ph
 
 60:                                               ; preds = %51
   %61 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.9, i64 noundef 29)
@@ -5610,10 +5606,10 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i: ; preds = %.noexc156, %71
   %.pre237 = add nsw i32 %.199, 1
   br i1 %5, label %_ZNSt6vectorIN2cv15line_descriptor16BinaryDescriptor16OctaveSingleLineESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i, label %87
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.096189 = phi i32 [ %spec.select, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.098188 = phi i32 [ %.199, %.lr.ph ], [ -1, %.lr.ph.preheader ]
-  %.0100187 = phi i64 [ %86, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %51, %.lr.ph
+  %.096189 = phi i32 [ %spec.select, %.lr.ph ], [ 0, %51 ]
+  %.098188 = phi i32 [ %.199, %.lr.ph ], [ -1, %51 ]
+  %.0100187 = phi i64 [ %86, %.lr.ph ], [ 0, %51 ]
   %81 = getelementptr inbounds nuw %"struct.cv::line_descriptor::KeyLine", ptr %54, i64 %.0100187
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 4
   %83 = load i32, ptr %82, align 4, !tbaa !261
@@ -5622,7 +5618,7 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i: ; preds = %.noexc156, %71
   %85 = load i32, ptr %84, align 4, !tbaa !262
   %.199 = call i32 @llvm.smax.i32(i32 %85, i32 %.098188)
   %86 = add nuw i64 %.0100187, 1
-  %exitcond.not = icmp eq i64 %86, %umax
+  %exitcond.not = icmp eq i64 %86, %58
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !263
 
 87:                                               ; preds = %._crit_edge

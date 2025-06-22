@@ -5505,7 +5505,6 @@ define void @_ZN7rocksdb11clock_cache19AutoHyperClockTableD2Ev(ptr noundef nonnu
 .critedge:                                        ; preds = %14, %17, %1
   %.0.lcssa = phi i64 [ %7, %1 ], [ %18, %17 ], [ %.010, %14 ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %umax = tail call i64 @llvm.umax.i64(i64 %.0.lcssa, i64 1)
   br label %22
 
 21:                                               ; preds = %_ZNK7rocksdb11clock_cache20ClockHandleBasicData8FreeDataEPNS_15MemoryAllocatorE.exit
@@ -5536,7 +5535,7 @@ define void @_ZN7rocksdb11clock_cache19AutoHyperClockTableD2Ev(ptr noundef nonnu
 
 _ZNK7rocksdb11clock_cache20ClockHandleBasicData8FreeDataEPNS_15MemoryAllocatorE.exit: ; preds = %27, %31, %22
   %34 = add nuw i64 %.0915, 1
-  %exitcond.not = icmp eq i64 %34, %umax
+  %exitcond.not = icmp eq i64 %34, %.0.lcssa
   br i1 %exitcond.not, label %21, label %22, !llvm.loop !216
 
 35:                                               ; preds = %31

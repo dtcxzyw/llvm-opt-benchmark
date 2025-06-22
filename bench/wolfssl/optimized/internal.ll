@@ -15399,7 +15399,7 @@ SanityCheckCipherText.exit.i:                     ; preds = %262
 .lr.ph.i:                                         ; preds = %277
   %290 = xor i32 %288, -1
   %291 = zext i8 %287 to i64
-  %umax = call i64 @llvm.umin.i64(i64 %285, i64 255)
+  %invariant.umin.i = call i64 @llvm.umin.i64(i64 %285, i64 255)
   br label %292
 
 292:                                              ; preds = %292, %.lr.ph.i
@@ -15425,7 +15425,7 @@ SanityCheckCipherText.exit.i:                     ; preds = %262
   %308 = and i8 %307, %293
   %309 = or i8 %308, %.0295650.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.i, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.i, %invariant.umin.i
   br i1 %exitcond.not, label %._crit_edge.i, label %292, !llvm.loop !375
 
 ._crit_edge.i:                                    ; preds = %292

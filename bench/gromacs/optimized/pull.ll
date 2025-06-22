@@ -3824,7 +3824,6 @@ define void @_Z15pull_constraintP6pull_tN3gmx8ArrayRefIKfEERK5t_pbcPK9t_commrecd
   %99 = ptrtoint ptr %97 to i64
   %100 = sub i64 %98, %99
   %101 = sdiv exact i64 %100, 272
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %101, i64 1)
   br label %.lr.ph.i
 
 .preheader443.i:                                  ; preds = %.lr.ph.i, %69
@@ -3848,7 +3847,7 @@ define void @_Z15pull_constraintP6pull_tN3gmx8ArrayRefIKfEERK5t_pbcPK9t_commrecd
   %112 = getelementptr inbounds nuw i8, ptr %105, i64 16
   store double %111, ptr %112, align 8, !tbaa !78
   %113 = add nuw i64 %.0253481.i, 1
-  %exitcond.not.i = icmp eq i64 %113, %umax.i
+  %exitcond.not.i = icmp eq i64 %113, %101
   br i1 %exitcond.not.i, label %.preheader443.i, label %.lr.ph.i, !llvm.loop !226
 
 .preheader440.i:                                  ; preds = %191, %.preheader443.i
@@ -5196,16 +5195,15 @@ _ZL21low_get_pull_coord_drRK6pull_tRK17pull_coord_work_tRK5t_pbcPKdS9_iidPd.exit
   %.lcssa.i = phi ptr [ %810, %806 ], [ %949, %.loopexit437.i ]
   %811 = load ptr, ptr %72, align 8, !tbaa !161
   %812 = load ptr, ptr %71, align 8, !tbaa !86
-  %.not522.i = icmp eq ptr %811, %812
-  br i1 %.not522.i, label %_ZL13do_constraintP6pull_tRK5t_pbcN3gmx8ArrayRefINS4_11BasicVectorIfEEEES8_bPA3_fdd.exit, label %.lr.ph516.i
-
-.lr.ph516.i:                                      ; preds = %.preheader434.i
   %813 = ptrtoint ptr %811 to i64
   %814 = ptrtoint ptr %812 to i64
   %815 = sub i64 %813, %814
   %816 = sdiv exact i64 %815, 488
+  %.not522.i = icmp eq ptr %811, %812
+  br i1 %.not522.i, label %_ZL13do_constraintP6pull_tRK5t_pbcN3gmx8ArrayRefINS4_11BasicVectorIfEEEES8_bPA3_fdd.exit, label %.lr.ph516.i
+
+.lr.ph516.i:                                      ; preds = %.preheader434.i
   %.not274.i = icmp eq ptr %10, null
-  %umax599.i = call i64 @llvm.umax.i64(i64 %816, i64 1)
   br i1 %.not274.i, label %.lr.ph516.split.us.i, label %.lr.ph516.split.i
 
 .lr.ph516.split.us.i:                             ; preds = %.lr.ph516.i, %840
@@ -5241,7 +5239,7 @@ _ZL21low_get_pull_coord_drRK6pull_tRK17pull_coord_work_tRK5t_pbcPKdS9_iidPd.exit
 
 840:                                              ; preds = %819, %.lr.ph516.split.us.i
   %841 = add nuw i64 %.0238515.us.i, 1
-  %exitcond600.not.i = icmp eq i64 %841, %umax599.i
+  %exitcond600.not.i = icmp eq i64 %841, %816
   br i1 %exitcond600.not.i, label %_ZL13do_constraintP6pull_tRK5t_pbcN3gmx8ArrayRefINS4_11BasicVectorIfEEEES8_bPA3_fdd.exit, label %.lr.ph516.split.us.i, !llvm.loop !236
 
 .lr.ph511.i:                                      ; preds = %806, %.loopexit437.i
@@ -5513,7 +5511,7 @@ _ZL21low_get_pull_coord_drRK6pull_tRK17pull_coord_work_tRK5t_pbcPKdS9_iidPd.exit
 
 .loopexit.i:                                      ; preds = %1005, %957, %.lr.ph516.split.i
   %1006 = add nuw i64 %.0238515.i, 1
-  %exitcond598.not.i = icmp eq i64 %1006, %umax599.i
+  %exitcond598.not.i = icmp eq i64 %1006, %816
   br i1 %exitcond598.not.i, label %_ZL13do_constraintP6pull_tRK5t_pbcN3gmx8ArrayRefINS4_11BasicVectorIfEEEES8_bPA3_fdd.exit, label %.lr.ph516.split.i, !llvm.loop !236
 
 1007:                                             ; preds = %804, %665, %189

@@ -237,15 +237,11 @@ if.end6:                                          ; preds = %if.end.i.i.i.i, %la
 
 for.cond.preheader:                               ; preds = %if.end6
   %cmp14.not25 = icmp eq ptr %13, %14
-  br i1 %cmp14.not25, label %return, label %for.body.preheader
+  br i1 %cmp14.not25, label %return, label %for.body
 
-for.body.preheader:                               ; preds = %for.cond.preheader
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
-  br label %for.body
-
-for.body:                                         ; preds = %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN5boost10shared_ptrIN8QuantLib11DefaultTypeEEESt6vectorIS6_SaIS6_EEEENS4_12_GLOBAL__N_19points_toEET_SF_SF_T0_.exit, %for.body.preheader
-  %17 = phi ptr [ %15, %for.body.preheader ], [ %36, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN5boost10shared_ptrIN8QuantLib11DefaultTypeEEESt6vectorIS6_SaIS6_EEEENS4_12_GLOBAL__N_19points_toEET_SF_SF_T0_.exit ]
-  %i.026 = phi i64 [ 0, %for.body.preheader ], [ %inc, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN5boost10shared_ptrIN8QuantLib11DefaultTypeEEESt6vectorIS6_SaIS6_EEEENS4_12_GLOBAL__N_19points_toEET_SF_SF_T0_.exit ]
+for.body:                                         ; preds = %for.cond.preheader, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN5boost10shared_ptrIN8QuantLib11DefaultTypeEEESt6vectorIS6_SaIS6_EEEENS4_12_GLOBAL__N_19points_toEET_SF_SF_T0_.exit
+  %17 = phi ptr [ %36, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN5boost10shared_ptrIN8QuantLib11DefaultTypeEEESt6vectorIS6_SaIS6_EEEENS4_12_GLOBAL__N_19points_toEET_SF_SF_T0_.exit ], [ %15, %for.cond.preheader ]
+  %i.026 = phi i64 [ %inc, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN5boost10shared_ptrIN8QuantLib11DefaultTypeEEESt6vectorIS6_SaIS6_EEEENS4_12_GLOBAL__N_19points_toEET_SF_SF_T0_.exit ], [ 0, %for.cond.preheader ]
   %18 = load ptr, ptr %lhs, align 8, !tbaa !25
   %19 = load ptr, ptr %rhs, align 8, !tbaa !24
   %add.ptr.i = getelementptr inbounds nuw %"class.boost::shared_ptr.0", ptr %19, i64 %i.026
@@ -414,7 +410,7 @@ _ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN5boost10shared_ptrIN8QuantLib11De
   %36 = load ptr, ptr %_M_finish.i14, align 8, !tbaa !25
   %cmp.i.not = icmp ne ptr %retval.sroa.0.0.in.sroa.speculated.i.i.i, %36
   %inc = add nuw i64 %i.026, 1
-  %exitcond.not = icmp ne i64 %inc, %umax
+  %exitcond.not = icmp ne i64 %inc, %sub.ptr.div.i
   %or.cond.not = select i1 %cmp.i.not, i1 %exitcond.not, i1 false
   br i1 %or.cond.not, label %for.body, label %return, !llvm.loop !30
 
@@ -487,11 +483,7 @@ entry:
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
   %cmp47.not = icmp eq ptr %6, %7
-  br i1 %cmp47.not, label %for.cond.cleanup, label %for.body.preheader
-
-for.body.preheader:                               ; preds = %entry
-  %umax = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
-  br label %for.body
+  br i1 %cmp47.not, label %for.cond.cleanup, label %for.body
 
 for.cond.cleanup.loopexit:                        ; preds = %invoke.cont8
   %.pre = load i64, ptr %_M_node_count.i.i.i.i.i, align 8, !tbaa !40
@@ -502,8 +494,8 @@ for.cond.cleanup:                                 ; preds = %for.cond.cleanup.lo
   %cmp11 = icmp eq i64 %8, %sub.ptr.div.i
   br i1 %cmp11, label %do.end, label %if.then
 
-for.body:                                         ; preds = %for.body.preheader, %invoke.cont8
-  %i.048 = phi i64 [ %inc, %invoke.cont8 ], [ 0, %for.body.preheader ]
+for.body:                                         ; preds = %entry, %invoke.cont8
+  %i.048 = phi i64 [ %inc, %invoke.cont8 ], [ 0, %entry ]
   %9 = load ptr, ptr %this, align 8, !tbaa !24
   %add.ptr.i = getelementptr inbounds nuw %"class.boost::shared_ptr.0", ptr %9, i64 %i.048
   %10 = load ptr, ptr %add.ptr.i, align 8, !tbaa !26
@@ -585,7 +577,7 @@ call5.i.i.i.i.i.i.i.i.noexc:                      ; preds = %_ZNSt8_Rb_treeIN8Qu
 
 invoke.cont8:                                     ; preds = %call5.i.i.i.i.i.i.i.i.noexc, %if.end12.i.i.i
   %inc = add nuw i64 %i.048, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i
   br i1 %exitcond.not, label %for.cond.cleanup.loopexit, label %for.body, !llvm.loop !47
 
 lpad:                                             ; preds = %_ZNSt8_Rb_treeIN8QuantLib13AtomicDefault4TypeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit.i.i, %cond.false.i

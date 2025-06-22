@@ -2699,10 +2699,10 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.i.i: ; preds = %39
 _ZN10ll_printer12display_nameEP9func_decl.exit:   ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.i.i, %42, %44
   %49 = load ptr, ptr %32, align 8, !tbaa !52
   tail call void @_ZN10ll_printer14display_paramsEP4decl(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %49)
+  %invariant.umin = tail call i32 @llvm.umin.i32(i32 %26, i32 16)
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %51 = add i32 %2, -1
-  %umax = tail call i32 @llvm.umin.i32(i32 %26, i32 16)
-  %wide.trip.count = zext nneg i32 %umax to i64
+  %wide.trip.count = zext nneg i32 %invariant.umin to i64
   br label %54
 
 52:                                               ; preds = %54

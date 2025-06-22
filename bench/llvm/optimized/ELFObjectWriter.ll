@@ -6849,13 +6849,10 @@ _ZN12_GLOBAL__N_117SymbolTableWriter17createSymtabShndxEv.exit.thread: ; preds =
 
 _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i: ; preds = %41
   %47 = ashr exact i64 %44, 2
-  %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %47, i64 1)
-  %48 = add nsw i64 %.sroa.speculated.i.i.i, %47
+  %48 = ashr exact i64 %44, 1
   %49 = icmp ult i64 %48, %47
   %50 = tail call i64 @llvm.umin.i64(i64 %48, i64 2305843009213693951)
   %51 = select i1 %49, i64 2305843009213693951, i64 %50
-  %.not.i.i.i = icmp ne i64 %51, 0
-  tail call void @llvm.assume(i1 %.not.i.i.i)
   %52 = shl nuw nsw i64 %51, 2
   %53 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %52) #21
   %54 = getelementptr inbounds i8, ptr %53, i64 %44
@@ -6908,13 +6905,10 @@ _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIP
 
 _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %64
   %70 = ashr exact i64 %67, 2
-  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %70, i64 1)
-  %71 = add nsw i64 %.sroa.speculated.i.i.i.i, %70
+  %71 = ashr exact i64 %67, 1
   %72 = icmp ult i64 %71, %70
   %73 = tail call i64 @llvm.umin.i64(i64 %71, i64 2305843009213693951)
   %74 = select i1 %72, i64 2305843009213693951, i64 %73
-  %.not.i.i.i.i = icmp ne i64 %74, 0
-  tail call void @llvm.assume(i1 %.not.i.i.i.i)
   %75 = shl nuw nsw i64 %74, 2
   %76 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %75) #21
   %77 = getelementptr inbounds i8, ptr %76, i64 %67

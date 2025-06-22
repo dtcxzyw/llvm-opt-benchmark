@@ -93,9 +93,8 @@ _ZL27defineSavedRegisterLocationPhij.exit:        ; preds = %17, %16
 
 .lr.ph.preheader.i:                               ; preds = %_ZL27defineSavedRegisterLocationPhij.exit
   %25 = sub i64 %24, %22
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %25, i64 1)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %storemerge, i8 0, i64 %umax.i, i1 false), !tbaa !18
-  %scevgep.i = getelementptr i8, ptr %storemerge, i64 %umax.i
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %storemerge, i8 0, i64 %25, i1 false), !tbaa !18
+  %scevgep.i = getelementptr i8, ptr %storemerge, i64 %25
   %.pre = ptrtoint ptr %scevgep.i to i64
   %.pre14 = sub i64 %.pre, %21
   br label %_ZL13alignPositionPhS_.exit
@@ -232,9 +231,8 @@ define dso_local void @_ZN4Luau7CodeGen19UnwindBuilderDwarf214finishFunctionEjj(
 
 .lr.ph.preheader.i:                               ; preds = %3
   %17 = sub i64 %16, %14
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %17, i64 1)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %11, i8 0, i64 %umax.i, i1 false), !tbaa !18
-  %scevgep.i = getelementptr i8, ptr %11, i64 %umax.i
+  tail call void @llvm.memset.p0.i64(ptr align 1 %11, i8 0, i64 %17, i1 false), !tbaa !18
+  %scevgep.i = getelementptr i8, ptr %11, i64 %17
   %.pre = load ptr, ptr %8, align 8, !tbaa !26
   %.pre2 = ptrtoint ptr %scevgep.i to i64
   %.pre3 = ptrtoint ptr %.pre to i64

@@ -1438,7 +1438,7 @@ encrypt_xor_block.exit363.i:                      ; preds = %636
   %.val90121.i386.i = phi <2 x i64> [ %649, %.lr.ph586.preheader.i ], [ %622, %encrypt_xor_block.exit363.i ]
   %.val84120.i385.i = phi <16 x i8> [ %.val84120.i385.i.pre, %.lr.ph586.preheader.i ], [ %646, %encrypt_xor_block.exit363.i ]
   %650 = getelementptr i8, ptr %0, i64 %.6236.lcssa.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %650, ptr noundef nonnull align 16 dereferenceable(1) %16, i64 %626, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %650, ptr nonnull align 16 %16, i64 %626, i1 false)
   %651 = getelementptr inbounds nuw i8, ptr %9, i64 240
   %652 = getelementptr i8, ptr %9, i64 256
   %.val83.pre.i381.i = load <2 x i64>, ptr %19, align 16
@@ -2652,7 +2652,7 @@ encrypt.exit.i:                                   ; preds = %564
   %625 = xor <2 x i64> %624, %623
   store <2 x i64> %625, ptr %13, align 16
   %626 = getelementptr i8, ptr %0, i64 %.4180.lcssa.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %626, ptr noundef nonnull align 16 dereferenceable(1) %13, i64 %578, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %626, ptr nonnull align 16 %13, i64 %578, i1 false)
   br label %aes_gcm_decrypt_generic.exit
 
 ._crit_edge.i321.thread.i:                        ; preds = %encrypt.exit.i

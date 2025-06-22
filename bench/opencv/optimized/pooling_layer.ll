@@ -4610,7 +4610,6 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.thread.i.i: ; preds = %_ZNSt6vec
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %85 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %86 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %umax = tail call i64 @llvm.umax.i64(i64 %80, i64 1)
   br label %87
 
 87:                                               ; preds = %.lr.ph, %_ZNSt6vectorImSaImEE9push_backEOm.exit
@@ -4727,7 +4726,7 @@ _ZNSt6vectorImSaImEE9push_backEOm.exit:           ; preds = %_ZNSt6vectorImSaImE
   %145 = phi ptr [ %141, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i ], [ %124, %123 ]
   %146 = phi ptr [ %137, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i ], [ %90, %123 ]
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %80
   br i1 %exitcond.not, label %_ZNSt6vectorImSaImEEaSERKS1_.exit, label %87, !llvm.loop !122
 
 .loopexit234:                                     ; preds = %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i.i
@@ -5793,19 +5792,18 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEiSt10multi
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !121
   %24 = load ptr, ptr %2, align 8, !tbaa !116
-  %.not = icmp eq ptr %23, %24
-  br i1 %.not, label %._crit_edge, label %.lr.ph
-
-.lr.ph:                                           ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEiSt10multipliesImEET0_T_SB_SA_T1_.exit
   %25 = ptrtoint ptr %23 to i64
   %26 = ptrtoint ptr %24 to i64
   %27 = sub i64 %25, %26
   %28 = sdiv exact i64 %27, 24
+  %.not = icmp eq ptr %23, %24
+  br i1 %.not, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEiSt10multipliesImEET0_T_SB_SA_T1_.exit
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %30 = load i32, ptr %29, align 4, !tbaa !75
   %31 = icmp eq i32 %30, 0
   %32 = add nsw i64 %.0.lcssa.i, 1
-  %umax53 = tail call i64 @llvm.umax.i64(i64 %28, i64 1)
   br i1 %31, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %52
@@ -5863,7 +5861,7 @@ _ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit.us: ; preds = %_ZN2
 52:                                               ; preds = %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit.us, %.lr.ph.split.us
   %.1.us = phi i64 [ %51, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit.us ], [ %.01640.us, %.lr.ph.split.us ]
   %indvars.iv.next51 = add nuw i64 %indvars.iv50, 1
-  %exitcond54.not = icmp eq i64 %indvars.iv.next51, %umax53
+  %exitcond54.not = icmp eq i64 %indvars.iv.next51, %28
   br i1 %exitcond54.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !131
 
 ._crit_edge:                                      ; preds = %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit33, %52, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEiSt10multipliesImEET0_T_SB_SA_T1_.exit
@@ -5924,7 +5922,7 @@ _ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit33: ; preds = %_ZN2c
   %68 = mul nsw i64 %32, %.024.i32
   %69 = add i64 %68, %.01640
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax53
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %28
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !131
 }
 

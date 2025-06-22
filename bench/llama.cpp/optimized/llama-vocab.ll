@@ -17193,11 +17193,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 .preheader:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %.not = icmp eq ptr %36, %37
-  br i1 %.not, label %.loopexit, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %.preheader
-  %umax = call i64 @llvm.umax.i64(i64 %41, i64 1)
-  br label %.lr.ph
+  br i1 %.not, label %.loopexit, label %.lr.ph
 
 44:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %45 = sub nsw i32 0, %42
@@ -17227,14 +17223,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit21: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #29
   resume { ptr, i32 } %47
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.022 = phi i64 [ %57, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %.lr.ph
+  %.022 = phi i64 [ %57, %.lr.ph ], [ 0, %.preheader ]
   %54 = getelementptr inbounds nuw i32, ptr %37, i64 %.022
   %55 = load i32, ptr %54, align 4, !tbaa !69
   %56 = getelementptr inbounds nuw i32, ptr %3, i64 %.022
   store i32 %55, ptr %56, align 4, !tbaa !69
   %57 = add nuw i64 %.022, 1
-  %exitcond.not = icmp eq i64 %57, %umax
+  %exitcond.not = icmp eq i64 %57, %41
   br i1 %exitcond.not, label %.loopexit.thread, label %.lr.ph, !llvm.loop !349
 
 .loopexit:                                        ; preds = %.preheader, %44

@@ -2376,15 +2376,11 @@ _ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EES6_.exit: ; pr
   %181 = sub i64 %180, %179
   %182 = ashr exact i64 %181, 2
   %.not417 = icmp eq i64 %179, %180
-  br i1 %.not417, label %._crit_edge398, label %.lr.ph397.preheader
-
-.lr.ph397.preheader:                              ; preds = %_ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EES6_.exit
-  %umax = call i64 @llvm.umax.i64(i64 %182, i64 1)
-  br label %.lr.ph397
+  br i1 %.not417, label %._crit_edge398, label %.lr.ph397
 
 .loopexit:                                        ; preds = %_ZN4absl12lts_2024011618container_internal19btree_set_containerINS1_5btreeINS1_10set_paramsISt4pairIiiESt4lessIS6_ESaIS6_ELi256ELb0EEEEEE7emplaceIJRiSE_EEES5_INS1_14btree_iteratorINS1_10btree_nodeISA_EERKS6_PSI_EEbEDpOT_.exit114, %.lr.ph397
   %indvars.iv.next449 = add nuw i64 %indvars.iv448, 1
-  %exitcond457.not = icmp eq i64 %indvars.iv.next455, %umax
+  %exitcond457.not = icmp eq i64 %indvars.iv.next455, %182
   br i1 %exitcond457.not, label %._crit_edge398, label %.lr.ph397, !llvm.loop !194
 
 ._crit_edge398:                                   ; preds = %.loopexit, %_ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EES6_.exit
@@ -2402,9 +2398,9 @@ _ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EES6_.exit: ; pr
           cleanup
   br label %.body112
 
-.lr.ph397:                                        ; preds = %.lr.ph397.preheader, %.loopexit
-  %indvars.iv454 = phi i64 [ 0, %.lr.ph397.preheader ], [ %indvars.iv.next455, %.loopexit ]
-  %indvars.iv448 = phi i64 [ 1, %.lr.ph397.preheader ], [ %indvars.iv.next449, %.loopexit ]
+.lr.ph397:                                        ; preds = %_ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EES6_.exit, %.loopexit
+  %indvars.iv454 = phi i64 [ %indvars.iv.next455, %.loopexit ], [ 0, %_ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EES6_.exit ]
+  %indvars.iv448 = phi i64 [ %indvars.iv.next449, %.loopexit ], [ 1, %_ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EES6_.exit ]
   %indvars.iv.next455 = add nuw nsw i64 %indvars.iv454, 1
   %188 = icmp ugt i64 %182, %indvars.iv.next455
   br i1 %188, label %.lr.ph395, label %.loopexit
@@ -7793,7 +7789,6 @@ define linkonce_odr hidden void @_ZN5ceres8internal27SchurEliminatorForOneFBlock
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %23 = load ptr, ptr %22, align 8, !tbaa !401
   %24 = load ptr, ptr %17, align 8, !tbaa !57
-  %umax = tail call i64 @llvm.umax.i64(i64 %16, i64 1)
   %.sroa.43.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.43.i.i.i.i.i.i.i.i.i.i, i64 8
   br label %25
 
@@ -7863,7 +7858,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal27SchurEliminatorForOneFBlock
   %68 = fadd double %67, %64
   store double %68, ptr %59, align 8, !tbaa !100
   %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
-  %exitcond115.not = icmp eq i64 %indvars.iv.next113, %umax
+  %exitcond115.not = icmp eq i64 %indvars.iv.next113, %16
   br i1 %exitcond115.not, label %._crit_edge109, label %25, !llvm.loop !450
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %157

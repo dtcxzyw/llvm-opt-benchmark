@@ -2891,7 +2891,6 @@ _ZL22reset_pmeonly_countersP13gmx_wallcycleP23gmx_walltime_accountingP6t_nrnblb.
   %1072 = sub i64 %1071, %1070
   %1073 = ashr exact i64 %1072, 3
   %1074 = add nsw i64 %1073, -1
-  %umax = call i64 @llvm.umax.i64(i64 %1073, i64 1)
   br label %1352
 
 1075:                                             ; preds = %.thread461, %1068
@@ -3419,7 +3418,7 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1242, %121
 
 1356:                                             ; preds = %1352
   %1357 = add nuw i64 %.0551270, 1
-  %exitcond.not = icmp eq i64 %1357, %umax
+  %exitcond.not = icmp eq i64 %1357, %1073
   br i1 %exitcond.not, label %._crit_edge, label %1352, !llvm.loop !339
 
 1358:                                             ; preds = %1352

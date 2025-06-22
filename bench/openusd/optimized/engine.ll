@@ -661,14 +661,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDat
   %.sroa.1174.0 = phi i64 [ %120, %115 ], [ 0, %112 ]
   %.sroa.769.0 = phi i64 [ %121, %115 ], [ 0, %112 ]
   %.not = icmp eq ptr %99, %100
-  br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDataE.exit41
-  %umax = call i64 @llvm.umax.i64(i64 %104, i64 1)
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %128
-  %.02795 = phi i64 [ %129, %128 ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDataE.exit41, %128
+  %.02795 = phi i64 [ %129, %128 ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDataE.exit41 ]
   %122 = load ptr, ptr %2, align 8
   %123 = getelementptr inbounds %"class.std::shared_ptr", ptr %122, i64 %.02795
   %124 = load ptr, ptr %123, align 8
@@ -680,7 +676,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDat
 
 128:                                              ; preds = %.lr.ph
   %129 = add nuw i64 %.02795, 1
-  %exitcond.not = icmp eq i64 %129, %umax
+  %exitcond.not = icmp eq i64 %129, %104
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 130:                                              ; preds = %.lr.ph
@@ -815,14 +811,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit50: ; preds = %166
           to label %170 unwind label %.loopexit.split-lp
 
 170:                                              ; preds = %169, %164
-  br i1 %.not, label %._crit_edge99, label %.lr.ph98.preheader
+  br i1 %.not, label %._crit_edge99, label %.lr.ph98
 
-.lr.ph98.preheader:                               ; preds = %170
-  %umax101 = call i64 @llvm.umax.i64(i64 %104, i64 1)
-  br label %.lr.ph98
-
-.lr.ph98:                                         ; preds = %.lr.ph98.preheader, %177
-  %.02596 = phi i64 [ %178, %177 ], [ 0, %.lr.ph98.preheader ]
+.lr.ph98:                                         ; preds = %170, %177
+  %.02596 = phi i64 [ %178, %177 ], [ 0, %170 ]
   %171 = load ptr, ptr %2, align 8
   %172 = getelementptr inbounds %"class.std::shared_ptr", ptr %171, i64 %.02596
   %173 = load ptr, ptr %172, align 8
@@ -834,7 +826,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit50: ; preds = %166
 
 177:                                              ; preds = %.lr.ph98
   %178 = add nuw i64 %.02596, 1
-  %exitcond102.not = icmp eq i64 %178, %umax101
+  %exitcond102.not = icmp eq i64 %178, %104
   br i1 %exitcond102.not, label %._crit_edge99, label %.lr.ph98, !llvm.loop !11
 
 ._crit_edge99:                                    ; preds = %177, %170
@@ -2586,9 +2578,6 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #13
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

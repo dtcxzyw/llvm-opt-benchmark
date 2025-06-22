@@ -1308,15 +1308,11 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_SaIS1_ENSt8__de
 
 .preheader68.lr.ph:                               ; preds = %109
   %.not86 = icmp eq ptr %8, %9
-  br i1 %.not86, label %_ZNSt13unordered_setIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_6TfHashESt8equal_toIS1_ESaIS1_EED2Ev.exit, label %.preheader68.us.preheader
+  br i1 %.not86, label %_ZNSt13unordered_setIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_6TfHashESt8equal_toIS1_ESaIS1_EED2Ev.exit, label %.preheader68.us
 
-.preheader68.us.preheader:                        ; preds = %.preheader68.lr.ph
-  %umax = tail call i64 @llvm.umax.i64(i64 %13, i64 1)
-  br label %.preheader68.us
-
-.preheader68.us:                                  ; preds = %.preheader68.us.preheader, %128
-  %.03975.us = phi i32 [ %.2.us, %128 ], [ %111, %.preheader68.us.preheader ]
-  %.sroa.049.074.us = phi ptr [ %129, %128 ], [ %112, %.preheader68.us.preheader ]
+.preheader68.us:                                  ; preds = %.preheader68.lr.ph, %128
+  %.03975.us = phi i32 [ %.2.us, %128 ], [ %111, %.preheader68.lr.ph ]
+  %.sroa.049.074.us = phi ptr [ %129, %128 ], [ %112, %.preheader68.lr.ph ]
   %115 = load ptr, ptr %.sroa.049.074.us, align 8
   %116 = ptrtoint ptr %115 to i64
   br label %117
@@ -1335,7 +1331,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_SaIS1_ENSt8__de
   %126 = select i1 %122, i32 %125, i32 -1
   %.2.us = and i32 %126, %.171.us
   %127 = add nuw i64 %.03672.us, 1
-  %exitcond.not = icmp eq i64 %127, %umax
+  %exitcond.not = icmp eq i64 %127, %13
   br i1 %exitcond.not, label %._crit_edge.us, label %117, !llvm.loop !27
 
 128:                                              ; preds = %._crit_edge.us
@@ -1650,7 +1646,6 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__27HdFlatteningSceneIndex_Impl2
   %21 = ashr exact i64 %20, 3
   %22 = load ptr, ptr %2, align 8
   %23 = ptrtoint ptr %22 to i64
-  %umax = tail call i64 @llvm.umax.i64(i64 %21, i64 1)
   br label %24
 
 24:                                               ; preds = %.lr.ph, %295
@@ -2230,7 +2225,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 295:                                              ; preds = %24
   %296 = add nuw i64 %.01895, 1
-  %exitcond.not = icmp eq i64 %296, %umax
+  %exitcond.not = icmp eq i64 %296, %21
   br i1 %exitcond.not, label %._crit_edge, label %24, !llvm.loop !54
 
 ._crit_edge:                                      ; preds = %295, %3

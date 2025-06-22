@@ -308,12 +308,11 @@ for.body:                                         ; preds = %if.end, %for.end
 
 for.body7.lr.ph:                                  ; preds = %for.body
   %0 = getelementptr i8, ptr %pMessage, i64 %i.018
-  %umax = call i64 @llvm.umax.i64(i64 %cond, i64 1)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %buffer, ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %umax, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buffer, ptr align 1 %0, i64 %cond, i1 false)
   br label %for.end
 
 for.end:                                          ; preds = %for.body7.lr.ph, %for.body
-  %c.0.lcssa = phi i64 [ 0, %for.body ], [ %umax, %for.body7.lr.ph ]
+  %c.0.lcssa = phi i64 [ 0, %for.body ], [ %cond, %for.body7.lr.ph ]
   %arrayidx9 = getelementptr inbounds nuw [1025 x i8], ptr %buffer, i64 0, i64 %c.0.lcssa
   store i8 0, ptr %arrayidx9, align 1
   call void @_ZN2EA6EAMain8InternalL13ReportDefaultEPKc(ptr noundef nonnull %buffer)
@@ -810,9 +809,6 @@ declare i64 @llvm.umin.i64(i64, i64) #17
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #18
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #17
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind memory(read, argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

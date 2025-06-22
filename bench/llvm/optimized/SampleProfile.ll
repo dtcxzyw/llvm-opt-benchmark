@@ -55012,7 +55012,6 @@ _ZN4llvm22SampleProfileInferenceINS_8FunctionEE17findUnlikelyJumpsERKSt6vectorIP
   %399 = ptrtoint ptr %397 to i64
   %400 = sub i64 %398, %399
   %401 = sdiv exact i64 %400, 80
-  %umax = call i64 @llvm.umax.i64(i64 %401, i64 1)
   br label %.lr.ph173
 
 .lr.ph170:                                        ; preds = %.lr.ph170.preheader, %_ZNSt6vectorIPN4llvm8FlowJumpESaIS2_EE9push_backEOS2_.exit76
@@ -55178,7 +55177,7 @@ _ZNSt6vectorIPN4llvm8FlowJumpESaIS2_EE9push_backEOS2_.exit76: ; preds = %439, %_
 
 472:                                              ; preds = %.lr.ph173
   %473 = add nuw i64 %.0172, 1
-  %exitcond.not = icmp eq i64 %473, %umax
+  %exitcond.not = icmp eq i64 %473, %401
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph173, !llvm.loop !1825
 
 .loopexit:                                        ; preds = %472, %_ZN4llvm22SampleProfileInferenceINS_8FunctionEE17findUnlikelyJumpsERKSt6vectorIPKNS_10BasicBlockESaIS6_EERNS_8DenseMapIS6_NS_11SmallVectorIS6_Lj8EEENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_SD_EEEERNS_12FlowFunctionE.exit, %470

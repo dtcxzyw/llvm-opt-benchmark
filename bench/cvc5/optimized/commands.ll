@@ -18316,7 +18316,6 @@ define void @_ZNK4cvc56parser15GetValueCommand11printResultEPNS_6SolverERSo(ptr 
   %11 = sub i64 %9, %10
   %12 = sdiv exact i64 %11, 24
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %umax = tail call i64 @llvm.umax.i64(i64 %12, i64 1)
   br label %34
 
 ._crit_edge:                                      ; preds = %37, %3
@@ -18379,7 +18378,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %24, 
   %45 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc5lsERSoRKNS_4TermE(ptr noundef nonnull align 8 dereferenceable(8) %41, ptr noundef nonnull align 8 dereferenceable(24) %44)
   %46 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %45, ptr noundef nonnull @.str.29, i64 noundef 1)
   %47 = add nuw i64 %.01011, 1
-  %exitcond.not = icmp eq i64 %47, %umax
+  %exitcond.not = icmp eq i64 %47, %12
   br i1 %exitcond.not, label %._crit_edge, label %34, !llvm.loop !299
 }
 
@@ -18731,7 +18730,6 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   %106 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %107 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %108 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %umax = call i64 @llvm.umax.i64(i64 %91, i64 1)
   br label %111
 
 ._crit_edge147:                                   ; preds = %218, %84
@@ -19043,7 +19041,7 @@ _ZNSt6vectorIN4cvc54TermESaIS1_EED2Ev.exit:       ; preds = %_ZNSt6vectorIN4cvc5
   call void @_ZN4cvc54TermD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #33
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #33
   %219 = add nuw i64 %.040144, 1
-  %exitcond.not = icmp eq i64 %219, %umax
+  %exitcond.not = icmp eq i64 %219, %91
   br i1 %exitcond.not, label %._crit_edge147, label %111, !llvm.loop !312
 
 220:                                              ; preds = %111

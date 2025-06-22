@@ -3239,7 +3239,6 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit666: ; preds = %1320, 
 
 .lr.ph1394.preheader:                             ; preds = %1332
   %1339 = trunc nsw i64 %1338 to i32
-  %umax = call i32 @llvm.umax.i32(i32 %1339, i32 1)
   br label %.lr.ph1394
 
 ._crit_edge1395:                                  ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit724, %1332
@@ -3716,7 +3715,7 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE9push_backEOS3_.exit721
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit724: ; preds = %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE9push_backEOS3_.exit721, %1545, %1551
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36) #21
   %1555 = add nuw i32 %.01431392, 1
-  %exitcond.not = icmp eq i32 %1555, %umax
+  %exitcond.not = icmp eq i32 %1555, %1339
   br i1 %exitcond.not, label %._crit_edge1395, label %.lr.ph1394, !llvm.loop !96
 
 1556:                                             ; preds = %.loopexit1241, %.loopexit.split-lp1242, %1540, %1539
@@ -13904,9 +13903,6 @@ declare void @llvm.assume(i1 noundef) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #19
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #17
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

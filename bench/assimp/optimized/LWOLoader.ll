@@ -8651,7 +8651,7 @@ define hidden void @_ZN6Assimp11LWOImporter16LoadLWO2PolygonsEj(ptr noundef nonn
   br i1 %22, label %.lr.ph25.i, label %_ZN6Assimp11LWOImporter22CountVertsAndFacesLWO2ERjS1_RPtPKtj.exit, !llvm.loop !70
 
 .lr.ph25.i:                                       ; preds = %18, %.loopexit.i
-  %.012 = phi i32 [ %29, %.loopexit.i ], [ 0, %18 ]
+  %.012 = phi i32 [ %30, %.loopexit.i ], [ 0, %18 ]
   %23 = phi ptr [ %21, %.loopexit.i ], [ %19, %18 ]
   %.0924.i = phi i32 [ %24, %.loopexit.i ], [ -1, %18 ]
   %24 = add i32 %.0924.i, -1
@@ -8663,33 +8663,29 @@ define hidden void @_ZN6Assimp11LWOImporter16LoadLWO2PolygonsEj(ptr noundef nonn
   store ptr %26, ptr %3, align 8
   %27 = load i16, ptr %23, align 2
   %28 = and i16 %27, -253
-  %29 = add i32 %.012, 1
+  %29 = tail call i16 @llvm.bswap.i16(i16 %28)
+  %30 = add i32 %.012, 1
   %.not27.i = icmp eq i16 %28, 0
-  br i1 %.not27.i, label %.loopexit.i, label %.lr.ph.preheader.i
+  br i1 %.not27.i, label %.loopexit.i, label %.lr.ph.i
 
-.lr.ph.preheader.i:                               ; preds = %25
-  %30 = tail call i16 @llvm.bswap.i16(i16 %28)
-  %umax.i = tail call i16 @llvm.umax.i16(i16 %30, i16 1)
-  br label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.023.i = phi i16 [ %34, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
-  %31 = phi ptr [ %33, %.lr.ph.i ], [ %26, %.lr.ph.preheader.i ]
+.lr.ph.i:                                         ; preds = %25, %.lr.ph.i
+  %.023.i = phi i16 [ %34, %.lr.ph.i ], [ 0, %25 ]
+  %31 = phi ptr [ %33, %.lr.ph.i ], [ %26, %25 ]
   %32 = load i8, ptr %31, align 1
   %.not.i.i = icmp eq i8 %32, -1
   %spec.select.i = select i1 %.not.i.i, i64 4, i64 2
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 %spec.select.i
   store ptr %33, ptr %3, align 8
   %34 = add nuw nsw i16 %.023.i, 1
-  %exitcond.not.i = icmp eq i16 %34, %umax.i
+  %exitcond.not.i = icmp eq i16 %34, %29
   br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !71
 
 _ZN6Assimp11LWOImporter22CountVertsAndFacesLWO2ERjS1_RPtPKtj.exit: ; preds = %.loopexit.i
-  %.not = icmp eq i32 %29, 0
+  %.not = icmp eq i32 %30, 0
   br i1 %.not, label %_ZN6Assimp11LWOImporter22CountVertsAndFacesLWO2ERjS1_RPtPKtj.exit.thread, label %_ZN6Assimp11LWOImporter22CountVertsAndFacesLWO2ERjS1_RPtPKtj.exit.thread15
 
 _ZN6Assimp11LWOImporter22CountVertsAndFacesLWO2ERjS1_RPtPKtj.exit.thread15: ; preds = %.lr.ph25.i, %_ZN6Assimp11LWOImporter22CountVertsAndFacesLWO2ERjS1_RPtPKtj.exit
-  %.118 = phi i32 [ %29, %_ZN6Assimp11LWOImporter22CountVertsAndFacesLWO2ERjS1_RPtPKtj.exit ], [ -1, %.lr.ph25.i ]
+  %.118 = phi i32 [ %30, %_ZN6Assimp11LWOImporter22CountVertsAndFacesLWO2ERjS1_RPtPKtj.exit ], [ -1, %.lr.ph25.i ]
   store ptr %19, ptr %3, align 8
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %36 = load ptr, ptr %35, align 8
@@ -8819,22 +8815,18 @@ define hidden void @_ZN6Assimp11LWOImporter22CountVertsAndFacesLWO2ERjS1_RPtPKtj
   store i32 %22, ptr %2, align 4
   %.promoted = load ptr, ptr %3, align 8
   %.not27 = icmp eq i16 %16, 0
-  br i1 %.not27, label %.loopexit, label %.lr.ph.preheader
+  br i1 %.not27, label %.loopexit, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %13
-  %umax = tail call i16 @llvm.umax.i16(i16 %17, i16 1)
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.023 = phi i16 [ %26, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %23 = phi ptr [ %25, %.lr.ph ], [ %.promoted, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %13, %.lr.ph
+  %.023 = phi i16 [ %26, %.lr.ph ], [ 0, %13 ]
+  %23 = phi ptr [ %25, %.lr.ph ], [ %.promoted, %13 ]
   %24 = load i8, ptr %23, align 1
   %.not.i = icmp eq i8 %24, -1
   %spec.select = select i1 %.not.i, i64 4, i64 2
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 %spec.select
   store ptr %25, ptr %3, align 8
   %26 = add nuw nsw i16 %.023, 1
-  %exitcond.not = icmp eq i16 %26, %umax
+  %exitcond.not = icmp eq i16 %26, %17
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !71
 
 .critedge:                                        ; preds = %.lr.ph25, %.loopexit, %6
@@ -22328,9 +22320,6 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #24
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.umax.i16(i16, i16) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #24

@@ -1640,7 +1640,6 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2cv3dnn13TileLayerImpl15getMe
   %39 = ashr exact i64 %38, 2
   %40 = load ptr, ptr %3, align 8, !tbaa !98
   %41 = load ptr, ptr %40, align 8, !tbaa !23
-  %umax = tail call i64 @llvm.umax.i64(i64 %39, i64 1)
   br label %42
 
 ._crit_edge:                                      ; preds = %42, %33
@@ -1655,7 +1654,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2cv3dnn13TileLayerImpl15getMe
   %47 = mul nsw i32 %46, %44
   store i32 %47, ptr %45, align 4, !tbaa !49
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %39
   br i1 %exitcond.not, label %._crit_edge, label %42, !llvm.loop !99
 }
 

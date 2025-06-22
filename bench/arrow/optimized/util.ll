@@ -15385,7 +15385,6 @@ _ZNSt6vectorIlSaIlEE12emplace_backIJiEEERlDpOT_.exit: ; preds = %_ZNSt6vectorIlS
   %101 = ptrtoint ptr %98 to i64
   %102 = sub i64 %100, %101
   %103 = sdiv exact i64 %102, 24
-  %umax = call i64 @llvm.umax.i64(i64 %103, i64 1)
   br label %.lr.ph215
 
 .lr.ph215:                                        ; preds = %.lr.ph215.preheader, %120
@@ -15425,7 +15424,7 @@ _ZNSt6vectorIlSaIlEE12emplace_backIJiEEERlDpOT_.exit: ; preds = %_ZNSt6vectorIlS
   %121 = sub nsw i64 %.lcssa, %.lcssa153
   %.sroa.speculated = call i64 @llvm.smin.i64(i64 %121, i64 %.0128213)
   %122 = add nuw i64 %.051214, 1
-  %exitcond.not = icmp eq i64 %122, %umax
+  %exitcond.not = icmp eq i64 %122, %103
   br i1 %exitcond.not, label %.lr.ph218, label %.lr.ph215, !llvm.loop !1128
 
 ._crit_edge219:                                   ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS3_EE12emplace_backIJRKS3_EEERS3_DpOT_.exit, %.preheader141

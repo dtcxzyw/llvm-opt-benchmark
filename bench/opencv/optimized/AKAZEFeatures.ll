@@ -4583,12 +4583,11 @@ define hidden void @_ZN2cv13AKAZEFeatures19Compute_DescriptorsERSt6vectorINS_8Ke
   %37 = sub i64 %35, %36
   %38 = sdiv exact i64 %37, 520
   %39 = trunc i64 %38 to i32
-  %umax = call i64 @llvm.umax.i64(i64 %30, i64 1)
   br label %45
 
 40:                                               ; preds = %45
   %41 = add nuw i64 %.064, 1
-  %exitcond.not = icmp eq i64 %41, %umax
+  %exitcond.not = icmp eq i64 %41, %30
   br i1 %exitcond.not, label %._crit_edge, label %45, !llvm.loop !212
 
 ._crit_edge:                                      ; preds = %40, %3

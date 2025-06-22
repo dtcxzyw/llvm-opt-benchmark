@@ -12623,7 +12623,6 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearE
   %72 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %73 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %74 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %umax = tail call i64 @llvm.umax.i64(i64 %57, i64 1)
   br label %75
 
 ._crit_edge:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit
@@ -13121,7 +13120,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i48
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i49, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i48
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #38
   %244 = add nuw i64 %.02161, 1
-  %exitcond.not = icmp eq i64 %244, %umax
+  %exitcond.not = icmp eq i64 %244, %57
   br i1 %exitcond.not, label %._crit_edge, label %75, !llvm.loop !307
 
 245:                                              ; preds = %179
@@ -49626,7 +49625,6 @@ _ZNSt8__detail9_ExecutorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_st
   %42 = sub i64 %40, %41
   %43 = sdiv exact i64 %42, 24
   %44 = load ptr, ptr %0, align 8
-  %umax = call i64 @llvm.umax.i64(i64 %43, i64 1)
   br label %49
 
 45:                                               ; preds = %_ZNSt6vectorINSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNS0_12basic_stringIcSt11char_traitsIcESaIcEEEEEEESaISC_EEC2ERKSE_.exit
@@ -49662,7 +49660,7 @@ _ZNSt8__detail9_ExecutorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_st
 
 61:                                               ; preds = %54, %49
   %62 = add nuw i64 %.020, 1
-  %exitcond.not = icmp eq i64 %62, %umax
+  %exitcond.not = icmp eq i64 %62, %43
   br i1 %exitcond.not, label %.loopexit, label %49, !llvm.loop !1049
 
 .loopexit:                                        ; preds = %61, %.preheader, %_ZNSt8__detail9_ExecutorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS5_9sub_matchISB_EEENS5_12regex_traitsIcEELb0EE20_M_search_from_firstEv.exit
@@ -51061,7 +51059,6 @@ _ZNSt12_Vector_baseISt4pairIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic
   %77 = sub i64 %75, %76
   %78 = sdiv exact i64 %77, 24
   %79 = load ptr, ptr %0, align 8
-  %umax = call i64 @llvm.umax.i64(i64 %78, i64 1)
   br label %82
 
 80:                                               ; preds = %.noexc, %.loopexit.i
@@ -51092,7 +51089,7 @@ _ZNSt12_Vector_baseISt4pairIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic
 
 94:                                               ; preds = %87, %82
   %95 = add nuw i64 %.024, 1
-  %exitcond.not = icmp eq i64 %95, %umax
+  %exitcond.not = icmp eq i64 %95, %78
   br i1 %exitcond.not, label %.loopexit, label %82, !llvm.loop !1058
 
 .loopexit:                                        ; preds = %94, %.preheader, %70

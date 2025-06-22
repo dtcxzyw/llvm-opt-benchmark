@@ -4284,45 +4284,45 @@ _ZSt4copyIN2cv12_GLOBAL__N_116ChannelsIteratorINS1_13ConstItTraitsIhEEEEPiET0_T_
   br i1 %332, label %.lr.ph.us.us.preheader.i20.i, label %_ZN2cv12_GLOBAL__N_111copyFromMatIiEEvRKNS_3MatEOSt6vectorIPT_SaIS7_EE.exit
 
 .lr.ph.us.us.preheader.i20.i:                     ; preds = %.lr.ph6.split.us.i15.i
-  %wide.trip.count.i22.i = zext nneg i32 %spec.select24.i12.i to i64
-  br label %.lr.ph.us.us.i23.i
+  %wide.trip.count.i21.i = zext nneg i32 %spec.select24.i12.i to i64
+  br label %.lr.ph.us.us.i22.i
 
-.lr.ph.us.us.i23.i:                               ; preds = %._crit_edge.split.us.us.us.i32.i, %.lr.ph.us.us.preheader.i20.i
-  %indvars.iv.i24.i = phi i64 [ 0, %.lr.ph.us.us.preheader.i20.i ], [ %indvars.iv.next.i33.i, %._crit_edge.split.us.us.us.i32.i ]
-  %333 = mul i64 %indvars.iv.i24.i, %325
+.lr.ph.us.us.i22.i:                               ; preds = %._crit_edge.split.us.us.us.i31.i, %.lr.ph.us.us.preheader.i20.i
+  %indvars.iv.i23.i = phi i64 [ 0, %.lr.ph.us.us.preheader.i20.i ], [ %indvars.iv.next.i32.i, %._crit_edge.split.us.us.us.i31.i ]
+  %333 = mul i64 %indvars.iv.i23.i, %325
   %334 = getelementptr inbounds nuw i8, ptr %322, i64 %333
-  br label %.lr.ph.i.i.i.i.i.preheader.us.us.us.i25.i
+  br label %.lr.ph.i.i.i.i.i.preheader.us.us.us.i24.i
 
-.lr.ph.i.i.i.i.i.preheader.us.us.us.i25.i:        ; preds = %_ZSt4copyIN2cv12_GLOBAL__N_116ChannelsIteratorINS1_13ConstItTraitsItEEEEPiET0_T_S8_S7_.exit.loopexit.us.us.us.i.i, %.lr.ph.us.us.i23.i
-  %.0222.us.us.us.i26.i = phi i64 [ 0, %.lr.ph.us.us.i23.i ], [ %344, %_ZSt4copyIN2cv12_GLOBAL__N_116ChannelsIteratorINS1_13ConstItTraitsItEEEEPiET0_T_S8_S7_.exit.loopexit.us.us.us.i.i ]
-  %335 = getelementptr inbounds nuw i16, ptr %334, i64 %.0222.us.us.us.i26.i
-  %336 = getelementptr inbounds nuw ptr, ptr %253, i64 %.0222.us.us.us.i26.i
+.lr.ph.i.i.i.i.i.preheader.us.us.us.i24.i:        ; preds = %_ZSt4copyIN2cv12_GLOBAL__N_116ChannelsIteratorINS1_13ConstItTraitsItEEEEPiET0_T_S8_S7_.exit.loopexit.us.us.us.i.i, %.lr.ph.us.us.i22.i
+  %.0222.us.us.us.i25.i = phi i64 [ 0, %.lr.ph.us.us.i22.i ], [ %344, %_ZSt4copyIN2cv12_GLOBAL__N_116ChannelsIteratorINS1_13ConstItTraitsItEEEEPiET0_T_S8_S7_.exit.loopexit.us.us.us.i.i ]
+  %335 = getelementptr inbounds nuw i16, ptr %334, i64 %.0222.us.us.us.i25.i
+  %336 = getelementptr inbounds nuw ptr, ptr %253, i64 %.0222.us.us.us.i25.i
   %337 = load ptr, ptr %336, align 8, !tbaa !170
-  br label %.lr.ph.i.i.i.i.i.us.us.us.i27.i
+  br label %.lr.ph.i.i.i.i.i.us.us.us.i26.i
 
-.lr.ph.i.i.i.i.i.us.us.us.i27.i:                  ; preds = %.lr.ph.i.i.i.i.i.us.us.us.i27.i, %.lr.ph.i.i.i.i.i.preheader.us.us.us.i25.i
-  %.011.i.i.i.i.i.us.us.us.i28.i = phi i64 [ %342, %.lr.ph.i.i.i.i.i.us.us.us.i27.i ], [ %331, %.lr.ph.i.i.i.i.i.preheader.us.us.us.i25.i ]
-  %.0410.i.i.i.i.i.us.us.us.i29.i = phi ptr [ %341, %.lr.ph.i.i.i.i.i.us.us.us.i27.i ], [ %337, %.lr.ph.i.i.i.i.i.preheader.us.us.us.i25.i ]
-  %.sroa.08.09.i.i.i.i.i.us.us.us.i30.i = phi ptr [ %340, %.lr.ph.i.i.i.i.i.us.us.us.i27.i ], [ %335, %.lr.ph.i.i.i.i.i.preheader.us.us.us.i25.i ]
-  %338 = load i16, ptr %.sroa.08.09.i.i.i.i.i.us.us.us.i30.i, align 2, !tbaa !255
+.lr.ph.i.i.i.i.i.us.us.us.i26.i:                  ; preds = %.lr.ph.i.i.i.i.i.us.us.us.i26.i, %.lr.ph.i.i.i.i.i.preheader.us.us.us.i24.i
+  %.011.i.i.i.i.i.us.us.us.i27.i = phi i64 [ %342, %.lr.ph.i.i.i.i.i.us.us.us.i26.i ], [ %331, %.lr.ph.i.i.i.i.i.preheader.us.us.us.i24.i ]
+  %.0410.i.i.i.i.i.us.us.us.i28.i = phi ptr [ %341, %.lr.ph.i.i.i.i.i.us.us.us.i26.i ], [ %337, %.lr.ph.i.i.i.i.i.preheader.us.us.us.i24.i ]
+  %.sroa.08.09.i.i.i.i.i.us.us.us.i29.i = phi ptr [ %340, %.lr.ph.i.i.i.i.i.us.us.us.i26.i ], [ %335, %.lr.ph.i.i.i.i.i.preheader.us.us.us.i24.i ]
+  %338 = load i16, ptr %.sroa.08.09.i.i.i.i.i.us.us.us.i29.i, align 2, !tbaa !255
   %339 = zext i16 %338 to i32
-  store i32 %339, ptr %.0410.i.i.i.i.i.us.us.us.i29.i, align 4, !tbaa !105
-  %340 = getelementptr inbounds nuw i16, ptr %.sroa.08.09.i.i.i.i.i.us.us.us.i30.i, i64 %187
-  %341 = getelementptr inbounds nuw i8, ptr %.0410.i.i.i.i.i.us.us.us.i29.i, i64 4
-  %342 = add nsw i64 %.011.i.i.i.i.i.us.us.us.i28.i, -1
-  %343 = icmp samesign ugt i64 %.011.i.i.i.i.i.us.us.us.i28.i, 1
-  br i1 %343, label %.lr.ph.i.i.i.i.i.us.us.us.i27.i, label %_ZSt4copyIN2cv12_GLOBAL__N_116ChannelsIteratorINS1_13ConstItTraitsItEEEEPiET0_T_S8_S7_.exit.loopexit.us.us.us.i.i, !llvm.loop !256
+  store i32 %339, ptr %.0410.i.i.i.i.i.us.us.us.i28.i, align 4, !tbaa !105
+  %340 = getelementptr inbounds nuw i16, ptr %.sroa.08.09.i.i.i.i.i.us.us.us.i29.i, i64 %187
+  %341 = getelementptr inbounds nuw i8, ptr %.0410.i.i.i.i.i.us.us.us.i28.i, i64 4
+  %342 = add nsw i64 %.011.i.i.i.i.i.us.us.us.i27.i, -1
+  %343 = icmp samesign ugt i64 %.011.i.i.i.i.i.us.us.us.i27.i, 1
+  br i1 %343, label %.lr.ph.i.i.i.i.i.us.us.us.i26.i, label %_ZSt4copyIN2cv12_GLOBAL__N_116ChannelsIteratorINS1_13ConstItTraitsItEEEEPiET0_T_S8_S7_.exit.loopexit.us.us.us.i.i, !llvm.loop !256
 
-_ZSt4copyIN2cv12_GLOBAL__N_116ChannelsIteratorINS1_13ConstItTraitsItEEEEPiET0_T_S8_S7_.exit.loopexit.us.us.us.i.i: ; preds = %.lr.ph.i.i.i.i.i.us.us.us.i27.i
+_ZSt4copyIN2cv12_GLOBAL__N_116ChannelsIteratorINS1_13ConstItTraitsItEEEEPiET0_T_S8_S7_.exit.loopexit.us.us.us.i.i: ; preds = %.lr.ph.i.i.i.i.i.us.us.us.i26.i
   store ptr %341, ptr %336, align 8, !tbaa !170
-  %344 = add nuw nsw i64 %.0222.us.us.us.i26.i, 1
-  %exitcond.not.i31.i = icmp eq i64 %344, %187
-  br i1 %exitcond.not.i31.i, label %._crit_edge.split.us.us.us.i32.i, label %.lr.ph.i.i.i.i.i.preheader.us.us.us.i25.i, !llvm.loop !257
+  %344 = add nuw nsw i64 %.0222.us.us.us.i25.i, 1
+  %exitcond.not.i30.i = icmp eq i64 %344, %187
+  br i1 %exitcond.not.i30.i, label %._crit_edge.split.us.us.us.i31.i, label %.lr.ph.i.i.i.i.i.preheader.us.us.us.i24.i, !llvm.loop !257
 
-._crit_edge.split.us.us.us.i32.i:                 ; preds = %_ZSt4copyIN2cv12_GLOBAL__N_116ChannelsIteratorINS1_13ConstItTraitsItEEEEPiET0_T_S8_S7_.exit.loopexit.us.us.us.i.i
-  %indvars.iv.next.i33.i = add nuw nsw i64 %indvars.iv.i24.i, 1
-  %exitcond15.not.i34.i = icmp eq i64 %indvars.iv.next.i33.i, %wide.trip.count.i22.i
-  br i1 %exitcond15.not.i34.i, label %_ZN2cv12_GLOBAL__N_111copyFromMatIiEEvRKNS_3MatEOSt6vectorIPT_SaIS7_EE.exit, label %.lr.ph.us.us.i23.i, !llvm.loop !258
+._crit_edge.split.us.us.us.i31.i:                 ; preds = %_ZSt4copyIN2cv12_GLOBAL__N_116ChannelsIteratorINS1_13ConstItTraitsItEEEEPiET0_T_S8_S7_.exit.loopexit.us.us.us.i.i
+  %indvars.iv.next.i32.i = add nuw nsw i64 %indvars.iv.i23.i, 1
+  %exitcond15.not.i33.i = icmp eq i64 %indvars.iv.next.i32.i, %wide.trip.count.i21.i
+  br i1 %exitcond15.not.i33.i, label %_ZN2cv12_GLOBAL__N_111copyFromMatIiEEvRKNS_3MatEOSt6vectorIPT_SaIS7_EE.exit, label %.lr.ph.us.us.i22.i, !llvm.loop !258
 
 345:                                              ; preds = %284
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #22
@@ -4361,7 +4361,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i128: ; preds = %
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #22
   br label %_ZNSt6vectorIPiSaIS0_EED2Ev.exit155
 
-_ZN2cv12_GLOBAL__N_111copyFromMatIiEEvRKNS_3MatEOSt6vectorIPT_SaIS7_EE.exit: ; preds = %._crit_edge.split.us.us.us.i32.i, %._crit_edge.split.us.us.us.i.i, %.lr.ph6.split.us.i15.i, %316, %.lr.ph6.split.us.i.i, %287
+_ZN2cv12_GLOBAL__N_111copyFromMatIiEEvRKNS_3MatEOSt6vectorIPT_SaIS7_EE.exit: ; preds = %._crit_edge.split.us.us.us.i31.i, %._crit_edge.split.us.us.us.i.i, %.lr.ph6.split.us.i15.i, %316, %.lr.ph6.split.us.i.i, %287
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #22
   %355 = invoke ptr @opj_create_compress(i32 noundef 2)
           to label %356 unwind label %362
@@ -5863,7 +5863,6 @@ define internal fastcc void @_ZN2cv12_GLOBAL__N_19copyToMatIiEEvOSt6vectorIPKT_S
 
 .lr.ph68.split.us.i:                              ; preds = %.lr.ph68.i
   %.not7.i.i = icmp eq i32 %spec.select.i, 0
-  %umax89.i = tail call i64 @llvm.umax.i64(i64 %22, i64 1)
   br i1 %.not7.i.i, label %.lr.ph.us.us.i, label %.lr.ph.us.preheader.i
 
 .lr.ph.us.preheader.i:                            ; preds = %.lr.ph68.split.us.i
@@ -5881,7 +5880,7 @@ _ZSt9transformIPKiN2cv12_GLOBAL__N_116ChannelsIteratorINS3_16NonConstItTraitsIhE
   %30 = getelementptr inbounds nuw i32, ptr %29, i64 %26
   store ptr %30, ptr %28, align 8, !tbaa !170
   %31 = add nuw i64 %.05266.us.us.us.i, 1
-  %exitcond90.not.i = icmp eq i64 %31, %umax89.i
+  %exitcond90.not.i = icmp eq i64 %31, %22
   br i1 %exitcond90.not.i, label %._crit_edge.split.us.us.us.i, label %_ZSt9transformIPKiN2cv12_GLOBAL__N_116ChannelsIteratorINS3_16NonConstItTraitsIhEEEEZNS3_13copyToMatImplIhS0_EEvOSt6vectorIPT0_SaISB_EERNS2_3MatEhEUliE_ESA_T_SI_SA_T1_.exit.us.us.us.i, !llvm.loop !275
 
 ._crit_edge.split.us.us.us.i:                     ; preds = %_ZSt9transformIPKiN2cv12_GLOBAL__N_116ChannelsIteratorINS3_16NonConstItTraitsIhEEEEZNS3_13copyToMatImplIhS0_EEvOSt6vectorIPT0_SaISB_EERNS2_3MatEhEUliE_ESA_T_SI_SA_T1_.exit.us.us.us.i
@@ -5927,7 +5926,7 @@ _ZSt9transformIPKiN2cv12_GLOBAL__N_116ChannelsIteratorINS3_16NonConstItTraitsIhE
   %53 = getelementptr inbounds i32, ptr %52, i64 %26
   store ptr %53, ptr %51, align 8, !tbaa !170
   %54 = add nuw i64 %.05266.us69.i, 1
-  %exitcond.not.i = icmp eq i64 %54, %umax89.i
+  %exitcond.not.i = icmp eq i64 %54, %22
   br i1 %exitcond.not.i, label %._crit_edge.split.us70.i, label %.lr.ph.i.us.i, !llvm.loop !275
 
 ._crit_edge.split.us70.i:                         ; preds = %_ZSt9transformIPKiN2cv12_GLOBAL__N_116ChannelsIteratorINS3_16NonConstItTraitsIhEEEEZNS3_13copyToMatImplIhS0_EEvOSt6vectorIPT0_SaISB_EERNS2_3MatEhEUliE_ESA_T_SI_SA_T1_.exit.loopexit.us.i
@@ -5947,7 +5946,6 @@ _ZSt9transformIPKiN2cv12_GLOBAL__N_116ChannelsIteratorINS3_16NonConstItTraitsIhE
 
 .lr.ph74.split.us.i:                              ; preds = %.lr.ph74.i
   %.not5.i.i = icmp eq i32 %spec.select.i, 0
-  %umax99.i = tail call i64 @llvm.umax.i64(i64 %22, i64 1)
   br i1 %.not5.i.i, label %.lr.ph.us76.us.i, label %.lr.ph.us76.preheader.i
 
 .lr.ph.us76.preheader.i:                          ; preds = %.lr.ph74.split.us.i
@@ -5965,7 +5963,7 @@ _ZSt9transformIPKiN2cv12_GLOBAL__N_116ChannelsIteratorINS3_16NonConstItTraitsIhE
   %60 = getelementptr inbounds nuw i32, ptr %59, i64 %57
   store ptr %60, ptr %58, align 8, !tbaa !170
   %61 = add nuw i64 %.05472.us.us.us.i, 1
-  %exitcond100.not.i = icmp eq i64 %61, %umax99.i
+  %exitcond100.not.i = icmp eq i64 %61, %22
   br i1 %exitcond100.not.i, label %._crit_edge.split.us.us.us79.i, label %_ZSt9transformIPKiN2cv12_GLOBAL__N_116ChannelsIteratorINS3_16NonConstItTraitsIhEEEEZNS3_13copyToMatImplIhS0_EEvOSt6vectorIPT0_SaISB_EERNS2_3MatEhEUliE0_ESA_T_SI_SA_T1_.exit.us.us.us.i, !llvm.loop !278
 
 ._crit_edge.split.us.us.us79.i:                   ; preds = %_ZSt9transformIPKiN2cv12_GLOBAL__N_116ChannelsIteratorINS3_16NonConstItTraitsIhEEEEZNS3_13copyToMatImplIhS0_EEvOSt6vectorIPT0_SaISB_EERNS2_3MatEhEUliE0_ESA_T_SI_SA_T1_.exit.us.us.us.i
@@ -6010,7 +6008,7 @@ _ZSt9transformIPKiN2cv12_GLOBAL__N_116ChannelsIteratorINS3_16NonConstItTraitsIhE
   %81 = getelementptr inbounds i32, ptr %80, i64 %57
   store ptr %81, ptr %79, align 8, !tbaa !170
   %82 = add nuw i64 %.05472.us75.i, 1
-  %exitcond93.not.i = icmp eq i64 %82, %umax99.i
+  %exitcond93.not.i = icmp eq i64 %82, %22
   br i1 %exitcond93.not.i, label %._crit_edge.split.us77.i, label %.lr.ph.i57.preheader.us.i, !llvm.loop !278
 
 ._crit_edge.split.us77.i:                         ; preds = %_ZSt9transformIPKiN2cv12_GLOBAL__N_116ChannelsIteratorINS3_16NonConstItTraitsIhEEEEZNS3_13copyToMatImplIhS0_EEvOSt6vectorIPT0_SaISB_EERNS2_3MatEhEUliE0_ESA_T_SI_SA_T1_.exit.loopexit.us.i
@@ -6056,7 +6054,6 @@ _ZSt9transformIPKiN2cv12_GLOBAL__N_116ChannelsIteratorINS3_16NonConstItTraitsIhE
 
 .lr.ph8.split.us.i:                               ; preds = %.lr.ph8.i
   %.not7.i.i14 = icmp eq i32 %spec.select.i11, 0
-  %umax29.i = tail call i64 @llvm.umax.i64(i64 %95, i64 1)
   br i1 %.not7.i.i14, label %.lr.ph.us.us.i25, label %.lr.ph.us.preheader.i15
 
 .lr.ph.us.preheader.i15:                          ; preds = %.lr.ph8.split.us.i
@@ -6074,7 +6071,7 @@ _ZSt9transformIPKiN2cv12_GLOBAL__N_116ChannelsIteratorINS3_16NonConstItTraitsItE
   %106 = getelementptr inbounds nuw i32, ptr %105, i64 %102
   store ptr %106, ptr %104, align 8, !tbaa !170
   %107 = add nuw i64 %.0526.us.us.us.i, 1
-  %exitcond30.not.i = icmp eq i64 %107, %umax29.i
+  %exitcond30.not.i = icmp eq i64 %107, %95
   br i1 %exitcond30.not.i, label %._crit_edge.split.us.us.us.i26, label %_ZSt9transformIPKiN2cv12_GLOBAL__N_116ChannelsIteratorINS3_16NonConstItTraitsItEEEEZNS3_13copyToMatImplItS0_EEvOSt6vectorIPT0_SaISB_EERNS2_3MatEhEUliE_ESA_T_SI_SA_T1_.exit.us.us.us.i, !llvm.loop !281
 
 ._crit_edge.split.us.us.us.i26:                   ; preds = %_ZSt9transformIPKiN2cv12_GLOBAL__N_116ChannelsIteratorINS3_16NonConstItTraitsItEEEEZNS3_13copyToMatImplItS0_EEvOSt6vectorIPT0_SaISB_EERNS2_3MatEhEUliE_ESA_T_SI_SA_T1_.exit.us.us.us.i
@@ -6111,7 +6108,7 @@ _ZSt9transformIPKiN2cv12_GLOBAL__N_116ChannelsIteratorINS3_16NonConstItTraitsItE
 _ZSt9transformIPKiN2cv12_GLOBAL__N_116ChannelsIteratorINS3_16NonConstItTraitsItEEEEZNS3_13copyToMatImplItS0_EEvOSt6vectorIPT0_SaISB_EERNS2_3MatEhEUliE_ESA_T_SI_SA_T1_.exit.loopexit.us.i: ; preds = %115
   store ptr %113, ptr %111, align 8, !tbaa !170
   %121 = add nuw i64 %.0526.us9.i, 1
-  %exitcond.not.i23 = icmp eq i64 %121, %umax29.i
+  %exitcond.not.i23 = icmp eq i64 %121, %95
   br i1 %exitcond.not.i23, label %._crit_edge.split.us10.i, label %.lr.ph.i.us.i19, !llvm.loop !281
 
 ._crit_edge.split.us10.i:                         ; preds = %_ZSt9transformIPKiN2cv12_GLOBAL__N_116ChannelsIteratorINS3_16NonConstItTraitsItEEEEZNS3_13copyToMatImplItS0_EEvOSt6vectorIPT0_SaISB_EERNS2_3MatEhEUliE_ESA_T_SI_SA_T1_.exit.loopexit.us.i
@@ -6134,7 +6131,6 @@ _ZSt9transformIPKiN2cv12_GLOBAL__N_116ChannelsIteratorINS3_16NonConstItTraitsItE
 
 .lr.ph14.split.us.i:                              ; preds = %.lr.ph14.i
   %.not5.i.i28 = icmp eq i32 %spec.select.i11, 0
-  %umax39.i = tail call i64 @llvm.umax.i64(i64 %95, i64 1)
   br i1 %.not5.i.i28, label %.lr.ph.us16.us.i, label %.lr.ph.us16.preheader.i
 
 .lr.ph.us16.preheader.i:                          ; preds = %.lr.ph14.split.us.i
@@ -6152,7 +6148,7 @@ _ZSt9transformIPKiN2cv12_GLOBAL__N_116ChannelsIteratorINS3_16NonConstItTraitsItE
   %130 = getelementptr inbounds nuw i32, ptr %129, i64 %127
   store ptr %130, ptr %128, align 8, !tbaa !170
   %131 = add nuw i64 %.05412.us.us.us.i, 1
-  %exitcond40.not.i = icmp eq i64 %131, %umax39.i
+  %exitcond40.not.i = icmp eq i64 %131, %95
   br i1 %exitcond40.not.i, label %._crit_edge.split.us.us.us19.i, label %_ZSt9transformIPKiN2cv12_GLOBAL__N_116ChannelsIteratorINS3_16NonConstItTraitsItEEEEZNS3_13copyToMatImplItS0_EEvOSt6vectorIPT0_SaISB_EERNS2_3MatEhEUliE0_ESA_T_SI_SA_T1_.exit.us.us.us.i, !llvm.loop !284
 
 ._crit_edge.split.us.us.us19.i:                   ; preds = %_ZSt9transformIPKiN2cv12_GLOBAL__N_116ChannelsIteratorINS3_16NonConstItTraitsItEEEEZNS3_13copyToMatImplItS0_EEvOSt6vectorIPT0_SaISB_EERNS2_3MatEhEUliE0_ESA_T_SI_SA_T1_.exit.us.us.us.i
@@ -6188,7 +6184,7 @@ _ZSt9transformIPKiN2cv12_GLOBAL__N_116ChannelsIteratorINS3_16NonConstItTraitsItE
 _ZSt9transformIPKiN2cv12_GLOBAL__N_116ChannelsIteratorINS3_16NonConstItTraitsItEEEEZNS3_13copyToMatImplItS0_EEvOSt6vectorIPT0_SaISB_EERNS2_3MatEhEUliE0_ESA_T_SI_SA_T1_.exit.loopexit.us.i: ; preds = %.lr.ph.i57.us.i30
   store ptr %137, ptr %135, align 8, !tbaa !170
   %143 = add nuw i64 %.05412.us15.i, 1
-  %exitcond33.not.i = icmp eq i64 %143, %umax39.i
+  %exitcond33.not.i = icmp eq i64 %143, %95
   br i1 %exitcond33.not.i, label %._crit_edge.split.us17.i, label %.lr.ph.i57.preheader.us.i29, !llvm.loop !284
 
 ._crit_edge.split.us17.i:                         ; preds = %_ZSt9transformIPKiN2cv12_GLOBAL__N_116ChannelsIteratorINS3_16NonConstItTraitsItEEEEZNS3_13copyToMatImplItS0_EEvOSt6vectorIPT0_SaISB_EERNS2_3MatEhEUliE0_ESA_T_SI_SA_T1_.exit.loopexit.us.i
@@ -6704,9 +6700,6 @@ declare i64 @llvm.umin.i64(i64, i64) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #21
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #20

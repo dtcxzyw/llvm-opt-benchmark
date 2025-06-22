@@ -898,7 +898,6 @@ invoke.cont.i.i:                                  ; preds = %for.body.i.i.i.i.i
 _ZNSt6vectorIN13my_name_space7array2DESaIS1_EE5clearEv.exit: ; preds = %if.end3, %invoke.cont.i.i
   tail call void @_ZNSt6vectorIN13my_name_space7array2DESaIS1_EE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %item, i64 noundef %size.0.insert.ext)
   %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %item, i64 16
-  %umax = tail call i64 @llvm.umax.i64(i64 %size.0.insert.ext, i64 1)
   br label %for.body
 
 for.body:                                         ; preds = %_ZNSt6vectorIN13my_name_space7array2DESaIS1_EE5clearEv.exit, %for.inc
@@ -990,7 +989,7 @@ if.then25.i.i:                                    ; preds = %if.end13.i.i
 
 for.inc:                                          ; preds = %if.then25.i.i, %_ZN11struct_pack4readINS_6detail13memory_readerEfEENS_4errcERT_PT0_m.exit.thread.i.i, %if.end5.i.i, %if.end.i.i, %_ZNSt6vectorIN13my_name_space7array2DESaIS1_EE12emplace_backIJEEERS1_DpOT_.exit
   %inc = add nuw nsw i64 %i.018, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %size.0.insert.ext
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !14
 
 return:                                           ; preds = %for.inc, %entry, %if.end

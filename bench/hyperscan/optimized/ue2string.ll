@@ -259,12 +259,11 @@ define hidden noundef i64 @_ZN3ue216maxStringOverlapERKNS_11ue2_literalES2_(ptr 
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
-  %umax.i.i = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %.lr.ph.i.i
 
 11:                                               ; preds = %.lr.ph.i.i
   %12 = add nuw i64 %.059.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %12, %umax.i.i
+  %exitcond.not.i.i = icmp eq i64 %12, %10
   br i1 %exitcond.not.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !9
 
 .lr.ph.i.i:                                       ; preds = %11, %.lr.ph.preheader.i.i
@@ -287,21 +286,20 @@ define hidden noundef i64 @_ZN3ue216maxStringOverlapERKNS_11ue2_literalES2_(ptr 
   %20 = ptrtoint ptr %18 to i64
   %21 = sub i64 %19, %20
   %22 = ashr exact i64 %21, 3
-  %umax.i.i6 = tail call i64 @llvm.umax.i64(i64 %22, i64 1)
-  br label %.lr.ph.i.i7
+  br label %.lr.ph.i.i6
 
-.lr.ph.i.i7:                                      ; preds = %.lr.ph.i.i7, %.lr.ph.preheader.i.i5
-  %.059.i.i8 = phi i64 [ 0, %.lr.ph.preheader.i.i5 ], [ %25, %.lr.ph.i.i7 ]
-  %23 = getelementptr inbounds nuw i64, ptr %18, i64 %.059.i.i8
+.lr.ph.i.i6:                                      ; preds = %.lr.ph.i.i6, %.lr.ph.preheader.i.i5
+  %.059.i.i7 = phi i64 [ 0, %.lr.ph.preheader.i.i5 ], [ %25, %.lr.ph.i.i6 ]
+  %23 = getelementptr inbounds nuw i64, ptr %18, i64 %.059.i.i7
   %24 = load i64, ptr %23, align 8
-  %.not.not.i.not.i9.not = icmp ne i64 %24, 0
-  %25 = add nuw i64 %.059.i.i8, 1
-  %exitcond.not.i.i11 = icmp eq i64 %25, %umax.i.i6
-  %or.cond = select i1 %.not.not.i.not.i9.not, i1 true, i1 %exitcond.not.i.i11
-  br i1 %or.cond, label %_ZNK3ue211ue2_literal10any_nocaseEv.exit, label %.lr.ph.i.i7, !llvm.loop !9
+  %.not.not.i.not.i8.not = icmp ne i64 %24, 0
+  %25 = add nuw i64 %.059.i.i7, 1
+  %exitcond.not.i.i10 = icmp eq i64 %25, %22
+  %or.cond = select i1 %.not.not.i.not.i8.not, i1 true, i1 %exitcond.not.i.i10
+  br i1 %or.cond, label %_ZNK3ue211ue2_literal10any_nocaseEv.exit, label %.lr.ph.i.i6, !llvm.loop !9
 
-_ZNK3ue211ue2_literal10any_nocaseEv.exit:         ; preds = %.lr.ph.i.i, %.lr.ph.i.i7, %.loopexit
-  %26 = phi i1 [ false, %.loopexit ], [ %.not.not.i.not.i9.not, %.lr.ph.i.i7 ], [ true, %.lr.ph.i.i ]
+_ZNK3ue211ue2_literal10any_nocaseEv.exit:         ; preds = %.lr.ph.i.i, %.lr.ph.i.i6, %.loopexit
+  %26 = phi i1 [ false, %.loopexit ], [ %.not.not.i.not.i8.not, %.lr.ph.i.i6 ], [ true, %.lr.ph.i.i ]
   %27 = tail call noundef i64 @_ZN3ue216maxStringOverlapERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_b(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i1 noundef zeroext %26)
   ret i64 %27
 }
@@ -320,7 +318,6 @@ define hidden noundef zeroext i1 @_ZNK3ue211ue2_literal10any_nocaseEv(ptr nounde
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 3
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %9, i64 1)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -329,7 +326,7 @@ define hidden noundef zeroext i1 @_ZNK3ue211ue2_literal10any_nocaseEv(ptr nounde
   %11 = load i64, ptr %10, align 8
   %.not.not.i.not = icmp ne i64 %11, 0
   %12 = add nuw i64 %.059.i, 1
-  %exitcond.not.i = icmp eq i64 %12, %umax.i
+  %exitcond.not.i = icmp eq i64 %12, %9
   %or.cond = select i1 %.not.not.i.not, i1 true, i1 %exitcond.not.i
   br i1 %or.cond, label %_ZNK5boost14dynamic_bitsetImSaImEE3anyEv.exit, label %.lr.ph.i, !llvm.loop !9
 
@@ -2496,7 +2493,6 @@ define hidden noundef i64 @_ZN3ue220maxStringSelfOverlapERKNS_11ue2_literalE(ptr
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 3
-  %umax.i.i = tail call i64 @llvm.umax.i64(i64 %9, i64 1)
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
@@ -2505,7 +2501,7 @@ define hidden noundef i64 @_ZN3ue220maxStringSelfOverlapERKNS_11ue2_literalE(ptr
   %11 = load i64, ptr %10, align 8
   %.not.not.i.not.i = icmp ne i64 %11, 0
   %12 = add nuw i64 %.059.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %12, %umax.i.i
+  %exitcond.not.i.i = icmp eq i64 %12, %9
   %or.cond = select i1 %.not.not.i.not.i, i1 true, i1 %exitcond.not.i.i
   br i1 %or.cond, label %_ZNK3ue211ue2_literal10any_nocaseEv.exit, label %.lr.ph.i.i, !llvm.loop !9
 
@@ -2606,7 +2602,6 @@ define hidden noundef i64 @_ZN3ue215minStringPeriodERKNS_11ue2_literalE(ptr noun
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
   %11 = ashr exact i64 %10, 3
-  %umax.i.i.i = tail call i64 @llvm.umax.i64(i64 %11, i64 1)
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.preheader.i.i.i
@@ -2615,7 +2610,7 @@ define hidden noundef i64 @_ZN3ue215minStringPeriodERKNS_11ue2_literalE(ptr noun
   %13 = load i64, ptr %12, align 8
   %.not.not.i.not.i.i = icmp ne i64 %13, 0
   %14 = add nuw i64 %.059.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %14, %umax.i.i.i
+  %exitcond.not.i.i.i = icmp eq i64 %14, %11
   %or.cond.i = select i1 %.not.not.i.not.i.i, i1 true, i1 %exitcond.not.i.i.i
   br i1 %or.cond.i, label %_ZNK3ue211ue2_literal10any_nocaseEv.exit.i, label %.lr.ph.i.i.i, !llvm.loop !9
 

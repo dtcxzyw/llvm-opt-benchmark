@@ -890,13 +890,10 @@ _ZN6Assimp21OptimizeMeshesProcess7CanJoinEjjjj.exit.thread: ; preds = %114, %92,
 
 _ZNKSt6vectorIP6aiMeshSaIS1_EE12_M_check_lenEmPKc.exit.i.i47: ; preds = %172
   %178 = ashr exact i64 %175, 3
-  %.sroa.speculated.i.i.i48 = call i64 @llvm.umax.i64(i64 %178, i64 1)
-  %179 = add nsw i64 %.sroa.speculated.i.i.i48, %178
+  %179 = ashr exact i64 %175, 2
   %180 = icmp ult i64 %179, %178
   %181 = call i64 @llvm.umin.i64(i64 %179, i64 1152921504606846975)
   %182 = select i1 %180, i64 1152921504606846975, i64 %181
-  %.not.i.i.i49 = icmp ne i64 %182, 0
-  call void @llvm.assume(i1 %.not.i.i.i49)
   %183 = shl nuw nsw i64 %182, 3
   %184 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %183) #20
   %185 = getelementptr inbounds i8, ptr %184, i64 %175

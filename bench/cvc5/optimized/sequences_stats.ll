@@ -1982,7 +1982,6 @@ define linkonce_odr hidden void @_ZNK4cvc58internal23StatisticHistogramValueINS0
   %38 = getelementptr i8, ptr %36, i64 -24
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 128
-  %umax = call i64 @llvm.umax.i64(i64 %19, i64 1)
   br label %60
 
 ._crit_edge:                                      ; preds = %123
@@ -2215,7 +2214,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15
 
 123:                                              ; preds = %60, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
   %124 = add nuw i64 %.021, 1
-  %exitcond.not = icmp eq i64 %124, %umax
+  %exitcond.not = icmp eq i64 %124, %19
   br i1 %exitcond.not, label %._crit_edge, label %60, !llvm.loop !83
 }
 
@@ -2243,7 +2242,6 @@ _ZN4cvc58internal10safe_printILm3EEEviRAT__Kc.exit: ; preds = %2
   %11 = sub i64 %9, %10
   %12 = ashr exact i64 %11, 3
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %umax = tail call i64 @llvm.umax.i64(i64 %12, i64 1)
   br label %16
 
 ._crit_edge:                                      ; preds = %35, %_ZN4cvc58internal10safe_printILm3EEEviRAT__Kc.exit
@@ -2311,7 +2309,7 @@ _ZN4cvc58internal10safe_printILm3EEEviRAT__Kc.exit20: ; preds = %_ZN4cvc58intern
 35:                                               ; preds = %16, %_ZN4cvc58internal10safe_printILm3EEEviRAT__Kc.exit20
   %.2 = phi i1 [ false, %_ZN4cvc58internal10safe_printILm3EEEviRAT__Kc.exit20 ], [ %.022, %16 ]
   %36 = add nuw i64 %.01321, 1
-  %exitcond.not = icmp eq i64 %36, %umax
+  %exitcond.not = icmp eq i64 %36, %12
   br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !84
 }
 
@@ -3506,7 +3504,6 @@ define linkonce_odr hidden void @_ZNK4cvc58internal23StatisticHistogramValueINS0
   %38 = getelementptr i8, ptr %36, i64 -24
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 128
-  %umax = call i64 @llvm.umax.i64(i64 %19, i64 1)
   br label %60
 
 ._crit_edge:                                      ; preds = %123
@@ -3739,7 +3736,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15
 
 123:                                              ; preds = %60, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
   %124 = add nuw i64 %.021, 1
-  %exitcond.not = icmp eq i64 %124, %umax
+  %exitcond.not = icmp eq i64 %124, %19
   br i1 %exitcond.not, label %._crit_edge, label %60, !llvm.loop !110
 }
 
@@ -3767,7 +3764,6 @@ _ZN4cvc58internal10safe_printILm3EEEviRAT__Kc.exit: ; preds = %2
   %11 = sub i64 %9, %10
   %12 = ashr exact i64 %11, 3
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %umax = tail call i64 @llvm.umax.i64(i64 %12, i64 1)
   br label %16
 
 ._crit_edge:                                      ; preds = %35, %_ZN4cvc58internal10safe_printILm3EEEviRAT__Kc.exit
@@ -3835,7 +3831,7 @@ _ZN4cvc58internal10safe_printILm3EEEviRAT__Kc.exit20: ; preds = %_ZN4cvc58intern
 35:                                               ; preds = %16, %_ZN4cvc58internal10safe_printILm3EEEviRAT__Kc.exit20
   %.2 = phi i1 [ false, %_ZN4cvc58internal10safe_printILm3EEEviRAT__Kc.exit20 ], [ %.022, %16 ]
   %36 = add nuw i64 %.01321, 1
-  %exitcond.not = icmp eq i64 %36, %umax
+  %exitcond.not = icmp eq i64 %36, %12
   br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !111
 }
 
@@ -3861,9 +3857,6 @@ declare i64 @llvm.smin.i64(i64, i64) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #19
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #20

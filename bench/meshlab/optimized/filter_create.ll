@@ -8178,7 +8178,6 @@ _ZN3vcg6Point3IfE9normalizeEv.exit:               ; preds = %512, %_ZN3vcg6Plane
 
 .lr.ph1479:                                       ; preds = %533
   %543 = load float, ptr %42, align 4
-  %umax = call i64 @llvm.umax.i64(i64 %542, i64 1)
   br label %544
 
 544:                                              ; preds = %.lr.ph1479, %544
@@ -8197,7 +8196,7 @@ _ZN3vcg6Point3IfE9normalizeEv.exit:               ; preds = %512, %_ZN3vcg6Plane
   %555 = call noundef float @llvm.fabs.f32(float %554)
   %556 = fadd float %.03841477, %555
   %557 = add nuw i64 %.03851476, 1
-  %exitcond1522.not = icmp eq i64 %557, %umax
+  %exitcond1522.not = icmp eq i64 %557, %542
   br i1 %exitcond1522.not, label %._crit_edge1480, label %544, !llvm.loop !29
 
 ._crit_edge1480:                                  ; preds = %544, %533
@@ -8309,7 +8308,6 @@ _ZNK19MeshLabPluginLogger3logIJRfEEEvPKcDpOT_.exit: ; preds = %._crit_edge1480, 
   %595 = load float, ptr %497, align 4
   %596 = load float, ptr %42, align 4
   %597 = getelementptr inbounds nuw i8, ptr %43, i64 4
-  %umax1523 = call i64 @llvm.umax.i64(i64 %592, i64 1)
   br label %598
 
 598:                                              ; preds = %.lr.ph1484, %598
@@ -8340,7 +8338,7 @@ _ZNK19MeshLabPluginLogger3logIJRfEEEvPKcDpOT_.exit: ; preds = %._crit_edge1480, 
   %620 = fadd float %617, %601
   store float %620, ptr %.sroa.2246.0..sroa_idx, align 8
   %621 = add nuw i64 %.03861483, 1
-  %exitcond1524.not = icmp eq i64 %621, %umax1523
+  %exitcond1524.not = icmp eq i64 %621, %592
   br i1 %exitcond1524.not, label %._crit_edge1485, label %598, !llvm.loop !30
 
 ._crit_edge1485:                                  ; preds = %598, %_ZNK19MeshLabPluginLogger3logIJRfEEEvPKcDpOT_.exit
@@ -9145,7 +9143,6 @@ _ZNK19MeshLabPluginLogger3logIJRfS1_S1_EEEvPKcDpOT_.exit713: ; preds = %_ZN3vcg6
   %.sroa.01212.4.vec.extract1280 = extractelement <2 x float> %.sroa.01212.2, i64 1
   %.sroa.01136.0.vec.extract1159 = extractelement <2 x float> %.sroa.01136.2, i64 0
   %.sroa.01136.4.vec.extract1192 = extractelement <2 x float> %.sroa.01136.2, i64 1
-  %umax1525 = call i64 @llvm.umax.i64(i64 %992, i64 1)
   br label %1000
 
 1000:                                             ; preds = %.lr.ph1495, %1000
@@ -9184,7 +9181,7 @@ _ZNK19MeshLabPluginLogger3logIJRfS1_S1_EEEvPKcDpOT_.exit713: ; preds = %_ZN3vcg6
   %1029 = fcmp ogt float %1027, %.013621492
   %.11363 = select i1 %1029, float %1027, float %.013621492
   %1030 = add nuw i64 %.03881494, 1
-  %exitcond1526.not = icmp eq i64 %1030, %umax1525
+  %exitcond1526.not = icmp eq i64 %1030, %992
   br i1 %exitcond1526.not, label %._crit_edge1496, label %1000, !llvm.loop !40
 
 ._crit_edge1496:                                  ; preds = %1000, %_ZNK19MeshLabPluginLogger3logIJRfS1_S1_EEEvPKcDpOT_.exit713

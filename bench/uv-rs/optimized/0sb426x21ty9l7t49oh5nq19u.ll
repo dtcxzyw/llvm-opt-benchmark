@@ -13637,20 +13637,16 @@ default.unreachable345:                           ; preds = %.lr.ph
 181:                                              ; preds = %180
   %182 = load ptr, ptr %137, align 8, !nonnull !6, !noundef !6
   %183 = load i64, ptr %138, align 8, !noundef !6
-  %.not = icmp eq i64 %183, 0
-  br i1 %.not, label %._crit_edge.invoke, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %181
   %.sroa.0.0.sroa.speculated.i.i.i = call noundef i64 @llvm.umin.i64(i64 %183, i64 %1)
-  %umax = call i64 @llvm.umax.i64(i64 %.sroa.0.0.sroa.speculated.i.i.i, i64 1)
-  br label %.lr.ph
+  %.not = icmp eq i64 %183, 0
+  br i1 %.not, label %._crit_edge.invoke, label %.lr.ph
 
 ._crit_edge.invoke:                               ; preds = %.backedge, %181, %180
   invoke void @"_ZN65_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8e919af4bb65cafcE.llvm.3262719230128846288"(ptr noalias noundef nonnull align 8 dereferenceable(8) %27)
           to label %thread-pre-split unwind label %.loopexit.split-lp.loopexit
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.backedge
-  %.sroa.8147.0273 = phi i64 [ %184, %.backedge ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %181, %.backedge
+  %.sroa.8147.0273 = phi i64 [ %184, %.backedge ], [ 0, %181 ]
   %184 = add nuw i64 %.sroa.8147.0273, 1
   %185 = getelementptr inbounds { { i64, [35 x i64] }, { i64, [4 x i64] }, ptr, { { { { ptr, i64 } }, {} }, {} }, { { { { ptr, i64 } }, {} }, {} }, i64 }, ptr %0, i64 %.sroa.8147.0273
   %186 = getelementptr inbounds { i64, [1 x i64] }, ptr %182, i64 %.sroa.8147.0273
@@ -13688,7 +13684,7 @@ default.unreachable345:                           ; preds = %.lr.ph
   br i1 %.not.i.i, label %"_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.llvm.17154225491980139081.exit", label %.backedge
 
 .backedge:                                        ; preds = %"_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.llvm.17154225491980139081.exit", %.lr.ph, %197, %306
-  %exitcond.not = icmp eq i64 %184, %umax
+  %exitcond.not = icmp eq i64 %184, %.sroa.0.0.sroa.speculated.i.i.i
   br i1 %exitcond.not, label %._crit_edge.invoke, label %.lr.ph
 
 "_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.llvm.17154225491980139081.exit": ; preds = %197
@@ -14957,9 +14953,6 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #43
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #44
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #41
 
 attributes #0 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

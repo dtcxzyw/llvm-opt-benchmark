@@ -6787,16 +6787,10 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %57, %59
   %65 = load ptr, ptr %1, align 8
   %66 = load ptr, ptr %2, align 8
   %brmerge = or i1 %.not51, %.not.i.i.i.i
-  br i1 %brmerge, label %._crit_edge, label %.preheader.us.us.preheader
+  br i1 %brmerge, label %._crit_edge, label %.preheader.us.us
 
-.preheader.us.us.preheader:                       ; preds = %.preheader.lr.ph
-  %umax = call i64 @llvm.umax.i64(i64 %36, i64 1)
-  %umax55 = call i64 @llvm.umax.i64(i64 %18, i64 1)
-  %umax57 = call i64 @llvm.umax.i64(i64 %11, i64 1)
-  br label %.preheader.us.us
-
-.preheader.us.us:                                 ; preds = %.preheader.us.us.preheader, %._crit_edge45.split.us.us.us
-  %.03246.us.us = phi i64 [ %83, %._crit_edge45.split.us.us.us ], [ 0, %.preheader.us.us.preheader ]
+.preheader.us.us:                                 ; preds = %.preheader.lr.ph, %._crit_edge45.split.us.us.us
+  %.03246.us.us = phi i64 [ %83, %._crit_edge45.split.us.us.us ], [ 0, %.preheader.lr.ph ]
   %67 = getelementptr inbounds nuw %"class.std::vector.37", ptr %65, i64 %.03246.us.us
   %68 = load ptr, ptr %67, align 8, !tbaa !41
   %69 = getelementptr inbounds nuw %"class.std::vector.37", ptr %49, i64 %.03246.us.us
@@ -6820,17 +6814,17 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %57, %59
   %80 = call double @llvm.fmuladd.f64(double %72, double %77, double %79)
   store double %80, ptr %78, align 8, !tbaa !21
   %81 = add nuw i64 %.042.us.us.us, 1
-  %exitcond.not = icmp eq i64 %81, %umax
+  %exitcond.not = icmp eq i64 %81, %36
   br i1 %exitcond.not, label %._crit_edge.us.us.us, label %75, !llvm.loop !170
 
 ._crit_edge.us.us.us:                             ; preds = %75
   %82 = add nuw i64 %.03143.us.us.us, 1
-  %exitcond56.not = icmp eq i64 %82, %umax55
+  %exitcond56.not = icmp eq i64 %82, %18
   br i1 %exitcond56.not, label %._crit_edge45.split.us.us.us, label %.lr.ph.us.us.us, !llvm.loop !171
 
 ._crit_edge45.split.us.us.us:                     ; preds = %._crit_edge.us.us.us
   %83 = add nuw i64 %.03246.us.us, 1
-  %exitcond58.not = icmp eq i64 %83, %umax57
+  %exitcond58.not = icmp eq i64 %83, %11
   br i1 %exitcond58.not, label %._crit_edge, label %.preheader.us.us, !llvm.loop !172
 
 84:                                               ; preds = %_ZNSt16allocator_traitsISaISt6vectorIdSaIdEEEE8allocateERS3_m.exit.i.i.i.i, %47

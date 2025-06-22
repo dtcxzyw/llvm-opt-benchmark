@@ -783,7 +783,6 @@ _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i197: ; preds = %_ZN3gmx12_GLOBAL_
   %invariant.gep25.i = getelementptr i8, ptr %254, i64 4
   %invariant.gep27.i = getelementptr i8, ptr %254, i64 8
   %invariant.gep29.i = getelementptr i8, ptr %254, i64 12
-  %umax.i = call i64 @llvm.umax.i64(i64 %162, i64 1)
   br label %259
 
 259:                                              ; preds = %268, %.noexc205
@@ -816,7 +815,7 @@ _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i197: ; preds = %_ZN3gmx12_GLOBAL_
   %gep30.i = getelementptr float, ptr %invariant.gep29.i, i64 %262
   store float 0.000000e+00, ptr %gep30.i, align 4, !tbaa !41
   %275 = add nuw i64 %.024.i, 1
-  %exitcond.not.i = icmp eq i64 %275, %umax.i
+  %exitcond.not.i = icmp eq i64 %275, %162
   br i1 %exitcond.not.i, label %_ZN3gmx12_GLOBAL__N_117fillDdfzTableDataERKSt6vectorIfSaIfEES5_PS3_.exit, label %259, !llvm.loop !49
 
 _ZN3gmx12_GLOBAL__N_117fillDdfzTableDataERKSt6vectorIfSaIfEES5_PS3_.exit: ; preds = %268
@@ -883,7 +882,6 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit.i119:          ; preds = %_ZNSt6vectorIfSaIfE
 .lr.ph.i121:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i119
   %299 = load ptr, ptr %26, align 8, !tbaa !52
   %invariant.gep = getelementptr float, ptr %299, i64 %.064408
-  %umax = call i64 @llvm.umax.i64(i64 %295, i64 1)
   br label %300
 
 300:                                              ; preds = %300, %.lr.ph.i121
@@ -894,7 +892,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit.i119:          ; preds = %_ZNSt6vectorIfSaIfE
   %303 = load float, ptr %302, align 4, !tbaa !41
   store float %303, ptr %gep, align 4, !tbaa !41
   %304 = add nuw i64 %.02022.i, 1
-  %exitcond.not = icmp eq i64 %304, %umax
+  %exitcond.not = icmp eq i64 %304, %295
   br i1 %exitcond.not, label %_ZN3gmx8internal24fillMultiplexedTableDataISt6vectorIfSaIfEES4_EEvT_PT0_mmm.exit.thread, label %300, !llvm.loop !53
 
 _ZN3gmx8internal24fillMultiplexedTableDataISt6vectorIfSaIfEES4_EEvT_PT0_mmm.exit: ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i119
@@ -2921,7 +2919,6 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i228: ; preds = %.noexc234
   %invariant.gep25.i = getelementptr i8, ptr %316, i64 4
   %invariant.gep27.i = getelementptr i8, ptr %316, i64 8
   %invariant.gep29.i = getelementptr i8, ptr %316, i64 12
-  %umax.i = call i64 @llvm.umax.i64(i64 %311, i64 1)
   br label %322
 
 322:                                              ; preds = %331, %.lr.ph.i139
@@ -2954,7 +2951,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i228: ; preds = %.noexc234
   %gep30.i = getelementptr float, ptr %invariant.gep29.i, i64 %325
   store float 0.000000e+00, ptr %gep30.i, align 4, !tbaa !41
   %338 = add nuw i64 %.024.i, 1
-  %exitcond.not.i = icmp eq i64 %338, %umax.i
+  %exitcond.not.i = icmp eq i64 %338, %311
   br i1 %exitcond.not.i, label %_ZN3gmx12_GLOBAL__N_117fillDdfzTableDataERKSt6vectorIfSaIfEES5_PS3_.exit, label %322, !llvm.loop !49
 
 _ZN3gmx12_GLOBAL__N_117fillDdfzTableDataERKSt6vectorIfSaIfEES5_PS3_.exit: ; preds = %331, %307
@@ -3019,7 +3016,6 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit.i146:          ; preds = %_ZNSt6vectorIfSaIfE
 .lr.ph.i148:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i146
   %361 = load ptr, ptr %31, align 8, !tbaa !52
   %invariant.gep = getelementptr float, ptr %361, i64 %.073452
-  %umax = call i64 @llvm.umax.i64(i64 %357, i64 1)
   br label %362
 
 362:                                              ; preds = %362, %.lr.ph.i148
@@ -3030,7 +3026,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit.i146:          ; preds = %_ZNSt6vectorIfSaIfE
   %365 = load float, ptr %364, align 4, !tbaa !41
   store float %365, ptr %gep, align 4, !tbaa !41
   %366 = add nuw i64 %.02022.i, 1
-  %exitcond.not = icmp eq i64 %366, %umax
+  %exitcond.not = icmp eq i64 %366, %357
   br i1 %exitcond.not, label %_ZN3gmx8internal24fillMultiplexedTableDataISt6vectorIfSaIfEES4_EEvT_PT0_mmm.exit.thread, label %362, !llvm.loop !53
 
 _ZN3gmx8internal24fillMultiplexedTableDataISt6vectorIfSaIfEES4_EEvT_PT0_mmm.exit: ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i146

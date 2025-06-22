@@ -3681,8 +3681,7 @@ define internal fastcc void @celt_exp_rotation(ptr noundef captures(none) %0, i3
   br i1 %.not58, label %.split.us.preheader, label %.split
 
 .split.us.preheader:                              ; preds = %.loopexit95
-  %umax121 = tail call i32 @llvm.umax.i32(i32 %2, i32 1)
-  %wide.trip.count122 = zext i32 %umax121 to i64
+  %wide.trip.count122 = zext i32 %2 to i64
   %45 = shl nuw nsw i64 %36, 2
   %46 = getelementptr i8, ptr %0, i64 %45
   %scevgep = getelementptr i8, ptr %46, i64 4
@@ -3804,8 +3803,7 @@ celt_exp_rotation_impl.exit71.us:                 ; preds = %83, %._crit_edge.i8
   br i1 %.not59, label %.split.split.us, label %.split.split.preheader
 
 .split.split.preheader:                           ; preds = %.split
-  %umax = tail call i32 @llvm.umax.i32(i32 %2, i32 1)
-  %wide.trip.count = zext i32 %umax to i64
+  %wide.trip.count = zext i32 %2 to i64
   %93 = shl nuw nsw i64 %36, 2
   %94 = getelementptr i8, ptr %0, i64 %93
   %scevgep143 = getelementptr i8, ptr %94, i64 4
@@ -3815,8 +3813,7 @@ celt_exp_rotation_impl.exit71.us:                 ; preds = %83, %._crit_edge.i8
   br i1 %.not.i, label %.loopexit, label %.split.split.us.split
 
 .split.split.us.split:                            ; preds = %.split.split.us
-  %umax115 = tail call i32 @llvm.umax.i32(i32 %2, i32 1)
-  %wide.trip.count116 = zext i32 %umax115 to i64
+  %wide.trip.count116 = zext i32 %2 to i64
   br i1 %35, label %.lr.ph.i.preheader.us.us.preheader, label %.lr.ph.i.preheader.us
 
 .lr.ph.i.preheader.us.us.preheader:               ; preds = %.split.split.us.split

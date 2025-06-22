@@ -42165,20 +42165,19 @@ if.then.i.i.i.i.i:                                ; preds = %entry
   %call5.i.i.i.i2.i.i8 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #38
   store i16 0, ptr %call5.i.i.i.i2.i.i8, align 2
   %cmp.i.i.i.i.i.i.i = icmp eq i32 %count, 1
-  br i1 %cmp.i.i.i.i.i.i.i, label %invoke.cont, label %if.end.i.i.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i, label %for.body.preheader, label %if.end.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i8, i64 2
   %0 = add nsw i64 %mul.i.i.i.i.i.i, -2
   tail call void @llvm.memset.p0.i64(ptr align 2 %incdec.ptr.i.i.i.i.i, i8 0, i64 %0, i1 false)
-  br label %invoke.cont
+  br label %for.body.preheader
 
-invoke.cont:                                      ; preds = %if.end.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
-  %wide.trip.count = zext i32 %count to i64
+for.body.preheader:                               ; preds = %if.end.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
   br label %for.body
 
-for.body:                                         ; preds = %invoke.cont, %_ZN7openvdb5v11_02io10RealToHalfIfE7convertEf.exit
-  %indvars.iv = phi i64 [ 0, %invoke.cont ], [ %indvars.iv.next, %_ZN7openvdb5v11_02io10RealToHalfIfE7convertEf.exit ]
+for.body:                                         ; preds = %for.body.preheader, %_ZN7openvdb5v11_02io10RealToHalfIfE7convertEf.exit
+  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN7openvdb5v11_02io10RealToHalfIfE7convertEf.exit ], [ 0, %for.body.preheader ]
   %arrayidx = getelementptr inbounds nuw float, ptr %data, i64 %indvars.iv
   %1 = load float, ptr %arrayidx, align 4
   %2 = bitcast float %1 to i32
@@ -42262,7 +42261,7 @@ _ZN7openvdb5v11_02io10RealToHalfIfE7convertEf.exit: ; preds = %if.then4.i.i.i, %
   %add.ptr.i = getelementptr inbounds nuw %"class.openvdb::v11_0::math::internal::half", ptr %call5.i.i.i.i2.i.i8, i64 %indvars.iv
   store i16 %retval.0.i.i.i, ptr %add.ptr.i, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %conv
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !329
 
 _ZNSt6vectorIN7openvdb5v11_04math8internal4halfESaIS4_EED2Ev.exit: ; preds = %if.then3.i, %if.then.i
@@ -49916,20 +49915,19 @@ if.then.i.i.i.i.i:                                ; preds = %entry
   %call5.i.i.i.i2.i.i8 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #38
   store i16 0, ptr %call5.i.i.i.i2.i.i8, align 2
   %cmp.i.i.i.i.i.i.i = icmp eq i32 %count, 1
-  br i1 %cmp.i.i.i.i.i.i.i, label %invoke.cont, label %if.end.i.i.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i, label %for.body.preheader, label %if.end.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i8, i64 2
   %0 = add nsw i64 %mul.i.i.i.i.i.i, -2
   tail call void @llvm.memset.p0.i64(ptr align 2 %incdec.ptr.i.i.i.i.i, i8 0, i64 %0, i1 false)
-  br label %invoke.cont
+  br label %for.body.preheader
 
-invoke.cont:                                      ; preds = %if.end.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
-  %wide.trip.count = zext i32 %count to i64
+for.body.preheader:                               ; preds = %if.end.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
   br label %for.body
 
-for.body:                                         ; preds = %invoke.cont, %_ZN7openvdb5v11_02io10RealToHalfIdE7convertEd.exit
-  %indvars.iv = phi i64 [ 0, %invoke.cont ], [ %indvars.iv.next, %_ZN7openvdb5v11_02io10RealToHalfIdE7convertEd.exit ]
+for.body:                                         ; preds = %for.body.preheader, %_ZN7openvdb5v11_02io10RealToHalfIdE7convertEd.exit
+  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN7openvdb5v11_02io10RealToHalfIdE7convertEd.exit ], [ 0, %for.body.preheader ]
   %arrayidx = getelementptr inbounds nuw double, ptr %data, i64 %indvars.iv
   %1 = load double, ptr %arrayidx, align 8
   %conv.i = fptrunc double %1 to float
@@ -50014,7 +50012,7 @@ _ZN7openvdb5v11_02io10RealToHalfIdE7convertEd.exit: ; preds = %if.then4.i.i.i, %
   %add.ptr.i = getelementptr inbounds nuw %"class.openvdb::v11_0::math::internal::half", ptr %call5.i.i.i.i2.i.i8, i64 %indvars.iv
   store i16 %retval.0.i.i.i, ptr %add.ptr.i, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %conv
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !399
 
 _ZNSt6vectorIN7openvdb5v11_04math8internal4halfESaIS4_EED2Ev.exit: ; preds = %if.then3.i, %if.then.i
@@ -65556,7 +65554,7 @@ if.then.i.i.i.i.i:                                ; preds = %entry
   %add.ptr.i.i.i = getelementptr %"class.openvdb::v11_0::math::Vec3.934", ptr %call5.i.i.i.i2.i.i8, i64 %conv
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %call5.i.i.i.i2.i.i8, i8 0, i64 6, i1 false)
   %cmp.i.i.i.i.i.i.i = icmp eq i32 %count, 1
-  br i1 %cmp.i.i.i.i.i.i.i, label %invoke.cont, label %for.body.i.i.i.i.i.i.i.i.i.preheader
+  br i1 %cmp.i.i.i.i.i.i.i, label %for.body.preheader, label %for.body.i.i.i.i.i.i.i.i.i.preheader
 
 for.body.i.i.i.i.i.i.i.i.i.preheader:             ; preds = %if.then.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i8, i64 6
@@ -65567,14 +65565,13 @@ for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %__first.addr.04.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 2 dereferenceable(6) %call5.i.i.i.i2.i.i8, i64 6, i1 false)
   %incdec.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i, i64 6
   %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i, %add.ptr.i.i.i
-  br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %invoke.cont, label %for.body.i.i.i.i.i.i.i.i.i, !llvm.loop !536
+  br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %for.body.preheader, label %for.body.i.i.i.i.i.i.i.i.i, !llvm.loop !536
 
-invoke.cont:                                      ; preds = %for.body.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
-  %wide.trip.count = zext i32 %count to i64
+for.body.preheader:                               ; preds = %for.body.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
   br label %for.body
 
-for.body:                                         ; preds = %invoke.cont, %invoke.cont4
-  %indvars.iv = phi i64 [ 0, %invoke.cont ], [ %indvars.iv.next, %invoke.cont4 ]
+for.body:                                         ; preds = %for.body.preheader, %invoke.cont4
+  %indvars.iv = phi i64 [ %indvars.iv.next, %invoke.cont4 ], [ 0, %for.body.preheader ]
   %arrayidx = getelementptr inbounds nuw %"class.openvdb::v11_0::math::Vec3.807", ptr %data, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %retval.i)
   invoke void @_ZN7openvdb5v11_04math4Vec3INS1_8internal4halfEEC2IfEERKNS2_IT_EE(ptr noundef nonnull align 2 dereferenceable(6) %retval.i, ptr noundef nonnull align 4 dereferenceable(12) %arrayidx)
@@ -65586,7 +65583,7 @@ invoke.cont4:                                     ; preds = %for.body
   %add.ptr.i = getelementptr inbounds nuw %"class.openvdb::v11_0::math::Vec3.934", ptr %call5.i.i.i.i2.i.i8, i64 %indvars.iv
   store i48 %coerce.dive1.coerce.0.copyload.i, ptr %add.ptr.i, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %conv
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !538
 
 _ZNSt6vectorIN7openvdb5v11_04math4Vec3INS2_8internal4halfEEESaIS6_EED2Ev.exit.loopexit: ; preds = %for.body
@@ -73796,7 +73793,6 @@ for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.
 invoke.cont:                                      ; preds = %for.body.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
   %arrayidx5.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   %arrayidx9.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
-  %wide.trip.count = zext i32 %count to i64
   br label %for.body
 
 for.body:                                         ; preds = %invoke.cont, %invoke.cont4
@@ -73825,7 +73821,7 @@ invoke.cont4:                                     ; preds = %for.body
   %add.ptr.i = getelementptr inbounds nuw %"class.openvdb::v11_0::math::Vec3.934", ptr %call5.i.i.i.i2.i.i8, i64 %indvars.iv
   store i48 %coerce.dive1.coerce.0.copyload.i, ptr %add.ptr.i, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %conv
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !618
 
 _ZNSt6vectorIN7openvdb5v11_04math4Vec3INS2_8internal4halfEEESaIS6_EED2Ev.exit.loopexit: ; preds = %for.body

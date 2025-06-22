@@ -830,7 +830,6 @@ define void @_Z21common_log_set_colorsP10common_logb(ptr noundef nonnull %0, i1 
   %6 = ptrtoint ptr %4 to i64
   %7 = sub i64 %5, %6
   %8 = ashr exact i64 %7, 3
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %8, i64 1)
   br label %.lr.ph.i
 
 9:                                                ; preds = %2
@@ -859,7 +858,7 @@ define void @_Z21common_log_set_colorsP10common_logb(ptr noundef nonnull %0, i1 
   %19 = getelementptr inbounds nuw ptr, ptr %4, i64 %.04.i
   store ptr @.str, ptr %19, align 8, !tbaa !68
   %20 = add nuw i64 %.04.i, 1
-  %exitcond.not.i = icmp eq i64 %20, %umax.i
+  %exitcond.not.i = icmp eq i64 %20, %8
   br i1 %exitcond.not.i, label %_ZN10common_log10set_colorsEb.exit, label %.lr.ph.i, !llvm.loop !69
 
 _ZN10common_log10set_colorsEb.exit:               ; preds = %.lr.ph.i, %.preheader.i, %9

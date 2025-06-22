@@ -8081,7 +8081,6 @@ _ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EEC2EmRKS3_.exit.i: ; preds = %_ZNSt6ve
   %361 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %362 = getelementptr inbounds nuw i8, ptr %34, i64 20
   %363 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %umax = call i64 @llvm.umax.i64(i64 %336, i64 1)
   br label %368
 
 364:                                              ; preds = %._crit_edge
@@ -8653,7 +8652,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit260: ; preds = %_ZNSt6vectorIN2cv6P
 
 _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit264: ; preds = %557, %.thread408
   %558 = add nuw i64 %.0101472, 1
-  %exitcond516.not = icmp eq i64 %558, %umax
+  %exitcond516.not = icmp eq i64 %558, %336
   br i1 %exitcond516.not, label %._crit_edge476, label %368, !llvm.loop !281
 
 559:                                              ; preds = %403, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit260, %483, %440, %434, %432

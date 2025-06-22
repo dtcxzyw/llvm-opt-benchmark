@@ -36353,15 +36353,11 @@ stbi__get8.exit.i159.i:                           ; preds = %stbi__refill_buffer
 
 stbi__readval.exit166.preheader.i:                ; preds = %438
   %.not312.i = icmp eq i8 %.0.i139.i, 0
-  br i1 %.not312.i, label %stbi__readval.exit166._crit_edge.i, label %.lr.ph298.preheader.i
+  br i1 %.not312.i, label %stbi__readval.exit166._crit_edge.i, label %.lr.ph298.i
 
-.lr.ph298.preheader.i:                            ; preds = %stbi__readval.exit166.preheader.i
-  %umax.i = tail call i32 @llvm.umax.i32(i32 %spec.select261.i, i32 1)
-  br label %.lr.ph298.i
-
-.lr.ph298.i:                                      ; preds = %stbi__copyval.exit.i, %.lr.ph298.preheader.i
-  %.086297.i = phi i32 [ %450, %stbi__copyval.exit.i ], [ 0, %.lr.ph298.preheader.i ]
-  %.2296.i = phi ptr [ %451, %stbi__copyval.exit.i ], [ %.190300.i, %.lr.ph298.preheader.i ]
+.lr.ph298.i:                                      ; preds = %stbi__readval.exit166.preheader.i, %stbi__copyval.exit.i
+  %.086297.i = phi i32 [ %450, %stbi__copyval.exit.i ], [ 0, %stbi__readval.exit166.preheader.i ]
+  %.2296.i = phi ptr [ %451, %stbi__copyval.exit.i ], [ %.190300.i, %stbi__readval.exit166.preheader.i ]
   %440 = load i8, ptr %327, align 1
   %441 = zext i8 %440 to i32
   br label %442
@@ -36389,7 +36385,7 @@ stbi__readval.exit166.preheader.i:                ; preds = %438
 stbi__copyval.exit.i:                             ; preds = %448
   %450 = add nuw nsw i32 %.086297.i, 1
   %451 = getelementptr inbounds nuw i8, ptr %.2296.i, i64 4
-  %exitcond328.not.i = icmp eq i32 %450, %umax.i
+  %exitcond328.not.i = icmp eq i32 %450, %spec.select261.i
   br i1 %exitcond328.not.i, label %stbi__readval.exit166._crit_edge.i, label %.lr.ph298.i, !llvm.loop !214
 
 stbi__readval.exit166._crit_edge.i:               ; preds = %stbi__copyval.exit.i, %stbi__readval.exit166.preheader.i

@@ -1908,7 +1908,6 @@ for.body.lr.ph:                                   ; preds = %if.end36
   %Y.i = getelementptr inbounds nuw i8, ptr %p, i64 2
   %Z.i = getelementptr inbounds nuw i8, ptr %p, i64 4
   %43 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @warningstream)
-  %umax = call i16 @llvm.umax.i16(i16 %rev.i.i.i, i16 1)
   %.not = icmp eq ptr @_ZTH13warningstream, null
   br label %for.body
 
@@ -2272,7 +2271,7 @@ _ZNSt3mapIN3irr4core8vector3dIsEEP12NodeMetadataSt4lessIS3_ESaISt4pairIKS3_S5_EE
 cleanup:                                          ; preds = %_ZNSt3mapIN3irr4core8vector3dIsEEP12NodeMetadataSt4lessIS3_ESaISt4pairIKS3_S5_EEEixERS9_.exit, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit, %_ZN11StreamProxylsIRA12_KcEERS_OT_.exit, %_ZN11StreamProxylsIRA30_KcEERS_OT_.exit
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %p) #28
   %inc = add nuw i16 %i.0217, 1
-  %exitcond.not = icmp eq i16 %inc, %umax
+  %exitcond.not = icmp eq i16 %inc, %rev.i.i.i
   br i1 %exitcond.not, label %cleanup85, label %for.body, !llvm.loop !89
 
 cleanup85:                                        ; preds = %cleanup, %if.end36, %_ZN16NodeMetadataList5clearEv.exit
@@ -5991,9 +5990,6 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #25
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #22
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.umax.i16(i16, i16) #22
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #22

@@ -17061,7 +17061,6 @@ _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEENS1_6theory11quantifiers7fmcheck3D
 
 .lr.ph1133.preheader:                             ; preds = %562
   %569 = trunc nsw i64 %568 to i32
-  %umax = call i32 @llvm.umax.i32(i32 %569, i32 1)
   br label %.lr.ph1133.outer
 
 .lr.ph1133.outer:                                 ; preds = %.thread, %.lr.ph1133.preheader
@@ -17535,14 +17534,14 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backEOS3_.exit450
 796:                                              ; preds = %787, %781, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backEOS3_.exit450
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %50) #25
   %797 = add nuw i32 %.01631132, 1
-  %exitcond.not = icmp eq i32 %797, %umax
+  %exitcond.not = icmp eq i32 %797, %569
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph1133, !llvm.loop !532
 
 .thread:                                          ; preds = %707, %701, %_ZN4cvc58internal8TypeNodeD2Ev.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %49) #25
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %47) #25
   %798 = add nuw i32 %.01631132, 1
-  %exitcond.not1153 = icmp eq i32 %798, %umax
+  %exitcond.not1153 = icmp eq i32 %798, %569
   br i1 %exitcond.not1153, label %._crit_edge.thread, label %.lr.ph1133.outer, !llvm.loop !532
 
 ._crit_edge.thread:                               ; preds = %.thread, %._crit_edge
@@ -49578,9 +49577,6 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #23
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #23
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

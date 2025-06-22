@@ -763,7 +763,6 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZN4Luau7CodeG
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  %umax = tail call i64 @llvm.umax.i64(i64 %23, i64 1)
   br label %51
 
 ._crit_edge:                                      ; preds = %_ZN4Luau7CodeGenL20tryCreateLinearBlockERNS0_9IrBuilderERSt6vectorIhSaIhEERNS0_7IrBlockERNS0_14ConstPropStateE.exit
@@ -1678,7 +1677,7 @@ _ZN4Luau7CodeGenL20tryCreateLinearBlockERNS0_9IrBuilderERSt6vectorIhSaIhEERNS0_7
   %.sroa.14.1 = phi ptr [ %.sroa.14.0185, %55 ], [ %.sroa.14.0185, %51 ], [ %.sroa.14.0185, %51 ], [ %.sroa.14.0185, %75 ], [ %.sroa.14.3, %_ZN4Luau7CodeGenL16constPropInBlockERNS0_9IrBuilderERNS0_7IrBlockERNS0_14ConstPropStateE.exit131.i ], [ %.sroa.14.3, %371 ], [ %.sroa.14.0185, %71 ], [ %.sroa.14.0185, %64 ]
   %.sroa.025.1 = phi ptr [ %.sroa.025.0186, %55 ], [ %.sroa.025.0186, %51 ], [ %.sroa.025.0186, %51 ], [ %.sroa.025.0186, %75 ], [ %.sroa.025.8, %_ZN4Luau7CodeGenL16constPropInBlockERNS0_9IrBuilderERNS0_7IrBlockERNS0_14ConstPropStateE.exit131.i ], [ %.sroa.025.8, %371 ], [ %.sroa.025.0186, %71 ], [ %.sroa.025.0186, %64 ]
   %379 = add nuw i64 %.017187, 1
-  %exitcond.not = icmp eq i64 %379, %umax
+  %exitcond.not = icmp eq i64 %379, %23
   br i1 %exitcond.not, label %._crit_edge, label %51, !llvm.loop !123
 
 _ZNSt6vectorIhSaIhEED2Ev.exit23:                  ; preds = %60, %common.resume.i, %49
@@ -4193,7 +4192,6 @@ _ZN4Luau7CodeGen10IrFunction7asIntOpENS0_4IrOpE.exit1145.thread: ; preds = %883,
   %1125 = load i32, ptr %1124, align 4
   %1126 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %1127 = load i32, ptr %1126, align 4
-  %umax = tail call i64 @llvm.umax.i64(i64 %1121, i64 1)
   br label %1128
 
 1128:                                             ; preds = %.lr.ph1454, %1154
@@ -4241,7 +4239,7 @@ _ZN4Luau7CodeGen10IrFunction7asIntOpENS0_4IrOpE.exit1145.thread: ; preds = %883,
 
 1154:                                             ; preds = %1136, %1128
   %1155 = add nuw i64 %.09851453, 1
-  %exitcond.not = icmp eq i64 %1155, %umax
+  %exitcond.not = icmp eq i64 %1155, %1121
   br i1 %exitcond.not, label %._crit_edge1455, label %1128, !llvm.loop !153
 
 ._crit_edge1455:                                  ; preds = %1154, %.preheader

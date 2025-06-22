@@ -66317,7 +66317,6 @@ _ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i.i.i.i.i: ; preds = %39
   %52 = ashr exact i64 %50, 2
   %53 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %54 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %umax = call i64 @llvm.umax.i64(i64 %52, i64 1)
   br label %65
 
 55:                                               ; preds = %.noexc40
@@ -66455,7 +66454,7 @@ _ZN4cvc58internal6StringD2Ev.exit46:              ; preds = %98, %88, %86
 _ZN4cvc58internal6StringD2Ev.exit48:              ; preds = %.critedge35, %104
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #24
   %109 = add nuw i64 %.087, 1
-  %exitcond.not = icmp eq i64 %109, %umax
+  %exitcond.not = icmp eq i64 %109, %52
   br i1 %exitcond.not, label %._crit_edge, label %65, !llvm.loop !1366
 
 110:                                              ; preds = %80, %81

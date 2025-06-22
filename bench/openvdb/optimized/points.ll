@@ -127541,7 +127541,6 @@ for.body76.preheader:                             ; preds = %invoke.cont70
   %sub.ptr.rhs.cast.i77 = ptrtoint ptr %11 to i64
   %sub.ptr.sub.i78 = sub i64 %sub.ptr.lhs.cast.i76, %sub.ptr.rhs.cast.i77
   %sub.ptr.div.i79 = ashr exact i64 %sub.ptr.sub.i78, 2
-  %umax = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i79, i64 1)
   br label %for.body76
 
 for.body76:                                       ; preds = %for.body76.preheader, %for.body76
@@ -127552,7 +127551,7 @@ for.body76:                                       ; preds = %for.body76.preheade
   %conv = zext i32 %14 to i64
   %add = add i64 %totalNodeCount.0201, %conv
   %inc79 = add nuw i64 %i72.0200, 1
-  %exitcond.not = icmp eq i64 %inc79, %umax
+  %exitcond.not = icmp eq i64 %inc79, %sub.ptr.div.i79
   br i1 %exitcond.not, label %for.end80.loopexit, label %for.body76, !llvm.loop !668
 
 for.end80.loopexit:                               ; preds = %for.body76

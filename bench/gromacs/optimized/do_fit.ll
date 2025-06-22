@@ -518,10 +518,6 @@ define void @_Z10calc_fit_RiiPKfPA3_S_PA3_fS4_(i32 noundef %0, i32 noundef %1, p
   %21 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i32 noundef 132, i64 noundef range(i64 -2147483648, 2147483648) %19, i64 noundef 8)
   br label %.lr.ph
 
-.lr.ph178.preheader:                              ; preds = %.lr.ph
-  %wide.trip.count228 = zext nneg i32 %18 to i64
-  br label %.lr.ph178
-
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %22 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv
@@ -532,10 +528,10 @@ define void @_Z10calc_fit_RiiPKfPA3_S_PA3_fS4_(i32 noundef %0, i32 noundef %1, p
   store ptr %25, ptr %24, align 8, !tbaa !13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %19
-  br i1 %exitcond.not, label %.lr.ph178.preheader, label %.lr.ph, !llvm.loop !16
+  br i1 %exitcond.not, label %.lr.ph178, label %.lr.ph, !llvm.loop !16
 
-.lr.ph178:                                        ; preds = %.lr.ph178.preheader, %34
-  %indvars.iv225 = phi i64 [ 0, %.lr.ph178.preheader ], [ %indvars.iv.next226, %34 ]
+.lr.ph178:                                        ; preds = %.lr.ph, %34
+  %indvars.iv225 = phi i64 [ %indvars.iv.next226, %34 ], [ 0, %.lr.ph ]
   %26 = getelementptr inbounds nuw [6 x double], ptr %8, i64 0, i64 %indvars.iv225
   store double 0.000000e+00, ptr %26, align 8, !tbaa !17
   %27 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv225
@@ -551,12 +547,12 @@ define void @_Z10calc_fit_RiiPKfPA3_S_PA3_fS4_(i32 noundef %0, i32 noundef %1, p
   %33 = getelementptr inbounds nuw double, ptr %30, i64 %indvars.iv220
   store double 0.000000e+00, ptr %33, align 8, !tbaa !17
   %indvars.iv.next221 = add nuw nsw i64 %indvars.iv220, 1
-  %exitcond224.not = icmp eq i64 %indvars.iv.next221, %wide.trip.count228
+  %exitcond224.not = icmp eq i64 %indvars.iv.next221, %19
   br i1 %exitcond224.not, label %34, label %31, !llvm.loop !19
 
 34:                                               ; preds = %31
   %indvars.iv.next226 = add nuw nsw i64 %indvars.iv225, 1
-  %exitcond229.not = icmp eq i64 %indvars.iv.next226, %wide.trip.count228
+  %exitcond229.not = icmp eq i64 %indvars.iv.next226, %19
   br i1 %exitcond229.not, label %._crit_edge, label %.lr.ph178, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %34
@@ -886,10 +882,6 @@ define void @_Z10calc_fit_RiiPKfPA3_S_PA3_fS4_(i32 noundef %0, i32 noundef %1, p
   %178 = zext nneg i32 %0 to i64
   br label %.lr.ph210
 
-.lr.ph212.preheader:                              ; preds = %.lr.ph210, %.preheader167
-  %wide.trip.count299 = zext nneg i32 %18 to i64
-  br label %.lr.ph212
-
 .lr.ph210:                                        ; preds = %.lr.ph210.preheader, %.lr.ph210
   %indvars.iv292 = phi i64 [ %178, %.lr.ph210.preheader ], [ %indvars.iv.next293, %.lr.ph210 ]
   %179 = getelementptr inbounds nuw [3 x float], ptr %5, i64 %indvars.iv292, i64 %indvars.iv292
@@ -899,8 +891,11 @@ define void @_Z10calc_fit_RiiPKfPA3_S_PA3_fS4_(i32 noundef %0, i32 noundef %1, p
   %181 = icmp slt i32 %180, 2
   br i1 %181, label %.lr.ph210, label %.lr.ph212.preheader, !llvm.loop !34
 
+.lr.ph212.preheader:                              ; preds = %.lr.ph210, %.preheader167
+  br label %.lr.ph212
+
 .lr.ph212:                                        ; preds = %.lr.ph212.preheader, %.lr.ph212
-  %indvars.iv295 = phi i64 [ 0, %.lr.ph212.preheader ], [ %indvars.iv.next296, %.lr.ph212 ]
+  %indvars.iv295 = phi i64 [ %indvars.iv.next296, %.lr.ph212 ], [ 0, %.lr.ph212.preheader ]
   %182 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv295
   %183 = load ptr, ptr %182, align 8, !tbaa !13
   call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str, i32 noundef 258, ptr noundef %183)
@@ -908,7 +903,7 @@ define void @_Z10calc_fit_RiiPKfPA3_S_PA3_fS4_(i32 noundef %0, i32 noundef %1, p
   %185 = load ptr, ptr %184, align 8, !tbaa !13
   call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str, i32 noundef 259, ptr noundef %185)
   %indvars.iv.next296 = add nuw nsw i64 %indvars.iv295, 1
-  %exitcond300.not = icmp eq i64 %indvars.iv.next296, %wide.trip.count299
+  %exitcond300.not = icmp eq i64 %indvars.iv.next296, %19
   br i1 %exitcond300.not, label %._crit_edge213, label %.lr.ph212, !llvm.loop !35
 
 ._crit_edge213:                                   ; preds = %.lr.ph212

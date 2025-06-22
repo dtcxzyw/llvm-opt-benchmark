@@ -590,7 +590,6 @@ _ZNSt6vectorIN8QuantLib21MarketModelDiscounterESaIS1_EE7reserveEm.exit: ; preds 
 
 for.body72.lr.ph:                                 ; preds = %_ZNSt6vectorIN8QuantLib21MarketModelDiscounterESaIS1_EE7reserveEm.exit
   %_M_finish.i76 = getelementptr inbounds nuw i8, ptr %this, i64 256
-  %umax = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %for.body72
 
 for.cond.cleanup71:                               ; preds = %for.inc78, %_ZNSt6vectorIN8QuantLib21MarketModelDiscounterESaIS1_EE7reserveEm.exit
@@ -642,7 +641,7 @@ if.else.i80:                                      ; preds = %for.body72
 
 for.inc78:                                        ; preds = %if.else.i80, %.noexc81
   %inc79 = add nuw i64 %j.0167, 1
-  %exitcond.not = icmp eq i64 %inc79, %umax
+  %exitcond.not = icmp eq i64 %inc79, %sub.ptr.div.i
   br i1 %exitcond.not, label %for.cond.cleanup71, label %for.body72, !llvm.loop !81
 
 lpad75:                                           ; preds = %if.else.i80, %if.then.i77
@@ -1495,7 +1494,6 @@ for.body89.lr.ph:                                 ; preds = %for.cond84.preheade
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %initialNumeraireValue_ = getelementptr inbounds nuw i8, ptr %this, i64 120
   %52 = load ptr, ptr %values, align 8, !tbaa !59
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %for.body89
 
 for.cond.cleanup88:                               ; preds = %for.body89, %for.cond84.preheader
@@ -1510,7 +1508,7 @@ for.body89:                                       ; preds = %for.body89.lr.ph, %
   %add.ptr.i43 = getelementptr inbounds nuw double, ptr %52, i64 %i83.050
   store double %mul92, ptr %add.ptr.i43, align 8, !tbaa !61
   %inc95 = add nuw i64 %i83.050, 1
-  %exitcond.not = icmp eq i64 %inc95, %umax
+  %exitcond.not = icmp eq i64 %inc95, %sub.ptr.div.i
   br i1 %exitcond.not, label %for.cond.cleanup88, label %for.body89, !llvm.loop !113
 }
 
@@ -1600,7 +1598,6 @@ _ZNSt6vectorIS_IS_IdSaIdEESaIS1_EESaIS3_EE6resizeEm.exit: ; preds = %_ZNKSt6vect
   store ptr %add.ptr37.i, ptr %_M_finish.i.i, align 8, !tbaa !16
   store ptr %add.ptr37.i, ptr %_M_end_of_storage.i, align 8, !tbaa !17
   %sub.ptr.div.i41 = sdiv exact i64 %sub.ptr.sub.i, 24
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i41, i64 1)
   br label %for.body
 
 _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i43: ; preds = %for.cond.cleanup19, %invoke.cont
@@ -1703,7 +1700,7 @@ invoke.cont12:                                    ; preds = %if.then.i89.invoke.
 
 for.cond.cleanup19:                               ; preds = %invoke.cont23, %invoke.cont12
   %inc = add nuw i64 %i.0286, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i41
   br i1 %exitcond.not, label %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i43, label %for.body, !llvm.loop !114
 
 lpad11:                                           ; preds = %if.then.i89

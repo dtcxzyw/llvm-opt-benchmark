@@ -1777,50 +1777,50 @@ define weak_odr <4 x float> @_ZNK7mitsuba17IrregularSpectrumIfN5drjit6MatrixINS_
 .lr.ph.i.i:                                       ; preds = %3
   %20 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %19, i1 true)
   %21 = sub nuw nsw i32 32, %20
-  %22 = insertelement <4 x i32> poison, i32 %19, i64 0
-  %23 = shufflevector <4 x i32> %22, <4 x i32> poison, <4 x i32> zeroinitializer
-  %24 = shufflevector <8 x i1> %16, <8 x i1> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %umax.i.i = zext nneg i32 %21 to i64
-  br label %25
+  %22 = zext nneg i32 %21 to i64
+  %23 = insertelement <4 x i32> poison, i32 %19, i64 0
+  %24 = shufflevector <4 x i32> %23, <4 x i32> poison, <4 x i32> zeroinitializer
+  %25 = shufflevector <8 x i1> %16, <8 x i1> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  br label %26
 
-25:                                               ; preds = %25, %.lr.ph.i.i
-  %.0137.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %34, %25 ]
-  %.sroa.0.0.in136.i.i = phi <4 x i32> [ zeroinitializer, %.lr.ph.i.i ], [ %32, %25 ]
-  %.sroa.0131.0.in135.i.i = phi <4 x i32> [ %23, %.lr.ph.i.i ], [ %33, %25 ]
-  %26 = add <4 x i32> %.sroa.0131.0.in135.i.i, %.sroa.0.0.in136.i.i
-  %27 = lshr <4 x i32> %26, splat (i32 1)
-  %28 = tail call contract <4 x float> @llvm.x86.avx512.mask.gather3siv4.sf(<4 x float> zeroinitializer, ptr %.pre.i, <4 x i32> %27, <4 x i1> %24, i32 4)
-  %29 = fcmp contract uge <4 x float> %28, %.sroa.0.0.copyload
-  %30 = add nuw <4 x i32> %27, splat (i32 1)
-  %31 = tail call <4 x i32> @llvm.umin.v4i32(<4 x i32> %.sroa.0131.0.in135.i.i, <4 x i32> %30)
-  %32 = select <4 x i1> %29, <4 x i32> %.sroa.0.0.in136.i.i, <4 x i32> %31
-  %33 = select <4 x i1> %29, <4 x i32> %27, <4 x i32> %.sroa.0131.0.in135.i.i
-  %34 = add nuw nsw i64 %.0137.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %34, %umax.i.i
-  br i1 %exitcond.not.i.i, label %.loopexit, label %25, !llvm.loop !18
+26:                                               ; preds = %26, %.lr.ph.i.i
+  %.0137.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %35, %26 ]
+  %.sroa.0.0.in136.i.i = phi <4 x i32> [ zeroinitializer, %.lr.ph.i.i ], [ %33, %26 ]
+  %.sroa.0131.0.in135.i.i = phi <4 x i32> [ %24, %.lr.ph.i.i ], [ %34, %26 ]
+  %27 = add <4 x i32> %.sroa.0131.0.in135.i.i, %.sroa.0.0.in136.i.i
+  %28 = lshr <4 x i32> %27, splat (i32 1)
+  %29 = tail call contract <4 x float> @llvm.x86.avx512.mask.gather3siv4.sf(<4 x float> zeroinitializer, ptr %.pre.i, <4 x i32> %28, <4 x i1> %25, i32 4)
+  %30 = fcmp contract uge <4 x float> %29, %.sroa.0.0.copyload
+  %31 = add nuw <4 x i32> %28, splat (i32 1)
+  %32 = tail call <4 x i32> @llvm.umin.v4i32(<4 x i32> %.sroa.0131.0.in135.i.i, <4 x i32> %31)
+  %33 = select <4 x i1> %30, <4 x i32> %.sroa.0.0.in136.i.i, <4 x i32> %32
+  %34 = select <4 x i1> %30, <4 x i32> %28, <4 x i32> %.sroa.0131.0.in135.i.i
+  %35 = add nuw nsw i64 %.0137.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %35, %22
+  br i1 %exitcond.not.i.i, label %.loopexit, label %26, !llvm.loop !18
 
-.loopexit:                                        ; preds = %25, %._ZN5drjit13binary_searchIN7mitsuba8SpectrumIjLm4EEEZNKS1_31IrregularContinuousDistributionINS2_IfLm4EEEE8eval_pdfES5_NS_4MaskIfLm4EEEEUlS3_E_EET_NS_6detail6scalarISA_iE4typeESE_RKT0_.exit_crit_edge.i
-  %.pre-phi.i = phi <4 x i1> [ %.pre250.i, %._ZN5drjit13binary_searchIN7mitsuba8SpectrumIjLm4EEEZNKS1_31IrregularContinuousDistributionINS2_IfLm4EEEE8eval_pdfES5_NS_4MaskIfLm4EEEEUlS3_E_EET_NS_6detail6scalarISA_iE4typeESE_RKT0_.exit_crit_edge.i ], [ %24, %25 ]
-  %.sroa.0.0.in.lcssa.i.i = phi <4 x i32> [ zeroinitializer, %._ZN5drjit13binary_searchIN7mitsuba8SpectrumIjLm4EEEZNKS1_31IrregularContinuousDistributionINS2_IfLm4EEEE8eval_pdfES5_NS_4MaskIfLm4EEEEUlS3_E_EET_NS_6detail6scalarISA_iE4typeESE_RKT0_.exit_crit_edge.i ], [ %32, %25 ]
-  %35 = add i32 %19, -1
-  %36 = insertelement <4 x i32> poison, i32 %35, i64 0
-  %37 = shufflevector <4 x i32> %36, <4 x i32> poison, <4 x i32> zeroinitializer
-  %38 = tail call <4 x i32> @llvm.umin.v4i32(<4 x i32> %37, <4 x i32> %.sroa.0.0.in.lcssa.i.i)
-  %39 = tail call <4 x i32> @llvm.umax.v4i32(<4 x i32> %38, <4 x i32> splat (i32 1))
-  %40 = add <4 x i32> %39, splat (i32 -1)
-  %41 = tail call contract <4 x float> @llvm.x86.avx512.mask.gather3siv4.sf(<4 x float> zeroinitializer, ptr %.pre.i, <4 x i32> %40, <4 x i1> %.pre-phi.i, i32 4)
-  %42 = tail call contract <4 x float> @llvm.x86.avx512.mask.gather3siv4.sf(<4 x float> zeroinitializer, ptr %.pre.i, <4 x i32> %39, <4 x i1> %.pre-phi.i, i32 4)
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %44 = load ptr, ptr %43, align 8
-  %45 = tail call contract <4 x float> @llvm.x86.avx512.mask.gather3siv4.sf(<4 x float> zeroinitializer, ptr %44, <4 x i32> %40, <4 x i1> %.pre-phi.i, i32 4)
-  %46 = tail call contract <4 x float> @llvm.x86.avx512.mask.gather3siv4.sf(<4 x float> zeroinitializer, ptr %44, <4 x i32> %39, <4 x i1> %.pre-phi.i, i32 4)
-  %47 = fsub contract <4 x float> %.sroa.0.0.copyload, %41
-  %48 = fsub contract <4 x float> %42, %41
-  %49 = fdiv contract <4 x float> %47, %48
-  %50 = fsub contract <4 x float> %46, %45
-  %51 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %49, <4 x float> %50, <4 x float> %45)
-  %52 = select contract <4 x i1> %.pre-phi.i, <4 x float> %51, <4 x float> zeroinitializer
-  ret <4 x float> %52
+.loopexit:                                        ; preds = %26, %._ZN5drjit13binary_searchIN7mitsuba8SpectrumIjLm4EEEZNKS1_31IrregularContinuousDistributionINS2_IfLm4EEEE8eval_pdfES5_NS_4MaskIfLm4EEEEUlS3_E_EET_NS_6detail6scalarISA_iE4typeESE_RKT0_.exit_crit_edge.i
+  %.pre-phi.i = phi <4 x i1> [ %.pre250.i, %._ZN5drjit13binary_searchIN7mitsuba8SpectrumIjLm4EEEZNKS1_31IrregularContinuousDistributionINS2_IfLm4EEEE8eval_pdfES5_NS_4MaskIfLm4EEEEUlS3_E_EET_NS_6detail6scalarISA_iE4typeESE_RKT0_.exit_crit_edge.i ], [ %25, %26 ]
+  %.sroa.0.0.in.lcssa.i.i = phi <4 x i32> [ zeroinitializer, %._ZN5drjit13binary_searchIN7mitsuba8SpectrumIjLm4EEEZNKS1_31IrregularContinuousDistributionINS2_IfLm4EEEE8eval_pdfES5_NS_4MaskIfLm4EEEEUlS3_E_EET_NS_6detail6scalarISA_iE4typeESE_RKT0_.exit_crit_edge.i ], [ %33, %26 ]
+  %36 = add i32 %19, -1
+  %37 = insertelement <4 x i32> poison, i32 %36, i64 0
+  %38 = shufflevector <4 x i32> %37, <4 x i32> poison, <4 x i32> zeroinitializer
+  %39 = tail call <4 x i32> @llvm.umin.v4i32(<4 x i32> %38, <4 x i32> %.sroa.0.0.in.lcssa.i.i)
+  %40 = tail call <4 x i32> @llvm.umax.v4i32(<4 x i32> %39, <4 x i32> splat (i32 1))
+  %41 = add <4 x i32> %40, splat (i32 -1)
+  %42 = tail call contract <4 x float> @llvm.x86.avx512.mask.gather3siv4.sf(<4 x float> zeroinitializer, ptr %.pre.i, <4 x i32> %41, <4 x i1> %.pre-phi.i, i32 4)
+  %43 = tail call contract <4 x float> @llvm.x86.avx512.mask.gather3siv4.sf(<4 x float> zeroinitializer, ptr %.pre.i, <4 x i32> %40, <4 x i1> %.pre-phi.i, i32 4)
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %45 = load ptr, ptr %44, align 8
+  %46 = tail call contract <4 x float> @llvm.x86.avx512.mask.gather3siv4.sf(<4 x float> zeroinitializer, ptr %45, <4 x i32> %41, <4 x i1> %.pre-phi.i, i32 4)
+  %47 = tail call contract <4 x float> @llvm.x86.avx512.mask.gather3siv4.sf(<4 x float> zeroinitializer, ptr %45, <4 x i32> %40, <4 x i1> %.pre-phi.i, i32 4)
+  %48 = fsub contract <4 x float> %.sroa.0.0.copyload, %42
+  %49 = fsub contract <4 x float> %43, %42
+  %50 = fdiv contract <4 x float> %48, %49
+  %51 = fsub contract <4 x float> %47, %46
+  %52 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %50, <4 x float> %51, <4 x float> %46)
+  %53 = select contract <4 x i1> %.pre-phi.i, <4 x float> %52, <4 x float> zeroinitializer
+  ret <4 x float> %53
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -1856,54 +1856,54 @@ define weak_odr <4 x float> @_ZNK7mitsuba17IrregularSpectrumIfN5drjit6MatrixINS_
 .lr.ph.i.i.i:                                     ; preds = %3
   %20 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %19, i1 true)
   %21 = sub nuw nsw i32 32, %20
-  %22 = insertelement <4 x i32> poison, i32 %19, i64 0
-  %23 = shufflevector <4 x i32> %22, <4 x i32> poison, <4 x i32> zeroinitializer
-  %24 = shufflevector <8 x i1> %16, <8 x i1> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %umax.i.i.i = zext nneg i32 %21 to i64
-  br label %25
+  %22 = zext nneg i32 %21 to i64
+  %23 = insertelement <4 x i32> poison, i32 %19, i64 0
+  %24 = shufflevector <4 x i32> %23, <4 x i32> poison, <4 x i32> zeroinitializer
+  %25 = shufflevector <8 x i1> %16, <8 x i1> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  br label %26
 
-25:                                               ; preds = %25, %.lr.ph.i.i.i
-  %.0137.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %34, %25 ]
-  %.sroa.0.0.in136.i.i.i = phi <4 x i32> [ zeroinitializer, %.lr.ph.i.i.i ], [ %32, %25 ]
-  %.sroa.0131.0.in135.i.i.i = phi <4 x i32> [ %23, %.lr.ph.i.i.i ], [ %33, %25 ]
-  %26 = add <4 x i32> %.sroa.0131.0.in135.i.i.i, %.sroa.0.0.in136.i.i.i
-  %27 = lshr <4 x i32> %26, splat (i32 1)
-  %28 = tail call contract <4 x float> @llvm.x86.avx512.mask.gather3siv4.sf(<4 x float> zeroinitializer, ptr %.pre.i.i, <4 x i32> %27, <4 x i1> %24, i32 4)
-  %29 = fcmp contract uge <4 x float> %28, %.sroa.0.0.copyload
-  %30 = add nuw <4 x i32> %27, splat (i32 1)
-  %31 = tail call <4 x i32> @llvm.umin.v4i32(<4 x i32> %.sroa.0131.0.in135.i.i.i, <4 x i32> %30)
-  %32 = select <4 x i1> %29, <4 x i32> %.sroa.0.0.in136.i.i.i, <4 x i32> %31
-  %33 = select <4 x i1> %29, <4 x i32> %27, <4 x i32> %.sroa.0131.0.in135.i.i.i
-  %34 = add nuw nsw i64 %.0137.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %34, %umax.i.i.i
-  br i1 %exitcond.not.i.i.i, label %.loopexit, label %25, !llvm.loop !18
+26:                                               ; preds = %26, %.lr.ph.i.i.i
+  %.0137.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %35, %26 ]
+  %.sroa.0.0.in136.i.i.i = phi <4 x i32> [ zeroinitializer, %.lr.ph.i.i.i ], [ %33, %26 ]
+  %.sroa.0131.0.in135.i.i.i = phi <4 x i32> [ %24, %.lr.ph.i.i.i ], [ %34, %26 ]
+  %27 = add <4 x i32> %.sroa.0131.0.in135.i.i.i, %.sroa.0.0.in136.i.i.i
+  %28 = lshr <4 x i32> %27, splat (i32 1)
+  %29 = tail call contract <4 x float> @llvm.x86.avx512.mask.gather3siv4.sf(<4 x float> zeroinitializer, ptr %.pre.i.i, <4 x i32> %28, <4 x i1> %25, i32 4)
+  %30 = fcmp contract uge <4 x float> %29, %.sroa.0.0.copyload
+  %31 = add nuw <4 x i32> %28, splat (i32 1)
+  %32 = tail call <4 x i32> @llvm.umin.v4i32(<4 x i32> %.sroa.0131.0.in135.i.i.i, <4 x i32> %31)
+  %33 = select <4 x i1> %30, <4 x i32> %.sroa.0.0.in136.i.i.i, <4 x i32> %32
+  %34 = select <4 x i1> %30, <4 x i32> %28, <4 x i32> %.sroa.0131.0.in135.i.i.i
+  %35 = add nuw nsw i64 %.0137.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i64 %35, %22
+  br i1 %exitcond.not.i.i.i, label %.loopexit, label %26, !llvm.loop !18
 
-.loopexit:                                        ; preds = %25, %._ZN5drjit13binary_searchIN7mitsuba8SpectrumIjLm4EEEZNKS1_31IrregularContinuousDistributionINS2_IfLm4EEEE8eval_pdfES5_NS_4MaskIfLm4EEEEUlS3_E_EET_NS_6detail6scalarISA_iE4typeESE_RKT0_.exit_crit_edge.i.i
-  %.pre-phi.i.i = phi <4 x i1> [ %.pre250.i.i, %._ZN5drjit13binary_searchIN7mitsuba8SpectrumIjLm4EEEZNKS1_31IrregularContinuousDistributionINS2_IfLm4EEEE8eval_pdfES5_NS_4MaskIfLm4EEEEUlS3_E_EET_NS_6detail6scalarISA_iE4typeESE_RKT0_.exit_crit_edge.i.i ], [ %24, %25 ]
-  %.sroa.0.0.in.lcssa.i.i.i = phi <4 x i32> [ zeroinitializer, %._ZN5drjit13binary_searchIN7mitsuba8SpectrumIjLm4EEEZNKS1_31IrregularContinuousDistributionINS2_IfLm4EEEE8eval_pdfES5_NS_4MaskIfLm4EEEEUlS3_E_EET_NS_6detail6scalarISA_iE4typeESE_RKT0_.exit_crit_edge.i.i ], [ %32, %25 ]
-  %35 = add i32 %19, -1
-  %36 = insertelement <4 x i32> poison, i32 %35, i64 0
-  %37 = shufflevector <4 x i32> %36, <4 x i32> poison, <4 x i32> zeroinitializer
-  %38 = tail call <4 x i32> @llvm.umin.v4i32(<4 x i32> %37, <4 x i32> %.sroa.0.0.in.lcssa.i.i.i)
-  %39 = tail call <4 x i32> @llvm.umax.v4i32(<4 x i32> %38, <4 x i32> splat (i32 1))
-  %40 = add <4 x i32> %39, splat (i32 -1)
-  %41 = tail call contract <4 x float> @llvm.x86.avx512.mask.gather3siv4.sf(<4 x float> zeroinitializer, ptr %.pre.i.i, <4 x i32> %40, <4 x i1> %.pre-phi.i.i, i32 4)
-  %42 = tail call contract <4 x float> @llvm.x86.avx512.mask.gather3siv4.sf(<4 x float> zeroinitializer, ptr %.pre.i.i, <4 x i32> %39, <4 x i1> %.pre-phi.i.i, i32 4)
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %44 = load ptr, ptr %43, align 8
-  %45 = tail call contract <4 x float> @llvm.x86.avx512.mask.gather3siv4.sf(<4 x float> zeroinitializer, ptr %44, <4 x i32> %40, <4 x i1> %.pre-phi.i.i, i32 4)
-  %46 = tail call contract <4 x float> @llvm.x86.avx512.mask.gather3siv4.sf(<4 x float> zeroinitializer, ptr %44, <4 x i32> %39, <4 x i1> %.pre-phi.i.i, i32 4)
-  %47 = fsub contract <4 x float> %.sroa.0.0.copyload, %41
-  %48 = fsub contract <4 x float> %42, %41
-  %49 = fdiv contract <4 x float> %47, %48
-  %50 = fsub contract <4 x float> %46, %45
-  %51 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %49, <4 x float> %50, <4 x float> %45)
-  %52 = select contract <4 x i1> %.pre-phi.i.i, <4 x float> %51, <4 x float> zeroinitializer
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  %54 = load <4 x float>, ptr %53, align 4
-  %55 = shufflevector <4 x float> %54, <4 x float> poison, <4 x i32> zeroinitializer
-  %56 = fmul contract <4 x float> %55, %52
-  ret <4 x float> %56
+.loopexit:                                        ; preds = %26, %._ZN5drjit13binary_searchIN7mitsuba8SpectrumIjLm4EEEZNKS1_31IrregularContinuousDistributionINS2_IfLm4EEEE8eval_pdfES5_NS_4MaskIfLm4EEEEUlS3_E_EET_NS_6detail6scalarISA_iE4typeESE_RKT0_.exit_crit_edge.i.i
+  %.pre-phi.i.i = phi <4 x i1> [ %.pre250.i.i, %._ZN5drjit13binary_searchIN7mitsuba8SpectrumIjLm4EEEZNKS1_31IrregularContinuousDistributionINS2_IfLm4EEEE8eval_pdfES5_NS_4MaskIfLm4EEEEUlS3_E_EET_NS_6detail6scalarISA_iE4typeESE_RKT0_.exit_crit_edge.i.i ], [ %25, %26 ]
+  %.sroa.0.0.in.lcssa.i.i.i = phi <4 x i32> [ zeroinitializer, %._ZN5drjit13binary_searchIN7mitsuba8SpectrumIjLm4EEEZNKS1_31IrregularContinuousDistributionINS2_IfLm4EEEE8eval_pdfES5_NS_4MaskIfLm4EEEEUlS3_E_EET_NS_6detail6scalarISA_iE4typeESE_RKT0_.exit_crit_edge.i.i ], [ %33, %26 ]
+  %36 = add i32 %19, -1
+  %37 = insertelement <4 x i32> poison, i32 %36, i64 0
+  %38 = shufflevector <4 x i32> %37, <4 x i32> poison, <4 x i32> zeroinitializer
+  %39 = tail call <4 x i32> @llvm.umin.v4i32(<4 x i32> %38, <4 x i32> %.sroa.0.0.in.lcssa.i.i.i)
+  %40 = tail call <4 x i32> @llvm.umax.v4i32(<4 x i32> %39, <4 x i32> splat (i32 1))
+  %41 = add <4 x i32> %40, splat (i32 -1)
+  %42 = tail call contract <4 x float> @llvm.x86.avx512.mask.gather3siv4.sf(<4 x float> zeroinitializer, ptr %.pre.i.i, <4 x i32> %41, <4 x i1> %.pre-phi.i.i, i32 4)
+  %43 = tail call contract <4 x float> @llvm.x86.avx512.mask.gather3siv4.sf(<4 x float> zeroinitializer, ptr %.pre.i.i, <4 x i32> %40, <4 x i1> %.pre-phi.i.i, i32 4)
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %45 = load ptr, ptr %44, align 8
+  %46 = tail call contract <4 x float> @llvm.x86.avx512.mask.gather3siv4.sf(<4 x float> zeroinitializer, ptr %45, <4 x i32> %41, <4 x i1> %.pre-phi.i.i, i32 4)
+  %47 = tail call contract <4 x float> @llvm.x86.avx512.mask.gather3siv4.sf(<4 x float> zeroinitializer, ptr %45, <4 x i32> %40, <4 x i1> %.pre-phi.i.i, i32 4)
+  %48 = fsub contract <4 x float> %.sroa.0.0.copyload, %42
+  %49 = fsub contract <4 x float> %43, %42
+  %50 = fdiv contract <4 x float> %48, %49
+  %51 = fsub contract <4 x float> %47, %46
+  %52 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %50, <4 x float> %51, <4 x float> %46)
+  %53 = select contract <4 x i1> %.pre-phi.i.i, <4 x float> %52, <4 x float> zeroinitializer
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 116
+  %55 = load <4 x float>, ptr %54, align 4
+  %56 = shufflevector <4 x float> %55, <4 x float> poison, <4 x i32> zeroinitializer
+  %57 = fmul contract <4 x float> %56, %53
+  ret <4 x float> %57
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1931,65 +1931,65 @@ define weak_odr void @_ZNK7mitsuba17IrregularSpectrumIfN5drjit6MatrixINS_8Spectr
   %17 = sub nuw i32 %13, %11
   %18 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %17, i1 true)
   %19 = sub nuw nsw i32 32, %18
-  %20 = insertelement <4 x i32> poison, i32 %13, i64 0
-  %21 = shufflevector <4 x i32> %20, <4 x i32> poison, <4 x i32> zeroinitializer
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %23 = load ptr, ptr %22, align 8
-  %umax.i.i = zext nneg i32 %19 to i64
-  br label %24
+  %20 = zext nneg i32 %19 to i64
+  %21 = insertelement <4 x i32> poison, i32 %13, i64 0
+  %22 = shufflevector <4 x i32> %21, <4 x i32> poison, <4 x i32> zeroinitializer
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %24 = load ptr, ptr %23, align 8
+  br label %25
 
-24:                                               ; preds = %24, %.lr.ph.i.i
-  %.0137.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %33, %24 ]
-  %.sroa.0.0.in136.i.i = phi <4 x i32> [ %16, %.lr.ph.i.i ], [ %31, %24 ]
-  %.sroa.0131.0.in135.i.i = phi <4 x i32> [ %21, %.lr.ph.i.i ], [ %32, %24 ]
-  %25 = add <4 x i32> %.sroa.0131.0.in135.i.i, %.sroa.0.0.in136.i.i
-  %26 = lshr <4 x i32> %25, splat (i32 1)
-  %27 = tail call contract <4 x float> @llvm.x86.avx512.mask.gather3siv4.sf(<4 x float> zeroinitializer, ptr %23, <4 x i32> %26, <4 x i1> splat (i1 true), i32 4)
-  %28 = fcmp contract uge <4 x float> %27, %9
-  %29 = add nuw <4 x i32> %26, splat (i32 1)
-  %30 = tail call <4 x i32> @llvm.umin.v4i32(<4 x i32> %.sroa.0131.0.in135.i.i, <4 x i32> %29)
-  %31 = select <4 x i1> %28, <4 x i32> %.sroa.0.0.in136.i.i, <4 x i32> %30
-  %32 = select <4 x i1> %28, <4 x i32> %26, <4 x i32> %.sroa.0131.0.in135.i.i
-  %33 = add nuw nsw i64 %.0137.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %33, %umax.i.i
-  br i1 %exitcond.not.i.i, label %.loopexit, label %24, !llvm.loop !19
+25:                                               ; preds = %25, %.lr.ph.i.i
+  %.0137.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %34, %25 ]
+  %.sroa.0.0.in136.i.i = phi <4 x i32> [ %16, %.lr.ph.i.i ], [ %32, %25 ]
+  %.sroa.0131.0.in135.i.i = phi <4 x i32> [ %22, %.lr.ph.i.i ], [ %33, %25 ]
+  %26 = add <4 x i32> %.sroa.0131.0.in135.i.i, %.sroa.0.0.in136.i.i
+  %27 = lshr <4 x i32> %26, splat (i32 1)
+  %28 = tail call contract <4 x float> @llvm.x86.avx512.mask.gather3siv4.sf(<4 x float> zeroinitializer, ptr %24, <4 x i32> %27, <4 x i1> splat (i1 true), i32 4)
+  %29 = fcmp contract uge <4 x float> %28, %9
+  %30 = add nuw <4 x i32> %27, splat (i32 1)
+  %31 = tail call <4 x i32> @llvm.umin.v4i32(<4 x i32> %.sroa.0131.0.in135.i.i, <4 x i32> %30)
+  %32 = select <4 x i1> %29, <4 x i32> %.sroa.0.0.in136.i.i, <4 x i32> %31
+  %33 = select <4 x i1> %29, <4 x i32> %27, <4 x i32> %.sroa.0131.0.in135.i.i
+  %34 = add nuw nsw i64 %.0137.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %34, %20
+  br i1 %exitcond.not.i.i, label %.loopexit, label %25, !llvm.loop !19
 
-.loopexit:                                        ; preds = %24, %._ZN5drjit13binary_searchIN7mitsuba8SpectrumIjLm4EEEZNKS1_31IrregularContinuousDistributionINS2_IfLm4EEEE6sampleES5_NS_4MaskIfLm4EEEEUlS3_E_EET_NS_6detail6scalarISA_iE4typeESE_RKT0_.exit_crit_edge.i
-  %34 = phi ptr [ %.pre.i, %._ZN5drjit13binary_searchIN7mitsuba8SpectrumIjLm4EEEZNKS1_31IrregularContinuousDistributionINS2_IfLm4EEEE6sampleES5_NS_4MaskIfLm4EEEEUlS3_E_EET_NS_6detail6scalarISA_iE4typeESE_RKT0_.exit_crit_edge.i ], [ %23, %24 ]
-  %.sroa.0.0.in.lcssa.i.i = phi <4 x i32> [ %16, %._ZN5drjit13binary_searchIN7mitsuba8SpectrumIjLm4EEEZNKS1_31IrregularContinuousDistributionINS2_IfLm4EEEE6sampleES5_NS_4MaskIfLm4EEEEUlS3_E_EET_NS_6detail6scalarISA_iE4typeESE_RKT0_.exit_crit_edge.i ], [ %31, %24 ]
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %36 = load ptr, ptr %35, align 8
-  %37 = tail call contract <4 x float> @llvm.x86.avx512.mask.gather3siv4.sf(<4 x float> zeroinitializer, ptr %36, <4 x i32> %.sroa.0.0.in.lcssa.i.i, <4 x i1> splat (i1 true), i32 4)
-  %38 = add <4 x i32> %.sroa.0.0.in.lcssa.i.i, splat (i32 1)
-  %39 = tail call contract <4 x float> @llvm.x86.avx512.mask.gather3siv4.sf(<4 x float> zeroinitializer, ptr %36, <4 x i32> %38, <4 x i1> splat (i1 true), i32 4)
-  %40 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %41 = load ptr, ptr %40, align 8
-  %42 = tail call contract <4 x float> @llvm.x86.avx512.mask.gather3siv4.sf(<4 x float> zeroinitializer, ptr %41, <4 x i32> %.sroa.0.0.in.lcssa.i.i, <4 x i1> splat (i1 true), i32 4)
-  %43 = tail call contract <4 x float> @llvm.x86.avx512.mask.gather3siv4.sf(<4 x float> zeroinitializer, ptr %41, <4 x i32> %38, <4 x i1> splat (i1 true), i32 4)
-  %44 = add <4 x i32> %.sroa.0.0.in.lcssa.i.i, splat (i32 -1)
-  %45 = icmp ne <4 x i32> %.sroa.0.0.in.lcssa.i.i, zeroinitializer
-  %46 = tail call contract <4 x float> @llvm.x86.avx512.mask.gather3siv4.sf(<4 x float> zeroinitializer, ptr %34, <4 x i32> %44, <4 x i1> %45, i32 4)
-  %47 = fsub contract <4 x float> %39, %37
-  %48 = fsub contract <4 x float> %9, %46
-  %49 = fdiv contract <4 x float> %48, %47
-  %50 = fmul contract <4 x float> %42, %42
-  %51 = fmul contract <4 x float> %49, splat (float 2.000000e+00)
-  %52 = fsub contract <4 x float> %43, %42
-  %53 = fmul contract <4 x float> %52, %51
-  %54 = fadd contract <4 x float> %50, %53
-  %55 = tail call contract noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> zeroinitializer, <4 x float> %54)
-  %56 = tail call contract noundef <4 x float> @llvm.sqrt.v4f32(<4 x float> %55)
-  %57 = fsub contract <4 x float> %42, %56
-  %58 = fsub contract <4 x float> %42, %43
-  %59 = fdiv contract <4 x float> %57, %58
-  %60 = fdiv contract <4 x float> %49, %42
-  %61 = fcmp contract oeq <4 x float> %42, %43
-  %62 = select contract <4 x i1> %61, <4 x float> %60, <4 x float> %59
-  %63 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %62, <4 x float> %47, <4 x float> %37)
-  store <4 x float> %63, ptr %0, align 16
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %65 = shufflevector <4 x float> %7, <4 x float> poison, <4 x i32> zeroinitializer
-  store <4 x float> %65, ptr %64, align 16
+.loopexit:                                        ; preds = %25, %._ZN5drjit13binary_searchIN7mitsuba8SpectrumIjLm4EEEZNKS1_31IrregularContinuousDistributionINS2_IfLm4EEEE6sampleES5_NS_4MaskIfLm4EEEEUlS3_E_EET_NS_6detail6scalarISA_iE4typeESE_RKT0_.exit_crit_edge.i
+  %35 = phi ptr [ %.pre.i, %._ZN5drjit13binary_searchIN7mitsuba8SpectrumIjLm4EEEZNKS1_31IrregularContinuousDistributionINS2_IfLm4EEEE6sampleES5_NS_4MaskIfLm4EEEEUlS3_E_EET_NS_6detail6scalarISA_iE4typeESE_RKT0_.exit_crit_edge.i ], [ %24, %25 ]
+  %.sroa.0.0.in.lcssa.i.i = phi <4 x i32> [ %16, %._ZN5drjit13binary_searchIN7mitsuba8SpectrumIjLm4EEEZNKS1_31IrregularContinuousDistributionINS2_IfLm4EEEE6sampleES5_NS_4MaskIfLm4EEEEUlS3_E_EET_NS_6detail6scalarISA_iE4typeESE_RKT0_.exit_crit_edge.i ], [ %32, %25 ]
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %37 = load ptr, ptr %36, align 8
+  %38 = tail call contract <4 x float> @llvm.x86.avx512.mask.gather3siv4.sf(<4 x float> zeroinitializer, ptr %37, <4 x i32> %.sroa.0.0.in.lcssa.i.i, <4 x i1> splat (i1 true), i32 4)
+  %39 = add <4 x i32> %.sroa.0.0.in.lcssa.i.i, splat (i32 1)
+  %40 = tail call contract <4 x float> @llvm.x86.avx512.mask.gather3siv4.sf(<4 x float> zeroinitializer, ptr %37, <4 x i32> %39, <4 x i1> splat (i1 true), i32 4)
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %42 = load ptr, ptr %41, align 8
+  %43 = tail call contract <4 x float> @llvm.x86.avx512.mask.gather3siv4.sf(<4 x float> zeroinitializer, ptr %42, <4 x i32> %.sroa.0.0.in.lcssa.i.i, <4 x i1> splat (i1 true), i32 4)
+  %44 = tail call contract <4 x float> @llvm.x86.avx512.mask.gather3siv4.sf(<4 x float> zeroinitializer, ptr %42, <4 x i32> %39, <4 x i1> splat (i1 true), i32 4)
+  %45 = add <4 x i32> %.sroa.0.0.in.lcssa.i.i, splat (i32 -1)
+  %46 = icmp ne <4 x i32> %.sroa.0.0.in.lcssa.i.i, zeroinitializer
+  %47 = tail call contract <4 x float> @llvm.x86.avx512.mask.gather3siv4.sf(<4 x float> zeroinitializer, ptr %35, <4 x i32> %45, <4 x i1> %46, i32 4)
+  %48 = fsub contract <4 x float> %40, %38
+  %49 = fsub contract <4 x float> %9, %47
+  %50 = fdiv contract <4 x float> %49, %48
+  %51 = fmul contract <4 x float> %43, %43
+  %52 = fmul contract <4 x float> %50, splat (float 2.000000e+00)
+  %53 = fsub contract <4 x float> %44, %43
+  %54 = fmul contract <4 x float> %53, %52
+  %55 = fadd contract <4 x float> %51, %54
+  %56 = tail call contract noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> zeroinitializer, <4 x float> %55)
+  %57 = tail call contract noundef <4 x float> @llvm.sqrt.v4f32(<4 x float> %56)
+  %58 = fsub contract <4 x float> %43, %57
+  %59 = fsub contract <4 x float> %43, %44
+  %60 = fdiv contract <4 x float> %58, %59
+  %61 = fdiv contract <4 x float> %50, %43
+  %62 = fcmp contract oeq <4 x float> %43, %44
+  %63 = select contract <4 x i1> %62, <4 x float> %61, <4 x float> %60
+  %64 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %63, <4 x float> %48, <4 x float> %38)
+  store <4 x float> %64, ptr %0, align 16
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %66 = shufflevector <4 x float> %7, <4 x float> poison, <4 x i32> zeroinitializer
+  store <4 x float> %66, ptr %65, align 16
   ret void
 }
 

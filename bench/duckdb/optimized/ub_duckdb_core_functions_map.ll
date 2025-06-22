@@ -7700,11 +7700,7 @@ _ZN6duckdb6vectorINS_19UnifiedVectorFormatELb1EECI2St6vectorIS1_SaIS1_EEEmRKS4_.
   call void @_ZNSt6vectorIN6duckdb19UnifiedVectorFormatESaIS1_EEC2EmRKS2_(ptr noundef nonnull align 8 dereferenceable(24) %10, i64 noundef %39, ptr noundef nonnull align 1 dereferenceable(1) %11)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #23
   %.not371 = icmp eq ptr %34, %35
-  br i1 %.not371, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %_ZN6duckdb6vectorINS_19UnifiedVectorFormatELb1EECI2St6vectorIS1_SaIS1_EEEmRKS4_.exit
-  %umax = call i64 @llvm.umax.i64(i64 %39, i64 1)
-  br label %.lr.ph
+  br i1 %.not371, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %56, %_ZN6duckdb6vectorINS_19UnifiedVectorFormatELb1EECI2St6vectorIS1_SaIS1_EEEmRKS4_.exit
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -7726,8 +7722,8 @@ _ZN6duckdb6vectorINS_19UnifiedVectorFormatELb1EECI2St6vectorIS1_SaIS1_EEEmRKS4_.
   %umax436 = call i64 @llvm.umax.i64(i64 %39, i64 1)
   br label %63
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %56
-  %.078337 = phi i64 [ %57, %56 ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %_ZN6duckdb6vectorINS_19UnifiedVectorFormatELb1EECI2St6vectorIS1_SaIS1_EEEmRKS4_.exit, %56
+  %.078337 = phi i64 [ %57, %56 ], [ 0, %_ZN6duckdb6vectorINS_19UnifiedVectorFormatELb1EECI2St6vectorIS1_SaIS1_EEEmRKS4_.exit ]
   %52 = invoke noundef nonnull align 8 dereferenceable(104) ptr @_ZN6duckdb6vectorINS_6VectorELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %.078337)
           to label %53 unwind label %58
 
@@ -7741,7 +7737,7 @@ _ZN6duckdb6vectorINS_19UnifiedVectorFormatELb1EECI2St6vectorIS1_SaIS1_EEEmRKS4_.
 
 56:                                               ; preds = %55
   %57 = add nuw i64 %.078337, 1
-  %exitcond.not = icmp eq i64 %57, %umax
+  %exitcond.not = icmp eq i64 %57, %39
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !211
 
 58:                                               ; preds = %55, %53, %.lr.ph

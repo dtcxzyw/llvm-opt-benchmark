@@ -1100,20 +1100,16 @@ _ZNSt3__111make_uniqueB8ne190000IA_jEENS_11__unique_ifIT_E28__unique_array_unkno
   %361 = ptrtoint ptr %335 to i64
   %362 = sub i64 %360, %361
   %363 = ashr exact i64 %362, 3
-  br i1 %336, label %._crit_edge600, label %.lr.ph599.preheader
-
-.lr.ph599.preheader:                              ; preds = %_ZNSt3__111make_uniqueB8ne190000IA_jEENS_11__unique_ifIT_E28__unique_array_unknown_boundEm.exit
-  %umax = call i64 @llvm.umax.i64(i64 %363, i64 1)
-  br label %.lr.ph599
+  br i1 %336, label %._crit_edge600, label %.lr.ph599
 
 .loopexit:                                        ; preds = %.lr.ph, %369
   %.1307.lcssa = phi i64 [ %.0306597, %369 ], [ %378, %.lr.ph ]
-  %exitcond660.not = icmp eq i64 %364, %umax
+  %exitcond660.not = icmp eq i64 %364, %363
   br i1 %exitcond660.not, label %._crit_edge600, label %.lr.ph599, !llvm.loop !14
 
-.lr.ph599:                                        ; preds = %.lr.ph599.preheader, %.loopexit
-  %.0305598 = phi i64 [ %364, %.loopexit ], [ 0, %.lr.ph599.preheader ]
-  %.0306597 = phi i64 [ %.1307.lcssa, %.loopexit ], [ 0, %.lr.ph599.preheader ]
+.lr.ph599:                                        ; preds = %_ZNSt3__111make_uniqueB8ne190000IA_jEENS_11__unique_ifIT_E28__unique_array_unknown_boundEm.exit, %.loopexit
+  %.0305598 = phi i64 [ %364, %.loopexit ], [ 0, %_ZNSt3__111make_uniqueB8ne190000IA_jEENS_11__unique_ifIT_E28__unique_array_unknown_boundEm.exit ]
+  %.0306597 = phi i64 [ %.1307.lcssa, %.loopexit ], [ 0, %_ZNSt3__111make_uniqueB8ne190000IA_jEENS_11__unique_ifIT_E28__unique_array_unknown_boundEm.exit ]
   %364 = add nuw i64 %.0305598, 1
   %365 = icmp ult i64 %364, %363
   br i1 %365, label %366, label %369

@@ -611,7 +611,6 @@ _ZNSt6vectorImSaImEE6resizeEmRKm.exit14:          ; preds = %57, %59, %61, %63
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorImSaImEE6resizeEmRKm.exit14
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %umax = call i64 @llvm.umax.i64(i64 %11, i64 1)
   br label %65
 
 ._crit_edge:                                      ; preds = %72, %_ZNSt6vectorImSaImEE6resizeEmRKm.exit14
@@ -636,7 +635,7 @@ _ZNSt6vectorImSaImEE6resizeEmRKm.exit14:          ; preds = %57, %59, %61, %63
 
 72:                                               ; preds = %65, %69
   %73 = add nuw i64 %.017, 1
-  %exitcond.not = icmp eq i64 %73, %umax
+  %exitcond.not = icmp eq i64 %73, %11
   br i1 %exitcond.not, label %._crit_edge, label %65, !llvm.loop !82
 }
 
@@ -777,7 +776,6 @@ define dso_local void @_ZN23cmComputeComponentGraph13TransferEdgesEv(ptr noundef
   %9 = sdiv exact i64 %8, 24
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %umax = tail call i64 @llvm.umax.i64(i64 %9, i64 1)
   br label %12
 
 ._crit_edge32:                                    ; preds = %._crit_edge, %1
@@ -799,7 +797,7 @@ define dso_local void @_ZN23cmComputeComponentGraph13TransferEdgesEv(ptr noundef
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorI11cmGraphEdgeSaIS0_EE12emplace_backIJRmbbRK19cmListFileBacktraceEEERS0_DpOT_.exit, %12
   %22 = add nuw i64 %.029, 1
-  %exitcond.not = icmp eq i64 %22, %umax
+  %exitcond.not = icmp eq i64 %22, %9
   br i1 %exitcond.not, label %._crit_edge32, label %12, !llvm.loop !84
 
 .lr.ph:                                           ; preds = %12, %_ZNSt6vectorI11cmGraphEdgeSaIS0_EE12emplace_backIJRmbbRK19cmListFileBacktraceEEERS0_DpOT_.exit

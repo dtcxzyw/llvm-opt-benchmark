@@ -2133,7 +2133,6 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i:        ; preds = %.noexc32.i.i, %_ZNS
   %580 = load ptr, ptr %579, align 8, !tbaa !66
   %581 = getelementptr inbounds nuw i8, ptr %0, i64 736
   %582 = load ptr, ptr %581, align 8
-  %umax.i.i = tail call i64 @llvm.umax.i64(i64 %578, i64 1)
   br label %586
 
 ._crit_edge49.i.i:                                ; preds = %.loopexit.i.i, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i
@@ -2213,7 +2212,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i:        ; preds = %.noexc32.i.i, %_ZNS
 
 .loopexit.i.i:                                    ; preds = %._crit_edge.i17.i, %.preheader.lr.ph.i.i, %596, %586
   %621 = add nuw i64 %.02947.i.i, 1
-  %exitcond.not.i12.i = icmp eq i64 %621, %umax.i.i
+  %exitcond.not.i12.i = icmp eq i64 %621, %578
   br i1 %exitcond.not.i12.i, label %._crit_edge49.i.i, label %586, !llvm.loop !172
 
 622:                                              ; preds = %._crit_edge49.i.i

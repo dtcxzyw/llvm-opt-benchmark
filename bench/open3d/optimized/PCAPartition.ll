@@ -2862,11 +2862,7 @@ _ZN6open3d4core6Tensor10GetDataPtrIiEEPT_v.exit.preheader: ; preds = %_ZN6open3d
   %881 = sub i64 %879, %880
   %882 = sdiv exact i64 %881, 24
   %.not497 = icmp eq ptr %877, %878
-  br i1 %.not497, label %_ZN6open3d4core6Tensor10GetDataPtrIiEEPT_v.exit._crit_edge, label %.lr.ph496.preheader
-
-.lr.ph496.preheader:                              ; preds = %_ZN6open3d4core6Tensor10GetDataPtrIiEEPT_v.exit.preheader
-  %umax = call i64 @llvm.umax.i64(i64 %882, i64 1)
-  br label %.lr.ph496
+  br i1 %.not497, label %_ZN6open3d4core6Tensor10GetDataPtrIiEEPT_v.exit._crit_edge, label %.lr.ph496
 
 _ZN6open3d4core6Tensor10GetDataPtrIiEEPT_v.exit._crit_edge: ; preds = %_ZN6open3d4core6Tensor10GetDataPtrIiEEPT_v.exit, %_ZN6open3d4core6Tensor10GetDataPtrIiEEPT_v.exit.preheader
   %883 = trunc i64 %882 to i32
@@ -2978,8 +2974,8 @@ _ZN6open3d4core11SmallVectorIlLj4EED2Ev.exit175:  ; preds = %923, %_ZNSt7__cxx11
           cleanup
   br label %.body170
 
-.lr.ph496:                                        ; preds = %.lr.ph496.preheader, %_ZN6open3d4core6Tensor10GetDataPtrIiEEPT_v.exit
-  %.045495 = phi i64 [ %931, %_ZN6open3d4core6Tensor10GetDataPtrIiEEPT_v.exit ], [ 0, %.lr.ph496.preheader ]
+.lr.ph496:                                        ; preds = %_ZN6open3d4core6Tensor10GetDataPtrIiEEPT_v.exit.preheader, %_ZN6open3d4core6Tensor10GetDataPtrIiEEPT_v.exit
+  %.045495 = phi i64 [ %931, %_ZN6open3d4core6Tensor10GetDataPtrIiEEPT_v.exit ], [ 0, %_ZN6open3d4core6Tensor10GetDataPtrIiEEPT_v.exit.preheader ]
   %926 = getelementptr inbounds nuw %"class.std::vector.14", ptr %878, i64 %.045495
   %927 = load ptr, ptr %926, align 8, !tbaa !45
   %928 = getelementptr inbounds nuw i8, ptr %926, i64 8
@@ -2993,7 +2989,7 @@ _ZN6open3d4core11SmallVectorIlLj4EED2Ev.exit175:  ; preds = %923, %_ZNSt7__cxx11
 
 _ZN6open3d4core6Tensor10GetDataPtrIiEEPT_v.exit:  ; preds = %932, %.lr.ph496
   %931 = add nuw i64 %.045495, 1
-  %exitcond.not = icmp eq i64 %931, %umax
+  %exitcond.not = icmp eq i64 %931, %882
   br i1 %exitcond.not, label %_ZN6open3d4core6Tensor10GetDataPtrIiEEPT_v.exit._crit_edge, label %.lr.ph496, !llvm.loop !128
 
 932:                                              ; preds = %.lr.ph493, %932

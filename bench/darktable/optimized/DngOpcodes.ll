@@ -437,15 +437,11 @@ define hidden void @_ZN8rawspeed10DngOpcodesC2ERKNS_8RawImageENS_10ByteStreamE(p
   %.0.copyload.i.i.i.i.i.i = load i32, ptr %23, align 1
   %24 = tail call i32 @llvm.bswap.i32(i32 %.0.copyload.i.i.i.i.i.i)
   %.not = icmp eq i32 %.0.copyload.i.i.i.i.i.i, 0
-  br i1 %.not, label %._crit_edge.thread, label %.lr.ph.preheader
+  br i1 %.not, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge.thread:                               ; preds = %17
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %_ZNSt6vectorISt10unique_ptrIN8rawspeed10DngOpcodes9DngOpcodeESt14default_deleteIS3_EESaIS6_EE7reserveEm.exit
-
-.lr.ph.preheader:                                 ; preds = %17
-  %umax = tail call i32 @llvm.umax.i32(i32 %24, i32 1)
-  br label %.lr.ph
 
 26:                                               ; preds = %16
   %27 = landingpad { ptr, i32 }
@@ -457,9 +453,9 @@ define hidden void @_ZN8rawspeed10DngOpcodesC2ERKNS_8RawImageENS_10ByteStreamE(p
           cleanup
   br label %235
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %51
-  %.028136 = phi i32 [ %55, %51 ], [ 0, %.lr.ph.preheader ]
-  %30 = phi i32 [ %52, %51 ], [ %20, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %17, %51
+  %.028136 = phi i32 [ %55, %51 ], [ 0, %17 ]
+  %30 = phi i32 [ %52, %51 ], [ %20, %17 ]
   %31 = zext i32 %30 to i64
   %32 = add nuw nsw i64 %31, 4
   %.not.i.i46 = icmp samesign ugt i64 %32, %15
@@ -522,7 +518,7 @@ define hidden void @_ZN8rawspeed10DngOpcodesC2ERKNS_8RawImageENS_10ByteStreamE(p
   %54 = icmp sgt i32 %45, -1
   tail call void @llvm.assume(i1 %54)
   %55 = add nuw i32 %.028136, 1
-  %exitcond.not = icmp eq i32 %55, %umax
+  %exitcond.not = icmp eq i32 %55, %24
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 56:                                               ; preds = %.invoke
@@ -670,7 +666,6 @@ _ZNSt6vectorISt10unique_ptrIN8rawspeed10DngOpcodes9DngOpcodeESt14default_deleteI
   %.sroa.2.0..0..sroa_idx.i4.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   %120 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %umax241 = call i32 @llvm.umax.i32(i32 %24, i32 1)
   br label %122
 
 ._crit_edge154:                                   ; preds = %231, %118
@@ -1023,7 +1018,7 @@ _ZNSt10unique_ptrIN8rawspeed10DngOpcodes9DngOpcodeESt14default_deleteIS2_EED2Ev.
 231:                                              ; preds = %223
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #28
   %232 = add nuw i32 %.029151, 1
-  %exitcond242.not = icmp eq i32 %232, %umax241
+  %exitcond242.not = icmp eq i32 %232, %24
   br i1 %exitcond242.not, label %._crit_edge154, label %122, !llvm.loop !124
 
 233:                                              ; preds = %176, %_ZNSt10unique_ptrIN8rawspeed10DngOpcodes9DngOpcodeESt14default_deleteIS2_EED2Ev.exit90, %221, %174
@@ -6725,9 +6720,6 @@ declare i32 @llvm.smax.i32(i32, i32) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #26
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #26
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
 attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }

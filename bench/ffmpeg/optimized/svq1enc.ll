@@ -1833,8 +1833,6 @@ define internal fastcc i32 @encode_block(ptr noundef %0, ptr noundef %1, ptr nou
   %80 = zext nneg i32 %19 to i64
   %81 = zext nneg i32 %69 to i64
   %82 = select i1 %.not, i32 -256, i32 0
-  %umax350 = tail call i32 @llvm.umax.i32(i32 %19, i32 1)
-  %wide.trip.count351 = zext nneg i32 %umax350 to i64
   br label %83
 
 83:                                               ; preds = %.preheader283, %130
@@ -1922,7 +1920,7 @@ define internal fastcc i32 @encode_block(ptr noundef %0, ptr noundef %1, ptr nou
   %129 = getelementptr inbounds nuw [256 x i16], ptr %22, i64 %indvars.iv353, i64 %indvars.iv347
   store i16 %128, ptr %129, align 2, !tbaa !138
   %indvars.iv.next348 = add nuw nsw i64 %indvars.iv347, 1
-  %exitcond352.not = icmp eq i64 %indvars.iv.next348, %wide.trip.count351
+  %exitcond352.not = icmp eq i64 %indvars.iv.next348, %80
   br i1 %exitcond352.not, label %130, label %122, !llvm.loop !163
 
 130:                                              ; preds = %122
@@ -2290,9 +2288,6 @@ declare i32 @llvm.smax.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #9
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #9
 
 attributes #0 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

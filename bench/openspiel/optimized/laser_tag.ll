@@ -4860,7 +4860,6 @@ define void @_ZNK10open_spiel9laser_tag13LaserTagState14ChanceOutcomesEv(ptr dea
   %31 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %32 = load i32, ptr %31, align 4
   %33 = load ptr, ptr %30, align 8
-  %umax = tail call i64 @llvm.umax.i64(i64 %29, i64 1)
   br label %34
 
 34:                                               ; preds = %.lr.ph, %34
@@ -4879,7 +4878,7 @@ define void @_ZNK10open_spiel9laser_tag13LaserTagState14ChanceOutcomesEv(ptr dea
   %45 = zext i1 %44 to i32
   %spec.select = add nuw nsw i32 %.01740, %45
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %29
   br i1 %exitcond.not, label %.lr.ph47, label %34, !llvm.loop !14
 
 .lr.ph47:                                         ; preds = %34

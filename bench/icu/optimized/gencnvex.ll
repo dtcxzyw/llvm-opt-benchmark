@@ -1808,8 +1808,6 @@ define internal fastcc signext range(i8 0, 2) i8 @generateFromUTable(ptr noundef
   %90 = load i32, ptr %61, align 4, !tbaa !35
   %91 = add nsw i32 %4, 1
   %92 = zext i32 %.0111.lcssa to i64
-  %umax = tail call i32 @llvm.umax.i32(i32 %.0111.lcssa, i32 1)
-  %wide.trip.count152 = zext i32 %umax to i64
   br label %93
 
 93:                                               ; preds = %._crit_edge138, %141
@@ -1891,7 +1889,7 @@ define internal fastcc signext range(i8 0, 2) i8 @generateFromUTable(ptr noundef
   br i1 %.not, label %.loopexit, label %141
 
 141:                                              ; preds = %134, %136
-  %exitcond153.not = icmp eq i64 %indvars.iv.next150, %wide.trip.count152
+  %exitcond153.not = icmp eq i64 %indvars.iv.next150, %92
   br i1 %exitcond153.not, label %.loopexit, label %93, !llvm.loop !80
 
 .loopexit:                                        ; preds = %141, %136, %121
@@ -1910,9 +1908,6 @@ declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #12
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #12

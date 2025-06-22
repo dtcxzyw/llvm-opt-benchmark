@@ -11574,11 +11574,7 @@ define noundef ptr @_ZN11OpenImageIO6v3_1_07Strutil11safe_strcpyEPcNS0_17basic_s
   %7 = add i64 %2, -1
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %5, i64 %7)
   %.not31 = icmp eq i64 %7, 0
-  br i1 %.not31, label %.preheader24, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %6
-  %umax = tail call i64 @llvm.umax.i64(i64 %.sroa.speculated, i64 1)
-  br label %.lr.ph
+  br i1 %.not31, label %.preheader24, label %.lr.ph
 
 .preheader24:                                     ; preds = %.lr.ph, %6
   %8 = icmp ult i64 %.sroa.speculated, %2
@@ -11590,15 +11586,15 @@ define noundef ptr @_ZN11OpenImageIO6v3_1_07Strutil11safe_strcpyEPcNS0_17basic_s
   tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 0, i64 %9, i1 false), !tbaa !3
   br label %.loopexit
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.01926 = phi i64 [ %14, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %6, %.lr.ph
+  %.01926 = phi i64 [ %14, %.lr.ph ], [ 0, %6 ]
   %10 = load ptr, ptr %1, align 8, !tbaa !67
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.01926
   %12 = load i8, ptr %11, align 1, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 %.01926
   store i8 %12, ptr %13, align 1, !tbaa !3
   %14 = add nuw i64 %.01926, 1
-  %exitcond.not = icmp eq i64 %14, %umax
+  %exitcond.not = icmp eq i64 %14, %.sroa.speculated
   br i1 %exitcond.not, label %.preheader24, label %.lr.ph, !llvm.loop !349
 
 .loopexit:                                        ; preds = %.lr.ph28.preheader, %.lr.ph30.preheader, %.preheader24, %.preheader
@@ -11622,7 +11618,6 @@ define noundef ptr @_ZN11OpenImageIO6v3_1_07Strutil11safe_strcatEPcNS0_17basic_s
 
 .lr.ph:                                           ; preds = %6
   %10 = getelementptr i8, ptr %0, i64 %7
-  %umax = tail call i64 @llvm.umax.i64(i64 %.sroa.speculated, i64 1)
   br label %13
 
 ._crit_edge:                                      ; preds = %13, %6
@@ -11639,7 +11634,7 @@ define noundef ptr @_ZN11OpenImageIO6v3_1_07Strutil11safe_strcatEPcNS0_17basic_s
   %17 = getelementptr i8, ptr %10, i64 %.018
   store i8 %16, ptr %17, align 1, !tbaa !3
   %18 = add nuw i64 %.018, 1
-  %exitcond.not = icmp eq i64 %18, %umax
+  %exitcond.not = icmp eq i64 %18, %.sroa.speculated
   br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !350
 
 19:                                               ; preds = %._crit_edge, %3
@@ -33771,11 +33766,7 @@ common.resume:                                    ; preds = %31, %20
   %26 = load ptr, ptr %2, align 8, !tbaa !686
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 11
   %28 = icmp ugt i64 %25, 4
-  br i1 %28, label %29, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %22
-  %umax = tail call i64 @llvm.umax.i64(i64 %25, i64 1)
-  br label %.lr.ph
+  br i1 %28, label %29, label %.lr.ph
 
 29:                                               ; preds = %22
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #16
@@ -33797,14 +33788,14 @@ common.resume:                                    ; preds = %31, %20
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #16
   br label %39
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0.i55 = phi i64 [ %36, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %22, %.lr.ph
+  %.0.i55 = phi i64 [ %36, %.lr.ph ], [ 0, %22 ]
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 %.0.i55
   %34 = load i8, ptr %33, align 1, !tbaa !3
   %35 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 0, i64 %.0.i55
   store i8 %34, ptr %35, align 1, !tbaa !3
   %36 = add nuw nsw i64 %.0.i55, 1
-  %exitcond.not = icmp eq i64 %36, %umax
+  %exitcond.not = icmp eq i64 %36, %25
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !720
 
 ._crit_edge:                                      ; preds = %.lr.ph

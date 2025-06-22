@@ -8264,7 +8264,6 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit83: ; preds = %227, %237, %243
 .lr.ph:                                           ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit83
   %247 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %248 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %umax = call i32 @llvm.umax.i32(i32 %234, i32 1)
   br label %262
 
 ._crit_edge:                                      ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit105, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit83
@@ -8649,7 +8648,7 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backERKS3_.exit: 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit105: ; preds = %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backERKS3_.exit, %418, %424
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #24
   %428 = add nuw i32 %.030108, 1
-  %exitcond.not = icmp eq i32 %428, %umax
+  %exitcond.not = icmp eq i32 %428, %234
   br i1 %exitcond.not, label %._crit_edge, label %262, !llvm.loop !214
 
 429:                                              ; preds = %289, %262
@@ -17059,7 +17058,6 @@ _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit:  ; preds = %175, %179, %185
   %204 = trunc nsw i64 %203 to i32
   %205 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %206 = getelementptr inbounds nuw i8, ptr %67, i64 16
-  %umax = call i32 @llvm.umax.i32(i32 %204, i32 1)
   %207 = icmp eq i32 %2, 1023
   %208 = select i1 %207, i32 -1, i32 %2
   br label %224
@@ -17651,7 +17649,7 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backERKS3_.exit: 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit526: ; preds = %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backERKS3_.exit, %489, %495
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %68) #24
   %499 = add nuw i32 %.02852748, 1
-  %exitcond.not = icmp eq i32 %499, %umax
+  %exitcond.not = icmp eq i32 %499, %204
   br i1 %exitcond.not, label %._crit_edge, label %224, !llvm.loop !400
 
 500:                                              ; preds = %453, %463, %458, %447
@@ -18276,7 +18274,6 @@ _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit663: ; preds = %746, %740, %748
 
 .lr.ph2757.preheader:                             ; preds = %761
   %768 = trunc nsw i64 %767 to i32
-  %umax2861 = call i32 @llvm.umax.i32(i32 %768, i32 1)
   br label %.lr.ph2757
 
 769:                                              ; preds = %748
@@ -18788,7 +18785,6 @@ _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEbSt4lessIS3_ESaISt4pairIKS3_bEEE11
 
 .lr.ph2760.preheader:                             ; preds = %978
   %985 = trunc nsw i64 %984 to i32
-  %umax2863 = call i32 @llvm.umax.i32(i32 %985, i32 1)
   br label %.lr.ph2760
 
 ._crit_edge2761:                                  ; preds = %1066, %978
@@ -18967,7 +18963,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit850: ; preds = %_ZNSt6vectorIN4cvc
 
 1066:                                             ; preds = %.lr.ph2760, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit850
   %1067 = add nuw i32 %.03092758, 1
-  %exitcond2864.not = icmp eq i32 %1067, %umax2863
+  %exitcond2864.not = icmp eq i32 %1067, %985
   br i1 %exitcond2864.not, label %._crit_edge2761, label %.lr.ph2760, !llvm.loop !422
 
 1068:                                             ; preds = %1079, %._crit_edge2761
@@ -19889,7 +19885,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit921: ; preds = %.critedge, %1442, 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit924: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit921, %1455, %1461
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %81) #24
   %1465 = add nuw i32 %.03042755, 1
-  %exitcond2862.not = icmp eq i32 %1465, %umax2861
+  %exitcond2862.not = icmp eq i32 %1465, %768
   br i1 %exitcond2862.not, label %.loopexit2525, label %.lr.ph2757, !llvm.loop !432
 
 1466:                                             ; preds = %992, %1440, %990
@@ -28632,7 +28628,6 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.
   %1562 = ptrtoint ptr %1560 to i64
   %1563 = sub i64 %1561, %1562
   %1564 = ashr exact i64 %1563, 3
-  %umax = call i64 @llvm.umax.i64(i64 %1564, i64 1)
   br label %.lr.ph2280
 
 ._crit_edge.loopexit:                             ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1131
@@ -28920,7 +28915,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit1128: ; preds = %1661, %1655, 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1131: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit1128, %1670, %1676
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %77) #24
   %1680 = add nuw i64 %.05462278, 1
-  %exitcond.not = icmp eq i64 %1680, %umax
+  %exitcond.not = icmp eq i64 %1680, %1564
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph2280, !llvm.loop !521
 
 1681:                                             ; preds = %.loopexit2164, %.loopexit.split-lp2165, %1622
@@ -39438,7 +39433,6 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %_ZNSt6vectorIN4cvc5
 .lr.ph:                                           ; preds = %210
   %223 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %224 = getelementptr inbounds nuw i8, ptr %70, i64 16
-  %umax = call i32 @llvm.umax.i32(i32 %217, i32 1)
   br label %238
 
 ._crit_edge:                                      ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit324
@@ -39592,7 +39586,7 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backEOS3_.exit322
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit324: ; preds = %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backEOS3_.exit322, %293, %299
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %72) #24
   %303 = add nuw i32 %.01671165, 1
-  %exitcond.not = icmp eq i32 %303, %umax
+  %exitcond.not = icmp eq i32 %303, %217
   br i1 %exitcond.not, label %._crit_edge, label %238, !llvm.loop !698
 
 304:                                              ; preds = %266, %238
@@ -59472,7 +59466,6 @@ define hidden void @_ZNK4cvc58internal6theory11quantifiers16ExtendedRewriter20ex
   %62 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %63 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %64 = getelementptr inbounds nuw i8, ptr %40, i64 16
-  %umax = tail call i32 @llvm.umax.i32(i32 %59, i32 1)
   br label %65
 
 65:                                               ; preds = %.lr.ph, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit343
@@ -61516,7 +61509,7 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backERKS3_.exit: 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit315: ; preds = %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backERKS3_.exit, %1019, %1025
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %41) #24
   %1029 = add nuw i32 %.057401, 1
-  %exitcond.not = icmp eq i32 %1029, %umax
+  %exitcond.not = icmp eq i32 %1029, %59
   br i1 %exitcond.not, label %830, label %836, !llvm.loop !1051
 
 1030:                                             ; preds = %1015, %1011
@@ -61853,7 +61846,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit340: ; preds = %1114, %1117, %1123
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit343: ; preds = %1127, %1131, %1137
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #24
   %1141 = add nuw i32 %.0108403, 1
-  %exitcond408.not = icmp eq i32 %1141, %umax
+  %exitcond408.not = icmp eq i32 %1141, %59
   br i1 %exitcond408.not, label %.critedge164, label %65, !llvm.loop !1055
 
 .critedge164:                                     ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit343, %9
@@ -76274,9 +76267,6 @@ declare i64 @llvm.umin.i64(i64, i64) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #23
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #22
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

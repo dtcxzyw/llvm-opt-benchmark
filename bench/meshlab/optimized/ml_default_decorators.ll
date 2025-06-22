@@ -1330,7 +1330,6 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %80
   %95 = sub i64 %93, %94
   %96 = ashr exact i64 %95, 2
   %97 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  %umax = call i64 @llvm.umax.i64(i64 %96, i64 1)
   br label %119
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %117
@@ -1474,7 +1473,7 @@ _ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE17_M_realloc_insert
 
 _ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE9push_backEOS6_.exit: ; preds = %_ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i, %128, %119
   %151 = add nuw i64 %.065323, 1
-  %exitcond.not = icmp eq i64 %151, %umax
+  %exitcond.not = icmp eq i64 %151, %96
   br i1 %exitcond.not, label %._crit_edge.thread, label %119, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.preheader313

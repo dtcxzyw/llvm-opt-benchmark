@@ -371,7 +371,6 @@ define hidden void @_ZN2cv3dnn19tranformForNegStepsERKSt6vectorIiSaIiEERS1_IS1_I
   %11 = ashr exact i64 %10, 2
   %12 = load ptr, ptr %1, align 8
   %13 = load ptr, ptr %0, align 8
-  %umax = tail call i64 @llvm.umax.i64(i64 %11, i64 1)
   br label %14
 
 ._crit_edge:                                      ; preds = %32, %3
@@ -410,7 +409,7 @@ define hidden void @_ZN2cv3dnn19tranformForNegStepsERKSt6vectorIiSaIiEERS1_IS1_I
 
 32:                                               ; preds = %14, %18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %11
   br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !21
 }
 
@@ -4586,7 +4585,6 @@ _ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit: ; preds = %40, %.noexc122
   %69 = sub i64 %67, %68
   %70 = ashr exact i64 %69, 2
   %71 = load ptr, ptr %66, align 8
-  %umax.i = call i64 @llvm.umax.i64(i64 %70, i64 1)
   br label %72
 
 72:                                               ; preds = %90, %.lr.ph.i
@@ -4622,7 +4620,7 @@ _ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit: ; preds = %40, %.noexc122
 
 90:                                               ; preds = %76, %72
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %umax.i
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %70
   br i1 %exitcond.not.i, label %_ZN2cv3dnn19tranformForNegStepsERKSt6vectorIiSaIiEERS1_IS1_INS_5RangeESaIS6_EESaIS8_EERS1_IS3_SaIS3_EE.exit, label %72, !llvm.loop !21
 
 _ZN2cv3dnn19tranformForNegStepsERKSt6vectorIiSaIiEERS1_IS1_INS_5RangeESaIS6_EESaIS8_EERS1_IS3_SaIS3_EE.exit: ; preds = %90, %60, %54, %_ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit
@@ -4899,7 +4897,6 @@ _ZNSt6vectorIN2cv5RangeESaIS1_EED2Ev.exit:        ; preds = %_ZNSt6vectorIS_IN2c
   %184 = load ptr, ptr %105, align 8, !tbaa !26
   %185 = load i32, ptr %102, align 8, !tbaa !83
   %186 = sext i32 %185 to i64
-  %umax = call i64 @llvm.umax.i64(i64 %183, i64 1)
   br label %196
 
 187:                                              ; preds = %_ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit68
@@ -4950,7 +4947,7 @@ _ZNSt6vectorIN2cv5RangeESaIS1_EED2Ev.exit:        ; preds = %_ZNSt6vectorIS_IN2c
   %201 = getelementptr inbounds nuw i8, ptr %199, i64 4
   store i32 %200, ptr %201, align 4, !tbaa !20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %183
   br i1 %exitcond.not, label %.loopexit170, label %196, !llvm.loop !128
 
 202:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit
@@ -6210,7 +6207,6 @@ _ZNSt16allocator_traitsISaISt6vectorIN2cv5RangeESaIS2_EEEE8allocateERS5_m.exit.i
   %111 = sub i64 %109, %110
   %112 = ashr exact i64 %111, 2
   %113 = load ptr, ptr %8, align 8
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %112, i64 1)
   br label %114
 
 114:                                              ; preds = %132, %.lr.ph.i
@@ -6246,7 +6242,7 @@ _ZNSt16allocator_traitsISaISt6vectorIN2cv5RangeESaIS2_EEEE8allocateERS5_m.exit.i
 
 132:                                              ; preds = %118, %114
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %umax.i
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %112
   br i1 %exitcond.not.i, label %_ZN2cv3dnn19tranformForNegStepsERKSt6vectorIiSaIiEERS1_IS1_INS_5RangeESaIS6_EESaIS8_EERS1_IS3_SaIS3_EE.exit, label %114, !llvm.loop !21
 
 133:                                              ; preds = %_ZNSt16allocator_traitsISaISt6vectorIiSaIiEEEE8allocateERS3_m.exit.i.i.i.i, %.noexc.i.i76
@@ -6353,7 +6349,6 @@ _ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEmRKS1_.exit: ; preds = %._ZNSt6vectorIS_I
   %184 = ptrtoint ptr %.pr.i127 to i64
   %185 = sub i64 %183, %184
   %186 = sdiv exact i64 %185, 24
-  %umax148 = call i64 @llvm.umax.i64(i64 %171, i64 1)
   br label %191
 
 187:                                              ; preds = %_ZN2cv3dnn19tranformForNegStepsERKSt6vectorIiSaIiEERS1_IS1_INS_5RangeESaIS6_EESaIS8_EERS1_IS3_SaIS3_EE.exit
@@ -6388,7 +6383,6 @@ _ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEmRKS1_.exit: ; preds = %._ZNSt6vectorIS_I
   %201 = icmp ugt i64 %186, %indvars.iv145
   %202 = getelementptr inbounds nuw %"class.std::vector.0", ptr %.pr.i127, i64 %indvars.iv145
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 8
-  %umax143 = call i64 @llvm.umax.i64(i64 %199, i64 1)
   br i1 %182, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %218
@@ -6432,7 +6426,7 @@ _ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEmRKS1_.exit: ; preds = %._ZNSt6vectorIS_I
 
 218:                                              ; preds = %.lr.ph.split.us, %212
   %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
-  %exitcond144.not = icmp eq i64 %indvars.iv.next141, %umax143
+  %exitcond144.not = icmp eq i64 %indvars.iv.next141, %199
   br i1 %exitcond144.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !164
 
 219:                                              ; preds = %191
@@ -6480,7 +6474,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit89: ; preds = %_ZN
 
 ._crit_edge:                                      ; preds = %266, %218, %.preheader
   %indvars.iv.next146 = add nuw i64 %indvars.iv145, 1
-  %exitcond149.not = icmp eq i64 %indvars.iv.next146, %umax148
+  %exitcond149.not = icmp eq i64 %indvars.iv.next146, %171
   br i1 %exitcond149.not, label %_ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEmRKS1_.exit106, label %191, !llvm.loop !165
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %266
@@ -6553,7 +6547,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit89: ; preds = %_ZN
 
 266:                                              ; preds = %246, %247, %255, %259
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax143
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %199
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !164
 
 267:                                              ; preds = %139

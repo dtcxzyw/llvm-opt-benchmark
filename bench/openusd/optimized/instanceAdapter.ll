@@ -32612,7 +32612,6 @@ _ZNSt6vectorIdSaIdEE5eraseEN9__gnu_cxx17__normal_iteratorIPKdS1_EES6_.exit: ; pr
   %382 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %383 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %384 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %umax = call i64 @llvm.umax.i64(i64 %.sroa.speculated, i64 1)
   %.pre179 = load ptr, ptr %19, align 8
   br label %385
 
@@ -32785,7 +32784,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit: ; preds = %_ZN32pxrInter
 452:                                              ; preds = %427, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit
   %453 = phi ptr [ %418, %427 ], [ %431, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit ]
   %454 = add nuw i64 %.0165, 1
-  %exitcond.not = icmp eq i64 %454, %umax
+  %exitcond.not = icmp eq i64 %454, %.sroa.speculated
   br i1 %exitcond.not, label %.critedge67, label %385, !llvm.loop !203
 
 .critedge67:                                      ; preds = %274, %452, %259, %_ZNSt6vectorIdSaIdEE5eraseEN9__gnu_cxx17__normal_iteratorIPKdS1_EES6_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit74
@@ -38711,7 +38710,6 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EEC2EmRKS2
   %481 = ptrtoint ptr %476 to i64
   %482 = sub i64 %480, %481
   %483 = ashr exact i64 %482, 2
-  %umax = call i64 @llvm.umax.i64(i64 %483, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -38723,7 +38721,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EEC2EmRKS2
   %.sroa.speculated210 = call i32 @llvm.smin.i32(i32 %485, i32 %.0253291)
   %.sroa.speculated = call i32 @llvm.smax.i32(i32 %.0252292, i32 %485)
   %486 = add nuw i64 %.056293, 1
-  %exitcond.not = icmp eq i64 %486, %umax
+  %exitcond.not = icmp eq i64 %486, %483
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !225
 
 ._crit_edge:                                      ; preds = %.lr.ph

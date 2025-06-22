@@ -12829,7 +12829,6 @@ define hidden void @_ZN4cvc58internal4prop15SatProofManager13getClauseNodeERKSt6
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %umax = tail call i64 @llvm.umax.i64(i64 %17, i64 1)
   br label %35
 
 ._crit_edge:                                      ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
@@ -12996,7 +12995,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %_ZNSt6vectorIN4cvc5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #24
   %92 = add nuw i64 %.029, 1
-  %exitcond.not = icmp eq i64 %92, %umax
+  %exitcond.not = icmp eq i64 %92, %17
   br i1 %exitcond.not, label %._crit_edge, label %35, !llvm.loop !345
 
 93:                                               ; preds = %35

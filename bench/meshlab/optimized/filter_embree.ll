@@ -5152,7 +5152,6 @@ _ZN3vcg9GenNormalIfE9FibonacciEiRSt6vectorINS_6Point3IfEESaIS4_EE.exit: ; preds 
 .lr.ph.us.preheader:                              ; preds = %.lr.ph93
   %76 = sub i64 %.sroa.8.0106, %67
   %77 = sdiv exact i64 %76, 12
-  %umax = tail call i64 @llvm.umax.i64(i64 %77, i64 1)
   %78 = getelementptr inbounds nuw i8, ptr %7, i64 16
   br label %.lr.ph.us
 
@@ -5297,7 +5296,7 @@ _ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit.us: ; preds = %143, %117
   %.150.us = phi float [ %156, %154 ], [ %.04988.us, %151 ], [ %.04988.us, %146 ], [ %.04988.us, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit.us ]
   %.1.us = phi float [ %157, %154 ], [ %.04790.us, %151 ], [ %.04790.us, %146 ], [ %.04790.us, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit.us ]
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %77
   br i1 %exitcond.not, label %._crit_edge.us, label %117, !llvm.loop !36
 
 ._crit_edge.us:                                   ; preds = %158

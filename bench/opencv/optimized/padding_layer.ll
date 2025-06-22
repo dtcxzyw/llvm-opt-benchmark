@@ -1892,7 +1892,6 @@ _ZNSt6vectorISt4pairIiiESaIS1_EE6insertEN9__gnu_cxx17__normal_iteratorIPKS1_S3_E
   %36 = sub i64 %34, %35
   %37 = ashr exact i64 %36, 3
   %38 = load ptr, ptr %8, align 8, !tbaa !89
-  %umax = call i64 @llvm.umax.i64(i64 %37, i64 1)
   br label %54
 
 ._crit_edge:                                      ; preds = %54, %.preheader
@@ -1931,7 +1930,7 @@ _ZNSt6vectorISt4pairIiiESaIS1_EE6insertEN9__gnu_cxx17__normal_iteratorIPKS1_S3_E
   %61 = getelementptr inbounds nuw i8, ptr %57, i64 4
   store i32 %60, ptr %61, align 4, !tbaa !93
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %37
   br i1 %exitcond.not, label %._crit_edge, label %54, !llvm.loop !94
 
 ._crit_edge65:                                    ; preds = %_ZNSt6vectorISt4pairIiiESaIS1_EE9push_backEOS1_.exit, %._crit_edge
@@ -3564,7 +3563,6 @@ _ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEmRKS1_.exit: ; preds = %90, %92, %94, %_Z
   %119 = load ptr, ptr %14, align 8, !tbaa !145
   %120 = load ptr, ptr %3, align 8, !tbaa !142
   %121 = load ptr, ptr %120, align 8, !tbaa !145
-  %umax = tail call i64 @llvm.umax.i64(i64 %118, i64 1)
   br label %122
 
 ._crit_edge:                                      ; preds = %122, %111
@@ -3584,7 +3582,7 @@ _ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEmRKS1_.exit: ; preds = %90, %92, %94, %_Z
   %132 = getelementptr inbounds nuw i32, ptr %121, i64 %123
   store i32 %131, ptr %132, align 4, !tbaa !72
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %118
   br i1 %exitcond.not, label %._crit_edge, label %122, !llvm.loop !150
 
 133:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit36, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit39, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit

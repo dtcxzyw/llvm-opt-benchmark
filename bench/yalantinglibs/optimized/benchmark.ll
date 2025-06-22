@@ -20529,7 +20529,7 @@ if.end.i10:                                       ; preds = %invoke.cont.i.i, %i
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 4
   %cmp3.i = icmp ult i64 %sub.ptr.div.i.i, %size.0.insert.ext
-  br i1 %cmp3.i, label %_ZNSt6vectorI5rect2IiESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i, label %_ZNSt6vectorI5rect2IiESaIS1_EE7reserveEm.exit
+  br i1 %cmp3.i, label %_ZNSt6vectorI5rect2IiESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i, label %for.body.preheader
 
 _ZNSt6vectorI5rect2IiESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; preds = %if.end.i10
   %mul.i.i.i.i = shl nuw nsw i64 %size.0.insert.ext, 4
@@ -20546,19 +20546,18 @@ _ZNSt12_Vector_baseI5rect2IiESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %if
   store ptr %call5.i.i.i.i, ptr %_M_finish.i.i, align 8
   %add.ptr21.i = getelementptr inbounds nuw %struct.rect2, ptr %call5.i.i.i.i, i64 %size.0.insert.ext
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8
-  br label %_ZNSt6vectorI5rect2IiESaIS1_EE7reserveEm.exit
+  br label %for.body.preheader
 
-_ZNSt6vectorI5rect2IiESaIS1_EE7reserveEm.exit:    ; preds = %if.end.i10, %_ZNSt12_Vector_baseI5rect2IiESaIS1_EE13_M_deallocateEPS1_m.exit.i
-  %umax = tail call i64 @llvm.umax.i64(i64 %size.0.insert.ext, i64 1)
+for.body.preheader:                               ; preds = %if.end.i10, %_ZNSt12_Vector_baseI5rect2IiESaIS1_EE13_M_deallocateEPS1_m.exit.i
   br label %for.body
 
 for.cond:                                         ; preds = %_ZNSt6vectorI5rect2IiESaIS1_EE12emplace_backIJEEERS1_DpOT_.exit
   %inc = add nuw nsw i64 %i.024, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %size.0.insert.ext
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !382
 
-for.body:                                         ; preds = %_ZNSt6vectorI5rect2IiESaIS1_EE7reserveEm.exit, %for.cond
-  %i.024 = phi i64 [ 0, %_ZNSt6vectorI5rect2IiESaIS1_EE7reserveEm.exit ], [ %inc, %for.cond ]
+for.body:                                         ; preds = %for.body.preheader, %for.cond
+  %i.024 = phi i64 [ %inc, %for.cond ], [ 0, %for.body.preheader ]
   %6 = load ptr, ptr %_M_finish.i.i, align 8
   %7 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i = icmp eq ptr %6, %7
@@ -20750,7 +20749,7 @@ if.end.i10:                                       ; preds = %invoke.cont.i.i, %i
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 4
   %cmp3.i = icmp ult i64 %sub.ptr.div.i.i, %size.0.insert.ext
-  br i1 %cmp3.i, label %_ZNSt6vectorI5rect2IiESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i, label %_ZNSt6vectorI5rect2IiESaIS1_EE7reserveEm.exit
+  br i1 %cmp3.i, label %_ZNSt6vectorI5rect2IiESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i, label %for.body.preheader
 
 _ZNSt6vectorI5rect2IiESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; preds = %if.end.i10
   %mul.i.i.i.i = shl nuw nsw i64 %size.0.insert.ext, 4
@@ -20767,19 +20766,18 @@ _ZNSt12_Vector_baseI5rect2IiESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %if
   store ptr %call5.i.i.i.i, ptr %_M_finish.i.i, align 8
   %add.ptr21.i = getelementptr inbounds nuw %struct.rect2, ptr %call5.i.i.i.i, i64 %size.0.insert.ext
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8
-  br label %_ZNSt6vectorI5rect2IiESaIS1_EE7reserveEm.exit
+  br label %for.body.preheader
 
-_ZNSt6vectorI5rect2IiESaIS1_EE7reserveEm.exit:    ; preds = %if.end.i10, %_ZNSt12_Vector_baseI5rect2IiESaIS1_EE13_M_deallocateEPS1_m.exit.i
-  %umax = tail call i64 @llvm.umax.i64(i64 %size.0.insert.ext, i64 1)
+for.body.preheader:                               ; preds = %if.end.i10, %_ZNSt12_Vector_baseI5rect2IiESaIS1_EE13_M_deallocateEPS1_m.exit.i
   br label %for.body
 
 for.cond:                                         ; preds = %_ZNSt6vectorI5rect2IiESaIS1_EE12emplace_backIJEEERS1_DpOT_.exit
   %inc = add nuw nsw i64 %i.024, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %size.0.insert.ext
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !383
 
-for.body:                                         ; preds = %_ZNSt6vectorI5rect2IiESaIS1_EE7reserveEm.exit, %for.cond
-  %i.024 = phi i64 [ 0, %_ZNSt6vectorI5rect2IiESaIS1_EE7reserveEm.exit ], [ %inc, %for.cond ]
+for.body:                                         ; preds = %for.body.preheader, %for.cond
+  %i.024 = phi i64 [ %inc, %for.cond ], [ 0, %for.body.preheader ]
   %6 = load ptr, ptr %_M_finish.i.i, align 8
   %7 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i = icmp eq ptr %6, %7
@@ -20897,7 +20895,7 @@ if.end.i10:                                       ; preds = %invoke.cont.i.i, %i
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 4
   %cmp3.i = icmp ult i64 %sub.ptr.div.i.i, %.sroa.speculated
-  br i1 %cmp3.i, label %_ZNSt6vectorI5rect2IiESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i, label %_ZNSt6vectorI5rect2IiESaIS1_EE7reserveEm.exit
+  br i1 %cmp3.i, label %_ZNSt6vectorI5rect2IiESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i, label %for.body.preheader
 
 _ZNSt6vectorI5rect2IiESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; preds = %if.end.i10
   %mul.i.i.i.i = shl nuw nsw i64 %.sroa.speculated, 4
@@ -20914,19 +20912,18 @@ _ZNSt12_Vector_baseI5rect2IiESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %if
   store ptr %call5.i.i.i.i, ptr %_M_finish.i.i, align 8
   %add.ptr21.i = getelementptr inbounds nuw %struct.rect2, ptr %call5.i.i.i.i, i64 %.sroa.speculated
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8
-  br label %_ZNSt6vectorI5rect2IiESaIS1_EE7reserveEm.exit
+  br label %for.body.preheader
 
-_ZNSt6vectorI5rect2IiESaIS1_EE7reserveEm.exit:    ; preds = %if.end.i10, %_ZNSt12_Vector_baseI5rect2IiESaIS1_EE13_M_deallocateEPS1_m.exit.i
-  %umax = tail call i64 @llvm.umax.i64(i64 %size.0.insert.ext, i64 1)
+for.body.preheader:                               ; preds = %if.end.i10, %_ZNSt12_Vector_baseI5rect2IiESaIS1_EE13_M_deallocateEPS1_m.exit.i
   br label %for.body
 
 for.cond:                                         ; preds = %_ZNSt6vectorI5rect2IiESaIS1_EE12emplace_backIJEEERS1_DpOT_.exit
   %inc = add nuw nsw i64 %i.024, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %size.0.insert.ext
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !384
 
-for.body:                                         ; preds = %_ZNSt6vectorI5rect2IiESaIS1_EE7reserveEm.exit, %for.cond
-  %i.024 = phi i64 [ 0, %_ZNSt6vectorI5rect2IiESaIS1_EE7reserveEm.exit ], [ %inc, %for.cond ]
+for.body:                                         ; preds = %for.body.preheader, %for.cond
+  %i.024 = phi i64 [ %inc, %for.cond ], [ 0, %for.body.preheader ]
   %6 = load ptr, ptr %_M_finish.i.i, align 8
   %7 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i = icmp eq ptr %6, %7
@@ -22218,12 +22215,11 @@ invoke.cont.i.i:                                  ; preds = %_ZSt8_DestroyI6pers
 _ZNSt6vectorI6personSaIS0_EE5clearEv.exit:        ; preds = %if.end3, %invoke.cont.i.i
   tail call void @_ZNSt6vectorI6personSaIS0_EE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %item, i64 noundef %size.0.insert.ext)
   %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %item, i64 16
-  %umax = tail call i64 @llvm.umax.i64(i64 %size.0.insert.ext, i64 1)
   br label %for.body
 
 for.cond:                                         ; preds = %_ZNSt6vectorI6personSaIS0_EE12emplace_backIJEEERS0_DpOT_.exit
   %inc = add nuw nsw i64 %i.017, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %size.0.insert.ext
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !394
 
 for.body:                                         ; preds = %_ZNSt6vectorI6personSaIS0_EE5clearEv.exit, %for.cond
@@ -22818,12 +22814,11 @@ _ZNSt6vectorI6personSaIS0_EE5clearEv.exit:        ; preds = %if.end3, %invoke.co
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %size.0.insert.ext, i64 18724)
   tail call void @_ZNSt6vectorI6personSaIS0_EE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %item, i64 noundef %.sroa.speculated)
   %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %item, i64 16
-  %umax = tail call i64 @llvm.umax.i64(i64 %size.0.insert.ext, i64 1)
   br label %for.body
 
 for.cond:                                         ; preds = %_ZNSt6vectorI6personSaIS0_EE12emplace_backIJEEERS0_DpOT_.exit
   %inc = add nuw nsw i64 %i.017, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %size.0.insert.ext
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !414
 
 for.body:                                         ; preds = %_ZNSt6vectorI6personSaIS0_EE5clearEv.exit, %for.cond
@@ -22942,12 +22937,11 @@ _ZNSt6vectorI6personSaIS0_EE5clearEv.exit:        ; preds = %if.end3, %invoke.co
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %size.0.insert.ext, i64 18724)
   tail call void @_ZNSt6vectorI6personSaIS0_EE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %item, i64 noundef %.sroa.speculated)
   %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %item, i64 16
-  %umax = tail call i64 @llvm.umax.i64(i64 %size.0.insert.ext, i64 1)
   br label %for.body
 
 for.cond:                                         ; preds = %_ZNSt6vectorI6personSaIS0_EE12emplace_backIJEEERS0_DpOT_.exit
   %inc = add nuw nsw i64 %i.017, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %size.0.insert.ext
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !415
 
 for.body:                                         ; preds = %_ZNSt6vectorI6personSaIS0_EE5clearEv.exit, %for.cond
@@ -23065,12 +23059,11 @@ _ZNSt6vectorI6personSaIS0_EE5clearEv.exit:        ; preds = %if.end3, %invoke.co
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %size.0.copyload, i64 18724)
   tail call void @_ZNSt6vectorI6personSaIS0_EE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %item, i64 noundef %.sroa.speculated)
   %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %item, i64 16
-  %umax = tail call i64 @llvm.umax.i64(i64 %size.0.copyload, i64 1)
   br label %for.body
 
 for.cond:                                         ; preds = %_ZNSt6vectorI6personSaIS0_EE12emplace_backIJEEERS0_DpOT_.exit
   %inc = add nuw i64 %i.017, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %size.0.copyload
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !416
 
 for.body:                                         ; preds = %_ZNSt6vectorI6personSaIS0_EE5clearEv.exit, %for.cond
@@ -23205,7 +23198,7 @@ if.end.i10:                                       ; preds = %invoke.cont.i.i, %i
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 40
   %cmp3.i = icmp ult i64 %sub.ptr.div.i.i, %size.0.insert.ext
-  br i1 %cmp3.i, label %_ZNSt6vectorI9zc_personSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit.i, label %_ZNSt6vectorI9zc_personSaIS0_EE7reserveEm.exit
+  br i1 %cmp3.i, label %_ZNSt6vectorI9zc_personSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit.i, label %for.body.preheader
 
 _ZNSt6vectorI9zc_personSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit.i: ; preds = %if.end.i10
   %mul.i.i.i.i = mul nuw nsw i64 %size.0.insert.ext, 40
@@ -23222,14 +23215,13 @@ _ZNSt12_Vector_baseI9zc_personSaIS0_EE13_M_deallocateEPS0_m.exit.i: ; preds = %i
   store ptr %call5.i.i.i.i, ptr %_M_finish.i.i, align 8
   %add.ptr21.i = getelementptr inbounds nuw %struct.zc_person, ptr %call5.i.i.i.i, i64 %size.0.insert.ext
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8
-  br label %_ZNSt6vectorI9zc_personSaIS0_EE7reserveEm.exit
+  br label %for.body.preheader
 
-_ZNSt6vectorI9zc_personSaIS0_EE7reserveEm.exit:   ; preds = %if.end.i10, %_ZNSt12_Vector_baseI9zc_personSaIS0_EE13_M_deallocateEPS0_m.exit.i
-  %umax = tail call i64 @llvm.umax.i64(i64 %size.0.insert.ext, i64 1)
+for.body.preheader:                               ; preds = %if.end.i10, %_ZNSt12_Vector_baseI9zc_personSaIS0_EE13_M_deallocateEPS0_m.exit.i
   br label %for.body
 
-for.body:                                         ; preds = %_ZNSt6vectorI9zc_personSaIS0_EE7reserveEm.exit, %for.inc
-  %i.033 = phi i64 [ 0, %_ZNSt6vectorI9zc_personSaIS0_EE7reserveEm.exit ], [ %inc, %for.inc ]
+for.body:                                         ; preds = %for.body.preheader, %for.inc
+  %i.033 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.preheader ]
   %6 = load ptr, ptr %_M_finish.i.i, align 8
   %7 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i = icmp eq ptr %6, %7
@@ -23400,7 +23392,7 @@ for.inc:                                          ; preds = %if.end.i.i.i
   %add.ptr.i.i31.i = getelementptr inbounds nuw i8, ptr %34, i64 8
   store ptr %add.ptr.i.i31.i, ptr %28, align 8
   %inc = add nuw nsw i64 %i.033, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %size.0.insert.ext
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !422
 
 return:                                           ; preds = %for.inc, %if.end.i.i20, %if.then10, %entry, %if.end
@@ -23575,7 +23567,7 @@ if.end.i10:                                       ; preds = %invoke.cont.i.i, %i
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 40
   %cmp3.i = icmp ult i64 %sub.ptr.div.i.i, %.sroa.speculated
-  br i1 %cmp3.i, label %_ZNSt6vectorI9zc_personSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit.i, label %_ZNSt6vectorI9zc_personSaIS0_EE7reserveEm.exit
+  br i1 %cmp3.i, label %_ZNSt6vectorI9zc_personSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit.i, label %for.body.preheader
 
 _ZNSt6vectorI9zc_personSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit.i: ; preds = %if.end.i10
   %mul.i.i.i.i = mul nuw nsw i64 %.sroa.speculated, 40
@@ -23592,14 +23584,13 @@ _ZNSt12_Vector_baseI9zc_personSaIS0_EE13_M_deallocateEPS0_m.exit.i: ; preds = %i
   store ptr %call5.i.i.i.i, ptr %_M_finish.i.i, align 8
   %add.ptr21.i = getelementptr inbounds nuw %struct.zc_person, ptr %call5.i.i.i.i, i64 %.sroa.speculated
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8
-  br label %_ZNSt6vectorI9zc_personSaIS0_EE7reserveEm.exit
+  br label %for.body.preheader
 
-_ZNSt6vectorI9zc_personSaIS0_EE7reserveEm.exit:   ; preds = %if.end.i10, %_ZNSt12_Vector_baseI9zc_personSaIS0_EE13_M_deallocateEPS0_m.exit.i
-  %umax = tail call i64 @llvm.umax.i64(i64 %size.0.insert.ext, i64 1)
+for.body.preheader:                               ; preds = %if.end.i10, %_ZNSt12_Vector_baseI9zc_personSaIS0_EE13_M_deallocateEPS0_m.exit.i
   br label %for.body
 
-for.body:                                         ; preds = %_ZNSt6vectorI9zc_personSaIS0_EE7reserveEm.exit, %for.inc
-  %i.033 = phi i64 [ 0, %_ZNSt6vectorI9zc_personSaIS0_EE7reserveEm.exit ], [ %inc, %for.inc ]
+for.body:                                         ; preds = %for.body.preheader, %for.inc
+  %i.033 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.preheader ]
   %6 = load ptr, ptr %_M_finish.i.i, align 8
   %7 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i = icmp eq ptr %6, %7
@@ -23773,7 +23764,7 @@ for.inc:                                          ; preds = %if.end.i.i.i
   %add.ptr.i.i35.i = getelementptr inbounds nuw i8, ptr %34, i64 8
   store ptr %add.ptr.i.i35.i, ptr %28, align 8
   %inc = add nuw nsw i64 %i.033, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %size.0.insert.ext
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !427
 
 return:                                           ; preds = %for.inc, %if.end.i.i20, %if.then10, %entry, %if.end
@@ -23873,7 +23864,7 @@ if.end.i10:                                       ; preds = %invoke.cont.i.i, %i
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 40
   %cmp3.i = icmp ult i64 %sub.ptr.div.i.i, %.sroa.speculated
-  br i1 %cmp3.i, label %_ZNSt6vectorI9zc_personSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit.i, label %_ZNSt6vectorI9zc_personSaIS0_EE7reserveEm.exit
+  br i1 %cmp3.i, label %_ZNSt6vectorI9zc_personSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit.i, label %for.body.preheader
 
 _ZNSt6vectorI9zc_personSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit.i: ; preds = %if.end.i10
   %mul.i.i.i.i = mul nuw nsw i64 %.sroa.speculated, 40
@@ -23890,14 +23881,13 @@ _ZNSt12_Vector_baseI9zc_personSaIS0_EE13_M_deallocateEPS0_m.exit.i: ; preds = %i
   store ptr %call5.i.i.i.i, ptr %_M_finish.i.i, align 8
   %add.ptr21.i = getelementptr inbounds nuw %struct.zc_person, ptr %call5.i.i.i.i, i64 %.sroa.speculated
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8
-  br label %_ZNSt6vectorI9zc_personSaIS0_EE7reserveEm.exit
+  br label %for.body.preheader
 
-_ZNSt6vectorI9zc_personSaIS0_EE7reserveEm.exit:   ; preds = %if.end.i10, %_ZNSt12_Vector_baseI9zc_personSaIS0_EE13_M_deallocateEPS0_m.exit.i
-  %umax = tail call i64 @llvm.umax.i64(i64 %size.0.insert.ext, i64 1)
+for.body.preheader:                               ; preds = %if.end.i10, %_ZNSt12_Vector_baseI9zc_personSaIS0_EE13_M_deallocateEPS0_m.exit.i
   br label %for.body
 
-for.body:                                         ; preds = %_ZNSt6vectorI9zc_personSaIS0_EE7reserveEm.exit, %for.inc
-  %i.033 = phi i64 [ 0, %_ZNSt6vectorI9zc_personSaIS0_EE7reserveEm.exit ], [ %inc, %for.inc ]
+for.body:                                         ; preds = %for.body.preheader, %for.inc
+  %i.033 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.preheader ]
   %6 = load ptr, ptr %_M_finish.i.i, align 8
   %7 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i = icmp eq ptr %6, %7
@@ -24071,7 +24061,7 @@ for.inc:                                          ; preds = %if.end.i.i.i
   %add.ptr.i.i35.i = getelementptr inbounds nuw i8, ptr %34, i64 8
   store ptr %add.ptr.i.i35.i, ptr %28, align 8
   %inc = add nuw nsw i64 %i.033, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %size.0.insert.ext
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !432
 
 return:                                           ; preds = %for.inc, %if.end.i.i20, %if.then10, %entry, %if.end
@@ -25173,7 +25163,6 @@ invoke.cont.i.i:                                  ; preds = %_ZSt8_DestroyI6Weap
 _ZNSt6vectorI6WeaponSaIS0_EE5clearEv.exit:        ; preds = %if.end3, %invoke.cont.i.i
   tail call void @_ZNSt6vectorI6WeaponSaIS0_EE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %item, i64 noundef %size.0.insert.ext)
   %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %item, i64 16
-  %umax = tail call i64 @llvm.umax.i64(i64 %size.0.insert.ext, i64 1)
   br label %for.body
 
 for.body:                                         ; preds = %_ZNSt6vectorI6WeaponSaIS0_EE5clearEv.exit, %for.inc
@@ -25285,7 +25274,7 @@ for.inc:                                          ; preds = %if.end.i.i
   %add.ptr.i.i8.i = getelementptr inbounds nuw i8, ptr %30, i64 2
   store ptr %add.ptr.i.i8.i, ptr %24, align 8
   %inc = add nuw nsw i64 %i.027, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %size.0.insert.ext
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !441
 
 return:                                           ; preds = %for.inc, %if.end.i.i14, %if.then10, %entry, %if.end
@@ -26089,7 +26078,6 @@ _ZNSt6vectorI6WeaponSaIS0_EE5clearEv.exit:        ; preds = %if.end3, %invoke.co
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %size.0.insert.ext, i64 26214)
   tail call void @_ZNSt6vectorI6WeaponSaIS0_EE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %item, i64 noundef %.sroa.speculated)
   %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %item, i64 16
-  %umax = tail call i64 @llvm.umax.i64(i64 %size.0.insert.ext, i64 1)
   br label %for.body
 
 for.body:                                         ; preds = %_ZNSt6vectorI6WeaponSaIS0_EE5clearEv.exit, %for.inc
@@ -26204,7 +26192,7 @@ for.inc:                                          ; preds = %if.end.i.i
   %add.ptr.i.i12.i = getelementptr inbounds nuw i8, ptr %30, i64 2
   store ptr %add.ptr.i.i12.i, ptr %24, align 8
   %inc = add nuw nsw i64 %i.027, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %size.0.insert.ext
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !462
 
 return:                                           ; preds = %for.inc, %if.end.i.i14, %if.then10, %entry, %if.end
@@ -26600,7 +26588,6 @@ _ZNSt6vectorI6WeaponSaIS0_EE5clearEv.exit:        ; preds = %if.end3, %invoke.co
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %size.0.insert.ext, i64 26214)
   tail call void @_ZNSt6vectorI6WeaponSaIS0_EE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %item, i64 noundef %.sroa.speculated)
   %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %item, i64 16
-  %umax = tail call i64 @llvm.umax.i64(i64 %size.0.insert.ext, i64 1)
   br label %for.body
 
 for.body:                                         ; preds = %_ZNSt6vectorI6WeaponSaIS0_EE5clearEv.exit, %for.inc
@@ -26715,7 +26702,7 @@ for.inc:                                          ; preds = %if.end.i.i
   %add.ptr.i.i12.i = getelementptr inbounds nuw i8, ptr %30, i64 2
   store ptr %add.ptr.i.i12.i, ptr %24, align 8
   %inc = add nuw nsw i64 %i.027, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %size.0.insert.ext
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !463
 
 return:                                           ; preds = %for.inc, %if.end.i.i14, %if.then10, %entry, %if.end
@@ -27109,7 +27096,6 @@ _ZNSt6vectorI6WeaponSaIS0_EE5clearEv.exit:        ; preds = %if.end3, %invoke.co
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %size.0.copyload, i64 26214)
   tail call void @_ZNSt6vectorI6WeaponSaIS0_EE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %item, i64 noundef %.sroa.speculated)
   %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %item, i64 16
-  %umax = tail call i64 @llvm.umax.i64(i64 %size.0.copyload, i64 1)
   br label %for.body
 
 for.body:                                         ; preds = %_ZNSt6vectorI6WeaponSaIS0_EE5clearEv.exit, %for.inc
@@ -27223,7 +27209,7 @@ for.inc:                                          ; preds = %if.end.i.i
   %add.ptr.i.i12.i = getelementptr inbounds nuw i8, ptr %30, i64 2
   store ptr %add.ptr.i.i12.i, ptr %24, align 8
   %inc = add nuw i64 %i.027, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %size.0.copyload
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !464
 
 return:                                           ; preds = %for.inc, %if.end.i.i14, %if.then10, %entry, %if.end
@@ -27645,12 +27631,11 @@ invoke.cont.i.i:                                  ; preds = %for.body.i.i.i.i.i
 _ZNSt6vectorI7MonsterSaIS0_EE5clearEv.exit:       ; preds = %if.end3, %invoke.cont.i.i
   tail call void @_ZNSt6vectorI7MonsterSaIS0_EE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %item, i64 noundef %size.0.insert.ext)
   %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %item, i64 16
-  %umax = tail call i64 @llvm.umax.i64(i64 %size.0.insert.ext, i64 1)
   br label %for.body
 
 for.cond:                                         ; preds = %_ZNSt6vectorI7MonsterSaIS0_EE12emplace_backIJEEERS0_DpOT_.exit
   %inc = add nuw nsw i64 %i.017, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %size.0.insert.ext
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !466
 
 for.body:                                         ; preds = %_ZNSt6vectorI7MonsterSaIS0_EE5clearEv.exit, %for.cond
@@ -27975,12 +27960,11 @@ _ZNSt6vectorI7MonsterSaIS0_EE5clearEv.exit:       ; preds = %if.end3, %invoke.co
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %size.0.insert.ext, i64 5957)
   tail call void @_ZNSt6vectorI7MonsterSaIS0_EE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %item, i64 noundef %.sroa.speculated)
   %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %item, i64 16
-  %umax = tail call i64 @llvm.umax.i64(i64 %size.0.insert.ext, i64 1)
   br label %for.body
 
 for.cond:                                         ; preds = %_ZNSt6vectorI7MonsterSaIS0_EE12emplace_backIJEEERS0_DpOT_.exit
   %inc = add nuw nsw i64 %i.017, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %size.0.insert.ext
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !468
 
 for.body:                                         ; preds = %_ZNSt6vectorI7MonsterSaIS0_EE5clearEv.exit, %for.cond
@@ -28069,12 +28053,11 @@ _ZNSt6vectorI7MonsterSaIS0_EE5clearEv.exit:       ; preds = %if.end3, %invoke.co
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %size.0.insert.ext, i64 5957)
   tail call void @_ZNSt6vectorI7MonsterSaIS0_EE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %item, i64 noundef %.sroa.speculated)
   %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %item, i64 16
-  %umax = tail call i64 @llvm.umax.i64(i64 %size.0.insert.ext, i64 1)
   br label %for.body
 
 for.cond:                                         ; preds = %_ZNSt6vectorI7MonsterSaIS0_EE12emplace_backIJEEERS0_DpOT_.exit
   %inc = add nuw nsw i64 %i.017, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %size.0.insert.ext
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !469
 
 for.body:                                         ; preds = %_ZNSt6vectorI7MonsterSaIS0_EE5clearEv.exit, %for.cond
@@ -28335,7 +28318,7 @@ if.end.i10:                                       ; preds = %invoke.cont.i.i, %i
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 120
   %cmp3.i = icmp ult i64 %sub.ptr.div.i.i, %size.0.insert.ext
-  br i1 %cmp3.i, label %_ZNSt12_Vector_baseI10zc_MonsterSaIS0_EE11_M_allocateEm.exit.i, label %_ZNSt6vectorI10zc_MonsterSaIS0_EE7reserveEm.exit
+  br i1 %cmp3.i, label %_ZNSt12_Vector_baseI10zc_MonsterSaIS0_EE11_M_allocateEm.exit.i, label %for.body.preheader
 
 _ZNSt12_Vector_baseI10zc_MonsterSaIS0_EE11_M_allocateEm.exit.i: ; preds = %if.end.i10
   %sub.ptr.lhs.cast.i6.i = ptrtoint ptr %3 to i64
@@ -28391,19 +28374,18 @@ _ZNSt12_Vector_baseI10zc_MonsterSaIS0_EE13_M_deallocateEPS0_m.exit.i: ; preds = 
   store ptr %add.ptr.i14, ptr %_M_finish.i.i, align 8
   %add.ptr21.i = getelementptr inbounds nuw %struct.zc_Monster, ptr %call5.i.i.i.i, i64 %size.0.insert.ext
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8
-  br label %_ZNSt6vectorI10zc_MonsterSaIS0_EE7reserveEm.exit
+  br label %for.body.preheader
 
-_ZNSt6vectorI10zc_MonsterSaIS0_EE7reserveEm.exit: ; preds = %if.end.i10, %_ZNSt12_Vector_baseI10zc_MonsterSaIS0_EE13_M_deallocateEPS0_m.exit.i
-  %umax = tail call i64 @llvm.umax.i64(i64 %size.0.insert.ext, i64 1)
+for.body.preheader:                               ; preds = %if.end.i10, %_ZNSt12_Vector_baseI10zc_MonsterSaIS0_EE13_M_deallocateEPS0_m.exit.i
   br label %for.body
 
 for.cond:                                         ; preds = %_ZNSt6vectorI10zc_MonsterSaIS0_EE12emplace_backIJEEERS0_DpOT_.exit
   %inc = add nuw nsw i64 %i.025, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %size.0.insert.ext
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !478
 
-for.body:                                         ; preds = %_ZNSt6vectorI10zc_MonsterSaIS0_EE7reserveEm.exit, %for.cond
-  %i.025 = phi i64 [ 0, %_ZNSt6vectorI10zc_MonsterSaIS0_EE7reserveEm.exit ], [ %inc, %for.cond ]
+for.body:                                         ; preds = %for.body.preheader, %for.cond
+  %i.025 = phi i64 [ %inc, %for.cond ], [ 0, %for.body.preheader ]
   %12 = load ptr, ptr %_M_finish.i.i, align 8
   %13 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i = icmp eq ptr %12, %13
@@ -28727,7 +28709,7 @@ if.end.i10:                                       ; preds = %invoke.cont.i.i, %i
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 24
   %cmp3.i = icmp ult i64 %sub.ptr.div.i.i, %size.0.insert.ext
-  br i1 %cmp3.i, label %_ZNSt6vectorI9zc_WeaponSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit.i, label %_ZNSt6vectorI9zc_WeaponSaIS0_EE7reserveEm.exit
+  br i1 %cmp3.i, label %_ZNSt6vectorI9zc_WeaponSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit.i, label %for.body.preheader
 
 _ZNSt6vectorI9zc_WeaponSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit.i: ; preds = %if.end.i10
   %mul.i.i.i.i = mul nuw nsw i64 %size.0.insert.ext, 24
@@ -28744,14 +28726,13 @@ _ZNSt12_Vector_baseI9zc_WeaponSaIS0_EE13_M_deallocateEPS0_m.exit.i: ; preds = %i
   store ptr %call5.i.i.i.i, ptr %_M_finish.i.i, align 8
   %add.ptr21.i = getelementptr inbounds nuw %struct.zc_Weapon, ptr %call5.i.i.i.i, i64 %size.0.insert.ext
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8
-  br label %_ZNSt6vectorI9zc_WeaponSaIS0_EE7reserveEm.exit
+  br label %for.body.preheader
 
-_ZNSt6vectorI9zc_WeaponSaIS0_EE7reserveEm.exit:   ; preds = %if.end.i10, %_ZNSt12_Vector_baseI9zc_WeaponSaIS0_EE13_M_deallocateEPS0_m.exit.i
-  %umax = tail call i64 @llvm.umax.i64(i64 %size.0.insert.ext, i64 1)
+for.body.preheader:                               ; preds = %if.end.i10, %_ZNSt12_Vector_baseI9zc_WeaponSaIS0_EE13_M_deallocateEPS0_m.exit.i
   br label %for.body
 
-for.body:                                         ; preds = %_ZNSt6vectorI9zc_WeaponSaIS0_EE7reserveEm.exit, %for.inc
-  %i.033 = phi i64 [ 0, %_ZNSt6vectorI9zc_WeaponSaIS0_EE7reserveEm.exit ], [ %inc, %for.inc ]
+for.body:                                         ; preds = %for.body.preheader, %for.inc
+  %i.033 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.preheader ]
   %6 = load ptr, ptr %_M_finish.i.i, align 8
   %7 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i = icmp eq ptr %6, %7
@@ -28888,7 +28869,7 @@ for.inc:                                          ; preds = %if.end.i.i
   %add.ptr.i.i8.i = getelementptr inbounds nuw i8, ptr %24, i64 2
   store ptr %add.ptr.i.i8.i, ptr %18, align 8
   %inc = add nuw nsw i64 %i.033, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %size.0.insert.ext
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !496
 
 return:                                           ; preds = %for.inc, %if.end.i.i20, %if.then10, %entry, %if.end
@@ -29269,7 +29250,7 @@ if.end.i10:                                       ; preds = %invoke.cont.i.i, %i
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 120
   %cmp3.i = icmp ult i64 %sub.ptr.div.i.i, %.sroa.speculated
-  br i1 %cmp3.i, label %_ZNSt12_Vector_baseI10zc_MonsterSaIS0_EE11_M_allocateEm.exit.i, label %_ZNSt6vectorI10zc_MonsterSaIS0_EE7reserveEm.exit
+  br i1 %cmp3.i, label %_ZNSt12_Vector_baseI10zc_MonsterSaIS0_EE11_M_allocateEm.exit.i, label %for.body.preheader
 
 _ZNSt12_Vector_baseI10zc_MonsterSaIS0_EE11_M_allocateEm.exit.i: ; preds = %if.end.i10
   %sub.ptr.lhs.cast.i6.i = ptrtoint ptr %3 to i64
@@ -29325,19 +29306,18 @@ _ZNSt12_Vector_baseI10zc_MonsterSaIS0_EE13_M_deallocateEPS0_m.exit.i: ; preds = 
   store ptr %add.ptr.i14, ptr %_M_finish.i.i, align 8
   %add.ptr21.i = getelementptr inbounds nuw %struct.zc_Monster, ptr %call5.i.i.i.i, i64 %.sroa.speculated
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8
-  br label %_ZNSt6vectorI10zc_MonsterSaIS0_EE7reserveEm.exit
+  br label %for.body.preheader
 
-_ZNSt6vectorI10zc_MonsterSaIS0_EE7reserveEm.exit: ; preds = %if.end.i10, %_ZNSt12_Vector_baseI10zc_MonsterSaIS0_EE13_M_deallocateEPS0_m.exit.i
-  %umax = tail call i64 @llvm.umax.i64(i64 %size.0.insert.ext, i64 1)
+for.body.preheader:                               ; preds = %if.end.i10, %_ZNSt12_Vector_baseI10zc_MonsterSaIS0_EE13_M_deallocateEPS0_m.exit.i
   br label %for.body
 
 for.cond:                                         ; preds = %_ZNSt6vectorI10zc_MonsterSaIS0_EE12emplace_backIJEEERS0_DpOT_.exit
   %inc = add nuw nsw i64 %i.025, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %size.0.insert.ext
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !504
 
-for.body:                                         ; preds = %_ZNSt6vectorI10zc_MonsterSaIS0_EE7reserveEm.exit, %for.cond
-  %i.025 = phi i64 [ 0, %_ZNSt6vectorI10zc_MonsterSaIS0_EE7reserveEm.exit ], [ %inc, %for.cond ]
+for.body:                                         ; preds = %for.body.preheader, %for.cond
+  %i.025 = phi i64 [ %inc, %for.cond ], [ 0, %for.body.preheader ]
   %12 = load ptr, ptr %_M_finish.i.i, align 8
   %13 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i = icmp eq ptr %12, %13
@@ -29556,7 +29536,7 @@ if.end.i10:                                       ; preds = %invoke.cont.i.i, %i
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 24
   %cmp3.i = icmp ult i64 %sub.ptr.div.i.i, %.sroa.speculated
-  br i1 %cmp3.i, label %_ZNSt6vectorI9zc_WeaponSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit.i, label %_ZNSt6vectorI9zc_WeaponSaIS0_EE7reserveEm.exit
+  br i1 %cmp3.i, label %_ZNSt6vectorI9zc_WeaponSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit.i, label %for.body.preheader
 
 _ZNSt6vectorI9zc_WeaponSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit.i: ; preds = %if.end.i10
   %mul.i.i.i.i = mul nuw nsw i64 %.sroa.speculated, 24
@@ -29573,14 +29553,13 @@ _ZNSt12_Vector_baseI9zc_WeaponSaIS0_EE13_M_deallocateEPS0_m.exit.i: ; preds = %i
   store ptr %call5.i.i.i.i, ptr %_M_finish.i.i, align 8
   %add.ptr21.i = getelementptr inbounds nuw %struct.zc_Weapon, ptr %call5.i.i.i.i, i64 %.sroa.speculated
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8
-  br label %_ZNSt6vectorI9zc_WeaponSaIS0_EE7reserveEm.exit
+  br label %for.body.preheader
 
-_ZNSt6vectorI9zc_WeaponSaIS0_EE7reserveEm.exit:   ; preds = %if.end.i10, %_ZNSt12_Vector_baseI9zc_WeaponSaIS0_EE13_M_deallocateEPS0_m.exit.i
-  %umax = tail call i64 @llvm.umax.i64(i64 %size.0.insert.ext, i64 1)
+for.body.preheader:                               ; preds = %if.end.i10, %_ZNSt12_Vector_baseI9zc_WeaponSaIS0_EE13_M_deallocateEPS0_m.exit.i
   br label %for.body
 
-for.body:                                         ; preds = %_ZNSt6vectorI9zc_WeaponSaIS0_EE7reserveEm.exit, %for.inc
-  %i.033 = phi i64 [ 0, %_ZNSt6vectorI9zc_WeaponSaIS0_EE7reserveEm.exit ], [ %inc, %for.inc ]
+for.body:                                         ; preds = %for.body.preheader, %for.inc
+  %i.033 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.preheader ]
   %6 = load ptr, ptr %_M_finish.i.i, align 8
   %7 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i = icmp eq ptr %6, %7
@@ -29720,7 +29699,7 @@ for.inc:                                          ; preds = %if.end.i.i
   %add.ptr.i.i12.i = getelementptr inbounds nuw i8, ptr %24, i64 2
   store ptr %add.ptr.i.i12.i, ptr %18, align 8
   %inc = add nuw nsw i64 %i.033, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %size.0.insert.ext
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !509
 
 return:                                           ; preds = %for.inc, %if.end.i.i20, %if.then10, %entry, %if.end
@@ -29913,7 +29892,7 @@ if.end.i10:                                       ; preds = %invoke.cont.i.i, %i
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 120
   %cmp3.i = icmp ult i64 %sub.ptr.div.i.i, %.sroa.speculated
-  br i1 %cmp3.i, label %_ZNSt12_Vector_baseI10zc_MonsterSaIS0_EE11_M_allocateEm.exit.i, label %_ZNSt6vectorI10zc_MonsterSaIS0_EE7reserveEm.exit
+  br i1 %cmp3.i, label %_ZNSt12_Vector_baseI10zc_MonsterSaIS0_EE11_M_allocateEm.exit.i, label %for.body.preheader
 
 _ZNSt12_Vector_baseI10zc_MonsterSaIS0_EE11_M_allocateEm.exit.i: ; preds = %if.end.i10
   %sub.ptr.lhs.cast.i6.i = ptrtoint ptr %3 to i64
@@ -29969,19 +29948,18 @@ _ZNSt12_Vector_baseI10zc_MonsterSaIS0_EE13_M_deallocateEPS0_m.exit.i: ; preds = 
   store ptr %add.ptr.i14, ptr %_M_finish.i.i, align 8
   %add.ptr21.i = getelementptr inbounds nuw %struct.zc_Monster, ptr %call5.i.i.i.i, i64 %.sroa.speculated
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8
-  br label %_ZNSt6vectorI10zc_MonsterSaIS0_EE7reserveEm.exit
+  br label %for.body.preheader
 
-_ZNSt6vectorI10zc_MonsterSaIS0_EE7reserveEm.exit: ; preds = %if.end.i10, %_ZNSt12_Vector_baseI10zc_MonsterSaIS0_EE13_M_deallocateEPS0_m.exit.i
-  %umax = tail call i64 @llvm.umax.i64(i64 %size.0.insert.ext, i64 1)
+for.body.preheader:                               ; preds = %if.end.i10, %_ZNSt12_Vector_baseI10zc_MonsterSaIS0_EE13_M_deallocateEPS0_m.exit.i
   br label %for.body
 
 for.cond:                                         ; preds = %_ZNSt6vectorI10zc_MonsterSaIS0_EE12emplace_backIJEEERS0_DpOT_.exit
   %inc = add nuw nsw i64 %i.025, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %size.0.insert.ext
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !516
 
-for.body:                                         ; preds = %_ZNSt6vectorI10zc_MonsterSaIS0_EE7reserveEm.exit, %for.cond
-  %i.025 = phi i64 [ 0, %_ZNSt6vectorI10zc_MonsterSaIS0_EE7reserveEm.exit ], [ %inc, %for.cond ]
+for.body:                                         ; preds = %for.body.preheader, %for.cond
+  %i.025 = phi i64 [ %inc, %for.cond ], [ 0, %for.body.preheader ]
   %12 = load ptr, ptr %_M_finish.i.i, align 8
   %13 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i = icmp eq ptr %12, %13
@@ -30200,7 +30178,7 @@ if.end.i10:                                       ; preds = %invoke.cont.i.i, %i
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 24
   %cmp3.i = icmp ult i64 %sub.ptr.div.i.i, %.sroa.speculated
-  br i1 %cmp3.i, label %_ZNSt6vectorI9zc_WeaponSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit.i, label %_ZNSt6vectorI9zc_WeaponSaIS0_EE7reserveEm.exit
+  br i1 %cmp3.i, label %_ZNSt6vectorI9zc_WeaponSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit.i, label %for.body.preheader
 
 _ZNSt6vectorI9zc_WeaponSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit.i: ; preds = %if.end.i10
   %mul.i.i.i.i = mul nuw nsw i64 %.sroa.speculated, 24
@@ -30217,14 +30195,13 @@ _ZNSt12_Vector_baseI9zc_WeaponSaIS0_EE13_M_deallocateEPS0_m.exit.i: ; preds = %i
   store ptr %call5.i.i.i.i, ptr %_M_finish.i.i, align 8
   %add.ptr21.i = getelementptr inbounds nuw %struct.zc_Weapon, ptr %call5.i.i.i.i, i64 %.sroa.speculated
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8
-  br label %_ZNSt6vectorI9zc_WeaponSaIS0_EE7reserveEm.exit
+  br label %for.body.preheader
 
-_ZNSt6vectorI9zc_WeaponSaIS0_EE7reserveEm.exit:   ; preds = %if.end.i10, %_ZNSt12_Vector_baseI9zc_WeaponSaIS0_EE13_M_deallocateEPS0_m.exit.i
-  %umax = tail call i64 @llvm.umax.i64(i64 %size.0.insert.ext, i64 1)
+for.body.preheader:                               ; preds = %if.end.i10, %_ZNSt12_Vector_baseI9zc_WeaponSaIS0_EE13_M_deallocateEPS0_m.exit.i
   br label %for.body
 
-for.body:                                         ; preds = %_ZNSt6vectorI9zc_WeaponSaIS0_EE7reserveEm.exit, %for.inc
-  %i.033 = phi i64 [ 0, %_ZNSt6vectorI9zc_WeaponSaIS0_EE7reserveEm.exit ], [ %inc, %for.inc ]
+for.body:                                         ; preds = %for.body.preheader, %for.inc
+  %i.033 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.preheader ]
   %6 = load ptr, ptr %_M_finish.i.i, align 8
   %7 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i = icmp eq ptr %6, %7
@@ -30364,7 +30341,7 @@ for.inc:                                          ; preds = %if.end.i.i
   %add.ptr.i.i12.i = getelementptr inbounds nuw i8, ptr %24, i64 2
   store ptr %add.ptr.i.i12.i, ptr %18, align 8
   %inc = add nuw nsw i64 %i.033, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %size.0.insert.ext
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !521
 
 return:                                           ; preds = %for.inc, %if.end.i.i20, %if.then10, %entry, %if.end
@@ -30556,7 +30533,7 @@ if.end.i10:                                       ; preds = %invoke.cont.i.i, %i
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 120
   %cmp3.i = icmp ult i64 %sub.ptr.div.i.i, %.sroa.speculated
-  br i1 %cmp3.i, label %_ZNSt12_Vector_baseI10zc_MonsterSaIS0_EE11_M_allocateEm.exit.i, label %_ZNSt6vectorI10zc_MonsterSaIS0_EE7reserveEm.exit
+  br i1 %cmp3.i, label %_ZNSt12_Vector_baseI10zc_MonsterSaIS0_EE11_M_allocateEm.exit.i, label %for.body.preheader
 
 _ZNSt12_Vector_baseI10zc_MonsterSaIS0_EE11_M_allocateEm.exit.i: ; preds = %if.end.i10
   %sub.ptr.lhs.cast.i6.i = ptrtoint ptr %3 to i64
@@ -30612,19 +30589,18 @@ _ZNSt12_Vector_baseI10zc_MonsterSaIS0_EE13_M_deallocateEPS0_m.exit.i: ; preds = 
   store ptr %add.ptr.i14, ptr %_M_finish.i.i, align 8
   %add.ptr21.i = getelementptr inbounds nuw %struct.zc_Monster, ptr %call5.i.i.i.i, i64 %.sroa.speculated
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8
-  br label %_ZNSt6vectorI10zc_MonsterSaIS0_EE7reserveEm.exit
+  br label %for.body.preheader
 
-_ZNSt6vectorI10zc_MonsterSaIS0_EE7reserveEm.exit: ; preds = %if.end.i10, %_ZNSt12_Vector_baseI10zc_MonsterSaIS0_EE13_M_deallocateEPS0_m.exit.i
-  %umax = tail call i64 @llvm.umax.i64(i64 %size.0.copyload, i64 1)
+for.body.preheader:                               ; preds = %if.end.i10, %_ZNSt12_Vector_baseI10zc_MonsterSaIS0_EE13_M_deallocateEPS0_m.exit.i
   br label %for.body
 
 for.cond:                                         ; preds = %_ZNSt6vectorI10zc_MonsterSaIS0_EE12emplace_backIJEEERS0_DpOT_.exit
   %inc = add nuw i64 %i.025, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %size.0.copyload
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !528
 
-for.body:                                         ; preds = %_ZNSt6vectorI10zc_MonsterSaIS0_EE7reserveEm.exit, %for.cond
-  %i.025 = phi i64 [ 0, %_ZNSt6vectorI10zc_MonsterSaIS0_EE7reserveEm.exit ], [ %inc, %for.cond ]
+for.body:                                         ; preds = %for.body.preheader, %for.cond
+  %i.025 = phi i64 [ %inc, %for.cond ], [ 0, %for.body.preheader ]
   %12 = load ptr, ptr %_M_finish.i.i, align 8
   %13 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i = icmp eq ptr %12, %13

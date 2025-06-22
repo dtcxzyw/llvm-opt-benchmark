@@ -174,7 +174,6 @@ silk_flush_frame.exit:                            ; preds = %38, %35, %14
   %48 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %49 = load i32, ptr %48, align 4
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %umax158 = tail call i32 @llvm.umax.i32(i32 %19, i32 1)
   %wide.trip.count156 = zext nneg i32 %4 to i64
   br label %.preheader122.us
 
@@ -213,13 +212,12 @@ silk_flush_frame.exit:                            ; preds = %38, %35, %14
 ._crit_edge.us:                                   ; preds = %60
   store i32 0, ptr %50, align 4, !tbaa !23
   %61 = add nuw nsw i32 %.2107131.us, 1
-  %exitcond159.not = icmp eq i32 %61, %umax158
+  %exitcond159.not = icmp eq i32 %61, %19
   br i1 %exitcond159.not, label %.preheader121, label %.preheader122.us, !llvm.loop !24
 
 .preheader123.split:                              ; preds = %silk_flush_frame.exit
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %62, align 4, !tbaa !23
-  %.pre176 = tail call i32 @llvm.umax.i32(i32 %19, i32 1)
   br label %.preheader121
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %67
@@ -241,7 +239,6 @@ silk_flush_frame.exit:                            ; preds = %38, %35, %14
 
 .preheader121:                                    ; preds = %._crit_edge.us, %.preheader123.split
   %68 = phi ptr [ %62, %.preheader123.split ], [ %50, %._crit_edge.us ]
-  %umax171.pre-phi = phi i32 [ %.pre176, %.preheader123.split ], [ %umax158, %._crit_edge.us ]
   %69 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 5304
   %71 = icmp eq i32 %4, 1
@@ -254,7 +251,7 @@ silk_flush_frame.exit:                            ; preds = %38, %35, %14
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 10576
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 10580
   %invariant.gep = getelementptr i8, ptr %0, i64 1424
-  %wide.trip.count172 = zext nneg i32 %umax171.pre-phi to i64
+  %wide.trip.count172 = zext nneg i32 %19 to i64
   %wide.trip.count163 = zext nneg i32 %4 to i64
   br label %.preheader
 
@@ -263,7 +260,7 @@ silk_flush_frame.exit:                            ; preds = %38, %35, %14
   br i1 %39, label %.lr.ph133, label %.thread
 
 .thread:                                          ; preds = %.preheader
-  %.pre174181 = load i32, ptr %72, align 8, !tbaa !26
+  %.pre174180 = load i32, ptr %72, align 8, !tbaa !26
   br label %92
 
 .lr.ph133:                                        ; preds = %.preheader
@@ -275,7 +272,7 @@ silk_flush_frame.exit:                            ; preds = %38, %35, %14
   %indvars.iv160 = phi i64 [ 0, %.lr.ph133 ], [ %indvars.iv.next161, %84 ]
   %83 = load i32, ptr %68, align 4, !tbaa !23
   %.not = icmp eq i32 %83, 0
-  br i1 %.not, label %84, label %.critedge.thread179
+  br i1 %.not, label %84, label %.critedge.thread178
 
 84:                                               ; preds = %82
   %85 = getelementptr inbounds nuw [2 x [6 x i32]], ptr %7, i64 0, i64 %indvars.iv160, i64 %indvars.iv168
@@ -290,24 +287,24 @@ silk_flush_frame.exit:                            ; preds = %38, %35, %14
 .critedge:                                        ; preds = %84
   %.pre.pre = load i32, ptr %68, align 4, !tbaa !23
   %89 = icmp eq i32 %.pre.pre, 0
-  br i1 %89, label %91, label %.critedge.thread179
+  br i1 %89, label %91, label %.critedge.thread178
 
-.critedge.thread179:                              ; preds = %82, %.critedge
+.critedge.thread178:                              ; preds = %82, %.critedge
   %90 = load i32, ptr %70, align 8, !tbaa !16
   %.not116 = icmp eq i32 %90, 0
   br i1 %.not116, label %91, label %silk_flush_frame.exit120
 
-silk_flush_frame.exit120:                         ; preds = %.critedge.thread179
+silk_flush_frame.exit120:                         ; preds = %.critedge.thread178
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(5264) %70, i8 0, i64 5264, i1 false)
   br label %91
 
-91:                                               ; preds = %silk_flush_frame.exit120, %.critedge.thread179, %.critedge
+91:                                               ; preds = %silk_flush_frame.exit120, %.critedge.thread178, %.critedge
   %.pre174 = load i32, ptr %72, align 8, !tbaa !26
   br i1 %71, label %94, label %92
 
 92:                                               ; preds = %.thread, %91
-  %.pre174182 = phi i32 [ %.pre174181, %.thread ], [ %.pre174, %91 ]
-  %93 = icmp eq i32 %.pre174182, 1
+  %.pre174181 = phi i32 [ %.pre174180, %.thread ], [ %.pre174, %91 ]
+  %93 = icmp eq i32 %.pre174181, 1
   br i1 %93, label %.lr.ph136.preheader, label %109
 
 94:                                               ; preds = %91

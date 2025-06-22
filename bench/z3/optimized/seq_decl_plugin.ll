@@ -1028,8 +1028,6 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit69: ; preds = %72
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit70.preheader: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit69
   %75 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %umax = call i32 @llvm.umax.i32(i32 %2, i32 1)
-  %wide.trip.count = zext i32 %umax to i64
   br label %81
 
 76:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit71
@@ -1065,7 +1063,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit71: ; preds = %85
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %75) #26
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11) #26
   %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next83, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next83, %18
   br i1 %exitcond.not, label %76, label %81, !llvm.loop !68
 
 87:                                               ; preds = %81

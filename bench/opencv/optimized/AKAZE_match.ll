@@ -672,7 +672,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit184: ; preds = %_Z
   %212 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %213 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %214 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  %umax = call i64 @llvm.umax.i64(i64 %196, i64 1)
   br label %363
 
 215:                                              ; preds = %.noexc.i
@@ -1691,7 +1690,7 @@ _ZNSt6vectorIN2cv6DMatchESaIS1_EE9push_backEOS1_.exit: ; preds = %560, %_ZNSt6ve
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %39) #16
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %39) #16
   %592 = add nuw i64 %.069562, 1
-  %exitcond.not = icmp eq i64 %592, %umax
+  %exitcond.not = icmp eq i64 %592, %196
   br i1 %exitcond.not, label %._crit_edge565, label %363, !llvm.loop !111
 
 593:                                              ; preds = %.loopexit501, %.loopexit.split-lp502, %.loopexit, %.loopexit.split-lp, %591, %585

@@ -9549,7 +9549,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEC2E
   %136 = ashr exact i64 %135, 3
   %137 = load ptr, ptr %10, align 8
   %138 = load i64, ptr %44, align 8
-  %umax.i = call i64 @llvm.umax.i64(i64 %136, i64 1)
   br label %139
 
 139:                                              ; preds = %161, %.lr.ph.i
@@ -9598,7 +9597,7 @@ _ZSteqIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_st
 
 161:                                              ; preds = %_ZSteqIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESC_.exit.thread.i
   %162 = add nuw i64 %.028.i, 1
-  %exitcond.not.i = icmp eq i64 %162, %umax.i
+  %exitcond.not.i = icmp eq i64 %162, %136
   br i1 %exitcond.not.i, label %_ZN7glslang16TSymbolValidater20checkLocationOverlapERKNS_6TRangeERSt6vectorIS1_SaIS1_EENSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERS4_ISE_SaISE_EERb.exit, label %139, !llvm.loop !219
 
 .loopexit.sink.split.i:                           ; preds = %_ZSteqIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESC_.exit.thread.i, %147, %151
@@ -21652,7 +21651,6 @@ define linkonce_odr noundef zeroext i1 @_ZN7glslang16TSymbolValidater9typeCheckE
   %46 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %47 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 344
-  %umax = call i64 @llvm.umax.i64(i64 %45, i64 1)
   br label %49
 
 49:                                               ; preds = %.lr.ph, %170
@@ -21883,7 +21881,7 @@ _ZNKSt6vectorIN7glslang8TTypeLocENS0_14pool_allocatorIS1_EEE2atEm.exit67: ; pred
   %.2 = phi i64 [ %.047124, %_ZNKSt6vectorIN7glslang8TTypeLocENS0_14pool_allocatorIS1_EEE2atEm.exit ], [ %.3.lcssa, %_ZNKSt6vectorIN7glslang8TTypeLocENS0_14pool_allocatorIS1_EEE2atEm.exit63 ], [ %.3.lcssa, %_ZNKSt6vectorIN7glslang8TTypeLocENS0_14pool_allocatorIS1_EEE2atEm.exit67 ], [ %.3.lcssa, %.critedge55 ]
   %171 = add nuw i64 %.0125, 1
   %172 = add i64 %.2, 1
-  %exitcond.not = icmp eq i64 %171, %umax
+  %exitcond.not = icmp eq i64 %171, %45
   br i1 %exitcond.not, label %.loopexit71, label %49, !llvm.loop !381
 
 .loopexit71:                                      ; preds = %170, %33, %87

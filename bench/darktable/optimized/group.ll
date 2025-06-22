@@ -275,12 +275,7 @@ define internal range(i32 0, 2) i32 @_group_get_mask(ptr noundef %0, ptr noundef
 
 ._crit_edge:                                      ; preds = %146
   %31 = icmp eq i32 %.1424, 0
-  br i1 %31, label %._crit_edge.thread, label %.preheader500.preheader
-
-.preheader500.preheader:                          ; preds = %._crit_edge
-  %umax = tail call i32 @llvm.umax.i32(i32 %14, i32 1)
-  %wide.trip.count = zext i32 %umax to i64
-  br label %.preheader500
+  br i1 %31, label %._crit_edge.thread, label %.preheader500
 
 32:                                               ; preds = %.lr.ph, %146
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %146 ]
@@ -655,12 +650,12 @@ _inverse_mask.exit:                               ; preds = %._crit_edge.us47.i,
   %wide.trip.count666 = zext nneg i32 %150 to i64
   br label %176
 
-.preheader500:                                    ; preds = %.preheader500.preheader, %.preheader500
-  %indvars.iv598 = phi i64 [ 0, %.preheader500.preheader ], [ %indvars.iv.next599, %.preheader500 ]
-  %.0435514 = phi i32 [ -2147483648, %.preheader500.preheader ], [ %174, %.preheader500 ]
-  %.0436513 = phi i32 [ 2147483647, %.preheader500.preheader ], [ %166, %.preheader500 ]
-  %.0437512 = phi i32 [ -2147483648, %.preheader500.preheader ], [ %170, %.preheader500 ]
-  %.0438511 = phi i32 [ 2147483647, %.preheader500.preheader ], [ %.0438., %.preheader500 ]
+.preheader500:                                    ; preds = %._crit_edge, %.preheader500
+  %indvars.iv598 = phi i64 [ %indvars.iv.next599, %.preheader500 ], [ 0, %._crit_edge ]
+  %.0435514 = phi i32 [ %174, %.preheader500 ], [ -2147483648, %._crit_edge ]
+  %.0436513 = phi i32 [ %166, %.preheader500 ], [ 2147483647, %._crit_edge ]
+  %.0437512 = phi i32 [ %170, %.preheader500 ], [ -2147483648, %._crit_edge ]
+  %.0438511 = phi i32 [ %.0438., %.preheader500 ], [ 2147483647, %._crit_edge ]
   %162 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv598
   %163 = load i32, ptr %162, align 4, !tbaa !96
   %.0438. = tail call i32 @llvm.smin.i32(i32 %.0438511, i32 %163)
@@ -676,7 +671,7 @@ _inverse_mask.exit:                               ; preds = %._crit_edge.us47.i,
   %173 = add nsw i32 %172, %165
   %174 = tail call i32 @llvm.smax.i32(i32 %.0435514, i32 %173)
   %indvars.iv.next599 = add nuw nsw i64 %indvars.iv598, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next599, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next599, %17
   br i1 %exitcond.not, label %148, label %.preheader500
 
 175:                                              ; preds = %379
@@ -1151,7 +1146,7 @@ dt_get_debug_wtime.exit:                          ; preds = %176, %178
 379:                                              ; preds = %368, %.loopexit
   %380 = phi i32 [ %.pre, %368 ], [ %366, %.loopexit ]
   %indvars.iv.next669 = add nuw nsw i64 %indvars.iv668, 1
-  %exitcond672.not = icmp eq i64 %indvars.iv.next669, %wide.trip.count
+  %exitcond672.not = icmp eq i64 %indvars.iv.next669, %17
   br i1 %exitcond672.not, label %175, label %176
 
 381:                                              ; preds = %175, %381
@@ -1160,7 +1155,7 @@ dt_get_debug_wtime.exit:                          ; preds = %176, %178
   %383 = load ptr, ptr %382, align 8, !tbaa !98
   tail call void @free(ptr noundef %383) #12
   %indvars.iv.next674 = add nuw nsw i64 %indvars.iv673, 1
-  %exitcond677.not = icmp eq i64 %indvars.iv.next674, %wide.trip.count
+  %exitcond677.not = icmp eq i64 %indvars.iv.next674, %17
   br i1 %exitcond677.not, label %.sink.split, label %381
 
 ._crit_edge.thread:                               ; preds = %16, %._crit_edge
@@ -1170,8 +1165,6 @@ dt_get_debug_wtime.exit:                          ; preds = %176, %178
   tail call void @free(ptr noundef %22) #12
   tail call void @free(ptr noundef %21) #12
   tail call void @free(ptr noundef %20) #12
-  %umax681 = tail call i32 @llvm.umax.i32(i32 %14, i32 1)
-  %wide.trip.count682 = zext i32 %umax681 to i64
   br label %384
 
 384:                                              ; preds = %._crit_edge.thread, %384
@@ -1180,7 +1173,7 @@ dt_get_debug_wtime.exit:                          ; preds = %176, %178
   %386 = load ptr, ptr %385, align 8, !tbaa !98
   tail call void @free(ptr noundef %386) #12
   %indvars.iv.next679 = add nuw nsw i64 %indvars.iv678, 1
-  %exitcond683.not = icmp eq i64 %indvars.iv.next679, %wide.trip.count682
+  %exitcond683.not = icmp eq i64 %indvars.iv.next679, %17
   br i1 %exitcond683.not, label %.sink.split, label %384
 
 .sink.split:                                      ; preds = %381, %384
@@ -2128,9 +2121,6 @@ declare i32 @llvm.smin.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #11
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #11
 
 attributes #0 = { nounwind uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

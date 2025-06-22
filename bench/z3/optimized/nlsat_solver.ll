@@ -13240,7 +13240,6 @@ _ZN6vectorIjLb0EjE3endEv.exit:                    ; preds = %_ZN6vectorIjLb0EjE9
   tail call void @_ZSt6__sortIPjN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat6solver3imp17degree_lit_num_ltEEEEvT_S9_T0_(ptr noundef nonnull %89, ptr noundef %19, ptr nonnull %6, ptr nonnull %10)
   %20 = load ptr, ptr %14, align 8, !tbaa !159
   %21 = icmp sgt i32 %1, 0
-  %wide.trip.count.i.i = zext i32 %1 to i64
   br i1 %21, label %.lr.ph27.i.i, label %.lr.ph.i.preheader
 
 .lr.ph27.i.i:                                     ; preds = %_ZN6vectorIjLb0EjE3endEv.exit, %.thread.i.i
@@ -13281,7 +13280,7 @@ _ZN6vectorIjLb0EjE3endEv.exit:                    ; preds = %_ZN6vectorIjLb0EjE9
 
 .thread.i.i:                                      ; preds = %.lr.ph.i.i, %.preheader.i.i, %.lr.ph27.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count
   br i1 %exitcond.not.i.i, label %.lr.ph.i.preheader, label %.lr.ph27.i.i, !llvm.loop !412
 
 .lr.ph.i.preheader:                               ; preds = %.thread.i.i, %_ZN6vectorIjLb0EjE3endEv.exit
@@ -13294,7 +13293,7 @@ _ZN6vectorIjLb0EjE3endEv.exit:                    ; preds = %_ZN6vectorIjLb0EjE9
   %41 = xor i32 %40, -1
   store i32 %41, ptr %39, align 4, !tbaa !180
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i.i
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count
   br i1 %exitcond.not.i, label %_Z17apply_permutationIPN5nlsat6clauseEEvjPT_PKj.exit, label %.lr.ph.i, !llvm.loop !413
 
 42:                                               ; preds = %_ZN6vectorIjLb0EjE5resetEv.exit9, %_ZN6vectorIjLb0EjE9push_backERKj.exit
@@ -13454,7 +13453,6 @@ _ZN6vectorIjLb0EjE3endEv.exit:                    ; preds = %14
 _ZSt4sortIPjN5nlsat6solver3imp9degree_ltEEvT_S5_T0_.exit: ; preds = %14, %_ZN6vectorIjLb0EjE3endEv.exit, %19
   %25 = phi ptr [ %15, %_ZN6vectorIjLb0EjE3endEv.exit ], [ %.pre, %19 ], [ null, %14 ]
   %26 = icmp sgt i32 %1, 0
-  %wide.trip.count.i.i = zext i32 %1 to i64
   br i1 %26, label %.lr.ph27.i.i, label %.lr.ph.i.preheader
 
 .lr.ph27.i.i:                                     ; preds = %_ZSt4sortIPjN5nlsat6solver3imp9degree_ltEEvT_S5_T0_.exit, %.thread.i.i
@@ -13495,7 +13493,7 @@ _ZSt4sortIPjN5nlsat6solver3imp9degree_ltEEvT_S5_T0_.exit: ; preds = %14, %_ZN6ve
 
 .thread.i.i:                                      ; preds = %.lr.ph.i.i, %.preheader.i.i, %.lr.ph27.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count
   br i1 %exitcond.not.i.i, label %.lr.ph.i.preheader, label %.lr.ph27.i.i, !llvm.loop !412
 
 .lr.ph.i.preheader:                               ; preds = %.thread.i.i, %_ZSt4sortIPjN5nlsat6solver3imp9degree_ltEEvT_S5_T0_.exit
@@ -13508,7 +13506,7 @@ _ZSt4sortIPjN5nlsat6solver3imp9degree_ltEEvT_S5_T0_.exit: ; preds = %14, %_ZN6ve
   %46 = xor i32 %45, -1
   store i32 %46, ptr %44, align 4, !tbaa !180
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i.i
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count
   br i1 %exitcond.not.i, label %_Z17apply_permutationIPN5nlsat6clauseEEvjPT_PKj.exit, label %.lr.ph.i, !llvm.loop !413
 
 47:                                               ; preds = %_ZN6vectorIjLb0EjE5resetEv.exit6, %_ZN6vectorIjLb0EjE9push_backEOj.exit

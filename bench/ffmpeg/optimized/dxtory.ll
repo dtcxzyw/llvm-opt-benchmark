@@ -3620,7 +3620,6 @@ decode_sym.exit241:                               ; preds = %389, %get_unary.exi
 .preheader278:                                    ; preds = %._crit_edge333
   %408 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %409 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %umax = tail call i32 @llvm.umax.i32(i32 %33, i32 1)
   %wide.trip.count383 = zext nneg i32 %32 to i64
   br label %.preheader
 
@@ -3702,7 +3701,7 @@ decode_sym.exit253:                               ; preds = %429, %get_unary.exi
 
 448:                                              ; preds = %decode_sym.exit253
   %449 = add nuw nsw i32 %.3134336, 1
-  %exitcond385.not = icmp eq i32 %449, %umax
+  %exitcond385.not = icmp eq i32 %449, %33
   br i1 %exitcond385.not, label %450, label %.preheader, !llvm.loop !82
 
 450:                                              ; preds = %448
@@ -4662,9 +4661,6 @@ declare i32 @llvm.bswap.i32(i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #10
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #10
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

@@ -22174,12 +22174,11 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %59, %63, %69
   %87 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %umax = call i64 @llvm.umax.i64(i64 %83, i64 1)
   br label %94
 
 90:                                               ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit248
   %91 = add nuw i64 %.0819, 1
-  %exitcond.not = icmp eq i64 %91, %umax
+  %exitcond.not = icmp eq i64 %91, %83
   br i1 %exitcond.not, label %.thread.loopexit, label %94, !llvm.loop !312
 
 92:                                               ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit

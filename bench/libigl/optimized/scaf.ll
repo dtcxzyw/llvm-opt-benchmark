@@ -1325,7 +1325,6 @@ _ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELin1ELb1EEaSIS2_EERS3
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %81 = load i64, ptr %80, align 8
   %82 = icmp sgt i64 %78, 1
-  %umax = call i64 @llvm.umax.i64(i64 %73, i64 1)
   br label %97
 
 ._crit_edge387.loopexit:                          ; preds = %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEES9_EEE11squaredNormEv.exit94
@@ -1503,7 +1502,7 @@ _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddE
   %151 = fcmp olt double %.0.i.i89, %.1.lcssa415
   %.sroa.speculated = select i1 %151, double %.0.i.i89, double %.1.lcssa415
   %indvars.iv.next402 = add nuw nsw i64 %indvars.iv401, 1
-  %exitcond404.not = icmp eq i64 %indvars.iv.next402, %umax
+  %exitcond404.not = icmp eq i64 %indvars.iv.next402, %73
   br i1 %exitcond404.not, label %._crit_edge387.loopexit, label %97, !llvm.loop !114
 
 152:                                              ; preds = %._crit_edge387

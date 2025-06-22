@@ -2140,7 +2140,6 @@ _ZNSt6vectorIN8QuantLib21MarketModelDiscounterESaIS1_EE7reserveEm.exit: ; preds 
 
 for.body164.lr.ph:                                ; preds = %_ZNSt6vectorIN8QuantLib21MarketModelDiscounterESaIS1_EE7reserveEm.exit
   %_M_finish.i291 = getelementptr inbounds nuw i8, ptr %this, i64 496
-  %umax = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i267, i64 1)
   br label %for.body164
 
 for.cond.cleanup163:                              ; preds = %for.inc170, %_ZNSt6vectorIN8QuantLib21MarketModelDiscounterESaIS1_EE7reserveEm.exit
@@ -2202,7 +2201,7 @@ if.else.i295:                                     ; preds = %for.body164
 
 for.inc170:                                       ; preds = %if.else.i295, %.noexc296
   %inc171 = add nuw i64 %j.0486, 1
-  %exitcond.not = icmp eq i64 %inc171, %umax
+  %exitcond.not = icmp eq i64 %inc171, %sub.ptr.div.i267
   br i1 %exitcond.not, label %for.cond.cleanup163, label %for.body164, !llvm.loop !143
 
 lpad167:                                          ; preds = %if.else.i295, %if.then.i293

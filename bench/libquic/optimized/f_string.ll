@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -2147483646, -2147483648) i32 @i2a_ASN1_STRING(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [2 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #6
   %5 = icmp eq ptr %1, null
   br i1 %5, label %.loopexit, label %6
 
@@ -30,7 +30,7 @@ define hidden range(i32 -2147483646, -2147483648) i32 @i2a_ASN1_STRING(ptr nound
   br label %14
 
 12:                                               ; preds = %6
-  %13 = tail call i32 @BIO_write(ptr noundef %0, ptr noundef nonnull @.str.1, i32 noundef 1) #7
+  %13 = tail call i32 @BIO_write(ptr noundef %0, ptr noundef nonnull @.str.1, i32 noundef 1) #6
   %.not22 = icmp eq i32 %13, 1
   br i1 %.not22, label %.loopexit, label %.loopexit24
 
@@ -45,7 +45,7 @@ define hidden range(i32 -2147483646, -2147483648) i32 @i2a_ASN1_STRING(ptr nound
   br i1 %or.cond, label %18, label %22
 
 18:                                               ; preds = %14
-  %19 = call i32 @BIO_write(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef 2) #7
+  %19 = call i32 @BIO_write(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef 2) #6
   %.not20 = icmp eq i32 %19, 2
   br i1 %.not20, label %20, label %.loopexit24
 
@@ -69,7 +69,7 @@ define hidden range(i32 -2147483646, -2147483648) i32 @i2a_ASN1_STRING(ptr nound
   %33 = getelementptr inbounds nuw i8, ptr @.str, i64 %32
   %34 = load i8, ptr %33, align 1, !tbaa !15
   store i8 %34, ptr %11, align 1, !tbaa !15
-  %35 = call i32 @BIO_write(ptr noundef %0, ptr noundef nonnull %4, i32 noundef 2) #7
+  %35 = call i32 @BIO_write(ptr noundef %0, ptr noundef nonnull %4, i32 noundef 2) #6
   %.not21 = icmp eq i32 %35, 2
   br i1 %.not21, label %36, label %.loopexit24
 
@@ -86,7 +86,7 @@ define hidden range(i32 -2147483646, -2147483648) i32 @i2a_ASN1_STRING(ptr nound
 
 .loopexit:                                        ; preds = %36, %.preheader, %12, %3, %.loopexit24
   %.018 = phi i32 [ -1, %.loopexit24 ], [ 0, %3 ], [ 1, %12 ], [ 0, %.preheader ], [ %37, %36 ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #6
   ret i32 %.018
 }
 
@@ -100,7 +100,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @a2i_ASN1_STRING(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = tail call i32 @BIO_gets(ptr noundef %0, ptr noundef %2, i32 noundef %3) #7
+  %5 = tail call i32 @BIO_gets(ptr noundef %0, ptr noundef %2, i32 noundef %3) #6
   %invariant.gep = getelementptr i8, ptr %2, i64 -1
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph164, label %.loopexit130
@@ -209,7 +209,7 @@ switch.early.test._crit_edge:                     ; preds = %33, %switch.early.t
   br i1 %.not, label %43, label %42
 
 42:                                               ; preds = %39
-  tail call void @ERR_put_error(i32 noundef 12, i32 noundef 0, i32 noundef 166, ptr noundef nonnull @.str.3, i32 noundef 143) #7
+  tail call void @ERR_put_error(i32 noundef 12, i32 noundef 0, i32 noundef 166, ptr noundef nonnull @.str.3, i32 noundef 143) #6
   br label %84
 
 43:                                               ; preds = %39
@@ -225,11 +225,11 @@ switch.early.test._crit_edge:                     ; preds = %33, %switch.early.t
   br i1 %48, label %51, label %53
 
 51:                                               ; preds = %47
-  %52 = tail call noalias ptr @malloc(i64 noundef %50) #8
+  %52 = tail call noalias ptr @malloc(i64 noundef %50) #7
   br label %55
 
 53:                                               ; preds = %47
-  %54 = tail call ptr @realloc(ptr noundef nonnull %.0102159, i64 noundef %50) #9
+  %54 = tail call ptr @realloc(ptr noundef nonnull %.0102159, i64 noundef %50) #8
   br label %55
 
 55:                                               ; preds = %53, %51
@@ -238,7 +238,7 @@ switch.early.test._crit_edge:                     ; preds = %33, %switch.early.t
   br i1 %56, label %57, label %58
 
 57:                                               ; preds = %55
-  tail call void @ERR_put_error(i32 noundef 12, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str.3, i32 noundef 156) #7
+  tail call void @ERR_put_error(i32 noundef 12, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str.3, i32 noundef 156) #6
   br label %84
 
 58:                                               ; preds = %55
@@ -253,8 +253,7 @@ switch.early.test._crit_edge:                     ; preds = %33, %switch.early.t
 
 .preheader.preheader:                             ; preds = %60
   %61 = zext nneg i32 %.098160 to i64
-  %umax = tail call i32 @llvm.umax.i32(i32 %44, i32 1)
-  %wide.trip.count = zext nneg i32 %umax to i64
+  %wide.trip.count = zext nneg i32 %44 to i64
   %invariant.gep215 = getelementptr inbounds nuw i8, ptr %.2, i64 %61
   br label %.preheader
 
@@ -293,7 +292,7 @@ switch.early.test._crit_edge:                     ; preds = %33, %switch.early.t
   br label %75
 
 74:                                               ; preds = %70
-  tail call void @ERR_put_error(i32 noundef 12, i32 noundef 0, i32 noundef 160, ptr noundef nonnull @.str.3, i32 noundef 172) #7
+  tail call void @ERR_put_error(i32 noundef 12, i32 noundef 0, i32 noundef 160, ptr noundef nonnull @.str.3, i32 noundef 172) #6
   br label %84
 
 75:                                               ; preds = %62, %68, %72
@@ -314,7 +313,7 @@ switch.early.test._crit_edge:                     ; preds = %33, %switch.early.t
   br i1 %26, label %80, label %.loopexit130
 
 80:                                               ; preds = %._crit_edge155
-  %81 = tail call i32 @BIO_gets(ptr noundef %0, ptr noundef nonnull %2, i32 noundef %3) #7
+  %81 = tail call i32 @BIO_gets(ptr noundef %0, ptr noundef nonnull %2, i32 noundef %3) #6
   %82 = icmp slt i32 %81, 1
   br i1 %82, label %.loopexit, label %.lr.ph164
 
@@ -328,7 +327,7 @@ switch.early.test._crit_edge:                     ; preds = %33, %switch.early.t
 
 .loopexit:                                        ; preds = %switch.early.test._crit_edge, %17, %10, %80, %switch.early.test._crit_edge.thread
   %.0102146 = phi ptr [ %.0102159, %switch.early.test._crit_edge.thread ], [ %.0102159, %switch.early.test._crit_edge ], [ %.0102159, %17 ], [ %.0102159, %10 ], [ %.2, %80 ]
-  tail call void @ERR_put_error(i32 noundef 12, i32 noundef 0, i32 noundef 171, ptr noundef nonnull @.str.3, i32 noundef 191) #7
+  tail call void @ERR_put_error(i32 noundef 12, i32 noundef 0, i32 noundef 171, ptr noundef nonnull @.str.3, i32 noundef 191) #6
   br label %84
 
 84:                                               ; preds = %42, %57, %74, %.loopexit130, %.loopexit
@@ -338,7 +337,7 @@ switch.early.test._crit_edge:                     ; preds = %33, %switch.early.t
   br i1 %.not119, label %86, label %85
 
 85:                                               ; preds = %84
-  tail call void @free(ptr noundef nonnull %.3) #7
+  tail call void @free(ptr noundef nonnull %.3) #6
   br label %86
 
 86:                                               ; preds = %85, %84
@@ -358,19 +357,15 @@ declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 no
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #6
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nounwind }
-attributes #8 = { nounwind allocsize(0) }
-attributes #9 = { nounwind allocsize(1) }
+attributes #6 = { nounwind }
+attributes #7 = { nounwind allocsize(0) }
+attributes #8 = { nounwind allocsize(1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

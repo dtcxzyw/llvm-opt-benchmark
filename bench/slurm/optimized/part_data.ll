@@ -315,8 +315,6 @@ define dso_local void @part_data_build_row_bitmaps(ptr noundef captures(none) in
   %115 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %116 = and i64 %115, 1
   %.not127 = icmp eq i64 %116, 0
-  %.pre = tail call i32 @llvm.umax.i32(i32 %40, i32 1)
-  %.pre249 = zext i32 %.pre to i64
   br i1 %.not127, label %.preheader154.preheader, label %.preheader156
 
 .preheader156:                                    ; preds = %._crit_edge176, %136
@@ -367,7 +365,7 @@ define dso_local void @part_data_build_row_bitmaps(ptr noundef captures(none) in
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #8
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #8
   %indvars.iv.next219 = add nuw nsw i64 %indvars.iv218, 1
-  %exitcond222.not = icmp eq i64 %indvars.iv.next219, %.pre249
+  %exitcond222.not = icmp eq i64 %indvars.iv.next219, %68
   br i1 %exitcond222.not, label %.preheader154.preheader, label %.preheader156, !llvm.loop !15
 
 .preheader154.preheader:                          ; preds = %136, %._crit_edge176
@@ -513,12 +511,12 @@ part_data_add_job_to_row.exit:                    ; preds = %160, %165
 
 part_data_sort_res.exit:                          ; preds = %.loopexit.i, %.loopexit155, %.preheader.i
   %indvars.iv.next227 = add nuw nsw i64 %indvars.iv226, 1
-  %exitcond231.not = icmp eq i64 %indvars.iv.next227, %.pre249
+  %exitcond231.not = icmp eq i64 %indvars.iv.next227, %68
   br i1 %exitcond231.not, label %.preheader152, label %.preheader154, !llvm.loop !19
 
 199:                                              ; preds = %.preheader152
   %indvars.iv.next233 = add nuw nsw i64 %indvars.iv232, 1
-  %exitcond236.not = icmp eq i64 %indvars.iv.next233, %.pre249
+  %exitcond236.not = icmp eq i64 %indvars.iv.next233, %68
   br i1 %exitcond236.not, label %.critedge, label %.preheader152, !llvm.loop !20
 
 .preheader152:                                    ; preds = %part_data_sort_res.exit, %199
@@ -1439,9 +1437,6 @@ declare void @clear_core_array(ptr noundef) local_unnamed_addr #1
 declare i32 @slurm_sort_int_list_asc(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare i32 @slurm_sort_uint32_list_asc(ptr noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i16(i16, i16) #7

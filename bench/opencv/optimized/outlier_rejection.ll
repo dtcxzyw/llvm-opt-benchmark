@@ -1085,7 +1085,6 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZNSt6vectorIiSaIiE
   %241 = ashr exact i64 %240, 2
   %242 = load float, ptr %219, align 4, !tbaa !89
   %243 = fmul float %242, %242
-  %umax = call i64 @llvm.umax.i64(i64 %241, i64 1)
   br label %248
 
 .thread:                                          ; preds = %227
@@ -1156,7 +1155,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZNSt6vectorIiSaIiE
   %291 = zext i1 %290 to i32
   %.1157 = add nuw nsw i32 %.0156271, %291
   %292 = add nuw i64 %.0123272, 1
-  %exitcond314.not = icmp eq i64 %292, %umax
+  %exitcond314.not = icmp eq i64 %292, %241
   br i1 %exitcond314.not, label %268, label %271, !llvm.loop !91
 
 ._crit_edge279:                                   ; preds = %268
@@ -1263,7 +1262,6 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %325, %306, %_ZSt6fi
   %334 = ashr exact i64 %333, 2
   %335 = load float, ptr %219, align 4, !tbaa !89
   %336 = fmul float %335, %335
-  %umax316 = call i64 @llvm.umax.i64(i64 %334, i64 1)
   br label %343
 
 .preheader:                                       ; preds = %367, %_ZNSt6vectorIiSaIiEE6resizeEm.exit
@@ -1272,11 +1270,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %325, %306, %_ZSt6fi
   %339 = sub i64 %337, %338
   %340 = ashr exact i64 %339, 2
   %.not308 = icmp eq ptr %.sroa.18.1, %.sroa.0.1
-  br i1 %.not308, label %._crit_edge290, label %.lr.ph289.preheader
-
-.lr.ph289.preheader:                              ; preds = %.preheader
-  %umax318 = call i64 @llvm.umax.i64(i64 %340, i64 1)
-  br label %.lr.ph289
+  br i1 %.not308, label %._crit_edge290, label %.lr.ph289
 
 341:                                              ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i
   %342 = landingpad { ptr, i32 }
@@ -1318,7 +1312,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %325, %306, %_ZSt6fi
 367:                                              ; preds = %343, %363
   %.3159 = phi i32 [ %364, %363 ], [ %.2158283, %343 ]
   %368 = add nuw i64 %.0122284, 1
-  %exitcond317.not = icmp eq i64 %368, %umax316
+  %exitcond317.not = icmp eq i64 %368, %334
   br i1 %exitcond317.not, label %.preheader, label %343, !llvm.loop !92
 
 ._crit_edge290:                                   ; preds = %.lr.ph289, %.preheader
@@ -1334,10 +1328,10 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %325, %306, %_ZSt6fi
   %.not309 = icmp eq ptr %372, %373
   br i1 %.not309, label %._crit_edge297, label %.lr.ph296
 
-.lr.ph289:                                        ; preds = %.lr.ph289.preheader, %.lr.ph289
-  %.0121288 = phi i64 [ %389, %.lr.ph289 ], [ 0, %.lr.ph289.preheader ]
-  %.3146287 = phi float [ %388, %.lr.ph289 ], [ 0.000000e+00, %.lr.ph289.preheader ]
-  %.3151286 = phi float [ %382, %.lr.ph289 ], [ 0.000000e+00, %.lr.ph289.preheader ]
+.lr.ph289:                                        ; preds = %.preheader, %.lr.ph289
+  %.0121288 = phi i64 [ %389, %.lr.ph289 ], [ 0, %.preheader ]
+  %.3146287 = phi float [ %388, %.lr.ph289 ], [ 0.000000e+00, %.preheader ]
+  %.3151286 = phi float [ %382, %.lr.ph289 ], [ 0.000000e+00, %.preheader ]
   %374 = getelementptr inbounds nuw i32, ptr %.sroa.0.1, i64 %.0121288
   %375 = load i32, ptr %374, align 4, !tbaa !81
   %376 = sext i32 %375 to i64
@@ -1354,7 +1348,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %325, %306, %_ZSt6fi
   %387 = fsub float %384, %386
   %388 = fadd float %.3146287, %387
   %389 = add nuw i64 %.0121288, 1
-  %exitcond319.not = icmp eq i64 %389, %umax318
+  %exitcond319.not = icmp eq i64 %389, %340
   br i1 %exitcond319.not, label %._crit_edge290, label %.lr.ph289, !llvm.loop !93
 
 ._crit_edge297:                                   ; preds = %.lr.ph296, %._crit_edge290

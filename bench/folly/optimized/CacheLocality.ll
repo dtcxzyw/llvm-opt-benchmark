@@ -1597,7 +1597,6 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %268, %270, %272, %2
   %277 = sub i64 %276, %275
   %278 = ashr exact i64 %277, 3
   %279 = load ptr, ptr %4, align 8, !tbaa !14
-  %umax = tail call i64 @llvm.umax.i64(i64 %278, i64 1)
   br label %312
 
 ._crit_edge120:                                   ; preds = %312, %_ZNSt6vectorImSaImEE6resizeEm.exit
@@ -1686,7 +1685,7 @@ _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %_ZNSt6vectorIS_ImSa
   %315 = getelementptr inbounds nuw i64, ptr %279, i64 %314
   store i64 %.0118, ptr %315, align 8, !tbaa !56
   %316 = add nuw i64 %.0118, 1
-  %exitcond.not = icmp eq i64 %316, %umax
+  %exitcond.not = icmp eq i64 %316, %278
   br i1 %exitcond.not, label %._crit_edge120, label %312, !llvm.loop !84
 
 _ZNSt6vectorImSaImEED2Ev.exit40:                  ; preds = %.loopexit, %.loopexit.split-lp, %304, %306, %308
@@ -4178,7 +4177,6 @@ _ZNSt6vectorIS_ImSaImEESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = %_ZS
   store ptr %176, ptr %177, align 8, !tbaa !13
   %.ptr103 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %179 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %umax = call i64 @llvm.umax.i64(i64 %118, i64 1)
   br label %186
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorImSaImEEaSESt16initializer_listImE.exit
@@ -4313,7 +4311,7 @@ _ZSt4copyIPKmPmET0_T_S4_S3_.exit18.i.thread:      ; preds = %_ZSt7advanceIPKmmEv
 _ZNSt6vectorImSaImEEaSESt16initializer_listImE.exit: ; preds = %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i, %214, %216, %_ZSt4copyIPKmPmET0_T_S4_S3_.exit18.i.thread
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #33
   %220 = add nuw i64 %.028118, 1
-  %exitcond.not = icmp eq i64 %220, %umax
+  %exitcond.not = icmp eq i64 %220, %118
   br i1 %exitcond.not, label %._crit_edge, label %186, !llvm.loop !173
 
 221:                                              ; preds = %204

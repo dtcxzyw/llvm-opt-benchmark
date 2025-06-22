@@ -3952,11 +3952,7 @@ select.unfold:                                    ; preds = %580, %572
 
 .preheader:                                       ; preds = %644
   %.not601 = icmp eq ptr %.sroa.12.0.lcssa, %.sroa.0416.0.lcssa
-  br i1 %.not601, label %._crit_edge600, label %.lr.ph599.preheader
-
-.lr.ph599.preheader:                              ; preds = %.preheader
-  %umax = call i64 @llvm.umax.i64(i64 %594, i64 1)
-  br label %.lr.ph599
+  br i1 %.not601, label %._crit_edge600, label %.lr.ph599
 
 645:                                              ; preds = %644
   invoke void (i32, ptr, ...) @_Z18llama_log_internal14ggml_log_levelPKcz(i32 noundef 4, ptr noundef nonnull @.str.33, ptr noundef nonnull @__func__.llama_init_from_model)
@@ -4005,8 +4001,8 @@ select.unfold:                                    ; preds = %580, %572
   %661 = icmp eq i32 %623, %638
   br i1 %661, label %680, label %681
 
-.lr.ph599:                                        ; preds = %.lr.ph599.preheader, %678
-  %.0278598 = phi i64 [ %679, %678 ], [ 0, %.lr.ph599.preheader ]
+.lr.ph599:                                        ; preds = %.preheader, %678
+  %.0278598 = phi i64 [ %679, %678 ], [ 0, %.preheader ]
   %662 = getelementptr inbounds nuw ptr, ptr %.sroa.0416.0.lcssa, i64 %.0278598
   %663 = load ptr, ptr %662, align 8, !tbaa !312
   %664 = getelementptr inbounds nuw ptr, ptr %.sroa.0427.0.lcssa, i64 %.0278598
@@ -4037,7 +4033,7 @@ select.unfold:                                    ; preds = %580, %572
 
 678:                                              ; preds = %672, %668
   %679 = add nuw i64 %.0278598, 1
-  %exitcond.not = icmp eq i64 %679, %umax
+  %exitcond.not = icmp eq i64 %679, %594
   br i1 %exitcond.not, label %._crit_edge600, label %.lr.ph599, !llvm.loop !365
 
 680:                                              ; preds = %._crit_edge600

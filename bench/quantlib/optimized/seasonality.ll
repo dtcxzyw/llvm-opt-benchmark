@@ -1430,7 +1430,6 @@ for.body.lr.ph:                                   ; preds = %_ZNSt6vectorIdSaIdE
   %sub.ptr.sub.i11 = sub i64 %sub.ptr.lhs.cast.i9, %sub.ptr.rhs.cast.i10
   %sub.ptr.div.i12 = ashr exact i64 %sub.ptr.sub.i11, 3
   %7 = load ptr, ptr %seasonalityFactors_, align 8, !tbaa !18
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i12, i64 1)
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %for.body, %_ZNSt6vectorIdSaIdEED2Ev.exit
@@ -1450,7 +1449,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %add.ptr.i13 = getelementptr inbounds nuw double, ptr %7, i64 %i.023
   store double %10, ptr %add.ptr.i13, align 8, !tbaa !33
   %inc = add nuw i64 %i.023, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i12
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !35
 }
 
@@ -3175,9 +3174,6 @@ declare void @llvm.assume(i1 noundef) #20
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #21
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #22

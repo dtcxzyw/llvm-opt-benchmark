@@ -112867,7 +112867,6 @@ define internal fastcc void @_ZN12_GLOBAL__N_19SatHelper19check_undef_enabledERK
   %9 = ptrtoint ptr %6 to i64
   %10 = sub i64 %9, %8
   %11 = ashr exact i64 %10, 4
-  %umax = call i64 @llvm.umax.i64(i64 %11, i64 1)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %4
@@ -112933,7 +112932,7 @@ _ZNSt6vectorIN5Yosys5RTLIL6SigBitESaIS2_EED2Ev.exit10: ; preds = %28, %31
 
 37:                                               ; preds = %.lr.ph, %19
   %38 = add nuw i64 %.05, 1
-  %exitcond.not = icmp eq i64 %38, %umax
+  %exitcond.not = icmp eq i64 %38, %11
   br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !1152
 
 39:                                               ; preds = %1, %_ZNSt6vectorIN5Yosys5RTLIL6SigBitESaIS2_EED2Ev.exit

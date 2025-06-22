@@ -3248,14 +3248,10 @@ define void @_ZN10open_spiel26bridge_uncontested_bidding23UncontestedBiddingStat
   %.sroa.045.0.insert.ext71 = phi i64 [ %32, %25 ], [ 0, %17 ]
   %35 = phi i32 [ %34, %25 ], [ 4, %17 ]
   %.not86 = icmp eq ptr %10, %11
-  br i1 %.not86, label %.loopexit73, label %.lr.ph.preheader
+  br i1 %.not86, label %.loopexit73, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %.thread69
-  %umax = tail call i64 @llvm.umax.i64(i64 %15, i64 1)
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %47
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %47 ]
+.lr.ph:                                           ; preds = %.thread69, %47
+  %indvars.iv = phi i64 [ %indvars.iv.next, %47 ], [ 0, %.thread69 ]
   %36 = getelementptr inbounds nuw i64, ptr %11, i64 %indvars.iv
   %37 = load i64, ptr %36, align 8
   %38 = icmp sgt i64 %37, 0
@@ -3275,7 +3271,7 @@ define void @_ZN10open_spiel26bridge_uncontested_bidding23UncontestedBiddingStat
 
 47:                                               ; preds = %.lr.ph, %39
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %15
   br i1 %exitcond.not, label %.loopexit73, label %.lr.ph, !llvm.loop !23
 
 .loopexit73:                                      ; preds = %47, %.thread69, %44
@@ -7004,11 +7000,7 @@ _ZNSt6vectorIlSaIlEE9push_backEOl.exit:           ; preds = %_ZNSt6vectorIlSaIlE
 
 .preheader:                                       ; preds = %._crit_edge107
   %.not111 = icmp eq ptr %194, %195
-  br i1 %.not111, label %._crit_edge110, label %.lr.ph109.preheader
-
-.lr.ph109.preheader:                              ; preds = %.preheader
-  %umax = call i64 @llvm.umax.i64(i64 %199, i64 1)
-  br label %.lr.ph109
+  br i1 %.not111, label %._crit_edge110, label %.lr.ph109
 
 200:                                              ; preds = %._crit_edge107
   store i32 441, ptr %19, align 4
@@ -7030,11 +7022,11 @@ _ZNSt6vectorIlSaIlEE9push_backEOl.exit:           ; preds = %_ZNSt6vectorIlSaIlE
 
 205:                                              ; preds = %.lr.ph109
   %indvars.iv.next127 = add nuw i64 %indvars.iv126, 1
-  %exitcond129.not = icmp eq i64 %indvars.iv.next127, %umax
+  %exitcond129.not = icmp eq i64 %indvars.iv.next127, %199
   br i1 %exitcond129.not, label %._crit_edge110, label %.lr.ph109, !llvm.loop !48
 
-.lr.ph109:                                        ; preds = %.lr.ph109.preheader, %205
-  %indvars.iv126 = phi i64 [ 0, %.lr.ph109.preheader ], [ %indvars.iv.next127, %205 ]
+.lr.ph109:                                        ; preds = %.preheader, %205
+  %indvars.iv126 = phi i64 [ %indvars.iv.next127, %205 ], [ 0, %.preheader ]
   %206 = getelementptr inbounds nuw i64, ptr %187, i64 %indvars.iv126
   %207 = load i64, ptr %206, align 8
   store i64 %207, ptr %20, align 8

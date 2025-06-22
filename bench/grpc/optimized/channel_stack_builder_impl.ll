@@ -188,11 +188,7 @@ _ZNSt6vectorIPK19grpc_channel_filterSaIS2_EE9push_backERKS2_.exit: ; preds = %_Z
 
 .preheader:                                       ; preds = %46
   %.not84 = icmp eq ptr %.sroa.13.0.lcssa, %.sroa.047.0.lcssa
-  br i1 %.not84, label %_ZN9grpc_core13RefCountedPtrI18grpc_channel_stackED2Ev.exit, label %.lr.ph83.preheader
-
-.lr.ph83.preheader:                               ; preds = %.preheader
-  %umax = call i64 @llvm.umax.i64(i64 %13, i64 1)
-  br label %.lr.ph83
+  br i1 %.not84, label %_ZN9grpc_core13RefCountedPtrI18grpc_channel_stackED2Ev.exit, label %.lr.ph83
 
 49:                                               ; preds = %46
   invoke void @_Z26grpc_channel_stack_destroyP18grpc_channel_stack(ptr noundef %37)
@@ -308,8 +304,8 @@ _ZN4absl12lts_202407226StatusD2Ev.exit35:         ; preds = %_ZN4absl12lts_20240
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
   br label %107
 
-.lr.ph83:                                         ; preds = %.lr.ph83.preheader, %91
-  %.01782 = phi i64 [ %92, %91 ], [ 0, %.lr.ph83.preheader ]
+.lr.ph83:                                         ; preds = %.preheader, %91
+  %.01782 = phi i64 [ %92, %91 ], [ 0, %.preheader ]
   %86 = invoke noundef ptr @_Z26grpc_channel_stack_elementP18grpc_channel_stackm(ptr noundef %37, i64 noundef %.01782)
           to label %87 unwind label %93
 
@@ -322,7 +318,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit35:         ; preds = %_ZN4absl12lts_20240
 
 91:                                               ; preds = %87
   %92 = add nuw i64 %.01782, 1
-  %exitcond.not = icmp eq i64 %92, %umax
+  %exitcond.not = icmp eq i64 %92, %13
   br i1 %exitcond.not, label %_ZN9grpc_core13RefCountedPtrI18grpc_channel_stackED2Ev.exit, label %.lr.ph83, !llvm.loop !39
 
 93:                                               ; preds = %87, %.lr.ph83

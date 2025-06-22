@@ -24685,7 +24685,6 @@ _ZNSt6vectorIN3gmx12LinkFrontierESaIS1_EE6resizeEm.exit: ; preds = %1302, %1304,
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIN3gmx12LinkFrontierESaIS1_EE6resizeEm.exit
   %1309 = load ptr, ptr %1289, align 8, !tbaa !416
-  %umax = call i64 @llvm.umax.i64(i64 %1293, i64 1)
   br label %1354
 
 ._crit_edge:                                      ; preds = %1354, %_ZNSt6vectorIN3gmx12LinkFrontierESaIS1_EE6resizeEm.exit
@@ -24833,7 +24832,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i76
   %1360 = getelementptr inbounds nuw i8, ptr %1357, i64 8
   store i64 %1359, ptr %1360, align 8, !tbaa !629
   %1361 = add nuw i64 %.0781387, 1
-  %exitcond.not = icmp eq i64 %1361, %umax
+  %exitcond.not = icmp eq i64 %1361, %1293
   br i1 %exitcond.not, label %._crit_edge, label %1354, !llvm.loop !630
 
 _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit764: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i755

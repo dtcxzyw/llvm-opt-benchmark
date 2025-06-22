@@ -14322,11 +14322,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1498: ; preds = %_
 
 .preheader:                                       ; preds = %4063
   %.not3509 = icmp eq ptr %4066, %4067
-  br i1 %.not3509, label %._crit_edge3472, label %.lr.ph3471.preheader
-
-.lr.ph3471.preheader:                             ; preds = %.preheader
-  %umax = call i64 @llvm.umax.i64(i64 %4071, i64 1)
-  br label %.lr.ph3471
+  br i1 %.not3509, label %._crit_edge3472, label %.lr.ph3471
 
 4079:                                             ; preds = %4063
   call void @perror(ptr noundef nonnull @.str.104) #31
@@ -14335,7 +14331,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1498: ; preds = %_
 
 4080:                                             ; preds = %.lr.ph3471
   %4081 = add nuw i64 %.01453470, 1
-  %exitcond.not = icmp eq i64 %4081, %umax
+  %exitcond.not = icmp eq i64 %4081, %4071
   br i1 %exitcond.not, label %._crit_edge3472, label %.lr.ph3471, !llvm.loop !407
 
 ._crit_edge3472:                                  ; preds = %4080, %.preheader
@@ -14346,8 +14342,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1498: ; preds = %_
   %4086 = fcmp ogt float %4083, %4085
   br i1 %4086, label %4092, label %4093
 
-.lr.ph3471:                                       ; preds = %.lr.ph3471.preheader, %4080
-  %.01453470 = phi i64 [ %4081, %4080 ], [ 0, %.lr.ph3471.preheader ]
+.lr.ph3471:                                       ; preds = %.preheader, %4080
+  %.01453470 = phi i64 [ %4081, %4080 ], [ 0, %.preheader ]
   %4087 = getelementptr inbounds nuw i32, ptr %4067, i64 %.01453470
   %4088 = load i32, ptr %4087, align 4, !tbaa !42
   %4089 = getelementptr inbounds nuw i32, ptr %4075, i64 %.01453470

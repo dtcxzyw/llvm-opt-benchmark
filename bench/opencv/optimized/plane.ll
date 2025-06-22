@@ -1766,7 +1766,6 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i191: ; preds = %596, %5
 .preheader.preheader:                             ; preds = %616, %613
   %617 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %618 = load ptr, ptr %617, align 8, !tbaa !74
-  %umax = call i64 @llvm.umax.i64(i64 %608, i64 1)
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %622
@@ -1788,7 +1787,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i191: ; preds = %596, %5
 
 622:                                              ; preds = %624
   %623 = add nuw i64 %.057307, 1
-  %exitcond359.not = icmp eq i64 %623, %umax
+  %exitcond359.not = icmp eq i64 %623, %608
   br i1 %exitcond359.not, label %.thread367, label %.preheader, !llvm.loop !149
 
 624:                                              ; preds = %.preheader, %624

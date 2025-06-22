@@ -2276,7 +2276,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_
   %82 = sdiv exact i64 %81, 160
   %83 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %84 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %umax.i.i.i.i = call i64 @llvm.umax.i64(i64 %82, i64 1)
   br label %85
 
 85:                                               ; preds = %_ZN2cvL5writeINS_7optflow7GPCTree4NodeEEEvRNS_11FileStorageERKT_.exit.i.i.i.i, %.lr.ph.i.i.i.i
@@ -2330,7 +2329,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i: ; pre
 _ZN2cvL5writeINS_7optflow7GPCTree4NodeEEEvRNS_11FileStorageERKT_.exit.i.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #27
   %99 = add nuw i64 %.07.i.i.i.i, 1
-  %exitcond.not.i.i.i.i = icmp eq i64 %99, %umax.i.i.i.i
+  %exitcond.not.i.i.i.i = icmp eq i64 %99, %82
   br i1 %exitcond.not.i.i.i.i, label %_ZN2cvL5writeINS_7optflow7GPCTree4NodeEEEvRNS_11FileStorageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISF_EE.exit.i, label %85, !llvm.loop !116
 
 100:                                              ; preds = %68
@@ -5271,7 +5270,6 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %_ZNSt6vectorI
 
 .lr.ph.preheader:                                 ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
   %.0.i.i.i.i.i = phi ptr [ %14, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ], [ %16, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
-  %umax = tail call i64 @llvm.umax.i64(i64 %8, i64 1)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
@@ -5319,7 +5317,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %_ZNSt6vectorI
   %42 = getelementptr inbounds nuw float, ptr %13, i64 %.03777
   store float %41, ptr %42, align 4, !tbaa !151
   %43 = add nuw i64 %.03777, 1
-  %exitcond.not = icmp eq i64 %43, %umax
+  %exitcond.not = icmp eq i64 %43, %8
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !214
 
 _ZSt11nth_elementIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEEvT_S7_S7_.exit: ; preds = %._ZSt11nth_elementIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEEvT_S7_S7_.exit_crit_edge, %._crit_edge
@@ -6811,7 +6809,6 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %26, %23
   %32 = sdiv exact i64 %31, 144
   %33 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  %umax = call i64 @llvm.umax.i64(i64 %32, i64 1)
   br label %41
 
 ._crit_edge:                                      ; preds = %_ZNK2cv3VecIdLi18EEcvNS0_IT_Li18EEEIfEEv.exit, %_ZNK2cv11_InputArray6getMatEi.exit
@@ -6865,7 +6862,7 @@ _ZNK2cv3VecIdLi18EEcvNS0_IT_Li18EEEIfEEv.exit:    ; preds = %43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(72) %53, ptr noundef nonnull align 4 dereferenceable(72) %8, i64 72, i1 false)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8) #27
   %54 = add nuw i64 %.026, 1
-  %exitcond.not = icmp eq i64 %54, %umax
+  %exitcond.not = icmp eq i64 %54, %32
   br i1 %exitcond.not, label %._crit_edge, label %41, !llvm.loop !244
 
 55:                                               ; preds = %._crit_edge

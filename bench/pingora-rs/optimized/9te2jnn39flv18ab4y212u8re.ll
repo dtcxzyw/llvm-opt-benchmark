@@ -17120,7 +17120,6 @@ define hidden void @_ZN6brotli3enc17brotli_bit_stream34BrotliBuildAndStoreHuffma
   call void @_ZN6brotli3enc17brotli_bit_stream15BrotliWriteBits17hecd5a695b66fcc7bE(i8 noundef 2, i64 noundef 1, ptr noalias noundef nonnull align 8 dereferenceable(8) %9, ptr noalias noundef nonnull align 1 %10, i64 noundef %11)
   %66 = add nsw i64 %.sroa.072.1, -1
   call void @_ZN6brotli3enc17brotli_bit_stream15BrotliWriteBits17hecd5a695b66fcc7bE(i8 noundef 2, i64 noundef %66, ptr noalias noundef nonnull align 8 dereferenceable(8) %9, ptr noalias noundef nonnull align 1 %10, i64 noundef %11)
-  %umax = call i64 @llvm.umax.i64(i64 %.sroa.072.1, i64 1)
   br label %127
 
 .split:                                           ; preds = %.split382, %.loopexit211
@@ -17259,7 +17258,7 @@ define hidden void @_ZN6brotli3enc17brotli_bit_stream34BrotliBuildAndStoreHuffma
   unreachable
 
 .loopexit:                                        ; preds = %160, %127
-  %exitcond534.not = icmp eq i64 %128, %umax
+  %exitcond534.not = icmp eq i64 %128, %.sroa.072.1
   br i1 %exitcond534.not, label %122, label %127
 
 122:                                              ; preds = %.loopexit
@@ -19430,9 +19429,6 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #17
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #18

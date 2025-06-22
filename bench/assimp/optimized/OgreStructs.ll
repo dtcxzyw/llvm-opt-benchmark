@@ -2706,12 +2706,11 @@ define hidden noundef ptr @_ZNK6Assimp4Ogre4Mesh10GetSubMeshEm(ptr noundef nonnu
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %.lr.ph
 
 11:                                               ; preds = %.lr.ph
   %12 = add nuw i64 %.0710, 1
-  %exitcond.not = icmp eq i64 %12, %umax
+  %exitcond.not = icmp eq i64 %12, %10
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %11
@@ -2834,11 +2833,7 @@ define hidden void @_ZN6Assimp4Ogre4Mesh20ConvertToAssimpSceneEP7aiScene(ptr nou
   %70 = getelementptr inbounds nuw i8, ptr %63, i64 1112
   store ptr %68, ptr %70, align 8
   %.not63 = icmp eq ptr %54, %55
-  br i1 %.not63, label %._crit_edge58, label %.lr.ph57.preheader
-
-.lr.ph57.preheader:                               ; preds = %69
-  %umax = tail call i64 @llvm.umax.i64(i64 %59, i64 1)
-  br label %.lr.ph57
+  br i1 %.not63, label %._crit_edge58, label %.lr.ph57
 
 ._crit_edge58:                                    ; preds = %69
   %.not.i.i.i = icmp eq ptr %55, null
@@ -2857,8 +2852,8 @@ _ZNSt6vectorIPN6Assimp4Ogre4BoneESaIS3_EED2Ev.exit: ; preds = %._crit_edge58, %.
   %.pre = load ptr, ptr %28, align 8
   br label %94
 
-.lr.ph57:                                         ; preds = %.lr.ph57.preheader, %80
-  %.04255 = phi i64 [ %85, %80 ], [ 0, %.lr.ph57.preheader ]
+.lr.ph57:                                         ; preds = %69, %80
+  %.04255 = phi i64 [ %85, %80 ], [ 0, %69 ]
   %75 = getelementptr inbounds nuw ptr, ptr %55, i64 %.04255
   %76 = load ptr, ptr %75, align 8
   %77 = load ptr, ptr %28, align 8
@@ -2873,7 +2868,7 @@ _ZNSt6vectorIPN6Assimp4Ogre4BoneESaIS3_EED2Ev.exit: ; preds = %._crit_edge58, %.
   %84 = getelementptr inbounds nuw ptr, ptr %83, i64 %.04255
   store ptr %79, ptr %84, align 8
   %85 = add nuw i64 %.04255, 1
-  %exitcond.not = icmp eq i64 %85, %umax
+  %exitcond.not = icmp eq i64 %85, %59
   br i1 %exitcond.not, label %._crit_edge58.thread, label %.lr.ph57, !llvm.loop !28
 
 .thread:                                          ; preds = %.lr.ph57
@@ -2935,7 +2930,6 @@ _ZNSt6vectorIPN6Assimp4Ogre4BoneESaIS3_EED2Ev.exit49: ; preds = %87, %89
   %117 = ptrtoint ptr %115 to i64
   %118 = sub i64 %116, %117
   %119 = ashr exact i64 %118, 3
-  %umax65 = tail call i64 @llvm.umax.i64(i64 %119, i64 1)
   br label %.lr.ph61
 
 .lr.ph61:                                         ; preds = %.lr.ph61.preheader, %.lr.ph61
@@ -2950,7 +2944,7 @@ _ZNSt6vectorIPN6Assimp4Ogre4BoneESaIS3_EED2Ev.exit49: ; preds = %87, %89
   %127 = getelementptr inbounds nuw ptr, ptr %126, i64 %.03959
   store ptr %125, ptr %127, align 8
   %128 = add nuw i64 %.03959, 1
-  %exitcond66.not = icmp eq i64 %128, %umax65
+  %exitcond66.not = icmp eq i64 %128, %119
   br i1 %exitcond66.not, label %.loopexit, label %.lr.ph61, !llvm.loop !29
 
 .loopexit:                                        ; preds = %.lr.ph61, %101, %94, %2, %._crit_edge
@@ -4688,7 +4682,6 @@ define hidden noundef nonnull ptr @_ZN6Assimp4Ogre4Bone19ConvertToAssimpNodeEPNS
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 1112
   store ptr %23, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %umax = tail call i64 @llvm.umax.i64(i64 %18, i64 1)
   br label %28
 
 26:                                               ; preds = %3
@@ -4742,7 +4735,7 @@ _ZNK6Assimp4Ogre8Skeleton8BoneByIdEt.exit:        ; preds = %.lr.ph.i
   %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %.02233
   store ptr %45, ptr %47, align 8
   %48 = add nuw i64 %.02233, 1
-  %exitcond.not = icmp eq i64 %48, %umax
+  %exitcond.not = icmp eq i64 %48, %18
   br i1 %exitcond.not, label %.loopexit27, label %28, !llvm.loop !42
 
 .loopexit27:                                      ; preds = %_ZNK6Assimp4Ogre8Skeleton8BoneByIdEt.exit, %6
@@ -4812,7 +4805,6 @@ _ZN8aiStringaSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; pr
   %35 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %34) #33
   store ptr %35, ptr %6, align 8
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %umax = tail call i64 @llvm.umax.i64(i64 %31, i64 1)
   br label %37
 
 37:                                               ; preds = %.lr.ph, %37
@@ -4824,7 +4816,7 @@ _ZN8aiStringaSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; pr
   %42 = getelementptr inbounds nuw ptr, ptr %35, i64 %.013
   store ptr %41, ptr %42, align 8
   %43 = add nuw i64 %.013, 1
-  %exitcond.not = icmp eq i64 %43, %umax
+  %exitcond.not = icmp eq i64 %43, %31
   br i1 %exitcond.not, label %.loopexit, label %37, !llvm.loop !43
 
 .loopexit:                                        ; preds = %37, %_ZN8aiStringaSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
@@ -5775,12 +5767,11 @@ define hidden noundef ptr @_ZNK6Assimp4Ogre7MeshXml10GetSubMeshEt(ptr noundef no
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
   %11 = zext i16 %1 to i32
-  %umax = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %14
 
 12:                                               ; preds = %14
   %13 = add nuw i64 %.0710, 1
-  %exitcond.not = icmp eq i64 %13, %umax
+  %exitcond.not = icmp eq i64 %13, %10
   br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !45
 
 14:                                               ; preds = %.lr.ph, %12
@@ -5898,11 +5889,7 @@ define hidden void @_ZN6Assimp4Ogre7MeshXml20ConvertToAssimpSceneEP7aiScene(ptr 
   %68 = getelementptr inbounds nuw i8, ptr %61, i64 1112
   store ptr %66, ptr %68, align 8
   %.not61 = icmp eq ptr %52, %53
-  br i1 %.not61, label %._crit_edge56, label %.lr.ph55.preheader
-
-.lr.ph55.preheader:                               ; preds = %67
-  %umax = tail call i64 @llvm.umax.i64(i64 %57, i64 1)
-  br label %.lr.ph55
+  br i1 %.not61, label %._crit_edge56, label %.lr.ph55
 
 ._crit_edge56:                                    ; preds = %67
   %.not.i.i.i = icmp eq ptr %53, null
@@ -5921,8 +5908,8 @@ _ZNSt6vectorIPN6Assimp4Ogre4BoneESaIS3_EED2Ev.exit: ; preds = %._crit_edge56, %.
   %.pre = load ptr, ptr %26, align 8
   br label %92
 
-.lr.ph55:                                         ; preds = %.lr.ph55.preheader, %78
-  %.04153 = phi i64 [ %83, %78 ], [ 0, %.lr.ph55.preheader ]
+.lr.ph55:                                         ; preds = %67, %78
+  %.04153 = phi i64 [ %83, %78 ], [ 0, %67 ]
   %73 = getelementptr inbounds nuw ptr, ptr %53, i64 %.04153
   %74 = load ptr, ptr %73, align 8
   %75 = load ptr, ptr %26, align 8
@@ -5937,7 +5924,7 @@ _ZNSt6vectorIPN6Assimp4Ogre4BoneESaIS3_EED2Ev.exit: ; preds = %._crit_edge56, %.
   %82 = getelementptr inbounds nuw ptr, ptr %81, i64 %.04153
   store ptr %77, ptr %82, align 8
   %83 = add nuw i64 %.04153, 1
-  %exitcond.not = icmp eq i64 %83, %umax
+  %exitcond.not = icmp eq i64 %83, %57
   br i1 %exitcond.not, label %._crit_edge56.thread, label %.lr.ph55, !llvm.loop !47
 
 .thread:                                          ; preds = %.lr.ph55
@@ -5999,7 +5986,6 @@ _ZNSt6vectorIPN6Assimp4Ogre4BoneESaIS3_EED2Ev.exit47: ; preds = %85, %87
   %115 = ptrtoint ptr %113 to i64
   %116 = sub i64 %114, %115
   %117 = ashr exact i64 %116, 3
-  %umax63 = tail call i64 @llvm.umax.i64(i64 %117, i64 1)
   br label %.lr.ph59
 
 .lr.ph59:                                         ; preds = %.lr.ph59.preheader, %.lr.ph59
@@ -6014,7 +6000,7 @@ _ZNSt6vectorIPN6Assimp4Ogre4BoneESaIS3_EED2Ev.exit47: ; preds = %85, %87
   %125 = getelementptr inbounds nuw ptr, ptr %124, i64 %.03857
   store ptr %123, ptr %125, align 8
   %126 = add nuw i64 %.03857, 1
-  %exitcond64.not = icmp eq i64 %126, %umax63
+  %exitcond64.not = icmp eq i64 %126, %117
   br i1 %exitcond64.not, label %.loopexit, label %.lr.ph59, !llvm.loop !48
 
 .loopexit:                                        ; preds = %.lr.ph59, %99, %92, %._crit_edge
@@ -6172,29 +6158,24 @@ _ZN8aiStringaSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; pr
 .lr.ph:                                           ; preds = %84
   %86 = getelementptr inbounds nuw i8, ptr %7, i64 176
   %87 = getelementptr inbounds nuw i8, ptr %7, i64 112
-  br i1 %37, label %.lr.ph.split.us.preheader, label %.lr.ph.split.preheader
+  br i1 %37, label %.lr.ph.split.us, label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
   %88 = add nsw i64 %48, -12
   %89 = urem i64 %88, 12
   %90 = sub nuw nsw i64 %88, %89
   %91 = add nsw i64 %90, 12
-  %umax = tail call i64 @llvm.umax.i64(i64 %76, i64 1)
   br label %.lr.ph.split
 
-.lr.ph.split.us.preheader:                        ; preds = %.lr.ph
-  %umax136 = tail call i64 @llvm.umax.i64(i64 %76, i64 1)
-  br label %.lr.ph.split.us
-
-.lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %.lr.ph.split.us
-  %.0113.us = phi i64 [ %95, %.lr.ph.split.us ], [ 0, %.lr.ph.split.us.preheader ]
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
+  %.0113.us = phi i64 [ %95, %.lr.ph.split.us ], [ 0, %.lr.ph ]
   %92 = getelementptr inbounds nuw [8 x i32], ptr %86, i64 0, i64 %.0113.us
   store i32 2, ptr %92, align 4
   %93 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %48) #33
   %94 = getelementptr inbounds nuw [8 x ptr], ptr %87, i64 0, i64 %.0113.us
   store ptr %93, ptr %94, align 8
   %95 = add nuw i64 %.0113.us, 1
-  %exitcond137.not = icmp eq i64 %95, %umax136
+  %exitcond137.not = icmp eq i64 %95, %76
   br i1 %exitcond137.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !49
 
 .preheader:                                       ; preds = %84
@@ -6318,7 +6299,7 @@ _ZN8aiStringaSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; pr
   %156 = getelementptr inbounds nuw [8 x ptr], ptr %87, i64 0, i64 %.0113
   store ptr %155, ptr %156, align 8
   %157 = add nuw i64 %.0113, 1
-  %exitcond.not = icmp eq i64 %157, %umax
+  %exitcond.not = icmp eq i64 %157, %76
   br i1 %exitcond.not, label %.lr.ph122, label %.lr.ph.split, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.us, %.split118, %.split118.us.us, %.preheader
@@ -6910,12 +6891,11 @@ define hidden noundef ptr @_ZNK6Assimp4Ogre9Animation20AssociatedVertexDataEPNS0
   %19 = ptrtoint ptr %17 to i64
   %20 = sub i64 %18, %19
   %21 = ashr exact i64 %20, 3
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %21, i64 1)
   br label %.lr.ph.i
 
 22:                                               ; preds = %.lr.ph.i
   %23 = add nuw i64 %.0710.i, 1
-  %exitcond.not.i = icmp eq i64 %23, %umax.i
+  %exitcond.not.i = icmp eq i64 %23, %21
   br i1 %exitcond.not.i, label %_ZNK6Assimp4Ogre4Mesh10GetSubMeshEm.exit, label %.lr.ph.i, !llvm.loop !26
 
 .lr.ph.i:                                         ; preds = %22, %.lr.ph.preheader.i
@@ -7155,7 +7135,6 @@ _ZNK6Assimp4Ogre8Skeleton10BoneByNameERKNSt7__cxx1112basic_stringIcSt11char_trai
   %117 = getelementptr inbounds nuw i8, ptr %6, i64 52
   %118 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %119 = getelementptr inbounds nuw i8, ptr %6, i64 60
-  %umax = tail call i64 @llvm.umax.i64(i64 %52, i64 1)
   br label %120
 
 ._crit_edge:                                      ; preds = %120, %.loopexit.thread
@@ -7355,7 +7334,7 @@ _ZNK6Assimp4Ogre8Skeleton10BoneByNameERKNSt7__cxx1112basic_stringIcSt11char_trai
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #31
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3) #31
   %270 = add nuw i64 %.04152, 1
-  %exitcond.not = icmp eq i64 %270, %umax
+  %exitcond.not = icmp eq i64 %270, %52
   br i1 %exitcond.not, label %._crit_edge, label %120, !llvm.loop !62
 
 271:                                              ; preds = %43, %15

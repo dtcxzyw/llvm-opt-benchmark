@@ -602,7 +602,6 @@ for.body.lr.ph:                                   ; preds = %entry
   %queue_.i.i.i.i = getelementptr inbounds nuw i8, ptr %buf, i64 24
   %growth_.i.i.i = getelementptr inbounds nuw i8, ptr %buf, i64 32
   %attached3.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %buf, i64 16
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.sub.i, i64 1)
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -720,7 +719,7 @@ for.inc:                                          ; preds = %if.then, %_ZN5folly
   %totalBytes.1 = phi i32 [ %totalBytes.039, %if.then ], [ %add22, %_ZN5folly2io6detail8WritableINS0_13QueueAppenderEE7writeBEIjEEvT_.exit ]
   %wbits.1 = phi i8 [ %conv11, %if.then ], [ %conv15, %_ZN5folly2io6detail8WritableINS0_13QueueAppenderEE7writeBEIjEEvT_.exit ]
   %inc = add nuw i64 %i.038, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %sub.ptr.sub.i
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !9
 
 for.end:                                          ; preds = %for.inc
@@ -853,7 +852,6 @@ for.body.lr.ph:                                   ; preds = %entry
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %bits_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %bits_, align 8
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.sub.i, i64 1)
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -867,7 +865,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %conv = zext i8 %2 to i32
   %add = add i32 %totalBits.09, %conv
   %inc = add nuw i64 %i.08, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %sub.ptr.sub.i
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !11
 
 for.end:                                          ; preds = %for.body, %entry

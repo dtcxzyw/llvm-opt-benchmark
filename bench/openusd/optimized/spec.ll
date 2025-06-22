@@ -1625,7 +1625,6 @@ _ZN32pxrInternal_v0_24__pxrReserved__15UsdRelationshipD2Ev.exit138: ; preds = %_
   %671 = sub i64 %669, %670
   %672 = ashr exact i64 %671, 6
   %.0.copyload.i2.i = load i64, ptr %.sroa.0277.0321, align 4
-  %umax = call i64 @llvm.umax.i64(i64 %672, i64 1)
   br label %673
 
 673:                                              ; preds = %.lr.ph, %708
@@ -1742,7 +1741,7 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIP
 
 708:                                              ; preds = %673
   %709 = add nuw i64 %storemerge319, 1
-  %exitcond.not = icmp eq i64 %709, %umax
+  %exitcond.not = icmp eq i64 %709, %672
   br i1 %exitcond.not, label %.critedge, label %673, !llvm.loop !4
 
 .critedge:                                        ; preds = %708, %.preheader

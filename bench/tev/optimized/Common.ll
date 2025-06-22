@@ -2304,7 +2304,6 @@ _ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_I
   %115 = getelementptr inbounds i8, ptr %109, i64 %114
   %116 = ptrtoint ptr %115 to i64
   %117 = ptrtoint ptr %109 to i64
-  %umax = call i64 @llvm.umax.i64(i64 %103, i64 1)
   br label %125
 
 118:                                              ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSB8ne190000EOS5_.exit31
@@ -2398,7 +2397,7 @@ _ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4findB8ne190000E
 
 _ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4findB8ne190000ERKS5_m.exit.thread: ; preds = %.lr.ph.i.i.i33, %_ZNSt3__111char_traitsIcE4findB8ne190000EPKcmRS2_.exit.i.i.i, %151, %139, %_ZNSt3__118__search_substringB8ne190000IcNS_11char_traitsIcEEEEPKT_S5_S5_S5_S5_.exit.i.i
   %160 = add nuw i64 %.060, 1
-  %exitcond.not = icmp eq i64 %160, %umax
+  %exitcond.not = icmp eq i64 %160, %103
   br i1 %exitcond.not, label %.loopexit, label %125, !llvm.loop !32
 
 .loopexit:                                        ; preds = %_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4findB8ne190000ERKS5_m.exit.thread, %_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4findB8ne190000ERKS5_m.exit.thread42, %159
@@ -10716,12 +10715,11 @@ define linkonce_odr hidden void @_ZNKSt3__120__bracket_expressionIcNS_12regex_tr
   %59 = ashr exact i64 %58, 1
   %60 = load i8, ptr %6, align 2
   %61 = load i8, ptr %24, align 1
-  %umax = call i64 @llvm.umax.i64(i64 %59, i64 1)
   br label %64
 
 62:                                               ; preds = %64
   %63 = add nuw i64 %.052192, 1
-  %exitcond.not = icmp eq i64 %63, %umax
+  %exitcond.not = icmp eq i64 %63, %59
   br i1 %exitcond.not, label %._crit_edge, label %64, !llvm.loop !79
 
 64:                                               ; preds = %.lr.ph, %62
@@ -10773,7 +10771,6 @@ define linkonce_odr hidden void @_ZNKSt3__120__bracket_expressionIcNS_12regex_tr
   %96 = lshr i8 %88, 1
   %97 = zext nneg i8 %96 to i64
   %98 = select i1 %.not.i.i.i5.i, i64 %97, i64 %95
-  %umax223 = call i64 @llvm.umax.i64(i64 %87, i64 1)
   br label %99
 
 .thread:                                          ; preds = %_ZNSt3__1ssB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEDaRKNS_12basic_stringIT_T0_T1_EESB_.exit.thread244, %81
@@ -10837,7 +10834,7 @@ _ZNSt3__1ssB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEDaRKNS_12basic_str
 
 _ZNSt3__1ssB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEDaRKNS_12basic_stringIT_T0_T1_EESB_.exit.thread244: ; preds = %130, %114, %_ZNSt3__1ssB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEDaRKNS_12basic_stringIT_T0_T1_EESB_.exit, %_ZNSt3__1ssB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEDaRKNS_12basic_stringIT_T0_T1_EESB_.exit75
   %132 = add nuw i64 %.053193, 1
-  %exitcond224.not = icmp eq i64 %132, %umax223
+  %exitcond224.not = icmp eq i64 %132, %87
   br i1 %exitcond224.not, label %.thread, label %99, !llvm.loop !80
 
 _ZNSt3__1ssB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEDaRKNS_12basic_stringIT_T0_T1_EESB_.exit75.thread: ; preds = %130, %_ZNSt3__1ssB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEDaRKNS_12basic_stringIT_T0_T1_EESB_.exit75
@@ -10946,15 +10943,10 @@ _ZNKSt3__112regex_traitsIcE19__transform_primaryIPcEENS_12basic_stringIcNS_11cha
   %178 = select i1 %.not.i.i76, i64 %177, i64 %175
   %179 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %180 = load ptr, ptr %179, align 8
-  br i1 %.not.i.i76, label %.lr.ph197.split.us, label %.lr.ph197.split.preheader
-
-.lr.ph197.split.preheader:                        ; preds = %.lr.ph197
-  %umax225 = call i64 @llvm.umax.i64(i64 %172, i64 1)
-  br label %.lr.ph197.split
+  br i1 %.not.i.i76, label %.lr.ph197.split.us, label %.lr.ph197.split
 
 .lr.ph197.split.us:                               ; preds = %.lr.ph197
   %.not1924.i = icmp ult i8 %.fr214, 2
-  %umax229 = call i64 @llvm.umax.i64(i64 %172, i64 1)
   br i1 %.not1924.i, label %.lr.ph197.split.us.split.us, label %.lr.ph197.split.us.split
 
 .lr.ph197.split.us.split.us:                      ; preds = %.lr.ph197.split.us, %_ZNSt3__1eqB8ne190000INS_9allocatorIcEEEEbRKNS_12basic_stringIcNS_11char_traitsIcEET_EES9_.exit.thread153.us.us
@@ -10973,7 +10965,7 @@ _ZNKSt3__112regex_traitsIcE19__transform_primaryIPcEENS_12basic_stringIcNS_11cha
 
 _ZNSt3__1eqB8ne190000INS_9allocatorIcEEEEbRKNS_12basic_stringIcNS_11char_traitsIcEET_EES9_.exit.thread153.us.us: ; preds = %.lr.ph197.split.us.split.us
   %189 = add nuw i64 %.058196.us.us, 1
-  %exitcond230.not = icmp eq i64 %189, %umax229
+  %exitcond230.not = icmp eq i64 %189, %172
   br i1 %exitcond230.not, label %._crit_edge198, label %.lr.ph197.split.us.split.us, !llvm.loop !84
 
 .lr.ph197.split.us.split:                         ; preds = %.lr.ph197.split.us, %_ZNSt3__1eqB8ne190000INS_9allocatorIcEEEEbRKNS_12basic_stringIcNS_11char_traitsIcEET_EES9_.exit.thread153.us
@@ -11009,7 +11001,7 @@ _ZNSt3__1eqB8ne190000INS_9allocatorIcEEEEbRKNS_12basic_stringIcNS_11char_traitsI
 
 _ZNSt3__1eqB8ne190000INS_9allocatorIcEEEEbRKNS_12basic_stringIcNS_11char_traitsIcEET_EES9_.exit.thread153.us: ; preds = %.lr.ph.i.us, %.lr.ph197.split.us.split
   %204 = add nuw i64 %.058196.us, 1
-  %exitcond228.not = icmp eq i64 %204, %umax229
+  %exitcond228.not = icmp eq i64 %204, %172
   br i1 %exitcond228.not, label %._crit_edge198, label %.lr.ph197.split.us.split, !llvm.loop !84
 
 205:                                              ; preds = %.lr.ph.i.us
@@ -11018,8 +11010,8 @@ _ZNSt3__1eqB8ne190000INS_9allocatorIcEEEEbRKNS_12basic_stringIcNS_11char_traitsI
   %.not19.i.us = icmp eq i64 %206, 0
   br i1 %.not19.i.us, label %.thread155, label %.lr.ph.i.us, !llvm.loop !85
 
-.lr.ph197.split:                                  ; preds = %.lr.ph197.split.preheader, %_ZNSt3__1eqB8ne190000INS_9allocatorIcEEEEbRKNS_12basic_stringIcNS_11char_traitsIcEET_EES9_.exit.thread153
-  %.058196 = phi i64 [ %221, %_ZNSt3__1eqB8ne190000INS_9allocatorIcEEEEbRKNS_12basic_stringIcNS_11char_traitsIcEET_EES9_.exit.thread153 ], [ 0, %.lr.ph197.split.preheader ]
+.lr.ph197.split:                                  ; preds = %.lr.ph197, %_ZNSt3__1eqB8ne190000INS_9allocatorIcEEEEbRKNS_12basic_stringIcNS_11char_traitsIcEET_EES9_.exit.thread153
+  %.058196 = phi i64 [ %221, %_ZNSt3__1eqB8ne190000INS_9allocatorIcEEEEbRKNS_12basic_stringIcNS_11char_traitsIcEET_EES9_.exit.thread153 ], [ 0, %.lr.ph197 ]
   %208 = getelementptr inbounds %"class.std::__1::basic_string.2", ptr %168, i64 %.058196
   %209 = load i8, ptr %208, align 8
   %210 = and i8 %209, 1
@@ -11043,7 +11035,7 @@ _ZNSt3__1eqB8ne190000INS_9allocatorIcEEEEbRKNS_12basic_stringIcNS_11char_traitsI
 
 _ZNSt3__1eqB8ne190000INS_9allocatorIcEEEEbRKNS_12basic_stringIcNS_11char_traitsIcEET_EES9_.exit.thread153: ; preds = %.lr.ph197.split, %_ZNSt3__1eqB8ne190000INS_9allocatorIcEEEEbRKNS_12basic_stringIcNS_11char_traitsIcEET_EES9_.exit
   %221 = add nuw i64 %.058196, 1
-  %exitcond226.not = icmp eq i64 %221, %umax225
+  %exitcond226.not = icmp eq i64 %221, %172
   br i1 %exitcond226.not, label %._crit_edge198, label %.lr.ph197.split, !llvm.loop !84
 
 .thread155:                                       ; preds = %_ZNSt3__1eqB8ne190000INS_9allocatorIcEEEEbRKNS_12basic_stringIcNS_11char_traitsIcEET_EES9_.exit, %205, %.lr.ph197.split.us.split.us
@@ -11178,12 +11170,11 @@ _ZNKSt3__112regex_traitsIcE7isctypeEct.exit92.thread: ; preds = %_ZNKSt3__15ctyp
   %292 = ptrtoint ptr %290 to i64
   %293 = ptrtoint ptr %291 to i64
   %294 = sub i64 %292, %293
-  %umax231 = call i64 @llvm.umax.i64(i64 %294, i64 1)
   br label %297
 
 295:                                              ; preds = %297
   %296 = add nuw i64 %.059201, 1
-  %exitcond232.not = icmp eq i64 %296, %umax231
+  %exitcond232.not = icmp eq i64 %296, %294
   br i1 %exitcond232.not, label %._crit_edge204, label %297, !llvm.loop !86
 
 297:                                              ; preds = %.lr.ph203, %295
@@ -11313,7 +11304,6 @@ _ZNKSt3__112regex_traitsIcE9transformIPcEENS_12basic_stringIcNS_11char_traitsIcE
   %370 = lshr i8 %362, 1
   %371 = zext nneg i8 %370 to i64
   %372 = select i1 %.not.i.i.i5.i100, i64 %371, i64 %369
-  %umax233 = call i64 @llvm.umax.i64(i64 %361, i64 1)
   br label %373
 
 .thread171:                                       ; preds = %_ZNSt3__1ssB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEDaRKNS_12basic_stringIT_T0_T1_EESB_.exit103.thread252, %355
@@ -11377,7 +11367,7 @@ _ZNSt3__1ssB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEDaRKNS_12basic_str
 
 _ZNSt3__1ssB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEDaRKNS_12basic_stringIT_T0_T1_EESB_.exit103.thread252: ; preds = %404, %388, %_ZNSt3__1ssB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEDaRKNS_12basic_stringIT_T0_T1_EESB_.exit103, %_ZNSt3__1ssB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEDaRKNS_12basic_stringIT_T0_T1_EESB_.exit108
   %406 = add nuw i64 %.051205, 1
-  %exitcond234.not = icmp eq i64 %406, %umax233
+  %exitcond234.not = icmp eq i64 %406, %361
   br i1 %exitcond234.not, label %.thread171, label %373, !llvm.loop !90
 
 _ZNSt3__1ssB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEDaRKNS_12basic_stringIT_T0_T1_EESB_.exit108.thread: ; preds = %404, %_ZNSt3__1ssB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEDaRKNS_12basic_stringIT_T0_T1_EESB_.exit108
@@ -11479,7 +11469,6 @@ _ZNKSt3__112regex_traitsIcE19__transform_primaryIPcEENS_12basic_stringIcNS_11cha
   %452 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %453 = load ptr, ptr %452, align 8
   %.not1924.i115 = icmp ult i8 %446, 2
-  %umax235 = call i64 @llvm.umax.i64(i64 %445, i64 1)
   br label %454
 
 454:                                              ; preds = %.lr.ph209, %_ZNSt3__1eqB8ne190000INS_9allocatorIcEEEEbRKNS_12basic_stringIcNS_11char_traitsIcEET_EES9_.exit123.thread177
@@ -11529,7 +11518,7 @@ _ZNSt3__1eqB8ne190000INS_9allocatorIcEEEEbRKNS_12basic_stringIcNS_11char_traitsI
 
 _ZNSt3__1eqB8ne190000INS_9allocatorIcEEEEbRKNS_12basic_stringIcNS_11char_traitsIcEET_EES9_.exit123.thread177: ; preds = %.lr.ph.i116, %454, %_ZNSt3__1eqB8ne190000INS_9allocatorIcEEEEbRKNS_12basic_stringIcNS_11char_traitsIcEET_EES9_.exit123
   %474 = add nuw i64 %.0208, 1
-  %exitcond236.not = icmp eq i64 %474, %umax235
+  %exitcond236.not = icmp eq i64 %474, %445
   br i1 %exitcond236.not, label %._crit_edge210, label %454, !llvm.loop !94
 
 .thread180:                                       ; preds = %_ZNSt3__1eqB8ne190000INS_9allocatorIcEEEEbRKNS_12basic_stringIcNS_11char_traitsIcEET_EES9_.exit123, %.preheader.i114, %470

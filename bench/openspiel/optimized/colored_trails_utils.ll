@@ -442,7 +442,6 @@ define void @_ZN10open_spiel14colored_trails17ChipComboIterator4NextEv(ptr dead_
   %9 = ashr exact i64 %8, 2
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load ptr, ptr %10, align 8
-  %umax = tail call i64 @llvm.umax.i64(i64 %9, i64 1)
   br label %12
 
 12:                                               ; preds = %.lr.ph, %24
@@ -472,7 +471,7 @@ define void @_ZN10open_spiel14colored_trails17ChipComboIterator4NextEv(ptr dead_
 
 24:                                               ; preds = %12
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %9
   br i1 %exitcond.not, label %.loopexit, label %12, !llvm.loop !7
 
 .loopexit:                                        ; preds = %24, %.lr.ph19, %2, %18

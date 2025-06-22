@@ -4570,7 +4570,6 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 .lr.ph.preheader:                                 ; preds = %574
   %580 = ashr exact i64 %579, 2
-  %umax = call i64 @llvm.umax.i64(i64 %580, i64 1)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %574
@@ -4618,7 +4617,7 @@ _ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread6.i.i236: ; preds = %._crit_edge
   %596 = sdiv i32 %595, 2
   store i32 %596, ptr %594, align 4, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %580
   br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !171
 
 _ZN7testing8internal8EqHelper7CompareISt6vectorIiSaIiEES5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_.exit244: ; preds = %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread.i.i241, %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread6.i.i236

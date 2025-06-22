@@ -1294,11 +1294,7 @@ cleanup.done11:                                   ; preds = %cond.end, %cleanup.
 
 for.cond.preheader:                               ; preds = %cleanup.done11
   %cmp52199.not = icmp eq ptr %13, %14
-  br i1 %cmp52199.not, label %for.cond.cleanup, label %do.body53.preheader
-
-do.body53.preheader:                              ; preds = %for.cond.preheader
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i44, i64 1)
-  br label %do.body53
+  br i1 %cmp52199.not, label %for.cond.cleanup, label %do.body53
 
 if.then:                                          ; preds = %cleanup.done11
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %_ql_msg_stream) #28
@@ -1481,8 +1477,8 @@ ehcleanup49:                                      ; preds = %ehcleanup48, %lpad1
 for.cond.cleanup:                                 ; preds = %for.inc, %for.cond.preheader
   ret void
 
-do.body53:                                        ; preds = %do.body53.preheader, %for.inc
-  %i.0200 = phi i64 [ %inc, %for.inc ], [ 0, %do.body53.preheader ]
+do.body53:                                        ; preds = %for.cond.preheader, %for.inc
+  %i.0200 = phi i64 [ %inc, %for.inc ], [ 0, %for.cond.preheader ]
   %add.ptr.i = getelementptr inbounds nuw i64, ptr %11, i64 %i.0200
   %37 = load i64, ptr %add.ptr.i, align 8, !tbaa !46
   %cmp56 = icmp ult i64 %37, 86400
@@ -1849,7 +1845,7 @@ ehcleanup158:                                     ; preds = %ehcleanup157, %lpad
 
 for.inc:                                          ; preds = %do.end97, %land.lhs.true, %invoke.cont106
   %inc = add nuw i64 %i.0200, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i44
   br i1 %exitcond.not, label %for.cond.cleanup, label %do.body53, !llvm.loop !57
 
 ehcleanup164:                                     ; preds = %ehcleanup94, %ehcleanup158, %ehcleanup49

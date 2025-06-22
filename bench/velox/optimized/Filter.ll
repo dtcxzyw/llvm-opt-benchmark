@@ -8856,21 +8856,17 @@ land.rhs:                                         ; preds = %land.lhs.true5
 
 for.cond.preheader.split:                         ; preds = %land.rhs
   %cmp1429.not = icmp eq ptr %15, %16
-  br i1 %cmp1429.not, label %return, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.preheader
+  br i1 %cmp1429.not, label %return, label %_ZNKSt6vectorIlSaIlEE2atEm.exit
 
-_ZNKSt6vectorIlSaIlEE2atEm.exit.preheader:        ; preds = %for.cond.preheader.split
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
-  br label %_ZNKSt6vectorIlSaIlEE2atEm.exit
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit:                  ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit, %_ZNKSt6vectorIlSaIlEE2atEm.exit.preheader
-  %i.030 = phi i64 [ 0, %_ZNKSt6vectorIlSaIlEE2atEm.exit.preheader ], [ %inc, %_ZNKSt6vectorIlSaIlEE2atEm.exit ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit:                  ; preds = %for.cond.preheader.split, %_ZNKSt6vectorIlSaIlEE2atEm.exit
+  %i.030 = phi i64 [ %inc, %_ZNKSt6vectorIlSaIlEE2atEm.exit ], [ 0, %for.cond.preheader.split ]
   %add.ptr.i.i = getelementptr inbounds i64, ptr %16, i64 %i.030
   %19 = load i64, ptr %add.ptr.i.i, align 8
   %add.ptr.i.i26 = getelementptr inbounds i64, ptr %18, i64 %i.030
   %20 = load i64, ptr %add.ptr.i.i26, align 8
   %cmp19.not = icmp eq i64 %19, %20
   %inc = add nuw i64 %i.030, 1
-  %exitcond.not = icmp ne i64 %inc, %umax
+  %exitcond.not = icmp ne i64 %inc, %sub.ptr.div.i
   %or.cond.not = select i1 %cmp19.not, i1 %exitcond.not, i1 false
   br i1 %or.cond.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit, label %return, !llvm.loop !115
 
@@ -9436,21 +9432,17 @@ land.rhs.i5:                                      ; preds = %land.lhs.true5.i
 
 for.cond.preheader.split.i:                       ; preds = %land.rhs.i5
   %cmp1429.not.i = icmp eq ptr %28, %29
-  br i1 %cmp1429.not.i, label %land.end, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.preheader.i
+  br i1 %cmp1429.not.i, label %land.end, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i
 
-_ZNKSt6vectorIlSaIlEE2atEm.exit.preheader.i:      ; preds = %for.cond.preheader.split.i
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  br label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i:                ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.preheader.i
-  %i.030.i = phi i64 [ 0, %_ZNKSt6vectorIlSaIlEE2atEm.exit.preheader.i ], [ %inc.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i:                ; preds = %for.cond.preheader.split.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i
+  %i.030.i = phi i64 [ %inc.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ], [ 0, %for.cond.preheader.split.i ]
   %add.ptr.i.i.i = getelementptr inbounds i64, ptr %29, i64 %i.030.i
   %32 = load i64, ptr %add.ptr.i.i.i, align 8
   %add.ptr.i.i26.i = getelementptr inbounds i64, ptr %31, i64 %i.030.i
   %33 = load i64, ptr %add.ptr.i.i26.i, align 8
   %cmp19.not.i = icmp eq i64 %32, %33
   %inc.i = add nuw i64 %i.030.i, 1
-  %exitcond.not.i = icmp ne i64 %inc.i, %umax.i
+  %exitcond.not.i = icmp ne i64 %inc.i, %sub.ptr.div.i.i
   %or.cond.not = select i1 %cmp19.not.i, i1 %exitcond.not.i, i1 false
   br i1 %or.cond.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, label %land.end, !llvm.loop !115
 

@@ -641,11 +641,7 @@ _ZNSt6vectorIN2cv7Point3_IiEESaIS2_EEC2EmRKS3_.exit: ; preds = %.lr.ph.preheader
   %.sroa.523.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.025.0, i64 8
   store i32 0, ptr %.sroa.523.0..sroa_idx, align 4, !tbaa !47
   %.not = icmp eq ptr %6, %7
-  br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %_ZNSt6vectorIN2cv7Point3_IiEESaIS2_EEC2EmRKS3_.exit
-  %umax = tail call i64 @llvm.umax.i64(i64 %11, i64 1)
-  br label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZNSt6vectorIN2cv7Point3_IiEESaIS2_EEC2EmRKS3_.exit
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4) #17
@@ -689,8 +685,8 @@ _ZNSt6vectorIN2cv7Point3_IiEESaIS2_EEC2EmRKS3_.exit: ; preds = %.lr.ph.preheader
   store ptr %36, ptr %31, align 8, !tbaa !53
   br label %_ZN2cv3MatC2INS_7Point3_IiEEEERKSt6vectorIT_SaIS5_EEb.exit
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.01332 = phi i64 [ %43, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %_ZNSt6vectorIN2cv7Point3_IiEESaIS2_EEC2EmRKS3_.exit, %.lr.ph
+  %.01332 = phi i64 [ %43, %.lr.ph ], [ 0, %_ZNSt6vectorIN2cv7Point3_IiEESaIS2_EEC2EmRKS3_.exit ]
   %37 = getelementptr inbounds nuw %"struct.cv::ximgproc::rl::rlType", ptr %7, i64 %.01332
   %38 = load i32, ptr %37, align 4, !tbaa !54
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 4
@@ -704,7 +700,7 @@ _ZNSt6vectorIN2cv7Point3_IiEESaIS2_EEC2EmRKS3_.exit: ; preds = %.lr.ph.preheader
   store i32 %40, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !47
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %44, i64 8
   store i32 %42, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !47
-  %exitcond.not = icmp eq i64 %43, %umax
+  %exitcond.not = icmp eq i64 %43, %11
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !58
 
 _ZN2cv3MatC2INS_7Point3_IiEEEERKSt6vectorIT_SaIS5_EEb.exit: ; preds = %29, %._crit_edge
@@ -4079,7 +4075,6 @@ _ZNSt6vectorIN2cv8ximgproc2rl6rlTypeESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i: 
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %16, ptr %18, align 8, !tbaa !110
   store ptr %16, ptr %17, align 8, !tbaa !35
-  %umax = tail call i64 @llvm.umax.i64(i64 %11, i64 1)
   br label %23
 
 ._crit_edge:                                      ; preds = %23
@@ -4109,7 +4104,7 @@ _ZNSt6vectorIN2cv8ximgproc2rl6rlTypeESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i: 
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i32 %29, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !47
   %31 = add nuw i64 %.01942, 1
-  %exitcond.not = icmp eq i64 %31, %umax
+  %exitcond.not = icmp eq i64 %31, %11
   br i1 %exitcond.not, label %._crit_edge, label %23, !llvm.loop !152
 
 _ZN2cv8ximgproc2rlL10sortChordsERSt6vectorINS1_6rlTypeESaIS3_EE.exit.thread: ; preds = %.noexc26

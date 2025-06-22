@@ -4463,7 +4463,6 @@ _ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE5clearEv.exit: ; preds = %_ZSt7reverseIN9
   %1639 = ptrtoint ptr %.sroa.01343.3.lcssa3321 to i64
   %1640 = sub i64 %1638, %1639
   %1641 = ashr exact i64 %1640, 2
-  %umax = call i64 @llvm.umax.i64(i64 %1641, i64 1)
   br label %.lr.ph2619
 
 ._crit_edge2620:                                  ; preds = %1673, %_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE5clearEv.exit
@@ -4563,7 +4562,7 @@ _ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE10_Auto_nodeD2E
   %1675 = trunc nuw nsw i64 %indvars.iv3236 to i32
   store i32 %1675, ptr %1674, align 4, !tbaa !33
   %indvars.iv.next3237 = add nuw i64 %indvars.iv3236, 1
-  %exitcond3239.not = icmp eq i64 %indvars.iv.next3237, %umax
+  %exitcond3239.not = icmp eq i64 %indvars.iv.next3237, %1641
   br i1 %exitcond3239.not, label %._crit_edge2620, label %.lr.ph2619, !llvm.loop !111
 
 1676:                                             ; preds = %.critedge.i931
@@ -5456,7 +5455,6 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit1108:      ; preds = %1962, %_ZNSt6vector
   %1981 = ptrtoint ptr %.sroa.01343.13.lcssa3355 to i64
   %1982 = sub i64 %1980, %1981
   %1983 = ashr exact i64 %1982, 2
-  %umax3249 = call i64 @llvm.umax.i64(i64 %1983, i64 1)
   br label %.lr.ph2667
 
 ._crit_edge2668:                                  ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit1127, %._crit_edge2657.thread
@@ -5540,7 +5538,6 @@ _ZNSt6vectorIS_IiSaIiEESaIS1_EE9push_backERKS1_.exit1117: ; preds = %2013, %_ZNS
   %2015 = ptrtoint ptr %.sroa.01320.9.lcssa3360 to i64
   %2016 = sub i64 %2014, %2015
   %2017 = ashr exact i64 %2016, 2
-  %umax3254 = call i64 @llvm.umax.i64(i64 %2017, i64 1)
   br label %.lr.ph2670
 
 .lr.ph2667:                                       ; preds = %.lr.ph2667.preheader, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit1127
@@ -5618,7 +5615,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit1127:      ; preds = %_ZNSt6vectorIiSaIiE
   %2046 = phi ptr [ %2044, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i1124 ], [ %2019, %2022 ]
   %2047 = phi ptr [ %2042, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i1124 ], [ %2024, %2022 ]
   %indvars.iv.next3247 = add nuw i64 %indvars.iv3246, 1
-  %exitcond3250.not = icmp eq i64 %indvars.iv.next3247, %umax3249
+  %exitcond3250.not = icmp eq i64 %indvars.iv.next3247, %1983
   br i1 %exitcond3250.not, label %._crit_edge2668, label %.lr.ph2667, !llvm.loop !115
 
 .loopexit1720:                                    ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i1119
@@ -5725,7 +5722,7 @@ _ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_M_insert_IRKiNS5_11_Alloc_nod
 
 2075:                                             ; preds = %.noexc1153, %2062
   %indvars.iv.next3252 = add nuw i64 %indvars.iv3251, 1
-  %exitcond3255.not = icmp eq i64 %indvars.iv.next3252, %umax3254
+  %exitcond3255.not = icmp eq i64 %indvars.iv.next3252, %2017
   br i1 %exitcond3255.not, label %._crit_edge2671, label %.lr.ph2670, !llvm.loop !116
 
 2076:                                             ; preds = %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_M_insert_IRKiNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIiEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i1148

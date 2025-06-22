@@ -11520,7 +11520,6 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_DumpPathStatsEv() local_
   %46 = ptrtoint ptr %43 to i64
   %47 = sub i64 %46, %45
   %48 = ashr exact i64 %47, 2
-  %umax = tail call i64 @llvm.umax.i64(i64 %48, i64 1)
   br label %49
 
 49:                                               ; preds = %.lr.ph, %49
@@ -11534,7 +11533,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_DumpPathStatsEv() local_
   %55 = mul i64 %.02636, %54
   %56 = add i64 %55, %.02735
   %57 = add nuw i64 %.02636, 1
-  %exitcond.not = icmp eq i64 %57, %umax
+  %exitcond.not = icmp eq i64 %57, %48
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %49, !llvm.loop !102
 
 ._crit_edge.loopexit:                             ; preds = %49
@@ -11558,23 +11557,19 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_DumpPathStatsEv() local_
   %70 = sub i64 %68, %69
   %71 = ashr exact i64 %70, 2
   %.not48 = icmp eq ptr %66, %67
-  br i1 %.not48, label %_ZNSt6vectorIiSaIiEED2Ev.exit.i, label %.lr.ph39.preheader
-
-.lr.ph39.preheader:                               ; preds = %._crit_edge
-  %umax50 = tail call i64 @llvm.umax.i64(i64 %71, i64 1)
-  br label %.lr.ph39
+  br i1 %.not48, label %_ZNSt6vectorIiSaIiEED2Ev.exit.i, label %.lr.ph39
 
 .preheader:                                       ; preds = %.lr.ph39
   %72 = icmp ugt i64 %71, 1
   br i1 %72, label %.lr.ph44, label %_ZNSt6vectorIiSaIiEED2Ev.exit.i
 
-.lr.ph39:                                         ; preds = %.lr.ph39.preheader, %.lr.ph39
-  %.02537 = phi i64 [ %76, %.lr.ph39 ], [ 0, %.lr.ph39.preheader ]
+.lr.ph39:                                         ; preds = %._crit_edge, %.lr.ph39
+  %.02537 = phi i64 [ %76, %.lr.ph39 ], [ 0, %._crit_edge ]
   %73 = getelementptr inbounds i32, ptr %67, i64 %.02537
   %74 = load i32, ptr %73, align 4
   %75 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.26, i64 noundef %.02537, i32 noundef %74)
   %76 = add nuw i64 %.02537, 1
-  %exitcond51.not = icmp eq i64 %76, %umax50
+  %exitcond51.not = icmp eq i64 %76, %71
   br i1 %exitcond51.not, label %.preheader, label %.lr.ph39, !llvm.loop !103
 
 .lr.ph44:                                         ; preds = %.preheader, %.lr.ph44

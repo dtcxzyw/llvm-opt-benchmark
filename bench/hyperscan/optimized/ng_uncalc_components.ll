@@ -4451,7 +4451,6 @@ _ZNSt6vectorIN3ue212_GLOBAL__N_112ranking_infoESaIS2_EE7reserveEm.exit: ; preds 
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIN3ue212_GLOBAL__N_112ranking_infoESaIS2_EE7reserveEm.exit
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %umax = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %30
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIN3ue212_GLOBAL__N_112ranking_infoESaIS2_EE12emplace_backIJRKNS0_8NGHolderEEEEvDpOT_.exit, %_ZNSt6vectorIN3ue212_GLOBAL__N_112ranking_infoESaIS2_EE7reserveEm.exit
@@ -4658,7 +4657,7 @@ _ZNSt6vectorIN3ue212_GLOBAL__N_112ranking_infoESaIS2_EE17_M_realloc_insertIJRKNS
 _ZNSt6vectorIN3ue212_GLOBAL__N_112ranking_infoESaIS2_EE12emplace_backIJRKNS0_8NGHolderEEEEvDpOT_.exit: ; preds = %_ZNSt6vectorIN3ue212_GLOBAL__N_112ranking_infoESaIS2_EE17_M_realloc_insertIJRKNS0_8NGHolderEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %.noexc105
   %102 = phi ptr [ %89, %_ZNSt6vectorIN3ue212_GLOBAL__N_112ranking_infoESaIS2_EE17_M_realloc_insertIJRKNS0_8NGHolderEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %37, %.noexc105 ]
   %103 = add nuw i64 %.081194, 1
-  %exitcond.not = icmp eq i64 %103, %umax
+  %exitcond.not = icmp eq i64 %103, %10
   br i1 %exitcond.not, label %._crit_edge, label %30, !llvm.loop !262
 
 .loopexit188:                                     ; preds = %36, %_ZNKSt6vectorIN3ue212_GLOBAL__N_112ranking_infoESaIS2_EE12_M_check_lenEmPKc.exit.i.i
@@ -5268,14 +5267,14 @@ define internal fastcc noundef i32 @_ZN3ue2L23cplCommonReachAndSimpleERKNS_8NGHo
   %11 = lshr exact i64 %10, 4
   %12 = trunc i64 %11 to i32
   %.sroa.speculated = tail call i32 @llvm.umin.i32(i32 %12, i32 %7)
+  %spec.store.select = tail call i32 @llvm.umin.i32(i32 %.sroa.speculated, i32 65535)
   %.not = icmp eq i32 %.sroa.speculated, 0
   br i1 %.not, label %_ZNK3ue212_GLOBAL__N_112ranking_info2atEj.exit27._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %13 = ashr exact i64 %5, 4
   %14 = ashr exact i64 %10, 4
-  %umax = tail call i32 @llvm.umin.i32(i32 %.sroa.speculated, i32 65535)
-  %wide.trip.count = zext nneg i32 %umax to i64
+  %wide.trip.count = zext nneg i32 %spec.store.select to i64
   br label %15
 
 15:                                               ; preds = %.lr.ph, %21
@@ -5313,7 +5312,7 @@ _ZNK3ue212_GLOBAL__N_112ranking_info2atEj.exit27._crit_edge.loopexit.split.loop.
   br label %_ZNK3ue212_GLOBAL__N_112ranking_info2atEj.exit27._crit_edge
 
 _ZNK3ue212_GLOBAL__N_112ranking_info2atEj.exit27._crit_edge: ; preds = %21, %_ZNK3ue212_GLOBAL__N_112ranking_info2atEj.exit27._crit_edge.loopexit.split.loop.exit, %2
-  %.0.lcssa = phi i32 [ 0, %2 ], [ %22, %_ZNK3ue212_GLOBAL__N_112ranking_info2atEj.exit27._crit_edge.loopexit.split.loop.exit ], [ %umax, %21 ]
+  %.0.lcssa = phi i32 [ 0, %2 ], [ %22, %_ZNK3ue212_GLOBAL__N_112ranking_info2atEj.exit27._crit_edge.loopexit.split.loop.exit ], [ %spec.store.select, %21 ]
   ret i32 %.0.lcssa
 }
 

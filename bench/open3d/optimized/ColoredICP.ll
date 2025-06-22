@@ -453,7 +453,6 @@ define noundef double @_ZNK6open3d9pipelines12registration37TransformationEstima
   %26 = load ptr, ptr %25, align 8, !tbaa !32
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %28 = load ptr, ptr %27, align 8, !tbaa !32
-  %umax = tail call i64 @llvm.umax.i64(i64 %16, i64 1)
   br label %29
 
 ._crit_edge:                                      ; preds = %29, %4
@@ -533,7 +532,7 @@ define noundef double @_ZNK6open3d9pipelines12registration37TransformationEstima
   %94 = tail call double @llvm.fmuladd.f64(double %90, double %90, double %93)
   %95 = fadd double %.069, %94
   %96 = add nuw i64 %.05068, 1
-  %exitcond.not = icmp eq i64 %96, %umax
+  %exitcond.not = icmp eq i64 %96, %16
   br i1 %exitcond.not, label %._crit_edge, label %29, !llvm.loop !36
 }
 
@@ -987,7 +986,6 @@ _ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE6resizeEmRKS2_.exit.i
   %129 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %130 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %131 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %umax.i = call i64 @llvm.umax.i64(i64 %104, i64 1)
   br label %138
 
 132:                                              ; preds = %78, %.noexc15
@@ -1439,7 +1437,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit.i:                  ; preds = %292, %290
 _ZNSt6vectorIiSaIiEED2Ev.exit.i:                  ; preds = %298, %_ZNSt6vectorIdSaIdEED2Ev.exit.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #30, !noalias !66
   %303 = add nuw i64 %.055138.i, 1
-  %exitcond144.not.i = icmp eq i64 %303, %umax.i
+  %exitcond144.not.i = icmp eq i64 %303, %104
   br i1 %exitcond144.not.i, label %.loopexit, label %138, !llvm.loop !98
 
 304:                                              ; preds = %.body.i, %187

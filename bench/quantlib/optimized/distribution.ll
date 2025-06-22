@@ -640,14 +640,10 @@ do.end:                                           ; preds = %if.then3.i31, %land
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %cmp61101.not = icmp eq ptr %6, %0
-  br i1 %cmp61101.not, label %return, label %for.body.preheader
+  br i1 %cmp61101.not, label %return, label %for.body
 
-for.body.preheader:                               ; preds = %do.end
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
-  br label %for.body
-
-for.body:                                         ; preds = %for.body.preheader, %for.inc
-  %i.0102 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.preheader ]
+for.body:                                         ; preds = %do.end, %for.inc
+  %i.0102 = phi i64 [ %inc, %for.inc ], [ 0, %do.end ]
   %add.ptr.i = getelementptr inbounds nuw double, ptr %0, i64 %i.0102
   %41 = load double, ptr %add.ptr.i, align 8, !tbaa !27
   %cmp64 = fcmp ogt double %41, %x
@@ -655,7 +651,7 @@ for.body:                                         ; preds = %for.body.preheader,
 
 for.inc:                                          ; preds = %for.body
   %inc = add nuw i64 %i.0102, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i
   br i1 %exitcond.not, label %return.loopexit, label %for.body, !llvm.loop !38
 
 return.loopexit:                                  ; preds = %for.inc, %for.body
@@ -829,7 +825,6 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 2
   %dx_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   %4 = load ptr, ptr %dx_, align 8, !tbaa !25
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %for.body
 
 if.then:                                          ; preds = %entry
@@ -851,7 +846,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 for.inc:                                          ; preds = %for.body
   %inc14 = add nuw i64 %i.017, 1
-  %exitcond.not = icmp eq i64 %inc14, %umax
+  %exitcond.not = icmp eq i64 %inc14, %sub.ptr.div.i
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !47
 
 cleanup:                                          ; preds = %for.body

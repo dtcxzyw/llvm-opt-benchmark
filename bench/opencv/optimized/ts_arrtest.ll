@@ -672,7 +672,6 @@ define hidden void @_ZN6cvtest9ArrayTest30get_test_array_types_and_sizesEiRSt6ve
   %66 = ptrtoint ptr %64 to i64
   %67 = sub i64 %65, %66
   %68 = ashr exact i64 %67, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %68, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -688,7 +687,7 @@ define hidden void @_ZN6cvtest9ArrayTest30get_test_array_types_and_sizesEiRSt6ve
   %76 = getelementptr inbounds nuw i32, ptr %75, i64 %.01617
   store i32 0, ptr %76, align 4, !tbaa !66
   %77 = add nuw i64 %.01617, 1
-  %exitcond.not = icmp eq i64 %77, %umax
+  %exitcond.not = icmp eq i64 %77, %68
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !79
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
@@ -801,14 +800,10 @@ _ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EEC2EmRKS3_.exit.thread.i: ; preds = 
           to label %_ZN6cvtest2TS7get_rngEv.exit.preheader unwind label %71
 
 _ZN6cvtest2TS7get_rngEv.exit.preheader:           ; preds = %29
-  br i1 %.not.i.i.i.i, label %_ZN6cvtest2TS7get_rngEv.exit._crit_edge, label %.lr.ph.preheader
+  br i1 %.not.i.i.i.i, label %_ZN6cvtest2TS7get_rngEv.exit._crit_edge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %_ZN6cvtest2TS7get_rngEv.exit.preheader
-  %umax = tail call i64 @llvm.umax.i64(i64 %15, i64 1)
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN6cvtest2TS7get_rngEv.exit
-  %.0126202 = phi i64 [ %66, %_ZN6cvtest2TS7get_rngEv.exit ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %_ZN6cvtest2TS7get_rngEv.exit.preheader, %_ZN6cvtest2TS7get_rngEv.exit
+  %.0126202 = phi i64 [ %66, %_ZN6cvtest2TS7get_rngEv.exit ], [ 0, %_ZN6cvtest2TS7get_rngEv.exit.preheader ]
   %35 = load ptr, ptr %8, align 8, !tbaa !43
   %36 = getelementptr inbounds nuw %"class.std::vector.8", ptr %35, i64 %.0126202
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
@@ -863,7 +858,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %64, %62, %60, %58
 
 _ZN6cvtest2TS7get_rngEv.exit:                     ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit
   %66 = add nuw i64 %.0126202, 1
-  %exitcond.not = icmp eq i64 %66, %umax
+  %exitcond.not = icmp eq i64 %66, %15
   br i1 %exitcond.not, label %_ZN6cvtest2TS7get_rngEv.exit._crit_edge, label %.lr.ph, !llvm.loop !86
 
 67:                                               ; preds = %.lr.ph.preheader.i.i.i.i.i
@@ -900,7 +895,6 @@ _ZN6cvtest2TS7get_rngEv.exit._crit_edge:          ; preds = %_ZN6cvtest2TS7get_r
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 57
   %80 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %umax221 = call i64 @llvm.umax.i64(i64 %15, i64 1)
   br label %81
 
 81:                                               ; preds = %.lr.ph206, %._crit_edge
@@ -919,7 +913,6 @@ _ZN6cvtest2TS7get_rngEv.exit._crit_edge:          ; preds = %_ZN6cvtest2TS7get_r
   %89 = sub i64 %87, %88
   %90 = ashr exact i64 %89, 3
   %91 = icmp ne i64 %.1127205, 6
-  %umax219 = call i64 @llvm.umax.i64(i64 %90, i64 1)
   br label %92
 
 92:                                               ; preds = %.lr.ph204, %216
@@ -1135,12 +1128,12 @@ _ZN6cvtest2TS7get_rngEv.exit._crit_edge:          ; preds = %_ZN6cvtest2TS7get_r
 
 216:                                              ; preds = %191, %186, %211, %199, %144, %141
   %217 = add nuw i64 %.0129203, 1
-  %exitcond220.not = icmp eq i64 %217, %umax219
+  %exitcond220.not = icmp eq i64 %217, %90
   br i1 %exitcond220.not, label %._crit_edge, label %92, !llvm.loop !98
 
 ._crit_edge:                                      ; preds = %216, %81
   %218 = add nuw i64 %.1127205, 1
-  %exitcond222.not = icmp eq i64 %218, %umax221
+  %exitcond222.not = icmp eq i64 %218, %15
   br i1 %exitcond222.not, label %._crit_edge207, label %81, !llvm.loop !99
 
 ._crit_edge207:                                   ; preds = %._crit_edge, %.preheader
@@ -1213,14 +1206,10 @@ _ZSt8_DestroyIPSt6vectorIN2cv3MatESaIS2_EES4_EvT_S6_RSaIT0_E.exit.i.i: ; preds =
   br label %_ZNSt6vectorIS_IN2cv3MatESaIS1_EESaIS3_EE6resizeEm.exit
 
 _ZNSt6vectorIS_IN2cv3MatESaIS1_EESaIS3_EE6resizeEm.exit: ; preds = %234, %236, %238, %_ZSt8_DestroyIPSt6vectorIN2cv3MatESaIS2_EES4_EvT_S6_RSaIT0_E.exit.i.i
-  br i1 %.not.i.i.i.i, label %._crit_edge213, label %.lr.ph212.preheader
+  br i1 %.not.i.i.i.i, label %._crit_edge213, label %.lr.ph212
 
-.lr.ph212.preheader:                              ; preds = %_ZNSt6vectorIS_IN2cv3MatESaIS1_EESaIS3_EE6resizeEm.exit
-  %umax225 = call i64 @llvm.umax.i64(i64 %15, i64 1)
-  br label %.lr.ph212
-
-.lr.ph212:                                        ; preds = %.lr.ph212.preheader, %._crit_edge210
-  %.2128211 = phi i64 [ %313, %._crit_edge210 ], [ 0, %.lr.ph212.preheader ]
+.lr.ph212:                                        ; preds = %_ZNSt6vectorIS_IN2cv3MatESaIS1_EESaIS3_EE6resizeEm.exit, %._crit_edge210
+  %.2128211 = phi i64 [ %313, %._crit_edge210 ], [ 0, %_ZNSt6vectorIS_IN2cv3MatESaIS1_EESaIS3_EE6resizeEm.exit ]
   %247 = load ptr, ptr %8, align 8, !tbaa !43
   %248 = getelementptr inbounds nuw %"class.std::vector.8", ptr %247, i64 %.2128211
   %249 = getelementptr inbounds nuw i8, ptr %248, i64 8
@@ -1273,7 +1262,6 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit:     ; preds = %266, %268, %270, %_
 
 .lr.ph209:                                        ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit
   %273 = trunc i64 %.2128211 to i32
-  %umax223 = call i64 @llvm.umax.i64(i64 %255, i64 1)
   br label %274
 
 274:                                              ; preds = %.lr.ph209, %311
@@ -1348,12 +1336,12 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit:     ; preds = %266, %268, %270, %_
 
 311:                                              ; preds = %293, %292
   %312 = add nuw i64 %.1130208, 1
-  %exitcond224.not = icmp eq i64 %312, %umax223
+  %exitcond224.not = icmp eq i64 %312, %255
   br i1 %exitcond224.not, label %._crit_edge210, label %274, !llvm.loop !100
 
 ._crit_edge210:                                   ; preds = %311, %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit
   %313 = add nuw i64 %.2128211, 1
-  %exitcond226.not = icmp eq i64 %313, %umax225
+  %exitcond226.not = icmp eq i64 %313, %15
   br i1 %exitcond226.not, label %._crit_edge213, label %.lr.ph212, !llvm.loop !101
 
 ._crit_edge213:                                   ; preds = %._crit_edge210, %_ZNSt6vectorIS_IN2cv3MatESaIS1_EESaIS3_EE6resizeEm.exit
@@ -1939,7 +1927,6 @@ define hidden noundef i32 @_ZN6cvtest9ArrayTest21validate_test_resultsEi(ptr nou
 
 .lr.ph:                                           ; preds = %.preheader104
   %36 = getelementptr inbounds nuw [7 x ptr], ptr @_ZZN6cvtest9ArrayTest21validate_test_resultsEiE9arr_names, i64 0, i64 %17
-  %umax = tail call i64 @llvm.umax.i64(i64 %26, i64 1)
   br label %50
 
 37:                                               ; preds = %14
@@ -2212,7 +2199,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit92: ; preds = %_ZN
 
 162:                                              ; preds = %50, %56
   %163 = add nuw i64 %.055115, 1
-  %exitcond.not = icmp eq i64 %163, %umax
+  %exitcond.not = icmp eq i64 %163, %26
   br i1 %exitcond.not, label %.thread100, label %50, !llvm.loop !128
 
 ._crit_edge:                                      ; preds = %.loopexit, %.preheader103

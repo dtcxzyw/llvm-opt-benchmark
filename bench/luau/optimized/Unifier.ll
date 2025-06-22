@@ -10462,24 +10462,20 @@ _ZNSt14_Optional_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   %174 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %175 = load ptr, ptr %174, align 8, !tbaa !200
   %176 = load ptr, ptr %3, align 8, !tbaa !202
-  %.not495 = icmp eq ptr %175, %176
-  br i1 %.not495, label %_ZNK4Luau12DenseHashSetISt4pairIPKNS_4TypeES4_ENS_14TypeIdPairHashESt8equal_toIS5_EE8containsERKS5_.exit.thread431, label %.lr.ph471.preheader
-
-.lr.ph471.preheader:                              ; preds = %.preheader
   %177 = ptrtoint ptr %175 to i64
   %178 = ptrtoint ptr %176 to i64
   %179 = sub i64 %177, %178
   %180 = ashr exact i64 %179, 3
-  %umax = call i64 @llvm.umax.i64(i64 %180, i64 1)
-  br label %.lr.ph471
+  %.not495 = icmp eq ptr %175, %176
+  br i1 %.not495, label %_ZNK4Luau12DenseHashSetISt4pairIPKNS_4TypeES4_ENS_14TypeIdPairHashESt8equal_toIS5_EE8containsERKS5_.exit.thread431, label %.lr.ph471
 
 _ZNSt14_Optional_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4Luau13SingletonTypeEELb0ELb0EED2Ev.exit231: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i229, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i230, %_ZNSt14_Optional_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4Luau13SingletonTypeEELb0ELb0EED2Ev.exit, %102
   %.pn175.pn = phi { ptr, i32 } [ %103, %102 ], [ %.pn175, %_ZNSt14_Optional_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4Luau13SingletonTypeEELb0ELb0EED2Ev.exit ], [ %.pn175, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i230 ], [ %.pn175, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i229 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %17) #29
   br label %1258
 
-.lr.ph471:                                        ; preds = %.lr.ph471.preheader, %183
-  %.0169470 = phi i64 [ %184, %183 ], [ 0, %.lr.ph471.preheader ]
+.lr.ph471:                                        ; preds = %.preheader, %183
+  %.0169470 = phi i64 [ %184, %183 ], [ 0, %.preheader ]
   %181 = getelementptr inbounds nuw ptr, ptr %176, i64 %.0169470
   %182 = load ptr, ptr %181, align 8, !tbaa !45
   %.not178 = icmp eq ptr %1, %182
@@ -10487,7 +10483,7 @@ _ZNSt14_Optional_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
 
 183:                                              ; preds = %.lr.ph471
   %184 = add nuw i64 %.0169470, 1
-  %exitcond.not = icmp eq i64 %184, %umax
+  %exitcond.not = icmp eq i64 %184, %180
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph471, !llvm.loop !341
 
 ._crit_edge:                                      ; preds = %183
@@ -10562,7 +10558,7 @@ _ZNSt14_Optional_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
 
 _ZNK4Luau12DenseHashSetISt4pairIPKNS_4TypeES4_ENS_14TypeIdPairHashESt8equal_toIS5_EE8containsERKS5_.exit: ; preds = %228, %224, %201
   %231 = add nuw i64 %.0167477, 1
-  %exitcond502.not = icmp eq i64 %231, %umax
+  %exitcond502.not = icmp eq i64 %231, %180
   br i1 %exitcond502.not, label %_ZNK4Luau12DenseHashSetISt4pairIPKNS_4TypeES4_ENS_14TypeIdPairHashESt8equal_toIS5_EE8containsERKS5_.exit.thread431, label %201, !llvm.loop !342
 
 _ZNK4Luau12DenseHashSetISt4pairIPKNS_4TypeES4_ENS_14TypeIdPairHashESt8equal_toIS5_EE8containsERKS5_.exit.thread431: ; preds = %.lr.ph471, %_ZNK4Luau12DenseHashSetISt4pairIPKNS_4TypeES4_ENS_14TypeIdPairHashESt8equal_toIS5_EE8containsERKS5_.exit, %216, %.preheader, %.lr.ph480, %_ZNSt14_Optional_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4Luau13SingletonTypeEELb0ELb0EED2Ev.exit234._ZNK4Luau12DenseHashSetISt4pairIPKNS_4TypeES4_ENS_14TypeIdPairHashESt8equal_toIS5_EE8containsERKS5_.exit.thread431_crit_edge, %._crit_edge
@@ -13046,7 +13042,6 @@ define dso_local void @_ZN4Luau7Unifier28tryUnifyIntersectionWithTypeEPKNS_4Type
   %57 = load ptr, ptr %56, align 8, !tbaa !240
   %58 = load ptr, ptr %55, align 8
   %59 = icmp eq ptr %3, %58
-  %umax = tail call i64 @llvm.umax.i64(i64 %45, i64 1)
   br label %60
 
 60:                                               ; preds = %.lr.ph.split, %_ZNK4Luau12DenseHashSetISt4pairIPKNS_4TypeES4_ENS_14TypeIdPairHashESt8equal_toIS5_EE8containsERKS5_.exit
@@ -13095,7 +13090,7 @@ define dso_local void @_ZN4Luau7Unifier28tryUnifyIntersectionWithTypeEPKNS_4Type
 
 _ZNK4Luau12DenseHashSetISt4pairIPKNS_4TypeES4_ENS_14TypeIdPairHashESt8equal_toIS5_EE8containsERKS5_.exit: ; preds = %86, %82, %60
   %89 = add nuw i64 %.046231, 1
-  %exitcond.not = icmp eq i64 %89, %umax
+  %exitcond.not = icmp eq i64 %89, %45
   br i1 %exitcond.not, label %_ZNK4Luau12DenseHashSetISt4pairIPKNS_4TypeES4_ENS_14TypeIdPairHashESt8equal_toIS5_EE8containsERKS5_.exit.thread222, label %60, !llvm.loop !358
 
 _ZNK4Luau12DenseHashSetISt4pairIPKNS_4TypeES4_ENS_14TypeIdPairHashESt8equal_toIS5_EE8containsERKS5_.exit.thread222: ; preds = %_ZNK4Luau12DenseHashSetISt4pairIPKNS_4TypeES4_ENS_14TypeIdPairHashESt8equal_toIS5_EE8containsERKS5_.exit, %74, %.lr.ph, %35, %6

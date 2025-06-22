@@ -199,7 +199,6 @@ define dso_local noundef zeroext i1 @_ZN21cmParseJacocoCoverage16LoadCoverageDat
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 112
   %33 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %umax = call i64 @llvm.umax.i64(i64 %16, i64 1)
   br label %35
 
 35:                                               ; preds = %.lr.ph, %127
@@ -460,7 +459,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i21
 
 127:                                              ; preds = %109, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20
   %128 = add nuw i64 %.01339, 1
-  %exitcond.not = icmp eq i64 %128, %umax
+  %exitcond.not = icmp eq i64 %128, %16
   br i1 %exitcond.not, label %._crit_edge, label %35, !llvm.loop !81
 
 ._crit_edge:                                      ; preds = %127

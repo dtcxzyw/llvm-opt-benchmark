@@ -15713,15 +15713,11 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPN10ClipperLib13IntersectNodeESt6vecto
   %90 = sub i64 %88, %89
   %91 = ashr exact i64 %90, 3
   %.not2532 = icmp eq ptr %86, %87
-  br i1 %.not2532, label %.critedge27, label %.lr.ph.preheader
+  br i1 %.not2532, label %.critedge27, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPN10ClipperLib13IntersectNodeESt6vectorIS4_SaIS4_EEEEPFbS4_S4_EEvT_SC_T0_.exit
-  %umax37 = tail call i64 @llvm.umax.i64(i64 %91, i64 1)
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN10ClipperLib13EdgesAdjacentERKNS_13IntersectNodeE.exit.thread
-  %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN10ClipperLib13EdgesAdjacentERKNS_13IntersectNodeE.exit.thread ]
-  %.02133 = phi i64 [ 0, %.lr.ph.preheader ], [ %122, %_ZN10ClipperLib13EdgesAdjacentERKNS_13IntersectNodeE.exit.thread ]
+.lr.ph:                                           ; preds = %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPN10ClipperLib13IntersectNodeESt6vectorIS4_SaIS4_EEEEPFbS4_S4_EEvT_SC_T0_.exit, %_ZN10ClipperLib13EdgesAdjacentERKNS_13IntersectNodeE.exit.thread
+  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN10ClipperLib13EdgesAdjacentERKNS_13IntersectNodeE.exit.thread ], [ 1, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPN10ClipperLib13IntersectNodeESt6vectorIS4_SaIS4_EEEEPFbS4_S4_EEvT_SC_T0_.exit ]
+  %.02133 = phi i64 [ %122, %_ZN10ClipperLib13EdgesAdjacentERKNS_13IntersectNodeE.exit.thread ], [ 0, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPN10ClipperLib13IntersectNodeESt6vectorIS4_SaIS4_EEEEPFbS4_S4_EEvT_SC_T0_.exit ]
   %umax = tail call i64 @llvm.umax.i64(i64 %91, i64 %indvars.iv)
   %92 = load ptr, ptr %15, align 8
   %93 = getelementptr inbounds nuw ptr, ptr %92, i64 %.02133
@@ -15787,7 +15783,7 @@ _ZN10ClipperLib13EdgesAdjacentERKNS_13IntersectNodeE.exit.thread: ; preds = %.lr
   tail call void @_ZN10ClipperLib7Clipper18SwapPositionsInSELEPNS_5TEdgeES2_(ptr noundef nonnull align 8 dereferenceable(135) %0, ptr noundef %121, ptr noundef %120)
   %122 = add nuw i64 %.02133, 1
   %indvars.iv.next = add i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %122, %umax37
+  %exitcond.not = icmp eq i64 %122, %91
   br i1 %exitcond.not, label %.critedge27, label %.lr.ph, !llvm.loop !136
 
 .critedge27:                                      ; preds = %.critedge, %_ZN10ClipperLib13EdgesAdjacentERKNS_13IntersectNodeE.exit.thread, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPN10ClipperLib13IntersectNodeESt6vectorIS4_SaIS4_EEEEPFbS4_S4_EEvT_SC_T0_.exit
@@ -24316,11 +24312,7 @@ define hidden void @_ZN10ClipperLib12CleanPolygonERKSt6vectorINS_8IntPointESaIS1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 40
   %28 = icmp eq ptr %27, %23
-  br i1 %28, label %.lr.ph.preheader, label %24
-
-.lr.ph.preheader:                                 ; preds = %24
-  %umax = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
-  br label %.lr.ph
+  br i1 %28, label %.lr.ph, label %24
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %29 = fmul double %2, %2
@@ -24328,8 +24320,8 @@ define hidden void @_ZN10ClipperLib12CleanPolygonERKSt6vectorINS_8IntPointESaIS1
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %.lr.ph77.outer, label %.critedge
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.06673 = phi i64 [ %35, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %24, %.lr.ph
+  %.06673 = phi i64 [ %35, %.lr.ph ], [ 0, %24 ]
   %32 = getelementptr inbounds nuw %"struct.ClipperLib::IntPoint", ptr %6, i64 %.06673
   %33 = getelementptr inbounds nuw %"struct.ClipperLib::OutPt", ptr %22, i64 %.06673
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
@@ -24343,7 +24335,7 @@ define hidden void @_ZN10ClipperLib12CleanPolygonERKSt6vectorINS_8IntPointESaIS1
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 32
   store ptr %33, ptr %40, align 8
   store i32 0, ptr %33, align 8
-  %exitcond.not = icmp eq i64 %35, %umax
+  %exitcond.not = icmp eq i64 %35, %10
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !278
 
 .lr.ph77:                                         ; preds = %.lr.ph77.outer, %82
@@ -24644,7 +24636,6 @@ _ZNSt6vectorIS_IN10ClipperLib8IntPointESaIS1_EESaIS3_EE7reserveEm.exit: ; preds 
   br i1 %32, label %.lr.ph296.split.us, label %.lr.ph296.split.preheader
 
 .lr.ph296.split.preheader:                        ; preds = %.lr.ph296
-  %umax = tail call i64 @llvm.umax.i64(i64 %24, i64 1)
   %.not351 = icmp eq ptr %12, %13
   br label %.lr.ph296.split
 
@@ -24665,7 +24656,6 @@ _ZNSt6vectorIS_IN10ClipperLib8IntPointESaIS1_EESaIS3_EE7reserveEm.exit: ; preds 
   br i1 %36, label %.lr.ph301.split.us, label %.lr.ph301.split.preheader
 
 .lr.ph301.split.preheader:                        ; preds = %.lr.ph301
-  %umax337 = tail call i64 @llvm.umax.i64(i64 %24, i64 1)
   %.not352 = icmp eq ptr %12, %13
   br label %.lr.ph301.split
 
@@ -24914,7 +24904,7 @@ _ZNSt6vectorIS_IN10ClipperLib8IntPointESaIS1_EESaIS3_EE9push_backERKS3_.exit: ; 
 _ZNSt6vectorIN10ClipperLib8IntPointESaIS1_EED2Ev.exit: ; preds = %_ZNSt6vectorIS_IN10ClipperLib8IntPointESaIS1_EESaIS3_EE9push_backERKS3_.exit, %116
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #31
   %121 = add nuw i64 %.069300, 1
-  %exitcond338.not = icmp eq i64 %121, %umax337
+  %exitcond338.not = icmp eq i64 %121, %24
   br i1 %exitcond338.not, label %.loopexit261, label %.lr.ph301.split, !llvm.loop !287
 
 122:                                              ; preds = %.loopexit255, %.loopexit.split-lp256, %.loopexit262, %.loopexit.split-lp263
@@ -25169,7 +25159,7 @@ _ZNSt6vectorIS_IN10ClipperLib8IntPointESaIS1_EESaIS3_EE9push_backERKS3_.exit122:
 _ZNSt6vectorIN10ClipperLib8IntPointESaIS1_EED2Ev.exit140: ; preds = %_ZNSt6vectorIS_IN10ClipperLib8IntPointESaIS1_EESaIS3_EE9push_backERKS3_.exit122, %203
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #31
   %208 = add nuw i64 %.067295, 1
-  %exitcond.not = icmp eq i64 %208, %umax
+  %exitcond.not = icmp eq i64 %208, %24
   br i1 %exitcond.not, label %.loopexit261, label %.lr.ph296.split, !llvm.loop !293
 
 209:                                              ; preds = %.loopexit267, %.loopexit.split-lp268, %.loopexit274, %.loopexit.split-lp275
@@ -25315,14 +25305,10 @@ _ZNSt6vectorIS_IN10ClipperLib8IntPointESaIS1_EESaIS3_EE7reserveEm.exit157: ; pre
   %.not325 = icmp eq ptr %12, %13
   %264 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %265 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  br i1 %.not325, label %._crit_edge307, label %.preheader.us.preheader
+  br i1 %.not325, label %._crit_edge307, label %.preheader.us
 
-.preheader.us.preheader:                          ; preds = %.preheader.lr.ph
-  %umax339 = call i64 @llvm.umax.i64(i64 %17, i64 1)
-  br label %.preheader.us
-
-.preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge305.us
-  %.065306.us = phi i64 [ %266, %._crit_edge305.us ], [ 0, %.preheader.us.preheader ]
+.preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge305.us
+  %.065306.us = phi i64 [ %266, %._crit_edge305.us ], [ 0, %.preheader.lr.ph ]
   %266 = add nuw i64 %.065306.us, 1
   br label %_ZNSt12_Vector_baseIN10ClipperLib8IntPointESaIS1_EE11_M_allocateEm.exit.i162.us
 
@@ -25494,7 +25480,7 @@ _ZNSt6vectorIS_IN10ClipperLib8IntPointESaIS1_EESaIS3_EE9push_backERKS3_.exit243.
 
 _ZNSt6vectorIN10ClipperLib8IntPointESaIS1_EED2Ev.exit245.us: ; preds = %335, %_ZNSt6vectorIS_IN10ClipperLib8IntPointESaIS1_EESaIS3_EE9push_backERKS3_.exit243.us
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #31
-  %exitcond340.not = icmp eq i64 %281, %umax339
+  %exitcond340.not = icmp eq i64 %281, %17
   br i1 %exitcond340.not, label %._crit_edge305.us, label %_ZNSt12_Vector_baseIN10ClipperLib8IntPointESaIS1_EE11_M_allocateEm.exit.i162.us, !llvm.loop !299
 
 ._crit_edge305.us:                                ; preds = %_ZNSt6vectorIN10ClipperLib8IntPointESaIS1_EED2Ev.exit245.us

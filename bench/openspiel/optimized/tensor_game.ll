@@ -1980,17 +1980,16 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   %105 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %106 = load ptr, ptr %105, align 8
   %107 = load ptr, ptr %35, align 8
-  %.not.i36 = icmp eq ptr %106, %107
-  br i1 %.not.i36, label %._crit_edge14.thread.i, label %.preheader1.lr.ph.i
-
-.preheader1.lr.ph.i:                              ; preds = %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKSt6vectorIdSaIdEES2_IS4_SaIS4_EEEEZN10open_spiel11tensor_game16CreateTensorGameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_RKS2_IS2_ISH_SaISH_EESaISL_EERKS8_E3$_1EbT_ST_T0_.exit.thread"
   %108 = ptrtoint ptr %106 to i64
   %109 = ptrtoint ptr %107 to i64
   %110 = sub i64 %108, %109
   %111 = ashr exact i64 %110, 3
+  %.not.i36 = icmp eq ptr %106, %107
+  br i1 %.not.i36, label %._crit_edge14.thread.i, label %.preheader1.lr.ph.i
+
+.preheader1.lr.ph.i:                              ; preds = %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKSt6vectorIdSaIdEES2_IS4_SaIS4_EEEEZN10open_spiel11tensor_game16CreateTensorGameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_RKS2_IS2_ISH_SaISH_EESaISL_EERKS8_E3$_1EbT_ST_T0_.exit.thread"
   %.not47.i = icmp eq ptr %.8.val.fr.i, %35
   %112 = icmp ugt i64 %41, 1
-  %umax77.i = call i64 @llvm.umax.i64(i64 %111, i64 1)
   br i1 %112, label %.preheader1.lr.ph.split.us.i, label %.preheader1.lr.ph.split.i
 
 .preheader1.lr.ph.split.us.i:                     ; preds = %.preheader1.lr.ph.i
@@ -2037,7 +2036,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 .loopexit.us.us.i:                                ; preds = %122, %121, %119
   %.1.us.us.i = phi i8 [ 0, %119 ], [ 0, %122 ], [ 1, %121 ]
   %indvars.iv.next68.i = add nuw nsw i64 %indvars.iv67.i, 1
-  %exitcond70.not.i = icmp eq i64 %indvars.iv.next68.i, %umax77.i
+  %exitcond70.not.i = icmp eq i64 %indvars.iv.next68.i, %111
   br i1 %exitcond70.not.i, label %._crit_edge14.i.loopexit, label %.preheader1.us.us.i, !llvm.loop !41
 
 128:                                              ; preds = %128, %.preheader1.us.us.i
@@ -2079,7 +2078,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   %.135.us27.i = phi double [ %.03410.us24.i, %137 ], [ %143, %._crit_edge.us34.i ], [ %.03410.us24.i, %139 ]
   %.133.us28.i = phi i8 [ 0, %137 ], [ %.03211.us23.i, %._crit_edge.us34.i ], [ %spec.select.us26.i, %139 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %umax77.i
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %111
   br i1 %exitcond.not.i, label %._crit_edge14.i, label %._crit_edge.us34.i, !llvm.loop !41
 
 ._crit_edge.us34.i:                               ; preds = %.preheader1.lr.ph.split.i, %.preheader.us32.i
@@ -4741,7 +4740,6 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc11
   %26 = ashr exact i64 %25, 3
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %umax = tail call i64 @llvm.umax.i64(i64 %26, i64 1)
   br label %29
 
 29:                                               ; preds = %.lr.ph, %33
@@ -4755,7 +4753,7 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc11
   %34 = getelementptr inbounds nuw double, ptr %16, i64 %indvars.iv
   store double %32, ptr %34, align 8
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %26
   br i1 %exitcond.not, label %.loopexit, label %29, !llvm.loop !55
 
 .loopexit12:                                      ; preds = %29

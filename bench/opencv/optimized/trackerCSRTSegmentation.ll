@@ -976,7 +976,6 @@ define hidden void @_ZN2cv9Histogram18setHistogramVectorEPd(ptr noundef nonnull 
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
@@ -989,7 +988,7 @@ define hidden void @_ZN2cv9Histogram18setHistogramVectorEPd(ptr noundef nonnull 
   %13 = getelementptr inbounds nuw double, ptr %6, i64 %.05
   store double %12, ptr %13, align 8, !tbaa !22
   %14 = add nuw i64 %.05, 1
-  %exitcond.not = icmp eq i64 %14, %umax
+  %exitcond.not = icmp eq i64 %14, %10
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !66
 }
 

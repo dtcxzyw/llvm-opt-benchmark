@@ -1059,7 +1059,6 @@ _ZN9CGContext18reset_effect_accumERK6Effect.exit: ; preds = %345, %348, %361, %3
   %377 = sub i64 %375, %376
   %378 = ashr exact i64 %377, 3
   %379 = load ptr, ptr %8, align 8, !tbaa !44
-  %umax = call i64 @llvm.umax.i64(i64 %378, i64 1)
   br label %380
 
 380:                                              ; preds = %.lr.ph263, %394
@@ -1100,7 +1099,7 @@ _ZNSt6vectorIP9StatementSaIS1_EE6insertEN9__gnu_cxx17__normal_iteratorIPKS1_S3_E
 
 394:                                              ; preds = %380
   %395 = add nuw i64 %.1111262, 1
-  %exitcond.not = icmp eq i64 %395, %umax
+  %exitcond.not = icmp eq i64 %395, %378
   br i1 %exitcond.not, label %.loopexit, label %380, !llvm.loop !99
 
 .loopexit:                                        ; preds = %394, %.preheader229, %_ZNSt6vectorIP9StatementSaIS1_EE6insertEN9__gnu_cxx17__normal_iteratorIPKS1_S3_EEOS1_.exit

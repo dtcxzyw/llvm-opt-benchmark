@@ -248,7 +248,7 @@ define internal range(i32 0, 2) i32 @kdf_pkcs12_derive(ptr noundef %0, ptr nound
 
 .preheader157.i:                                  ; preds = %54
   %61 = trunc i32 %28 to i8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %41, i8 %61, i64 %40, i1 false), !tbaa !20
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %41, i8 %61, i64 %40, i1 false), !tbaa !20
   %.not184.i = icmp eq i64 %46, %47
   br i1 %.not184.i, label %.preheader155.i, label %.lr.ph.i
 
@@ -299,7 +299,7 @@ define internal range(i32 0, 2) i32 @kdf_pkcs12_derive(ptr noundef %0, ptr nound
 76:                                               ; preds = %.loopexit.i, %.lr.ph174.i
   %.0117173.i = phi ptr [ %1, %.lr.ph174.i ], [ %91, %.loopexit.i ]
   %.0118172.i = phi i64 [ %2, %.lr.ph174.i ], [ %90, %.loopexit.i ]
-  %77 = tail call i32 @EVP_DigestUpdate(ptr noundef nonnull %31, ptr noundef nonnull %41, i64 noundef %40) #6
+  %77 = tail call i32 @EVP_DigestUpdate(ptr noundef nonnull %31, ptr noundef %41, i64 noundef %40) #6
   %.not143.i = icmp eq i32 %77, 0
   br i1 %.not143.i, label %pkcs12kdf_derive.exit, label %78
 

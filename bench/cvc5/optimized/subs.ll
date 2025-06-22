@@ -1238,7 +1238,6 @@ define hidden void @_ZN4cvc58internal4Subs3addERKSt6vectorINS0_12NodeTemplateILb
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
@@ -1252,7 +1251,7 @@ define hidden void @_ZN4cvc58internal4Subs3addERKSt6vectorINS0_12NodeTemplateILb
   %14 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %13, i64 %.08
   tail call void @_ZN4cvc58internal4Subs3addERKNS0_12NodeTemplateILb1EEES5_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %14)
   %15 = add nuw i64 %.08, 1
-  %exitcond.not = icmp eq i64 %15, %umax
+  %exitcond.not = icmp eq i64 %15, %10
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !40
 }
 
@@ -1445,7 +1444,6 @@ define hidden void @_ZN4cvc58internal4Subs6appendERS1_(ptr noundef nonnull align
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
   %11 = ashr exact i64 %10, 3
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %11, i64 1)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -1456,7 +1454,7 @@ define hidden void @_ZN4cvc58internal4Subs6appendERS1_(ptr noundef nonnull align
   %15 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %14, i64 %.08.i
   tail call void @_ZN4cvc58internal4Subs3addERKNS0_12NodeTemplateILb1EEES5_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %15)
   %16 = add nuw i64 %.08.i, 1
-  %exitcond.not.i = icmp eq i64 %16, %umax.i
+  %exitcond.not.i = icmp eq i64 %16, %11
   br i1 %exitcond.not.i, label %_ZN4cvc58internal4Subs3addERKSt6vectorINS0_12NodeTemplateILb1EEESaIS4_EES8_.exit, label %.lr.ph.i, !llvm.loop !40
 
 _ZN4cvc58internal4Subs3addERKSt6vectorINS0_12NodeTemplateILb1EEESaIS4_EES8_.exit: ; preds = %.lr.ph.i, %2
@@ -1688,7 +1686,6 @@ define hidden void @_ZNK4cvc58internal4Subs12applyToRangeERS1_(ptr noundef nonnu
   %15 = ptrtoint ptr %13 to i64
   %16 = sub i64 %14, %15
   %17 = ashr exact i64 %16, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %17, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
@@ -1782,7 +1779,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %46, %40, %.lr.ph,
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit, %53, %59
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
   %63 = add nuw i64 %.013, 1
-  %exitcond.not = icmp eq i64 %63, %umax
+  %exitcond.not = icmp eq i64 %63, %17
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !65
 
 64:                                               ; preds = %48, %33
@@ -1820,7 +1817,6 @@ define hidden void @_ZNK4cvc58internal4Subs13rapplyToRangeERS1_(ptr noundef nonn
   %16 = ptrtoint ptr %14 to i64
   %17 = sub i64 %15, %16
   %18 = ashr exact i64 %17, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %18, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit18
@@ -1973,7 +1969,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %_ZN4cvc58internal12
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit18: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, %84, %90
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
   %94 = add nuw i64 %.01119, 1
-  %exitcond.not = icmp eq i64 %94, %umax
+  %exitcond.not = icmp eq i64 %94, %18
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !66
 
 95:                                               ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit
@@ -2092,7 +2088,6 @@ define hidden void @_ZNK4cvc58internal4Subs5toMapEv(ptr dead_on_unwind noalias w
   %16 = sub i64 %14, %15
   %17 = ashr exact i64 %16, 3
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %umax = tail call i64 @llvm.umax.i64(i64 %17, i64 1)
   br label %19
 
 19:                                               ; preds = %.lr.ph, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit
@@ -2209,7 +2204,7 @@ _ZN4cvc58internal4expr9NodeValue3decEv.exit.i:    ; preds = %55, %49, %46
 
 _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %68, %62, %42, %70
   %72 = add nuw i64 %.010, 1
-  %exitcond.not = icmp eq i64 %72, %umax
+  %exitcond.not = icmp eq i64 %72, %17
   br i1 %exitcond.not, label %._crit_edge, label %19, !llvm.loop !85
 
 73:                                               ; preds = %70, %55, %.critedge.i
@@ -2263,7 +2258,6 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %2
   %12 = sub i64 %10, %11
   %13 = ashr exact i64 %12, 3
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %umax = call i64 @llvm.umax.i64(i64 %13, i64 1)
   br label %18
 
 ._crit_edge:                                      ; preds = %_ZN4cvc58internallsERSoNS0_12NodeTemplateILb0EEE.exit18, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
@@ -2309,7 +2303,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit17: ; preds = %_ZN4c
 
 _ZN4cvc58internallsERSoNS0_12NodeTemplateILb0EEE.exit18: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit17
   %30 = add nuw i64 %.0820, 1
-  %exitcond.not = icmp eq i64 %30, %umax
+  %exitcond.not = icmp eq i64 %30, %13
   br i1 %exitcond.not, label %._crit_edge, label %18, !llvm.loop !86
 
 31:                                               ; preds = %_ZN4cvc58internallsERSoNS0_12NodeTemplateILb0EEE.exit, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit16

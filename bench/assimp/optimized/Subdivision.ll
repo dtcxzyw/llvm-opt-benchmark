@@ -2296,7 +2296,6 @@ _ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i530: ; preds = %_ZNSt6vecto
 
 .lr.ph1313.preheader:                             ; preds = %.preheader1203
   %849 = ashr exact i64 %848, 2
-  %umax = call i64 @llvm.umax.i64(i64 %849, i64 1)
   br label %.lr.ph1313
 
 850:                                              ; preds = %814, %812
@@ -2397,7 +2396,7 @@ _ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit539:         ; preds = %._crit_edge1304, %.
   %891 = getelementptr inbounds nuw i32, ptr %.sroa.01054.01165, i64 %.03531311
   %892 = load i32, ptr %891, align 4
   %893 = add i32 %892, %.03511312
-  %exitcond1436.not = icmp eq i64 %889, %umax
+  %exitcond1436.not = icmp eq i64 %889, %849
   br i1 %exitcond1436.not, label %.preheader1202, label %.lr.ph1313, !llvm.loop !57
 
 ._crit_edge1325:                                  ; preds = %._crit_edge1322, %.preheader1202

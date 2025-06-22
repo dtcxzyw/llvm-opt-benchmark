@@ -43835,8 +43835,6 @@ _Z9get_depthPK4expr.exit.thread:                  ; preds = %72, %57, %83, %_Z9g
   store i32 0, ptr %88, align 8, !tbaa !318
   %89 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 16, ptr %89, align 4, !tbaa !319
-  %umax = call i32 @llvm.umax.i32(i32 %2, i32 1)
-  %wide.trip.count88 = zext i32 %umax to i64
   br label %90
 
 90:                                               ; preds = %_Z9get_depthPK4expr.exit.thread, %._crit_edge.i
@@ -43906,7 +43904,7 @@ _ZN6bufferIP4exprLb0ELj16EE6expandEv.exit.i:      ; preds = %.noexc39, %._crit_e
   %112 = add i32 %108, 1
   store i32 %112, ptr %88, align 8, !tbaa !318
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
-  %exitcond89.not = icmp eq i64 %indvars.iv.next86, %wide.trip.count88
+  %exitcond89.not = icmp eq i64 %indvars.iv.next86, %wide.trip.count
   br i1 %exitcond89.not, label %115, label %90, !llvm.loop !572
 
 113:                                              ; preds = %101, %94

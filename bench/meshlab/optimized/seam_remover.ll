@@ -5045,7 +5045,6 @@ _ZNSt6vectorIP8MeshFaceSaIS1_EE9push_backEOS1_.exit: ; preds = %_ZN3vcg4face10Is
 
 .lr.ph89:                                         ; preds = %.noexc33, %.noexc32, %77
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %umax = tail call i64 @llvm.umax.i64(i64 %69, i64 1)
   br label %79
 
 79:                                               ; preds = %.lr.ph89, %_ZN3vcg4face10IsManifoldI8MeshFaceEEbRKT_i.exit40.thread
@@ -5174,7 +5173,7 @@ _ZN3vcg4face8FFDetachI8MeshFaceEEvRT_i.exit:      ; preds = %.lr.ph.i, %121
 _ZN3vcg4face10IsManifoldI8MeshFaceEEbRKT_i.exit40.thread: ; preds = %_ZN3vcg4face10IsManifoldI8MeshFaceEEbRKT_i.exit38.thread, %79, %140, %_ZN3vcg4face10IsManifoldI8MeshFaceEEbRKT_i.exit40
   %.1 = phi i32 [ %.02288, %79 ], [ %.02288, %_ZN3vcg4face10IsManifoldI8MeshFaceEEbRKT_i.exit40 ], [ %145, %140 ], [ %.02288, %_ZN3vcg4face10IsManifoldI8MeshFaceEEbRKT_i.exit38.thread ]
   %146 = add nuw i64 %.02387, 1
-  %exitcond97.not = icmp eq i64 %146, %umax
+  %exitcond97.not = icmp eq i64 %146, %69
   br i1 %exitcond97.not, label %._crit_edge90, label %79, !llvm.loop !43
 
 ._crit_edge90:                                    ; preds = %_ZN3vcg4face10IsManifoldI8MeshFaceEEbRKT_i.exit40.thread, %._crit_edge
@@ -71670,15 +71669,11 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3vcg3tri14UpdateTopologyI4MeshE5PEdge
   %20 = sub i64 %18, %19
   %21 = ashr exact i64 %20, 5
   %.not = icmp eq ptr %.pre, %.pre24
-  br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3vcg3tri14UpdateTopologyI4MeshE5PEdgeESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit
-  %umax = call i64 @llvm.umax.i64(i64 %21, i64 1)
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %53
-  %.023 = phi i64 [ %22, %53 ], [ 0, %.lr.ph.preheader ]
-  %.01722 = phi i64 [ %.1, %53 ], [ 1, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3vcg3tri14UpdateTopologyI4MeshE5PEdgeESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit, %53
+  %.023 = phi i64 [ %22, %53 ], [ 0, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3vcg3tri14UpdateTopologyI4MeshE5PEdgeESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit ]
+  %.01722 = phi i64 [ %.1, %53 ], [ 1, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3vcg3tri14UpdateTopologyI4MeshE5PEdgeESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit ]
   %22 = add nuw i64 %.023, 1
   %23 = icmp eq i64 %22, %21
   br i1 %23, label %36, label %24
@@ -71740,7 +71735,7 @@ _ZNSt6vectorIN3vcg3tri14UpdateTopologyI4MeshE5PEdgeESaIS5_EED2Ev.exit: ; preds =
 
 53:                                               ; preds = %.thread, %46, %48, %51
   %.1 = phi i64 [ %52, %51 ], [ 1, %48 ], [ 1, %46 ], [ 1, %.thread ]
-  %exitcond.not = icmp eq i64 %22, %umax
+  %exitcond.not = icmp eq i64 %22, %21
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !661
 
 ._crit_edge:                                      ; preds = %53, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3vcg3tri14UpdateTopologyI4MeshE5PEdgeESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit.thread, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3vcg3tri14UpdateTopologyI4MeshE5PEdgeESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit

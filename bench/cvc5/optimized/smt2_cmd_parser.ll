@@ -8958,7 +8958,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit769: ; preds = %_Z
   %1780 = getelementptr inbounds nuw i8, ptr %105, i64 16
   %1781 = getelementptr inbounds nuw i8, ptr %103, i64 8
   %1782 = getelementptr inbounds nuw i8, ptr %103, i64 16
-  %umax = call i64 @llvm.umax.i64(i64 %1774, i64 1)
   br label %1784
 
 ._crit_edge1265:                                  ; preds = %_ZNSt6vectorIN4cvc54TermESaIS1_EED2Ev.exit788, %1768
@@ -9104,7 +9103,7 @@ _ZSt8_DestroyIPN4cvc54TermES1_EvT_S3_RSaIT0_E.exit.i786: ; preds = %_ZSt8_Destro
 _ZNSt6vectorIN4cvc54TermESaIS1_EED2Ev.exit788:    ; preds = %_ZSt8_DestroyIPN4cvc54TermES1_EvT_S3_RSaIT0_E.exit.i786, %1834
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %103) #22
   %1839 = add nuw i64 %.02651262, 1
-  %exitcond1271.not = icmp eq i64 %1839, %umax
+  %exitcond1271.not = icmp eq i64 %1839, %1774
   br i1 %exitcond1271.not, label %._crit_edge1265, label %1784, !llvm.loop !110
 
 1840:                                             ; preds = %_ZN4cvc54TermC2ERKS0_.exit772

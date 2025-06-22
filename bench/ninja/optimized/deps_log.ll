@@ -1987,7 +1987,6 @@ define dso_local noundef ptr @_ZN7DepsLog23GetFirstReverseDepsNodeEP4Node(ptr no
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %.lr.ph33
 
 .lr.ph33:                                         ; preds = %.lr.ph33.preheader, %.loopexit
@@ -2030,7 +2029,7 @@ define dso_local noundef ptr @_ZN7DepsLog23GetFirstReverseDepsNodeEP4Node(ptr no
 
 .loopexit:                                        ; preds = %17, %.preheader, %.lr.ph33
   %27 = add nuw i64 %.01931, 1
-  %exitcond36.not = icmp eq i64 %27, %umax
+  %exitcond36.not = icmp eq i64 %27, %10
   br i1 %exitcond36.not, label %.loopexit26, label %.lr.ph33, !llvm.loop !77
 
 .loopexit26:                                      ; preds = %.loopexit, %2, %22

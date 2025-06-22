@@ -34553,7 +34553,6 @@ _ZN14polars_parquet5arrow5write6nested6dremel5Level17next_level_length17h4578c80
 .lr.ph.i:                                         ; preds = %120
   %124 = load i64, ptr %8, align 8, !alias.scope !3049
   %125 = load ptr, ptr %31, align 8, !alias.scope !3049
-  %umax.i = call i64 @llvm.umax.i64(i64 %.sroa.0.0.sroa.speculated.i108.i, i64 1)
   br label %126
 
 126:                                              ; preds = %192, %.lr.ph.i
@@ -34700,7 +34699,7 @@ _ZN14polars_parquet5arrow5write6nested6dremel5Level17next_level_length17h4578c80
   %195 = load i16, ptr %194, align 2, !noundef !3
   store i16 %195, ptr %30, align 8, !alias.scope !3049
   %196 = add i64 %130, 1
-  %exitcond.not.i = icmp eq i64 %130, %umax.i
+  %exitcond.not.i = icmp eq i64 %130, %.sroa.0.0.sroa.speculated.i108.i
   br i1 %exitcond.not.i, label %.loopexit237.i, label %126
 
 197:                                              ; preds = %183

@@ -34,12 +34,12 @@ define internal noundef i32 @amr_init(ptr readnone captures(none) %0, i32 %1, pt
 ; Function Attrs: nounwind uwtable
 define internal i32 @amr_parse_sdp_line(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #1 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
   %6 = icmp slt i32 %1, 0
   br i1 %6, label %28, label %7
 
 7:                                                ; preds = %4
-  %8 = call i32 @av_strstart(ptr noundef %3, ptr noundef nonnull @.str.2, ptr noundef nonnull %5) #9
+  %8 = call i32 @av_strstart(ptr noundef %3, ptr noundef nonnull @.str.2, ptr noundef nonnull %5) #8
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %28, label %9
 
@@ -50,7 +50,7 @@ define internal i32 @amr_parse_sdp_line(ptr noundef %0, i32 noundef %1, ptr noun
   %13 = getelementptr inbounds nuw ptr, ptr %11, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !26
   %15 = load ptr, ptr %5, align 8, !tbaa !28
-  %16 = call i32 @ff_parse_fmtp(ptr noundef %0, ptr noundef %14, ptr noundef %2, ptr noundef %15, ptr noundef nonnull @amr_parse_fmtp) #9
+  %16 = call i32 @ff_parse_fmtp(ptr noundef %0, ptr noundef %14, ptr noundef %2, ptr noundef %15, ptr noundef nonnull @amr_parse_fmtp) #8
   %17 = load i32, ptr %2, align 4, !tbaa !29
   %.not13 = icmp eq i32 %17, 0
   br i1 %.not13, label %27, label %18
@@ -74,12 +74,12 @@ define internal i32 @amr_parse_sdp_line(ptr noundef %0, i32 noundef %1, ptr noun
   br i1 %.not16, label %28, label %27
 
 27:                                               ; preds = %24, %21, %18, %9
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.3) #9
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.3) #8
   br label %28
 
 28:                                               ; preds = %7, %24, %4, %27
   %.0 = phi i32 [ -1, %27 ], [ 0, %4 ], [ %16, %24 ], [ 0, %7 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
   ret i32 %.0
 }
 
@@ -98,7 +98,7 @@ define internal range(i32 -2147483648, 1) i32 @amr_handle_packet(ptr noundef %0,
   br label %16
 
 15:                                               ; preds = %9
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.11) #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.11) #8
   br label %86
 
 16:                                               ; preds = %9, %14
@@ -109,12 +109,12 @@ define internal range(i32 -2147483648, 1) i32 @amr_handle_packet(ptr noundef %0,
   br i1 %.not, label %20, label %19
 
 19:                                               ; preds = %16
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.12) #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.12) #8
   br label %86
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %11, i64 128
-  tail call void @av_channel_layout_default(ptr noundef nonnull %21, i32 noundef 1) #9
+  tail call void @av_channel_layout_default(ptr noundef nonnull %21, i32 noundef 1) #8
   %22 = icmp sgt i32 %6, 1
   br i1 %22, label %.lr.ph.preheader, label %.critedge
 
@@ -145,22 +145,22 @@ define internal range(i32 -2147483648, 1) i32 @amr_handle_packet(ptr noundef %0,
   br i1 %.not76, label %29, label %28
 
 28:                                               ; preds = %.critedge
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.13) #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.13) #8
   br label %86
 
 29:                                               ; preds = %.critedge
   %30 = add nsw i32 %6, -1
-  %31 = tail call i32 @av_new_packet(ptr noundef %3, i32 noundef %30) #9
+  %31 = tail call i32 @av_new_packet(ptr noundef %3, i32 noundef %30) #8
   %32 = icmp slt i32 %31, 0
   br i1 %32, label %33, label %34
 
 33:                                               ; preds = %29
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.14) #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.14) #8
   br label %86
 
 34:                                               ; preds = %29
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  %36 = zext nneg i32 %.069.lcssa to i64
+  %36 = zext i32 %.069.lcssa to i64
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8, !tbaa !46
@@ -170,8 +170,6 @@ define internal range(i32 -2147483648, 1) i32 @amr_handle_packet(ptr noundef %0,
   %42 = load ptr, ptr %41, align 8, !tbaa !48
   %43 = sext i32 %6 to i64
   %44 = getelementptr inbounds i8, ptr %5, i64 %43
-  %umax = tail call i32 @llvm.umax.i32(i32 %.069.lcssa, i32 1)
-  %wide.trip.count95 = zext i32 %umax to i64
   br label %45
 
 45:                                               ; preds = %34, %67
@@ -192,7 +190,7 @@ define internal range(i32 -2147483648, 1) i32 @amr_handle_packet(ptr noundef %0,
   br i1 %.not77, label %.thread, label %67
 
 .thread:                                          ; preds = %45
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.15) #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.15) #8
   %55 = load ptr, ptr %41, align 8, !tbaa !48
   %56 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %57 = load i32, ptr %56, align 8, !tbaa !49
@@ -215,7 +213,7 @@ define internal range(i32 -2147483648, 1) i32 @amr_handle_packet(ptr noundef %0,
   store i8 %68, ptr %.06587, align 1, !tbaa !43
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %69, ptr align 1 %.06786, i64 %53, i1 false)
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 %53
-  %exitcond96.not = icmp eq i64 %indvars.iv.next93, %wide.trip.count95
+  %exitcond96.not = icmp eq i64 %indvars.iv.next93, %36
   br i1 %exitcond96.not, label %71, label %45
 
 71:                                               ; preds = %67
@@ -223,7 +221,7 @@ define internal range(i32 -2147483648, 1) i32 @amr_handle_packet(ptr noundef %0,
   br i1 %72, label %73, label %86
 
 73:                                               ; preds = %71
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.16) #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.16) #8
   %74 = load ptr, ptr %41, align 8, !tbaa !48
   %75 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %76 = load i32, ptr %75, align 8, !tbaa !49
@@ -259,52 +257,52 @@ define internal noundef i32 @amr_parse_fmtp(ptr noundef %0, ptr readnone capture
   br i1 %.not, label %6, label %7
 
 6:                                                ; preds = %5
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.5, ptr noundef %3) #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.5, ptr noundef %3) #8
   br label %7
 
 7:                                                ; preds = %6, %5
   %.0 = phi ptr [ %4, %5 ], [ @.str.6, %6 ]
-  %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(12) @.str.7) #10
+  %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(12) @.str.7) #9
   %.not15 = icmp eq i32 %8, 0
   br i1 %.not15, label %9, label %12
 
 9:                                                ; preds = %7
-  %10 = tail call i64 @strtol(ptr noundef nonnull captures(none) %.0, ptr noundef null, i32 noundef 10) #9
+  %10 = tail call i64 @strtol(ptr noundef nonnull captures(none) %.0, ptr noundef null, i32 noundef 10) #8
   %11 = trunc i64 %10 to i32
   store i32 %11, ptr %2, align 4, !tbaa !29
   br label %30
 
 12:                                               ; preds = %7
-  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(4) @.str.8) #10
+  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(4) @.str.8) #9
   %.not16 = icmp eq i32 %13, 0
   br i1 %.not16, label %14, label %18
 
 14:                                               ; preds = %12
-  %15 = tail call i64 @strtol(ptr noundef nonnull captures(none) %.0, ptr noundef null, i32 noundef 10) #9
+  %15 = tail call i64 @strtol(ptr noundef nonnull captures(none) %.0, ptr noundef null, i32 noundef 10) #8
   %16 = trunc i64 %15 to i32
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %16, ptr %17, align 4, !tbaa !30
   br label %30
 
 18:                                               ; preds = %12
-  %19 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(13) @.str.9) #10
+  %19 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(13) @.str.9) #9
   %.not17 = icmp eq i32 %19, 0
   br i1 %.not17, label %20, label %24
 
 20:                                               ; preds = %18
-  %21 = tail call i64 @strtol(ptr noundef nonnull captures(none) %.0, ptr noundef null, i32 noundef 10) #9
+  %21 = tail call i64 @strtol(ptr noundef nonnull captures(none) %.0, ptr noundef null, i32 noundef 10) #8
   %22 = trunc i64 %21 to i32
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %22, ptr %23, align 4, !tbaa !31
   br label %30
 
 24:                                               ; preds = %18
-  %25 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(9) @.str.10) #10
+  %25 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(9) @.str.10) #9
   %.not18 = icmp eq i32 %25, 0
   br i1 %.not18, label %26, label %30
 
 26:                                               ; preds = %24
-  %27 = tail call i64 @strtol(ptr noundef nonnull captures(none) %.0, ptr noundef null, i32 noundef 10) #9
+  %27 = tail call i64 @strtol(ptr noundef nonnull captures(none) %.0, ptr noundef null, i32 noundef 10) #8
   %28 = trunc i64 %27 to i32
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 %28, ptr %29, align 4, !tbaa !4
@@ -335,9 +333,6 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #8
-
 attributes #0 = { cold mustprogress nofree norecurse nosync nounwind optsize willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
@@ -346,9 +341,8 @@ attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nounwind }
-attributes #10 = { nounwind willreturn memory(read) }
+attributes #8 = { nounwind }
+attributes #9 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

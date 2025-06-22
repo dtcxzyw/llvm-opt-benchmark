@@ -1138,7 +1138,6 @@ _ZN2cv4Mat_IhEaSERKNS_7MatExprE.exit:             ; preds = %75
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 506
   %139 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %140 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %umax = call i64 @llvm.umax.i64(i64 %113, i64 1)
   br label %144
 
 ._crit_edge:                                      ; preds = %319
@@ -1566,7 +1565,7 @@ _ZNSt6vectorIN2cv23LineSegmentDetectorImpl11RegionPointESaIS2_EED2Ev.exit79: ; p
 
 319:                                              ; preds = %.sink.split, %144, %157
   %320 = add nuw i64 %.03582, 1
-  %exitcond.not = icmp eq i64 %320, %umax
+  %exitcond.not = icmp eq i64 %320, %113
   br i1 %exitcond.not, label %._crit_edge, label %144, !llvm.loop !123
 
 321:                                              ; preds = %142, %_ZNSt6vectorIN2cv23LineSegmentDetectorImpl11RegionPointESaIS2_EED2Ev.exit79, %68
@@ -2533,7 +2532,6 @@ define hidden void @_ZNK2cv23LineSegmentDetectorImpl11region2rectERKSt6vectorINS
   %17 = ptrtoint ptr %15 to i64
   %18 = sub i64 %16, %17
   %19 = ashr exact i64 %18, 5
-  %umax = tail call i64 @llvm.umax.i64(i64 %19, i64 1)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
@@ -2557,7 +2555,7 @@ define hidden void @_ZNK2cv23LineSegmentDetectorImpl11region2rectERKSt6vectorINS
   %32 = tail call double @llvm.fmuladd.f64(double %31, double %27, double %21)
   %33 = fadd double %.096, %27
   %34 = add nuw i64 %.07595, 1
-  %exitcond.not = icmp eq i64 %34, %umax
+  %exitcond.not = icmp eq i64 %34, %19
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !161
 
 ._crit_edge.thread:                               ; preds = %6, %._crit_edge
@@ -2614,7 +2612,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %53 = ptrtoint ptr %51 to i64
   %54 = sub i64 %52, %53
   %55 = ashr exact i64 %54, 5
-  %umax117 = tail call i64 @llvm.umax.i64(i64 %55, i64 1)
   br label %.lr.ph107
 
 ._crit_edge108.loopexit:                          ; preds = %96
@@ -2701,7 +2698,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.181 = phi double [ %86, %95 ], [ %.080103, %93 ], [ %.080103, %91 ]
   %.1 = phi double [ %.079104, %95 ], [ %.079104, %93 ], [ %86, %91 ]
   %97 = add nuw i64 %.078105, 1
-  %exitcond118.not = icmp eq i64 %97, %umax117
+  %exitcond118.not = icmp eq i64 %97, %55
   br i1 %exitcond118.not, label %._crit_edge108.loopexit, label %.lr.ph107, !llvm.loop !169
 
 98:                                               ; preds = %._crit_edge108
@@ -3212,7 +3209,6 @@ define hidden noundef double @_ZNK2cv23LineSegmentDetectorImpl9get_thetaERKSt6ve
   %15 = ashr exact i64 %14, 5
   %16 = load double, ptr %2, align 8, !tbaa !91
   %17 = load double, ptr %3, align 8, !tbaa !91
-  %umax = tail call i64 @llvm.umax.i64(i64 %15, i64 1)
   br label %25
 
 ._crit_edge:                                      ; preds = %25
@@ -3252,7 +3248,7 @@ _Z12double_equalRKdS0_.exit:                      ; preds = %._crit_edge
   %41 = fmul double %33, %40
   %42 = tail call double @llvm.fmuladd.f64(double %41, double %36, double %.05863)
   %43 = add nuw i64 %.066, 1
-  %exitcond.not = icmp eq i64 %43, %umax
+  %exitcond.not = icmp eq i64 %43, %15
   br i1 %exitcond.not, label %._crit_edge, label %25, !llvm.loop !181
 
 _Z12double_equalRKdS0_.exit.thread:               ; preds = %._crit_edge, %_Z12double_equalRKdS0_.exit

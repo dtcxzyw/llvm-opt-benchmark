@@ -297,12 +297,11 @@ define noundef ptr @_ZNK5draco10PointCloud27GetNamedAttributeByUniqueIdENS_17Geo
   %13 = ashr exact i64 %12, 2
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8, !tbaa !14
-  %umax = tail call i64 @llvm.umax.i64(i64 %13, i64 1)
   br label %18
 
 16:                                               ; preds = %18
   %17 = add nuw i64 %.01013, 1
-  %exitcond.not = icmp eq i64 %17, %umax
+  %exitcond.not = icmp eq i64 %17, %13
   br i1 %exitcond.not, label %._crit_edge, label %18, !llvm.loop !19
 
 18:                                               ; preds = %.lr.ph, %16
@@ -336,7 +335,6 @@ define noundef ptr @_ZNK5draco10PointCloud22GetAttributeByUniqueIdEj(ptr noundef
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %16, %.lr.ph.preheader.i
@@ -350,7 +348,7 @@ define noundef ptr @_ZNK5draco10PointCloud22GetAttributeByUniqueIdEj(ptr noundef
 
 16:                                               ; preds = %.lr.ph.i
   %17 = add nuw i64 %.0711.i, 1
-  %exitcond.not.i = icmp eq i64 %17, %umax.i
+  %exitcond.not.i = icmp eq i64 %17, %10
   br i1 %exitcond.not.i, label %_ZNK5draco10PointCloud24GetAttributeIdByUniqueIdEj.exit.thread, label %.lr.ph.i, !llvm.loop !30
 
 _ZNK5draco10PointCloud24GetAttributeIdByUniqueIdEj.exit: ; preds = %.lr.ph.i
@@ -384,7 +382,6 @@ define noundef i32 @_ZNK5draco10PointCloud24GetAttributeIdByUniqueIdEj(ptr nound
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %18
@@ -402,7 +399,7 @@ define noundef i32 @_ZNK5draco10PointCloud24GetAttributeIdByUniqueIdEj(ptr nound
 
 18:                                               ; preds = %.lr.ph
   %19 = add nuw i64 %.0711, 1
-  %exitcond.not = icmp eq i64 %19, %umax
+  %exitcond.not = icmp eq i64 %19, %10
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !30
 
 .loopexit:                                        ; preds = %18, %2, %16
@@ -1109,7 +1106,6 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiET_S7_S7_RKT0_.ex
   %122 = ptrtoint ptr %120 to i64
   %123 = sub i64 %121, %122
   %124 = ashr exact i64 %123, 2
-  %umax = tail call i64 @llvm.umax.i64(i64 %124, i64 1)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %130, %.preheader
@@ -1131,7 +1127,7 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiET_S7_S7_RKT0_.ex
 
 130:                                              ; preds = %.lr.ph, %128
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %124
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !96
 
 .loopexit:                                        ; preds = %._crit_edge, %2, %4

@@ -4915,9 +4915,9 @@ define dso_local noundef i32 @security_get_user_sids(i32 noundef %0, ptr noundef
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
-  br i1 %36, label %.loopexit, label %.preheader33
+  br i1 %36, label %.loopexit, label %.preheader34
 
-.preheader33:                                     ; preds = %32, %42
+.preheader34:                                     ; preds = %32, %42
   %37 = phi ptr [ %43, %42 ], [ %35, %32 ]
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = call i64 @_find_first_bit(ptr noundef nonnull %38, i64 noundef 384) #17
@@ -4925,12 +4925,12 @@ define dso_local noundef i32 @security_get_user_sids(i32 noundef %0, ptr noundef
   %41 = icmp samesign ult i64 %40, 384
   br i1 %41, label %45, label %42
 
-42:                                               ; preds = %.preheader33
+42:                                               ; preds = %.preheader34
   %43 = load ptr, ptr %37, align 8
   %44 = icmp eq ptr %43, null
-  br i1 %44, label %.loopexit, label %.preheader33, !llvm.loop !27
+  br i1 %44, label %.loopexit, label %.preheader34, !llvm.loop !27
 
-45:                                               ; preds = %.preheader33
+45:                                               ; preds = %.preheader34
   %46 = trunc i64 %39 to i32
   %47 = getelementptr inbounds nuw i8, ptr %37, i64 56
   %48 = load i32, ptr %47, align 8
@@ -4960,9 +4960,9 @@ define dso_local noundef i32 @security_get_user_sids(i32 noundef %0, ptr noundef
   %65 = getelementptr inbounds nuw i8, ptr %63, i64 24
   %66 = load ptr, ptr %65, align 8
   %67 = icmp eq ptr %66, null
-  br i1 %67, label %.loopexit29, label %.preheader30
+  br i1 %67, label %.loopexit30, label %.preheader31
 
-.preheader30:                                     ; preds = %54, %73
+.preheader31:                                     ; preds = %54, %73
   %68 = phi ptr [ %74, %73 ], [ %66, %54 ]
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %70 = call i64 @_find_first_bit(ptr noundef nonnull %69, i64 noundef 384) #17
@@ -4970,23 +4970,23 @@ define dso_local noundef i32 @security_get_user_sids(i32 noundef %0, ptr noundef
   %72 = icmp samesign ult i64 %71, 384
   br i1 %72, label %76, label %73
 
-73:                                               ; preds = %.preheader30
+73:                                               ; preds = %.preheader31
   %74 = load ptr, ptr %68, align 8
   %75 = icmp eq ptr %74, null
-  br i1 %75, label %.loopexit29, label %.preheader30, !llvm.loop !27
+  br i1 %75, label %.loopexit30, label %.preheader31, !llvm.loop !27
 
-76:                                               ; preds = %.preheader30
+76:                                               ; preds = %.preheader31
   %77 = trunc i64 %70 to i32
   %78 = getelementptr inbounds nuw i8, ptr %68, i64 56
   %79 = load i32, ptr %78, align 8
   %80 = add i32 %79, %77
-  %.phi.trans.insert98 = getelementptr inbounds nuw i8, ptr %63, i64 32
-  %.pre99 = load i32, ptr %.phi.trans.insert98, align 8
+  %.phi.trans.insert99 = getelementptr inbounds nuw i8, ptr %63, i64 32
+  %.pre100 = load i32, ptr %.phi.trans.insert99, align 8
   %81 = getelementptr inbounds nuw i8, ptr %63, i64 32
-  %82 = icmp ult i32 %80, %.pre99
-  br i1 %82, label %.preheader28, label %.loopexit29
+  %82 = icmp ult i32 %80, %.pre100
+  br i1 %82, label %.preheader29, label %.loopexit30
 
-.preheader28:                                     ; preds = %76, %148
+.preheader29:                                     ; preds = %76, %148
   %83 = phi i32 [ %120, %148 ], [ %55, %76 ]
   %84 = phi i32 [ %119, %148 ], [ %56, %76 ]
   %85 = phi i32 [ %150, %148 ], [ %80, %76 ]
@@ -4998,7 +4998,7 @@ define dso_local noundef i32 @security_get_user_sids(i32 noundef %0, ptr noundef
   %90 = icmp eq i32 %89, 0
   br i1 %90, label %91, label %117
 
-91:                                               ; preds = %.preheader28
+91:                                               ; preds = %.preheader29
   %92 = call i32 @sidtab_context_to_sid(ptr noundef %23, ptr noundef nonnull %5, ptr noundef nonnull %6) #17
   switch i32 %92, label %.loopexit [
     i32 -116, label %93
@@ -5046,10 +5046,10 @@ define dso_local noundef i32 @security_get_user_sids(i32 noundef %0, ptr noundef
   store i32 %114, ptr %116, align 4
   br label %117
 
-117:                                              ; preds = %111, %100, %.preheader28
-  %118 = phi ptr [ %86, %.preheader28 ], [ %86, %100 ], [ %109, %111 ]
-  %119 = phi i32 [ %84, %.preheader28 ], [ %102, %100 ], [ %115, %111 ]
-  %120 = phi i32 [ %83, %.preheader28 ], [ %83, %100 ], [ %106, %111 ]
+117:                                              ; preds = %111, %100, %.preheader29
+  %118 = phi ptr [ %86, %.preheader29 ], [ %86, %100 ], [ %109, %111 ]
+  %119 = phi i32 [ %84, %.preheader29 ], [ %102, %100 ], [ %115, %111 ]
+  %120 = phi i32 [ %83, %.preheader29 ], [ %83, %100 ], [ %106, %111 ]
   %121 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %122 = getelementptr inbounds nuw i8, ptr %87, i64 56
   %123 = load i32, ptr %122, align 8
@@ -5058,7 +5058,7 @@ define dso_local noundef i32 @security_get_user_sids(i32 noundef %0, ptr noundef
   %126 = call i64 @_find_next_bit(ptr noundef nonnull %121, i64 noundef 384, i64 noundef %125) #17
   %127 = and i64 %126, 4294967168
   %128 = icmp samesign ult i64 %127, 384
-  br i1 %128, label %129, label %.preheader
+  br i1 %128, label %129, label %.preheader27
 
 129:                                              ; preds = %117
   %130 = trunc i64 %126 to i32
@@ -5066,18 +5066,18 @@ define dso_local noundef i32 @security_get_user_sids(i32 noundef %0, ptr noundef
   %132 = add i32 %131, %130
   br label %148
 
-.preheader:                                       ; preds = %117, %136
+.preheader27:                                     ; preds = %117, %136
   %133 = phi ptr [ %134, %136 ], [ %87, %117 ]
   %134 = load ptr, ptr %133, align 8
   %135 = icmp eq ptr %134, null
   br i1 %135, label %146, label %136
 
-136:                                              ; preds = %.preheader
+136:                                              ; preds = %.preheader27
   %137 = getelementptr inbounds nuw i8, ptr %134, i64 8
   %138 = call i64 @_find_first_bit(ptr noundef nonnull %137, i64 noundef 384) #17
   %139 = and i64 %138, 4294967168
   %140 = icmp samesign ult i64 %139, 384
-  br i1 %140, label %141, label %.preheader, !llvm.loop !29
+  br i1 %140, label %141, label %.preheader27, !llvm.loop !29
 
 141:                                              ; preds = %136
   %142 = trunc i64 %138 to i32
@@ -5086,7 +5086,7 @@ define dso_local noundef i32 @security_get_user_sids(i32 noundef %0, ptr noundef
   %145 = add i32 %144, %142
   br label %148
 
-146:                                              ; preds = %.preheader
+146:                                              ; preds = %.preheader27
   %147 = load i32, ptr %81, align 8
   br label %148
 
@@ -5095,9 +5095,9 @@ define dso_local noundef i32 @security_get_user_sids(i32 noundef %0, ptr noundef
   %150 = phi i32 [ %132, %129 ], [ %147, %146 ], [ %145, %141 ]
   %151 = load i32, ptr %81, align 8
   %152 = icmp ult i32 %150, %151
-  br i1 %152, label %.preheader28, label %.loopexit29, !llvm.loop !74
+  br i1 %152, label %.preheader29, label %.loopexit30, !llvm.loop !74
 
-.loopexit29:                                      ; preds = %73, %148, %54, %76
+.loopexit30:                                      ; preds = %73, %148, %54, %76
   %153 = phi ptr [ %58, %76 ], [ %58, %54 ], [ %118, %148 ], [ %58, %73 ]
   %154 = phi i32 [ %56, %76 ], [ %56, %54 ], [ %119, %148 ], [ %56, %73 ]
   %155 = phi i32 [ %55, %76 ], [ %55, %54 ], [ %120, %148 ], [ %55, %73 ]
@@ -5109,26 +5109,26 @@ define dso_local noundef i32 @security_get_user_sids(i32 noundef %0, ptr noundef
   %161 = call i64 @_find_next_bit(ptr noundef nonnull %156, i64 noundef 384, i64 noundef %160) #17
   %162 = and i64 %161, 4294967168
   %163 = icmp samesign ult i64 %162, 384
-  br i1 %163, label %164, label %.preheader27
+  br i1 %163, label %164, label %.preheader28
 
-164:                                              ; preds = %.loopexit29
+164:                                              ; preds = %.loopexit30
   %165 = trunc i64 %161 to i32
   %166 = load i32, ptr %157, align 8
   %167 = add i32 %166, %165
   br label %183
 
-.preheader27:                                     ; preds = %.loopexit29, %171
-  %168 = phi ptr [ %169, %171 ], [ %59, %.loopexit29 ]
+.preheader28:                                     ; preds = %.loopexit30, %171
+  %168 = phi ptr [ %169, %171 ], [ %59, %.loopexit30 ]
   %169 = load ptr, ptr %168, align 8
   %170 = icmp eq ptr %169, null
   br i1 %170, label %181, label %171
 
-171:                                              ; preds = %.preheader27
+171:                                              ; preds = %.preheader28
   %172 = getelementptr inbounds nuw i8, ptr %169, i64 8
   %173 = call i64 @_find_first_bit(ptr noundef nonnull %172, i64 noundef 384) #17
   %174 = and i64 %173, 4294967168
   %175 = icmp samesign ult i64 %174, 384
-  br i1 %175, label %176, label %.preheader27, !llvm.loop !29
+  br i1 %175, label %176, label %.preheader28, !llvm.loop !29
 
 176:                                              ; preds = %171
   %177 = trunc i64 %173 to i32
@@ -5137,7 +5137,7 @@ define dso_local noundef i32 @security_get_user_sids(i32 noundef %0, ptr noundef
   %180 = add i32 %179, %177
   br label %183
 
-181:                                              ; preds = %.preheader27
+181:                                              ; preds = %.preheader28
   %182 = load i32, ptr %50, align 8
   br label %183
 
@@ -5167,13 +5167,13 @@ define dso_local noundef i32 @security_get_user_sids(i32 noundef %0, ptr noundef
   %197 = shl nuw nsw i64 %196, 2
   %198 = call noalias align 8 ptr @__kmalloc(i64 noundef %197, i32 noundef 3520) #21
   %199 = icmp eq ptr %198, null
-  br i1 %199, label %200, label %.preheader139
+  br i1 %199, label %200, label %.preheader
 
 200:                                              ; preds = %195
   call void @kfree(ptr noundef %188) #17
   br label %218
 
-.preheader139:                                    ; preds = %195, %212
+.preheader:                                       ; preds = %195, %212
   %201 = phi i64 [ %215, %212 ], [ 0, %195 ]
   %202 = phi i32 [ %213, %212 ], [ 0, %195 ]
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %7) #17
@@ -5184,7 +5184,7 @@ define dso_local noundef i32 @security_get_user_sids(i32 noundef %0, ptr noundef
   %206 = icmp eq i32 %205, 0
   br i1 %206, label %207, label %212
 
-207:                                              ; preds = %.preheader139
+207:                                              ; preds = %.preheader
   %208 = load i32, ptr %203, align 4
   %209 = add i32 %202, 1
   %210 = zext i32 %202 to i64
@@ -5192,13 +5192,13 @@ define dso_local noundef i32 @security_get_user_sids(i32 noundef %0, ptr noundef
   store i32 %208, ptr %211, align 4
   br label %212
 
-212:                                              ; preds = %207, %.preheader139
-  %213 = phi i32 [ %202, %.preheader139 ], [ %209, %207 ]
+212:                                              ; preds = %207, %.preheader
+  %213 = phi i32 [ %202, %.preheader ], [ %209, %207 ]
   %214 = call i32 @__SCT__cond_resched() #17
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %7) #17
   %215 = add nuw nsw i64 %201, 1
   %216 = icmp eq i64 %215, %196
-  br i1 %216, label %217, label %.preheader139, !llvm.loop !76
+  br i1 %216, label %217, label %.preheader, !llvm.loop !76
 
 217:                                              ; preds = %212
   call void @kfree(ptr noundef %188) #17

@@ -473,7 +473,6 @@ for.body.lr.ph:                                   ; preds = %if.end42
   %p.sroa.8.0.position.i.sroa_idx = getelementptr inbounds nuw i8, ptr %t, i64 10
   %p.sroa.13.0.position.i.sroa_idx = getelementptr inbounds nuw i8, ptr %t, i64 12
   %18 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @warningstream)
-  %umax = call i16 @llvm.umax.i16(i16 %rev.i.i.i, i16 1)
   %.not = icmp eq ptr @_ZTH13warningstream, null
   br label %for.body
 
@@ -819,7 +818,7 @@ if.end96:                                         ; preds = %_ZNKSt4lessIN3irr4c
 cleanup97:                                        ; preds = %if.end96, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit248, %_ZN11StreamProxylsIRA13_KcEERS_OT_.exit220, %_ZN11StreamProxylsIRsEERS_OT_.exit215, %_ZN11StreamProxylsIRA2_KcEERS_OT_.exit211, %_ZN11StreamProxylsIRsEERS_OT_.exit206, %_ZN11StreamProxylsIRA2_KcEERS_OT_.exit202, %_ZN11StreamProxylsIRsEERS_OT_.exit197, %_ZN11StreamProxylsIRA2_KcEERS_OT_.exit193, %_ZN11StreamProxylsIRA29_KcEERS_OT_.exit, %_ZN9LogStreamlsIRA31_KcEER11StreamProxyOT_.exit184, %_ZTW13warningstream.exit175, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit, %_ZN11StreamProxylsIRA13_KcEERS_OT_.exit, %_ZN11StreamProxylsIRsEERS_OT_.exit164, %_ZN11StreamProxylsIRA2_KcEERS_OT_.exit160, %_ZN11StreamProxylsIRsEERS_OT_.exit155, %_ZN11StreamProxylsIRA2_KcEERS_OT_.exit151, %_ZN11StreamProxylsIRsEERS_OT_.exit, %_ZN11StreamProxylsIRA2_KcEERS_OT_.exit, %_ZN11StreamProxylsIRA25_KcEERS_OT_.exit, %_ZN9LogStreamlsIRA31_KcEER11StreamProxyOT_.exit, %_ZTW13warningstream.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %t) #21
   %inc = add nuw i16 %i.0362, 1
-  %exitcond.not = icmp eq i16 %inc, %umax
+  %exitcond.not = icmp eq i16 %inc, %rev.i.i.i
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !75
 
 return:                                           ; preds = %cleanup97, %if.end42, %cleanup
@@ -2374,9 +2373,6 @@ declare i32 @llvm.bswap.i32(i32) #19
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.bswap.i16(i16) #19
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.umax.i16(i16, i16) #19
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #19

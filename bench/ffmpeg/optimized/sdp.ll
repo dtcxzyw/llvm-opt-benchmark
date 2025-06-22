@@ -619,23 +619,19 @@ extradata2psets.exit.i:                           ; preds = %142, %._crit_edge.i
   %.079142.i.i = phi i32 [ %.079143145.i.i, %216 ], [ %.079143145.i.i, %222 ], [ %.079143145.i.i, %223 ], [ %.079147.i.i, %221 ]
   %225 = getelementptr i8, ptr %218, i64 1
   %226 = load i16, ptr %225, align 1, !tbaa !48
-  %.not165.i.i = icmp eq i16 %226, 0
-  br i1 %.not165.i.i, label %.thread121.i.i, label %.lr.ph.preheader.i.i
-
-.lr.ph.preheader.i.i:                             ; preds = %224
   %227 = call i16 @llvm.bswap.i16(i16 %226)
-  %228 = call i16 @llvm.umax.i16(i16 %227, i16 1)
-  %umax.i.i = zext i16 %228 to i32
-  br label %.lr.ph.i.i
+  %228 = zext i16 %227 to i32
+  %.not165.i.i = icmp eq i16 %226, 0
+  br i1 %.not165.i.i, label %.thread121.i.i, label %.lr.ph.i.i
 
 229:                                              ; preds = %233
   %230 = add nuw nsw i32 %.084140.i.i, 1
-  %exitcond.not.i.i = icmp eq i32 %230, %umax.i.i
+  %exitcond.not.i.i = icmp eq i32 %230, %228
   br i1 %exitcond.not.i.i, label %.thread121.i.i, label %.lr.ph.i.i, !llvm.loop !55
 
-.lr.ph.i.i:                                       ; preds = %229, %.lr.ph.preheader.i.i
-  %.281141.i.i = phi i32 [ %239, %229 ], [ %214, %.lr.ph.preheader.i.i ]
-  %.084140.i.i = phi i32 [ %230, %229 ], [ 0, %.lr.ph.preheader.i.i ]
+.lr.ph.i.i:                                       ; preds = %224, %229
+  %.281141.i.i = phi i32 [ %239, %229 ], [ %214, %224 ]
+  %.084140.i.i = phi i32 [ %230, %229 ], [ 0, %224 ]
   %231 = add nsw i32 %.281141.i.i, 2
   %232 = icmp sgt i32 %231, %.077.i.i
   br i1 %232, label %.thread131.i.i, label %233
@@ -696,18 +692,17 @@ extradata2psets.exit.i:                           ; preds = %142, %._crit_edge.i
   %259 = getelementptr i8, ptr %257, i64 %258
   %260 = getelementptr i8, ptr %259, i64 1
   %261 = load i16, ptr %260, align 1, !tbaa !48
+  %262 = call i16 @llvm.bswap.i16(i16 %261)
+  %263 = zext i16 %262 to i32
   %.not166.i.i = icmp eq i16 %261, 0
   br i1 %.not166.i.i, label %._crit_edge162.i.i, label %.lr.ph161.preheader.i.i
 
 .lr.ph161.preheader.i.i:                          ; preds = %253
-  %262 = add nsw i32 %250, 3
-  %263 = call i16 @llvm.bswap.i16(i16 %261)
-  %264 = call i16 @llvm.umax.i16(i16 %263, i16 1)
-  %umax177.i.i = zext i16 %264 to i32
+  %264 = add nsw i32 %250, 3
   br label %.lr.ph161.i.i
 
 .lr.ph161.i.i:                                    ; preds = %285, %.lr.ph161.preheader.i.i
-  %.4159.i.i = phi i32 [ %286, %285 ], [ %262, %.lr.ph161.preheader.i.i ]
+  %.4159.i.i = phi i32 [ %286, %285 ], [ %264, %.lr.ph161.preheader.i.i ]
   %.185158.i.i = phi i32 [ %287, %285 ], [ 0, %.lr.ph161.preheader.i.i ]
   %265 = load ptr, ptr %10, align 8, !tbaa !23
   %266 = sext i32 %.4159.i.i to i64
@@ -745,7 +740,7 @@ extradata2psets.exit.i:                           ; preds = %142, %._crit_edge.i
 285:                                              ; preds = %274
   %286 = add nsw i32 %271, %270
   %287 = add nuw nsw i32 %.185158.i.i, 1
-  %exitcond178.not.i.i = icmp eq i32 %287, %umax177.i.i
+  %exitcond178.not.i.i = icmp eq i32 %287, %263
   br i1 %exitcond178.not.i.i, label %._crit_edge162.i.i, label %.lr.ph161.i.i, !llvm.loop !57
 
 ._crit_edge162.i.i:                               ; preds = %285, %253
@@ -1805,9 +1800,6 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.bswap.i16(i16) #9
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.umax.i16(i16, i16) #9
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

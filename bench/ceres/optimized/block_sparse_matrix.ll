@@ -341,7 +341,6 @@ define hidden void @_ZN5ceres8internal17BlockSparseMatrixC2EPNS0_27CompressedRow
   %37 = ptrtoint ptr %33 to i64
   %38 = sub i64 %36, %37
   %39 = sdiv exact i64 %38, 40
-  %umax = tail call i64 @llvm.umax.i64(i64 %39, i64 1)
   br label %.lr.ph120
 
 .lr.ph:                                           ; preds = %.critedge, %.lr.ph
@@ -384,7 +383,7 @@ define hidden void @_ZN5ceres8internal17BlockSparseMatrixC2EPNS0_27CompressedRow
 56:                                               ; preds = %._crit_edge, %.lr.ph120
   %.lcssa113116 = phi i32 [ %63, %._crit_edge ], [ %.lcssa113117118, %.lr.ph120 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %39
   br i1 %exitcond.not, label %44, label %.lr.ph120, !llvm.loop !45
 
 .lr.ph112:                                        ; preds = %.lr.ph120, %.lr.ph112
@@ -8327,7 +8326,6 @@ define hidden void @_ZNK5ceres8internal17BlockSparseMatrix21ToTripletSparseMatri
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %umax = tail call i64 @llvm.umax.i64(i64 %20, i64 1)
   br label %26
 
 ._crit_edge62:                                    ; preds = %._crit_edge, %.critedge
@@ -8410,7 +8408,7 @@ define hidden void @_ZNK5ceres8internal17BlockSparseMatrix21ToTripletSparseMatri
 
 ._crit_edge:                                      ; preds = %._crit_edge53.us, %.lr.ph, %26
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
-  %exitcond71.not = icmp eq i64 %indvars.iv.next69, %umax
+  %exitcond71.not = icmp eq i64 %indvars.iv.next69, %20
   br i1 %exitcond71.not, label %._crit_edge62, label %26, !llvm.loop !292
 }
 
@@ -9234,7 +9232,6 @@ _ZNSt6vectorIN5ceres8internal5BlockESaIS2_EE12emplace_backIJRS2_EEES6_DpOT_.exit
   %153 = sub i64 %151, %152
   %154 = ashr exact i64 %153, 3
   %.promoted = load i32, ptr %39, align 4, !tbaa !24
-  %umax = tail call i64 @llvm.umax.i64(i64 %154, i64 1)
   br label %155
 
 155:                                              ; preds = %155, %.lr.ph.split.us
@@ -9252,7 +9249,7 @@ _ZNSt6vectorIN5ceres8internal5BlockESaIS2_EE12emplace_backIJRS2_EEES6_DpOT_.exit
   %164 = mul nsw i32 %163, %149
   %165 = add nsw i32 %156, %164
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next92, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next92, %154
   br i1 %exitcond.not, label %._crit_edge.split.us, label %155, !llvm.loop !312
 
 ._crit_edge.split.us:                             ; preds = %155
@@ -9695,7 +9692,6 @@ define hidden void @_ZN5ceres8internal17BlockSparseMatrix15DeleteRowBlocksEi(ptr
   %31 = ptrtoint ptr %28 to i64
   %32 = sub i64 %31, %29
   %33 = ashr exact i64 %32, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %33, i64 1)
   br label %.critedge.us.us
 
 .critedge.us.us:                                  ; preds = %.critedge.us.us, %.lr.ph48.us
@@ -9709,7 +9705,7 @@ define hidden void @_ZN5ceres8internal17BlockSparseMatrix15DeleteRowBlocksEi(ptr
   %39 = mul nsw i32 %38, %23
   %40 = add nsw i32 %39, %.147.us.us
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
-  %exitcond76.not = icmp eq i64 %indvars.iv.next74, %umax
+  %exitcond76.not = icmp eq i64 %indvars.iv.next74, %33
   br i1 %exitcond76.not, label %._crit_edge.split.us.us, label %.critedge.us.us, !llvm.loop !327
 
 ._crit_edge54:                                    ; preds = %._crit_edge.split, %._crit_edge.split.us.us, %2

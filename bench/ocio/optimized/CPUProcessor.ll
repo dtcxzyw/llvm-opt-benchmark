@@ -1954,7 +1954,6 @@ define hidden void @_ZN19OpenColorIO_v2_5dev15CreateCPUEngineERKNS_10OpRcPtrVecE
   %50 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %51 = icmp eq i64 %29, 16
   %52 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %umax = tail call i64 @llvm.umax.i64(i64 %30, i64 1)
   br label %53
 
 ._crit_edge:                                      ; preds = %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %7
@@ -3473,7 +3472,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i156: ; preds = %690, %6
 _ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev6OpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %678, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i156, %693
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #24
   %694 = add nuw i64 %.038158, 1
-  %exitcond.not = icmp eq i64 %694, %umax
+  %exitcond.not = icmp eq i64 %694, %30
   br i1 %exitcond.not, label %._crit_edge, label %53, !llvm.loop !244
 
 695:                                              ; preds = %648, %607, %601, %516, %461, %368, %318, %312, %227, %172, %170
@@ -5306,7 +5305,6 @@ define void @_ZNK19OpenColorIO_v2_5dev12CPUProcessor4Impl5applyERKNS_9ImageDescE
   %32 = ptrtoint ptr %30 to i64
   %33 = sub i64 %31, %32
   %34 = ashr exact i64 %33, 4
-  %umax = call i64 @llvm.umax.i64(i64 %34, i64 1)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %46, %28
@@ -5331,7 +5329,7 @@ define void @_ZNK19OpenColorIO_v2_5dev12CPUProcessor4Impl5applyERKNS_9ImageDescE
 
 46:                                               ; preds = %.lr.ph
   %47 = add nuw i64 %.021, 1
-  %exitcond.not = icmp eq i64 %47, %umax
+  %exitcond.not = icmp eq i64 %47, %34
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !299
 
 48:                                               ; preds = %.lr.ph
@@ -5426,7 +5424,6 @@ define void @_ZNK19OpenColorIO_v2_5dev12CPUProcessor4Impl5applyERKNS_9ImageDescE
   %33 = ptrtoint ptr %31 to i64
   %34 = sub i64 %32, %33
   %35 = ashr exact i64 %34, 4
-  %umax = call i64 @llvm.umax.i64(i64 %35, i64 1)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %47, %29
@@ -5451,7 +5448,7 @@ define void @_ZNK19OpenColorIO_v2_5dev12CPUProcessor4Impl5applyERKNS_9ImageDescE
 
 47:                                               ; preds = %.lr.ph
   %48 = add nuw i64 %.022, 1
-  %exitcond.not = icmp eq i64 %48, %umax
+  %exitcond.not = icmp eq i64 %48, %35
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !301
 
 49:                                               ; preds = %.lr.ph
@@ -5521,7 +5518,6 @@ define void @_ZNK19OpenColorIO_v2_5dev12CPUProcessor4Impl8applyRGBEPf(ptr nounde
   %21 = ptrtoint ptr %19 to i64
   %22 = sub i64 %20, %21
   %23 = ashr exact i64 %22, 4
-  %umax = call i64 @llvm.umax.i64(i64 %23, i64 1)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
@@ -5550,7 +5546,7 @@ define void @_ZNK19OpenColorIO_v2_5dev12CPUProcessor4Impl8applyRGBEPf(ptr nounde
   %37 = load ptr, ptr %36, align 8
   call void %37(ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef nonnull %3, ptr noundef nonnull %3, i64 noundef 1)
   %38 = add nuw i64 %.010, 1
-  %exitcond.not = icmp eq i64 %38, %umax
+  %exitcond.not = icmp eq i64 %38, %23
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !303
 }
 
@@ -5573,7 +5569,6 @@ define void @_ZNK19OpenColorIO_v2_5dev12CPUProcessor4Impl9applyRGBAEPf(ptr nound
   %12 = ptrtoint ptr %10 to i64
   %13 = sub i64 %11, %12
   %14 = ashr exact i64 %13, 4
-  %umax = tail call i64 @llvm.umax.i64(i64 %14, i64 1)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
@@ -5595,7 +5590,7 @@ define void @_ZNK19OpenColorIO_v2_5dev12CPUProcessor4Impl9applyRGBAEPf(ptr nound
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef %1, ptr noundef %1, i64 noundef 1)
   %26 = add nuw i64 %.010, 1
-  %exitcond.not = icmp eq i64 %26, %umax
+  %exitcond.not = icmp eq i64 %26, %14
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !304
 }
 
@@ -6104,7 +6099,6 @@ define void @_ZNK19OpenColorIO_v2_5dev12CPUProcessor8applyRGBEPf(ptr noundef non
   %22 = ptrtoint ptr %20 to i64
   %23 = sub i64 %21, %22
   %24 = ashr exact i64 %23, 4
-  %umax.i = call i64 @llvm.umax.i64(i64 %24, i64 1)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -6117,7 +6111,7 @@ define void @_ZNK19OpenColorIO_v2_5dev12CPUProcessor8applyRGBEPf(ptr noundef non
   %30 = load ptr, ptr %29, align 8
   call void %30(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull %3, ptr noundef nonnull %3, i64 noundef 1)
   %31 = add nuw i64 %.010.i, 1
-  %exitcond.not.i = icmp eq i64 %31, %umax.i
+  %exitcond.not.i = icmp eq i64 %31, %24
   br i1 %exitcond.not.i, label %_ZNK19OpenColorIO_v2_5dev12CPUProcessor4Impl8applyRGBEPf.exit, label %.lr.ph.i, !llvm.loop !303
 
 _ZNK19OpenColorIO_v2_5dev12CPUProcessor4Impl8applyRGBEPf.exit: ; preds = %.lr.ph.i, %2
@@ -6157,7 +6151,6 @@ define void @_ZNK19OpenColorIO_v2_5dev12CPUProcessor9applyRGBAEPf(ptr noundef no
   %13 = ptrtoint ptr %11 to i64
   %14 = sub i64 %12, %13
   %15 = ashr exact i64 %14, 4
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %15, i64 1)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -6170,7 +6163,7 @@ define void @_ZNK19OpenColorIO_v2_5dev12CPUProcessor9applyRGBAEPf(ptr noundef no
   %21 = load ptr, ptr %20, align 8
   tail call void %21(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef %1, ptr noundef %1, i64 noundef 1)
   %22 = add nuw i64 %.010.i, 1
-  %exitcond.not.i = icmp eq i64 %22, %umax.i
+  %exitcond.not.i = icmp eq i64 %22, %15
   br i1 %exitcond.not.i, label %_ZNK19OpenColorIO_v2_5dev12CPUProcessor4Impl9applyRGBAEPf.exit, label %.lr.ph.i, !llvm.loop !304
 
 _ZNK19OpenColorIO_v2_5dev12CPUProcessor4Impl9applyRGBAEPf.exit: ; preds = %.lr.ph.i, %2

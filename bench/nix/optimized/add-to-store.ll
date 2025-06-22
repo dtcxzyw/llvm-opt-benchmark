@@ -5549,7 +5549,6 @@ define linkonce_odr void @_ZNK5boost12basic_formatIcSt11char_traitsIcESaIcEE3str
   %38 = ptrtoint ptr %36 to i64
   %39 = sub i64 %37, %38
   %40 = sdiv exact i64 %39, 136
-  %umax.i = call i64 @llvm.umax.i64(i64 %40, i64 1)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %50, %.lr.ph.preheader.i
@@ -5575,7 +5574,7 @@ define linkonce_odr void @_ZNK5boost12basic_formatIcSt11char_traitsIcESaIcEE3str
   %52 = load i64, ptr %51, align 8
   %53 = add i64 %52, %.1.i
   %54 = add nuw i64 %.015.i, 1
-  %exitcond.not.i = icmp eq i64 %54, %umax.i
+  %exitcond.not.i = icmp eq i64 %54, %40
   br i1 %exitcond.not.i, label %_ZNK5boost12basic_formatIcSt11char_traitsIcESaIcEE4sizeEv.exit, label %.lr.ph.i, !llvm.loop !30
 
 _ZNK5boost12basic_formatIcSt11char_traitsIcESaIcEE4sizeEv.exit: ; preds = %50, %29

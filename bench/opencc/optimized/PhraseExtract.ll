@@ -2632,7 +2632,6 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   %137 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %138 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %139 = sdiv exact i64 %83, 24
-  %umax.i = call i64 @llvm.umax.i64(i64 %139, i64 1)
   %140 = getelementptr inbounds nuw i8, ptr %16, i64 19
   br label %236
 
@@ -2965,7 +2964,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
 
 ._crit_edge.i:                                    ; preds = %243, %.lr.ph26.i
   %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %umax.i
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %139
   br i1 %exitcond.not.i, label %._crit_edge.i.i79, label %.lr.ph26.i, !llvm.loop !106
 
 ._crit_edge.i.i79:                                ; preds = %._crit_edge.i, %236
@@ -3624,7 +3623,6 @@ _ZNSt6vectorIS_IPN5TCLAP3ArgESaIS2_EESaIS4_EEC2ERKS6_.exit: ; preds = %.noexc60
   %112 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %113 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %114 = sdiv exact i64 %82, 24
-  %umax.i = call i64 @llvm.umax.i64(i64 %114, i64 1)
   %115 = getelementptr inbounds nuw i8, ptr %14, i64 19
   br label %252
 
@@ -4051,7 +4049,7 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i158: ; preds = %.noexc161, %
 
 ._crit_edge.i:                                    ; preds = %259, %.lr.ph26.i
   %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %umax.i
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %114
   br i1 %exitcond.not.i, label %._crit_edge.i.i96, label %.lr.ph26.i, !llvm.loop !106
 
 ._crit_edge.i.i96:                                ; preds = %._crit_edge.i, %252
@@ -18121,7 +18119,6 @@ define linkonce_odr dso_local noundef i32 @_ZN5TCLAP10XorHandler5checkEPKNS_3Arg
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
   %12 = sdiv exact i64 %11, 24
-  %umax = tail call i64 @llvm.umax.i64(i64 %12, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.thread
@@ -18410,7 +18407,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit34: ; preds = %_ZN
 
 .thread:                                          ; preds = %._crit_edge.i.i.i, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN5TCLAP3ArgESt6vectorIS4_SaIS4_EEEEPKS3_ET_SC_SC_RKT0_.exit
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %12
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !382
 
 ._crit_edge:                                      ; preds = %.thread, %2

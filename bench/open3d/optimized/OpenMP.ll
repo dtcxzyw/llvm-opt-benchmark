@@ -22292,8 +22292,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit106: ; preds = %_Z
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %205, i64 %204
   store ptr %207, ptr %125, align 8, !tbaa !962
   store ptr %scevgep.i.i.i.i.i, ptr %124, align 8, !tbaa !963
-  %umax = call i32 @llvm.umax.i32(i32 %storemerge38316, i32 1)
-  %wide.trip.count = zext nneg i32 %umax to i64
   br label %216
 
 .loopexit256:                                     ; preds = %.noexc.i100
@@ -22393,7 +22391,7 @@ _ZNSt6threadD2Ev.exit:                            ; preds = %230
   store i64 %233, ptr %231, align 8, !tbaa !136
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35) #22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %.sroa.08.0.insert.ext.i97
   br i1 %exitcond.not, label %.preheader254, label %216, !llvm.loop !968
 
 234:                                              ; preds = %216
@@ -22458,7 +22456,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit119: ; preds = %_Z
 
 248:                                              ; preds = %.preheader254
   %indvars.iv.next328 = add nuw nsw i64 %indvars.iv327, 1
-  %exitcond331.not = icmp eq i64 %indvars.iv.next328, %wide.trip.count
+  %exitcond331.not = icmp eq i64 %indvars.iv.next328, %.sroa.08.0.insert.ext.i97
   br i1 %exitcond331.not, label %_ZSt8_DestroyISt6threadEvPT_.exit.i.i.i, label %.preheader254, !llvm.loop !971
 
 249:                                              ; preds = %.preheader254
@@ -22785,8 +22783,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit151: ; preds = %_Z
   %scevgep.i.i.i.i.i155 = getelementptr i8, ptr %339, i64 %338
   store ptr %341, ptr %265, align 8, !tbaa !962
   store ptr %scevgep.i.i.i.i.i155, ptr %264, align 8, !tbaa !963
-  %umax335 = call i32 @llvm.umax.i32(i32 %storemerge42324, i32 1)
-  %wide.trip.count336 = zext nneg i32 %umax335 to i64
   br label %350
 
 .loopexit:                                        ; preds = %.noexc.i145
@@ -22886,7 +22882,7 @@ _ZNSt6threadD2Ev.exit179:                         ; preds = %364
   store i64 %367, ptr %365, align 8, !tbaa !136
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %43) #22
   %indvars.iv.next333 = add nuw nsw i64 %indvars.iv332, 1
-  %exitcond337.not = icmp eq i64 %indvars.iv.next333, %wide.trip.count336
+  %exitcond337.not = icmp eq i64 %indvars.iv.next333, %.sroa.08.0.insert.ext.i142
   br i1 %exitcond337.not, label %.preheader, label %350, !llvm.loop !985
 
 368:                                              ; preds = %350
@@ -22951,7 +22947,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit191: ; preds = %_Z
 
 382:                                              ; preds = %.preheader
   %indvars.iv.next339 = add nuw nsw i64 %indvars.iv338, 1
-  %exitcond342.not = icmp eq i64 %indvars.iv.next339, %wide.trip.count336
+  %exitcond342.not = icmp eq i64 %indvars.iv.next339, %.sroa.08.0.insert.ext.i142
   br i1 %exitcond342.not, label %_ZSt8_DestroyISt6threadEvPT_.exit.i.i.i181, label %.preheader, !llvm.loop !987
 
 383:                                              ; preds = %.preheader

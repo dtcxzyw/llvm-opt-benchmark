@@ -5408,7 +5408,7 @@ TLSX_Find.exit.thread:                            ; preds = %.lr.ph.i
 12:                                               ; preds = %.lr.ph, %TLSX_KeyShare_IsSupported.exit.thread
   %.02964 = phi i32 [ 10, %.lr.ph ], [ %.1, %TLSX_KeyShare_IsSupported.exit.thread ]
   %.03063 = phi ptr [ null, %.lr.ph ], [ %.131, %TLSX_KeyShare_IsSupported.exit.thread ]
-  %.13362 = phi ptr [ %9, %.lr.ph ], [ %28, %TLSX_KeyShare_IsSupported.exit.thread ]
+  %.13362 = phi ptr [ %9, %.lr.ph ], [ %27, %TLSX_KeyShare_IsSupported.exit.thread ]
   %13 = load i16, ptr %.13362, align 8, !tbaa !110
   switch i16 %13, label %TLSX_KeyShare_IsSupported.exit.thread [
     i16 256, label %TLSX_KeyShare_IsSupported.exit
@@ -5422,33 +5422,32 @@ TLSX_KeyShare_IsSupported.exit:                   ; preds = %12, %12, %12, %12, 
   %14 = load i8, ptr %10, align 16, !tbaa !66
   %15 = icmp eq i8 %14, 0
   %.010.i = select i1 %15, ptr @preferredGroup, ptr %11
-  %16 = tail call i8 @llvm.umax.i8(i8 %14, i8 1)
-  %umax.i = select i1 %15, i8 4, i8 %16
-  %17 = zext i8 %umax.i to i64
-  br label %18
+  %narrow.i = select i1 %15, i8 4, i8 %14
+  %16 = zext i8 %narrow.i to i64
+  br label %17
 
-18:                                               ; preds = %22, %TLSX_KeyShare_IsSupported.exit
-  %indvars.iv = phi i64 [ %indvars.iv.next, %22 ], [ 0, %TLSX_KeyShare_IsSupported.exit ]
-  %19 = getelementptr inbounds nuw i16, ptr %.010.i, i64 %indvars.iv
-  %20 = load i16, ptr %19, align 2, !tbaa !64
-  %21 = icmp eq i16 %13, %20
-  br i1 %21, label %.split.loop.exit14.i, label %22
+17:                                               ; preds = %21, %TLSX_KeyShare_IsSupported.exit
+  %indvars.iv = phi i64 [ %indvars.iv.next, %21 ], [ 0, %TLSX_KeyShare_IsSupported.exit ]
+  %18 = getelementptr inbounds nuw i16, ptr %.010.i, i64 %indvars.iv
+  %19 = load i16, ptr %18, align 2, !tbaa !64
+  %20 = icmp eq i16 %13, %19
+  br i1 %20, label %.split.loop.exit14.i, label %21
 
-22:                                               ; preds = %18
+21:                                               ; preds = %17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next, %17
-  br i1 %exitcond.not.i, label %TLSX_KeyShare_GroupRank.exit, label %18, !llvm.loop !178
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next, %16
+  br i1 %exitcond.not.i, label %TLSX_KeyShare_GroupRank.exit, label %17, !llvm.loop !178
 
-.split.loop.exit14.i:                             ; preds = %18
-  %23 = trunc i64 %indvars.iv to i32
-  %24 = and i32 %23, 255
+.split.loop.exit14.i:                             ; preds = %17
+  %22 = trunc i64 %indvars.iv to i32
+  %23 = and i32 %22, 255
   br label %TLSX_KeyShare_GroupRank.exit
 
-TLSX_KeyShare_GroupRank.exit:                     ; preds = %22, %.split.loop.exit14.i
-  %.012.i = phi i32 [ %24, %.split.loop.exit14.i ], [ -1, %22 ]
-  %25 = icmp ne i32 %.012.i, -1
-  %26 = icmp slt i32 %.012.i, %.02964
-  %or.cond = select i1 %25, i1 %26, i1 false
+TLSX_KeyShare_GroupRank.exit:                     ; preds = %21, %.split.loop.exit14.i
+  %.012.i = phi i32 [ %23, %.split.loop.exit14.i ], [ -1, %21 ]
+  %24 = icmp ne i32 %.012.i, -1
+  %25 = icmp slt i32 %.012.i, %.02964
+  %or.cond = select i1 %24, i1 %25, i1 false
   %spec.select = select i1 %or.cond, ptr %.13362, ptr %.03063
   %spec.select43 = select i1 %or.cond, i32 %.012.i, i32 %.02964
   br label %TLSX_KeyShare_IsSupported.exit.thread
@@ -5456,97 +5455,97 @@ TLSX_KeyShare_GroupRank.exit:                     ; preds = %22, %.split.loop.ex
 TLSX_KeyShare_IsSupported.exit.thread:            ; preds = %12, %TLSX_KeyShare_GroupRank.exit
   %.131 = phi ptr [ %spec.select, %TLSX_KeyShare_GroupRank.exit ], [ %.03063, %12 ]
   %.1 = phi i32 [ %spec.select43, %TLSX_KeyShare_GroupRank.exit ], [ %.02964, %12 ]
-  %27 = getelementptr inbounds nuw i8, ptr %.13362, i64 8
-  %28 = load ptr, ptr %27, align 8, !tbaa !90
-  %.not39 = icmp eq ptr %28, null
+  %26 = getelementptr inbounds nuw i8, ptr %.13362, i64 8
+  %27 = load ptr, ptr %26, align 8, !tbaa !90
+  %.not39 = icmp eq ptr %27, null
   br i1 %.not39, label %._crit_edge, label %12, !llvm.loop !179
 
 ._crit_edge:                                      ; preds = %TLSX_KeyShare_IsSupported.exit.thread
-  %29 = icmp eq ptr %.131, null
-  br i1 %29, label %TLSX_Push.exit, label %30
+  %28 = icmp eq ptr %.131, null
+  br i1 %28, label %TLSX_Push.exit, label %29
 
-30:                                               ; preds = %._crit_edge
-  %31 = tail call ptr @wolfSSL_Malloc(i64 noundef 32) #17
-  %.not.i.i = icmp eq ptr %31, null
-  br i1 %.not.i.i, label %TLSX_Push.exit, label %32
+29:                                               ; preds = %._crit_edge
+  %30 = tail call ptr @wolfSSL_Malloc(i64 noundef 32) #17
+  %.not.i.i = icmp eq ptr %30, null
+  br i1 %.not.i.i, label %TLSX_Push.exit, label %31
 
-32:                                               ; preds = %30
-  store i32 51, ptr %31, align 8, !tbaa !60
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  store ptr null, ptr %33, align 8, !tbaa !82
-  %34 = getelementptr inbounds nuw i8, ptr %31, i64 20
-  store i8 0, ptr %34, align 4, !tbaa !83
-  %35 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  store ptr null, ptr %35, align 8, !tbaa !63
-  %36 = load ptr, ptr %1, align 8, !tbaa !59
-  store ptr %36, ptr %35, align 8, !tbaa !63
-  store ptr %31, ptr %1, align 8, !tbaa !59
-  br label %37
+31:                                               ; preds = %29
+  store i32 51, ptr %30, align 8, !tbaa !60
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  store ptr null, ptr %32, align 8, !tbaa !82
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 20
+  store i8 0, ptr %33, align 4, !tbaa !83
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 24
+  store ptr null, ptr %34, align 8, !tbaa !63
+  %35 = load ptr, ptr %1, align 8, !tbaa !59
+  store ptr %35, ptr %34, align 8, !tbaa !63
+  store ptr %30, ptr %1, align 8, !tbaa !59
+  br label %36
 
-37:                                               ; preds = %40, %32
-  %.018.i = phi ptr [ %31, %32 ], [ %39, %40 ]
-  %38 = getelementptr inbounds nuw i8, ptr %.018.i, i64 24
-  %39 = load ptr, ptr %38, align 8, !tbaa !63
-  %.not.i44 = icmp eq ptr %39, null
-  br i1 %.not.i44, label %.loopexit, label %40
+36:                                               ; preds = %39, %31
+  %.018.i = phi ptr [ %30, %31 ], [ %38, %39 ]
+  %37 = getelementptr inbounds nuw i8, ptr %.018.i, i64 24
+  %38 = load ptr, ptr %37, align 8, !tbaa !63
+  %.not.i44 = icmp eq ptr %38, null
+  br i1 %.not.i44, label %.loopexit, label %39
 
-40:                                               ; preds = %37
-  %41 = load i32, ptr %39, align 8, !tbaa !60
-  %42 = icmp eq i32 %41, 51
-  br i1 %42, label %43, label %37, !llvm.loop !99
+39:                                               ; preds = %36
+  %40 = load i32, ptr %38, align 8, !tbaa !60
+  %41 = icmp eq i32 %40, 51
+  br i1 %41, label %42, label %36, !llvm.loop !99
 
-43:                                               ; preds = %40
-  %44 = getelementptr inbounds nuw i8, ptr %.018.i, i64 24
-  %45 = getelementptr inbounds nuw i8, ptr %39, i64 24
-  %46 = load ptr, ptr %45, align 8, !tbaa !63
-  store ptr %46, ptr %44, align 8, !tbaa !63
-  store ptr null, ptr %45, align 8, !tbaa !63
-  tail call void @TLSX_FreeAll(ptr noundef nonnull %39, ptr readnone poison)
+42:                                               ; preds = %39
+  %43 = getelementptr inbounds nuw i8, ptr %.018.i, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %38, i64 24
+  %45 = load ptr, ptr %44, align 8, !tbaa !63
+  store ptr %45, ptr %43, align 8, !tbaa !63
+  store ptr null, ptr %44, align 8, !tbaa !63
+  tail call void @TLSX_FreeAll(ptr noundef nonnull %38, ptr readnone poison)
   %.pre = load ptr, ptr %1, align 8, !tbaa !59
   br label %.loopexit
 
-.loopexit:                                        ; preds = %37, %43
-  %47 = phi ptr [ %.pre, %43 ], [ %31, %37 ]
-  %48 = load i16, ptr %.131, align 8, !tbaa !110
-  %49 = tail call ptr @wolfSSL_Malloc(i64 noundef 80) #17
-  %50 = icmp eq ptr %49, null
-  br i1 %50, label %TLSX_Push.exit, label %51
+.loopexit:                                        ; preds = %36, %42
+  %46 = phi ptr [ %.pre, %42 ], [ %30, %36 ]
+  %47 = load i16, ptr %.131, align 8, !tbaa !110
+  %48 = tail call ptr @wolfSSL_Malloc(i64 noundef 80) #17
+  %49 = icmp eq ptr %48, null
+  br i1 %49, label %TLSX_Push.exit, label %50
 
-51:                                               ; preds = %.loopexit
-  %52 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %49, i8 0, i64 80, i1 false)
-  store i16 %48, ptr %49, align 8, !tbaa !148
-  br label %53
+50:                                               ; preds = %.loopexit
+  %51 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %48, i8 0, i64 80, i1 false)
+  store i16 %47, ptr %48, align 8, !tbaa !148
+  br label %52
 
-53:                                               ; preds = %53, %51
-  %.011.i = phi ptr [ %52, %51 ], [ %55, %53 ]
-  %54 = load ptr, ptr %.011.i, align 8, !tbaa !157
-  %.not.i46 = icmp eq ptr %54, null
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 72
-  br i1 %.not.i46, label %56, label %53, !llvm.loop !175
+52:                                               ; preds = %52, %50
+  %.011.i = phi ptr [ %51, %50 ], [ %54, %52 ]
+  %53 = load ptr, ptr %.011.i, align 8, !tbaa !157
+  %.not.i46 = icmp eq ptr %53, null
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 72
+  br i1 %.not.i46, label %55, label %52, !llvm.loop !175
 
-56:                                               ; preds = %53
-  store ptr %49, ptr %.011.i, align 8, !tbaa !157
-  %57 = getelementptr inbounds nuw i8, ptr %47, i64 20
-  store i8 1, ptr %57, align 4, !tbaa !83
+55:                                               ; preds = %52
+  store ptr %48, ptr %.011.i, align 8, !tbaa !157
+  %56 = getelementptr inbounds nuw i8, ptr %46, i64 20
+  store i8 1, ptr %56, align 4, !tbaa !83
   br label %TLSX_Push.exit
 
-TLSX_Push.exit:                                   ; preds = %5, %2, %TLSX_Find.exit.thread, %.loopexit, %30, %._crit_edge, %56
-  %.0 = phi i32 [ 0, %56 ], [ -421, %._crit_edge ], [ -125, %30 ], [ -125, %.loopexit ], [ -421, %TLSX_Find.exit.thread ], [ -421, %2 ], [ -421, %5 ]
+TLSX_Push.exit:                                   ; preds = %5, %2, %TLSX_Find.exit.thread, %.loopexit, %29, %._crit_edge, %55
+  %.0 = phi i32 [ 0, %55 ], [ -421, %._crit_edge ], [ -125, %29 ], [ -125, %.loopexit ], [ -421, %TLSX_Find.exit.thread ], [ -421, %2 ], [ -421, %5 ]
   ret i32 %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define range(i32 -310, 1) i32 @TLSX_KeyShare_Choose(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i8 zeroext %2, i8 zeroext %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #12 {
   %7 = icmp eq ptr %0, null
-  br i1 %7, label %63, label %8
+  br i1 %7, label %62, label %8
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   %10 = load i64, ptr %9, align 8
   %11 = and i64 %10, 48
   %.not = icmp eq i64 %11, 0
-  br i1 %.not, label %12, label %63
+  br i1 %.not, label %12, label %62
 
 12:                                               ; preds = %8
   store i8 0, ptr %5, align 1, !tbaa !51
@@ -5571,7 +5570,7 @@ define range(i32 -310, 1) i32 @TLSX_KeyShare_Choose(ptr noundef readonly capture
   %20 = getelementptr inbounds nuw i8, ptr %.07.i, i64 20
   %21 = load i8, ptr %20, align 4, !tbaa !83
   %22 = icmp eq i8 %21, 1
-  br i1 %22, label %63, label %.thread
+  br i1 %22, label %62, label %.thread
 
 .thread:                                          ; preds = %17
   %.not4370 = icmp eq ptr %19, null
@@ -5583,7 +5582,7 @@ define range(i32 -310, 1) i32 @TLSX_KeyShare_Choose(ptr noundef readonly capture
   br label %25
 
 25:                                               ; preds = %.lr.ph, %TLSX_SupportedGroups_Find.exit.thread
-  %.03273 = phi ptr [ %19, %.lr.ph ], [ %62, %TLSX_SupportedGroups_Find.exit.thread ]
+  %.03273 = phi ptr [ %19, %.lr.ph ], [ %61, %TLSX_SupportedGroups_Find.exit.thread ]
   %.03372 = phi i32 [ 10, %.lr.ph ], [ %.1, %TLSX_SupportedGroups_Find.exit.thread ]
   %.03471 = phi ptr [ null, %.lr.ph ], [ %.135, %TLSX_SupportedGroups_Find.exit.thread ]
   %26 = getelementptr inbounds nuw i8, ptr %.03273, i64 8
@@ -5662,33 +5661,32 @@ TLSX_KeyShare_IsSupported.exit:                   ; preds = %47, %47, %47, %47, 
   %48 = load i8, ptr %23, align 16, !tbaa !66
   %49 = icmp eq i8 %48, 0
   %.010.i = select i1 %49, ptr @preferredGroup, ptr %24
-  %50 = tail call i8 @llvm.umax.i8(i8 %48, i8 1)
-  %umax.i = select i1 %49, i8 4, i8 %50
-  %51 = zext i8 %umax.i to i64
-  br label %52
+  %narrow.i = select i1 %49, i8 4, i8 %48
+  %50 = zext i8 %narrow.i to i64
+  br label %51
 
-52:                                               ; preds = %56, %TLSX_KeyShare_IsSupported.exit
-  %indvars.iv = phi i64 [ %indvars.iv.next, %56 ], [ 0, %TLSX_KeyShare_IsSupported.exit ]
-  %53 = getelementptr inbounds nuw i16, ptr %.010.i, i64 %indvars.iv
-  %54 = load i16, ptr %53, align 2, !tbaa !64
-  %55 = icmp eq i16 %30, %54
-  br i1 %55, label %.split.loop.exit14.i, label %56
+51:                                               ; preds = %55, %TLSX_KeyShare_IsSupported.exit
+  %indvars.iv = phi i64 [ %indvars.iv.next, %55 ], [ 0, %TLSX_KeyShare_IsSupported.exit ]
+  %52 = getelementptr inbounds nuw i16, ptr %.010.i, i64 %indvars.iv
+  %53 = load i16, ptr %52, align 2, !tbaa !64
+  %54 = icmp eq i16 %30, %53
+  br i1 %54, label %.split.loop.exit14.i, label %55
 
-56:                                               ; preds = %52
+55:                                               ; preds = %51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next, %51
-  br i1 %exitcond.not.i, label %TLSX_KeyShare_GroupRank.exit, label %52, !llvm.loop !178
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next, %50
+  br i1 %exitcond.not.i, label %TLSX_KeyShare_GroupRank.exit, label %51, !llvm.loop !178
 
-.split.loop.exit14.i:                             ; preds = %52
-  %57 = trunc i64 %indvars.iv to i32
-  %58 = and i32 %57, 255
+.split.loop.exit14.i:                             ; preds = %51
+  %56 = trunc i64 %indvars.iv to i32
+  %57 = and i32 %56, 255
   br label %TLSX_KeyShare_GroupRank.exit
 
-TLSX_KeyShare_GroupRank.exit:                     ; preds = %56, %.split.loop.exit14.i
-  %.012.i = phi i32 [ %58, %.split.loop.exit14.i ], [ -1, %56 ]
-  %59 = icmp ne i32 %.012.i, -1
-  %60 = icmp slt i32 %.012.i, %.03372
-  %or.cond46 = select i1 %59, i1 %60, i1 false
+TLSX_KeyShare_GroupRank.exit:                     ; preds = %55, %.split.loop.exit14.i
+  %.012.i = phi i32 [ %57, %.split.loop.exit14.i ], [ -1, %55 ]
+  %58 = icmp ne i32 %.012.i, -1
+  %59 = icmp slt i32 %.012.i, %.03372
+  %or.cond46 = select i1 %58, i1 %59, i1 false
   %spec.select = select i1 %or.cond46, ptr %.03273, ptr %.03471
   %spec.select47 = select i1 %or.cond46, i32 %.012.i, i32 %.03372
   br label %TLSX_SupportedGroups_Find.exit.thread
@@ -5696,18 +5694,18 @@ TLSX_KeyShare_GroupRank.exit:                     ; preds = %56, %.split.loop.ex
 TLSX_SupportedGroups_Find.exit.thread:            ; preds = %39, %TLSX_Find.exit.i, %TLSX_SupportedGroups_Find.exit, %47, %.loopexit.i, %TLSX_KeyShare_GroupRank.exit, %25
   %.135 = phi ptr [ %.03471, %25 ], [ %spec.select, %TLSX_KeyShare_GroupRank.exit ], [ %.03471, %.loopexit.i ], [ %.03471, %47 ], [ %.03471, %TLSX_SupportedGroups_Find.exit ], [ %.03471, %TLSX_Find.exit.i ], [ %.03471, %39 ]
   %.1 = phi i32 [ %.03372, %25 ], [ %spec.select47, %TLSX_KeyShare_GroupRank.exit ], [ %.03372, %.loopexit.i ], [ %.03372, %47 ], [ %.03372, %TLSX_SupportedGroups_Find.exit ], [ %.03372, %TLSX_Find.exit.i ], [ %.03372, %39 ]
-  %61 = getelementptr inbounds nuw i8, ptr %.03273, i64 72
-  %62 = load ptr, ptr %61, align 8, !tbaa !176
-  %.not43 = icmp eq ptr %62, null
+  %60 = getelementptr inbounds nuw i8, ptr %.03273, i64 72
+  %61 = load ptr, ptr %60, align 8, !tbaa !176
+  %.not43 = icmp eq ptr %61, null
   br i1 %.not43, label %._crit_edge, label %25, !llvm.loop !180
 
 ._crit_edge:                                      ; preds = %14, %TLSX_SupportedGroups_Find.exit.thread, %12, %.thread
   %.034.lcssa = phi ptr [ null, %.thread ], [ null, %12 ], [ %.135, %TLSX_SupportedGroups_Find.exit.thread ], [ null, %14 ]
   store ptr %.034.lcssa, ptr %4, align 8, !tbaa !157
   store i8 1, ptr %5, align 1, !tbaa !51
-  br label %63
+  br label %62
 
-63:                                               ; preds = %17, %6, %8, %._crit_edge
+62:                                               ; preds = %17, %6, %8, %._crit_edge
   %.0 = phi i32 [ 0, %._crit_edge ], [ -173, %8 ], [ -173, %6 ], [ -310, %17 ]
   ret i32 %.0
 }

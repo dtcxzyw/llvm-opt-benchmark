@@ -9438,7 +9438,6 @@ _ZNSt6vectorIN4cvc58internal8TypeNodeESaIS2_EE8pop_backEv.exit: ; preds = %_ZN4c
 
 .lr.ph.preheader:                                 ; preds = %92
   %99 = trunc nsw i64 %98 to i32
-  %umax = call i32 @llvm.umax.i32(i32 %99, i32 1)
   br label %.lr.ph
 
 100:                                              ; preds = %2
@@ -9590,7 +9589,7 @@ _ZNSt6vectorIN4cvc58internal8TypeNodeESaIS2_EE9push_backEOS2_.exit: ; preds = %_
 _ZN4cvc58internal8TypeNodeD2Ev.exit:              ; preds = %_ZNSt6vectorIN4cvc58internal8TypeNodeESaIS2_EE9push_backEOS2_.exit, %164, %170
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #21
   %174 = add nuw i32 %.0839, 1
-  %exitcond.not = icmp eq i32 %174, %umax
+  %exitcond.not = icmp eq i32 %174, %99
   br i1 %exitcond.not, label %_ZNSt13unordered_setIN4cvc58internal8TypeNodeESt4hashIS2_ESt8equal_toIS2_ESaIS2_EE4findERKS2_.exit, label %.lr.ph, !llvm.loop !234
 
 175:                                              ; preds = %137, %.lr.ph
@@ -17940,9 +17939,6 @@ declare i64 @llvm.umin.i64(i64, i64) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #20
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #19
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

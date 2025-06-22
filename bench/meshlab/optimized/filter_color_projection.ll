@@ -1951,33 +1951,29 @@ _ZN3vcg9HistogramIfE3AddEff.exit:                 ; preds = %54, %57
   %82 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %83 = load ptr, ptr %82, align 8
   %84 = load ptr, ptr %3, align 8
-  %85 = icmp eq ptr %83, %84
-  br i1 %85, label %86, label %.lr.ph.preheader.i
+  %85 = ptrtoint ptr %83 to i64
+  %86 = ptrtoint ptr %84 to i64
+  %87 = sub i64 %85, %86
+  %88 = ashr exact i64 %87, 2
+  %89 = icmp eq ptr %83, %84
+  br i1 %89, label %90, label %.lr.ph.i
 
-86:                                               ; preds = %._crit_edge42
-  %87 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %88 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %89 = load ptr, ptr %88, align 8
-  %90 = load ptr, ptr %87, align 8
-  %91 = icmp eq ptr %89, %90
-  br i1 %91, label %_ZNK3vcg9HistogramIfE10PercentileEf.exit, label %._crit_edge24.i
+90:                                               ; preds = %._crit_edge42
+  %91 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %92 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %93 = load ptr, ptr %92, align 8
+  %94 = load ptr, ptr %91, align 8
+  %95 = icmp eq ptr %93, %94
+  br i1 %95, label %_ZNK3vcg9HistogramIfE10PercentileEf.exit, label %._crit_edge24.i
 
-.lr.ph.preheader.i:                               ; preds = %._crit_edge42
-  %92 = ptrtoint ptr %83 to i64
-  %93 = ptrtoint ptr %84 to i64
-  %94 = sub i64 %92, %93
-  %95 = ashr exact i64 %94, 2
-  %umax.i = call i64 @llvm.umax.i64(i64 %95, i64 1)
-  br label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.019.i = phi i64 [ %99, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
-  %.01518.i = phi float [ %98, %.lr.ph.i ], [ 0.000000e+00, %.lr.ph.preheader.i ]
+.lr.ph.i:                                         ; preds = %._crit_edge42, %.lr.ph.i
+  %.019.i = phi i64 [ %99, %.lr.ph.i ], [ 0, %._crit_edge42 ]
+  %.01518.i = phi float [ %98, %.lr.ph.i ], [ 0.000000e+00, %._crit_edge42 ]
   %96 = getelementptr inbounds float, ptr %84, i64 %.019.i
   %97 = load float, ptr %96, align 4
   %98 = fadd float %.01518.i, %97
   %99 = add nuw i64 %.019.i, 1
-  %exitcond.not.i = icmp eq i64 %99, %umax.i
+  %exitcond.not.i = icmp eq i64 %99, %88
   br i1 %exitcond.not.i, label %.lr.ph23.preheader.i, label %.lr.ph.i, !llvm.loop !23
 
 .lr.ph23.preheader.i:                             ; preds = %.lr.ph.i
@@ -1995,26 +1991,26 @@ _ZN3vcg9HistogramIfE3AddEff.exit:                 ; preds = %54, %57
 
 105:                                              ; preds = %.lr.ph23.i
   %106 = add nuw i64 %.121.i, 1
-  %exitcond30.not.i = icmp eq i64 %106, %umax.i
+  %exitcond30.not.i = icmp eq i64 %106, %88
   br i1 %exitcond30.not.i, label %._crit_edge24.i.loopexit, label %.lr.ph23.i, !llvm.loop !24
 
 ._crit_edge24.i.loopexit:                         ; preds = %.lr.ph23.i, %105
-  %.1.lcssa.i.ph = phi i64 [ %.121.i, %.lr.ph23.i ], [ %umax.i, %105 ]
+  %.1.lcssa.i.ph = phi i64 [ %.121.i, %.lr.ph23.i ], [ %88, %105 ]
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 24
   %.pre54 = load ptr, ptr %.phi.trans.insert, align 8
   br label %._crit_edge24.i
 
-._crit_edge24.i:                                  ; preds = %._crit_edge24.i.loopexit, %86
-  %107 = phi ptr [ %90, %86 ], [ %.pre54, %._crit_edge24.i.loopexit ]
-  %.1.lcssa.i = phi i64 [ 0, %86 ], [ %.1.lcssa.i.ph, %._crit_edge24.i.loopexit ]
+._crit_edge24.i:                                  ; preds = %._crit_edge24.i.loopexit, %90
+  %107 = phi ptr [ %94, %90 ], [ %.pre54, %._crit_edge24.i.loopexit ]
+  %.1.lcssa.i = phi i64 [ 0, %90 ], [ %.1.lcssa.i.ph, %._crit_edge24.i.loopexit ]
   %108 = getelementptr float, ptr %107, i64 %.1.lcssa.i
   %109 = getelementptr i8, ptr %108, i64 4
   %110 = load float, ptr %109, align 4
   br label %_ZNK3vcg9HistogramIfE10PercentileEf.exit
 
-_ZNK3vcg9HistogramIfE10PercentileEf.exit:         ; preds = %86, %._crit_edge24.i
-  %111 = phi ptr [ %107, %._crit_edge24.i ], [ %90, %86 ]
-  %.016.i = phi float [ %110, %._crit_edge24.i ], [ 0.000000e+00, %86 ]
+_ZNK3vcg9HistogramIfE10PercentileEf.exit:         ; preds = %90, %._crit_edge24.i
+  %111 = phi ptr [ %107, %._crit_edge24.i ], [ %94, %90 ]
+  %.016.i = phi float [ %110, %._crit_edge24.i ], [ 0.000000e+00, %90 ]
   %112 = mul nsw i32 %80, %81
   %113 = icmp sgt i32 %112, 0
   br i1 %113, label %.lr.ph44, label %._crit_edge45

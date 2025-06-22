@@ -352,13 +352,10 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_
 
 _ZNKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12_M_check_lenEmPKc.exit.i75: ; preds = %40
   %45 = ashr exact i64 %43, 4
-  %.sroa.speculated.i.i76 = tail call i64 @llvm.umax.i64(i64 %45, i64 1)
-  %46 = add nsw i64 %.sroa.speculated.i.i76, %45
+  %46 = ashr exact i64 %43, 3
   %47 = icmp ult i64 %46, %45
   %48 = tail call i64 @llvm.umin.i64(i64 %46, i64 576460752303423487)
   %49 = select i1 %47, i64 576460752303423487, i64 %48
-  %.not.i.i77 = icmp ne i64 %49, 0
-  tail call void @llvm.assume(i1 %.not.i.i77)
   %50 = shl nuw nsw i64 %49, 4
   %51 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %50) #28
           to label %.noexc94 unwind label %.loopexit142

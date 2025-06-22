@@ -2726,7 +2726,6 @@ define internal fastcc zeroext i1 @MS_ADPCM_Init(ptr noundef nonnull captures(no
   %79 = trunc nuw nsw i64 %spec.store.select to i16
   store i16 %79, ptr %74, align 8
   %80 = shl nuw nsw i64 %spec.store.select, 1
-  %umax = tail call i64 @llvm.umax.i64(i64 %80, i64 1)
   br label %81
 
 81:                                               ; preds = %76, %102
@@ -2765,7 +2764,7 @@ define internal fastcc zeroext i1 @MS_ADPCM_Init(ptr noundef nonnull captures(no
   %105 = getelementptr inbounds nuw i16, ptr %104, i64 %.06174
   store i16 %103, ptr %105, align 2
   %106 = add nuw nsw i64 %.06174, 1
-  %exitcond.not = icmp eq i64 %106, %umax
+  %exitcond.not = icmp eq i64 %106, %80
   br i1 %exitcond.not, label %107, label %81, !llvm.loop !18
 
 107:                                              ; preds = %102

@@ -6635,8 +6635,7 @@ get_vlc2.exit.i.i:                                ; preds = %245, %215
   br i1 %.not37.i, label %mjpeg_copy_block.exit, label %.preheader28.preheader.i
 
 .preheader28.preheader.i:                         ; preds = %.preheader29.i
-  %umax.i = call i32 @llvm.umax.i32(i32 %388, i32 1)
-  %wide.trip.count43.i = zext nneg i32 %umax.i to i64
+  %wide.trip.count43.i = zext nneg i32 %388 to i64
   br label %.preheader28.i
 
 .preheader27.i:                                   ; preds = %384
@@ -6644,8 +6643,7 @@ get_vlc2.exit.i.i:                                ; preds = %245, %215
 
 .preheader.lr.ph.i:                               ; preds = %.preheader27.i
   %390 = sub nsw i32 16, %382
-  %umax48.i = call i32 @llvm.umax.i32(i32 %388, i32 1)
-  %wide.trip.count54.i = zext nneg i32 %umax48.i to i64
+  %wide.trip.count54.i = zext nneg i32 %388 to i64
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %398, %.preheader.lr.ph.i
@@ -8926,8 +8924,7 @@ mjpeg_idct_scan_progressive_ac.exit.thread925:    ; preds = %807
   br i1 %.not37.i.us.i, label %shift_output.exit.us.i, label %.preheader28.preheader.i.us.i
 
 .preheader28.preheader.i.us.i:                    ; preds = %.preheader29.i.us.i
-  %umax.i.us.i = call i32 @llvm.umax.i32(i32 %876, i32 1)
-  %wide.trip.count43.i.us.i = zext nneg i32 %umax.i.us.i to i64
+  %wide.trip.count43.i.us.i = zext nneg i32 %876 to i64
   br label %.preheader28.i.us.i
 
 .preheader28.i.us.i:                              ; preds = %886, %.preheader28.preheader.i.us.i
@@ -8960,8 +8957,7 @@ mjpeg_idct_scan_progressive_ac.exit.thread925:    ; preds = %807
 
 .preheader.lr.ph.i.us.i:                          ; preds = %.preheader27.i.us.i
   %887 = sub nsw i32 16, %871
-  %umax48.i.us.i = call i32 @llvm.umax.i32(i32 %876, i32 1)
-  %wide.trip.count54.i.us.i = zext nneg i32 %umax48.i.us.i to i64
+  %wide.trip.count54.i.us.i = zext nneg i32 %876 to i64
   br label %.preheader.i.us.i
 
 .preheader.i.us.i:                                ; preds = %895, %.preheader.lr.ph.i.us.i
@@ -11047,9 +11043,6 @@ declare i16 @llvm.umax.i16(i16, i16) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #12
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #12
 
 attributes #0 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

@@ -607,7 +607,6 @@ define hidden void @_Z26pyRaiseCVOverloadExceptionRKNSt7__cxx1112basic_stringIcS
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i8 0, ptr %21, align 4, !tbaa !40
   %22 = ashr exact i64 %17, 3
-  %umax = call i64 @llvm.umax.i64(i64 %18, i64 1)
   br label %31
 
 .noexc.i45:                                       ; preds = %31
@@ -633,11 +632,7 @@ define hidden void @_Z26pyRaiseCVOverloadExceptionRKNSt7__cxx1112basic_stringIcS
   %29 = load i64, ptr %26, align 8, !tbaa !38
   %30 = add i64 %29, %34
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef %30)
-          to label %.lr.ph100.preheader unwind label %40
-
-.lr.ph100.preheader:                              ; preds = %.noexc46
-  %umax101 = call i64 @llvm.umax.i64(i64 %18, i64 1)
-  br label %.lr.ph100
+          to label %.lr.ph100 unwind label %40
 
 31:                                               ; preds = %.lr.ph, %31
   %.01898 = phi i64 [ 0, %.lr.ph ], [ %35, %31 ]
@@ -646,7 +641,7 @@ define hidden void @_Z26pyRaiseCVOverloadExceptionRKNSt7__cxx1112basic_stringIcS
   %33 = load i64, ptr %32, align 8, !tbaa !38
   %34 = add i64 %33, %.01997
   %35 = add nuw i64 %.01898, 1
-  %exitcond.not = icmp eq i64 %35, %umax
+  %exitcond.not = icmp eq i64 %35, %18
   br i1 %exitcond.not, label %.noexc.i45, label %31, !llvm.loop !61
 
 ._crit_edge.i.i48:                                ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit57
@@ -670,8 +665,8 @@ define hidden void @_Z26pyRaiseCVOverloadExceptionRKNSt7__cxx1112basic_stringIcS
           cleanup
   br label %81
 
-.lr.ph100:                                        ; preds = %.lr.ph100.preheader, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit57
-  %.099 = phi i64 [ %57, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit57 ], [ 0, %.lr.ph100.preheader ]
+.lr.ph100:                                        ; preds = %.noexc46, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit57
+  %.099 = phi i64 [ %57, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit57 ], [ 0, %.noexc46 ]
   %42 = load i64, ptr %20, align 8, !tbaa !38
   %43 = load i64, ptr %26, align 8, !tbaa !38
   %44 = sub i64 4611686018427387903, %43
@@ -707,7 +702,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit.i54: ; p
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit57: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit.i54
   %57 = add nuw i64 %.099, 1
-  %exitcond102.not = icmp eq i64 %57, %umax101
+  %exitcond102.not = icmp eq i64 %57, %18
   br i1 %exitcond102.not, label %._crit_edge.i.i48, label %.lr.ph100, !llvm.loop !63
 
 .loopexit:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit.i54

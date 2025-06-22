@@ -1132,7 +1132,6 @@ for.body.lr.ph:                                   ; preds = %_ZNSt6vectorINSt7__
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
   %_M_offset.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 208
   %_M_finish.i16 = getelementptr inbounds nuw i8, ptr %arguments, i64 8
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end
@@ -1263,7 +1262,7 @@ if.else.i28:                                      ; preds = %if.else
 if.end:                                           ; preds = %if.else.i28, %.noexc30, %invoke.cont13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arg) #23
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %sub.ptr.div.i
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !9
 
 ehcleanup:                                        ; preds = %lpad8.loopexit, %lpad8.loopexit.split-lp, %lpad12

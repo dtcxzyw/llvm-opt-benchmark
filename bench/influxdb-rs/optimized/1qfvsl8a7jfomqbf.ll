@@ -13515,7 +13515,6 @@ define hidden noundef zeroext i1 @"_ZN94_$LT$arrow_array..array..byte_array..Gen
   %50 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %51 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %52 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %umax125.i = call i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 1)
   br i1 %32, label %_ZN11arrow_array5array5Array7is_null17h113980c4b1c33747E.exit.thread.us.i, label %.lr.ph.split.i
 
 _ZN11arrow_array5array5Array7is_null17h113980c4b1c33747E.exit.thread.us.i: ; preds = %.lr.ph.i, %68
@@ -13560,7 +13559,7 @@ _ZN11arrow_array5array5Array7is_null17h113980c4b1c33747E.exit.thread.us.i: ; pre
   br i1 %67, label %_ZN11arrow_array5array16print_long_array17h621a0279e2d0f04cE.exit.thread, label %68
 
 68:                                               ; preds = %66
-  %exitcond126.not.i = icmp eq i64 %53, %umax125.i
+  %exitcond126.not.i = icmp eq i64 %53, %.0.sroa.speculated.i.i
   br i1 %exitcond126.not.i, label %._crit_edge.i, label %_ZN11arrow_array5array5Array7is_null17h113980c4b1c33747E.exit.thread.us.i
 
 ._crit_edge.i:                                    ; preds = %165, %68
@@ -13822,7 +13821,7 @@ _ZN11arrow_array5array5Array7is_null17h113980c4b1c33747E.exit.thread.i: ; preds 
   br i1 %164, label %_ZN11arrow_array5array16print_long_array17h621a0279e2d0f04cE.exit.thread, label %165
 
 165:                                              ; preds = %163, %150
-  %exitcond124.not.i = icmp eq i64 %70, %umax125.i
+  %exitcond124.not.i = icmp eq i64 %70, %.0.sroa.speculated.i.i
   br i1 %exitcond124.not.i, label %._crit_edge.i, label %.lr.ph.split.i
 
 _ZN11arrow_array5array16print_long_array17h621a0279e2d0f04cE.exit: ; preds = %148, %120, %90, %._crit_edge.i, %25

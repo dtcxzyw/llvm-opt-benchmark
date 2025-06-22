@@ -4292,7 +4292,6 @@ define internal fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZL22Get
   %12 = sub i64 %10, %11
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %umax = tail call i64 @llvm.umax.i64(i64 %12, i64 1)
   br label %15
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIhSaIhEE9push_backEOh.exit, %4
@@ -4375,7 +4374,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS
 _ZNSt6vectorIhSaIhEE9push_backEOh.exit:           ; preds = %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i, %23, %15
   %46 = phi ptr [ %43, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i ], [ %25, %23 ], [ %16, %15 ]
   %47 = add nuw i64 %.016, 1
-  %exitcond.not = icmp eq i64 %47, %umax
+  %exitcond.not = icmp eq i64 %47, %12
   br i1 %exitcond.not, label %._crit_edge, label %15, !llvm.loop !188
 
 48:                                               ; preds = %2, %._crit_edge
@@ -4405,7 +4404,6 @@ define internal fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZL22Get
   %12 = sub i64 %10, %11
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %umax = tail call i64 @llvm.umax.i64(i64 %12, i64 1)
   br label %15
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorItSaItEE9push_backEOt.exit, %4
@@ -4485,7 +4483,7 @@ _ZNSt6vectorItSaItEE9push_backEOt.exit:           ; preds = %_ZNSt6vectorItSaItE
   %46 = phi ptr [ %44, %_ZNSt6vectorItSaItEE17_M_realloc_insertIJtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i.i ], [ %17, %24 ], [ %17, %15 ]
   %47 = phi ptr [ %42, %_ZNSt6vectorItSaItEE17_M_realloc_insertIJtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i.i ], [ %25, %24 ], [ %18, %15 ]
   %48 = add nuw i64 %.016, 1
-  %exitcond.not = icmp eq i64 %48, %umax
+  %exitcond.not = icmp eq i64 %48, %12
   br i1 %exitcond.not, label %._crit_edge, label %15, !llvm.loop !190
 
 49:                                               ; preds = %2, %._crit_edge
@@ -4515,7 +4513,6 @@ define internal fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZL22Get
   %12 = sub i64 %10, %11
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %umax = tail call i64 @llvm.umax.i64(i64 %12, i64 1)
   br label %15
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIjSaIjEE9push_backEOj.exit, %4
@@ -4595,7 +4592,7 @@ _ZNSt6vectorIjSaIjEE9push_backEOj.exit:           ; preds = %_ZNSt6vectorIjSaIjE
   %46 = phi ptr [ %44, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i ], [ %17, %24 ], [ %17, %15 ]
   %47 = phi ptr [ %42, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i ], [ %25, %24 ], [ %18, %15 ]
   %48 = add nuw i64 %.016, 1
-  %exitcond.not = icmp eq i64 %48, %umax
+  %exitcond.not = icmp eq i64 %48, %12
   br i1 %exitcond.not, label %._crit_edge, label %15, !llvm.loop !192
 
 49:                                               ; preds = %2, %._crit_edge
@@ -4625,7 +4622,6 @@ define internal fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZL22Get
   %12 = sub i64 %10, %11
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %umax = tail call i64 @llvm.umax.i64(i64 %12, i64 1)
   br label %15
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorImSaImEE9push_backEOm.exit, %4
@@ -4704,7 +4700,7 @@ _ZNSt6vectorImSaImEE9push_backEOm.exit:           ; preds = %_ZNSt6vectorImSaImE
   %45 = phi ptr [ %43, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i ], [ %17, %23 ], [ %17, %15 ]
   %46 = phi ptr [ %41, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i ], [ %24, %23 ], [ %18, %15 ]
   %47 = add nuw i64 %.016, 1
-  %exitcond.not = icmp eq i64 %47, %umax
+  %exitcond.not = icmp eq i64 %47, %12
   br i1 %exitcond.not, label %._crit_edge, label %15, !llvm.loop !194
 
 48:                                               ; preds = %2, %._crit_edge

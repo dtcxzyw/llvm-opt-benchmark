@@ -4432,7 +4432,6 @@ subframe_count_exact.exit442.i:                   ; preds = %rice_count_exact.ex
   %344 = zext nneg i32 %343 to i64
   %345 = getelementptr inbounds nuw [32 x i32], ptr %3, i64 0, i64 %344
   %346 = getelementptr inbounds nuw [32 x [32 x i32]], ptr %2, i64 0, i64 %344
-  %umax620.i = call i32 @llvm.umax.i32(i32 %370, i32 1)
   %wide.trip.count618.i = zext nneg i32 %329 to i64
   br label %.lr.ph563.us.us.i
 
@@ -4464,7 +4463,7 @@ subframe_count_exact.exit442.i:                   ; preds = %rice_count_exact.ex
   %.2322.us.us.i = phi i64 [ %.1321568.us.us.i, %._crit_edge564.us.us.i ], [ %.1321568.us.us.i, %347 ], [ %352, %354 ], [ %.1321568.us.us.i, %351 ]
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %8) #11
   %356 = add nuw i32 %.0327566.us.us.i, 1
-  %exitcond621.not.i = icmp eq i32 %356, %umax620.i
+  %exitcond621.not.i = icmp eq i32 %356, %370
   br i1 %exitcond621.not.i, label %.split570.us.us.i, label %.lr.ph563.us.us.i.backedge
 
 .lr.ph563.us.us.i.backedge:                       ; preds = %355, %.split570.us.us.i
@@ -5986,9 +5985,6 @@ declare i32 @llvm.cttz.i32(i32, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #10
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #10
 
 attributes #0 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

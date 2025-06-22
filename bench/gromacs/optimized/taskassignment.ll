@@ -245,14 +245,10 @@ _ZN3gmx14LogEntryWriterD2Ev.exit11:               ; preds = %_ZNKSt7__cxx1112bas
   %41 = sub i64 %39, %40
   %42 = sdiv exact i64 %41, 24
   %.not5164.not.i = icmp eq ptr %38, %36
-  br i1 %.not5164.not.i, label %_ZN3gmx12_GLOBAL__N_126isAnyGpuSharedBetweenRanksENS_8ArrayRefIKSt6vectorINS_14GpuTaskMappingESaIS3_EEEE.exit.thread, label %.lr.ph.preheader.i
+  br i1 %.not5164.not.i, label %_ZN3gmx12_GLOBAL__N_126isAnyGpuSharedBetweenRanksENS_8ArrayRefIKSt6vectorINS_14GpuTaskMappingESaIS3_EEEE.exit.thread, label %.lr.ph.i
 
-.lr.ph.preheader.i:                               ; preds = %34
-  %umax.i = call i64 @llvm.umax.i64(i64 %42, i64 1)
-  br label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %._crit_edge63.i, %.lr.ph.preheader.i
-  %.02365.i = phi i64 [ %.pre.i, %._crit_edge63.i ], [ 0, %.lr.ph.preheader.i ]
+.lr.ph.i:                                         ; preds = %34, %._crit_edge63.i
+  %.02365.i = phi i64 [ %.pre.i, %._crit_edge63.i ], [ 0, %34 ]
   %43 = getelementptr inbounds %"class.std::vector.69", ptr %36, i64 %.02365.i
   %44 = load ptr, ptr %43, align 8, !tbaa !38
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 8
@@ -304,7 +300,7 @@ _ZN3gmx14LogEntryWriterD2Ev.exit11:               ; preds = %_ZNKSt7__cxx1112bas
   br i1 %.not49.us.i, label %._crit_edge63.i, label %.preheader.us.i
 
 ._crit_edge63.i:                                  ; preds = %._crit_edge.us.i, %.lr.ph.i
-  %exitcond69.not.i = icmp eq i64 %.pre.i, %umax.i
+  %exitcond69.not.i = icmp eq i64 %.pre.i, %42
   br i1 %exitcond69.not.i, label %_ZN3gmx12_GLOBAL__N_126isAnyGpuSharedBetweenRanksENS_8ArrayRefIKSt6vectorINS_14GpuTaskMappingESaIS3_EEEE.exit.thread, label %.lr.ph.i, !llvm.loop !44
 
 _ZN3gmx12_GLOBAL__N_126isAnyGpuSharedBetweenRanksENS_8ArrayRefIKSt6vectorINS_14GpuTaskMappingESaIS3_EEEE.exit: ; preds = %56

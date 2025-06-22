@@ -72880,11 +72880,11 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
 
 ._crit_edge10:                                    ; preds = %42, %3
   %.sroa.03.0.lcssa = phi i64 [ %2, %3 ], [ %45, %42 ]
+  %19 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.lcssa)
   %.not16 = icmp eq i64 %.sroa.03.0.lcssa, 0
   br i1 %.not16, label %._crit_edge14, label %.lr.ph13
 
 .lr.ph13:                                         ; preds = %._crit_edge10
-  %19 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.lcssa)
   %20 = icmp ne ptr %.0.val, null
   call void @llvm.assume(i1 %20)
   %21 = getelementptr i8, ptr %.0.val, i64 8
@@ -72898,11 +72898,11 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
   %notmask = shl nsw i64 -1, %24
   %25 = xor i64 %notmask, -1
   %26 = and i64 %.sroa.03.06, %25
+  %27 = call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %26)
   %.not15 = icmp eq i64 %26, 0
   br i1 %.not15, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %23
-  %27 = call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %26)
   call void @llvm.assume(i1 %12)
   br label %37
 
@@ -73044,11 +73044,11 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
 
 ._crit_edge19:                                    ; preds = %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h8470ce2392a35c4eE.exit74", %3
   %.sroa.03.0.lcssa = phi i64 [ %2, %3 ], [ %54, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h8470ce2392a35c4eE.exit74" ]
+  %9 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.lcssa)
   %.not24 = icmp eq i64 %.sroa.03.0.lcssa, 0
   br i1 %.not24, label %._crit_edge23, label %.lr.ph22
 
 .lr.ph22:                                         ; preds = %._crit_edge19
-  %9 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.lcssa)
   %10 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %10)
   br label %16
@@ -73060,11 +73060,11 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
   %notmask = shl nsw i64 -1, %12
   %13 = xor i64 %notmask, -1
   %14 = and i64 %.sroa.03.015, %13
+  %15 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %14)
   %.not = icmp eq i64 %14, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11
-  %15 = tail call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %14)
   tail call void @llvm.assume(i1 %5)
   br label %30
 
@@ -73212,11 +73212,11 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
 
 ._crit_edge22:                                    ; preds = %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h6c9df35e2c9c9aeeE.exit73", %3
   %.sroa.03.0.lcssa = phi i64 [ %2, %3 ], [ %50, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h6c9df35e2c9c9aeeE.exit73" ]
+  %10 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.lcssa)
   %.not27 = icmp eq i64 %.sroa.03.0.lcssa, 0
   br i1 %.not27, label %._crit_edge26, label %.lr.ph25
 
 .lr.ph25:                                         ; preds = %._crit_edge22
-  %10 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.lcssa)
   %11 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %11)
   %12 = getelementptr i8, ptr %.0.val, i64 8
@@ -73229,11 +73229,11 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
   %notmask = shl nsw i64 -1, %14
   %15 = xor i64 %notmask, -1
   %16 = and i64 %.sroa.03.018, %15
+  %17 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %16)
   %.not = icmp eq i64 %16, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13
-  %17 = tail call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %16)
   tail call void @llvm.assume(i1 %5)
   br label %30
 
@@ -73360,11 +73360,11 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
 
 ._crit_edge22:                                    ; preds = %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17hb7d062f596122689E.exit73", %3
   %.sroa.03.0.lcssa = phi i64 [ %2, %3 ], [ %50, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17hb7d062f596122689E.exit73" ]
+  %10 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.lcssa)
   %.not27 = icmp eq i64 %.sroa.03.0.lcssa, 0
   br i1 %.not27, label %._crit_edge26, label %.lr.ph25
 
 .lr.ph25:                                         ; preds = %._crit_edge22
-  %10 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.lcssa)
   %11 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %11)
   %12 = getelementptr i8, ptr %.0.val, i64 8
@@ -73377,11 +73377,11 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
   %notmask = shl nsw i64 -1, %14
   %15 = xor i64 %notmask, -1
   %16 = and i64 %.sroa.03.018, %15
+  %17 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %16)
   %.not = icmp eq i64 %16, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13
-  %17 = tail call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %16)
   tail call void @llvm.assume(i1 %5)
   br label %30
 
@@ -73506,11 +73506,11 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
 
 ._crit_edge19:                                    ; preds = %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h5f0df2f4e7cbf7fbE.exit74", %3
   %.sroa.03.0.lcssa = phi i64 [ %2, %3 ], [ %54, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h5f0df2f4e7cbf7fbE.exit74" ]
+  %9 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.lcssa)
   %.not24 = icmp eq i64 %.sroa.03.0.lcssa, 0
   br i1 %.not24, label %._crit_edge23, label %.lr.ph22
 
 .lr.ph22:                                         ; preds = %._crit_edge19
-  %9 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.lcssa)
   %10 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %10)
   br label %16
@@ -73522,11 +73522,11 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
   %notmask = shl nsw i64 -1, %12
   %13 = xor i64 %notmask, -1
   %14 = and i64 %.sroa.03.015, %13
+  %15 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %14)
   %.not = icmp eq i64 %14, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11
-  %15 = tail call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %14)
   tail call void @llvm.assume(i1 %5)
   br label %30
 
@@ -73676,11 +73676,11 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
 
 ._crit_edge74:                                    ; preds = %51, %3
   %.sroa.03.0.lcssa = phi i64 [ %2, %3 ], [ %54, %51 ]
+  %11 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.lcssa)
   %.not79 = icmp eq i64 %.sroa.03.0.lcssa, 0
   br i1 %.not79, label %._crit_edge78, label %.lr.ph77
 
 .lr.ph77:                                         ; preds = %._crit_edge74
-  %11 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.lcssa)
   %12 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %12)
   %13 = getelementptr i8, ptr %.0.val, i64 8
@@ -73693,11 +73693,11 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
   %notmask = shl nsw i64 -1, %15
   %16 = xor i64 %notmask, -1
   %17 = and i64 %.sroa.03.070, %16
+  %18 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %17)
   %.not = icmp eq i64 %17, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %14
-  %18 = tail call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %17)
   tail call void @llvm.assume(i1 %6)
   br label %31
 
@@ -73840,11 +73840,11 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
 
 ._crit_edge18:                                    ; preds = %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h1afd600d1649e7baE.exit74", %3
   %.sroa.03.0.lcssa = phi i64 [ %2, %3 ], [ %54, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h1afd600d1649e7baE.exit74" ]
+  %9 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.lcssa)
   %.not23 = icmp eq i64 %.sroa.03.0.lcssa, 0
   br i1 %.not23, label %._crit_edge22, label %.lr.ph21
 
 .lr.ph21:                                         ; preds = %._crit_edge18
-  %9 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.lcssa)
   %10 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %10)
   br label %16
@@ -73856,11 +73856,11 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
   %notmask = shl nsw i64 -1, %12
   %13 = xor i64 %notmask, -1
   %14 = and i64 %.sroa.03.014, %13
+  %15 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %14)
   %.not = icmp eq i64 %14, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11
-  %15 = tail call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %14)
   tail call void @llvm.assume(i1 %5)
   br label %30
 
@@ -74007,11 +74007,11 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
 
 ._crit_edge22:                                    ; preds = %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h7ade14d45b50621fE.exit73", %3
   %.sroa.03.0.lcssa = phi i64 [ %2, %3 ], [ %50, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h7ade14d45b50621fE.exit73" ]
+  %10 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.lcssa)
   %.not27 = icmp eq i64 %.sroa.03.0.lcssa, 0
   br i1 %.not27, label %._crit_edge26, label %.lr.ph25
 
 .lr.ph25:                                         ; preds = %._crit_edge22
-  %10 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.lcssa)
   %11 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %11)
   %12 = getelementptr i8, ptr %.0.val, i64 8
@@ -74024,11 +74024,11 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
   %notmask = shl nsw i64 -1, %14
   %15 = xor i64 %notmask, -1
   %16 = and i64 %.sroa.03.018, %15
+  %17 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %16)
   %.not = icmp eq i64 %16, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13
-  %17 = tail call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %16)
   tail call void @llvm.assume(i1 %5)
   br label %30
 
@@ -74155,11 +74155,11 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
 
 ._crit_edge20:                                    ; preds = %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h61df302aa4b9a21dE.exit78", %3
   %.sroa.03.0.lcssa = phi i64 [ %2, %3 ], [ %50, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h61df302aa4b9a21dE.exit78" ]
+  %10 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.lcssa)
   %.not25 = icmp eq i64 %.sroa.03.0.lcssa, 0
   br i1 %.not25, label %._crit_edge24, label %.lr.ph23
 
 .lr.ph23:                                         ; preds = %._crit_edge20
-  %10 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.lcssa)
   %11 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %11)
   %12 = getelementptr i8, ptr %.0.val, i64 8
@@ -74172,11 +74172,11 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
   %notmask = shl nsw i64 -1, %14
   %15 = xor i64 %notmask, -1
   %16 = and i64 %.sroa.03.016, %15
+  %17 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %16)
   %.not = icmp eq i64 %16, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13
-  %17 = tail call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %16)
   tail call void @llvm.assume(i1 %5)
   br label %30
 
@@ -74303,11 +74303,11 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
 
 ._crit_edge19:                                    ; preds = %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h7ade14d45b50621fE.exit74", %3
   %.sroa.03.0.lcssa = phi i64 [ %2, %3 ], [ %54, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h7ade14d45b50621fE.exit74" ]
+  %9 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.lcssa)
   %.not24 = icmp eq i64 %.sroa.03.0.lcssa, 0
   br i1 %.not24, label %._crit_edge23, label %.lr.ph22
 
 .lr.ph22:                                         ; preds = %._crit_edge19
-  %9 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.lcssa)
   %10 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %10)
   br label %16
@@ -74319,11 +74319,11 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
   %notmask = shl nsw i64 -1, %12
   %13 = xor i64 %notmask, -1
   %14 = and i64 %.sroa.03.015, %13
+  %15 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %14)
   %.not = icmp eq i64 %14, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11
-  %15 = tail call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %14)
   tail call void @llvm.assume(i1 %5)
   br label %30
 
@@ -74470,11 +74470,11 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
 
 ._crit_edge19:                                    ; preds = %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h5f0df2f4e7cbf7fbE.exit78", %3
   %.sroa.03.0.lcssa = phi i64 [ %2, %3 ], [ %66, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h5f0df2f4e7cbf7fbE.exit78" ]
+  %9 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.lcssa)
   %.not24 = icmp eq i64 %.sroa.03.0.lcssa, 0
   br i1 %.not24, label %._crit_edge23, label %.lr.ph22
 
 .lr.ph22:                                         ; preds = %._crit_edge19
-  %9 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.lcssa)
   %10 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %10)
   br label %16
@@ -74486,11 +74486,11 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
   %notmask = shl nsw i64 -1, %12
   %13 = xor i64 %notmask, -1
   %14 = and i64 %.sroa.03.015, %13
+  %15 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %14)
   %.not = icmp eq i64 %14, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11
-  %15 = tail call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %14)
   tail call void @llvm.assume(i1 %5)
   br label %30
 
@@ -74651,11 +74651,11 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
 
 ._crit_edge71:                                    ; preds = %52, %3
   %.sroa.03.0.lcssa = phi i64 [ %2, %3 ], [ %55, %52 ]
+  %10 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.lcssa)
   %.not76 = icmp eq i64 %.sroa.03.0.lcssa, 0
   br i1 %.not76, label %._crit_edge75, label %.lr.ph74
 
 .lr.ph74:                                         ; preds = %._crit_edge71
-  %10 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.lcssa)
   %11 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %11)
   br label %17
@@ -74667,11 +74667,11 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
   %notmask = shl nsw i64 -1, %13
   %14 = xor i64 %notmask, -1
   %15 = and i64 %.sroa.03.067, %14
+  %16 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %15)
   %.not = icmp eq i64 %15, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %12
-  %16 = tail call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %15)
   tail call void @llvm.assume(i1 %6)
   br label %30
 
@@ -74837,11 +74837,11 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
 
 ._crit_edge74:                                    ; preds = %51, %3
   %.sroa.03.0.lcssa = phi i64 [ %2, %3 ], [ %54, %51 ]
+  %11 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.lcssa)
   %.not79 = icmp eq i64 %.sroa.03.0.lcssa, 0
   br i1 %.not79, label %._crit_edge78, label %.lr.ph77
 
 .lr.ph77:                                         ; preds = %._crit_edge74
-  %11 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.lcssa)
   %12 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %12)
   %13 = getelementptr i8, ptr %.0.val, i64 8
@@ -74854,11 +74854,11 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
   %notmask = shl nsw i64 -1, %15
   %16 = xor i64 %notmask, -1
   %17 = and i64 %.sroa.03.070, %16
+  %18 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %17)
   %.not = icmp eq i64 %17, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %14
-  %18 = tail call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %17)
   tail call void @llvm.assume(i1 %6)
   br label %31
 
@@ -75003,11 +75003,11 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
 
 ._crit_edge22:                                    ; preds = %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h5f0df2f4e7cbf7fbE.exit75", %3
   %.sroa.03.0.lcssa = phi i64 [ %2, %3 ], [ %50, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h5f0df2f4e7cbf7fbE.exit75" ]
+  %10 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.lcssa)
   %.not27 = icmp eq i64 %.sroa.03.0.lcssa, 0
   br i1 %.not27, label %._crit_edge26, label %.lr.ph25
 
 .lr.ph25:                                         ; preds = %._crit_edge22
-  %10 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.lcssa)
   %11 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %11)
   %12 = getelementptr i8, ptr %.0.val, i64 8
@@ -75020,11 +75020,11 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
   %notmask = shl nsw i64 -1, %14
   %15 = xor i64 %notmask, -1
   %16 = and i64 %.sroa.03.018, %15
+  %17 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %16)
   %.not = icmp eq i64 %16, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13
-  %17 = tail call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %16)
   tail call void @llvm.assume(i1 %5)
   br label %30
 
@@ -75153,11 +75153,11 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
 
 ._crit_edge22:                                    ; preds = %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h7edb4748ab4faf13E.exit73", %3
   %.sroa.03.0.lcssa = phi i64 [ %2, %3 ], [ %50, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h7edb4748ab4faf13E.exit73" ]
+  %10 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.lcssa)
   %.not27 = icmp eq i64 %.sroa.03.0.lcssa, 0
   br i1 %.not27, label %._crit_edge26, label %.lr.ph25
 
 .lr.ph25:                                         ; preds = %._crit_edge22
-  %10 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.lcssa)
   %11 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %11)
   %12 = getelementptr i8, ptr %.0.val, i64 8
@@ -75170,11 +75170,11 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
   %notmask = shl nsw i64 -1, %14
   %15 = xor i64 %notmask, -1
   %16 = and i64 %.sroa.03.018, %15
+  %17 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %16)
   %.not = icmp eq i64 %16, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13
-  %17 = tail call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %16)
   tail call void @llvm.assume(i1 %5)
   br label %30
 
@@ -75301,11 +75301,11 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
 
 ._crit_edge20:                                    ; preds = %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h61df302aa4b9a21dE.exit78", %3
   %.sroa.03.0.lcssa = phi i64 [ %2, %3 ], [ %50, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h61df302aa4b9a21dE.exit78" ]
+  %10 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.lcssa)
   %.not25 = icmp eq i64 %.sroa.03.0.lcssa, 0
   br i1 %.not25, label %._crit_edge24, label %.lr.ph23
 
 .lr.ph23:                                         ; preds = %._crit_edge20
-  %10 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.lcssa)
   %11 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %11)
   %12 = getelementptr i8, ptr %.0.val, i64 8
@@ -75318,11 +75318,11 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
   %notmask = shl nsw i64 -1, %14
   %15 = xor i64 %notmask, -1
   %16 = and i64 %.sroa.03.016, %15
+  %17 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %16)
   %.not = icmp eq i64 %16, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13
-  %17 = tail call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %16)
   tail call void @llvm.assume(i1 %5)
   br label %30
 
@@ -75448,11 +75448,11 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
 
 ._crit_edge19:                                    ; preds = %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h3a437c24e58a2b10E.exit74", %3
   %.sroa.03.0.lcssa = phi i64 [ %2, %3 ], [ %54, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h3a437c24e58a2b10E.exit74" ]
+  %9 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.lcssa)
   %.not24 = icmp eq i64 %.sroa.03.0.lcssa, 0
   br i1 %.not24, label %._crit_edge23, label %.lr.ph22
 
 .lr.ph22:                                         ; preds = %._crit_edge19
-  %9 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.lcssa)
   %10 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %10)
   br label %16
@@ -75464,11 +75464,11 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
   %notmask = shl nsw i64 -1, %12
   %13 = xor i64 %notmask, -1
   %14 = and i64 %.sroa.03.015, %13
+  %15 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %14)
   %.not = icmp eq i64 %14, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11
-  %15 = tail call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %14)
   tail call void @llvm.assume(i1 %5)
   br label %30
 
@@ -75614,11 +75614,11 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
 
 ._crit_edge17:                                    ; preds = %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h61df302aa4b9a21dE.exit81", %3
   %.sroa.03.0.lcssa = phi i64 [ %2, %3 ], [ %51, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h61df302aa4b9a21dE.exit81" ]
+  %9 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.lcssa)
   %.not22 = icmp eq i64 %.sroa.03.0.lcssa, 0
   br i1 %.not22, label %._crit_edge21, label %.lr.ph20
 
 .lr.ph20:                                         ; preds = %._crit_edge17
-  %9 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.lcssa)
   %10 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %10)
   br label %16
@@ -75630,11 +75630,11 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
   %notmask = shl nsw i64 -1, %12
   %13 = xor i64 %notmask, -1
   %14 = and i64 %.sroa.03.013, %13
+  %15 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %14)
   %.not = icmp eq i64 %14, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11
-  %15 = tail call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %14)
   tail call void @llvm.assume(i1 %5)
   br label %29
 
@@ -75781,11 +75781,11 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
 
 ._crit_edge19:                                    ; preds = %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h8b32246d4a0cf7f2E.exit74", %3
   %.sroa.03.0.lcssa = phi i64 [ %2, %3 ], [ %54, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h8b32246d4a0cf7f2E.exit74" ]
+  %9 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.lcssa)
   %.not24 = icmp eq i64 %.sroa.03.0.lcssa, 0
   br i1 %.not24, label %._crit_edge23, label %.lr.ph22
 
 .lr.ph22:                                         ; preds = %._crit_edge19
-  %9 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.lcssa)
   %10 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %10)
   br label %16
@@ -75797,11 +75797,11 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
   %notmask = shl nsw i64 -1, %12
   %13 = xor i64 %notmask, -1
   %14 = and i64 %.sroa.03.015, %13
+  %15 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %14)
   %.not = icmp eq i64 %14, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11
-  %15 = tail call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %14)
   tail call void @llvm.assume(i1 %5)
   br label %30
 
@@ -75948,11 +75948,11 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
 
 ._crit_edge19:                                    ; preds = %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h5f0df2f4e7cbf7fbE.exit74", %3
   %.sroa.03.0.lcssa = phi i64 [ %2, %3 ], [ %54, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h5f0df2f4e7cbf7fbE.exit74" ]
+  %9 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.lcssa)
   %.not24 = icmp eq i64 %.sroa.03.0.lcssa, 0
   br i1 %.not24, label %._crit_edge23, label %.lr.ph22
 
 .lr.ph22:                                         ; preds = %._crit_edge19
-  %9 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.lcssa)
   %10 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %10)
   br label %16
@@ -75964,11 +75964,11 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
   %notmask = shl nsw i64 -1, %12
   %13 = xor i64 %notmask, -1
   %14 = and i64 %.sroa.03.015, %13
+  %15 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %14)
   %.not = icmp eq i64 %14, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11
-  %15 = tail call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %14)
   tail call void @llvm.assume(i1 %5)
   br label %30
 
@@ -76122,11 +76122,11 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
 
 ._crit_edge54:                                    ; preds = %136, %3
   %.sroa.03.0.lcssa = phi i64 [ %2, %3 ], [ %139, %136 ]
+  %17 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.lcssa)
   %.not59 = icmp eq i64 %.sroa.03.0.lcssa, 0
   br i1 %.not59, label %._crit_edge58, label %.lr.ph57
 
 .lr.ph57:                                         ; preds = %._crit_edge54
-  %17 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.lcssa)
   %18 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %18)
   %19 = load ptr, ptr %.0.val, align 8, !alias.scope !5246, !noalias !5249, !nonnull !6, !align !983, !noundef !6
@@ -76145,11 +76145,11 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
   %notmask = shl nsw i64 -1, %27
   %28 = xor i64 %notmask, -1
   %29 = and i64 %.sroa.03.050, %28
+  %30 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %29)
   %.not = icmp eq i64 %29, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %26
-  %30 = tail call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %29)
   tail call void @llvm.assume(i1 %5)
   %31 = load ptr, ptr %.0.val, align 8, !alias.scope !5251, !noalias !5254, !nonnull !6, !align !983, !noundef !6
   %32 = load ptr, ptr %6, align 8, !alias.scope !5251, !noalias !5254, !nonnull !6, !align !983, !noundef !6
@@ -76397,11 +76397,11 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
 
 ._crit_edge19:                                    ; preds = %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h7edb4748ab4faf13E.exit74", %3
   %.sroa.03.0.lcssa = phi i64 [ %2, %3 ], [ %54, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h7edb4748ab4faf13E.exit74" ]
+  %9 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.lcssa)
   %.not24 = icmp eq i64 %.sroa.03.0.lcssa, 0
   br i1 %.not24, label %._crit_edge23, label %.lr.ph22
 
 .lr.ph22:                                         ; preds = %._crit_edge19
-  %9 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.lcssa)
   %10 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %10)
   br label %16
@@ -76413,11 +76413,11 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
   %notmask = shl nsw i64 -1, %12
   %13 = xor i64 %notmask, -1
   %14 = and i64 %.sroa.03.015, %13
+  %15 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %14)
   %.not = icmp eq i64 %14, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11
-  %15 = tail call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %14)
   tail call void @llvm.assume(i1 %5)
   br label %30
 
@@ -76564,11 +76564,11 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
 
 ._crit_edge19:                                    ; preds = %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h5f0df2f4e7cbf7fbE.exit76", %3
   %.sroa.03.0.lcssa = phi i64 [ %2, %3 ], [ %61, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h5f0df2f4e7cbf7fbE.exit76" ]
+  %9 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.lcssa)
   %.not24 = icmp eq i64 %.sroa.03.0.lcssa, 0
   br i1 %.not24, label %._crit_edge23, label %.lr.ph22
 
 .lr.ph22:                                         ; preds = %._crit_edge19
-  %9 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.lcssa)
   %10 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %10)
   br label %16
@@ -76580,11 +76580,11 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
   %notmask = shl nsw i64 -1, %12
   %13 = xor i64 %notmask, -1
   %14 = and i64 %.sroa.03.015, %13
+  %15 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %14)
   %.not = icmp eq i64 %14, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11
-  %15 = tail call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %14)
   tail call void @llvm.assume(i1 %5)
   br label %32
 
@@ -76747,11 +76747,11 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
 
 ._crit_edge22:                                    ; preds = %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h5f0df2f4e7cbf7fbE.exit68", %3
   %.sroa.03.0.lcssa = phi i64 [ %2, %3 ], [ %57, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h5f0df2f4e7cbf7fbE.exit68" ]
+  %11 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.lcssa)
   %.not27 = icmp eq i64 %.sroa.03.0.lcssa, 0
   br i1 %.not27, label %._crit_edge26, label %.lr.ph25
 
 .lr.ph25:                                         ; preds = %._crit_edge22
-  %11 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.lcssa)
   %12 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %12)
   %13 = load ptr, ptr %.0.val, align 8, !alias.scope !5379, !noalias !5382, !nonnull !6, !align !983, !noundef !6
@@ -76768,11 +76768,11 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
   %notmask = shl nsw i64 -1, %18
   %19 = xor i64 %notmask, -1
   %20 = and i64 %.sroa.03.018, %19
+  %21 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %20)
   %.not = icmp eq i64 %20, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %17
-  %21 = tail call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %20)
   tail call void @llvm.assume(i1 %5)
   %22 = load ptr, ptr %.0.val, align 8, !alias.scope !5385, !noalias !5388, !nonnull !6, !align !983, !noundef !6
   %23 = load ptr, ptr %6, align 8, !alias.scope !5385, !noalias !5388, !nonnull !6, !align !983, !noundef !6
@@ -76902,11 +76902,11 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
 
 ._crit_edge19:                                    ; preds = %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17hb7d062f596122689E.exit74", %3
   %.sroa.03.0.lcssa = phi i64 [ %2, %3 ], [ %54, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17hb7d062f596122689E.exit74" ]
+  %9 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.lcssa)
   %.not24 = icmp eq i64 %.sroa.03.0.lcssa, 0
   br i1 %.not24, label %._crit_edge23, label %.lr.ph22
 
 .lr.ph22:                                         ; preds = %._crit_edge19
-  %9 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.lcssa)
   %10 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %10)
   br label %16
@@ -76918,11 +76918,11 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
   %notmask = shl nsw i64 -1, %12
   %13 = xor i64 %notmask, -1
   %14 = and i64 %.sroa.03.015, %13
+  %15 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %14)
   %.not = icmp eq i64 %14, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11
-  %15 = tail call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %14)
   tail call void @llvm.assume(i1 %5)
   br label %30
 
@@ -77068,11 +77068,11 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
 
 ._crit_edge18:                                    ; preds = %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h9442763fd798dbf2E.exit74", %3
   %.sroa.03.0.lcssa = phi i64 [ %2, %3 ], [ %54, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h9442763fd798dbf2E.exit74" ]
+  %9 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.lcssa)
   %.not23 = icmp eq i64 %.sroa.03.0.lcssa, 0
   br i1 %.not23, label %._crit_edge22, label %.lr.ph21
 
 .lr.ph21:                                         ; preds = %._crit_edge18
-  %9 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.lcssa)
   %10 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %10)
   br label %16
@@ -77084,11 +77084,11 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
   %notmask = shl nsw i64 -1, %12
   %13 = xor i64 %notmask, -1
   %14 = and i64 %.sroa.03.014, %13
+  %15 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %14)
   %.not = icmp eq i64 %14, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11
-  %15 = tail call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %14)
   tail call void @llvm.assume(i1 %5)
   br label %30
 
@@ -77235,11 +77235,11 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
 
 ._crit_edge22:                                    ; preds = %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h3a437c24e58a2b10E.exit73", %3
   %.sroa.03.0.lcssa = phi i64 [ %2, %3 ], [ %50, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h3a437c24e58a2b10E.exit73" ]
+  %10 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.lcssa)
   %.not27 = icmp eq i64 %.sroa.03.0.lcssa, 0
   br i1 %.not27, label %._crit_edge26, label %.lr.ph25
 
 .lr.ph25:                                         ; preds = %._crit_edge22
-  %10 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.lcssa)
   %11 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %11)
   %12 = getelementptr i8, ptr %.0.val, i64 8
@@ -77252,11 +77252,11 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
   %notmask = shl nsw i64 -1, %14
   %15 = xor i64 %notmask, -1
   %16 = and i64 %.sroa.03.018, %15
+  %17 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %16)
   %.not = icmp eq i64 %16, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13
-  %17 = tail call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %16)
   tail call void @llvm.assume(i1 %5)
   br label %30
 
@@ -77382,11 +77382,11 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
 
 ._crit_edge23:                                    ; preds = %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h5f0df2f4e7cbf7fbE.exit78", %3
   %.sroa.03.0.lcssa = phi i64 [ %2, %3 ], [ %94, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h5f0df2f4e7cbf7fbE.exit78" ]
+  %9 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.lcssa)
   %.not28 = icmp eq i64 %.sroa.03.0.lcssa, 0
   br i1 %.not28, label %._crit_edge27, label %.lr.ph26
 
 .lr.ph26:                                         ; preds = %._crit_edge23
-  %9 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.lcssa)
   %10 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %10)
   br label %18
@@ -77398,11 +77398,11 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
   %notmask = shl nsw i64 -1, %12
   %13 = xor i64 %notmask, -1
   %14 = and i64 %.sroa.03.019, %13
+  %15 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %14)
   %.not = icmp eq i64 %14, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11
-  %15 = tail call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %14)
   tail call void @llvm.assume(i1 %5)
   br label %44
 
@@ -77629,11 +77629,11 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
 
 ._crit_edge17:                                    ; preds = %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h61df302aa4b9a21dE.exit81", %3
   %.sroa.03.0.lcssa = phi i64 [ %2, %3 ], [ %51, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h61df302aa4b9a21dE.exit81" ]
+  %9 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.lcssa)
   %.not22 = icmp eq i64 %.sroa.03.0.lcssa, 0
   br i1 %.not22, label %._crit_edge21, label %.lr.ph20
 
 .lr.ph20:                                         ; preds = %._crit_edge17
-  %9 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.lcssa)
   %10 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %10)
   br label %16
@@ -77645,11 +77645,11 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
   %notmask = shl nsw i64 -1, %12
   %13 = xor i64 %notmask, -1
   %14 = and i64 %.sroa.03.013, %13
+  %15 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %14)
   %.not = icmp eq i64 %14, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11
-  %15 = tail call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %14)
   tail call void @llvm.assume(i1 %5)
   br label %29
 
@@ -77796,11 +77796,11 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
 
 ._crit_edge19:                                    ; preds = %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h5f0df2f4e7cbf7fbE.exit78", %3
   %.sroa.03.0.lcssa = phi i64 [ %2, %3 ], [ %66, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h5f0df2f4e7cbf7fbE.exit78" ]
+  %9 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.lcssa)
   %.not24 = icmp eq i64 %.sroa.03.0.lcssa, 0
   br i1 %.not24, label %._crit_edge23, label %.lr.ph22
 
 .lr.ph22:                                         ; preds = %._crit_edge19
-  %9 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.lcssa)
   %10 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %10)
   br label %16
@@ -77812,11 +77812,11 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
   %notmask = shl nsw i64 -1, %12
   %13 = xor i64 %notmask, -1
   %14 = and i64 %.sroa.03.015, %13
+  %15 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %14)
   %.not = icmp eq i64 %14, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11
-  %15 = tail call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %14)
   tail call void @llvm.assume(i1 %5)
   br label %30
 
@@ -77976,11 +77976,11 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
 
 ._crit_edge19:                                    ; preds = %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h5f0df2f4e7cbf7fbE.exit78", %3
   %.sroa.03.0.lcssa = phi i64 [ %2, %3 ], [ %65, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h5f0df2f4e7cbf7fbE.exit78" ]
+  %9 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.lcssa)
   %.not24 = icmp eq i64 %.sroa.03.0.lcssa, 0
   br i1 %.not24, label %._crit_edge23, label %.lr.ph22
 
 .lr.ph22:                                         ; preds = %._crit_edge19
-  %9 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.lcssa)
   %10 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %10)
   br label %16
@@ -77992,11 +77992,11 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
   %notmask = shl nsw i64 -1, %12
   %13 = xor i64 %notmask, -1
   %14 = and i64 %.sroa.03.015, %13
+  %15 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %14)
   %.not = icmp eq i64 %14, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11
-  %15 = tail call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %14)
   tail call void @llvm.assume(i1 %5)
   br label %30
 
@@ -78156,11 +78156,11 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
 
 ._crit_edge71:                                    ; preds = %52, %3
   %.sroa.03.0.lcssa = phi i64 [ %2, %3 ], [ %55, %52 ]
+  %10 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.lcssa)
   %.not76 = icmp eq i64 %.sroa.03.0.lcssa, 0
   br i1 %.not76, label %._crit_edge75, label %.lr.ph74
 
 .lr.ph74:                                         ; preds = %._crit_edge71
-  %10 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.lcssa)
   %11 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %11)
   br label %17
@@ -78172,11 +78172,11 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
   %notmask = shl nsw i64 -1, %13
   %14 = xor i64 %notmask, -1
   %15 = and i64 %.sroa.03.067, %14
+  %16 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %15)
   %.not = icmp eq i64 %15, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %12
-  %16 = tail call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %15)
   tail call void @llvm.assume(i1 %6)
   br label %30
 
@@ -78340,11 +78340,11 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
 
 ._crit_edge19:                                    ; preds = %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h5f0df2f4e7cbf7fbE.exit78", %3
   %.sroa.03.0.lcssa = phi i64 [ %2, %3 ], [ %66, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h5f0df2f4e7cbf7fbE.exit78" ]
+  %9 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.lcssa)
   %.not24 = icmp eq i64 %.sroa.03.0.lcssa, 0
   br i1 %.not24, label %._crit_edge23, label %.lr.ph22
 
 .lr.ph22:                                         ; preds = %._crit_edge19
-  %9 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.lcssa)
   %10 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %10)
   br label %16
@@ -78356,11 +78356,11 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
   %notmask = shl nsw i64 -1, %12
   %13 = xor i64 %notmask, -1
   %14 = and i64 %.sroa.03.015, %13
+  %15 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %14)
   %.not = icmp eq i64 %14, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11
-  %15 = tail call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %14)
   tail call void @llvm.assume(i1 %5)
   br label %30
 
@@ -78520,11 +78520,11 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
 
 ._crit_edge19:                                    ; preds = %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h3a437c24e58a2b10E.exit74", %3
   %.sroa.03.0.lcssa = phi i64 [ %2, %3 ], [ %54, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h3a437c24e58a2b10E.exit74" ]
+  %9 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.lcssa)
   %.not24 = icmp eq i64 %.sroa.03.0.lcssa, 0
   br i1 %.not24, label %._crit_edge23, label %.lr.ph22
 
 .lr.ph22:                                         ; preds = %._crit_edge19
-  %9 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.lcssa)
   %10 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %10)
   br label %16
@@ -78536,11 +78536,11 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
   %notmask = shl nsw i64 -1, %12
   %13 = xor i64 %notmask, -1
   %14 = and i64 %.sroa.03.015, %13
+  %15 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %14)
   %.not = icmp eq i64 %14, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11
-  %15 = tail call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %14)
   tail call void @llvm.assume(i1 %5)
   br label %30
 
@@ -78687,11 +78687,11 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
 
 ._crit_edge19:                                    ; preds = %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h6c9df35e2c9c9aeeE.exit74", %3
   %.sroa.03.0.lcssa = phi i64 [ %2, %3 ], [ %54, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h6c9df35e2c9c9aeeE.exit74" ]
+  %9 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.lcssa)
   %.not24 = icmp eq i64 %.sroa.03.0.lcssa, 0
   br i1 %.not24, label %._crit_edge23, label %.lr.ph22
 
 .lr.ph22:                                         ; preds = %._crit_edge19
-  %9 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.lcssa)
   %10 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %10)
   br label %16
@@ -78703,11 +78703,11 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
   %notmask = shl nsw i64 -1, %12
   %13 = xor i64 %notmask, -1
   %14 = and i64 %.sroa.03.015, %13
+  %15 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %14)
   %.not = icmp eq i64 %14, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11
-  %15 = tail call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %14)
   tail call void @llvm.assume(i1 %5)
   br label %30
 
@@ -78855,11 +78855,11 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
 
 ._crit_edge38:                                    ; preds = %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h5f0df2f4e7cbf7fbE.exit68", %3
   %.sroa.03.0.lcssa = phi i64 [ %2, %3 ], [ %107, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h5f0df2f4e7cbf7fbE.exit68" ]
+  %11 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.lcssa)
   %.not43 = icmp eq i64 %.sroa.03.0.lcssa, 0
   br i1 %.not43, label %._crit_edge42, label %.lr.ph41
 
 .lr.ph41:                                         ; preds = %._crit_edge38
-  %11 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.lcssa)
   %12 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %12)
   %13 = load ptr, ptr %.0.val, align 8, !alias.scope !5882, !noalias !5885, !nonnull !6, !align !983, !noundef !6
@@ -78878,11 +78878,11 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
   %notmask = shl nsw i64 -1, %20
   %21 = xor i64 %notmask, -1
   %22 = and i64 %.sroa.03.034, %21
+  %23 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %22)
   %.not = icmp eq i64 %22, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %19
-  %23 = tail call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %22)
   tail call void @llvm.assume(i1 %5)
   %24 = load ptr, ptr %.0.val, align 8, !alias.scope !5888, !noalias !5891, !nonnull !6, !align !983, !noundef !6
   %25 = load ptr, ptr %6, align 8, !alias.scope !5888, !noalias !5891, !nonnull !6, !align !983, !noundef !6
@@ -79080,11 +79080,11 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
 
 ._crit_edge22:                                    ; preds = %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h3a437c24e58a2b10E.exit73", %3
   %.sroa.03.0.lcssa = phi i64 [ %2, %3 ], [ %50, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h3a437c24e58a2b10E.exit73" ]
+  %10 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.lcssa)
   %.not27 = icmp eq i64 %.sroa.03.0.lcssa, 0
   br i1 %.not27, label %._crit_edge26, label %.lr.ph25
 
 .lr.ph25:                                         ; preds = %._crit_edge22
-  %10 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.lcssa)
   %11 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %11)
   %12 = getelementptr i8, ptr %.0.val, i64 8
@@ -79097,11 +79097,11 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
   %notmask = shl nsw i64 -1, %14
   %15 = xor i64 %notmask, -1
   %16 = and i64 %.sroa.03.018, %15
+  %17 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %16)
   %.not = icmp eq i64 %16, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13
-  %17 = tail call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %16)
   tail call void @llvm.assume(i1 %5)
   br label %30
 
@@ -79228,11 +79228,11 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
 
 ._crit_edge22:                                    ; preds = %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h8b32246d4a0cf7f2E.exit73", %3
   %.sroa.03.0.lcssa = phi i64 [ %2, %3 ], [ %50, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h8b32246d4a0cf7f2E.exit73" ]
+  %10 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.lcssa)
   %.not27 = icmp eq i64 %.sroa.03.0.lcssa, 0
   br i1 %.not27, label %._crit_edge26, label %.lr.ph25
 
 .lr.ph25:                                         ; preds = %._crit_edge22
-  %10 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.lcssa)
   %11 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %11)
   %12 = getelementptr i8, ptr %.0.val, i64 8
@@ -79245,11 +79245,11 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
   %notmask = shl nsw i64 -1, %14
   %15 = xor i64 %notmask, -1
   %16 = and i64 %.sroa.03.018, %15
+  %17 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %16)
   %.not = icmp eq i64 %16, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13
-  %17 = tail call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %16)
   tail call void @llvm.assume(i1 %5)
   br label %30
 
@@ -79376,11 +79376,11 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
 
 ._crit_edge22:                                    ; preds = %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h5f0df2f4e7cbf7fbE.exit73", %3
   %.sroa.03.0.lcssa = phi i64 [ %2, %3 ], [ %50, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h5f0df2f4e7cbf7fbE.exit73" ]
+  %10 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.lcssa)
   %.not27 = icmp eq i64 %.sroa.03.0.lcssa, 0
   br i1 %.not27, label %._crit_edge26, label %.lr.ph25
 
 .lr.ph25:                                         ; preds = %._crit_edge22
-  %10 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.lcssa)
   %11 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %11)
   %12 = getelementptr i8, ptr %.0.val, i64 8
@@ -79393,11 +79393,11 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
   %notmask = shl nsw i64 -1, %14
   %15 = xor i64 %notmask, -1
   %16 = and i64 %.sroa.03.018, %15
+  %17 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %16)
   %.not = icmp eq i64 %16, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13
-  %17 = tail call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %16)
   tail call void @llvm.assume(i1 %5)
   br label %30
 
@@ -79523,11 +79523,11 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
 
 ._crit_edge22:                                    ; preds = %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h8470ce2392a35c4eE.exit73", %3
   %.sroa.03.0.lcssa = phi i64 [ %2, %3 ], [ %50, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h8470ce2392a35c4eE.exit73" ]
+  %10 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.lcssa)
   %.not27 = icmp eq i64 %.sroa.03.0.lcssa, 0
   br i1 %.not27, label %._crit_edge26, label %.lr.ph25
 
 .lr.ph25:                                         ; preds = %._crit_edge22
-  %10 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.lcssa)
   %11 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %11)
   %12 = getelementptr i8, ptr %.0.val, i64 8
@@ -79540,11 +79540,11 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
   %notmask = shl nsw i64 -1, %14
   %15 = xor i64 %notmask, -1
   %16 = and i64 %.sroa.03.018, %15
+  %17 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %16)
   %.not = icmp eq i64 %16, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13
-  %17 = tail call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %16)
   tail call void @llvm.assume(i1 %5)
   br label %30
 

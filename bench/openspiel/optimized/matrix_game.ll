@@ -2856,7 +2856,6 @@ define void @_ZN10open_spiel11matrix_game16CreateMatrixGameERKNSt7__cxx1112basic
   %17 = ptrtoint ptr %.val to i64
   %18 = sub i64 %16, %17
   %19 = ashr exact i64 %18, 3
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %19, i64 1)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %45, %.lr.ph.preheader.i
@@ -2909,7 +2908,7 @@ define void @_ZN10open_spiel11matrix_game16CreateMatrixGameERKNSt7__cxx1112basic
 45:                                               ; preds = %44, %38, %36
   %.1.i = phi i8 [ 0, %44 ], [ 1, %38 ], [ 0, %36 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %umax.i
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %19
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !41
 
 ._crit_edge.i:                                    ; preds = %45
@@ -3842,7 +3841,6 @@ define { i8, double } @_ZNK10open_spiel11matrix_game10MatrixGame10UtilitySumEv(p
   %6 = ptrtoint ptr %.val to i64
   %7 = sub i64 %5, %6
   %8 = ashr exact i64 %7, 3
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %8, i64 1)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %25, %.lr.ph.preheader.i
@@ -3878,7 +3876,7 @@ define { i8, double } @_ZNK10open_spiel11matrix_game10MatrixGame10UtilitySumEv(p
   %.118.i = phi double [ %13, %10 ], [ %.0173.i, %14 ], [ %.0173.i, %16 ]
   %.1.i = phi i8 [ %.0164.i, %10 ], [ 0, %14 ], [ %spec.select.i, %16 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %umax.i
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %8
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !45
 
 ._crit_edge.i:                                    ; preds = %25

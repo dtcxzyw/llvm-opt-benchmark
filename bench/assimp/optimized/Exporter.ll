@@ -3817,12 +3817,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit.preheader: ; pr
   %45 = ptrtoint ptr %43 to i64
   %46 = sub i64 %44, %45
   %47 = sdiv exact i64 %46, 40
-  %umax = tail call i64 @llvm.umax.i64(i64 %47, i64 1)
   br label %.thread134
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit: ; preds = %.thread134
   %48 = add nuw i64 %.076144, 1
-  %exitcond.not = icmp eq i64 %48, %umax
+  %exitcond.not = icmp eq i64 %48, %47
   br i1 %exitcond.not, label %.thread137, label %.thread134, !llvm.loop !100
 
 49:                                               ; preds = %33, %25, %23

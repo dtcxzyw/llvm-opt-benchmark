@@ -567,7 +567,6 @@ _ZSt6fill_nIPPN3g2o9ParameterEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; pred
   %29 = sub i64 %27, %28
   %30 = lshr exact i64 %29, 3
   %31 = trunc i64 %30 to i32
-  %umax = tail call i64 @llvm.umax.i64(i64 %12, i64 1)
   br label %32
 
 32:                                               ; preds = %.lr.ph, %36
@@ -586,7 +585,7 @@ _ZSt6fill_nIPPN3g2o9ParameterEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; pred
   %40 = getelementptr inbounds nuw ptr, ptr %15, i64 %.01698
   store ptr %39, ptr %40, align 8, !tbaa !38
   %41 = add nuw i64 %.01698, 1
-  %exitcond.not = icmp eq i64 %41, %umax
+  %exitcond.not = icmp eq i64 %41, %12
   br i1 %exitcond.not, label %.critedge, label %32, !llvm.loop !78
 
 .critedge:                                        ; preds = %36, %21

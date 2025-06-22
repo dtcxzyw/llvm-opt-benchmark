@@ -39062,7 +39062,6 @@ for.cond16.preheader:                             ; preds = %invoke.cont12
 invoke.cont23.lr.ph:                              ; preds = %for.cond16.preheader
   %arena_or_elements_.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 32
   %9 = load ptr, ptr %arena_or_elements_.i.i.i.i, align 8
-  %umax = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %invoke.cont23
 
 lpad.loopexit:                                    ; preds = %do.body.i.i.i.i.i
@@ -39111,7 +39110,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %lpad, %if.then.i.i.
 
 for.cond16:                                       ; preds = %invoke.cont23
   %inc = add nuw i64 %j.0127, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i
   br i1 %exitcond.not, label %for.inc123, label %invoke.cont23, !llvm.loop !640
 
 invoke.cont23:                                    ; preds = %invoke.cont23.lr.ph, %for.cond16

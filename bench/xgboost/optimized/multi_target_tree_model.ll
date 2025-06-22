@@ -1373,7 +1373,6 @@ define linkonce_odr void @_ZN7xgboost13LoadModelImplILb1ELb1EEEvRKNS_4JsonEPNS_1
   %41 = sub i64 %39, %40
   %42 = ashr exact i64 %41, 3
   %43 = load ptr, ptr %36, align 8, !tbaa !53
-  %umax = call i64 @llvm.umax.i64(i64 %42, i64 1)
   br label %61
 
 ._crit_edge:                                      ; preds = %61, %8
@@ -1406,7 +1405,7 @@ define linkonce_odr void @_ZN7xgboost13LoadModelImplILb1ELb1EEEvRKNS_4JsonEPNS_1
   %65 = getelementptr inbounds nuw i32, ptr %43, i64 %.03645
   store i32 %64, ptr %65, align 4, !tbaa !32
   %66 = add nuw i64 %.03645, 1
-  %exitcond.not = icmp eq i64 %66, %umax
+  %exitcond.not = icmp eq i64 %66, %42
   br i1 %exitcond.not, label %._crit_edge, label %61, !llvm.loop !59
 
 ._crit_edge49:                                    ; preds = %.lr.ph48, %._crit_edge
@@ -1485,7 +1484,6 @@ define linkonce_odr void @_ZN7xgboost13LoadModelImplILb1ELb0EEEvRKNS_4JsonEPNS_1
   %41 = sub i64 %39, %40
   %42 = ashr exact i64 %41, 2
   %43 = load ptr, ptr %36, align 8, !tbaa !53
-  %umax = call i64 @llvm.umax.i64(i64 %42, i64 1)
   br label %61
 
 ._crit_edge:                                      ; preds = %61, %8
@@ -1517,7 +1515,7 @@ define linkonce_odr void @_ZN7xgboost13LoadModelImplILb1ELb0EEEvRKNS_4JsonEPNS_1
   %64 = getelementptr inbounds nuw i32, ptr %43, i64 %.03645
   store i32 %63, ptr %64, align 4, !tbaa !32
   %65 = add nuw i64 %.03645, 1
-  %exitcond.not = icmp eq i64 %65, %umax
+  %exitcond.not = icmp eq i64 %65, %42
   br i1 %exitcond.not, label %._crit_edge, label %61, !llvm.loop !65
 
 ._crit_edge49:                                    ; preds = %.lr.ph48, %._crit_edge
@@ -7695,7 +7693,6 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7xgboost4JsonESt
   %45 = sub i64 %43, %44
   %46 = ashr exact i64 %45, 2
   %47 = load ptr, ptr %40, align 8, !tbaa !95
-  %umax = tail call i64 @llvm.umax.i64(i64 %46, i64 1)
   br label %48
 
 ._crit_edge:                                      ; preds = %48, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7xgboost4JsonESt4lessIvESaISt4pairIKS5_S7_EEE4findISt17basic_string_viewIcS3_EEEDTcldtdtdefpT4_M_t10_M_find_trfp_EERKT_.exit
@@ -7708,7 +7705,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7xgboost4JsonESt
   %51 = getelementptr inbounds nuw float, ptr %47, i64 %.012
   store float %50, ptr %51, align 4, !tbaa !80
   %52 = add nuw i64 %.012, 1
-  %exitcond.not = icmp eq i64 %52, %umax
+  %exitcond.not = icmp eq i64 %52, %46
   br i1 %exitcond.not, label %._crit_edge, label %48, !llvm.loop !226
 }
 
@@ -10898,7 +10895,6 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7xgboost4JsonESt
   %45 = sub i64 %43, %44
   %46 = ashr exact i64 %45, 2
   %47 = load ptr, ptr %40, align 8, !tbaa !95
-  %umax = tail call i64 @llvm.umax.i64(i64 %46, i64 1)
   br label %48
 
 ._crit_edge:                                      ; preds = %48, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7xgboost4JsonESt4lessIvESaISt4pairIKS5_S7_EEE4findISt17basic_string_viewIcS3_EEEDTcldtdtdefpT4_M_t10_M_find_trfp_EERKT_.exit
@@ -10911,7 +10907,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7xgboost4JsonESt
   %51 = getelementptr inbounds nuw float, ptr %47, i64 %.012
   store float %50, ptr %51, align 4, !tbaa !80
   %52 = add nuw i64 %.012, 1
-  %exitcond.not = icmp eq i64 %52, %umax
+  %exitcond.not = icmp eq i64 %52, %46
   br i1 %exitcond.not, label %._crit_edge, label %48, !llvm.loop !288
 }
 

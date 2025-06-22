@@ -123132,14 +123132,10 @@ _ZN5boost4asio6detail11scoped_lockINS1_11posix_mutexEED2Ev.exit26: ; preds = %_Z
 
 .preheader:                                       ; preds = %_ZN5boost4asio6detail11scoped_lockINS1_11posix_mutexEED2Ev.exit26
   %.not70 = icmp eq ptr %.sroa.11.0.lcssa, %.sroa.034.0.lcssa
-  br i1 %.not70, label %.loopexit, label %.lr.ph69.preheader
+  br i1 %.not70, label %.loopexit, label %.lr.ph69
 
-.lr.ph69.preheader:                               ; preds = %.preheader
-  %umax = tail call i64 @llvm.umax.i64(i64 %31, i64 1)
-  br label %.lr.ph69
-
-.lr.ph69:                                         ; preds = %.lr.ph69.preheader, %38
-  %.01368 = phi i64 [ %39, %38 ], [ 0, %.lr.ph69.preheader ]
+.lr.ph69:                                         ; preds = %.preheader, %38
+  %.01368 = phi i64 [ %39, %38 ], [ 0, %.preheader ]
   %33 = getelementptr inbounds nuw ptr, ptr %.sroa.034.0.lcssa, i64 %.01368
   %34 = load ptr, ptr %33, align 8, !tbaa !16
   %35 = load ptr, ptr %34, align 8, !tbaa !18
@@ -123150,7 +123146,7 @@ _ZN5boost4asio6detail11scoped_lockINS1_11posix_mutexEED2Ev.exit26: ; preds = %_Z
 
 38:                                               ; preds = %.lr.ph69
   %39 = add nuw i64 %.01368, 1
-  %exitcond.not = icmp eq i64 %39, %umax
+  %exitcond.not = icmp eq i64 %39, %31
   br i1 %exitcond.not, label %.loopexit.thread, label %.lr.ph69, !llvm.loop !2924
 
 40:                                               ; preds = %.lr.ph69

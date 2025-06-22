@@ -3903,7 +3903,6 @@ _ZNSt6vectorIN6hermes2vm14StackTraceInfoESaIS2_EE2atEm.exit.preheader: ; preds =
   %sub.ptr.rhs.cast.i12 = ptrtoint ptr %13 to i64
   %sub.ptr.sub.i13 = sub i64 %sub.ptr.lhs.cast.i11, %sub.ptr.rhs.cast.i12
   %sub.ptr.div.i14 = ashr exact i64 %sub.ptr.sub.i13, 4
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i14, i64 1)
   br label %_ZNSt6vectorIN6hermes2vm14StackTraceInfoESaIS2_EE2atEm.exit
 
 _ZNSt6vectorIN6hermes2vm14StackTraceInfoESaIS2_EE2atEm.exit: ; preds = %_ZNSt6vectorIN6hermes2vm14StackTraceInfoESaIS2_EE2atEm.exit.preheader, %for.inc
@@ -3920,7 +3919,7 @@ if.then20:                                        ; preds = %_ZNSt6vectorIN6herm
   br label %for.end
 
 for.inc:                                          ; preds = %_ZNSt6vectorIN6hermes2vm14StackTraceInfoESaIS2_EE2atEm.exit
-  %exitcond.not = icmp eq i64 %add, %umax
+  %exitcond.not = icmp eq i64 %add, %sub.ptr.div.i14
   br i1 %exitcond.not, label %for.end, label %_ZNSt6vectorIN6hermes2vm14StackTraceInfoESaIS2_EE2atEm.exit, !llvm.loop !53
 
 for.end:                                          ; preds = %if.end.i, %if.then7.i, %for.inc, %if.end, %entry, %_ZN6hermes2vmL16getLeafCodeBlockENS0_6HandleINS0_8CallableEEERNS0_7RuntimeE.exit, %if.then20

@@ -104,7 +104,7 @@ define internal fastcc ptr @mi_arena_allocate(i32 noundef %0, i64 noundef range(
   %14 = load atomic i64, ptr %13 monotonic, align 8
   %15 = inttoptr i64 %14 to ptr
   %16 = icmp eq i64 %14, 0
-  br i1 %16, label %.thread84, label %17
+  br i1 %16, label %.thread84.preheader, label %17
 
 17:                                               ; preds = %.preheader
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 24
@@ -133,51 +133,50 @@ define internal fastcc ptr @mi_arena_allocate(i32 noundef %0, i64 noundef range(
 .thread:                                          ; preds = %25, %17, %29
   %31 = add nuw i64 %.064108, 1
   %exitcond.not = icmp eq i64 %31, %9
-  br i1 %exitcond.not, label %.thread84, label %.preheader, !llvm.loop !21
+  br i1 %exitcond.not, label %.thread84.preheader, label %.preheader, !llvm.loop !21
 
-.thread84:                                        ; preds = %.preheader, %.thread
-  %umax = tail call i64 @llvm.umax.i64(i64 %9, i64 1)
-  br label %32
+.thread84.preheader:                              ; preds = %.preheader, %.thread
+  br label %.thread84
 
-32:                                               ; preds = %.thread84, %.thread93
-  %.065109 = phi i64 [ 0, %.thread84 ], [ %50, %.thread93 ]
-  %33 = getelementptr inbounds nuw [64 x ptr], ptr @mi_arenas, i64 0, i64 %.065109
-  %34 = load atomic i64, ptr %33 monotonic, align 8
-  %35 = inttoptr i64 %34 to ptr
-  %36 = icmp eq i64 %34, 0
-  br i1 %36, label %.thread88, label %37
+.thread84:                                        ; preds = %.thread84.preheader, %.thread93
+  %.065109 = phi i64 [ %49, %.thread93 ], [ 0, %.thread84.preheader ]
+  %32 = getelementptr inbounds nuw [64 x ptr], ptr @mi_arenas, i64 0, i64 %.065109
+  %33 = load atomic i64, ptr %32 monotonic, align 8
+  %34 = inttoptr i64 %33 to ptr
+  %35 = icmp eq i64 %33, 0
+  br i1 %35, label %.thread88, label %36
 
-37:                                               ; preds = %32
-  %38 = getelementptr inbounds nuw i8, ptr %35, i64 24
-  %39 = load i32, ptr %38, align 8, !tbaa !18
-  %40 = icmp slt i32 %39, 0
-  %.not73 = icmp eq i32 %39, %0
-  %or.cond75 = or i1 %40, %.not73
-  br i1 %or.cond75, label %.thread93, label %41
+36:                                               ; preds = %.thread84
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 24
+  %38 = load i32, ptr %37, align 8, !tbaa !18
+  %39 = icmp slt i32 %38, 0
+  %.not73 = icmp eq i32 %38, %0
+  %or.cond75 = or i1 %39, %.not73
+  br i1 %or.cond75, label %.thread93, label %40
 
-41:                                               ; preds = %37
-  %42 = load i8, ptr %3, align 1, !tbaa !7, !range !12, !noundef !13
-  %43 = trunc nuw i8 %42 to i1
-  br i1 %43, label %48, label %44
+40:                                               ; preds = %36
+  %41 = load i8, ptr %3, align 1, !tbaa !7, !range !12, !noundef !13
+  %42 = trunc nuw i8 %41 to i1
+  br i1 %42, label %47, label %43
 
-44:                                               ; preds = %41
-  %45 = getelementptr inbounds nuw i8, ptr %35, i64 30
-  %46 = load i8, ptr %45, align 2, !tbaa !20, !range !12, !noundef !13
-  %47 = trunc nuw i8 %46 to i1
-  br i1 %47, label %.thread93, label %48
+43:                                               ; preds = %40
+  %44 = getelementptr inbounds nuw i8, ptr %34, i64 30
+  %45 = load i8, ptr %44, align 2, !tbaa !20, !range !12, !noundef !13
+  %46 = trunc nuw i8 %45 to i1
+  br i1 %46, label %.thread93, label %47
 
-48:                                               ; preds = %41, %44
-  %49 = tail call fastcc ptr @mi_arena_alloc_from(ptr noundef %35, i64 noundef %.065109, i64 noundef %11, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7)
-  %.not74 = icmp eq ptr %49, null
+47:                                               ; preds = %40, %43
+  %48 = tail call fastcc ptr @mi_arena_alloc_from(ptr noundef %34, i64 noundef %.065109, i64 noundef %11, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %.not74 = icmp eq ptr %48, null
   br i1 %.not74, label %.thread93, label %.thread88
 
-.thread93:                                        ; preds = %37, %44, %48
-  %50 = add nuw i64 %.065109, 1
-  %exitcond111.not = icmp eq i64 %50, %umax
-  br i1 %exitcond111.not, label %.thread88, label %32, !llvm.loop !23
+.thread93:                                        ; preds = %36, %43, %47
+  %49 = add nuw i64 %.065109, 1
+  %exitcond111.not = icmp eq i64 %49, %9
+  br i1 %exitcond111.not, label %.thread88, label %.thread84, !llvm.loop !23
 
-.thread88:                                        ; preds = %29, %32, %48, %.thread93, %8
-  %.0 = phi ptr [ null, %8 ], [ null, %32 ], [ null, %.thread93 ], [ %49, %48 ], [ %30, %29 ]
+.thread88:                                        ; preds = %29, %.thread84, %47, %.thread93, %8
+  %.0 = phi ptr [ null, %8 ], [ null, %.thread84 ], [ null, %.thread93 ], [ %48, %47 ], [ %30, %29 ]
   ret ptr %.0
 }
 

@@ -12551,22 +12551,18 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit101: ; preds = %_ZNSt6vectorIN4cvc
   %326 = add nsw i64 %324, %325
   %327 = trunc nsw i64 %326 to i32
   %.not220 = icmp eq i64 %326, 0
-  br i1 %.not220, label %_ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb0EEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EE4findERKS3_.exit, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %320
-  %umax = call i32 @llvm.umax.i32(i32 %327, i32 1)
-  br label %.lr.ph
+  br i1 %.not220, label %_ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb0EEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EE4findERKS3_.exit, label %.lr.ph
 
 328:                                              ; preds = %.critedge50
   %329 = landingpad { ptr, i32 }
           cleanup
   br label %387
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE9push_backEOS3_.exit120
-  %.013217 = phi i32 [ %366, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE9push_backEOS3_.exit120 ], [ 0, %.lr.ph.preheader ]
-  %.sroa.0134.4216 = phi ptr [ %.sroa.0134.7, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE9push_backEOS3_.exit120 ], [ %.sroa.0134.0, %.lr.ph.preheader ]
-  %.sroa.11.1215 = phi ptr [ %.sroa.11.4, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE9push_backEOS3_.exit120 ], [ %52, %.lr.ph.preheader ]
-  %.sroa.21.4214 = phi ptr [ %.sroa.21.7, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE9push_backEOS3_.exit120 ], [ %.sroa.21.0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %320, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE9push_backEOS3_.exit120
+  %.013217 = phi i32 [ %366, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE9push_backEOS3_.exit120 ], [ 0, %320 ]
+  %.sroa.0134.4216 = phi ptr [ %.sroa.0134.7, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE9push_backEOS3_.exit120 ], [ %.sroa.0134.0, %320 ]
+  %.sroa.11.1215 = phi ptr [ %.sroa.11.4, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE9push_backEOS3_.exit120 ], [ %52, %320 ]
+  %.sroa.21.4214 = phi ptr [ %.sroa.21.7, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE9push_backEOS3_.exit120 ], [ %.sroa.21.0, %320 ]
   %330 = load ptr, ptr %14, align 8, !tbaa !136, !noalias !465
   %331 = getelementptr inbounds nuw i8, ptr %330, i64 8
   %332 = load i64, ptr %331, align 8, !noalias !465
@@ -12649,7 +12645,7 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE9push_backEOS3_.exit120
   %.sroa.0134.7 = phi ptr [ %360, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i117 ], [ %.sroa.0134.4216, %347 ]
   %.sroa.11.4 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i.i.i115.pn, i64 8
   %366 = add nuw i32 %.013217, 1
-  %exitcond.not = icmp eq i32 %366, %umax
+  %exitcond.not = icmp eq i32 %366, %327
   br i1 %exitcond.not, label %_ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb0EEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EE4findERKS3_.exit, label %.lr.ph, !llvm.loop !468
 
 367:                                              ; preds = %.lr.ph
@@ -22419,9 +22415,6 @@ declare i64 @llvm.umin.i64(i64, i64) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #23
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #23
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

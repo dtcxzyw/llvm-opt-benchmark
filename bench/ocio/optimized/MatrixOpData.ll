@@ -4503,7 +4503,6 @@ define hidden void @_ZN19OpenColorIO_v2_5dev12MatrixOpData5scaleEdd(ptr noundef 
   %12 = ptrtoint ptr %10 to i64
   %13 = sub i64 %11, %12
   %14 = ashr exact i64 %13, 3
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %14, i64 1)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -4513,7 +4512,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev12MatrixOpData5scaleEdd(ptr noundef 
   %17 = fmul double %4, %16
   store double %17, ptr %15, align 8, !tbaa !7
   %18 = add nuw i64 %.07.i, 1
-  %exitcond.not.i = icmp eq i64 %18, %umax.i
+  %exitcond.not.i = icmp eq i64 %18, %14
   br i1 %exitcond.not.i, label %_ZN19OpenColorIO_v2_5dev6ArrayTIdE5scaleEd.exit, label %.lr.ph.i, !llvm.loop !156
 
 _ZN19OpenColorIO_v2_5dev6ArrayTIdE5scaleEd.exit:  ; preds = %.lr.ph.i, %3, %6

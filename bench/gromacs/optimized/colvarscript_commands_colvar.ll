@@ -2812,7 +2812,6 @@ define linkonce_odr void @_ZN11colvarvaluepLERKS_(ptr noundef nonnull align 8 de
   %56 = sub i64 %54, %55
   %57 = ashr exact i64 %56, 3
   %58 = load ptr, ptr %49, align 8, !tbaa !53
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %57, i64 1)
   br label %59
 
 59:                                               ; preds = %59, %.lr.ph.i
@@ -2824,7 +2823,7 @@ define linkonce_odr void @_ZN11colvarvaluepLERKS_(ptr noundef nonnull align 8 de
   %64 = fadd double %61, %63
   store double %64, ptr %62, align 8, !tbaa !140
   %65 = add nuw i64 %.06.i, 1
-  %exitcond.not.i = icmp eq i64 %65, %umax.i
+  %exitcond.not.i = icmp eq i64 %65, %57
   br i1 %exitcond.not.i, label %_ZN12colvarmodule8vector1dIdEpLERKS1_.exit, label %59, !llvm.loop !141
 
 66:                                               ; preds = %2

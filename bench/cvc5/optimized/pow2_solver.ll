@@ -2919,7 +2919,6 @@ define hidden void @_ZN4cvc58internal6theory5arith2nl10Pow2Solver15checkFullRefi
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %umax = tail call i64 @llvm.umax.i64(i64 %61, i64 1)
   br label %65
 
 ._crit_edge:                                      ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit381, %1
@@ -4704,7 +4703,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit379: ; preds = %_ZN4cvc58internal1
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit381: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit379, %765, %771
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #23
   %775 = add nuw i64 %.0507, 1
-  %exitcond509.not = icmp eq i64 %775, %umax
+  %exitcond509.not = icmp eq i64 %775, %61
   br i1 %exitcond509.not, label %._crit_edge, label %65, !llvm.loop !128
 
 776:                                              ; preds = %687

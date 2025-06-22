@@ -811,7 +811,6 @@ _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit159.lr.ph: ; preds = %49
   %60 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %61 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %62 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %umax = call i64 @llvm.umax.i64(i64 %56, i64 1)
   br label %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit159
 
 63:                                               ; preds = %27
@@ -902,7 +901,7 @@ _ZNSt10_HashtableIPN4cvc58internal6theory7strings8NfaStateES5_SaIS5_ENSt8__detai
 91:                                               ; preds = %88, %_ZNSt10_HashtableIPN4cvc58internal6theory7strings8NfaStateES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ESt4hashIS5_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7) #23
   %92 = add nuw i64 %.034308, 1
-  %exitcond.not = icmp eq i64 %92, %umax
+  %exitcond.not = icmp eq i64 %92, %56
   br i1 %exitcond.not, label %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit192, label %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit159, !llvm.loop !61
 
 93:                                               ; preds = %80
@@ -2550,7 +2549,6 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit95: ; preds = %_ZNSt6vectorISt4pai
   %249 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %250 = getelementptr inbounds nuw i8, ptr %131, i64 56
   %251 = getelementptr inbounds nuw i8, ptr %131, i64 64
-  %umax = tail call i64 @llvm.umax.i64(i64 %246, i64 1)
   br label %252
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit, %238
@@ -2874,7 +2872,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit109: ; preds = %_ZNSt6vectorISt4pa
 
 _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit109, %380
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15) #23
-  %exitcond.not = icmp eq i64 %267, %umax
+  %exitcond.not = icmp eq i64 %267, %246
   br i1 %exitcond.not, label %._crit_edge, label %252, !llvm.loop !119
 
 385:                                              ; preds = %.loopexit, %.loopexit.split-lp, %312

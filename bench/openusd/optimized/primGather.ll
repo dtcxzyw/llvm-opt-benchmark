@@ -1054,7 +1054,6 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDat
   br i1 %.not, label %.loopexit49, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader
-  %umax = tail call i64 @llvm.umax.i64(i64 %47, i64 1)
   %.pre = load ptr, ptr %13, align 8
   %.pre54 = load ptr, ptr %14, align 8
   br label %.lr.ph
@@ -1121,7 +1120,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit: ; preds = %57, %
 
 62:                                               ; preds = %.lr.ph
   %63 = add nuw i64 %.01452, 1
-  %exitcond.not = icmp eq i64 %63, %umax
+  %exitcond.not = icmp eq i64 %63, %47
   br i1 %exitcond.not, label %.loopexit49, label %.lr.ph, !llvm.loop !32
 
 .loopexit49:                                      ; preds = %62, %.preheader, %"_ZN32pxrInternal_v0_24__pxrReserved__25WorkWithScopedParallelismIZNS_12HdPrimGather16PredicatedFilterERKSt6vectorINS_7SdfPathESaIS3_EES7_S7_PFbRKS3_PKvEPvPS5_E3$_0EEDaOT_b.exit"

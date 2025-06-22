@@ -96520,7 +96520,6 @@ define hidden noundef zeroext i1 @_ZN3smt10theory_str29is_partial_in_grounded_co
           to label %55 unwind label %62
 
 55:                                               ; preds = %48
-  %umax178 = call i64 @llvm.umax.i64(i64 %18, i64 1)
   br i1 %54, label %.lr.ph175, label %.lr.ph170
 
 .lr.ph170:                                        ; preds = %55
@@ -96590,7 +96589,7 @@ define hidden noundef zeroext i1 @_ZN3smt10theory_str29is_partial_in_grounded_co
 _ZN7zstringD2Ev.exit:                             ; preds = %.critedge, %77
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #25
   %81 = add nuw i64 %.070174, 1
-  %exitcond179.not = icmp eq i64 %81, %umax178
+  %exitcond179.not = icmp eq i64 %81, %18
   br i1 %exitcond179.not, label %.critedge116, label %64, !llvm.loop !1318
 
 82:                                               ; preds = %72
@@ -96621,7 +96620,7 @@ _ZN7zstringD2Ev.exit130:                          ; preds = %82, %85
   %91 = load ptr, ptr %90, align 8, !tbaa !337
   %92 = icmp eq ptr %91, %58
   %93 = add nuw i64 %.069169, 1
-  %exitcond177.not = icmp eq i64 %93, %umax178
+  %exitcond177.not = icmp eq i64 %93, %18
   %or.cond182 = select i1 %92, i1 true, i1 %exitcond177.not
   br i1 %or.cond182, label %.critedge116, label %89, !llvm.loop !1319
 

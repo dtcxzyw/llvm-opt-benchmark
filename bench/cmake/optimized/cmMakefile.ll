@@ -12377,7 +12377,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit174: ; preds = %_Z
   %239 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %240 = getelementptr inbounds nuw i8, ptr %32, i64 64
   %241 = getelementptr inbounds nuw i8, ptr %32, i64 72
-  %umax = call i64 @llvm.umax.i64(i64 %229, i64 1)
   br label %321
 
 242:                                              ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit
@@ -12789,7 +12788,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 _ZN17cmExecutionStatusD2Ev.exit:                  ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %32) #38
   %387 = add nuw i64 %.057411, 1
-  %exitcond.not = icmp eq i64 %387, %umax
+  %exitcond.not = icmp eq i64 %387, %229
   br i1 %exitcond.not, label %.loopexit, label %321, !llvm.loop !805
 
 _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit202: ; preds = %.loopexit369, %.loopexit.split-lp, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i200, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i201, %339

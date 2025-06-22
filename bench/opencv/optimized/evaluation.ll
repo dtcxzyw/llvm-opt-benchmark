@@ -2972,7 +2972,6 @@ define noundef float @_ZN2cv9getRecallERKSt6vectorINS_6Point_IfEESaIS2_EEf(ptr n
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
   %13 = ashr exact i64 %12, 3
-  %umax.i = call i64 @llvm.umax.i64(i64 %13, i64 1)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -2988,7 +2987,7 @@ define noundef float @_ZN2cv9getRecallERKSt6vectorINS_6Point_IfEESaIS2_EEf(ptr n
   %.115.i = select i1 %18, float %.01418.i, float %17
   %.2.i = select i1 %18, i32 %.120.i, i32 %19
   %20 = add nuw i64 %.01319.i, 1
-  %exitcond.not.i = icmp eq i64 %20, %umax.i
+  %exitcond.not.i = icmp eq i64 %20, %13
   br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !155
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %.preheader.i, %.noexc
@@ -3073,7 +3072,6 @@ define noundef i32 @_ZN2cv15getNearestPointERKSt6vectorINS_6Point_IfEESaIS2_EEf(
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
   %12 = ashr exact i64 %11, 3
-  %umax = call i64 @llvm.umax.i64(i64 %12, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -3089,7 +3087,7 @@ define noundef i32 @_ZN2cv15getNearestPointERKSt6vectorINS_6Point_IfEESaIS2_EEf(
   %.115 = select i1 %17, float %.01418, float %16
   %.2 = select i1 %17, i32 %.120, i32 %18
   %19 = add nuw i64 %.01319, 1
-  %exitcond.not = icmp eq i64 %19, %umax
+  %exitcond.not = icmp eq i64 %19, %12
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !155
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %2

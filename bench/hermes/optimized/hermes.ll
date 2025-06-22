@@ -7806,7 +7806,6 @@ invoke.cont18.lr.ph:                              ; preds = %for.cond.preheader
   %OS.i = getelementptr inbounds nuw i8, ptr %os, i64 40
   %OutBufCur.i.i = getelementptr inbounds nuw i8, ptr %os, i64 24
   %data_.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
-  %umax = call i64 @llvm.umax.i64(i64 %conv, i64 1)
   br label %invoke.cont18
 
 invoke.cont18:                                    ; preds = %invoke.cont18.lr.ph, %for.inc
@@ -8000,7 +7999,7 @@ ehcleanup:                                        ; preds = %if.then.i.i25, %lpa
 
 for.inc:                                          ; preds = %invoke.cont32, %_ZN8facebook3jsi6StringD2Ev.exit
   %inc = add nuw nsw i64 %i.033, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %conv
   br i1 %exitcond.not, label %nrvo.skipdtor, label %invoke.cont18, !llvm.loop !135
 
 nrvo.skipdtor:                                    ; preds = %for.inc, %for.cond.preheader

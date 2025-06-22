@@ -1086,8 +1086,7 @@ define internal fastcc i32 @encode_ints_uint32(ptr noalias noundef captures(none
   br i1 %.not146.i, label %.preheader83.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %11
-  %umax.i = tail call i32 @llvm.umax.i32(i32 %12, i32 1)
-  %wide.trip.count.i = zext i32 %umax.i to i64
+  %wide.trip.count.i = zext i32 %12 to i64
   br label %.lr.ph.i
 
 .preheader83.i:                                   ; preds = %stream_write_bit.exit.i, %11
@@ -1346,7 +1345,7 @@ stream_write_bit.exit.i31:                        ; preds = %85, %.lr.ph.i29
   %.1109.i = phi i32 [ %102, %.critedge2.i ], [ %91, %.lr.ph90.i ]
   %.137108.i = phi i32 [ %118, %.critedge2.i ], [ %.036122.i, %.lr.ph90.i ]
   %.sroa.21.2107.i = phi ptr [ %.sroa.21.8.i, %.critedge2.i ], [ %.sroa.21.1.lcssa143.i, %.lr.ph90.i ]
-  %.sroa.0.2106.i = phi i64 [ %.sroa.0.8.i38, %.critedge2.i ], [ %.sroa.0.1.lcssa141.i, %.lr.ph90.i ]
+  %.sroa.0.2106.i = phi i64 [ %.sroa.0.8.i37, %.critedge2.i ], [ %.sroa.0.1.lcssa141.i, %.lr.ph90.i ]
   %.sroa.15.2105.i = phi i64 [ %.sroa.15.8.i, %.critedge2.i ], [ %.sroa.15.1.lcssa139.i, %.lr.ph90.i ]
   %93 = icmp ne i32 %.1109.i, 0
   %94 = zext i1 %93 to i64
@@ -1379,7 +1378,7 @@ stream_write_bit.exit43.i:                        ; preds = %99, %.lr.ph110.i
 .lr.ph96.i:                                       ; preds = %115, %.lr.ph96.preheader.i
   %indvars.iv132.i = phi i64 [ %103, %.lr.ph96.preheader.i ], [ %indvars.iv.next133.i, %115 ]
   %.sroa.21.494.i = phi ptr [ %.sroa.21.7.i, %.lr.ph96.preheader.i ], [ %.sroa.21.8.i, %115 ]
-  %.sroa.0.493.i = phi i64 [ %.sroa.0.7.i36, %.lr.ph96.preheader.i ], [ %.sroa.0.8.i38, %115 ]
+  %.sroa.0.493.i = phi i64 [ %.sroa.0.7.i36, %.lr.ph96.preheader.i ], [ %.sroa.0.8.i37, %115 ]
   %.sroa.15.492.i = phi i64 [ %.sroa.15.7.i, %.lr.ph96.preheader.i ], [ %.sroa.15.8.i, %115 ]
   %104 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv132.i
   %105 = load i32, ptr %104, align 4, !tbaa !14, !alias.scope !38, !noalias !35
@@ -1399,7 +1398,7 @@ stream_write_bit.exit43.i:                        ; preds = %99, %.lr.ph110.i
 
 stream_write_bit.exit44.i:                        ; preds = %113, %.lr.ph96.i
   %.sroa.15.8.i = phi i64 [ 0, %113 ], [ %110, %.lr.ph96.i ]
-  %.sroa.0.8.i38 = phi i64 [ 0, %113 ], [ %111, %.lr.ph96.i ]
+  %.sroa.0.8.i37 = phi i64 [ 0, %113 ], [ %111, %.lr.ph96.i ]
   %.sroa.21.8.i = phi ptr [ %114, %113 ], [ %.sroa.21.494.i, %.lr.ph96.i ]
   %.not42.i = icmp eq i32 %107, 0
   br i1 %.not42.i, label %115, label %.critedge2.i
@@ -1417,7 +1416,7 @@ stream_write_bit.exit44.i:                        ; preds = %113, %.lr.ph96.i
 .critedge.i:                                      ; preds = %101, %stream_write_bit.exit43.i, %115, %.preheader80.i
   %.137.lcssa.i = phi i32 [ %.036122.i, %.preheader80.i ], [ 256, %115 ], [ %.137108.i, %stream_write_bit.exit43.i ], [ 256, %101 ]
   %.sroa.15.3.i = phi i64 [ %.sroa.15.6.i, %.preheader80.i ], [ %.sroa.15.8.i, %115 ], [ %.sroa.15.7.i, %stream_write_bit.exit43.i ], [ %.sroa.15.7.i, %101 ]
-  %.sroa.0.3.i35 = phi i64 [ %.sroa.0.6.i32, %.preheader80.i ], [ %.sroa.0.8.i38, %115 ], [ %.sroa.0.7.i36, %stream_write_bit.exit43.i ], [ %.sroa.0.7.i36, %101 ]
+  %.sroa.0.3.i35 = phi i64 [ %.sroa.0.6.i32, %.preheader80.i ], [ %.sroa.0.8.i37, %115 ], [ %.sroa.0.7.i36, %stream_write_bit.exit43.i ], [ %.sroa.0.7.i36, %101 ]
   %.sroa.21.3.i = phi ptr [ %.sroa.21.6.i, %.preheader80.i ], [ %.sroa.21.8.i, %115 ], [ %.sroa.21.7.i, %stream_write_bit.exit43.i ], [ %.sroa.21.7.i, %101 ]
   %119 = add nsw i32 %74, -1
   %120 = icmp ugt i32 %74, %72

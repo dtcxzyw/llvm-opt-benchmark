@@ -5735,7 +5735,6 @@ _ZNSt6vectorIS_I10aiVector3tIfESaIS1_EESaIS3_EE6resizeEm.exit: ; preds = %167, %
   %184 = ptrtoint ptr %182 to i64
   %185 = sub i64 %183, %184
   %186 = sdiv exact i64 %185, 24
-  %umax = call i64 @llvm.umax.i64(i64 %186, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNSt6vectorI10aiVector3tIfESaIS1_EE7reserveEm.exit144
@@ -5791,7 +5790,7 @@ _ZNSt12_Vector_baseI10aiVector3tIfESaIS1_EE13_M_deallocateEPS1_m.exit.i143: ; pr
 
 _ZNSt6vectorI10aiVector3tIfESaIS1_EE7reserveEm.exit144: ; preds = %.lr.ph, %_ZNSt12_Vector_baseI10aiVector3tIfESaIS1_EE13_M_deallocateEPS1_m.exit.i143
   %210 = add nuw i64 %.078340, 1
-  %exitcond.not = icmp eq i64 %210, %umax
+  %exitcond.not = icmp eq i64 %210, %186
   br i1 %exitcond.not, label %.loopexit318, label %.lr.ph, !llvm.loop !60
 
 .loopexit318:                                     ; preds = %_ZNSt6vectorI10aiVector3tIfESaIS1_EE7reserveEm.exit144, %_ZNSt6vectorIS_I10aiVector3tIfESaIS1_EESaIS3_EE6resizeEm.exit, %_ZNSt6vectorI10aiVector3tIfESaIS1_EE7reserveEm.exit133
@@ -11479,7 +11478,6 @@ _ZNK4pugi8xml_node4nameEv.exit.lr.ph:             ; preds = %_ZNK4pugi8xml_node8
   %32 = ptrtoint ptr %29 to i64
   %33 = sub i64 %31, %32
   %34 = ashr exact i64 %33, 3
-  %umax = call i64 @llvm.umax.i64(i64 %34, i64 1)
   br label %.lr.ph
 
 _ZNK4pugi8xml_node4nameEv.exit:                   ; preds = %_ZNK4pugi8xml_node4nameEv.exit.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61
@@ -11749,7 +11747,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit58: ; preds = %_ZN
 
 122:                                              ; preds = %121, %.lr.ph
   %123 = add nuw i64 %.03176, 1
-  %exitcond.not = icmp eq i64 %123, %umax
+  %exitcond.not = icmp eq i64 %123, %34
   br i1 %exitcond.not, label %._crit_edge78, label %.lr.ph, !llvm.loop !115
 
 124:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit58, %16

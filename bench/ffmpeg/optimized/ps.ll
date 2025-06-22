@@ -3198,8 +3198,7 @@ aps_decode_alf.exit:                              ; preds = %11, %alf_derive.exi
 224:                                              ; preds = %219, %216, %213
   %.082.i.i = phi ptr [ %223, %219 ], [ @ff_vvc_scaling_pred_8, %213 ], [ @ff_vvc_scaling_pred_16, %216 ]
   %225 = zext i8 %147 to i64
-  %umax120.i.i = tail call i32 @llvm.umax.i32(i32 %150, i32 1)
-  %wide.trip.count121.i.i = zext nneg i32 %umax120.i.i to i64
+  %wide.trip.count121.i.i = zext nneg i32 %150 to i64
   br label %227
 
 226:                                              ; preds = %227
@@ -4040,9 +4039,6 @@ declare i32 @llvm.smin.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #7
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

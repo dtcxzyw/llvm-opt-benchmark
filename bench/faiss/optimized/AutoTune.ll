@@ -4412,7 +4412,6 @@ _ZNSt16allocator_traitsISaIN5faiss14OperatingPointEEE9constructIS1_JRKS1_EEEvRS2
   %93 = ptrtoint ptr %91 to i64
   %94 = sub i64 %92, %93
   %95 = sdiv exact i64 %94, 56
-  %umax = call i64 @llvm.umax.i64(i64 %95, i64 1)
   br label %.lr.ph
 
 96:                                               ; preds = %89
@@ -4435,7 +4434,7 @@ _ZN5faiss14OperatingPointaSERKS0_.exit:           ; preds = %100
 
 104:                                              ; preds = %.lr.ph
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %95
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !184
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %104
@@ -4446,7 +4445,7 @@ _ZN5faiss14OperatingPointaSERKS0_.exit:           ; preds = %100
   br i1 %107, label %104, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %104, %.lr.ph, %.preheader
-  %.lcssa80 = phi i64 [ 0, %.preheader ], [ %indvars.iv, %.lr.ph ], [ %umax, %104 ]
+  %.lcssa80 = phi i64 [ 0, %.preheader ], [ %indvars.iv, %.lr.ph ], [ %95, %104 ]
   %108 = getelementptr inbounds nuw %"struct.faiss::OperatingPoint", ptr %91, i64 %.lcssa80
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 8
   %110 = load double, ptr %109, align 8, !tbaa !182
@@ -5593,12 +5592,11 @@ define void @_ZNK5faiss15OperatingPoints7displayEb(ptr noundef nonnull readonly 
   %47 = sdiv exact i64 %46, 56
   %48 = getelementptr inbounds nuw i8, ptr %41, i64 48
   %49 = load i64, ptr %48, align 8, !tbaa !165
-  %umax = tail call i64 @llvm.umax.i64(i64 %47, i64 1)
   br label %51
 
 50:                                               ; preds = %51
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %47
   br i1 %exitcond.not, label %.loopexit, label %51, !llvm.loop !199
 
 51:                                               ; preds = %.lr.ph, %50
@@ -5663,7 +5661,6 @@ define noundef i64 @_ZNK5faiss14ParameterSpace14n_combinationsEv(ptr noundef non
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = sdiv exact i64 %8, 56
-  %umax = tail call i64 @llvm.umax.i64(i64 %9, i64 1)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
@@ -5683,7 +5680,7 @@ define noundef i64 @_ZNK5faiss14ParameterSpace14n_combinationsEv(ptr noundef non
   %17 = ashr exact i64 %16, 3
   %18 = mul i64 %17, %.057
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %9
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !204
 }
 
@@ -5866,7 +5863,6 @@ define noundef zeroext i1 @_ZNK5faiss14ParameterSpace14combination_geEmm(ptr nou
   %10 = ptrtoint ptr %7 to i64
   %11 = sub i64 %9, %10
   %12 = sdiv exact i64 %11, 56
-  %umax = tail call i64 @llvm.umax.i64(i64 %12, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
@@ -5889,7 +5885,7 @@ define noundef zeroext i1 @_ZNK5faiss14ParameterSpace14combination_geEmm(ptr nou
   %.not.not.not.not = icmp uge i64 %21, %23
   %.not.not.not.not.not = xor i1 %.not.not.not.not, true
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %12
   %or.cond = select i1 %.not.not.not.not.not, i1 true, i1 %exitcond.not
   br i1 %or.cond, label %.thread, label %.lr.ph, !llvm.loop !206
 
@@ -8593,15 +8589,11 @@ define void @_ZNK5faiss14ParameterSpace7displayEv(ptr noundef nonnull readonly a
   %8 = sub i64 %6, %7
   %9 = sdiv exact i64 %8, 56
   %.not.i = icmp eq ptr %4, %5
-  br i1 %.not.i, label %_ZNK5faiss14ParameterSpace14n_combinationsEv.exit, label %.lr.ph.preheader.i
+  br i1 %.not.i, label %_ZNK5faiss14ParameterSpace14n_combinationsEv.exit, label %.lr.ph.i
 
-.lr.ph.preheader.i:                               ; preds = %1
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %9, i64 1)
-  br label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %.057.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %18, %.lr.ph.i ]
+.lr.ph.i:                                         ; preds = %1, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %1 ]
+  %.057.i = phi i64 [ %18, %.lr.ph.i ], [ 1, %1 ]
   %10 = getelementptr inbounds nuw %"struct.faiss::ParameterRange", ptr %5, i64 %indvars.iv.i, i32 1
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !63
@@ -8612,7 +8604,7 @@ define void @_ZNK5faiss14ParameterSpace7displayEv(ptr noundef nonnull readonly a
   %17 = ashr exact i64 %16, 3
   %18 = mul i64 %17, %.057.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %umax.i
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %9
   br i1 %exitcond.not.i, label %_ZNK5faiss14ParameterSpace14n_combinationsEv.exit, label %.lr.ph.i, !llvm.loop !204
 
 _ZNK5faiss14ParameterSpace14n_combinationsEv.exit: ; preds = %.lr.ph.i, %1
@@ -8678,14 +8670,13 @@ define void @_ZNK5faiss14ParameterSpace13update_boundsEmRKNS_14OperatingPointEPd
   %10 = load ptr, ptr %9, align 8, !tbaa !62
   %11 = load ptr, ptr %8, align 8, !tbaa !78
   %12 = icmp eq ptr %10, %11
-  br i1 %12, label %.loopexit27, label %.lr.ph.preheader.i
+  br i1 %12, label %.loopexit26, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %5
   %13 = ptrtoint ptr %10 to i64
   %14 = ptrtoint ptr %11 to i64
   %15 = sub i64 %13, %14
   %16 = sdiv exact i64 %15, 56
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %16, i64 1)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %29, %.lr.ph.preheader.i
@@ -8710,21 +8701,21 @@ define void @_ZNK5faiss14ParameterSpace13update_boundsEmRKNS_14OperatingPointEPd
 
 29:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %umax.i
-  br i1 %exitcond.not.i, label %.loopexit27, label %.lr.ph.i, !llvm.loop !206
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %16
+  br i1 %exitcond.not.i, label %.loopexit26, label %.lr.ph.i, !llvm.loop !206
 
-.loopexit27:                                      ; preds = %29, %5
+.loopexit26:                                      ; preds = %29, %5
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %31 = load double, ptr %30, align 8, !tbaa !182
   %32 = load double, ptr %4, align 8, !tbaa !67
   %33 = fcmp ogt double %31, %32
   br i1 %33, label %34, label %_ZNK5faiss14ParameterSpace14combination_geEmm.exit
 
-34:                                               ; preds = %.loopexit27
+34:                                               ; preds = %.loopexit26
   store double %31, ptr %4, align 8, !tbaa !67
   br label %_ZNK5faiss14ParameterSpace14combination_geEmm.exit
 
-_ZNK5faiss14ParameterSpace14combination_geEmm.exit: ; preds = %.lr.ph.i, %.loopexit27, %34
+_ZNK5faiss14ParameterSpace14combination_geEmm.exit: ; preds = %.lr.ph.i, %.loopexit26, %34
   br i1 %12, label %.loopexit, label %.lr.ph.preheader.i13
 
 .lr.ph.preheader.i13:                             ; preds = %_ZNK5faiss14ParameterSpace14combination_geEmm.exit
@@ -8732,45 +8723,44 @@ _ZNK5faiss14ParameterSpace14combination_geEmm.exit: ; preds = %.lr.ph.i, %.loope
   %36 = ptrtoint ptr %11 to i64
   %37 = sub i64 %35, %36
   %38 = sdiv exact i64 %37, 56
-  %umax.i14 = tail call i64 @llvm.umax.i64(i64 %38, i64 1)
-  br label %.lr.ph.i15
+  br label %.lr.ph.i14
 
-.lr.ph.i15:                                       ; preds = %51, %.lr.ph.preheader.i13
-  %indvars.iv.i16 = phi i64 [ 0, %.lr.ph.preheader.i13 ], [ %indvars.iv.next.i21, %51 ]
-  %.01628.i17 = phi i64 [ %7, %.lr.ph.preheader.i13 ], [ %48, %51 ]
-  %.01827.i18 = phi i64 [ %1, %.lr.ph.preheader.i13 ], [ %50, %51 ]
-  %39 = getelementptr inbounds nuw %"struct.faiss::ParameterRange", ptr %11, i64 %indvars.iv.i16, i32 1
+.lr.ph.i14:                                       ; preds = %51, %.lr.ph.preheader.i13
+  %indvars.iv.i15 = phi i64 [ 0, %.lr.ph.preheader.i13 ], [ %indvars.iv.next.i20, %51 ]
+  %.01628.i16 = phi i64 [ %7, %.lr.ph.preheader.i13 ], [ %48, %51 ]
+  %.01827.i17 = phi i64 [ %1, %.lr.ph.preheader.i13 ], [ %50, %51 ]
+  %39 = getelementptr inbounds nuw %"struct.faiss::ParameterRange", ptr %11, i64 %indvars.iv.i15, i32 1
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load ptr, ptr %40, align 8, !tbaa !63
   %42 = load ptr, ptr %39, align 8, !tbaa !69
   %43 = ptrtoint ptr %41 to i64
   %44 = ptrtoint ptr %42 to i64
   %45 = sub i64 %43, %44
-  %sext.i19 = shl i64 %45, 29
-  %46 = ashr exact i64 %sext.i19, 32
-  %47 = urem i64 %.01628.i17, %46
-  %48 = udiv i64 %.01628.i17, %46
-  %49 = urem i64 %.01827.i18, %46
-  %50 = udiv i64 %.01827.i18, %46
-  %.not.not.not.i20 = icmp ult i64 %47, %49
-  br i1 %.not.not.not.i20, label %_ZNK5faiss14ParameterSpace14combination_geEmm.exit24, label %51
+  %sext.i18 = shl i64 %45, 29
+  %46 = ashr exact i64 %sext.i18, 32
+  %47 = urem i64 %.01628.i16, %46
+  %48 = udiv i64 %.01628.i16, %46
+  %49 = urem i64 %.01827.i17, %46
+  %50 = udiv i64 %.01827.i17, %46
+  %.not.not.not.i19 = icmp ult i64 %47, %49
+  br i1 %.not.not.not.i19, label %_ZNK5faiss14ParameterSpace14combination_geEmm.exit23, label %51
 
-51:                                               ; preds = %.lr.ph.i15
-  %indvars.iv.next.i21 = add nuw i64 %indvars.iv.i16, 1
-  %exitcond.not.i22 = icmp eq i64 %indvars.iv.next.i21, %umax.i14
-  br i1 %exitcond.not.i22, label %.loopexit, label %.lr.ph.i15, !llvm.loop !206
+51:                                               ; preds = %.lr.ph.i14
+  %indvars.iv.next.i20 = add nuw i64 %indvars.iv.i15, 1
+  %exitcond.not.i21 = icmp eq i64 %indvars.iv.next.i20, %38
+  br i1 %exitcond.not.i21, label %.loopexit, label %.lr.ph.i14, !llvm.loop !206
 
 .loopexit:                                        ; preds = %51, %_ZNK5faiss14ParameterSpace14combination_geEmm.exit
   %52 = load double, ptr %2, align 8, !tbaa !181
   %53 = load double, ptr %3, align 8, !tbaa !67
   %54 = fcmp olt double %52, %53
-  br i1 %54, label %55, label %_ZNK5faiss14ParameterSpace14combination_geEmm.exit24
+  br i1 %54, label %55, label %_ZNK5faiss14ParameterSpace14combination_geEmm.exit23
 
 55:                                               ; preds = %.loopexit
   store double %52, ptr %3, align 8, !tbaa !67
-  br label %_ZNK5faiss14ParameterSpace14combination_geEmm.exit24
+  br label %_ZNK5faiss14ParameterSpace14combination_geEmm.exit23
 
-_ZNK5faiss14ParameterSpace14combination_geEmm.exit24: ; preds = %.lr.ph.i15, %.loopexit, %55
+_ZNK5faiss14ParameterSpace14combination_geEmm.exit23: ; preds = %.lr.ph.i14, %.loopexit, %55
   ret void
 }
 
@@ -8866,7 +8856,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %49 = ptrtoint ptr %47 to i64
   %50 = sub i64 %48, %49
   %51 = sdiv exact i64 %50, 56
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %51, i64 1)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -8882,7 +8871,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %59 = ashr exact i64 %58, 3
   %60 = mul i64 %59, %.057.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %umax.i
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %51
   br i1 %exitcond.not.i, label %_ZNK5faiss14ParameterSpace14n_combinationsEv.exit, label %.lr.ph.i, !llvm.loop !204
 
 _ZNK5faiss14ParameterSpace14n_combinationsEv.exit: ; preds = %.lr.ph.i
@@ -9317,11 +9306,11 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNK5faiss14Pa
 
 .loopexit312:                                     ; preds = %.lr.ph, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i, %.preheader311
   %sext = shl i64 %spec.select305422429, 32
+  %239 = ashr exact i64 %sext, 32
   %.not361 = icmp eq i64 %sext, 0
   br i1 %.not361, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %.lr.ph358
 
 .lr.ph358:                                        ; preds = %.loopexit312
-  %239 = ashr exact i64 %sext, 32
   %240 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %241 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %242 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -9338,7 +9327,6 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNK5faiss14Pa
   %253 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %254 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %255 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %umax408 = tail call i64 @llvm.umax.i64(i64 %239, i64 1)
   br label %256
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %498, %.loopexit312
@@ -9406,8 +9394,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit192: ; preds = %_Z
   %284 = ptrtoint ptr %281 to i64
   %285 = sub i64 %283, %284
   %286 = sdiv exact i64 %285, 56
-  %umax.i.i = call i64 @llvm.umax.i64(i64 %286, i64 1)
-  %umax = call i64 @llvm.umax.i64(i64 %279, i64 1)
   br label %313
 
 ._crit_edge:                                      ; preds = %_ZNK5faiss14ParameterSpace13update_boundsEmRKNS_14OperatingPointEPdS4_.exit, %273
@@ -9466,7 +9452,7 @@ _ZNK5faiss15OperatingPoints10t_for_perfEd.exit:   ; preds = %._crit_edge, %._cri
   %314 = getelementptr inbounds nuw %"struct.faiss::OperatingPoint", ptr %275, i64 %indvars.iv404
   %315 = getelementptr inbounds nuw i8, ptr %314, i64 48
   %316 = load i64, ptr %315, align 8, !tbaa !165
-  br i1 %282, label %.loopexit27.i, label %.lr.ph.i.i
+  br i1 %282, label %.loopexit26.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %313, %329
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %329 ], [ 0, %313 ]
@@ -9490,46 +9476,46 @@ _ZNK5faiss15OperatingPoints10t_for_perfEd.exit:   ; preds = %._crit_edge, %._cri
 
 329:                                              ; preds = %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw i64 %indvars.iv.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %umax.i.i
-  br i1 %exitcond.not.i.i, label %.loopexit27.i, label %.lr.ph.i.i, !llvm.loop !206
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %286
+  br i1 %exitcond.not.i.i, label %.loopexit26.i, label %.lr.ph.i.i, !llvm.loop !206
 
-.loopexit27.i:                                    ; preds = %329, %313
+.loopexit26.i:                                    ; preds = %329, %313
   %330 = getelementptr inbounds nuw i8, ptr %314, i64 8
   %331 = load double, ptr %330, align 8, !tbaa !182
   %332 = fcmp ogt double %331, %.0273349
   br i1 %332, label %333, label %_ZNK5faiss14ParameterSpace14combination_geEmm.exit.i
 
-333:                                              ; preds = %.loopexit27.i
+333:                                              ; preds = %.loopexit26.i
   br label %_ZNK5faiss14ParameterSpace14combination_geEmm.exit.i
 
-_ZNK5faiss14ParameterSpace14combination_geEmm.exit.i: ; preds = %.lr.ph.i.i, %333, %.loopexit27.i
-  %.1274 = phi double [ %331, %333 ], [ %.0273349, %.loopexit27.i ], [ %.0273349, %.lr.ph.i.i ]
-  br i1 %282, label %.loopexit.i, label %.lr.ph.i15.i
+_ZNK5faiss14ParameterSpace14combination_geEmm.exit.i: ; preds = %.lr.ph.i.i, %333, %.loopexit26.i
+  %.1274 = phi double [ %331, %333 ], [ %.0273349, %.loopexit26.i ], [ %.0273349, %.lr.ph.i.i ]
+  br i1 %282, label %.loopexit.i, label %.lr.ph.i14.i
 
-.lr.ph.i15.i:                                     ; preds = %_ZNK5faiss14ParameterSpace14combination_geEmm.exit.i, %346
-  %indvars.iv.i16.i = phi i64 [ %indvars.iv.next.i21.i, %346 ], [ 0, %_ZNK5faiss14ParameterSpace14combination_geEmm.exit.i ]
-  %.01628.i17.i = phi i64 [ %343, %346 ], [ %316, %_ZNK5faiss14ParameterSpace14combination_geEmm.exit.i ]
-  %.01827.i18.i = phi i64 [ %345, %346 ], [ %259, %_ZNK5faiss14ParameterSpace14combination_geEmm.exit.i ]
-  %334 = getelementptr inbounds nuw %"struct.faiss::ParameterRange", ptr %281, i64 %indvars.iv.i16.i, i32 1
+.lr.ph.i14.i:                                     ; preds = %_ZNK5faiss14ParameterSpace14combination_geEmm.exit.i, %346
+  %indvars.iv.i15.i = phi i64 [ %indvars.iv.next.i20.i, %346 ], [ 0, %_ZNK5faiss14ParameterSpace14combination_geEmm.exit.i ]
+  %.01628.i16.i = phi i64 [ %343, %346 ], [ %316, %_ZNK5faiss14ParameterSpace14combination_geEmm.exit.i ]
+  %.01827.i17.i = phi i64 [ %345, %346 ], [ %259, %_ZNK5faiss14ParameterSpace14combination_geEmm.exit.i ]
+  %334 = getelementptr inbounds nuw %"struct.faiss::ParameterRange", ptr %281, i64 %indvars.iv.i15.i, i32 1
   %335 = getelementptr inbounds nuw i8, ptr %334, i64 8
   %336 = load ptr, ptr %335, align 8, !tbaa !63
   %337 = load ptr, ptr %334, align 8, !tbaa !69
   %338 = ptrtoint ptr %336 to i64
   %339 = ptrtoint ptr %337 to i64
   %340 = sub i64 %338, %339
-  %sext.i19.i = shl i64 %340, 29
-  %341 = ashr exact i64 %sext.i19.i, 32
-  %342 = urem i64 %.01628.i17.i, %341
-  %343 = udiv i64 %.01628.i17.i, %341
-  %344 = urem i64 %.01827.i18.i, %341
-  %345 = udiv i64 %.01827.i18.i, %341
-  %.not.not.not.i20.i = icmp ult i64 %342, %344
-  br i1 %.not.not.not.i20.i, label %_ZNK5faiss14ParameterSpace13update_boundsEmRKNS_14OperatingPointEPdS4_.exit, label %346
+  %sext.i18.i = shl i64 %340, 29
+  %341 = ashr exact i64 %sext.i18.i, 32
+  %342 = urem i64 %.01628.i16.i, %341
+  %343 = udiv i64 %.01628.i16.i, %341
+  %344 = urem i64 %.01827.i17.i, %341
+  %345 = udiv i64 %.01827.i17.i, %341
+  %.not.not.not.i19.i = icmp ult i64 %342, %344
+  br i1 %.not.not.not.i19.i, label %_ZNK5faiss14ParameterSpace13update_boundsEmRKNS_14OperatingPointEPdS4_.exit, label %346
 
-346:                                              ; preds = %.lr.ph.i15.i
-  %indvars.iv.next.i21.i = add nuw i64 %indvars.iv.i16.i, 1
-  %exitcond.not.i22.i = icmp eq i64 %indvars.iv.next.i21.i, %umax.i.i
-  br i1 %exitcond.not.i22.i, label %.loopexit.i, label %.lr.ph.i15.i, !llvm.loop !206
+346:                                              ; preds = %.lr.ph.i14.i
+  %indvars.iv.next.i20.i = add nuw i64 %indvars.iv.i15.i, 1
+  %exitcond.not.i21.i = icmp eq i64 %indvars.iv.next.i20.i, %286
+  br i1 %exitcond.not.i21.i, label %.loopexit.i, label %.lr.ph.i14.i, !llvm.loop !206
 
 .loopexit.i:                                      ; preds = %346, %_ZNK5faiss14ParameterSpace14combination_geEmm.exit.i
   %347 = load double, ptr %314, align 8, !tbaa !181
@@ -9539,10 +9525,10 @@ _ZNK5faiss14ParameterSpace14combination_geEmm.exit.i: ; preds = %.lr.ph.i.i, %33
 349:                                              ; preds = %.loopexit.i
   br label %_ZNK5faiss14ParameterSpace13update_boundsEmRKNS_14OperatingPointEPdS4_.exit
 
-_ZNK5faiss14ParameterSpace13update_boundsEmRKNS_14OperatingPointEPdS4_.exit: ; preds = %.lr.ph.i15.i, %.loopexit.i, %349
-  %.1 = phi double [ %347, %349 ], [ %.0350, %.loopexit.i ], [ %.0350, %.lr.ph.i15.i ]
+_ZNK5faiss14ParameterSpace13update_boundsEmRKNS_14OperatingPointEPdS4_.exit: ; preds = %.lr.ph.i14.i, %.loopexit.i, %349
+  %.1 = phi double [ %347, %349 ], [ %.0350, %.loopexit.i ], [ %.0350, %.lr.ph.i14.i ]
   %indvars.iv.next405 = add nuw nsw i64 %indvars.iv404, 1
-  %exitcond407.not = icmp eq i64 %indvars.iv.next405, %umax
+  %exitcond407.not = icmp eq i64 %indvars.iv.next405, %279
   br i1 %exitcond407.not, label %._crit_edge, label %313, !llvm.loop !322
 
 350:                                              ; preds = %_ZNK5faiss15OperatingPoints10t_for_perfEd.exit
@@ -9882,7 +9868,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit227:                 ; preds = %_ZNSt6vectorIfSaIfE
 
 498:                                              ; preds = %354, %_ZNSt6vectorIlSaIlEED2Ev.exit227
   %499 = add nuw i64 %.0116356, 1
-  %exitcond409.not = icmp eq i64 %499, %umax408
+  %exitcond409.not = icmp eq i64 %499, %239
   br i1 %exitcond409.not, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %256, !llvm.loop !326
 
 500:                                              ; preds = %439, %471, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit223, %473, %412

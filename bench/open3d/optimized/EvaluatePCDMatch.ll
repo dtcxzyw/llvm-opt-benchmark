@@ -2723,7 +2723,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit375: ; preds = %_Z
   %507 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %508 = getelementptr inbounds nuw i8, ptr %32, i64 32
   %509 = getelementptr inbounds nuw i8, ptr %32, i64 24
-  %umax = call i64 @llvm.umax.i64(i64 %480, i64 1)
   br label %519
 
 ._crit_edge554.loopexit:                          ; preds = %_ZN6open3d8geometry10PointCloudD2Ev.exit391
@@ -3127,7 +3126,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 _ZN6open3d8geometry10PointCloudD2Ev.exit391:      ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i390, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i389
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %32) #33
   %697 = add nuw i64 %.070551, 1
-  %exitcond.not = icmp eq i64 %697, %umax
+  %exitcond.not = icmp eq i64 %697, %480
   br i1 %exitcond.not, label %._crit_edge554.loopexit, label %519, !llvm.loop !116
 
 698:                                              ; preds = %601, %622

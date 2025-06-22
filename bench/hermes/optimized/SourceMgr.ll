@@ -3759,7 +3759,6 @@ for.body.lr.ph:                                   ; preds = %if.end
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %call4, i64 8
   %_M_end_of_storage.i.i = getelementptr inbounds nuw i8, ptr %call4, i64 16
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.sub.i, i64 1)
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -3838,7 +3837,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS
 for.inc:                                          ; preds = %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i, %if.then.i.i, %for.body
   %12 = phi ptr [ %incdec.ptr.i.i.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i ], [ %incdec.ptr.i.i, %if.then.i.i ], [ %6, %for.body ]
   %inc = add nuw i64 %N.010, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %sub.ptr.sub.i
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !66
 
 return:                                           ; preds = %for.inc, %if.end, %if.then
@@ -3879,7 +3878,6 @@ for.body.lr.ph:                                   ; preds = %if.end
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %call4, i64 8
   %_M_end_of_storage.i.i = getelementptr inbounds nuw i8, ptr %call4, i64 16
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.sub.i, i64 1)
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -3954,7 +3952,7 @@ _ZNSt6vectorItSaItEE17_M_realloc_insertIJtEEEvN9__gnu_cxx17__normal_iteratorIPtS
 for.inc:                                          ; preds = %_ZNSt6vectorItSaItEE17_M_realloc_insertIJtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i.i, %if.then.i.i, %for.body
   %12 = phi ptr [ %incdec.ptr.i.i.i, %_ZNSt6vectorItSaItEE17_M_realloc_insertIJtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i.i ], [ %incdec.ptr.i.i, %if.then.i.i ], [ %6, %for.body ]
   %inc = add nuw i64 %N.010, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %sub.ptr.sub.i
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !67
 
 return:                                           ; preds = %for.inc, %if.end, %if.then
@@ -3995,7 +3993,6 @@ for.body.lr.ph:                                   ; preds = %if.end
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %call4, i64 8
   %_M_end_of_storage.i.i = getelementptr inbounds nuw i8, ptr %call4, i64 16
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.sub.i, i64 1)
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -4070,7 +4067,7 @@ _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS
 for.inc:                                          ; preds = %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i, %if.then.i.i, %for.body
   %12 = phi ptr [ %incdec.ptr.i.i.i, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i ], [ %incdec.ptr.i.i, %if.then.i.i ], [ %6, %for.body ]
   %inc = add nuw i64 %N.010, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %sub.ptr.sub.i
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !68
 
 return:                                           ; preds = %for.inc, %if.end, %if.then
@@ -4111,7 +4108,6 @@ for.body.lr.ph:                                   ; preds = %if.end
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %call4, i64 8
   %_M_end_of_storage.i.i = getelementptr inbounds nuw i8, ptr %call4, i64 16
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.sub.i, i64 1)
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -4185,7 +4181,7 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS
 for.inc:                                          ; preds = %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i, %if.then.i.i, %for.body
   %12 = phi ptr [ %incdec.ptr.i.i.i, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i ], [ %incdec.ptr.i.i, %if.then.i.i ], [ %6, %for.body ]
   %inc = add nuw i64 %N.010, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %sub.ptr.sub.i
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !69
 
 return:                                           ; preds = %for.inc, %if.end, %if.then

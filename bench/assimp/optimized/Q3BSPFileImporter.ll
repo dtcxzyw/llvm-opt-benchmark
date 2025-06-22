@@ -2164,19 +2164,15 @@ _ZNK6Assimp17Q3BSPFileImporter9countDataERKSt6vectorIPNS_5Q3BSP10sQ3BSPFaceESaIS
   %85 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %83, ptr %85, align 8
   %.not138 = icmp eq ptr %.sroa.12.0.lcssa, %.sroa.072.0.lcssa
-  br i1 %.not138, label %.loopexit, label %.lr.ph132.preheader
-
-.lr.ph132.preheader:                              ; preds = %84
-  %umax = tail call i64 @llvm.umax.i64(i64 %14, i64 1)
-  br label %.lr.ph132
+  br i1 %.not138, label %.loopexit, label %.lr.ph132
 
 86:                                               ; preds = %.loopexit, %81
   %87 = landingpad { ptr, i32 }
           cleanup
   br label %126
 
-.lr.ph132:                                        ; preds = %.lr.ph132.preheader, %93
-  %.036130 = phi i64 [ %94, %93 ], [ 0, %.lr.ph132.preheader ]
+.lr.ph132:                                        ; preds = %84, %93
+  %.036130 = phi i64 [ %94, %93 ], [ 0, %84 ]
   %88 = getelementptr inbounds nuw ptr, ptr %.sroa.072.0.lcssa, i64 %.036130
   %89 = load ptr, ptr %88, align 8
   %.not41 = icmp eq ptr %89, null
@@ -2190,7 +2186,7 @@ _ZNK6Assimp17Q3BSPFileImporter9countDataERKSt6vectorIPNS_5Q3BSP10sQ3BSPFaceESaIS
 
 93:                                               ; preds = %90, %.lr.ph132
   %94 = add nuw i64 %.036130, 1
-  %exitcond.not = icmp eq i64 %94, %umax
+  %exitcond.not = icmp eq i64 %94, %14
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph132, !llvm.loop !25
 
 .loopexit:                                        ; preds = %93, %84, %._crit_edge
@@ -2216,7 +2212,6 @@ _ZNK6Assimp17Q3BSPFileImporter9countDataERKSt6vectorIPNS_5Q3BSP10sQ3BSPFaceESaIS
   %106 = ptrtoint ptr %.sroa.10.0.lcssa to i64
   %107 = sub i64 %106, %105
   %108 = ashr exact i64 %107, 3
-  %umax156 = tail call i64 @llvm.umax.i64(i64 %108, i64 1)
   br label %.lr.ph135
 
 ._crit_edge136:                                   ; preds = %103
@@ -2256,7 +2251,7 @@ _ZNSt6vectorIP6aiNodeSaIS1_EED2Ev.exit:           ; preds = %._crit_edge136, %._
   %124 = load ptr, ptr %123, align 8
   store i32 %119, ptr %124, align 4
   %125 = add nuw i64 %.034133, 1
-  %exitcond157.not = icmp eq i64 %125, %umax156
+  %exitcond157.not = icmp eq i64 %125, %108
   br i1 %exitcond157.not, label %._crit_edge136.thread, label %.lr.ph135, !llvm.loop !26
 
 _ZNSt6vectorIP6aiMeshSaIS1_EED2Ev.exit:           ; preds = %111, %_ZNSt6vectorIP6aiNodeSaIS1_EED2Ev.exit, %4

@@ -1312,7 +1312,6 @@ for.body170.preheader:                            ; preds = %for.end
   %sub.ptr.rhs.cast.i = ptrtoint ptr %.pre212 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 160
-  %umax = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %for.body170
 
 for.body170:                                      ; preds = %for.body170.preheader, %for.inc173
@@ -1324,7 +1323,7 @@ for.body170:                                      ; preds = %for.body170.prehead
 
 for.inc173:                                       ; preds = %for.body170
   %inc174 = add nuw i64 %i166.0210, 1
-  %exitcond211.not = icmp eq i64 %inc174, %umax
+  %exitcond211.not = icmp eq i64 %inc174, %sub.ptr.div.i
   br i1 %exitcond211.not, label %for.end175, label %for.body170, !llvm.loop !10
 
 for.end175:                                       ; preds = %for.inc173, %for.end.thread, %for.end

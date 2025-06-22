@@ -633,8 +633,7 @@ define internal fastcc i32 @decode_ints_uint64(ptr noalias noundef captures(none
 
 .lr.ph.i:                                         ; preds = %11
   %14 = shl nuw i64 1, %indvars.iv.next144.i
-  %umax.i = tail call i32 @llvm.umax.i32(i32 %12, i32 1)
-  %wide.trip.count.i = zext i32 %umax.i to i64
+  %wide.trip.count.i = zext i32 %12 to i64
   br label %19
 
 .preheader77.i:                                   ; preds = %30, %11
@@ -1142,9 +1141,6 @@ declare i32 @llvm.umin.i32(i32, i32) #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #5

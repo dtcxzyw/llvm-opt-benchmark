@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i64 @_ZN5folly6detail26qfind_first_byte_of_bitsetENS0_15StringPieceLiteES1_(ptr %0, ptr %1, ptr readonly captures(address) %2, ptr readnone captures(address) %3) local_unnamed_addr #0 {
   %5 = alloca %"class.std::bitset", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   %.not22 = icmp eq ptr %2, %3
   br i1 %.not22, label %.preheader, label %.lr.ph
@@ -23,7 +23,6 @@ define noundef i64 @_ZN5folly6detail26qfind_first_byte_of_bitsetENS0_15StringPie
   %6 = ptrtoint ptr %1 to i64
   %7 = ptrtoint ptr %0 to i64
   %8 = sub i64 %6, %7
-  %umax = tail call i64 @llvm.umax.i64(i64 %8, i64 1)
   br label %.lr.ph26
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
@@ -57,12 +56,12 @@ define noundef i64 @_ZN5folly6detail26qfind_first_byte_of_bitsetENS0_15StringPie
 
 27:                                               ; preds = %.lr.ph26
   %28 = add nuw i64 %.01225, 1
-  %exitcond.not = icmp eq i64 %28, %umax
+  %exitcond.not = icmp eq i64 %28, %8
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph26, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %27, %.lr.ph26, %.preheader
   %spec.select = phi i64 [ -1, %.preheader ], [ %.01225, %.lr.ph26 ], [ -1, %27 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #3
   ret i64 %spec.select
 }
 
@@ -78,7 +77,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i64 @_ZN5folly6detail27qfind_first_byte_of_bytesetENS0_15StringPieceLiteES1_(ptr %0, ptr %1, ptr readonly captures(address) %2, ptr readnone captures(address) %3) local_unnamed_addr #0 {
   %5 = alloca %"class.folly::SparseByteSet", align 2
-  call void @llvm.lifetime.start.p0(i64 514, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(i64 514, ptr nonnull %5) #3
   %.not18 = icmp eq ptr %2, %3
   br i1 %.not18, label %.preheader, label %.lr.ph
 
@@ -98,7 +97,6 @@ define noundef i64 @_ZN5folly6detail27qfind_first_byte_of_bytesetENS0_15StringPi
   %11 = ptrtoint ptr %0 to i64
   %12 = sub i64 %10, %11
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 2
-  %umax = tail call i64 @llvm.umax.i64(i64 %12, i64 1)
   br label %32
 
 14:                                               ; preds = %.lr.ph, %_ZN5folly13SparseByteSet3addEh.exit
@@ -154,23 +152,19 @@ _ZNK5folly13SparseByteSet8containsEh.exit:        ; preds = %32
 
 _ZNK5folly13SparseByteSet8containsEh.exit.thread: ; preds = %32, %_ZNK5folly13SparseByteSet8containsEh.exit
   %44 = add nuw i64 %.01221, 1
-  %exitcond.not = icmp eq i64 %44, %umax
+  %exitcond.not = icmp eq i64 %44, %12
   br i1 %exitcond.not, label %_ZNK5folly13SparseByteSet8containsEh.exit._crit_edge, label %32, !llvm.loop !14
 
 _ZNK5folly13SparseByteSet8containsEh.exit._crit_edge: ; preds = %_ZNK5folly13SparseByteSet8containsEh.exit.thread, %_ZNK5folly13SparseByteSet8containsEh.exit, %.preheader
   %spec.select = phi i64 [ -1, %.preheader ], [ %.01221, %_ZNK5folly13SparseByteSet8containsEh.exit ], [ -1, %_ZNK5folly13SparseByteSet8containsEh.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 514, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(i64 514, ptr nonnull %5) #3
   ret i64 %spec.select
 }
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #3
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { nounwind }
+attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 

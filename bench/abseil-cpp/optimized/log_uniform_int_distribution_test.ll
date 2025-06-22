@@ -2264,11 +2264,7 @@ _ZN4absl15random_internal21ChiSquareWithExpectedIN9__gnu_cxx17__normal_iteratorI
 _ZN4absl12log_internal10LogMessagelsILi7EEERS1_RAT__Kc.exit.i: ; preds = %126
   call void @_ZN4absl12log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #39
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #35
-  br i1 %.not11.i.i, label %._crit_edge.i, label %.lr.ph.preheader.i
-
-.lr.ph.preheader.i:                               ; preds = %_ZN4absl12log_internal10LogMessagelsILi7EEERS1_RAT__Kc.exit.i
-  %umax.i = call i64 @llvm.umax.i64(i64 %87, i64 1)
-  br label %.lr.ph.i
+  br i1 %.not11.i.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %142, %_ZN4absl12log_internal10LogMessagelsILi7EEERS1_RAT__Kc.exit.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #35
@@ -2301,8 +2297,8 @@ _ZN4absl12log_internal10LogMessagelsILi7EEERS1_RAT__Kc.exit.i: ; preds = %126
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #35
   br label %.thread.i
 
-.lr.ph.i:                                         ; preds = %142, %.lr.ph.preheader.i
-  %.0114.i = phi i64 [ %143, %142 ], [ 0, %.lr.ph.preheader.i ]
+.lr.ph.i:                                         ; preds = %_ZN4absl12log_internal10LogMessagelsILi7EEERS1_RAT__Kc.exit.i, %142
+  %.0114.i = phi i64 [ %143, %142 ], [ 0, %_ZN4absl12log_internal10LogMessagelsILi7EEERS1_RAT__Kc.exit.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #35
   invoke void @_ZN4absl12log_internal10LogMessageC1EPKciNS1_7InfoTagE(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull @.str.2, i32 noundef 186) #38
           to label %136 unwind label %144
@@ -2331,7 +2327,7 @@ _ZN4absl12log_internal10LogMessagelsILi3EEERS1_RAT__Kc.exit.i: ; preds = %138
   call void @_ZN4absl12log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #39
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #35
   %143 = add nuw i64 %.0114.i, 1
-  %exitcond118.not.i = icmp eq i64 %143, %umax.i
+  %exitcond118.not.i = icmp eq i64 %143, %87
   br i1 %exitcond118.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !93
 
 144:                                              ; preds = %.lr.ph.i

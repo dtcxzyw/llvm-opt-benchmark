@@ -107,8 +107,7 @@ _.exit:                                           ; preds = %23, %26
 34:                                               ; preds = %_.exit, %21, %.thread
   %.not55 = icmp eq ptr %1, null
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %umax81 = call i32 @llvm.umax.i32(i32 %spec.store.select, i32 1)
-  %wide.trip.count82 = zext nneg i32 %umax81 to i64
+  %wide.trip.count82 = zext nneg i32 %spec.store.select to i64
   br i1 %.not55, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %34, %45
@@ -540,9 +539,6 @@ declare void @stop_progress_msg(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #9
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #9
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

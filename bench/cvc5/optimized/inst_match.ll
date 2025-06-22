@@ -505,7 +505,6 @@ define hidden void @_ZNK4cvc58internal6theory11quantifiers9InstMatch8toStreamERS
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
   %11 = ashr exact i64 %10, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %11, i64 1)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN4cvc58internallsERSoNS0_12NodeTemplateILb0EEE.exit, %2
@@ -569,7 +568,7 @@ _ZNK4cvc58internal12NodeTemplateILb1EE6isNullEv.exit: ; preds = %.lr.ph, %18, %2
 _ZN4cvc58internallsERSoNS0_12NodeTemplateILb0EEE.exit: ; preds = %30, %_ZNK4cvc58internal12NodeTemplateILb1EE6isNullEv.exit
   %.1 = phi i1 [ %.015, %_ZNK4cvc58internal12NodeTemplateILb1EE6isNullEv.exit ], [ true, %30 ]
   %36 = add nuw i64 %.01314, 1
-  %exitcond.not = icmp eq i64 %36, %umax
+  %exitcond.not = icmp eq i64 %36, %11
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !41
 }
 
@@ -692,7 +691,6 @@ define hidden void @_ZN4cvc58internal6theory11quantifiers9InstMatch8resetAllEv(p
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, %1
@@ -816,7 +814,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %53, %47, %_ZN4cvc
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit, %59, %65
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #20
   %69 = add nuw i64 %.010, 1
-  %exitcond.not = icmp eq i64 %69, %umax
+  %exitcond.not = icmp eq i64 %69, %10
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !46
 
 70:                                               ; preds = %55, %41

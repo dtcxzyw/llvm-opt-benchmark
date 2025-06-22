@@ -30382,7 +30382,6 @@ define linkonce_odr void @_ZN5folly29core_cached_shared_ptr_detail9makeSlotsILm6
 .lr.ph:                                           ; preds = %3
   %9 = add nsw i64 %8, -1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %umax = tail call i64 @llvm.umax.i64(i64 %8, i64 1)
   br label %11
 
 ._crit_edge:                                      ; preds = %_ZNSt12__shared_ptrISt10shared_ptrIN5folly15observer_detail15ObserverManager14UpdatesManagerEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %3
@@ -30655,7 +30654,7 @@ _ZNSt12__shared_ptrISt10shared_ptrIN5folly15observer_detail15ObserverManager14Up
   call void @_ZN5folly18CoreAllocatorGuardD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #30
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #30
   %123 = add nuw i64 %.032, 1
-  %exitcond.not = icmp eq i64 %123, %umax
+  %exitcond.not = icmp eq i64 %123, %8
   br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !1077
 }
 

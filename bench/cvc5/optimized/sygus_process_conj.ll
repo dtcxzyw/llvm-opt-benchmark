@@ -10524,7 +10524,6 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %66, %76, %82
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %88 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %umax = tail call i32 @llvm.umax.i32(i32 %73, i32 1)
   br label %128
 
 ._crit_edge:                                      ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit85, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
@@ -10917,7 +10916,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit83: ; preds = %263, %257, %253, %_
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit85: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit83, %278, %284
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #23
   %288 = add nuw i32 %.0192, 1
-  %exitcond.not = icmp eq i32 %288, %umax
+  %exitcond.not = icmp eq i32 %288, %73
   br i1 %exitcond.not, label %._crit_edge, label %128, !llvm.loop !524
 
 289:                                              ; preds = %271, %273, %269
@@ -11164,11 +11163,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit105: ; preds = %_ZN4cvc58internal1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #23
   %.not205 = icmp eq i64 %396, 0
-  br i1 %.not205, label %._crit_edge195, label %.lr.ph194.preheader
-
-.lr.ph194.preheader:                              ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit105
-  %umax206 = call i32 @llvm.umax.i32(i32 %397, i32 1)
-  br label %.lr.ph194
+  br i1 %.not205, label %._crit_edge195, label %.lr.ph194
 
 ._crit_edge195:                                   ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit128, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit105
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #23
@@ -11246,8 +11241,8 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit105: ; preds = %_ZN4cvc58internal1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #23
   br label %873
 
-.lr.ph194:                                        ; preds = %.lr.ph194.preheader, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit128
-  %.039193 = phi i32 [ %576, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit128 ], [ 0, %.lr.ph194.preheader ]
+.lr.ph194:                                        ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit105, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit128
+  %.039193 = phi i32 [ %576, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit128 ], [ 0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit105 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #23
@@ -11473,7 +11468,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit128: ; preds = %_ZN4cvc58internal1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #23
   %576 = add nuw i32 %.039193, 1
-  %exitcond207.not = icmp eq i32 %576, %umax206
+  %exitcond207.not = icmp eq i32 %576, %397
   br i1 %exitcond207.not, label %._crit_edge195, label %.lr.ph194, !llvm.loop !548
 
 577:                                              ; preds = %480, %.lr.ph194
@@ -26503,9 +26498,6 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #21
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #21
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

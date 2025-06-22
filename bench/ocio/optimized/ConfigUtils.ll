@@ -1847,7 +1847,6 @@ _ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit:            ; preds = %.noexc26, %_ZNSt6ve
 .lr.ph:                                           ; preds = %.preheader
   %37 = ashr exact i64 %36, 2
   %38 = load ptr, ptr %1, align 8, !tbaa !50
-  %umax = call i64 @llvm.umax.i64(i64 %37, i64 1)
   br label %45
 
 39:                                               ; preds = %22
@@ -1878,7 +1877,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit:            ; preds = %.noexc26, %_ZNSt6ve
   %53 = select i1 %50, float %51, float %52
   %54 = fcmp ole float %53, %2
   %55 = add nuw i64 %.01444, 1
-  %exitcond.not = icmp ne i64 %55, %umax
+  %exitcond.not = icmp ne i64 %55, %37
   %or.cond.not = select i1 %54, i1 %exitcond.not, i1 false
   br i1 %or.cond.not, label %45, label %.critedge, !llvm.loop !59
 
@@ -6609,9 +6608,6 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #22
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #20
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

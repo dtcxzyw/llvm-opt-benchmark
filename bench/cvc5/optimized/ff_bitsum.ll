@@ -409,7 +409,6 @@ define hidden noundef i32 @_ZN4cvc58internal13preprocessing6passes8FfBitsum13app
   %58 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %60 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %umax = call i64 @llvm.umax.i64(i64 %55, i64 1)
   br label %62
 
 ._crit_edge485:                                   ; preds = %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EED2Ev.exit, %2
@@ -453,7 +452,7 @@ define hidden noundef i32 @_ZN4cvc58internal13preprocessing6passes8FfBitsum13app
 _ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EED2Ev.exit: ; preds = %._crit_edge, %70
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #21
   %75 = add nuw i64 %.058482, 1
-  %exitcond.not = icmp eq i64 %75, %umax
+  %exitcond.not = icmp eq i64 %75, %55
   br i1 %exitcond.not, label %._crit_edge485, label %62, !llvm.loop !47
 
 76:                                               ; preds = %62
@@ -894,7 +893,6 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EED2Ev.exit160: ; preds =
   %276 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %277 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %278 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %umax506 = call i64 @llvm.umax.i64(i64 %259, i64 1)
   br label %317
 
 ._crit_edge495:                                   ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit286
@@ -2983,7 +2981,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit283: ; preds = %_ZN4cvc58internal1
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit286: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit283, %1142, %1148
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #21
   %1152 = add nuw i64 %.0101492, 1
-  %exitcond507.not = icmp eq i64 %1152, %umax506
+  %exitcond507.not = icmp eq i64 %1152, %259
   br i1 %exitcond507.not, label %._crit_edge495, label %317, !llvm.loop !125
 
 1153:                                             ; preds = %1125, %1123

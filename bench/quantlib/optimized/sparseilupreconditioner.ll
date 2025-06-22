@@ -1175,7 +1175,6 @@ invoke.cont230.lr.ph:                             ; preds = %if.end218
   %tobool.not.i.i442 = icmp eq ptr %112, null
   %sub.ptr.rhs.cast.i.i.i.i445 = ptrtoint ptr %111 to i64
   %neg = fneg double %fact.0
-  %umax = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %invoke.cont230
 
 for.cond.cleanup223:                              ; preds = %if.end263, %if.end218
@@ -1308,7 +1307,7 @@ if.end263.sink.split:                             ; preds = %if.else, %if.then24
 
 if.end263:                                        ; preds = %if.end263.sink.split, %if.then240
   %inc267 = add nuw i64 %k219.01808, 1
-  %exitcond2055.not = icmp eq i64 %inc267, %umax
+  %exitcond2055.not = icmp eq i64 %inc267, %sub.ptr.div.i
   br i1 %exitcond2055.not, label %for.cond.cleanup223, label %invoke.cont230, !llvm.loop !49
 
 ehcleanup278:                                     ; preds = %lpad204.loopexit, %lpad204.loopexit.split-lp, %lpad201.loopexit, %lpad201.loopexit.split-lp, %lpad167
@@ -1581,7 +1580,6 @@ for.body363.lr.ph:                                ; preds = %for.cond359.prehead
   %sub.ptr.sub.i684 = sub i64 %sub.ptr.lhs.cast.i682, %sub.ptr.rhs.cast.i683
   %sub.ptr.div.i685 = ashr exact i64 %sub.ptr.sub.i684, 2
   %add.i.i.i.i788 = add nuw nsw i64 %indvars.iv2059, 1
-  %umax2057 = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i685, i64 1)
   %132 = trunc nuw nsw i64 %indvars.iv2059 to i32
   %133 = trunc nuw nsw i64 %indvars.iv2059 to i32
   br label %for.body363
@@ -2564,7 +2562,7 @@ ehcleanup427.thread1452:                          ; preds = %_ZNSt8_Rb_treeIiiSt
 
 if.end420:                                        ; preds = %if.end12.i.i.i913, %call5.i.i.i.i.i.i.i.i.noexc939, %if.end12.i.i.i, %call5.i.i.i.i.i.i.i.i.noexc, %invoke.cont405
   %inc423 = add nuw i64 %k358.01833, 1
-  %exitcond2058.not = icmp eq i64 %inc423, %umax2057
+  %exitcond2058.not = icmp eq i64 %inc423, %sub.ptr.div.i685
   br i1 %exitcond2058.not, label %for.cond.cleanup362, label %for.body363, !llvm.loop !64
 
 ehcleanup427:                                     ; preds = %lpad345.loopexit, %lpad345.loopexit.split-lp, %lpad404, %lpad393, %lpad375, %lpad381

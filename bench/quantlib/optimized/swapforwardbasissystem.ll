@@ -234,7 +234,6 @@ while.cond.preheader.lr.ph:                       ; preds = %_ZNSt6vectorISt4pai
   %sub.ptr.sub.i75 = sub i64 %sub.ptr.lhs.cast.i73, %sub.ptr.rhs.cast.i74
   %sub.ptr.div.i76 = ashr exact i64 %sub.ptr.sub.i75, 3
   %16 = load ptr, ptr %rateIndex_, align 8, !tbaa !14
-  %umax = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i56, i64 1)
   br label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %while.cond.preheader.lr.ph, %while.end
@@ -309,7 +308,7 @@ while.end:                                        ; preds = %land.rhs, %while.bo
   %add.ptr.i78 = getelementptr inbounds nuw i64, ptr %16, i64 %i.099
   store i64 %j.1.lcssa, ptr %add.ptr.i78, align 8, !tbaa !17
   %inc17 = add nuw i64 %i.099, 1
-  %exitcond100.not = icmp eq i64 %inc17, %umax
+  %exitcond100.not = icmp eq i64 %inc17, %sub.ptr.div.i56
   br i1 %exitcond100.not, label %for.cond.cleanup, label %while.cond.preheader, !llvm.loop !27
 
 ehcleanup:                                        ; preds = %if.then.i.i.i67, %_ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit64, %lpad4

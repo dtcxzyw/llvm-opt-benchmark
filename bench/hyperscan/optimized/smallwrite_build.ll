@@ -6519,8 +6519,8 @@ _ZNK3ue29CharReachcoEv.exit.i.i:                  ; preds = %951
   unreachable
 
 _ZNKSt6vectorIN3ue29CharReachESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i.i: ; preds = %964
-  %967 = shl nsw i64 %917, 1
-  %968 = icmp slt i64 %917, 0
+  %967 = ashr exact i64 %918, 4
+  %968 = icmp ult i64 %967, %917
   %969 = call i64 @llvm.umin.i64(i64 %967, i64 288230376151711743)
   %970 = select i1 %968, i64 288230376151711743, i64 %969
   %.not.i.i.i51.i.i = icmp ne i64 %970, 0

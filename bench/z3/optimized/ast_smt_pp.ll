@@ -8122,7 +8122,6 @@ _ZlsRSo6symbol.exit44:                            ; preds = %_ZStlsISt11char_tra
 
 104:                                              ; preds = %_ZlsRSo6symbol.exit41, %_ZlsRSo6symbol.exit44, %_ZlsRSo6symbol.exit38
   %105 = zext i32 %3 to i64
-  %wide.trip.count = zext i32 %3 to i64
   br label %109
 
 106:                                              ; preds = %144
@@ -8226,7 +8225,7 @@ _ZN11smt_printer7pp_exprEP4expr.exit:             ; preds = %124, %123, %122, %1
   br label %144
 
 144:                                              ; preds = %141, %_ZN11smt_printer7pp_exprEP4expr.exit
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %105
   br i1 %exitcond.not, label %106, label %109, !llvm.loop !396
 
 _ZlsRSo6symbol.exit:                              ; preds = %21, %19, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.i, %106, %31

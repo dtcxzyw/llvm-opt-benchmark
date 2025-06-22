@@ -4177,7 +4177,6 @@ _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc28
 
 .lr.ph42:                                         ; preds = %32
   %36 = add nsw i64 %.0, -1
-  %umax45 = tail call i64 @llvm.umax.i64(i64 %23, i64 1)
   br label %38
 
 ._crit_edge43:                                    ; preds = %._crit_edge, %32
@@ -4207,7 +4206,7 @@ _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc28
 
 ._crit_edge:                                      ; preds = %.lr.ph, %38
   %48 = add nuw i64 %.02540, 1
-  %exitcond.not = icmp eq i64 %48, %umax45
+  %exitcond.not = icmp eq i64 %48, %23
   br i1 %exitcond.not, label %._crit_edge43, label %38, !llvm.loop !95
 
 49:                                               ; preds = %._crit_edge43

@@ -12,12 +12,12 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -2147483647, -2147483648) i32 @uv__epoll_init(ptr noundef writeonly captures(none) initializes((64, 68)) %0) local_unnamed_addr #0 {
-  %2 = tail call i32 @epoll_create1(i32 noundef 524288) #8
+  %2 = tail call i32 @epoll_create1(i32 noundef 524288) #7
   %3 = icmp eq i32 %2, -1
   br i1 %3, label %4, label %11
 
 4:                                                ; preds = %1
-  %5 = tail call ptr @__errno_location() #9
+  %5 = tail call ptr @__errno_location() #8
   %6 = load i32, ptr %5, align 4, !tbaa !4
   switch i32 %6, label %13 [
     i32 38, label %7
@@ -25,12 +25,12 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv__epoll_init(ptr nou
   ]
 
 7:                                                ; preds = %4, %4
-  %8 = tail call i32 @epoll_create(i32 noundef 256) #8
+  %8 = tail call i32 @epoll_create(i32 noundef 256) #7
   %.not = icmp eq i32 %8, -1
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %7
-  %10 = tail call i32 @uv__cloexec(i32 noundef %8, i32 noundef 1) #8
+  %10 = tail call i32 @uv__cloexec(i32 noundef %8, i32 noundef 1) #7
   br label %11
 
 11:                                               ; preds = %9, %1
@@ -71,7 +71,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 ; Function Attrs: nounwind uwtable
 define dso_local void @uv__platform_invalidate_fd(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.epoll_event, align 1
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3) #7
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load ptr, ptr %4, align 8, !tbaa !21
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -83,18 +83,14 @@ define dso_local void @uv__platform_invalidate_fd(ptr noundef readonly captures(
   %12 = zext i32 %11 to i64
   %13 = getelementptr inbounds nuw ptr, ptr %5, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !23
+  %15 = ptrtoint ptr %14 to i64
   %.not = icmp ne ptr %10, null
-  %15 = icmp ne ptr %14, null
-  %or.cond = select i1 %.not, i1 %15, i1 false
-  br i1 %or.cond, label %.lr.ph.preheader, label %.loopexit
+  %16 = icmp ne ptr %14, null
+  %or.cond = select i1 %.not, i1 %16, i1 false
+  br i1 %or.cond, label %.lr.ph, label %.loopexit
 
-.lr.ph.preheader:                                 ; preds = %2
-  %16 = ptrtoint ptr %14 to i64
-  %umax = tail call i64 @llvm.umax.i64(i64 %16, i64 1)
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %21
-  %.016 = phi i64 [ %22, %21 ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %2, %21
+  %.016 = phi i64 [ %22, %21 ], [ 0, %2 ]
   %17 = getelementptr inbounds nuw %struct.epoll_event, ptr %10, i64 %.016, i32 1
   %18 = load i32, ptr %17, align 1, !tbaa !25
   %19 = icmp eq i32 %18, %1
@@ -106,7 +102,7 @@ define dso_local void @uv__platform_invalidate_fd(ptr noundef readonly captures(
 
 21:                                               ; preds = %.lr.ph, %20
   %22 = add nuw i64 %.016, 1
-  %exitcond.not = icmp eq i64 %22, %umax
+  %exitcond.not = icmp eq i64 %22, %15
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !26
 
 .loopexit:                                        ; preds = %21, %2
@@ -117,11 +113,11 @@ define dso_local void @uv__platform_invalidate_fd(ptr noundef readonly captures(
 
 26:                                               ; preds = %.loopexit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %3, i8 0, i64 12, i1 false)
-  %27 = call i32 @epoll_ctl(i32 noundef %24, i32 noundef 2, i32 noundef %1, ptr noundef nonnull %3) #8
+  %27 = call i32 @epoll_ctl(i32 noundef %24, i32 noundef 2, i32 noundef %1, ptr noundef nonnull %3) #7
   br label %28
 
 28:                                               ; preds = %26, %.loopexit
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3) #7
   ret void
 }
 
@@ -134,7 +130,7 @@ declare i32 @epoll_ctl(i32 noundef, i32 noundef, i32 noundef, ptr noundef) local
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -2147483647, -2147483648) i32 @uv__io_check_fd(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.epoll_event, align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3) #7
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %4, align 4
   store i32 1, ptr %3, align 4, !tbaa !28
@@ -142,12 +138,12 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv__io_check_fd(ptr no
   store i32 -1, ptr %5, align 4, !tbaa !25
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load i32, ptr %6, align 8, !tbaa !8
-  %8 = call i32 @epoll_ctl(i32 noundef %7, i32 noundef 1, i32 noundef %1, ptr noundef nonnull %3) #8
+  %8 = call i32 @epoll_ctl(i32 noundef %7, i32 noundef 1, i32 noundef %1, ptr noundef nonnull %3) #7
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %.thread, label %9
 
 9:                                                ; preds = %2
-  %10 = tail call ptr @__errno_location() #9
+  %10 = tail call ptr @__errno_location() #8
   %11 = load i32, ptr %10, align 4, !tbaa !4
   %12 = sub nsw i32 0, %11
   switch i32 %11, label %16 [
@@ -157,17 +153,17 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv__io_check_fd(ptr no
 
 .thread:                                          ; preds = %9, %9, %2
   %13 = load i32, ptr %6, align 8, !tbaa !8
-  %14 = call i32 @epoll_ctl(i32 noundef %13, i32 noundef 2, i32 noundef %1, ptr noundef nonnull %3) #8
+  %14 = call i32 @epoll_ctl(i32 noundef %13, i32 noundef 2, i32 noundef %1, ptr noundef nonnull %3) #7
   %.not7 = icmp eq i32 %14, 0
   br i1 %.not7, label %16, label %15
 
 15:                                               ; preds = %.thread
-  call void @abort() #10
+  call void @abort() #9
   unreachable
 
 16:                                               ; preds = %9, %.thread
   %.09 = phi i32 [ 0, %.thread ], [ %12, %9 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3) #7
   ret i32 %.09
 }
 
@@ -179,9 +175,9 @@ define dso_local void @uv__io_poll(ptr noundef %0, i32 noundef %1) local_unnamed
   %3 = alloca [1024 x %struct.epoll_event], align 16
   %4 = alloca %struct.epoll_event, align 4
   %5 = alloca %struct.__sigset_t, align 8
-  call void @llvm.lifetime.start.p0(i64 12288, ptr nonnull %3) #8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #8
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(i64 12288, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #7
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %7 = load i32, ptr %6, align 4, !tbaa !30
   %8 = icmp eq i32 %7, 0
@@ -221,29 +217,29 @@ define dso_local void @uv__io_poll(ptr noundef %0, i32 noundef %1) local_unnamed
   %27 = icmp eq i32 %26, 0
   %. = select i1 %27, i32 1, i32 3
   %28 = load i32, ptr %13, align 8, !tbaa !8
-  %29 = call i32 @epoll_ctl(i32 noundef %28, i32 noundef %., i32 noundef %24, ptr noundef nonnull %4) #8
+  %29 = call i32 @epoll_ctl(i32 noundef %28, i32 noundef %., i32 noundef %24, ptr noundef nonnull %4) #7
   %.not160 = icmp eq i32 %29, 0
   br i1 %.not160, label %39, label %30
 
 30:                                               ; preds = %14
-  %31 = tail call ptr @__errno_location() #9
+  %31 = tail call ptr @__errno_location() #8
   %32 = load i32, ptr %31, align 4, !tbaa !4
   %.not161 = icmp eq i32 %32, 17
   br i1 %.not161, label %34, label %33
 
 33:                                               ; preds = %30
-  call void @abort() #10
+  call void @abort() #9
   unreachable
 
 34:                                               ; preds = %30
   %35 = load i32, ptr %13, align 8, !tbaa !8
   %36 = load i32, ptr %23, align 8, !tbaa !33
-  %37 = call i32 @epoll_ctl(i32 noundef %35, i32 noundef 3, i32 noundef %36, ptr noundef nonnull %4) #8
+  %37 = call i32 @epoll_ctl(i32 noundef %35, i32 noundef 3, i32 noundef %36, ptr noundef nonnull %4) #7
   %.not162 = icmp eq i32 %37, 0
   br i1 %.not162, label %39, label %38
 
 38:                                               ; preds = %34
-  call void @abort() #10
+  call void @abort() #9
   unreachable
 
 39:                                               ; preds = %34, %14
@@ -261,8 +257,8 @@ define dso_local void @uv__io_poll(ptr noundef %0, i32 noundef %1) local_unnamed
   br i1 %.not146, label %45, label %48
 
 45:                                               ; preds = %._crit_edge
-  %46 = call i32 @sigemptyset(ptr noundef nonnull %5) #8
-  %47 = call i32 @sigaddset(ptr noundef nonnull %5, i32 noundef 27) #8
+  %46 = call i32 @sigemptyset(ptr noundef nonnull %5) #7
+  %47 = call i32 @sigaddset(ptr noundef nonnull %5, i32 noundef 27) #7
   br label %48
 
 48:                                               ; preds = %45, %._crit_edge
@@ -313,7 +309,7 @@ select.unfold:                                    ; preds = %select.unfold.outer
   br i1 %.not148, label %62, label %61
 
 61:                                               ; preds = %select.unfold
-  call void @uv__metrics_set_provider_entry_time(ptr noundef nonnull %0) #8
+  call void @uv__metrics_set_provider_entry_time(ptr noundef nonnull %0) #7
   br label %62
 
 62:                                               ; preds = %61, %select.unfold
@@ -322,12 +318,12 @@ select.unfold:                                    ; preds = %select.unfold.outer
   br i1 %or.cond, label %64, label %67
 
 64:                                               ; preds = %62
-  %65 = call i32 @pthread_sigmask(i32 noundef 0, ptr noundef nonnull %5, ptr noundef null) #8
+  %65 = call i32 @pthread_sigmask(i32 noundef 0, ptr noundef nonnull %5, ptr noundef null) #7
   %.not149 = icmp eq i32 %65, 0
   br i1 %.not149, label %67, label %66
 
 66:                                               ; preds = %64
-  call void @abort() #10
+  call void @abort() #9
   unreachable
 
 67:                                               ; preds = %64, %62
@@ -339,23 +335,23 @@ select.unfold:                                    ; preds = %select.unfold.outer
   br i1 %or.cond166, label %70, label %77
 
 70:                                               ; preds = %67
-  %71 = call i32 @epoll_pwait(i32 noundef %69, ptr noundef nonnull %3, i32 noundef 1024, i32 noundef %.1.ph183, ptr noundef nonnull %5) #8
+  %71 = call i32 @epoll_pwait(i32 noundef %69, ptr noundef nonnull %3, i32 noundef 1024, i32 noundef %.1.ph183, ptr noundef nonnull %5) #7
   %72 = icmp eq i32 %71, -1
   br i1 %72, label %73, label %84
 
 73:                                               ; preds = %70
-  %74 = tail call ptr @__errno_location() #9
+  %74 = tail call ptr @__errno_location() #8
   %75 = load i32, ptr %74, align 4, !tbaa !4
   %76 = icmp eq i32 %75, 38
   br i1 %76, label %.sink.split, label %84
 
 77:                                               ; preds = %67
-  %78 = call i32 @epoll_wait(i32 noundef %69, ptr noundef nonnull %3, i32 noundef 1024, i32 noundef %.1.ph183) #8
+  %78 = call i32 @epoll_wait(i32 noundef %69, ptr noundef nonnull %3, i32 noundef 1024, i32 noundef %.1.ph183) #7
   %79 = icmp eq i32 %78, -1
   br i1 %79, label %80, label %84
 
 80:                                               ; preds = %77
-  %81 = tail call ptr @__errno_location() #9
+  %81 = tail call ptr @__errno_location() #8
   %82 = load i32, ptr %81, align 4, !tbaa !4
   %83 = icmp eq i32 %82, 38
   br i1 %83, label %.sink.split, label %84
@@ -376,18 +372,18 @@ select.unfold:                                    ; preds = %select.unfold.outer
   br i1 %or.cond5, label %86, label %89
 
 86:                                               ; preds = %84
-  %87 = call i32 @pthread_sigmask(i32 noundef 1, ptr noundef nonnull %5, ptr noundef null) #8
+  %87 = call i32 @pthread_sigmask(i32 noundef 1, ptr noundef nonnull %5, ptr noundef null) #7
   %.not151 = icmp eq i32 %87, 0
   br i1 %.not151, label %89, label %88
 
 88:                                               ; preds = %86
-  call void @abort() #10
+  call void @abort() #9
   unreachable
 
 89:                                               ; preds = %84, %86
-  %90 = tail call ptr @__errno_location() #9
+  %90 = tail call ptr @__errno_location() #8
   %91 = load i32, ptr %90, align 4, !tbaa !4
-  %92 = call i64 @uv__hrtime(i32 noundef 1) #8
+  %92 = call i64 @uv__hrtime(i32 noundef 1) #7
   %93 = udiv i64 %92, 1000000
   store i64 %93, ptr %49, align 8, !tbaa !37
   store i32 %91, ptr %90, align 4, !tbaa !4
@@ -412,7 +408,7 @@ select.unfold.outer179.backedge:                  ; preds = %94, %97, %166
   ]
 
 96:                                               ; preds = %95
-  call void @abort() #10
+  call void @abort() #9
   unreachable
 
 97:                                               ; preds = %95
@@ -472,7 +468,7 @@ select.unfold.outer179.backedge:                  ; preds = %94, %97, %166
 
 126:                                              ; preds = %120
   %127 = load i32, ptr %57, align 8, !tbaa !8
-  %128 = call i32 @epoll_ctl(i32 noundef %127, i32 noundef 2, i32 noundef %118, ptr noundef nonnull %116) #8
+  %128 = call i32 @epoll_ctl(i32 noundef %127, i32 noundef 2, i32 noundef %118, ptr noundef nonnull %116) #7
   br label %144
 
 129:                                              ; preds = %120
@@ -499,10 +495,10 @@ select.unfold.outer179.backedge:                  ; preds = %94, %97, %166
   br i1 %138, label %142, label %139
 
 139:                                              ; preds = %137
-  call void @uv__metrics_update_idle_time(ptr noundef nonnull %0) #8
+  call void @uv__metrics_update_idle_time(ptr noundef nonnull %0) #7
   %140 = load ptr, ptr %124, align 8, !tbaa !42
   %141 = load i32, ptr %116, align 4, !tbaa !28
-  call void %140(ptr noundef nonnull %0, ptr noundef nonnull %124, i32 noundef %141) #8
+  call void %140(ptr noundef nonnull %0, ptr noundef nonnull %124, i32 noundef %141) #7
   br label %142
 
 142:                                              ; preds = %137, %139
@@ -522,9 +518,9 @@ select.unfold.outer179.backedge:                  ; preds = %94, %97, %166
   br i1 %145, label %.critedge, label %146
 
 146:                                              ; preds = %._crit_edge220
-  call void @uv__metrics_update_idle_time(ptr noundef %0) #8
+  call void @uv__metrics_update_idle_time(ptr noundef %0) #7
   %147 = load ptr, ptr %60, align 8, !tbaa !44
-  call void %147(ptr noundef %0, ptr noundef nonnull %60, i32 noundef 1) #8
+  call void %147(ptr noundef %0, ptr noundef nonnull %60, i32 noundef 1) #7
   %148 = load ptr, ptr %58, align 8, !tbaa !21
   %149 = load i32, ptr %59, align 8, !tbaa !22
   %150 = zext i32 %149 to i64
@@ -575,9 +571,9 @@ split:                                            ; preds = %97, %94, %._crit_ed
   br i1 %170, label %.loopexit, label %select.unfold.outer
 
 .loopexit:                                        ; preds = %split, %163, %166, %97, %94, %146, %2
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 12288, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(i64 12288, ptr nonnull %3) #7
   ret void
 }
 
@@ -600,9 +596,6 @@ declare void @uv__metrics_update_idle_time(ptr noundef) local_unnamed_addr #4
 
 declare i64 @uv__hrtime(i32 noundef) local_unnamed_addr #4
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #7
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -610,10 +603,9 @@ attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "n
 attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #6 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nounwind }
-attributes #9 = { nounwind willreturn memory(none) }
-attributes #10 = { noreturn nounwind }
+attributes #7 = { nounwind }
+attributes #8 = { nounwind willreturn memory(none) }
+attributes #9 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

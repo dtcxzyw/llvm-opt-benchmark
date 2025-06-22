@@ -6975,7 +6975,6 @@ _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit1063: ; preds = %_ZN4cvc58interna
   %1119 = ptrtoint ptr %1117 to i64
   %1120 = sub i64 %1118, %1119
   %1121 = ashr exact i64 %1120, 3
-  %umax = call i64 @llvm.umax.i64(i64 %1121, i64 1)
   br label %.lr.ph1952
 
 ._crit_edge1953:                                  ; preds = %_ZNSt6vectorIN4cvc58internal8TypeNodeESaIS2_EED2Ev.exit1126, %1115
@@ -7145,7 +7144,7 @@ _ZSt8_DestroyIPN4cvc58internal8TypeNodeES2_EvT_S4_RSaIT0_E.exit.i1123: ; preds =
 _ZNSt6vectorIN4cvc58internal8TypeNodeESaIS2_EED2Ev.exit1126: ; preds = %_ZSt8_DestroyIPN4cvc58internal8TypeNodeES2_EvT_S4_RSaIT0_E.exit.i1123, %1187
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %52) #22
   %1192 = add nuw i64 %.03751950, 1
-  %exitcond.not = icmp eq i64 %1192, %umax
+  %exitcond.not = icmp eq i64 %1192, %1121
   br i1 %exitcond.not, label %._crit_edge1953, label %.lr.ph1952, !llvm.loop !345
 
 1193:                                             ; preds = %1148, %1144
@@ -10349,7 +10348,6 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit:              ; preds = %77, %81, %87
   %95 = ptrtoint ptr %93 to i64
   %96 = sub i64 %94, %95
   %97 = ashr exact i64 %96, 3
-  %umax79 = call i64 @llvm.umax.i64(i64 %97, i64 1)
   br label %.lr.ph69
 
 ._crit_edge70.loopexit:                           ; preds = %140
@@ -10466,7 +10464,7 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit53:            ; preds = %_ZNSt6vectorIN4cvc5
 
 140:                                              ; preds = %.lr.ph69
   %141 = add nuw i64 %.04467, 1
-  %exitcond80.not = icmp eq i64 %141, %umax79
+  %exitcond80.not = icmp eq i64 %141, %97
   br i1 %exitcond80.not, label %._crit_edge70.loopexit, label %.lr.ph69, !llvm.loop !390
 
 142:                                              ; preds = %.lr.ph69
@@ -10511,7 +10509,6 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit53:            ; preds = %_ZNSt6vectorIN4cvc5
 
 .lr.ph.preheader:                                 ; preds = %148
   %163 = trunc nsw i64 %162 to i32
-  %umax = call i32 @llvm.umax.i32(i32 %163, i32 1)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN4cvc58internal8TypeNodeD2Ev.exit55, %148
@@ -10598,7 +10595,7 @@ _ZNK4cvc58internal8TypeNodeixEi.exit:             ; preds = %184, %190, %192
 _ZN4cvc58internal8TypeNodeD2Ev.exit55:            ; preds = %194, %198, %204
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
   %208 = add nuw i32 %.04566, 1
-  %exitcond.not = icmp eq i32 %208, %umax
+  %exitcond.not = icmp eq i32 %208, %163
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !394
 
 209:                                              ; preds = %_ZNK4cvc58internal8TypeNodeixEi.exit
@@ -16491,9 +16488,6 @@ declare i64 @llvm.umax.i64(i64, i64) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #21
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #21
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

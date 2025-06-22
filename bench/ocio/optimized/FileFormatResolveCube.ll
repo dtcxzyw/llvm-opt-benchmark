@@ -3121,7 +3121,6 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev11Lut1DOpDataELN9__gnu_cxx12_Lock_poli
 .lr.ph:                                           ; preds = %1022
   %1028 = getelementptr inbounds nuw i8, ptr %1023, i64 200
   %1029 = load ptr, ptr %1028, align 8, !tbaa !67
-  %umax = call i64 @llvm.umax.i64(i64 %883, i64 1)
   br label %1030
 
 1030:                                             ; preds = %.lr.ph, %1030
@@ -3131,7 +3130,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev11Lut1DOpDataELN9__gnu_cxx12_Lock_poli
   %1033 = getelementptr inbounds nuw float, ptr %1029, i64 %.0840
   store float %1032, ptr %1033, align 4, !tbaa !36
   %1034 = add nuw i64 %.0840, 1
-  %exitcond1034.not = icmp eq i64 %1034, %umax
+  %exitcond1034.not = icmp eq i64 %1034, %883
   br i1 %exitcond1034.not, label %.loopexit, label %1030, !llvm.loop !140
 
 .loopexit:                                        ; preds = %1030, %1022, %982, %873

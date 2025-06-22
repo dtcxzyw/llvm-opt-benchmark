@@ -2442,7 +2442,6 @@ _ZNSt6vectorIxSaIxEEC2EmRKxRKS0_.exit:            ; preds = %.noexc60, %_ZNSt6ve
   %130 = ptrtoint ptr %14 to i64
   %131 = sub i64 %129, %130
   %132 = ashr exact i64 %131, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %132, i64 1)
   br label %.lr.ph
 
 .preheader:                                       ; preds = %.lr.ph, %_ZNSt6vectorIxSaIxEEC2EmRKxRKS0_.exit
@@ -2460,7 +2459,7 @@ _ZNSt6vectorIxSaIxEEC2EmRKxRKS0_.exit:            ; preds = %.noexc60, %_ZNSt6ve
   %137 = getelementptr inbounds nuw i64, ptr %.sroa.071.0, i64 %136
   store i64 1, ptr %137, align 8, !tbaa !40
   %138 = add nuw nsw i64 %.0101, 1
-  %exitcond.not = icmp eq i64 %138, %umax
+  %exitcond.not = icmp eq i64 %138, %132
   br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !76
 
 ._crit_edge:                                      ; preds = %.preheader
@@ -2975,7 +2974,6 @@ _ZNSt12_Vector_baseIxSaIxEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIxSaI
   %132 = ptrtoint ptr %14 to i64
   %133 = sub i64 %131, %132
   %134 = ashr exact i64 %133, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %134, i64 1)
   br label %135
 
 135:                                              ; preds = %.lr.ph, %135
@@ -2985,7 +2983,7 @@ _ZNSt12_Vector_baseIxSaIxEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIxSaI
   %138 = getelementptr inbounds nuw i64, ptr %129, i64 %137
   store i64 %.075, ptr %138, align 8, !tbaa !40
   %139 = add nuw nsw i64 %.075, 1
-  %exitcond.not = icmp eq i64 %139, %umax
+  %exitcond.not = icmp eq i64 %139, %134
   br i1 %exitcond.not, label %._crit_edge, label %135, !llvm.loop !81
 
 ._crit_edge:                                      ; preds = %135, %.loopexit
@@ -3022,12 +3020,11 @@ define void @_ZN6casadi12lookupvectorERKSt6vectorIxSaIxEE(ptr dead_on_unwind noa
   %17 = ptrtoint ptr %15 to i64
   %18 = sub i64 %16, %17
   %19 = ashr exact i64 %18, 3
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %19, i64 1)
   br label %.lr.ph.i
 
 20:                                               ; preds = %.lr.ph.i
   %21 = add nuw i64 %.069.i, 1
-  %exitcond.not.i = icmp eq i64 %21, %umax.i
+  %exitcond.not.i = icmp eq i64 %21, %19
   br i1 %exitcond.not.i, label %113, label %.lr.ph.i, !llvm.loop !82
 
 .lr.ph.i:                                         ; preds = %20, %.lr.ph.preheader.i
@@ -3890,7 +3887,6 @@ _ZSt6fill_nIPxmxET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc55
   %.0.i.i.i.i.i.ph = phi ptr [ %144, %_ZSt6fill_nIPxmxET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %146, %.noexc55 ]
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.0.i.i.i.i.i.ph, ptr %150, align 8, !tbaa !31
-  %umax = call i64 @llvm.umax.i64(i64 %141, i64 1)
   br label %151
 
 151:                                              ; preds = %.lr.ph, %151
@@ -3900,7 +3896,7 @@ _ZSt6fill_nIPxmxET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc55
   %154 = getelementptr inbounds nuw i64, ptr %143, i64 %153
   store i64 %.070, ptr %154, align 8, !tbaa !40
   %155 = add nuw nsw i64 %.070, 1
-  %exitcond.not = icmp eq i64 %155, %umax
+  %exitcond.not = icmp eq i64 %155, %141
   br i1 %exitcond.not, label %._crit_edge, label %151, !llvm.loop !100
 
 ._crit_edge:                                      ; preds = %151, %149
@@ -3927,7 +3923,6 @@ define void @_ZN6casadi22tensor_permute_mappingERKSt6vectorIxSaIxEES4_(ptr dead_
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -3937,7 +3932,7 @@ define void @_ZN6casadi22tensor_permute_mappingERKSt6vectorIxSaIxEES4_(ptr dead_
   %12 = load i64, ptr %11, align 8, !tbaa !40
   %13 = mul nsw i64 %12, %.067.i
   %14 = add nuw nsw i64 %.08.i, 1
-  %exitcond.not.i = icmp eq i64 %14, %umax.i
+  %exitcond.not.i = icmp eq i64 %14, %10
   br i1 %exitcond.not.i, label %_ZN6casadi7productIxEET_RKSt6vectorIS1_SaIS1_EE.exit, label %.lr.ph.i, !llvm.loop !101
 
 _ZN6casadi7productIxEET_RKSt6vectorIS1_SaIS1_EE.exit: ; preds = %.lr.ph.i

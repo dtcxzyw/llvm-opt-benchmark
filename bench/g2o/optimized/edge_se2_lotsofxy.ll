@@ -1479,7 +1479,6 @@ define linkonce_odr noundef zeroext i1 @_ZNK3g2o21BaseVariableSizedEdgeILin1EN5E
   %8 = ptrtoint ptr %5 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
@@ -1490,7 +1489,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK3g2o21BaseVariableSizedEdgeILin1EN5E
   %14 = load i8, ptr %13, align 4, !tbaa !173, !range !179, !noundef !180
   %15 = trunc nuw i8 %14 to i1
   %16 = add nuw i64 %.057, 1
-  %exitcond.not = icmp ne i64 %16, %umax
+  %exitcond.not = icmp ne i64 %16, %10
   %or.cond.not = select i1 %15, i1 %exitcond.not, i1 false
   br i1 %or.cond.not, label %.lr.ph, label %._crit_edge, !llvm.loop !181
 
@@ -1914,7 +1913,6 @@ define linkonce_odr void @_ZN3g2o21BaseVariableSizedEdgeILin1EN5Eigen6MatrixIdLi
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %15 = load i32, ptr %14, align 8, !tbaa !3
   %16 = sext i32 %15 to i64
-  %umax = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %20
 
 ._crit_edge:                                      ; preds = %20, %2
@@ -1942,7 +1940,7 @@ define linkonce_odr void @_ZN3g2o21BaseVariableSizedEdgeILin1EN5Eigen6MatrixIdLi
   %31 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store i64 %29, ptr %31, align 8, !tbaa !116
   %32 = add nuw i64 %.07, 1
-  %exitcond.not = icmp eq i64 %32, %umax
+  %exitcond.not = icmp eq i64 %32, %10
   br i1 %exitcond.not, label %._crit_edge, label %20, !llvm.loop !229
 }
 

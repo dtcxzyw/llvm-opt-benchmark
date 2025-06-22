@@ -15047,7 +15047,6 @@ define linkonce_odr void @_ZN8LightGBM27IntermediateLeafConstraints24GoUpToFindL
   %56 = sub i64 %54, %55
   %57 = ashr exact i64 %56, 2
   %58 = load ptr, ptr %4, align 8
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %57, i64 1)
   br label %59
 
 59:                                               ; preds = %74, %.lr.ph.i
@@ -15074,7 +15073,7 @@ define linkonce_odr void @_ZN8LightGBM27IntermediateLeafConstraints24GoUpToFindL
 
 74:                                               ; preds = %63, %59
   %75 = add nuw i64 %.01113.i, 1
-  %exitcond.not.i = icmp eq i64 %75, %umax.i
+  %exitcond.not.i = icmp eq i64 %75, %57
   br i1 %exitcond.not.i, label %.loopexit, label %59, !llvm.loop !479
 
 .loopexit:                                        ; preds = %74, %.preheader.i
@@ -15456,7 +15455,6 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   %101 = ashr exact i64 %100, 2
   %102 = load ptr, ptr %3, align 8
   %103 = load ptr, ptr %4, align 8
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %101, i64 1)
   br label %104
 
 104:                                              ; preds = %134, %.lr.ph.i
@@ -15519,7 +15517,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   %.3.i = phi i8 [ %.229.i, %122 ], [ 1, %132 ], [ %.229.i, %123 ], [ %.12832.i, %104 ]
   %.2.i = phi i8 [ %.133.i, %122 ], [ 0, %132 ], [ %.133.i, %123 ], [ %.133.i, %104 ]
   %135 = add nuw i64 %.034.i, 1
-  %exitcond.not.i = icmp eq i64 %135, %umax.i
+  %exitcond.not.i = icmp eq i64 %135, %101
   br i1 %exitcond.not.i, label %_ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEE.exit, label %104, !llvm.loop !480
 
 _ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEE.exit.thread: ; preds = %80, %.preheader.i
@@ -16162,7 +16160,6 @@ tailrecurse:                                      ; preds = %_ZN8LightGBM27Inter
   %77 = sub i64 %75, %76
   %78 = ashr exact i64 %77, 2
   %79 = load ptr, ptr %5, align 8
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %78, i64 1)
   br label %80
 
 80:                                               ; preds = %95, %.lr.ph.i
@@ -16189,7 +16186,7 @@ tailrecurse:                                      ; preds = %_ZN8LightGBM27Inter
 
 95:                                               ; preds = %84, %80
   %96 = add nuw i64 %.01113.i, 1
-  %exitcond.not.i = icmp eq i64 %96, %umax.i
+  %exitcond.not.i = icmp eq i64 %96, %78
   br i1 %exitcond.not.i, label %.loopexit, label %80, !llvm.loop !479
 
 .loopexit:                                        ; preds = %95, %.preheader.i
@@ -16535,7 +16532,6 @@ define linkonce_odr void @_ZN8LightGBM23AdvancedConstraintEntry9UpdateMinEd(ptr 
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = sdiv exact i64 %9, 288
-  %umax = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN8LightGBM26AdvancedFeatureConstraints9UpdateMinEdb.exit, %2
@@ -16556,7 +16552,6 @@ define linkonce_odr void @_ZN8LightGBM23AdvancedConstraintEntry9UpdateMinEd(ptr 
   %17 = ptrtoint ptr %15 to i64
   %18 = sub i64 %16, %17
   %19 = ashr exact i64 %18, 3
-  %umax.i.i = tail call i64 @llvm.umax.i64(i64 %19, i64 1)
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %24, %.lr.ph.preheader.i.i
@@ -16572,12 +16567,12 @@ define linkonce_odr void @_ZN8LightGBM23AdvancedConstraintEntry9UpdateMinEd(ptr 
 
 24:                                               ; preds = %23, %.lr.ph.i.i
   %25 = add nuw i64 %.07.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %25, %umax.i.i
+  %exitcond.not.i.i = icmp eq i64 %25, %19
   br i1 %exitcond.not.i.i, label %_ZN8LightGBM26AdvancedFeatureConstraints9UpdateMinEdb.exit, label %.lr.ph.i.i, !llvm.loop !488
 
 _ZN8LightGBM26AdvancedFeatureConstraints9UpdateMinEdb.exit: ; preds = %24, %.lr.ph
   %26 = add nuw i64 %.04, 1
-  %exitcond.not = icmp eq i64 %26, %umax
+  %exitcond.not = icmp eq i64 %26, %10
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !489
 }
 
@@ -16595,7 +16590,6 @@ define linkonce_odr void @_ZN8LightGBM23AdvancedConstraintEntry9UpdateMaxEd(ptr 
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = sdiv exact i64 %9, 288
-  %umax = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN8LightGBM26AdvancedFeatureConstraints9UpdateMaxEdb.exit, %2
@@ -16616,7 +16610,6 @@ define linkonce_odr void @_ZN8LightGBM23AdvancedConstraintEntry9UpdateMaxEd(ptr 
   %17 = ptrtoint ptr %15 to i64
   %18 = sub i64 %16, %17
   %19 = ashr exact i64 %18, 3
-  %umax.i.i = tail call i64 @llvm.umax.i64(i64 %19, i64 1)
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %24, %.lr.ph.preheader.i.i
@@ -16632,12 +16625,12 @@ define linkonce_odr void @_ZN8LightGBM23AdvancedConstraintEntry9UpdateMaxEd(ptr 
 
 24:                                               ; preds = %23, %.lr.ph.i.i
   %25 = add nuw i64 %.07.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %25, %umax.i.i
+  %exitcond.not.i.i = icmp eq i64 %25, %19
   br i1 %exitcond.not.i.i, label %_ZN8LightGBM26AdvancedFeatureConstraints9UpdateMaxEdb.exit, label %.lr.ph.i.i, !llvm.loop !490
 
 _ZN8LightGBM26AdvancedFeatureConstraints9UpdateMaxEdb.exit: ; preds = %24, %.lr.ph
   %26 = add nuw i64 %.04, 1
-  %exitcond.not = icmp eq i64 %26, %umax
+  %exitcond.not = icmp eq i64 %26, %10
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !491
 }
 
@@ -16655,7 +16648,6 @@ define linkonce_odr noundef zeroext i1 @_ZN8LightGBM23AdvancedConstraintEntry31U
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = sdiv exact i64 %9, 288
-  %umax = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN8LightGBM26AdvancedFeatureConstraints9UpdateMinEdb.exit, %2
@@ -16678,7 +16670,6 @@ define linkonce_odr noundef zeroext i1 @_ZN8LightGBM23AdvancedConstraintEntry31U
   %18 = ptrtoint ptr %16 to i64
   %19 = sub i64 %17, %18
   %20 = ashr exact i64 %19, 3
-  %umax.i.i = tail call i64 @llvm.umax.i64(i64 %20, i64 1)
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %25, %.lr.ph.preheader.i.i
@@ -16694,12 +16685,12 @@ define linkonce_odr noundef zeroext i1 @_ZN8LightGBM23AdvancedConstraintEntry31U
 
 25:                                               ; preds = %24, %.lr.ph.i.i
   %26 = add nuw i64 %.07.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %26, %umax.i.i
+  %exitcond.not.i.i = icmp eq i64 %26, %20
   br i1 %exitcond.not.i.i, label %_ZN8LightGBM26AdvancedFeatureConstraints9UpdateMinEdb.exit, label %.lr.ph.i.i, !llvm.loop !488
 
 _ZN8LightGBM26AdvancedFeatureConstraints9UpdateMinEdb.exit: ; preds = %25, %.lr.ph
   %27 = add nuw i64 %.04, 1
-  %exitcond.not = icmp eq i64 %27, %umax
+  %exitcond.not = icmp eq i64 %27, %10
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !497
 }
 
@@ -16717,7 +16708,6 @@ define linkonce_odr noundef zeroext i1 @_ZN8LightGBM23AdvancedConstraintEntry31U
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = sdiv exact i64 %9, 288
-  %umax = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN8LightGBM26AdvancedFeatureConstraints9UpdateMaxEdb.exit, %2
@@ -16740,7 +16730,6 @@ define linkonce_odr noundef zeroext i1 @_ZN8LightGBM23AdvancedConstraintEntry31U
   %18 = ptrtoint ptr %16 to i64
   %19 = sub i64 %17, %18
   %20 = ashr exact i64 %19, 3
-  %umax.i.i = tail call i64 @llvm.umax.i64(i64 %20, i64 1)
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %25, %.lr.ph.preheader.i.i
@@ -16756,12 +16745,12 @@ define linkonce_odr noundef zeroext i1 @_ZN8LightGBM23AdvancedConstraintEntry31U
 
 25:                                               ; preds = %24, %.lr.ph.i.i
   %26 = add nuw i64 %.07.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %26, %umax.i.i
+  %exitcond.not.i.i = icmp eq i64 %26, %20
   br i1 %exitcond.not.i.i, label %_ZN8LightGBM26AdvancedFeatureConstraints9UpdateMaxEdb.exit, label %.lr.ph.i.i, !llvm.loop !490
 
 _ZN8LightGBM26AdvancedFeatureConstraints9UpdateMaxEdb.exit: ; preds = %25, %.lr.ph
   %27 = add nuw i64 %.04, 1
-  %exitcond.not = icmp eq i64 %27, %umax
+  %exitcond.not = icmp eq i64 %27, %10
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !499
 }
 
@@ -19715,7 +19704,6 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %.tail
   %46 = ashr exact i64 %45, 2
   %47 = load ptr, ptr %8, align 8
   %48 = load ptr, ptr %9, align 8
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %46, i64 1)
   br label %49
 
 49:                                               ; preds = %79, %.lr.ph.i
@@ -19778,7 +19766,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %.tail
   %.3.i = phi i8 [ %.229.i, %67 ], [ 1, %77 ], [ %.229.i, %68 ], [ %.12832.i, %49 ]
   %.2.i = phi i8 [ %.133.i, %67 ], [ 0, %77 ], [ %.133.i, %68 ], [ %.133.i, %49 ]
   %80 = add nuw i64 %.034.i, 1
-  %exitcond.not.i = icmp eq i64 %80, %umax.i
+  %exitcond.not.i = icmp eq i64 %80, %46
   br i1 %exitcond.not.i, label %.loopexit.loopexit.i, label %49, !llvm.loop !480
 
 .loopexit.loopexit.i:                             ; preds = %79, %77, %65

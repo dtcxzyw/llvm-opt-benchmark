@@ -1870,7 +1870,6 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_13Rdf12initAnalysisER
   %91 = ptrtoint ptr %89 to i64
   %92 = sub i64 %90, %91
   %93 = ashr exact i64 %92, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %93, i64 1)
   br label %.lr.ph96
 
 94:                                               ; preds = %86, %80
@@ -1929,7 +1928,7 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_13Rdf12initAnalysisER
 
 104:                                              ; preds = %.lr.ph96
   %105 = add nuw i64 %.02095, 1
-  %exitcond.not = icmp eq i64 %105, %umax
+  %exitcond.not = icmp eq i64 %105, %93
   br i1 %exitcond.not, label %._crit_edge97, label %.lr.ph96, !llvm.loop !184
 
 ._crit_edge97:                                    ; preds = %104, %.preheader

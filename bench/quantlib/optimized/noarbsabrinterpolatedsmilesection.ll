@@ -16257,7 +16257,6 @@ for.body.lr.ph:                                   ; preds = %entry
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %6 = load ptr, ptr %y, align 8, !tbaa !3
-  %umax = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %for.body, %entry
@@ -16272,7 +16271,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %add.ptr.i = getelementptr inbounds nuw double, ptr %5, i64 %i.010
   store double %7, ptr %add.ptr.i, align 8, !tbaa !81
   %inc = add nuw i64 %i.010, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !271
 
 invoke.cont17:                                    ; preds = %for.cond.cleanup
@@ -16401,7 +16400,6 @@ for.body.lr.ph:                                   ; preds = %entry
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %6 = load ptr, ptr %y, align 8, !tbaa !3
-  %umax = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %for.body, %entry
@@ -16416,7 +16414,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %add.ptr.i = getelementptr inbounds nuw double, ptr %5, i64 %i.08
   store double %7, ptr %add.ptr.i, align 8, !tbaa !81
   %inc = add nuw i64 %i.08, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !272
 
 invoke.cont:                                      ; preds = %for.cond.cleanup

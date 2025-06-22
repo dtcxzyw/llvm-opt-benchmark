@@ -7748,14 +7748,14 @@ _ZNSt6vectorIPN4Luau15AstExprFunctionESaIS2_EE9push_backERKS2_.exit: ; preds = %
   %112 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %113 = load ptr, ptr %112, align 8, !tbaa !267
   %114 = load ptr, ptr %111, align 8, !tbaa !141
-  %.not46 = icmp eq ptr %113, %114
-  br i1 %.not46, label %_ZNSt6vectorIPN4Luau15AstExprFunctionESaIS2_EE6resizeEm.exit, label %.lr.ph
-
-.lr.ph:                                           ; preds = %.preheader
   %115 = ptrtoint ptr %113 to i64
   %116 = ptrtoint ptr %114 to i64
   %117 = sub i64 %115, %116
   %118 = ashr exact i64 %117, 3
+  %.not46 = icmp eq ptr %113, %114
+  br i1 %.not46, label %_ZNSt6vectorIPN4Luau15AstExprFunctionESaIS2_EE6resizeEm.exit, label %.lr.ph
+
+.lr.ph:                                           ; preds = %.preheader
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %121 = load ptr, ptr %120, align 8, !tbaa !131
@@ -7764,7 +7764,6 @@ _ZNSt6vectorIPN4Luau15AstExprFunctionESaIS2_EE9push_backERKS2_.exit: ; preds = %
   %124 = ptrtoint ptr %122 to i64
   %125 = sub i64 %123, %124
   %126 = sdiv exact i64 %125, 56
-  %umax = tail call i64 @llvm.umax.i64(i64 %118, i64 1)
   br label %127
 
 127:                                              ; preds = %.lr.ph, %134
@@ -7782,7 +7781,7 @@ _ZNSt6vectorIPN4Luau15AstExprFunctionESaIS2_EE9push_backERKS2_.exit: ; preds = %
 
 134:                                              ; preds = %128
   %135 = add nuw i64 %.041, 1
-  %exitcond48.not = icmp eq i64 %135, %umax
+  %exitcond48.not = icmp eq i64 %135, %118
   br i1 %exitcond48.not, label %_ZNSt6vectorIPN4Luau15AstExprFunctionESaIS2_EE6resizeEm.exit, label %127, !llvm.loop !358
 
 .critedge:                                        ; preds = %127, %128
@@ -18574,7 +18573,6 @@ _ZNSt6vectorIPN4Luau7AstExprESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vec
   %54 = ptrtoint ptr %.sroa.0.5 to i64
   %55 = sub i64 %53, %54
   %56 = ashr exact i64 %55, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %56, i64 1)
   br label %57
 
 57:                                               ; preds = %.loopexit.i, %.lr.ph34.i
@@ -18628,7 +18626,7 @@ _ZNSt6vectorIPN4Luau7AstExprESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vec
 
 .loopexit.i:                                      ; preds = %62, %.loopexit.sink.split.i, %57
   %80 = add nuw i64 %storemerge32.i, 1
-  %exitcond.not = icmp eq i64 %80, %umax
+  %exitcond.not = icmp eq i64 %80, %56
   br i1 %exitcond.not, label %_ZN4Luau22LintDuplicateCondition16detectDuplicatesERKSt6vectorIPNS_7AstExprESaIS3_EE.exit, label %57, !llvm.loop !708
 
 _ZN4Luau22LintDuplicateCondition16detectDuplicatesERKSt6vectorIPNS_7AstExprESaIS3_EE.exit: ; preds = %.loopexit.i, %51
@@ -18796,7 +18794,6 @@ _ZNSt6vectorIPN4Luau7AstExprESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vec
   %55 = ptrtoint ptr %.sroa.0.5 to i64
   %56 = sub i64 %54, %55
   %57 = ashr exact i64 %56, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %57, i64 1)
   br label %58
 
 58:                                               ; preds = %.loopexit.i, %.lr.ph34.i
@@ -18850,7 +18847,7 @@ _ZNSt6vectorIPN4Luau7AstExprESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vec
 
 .loopexit.i:                                      ; preds = %63, %.loopexit.sink.split.i, %58
   %81 = add nuw i64 %storemerge32.i, 1
-  %exitcond.not = icmp eq i64 %81, %umax
+  %exitcond.not = icmp eq i64 %81, %57
   br i1 %exitcond.not, label %_ZN4Luau22LintDuplicateCondition16detectDuplicatesERKSt6vectorIPNS_7AstExprESaIS3_EE.exit, label %58, !llvm.loop !708
 
 _ZN4Luau22LintDuplicateCondition16detectDuplicatesERKSt6vectorIPNS_7AstExprESaIS3_EE.exit: ; preds = %.loopexit.i, %.thread

@@ -32086,7 +32086,6 @@ _ZNSt8__detail9_ExecutorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_st
   %43 = sub i64 %41, %42
   %44 = sdiv exact i64 %43, 24
   %45 = load ptr, ptr %0, align 8
-  %umax = call i64 @llvm.umax.i64(i64 %44, i64 1)
   br label %50
 
 46:                                               ; preds = %_ZNSt6vectorINSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNS0_12basic_stringIcSt11char_traitsIcESaIcEEEEEEESaISC_EEC2ERKSE_.exit
@@ -32122,7 +32121,7 @@ _ZNSt8__detail9_ExecutorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_st
 
 62:                                               ; preds = %50, %55
   %63 = add nuw i64 %.017, 1
-  %exitcond.not = icmp eq i64 %63, %umax
+  %exitcond.not = icmp eq i64 %63, %44
   br i1 %exitcond.not, label %.loopexit, label %50, !llvm.loop !862
 
 .loopexit:                                        ; preds = %62, %.preheader, %_ZNSt8__detail9_ExecutorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS5_9sub_matchISB_EEENS5_12regex_traitsIcEELb0EE20_M_search_from_firstEv.exit
@@ -33518,7 +33517,6 @@ _ZNSt12_Vector_baseISt4pairIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic
   %78 = sub i64 %76, %77
   %79 = sdiv exact i64 %78, 24
   %80 = load ptr, ptr %0, align 8
-  %umax = call i64 @llvm.umax.i64(i64 %79, i64 1)
   br label %83
 
 81:                                               ; preds = %.noexc, %.loopexit.i
@@ -33549,7 +33547,7 @@ _ZNSt12_Vector_baseISt4pairIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic
 
 95:                                               ; preds = %83, %88
   %96 = add nuw i64 %.021, 1
-  %exitcond.not = icmp eq i64 %96, %umax
+  %exitcond.not = icmp eq i64 %96, %79
   br i1 %exitcond.not, label %.loopexit, label %83, !llvm.loop !871
 
 .loopexit:                                        ; preds = %95, %.preheader, %71

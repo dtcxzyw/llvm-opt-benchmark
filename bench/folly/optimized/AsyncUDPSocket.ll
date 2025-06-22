@@ -3877,15 +3877,11 @@ _ZN5folly12small_vectorINS_14AsyncUDPSocket21full_sockaddr_storageELm1EvE8makeSi
 _ZN5folly12small_vectorINS_14AsyncUDPSocket21full_sockaddr_storageELm1EvEC2Em.exit: ; preds = %_ZN5folly12small_vectorINS_14AsyncUDPSocket21full_sockaddr_storageELm1EvE8makeSizeEm.exit.i.i, %.lr.ph.preheader.i.i.i
   %.pre44 = phi i64 [ 0, %_ZN5folly12small_vectorINS_14AsyncUDPSocket21full_sockaddr_storageELm1EvE8makeSizeEm.exit.i.i ], [ %.pre44.pre, %.lr.ph.preheader.i.i.i ]
   %.not = icmp eq ptr %2, %1
-  br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %_ZN5folly12small_vectorINS_14AsyncUDPSocket21full_sockaddr_storageELm1EvEC2Em.exit
-  %umax = call i64 @llvm.umax.i64(i64 %16, i64 1)
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %53
-  %22 = phi i64 [ %54, %53 ], [ %.pre44, %.lr.ph.preheader ]
-  %.037 = phi i64 [ %58, %53 ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %_ZN5folly12small_vectorINS_14AsyncUDPSocket21full_sockaddr_storageELm1EvEC2Em.exit, %53
+  %22 = phi i64 [ %54, %53 ], [ %.pre44, %_ZN5folly12small_vectorINS_14AsyncUDPSocket21full_sockaddr_storageELm1EvEC2Em.exit ]
+  %.037 = phi i64 [ %58, %53 ], [ 0, %_ZN5folly12small_vectorINS_14AsyncUDPSocket21full_sockaddr_storageELm1EvEC2Em.exit ]
   %23 = getelementptr inbounds nuw %"class.folly::SocketAddress", ptr %1, i64 %.037
   %24 = load ptr, ptr %17, align 8
   %.not1.i.i.i24 = icmp slt i64 %22, 0
@@ -3981,7 +3977,7 @@ _ZNK5folly13SocketAddress10getAddressEP16sockaddr_storage.exit: ; preds = %50, %
   %57 = getelementptr inbounds nuw %"struct.folly::AsyncUDPSocket::full_sockaddr_storage", ptr %56, i64 %.037, i32 1
   store i32 %52, ptr %57, align 8, !tbaa !187
   %58 = add nuw i64 %.037, 1
-  %exitcond.not = icmp eq i64 %58, %umax
+  %exitcond.not = icmp eq i64 %58, %16
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !189
 
 59:                                               ; preds = %49, %44, %34

@@ -1272,7 +1272,6 @@ for.body.lr.ph:                                   ; preds = %_ZNK8facebook5velox
   %div2.i.i.i.i = lshr i64 %idxprom.i.i, 6
   %and.i.i.i.i = and i64 %idxprom.i.i, 63
   %shl.i.i.i.i = shl nuw i64 1, %and.i.i.i.i
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -1352,7 +1351,7 @@ if.then:                                          ; preds = %land.rhs, %if.then8
 for.inc:                                          ; preds = %if.then8.i.i, %if.then4.i.i, %_ZN8facebook5velox3row13UnsafeRowFast8isNullAtEi.exit, %if.then, %for.body
   %size.1 = phi i32 [ %size.015, %for.body ], [ %add16, %if.then ], [ %size.015, %_ZN8facebook5velox3row13UnsafeRowFast8isNullAtEi.exit ], [ %size.015, %if.then4.i.i ], [ %size.015, %if.then8.i.i ]
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %sub.ptr.div.i
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !6
 
 for.end:                                          ; preds = %for.inc, %_ZNK8facebook5velox13DecodedVector5indexEi.exit

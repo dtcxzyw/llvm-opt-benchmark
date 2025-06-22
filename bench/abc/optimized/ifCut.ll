@@ -246,9 +246,9 @@ define range(i32 0, 2) i32 @If_CutFilter(ptr noundef captures(none) %0, ptr noun
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %.promoted = load i16, ptr %4, align 2, !tbaa !3
   %5 = icmp sgt i16 %.promoted, 0
-  br i1 %5, label %.lr.ph74, label %If_CutCheckDominance.exit62
+  br i1 %5, label %.lr.ph76, label %If_CutCheckDominance.exit62
 
-.lr.ph74:                                         ; preds = %3
+.lr.ph76:                                         ; preds = %3
   %6 = zext nneg i16 %.promoted to i32
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !11
@@ -259,11 +259,11 @@ define range(i32 0, 2) i32 @If_CutFilter(ptr noundef captures(none) %0, ptr noun
   %.not40 = icmp ne i32 %2, 0
   br label %13
 
-13:                                               ; preds = %.lr.ph74, %If_CutCheckDominance.exit.thread
-  %14 = phi i32 [ %6, %.lr.ph74 ], [ %81, %If_CutCheckDominance.exit.thread ]
-  %.03572 = phi i32 [ 0, %.lr.ph74 ], [ %80, %If_CutCheckDominance.exit.thread ]
-  %15 = phi i16 [ %.promoted, %.lr.ph74 ], [ %79, %If_CutCheckDominance.exit.thread ]
-  %16 = sext i32 %.03572 to i64
+13:                                               ; preds = %.lr.ph76, %If_CutCheckDominance.exit.thread
+  %14 = phi i32 [ %6, %.lr.ph76 ], [ %81, %If_CutCheckDominance.exit.thread ]
+  %.03574 = phi i32 [ 0, %.lr.ph76 ], [ %80, %If_CutCheckDominance.exit.thread ]
+  %15 = phi i16 [ %.promoted, %.lr.ph76 ], [ %79, %If_CutCheckDominance.exit.thread ]
+  %16 = sext i32 %.03574 to i64
   %17 = getelementptr inbounds ptr, ptr %8, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !12
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 28
@@ -277,7 +277,7 @@ define range(i32 0, 2) i32 @If_CutFilter(ptr noundef captures(none) %0, ptr noun
   br i1 %26, label %27, label %62
 
 27:                                               ; preds = %13
-  %28 = icmp eq i32 %.03572, 0
+  %28 = icmp eq i32 %.03574, 0
   br i1 %28, label %29, label %37
 
 29:                                               ; preds = %27
@@ -349,7 +349,7 @@ define range(i32 0, 2) i32 @If_CutFilter(ptr noundef captures(none) %0, ptr noun
   br i1 %exitcond32.not.i, label %If_CutCheckDominance.exit, label %.preheader.us.i, !llvm.loop !27
 
 If_CutCheckDominance.exit:                        ; preds = %53, %42
-  %54 = icmp slt i32 %.03572, %14
+  %54 = icmp slt i32 %.03574, %14
   br i1 %54, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %If_CutCheckDominance.exit
@@ -372,7 +372,7 @@ If_CutCheckDominance.exit:                        ; preds = %53, %42
   store ptr %18, ptr %59, align 8, !tbaa !12
   %60 = add i16 %15, -1
   store i16 %60, ptr %4, align 2, !tbaa !3
-  %61 = add nsw i32 %.03572, -1
+  %61 = add nsw i32 %.03574, -1
   br label %If_CutCheckDominance.exit.thread
 
 62:                                               ; preds = %13
@@ -433,7 +433,7 @@ If_CutCheckDominance.exit:                        ; preds = %53, %42
 
 If_CutCheckDominance.exit.thread:                 ; preds = %._crit_edge.us.i56, %._crit_edge.us.i, %50, %36, %.preheader.lr.ph.i44, %.preheader.lr.ph.i, %._crit_edge, %62, %37, %31
   %79 = phi i16 [ %15, %31 ], [ %15, %37 ], [ %60, %._crit_edge ], [ %15, %62 ], [ %15, %.preheader.lr.ph.i ], [ %15, %.preheader.lr.ph.i44 ], [ 1, %36 ], [ %15, %50 ], [ %15, %._crit_edge.us.i ], [ %15, %._crit_edge.us.i56 ]
-  %.1 = phi i32 [ 0, %31 ], [ %.03572, %37 ], [ %61, %._crit_edge ], [ %.03572, %62 ], [ %.03572, %.preheader.lr.ph.i ], [ %.03572, %.preheader.lr.ph.i44 ], [ 0, %36 ], [ %.03572, %50 ], [ %.03572, %._crit_edge.us.i ], [ %.03572, %._crit_edge.us.i56 ]
+  %.1 = phi i32 [ 0, %31 ], [ %.03574, %37 ], [ %61, %._crit_edge ], [ %.03574, %62 ], [ %.03574, %.preheader.lr.ph.i ], [ %.03574, %.preheader.lr.ph.i44 ], [ 0, %36 ], [ %.03574, %50 ], [ %.03574, %._crit_edge.us.i ], [ %.03574, %._crit_edge.us.i56 ]
   %80 = add nsw i32 %.1, 1
   %81 = sext i16 %79 to i32
   %82 = icmp slt i32 %80, %81

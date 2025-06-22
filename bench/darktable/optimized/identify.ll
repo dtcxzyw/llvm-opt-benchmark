@@ -8397,8 +8397,8 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
   br i1 %.not489, label %702, label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge664
-  %umax = call i32 @llvm.umin.i32(i32 %692, i32 4096)
-  %wide.trip.count800 = zext nneg i32 %umax to i64
+  %invariant.umin667 = call i32 @llvm.umin.i32(i32 %692, i32 4096)
+  %wide.trip.count800 = zext nneg i32 %invariant.umin667 to i64
   br label %697
 
 .lr.ph663:                                        ; preds = %.lr.ph663.preheader, %.lr.ph663
@@ -8412,7 +8412,7 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
   br i1 %exitcond794.not, label %._crit_edge664, label %.lr.ph663, !llvm.loop !270
 
 .critedge:                                        ; preds = %697
-  %696 = udiv i32 %701, %umax
+  %696 = udiv i32 %701, %invariant.umin667
   br label %702
 
 697:                                              ; preds = %.preheader, %697

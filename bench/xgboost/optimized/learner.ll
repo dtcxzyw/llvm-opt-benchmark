@@ -20562,7 +20562,6 @@ _ZNSt6vectorISt10unique_ptrIN7xgboost6MetricESt14default_deleteIS2_EESaIS5_EE6re
   %384 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %385 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %386 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %umax = call i64 @llvm.umax.i64(i64 %339, i64 1)
   %387 = getelementptr inbounds nuw i8, ptr %20, i64 20
   br label %400
 
@@ -20742,7 +20741,7 @@ _ZNSt10unique_ptrIN7xgboost6MetricESt14default_deleteIS1_EED2Ev.exit: ; preds = 
 
 474:                                              ; preds = %462, %_ZNSt10unique_ptrIN7xgboost6MetricESt14default_deleteIS1_EED2Ev.exit
   %475 = add nuw i64 %.035253, 1
-  %exitcond.not = icmp eq i64 %475, %umax
+  %exitcond.not = icmp eq i64 %475, %339
   br i1 %exitcond.not, label %._crit_edge.i.i191, label %400, !llvm.loop !487
 
 476:                                              ; preds = %._crit_edge.i.i191

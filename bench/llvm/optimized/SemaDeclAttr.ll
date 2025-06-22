@@ -28592,7 +28592,6 @@ _ZnamRKN5clang10ASTContextEm.exit51:              ; preds = %93, %90
   %108 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.sroa.2.0..sroa_idx.i.i.i59 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.sroa.2.0..sroa_idx.i.i.i.i61 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %wide.trip.count = zext nneg i32 %23 to i64
   %109 = icmp eq i64 %3, 0
   br label %111
 
@@ -28816,7 +28815,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread82:       ; preds = %_ZNK5clang10ParsedA
 .split45:                                         ; preds = %_ZN5clanglsINS_14SourceLocationEEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit, %_ZN4llvmeqENS_9StringRefES0_.exit.thread82, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_14SourceLocationEvEERKS1_OT_.exit
   %.143 = phi i1 [ false, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_14SourceLocationEvEERKS1_OT_.exit ], [ false, %_ZN5clanglsINS_14SourceLocationEEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit ], [ %.04286, %_ZN4llvmeqENS_9StringRefES0_.exit.thread82 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %54
   br i1 %exitcond.not, label %110, label %111, !llvm.loop !1234
 
 198:                                              ; preds = %110

@@ -7386,7 +7386,6 @@ do.body89:                                        ; preds = %do.end
 
 do.body145.lr.ph:                                 ; preds = %do.body89
   %71 = load ptr, ptr %outstandings, align 8, !tbaa !73
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %do.body145
 
 if.then93:                                        ; preds = %do.body89
@@ -7810,7 +7809,7 @@ ehcleanup205:                                     ; preds = %ehcleanup204, %lpad
 
 for.inc:                                          ; preds = %do.body145
   %inc = add nuw i64 %i.0368, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i
   br i1 %exitcond.not, label %for.body261.lr.ph, label %do.body145, !llvm.loop !143
 
 for.body261.lr.ph:                                ; preds = %for.inc
@@ -7819,7 +7818,6 @@ for.body261.lr.ph:                                ; preds = %for.inc
   %outstanding_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   store double 0.000000e+00, ptr %outstanding_, align 8, !tbaa !152
   %124 = load ptr, ptr %outstandings, align 8, !tbaa !73
-  %umax377 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %for.body261
 
 if.then.i:                                        ; preds = %for.body261
@@ -7843,7 +7841,7 @@ for.body261:                                      ; preds = %for.body261.lr.ph, 
   %add = fadd double %126, %add369371
   store double %add, ptr %outstanding_, align 8, !tbaa !152
   %inc265 = add nuw i64 %i256.0372, 1
-  %exitcond378.not = icmp eq i64 %inc265, %umax377
+  %exitcond378.not = icmp eq i64 %inc265, %sub.ptr.div.i
   br i1 %exitcond378.not, label %if.then.i, label %for.body261, !llvm.loop !153
 
 for.cond.cleanup275:                              ; preds = %_ZN5boost10shared_ptrIN8QuantLib10ObservableEED2Ev.exit, %_ZNSt6vectorIdSaIdEE6resizeEm.exit

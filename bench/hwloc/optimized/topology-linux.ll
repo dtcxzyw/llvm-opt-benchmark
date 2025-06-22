@@ -3345,12 +3345,7 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc_linux_membind_mask_from_nodes
 
 .preheader:                                       ; preds = %8
   %.not2 = icmp eq i32 %13, 0
-  br i1 %.not2, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %.preheader
-  %umax = tail call i32 @llvm.umax.i32(i32 %14, i32 1)
-  %wide.trip.count = zext nneg i32 %umax to i64
-  br label %.lr.ph
+  br i1 %.not2, label %._crit_edge, label %.lr.ph
 
 17:                                               ; preds = %8
   tail call void @hwloc_bitmap_free(ptr noundef %.0) #28
@@ -3358,14 +3353,14 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc_linux_membind_mask_from_nodes
   store i32 12, ptr %18, align 4, !tbaa !3
   br label %24
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+.lr.ph:                                           ; preds = %.preheader, %.lr.ph
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %19 = trunc nuw nsw i64 %indvars.iv to i32
   %20 = tail call i64 @hwloc_bitmap_to_ith_ulong(ptr noundef %.024, i32 noundef %19) #31
   %21 = getelementptr inbounds nuw i64, ptr %16, i64 %indvars.iv
   store i64 %20, ptr %21, align 8, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %15
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !98
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
@@ -16969,9 +16964,6 @@ declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #25
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #25

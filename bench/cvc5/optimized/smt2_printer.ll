@@ -861,7 +861,6 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %51, %55, %61
   %75 = sub i64 %73, %74
   %76 = ashr exact i64 %75, 3
   %77 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %umax = call i64 @llvm.umax.i64(i64 %76, i64 1)
   br label %116
 
 ._crit_edge:                                      ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit63, %70
@@ -1107,7 +1106,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit61: ; preds = %_ZStl
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit63: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit61, %175, %181
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #25
   %185 = add nuw i64 %.02875, 1
-  %exitcond.not = icmp eq i64 %185, %umax
+  %exitcond.not = icmp eq i64 %185, %76
   br i1 %exitcond.not, label %._crit_edge, label %116, !llvm.loop !38
 
 186:                                              ; preds = %133
@@ -13539,7 +13538,6 @@ _ZN4cvc58internallsERSoRKNS0_8TypeNodeE.exit47:   ; preds = %60
   %69 = ptrtoint ptr %67 to i64
   %70 = sub i64 %68, %69
   %71 = ashr exact i64 %70, 3
-  %umax = call i64 @llvm.umax.i64(i64 %71, i64 1)
   br label %.lr.ph96
 
 ._crit_edge:                                      ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, %_ZN4cvc58internallsERSoRKNS0_8TypeNodeE.exit47
@@ -13667,7 +13665,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit49: ; preds = %115
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit49, %119, %125
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #25
   %129 = add nuw i64 %.095, 1
-  %exitcond.not = icmp eq i64 %129, %umax
+  %exitcond.not = icmp eq i64 %129, %71
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph96, !llvm.loop !250
 
 130:                                              ; preds = %115, %_ZNK4cvc58internal12NodeTemplateILb1EE8getConstINS0_22UninterpretedSortValueEEERKT_v.exit, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit48
@@ -15945,7 +15943,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %51 = ptrtoint ptr %49 to i64
   %52 = sub i64 %50, %51
   %53 = ashr exact i64 %52, 3
-  %umax = call i64 @llvm.umax.i64(i64 %53, i64 1)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN4cvc58internallsERSoNS0_12NodeTemplateILb0EEE.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -16019,7 +16016,7 @@ _ZN4cvc58internallsERSoNS0_12NodeTemplateILb0EEE.exit: ; preds = %.split, %_ZStl
   %75 = load ptr, ptr %phi.call, align 8, !tbaa !17
   call void @_ZNK4cvc58internal4expr9NodeValue8toStreamERSo(ptr noundef nonnull align 8 dereferenceable(24) %75, ptr noundef nonnull align 8 dereferenceable(8) %1)
   %76 = add nuw i64 %.01328, 1
-  %exitcond.not = icmp eq i64 %76, %umax
+  %exitcond.not = icmp eq i64 %76, %53
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !274
 }
 
@@ -16277,18 +16274,14 @@ define hidden void @_ZNK4cvc58internal7printer4smt211Smt2Printer21toStreamSorted
   %12 = sub i64 %10, %11
   %13 = ashr exact i64 %12, 3
   %.not = icmp eq ptr %8, %9
-  br i1 %.not, label %._crit_edge, label %_ZN4cvc58internallsERSoNS0_12NodeTemplateILb0EEE.exit.preheader
-
-_ZN4cvc58internallsERSoNS0_12NodeTemplateILb0EEE.exit.preheader: ; preds = %3
-  %umax = tail call i64 @llvm.umax.i64(i64 %13, i64 1)
-  br label %_ZN4cvc58internallsERSoNS0_12NodeTemplateILb0EEE.exit
+  br i1 %.not, label %._crit_edge, label %_ZN4cvc58internallsERSoNS0_12NodeTemplateILb0EEE.exit
 
 ._crit_edge:                                      ; preds = %55, %3
   %14 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.4, i64 noundef 1)
   ret void
 
-_ZN4cvc58internallsERSoNS0_12NodeTemplateILb0EEE.exit: ; preds = %_ZN4cvc58internallsERSoNS0_12NodeTemplateILb0EEE.exit.preheader, %55
-  %.01723 = phi i64 [ %49, %55 ], [ 0, %_ZN4cvc58internallsERSoNS0_12NodeTemplateILb0EEE.exit.preheader ]
+_ZN4cvc58internallsERSoNS0_12NodeTemplateILb0EEE.exit: ; preds = %3, %55
+  %.01723 = phi i64 [ %49, %55 ], [ 0, %3 ]
   %15 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.60, i64 noundef 1)
   %16 = load ptr, ptr %2, align 8, !tbaa !25
   %17 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate.13", ptr %16, i64 %.01723
@@ -16382,7 +16375,7 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit:              ; preds = %_ZStlsISt11char_tra
   resume { ptr, i32 } %eh.lpad-body
 
 55:                                               ; preds = %_ZN4cvc58internal8TypeNodeD2Ev.exit, %51
-  %exitcond.not = icmp eq i64 %49, %umax
+  %exitcond.not = icmp eq i64 %49, %13
   br i1 %exitcond.not, label %._crit_edge, label %_ZN4cvc58internallsERSoNS0_12NodeTemplateILb0EEE.exit, !llvm.loop !275
 }
 
@@ -17274,7 +17267,6 @@ define hidden void @_ZNK4cvc58internal7printer4smt211Smt2Printer27toStreamCmdBlo
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
   %12 = ashr exact i64 %11, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %12, i64 1)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN4cvc58internallsERSoNS0_12NodeTemplateILb0EEE.exit, %3
@@ -17320,7 +17312,7 @@ _ZN4cvc58internallsERSoNS0_12NodeTemplateILb0EEE.exit: ; preds = %.split, %_ZStl
   %25 = load ptr, ptr %phi.call, align 8, !tbaa !17
   call void @_ZNK4cvc58internal4expr9NodeValue8toStreamERSo(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(8) %1)
   %26 = add nuw i64 %.014, 1
-  %exitcond.not = icmp eq i64 %26, %umax
+  %exitcond.not = icmp eq i64 %26, %12
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !310
 }
 

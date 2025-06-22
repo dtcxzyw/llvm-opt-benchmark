@@ -325,7 +325,6 @@ define hidden noundef i32 @_ZN4cvc58internal13preprocessing6passes14StaticLearni
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %umax = tail call i64 @llvm.umax.i64(i64 %17, i64 1)
   br label %25
 
 _ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EED2Ev.exit: ; preds = %.loopexit56, %2
@@ -625,7 +624,7 @@ _ZN4cvc58internal9TrustNodeD2Ev.exit:             ; preds = %132, %136, %142
 
 .loopexit56:                                      ; preds = %56, %35, %47, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EED2Ev.exit33
   %151 = add nuw i64 %.066, 1
-  %exitcond.not = icmp eq i64 %151, %umax
+  %exitcond.not = icmp eq i64 %151, %17
   br i1 %exitcond.not, label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EED2Ev.exit, label %25, !llvm.loop !79
 
 152:                                              ; preds = %147, %149, %79, %81

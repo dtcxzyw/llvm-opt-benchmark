@@ -1220,140 +1220,138 @@ _ZL15pme_dd_sendrecvP11PmeAtomCommbiPviS1_i.exit: ; preds = %53, %58, %62, %63
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %79 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 168
-  %81 = call i64 @llvm.umax.i64(i64 %76, i64 1)
-  br label %142
+  br label %140
 
 .preheader:                                       ; preds = %._crit_edge
   br i1 %75, label %.lr.ph96, label %.loopexit
 
 .lr.ph96:                                         ; preds = %.preheader
-  %82 = udiv exact i64 %74, 12
-  %83 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 920
-  %85 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %86 = getelementptr inbounds nuw i8, ptr %1, i64 168
-  %87 = call i64 @llvm.umax.i64(i64 %82, i64 1)
-  br label %88
+  %81 = udiv exact i64 %74, 12
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 920
+  %84 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 168
+  br label %86
 
-88:                                               ; preds = %.lr.ph96, %140
-  %.295 = phi i32 [ 0, %.lr.ph96 ], [ %.3, %140 ]
-  %.06594 = phi i64 [ 0, %.lr.ph96 ], [ %141, %140 ]
-  %89 = load ptr, ptr %83, align 8, !tbaa !105
-  %90 = getelementptr inbounds nuw i32, ptr %89, i64 %.06594
-  %91 = load i32, ptr %90, align 4, !tbaa !107
-  %92 = load i32, ptr %14, align 8, !tbaa !124
-  %93 = icmp eq i32 %91, %92
-  br i1 %93, label %94, label %114
+86:                                               ; preds = %.lr.ph96, %138
+  %.295 = phi i32 [ 0, %.lr.ph96 ], [ %.3, %138 ]
+  %.06594 = phi i64 [ 0, %.lr.ph96 ], [ %139, %138 ]
+  %87 = load ptr, ptr %82, align 8, !tbaa !105
+  %88 = getelementptr inbounds nuw i32, ptr %87, i64 %.06594
+  %89 = load i32, ptr %88, align 4, !tbaa !107
+  %90 = load i32, ptr %14, align 8, !tbaa !124
+  %91 = icmp eq i32 %89, %90
+  br i1 %91, label %92, label %112
 
-94:                                               ; preds = %88
-  %95 = sext i32 %.295 to i64
-  %96 = load i64, ptr %86, align 8
-  %97 = inttoptr i64 %96 to ptr
-  %98 = getelementptr inbounds %"class.gmx::BasicVector", ptr %97, i64 %95
-  %99 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %2, i64 %.06594
-  %100 = load float, ptr %99, align 4, !tbaa !16
-  %101 = load float, ptr %98, align 4, !tbaa !16
-  %102 = fadd float %100, %101
-  %103 = getelementptr inbounds nuw i8, ptr %99, i64 4
+92:                                               ; preds = %86
+  %93 = sext i32 %.295 to i64
+  %94 = load i64, ptr %85, align 8
+  %95 = inttoptr i64 %94 to ptr
+  %96 = getelementptr inbounds %"class.gmx::BasicVector", ptr %95, i64 %93
+  %97 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %2, i64 %.06594
+  %98 = load float, ptr %97, align 4, !tbaa !16
+  %99 = load float, ptr %96, align 4, !tbaa !16
+  %100 = fadd float %98, %99
+  %101 = getelementptr inbounds nuw i8, ptr %97, i64 4
+  %102 = load float, ptr %101, align 4, !tbaa !16
+  %103 = getelementptr inbounds nuw i8, ptr %96, i64 4
   %104 = load float, ptr %103, align 4, !tbaa !16
-  %105 = getelementptr inbounds nuw i8, ptr %98, i64 4
-  %106 = load float, ptr %105, align 4, !tbaa !16
-  %107 = fadd float %104, %106
-  %108 = getelementptr inbounds nuw i8, ptr %99, i64 8
+  %105 = fadd float %102, %104
+  %106 = getelementptr inbounds nuw i8, ptr %97, i64 8
+  %107 = load float, ptr %106, align 4, !tbaa !16
+  %108 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %109 = load float, ptr %108, align 4, !tbaa !16
-  %110 = getelementptr inbounds nuw i8, ptr %98, i64 8
-  %111 = load float, ptr %110, align 4, !tbaa !16
-  %112 = fadd float %109, %111
-  %.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %102, i64 0
-  %.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i, float %107, i64 1
-  store <2 x float> %.sroa.0.4.vec.insert.i.i, ptr %99, align 4
-  store float %112, ptr %108, align 4, !tbaa !111
-  %113 = add nsw i32 %.295, 1
-  br label %140
+  %110 = fadd float %107, %109
+  %.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %100, i64 0
+  %.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i, float %105, i64 1
+  store <2 x float> %.sroa.0.4.vec.insert.i.i, ptr %97, align 4
+  store float %110, ptr %106, align 4, !tbaa !111
+  %111 = add nsw i32 %.295, 1
+  br label %138
 
-114:                                              ; preds = %88
-  %115 = sext i32 %91 to i64
-  %116 = load ptr, ptr %85, align 8, !tbaa !123
-  %117 = getelementptr inbounds nuw i32, ptr %116, i64 %115
-  %118 = load i32, ptr %117, align 4, !tbaa !107
-  %119 = sext i32 %118 to i64
-  %120 = load ptr, ptr %84, align 8, !tbaa !130
-  %121 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %120, i64 %119
-  %122 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %2, i64 %.06594
-  %123 = load float, ptr %122, align 4, !tbaa !16
-  %124 = load float, ptr %121, align 4, !tbaa !16
-  %125 = fadd float %123, %124
-  %126 = getelementptr inbounds nuw i8, ptr %122, i64 4
+112:                                              ; preds = %86
+  %113 = sext i32 %89 to i64
+  %114 = load ptr, ptr %84, align 8, !tbaa !123
+  %115 = getelementptr inbounds nuw i32, ptr %114, i64 %113
+  %116 = load i32, ptr %115, align 4, !tbaa !107
+  %117 = sext i32 %116 to i64
+  %118 = load ptr, ptr %83, align 8, !tbaa !130
+  %119 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %118, i64 %117
+  %120 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %2, i64 %.06594
+  %121 = load float, ptr %120, align 4, !tbaa !16
+  %122 = load float, ptr %119, align 4, !tbaa !16
+  %123 = fadd float %121, %122
+  %124 = getelementptr inbounds nuw i8, ptr %120, i64 4
+  %125 = load float, ptr %124, align 4, !tbaa !16
+  %126 = getelementptr inbounds nuw i8, ptr %119, i64 4
   %127 = load float, ptr %126, align 4, !tbaa !16
-  %128 = getelementptr inbounds nuw i8, ptr %121, i64 4
-  %129 = load float, ptr %128, align 4, !tbaa !16
-  %130 = fadd float %127, %129
-  %131 = getelementptr inbounds nuw i8, ptr %122, i64 8
+  %128 = fadd float %125, %127
+  %129 = getelementptr inbounds nuw i8, ptr %120, i64 8
+  %130 = load float, ptr %129, align 4, !tbaa !16
+  %131 = getelementptr inbounds nuw i8, ptr %119, i64 8
   %132 = load float, ptr %131, align 4, !tbaa !16
-  %133 = getelementptr inbounds nuw i8, ptr %121, i64 8
-  %134 = load float, ptr %133, align 4, !tbaa !16
-  %135 = fadd float %132, %134
-  %.sroa.0.0.vec.insert.i.i72 = insertelement <2 x float> poison, float %125, i64 0
-  %.sroa.0.4.vec.insert.i.i73 = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i72, float %130, i64 1
-  store <2 x float> %.sroa.0.4.vec.insert.i.i73, ptr %122, align 4
-  store float %135, ptr %131, align 4, !tbaa !111
-  %136 = load ptr, ptr %85, align 8, !tbaa !123
-  %137 = getelementptr inbounds nuw i32, ptr %136, i64 %115
-  %138 = load i32, ptr %137, align 4, !tbaa !107
-  %139 = add nsw i32 %138, 1
-  store i32 %139, ptr %137, align 4, !tbaa !107
-  br label %140
+  %133 = fadd float %130, %132
+  %.sroa.0.0.vec.insert.i.i72 = insertelement <2 x float> poison, float %123, i64 0
+  %.sroa.0.4.vec.insert.i.i73 = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i72, float %128, i64 1
+  store <2 x float> %.sroa.0.4.vec.insert.i.i73, ptr %120, align 4
+  store float %133, ptr %129, align 4, !tbaa !111
+  %134 = load ptr, ptr %84, align 8, !tbaa !123
+  %135 = getelementptr inbounds nuw i32, ptr %134, i64 %113
+  %136 = load i32, ptr %135, align 4, !tbaa !107
+  %137 = add nsw i32 %136, 1
+  store i32 %137, ptr %135, align 4, !tbaa !107
+  br label %138
 
-140:                                              ; preds = %114, %94
-  %.3 = phi i32 [ %113, %94 ], [ %.295, %114 ]
-  %141 = add nuw nsw i64 %.06594, 1
-  %exitcond101.not = icmp eq i64 %141, %87
-  br i1 %exitcond101.not, label %.loopexit, label %88, !llvm.loop !134
+138:                                              ; preds = %112, %92
+  %.3 = phi i32 [ %111, %92 ], [ %.295, %112 ]
+  %139 = add nuw nsw i64 %.06594, 1
+  %exitcond101.not = icmp eq i64 %139, %81
+  br i1 %exitcond101.not, label %.loopexit, label %86, !llvm.loop !134
 
-142:                                              ; preds = %.lr.ph93, %168
-  %.492 = phi i32 [ 0, %.lr.ph93 ], [ %.5, %168 ]
-  %.06391 = phi i64 [ 0, %.lr.ph93 ], [ %169, %168 ]
-  %143 = load ptr, ptr %77, align 8, !tbaa !105
-  %144 = getelementptr inbounds nuw i32, ptr %143, i64 %.06391
-  %145 = load i32, ptr %144, align 4, !tbaa !107
-  %146 = load i32, ptr %14, align 8, !tbaa !124
-  %147 = icmp eq i32 %145, %146
-  br i1 %147, label %148, label %155
+140:                                              ; preds = %.lr.ph93, %166
+  %.492 = phi i32 [ 0, %.lr.ph93 ], [ %.5, %166 ]
+  %.06391 = phi i64 [ 0, %.lr.ph93 ], [ %167, %166 ]
+  %141 = load ptr, ptr %77, align 8, !tbaa !105
+  %142 = getelementptr inbounds nuw i32, ptr %141, i64 %.06391
+  %143 = load i32, ptr %142, align 4, !tbaa !107
+  %144 = load i32, ptr %14, align 8, !tbaa !124
+  %145 = icmp eq i32 %143, %144
+  br i1 %145, label %146, label %153
 
-148:                                              ; preds = %142
-  %149 = sext i32 %.492 to i64
-  %150 = load i64, ptr %80, align 8
-  %151 = inttoptr i64 %150 to ptr
-  %152 = getelementptr inbounds %"class.gmx::BasicVector", ptr %151, i64 %149
-  %153 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %2, i64 %.06391
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %153, ptr noundef nonnull align 4 dereferenceable(12) %152, i64 12, i1 false), !tbaa.struct !110
-  %154 = add nsw i32 %.492, 1
-  br label %168
+146:                                              ; preds = %140
+  %147 = sext i32 %.492 to i64
+  %148 = load i64, ptr %80, align 8
+  %149 = inttoptr i64 %148 to ptr
+  %150 = getelementptr inbounds %"class.gmx::BasicVector", ptr %149, i64 %147
+  %151 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %2, i64 %.06391
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %151, ptr noundef nonnull align 4 dereferenceable(12) %150, i64 12, i1 false), !tbaa.struct !110
+  %152 = add nsw i32 %.492, 1
+  br label %166
 
-155:                                              ; preds = %142
-  %156 = sext i32 %145 to i64
-  %157 = load ptr, ptr %79, align 8, !tbaa !123
-  %158 = getelementptr inbounds nuw i32, ptr %157, i64 %156
-  %159 = load i32, ptr %158, align 4, !tbaa !107
-  %160 = sext i32 %159 to i64
-  %161 = load ptr, ptr %78, align 8, !tbaa !130
-  %162 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %161, i64 %160
-  %163 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %2, i64 %.06391
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %163, ptr noundef nonnull align 4 dereferenceable(12) %162, i64 12, i1 false), !tbaa.struct !110
-  %164 = load ptr, ptr %79, align 8, !tbaa !123
-  %165 = getelementptr inbounds nuw i32, ptr %164, i64 %156
-  %166 = load i32, ptr %165, align 4, !tbaa !107
-  %167 = add nsw i32 %166, 1
-  store i32 %167, ptr %165, align 4, !tbaa !107
-  br label %168
+153:                                              ; preds = %140
+  %154 = sext i32 %143 to i64
+  %155 = load ptr, ptr %79, align 8, !tbaa !123
+  %156 = getelementptr inbounds nuw i32, ptr %155, i64 %154
+  %157 = load i32, ptr %156, align 4, !tbaa !107
+  %158 = sext i32 %157 to i64
+  %159 = load ptr, ptr %78, align 8, !tbaa !130
+  %160 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %159, i64 %158
+  %161 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %2, i64 %.06391
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %161, ptr noundef nonnull align 4 dereferenceable(12) %160, i64 12, i1 false), !tbaa.struct !110
+  %162 = load ptr, ptr %79, align 8, !tbaa !123
+  %163 = getelementptr inbounds nuw i32, ptr %162, i64 %154
+  %164 = load i32, ptr %163, align 4, !tbaa !107
+  %165 = add nsw i32 %164, 1
+  store i32 %165, ptr %163, align 4, !tbaa !107
+  br label %166
 
-168:                                              ; preds = %155, %148
-  %.5 = phi i32 [ %154, %148 ], [ %.492, %155 ]
-  %169 = add nuw nsw i64 %.06391, 1
-  %exitcond99.not = icmp eq i64 %169, %81
-  br i1 %exitcond99.not, label %.loopexit, label %142, !llvm.loop !135
+166:                                              ; preds = %153, %146
+  %.5 = phi i32 [ %152, %146 ], [ %.492, %153 ]
+  %167 = add nuw nsw i64 %.06391, 1
+  %exitcond99.not = icmp eq i64 %167, %76
+  br i1 %exitcond99.not, label %.loopexit, label %140, !llvm.loop !135
 
-.loopexit:                                        ; preds = %168, %140, %.preheader85, %.preheader
+.loopexit:                                        ; preds = %166, %138, %.preheader85, %.preheader
   ret void
 }
 

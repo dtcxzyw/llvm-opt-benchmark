@@ -2767,7 +2767,6 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %447 = ptrtoint ptr %440 to i64
   %448 = sub i64 %446, %447
   %449 = ashr exact i64 %448, 5
-  %umax = call i64 @llvm.umax.i64(i64 %449, i64 1)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm.exit.i, %.lr.ph.preheader.i
@@ -2785,7 +2784,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm.exit.i: ; preds = %.lr.ph.i
   %459 = add nuw i64 %.013.i, 1
-  %exitcond.not = icmp eq i64 %459, %umax
+  %exitcond.not = icmp eq i64 %459, %449
   br i1 %exitcond.not, label %_ZNK4absl8internal8SplittercvSt6vectorIT_SaIS3_EEINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEv.exit.loopexit, label %.lr.ph.i, !llvm.loop !206
 
 460:                                              ; preds = %.lr.ph.i
@@ -6300,7 +6299,6 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %448 = ptrtoint ptr %441 to i64
   %449 = sub i64 %447, %448
   %450 = ashr exact i64 %449, 5
-  %umax = call i64 @llvm.umax.i64(i64 %450, i64 1)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm.exit.i, %.lr.ph.preheader.i
@@ -6318,7 +6316,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm.exit.i: ; preds = %.lr.ph.i
   %460 = add nuw i64 %.013.i, 1
-  %exitcond.not = icmp eq i64 %460, %umax
+  %exitcond.not = icmp eq i64 %460, %450
   br i1 %exitcond.not, label %_ZNK4absl8internal8SplittercvSt6vectorIT_SaIS3_EEINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEv.exit.loopexit, label %.lr.ph.i, !llvm.loop !206
 
 461:                                              ; preds = %.lr.ph.i
@@ -8779,7 +8777,6 @@ _ZNSt10unique_ptrIN13sentencepiece10ThreadPoolESt14default_deleteIS1_EE5resetEPS
   %67 = ptrtoint ptr %65 to i64
   %68 = sub i64 %66, %67
   %69 = ashr exact i64 %68, 2
-  %umax = call i64 @llvm.umax.i64(i64 %69, i64 1)
   %wide.trip.count = zext nneg i32 %60 to i64
   br label %.lr.ph128.us
 
@@ -8806,7 +8803,7 @@ _ZNSt10unique_ptrIN13sentencepiece10ThreadPoolESt14default_deleteIS1_EE5resetEPS
   %84 = fadd float %81, %83
   store float %84, ptr %82, align 4, !tbaa !84
   %85 = add nuw i64 %.026127.us, 1
-  %exitcond.not = icmp eq i64 %85, %umax
+  %exitcond.not = icmp eq i64 %85, %69
   br i1 %exitcond.not, label %._crit_edge.us, label %79, !llvm.loop !286
 
 ._crit_edge.us:                                   ; preds = %79

@@ -4703,7 +4703,6 @@ define void @_ZN6casadi8conic_inB5cxx11Ev(ptr dead_on_unwind noalias writable wr
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 18
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 19
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 17
-  %umax = tail call i64 @llvm.umax.i64(i64 %13, i64 1)
   br label %20
 
 20:                                               ; preds = %.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -4862,7 +4861,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1) #33
   %44 = add nuw i64 %.09, 1
-  %exitcond.not = icmp eq i64 %44, %umax
+  %exitcond.not = icmp eq i64 %44, %13
   br i1 %exitcond.not, label %._crit_edge, label %20, !llvm.loop !91
 
 ._crit_edge:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -5036,7 +5035,6 @@ define void @_ZN6casadi9conic_outB5cxx11Ev(ptr dead_on_unwind noalias writable w
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 21
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 17
-  %umax = tail call i64 @llvm.umax.i64(i64 %13, i64 1)
   br label %19
 
 19:                                               ; preds = %.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -5139,7 +5137,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1) #33
   %43 = add nuw i64 %.09, 1
-  %exitcond.not = icmp eq i64 %43, %umax
+  %exitcond.not = icmp eq i64 %43, %13
   br i1 %exitcond.not, label %._crit_edge, label %19, !llvm.loop !95
 
 ._crit_edge:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit

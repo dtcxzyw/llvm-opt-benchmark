@@ -3601,7 +3601,6 @@ for.cond25.preheader:                             ; preds = %for.cond.cleanup12
 
 for.body32.preheader:                             ; preds = %for.cond25.preheader
   %7 = sub i64 %add, %1
-  %umax = tail call i64 @llvm.umax.i64(i64 %7, i64 1)
   br label %for.body32
 
 for.body13:                                       ; preds = %for.body, %for.body13
@@ -3627,7 +3626,7 @@ for.body32:                                       ; preds = %for.body32.preheade
   %bestX.3 = select i1 %cmp35, i64 %j24.049, i64 %bestX.247
   %bestF.3 = select i1 %cmp35, double %9, double %bestF.248
   %inc41 = add nuw i64 %j24.049, 1
-  %exitcond.not = icmp eq i64 %inc41, %umax
+  %exitcond.not = icmp eq i64 %inc41, %7
   br i1 %exitcond.not, label %if.end68, label %for.body32, !llvm.loop !144
 
 if.else:                                          ; preds = %for.cond.cleanup12

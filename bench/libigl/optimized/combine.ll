@@ -266,7 +266,6 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit64
 .lr.ph:                                           ; preds = %69
   %71 = load ptr, ptr %4, align 8, !tbaa !4
   %72 = load ptr, ptr %5, align 8, !tbaa !4
-  %umax = tail call i64 @llvm.umax.i64(i64 %56, i64 1)
   br label %120
 
 ._crit_edge:                                      ; preds = %120
@@ -363,7 +362,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   store i32 %128, ptr %129, align 4, !tbaa !28
   %130 = add i32 %.05374, %128
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %56
   br i1 %exitcond.not, label %._crit_edge, label %120, !llvm.loop !31
 
 ._crit_edge81:                                    ; preds = %167, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit
@@ -613,7 +612,6 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixImLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit64
 .lr.ph:                                           ; preds = %69
   %71 = load ptr, ptr %4, align 8, !tbaa !92
   %72 = load ptr, ptr %5, align 8, !tbaa !92
-  %umax = tail call i64 @llvm.umax.i64(i64 %56, i64 1)
   br label %120
 
 ._crit_edge:                                      ; preds = %120
@@ -710,7 +708,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %129 = trunc i64 %127 to i32
   %130 = add i32 %.05374, %129
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %56
   br i1 %exitcond.not, label %._crit_edge, label %120, !llvm.loop !98
 
 ._crit_edge81:                                    ; preds = %167, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit
@@ -960,7 +958,6 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit64
   %48 = ashr exact i64 %47, 4
   %49 = load ptr, ptr %4, align 8, !tbaa !4
   %50 = load ptr, ptr %5, align 8, !tbaa !4
-  %umax = tail call i64 @llvm.umax.i64(i64 %48, i64 1)
   br label %57
 
 ._crit_edge.loopexit:                             ; preds = %57
@@ -997,7 +994,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit64
   store i32 %65, ptr %66, align 4, !tbaa !28
   %67 = add i32 %.05385, %65
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %48
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %57, !llvm.loop !138
 
 ._crit_edge93:                                    ; preds = %_ZN5Eigen5BlockINS_6MatrixIdLin1ELi3ELi1ELin1ELi3EEELin1ELin1ELb0EEaSIS2_EERS3_RKNS_9DenseBaseIT_EE.exit, %._crit_edge
@@ -1348,7 +1345,6 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit64
 .lr.ph:                                           ; preds = %69
   %71 = load ptr, ptr %4, align 8, !tbaa !4
   %72 = load ptr, ptr %5, align 8, !tbaa !4
-  %umax = tail call i64 @llvm.umax.i64(i64 %56, i64 1)
   br label %120
 
 ._crit_edge:                                      ; preds = %120
@@ -1445,7 +1441,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   store i32 %128, ptr %129, align 4, !tbaa !28
   %130 = add i32 %.05374, %128
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %56
   br i1 %exitcond.not, label %._crit_edge, label %120, !llvm.loop !158
 
 ._crit_edge81:                                    ; preds = %167, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit
@@ -2414,9 +2410,6 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #11
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #9
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

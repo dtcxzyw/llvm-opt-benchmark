@@ -1232,7 +1232,6 @@ define dso_local noundef i64 @_ZNK13ArrayVariable8get_sizeEv(ptr noundef nonnull
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 2
-  %umax = tail call i64 @llvm.umax.i64(i64 %9, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -1243,7 +1242,7 @@ define dso_local noundef i64 @_ZNK13ArrayVariable8get_sizeEv(ptr noundef nonnull
   %12 = zext i32 %11 to i64
   %13 = mul i64 %.07, %12
   %14 = add nuw i64 %.056, 1
-  %exitcond.not = icmp eq i64 %14, %umax
+  %exitcond.not = icmp eq i64 %14, %9
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !88
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
@@ -1268,7 +1267,6 @@ define dso_local noundef i64 @_ZNK13ArrayVariable13size_in_bytesEv(ptr noundef n
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
   %12 = ashr exact i64 %11, 2
-  %umax = tail call i64 @llvm.umax.i64(i64 %12, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -1279,7 +1277,7 @@ define dso_local noundef i64 @_ZNK13ArrayVariable13size_in_bytesEv(ptr noundef n
   %15 = zext i32 %14 to i64
   %16 = mul i64 %.056, %15
   %17 = add nuw i64 %.07, 1
-  %exitcond.not = icmp eq i64 %17, %umax
+  %exitcond.not = icmp eq i64 %17, %12
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !89
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1

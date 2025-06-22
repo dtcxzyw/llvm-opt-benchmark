@@ -3976,7 +3976,6 @@ _ZNSt6vectorIPN7rocksdb20InternalIteratorBaseINS0_5SliceEEESaIS4_EE7reserveEm.ex
   %219 = ashr exact i64 %218, 3
   %220 = getelementptr inbounds nuw ptr, ptr %213, i64 %.050200
   %221 = load ptr, ptr %220, align 8, !tbaa !366
-  %umax = call i64 @llvm.umax.i64(i64 %219, i64 1)
   br label %222
 
 222:                                              ; preds = %.lr.ph199, %226
@@ -4013,7 +4012,7 @@ _ZNSt6vectorIPN7rocksdb20InternalIteratorBaseINS0_5SliceEEESaIS4_EE7reserveEm.ex
 
 226:                                              ; preds = %222
   %227 = add nuw i64 %.049198, 1
-  %exitcond.not = icmp eq i64 %227, %umax
+  %exitcond.not = icmp eq i64 %227, %219
   br i1 %exitcond.not, label %.critedge, label %222, !llvm.loop !553
 
 228:                                              ; preds = %222
@@ -7985,7 +7984,6 @@ define void @_ZN7rocksdb15ForwardIterator17DeleteCurrentIterEv(ptr noundef nonnu
   %16 = load ptr, ptr %15, align 16, !tbaa !180
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %18 = load ptr, ptr %17, align 16
-  %umax = tail call i64 @llvm.umax.i64(i64 %14, i64 1)
   br label %26
 
 .critedge.preheader:                              ; preds = %74, %1
@@ -8113,7 +8111,7 @@ _ZN7rocksdb15ForwardIterator14DeleteIteratorEPNS_20InternalIteratorBaseINS_5Slic
 
 74:                                               ; preds = %26
   %75 = add nuw i64 %.01745, 1
-  %exitcond.not = icmp eq i64 %75, %umax
+  %exitcond.not = icmp eq i64 %75, %14
   br i1 %exitcond.not, label %.critedge.preheader, label %26, !llvm.loop !598
 
 76:                                               ; preds = %.lr.ph47, %.critedge
@@ -9942,7 +9940,6 @@ define noundef zeroext i1 @_ZN7rocksdb15ForwardIterator22TEST_CheckDeletedItersE
   %16 = ashr exact i64 %15, 3
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %18 = load ptr, ptr %17, align 16, !tbaa !180
-  %umax = tail call i64 @llvm.umax.i64(i64 %16, i64 1)
   br label %24
 
 .preheader:                                       ; preds = %24, %3
@@ -9976,7 +9973,7 @@ define noundef zeroext i1 @_ZN7rocksdb15ForwardIterator22TEST_CheckDeletedItersE
   %.130 = add nuw nsw i32 %.02943, %28
   %.1 = select i1 %not..not41, i1 true, i1 %.02844
   %29 = add nuw i64 %.02745, 1
-  %exitcond.not = icmp eq i64 %29, %umax
+  %exitcond.not = icmp eq i64 %29, %16
   br i1 %exitcond.not, label %.preheader, label %24, !llvm.loop !631
 
 ._crit_edge:                                      ; preds = %44, %.preheader

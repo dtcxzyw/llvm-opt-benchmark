@@ -754,7 +754,6 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPKfSt6vectorIS3_SaIS3_EEEEN2cv14greate
   %252 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %253 = getelementptr inbounds nuw i8, ptr %18, i64 80
   %254 = icmp sgt i32 %2, 0
-  %umax694 = call i64 @llvm.umax.i64(i64 %237, i64 1)
   br label %419
 
 255:                                              ; preds = %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPKfSt6vectorIS3_SaIS3_EEEEN2cv14greaterThanPtrEEvT_SB_T0_.exit
@@ -813,7 +812,6 @@ _ZNSt6vectorIS_IN2cv6Point_IfEESaIS2_EESaIS4_EE17_S_check_init_lenEmRKS5_.exit.i
   %280 = add nsw i32 %266, -1
   %281 = icmp sgt i32 %2, 0
   %282 = sext i32 %264 to i64
-  %umax691 = call i64 @llvm.umax.i64(i64 %237, i64 1)
   br label %283
 
 283:                                              ; preds = %.lr.ph605, %.thread412
@@ -903,12 +901,11 @@ _ZNSt6vectorIS_IN2cv6Point_IfEESaIS2_EESaIS4_EE17_S_check_init_lenEmRKS5_.exit.i
   %321 = ptrtoint ptr %319 to i64
   %322 = sub i64 %320, %321
   %323 = ashr exact i64 %322, 3
-  %umax = call i64 @llvm.umax.i64(i64 %323, i64 1)
   br label %.lr.ph
 
 324:                                              ; preds = %.lr.ph
   %325 = add nuw i64 %.0176587, 1
-  %exitcond680.not = icmp eq i64 %325, %umax
+  %exitcond680.not = icmp eq i64 %325, %323
   br i1 %exitcond680.not, label %.thread, label %.lr.ph, !llvm.loop !63
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %324
@@ -1206,7 +1203,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backEOS2_.exit286: ; preds = %_ZNSt6ve
   %.sroa.0379.6.ph = phi ptr [ %.sroa.0379.9, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backEOS2_.exit286 ], [ %.sroa.0379.3600, %.lr.ph ]
   %.1186.ph = phi i32 [ %410, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backEOS2_.exit286 ], [ %.0185601, %.lr.ph ]
   %412 = add nuw i64 %.0174603, 1
-  %exitcond692.not = icmp eq i64 %412, %umax691
+  %exitcond692.not = icmp eq i64 %412, %237
   br i1 %exitcond692.not, label %select.unfold, label %283, !llvm.loop !81
 
 413:                                              ; preds = %.loopexit476, %.loopexit.split-lp477, %.loopexit471, %.loopexit.split-lp472, %.loopexit466, %.loopexit.split-lp467
@@ -1429,7 +1426,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backEOS2_.exit314: ; preds = %_ZNSt6ve
   %indvars = trunc i64 %479 to i32
   %480 = icmp eq i32 %2, %indvars
   %or.cond243 = select i1 %254, i1 %480, i1 false
-  %exitcond695.not = icmp eq i64 %479, %umax694
+  %exitcond695.not = icmp eq i64 %479, %237
   %or.cond746 = select i1 %or.cond243, i1 true, i1 %exitcond695.not
   br i1 %or.cond746, label %.loopexit, label %419, !llvm.loop !88
 
@@ -1972,14 +1969,10 @@ _ZN2cv19goodFeaturesToTrackERKNS_11_InputArrayERKNS_12_OutputArrayEiddS2_ibd.exi
   %63 = sub i64 %61, %62
   %64 = ashr exact i64 %63, 3
   %.not44 = icmp eq ptr %59, %60
-  br i1 %.not44, label %._crit_edge, label %.lr.ph.preheader
+  br i1 %.not44, label %._crit_edge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %_ZN2cv19goodFeaturesToTrackERKNS_11_InputArrayERKNS_12_OutputArrayEiddS2_ibd.exit
-  %umax = call i64 @llvm.umax.i64(i64 %64, i64 1)
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.02743 = phi i64 [ %70, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %_ZN2cv19goodFeaturesToTrackERKNS_11_InputArrayERKNS_12_OutputArrayEiddS2_ibd.exit, %.lr.ph
+  %.02743 = phi i64 [ %70, %.lr.ph ], [ 0, %_ZN2cv19goodFeaturesToTrackERKNS_11_InputArrayERKNS_12_OutputArrayEiddS2_ibd.exit ]
   %65 = getelementptr inbounds nuw %"class.cv::Point_.18", ptr %60, i64 %.02743
   %66 = load float, ptr %65, align 4, !tbaa !64
   %.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %66, i64 0
@@ -1989,7 +1982,7 @@ _ZN2cv19goodFeaturesToTrackERKNS_11_InputArrayERKNS_12_OutputArrayEiddS2_ibd.exi
   %69 = getelementptr inbounds nuw %struct.CvPoint2D32f, ptr %3, i64 %.02743
   store <2 x float> %.sroa.0.4.vec.insert.i, ptr %69, align 4
   %70 = add nuw i64 %.02743, 1
-  %exitcond.not = icmp eq i64 %70, %umax
+  %exitcond.not = icmp eq i64 %70, %64
   br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !98
 
 ._crit_edge.thread:                               ; preds = %.lr.ph

@@ -3123,14 +3123,12 @@ _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i: ; preds = %132, %_ZNSt6ve
 
 .lr.ph:                                           ; preds = %135
   %239 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %umax = call i64 @llvm.umax.i64(i64 %43, i64 1)
   br label %398
 
 .preheader438:                                    ; preds = %407
   %240 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %241 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %242 = shl nsw i64 %43, 2
-  %umax484 = call i64 @llvm.umax.i64(i64 %43, i64 1)
   br label %.preheader417.us
 
 .preheader417.us:                                 ; preds = %.preheader438, %._crit_edge.us
@@ -3535,7 +3533,7 @@ _ZNSt6vectorI10aiVector3tIdESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__n
   br label %_ZNSt6vectorI10aiVector3tIdESaIS1_EE9push_backEOS1_.exit170.us
 
 _ZNSt6vectorI10aiVector3tIdESaIS1_EE9push_backEOS1_.exit170.us: ; preds = %_ZNSt6vectorI10aiVector3tIdESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i167.us, %372
-  %exitcond485.not = icmp eq i64 %244, %umax484
+  %exitcond485.not = icmp eq i64 %244, %43
   br i1 %exitcond485.not, label %._crit_edge.us, label %243, !llvm.loop !59
 
 ._crit_edge.us:                                   ; preds = %_ZNSt6vectorI10aiVector3tIdESaIS1_EE9push_backEOS1_.exit170.us
@@ -3584,7 +3582,7 @@ _ZNSt6vectorI10aiVector3tIdESaIS1_EE9push_backEOS1_.exit170.us: ; preds = %_ZNSt
 
 407:                                              ; preds = %398
   %408 = add nuw i64 %.095453, 1
-  %exitcond.not = icmp eq i64 %408, %umax
+  %exitcond.not = icmp eq i64 %408, %43
   br i1 %exitcond.not, label %.preheader438, label %398, !llvm.loop !61
 
 409:                                              ; preds = %398
@@ -4750,7 +4748,6 @@ _ZNSt6vectorI10aiVector3tIdESaIS1_EE7reserveEm.exit177: ; preds = %_ZNSt12_Vecto
   %110 = add nsw i64 %39, -1
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.not520 = icmp eq i32 %22, 0
-  %umax = call i64 @llvm.umax.i64(i64 %39, i64 1)
   br label %334
 
 .preheader392:                                    ; preds = %._crit_edge
@@ -5403,7 +5400,7 @@ _ZN10aiVector3tIdE9NormalizeEv.exit.split.split.split.split: ; preds = %_ZN10aiV
   %.sroa.16.1.lcssa = phi ptr [ %.sroa.16.0479, %.loopexit398 ], [ %.sroa.16.3, %_ZNSt6vectorI10aiVector3tIdESaIS1_EE9push_backEOS1_.exit ]
   %.sroa.0354.4.lcssa = phi ptr [ %.sroa.0354.3480, %.loopexit398 ], [ %.sroa.0354.7, %_ZNSt6vectorI10aiVector3tIdESaIS1_EE9push_backEOS1_.exit ]
   %407 = add nuw i64 %.0128481, 1
-  %exitcond546.not = icmp eq i64 %407, %umax
+  %exitcond546.not = icmp eq i64 %407, %39
   br i1 %exitcond546.not, label %.preheader392, label %334, !llvm.loop !103
 
 .lr.ph:                                           ; preds = %.loopexit398, %_ZNSt6vectorI10aiVector3tIdESaIS1_EE9push_backEOS1_.exit
@@ -7153,7 +7150,6 @@ _ZNSt6vectorI10aiVector3tIdESaIS1_EE12emplace_backIJEEERS1_DpOT_.exit: ; preds =
   %535 = getelementptr inbounds nuw i8, ptr %.sroa.phi, i64 8
   %536 = getelementptr inbounds nuw i8, ptr %.sroa.phi, i64 16
   %537 = fmul double %sqrt.i, 1.000000e-01
-  %umax = call i64 @llvm.umax.i64(i64 %183, i64 1)
   br label %538
 
 ._crit_edge813:                                   ; preds = %713, %.thread657
@@ -7650,7 +7646,7 @@ _ZNSt6vectorI10aiVector3tIdESaIS1_EE9push_backEOS1_.exit306: ; preds = %_ZNSt6ve
 
 713:                                              ; preds = %712, %_ZNSt6vectorI10aiVector3tIdESaIS1_EE9push_backEOS1_.exit306
   %.1154 = phi i64 [ %.2155, %712 ], [ %.0153811, %_ZNSt6vectorI10aiVector3tIdESaIS1_EE9push_backEOS1_.exit306 ]
-  %exitcond.not = icmp eq i64 %539, %umax
+  %exitcond.not = icmp eq i64 %539, %183
   br i1 %exitcond.not, label %._crit_edge813, label %538, !llvm.loop !189
 
 714:                                              ; preds = %._crit_edge813

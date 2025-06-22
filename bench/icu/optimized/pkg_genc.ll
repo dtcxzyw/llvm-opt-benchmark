@@ -1417,100 +1417,100 @@ define void @writeCCode(ptr noundef %0, ptr noundef %1, ptr noundef readonly cap
 .preheader:                                       ; preds = %62, %.loopexit
   %.in = phi i32 [ %66, %.loopexit ], [ %64, %62 ]
   %.057 = phi i32 [ %.020.i, %.loopexit ], [ -1, %62 ]
-  %umax = sext i32 %.in to i64
-  br label %68
+  %68 = sext i32 %.in to i64
+  br label %69
 
-68:                                               ; preds = %.preheader, %_ZL6write8P11_FileStreamhj.exit
+69:                                               ; preds = %.preheader, %_ZL6write8P11_FileStreamhj.exit
   %.156 = phi i32 [ %.057, %.preheader ], [ %.020.i, %_ZL6write8P11_FileStreamhj.exit ]
-  %.13955 = phi i64 [ 0, %.preheader ], [ %100, %_ZL6write8P11_FileStreamhj.exit ]
-  %69 = getelementptr inbounds nuw [4096 x i8], ptr %9, i64 0, i64 %.13955
-  %70 = load i8, ptr %69, align 1, !tbaa !23
+  %.13955 = phi i64 [ 0, %.preheader ], [ %101, %_ZL6write8P11_FileStreamhj.exit ]
+  %70 = getelementptr inbounds nuw [4096 x i8], ptr %9, i64 0, i64 %.13955
+  %71 = load i8, ptr %70, align 1, !tbaa !23
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #21
-  %71 = icmp ugt i8 %70, 99
-  br i1 %71, label %.thread.i, label %75
+  %72 = icmp ugt i8 %71, 99
+  br i1 %72, label %.thread.i, label %76
 
-.thread.i:                                        ; preds = %68
-  %72 = udiv i8 %70, 100
-  %73 = or disjoint i8 %72, 48
-  store i8 %73, ptr %8, align 1, !tbaa !23
-  %74 = urem i8 %70, 100
-  br label %77
+.thread.i:                                        ; preds = %69
+  %73 = udiv i8 %71, 100
+  %74 = or disjoint i8 %73, 48
+  store i8 %74, ptr %8, align 1, !tbaa !23
+  %75 = urem i8 %71, 100
+  br label %78
 
-75:                                               ; preds = %68
-  %76 = icmp samesign ugt i8 %70, 9
-  br i1 %76, label %77, label %84
+76:                                               ; preds = %69
+  %77 = icmp samesign ugt i8 %71, 9
+  br i1 %77, label %78, label %85
 
-77:                                               ; preds = %75, %.thread.i
-  %.029.i = phi i32 [ 1, %.thread.i ], [ 0, %75 ]
-  %.02128.i = phi i8 [ %74, %.thread.i ], [ %70, %75 ]
-  %78 = udiv i8 %.02128.i, 10
-  %79 = or disjoint i8 %78, 48
-  %80 = add nuw nsw i32 %.029.i, 1
-  %81 = zext nneg i32 %.029.i to i64
-  %82 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 0, i64 %81
-  store i8 %79, ptr %82, align 1, !tbaa !23
-  %83 = urem i8 %.02128.i, 10
-  br label %84
+78:                                               ; preds = %76, %.thread.i
+  %.029.i = phi i32 [ 1, %.thread.i ], [ 0, %76 ]
+  %.02128.i = phi i8 [ %75, %.thread.i ], [ %71, %76 ]
+  %79 = udiv i8 %.02128.i, 10
+  %80 = or disjoint i8 %79, 48
+  %81 = add nuw nsw i32 %.029.i, 1
+  %82 = zext nneg i32 %.029.i to i64
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 0, i64 %82
+  store i8 %80, ptr %83, align 1, !tbaa !23
+  %84 = urem i8 %.02128.i, 10
+  br label %85
 
-84:                                               ; preds = %77, %75
-  %.122.i = phi i8 [ %83, %77 ], [ %70, %75 ]
-  %.1.i = phi i32 [ %80, %77 ], [ 0, %75 ]
-  %85 = or disjoint i8 %.122.i, 48
-  %86 = add nuw nsw i32 %.1.i, 1
-  %87 = zext nneg i32 %.1.i to i64
-  %88 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 0, i64 %87
-  store i8 %85, ptr %88, align 1, !tbaa !23
-  %89 = zext nneg i32 %86 to i64
-  %90 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 0, i64 %89
-  store i8 0, ptr %90, align 1, !tbaa !23
-  %91 = icmp eq i32 %.156, -1
-  br i1 %91, label %_ZL6write8P11_FileStreamhj.exit, label %92
+85:                                               ; preds = %78, %76
+  %.122.i = phi i8 [ %84, %78 ], [ %71, %76 ]
+  %.1.i = phi i32 [ %81, %78 ], [ 0, %76 ]
+  %86 = or disjoint i8 %.122.i, 48
+  %87 = add nuw nsw i32 %.1.i, 1
+  %88 = zext nneg i32 %.1.i to i64
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 0, i64 %88
+  store i8 %86, ptr %89, align 1, !tbaa !23
+  %90 = zext nneg i32 %87 to i64
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 0, i64 %90
+  store i8 0, ptr %91, align 1, !tbaa !23
+  %92 = icmp eq i32 %.156, -1
+  br i1 %92, label %_ZL6write8P11_FileStreamhj.exit, label %93
 
-92:                                               ; preds = %84
-  %93 = icmp ult i32 %.156, 16
-  br i1 %93, label %94, label %97
+93:                                               ; preds = %85
+  %94 = icmp ult i32 %.156, 16
+  br i1 %94, label %95, label %98
 
-94:                                               ; preds = %92
-  %95 = call i32 @T_FileStream_writeLine(ptr noundef nonnull %40, ptr noundef nonnull @.str.63)
-  %96 = add nuw nsw i32 %.156, 1
+95:                                               ; preds = %93
+  %96 = call i32 @T_FileStream_writeLine(ptr noundef nonnull %40, ptr noundef nonnull @.str.63)
+  %97 = add nuw nsw i32 %.156, 1
   br label %_ZL6write8P11_FileStreamhj.exit
 
-97:                                               ; preds = %92
-  %98 = call i32 @T_FileStream_writeLine(ptr noundef nonnull %40, ptr noundef nonnull @.str.64)
+98:                                               ; preds = %93
+  %99 = call i32 @T_FileStream_writeLine(ptr noundef nonnull %40, ptr noundef nonnull @.str.64)
   br label %_ZL6write8P11_FileStreamhj.exit
 
-_ZL6write8P11_FileStreamhj.exit:                  ; preds = %84, %94, %97
-  %.020.i = phi i32 [ %96, %94 ], [ 1, %97 ], [ 1, %84 ]
-  %99 = call i32 @T_FileStream_writeLine(ptr noundef nonnull %40, ptr noundef nonnull %8)
+_ZL6write8P11_FileStreamhj.exit:                  ; preds = %85, %95, %98
+  %.020.i = phi i32 [ %97, %95 ], [ 1, %98 ], [ 1, %85 ]
+  %100 = call i32 @T_FileStream_writeLine(ptr noundef nonnull %40, ptr noundef nonnull %8)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #21
-  %100 = add nuw i64 %.13955, 1
-  %exitcond60.not = icmp eq i64 %100, %umax
-  br i1 %exitcond60.not, label %.loopexit, label %68, !llvm.loop !40
+  %101 = add nuw i64 %.13955, 1
+  %exitcond60.not = icmp eq i64 %101, %68
+  br i1 %exitcond60.not, label %.loopexit, label %69, !llvm.loop !40
 
 ._crit_edge58:                                    ; preds = %.loopexit, %62
-  %101 = call i32 @T_FileStream_writeLine(ptr noundef nonnull %40, ptr noundef nonnull @.str.24)
-  %102 = call i32 @T_FileStream_error(ptr noundef nonnull %11)
-  %.not52 = icmp eq i32 %102, 0
-  br i1 %.not52, label %106, label %103
+  %102 = call i32 @T_FileStream_writeLine(ptr noundef nonnull %40, ptr noundef nonnull @.str.24)
+  %103 = call i32 @T_FileStream_error(ptr noundef nonnull %11)
+  %.not52 = icmp eq i32 %103, 0
+  br i1 %.not52, label %107, label %104
 
-103:                                              ; preds = %._crit_edge58
-  %104 = load ptr, ptr @stderr, align 8, !tbaa !20
-  %105 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %104, ptr noundef nonnull @.str.19, ptr noundef %0) #26
+104:                                              ; preds = %._crit_edge58
+  %105 = load ptr, ptr @stderr, align 8, !tbaa !20
+  %106 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %105, ptr noundef nonnull @.str.19, ptr noundef %0) #26
   call void @exit(i32 noundef 4) #27
   unreachable
 
-106:                                              ; preds = %._crit_edge58
-  %107 = call i32 @T_FileStream_error(ptr noundef nonnull %40)
-  %.not53 = icmp eq i32 %107, 0
-  br i1 %.not53, label %111, label %108
+107:                                              ; preds = %._crit_edge58
+  %108 = call i32 @T_FileStream_error(ptr noundef nonnull %40)
+  %.not53 = icmp eq i32 %108, 0
+  br i1 %.not53, label %112, label %109
 
-108:                                              ; preds = %106
-  %109 = load ptr, ptr @stderr, align 8, !tbaa !20
-  %110 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %109, ptr noundef nonnull @.str.20, ptr noundef %0) #26
+109:                                              ; preds = %107
+  %110 = load ptr, ptr @stderr, align 8, !tbaa !20
+  %111 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %110, ptr noundef nonnull @.str.20, ptr noundef %0) #26
   call void @exit(i32 noundef 4) #27
   unreachable
 
-111:                                              ; preds = %106
+112:                                              ; preds = %107
   call void @T_FileStream_close(ptr noundef nonnull %40)
   call void @T_FileStream_close(ptr noundef nonnull %11)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %10) #21

@@ -111162,13 +111162,10 @@ _ZNSt6vectorIN4llvm7SDValueESaIS1_EE9push_backERKS1_.exit: ; preds = %622, %_ZNS
 
 _ZNKSt6vectorIN4llvm7SDValueESaIS1_EE12_M_check_lenEmPKc.exit.i.i347: ; preds = %650
   %656 = ashr exact i64 %653, 4
-  %.sroa.speculated.i.i.i348 = call i64 @llvm.umax.i64(i64 %656, i64 1)
-  %657 = add nsw i64 %.sroa.speculated.i.i.i348, %656
+  %657 = ashr exact i64 %653, 3
   %658 = icmp ult i64 %657, %656
   %659 = call i64 @llvm.umin.i64(i64 %657, i64 576460752303423487)
   %660 = select i1 %658, i64 576460752303423487, i64 %659
-  %.not.i.i.i349 = icmp ne i64 %660, 0
-  call void @llvm.assume(i1 %.not.i.i.i349)
   %661 = shl nuw nsw i64 %660, 4
   %662 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %661) #40
   %663 = getelementptr inbounds nuw i8, ptr %662, i64 %653

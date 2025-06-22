@@ -40061,19 +40061,15 @@ _ZNSt6vectorIiSaIiEED2Ev.exit52.thread121:        ; preds = %_ZNKSt6vectorIiSaIi
   store i32 0, ptr %17, align 4, !tbaa !11
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %.not220 = icmp eq ptr %9, %10
-  br i1 %.not220, label %._crit_edge.thread, label %.lr.ph.us.preheader
+  br i1 %.not220, label %._crit_edge.thread, label %.lr.ph.us
 
-.lr.ph.us.preheader:                              ; preds = %19
-  %umax = tail call i64 @llvm.umax.i64(i64 %14, i64 1)
-  br label %.lr.ph.us
-
-.lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %..loopexit_crit_edge.us
-  %.sroa.084.2194.us = phi ptr [ %.sroa.084.4.us, %..loopexit_crit_edge.us ], [ %15, %.lr.ph.us.preheader ]
-  %.sroa.12.1193.us = phi ptr [ %.sroa.12.3.us, %..loopexit_crit_edge.us ], [ %16, %.lr.ph.us.preheader ]
-  %.sroa.2293.2192.us = phi ptr [ %.sroa.2293.4.us, %..loopexit_crit_edge.us ], [ %16, %.lr.ph.us.preheader ]
-  %.sroa.068.2191.us = phi ptr [ %.sroa.068.4.us, %..loopexit_crit_edge.us ], [ %17, %.lr.ph.us.preheader ]
-  %.sroa.22.2190.us = phi ptr [ %.sroa.22.4.us, %..loopexit_crit_edge.us ], [ %20, %.lr.ph.us.preheader ]
-  %.sroa.13.1189.us = phi ptr [ %.sroa.13.3.us, %..loopexit_crit_edge.us ], [ %20, %.lr.ph.us.preheader ]
+.lr.ph.us:                                        ; preds = %19, %..loopexit_crit_edge.us
+  %.sroa.084.2194.us = phi ptr [ %.sroa.084.4.us, %..loopexit_crit_edge.us ], [ %15, %19 ]
+  %.sroa.12.1193.us = phi ptr [ %.sroa.12.3.us, %..loopexit_crit_edge.us ], [ %16, %19 ]
+  %.sroa.2293.2192.us = phi ptr [ %.sroa.2293.4.us, %..loopexit_crit_edge.us ], [ %16, %19 ]
+  %.sroa.068.2191.us = phi ptr [ %.sroa.068.4.us, %..loopexit_crit_edge.us ], [ %17, %19 ]
+  %.sroa.22.2190.us = phi ptr [ %.sroa.22.4.us, %..loopexit_crit_edge.us ], [ %20, %19 ]
+  %.sroa.13.1189.us = phi ptr [ %.sroa.13.3.us, %..loopexit_crit_edge.us ], [ %20, %19 ]
   %21 = getelementptr inbounds i8, ptr %.sroa.12.1193.us, i64 -4
   %22 = load i32, ptr %21, align 4, !tbaa !11
   br label %23
@@ -40326,7 +40322,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit47.us:     ; preds = %_ZNSt6vectorIiSaIiE
   %.sroa.12.3.us = phi ptr [ %.sroa.12.2181.us, %26 ], [ %.sroa.12.2181.us, %38 ], [ %.sroa.12.2181.us, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiET_S7_S7_RKT0_.exit.us ], [ %.sroa.12.7.us, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i44.us ], [ %.sroa.12.7.us, %99 ], [ %.sroa.12.2181.us, %36 ]
   %.sroa.084.4.us = phi ptr [ %.sroa.084.3182.us, %26 ], [ %.sroa.084.3182.us, %38 ], [ %.sroa.084.3182.us, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiET_S7_S7_RKT0_.exit.us ], [ %.sroa.084.9.us, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i44.us ], [ %.sroa.084.9.us, %99 ], [ %.sroa.084.3182.us, %36 ]
   %116 = add nuw i64 %.020183.us, 1
-  %exitcond.not = icmp eq i64 %116, %umax
+  %exitcond.not = icmp eq i64 %116, %14
   br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %23, !llvm.loop !901
 
 ..loopexit_crit_edge.us:                          ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit47.us

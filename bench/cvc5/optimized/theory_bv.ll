@@ -12417,7 +12417,6 @@ define internal fastcc void @_ZN4cvc58internal6theory2bvL10mkNodeKindENS0_4kind6
 
 .lr.ph.preheader:                                 ; preds = %4
   %28 = trunc nsw i64 %24 to i32
-  %umax = call i32 @llvm.umax.i32(i32 %28, i32 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
@@ -12525,7 +12524,7 @@ define internal fastcc void @_ZN4cvc58internal6theory2bvL10mkNodeKindENS0_4kind6
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %60, %64, %70
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #23
   %74 = add nuw i32 %.0913, 1
-  %exitcond.not = icmp eq i32 %74, %umax
+  %exitcond.not = icmp eq i32 %74, %28
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !686
 
 75:                                               ; preds = %.lr.ph
@@ -21546,9 +21545,6 @@ declare i64 @llvm.umax.i64(i64, i64) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #22
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #22
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

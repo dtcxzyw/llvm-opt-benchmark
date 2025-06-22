@@ -2527,7 +2527,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit87: ; preds = %_ZN
 
 .lr.ph93:                                         ; preds = %.preheader
   %134 = getelementptr inbounds nuw i8, ptr %11, i64 1112
-  %umax = call i64 @llvm.umax.i64(i64 %120, i64 1)
   br label %157
 
 135:                                              ; preds = %.lr.ph, %140
@@ -2595,7 +2594,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit87: ; preds = %_ZN
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 1096
   store ptr %11, ptr %179, align 8
   %180 = add nuw i64 %.092, 1
-  %exitcond.not = icmp eq i64 %180, %umax
+  %exitcond.not = icmp eq i64 %180, %120
   br i1 %exitcond.not, label %._crit_edge, label %157, !llvm.loop !25
 
 .thread:                                          ; preds = %157
@@ -3993,7 +3992,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit133: ; preds = %_Z
   %331 = load ptr, ptr %22, align 8
   %332 = getelementptr inbounds nuw ptr, ptr %331, i64 %.067358
   store ptr %272, ptr %332, align 8
-  %umax = call i64 @llvm.umax.i64(i64 %322, i64 1)
   br label %.lr.ph355
 
 .lr.ph357.preheader:                              ; preds = %.lr.ph355
@@ -4048,7 +4046,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit136: ; preds = %_Z
   store ptr null, ptr %354, align 8
   call void @_ZN11aiAnimationD2Ev(ptr noundef nonnull align 8 dereferenceable(1096) %347) #33
   call void @_ZdlPvm(ptr noundef %347, i64 noundef 1096) #34
-  %exitcond.not = icmp eq i64 %352, %umax
+  %exitcond.not = icmp eq i64 %352, %322
   br i1 %exitcond.not, label %.lr.ph357.preheader, label %.lr.ph355, !llvm.loop !32
 
 .lr.ph357:                                        ; preds = %.lr.ph357.preheader, %364
@@ -10169,7 +10167,6 @@ _ZNSt6vectorI14aiVertexWeightSaIS0_EE9push_backERKS0_.exit: ; preds = %709, %_ZN
   %778 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %779 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %780 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %umax = call i64 @llvm.umax.i64(i64 %620, i64 1)
   br label %805
 
 ._crit_edge947:                                   ; preds = %1120, %750
@@ -10763,7 +10760,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit521: ; preds = %_Z
 1120:                                             ; preds = %805, %1114
   %.1357 = phi i64 [ %1118, %1114 ], [ %.0356943, %805 ]
   %1121 = add nuw i64 %.0355944, 1
-  %exitcond1063.not = icmp eq i64 %1121, %umax
+  %exitcond1063.not = icmp eq i64 %1121, %620
   br i1 %exitcond1063.not, label %._crit_edge947, label %805, !llvm.loop !94
 
 1122:                                             ; preds = %.loopexit654, %.loopexit.split-lp, %1092, %803, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit515, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit518, %1107, %1112, %653
@@ -15333,7 +15330,6 @@ _ZN8aiStringaSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; pr
 
 .lr.ph1698.preheader:                             ; preds = %1180
   store ptr %1177, ptr %1132, align 8
-  %umax = call i64 @llvm.umax.i64(i64 %1143, i64 1)
   br label %.lr.ph1698
 
 ._crit_edge1699:                                  ; preds = %1222
@@ -15436,7 +15432,7 @@ _ZNSt6vectorIP10aiNodeAnimSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__n
 1222:                                             ; preds = %.lr.ph1698
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %35) #33
   %1223 = add nuw i64 %.02721696, 1
-  %exitcond2095.not = icmp eq i64 %1223, %umax
+  %exitcond2095.not = icmp eq i64 %1223, %1143
   br i1 %exitcond2095.not, label %._crit_edge1699, label %.lr.ph1698, !llvm.loop !141
 
 .thread873:                                       ; preds = %.lr.ph1698

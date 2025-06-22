@@ -1381,7 +1381,6 @@ define noundef zeroext i1 @_ZN3gmx8internal30AnalysisNeighborhoodSearchImpl13ini
 
 _ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit:    ; preds = %63, %52
   %65 = phi ptr [ %.pre133, %63 ], [ %56, %52 ]
-  %wide.trip.count = zext nneg i32 %48 to i64
   br label %66
 
 66:                                               ; preds = %_ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit, %_ZNSt6vectorIiSaIiEE5clearEv.exit
@@ -1399,7 +1398,7 @@ _ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit:    ; preds = %63, %52
 
 _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %66, %71
   %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 1
-  %exitcond132.not = icmp eq i64 %indvars.iv.next130, %wide.trip.count
+  %exitcond132.not = icmp eq i64 %indvars.iv.next130, %61
   br i1 %exitcond132.not, label %.thread95, label %66, !llvm.loop !111
 
 .thread95:                                        ; preds = %13, %38, %_ZNSt6vectorIiSaIiEE5clearEv.exit, %50

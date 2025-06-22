@@ -1081,16 +1081,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_122RadialVarianceHashImpl13hashCalc
   %13 = uitofp i64 %12 to double
   %14 = uitofp i64 %8 to double
   %sqrt.i49 = tail call double @llvm.sqrt.f64(double %14)
-  br i1 %.not, label %.preheader.lr.ph.split, label %.preheader.us.preheader
+  br i1 %.not, label %.preheader.lr.ph.split, label %.preheader.us
 
-.preheader.us.preheader:                          ; preds = %.preheader.lr.ph
-  %umax = tail call i64 @llvm.umax.i64(i64 %8, i64 1)
-  br label %.preheader.us
-
-.preheader.us:                                    ; preds = %.preheader.us.preheader, %20
-  %indvars.iv = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next, %20 ]
-  %.05.us = phi double [ 0.000000e+00, %.preheader.us.preheader ], [ %.1.us, %20 ]
-  %.0384.us = phi double [ 0.000000e+00, %.preheader.us.preheader ], [ %.139.us, %20 ]
+.preheader.us:                                    ; preds = %.preheader.lr.ph, %20
+  %indvars.iv = phi i64 [ %indvars.iv.next, %20 ], [ 0, %.preheader.lr.ph ]
+  %.05.us = phi double [ %.1.us, %20 ], [ 0.000000e+00, %.preheader.lr.ph ]
+  %.0384.us = phi double [ %.139.us, %20 ], [ 0.000000e+00, %.preheader.lr.ph ]
   %15 = trunc nuw nsw i64 %indvars.iv to i32
   %16 = uitofp nneg i32 %15 to double
   br label %24
@@ -1125,7 +1121,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_122RadialVarianceHashImpl13hashCalc
   %33 = tail call double @cos(double noundef %32) #23, !tbaa !47
   %34 = tail call double @llvm.fmuladd.f64(double %26, double %33, double %.0431.us)
   %35 = add nuw i64 %.0422.us, 1
-  %exitcond.not = icmp eq i64 %35, %umax
+  %exitcond.not = icmp eq i64 %35, %8
   br i1 %exitcond.not, label %._crit_edge.us, label %24, !llvm.loop !68
 
 ._crit_edge.us:                                   ; preds = %24

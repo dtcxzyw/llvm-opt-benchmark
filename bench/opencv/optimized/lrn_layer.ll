@@ -1981,14 +1981,14 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn12LRNLayerImpl8getFLOPSERKSt6
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !70
   %8 = load ptr, ptr %1, align 8, !tbaa !73
-  %.not = icmp eq ptr %7, %8
-  br i1 %.not, label %69, label %.lr.ph
-
-.lr.ph:                                           ; preds = %3
   %9 = ptrtoint ptr %7 to i64
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
   %12 = sdiv exact i64 %11, 24
+  %.not = icmp eq ptr %7, %8
+  br i1 %.not, label %69, label %.lr.ph
+
+.lr.ph:                                           ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %14 = load i32, ptr %13, align 4, !tbaa !21
   %15 = icmp eq i32 %14, 0
@@ -1999,7 +1999,6 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn12LRNLayerImpl8getFLOPSERKSt6
   %20 = add nsw i32 %19, 2
   %21 = add nsw i32 %17, -1
   %22 = sdiv i32 %21, 2
-  %umax116 = tail call i64 @llvm.umax.i64(i64 %12, i64 1)
   br i1 %15, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %68
@@ -2114,7 +2113,7 @@ _ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit52.us: ; preds = %.l
 68:                                               ; preds = %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit52.us, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit43.us
   %.2.us = phi i64 [ %67, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit52.us ], [ %50, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit43.us ]
   %indvars.iv.next114 = add nuw i64 %indvars.iv113, 1
-  %exitcond117.not = icmp eq i64 %indvars.iv.next114, %umax116
+  %exitcond117.not = icmp eq i64 %indvars.iv.next114, %12
   br i1 %exitcond117.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !79
 
 69:                                               ; preds = %3
@@ -2210,7 +2209,7 @@ _ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit61: ; preds = %.lr.p
   %93 = sext i32 %92 to i64
   %94 = add nsw i64 %.02286, %93
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
-  %exitcond106.not = icmp eq i64 %indvars.iv.next, %umax116
+  %exitcond106.not = icmp eq i64 %indvars.iv.next, %12
   br i1 %exitcond106.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !79
 }
 
@@ -3958,9 +3957,6 @@ declare i64 @llvm.umin.i64(i64, i64) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #20
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #20
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #21

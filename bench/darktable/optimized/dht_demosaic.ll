@@ -59,7 +59,6 @@ define void @_ZN3DHTC2ER6LibRaw(ptr noundef nonnull align 8 captures(none) deref
   %35 = uitofp i16 %34 to float
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store float %35, ptr %36, align 8, !tbaa !81
-  %wide.trip.count = zext nneg i32 %14 to i64
   br label %39
 
 .preheader43:                                     ; preds = %39
@@ -82,7 +81,7 @@ define void @_ZN3DHTC2ER6LibRaw(ptr noundef nonnull align 8 captures(none) deref
   %42 = getelementptr inbounds nuw [3 x float], ptr %17, i64 %indvars.iv
   store float 5.000000e-01, ptr %42, align 4, !tbaa !81
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %15
   br i1 %exitcond.not, label %.preheader43, label %39, !llvm.loop !82
 
 ._crit_edge51.loopexit:                           ; preds = %._crit_edge

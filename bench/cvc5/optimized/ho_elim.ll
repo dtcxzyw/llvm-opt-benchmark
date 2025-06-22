@@ -13269,7 +13269,6 @@ define hidden noundef i32 @_ZN4cvc58internal13preprocessing6passes6HoElim13apply
   %243 = ptrtoint ptr %241 to i64
   %244 = sub i64 %242, %243
   %245 = ashr exact i64 %244, 3
-  %umax = call i64 @llvm.umax.i64(i64 %245, i64 1)
   br label %.lr.ph
 
 .preheader1390:                                   ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit321
@@ -13546,7 +13545,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit319: ; preds = %354, %357, %363
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit321: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit319, %369, %375
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %114) #21
   %379 = add nuw i64 %.01713627, 1
-  %exitcond.not = icmp eq i64 %379, %umax
+  %exitcond.not = icmp eq i64 %379, %245
   br i1 %exitcond.not, label %.preheader1390, label %.lr.ph, !llvm.loop !388
 
 380:                                              ; preds = %352, %350

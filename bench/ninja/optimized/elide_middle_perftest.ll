@@ -312,11 +312,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %64, %_ZNSt6vectorIi
   %87 = sub i64 %85, %86
   %88 = ashr exact i64 %87, 2
   %.not141 = icmp eq ptr %.sroa.17.0.lcssa, %.sroa.067.0.lcssa
-  br i1 %.not141, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %.lr.ph136.preheader
-
-.lr.ph136.preheader:                              ; preds = %.critedge
-  %umax = call i64 @llvm.umax.i64(i64 %88, i64 1)
-  br label %.lr.ph136
+  br i1 %.not141, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %.lr.ph136
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %.lr.ph136, %.critedge
   %.037.lcssa = phi i32 [ %84, %.critedge ], [ %.138, %.lr.ph136 ]
@@ -331,11 +327,11 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %.lr.ph136, %.crited
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.067.0.lcssa, i64 noundef %94) #13
   ret i32 0
 
-.lr.ph136:                                        ; preds = %.lr.ph136.preheader, %.lr.ph136
-  %.0135 = phi i64 [ %100, %.lr.ph136 ], [ 0, %.lr.ph136.preheader ]
-  %.035134 = phi float [ %98, %.lr.ph136 ], [ 0.000000e+00, %.lr.ph136.preheader ]
-  %.036133 = phi i32 [ %.1, %.lr.ph136 ], [ %84, %.lr.ph136.preheader ]
-  %.037132 = phi i32 [ %.138, %.lr.ph136 ], [ %84, %.lr.ph136.preheader ]
+.lr.ph136:                                        ; preds = %.critedge, %.lr.ph136
+  %.0135 = phi i64 [ %100, %.lr.ph136 ], [ 0, %.critedge ]
+  %.035134 = phi float [ %98, %.lr.ph136 ], [ 0.000000e+00, %.critedge ]
+  %.036133 = phi i32 [ %.1, %.lr.ph136 ], [ %84, %.critedge ]
+  %.037132 = phi i32 [ %.138, %.lr.ph136 ], [ %84, %.critedge ]
   %95 = getelementptr inbounds nuw i32, ptr %.sroa.067.0.lcssa, i64 %.0135
   %96 = load i32, ptr %95, align 4, !tbaa !20
   %97 = sitofp i32 %96 to float
@@ -345,7 +341,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %.lr.ph136, %.crited
   %.138 = call i32 @llvm.smin.i32(i32 %96, i32 %.037132)
   %.1 = select i1 %99, i32 %.036133, i32 %spec.select
   %100 = add nuw i64 %.0135, 1
-  %exitcond161.not = icmp eq i64 %100, %umax
+  %exitcond161.not = icmp eq i64 %100, %88
   br i1 %exitcond161.not, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %.lr.ph136, !llvm.loop !23
 
 101:                                              ; preds = %.loopexit, %.loopexit.split-lp, %10, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit60

@@ -20161,7 +20161,6 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit17:             ; preds = %_ZSt6fill_nIPfmfET_
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 48
   %43 = load ptr, ptr %42, align 8, !tbaa !554
   %44 = uitofp i64 %1 to float
-  %umax = tail call i64 @llvm.umax.i64(i64 %30, i64 1)
   br label %53
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit17
@@ -20200,7 +20199,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit17:             ; preds = %_ZSt6fill_nIPfmfET_
   %62 = getelementptr inbounds nuw float, ptr %.sroa.031.0, i64 %storemerge61
   store float %61, ptr %62, align 4, !tbaa !41
   %63 = add nuw i64 %storemerge61, 1
-  %exitcond.not = icmp eq i64 %63, %umax
+  %exitcond.not = icmp eq i64 %63, %30
   br i1 %exitcond.not, label %._crit_edge.thread, label %53, !llvm.loop !658
 
 ._crit_edge.thread:                               ; preds = %53

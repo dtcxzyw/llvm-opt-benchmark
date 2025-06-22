@@ -288,12 +288,7 @@ define hidden i32 @Curl_poll(ptr noundef %0, i32 noundef %1, i64 noundef %2) loc
   %.034 = phi i32 [ %25, %23 ], [ %., %26 ]
   %28 = tail call i32 @poll(ptr noundef nonnull %0, i64 noundef %wide.trip.count, i32 noundef %.034) #10
   %29 = icmp slt i32 %28, 1
-  br i1 %29, label %30, label %.preheader.preheader
-
-.preheader.preheader:                             ; preds = %27
-  %umax = tail call i32 @llvm.umax.i32(i32 %1, i32 1)
-  %wide.trip.count49 = zext i32 %umax to i64
-  br label %.preheader
+  br i1 %29, label %30, label %.preheader
 
 30:                                               ; preds = %27
   %31 = icmp eq i32 %28, -1
@@ -306,8 +301,8 @@ define hidden i32 @Curl_poll(ptr noundef %0, i32 noundef %1, i64 noundef %2) loc
   %spec.select = sext i1 %35 to i32
   br label %Curl_wait_ms.exit
 
-.preheader:                                       ; preds = %.preheader.preheader, %46
-  %indvars.iv46 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next47, %46 ]
+.preheader:                                       ; preds = %27, %46
+  %indvars.iv46 = phi i64 [ %indvars.iv.next47, %46 ], [ 0, %27 ]
   %36 = getelementptr inbounds nuw %struct.pollfd, ptr %0, i64 %indvars.iv46
   %37 = load i32, ptr %36, align 4, !tbaa !7
   %38 = icmp eq i32 %37, -1
@@ -332,7 +327,7 @@ condstore.split:                                  ; preds = %.preheader
 
 46:                                               ; preds = %42, %condstore.split, %.preheader
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
-  %exitcond50.not = icmp eq i64 %indvars.iv.next47, %wide.trip.count49
+  %exitcond50.not = icmp eq i64 %indvars.iv.next47, %wide.trip.count
   br i1 %exitcond50.not, label %Curl_wait_ms.exit, label %.preheader, !llvm.loop !14
 
 Curl_wait_ms.exit:                                ; preds = %46, %20, %16, %13, %11, %.critedge, %32, %30
@@ -686,9 +681,6 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #8
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

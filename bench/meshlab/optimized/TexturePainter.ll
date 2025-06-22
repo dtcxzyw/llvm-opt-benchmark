@@ -9896,7 +9896,6 @@ _ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EEN
   %84 = ashr exact i64 %81, 2
   %85 = select i1 %83, i64 -1, i64 %84
   %86 = call noalias noundef nonnull ptr @_Znam(i64 noundef %85) #26
-  %umax = call i64 @llvm.umax.i64(i64 %82, i64 1)
   br label %.lr.ph46
 
 .lr.ph46:                                         ; preds = %.lr.ph46.preheader, %.lr.ph46
@@ -9907,7 +9906,7 @@ _ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EEN
   %90 = getelementptr inbounds ptr, ptr %86, i64 %.044
   store ptr %89, ptr %90, align 8
   %91 = add nuw i64 %.044, 1
-  %exitcond.not = icmp eq i64 %91, %umax
+  %exitcond.not = icmp eq i64 %91, %82
   br i1 %exitcond.not, label %._crit_edge47, label %.lr.ph46, !llvm.loop !66
 
 ._crit_edge47:                                    ; preds = %.lr.ph46

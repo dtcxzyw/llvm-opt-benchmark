@@ -988,7 +988,6 @@ define hidden void @_ZN3ue217minResetDistToEndERKSt6vectorIS0_INS_9CharReachESaI
   %28 = load i64, ptr %8, align 8, !noalias !13
   %29 = load i64, ptr %10, align 8, !noalias !13
   %30 = load i64, ptr %12, align 8, !noalias !13
-  %umax = tail call i64 @llvm.umax.i64(i64 %25, i64 1)
   br label %31
 
 31:                                               ; preds = %.lr.ph, %44
@@ -1028,11 +1027,11 @@ _ZNK3ue29CharReach4noneEv.exit:                   ; preds = %42
 
 44:                                               ; preds = %_ZNK3ue29CharReach4noneEv.exit
   %45 = add nuw i64 %storemerge22, 1
-  %exitcond.not = icmp eq i64 %45, %umax
+  %exitcond.not = icmp eq i64 %45, %25
   br i1 %exitcond.not, label %_ZNK3ue29CharReach4noneEv.exit._crit_edge, label %31, !llvm.loop !16
 
 _ZNK3ue29CharReach4noneEv.exit._crit_edge:        ; preds = %44, %_ZNK3ue29CharReach4noneEv.exit, %16
-  %storemerge.lcssa = phi i64 [ 0, %16 ], [ %storemerge22, %_ZNK3ue29CharReach4noneEv.exit ], [ %umax, %44 ]
+  %storemerge.lcssa = phi i64 [ 0, %16 ], [ %storemerge22, %_ZNK3ue29CharReach4noneEv.exit ], [ %25, %44 ]
   %46 = load ptr, ptr %15, align 8
   %.not.i = icmp eq ptr %17, %46
   br i1 %.not.i, label %49, label %47

@@ -2450,8 +2450,6 @@ llvm_emit_switch_body_if_chain.exit:              ; preds = %._crit_edge, %105, 
   %129 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %130 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %umax = call i32 @llvm.umax.i32(i32 %33, i32 1)
-  %wide.trip.count164 = zext i32 %umax to i64
   br label %132
 
 132:                                              ; preds = %125, %179
@@ -2541,7 +2539,7 @@ llvm_emit_switch_body_if_chain.exit:              ; preds = %._crit_edge, %105, 
 
 179:                                              ; preds = %.loopexit, %175
   %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 1
-  %exitcond165.not = icmp eq i64 %indvars.iv.next162, %wide.trip.count164
+  %exitcond165.not = icmp eq i64 %indvars.iv.next162, %wide.trip.count
   br i1 %exitcond165.not, label %180, label %132, !llvm.loop !23
 
 180:                                              ; preds = %179

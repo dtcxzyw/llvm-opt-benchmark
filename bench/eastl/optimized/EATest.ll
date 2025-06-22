@@ -4367,7 +4367,6 @@ for.body.preheader:                               ; preds = %entry
   %sub.ptr.rhs.cast.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
@@ -4391,7 +4390,7 @@ invoke.cont5:                                     ; preds = %for.body
 
 for.inc:                                          ; preds = %invoke.cont5
   %inc = add nuw i64 %i.012, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !22
 
 lpad:                                             ; preds = %invoke.cont5, %for.body

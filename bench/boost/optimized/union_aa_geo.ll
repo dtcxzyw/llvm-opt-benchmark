@@ -174548,7 +174548,6 @@ _ZN5boost8geometry6detail7overlay12sort_by_side11side_sorterILb0ELb0ELNS0_12over
   %186 = ptrtoint ptr %183 to i64
   %187 = sub i64 %185, %186
   %188 = sdiv exact i64 %187, 112
-  %umax.i.i = call i64 @llvm.umax.i64(i64 %188, i64 1)
   br label %.lr.ph.i.i60
 
 .lr.ph.i.i60:                                     ; preds = %206, %.lr.ph.preheader.i.i
@@ -174584,7 +174583,7 @@ _ZN5boost8geometry6detail7overlay12sort_by_side11side_sorterILb0ELb0ELNS0_12over
   %.113.i.i = phi i64 [ %.01215.i.i, %193 ], [ %.01215.i.i, %.lr.ph.i.i60 ], [ %spec.select.i.i, %197 ]
   %.1.i.i = phi i64 [ %.017.i.i, %193 ], [ %.017.i.i, %.lr.ph.i.i60 ], [ %spec.select14.i.i, %197 ]
   %207 = add nuw i64 %.01116.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %207, %umax.i.i
+  %exitcond.not.i.i = icmp eq i64 %207, %188
   br i1 %exitcond.not.i.i, label %_ZNK5boost8geometry6detail7overlay12sort_by_side11side_sorterILb0ELb0ELNS0_12overlay_typeE0ENS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEENS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSH_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyESt4lessIiEE10open_countENS2_14operation_typeE.exit, label %.lr.ph.i.i60, !llvm.loop !3378
 
 208:                                              ; preds = %181
@@ -174595,20 +174594,19 @@ _ZN5boost8geometry6detail7overlay12sort_by_side11side_sorterILb0ELb0ELNS0_12over
   %210 = ptrtoint ptr %183 to i64
   %211 = sub i64 %209, %210
   %212 = sdiv exact i64 %211, 112
-  %umax.i3.i = call i64 @llvm.umax.i64(i64 %212, i64 1)
-  br label %.lr.ph.i4.i
+  br label %.lr.ph.i3.i
 
-.lr.ph.i4.i:                                      ; preds = %230, %.lr.ph.preheader.i2.i
-  %.017.i5.i = phi i64 [ %.1.i9.i, %230 ], [ 0, %.lr.ph.preheader.i2.i ]
-  %.01116.i6.i = phi i64 [ %231, %230 ], [ 0, %.lr.ph.preheader.i2.i ]
-  %.01215.i7.i = phi i64 [ %.113.i8.i, %230 ], [ 0, %.lr.ph.preheader.i2.i ]
-  %213 = getelementptr inbounds nuw %"struct.boost::geometry::detail::overlay::sort_by_side::ranked_point", ptr %183, i64 %.01116.i6.i
+.lr.ph.i3.i:                                      ; preds = %230, %.lr.ph.preheader.i2.i
+  %.017.i4.i = phi i64 [ %.1.i8.i, %230 ], [ 0, %.lr.ph.preheader.i2.i ]
+  %.01116.i5.i = phi i64 [ %231, %230 ], [ 0, %.lr.ph.preheader.i2.i ]
+  %.01215.i6.i = phi i64 [ %.113.i7.i, %230 ], [ 0, %.lr.ph.preheader.i2.i ]
+  %213 = getelementptr inbounds nuw %"struct.boost::geometry::detail::overlay::sort_by_side::ranked_point", ptr %183, i64 %.01116.i5.i
   %214 = getelementptr inbounds nuw i8, ptr %213, i64 16
   %215 = load i64, ptr %214, align 8, !tbaa !3371
-  %216 = icmp sgt i64 %215, %.01215.i7.i
+  %216 = icmp sgt i64 %215, %.01215.i6.i
   br i1 %216, label %217, label %230
 
-217:                                              ; preds = %.lr.ph.i4.i
+217:                                              ; preds = %.lr.ph.i3.i
   %218 = getelementptr inbounds nuw i8, ptr %213, i64 44
   %219 = load i32, ptr %218, align 4, !tbaa !3375
   %220 = icmp eq i32 %219, 1
@@ -174622,20 +174620,20 @@ _ZN5boost8geometry6detail7overlay12sort_by_side11side_sorterILb0ELb0ELNS0_12over
   %226 = load i64, ptr %225, align 8
   %227 = icmp ugt i64 %226, 1
   %228 = select i1 %224, i1 %227, i1 false
-  %spec.select.i12.i = select i1 %228, i64 %215, i64 %.01215.i7.i
+  %spec.select.i11.i = select i1 %228, i64 %215, i64 %.01215.i6.i
   %229 = zext i1 %228 to i64
-  %spec.select14.i13.i = add i64 %.017.i5.i, %229
+  %spec.select14.i12.i = add i64 %.017.i4.i, %229
   br label %230
 
-230:                                              ; preds = %221, %217, %.lr.ph.i4.i
-  %.113.i8.i = phi i64 [ %.01215.i7.i, %217 ], [ %.01215.i7.i, %.lr.ph.i4.i ], [ %spec.select.i12.i, %221 ]
-  %.1.i9.i = phi i64 [ %.017.i5.i, %217 ], [ %.017.i5.i, %.lr.ph.i4.i ], [ %spec.select14.i13.i, %221 ]
-  %231 = add nuw i64 %.01116.i6.i, 1
-  %exitcond.not.i10.i = icmp eq i64 %231, %umax.i3.i
-  br i1 %exitcond.not.i10.i, label %_ZNK5boost8geometry6detail7overlay12sort_by_side11side_sorterILb0ELb0ELNS0_12overlay_typeE0ENS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEENS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSH_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyESt4lessIiEE10open_countENS2_14operation_typeE.exit, label %.lr.ph.i4.i, !llvm.loop !3379
+230:                                              ; preds = %221, %217, %.lr.ph.i3.i
+  %.113.i7.i = phi i64 [ %.01215.i6.i, %217 ], [ %.01215.i6.i, %.lr.ph.i3.i ], [ %spec.select.i11.i, %221 ]
+  %.1.i8.i = phi i64 [ %.017.i4.i, %217 ], [ %.017.i4.i, %.lr.ph.i3.i ], [ %spec.select14.i12.i, %221 ]
+  %231 = add nuw i64 %.01116.i5.i, 1
+  %exitcond.not.i9.i = icmp eq i64 %231, %212
+  br i1 %exitcond.not.i9.i, label %_ZNK5boost8geometry6detail7overlay12sort_by_side11side_sorterILb0ELb0ELNS0_12overlay_typeE0ENS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEENS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSH_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyESt4lessIiEE10open_countENS2_14operation_typeE.exit, label %.lr.ph.i3.i, !llvm.loop !3379
 
 _ZNK5boost8geometry6detail7overlay12sort_by_side11side_sorterILb0ELb0ELNS0_12overlay_typeE0ENS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEENS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSH_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyESt4lessIiEE10open_countENS2_14operation_typeE.exit: ; preds = %230, %206, %208, %184
-  %232 = phi i64 [ 0, %184 ], [ 0, %208 ], [ %.1.i.i, %206 ], [ %.1.i9.i, %230 ]
+  %232 = phi i64 [ 0, %184 ], [ 0, %208 ], [ %.1.i.i, %206 ], [ %.1.i8.i, %230 ]
   %233 = getelementptr inbounds nuw i8, ptr %.sroa.080.0113, i64 88
   store i64 %232, ptr %233, align 8, !tbaa !3380
   %234 = getelementptr inbounds nuw i8, ptr %.sroa.080.0113, i64 96
@@ -174665,7 +174663,6 @@ _ZNK5boost8geometry6detail7overlay12sort_by_side11side_sorterILb0ELb0ELNS0_12ove
   %246 = load ptr, ptr %19, align 8
   %247 = icmp eq i64 %232, 0
   %or.cond = select i1 %23, i1 %247, i1 false
-  %umax = call i64 @llvm.umax.i64(i64 %238, i64 1)
   br label %268
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %265
@@ -174775,7 +174772,7 @@ _ZNSt5dequeIN5boost8geometry6detail7overlay19traversal_turn_infoINS1_5model5poin
 
 .thread:                                          ; preds = %302, %303, %304, %286
   %306 = add nuw i64 %.049110, 1
-  %exitcond118.not = icmp eq i64 %306, %umax
+  %exitcond118.not = icmp eq i64 %306, %238
   br i1 %exitcond118.not, label %_ZN5boost8geometry6detail7overlay8fill_sbsINS2_12sort_by_side11side_sorterILb0ELb0ELNS0_12overlay_typeE0ENS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEENS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSI_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyESt4lessIiEEESD_St5dequeINS2_19traversal_turn_infoISD_NS0_13segment_ratioIdEEEESaISZ_EENS7_7polygonISD_Lb1ELb1ESt6vectorS13_SaSaEES14_EEbRT_RT0_RKNS2_12cluster_infoERKT1_RKT2_RKT3_.exit.thread96.thread123, label %268, !llvm.loop !3394
 
 _ZN5boost8geometry6detail7overlay8fill_sbsINS2_12sort_by_side11side_sorterILb0ELb0ELNS0_12overlay_typeE0ENS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEENS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSI_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyESt4lessIiEEESD_St5dequeINS2_19traversal_turn_infoISD_NS0_13segment_ratioIdEEEESaISZ_EENS7_7polygonISD_Lb1ELb1ESt6vectorS13_SaSaEES14_EEbRT_RT0_RKNS2_12cluster_infoERKT1_RKT2_RKT3_.exit.thread96.thread123: ; preds = %.thread
@@ -178058,7 +178055,6 @@ define linkonce_odr hidden noundef i64 @_ZN5boost8geometry6detail7overlay12sort_
 
 .lr.ph.preheader.i:                               ; preds = %11
   %12 = add nsw i64 %10, 1
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %29
@@ -178098,7 +178094,7 @@ define linkonce_odr hidden noundef i64 @_ZN5boost8geometry6detail7overlay12sort_
   %or.cond.i = select i1 %30, i1 %31, i1 false
   %spec.select58.i = select i1 %or.cond.i, i64 %.05363.i, i64 %.04965.i
   %32 = add nuw i64 %.05363.i, 1
-  %exitcond.not.i = icmp eq i64 %32, %umax.i
+  %exitcond.not.i = icmp eq i64 %32, %10
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !3487
 
 .lr.ph74.i:                                       ; preds = %54, %._crit_edge.i
@@ -178149,7 +178145,7 @@ define linkonce_odr hidden noundef i64 @_ZN5boost8geometry6detail7overlay12sort_
   %55 = getelementptr inbounds nuw i8, ptr %33, i64 24
   store i64 %.147.i, ptr %55, align 8, !tbaa !3392
   %56 = add nuw i64 %.03972.i, 1
-  %exitcond80.not.i = icmp eq i64 %56, %umax.i
+  %exitcond80.not.i = icmp eq i64 %56, %10
   br i1 %exitcond80.not.i, label %_ZN5boost8geometry6detail7overlay12sort_by_side11side_sorterILb0ELb0ELNS0_12overlay_typeE0ENS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEENS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSH_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyESt4lessIiEE12assign_zonesINST_13include_unionEEEmRKT_.exit, label %.lr.ph74.i, !llvm.loop !3488
 
 57:                                               ; preds = %2
@@ -178157,28 +178153,27 @@ define linkonce_odr hidden noundef i64 @_ZN5boost8geometry6detail7overlay12sort_
 
 .lr.ph.preheader.i2:                              ; preds = %57
   %58 = add nsw i64 %10, 1
-  %umax.i3 = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
-  br label %.lr.ph.i4
+  br label %.lr.ph.i3
 
-._crit_edge.i14:                                  ; preds = %75
-  %59 = add nuw nsw i64 %spec.select.i9, 1
-  br label %.lr.ph74.i16
+._crit_edge.i13:                                  ; preds = %75
+  %59 = add nuw nsw i64 %spec.select.i8, 1
+  br label %.lr.ph74.i14
 
-.lr.ph.i4:                                        ; preds = %75, %.lr.ph.preheader.i2
-  %.066.i5 = phi i64 [ %.1.i10, %75 ], [ %58, %.lr.ph.preheader.i2 ]
-  %.04965.i6 = phi i64 [ %spec.select58.i12, %75 ], [ 0, %.lr.ph.preheader.i2 ]
-  %.05164.i7 = phi i64 [ %spec.select.i9, %75 ], [ 0, %.lr.ph.preheader.i2 ]
-  %.05363.i8 = phi i64 [ %78, %75 ], [ 0, %.lr.ph.preheader.i2 ]
-  %60 = getelementptr inbounds nuw %"struct.boost::geometry::detail::overlay::sort_by_side::ranked_point", ptr %6, i64 %.05363.i8
+.lr.ph.i3:                                        ; preds = %75, %.lr.ph.preheader.i2
+  %.066.i4 = phi i64 [ %.1.i9, %75 ], [ %58, %.lr.ph.preheader.i2 ]
+  %.04965.i5 = phi i64 [ %spec.select58.i11, %75 ], [ 0, %.lr.ph.preheader.i2 ]
+  %.05164.i6 = phi i64 [ %spec.select.i8, %75 ], [ 0, %.lr.ph.preheader.i2 ]
+  %.05363.i7 = phi i64 [ %78, %75 ], [ 0, %.lr.ph.preheader.i2 ]
+  %60 = getelementptr inbounds nuw %"struct.boost::geometry::detail::overlay::sort_by_side::ranked_point", ptr %6, i64 %.05363.i7
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %62 = load i64, ptr %61, align 8, !tbaa !3371
-  %spec.select.i9 = tail call i64 @llvm.smax.i64(i64 %62, i64 %.05164.i7)
+  %spec.select.i8 = tail call i64 @llvm.smax.i64(i64 %62, i64 %.05164.i6)
   %63 = getelementptr inbounds nuw i8, ptr %60, i64 44
   %64 = load i32, ptr %63, align 4, !tbaa !3375
   %65 = icmp eq i32 %64, 1
   br i1 %65, label %66, label %75
 
-66:                                               ; preds = %.lr.ph.i4
+66:                                               ; preds = %.lr.ph.i3
   %67 = getelementptr inbounds nuw i8, ptr %60, i64 48
   %68 = load i64, ptr %67, align 8, !tbaa !3377
   %69 = icmp ult i64 %68, 2
@@ -178187,39 +178182,39 @@ define linkonce_odr hidden noundef i64 @_ZN5boost8geometry6detail7overlay12sort_
   %72 = icmp ugt i64 %71, 1
   %73 = select i1 %69, i1 %72, i1 false
   %74 = add nsw i64 %62, 1
-  %spec.select62.i33 = select i1 %73, i64 %74, i64 %.066.i5
+  %spec.select62.i31 = select i1 %73, i64 %74, i64 %.066.i4
   br label %75
 
-75:                                               ; preds = %66, %.lr.ph.i4
-  %.1.i10 = phi i64 [ %.066.i5, %.lr.ph.i4 ], [ %spec.select62.i33, %66 ]
-  %76 = icmp eq i64 %62, %.1.i10
-  %77 = icmp eq i64 %.04965.i6, 0
-  %or.cond.i11 = select i1 %76, i1 %77, i1 false
-  %spec.select58.i12 = select i1 %or.cond.i11, i64 %.05363.i8, i64 %.04965.i6
-  %78 = add nuw i64 %.05363.i8, 1
-  %exitcond.not.i13 = icmp eq i64 %78, %umax.i3
-  br i1 %exitcond.not.i13, label %._crit_edge.i14, label %.lr.ph.i4, !llvm.loop !3489
+75:                                               ; preds = %66, %.lr.ph.i3
+  %.1.i9 = phi i64 [ %.066.i4, %.lr.ph.i3 ], [ %spec.select62.i31, %66 ]
+  %76 = icmp eq i64 %62, %.1.i9
+  %77 = icmp eq i64 %.04965.i5, 0
+  %or.cond.i10 = select i1 %76, i1 %77, i1 false
+  %spec.select58.i11 = select i1 %or.cond.i10, i64 %.05363.i7, i64 %.04965.i5
+  %78 = add nuw i64 %.05363.i7, 1
+  %exitcond.not.i12 = icmp eq i64 %78, %10
+  br i1 %exitcond.not.i12, label %._crit_edge.i13, label %.lr.ph.i3, !llvm.loop !3489
 
-.lr.ph74.i16:                                     ; preds = %100, %._crit_edge.i14
-  %.03972.i17 = phi i64 [ %102, %100 ], [ 0, %._crit_edge.i14 ]
-  %.04071.i18 = phi i64 [ %spec.select59.i22, %100 ], [ %spec.select58.i12, %._crit_edge.i14 ]
-  %.04270.i19 = phi i64 [ %.143.i28, %100 ], [ %59, %._crit_edge.i14 ]
-  %.04469.i20 = phi i64 [ %.145.i27, %100 ], [ 0, %._crit_edge.i14 ]
-  %.04668.i21 = phi i64 [ %.147.i26, %100 ], [ 0, %._crit_edge.i14 ]
-  %79 = getelementptr inbounds nuw %"struct.boost::geometry::detail::overlay::sort_by_side::ranked_point", ptr %6, i64 %.04071.i18
-  %80 = add i64 %.04071.i18, 1
+.lr.ph74.i14:                                     ; preds = %100, %._crit_edge.i13
+  %.03972.i15 = phi i64 [ %102, %100 ], [ 0, %._crit_edge.i13 ]
+  %.04071.i16 = phi i64 [ %spec.select59.i20, %100 ], [ %spec.select58.i11, %._crit_edge.i13 ]
+  %.04270.i17 = phi i64 [ %.143.i26, %100 ], [ %59, %._crit_edge.i13 ]
+  %.04469.i18 = phi i64 [ %.145.i25, %100 ], [ 0, %._crit_edge.i13 ]
+  %.04668.i19 = phi i64 [ %.147.i24, %100 ], [ 0, %._crit_edge.i13 ]
+  %79 = getelementptr inbounds nuw %"struct.boost::geometry::detail::overlay::sort_by_side::ranked_point", ptr %6, i64 %.04071.i16
+  %80 = add i64 %.04071.i16, 1
   %81 = icmp eq i64 %80, %10
-  %spec.select59.i22 = select i1 %81, i64 0, i64 %80
+  %spec.select59.i20 = select i1 %81, i64 0, i64 %80
   %82 = getelementptr inbounds nuw i8, ptr %79, i64 16
   %83 = load i64, ptr %82, align 8, !tbaa !3371
-  %.not.i23 = icmp eq i64 %83, %.04469.i20
-  br i1 %.not.i23, label %100, label %84
+  %.not.i21 = icmp eq i64 %83, %.04469.i18
+  br i1 %.not.i21, label %100, label %84
 
-84:                                               ; preds = %.lr.ph74.i16
-  %85 = icmp eq i64 %83, %.04270.i19
+84:                                               ; preds = %.lr.ph74.i14
+  %85 = icmp eq i64 %83, %.04270.i17
   %86 = zext i1 %85 to i64
-  %spec.select60.i24 = add i64 %.04668.i21, %86
-  %spec.select61.i25 = select i1 %85, i64 %59, i64 %.04270.i19
+  %spec.select60.i22 = add i64 %.04668.i19, %86
+  %spec.select61.i23 = select i1 %85, i64 %59, i64 %.04270.i17
   %87 = getelementptr inbounds nuw i8, ptr %79, i64 44
   %88 = load i32, ptr %87, align 4, !tbaa !3375
   %89 = icmp eq i32 %88, 1
@@ -178237,22 +178232,22 @@ define linkonce_odr hidden noundef i64 @_ZN5boost8geometry6detail7overlay12sort_
 
 98:                                               ; preds = %90
   %99 = add nsw i64 %83, 1
-  %.not57.i31 = icmp slt i64 %83, %spec.select.i9
-  %spec.store.select.i32 = select i1 %.not57.i31, i64 %99, i64 0
+  %.not57.i29 = icmp slt i64 %83, %spec.select.i8
+  %spec.store.select.i30 = select i1 %.not57.i29, i64 %99, i64 0
   br label %100
 
-100:                                              ; preds = %98, %90, %84, %.lr.ph74.i16
-  %.147.i26 = phi i64 [ %.04668.i21, %.lr.ph74.i16 ], [ %spec.select60.i24, %98 ], [ %spec.select60.i24, %90 ], [ %spec.select60.i24, %84 ]
-  %.145.i27 = phi i64 [ %.04469.i20, %.lr.ph74.i16 ], [ %83, %98 ], [ %83, %90 ], [ %83, %84 ]
-  %.143.i28 = phi i64 [ %.04270.i19, %.lr.ph74.i16 ], [ %spec.store.select.i32, %98 ], [ %spec.select61.i25, %90 ], [ %spec.select61.i25, %84 ]
+100:                                              ; preds = %98, %90, %84, %.lr.ph74.i14
+  %.147.i24 = phi i64 [ %.04668.i19, %.lr.ph74.i14 ], [ %spec.select60.i22, %98 ], [ %spec.select60.i22, %90 ], [ %spec.select60.i22, %84 ]
+  %.145.i25 = phi i64 [ %.04469.i18, %.lr.ph74.i14 ], [ %83, %98 ], [ %83, %90 ], [ %83, %84 ]
+  %.143.i26 = phi i64 [ %.04270.i17, %.lr.ph74.i14 ], [ %spec.store.select.i30, %98 ], [ %spec.select61.i23, %90 ], [ %spec.select61.i23, %84 ]
   %101 = getelementptr inbounds nuw i8, ptr %79, i64 24
-  store i64 %.147.i26, ptr %101, align 8, !tbaa !3392
-  %102 = add nuw i64 %.03972.i17, 1
-  %exitcond80.not.i29 = icmp eq i64 %102, %umax.i3
-  br i1 %exitcond80.not.i29, label %_ZN5boost8geometry6detail7overlay12sort_by_side11side_sorterILb0ELb0ELNS0_12overlay_typeE0ENS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEENS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSH_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyESt4lessIiEE12assign_zonesINST_13include_unionEEEmRKT_.exit, label %.lr.ph74.i16, !llvm.loop !3490
+  store i64 %.147.i24, ptr %101, align 8, !tbaa !3392
+  %102 = add nuw i64 %.03972.i15, 1
+  %exitcond80.not.i27 = icmp eq i64 %102, %10
+  br i1 %exitcond80.not.i27, label %_ZN5boost8geometry6detail7overlay12sort_by_side11side_sorterILb0ELb0ELNS0_12overlay_typeE0ENS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEENS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSH_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyESt4lessIiEE12assign_zonesINST_13include_unionEEEmRKT_.exit, label %.lr.ph74.i14, !llvm.loop !3490
 
 _ZN5boost8geometry6detail7overlay12sort_by_side11side_sorterILb0ELb0ELNS0_12overlay_typeE0ENS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEENS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSH_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyESt4lessIiEE12assign_zonesINST_13include_unionEEEmRKT_.exit: ; preds = %100, %54, %57, %11
-  %103 = phi i64 [ 0, %11 ], [ 0, %57 ], [ %.147.i, %54 ], [ %.147.i26, %100 ]
+  %103 = phi i64 [ 0, %11 ], [ 0, %57 ], [ %.147.i, %54 ], [ %.147.i24, %100 ]
   ret i64 %103
 }
 
@@ -180294,7 +180289,6 @@ define linkonce_odr hidden void @_ZN5boost8geometry6detail7overlay12sort_by_side
 _ZNK5boost8geometry6detail7overlay12sort_by_side11side_sorterILb0ELb0ELNS0_12overlay_typeE0ENS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEENS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSH_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyESt4lessIiEE4moveIXadL_ZNS0_18segment_identifier12source_indexEEEEEmlm.exit: ; preds = %.lr.ph.i, %3
   %.0.lcssa.i = phi i64 [ %14, %3 ], [ %18, %.lr.ph.i ]
   %.not39.i = icmp eq ptr %9, %4
-  %umax49.i = tail call i64 @llvm.umax.i64(i64 %13, i64 1)
   %.not39.i.fr = freeze i1 %.not39.i
   br i1 %.not39.i.fr, label %.split.us, label %_ZNK5boost8geometry6detail7overlay12sort_by_side11side_sorterILb0ELb0ELNS0_12overlay_typeE0ENS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEENS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSH_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyESt4lessIiEE4moveIXadL_ZNS0_18segment_identifier12source_indexEEEEEmlm.exit.split
 
@@ -180333,7 +180327,7 @@ _ZNK5boost8geometry6detail7overlay12sort_by_side11side_sorterILb0ELb0ELNS0_12ove
 
 33:                                               ; preds = %29, %.lr.ph.split.us.split.us.i
   %34 = add nuw i64 %.027.us.us.i, 1
-  %exitcond50.not.i = icmp eq i64 %34, %umax49.i
+  %exitcond50.not.i = icmp eq i64 %34, %13
   br i1 %exitcond50.not.i, label %.lr.ph.i34, label %.lr.ph.split.us.split.us.i, !llvm.loop !3530
 
 .lr.ph.split.split.us.i:                          ; preds = %.lr.ph.i31, %43
@@ -180355,7 +180349,7 @@ _ZNK5boost8geometry6detail7overlay12sort_by_side11side_sorterILb0ELb0ELNS0_12ove
 
 43:                                               ; preds = %39, %.lr.ph.split.split.us.i
   %44 = add nuw i64 %.027.us28.i, 1
-  %exitcond46.not.i = icmp eq i64 %44, %umax49.i
+  %exitcond46.not.i = icmp eq i64 %44, %13
   br i1 %exitcond46.not.i, label %.lr.ph.i34, label %.lr.ph.split.split.us.i, !llvm.loop !3530
 
 .lr.ph.i34:                                       ; preds = %33, %43
@@ -180380,7 +180374,7 @@ _ZNK5boost8geometry6detail7overlay12sort_by_side11side_sorterILb0ELb0ELNS0_12ove
 
 53:                                               ; preds = %49, %.lr.ph.split.us.split.us33.i
   %54 = add nuw i64 %.027.us.us34.i, 1
-  %exitcond48.not.i = icmp eq i64 %54, %umax49.i
+  %exitcond48.not.i = icmp eq i64 %54, %13
   br i1 %exitcond48.not.i, label %_ZN5boost8geometry6detail7overlay12sort_by_side11side_sorterILb0ELb0ELNS0_12overlay_typeE0ENS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEENS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSH_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyESt4lessIiEE12assign_ranksElli.exit38, label %.lr.ph.split.us.split.us33.i, !llvm.loop !3530
 
 .lr.ph.split.split.us29.i:                        ; preds = %.lr.ph.i34, %63
@@ -180402,7 +180396,7 @@ _ZNK5boost8geometry6detail7overlay12sort_by_side11side_sorterILb0ELb0ELNS0_12ove
 
 63:                                               ; preds = %59, %.lr.ph.split.split.us29.i
   %64 = add nuw i64 %.027.us30.i, 1
-  %exitcond.not.i = icmp eq i64 %64, %umax49.i
+  %exitcond.not.i = icmp eq i64 %64, %13
   br i1 %exitcond.not.i, label %_ZN5boost8geometry6detail7overlay12sort_by_side11side_sorterILb0ELb0ELNS0_12overlay_typeE0ENS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEENS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSH_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyESt4lessIiEE12assign_ranksElli.exit38, label %.lr.ph.split.split.us29.i, !llvm.loop !3530
 
 _ZN5boost8geometry6detail7overlay12sort_by_side11side_sorterILb0ELb0ELNS0_12overlay_typeE0ENS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEENS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSH_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyESt4lessIiEE12assign_ranksElli.exit38: ; preds = %53, %63, %_ZNK5boost8geometry6detail7overlay12sort_by_side11side_sorterILb0ELb0ELNS0_12overlay_typeE0ENS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEENS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSH_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyESt4lessIiEE4moveIXadL_ZNS0_18segment_identifier12source_indexEEEEEmlm.exit.split
@@ -192216,7 +192210,6 @@ _ZNK5boost8geometry6detail7overlay9traversalILb0ELb0ELNS0_12overlay_typeE0ENS0_5
   %.idx.i = mul nuw nsw i64 %34, 168
   %36 = getelementptr i8, ptr %storemerge.i.i.i.i.i.i, i64 184
   %37 = getelementptr i8, ptr %36, i64 %.idx.i
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %.pre36, i64 1)
   br label %38
 
 38:                                               ; preds = %69, %.lr.ph.i
@@ -192272,7 +192265,7 @@ _ZNK5boost8geometry6detail7overlay9traversalILb0ELb0ELNS0_12overlay_typeE0ENS0_5
 
 69:                                               ; preds = %64, %_ZNK5boost8geometry6detail7overlay9traversalILb0ELb0ELNS0_12overlay_typeE0ENS0_5model7polygonINS5_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSD_SaSaEESE_St5dequeINS2_19traversal_turn_infoISC_NS0_13segment_ratioIdEEEESaISJ_EESt3mapIlNS2_12cluster_infoESt4lessIlESaISt4pairIKlSN_EEENS1_17no_rescale_policyENS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINS10_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyENS2_20overlay_null_visitorEE19operation_from_rankINS2_12sort_by_side12ranked_pointISC_EEEERKNS2_24traversal_turn_operationISC_SI_EERKT_.exit25.i, %43, %38
   %70 = add nuw i64 %.01731.i, 1
-  %exitcond.not.i = icmp eq i64 %70, %umax.i
+  %exitcond.not.i = icmp eq i64 %70, %.pre36
   br i1 %exitcond.not.i, label %_ZNK5boost8geometry6detail7overlay9traversalILb0ELb0ELNS0_12overlay_typeE0ENS0_5model7polygonINS5_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSD_SaSaEESE_St5dequeINS2_19traversal_turn_infoISC_NS0_13segment_ratioIdEEEESaISJ_EESt3mapIlNS2_12cluster_infoESt4lessIlESaISt4pairIKlSN_EEENS1_17no_rescale_policyENS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINS10_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyENS2_20overlay_null_visitorEE11select_rankERKNS2_12sort_by_side11side_sorterILb0ELb0ELS4_0ESC_S19_St7greaterIiEEE.exit, label %38, !llvm.loop !3825
 
 _ZNK5boost8geometry6detail7overlay9traversalILb0ELb0ELNS0_12overlay_typeE0ENS0_5model7polygonINS5_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSD_SaSaEESE_St5dequeINS2_19traversal_turn_infoISC_NS0_13segment_ratioIdEEEESaISJ_EESt3mapIlNS2_12cluster_infoESt4lessIlESaISt4pairIKlSN_EEENS1_17no_rescale_policyENS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINS10_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyENS2_20overlay_null_visitorEE11select_rankERKNS2_12sort_by_side11side_sorterILb0ELb0ELS4_0ESC_S19_St7greaterIiEEE.exit: ; preds = %64, %69, %_ZNK5boost8geometry6detail7overlay9traversalILb0ELb0ELNS0_12overlay_typeE0ENS0_5model7polygonINS5_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSD_SaSaEESE_St5dequeINS2_19traversal_turn_infoISC_NS0_13segment_ratioIdEEEESaISJ_EESt3mapIlNS2_12cluster_infoESt4lessIlESaISt4pairIKlSN_EEENS1_17no_rescale_policyENS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINS10_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyENS2_20overlay_null_visitorEE19operation_from_rankINS2_12sort_by_side12ranked_pointISC_EEEERKNS2_24traversal_turn_operationISC_SI_EERKT_.exit.i

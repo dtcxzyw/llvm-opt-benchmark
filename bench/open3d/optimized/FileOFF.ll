@@ -33518,12 +33518,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   %invariant.gep = getelementptr inbounds nuw i8, ptr %9, i64 240
   %164 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %165 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %umax = call i64 @llvm.umax.i64(i64 %80, i64 1)
   br label %174
-
-.lr.ph179.preheader:                              ; preds = %250
-  %umax180 = call i64 @llvm.umax.i64(i64 %84, i64 1)
-  br label %.lr.ph179
 
 166:                                              ; preds = %_ZNSolsEPFRSoS_E.exit79
   %167 = landingpad { ptr, i32 }
@@ -33727,8 +33722,8 @@ _ZNSolsEPFRSoS_E.exit119:                         ; preds = %.noexc158
 
 250:                                              ; preds = %_ZNSolsEPFRSoS_E.exit119
   %251 = add nuw i64 %.053177, 1
-  %exitcond.not = icmp eq i64 %251, %umax
-  br i1 %exitcond.not, label %.lr.ph179.preheader, label %174, !llvm.loop !674
+  %exitcond.not = icmp eq i64 %251, %80
+  br i1 %exitcond.not, label %.lr.ph179, label %174, !llvm.loop !674
 
 ._crit_edge:                                      ; preds = %300
   %252 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -33750,8 +33745,8 @@ _ZNSolsEPFRSoS_E.exit119:                         ; preds = %.noexc158
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %258, i32 noundef %261)
           to label %_ZNSt14basic_ofstreamIcSt11char_traitsIcEE5closeEv.exit unwind label %311
 
-.lr.ph179:                                        ; preds = %.lr.ph179.preheader, %300
-  %.050178 = phi i64 [ %301, %300 ], [ 0, %.lr.ph179.preheader ]
+.lr.ph179:                                        ; preds = %250, %300
+  %.050178 = phi i64 [ %301, %300 ], [ 0, %250 ]
   %262 = load ptr, ptr %53, align 8, !tbaa !673
   %263 = getelementptr inbounds nuw %"class.Eigen::Matrix.153", ptr %262, i64 %.050178
   %264 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull @.str.75, i64 noundef 2)
@@ -33836,7 +33831,7 @@ _ZNSolsEPFRSoS_E.exit130:                         ; preds = %.noexc169
 
 300:                                              ; preds = %_ZNSolsEPFRSoS_E.exit130
   %301 = add nuw i64 %.050178, 1
-  %exitcond181.not = icmp eq i64 %301, %umax180
+  %exitcond181.not = icmp eq i64 %301, %84
   br i1 %exitcond181.not, label %._crit_edge, label %.lr.ph179, !llvm.loop !675
 
 .loopexit:                                        ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit124, %269, %275, %_ZNSolsEPFRSoS_E.exit130, %.lr.ph179, %267, %273, %292, %.noexc167, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i164, %.noexc169

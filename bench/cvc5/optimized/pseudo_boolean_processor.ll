@@ -727,7 +727,6 @@ define hidden void @_ZN4cvc58internal13preprocessing6passes22PseudoBooleanProces
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
   %12 = ashr exact i64 %11, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %12, i64 1)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit14, %2
@@ -828,7 +827,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %32, %36, %42
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit14: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, %48, %54
   %58 = add nuw i64 %.01115, 1
-  %exitcond.not = icmp eq i64 %58, %umax
+  %exitcond.not = icmp eq i64 %58, %12
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !74
 
 59:                                               ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit

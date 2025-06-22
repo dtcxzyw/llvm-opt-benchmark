@@ -7292,26 +7292,21 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %_ZN4http3uri3Uri8ha
 
 131:                                              ; preds = %130
   %.not = icmp eq i64 %32, %128
-  br i1 %.not, label %_ZN4http3uri4path12PathAndQuery4path17h196169f74ad29859E.exit.i165, label %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17he5a2ef1652ac882fE.exit.thread.i.i171"
+  br i1 %.not, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i183", label %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17he5a2ef1652ac882fE.exit.thread.i.i171"
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i172": ; preds = %130
   %132 = getelementptr inbounds nuw i8, ptr %30, i64 %128
   %133 = load i8, ptr %132, align 1, !alias.scope !967, !noundef !4
   %134 = icmp sgt i8 %133, -65
-  br i1 %134, label %_ZN4http3uri4path12PathAndQuery4path17h196169f74ad29859E.exit.i165, label %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17he5a2ef1652ac882fE.exit.thread.i.i171"
+  br i1 %134, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i183", label %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17he5a2ef1652ac882fE.exit.thread.i.i171"
 
 "_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17he5a2ef1652ac882fE.exit.thread.i.i171": ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i172", %131
   tail call void @_ZN4core3str16slice_error_fail17he2ff12236fb0c056E(ptr noalias noundef nonnull readonly align 1 %30, i64 noundef %32, i64 noundef 0, i64 noundef %128, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c8ce99f97dd1a7c2d7b2e82421dc6b83.71) #23
   unreachable
 
-_ZN4http3uri4path12PathAndQuery4path17h196169f74ad29859E.exit.i165: ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i172", %131
-  %.sroa.4.0.i.i166 = phi i64 [ %128, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i172" ], [ %32, %131 ]
-  %spec.select.i.i167 = tail call i64 @llvm.umax.i64(i64 %.sroa.4.0.i.i166, i64 1)
-  br label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i183"
-
-"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i183": ; preds = %_ZN4http3uri4path12PathAndQuery4path17h196169f74ad29859E.exit.i165, %126
-  %.sroa.3.0.i169 = phi i64 [ %spec.select.i.i167, %_ZN4http3uri4path12PathAndQuery4path17h196169f74ad29859E.exit.i165 ], [ 1, %126 ]
-  %.sroa.0.0.i170 = phi ptr [ %30, %_ZN4http3uri4path12PathAndQuery4path17h196169f74ad29859E.exit.i165 ], [ @anon.c8ce99f97dd1a7c2d7b2e82421dc6b83.72, %126 ]
+"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i183": ; preds = %131, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i172", %126
+  %.sroa.3.0.i169 = phi i64 [ 1, %126 ], [ %128, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i172" ], [ %32, %131 ]
+  %.sroa.0.0.i170 = phi ptr [ @anon.c8ce99f97dd1a7c2d7b2e82421dc6b83.72, %126 ], [ %30, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i172" ], [ %30, %131 ]
   %135 = icmp ne ptr %.sroa.0.0.i170, null
   tail call void @llvm.assume(i1 %135)
   store ptr %.sroa.0.0.i170, ptr %11, align 8

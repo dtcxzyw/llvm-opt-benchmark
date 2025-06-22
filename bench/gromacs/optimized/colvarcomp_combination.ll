@@ -692,7 +692,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43: ; preds = %_ZN
   %213 = ptrtoint ptr %211 to i64
   %214 = sub i64 %212, %213
   %215 = ashr exact i64 %214, 3
-  %umax = call i64 @llvm.umax.i64(i64 %215, i64 1)
   br label %.lr.ph94
 
 ._crit_edge95:                                    ; preds = %226
@@ -718,7 +717,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43: ; preds = %_ZN
 226:                                              ; preds = %.lr.ph94, %225
   %227 = phi i8 [ %217, %.lr.ph94 ], [ 0, %225 ]
   %228 = add nuw i64 %.092, 1
-  %exitcond.not = icmp eq i64 %228, %umax
+  %exitcond.not = icmp eq i64 %228, %215
   br i1 %exitcond.not, label %._crit_edge95, label %.lr.ph94, !llvm.loop !129
 
 229:                                              ; preds = %._crit_edge95
@@ -1204,7 +1203,6 @@ _ZNK11colvarvalue4sizeEv.exit:                    ; preds = %41, %42, %43, %44, 
   %56 = ptrtoint ptr %54 to i64
   %57 = sub i64 %55, %56
   %58 = ashr exact i64 %57, 3
-  %umax36 = tail call i64 @llvm.umax.i64(i64 %58, i64 1)
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %._crit_edge
@@ -1223,7 +1221,6 @@ _ZNK11colvarvalue4sizeEv.exit:                    ; preds = %41, %42, %43, %44, 
   %66 = ptrtoint ptr %64 to i64
   %67 = sub i64 %65, %66
   %68 = sdiv exact i64 %67, 120
-  %umax = tail call i64 @llvm.umax.i64(i64 %68, i64 1)
   br label %.lr.ph
 
 ._crit_edge29:                                    ; preds = %._crit_edge, %.preheader26
@@ -1232,7 +1229,7 @@ _ZNK11colvarvalue4sizeEv.exit:                    ; preds = %41, %42, %43, %44, 
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %70 = add nuw i64 %.02228, 1
-  %exitcond37.not = icmp eq i64 %70, %umax36
+  %exitcond37.not = icmp eq i64 %70, %58
   br i1 %exitcond37.not, label %._crit_edge29, label %.preheader, !llvm.loop !150
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -1250,7 +1247,7 @@ _ZNK11colvarvalue4sizeEv.exit:                    ; preds = %41, %42, %43, %44, 
   store double %76, ptr %74, align 8, !tbaa !133
   store double %79, ptr %77, align 8, !tbaa !133
   %80 = add nuw i64 %.027, 1
-  %exitcond.not = icmp eq i64 %80, %umax
+  %exitcond.not = icmp eq i64 %80, %68
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !157
 
 .loopexit:                                        ; preds = %_ZNK11colvarvalue4sizeEv.exit, %.lr.ph32
@@ -3011,7 +3008,6 @@ define linkonce_odr void @_ZN11colvarvaluepLERKS_(ptr noundef nonnull align 8 de
   %56 = sub i64 %54, %55
   %57 = ashr exact i64 %56, 3
   %58 = load ptr, ptr %49, align 8, !tbaa !139
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %57, i64 1)
   br label %59
 
 59:                                               ; preds = %59, %.lr.ph.i
@@ -3023,7 +3019,7 @@ define linkonce_odr void @_ZN11colvarvaluepLERKS_(ptr noundef nonnull align 8 de
   %64 = fadd double %61, %63
   store double %64, ptr %62, align 8, !tbaa !133
   %65 = add nuw i64 %.06.i, 1
-  %exitcond.not.i = icmp eq i64 %65, %umax.i
+  %exitcond.not.i = icmp eq i64 %65, %57
   br i1 %exitcond.not.i, label %_ZN12colvarmodule8vector1dIdEpLERKS1_.exit, label %59, !llvm.loop !180
 
 66:                                               ; preds = %2

@@ -320,7 +320,6 @@ _ZNSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIc
   %54 = sub i64 %52, %53
   %55 = sdiv exact i64 %54, 24
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %umax = call i64 @llvm.umax.i64(i64 %55, i64 1)
   br label %298
 
 .loopexit:                                        ; preds = %298
@@ -982,7 +981,7 @@ _ZNSt3__14pairIN7mitsuba3refINS1_18SamplingIntegratorIfN5drjit6MatrixINS1_8Spect
   store ptr %.0.i83, ptr %49, align 8
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #24
   %310 = add nuw i64 %.0133, 1
-  %exitcond.not = icmp eq i64 %310, %umax
+  %exitcond.not = icmp eq i64 %310, %55
   br i1 %exitcond.not, label %._crit_edge135, label %298, !llvm.loop !19
 
 311:                                              ; preds = %307

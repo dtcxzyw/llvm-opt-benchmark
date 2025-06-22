@@ -2088,16 +2088,15 @@ define hidden void @_ZN4cvc58internal6theory2bv24BVSolverBitblastInternal8getVal
   %65 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %66 = load ptr, ptr %65, align 8, !tbaa !249
   %67 = load ptr, ptr %7, align 8, !tbaa !245
-  %.not69.not = icmp eq ptr %66, %67
-  br i1 %.not69.not, label %.critedge47, label %.lr.ph
-
-.lr.ph:                                           ; preds = %64
   %68 = ptrtoint ptr %66 to i64
   %69 = ptrtoint ptr %67 to i64
   %70 = sub i64 %68, %69
   %71 = ashr exact i64 %70, 3
+  %.not69.not = icmp eq ptr %66, %67
+  br i1 %.not69.not, label %.critedge47, label %.lr.ph
+
+.lr.ph:                                           ; preds = %64
   %.01668 = add nsw i64 %71, -1
-  %umax97 = call i64 @llvm.umax.i64(i64 %71, i64 1)
   br i1 %3, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZN4cvc58internal7IntegerD2Ev.exit54.us
@@ -2157,7 +2156,7 @@ _ZN4cvc58internal7IntegerD2Ev.exit54.us:          ; preds = %_ZN4cvc58internal7I
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13) #21
   %85 = add nuw i64 %.01970.us, 1
   %.016.us = add i64 %.01671.us, -1
-  %exitcond98.not = icmp eq i64 %85, %umax97
+  %exitcond98.not = icmp eq i64 %85, %71
   br i1 %exitcond98.not, label %.critedge47, label %.lr.ph.split.us, !llvm.loop !296
 
 .split.us:                                        ; preds = %.lr.ph.split.us
@@ -2345,7 +2344,7 @@ _ZN4cvc58internal7IntegerD2Ev.exit54:             ; preds = %_ZN4cvc58internal7I
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13) #21
   %134 = add nuw i64 %.01970, 1
   %.016 = add i64 %.01671, -1
-  %exitcond.not = icmp eq i64 %134, %umax97
+  %exitcond.not = icmp eq i64 %134, %71
   br i1 %exitcond.not, label %.critedge47, label %.lr.ph.split, !llvm.loop !296
 
 135:                                              ; preds = %117, %113, %110

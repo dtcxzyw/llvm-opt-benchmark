@@ -1503,7 +1503,6 @@ cond.end:                                         ; preds = %invoke.cont.i, %ini
 
 for.body.lr.ph:                                   ; preds = %cond.end
   %payer = getelementptr inbounds nuw i8, ptr %this, i64 144
-  %umax = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %if.end287, %cond.end
@@ -1702,7 +1701,7 @@ if.end287:                                        ; preds = %invoke.cont281, %if
   %add349 = fadd double %126, %127
   store double %add349, ptr %value, align 8, !tbaa !51
   %inc = add nuw i64 %i.0331, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !90
 
 ehcleanup288:                                     ; preds = %ehcleanup269, %lpad179, %lpad165

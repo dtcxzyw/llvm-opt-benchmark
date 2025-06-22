@@ -12301,7 +12301,6 @@ _ZNSt6vectorIdSaIdEE9push_backEOd.exit:           ; preds = %_ZNSt6vectorIdSaIdE
   %143 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %144 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %145 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %umax = call i64 @llvm.umax.i64(i64 %142, i64 1)
   br label %155
 
 _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i.thread: ; preds = %._crit_edge.thread, %140
@@ -12627,7 +12626,7 @@ _ZN6duckdb6vectorIdLb1EEixEm.exit183:             ; preds = %233
   store i64 %258, ptr %247, align 8, !tbaa !62
   %259 = sub i64 %.0110325, %256
   %260 = add nuw i64 %.0113324, 1
-  %exitcond375.not = icmp eq i64 %260, %umax
+  %exitcond375.not = icmp eq i64 %260, %142
   br i1 %exitcond375.not, label %._crit_edge328, label %155, !llvm.loop !927
 
 261:                                              ; preds = %._crit_edge322
@@ -34303,7 +34302,6 @@ _ZNK6duckdb6vectorINS_13PhysicalIndexELb1EEixEm.exit.lr.ph: ; preds = %39
   %49 = ashr exact i64 %48, 3
   %50 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %51 = load i64, ptr %50, align 8, !tbaa !1130
-  %umax180 = call i64 @llvm.umax.i64(i64 %49, i64 1)
   br label %_ZNK6duckdb6vectorINS_13PhysicalIndexELb1EEixEm.exit
 
 _ZNK6duckdb6vectorINS_13PhysicalIndexELb1EEixEm.exit: ; preds = %_ZNK6duckdb6vectorINS_13PhysicalIndexELb1EEixEm.exit.lr.ph, %61
@@ -34325,7 +34323,7 @@ _ZNK6duckdb6vectorINS_13PhysicalIndexELb1EEixEm.exit: ; preds = %_ZNK6duckdb6vec
 
 61:                                               ; preds = %_ZNK6duckdb6vectorINS_13PhysicalIndexELb1EEixEm.exit
   %62 = add nuw i64 %.043140, 1
-  %exitcond181.not = icmp eq i64 %62, %umax180
+  %exitcond181.not = icmp eq i64 %62, %49
   br i1 %exitcond181.not, label %.loopexit, label %_ZNK6duckdb6vectorINS_13PhysicalIndexELb1EEixEm.exit, !llvm.loop !1545
 
 63:                                               ; preds = %33
@@ -34354,7 +34352,6 @@ _ZNK6duckdb6vectorINS_13PhysicalIndexELb1EEixEm.exit: ; preds = %_ZNK6duckdb6vec
   %.not.not.i.i.i = icmp eq i64 %.fr, 0
   %79 = load i64, ptr %72, align 8
   %80 = load ptr, ptr %70, align 8
-  %umax178 = call i64 @llvm.umax.i64(i64 %77, i64 1)
   br i1 %.not.not.i.i.i, label %.lr.ph.i.split.us, label %.lr.ph.i.split
 
 .lr.ph.i.split.us:                                ; preds = %.lr.ph.i, %_ZNSt13unordered_setIN6duckdb13PhysicalIndexENS0_25PhysicalIndexHashFunctionESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit.i.loopexit.us
@@ -34384,7 +34381,7 @@ _ZNSt13unordered_setIN6duckdb13PhysicalIndexENS0_25PhysicalIndexHashFunctionESt8
   %88 = zext i1 %.not.i.i.i46.us.not.not.not.not to i64
   %spec.select.i.us = add i64 %.02342.i.us, %88
   %89 = add nuw i64 %.02243.i.us, 1
-  %exitcond179.not = icmp eq i64 %89, %umax178
+  %exitcond179.not = icmp eq i64 %89, %77
   br i1 %exitcond179.not, label %._crit_edge.i, label %.lr.ph.i.split.us, !llvm.loop !1547
 
 ._crit_edge.i:                                    ; preds = %_ZNSt13unordered_setIN6duckdb13PhysicalIndexENS0_25PhysicalIndexHashFunctionESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit.i, %_ZNSt13unordered_setIN6duckdb13PhysicalIndexENS0_25PhysicalIndexHashFunctionESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit.i.loopexit.us
@@ -34509,7 +34506,7 @@ _ZNSt13unordered_setIN6duckdb13PhysicalIndexENS0_25PhysicalIndexHashFunctionESt8
   %131 = zext i1 %.not38.i to i64
   %spec.select.i = add i64 %.02342.i, %131
   %132 = add nuw i64 %.02243.i, 1
-  %exitcond176.not = icmp eq i64 %132, %umax178
+  %exitcond176.not = icmp eq i64 %132, %77
   br i1 %exitcond176.not, label %._crit_edge.i, label %.lr.ph.i.split, !llvm.loop !1547
 
 133:                                              ; preds = %._crit_edge.i

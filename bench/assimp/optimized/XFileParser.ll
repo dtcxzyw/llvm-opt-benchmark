@@ -7422,8 +7422,6 @@ _ZNSt6vectorIN6Assimp5XFile4FaceESaIS2_EE6resizeEm.exit: ; preds = %48, %50, %52
   %66 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %67 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %umax = tail call i32 @llvm.umax.i32(i32 %23, i32 1)
-  %wide.trip.count115 = zext i32 %umax to i64
   br label %69
 
 69:                                               ; preds = %_ZNSt6vectorIN6Assimp5XFile4FaceESaIS2_EE6resizeEm.exit, %_ZN6Assimp11XFileParser16TestForSeparatorEv.exit
@@ -7565,7 +7563,7 @@ _ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit.i: ; preds = %_ZN6Assimp1
 
 _ZN6Assimp11XFileParser16TestForSeparatorEv.exit: ; preds = %._crit_edge85, %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit.i, %116, %118
   %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
-  %exitcond116.not = icmp eq i64 %indvars.iv.next113, %wide.trip.count115
+  %exitcond116.not = icmp eq i64 %indvars.iv.next113, %24
   br i1 %exitcond116.not, label %.loopexit, label %69, !llvm.loop !25
 
 120:                                              ; preds = %.lr.ph84, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
@@ -23269,9 +23267,6 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #26
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #26
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

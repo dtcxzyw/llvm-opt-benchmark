@@ -720,7 +720,6 @@ for.body87.lr.ph:                                 ; preds = %invoke.cont78
   %sub.ptr.div.i111 = ashr exact i64 %sub.ptr.sub.i110, 3
   %48 = load ptr, ptr %couponDates, align 8, !tbaa !69
   %add.i = fadd double %call79, 0x3F93B13B13B13B14
-  %umax = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i111, i64 1)
   br label %for.body87
 
 lpad73:                                           ; preds = %for.body67
@@ -785,7 +784,7 @@ cleanup:                                          ; preds = %invoke.cont102
 
 for.inc118:                                       ; preds = %for.body87
   %inc119 = add nuw i64 %j.0173, 1
-  %exitcond.not = icmp eq i64 %inc119, %umax
+  %exitcond.not = icmp eq i64 %inc119, %sub.ptr.div.i111
   br i1 %exitcond.not, label %cleanup120, label %for.body87, !llvm.loop !80
 
 cleanup120:                                       ; preds = %for.inc118, %invoke.cont78, %cleanup

@@ -2219,16 +2219,11 @@ _ZN7rocksdb10autovectorIPNS_10KeyContextELm32EE6resizeEm.exit: ; preds = %.noexc
   %125 = getelementptr inbounds nuw i8, ptr %18, i64 1048
   %126 = getelementptr inbounds nuw i8, ptr %18, i64 1056
   %127 = getelementptr inbounds nuw i8, ptr %96, i64 2224
-  %umax = call i64 @llvm.umax.i64(i64 %43, i64 1)
   %.pre = load ptr, ptr %13, align 8, !tbaa !312
   br label %135
 
 .preheader:                                       ; preds = %190
-  br i1 %.not.i.i.i.i, label %._crit_edge, label %.lr.ph209.preheader
-
-.lr.ph209.preheader:                              ; preds = %.preheader
-  %umax218 = call i64 @llvm.umax.i64(i64 %43, i64 1)
-  br label %.lr.ph209
+  br i1 %.not.i.i.i.i, label %._crit_edge, label %.lr.ph209
 
 128:                                              ; preds = %_ZNSt16allocator_traitsISaIN7rocksdb6StatusEEE8allocateERS2_m.exit.i.i.i.i, %46
   %129 = landingpad { ptr, i32 }
@@ -2430,7 +2425,7 @@ _ZN7rocksdb10autovectorINS_12MergeContextELm32EE12emplace_backIJEEEvDpOT_.exit: 
   store ptr %.0.i95, ptr %201, align 8, !tbaa !406
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #24
   %202 = add nuw i64 %.050207, 1
-  %exitcond.not = icmp eq i64 %202, %umax
+  %exitcond.not = icmp eq i64 %202, %43
   br i1 %exitcond.not, label %.preheader, label %135, !llvm.loop !407
 
 .loopexit199:                                     ; preds = %.lr.ph.i.i.i
@@ -2473,8 +2468,8 @@ _ZN7rocksdb10autovectorINS_12MergeContextELm32EE12emplace_backIJEEEvDpOT_.exit: 
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #24
   br label %.loopexit.split-lp
 
-.lr.ph209:                                        ; preds = %.lr.ph209.preheader, %.lr.ph209
-  %.049208 = phi i64 [ %219, %.lr.ph209 ], [ 0, %.lr.ph209.preheader ]
+.lr.ph209:                                        ; preds = %.preheader, %.lr.ph209
+  %.049208 = phi i64 [ %219, %.lr.ph209 ], [ 0, %.preheader ]
   %208 = icmp ult i64 %.049208, 32
   %209 = load ptr, ptr %99, align 8
   %210 = getelementptr inbounds nuw %"struct.rocksdb::KeyContext", ptr %209, i64 %.049208
@@ -2490,7 +2485,7 @@ _ZN7rocksdb10autovectorINS_12MergeContextELm32EE12emplace_backIJEEEvDpOT_.exit: 
   %.0.i98 = select i1 %208, ptr %215, ptr %218
   store ptr %.0.i97, ptr %.0.i98, align 8, !tbaa !359
   %219 = add nuw i64 %.049208, 1
-  %exitcond219.not = icmp eq i64 %219, %umax218
+  %exitcond219.not = icmp eq i64 %219, %43
   br i1 %exitcond219.not, label %._crit_edge, label %.lr.ph209, !llvm.loop !408
 
 ._crit_edge:                                      ; preds = %.lr.ph209, %_ZNSt6vectorIPN7rocksdb10KeyContextESaIS2_EE5clearEv.exit.i, %_ZN7rocksdb10autovectorIPNS_10KeyContextELm32EE6resizeEm.exit, %.preheader
@@ -2738,7 +2733,6 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resize
   br i1 %.not.i.i.i.i, label %._crit_edge212, label %.lr.ph211
 
 .lr.ph211:                                        ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit
-  %umax220 = call i64 @llvm.umax.i64(i64 %43, i64 1)
   %.pre233 = load ptr, ptr %0, align 8, !tbaa !304
   br label %463
 
@@ -3238,7 +3232,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm.exit.sink.spli
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm.exit.sink.split, %497, %493, %489, %478, %463, %467
   %501 = add nuw i64 %.0210, 1
-  %exitcond221.not = icmp eq i64 %501, %umax220
+  %exitcond221.not = icmp eq i64 %501, %43
   br i1 %exitcond221.not, label %._crit_edge212, label %463, !llvm.loop !470
 
 502:                                              ; preds = %476, %461

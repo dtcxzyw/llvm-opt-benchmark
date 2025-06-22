@@ -1086,7 +1086,6 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backEOS2_.exit: ; preds = %_ZNSt6vecto
   %413 = ashr exact i64 %412, 3
   %.sroa.01.0.vec.extract.i = extractelement <2 x float> %.sroa.012.0.copyload, i64 0
   %.sroa.01.4.vec.extract.i = extractelement <2 x float> %.sroa.012.0.copyload, i64 1
-  %umax.i = call i64 @llvm.umax.i64(i64 %413, i64 1)
   br label %415
 
 ._crit_edge.i:                                    ; preds = %415
@@ -1113,7 +1112,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backEOS2_.exit: ; preds = %_ZNSt6vecto
   %.118.i = select i1 %424, i32 %425, i32 %.0172.i
   %.1.i167 = select i1 %424, double %sqrt.i.i, double %.0154.i
   %426 = add nuw i64 %.0163.i, 1
-  %exitcond.not.i168 = icmp eq i64 %426, %umax.i
+  %exitcond.not.i168 = icmp eq i64 %426, %413
   br i1 %exitcond.not.i168, label %._crit_edge.i, label %415, !llvm.loop !98
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %407
@@ -1551,7 +1550,6 @@ _ZNSt6vectorISt4pairIifESaIS1_EE5clearEv.exit:    ; preds = %3, %7
   %.sroa.040.0.vec.extract = extractelement <2 x float> %1, i64 0
   %.sroa.040.4.vec.extract = extractelement <2 x float> %1, i64 1
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %umax62 = tail call i64 @llvm.umax.i64(i64 %15, i64 1)
   br label %17
 
 17:                                               ; preds = %.lr.ph58, %_ZNSt6vectorISt4pairIifESaIS1_EE9push_backEOS1_.exit
@@ -1570,7 +1568,6 @@ _ZNSt6vectorISt4pairIifESaIS1_EE5clearEv.exit:    ; preds = %3, %7
   %25 = ptrtoint ptr %23 to i64
   %26 = sub i64 %24, %25
   %27 = ashr exact i64 %26, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %27, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -1594,7 +1591,7 @@ _ZNSt6vectorISt4pairIifESaIS1_EE5clearEv.exit:    ; preds = %3, %7
   %42 = fptrunc double %sqrt.i to float
   %narrow.sel = select i1 %41, float %42, float %.05355
   %43 = add nuw i64 %.02256, 1
-  %exitcond.not = icmp eq i64 %43, %umax
+  %exitcond.not = icmp eq i64 %43, %27
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !106
 
 ._crit_edge:                                      ; preds = %.lr.ph, %17
@@ -1675,7 +1672,7 @@ _ZNSt6vectorISt4pairIifESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__norma
 _ZNSt6vectorISt4pairIifESaIS1_EE9push_backEOS1_.exit: ; preds = %46, %_ZNSt6vectorISt4pairIifESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
   %70 = phi ptr [ %48, %46 ], [ %67, %_ZNSt6vectorISt4pairIifESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ]
   %71 = add nuw i64 %.057, 1
-  %exitcond63.not = icmp eq i64 %71, %umax62
+  %exitcond63.not = icmp eq i64 %71, %15
   br i1 %exitcond63.not, label %._crit_edge59.loopexit, label %17, !llvm.loop !114
 
 ._crit_edge59.loopexit:                           ; preds = %_ZNSt6vectorISt4pairIifESaIS1_EE9push_backEOS1_.exit

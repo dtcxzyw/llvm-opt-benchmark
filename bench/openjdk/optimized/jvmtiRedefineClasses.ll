@@ -7563,8 +7563,8 @@ define hidden noundef zeroext i1 @_ZN18VM_RedefineClasses35rewrite_cp_refs_in_re
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %12
 
-12:                                               ; preds = %.lr.ph, %_ZN18VM_RedefineClasses40rewrite_cp_refs_in_annotations_typeArrayEP5ArrayIhERi.exit62
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN18VM_RedefineClasses40rewrite_cp_refs_in_annotations_typeArrayEP5ArrayIhERi.exit62 ]
+12:                                               ; preds = %.lr.ph, %_ZN18VM_RedefineClasses40rewrite_cp_refs_in_annotations_typeArrayEP5ArrayIhERi.exit60
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN18VM_RedefineClasses40rewrite_cp_refs_in_annotations_typeArrayEP5ArrayIhERi.exit60 ]
   %13 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -7697,14 +7697,10 @@ _ZN18VM_RedefineClasses14find_new_indexEi.exit47: ; preds = %51, %54, %58
 
 ._crit_edge.i:                                    ; preds = %79, %75
   %.not18.i = icmp eq i16 %.0.i.i.i.i, 0
-  br i1 %.not18.i, label %_ZN18VM_RedefineClasses40rewrite_cp_refs_in_annotations_typeArrayEP5ArrayIhERi.exit, label %.lr.ph.preheader.i
+  br i1 %.not18.i, label %_ZN18VM_RedefineClasses40rewrite_cp_refs_in_annotations_typeArrayEP5ArrayIhERi.exit, label %.lr.ph.i
 
-.lr.ph.preheader.i:                               ; preds = %._crit_edge.i
-  %umax.i = tail call i32 @llvm.umax.i32(i32 %.pre.i, i32 1)
-  br label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %84, %.lr.ph.preheader.i
-  %.017.i = phi i32 [ %85, %84 ], [ 0, %.lr.ph.preheader.i ]
+.lr.ph.i:                                         ; preds = %._crit_edge.i, %84
+  %.017.i = phi i32 [ %85, %84 ], [ 0, %._crit_edge.i ]
   %80 = call noundef zeroext i1 @_ZN18VM_RedefineClasses36rewrite_cp_refs_in_annotation_structEP5ArrayIhERi(ptr noundef nonnull readonly align 8 dereferenceable(192) %0, ptr noundef nonnull %67, ptr noundef nonnull align 4 dereferenceable(4) %3)
   br i1 %80, label %84, label %81
 
@@ -7719,24 +7715,24 @@ _ZN18VM_RedefineClasses14find_new_indexEi.exit47: ; preds = %51, %54, %58
 
 84:                                               ; preds = %.lr.ph.i
   %85 = add nuw nsw i32 %.017.i, 1
-  %exitcond.not.i = icmp eq i32 %85, %umax.i
+  %exitcond.not.i = icmp eq i32 %85, %.pre.i
   br i1 %exitcond.not.i, label %_ZN18VM_RedefineClasses40rewrite_cp_refs_in_annotations_typeArrayEP5ArrayIhERi.exit, label %.lr.ph.i, !llvm.loop !48
 
 86:                                               ; preds = %72, %74, %81, %83
   %87 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE125ELS1_16ELS1_4ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not65 = icmp eq ptr %87, null
-  br i1 %.not65, label %.loopexit, label %.loopexit.sink.split
+  %.not63 = icmp eq ptr %87, null
+  br i1 %.not63, label %.loopexit, label %.loopexit.sink.split
 
 _ZN18VM_RedefineClasses40rewrite_cp_refs_in_annotations_typeArrayEP5ArrayIhERi.exit: ; preds = %84, %._crit_edge.i, %68, %66
   %88 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %89 = load ptr, ptr %88, align 8
   %.not36 = icmp eq ptr %89, null
-  br i1 %.not36, label %_ZN18VM_RedefineClasses40rewrite_cp_refs_in_annotations_typeArrayEP5ArrayIhERi.exit62, label %90
+  br i1 %.not36, label %_ZN18VM_RedefineClasses40rewrite_cp_refs_in_annotations_typeArrayEP5ArrayIhERi.exit60, label %90
 
 90:                                               ; preds = %_ZN18VM_RedefineClasses40rewrite_cp_refs_in_annotations_typeArrayEP5ArrayIhERi.exit
   %91 = load i32, ptr %89, align 4
   %.not37 = icmp eq i32 %91, 0
-  br i1 %.not37, label %_ZN18VM_RedefineClasses40rewrite_cp_refs_in_annotations_typeArrayEP5ArrayIhERi.exit62, label %92
+  br i1 %.not37, label %_ZN18VM_RedefineClasses40rewrite_cp_refs_in_annotations_typeArrayEP5ArrayIhERi.exit60, label %92
 
 92:                                               ; preds = %90
   %93 = icmp slt i32 %91, 2
@@ -7744,8 +7740,8 @@ _ZN18VM_RedefineClasses40rewrite_cp_refs_in_annotations_typeArrayEP5ArrayIhERi.e
 
 94:                                               ; preds = %92
   %95 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE125ELS1_16ELS1_4ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not15.i61 = icmp eq ptr %95, null
-  br i1 %.not15.i61, label %108, label %96
+  %.not15.i59 = icmp eq ptr %95, null
+  br i1 %.not15.i59, label %108, label %96
 
 96:                                               ; preds = %94
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE125ELS1_16ELS1_4ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.75)
@@ -7767,37 +7763,33 @@ _ZN18VM_RedefineClasses40rewrite_cp_refs_in_annotations_typeArrayEP5ArrayIhERi.e
 
 ._crit_edge.i52:                                  ; preds = %101, %97
   %.not18.i53 = icmp eq i16 %.0.i.i.i.i49, 0
-  br i1 %.not18.i53, label %_ZN18VM_RedefineClasses40rewrite_cp_refs_in_annotations_typeArrayEP5ArrayIhERi.exit62, label %.lr.ph.preheader.i54
+  br i1 %.not18.i53, label %_ZN18VM_RedefineClasses40rewrite_cp_refs_in_annotations_typeArrayEP5ArrayIhERi.exit60, label %.lr.ph.i54
 
-.lr.ph.preheader.i54:                             ; preds = %._crit_edge.i52
-  %umax.i55 = tail call i32 @llvm.umax.i32(i32 %.pre.i51, i32 1)
-  br label %.lr.ph.i56
-
-.lr.ph.i56:                                       ; preds = %106, %.lr.ph.preheader.i54
-  %.017.i57 = phi i32 [ %107, %106 ], [ 0, %.lr.ph.preheader.i54 ]
+.lr.ph.i54:                                       ; preds = %._crit_edge.i52, %106
+  %.017.i55 = phi i32 [ %107, %106 ], [ 0, %._crit_edge.i52 ]
   %102 = call noundef zeroext i1 @_ZN18VM_RedefineClasses36rewrite_cp_refs_in_annotation_structEP5ArrayIhERi(ptr noundef nonnull readonly align 8 dereferenceable(192) %0, ptr noundef nonnull %89, ptr noundef nonnull align 4 dereferenceable(4) %4)
   br i1 %102, label %106, label %103
 
-103:                                              ; preds = %.lr.ph.i56
+103:                                              ; preds = %.lr.ph.i54
   %104 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE125ELS1_16ELS1_4ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not14.i58 = icmp eq ptr %104, null
-  br i1 %.not14.i58, label %108, label %105
+  %.not14.i56 = icmp eq ptr %104, null
+  br i1 %.not14.i56, label %108, label %105
 
 105:                                              ; preds = %103
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE125ELS1_16ELS1_4ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.77, i32 noundef %.017.i57)
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE125ELS1_16ELS1_4ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.77, i32 noundef %.017.i55)
   br label %108
 
-106:                                              ; preds = %.lr.ph.i56
-  %107 = add nuw nsw i32 %.017.i57, 1
-  %exitcond.not.i60 = icmp eq i32 %107, %umax.i55
-  br i1 %exitcond.not.i60, label %_ZN18VM_RedefineClasses40rewrite_cp_refs_in_annotations_typeArrayEP5ArrayIhERi.exit62, label %.lr.ph.i56, !llvm.loop !48
+106:                                              ; preds = %.lr.ph.i54
+  %107 = add nuw nsw i32 %.017.i55, 1
+  %exitcond.not.i58 = icmp eq i32 %107, %.pre.i51
+  br i1 %exitcond.not.i58, label %_ZN18VM_RedefineClasses40rewrite_cp_refs_in_annotations_typeArrayEP5ArrayIhERi.exit60, label %.lr.ph.i54, !llvm.loop !48
 
 108:                                              ; preds = %94, %96, %103, %105
   %109 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE125ELS1_16ELS1_4ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not66 = icmp eq ptr %109, null
-  br i1 %.not66, label %.loopexit, label %.loopexit.sink.split
+  %.not64 = icmp eq ptr %109, null
+  br i1 %.not64, label %.loopexit, label %.loopexit.sink.split
 
-_ZN18VM_RedefineClasses40rewrite_cp_refs_in_annotations_typeArrayEP5ArrayIhERi.exit62: ; preds = %106, %._crit_edge.i52, %_ZN18VM_RedefineClasses40rewrite_cp_refs_in_annotations_typeArrayEP5ArrayIhERi.exit, %90
+_ZN18VM_RedefineClasses40rewrite_cp_refs_in_annotations_typeArrayEP5ArrayIhERi.exit60: ; preds = %106, %._crit_edge.i52, %_ZN18VM_RedefineClasses40rewrite_cp_refs_in_annotations_typeArrayEP5ArrayIhERi.exit, %90
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %110 = load i32, ptr %6, align 8
   %111 = sext i32 %110 to i64
@@ -7806,12 +7798,12 @@ _ZN18VM_RedefineClasses40rewrite_cp_refs_in_annotations_typeArrayEP5ArrayIhERi.e
 
 .loopexit.sink.split:                             ; preds = %108, %86
   %.str.70.sink = phi ptr [ @.str.69, %86 ], [ @.str.70, %108 ]
-  %.0287582 = trunc i64 %indvars.iv to i32
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE125ELS1_16ELS1_4ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull %.str.70.sink, i32 noundef %.0287582)
+  %.0287380 = trunc i64 %indvars.iv to i32
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE125ELS1_16ELS1_4ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull %.str.70.sink, i32 noundef %.0287380)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %_ZN18VM_RedefineClasses40rewrite_cp_refs_in_annotations_typeArrayEP5ArrayIhERi.exit62, %.loopexit.sink.split, %.preheader, %2, %108, %86
-  %.0 = phi i1 [ false, %86 ], [ false, %108 ], [ true, %2 ], [ true, %.preheader ], [ false, %.loopexit.sink.split ], [ true, %_ZN18VM_RedefineClasses40rewrite_cp_refs_in_annotations_typeArrayEP5ArrayIhERi.exit62 ]
+.loopexit:                                        ; preds = %_ZN18VM_RedefineClasses40rewrite_cp_refs_in_annotations_typeArrayEP5ArrayIhERi.exit60, %.loopexit.sink.split, %.preheader, %2, %108, %86
+  %.0 = phi i1 [ false, %86 ], [ false, %108 ], [ true, %2 ], [ true, %.preheader ], [ false, %.loopexit.sink.split ], [ true, %_ZN18VM_RedefineClasses40rewrite_cp_refs_in_annotations_typeArrayEP5ArrayIhERi.exit60 ]
   ret i1 %.0
 }
 
@@ -8076,14 +8068,10 @@ _ZNK13InstanceKlass17class_annotationsEv.exit:    ; preds = %2
 
 ._crit_edge.i:                                    ; preds = %24, %20
   %.not18.i = icmp eq i16 %.0.i.i.i.i, 0
-  br i1 %.not18.i, label %_ZN18VM_RedefineClasses40rewrite_cp_refs_in_annotations_typeArrayEP5ArrayIhERi.exit, label %.lr.ph.preheader.i
+  br i1 %.not18.i, label %_ZN18VM_RedefineClasses40rewrite_cp_refs_in_annotations_typeArrayEP5ArrayIhERi.exit, label %.lr.ph.i
 
-.lr.ph.preheader.i:                               ; preds = %._crit_edge.i
-  %umax.i = tail call i32 @llvm.umax.i32(i32 %.pre.i, i32 1)
-  br label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %29, %.lr.ph.preheader.i
-  %.017.i = phi i32 [ %30, %29 ], [ 0, %.lr.ph.preheader.i ]
+.lr.ph.i:                                         ; preds = %._crit_edge.i, %29
+  %.017.i = phi i32 [ %30, %29 ], [ 0, %._crit_edge.i ]
   %25 = call noundef zeroext i1 @_ZN18VM_RedefineClasses36rewrite_cp_refs_in_annotation_structEP5ArrayIhERi(ptr noundef nonnull readonly align 8 dereferenceable(192) %0, ptr noundef nonnull %6, ptr noundef nonnull align 4 dereferenceable(4) %3)
   br i1 %25, label %29, label %26
 
@@ -8098,7 +8086,7 @@ _ZNK13InstanceKlass17class_annotationsEv.exit:    ; preds = %2
 
 29:                                               ; preds = %.lr.ph.i
   %30 = add nuw nsw i32 %.017.i, 1
-  %exitcond.not.i = icmp eq i32 %30, %umax.i
+  %exitcond.not.i = icmp eq i32 %30, %.pre.i
   br i1 %exitcond.not.i, label %_ZN18VM_RedefineClasses40rewrite_cp_refs_in_annotations_typeArrayEP5ArrayIhERi.exit, label %.lr.ph.i, !llvm.loop !48
 
 _ZN18VM_RedefineClasses40rewrite_cp_refs_in_annotations_typeArrayEP5ArrayIhERi.exit: ; preds = %29, %2, %28, %26, %._crit_edge.i, %19, %17, %_ZNK13InstanceKlass17class_annotationsEv.exit, %8
@@ -8185,14 +8173,10 @@ _ZNK13InstanceKlass18fields_annotationsEv.exit:   ; preds = %2
 
 ._crit_edge.i:                                    ; preds = %35, %31
   %.not18.i = icmp eq i16 %.0.i.i.i.i, 0
-  br i1 %.not18.i, label %_ZN18VM_RedefineClasses40rewrite_cp_refs_in_annotations_typeArrayEP5ArrayIhERi.exit, label %.lr.ph.preheader.i
+  br i1 %.not18.i, label %_ZN18VM_RedefineClasses40rewrite_cp_refs_in_annotations_typeArrayEP5ArrayIhERi.exit, label %.lr.ph.i
 
-.lr.ph.preheader.i:                               ; preds = %._crit_edge.i
-  %umax.i = tail call i32 @llvm.umax.i32(i32 %.pre.i, i32 1)
-  br label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %40, %.lr.ph.preheader.i
-  %.017.i = phi i32 [ %41, %40 ], [ 0, %.lr.ph.preheader.i ]
+.lr.ph.i:                                         ; preds = %._crit_edge.i, %40
+  %.017.i = phi i32 [ %41, %40 ], [ 0, %._crit_edge.i ]
   %36 = call noundef zeroext i1 @_ZN18VM_RedefineClasses36rewrite_cp_refs_in_annotation_structEP5ArrayIhERi(ptr noundef nonnull readonly align 8 dereferenceable(192) %0, ptr noundef nonnull %21, ptr noundef nonnull align 4 dereferenceable(4) %3)
   br i1 %36, label %40, label %37
 
@@ -8207,7 +8191,7 @@ _ZNK13InstanceKlass18fields_annotationsEv.exit:   ; preds = %2
 
 40:                                               ; preds = %.lr.ph.i
   %41 = add nuw nsw i32 %.017.i, 1
-  %exitcond.not.i = icmp eq i32 %41, %umax.i
+  %exitcond.not.i = icmp eq i32 %41, %.pre.i
   br i1 %exitcond.not.i, label %_ZN18VM_RedefineClasses40rewrite_cp_refs_in_annotations_typeArrayEP5ArrayIhERi.exit, label %.lr.ph.i, !llvm.loop !48
 
 42:                                               ; preds = %28, %30, %37, %39
@@ -8295,14 +8279,10 @@ _ZNK11ConstMethod18method_annotationsEv.exit:     ; preds = %.lr.ph
 
 ._crit_edge.i:                                    ; preds = %32, %28
   %.not18.i = icmp eq i16 %.0.i.i.i.i, 0
-  br i1 %.not18.i, label %_ZN18VM_RedefineClasses40rewrite_cp_refs_in_annotations_typeArrayEP5ArrayIhERi.exit, label %.lr.ph.preheader.i
+  br i1 %.not18.i, label %_ZN18VM_RedefineClasses40rewrite_cp_refs_in_annotations_typeArrayEP5ArrayIhERi.exit, label %.lr.ph.i
 
-.lr.ph.preheader.i:                               ; preds = %._crit_edge.i
-  %umax.i = tail call i32 @llvm.umax.i32(i32 %.pre.i, i32 1)
-  br label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %37, %.lr.ph.preheader.i
-  %.017.i = phi i32 [ %38, %37 ], [ 0, %.lr.ph.preheader.i ]
+.lr.ph.i:                                         ; preds = %._crit_edge.i, %37
+  %.017.i = phi i32 [ %38, %37 ], [ 0, %._crit_edge.i ]
   %33 = call noundef zeroext i1 @_ZN18VM_RedefineClasses36rewrite_cp_refs_in_annotation_structEP5ArrayIhERi(ptr noundef nonnull readonly align 8 dereferenceable(192) %0, ptr noundef nonnull %18, ptr noundef nonnull align 4 dereferenceable(4) %3)
   br i1 %33, label %37, label %34
 
@@ -8317,7 +8297,7 @@ _ZNK11ConstMethod18method_annotationsEv.exit:     ; preds = %.lr.ph
 
 37:                                               ; preds = %.lr.ph.i
   %38 = add nuw nsw i32 %.017.i, 1
-  %exitcond.not.i = icmp eq i32 %38, %umax.i
+  %exitcond.not.i = icmp eq i32 %38, %.pre.i
   br i1 %exitcond.not.i, label %_ZN18VM_RedefineClasses40rewrite_cp_refs_in_annotations_typeArrayEP5ArrayIhERi.exit, label %.lr.ph.i, !llvm.loop !48
 
 39:                                               ; preds = %25, %27, %34, %36
@@ -8442,14 +8422,10 @@ _ZNK11ConstMethod21parameter_annotationsEv.exit:  ; preds = %.lr.ph37
 
 ._crit_edge.i:                                    ; preds = %46, %41
   %.not18.i = icmp eq i16 %.0.i.i.i.i, 0
-  br i1 %.not18.i, label %_ZN18VM_RedefineClasses40rewrite_cp_refs_in_annotations_typeArrayEP5ArrayIhERi.exit, label %.lr.ph.preheader.i
+  br i1 %.not18.i, label %_ZN18VM_RedefineClasses40rewrite_cp_refs_in_annotations_typeArrayEP5ArrayIhERi.exit, label %.lr.ph.i
 
-.lr.ph.preheader.i:                               ; preds = %._crit_edge.i
-  %umax.i = tail call i32 @llvm.umax.i32(i32 %.pre.i, i32 1)
-  br label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %51, %.lr.ph.preheader.i
-  %.017.i = phi i32 [ %52, %51 ], [ 0, %.lr.ph.preheader.i ]
+.lr.ph.i:                                         ; preds = %._crit_edge.i, %51
+  %.017.i = phi i32 [ %52, %51 ], [ 0, %._crit_edge.i ]
   %47 = call noundef zeroext i1 @_ZN18VM_RedefineClasses36rewrite_cp_refs_in_annotation_structEP5ArrayIhERi(ptr noundef nonnull readonly align 8 dereferenceable(192) %0, ptr noundef nonnull %18, ptr noundef nonnull align 4 dereferenceable(4) %3)
   br i1 %47, label %51, label %48
 
@@ -8464,7 +8440,7 @@ _ZNK11ConstMethod21parameter_annotationsEv.exit:  ; preds = %.lr.ph37
 
 51:                                               ; preds = %.lr.ph.i
   %52 = add nuw nsw i32 %.017.i, 1
-  %exitcond.not.i = icmp eq i32 %52, %umax.i
+  %exitcond.not.i = icmp eq i32 %52, %.pre.i
   br i1 %exitcond.not.i, label %_ZN18VM_RedefineClasses40rewrite_cp_refs_in_annotations_typeArrayEP5ArrayIhERi.exit, label %.lr.ph.i, !llvm.loop !48
 
 53:                                               ; preds = %38, %40, %48, %50
@@ -8790,14 +8766,10 @@ define hidden noundef zeroext i1 @_ZN18VM_RedefineClasses40rewrite_cp_refs_in_an
 
 ._crit_edge:                                      ; preds = %11, %17
   %.not18 = icmp eq i16 %.0.i.i.i, 0
-  br i1 %.not18, label %.loopexit, label %.lr.ph.preheader
+  br i1 %.not18, label %.loopexit, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %._crit_edge
-  %umax = tail call i32 @llvm.umax.i32(i32 %.pre, i32 1)
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %22
-  %.017 = phi i32 [ %23, %22 ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %._crit_edge, %22
+  %.017 = phi i32 [ %23, %22 ], [ 0, %._crit_edge ]
   %18 = tail call noundef zeroext i1 @_ZN18VM_RedefineClasses36rewrite_cp_refs_in_annotation_structEP5ArrayIhERi(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
   br i1 %18, label %22, label %19
 
@@ -8812,7 +8784,7 @@ define hidden noundef zeroext i1 @_ZN18VM_RedefineClasses40rewrite_cp_refs_in_an
 
 22:                                               ; preds = %.lr.ph
   %23 = add nuw nsw i32 %.017, 1
-  %exitcond.not = icmp eq i32 %23, %umax
+  %exitcond.not = icmp eq i32 %23, %.pre
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !48
 
 .loopexit:                                        ; preds = %22, %._crit_edge, %21, %19, %10, %8
@@ -9238,7 +9210,6 @@ _ZN18VM_RedefineClasses33rewrite_cp_ref_in_annotation_dataEP5ArrayIhERiPKc.exit.
 
 .lr.ph:                                           ; preds = %53
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %umax = tail call i32 @llvm.umax.i32(i32 %.pre-phi, i32 1)
   br label %55
 
 55:                                               ; preds = %.lr.ph, %102
@@ -9341,7 +9312,7 @@ _ZN18VM_RedefineClasses33rewrite_cp_ref_in_annotation_dataEP5ArrayIhERiPKc.exit2
 
 102:                                              ; preds = %97
   %103 = add nuw nsw i32 %.02136, 1
-  %exitcond.not = icmp eq i32 %103, %umax
+  %exitcond.not = icmp eq i32 %103, %.pre-phi
   br i1 %exitcond.not, label %.loopexit, label %55, !llvm.loop !59
 
 .loopexit:                                        ; preds = %102, %53, %101, %99, %62, %60, %10, %8
@@ -9644,14 +9615,10 @@ _ZN18VM_RedefineClasses33rewrite_cp_ref_in_annotation_dataEP5ArrayIhERiPKc.exit:
 
 ._crit_edge:                                      ; preds = %99, %104
   %.not56 = icmp eq i16 %.0.i.i.i, 0
-  br i1 %.not56, label %.loopexit, label %.lr.ph.preheader
+  br i1 %.not56, label %.loopexit, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %._crit_edge
-  %umax = tail call i32 @llvm.umax.i32(i32 %.pre59, i32 1)
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %109
-  %.055 = phi i32 [ %110, %109 ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %._crit_edge, %109
+  %.055 = phi i32 [ %110, %109 ], [ 0, %._crit_edge ]
   %105 = tail call noundef zeroext i1 @_ZN18VM_RedefineClasses32rewrite_cp_refs_in_element_valueEP5ArrayIhERi(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
   br i1 %105, label %109, label %106
 
@@ -9666,7 +9633,7 @@ _ZN18VM_RedefineClasses33rewrite_cp_ref_in_annotation_dataEP5ArrayIhERiPKc.exit:
 
 109:                                              ; preds = %.lr.ph
   %110 = add nuw nsw i32 %.055, 1
-  %exitcond.not = icmp eq i32 %110, %umax
+  %exitcond.not = icmp eq i32 %110, %.pre59
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !60
 
 111:                                              ; preds = %._crit_edge58
@@ -9721,14 +9688,10 @@ define hidden noundef zeroext i1 @_ZN18VM_RedefineClasses45rewrite_cp_refs_in_ty
 
 ._crit_edge28:                                    ; preds = %12, %18
   %.not26 = icmp eq i16 %.0.i.i.i, 0
-  br i1 %.not26, label %._crit_edge, label %.lr.ph.preheader
+  br i1 %.not26, label %._crit_edge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %._crit_edge28
-  %umax = tail call i32 @llvm.umax.i32(i32 %.pre, i32 1)
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %25
-  %.025 = phi i32 [ %26, %25 ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %._crit_edge28, %25
+  %.025 = phi i32 [ %26, %25 ], [ 0, %._crit_edge28 ]
   %19 = tail call noundef zeroext i1 @_ZN18VM_RedefineClasses27skip_type_annotation_targetEP5ArrayIhERiPKc(ptr nonnull readonly align 8 poison, ptr noundef nonnull %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef %3)
   br i1 %19, label %20, label %_ZN18VM_RedefineClasses41rewrite_cp_refs_in_type_annotation_structEP5ArrayIhERiPKc.exit.thread
 
@@ -9751,7 +9714,7 @@ _ZN18VM_RedefineClasses41rewrite_cp_refs_in_type_annotation_structEP5ArrayIhERiP
 
 25:                                               ; preds = %_ZN18VM_RedefineClasses41rewrite_cp_refs_in_type_annotation_structEP5ArrayIhERiPKc.exit
   %26 = add nuw nsw i32 %.025, 1
-  %exitcond.not = icmp eq i32 %26, %umax
+  %exitcond.not = icmp eq i32 %26, %.pre
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !61
 
 ._crit_edge:                                      ; preds = %25, %._crit_edge28
@@ -10322,14 +10285,10 @@ define hidden void @_ZN18VM_RedefineClasses34rewrite_cp_refs_in_stack_map_tableE
 
 16:                                               ; preds = %9, %14
   %.not76 = icmp eq i16 %.0.i.i.i, 0
-  br i1 %.not76, label %.loopexit64, label %.lr.ph75.preheader
+  br i1 %.not76, label %.loopexit64, label %.lr.ph75
 
-.lr.ph75.preheader:                               ; preds = %16
-  %umax84 = tail call i16 @llvm.umax.i16(i16 %11, i16 1)
-  br label %.lr.ph75
-
-.lr.ph75:                                         ; preds = %.lr.ph75.preheader, %.loopexit
-  %.05672 = phi i16 [ %47, %.loopexit ], [ 0, %.lr.ph75.preheader ]
+.lr.ph75:                                         ; preds = %16, %.loopexit
+  %.05672 = phi i16 [ %47, %.loopexit ], [ 0, %16 ]
   %17 = load ptr, ptr %3, align 8
   %18 = load i8, ptr %17, align 1
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 1
@@ -10393,21 +10352,17 @@ define hidden void @_ZN18VM_RedefineClasses34rewrite_cp_refs_in_stack_map_tableE
 
 39:                                               ; preds = %34
   %.0.i.i.i60 = load i16, ptr %32, align 1
-  %40 = getelementptr inbounds nuw i8, ptr %17, i64 5
-  store ptr %40, ptr %3, align 8
+  %40 = tail call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i60)
+  %41 = getelementptr inbounds nuw i8, ptr %17, i64 5
+  store ptr %41, ptr %3, align 8
   %.not77 = icmp eq i16 %.0.i.i.i60, 0
-  br i1 %.not77, label %._crit_edge, label %.lr.ph.preheader
+  br i1 %.not77, label %._crit_edge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %39
-  %41 = tail call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i60)
-  %umax = tail call i16 @llvm.umax.i16(i16 %41, i16 1)
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.05765 = phi i16 [ %42, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %39, %.lr.ph
+  %.05765 = phi i16 [ %42, %.lr.ph ], [ 0, %39 ]
   call void @_ZN18VM_RedefineClasses41rewrite_cp_refs_in_verification_type_infoERPhS0_th(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr nonnull poison, i16 noundef zeroext %.05672, i8 noundef zeroext -1)
   %42 = add nuw i16 %.05765, 1
-  %exitcond.not = icmp eq i16 %42, %umax
+  %exitcond.not = icmp eq i16 %42, %40
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !64
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
@@ -10415,28 +10370,24 @@ define hidden void @_ZN18VM_RedefineClasses34rewrite_cp_refs_in_stack_map_tableE
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %39
-  %43 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %40, %39 ]
+  %43 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %41, %39 ]
   %.0.i.i.i61 = load i16, ptr %43, align 1
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 2
-  store ptr %44, ptr %3, align 8
+  %44 = tail call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i61)
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 2
+  store ptr %45, ptr %3, align 8
   %.not78 = icmp eq i16 %.0.i.i.i61, 0
-  br i1 %.not78, label %.loopexit, label %.lr.ph68.preheader
+  br i1 %.not78, label %.loopexit, label %.lr.ph68
 
-.lr.ph68.preheader:                               ; preds = %._crit_edge
-  %45 = tail call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i61)
-  %umax81 = tail call i16 @llvm.umax.i16(i16 %45, i16 1)
-  br label %.lr.ph68
-
-.lr.ph68:                                         ; preds = %.lr.ph68.preheader, %.lr.ph68
-  %.066 = phi i16 [ %46, %.lr.ph68 ], [ 0, %.lr.ph68.preheader ]
+.lr.ph68:                                         ; preds = %._crit_edge, %.lr.ph68
+  %.066 = phi i16 [ %46, %.lr.ph68 ], [ 0, %._crit_edge ]
   call void @_ZN18VM_RedefineClasses41rewrite_cp_refs_in_verification_type_infoERPhS0_th(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr nonnull poison, i16 noundef zeroext %.05672, i8 noundef zeroext -1)
   %46 = add nuw i16 %.066, 1
-  %exitcond82.not = icmp eq i16 %46, %umax81
+  %exitcond82.not = icmp eq i16 %46, %44
   br i1 %exitcond82.not, label %.loopexit, label %.lr.ph68, !llvm.loop !65
 
 .loopexit:                                        ; preds = %.lr.ph68, %.lr.ph71, %._crit_edge, %36, %.lr.ph75, %24, %33, %35, %28, %23
   %47 = add nuw i16 %.05672, 1
-  %exitcond85.not = icmp eq i16 %47, %umax84
+  %exitcond85.not = icmp eq i16 %47, %11
   br i1 %exitcond85.not, label %.loopexit64, label %.lr.ph75, !llvm.loop !66
 
 .loopexit64:                                      ; preds = %.loopexit, %16, %2
@@ -16865,9 +16816,6 @@ declare i32 @llvm.smax.i32(i32, i32) #15
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.umax.i16(i16, i16) #15
-
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
@@ -16876,9 +16824,6 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #18
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #15
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

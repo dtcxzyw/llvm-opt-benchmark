@@ -1130,7 +1130,6 @@ _ZNSt6vectorIjSaIjEE9push_backEOj.exit:           ; preds = %99, %_ZNSt6vectorIj
   %124 = ptrtoint ptr %122 to i64
   %125 = sub i64 %123, %124
   %126 = ashr exact i64 %125, 4
-  %umax = call i64 @llvm.umax.i64(i64 %126, i64 1)
   br label %.lr.ph148
 
 ._crit_edge149.loopexit:                          ; preds = %146
@@ -1194,7 +1193,7 @@ _ZSt8_DestroyIP6aiFaceS0_EvT_S2_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyI6aiF
 
 146:                                              ; preds = %141, %145
   %147 = add nuw i64 %.023146, 1
-  %exitcond.not = icmp eq i64 %147, %umax
+  %exitcond.not = icmp eq i64 %147, %126
   br i1 %exitcond.not, label %._crit_edge149.loopexit, label %.lr.ph148, !llvm.loop !10
 
 148:                                              ; preds = %140
@@ -1586,7 +1585,6 @@ _ZN6aiFaceD2Ev.exit32:                            ; preds = %85, %89
   %97 = ptrtoint ptr %95 to i64
   %98 = sub i64 %96, %97
   %99 = ashr exact i64 %98, 4
-  %umax = call i64 @llvm.umax.i64(i64 %99, i64 1)
   br label %.lr.ph79
 
 ._crit_edge80.loopexit:                           ; preds = %112
@@ -1634,7 +1632,7 @@ _ZSt8_DestroyIP6aiFaceS0_EvT_S2_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyI6aiF
 
 112:                                              ; preds = %.lr.ph79, %111
   %113 = add nuw i64 %.01877, 1
-  %exitcond.not = icmp eq i64 %113, %umax
+  %exitcond.not = icmp eq i64 %113, %99
   br i1 %exitcond.not, label %._crit_edge80.loopexit, label %.lr.ph79, !llvm.loop !13
 
 _ZNSt6vectorI6aiFaceSaIS0_EE5clearEv.exit:        ; preds = %91, %.preheader, %_ZSt8_DestroyIP6aiFaceS0_EvT_S2_RSaIT0_E.exit.i.i, %._crit_edge80
@@ -5098,7 +5096,6 @@ _ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i122: ; preds = %236
 
 .lr.ph311.preheader:                              ; preds = %_ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i122
   %244 = getelementptr inbounds nuw i64, ptr %243, i64 %26
-  %umax = tail call i64 @llvm.umax.i64(i64 %26, i64 1)
   br label %.lr.ph311
 
 245:                                              ; preds = %_ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i122
@@ -5170,7 +5167,7 @@ _ZNSt6vectorImSaImEE9push_backEOm.exit138:        ; preds = %_ZNSt6vectorImSaImE
   %.sroa.0195.12 = phi ptr [ %263, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i135 ], [ %.sroa.0195.5308, %250 ]
   %.sroa.23.7 = getelementptr inbounds nuw i8, ptr %.pn, i64 8
   %268 = add nuw i64 %.069309, 1
-  %exitcond.not = icmp eq i64 %268, %umax
+  %exitcond.not = icmp eq i64 %268, %26
   br i1 %exitcond.not, label %.loopexit248, label %.lr.ph311, !llvm.loop !54
 
 .loopexit255:                                     ; preds = %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i.i130
@@ -5852,7 +5849,6 @@ _ZNSt6vectorI10aiVector3tIfESaIS1_EE12emplace_backIJRKfS6_fEEERS1_DpOT_.exit: ; 
   %99 = ptrtoint ptr %.sroa.077.1.lcssa to i64
   %100 = sub i64 %98, %99
   %101 = sdiv exact i64 %100, 12
-  %umax = call i64 @llvm.umax.i64(i64 %96, i64 1)
   br label %120
 
 ._crit_edge139.loopexit:                          ; preds = %._crit_edge135
@@ -6089,7 +6085,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit64: ; preds = %_ZN
 
 ._crit_edge135:                                   ; preds = %202, %.preheader
   %181 = add nuw i64 %.041136, 1
-  %exitcond.not = icmp eq i64 %181, %umax
+  %exitcond.not = icmp eq i64 %181, %96
   br i1 %exitcond.not, label %._crit_edge139.loopexit, label %120, !llvm.loop !66
 
 .lr.ph134:                                        ; preds = %.preheader, %202
@@ -6535,7 +6531,6 @@ define hidden noalias noundef nonnull ptr @_ZN6Assimp12X3DGeoHelper9make_meshERK
   store ptr %34, ptr %41, align 8
   %42 = trunc i64 %12 to i32
   store i32 %42, ptr %24, align 8
-  %umax = call i64 @llvm.umax.i64(i64 %12, i64 1)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN6aiFaceaSERKS_.exit
@@ -6619,7 +6614,7 @@ define hidden noalias noundef nonnull ptr @_ZN6Assimp12X3DGeoHelper9make_meshERK
 
 _ZN6aiFaceaSERKS_.exit:                           ; preds = %79, %.noexc35, %62
   %80 = add nuw i64 %.02541, 1
-  %exitcond.not = icmp eq i64 %80, %umax
+  %exitcond.not = icmp eq i64 %80, %12
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !74
 
 .loopexit37:                                      ; preds = %73
@@ -6813,11 +6808,7 @@ define hidden noalias noundef nonnull ptr @_ZN6Assimp12X3DGeoHelper14make_line_m
   %41 = trunc i64 %11 to i32
   store i32 %41, ptr %23, align 8
   %42 = icmp eq ptr %7, %33
-  br i1 %42, label %._crit_edge, label %.lr.ph.split.preheader
-
-.lr.ph.split.preheader:                           ; preds = %.lr.ph
-  %umax = call i64 @llvm.umax.i64(i64 %11, i64 1)
-  br label %.lr.ph.split
+  br i1 %42, label %._crit_edge, label %.lr.ph.split
 
 ._crit_edge:                                      ; preds = %_ZN6aiFaceaSERKS_.exit, %.lr.ph
   %43 = load ptr, ptr %1, align 8
@@ -6841,8 +6832,8 @@ define hidden noalias noundef nonnull ptr @_ZN6Assimp12X3DGeoHelper14make_line_m
           cleanup
   br label %104
 
-.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %_ZN6aiFaceaSERKS_.exit
-  %.02536 = phi i64 [ %73, %_ZN6aiFaceaSERKS_.exit ], [ 0, %.lr.ph.split.preheader ]
+.lr.ph.split:                                     ; preds = %.lr.ph, %_ZN6aiFaceaSERKS_.exit
+  %.02536 = phi i64 [ %73, %_ZN6aiFaceaSERKS_.exit ], [ 0, %.lr.ph ]
   %55 = load ptr, ptr %3, align 8
   %56 = getelementptr inbounds nuw %struct.aiFace, ptr %55, i64 %.02536
   %57 = getelementptr inbounds nuw %struct.aiFace, ptr %33, i64 %.02536
@@ -6884,7 +6875,7 @@ define hidden noalias noundef nonnull ptr @_ZN6Assimp12X3DGeoHelper14make_line_m
 
 _ZN6aiFaceaSERKS_.exit:                           ; preds = %72, %.noexc, %.lr.ph.split
   %73 = add nuw i64 %.02536, 1
-  %exitcond.not = icmp eq i64 %73, %umax
+  %exitcond.not = icmp eq i64 %73, %11
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !76
 
 74:                                               ; preds = %66

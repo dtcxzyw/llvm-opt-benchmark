@@ -10531,12 +10531,11 @@ for.body.preheader.i:                             ; preds = %if.end.i
   %sub.ptr.rhs.cast.i14.i = ptrtoint ptr %24 to i64
   %sub.ptr.sub.i15.i = sub i64 %sub.ptr.lhs.cast.i13.i, %sub.ptr.rhs.cast.i14.i
   %sub.ptr.div.i16.i = sdiv exact i64 %sub.ptr.sub.i15.i, 24
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i16.i, i64 1)
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
   %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %umax.i
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %sub.ptr.div.i16.i
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !102
 
 for.body.i:                                       ; preds = %for.cond.i, %for.body.preheader.i
@@ -10929,7 +10928,6 @@ for.cond42.preheader:                             ; preds = %for.inc39, %_ZNSt6v
 
 for.body43.lr.ph:                                 ; preds = %for.cond42.preheader
   %cmp5056 = icmp ugt i64 %sub.ptr.div.i35, 1
-  %umax = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %for.body43
 
 for.body:                                         ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, %for.inc39
@@ -11035,7 +11033,7 @@ if.then68:                                        ; preds = %invoke.cont64
 
 for.inc72:                                        ; preds = %for.cond48, %for.cond48.preheader
   %indvars.iv.next64 = add nuw i64 %indvars.iv63, 1
-  %exitcond66.not = icmp eq i64 %indvars.iv.next64, %umax
+  %exitcond66.not = icmp eq i64 %indvars.iv.next64, %sub.ptr.div.i
   br i1 %exitcond66.not, label %for.end74, label %for.body43, !llvm.loop !120
 
 for.end74:                                        ; preds = %for.inc72, %for.cond42.preheader
@@ -20740,7 +20738,6 @@ for.body88.lr.ph:                                 ; preds = %for.cond84.preheade
   %sub.ptr.sub.i187 = sub i64 %sub.ptr.lhs.cast.i185, %sub.ptr.rhs.cast.i186
   %sub.ptr.div.i188 = ashr exact i64 %sub.ptr.sub.i187, 4
   %93 = load ptr, ptr %rightKeys_, align 8
-  %umax = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i188, i64 1)
   br label %for.body88
 
 for.body66:                                       ; preds = %for.body66.lr.ph, %_ZNSt10shared_ptrIKN8facebook5velox4core20FieldAccessTypedExprEED2Ev.exit182
@@ -20878,7 +20875,7 @@ _ZNSt10shared_ptrIKN8facebook5velox4core20FieldAccessTypedExprEED2Ev.exit182: ; 
 
 for.cond84:                                       ; preds = %for.body88
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %sub.ptr.div.i188
   br i1 %exitcond.not, label %for.end114, label %for.body88, !llvm.loop !226
 
 for.body88:                                       ; preds = %for.body88.lr.ph, %for.cond84

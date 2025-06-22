@@ -15949,7 +15949,6 @@ _ZN9grpc_core19LoadJsonObjectFieldISt6vectorINS_12_GLOBAL__N_110RbacConfig10Rbac
   %179 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %180 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %181 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  %umax.i = call i64 @llvm.umax.i64(i64 %169, i64 1)
   br label %182
 
 182:                                              ; preds = %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataISt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS7_EEED2Ev.exit.i, %.lr.ph.i
@@ -16270,7 +16269,7 @@ _ZNKSt14default_deleteIN9grpc_core12experimental18AuditLoggerFactory6ConfigEEclE
 _ZN4absl12lts_2024072217internal_statusor12StatusOrDataISt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS7_EEED2Ev.exit.i: ; preds = %281, %279, %_ZNKSt14default_deleteIN9grpc_core12experimental18AuditLoggerFactory6ConfigEEclEPS3_.exit.i.i.i, %_ZN4absl12lts_202407226StatusD2Ev.exit.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18) #26
   %286 = add nuw i64 %.040101.i, 1
-  %exitcond.not.i = icmp eq i64 %286, %umax.i
+  %exitcond.not.i = icmp eq i64 %286, %169
   br i1 %exitcond.not.i, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %182, !llvm.loop !470
 
 287:                                              ; preds = %244, %.loopexit.split-lp.i, %.loopexit.i

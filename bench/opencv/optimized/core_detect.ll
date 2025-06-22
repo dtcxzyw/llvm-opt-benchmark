@@ -2284,7 +2284,6 @@ _ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEET_S7_S7_.
 .lr.ph183.preheader:                              ; preds = %.lr.ph.preheader.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %39, i8 0, i64 %38, i1 false)
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %39, i64 %38
-  %umax = tail call i64 @llvm.umax.i64(i64 %35, i64 1)
   br label %.lr.ph183
 
 ._crit_edge184:                                   ; preds = %.lr.ph183
@@ -2418,6 +2417,9 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIdmESt6ve
   %.not21.i27.i = icmp eq i64 %34, 8
   br i1 %.not21.i27.i, label %.lr.ph186.preheader, label %.lr.ph.i28.i
 
+.lr.ph186.preheader:                              ; preds = %118, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIdmESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbS3_S3_EEEEvT_T0_.exit.i14.i, %.preheader.i25.i
+  br label %.lr.ph186
+
 .lr.ph.i28.i:                                     ; preds = %.preheader.i25.i
   %.sroa.010.020.i26.i = getelementptr inbounds nuw i8, ptr %39, i64 16
   %.sroa.2.0..sroa_idx.i.i29.i = getelementptr inbounds nuw i8, ptr %39, i64 8
@@ -2501,10 +2503,6 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIdmESt6ve
   %.not.i45.i = icmp eq ptr %.sroa.010.0.i44.i, %scevgep.i.i.i.i.i
   br i1 %.not.i45.i, label %.lr.ph186.preheader, label %95, !llvm.loop !120
 
-.lr.ph186.preheader:                              ; preds = %118, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIdmESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbS3_S3_EEEEvT_T0_.exit.i14.i, %.preheader.i25.i
-  %umax197 = tail call i64 @llvm.umax.i64(i64 %62, i64 1)
-  br label %.lr.ph186
-
 119:                                              ; preds = %.lr.ph.preheader.i.i.i.i.i, %37
   %120 = landingpad { ptr, i32 }
           cleanup
@@ -2519,7 +2517,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIdmESt6ve
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 8
   store i64 %.063182, ptr %124, align 8, !tbaa !117
   %125 = add nuw i64 %.063182, 1
-  %exitcond.not = icmp eq i64 %125, %umax
+  %exitcond.not = icmp eq i64 %125, %35
   br i1 %exitcond.not, label %._crit_edge184, label %.lr.ph183, !llvm.loop !122
 
 ._crit_edge187:                                   ; preds = %.lr.ph186, %_ZNSt6vectorISt4pairIdmESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
@@ -2557,7 +2555,7 @@ _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %._crit_edge1
   %135 = getelementptr inbounds nuw i64, ptr %.sroa.0139.0, i64 %.064185
   store i64 %134, ptr %135, align 8, !tbaa !85
   %136 = add nuw i64 %.064185, 1
-  %exitcond198.not = icmp eq i64 %136, %umax197
+  %exitcond198.not = icmp eq i64 %136, %62
   br i1 %exitcond198.not, label %._crit_edge187, label %.lr.ph186, !llvm.loop !123
 
 .lr.ph190:                                        ; preds = %130
@@ -3444,7 +3442,6 @@ _ZNSt6vectorImSaImEEC2EmRKS0_.exit:               ; preds = %.noexc68
 .lr.ph.preheader:                                 ; preds = %.lr.ph.preheader.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %55, i8 0, i64 %54, i1 false)
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %55, i64 %54
-  %umax = tail call i64 @llvm.umax.i64(i64 %12, i64 1)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
@@ -3578,6 +3575,9 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIdmESt6ve
   %.not21.i27.i = icmp eq i64 %11, 8
   br i1 %.not21.i27.i, label %.lr.ph221.preheader, label %.lr.ph.i28.i
 
+.lr.ph221.preheader:                              ; preds = %113, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIdmESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbS3_S3_EEEEvT_T0_.exit.i14.i, %.preheader.i25.i
+  br label %.lr.ph221
+
 .lr.ph.i28.i:                                     ; preds = %.preheader.i25.i
   %.sroa.010.020.i26.i = getelementptr inbounds nuw i8, ptr %55, i64 16
   %.sroa.2.0..sroa_idx.i.i29.i = getelementptr inbounds nuw i8, ptr %55, i64 8
@@ -3661,10 +3661,6 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIdmESt6ve
   %.not.i45.i = icmp eq ptr %.sroa.010.0.i44.i, %scevgep.i.i.i.i.i
   br i1 %.not.i45.i, label %.lr.ph221.preheader, label %90, !llvm.loop !120
 
-.lr.ph221.preheader:                              ; preds = %113, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIdmESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbS3_S3_EEEEvT_T0_.exit.i14.i, %.preheader.i25.i
-  %umax253 = tail call i64 @llvm.umax.i64(i64 %57, i64 1)
-  br label %.lr.ph221
-
 114:                                              ; preds = %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i, %46
   %115 = landingpad { ptr, i32 }
           cleanup
@@ -3684,7 +3680,7 @@ _ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit108.thread: ; preds = %53, %.lr.ph.preh
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 8
   store i64 %.054219, ptr %120, align 8, !tbaa !117
   %121 = add nuw i64 %.054219, 1
-  %exitcond.not = icmp eq i64 %121, %umax
+  %exitcond.not = icmp eq i64 %121, %12
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !144
 
 .preheader:                                       ; preds = %.lr.ph221
@@ -3721,7 +3717,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit106.thread:          ; preds = %._crit_edge
   %135 = getelementptr inbounds nuw i64, ptr %47, i64 %.044220
   store i64 %134, ptr %135, align 8, !tbaa !85
   %136 = add nuw i64 %.044220, 1
-  %exitcond254.not = icmp eq i64 %136, %umax253
+  %exitcond254.not = icmp eq i64 %136, %57
   br i1 %exitcond254.not, label %.preheader, label %.lr.ph221, !llvm.loop !145
 
 ._crit_edge241:                                   ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit104
@@ -3829,7 +3825,6 @@ _ZNSt6vectorIS_IdSaIdEESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = %_ZN
   store ptr %162, ptr %129, align 8, !tbaa !92
   store ptr %scevgep.i.i.i.i.i84, ptr %128, align 8, !tbaa !48
   %gep236 = getelementptr i8, ptr %invariant.gep235376, i64 %140
-  %umax256 = tail call i64 @llvm.umax.i64(i64 %156, i64 1)
   br label %208
 
 ._crit_edge226:                                   ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEENS1_IPdS6_EEET0_T_SB_SA_.exit.i, %.thread329
@@ -3858,7 +3853,6 @@ _ZNSt6vectorIS_IdSaIdEESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = %_ZN
   %177 = fsub double %176, %172
   %178 = fsub double %174, %170
   %179 = fmul double %178, %177
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %163, i64 1)
   %180 = load double, ptr %130, align 8, !tbaa !47
   br label %181
 
@@ -3897,7 +3891,7 @@ _ZNSt6vectorIS_IdSaIdEESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = %_ZN
   %206 = getelementptr inbounds nuw double, ptr %.sroa.0121.1316325338, i64 %.066.i
   store double %205, ptr %206, align 8, !tbaa !58
   %207 = add nuw i64 %.066.i, 1
-  %exitcond.not.i = icmp eq i64 %207, %umax.i
+  %exitcond.not.i = icmp eq i64 %207, %163
   br i1 %exitcond.not.i, label %.lr.ph231, label %181, !llvm.loop !146
 
 .loopexit:                                        ; preds = %146
@@ -4000,7 +3994,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEENS1_IPdS6_EEET0_T
   store ptr %237, ptr %238, align 8, !tbaa !56
   tail call void @_ZdlPv(ptr noundef nonnull %209) #23
   %239 = add nuw i64 %.042223, 1
-  %exitcond257.not = icmp eq i64 %239, %umax256
+  %exitcond257.not = icmp eq i64 %239, %156
   br i1 %exitcond257.not, label %._crit_edge226, label %208, !llvm.loop !147
 
 240:                                              ; preds = %208
@@ -4203,7 +4197,6 @@ define void @_ZN2cv13dnn_objdetect9InferBbox23intersection_over_unionEPSt6vector
   %22 = fmul double %21, %20
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %24 = load ptr, ptr %3, align 8, !tbaa !50
-  %umax = tail call i64 @llvm.umax.i64(i64 %19, i64 1)
   br label %25
 
 ._crit_edge:                                      ; preds = %25, %4
@@ -4245,7 +4238,7 @@ define void @_ZN2cv13dnn_objdetect9InferBbox23intersection_over_unionEPSt6vector
   %51 = getelementptr inbounds nuw double, ptr %24, i64 %.066
   store double %50, ptr %51, align 8, !tbaa !58
   %52 = add nuw i64 %.066, 1
-  %exitcond.not = icmp eq i64 %52, %umax
+  %exitcond.not = icmp eq i64 %52, %19
   br i1 %exitcond.not, label %._crit_edge, label %25, !llvm.loop !146
 }
 

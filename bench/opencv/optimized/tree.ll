@@ -8207,8 +8207,7 @@ _ZNSt6vectorIdSaIdEE9push_backERKd.exit:          ; preds = %31
   %72 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %73 = load ptr, ptr %72, align 8
   %74 = load i64, ptr %73, align 8, !tbaa !289
-  %umax196 = call i32 @llvm.umax.i32(i32 %.075, i32 1)
-  %wide.trip.count197 = zext nneg i32 %umax196 to i64
+  %wide.trip.count197 = zext nneg i32 %.075 to i64
   %wide.trip.count189 = zext nneg i32 %5 to i64
   br label %.preheader.us
 
@@ -8266,7 +8265,6 @@ _ZNSt6vectorIdSaIdEE9push_backERKd.exit:          ; preds = %31
 .preheader108.split:                              ; preds = %.preheader110
   %92 = sitofp i32 %12 to double
   %93 = call double @llvm.copysign.f64(double 0.000000e+00, double %92)
-  %umax184 = call i32 @llvm.umax.i32(i32 %.075, i32 1)
   br i1 %.fr, label %.preheader.us137, label %.preheader
 
 .preheader.us137:                                 ; preds = %.preheader108.split, %100
@@ -8291,7 +8289,7 @@ _ZNSt6vectorIdSaIdEE9push_backERKd.exit:          ; preds = %31
   %.170.us143 = phi double [ %99, %98 ], [ %.069135.us139, %97 ], [ %.069135.us139, %95 ]
   %.2.us144 = phi i32 [ 0, %98 ], [ %.174133.us141, %97 ], [ %.168136.us138, %95 ]
   %101 = add nuw nsw i32 %.174133.us141, 1
-  %exitcond185.not = icmp eq i32 %101, %umax184
+  %exitcond185.not = icmp eq i32 %101, %.075
   br i1 %exitcond185.not, label %.split.us, label %.preheader.us137, !llvm.loop !290
 
 102:                                              ; preds = %.preheader109, %._crit_edge121
@@ -8376,7 +8374,7 @@ _ZNSt6vectorIdSaIdEE9push_backERKd.exit:          ; preds = %31
   %139 = icmp eq i32 %.174133, 0
   %spec.select = select i1 %139, i32 0, i32 %.168136
   %140 = add nuw nsw i32 %.174133, 1
-  %exitcond181.not = icmp eq i32 %140, %umax184
+  %exitcond181.not = icmp eq i32 %140, %.075
   br i1 %exitcond181.not, label %.split.us, label %.preheader, !llvm.loop !290
 
 .split.us:                                        ; preds = %.preheader, %100, %84

@@ -2430,13 +2430,10 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %723, %727, %733
   unreachable
 
 _ZNKSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i1853: ; preds = %779
-  %.sroa.speculated.i.i.i1854 = call i64 @llvm.umax.i64(i64 %664, i64 1)
-  %782 = add nsw i64 %.sroa.speculated.i.i.i1854, %664
+  %782 = ashr exact i64 %665, 2
   %783 = icmp ult i64 %782, %664
   %784 = call i64 @llvm.umin.i64(i64 %782, i64 1152921504606846975)
   %785 = select i1 %783, i64 1152921504606846975, i64 %784
-  %.not.i.i.i1855 = icmp ne i64 %785, 0
-  call void @llvm.assume(i1 %.not.i.i.i1855)
   %786 = shl nuw nsw i64 %785, 3
   %787 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %786) #26
           to label %.noexc1866 unwind label %.loopexit4233

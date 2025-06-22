@@ -467,78 +467,67 @@ define noundef i32 @_ZNK9grpc_core17EndpointAddresses3CmpERKS0_(ptr noundef nonn
   %6 = ptrtoint ptr %4 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
+  %9 = sdiv exact i64 %8, 132
   %.not31 = icmp eq ptr %4, %5
-  br i1 %.not31, label %.._crit_edge_crit_edge, label %.lr.ph
-
-.._crit_edge_crit_edge:                           ; preds = %2
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !9
   %.pre32 = load ptr, ptr %1, align 8, !tbaa !3
   %.pre33 = ptrtoint ptr %.pre to i64
   %.pre34 = ptrtoint ptr %.pre32 to i64
   %.pre36 = sub i64 %.pre33, %.pre34
-  br label %._crit_edge
+  br i1 %.not31, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %9 = sdiv exact i64 %8, 132
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !9
-  %12 = load ptr, ptr %1, align 8, !tbaa !3
-  %13 = ptrtoint ptr %11 to i64
-  %14 = ptrtoint ptr %12 to i64
-  %15 = sub i64 %13, %14
-  %16 = sdiv exact i64 %15, 132
-  %umax = tail call i64 @llvm.umax.i64(i64 %9, i64 1)
-  br label %19
+  %10 = sdiv exact i64 %.pre36, 132
+  br label %13
 
-17:                                               ; preds = %31
-  %18 = add nuw i64 %.02330, 1
-  %exitcond.not = icmp eq i64 %18, %umax
-  br i1 %exitcond.not, label %._crit_edge, label %19, !llvm.loop !17
+11:                                               ; preds = %25
+  %12 = add nuw i64 %.02330, 1
+  %exitcond.not = icmp eq i64 %12, %9
+  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !17
 
-19:                                               ; preds = %.lr.ph, %17
-  %.02330 = phi i64 [ 0, %.lr.ph ], [ %18, %17 ]
-  %20 = icmp eq i64 %16, %.02330
-  br i1 %20, label %_ZN9grpc_core12QsortCompareINS_11ChannelArgsEEEiRKT_S4_.exit, label %21
+13:                                               ; preds = %.lr.ph, %11
+  %.02330 = phi i64 [ 0, %.lr.ph ], [ %12, %11 ]
+  %14 = icmp eq i64 %10, %.02330
+  br i1 %14, label %_ZN9grpc_core12QsortCompareINS_11ChannelArgsEEEiRKT_S4_.exit, label %15
 
-21:                                               ; preds = %19
-  %22 = getelementptr inbounds nuw %struct.grpc_resolved_address, ptr %5, i64 %.02330
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 128
-  %24 = load i32, ptr %23, align 4, !tbaa !19
-  %25 = getelementptr inbounds nuw %struct.grpc_resolved_address, ptr %12, i64 %.02330
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 128
-  %27 = load i32, ptr %26, align 4, !tbaa !19
-  %28 = icmp ugt i32 %24, %27
+15:                                               ; preds = %13
+  %16 = getelementptr inbounds nuw %struct.grpc_resolved_address, ptr %5, i64 %.02330
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 128
+  %18 = load i32, ptr %17, align 4, !tbaa !19
+  %19 = getelementptr inbounds nuw %struct.grpc_resolved_address, ptr %.pre32, i64 %.02330
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 128
+  %21 = load i32, ptr %20, align 4, !tbaa !19
+  %22 = icmp ugt i32 %18, %21
+  br i1 %22, label %_ZN9grpc_core12QsortCompareINS_11ChannelArgsEEEiRKT_S4_.exit, label %23
+
+23:                                               ; preds = %15
+  %24 = icmp ult i32 %18, %21
+  br i1 %24, label %_ZN9grpc_core12QsortCompareINS_11ChannelArgsEEEiRKT_S4_.exit, label %25
+
+25:                                               ; preds = %23
+  %26 = zext i32 %18 to i64
+  %27 = tail call i32 @memcmp(ptr noundef nonnull %16, ptr noundef nonnull %19, i64 noundef %26) #31
+  %.not = icmp eq i32 %27, 0
+  br i1 %.not, label %11, label %_ZN9grpc_core12QsortCompareINS_11ChannelArgsEEEiRKT_S4_.exit
+
+._crit_edge:                                      ; preds = %11, %2
+  %28 = icmp ugt i64 %.pre36, %8
   br i1 %28, label %_ZN9grpc_core12QsortCompareINS_11ChannelArgsEEEiRKT_S4_.exit, label %29
 
-29:                                               ; preds = %21
-  %30 = icmp ult i32 %24, %27
-  br i1 %30, label %_ZN9grpc_core12QsortCompareINS_11ChannelArgsEEEiRKT_S4_.exit, label %31
+29:                                               ; preds = %._crit_edge
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %32 = tail call noundef zeroext i1 @_ZNK9grpc_core11ChannelArgsltERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull align 8 dereferenceable(8) %31)
+  br i1 %32, label %_ZN9grpc_core12QsortCompareINS_11ChannelArgsEEEiRKT_S4_.exit, label %33
 
-31:                                               ; preds = %29
-  %32 = zext i32 %24 to i64
-  %33 = tail call i32 @memcmp(ptr noundef nonnull %22, ptr noundef nonnull %25, i64 noundef %32) #31
-  %.not = icmp eq i32 %33, 0
-  br i1 %.not, label %17, label %_ZN9grpc_core12QsortCompareINS_11ChannelArgsEEEiRKT_S4_.exit
-
-._crit_edge:                                      ; preds = %17, %.._crit_edge_crit_edge
-  %.pre-phi37 = phi i64 [ %.pre36, %.._crit_edge_crit_edge ], [ %15, %17 ]
-  %34 = icmp ugt i64 %.pre-phi37, %8
-  br i1 %34, label %_ZN9grpc_core12QsortCompareINS_11ChannelArgsEEEiRKT_S4_.exit, label %35
-
-35:                                               ; preds = %._crit_edge
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %37 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %38 = tail call noundef zeroext i1 @_ZNK9grpc_core11ChannelArgsltERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %36, ptr noundef nonnull align 8 dereferenceable(8) %37)
-  br i1 %38, label %_ZN9grpc_core12QsortCompareINS_11ChannelArgsEEEiRKT_S4_.exit, label %39
-
-39:                                               ; preds = %35
-  %40 = tail call noundef zeroext i1 @_ZNK9grpc_core11ChannelArgsltERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %37, ptr noundef nonnull align 8 dereferenceable(8) %36)
-  %..i = zext i1 %40 to i32
+33:                                               ; preds = %29
+  %34 = tail call noundef zeroext i1 @_ZNK9grpc_core11ChannelArgsltERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull align 8 dereferenceable(8) %30)
+  %..i = zext i1 %34 to i32
   br label %_ZN9grpc_core12QsortCompareINS_11ChannelArgsEEEiRKT_S4_.exit
 
-_ZN9grpc_core12QsortCompareINS_11ChannelArgsEEEiRKT_S4_.exit: ; preds = %29, %21, %19, %31, %39, %35, %._crit_edge
-  %.3 = phi i32 [ -1, %._crit_edge ], [ -1, %35 ], [ %..i, %39 ], [ %33, %31 ], [ 1, %19 ], [ 1, %21 ], [ -1, %29 ]
+_ZN9grpc_core12QsortCompareINS_11ChannelArgsEEEiRKT_S4_.exit: ; preds = %23, %15, %13, %25, %33, %29, %._crit_edge
+  %.3 = phi i32 [ -1, %._crit_edge ], [ -1, %29 ], [ %..i, %33 ], [ %27, %25 ], [ 1, %13 ], [ 1, %15 ], [ -1, %23 ]
   ret i32 %.3
 }
 

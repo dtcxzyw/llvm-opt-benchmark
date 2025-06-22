@@ -2216,12 +2216,11 @@ define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_08BmpInput23color_table_
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 2
-  %umax = tail call i64 @llvm.umax.i64(i64 %9, i64 1)
   br label %.lr.ph
 
 10:                                               ; preds = %.critedge
   %11 = add nuw i64 %.01421, 1
-  %exitcond.not = icmp eq i64 %11, %umax
+  %exitcond.not = icmp eq i64 %11, %9
   br i1 %exitcond.not, label %.critedge19, label %.lr.ph, !llvm.loop !113
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %10

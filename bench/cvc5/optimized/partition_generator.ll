@@ -1108,7 +1108,6 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit: ; preds = %126, %120, %128
 
 .lr.ph.preheader:                                 ; preds = %143
   %150 = trunc nsw i64 %149 to i32
-  %umax = call i32 @llvm.umax.i32(i32 %150, i32 1)
   br label %.lr.ph
 
 151:                                              ; preds = %128
@@ -1340,7 +1339,7 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backERKS3_.exit: 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit38: ; preds = %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backERKS3_.exit, %253, %259
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #22
   %263 = add nuw i32 %.0965, 1
-  %exitcond.not = icmp eq i32 %263, %umax
+  %exitcond.not = icmp eq i32 %263, %150
   br i1 %exitcond.not, label %.loopexit47, label %.lr.ph, !llvm.loop !306
 
 264:                                              ; preds = %248, %246
@@ -6323,11 +6322,7 @@ _ZNK4cvc58internal12NodeTemplateILb1EE7notNodeEv.exit: ; preds = %248
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8), !noalias !400
   %253 = udiv i64 %103, %.046127
   %.not163 = icmp ugt i64 %.046127, %103
-  br i1 %.not163, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %_ZNK4cvc58internal12NodeTemplateILb1EE7notNodeEv.exit
-  %umax = call i64 @llvm.umax.i64(i64 %.046127, i64 1)
-  br label %.lr.ph
+  br i1 %.not163, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %287, %_ZNK4cvc58internal12NodeTemplateILb1EE7notNodeEv.exit
   %.145.lcssa = phi i1 [ %.044126, %_ZNK4cvc58internal12NodeTemplateILb1EE7notNodeEv.exit ], [ %285, %287 ]
@@ -6401,13 +6396,13 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit71: ; preds = %_ZN4cvc58internal12
           cleanup
   br label %.body67
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %287
-  %.041122 = phi i64 [ %288, %287 ], [ 0, %.lr.ph.preheader ]
-  %.042121 = phi i64 [ %286, %287 ], [ 0, %.lr.ph.preheader ]
-  %.145120 = phi i1 [ %285, %287 ], [ %.044126, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %_ZNK4cvc58internal12NodeTemplateILb1EE7notNodeEv.exit, %287
+  %.041122 = phi i64 [ %288, %287 ], [ 0, %_ZNK4cvc58internal12NodeTemplateILb1EE7notNodeEv.exit ]
+  %.042121 = phi i64 [ %286, %287 ], [ 0, %_ZNK4cvc58internal12NodeTemplateILb1EE7notNodeEv.exit ]
+  %.145120 = phi i1 [ %285, %287 ], [ %.044126, %_ZNK4cvc58internal12NodeTemplateILb1EE7notNodeEv.exit ]
   %285 = xor i1 %.145120, true
   %. = select i1 %.145120, ptr %15, ptr %14
-  %286 = add i64 %umax, %.042121
+  %286 = add i64 %.046127, %.042121
   br label %290
 
 287:                                              ; preds = %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backERKS3_.exit
@@ -12863,9 +12858,6 @@ declare i64 @llvm.umin.i64(i64, i64) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #21
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #20
 
 declare double @exp2(double) local_unnamed_addr
 

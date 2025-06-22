@@ -1035,7 +1035,6 @@ define internal i32 @dissect_thread_nm(ptr noundef %0, ptr noundef %1, ptr nound
 
 .lr.ph.preheader:                                 ; preds = %.preheader
   %115 = lshr exact i32 %14, 4
-  %umax = tail call i32 @llvm.umax.i32(i32 %115, i32 1)
   br label %.lr.ph
 
 116:                                              ; preds = %113
@@ -1052,7 +1051,7 @@ define internal i32 @dissect_thread_nm(ptr noundef %0, ptr noundef %1, ptr nound
   %122 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %121, ptr noundef %0, i32 noundef %.2216, i32 noundef 16, i32 noundef 0)
   %123 = add i32 %.2216, 16
   %124 = add nuw nsw i32 %.0217, 1
-  %exitcond.not = icmp eq i32 %124, %umax
+  %exitcond.not = icmp eq i32 %124, %115
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !6
 
 125:                                              ; preds = %.lr.ph219
@@ -1343,7 +1342,6 @@ define internal i32 @dissect_thread_bl(ptr noundef %0, ptr noundef %1, ptr nound
 
 .lr.ph.preheader:                                 ; preds = %120
   %123 = lshr exact i32 %14, 4
-  %umax = tail call i32 @llvm.umax.i32(i32 %123, i32 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -1353,7 +1351,7 @@ define internal i32 @dissect_thread_bl(ptr noundef %0, ptr noundef %1, ptr nound
   %125 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %124, ptr noundef %0, i32 noundef %.3209, i32 noundef 16, i32 noundef 0)
   %126 = add i32 %.3209, 16
   %127 = add nuw nsw i32 %.0210, 1
-  %exitcond.not = icmp eq i32 %127, %umax
+  %exitcond.not = icmp eq i32 %127, %123
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.lr.ph, %120, %115
@@ -1621,7 +1619,6 @@ define internal i32 @dissect_thread_address(ptr noundef %0, ptr noundef %1, ptr 
 
 .lr.ph.preheader:                                 ; preds = %.preheader
   %115 = lshr exact i32 %14, 4
-  %umax = tail call i32 @llvm.umax.i32(i32 %115, i32 1)
   br label %.lr.ph
 
 116:                                              ; preds = %113
@@ -1638,7 +1635,7 @@ define internal i32 @dissect_thread_address(ptr noundef %0, ptr noundef %1, ptr 
   %122 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %121, ptr noundef %0, i32 noundef %.3205, i32 noundef 16, i32 noundef 0)
   %123 = add i32 %.3205, 16
   %124 = add nuw nsw i32 %.0206, 1
-  %exitcond.not = icmp eq i32 %124, %umax
+  %exitcond.not = icmp eq i32 %124, %115
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %116
@@ -3679,7 +3676,6 @@ define internal fastcc i32 @dissect_thread_nwd_with_server_decode(ptr noundef %0
 
 .lr.ph.preheader:                                 ; preds = %101
   %102 = lshr exact i32 %21, 2
-  %umax = call i32 @llvm.umax.i32(i32 %102, i32 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -3713,7 +3709,7 @@ define internal fastcc i32 @dissect_thread_nwd_with_server_decode(ptr noundef %0
   %128 = call ptr @proto_tree_add_item(ptr noundef %106, i32 noundef %127, ptr noundef %0, i32 noundef %124, i32 noundef 1, i32 noundef 0)
   %129 = add i32 %.4373, 4
   %130 = add nuw nsw i32 %.0354372, 1
-  %exitcond.not = icmp eq i32 %130, %umax
+  %exitcond.not = icmp eq i32 %130, %102
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !28
 
 131:                                              ; preds = %17
@@ -4129,9 +4125,6 @@ declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 n
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.bswap.i16(i16) #6
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7

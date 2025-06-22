@@ -3887,7 +3887,6 @@ _ZN4cvc58internal8TypeNodeaSERKS1_.exit:          ; preds = %260, %254, %.crited
   %330 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %331 = getelementptr inbounds nuw i8, ptr %18, i64 40
   %332 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  %umax = call i64 @llvm.umax.i64(i64 %326, i64 1)
   br label %373
 
 333:                                              ; preds = %297
@@ -3981,7 +3980,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %352, %356, %362
 
 371:                                              ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit163
   %372 = add nuw i64 %.051319, 1
-  %exitcond.not = icmp eq i64 %372, %umax
+  %exitcond.not = icmp eq i64 %372, %326
   br i1 %exitcond.not, label %._crit_edge322.loopexit, label %373, !llvm.loop !247
 
 373:                                              ; preds = %.lr.ph321, %371
@@ -4824,7 +4823,6 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %113, %117, %123
   %150 = getelementptr i8, ptr %148, i64 -24
   %151 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %152 = getelementptr inbounds nuw i8, ptr %14, i64 128
-  %umax = call i64 @llvm.umax.i64(i64 %132, i64 1)
   br label %194
 
 .loopexit:                                        ; preds = %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
@@ -5112,7 +5110,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %152) #29
   call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %14) #29
   %267 = add nuw i64 %.01396, 1
-  %exitcond.not = icmp eq i64 %267, %umax
+  %exitcond.not = icmp eq i64 %267, %132
   br i1 %exitcond.not, label %.loopexit, label %194, !llvm.loop !286
 
 268:                                              ; preds = %194
@@ -5416,12 +5414,11 @@ define hidden void @_ZN4cvc58internal5DType8setSygusENS0_8TypeNodeENS0_12NodeTem
   %22 = ptrtoint ptr %20 to i64
   %23 = sub i64 %21, %22
   %24 = ashr exact i64 %23, 4
-  %umax = tail call i64 @llvm.umax.i64(i64 %24, i64 1)
   br label %.lr.ph
 
 25:                                               ; preds = %.lr.ph
   %26 = add nuw i64 %.02164, 1
-  %exitcond.not = icmp eq i64 %26, %umax
+  %exitcond.not = icmp eq i64 %26, %24
   br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !287
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %25
@@ -8214,7 +8211,6 @@ _ZNSt3mapIN4cvc58internal8TypeNodeESt6vectorIS2_SaIS2_EESt4lessIS2_ESaISt4pairIK
   %355 = ashr exact i64 %354, 3
   %356 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %357 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %umax = call i64 @llvm.umax.i64(i64 %355, i64 1)
   br label %358
 
 358:                                              ; preds = %.lr.ph, %_ZNSt6vectorIN4cvc58internal8TypeNodeESaIS2_EE9push_backERKS2_.exit173
@@ -8487,7 +8483,7 @@ _ZNSt16allocator_traitsISaIN4cvc58internal8TypeNodeEEE9constructIS2_JRKS2_EEEvRS
 
 _ZNSt6vectorIN4cvc58internal8TypeNodeESaIS2_EE9push_backERKS2_.exit173: ; preds = %473, %_ZNSt16allocator_traitsISaIN4cvc58internal8TypeNodeEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i172, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal8TypeNodeESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit156
   %474 = add nuw i64 %.045218, 1
-  %exitcond.not = icmp eq i64 %474, %umax
+  %exitcond.not = icmp eq i64 %474, %355
   br i1 %exitcond.not, label %_ZNSt6vectorIN4cvc58internal8TypeNodeESaIS2_EE8pop_backEv.exit, label %358, !llvm.loop !305
 
 _ZNSt6vectorIN4cvc58internal8TypeNodeESaIS2_EE8pop_backEv.exit: ; preds = %_ZNSt6vectorIN4cvc58internal8TypeNodeESaIS2_EE9push_backERKS2_.exit173, %_ZN4cvc58internal8TypeNodeD2Ev.exit94, %_ZNSt3mapIN4cvc58internal8TypeNodeESt6vectorIS2_SaIS2_EESt4lessIS2_ESaISt4pairIKS2_S5_EEEixERS9_.exit, %300, %294, %.thread, %_ZNSt3mapIN4cvc58internal8TypeNodeEiSt4lessIS2_ESaISt4pairIKS2_iEEEixERS6_.exit108, %93, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal8TypeNodeESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit
@@ -15063,7 +15059,6 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit: ; preds = %47, %49
   %54 = ptrtoint ptr %52 to i64
   %55 = sub i64 %53, %54
   %56 = ashr exact i64 %55, 3
-  %umax = call i64 @llvm.umax.i64(i64 %56, i64 1)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN4cvc58internal8TypeNodeD2Ev.exit, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit
@@ -15233,7 +15228,7 @@ _ZNK4cvc58internal5DType12getParameterEm.exit:    ; preds = %93, %99, %101
 _ZN4cvc58internal8TypeNodeD2Ev.exit:              ; preds = %114, %117, %123
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #29
   %127 = add nuw i64 %.02146, 1
-  %exitcond.not = icmp eq i64 %127, %umax
+  %exitcond.not = icmp eq i64 %127, %56
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !370
 
 128:                                              ; preds = %_ZNK4cvc58internal5DType12getParameterEm.exit

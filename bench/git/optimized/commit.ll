@@ -3227,7 +3227,7 @@ define dso_local void @sort_in_topological_order(ptr noundef captures(none) %0, 
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #24
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #24
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %173, label %6
+  br i1 %.not, label %174, label %6
 
 6:                                                ; preds = %2
   store ptr null, ptr %0, align 8, !tbaa !90
@@ -3610,53 +3610,53 @@ indegree_slab_at.exit108:                         ; preds = %._crit_edge4.i.i105
 .lr.ph.i.preheader:                               ; preds = %indegree_slab_at.exit108, %free_commit_list.exit
   %.sroa.24.4.lcssa = phi i32 [ %.sroa.24.8, %free_commit_list.exit ], [ %.sroa.24.10, %indegree_slab_at.exit108 ]
   %.sroa.43143.4.lcssa = phi ptr [ %.sroa.43143.8, %free_commit_list.exit ], [ %.sroa.43143.10, %indegree_slab_at.exit108 ]
-  %umax = zext i32 %.sroa.24.4.lcssa to i64
+  %158 = zext nneg i32 %.sroa.24.4.lcssa to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %158 = getelementptr inbounds nuw ptr, ptr %.sroa.43143.4.lcssa, i64 %indvars.iv.i
-  %159 = load ptr, ptr %158, align 8, !tbaa !130
-  call void @free(ptr noundef %159) #24
+  %159 = getelementptr inbounds nuw ptr, ptr %.sroa.43143.4.lcssa, i64 %indvars.iv.i
+  %160 = load ptr, ptr %159, align 8, !tbaa !130
+  call void @free(ptr noundef %160) #24
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next.i, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next.i, %158
   br i1 %exitcond.not, label %clear_indegree_slab.exit, label %.lr.ph.i, !llvm.loop !138
 
 clear_indegree_slab.exit:                         ; preds = %.lr.ph.i
   call void @free(ptr noundef nonnull %.sroa.43143.4.lcssa) #24
   call void @clear_prio_queue(ptr noundef nonnull %3) #24
-  br i1 %14, label %160, label %173
+  br i1 %14, label %161, label %174
 
-160:                                              ; preds = %clear_indegree_slab.exit
-  %161 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %162 = load i32, ptr %161, align 8, !tbaa !121
-  %.not.i110 = icmp eq i32 %162, 0
+161:                                              ; preds = %clear_indegree_slab.exit
+  %162 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %163 = load i32, ptr %162, align 8, !tbaa !121
+  %.not.i110 = icmp eq i32 %163, 0
   br i1 %.not.i110, label %clear_author_date_slab.exit, label %.lr.ph.i111
 
-.lr.ph.i111:                                      ; preds = %160
-  %163 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  br label %164
+.lr.ph.i111:                                      ; preds = %161
+  %164 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  br label %165
 
-164:                                              ; preds = %164, %.lr.ph.i111
-  %indvars.iv.i112 = phi i64 [ 0, %.lr.ph.i111 ], [ %indvars.iv.next.i113, %164 ]
-  %165 = load ptr, ptr %163, align 8, !tbaa !122
-  %166 = getelementptr inbounds nuw ptr, ptr %165, i64 %indvars.iv.i112
-  %167 = load ptr, ptr %166, align 8, !tbaa !123
-  call void @free(ptr noundef %167) #24
+165:                                              ; preds = %165, %.lr.ph.i111
+  %indvars.iv.i112 = phi i64 [ 0, %.lr.ph.i111 ], [ %indvars.iv.next.i113, %165 ]
+  %166 = load ptr, ptr %164, align 8, !tbaa !122
+  %167 = getelementptr inbounds nuw ptr, ptr %166, i64 %indvars.iv.i112
+  %168 = load ptr, ptr %167, align 8, !tbaa !123
+  call void @free(ptr noundef %168) #24
   %indvars.iv.next.i113 = add nuw nsw i64 %indvars.iv.i112, 1
-  %168 = load i32, ptr %161, align 8, !tbaa !121
-  %169 = zext i32 %168 to i64
-  %170 = icmp samesign ult i64 %indvars.iv.next.i113, %169
-  br i1 %170, label %164, label %clear_author_date_slab.exit, !llvm.loop !139
+  %169 = load i32, ptr %162, align 8, !tbaa !121
+  %170 = zext i32 %169 to i64
+  %171 = icmp samesign ult i64 %indvars.iv.next.i113, %170
+  br i1 %171, label %165, label %clear_author_date_slab.exit, !llvm.loop !139
 
-clear_author_date_slab.exit:                      ; preds = %164, %160
-  store i32 0, ptr %161, align 8, !tbaa !121
-  %171 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %172 = load ptr, ptr %171, align 8, !tbaa !122
-  call void @free(ptr noundef %172) #24
-  br label %173
+clear_author_date_slab.exit:                      ; preds = %165, %161
+  store i32 0, ptr %162, align 8, !tbaa !121
+  %172 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %173 = load ptr, ptr %172, align 8, !tbaa !122
+  call void @free(ptr noundef %173) #24
+  br label %174
 
-173:                                              ; preds = %clear_indegree_slab.exit, %clear_author_date_slab.exit, %2
+174:                                              ; preds = %clear_indegree_slab.exit, %clear_author_date_slab.exit, %2
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #24
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #24
   ret void

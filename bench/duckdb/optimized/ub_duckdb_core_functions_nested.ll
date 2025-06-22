@@ -15395,11 +15395,7 @@ _ZStneIbSaIbEEbRKSt6vectorIT_T0_ES6_.exit:        ; preds = %_ZNSt19_Bit_const_i
 
 .preheader:                                       ; preds = %_ZStneIbSaIbEEbRKSt6vectorIT_T0_ES6_.exit
   %.not49 = icmp eq ptr %80, %81
-  br i1 %.not49, label %.loopexit, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %.preheader
-  %umax = tail call i64 @llvm.umax.i64(i64 %85, i64 1)
-  br label %.lr.ph
+  br i1 %.not49, label %.loopexit, label %.lr.ph
 
 94:                                               ; preds = %_ZStneIbSaIbEEbRKSt6vectorIT_T0_ES6_.exit
   %95 = tail call ptr @__cxa_allocate_exception(i64 16) #25
@@ -15447,8 +15443,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %99
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #25
   br i1 %.022, label %.sink.split, label %113
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.048 = phi i64 [ %112, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %.lr.ph
+  %.048 = phi i64 [ %112, %.lr.ph ], [ 0, %.preheader ]
   %107 = getelementptr inbounds nuw i64, ptr %90, i64 %.048
   %108 = load i64, ptr %107, align 8, !tbaa !46
   %109 = getelementptr inbounds nuw i64, ptr %81, i64 %.048
@@ -15456,7 +15452,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %99
   %111 = add i64 %110, %108
   store i64 %111, ptr %109, align 8, !tbaa !46
   %112 = add nuw i64 %.048, 1
-  %exitcond.not = icmp eq i64 %112, %umax
+  %exitcond.not = icmp eq i64 %112, %85
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !354
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %3, %11
@@ -18034,11 +18030,7 @@ _ZStneIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.thread41: ; preds = %35, %_ZStneIhSaIh
 
 .preheader:                                       ; preds = %_ZStneIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.thread41
   %.not49 = icmp eq ptr %51, %52
-  br i1 %.not49, label %.loopexit, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %.preheader
-  %umax = tail call i64 @llvm.umax.i64(i64 %56, i64 1)
-  br label %.lr.ph
+  br i1 %.not49, label %.loopexit, label %.lr.ph
 
 65:                                               ; preds = %_ZStneIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.thread41
   %66 = tail call ptr @__cxa_allocate_exception(i64 16) #25
@@ -18086,8 +18078,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %70
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #25
   br i1 %.022, label %.sink.split, label %84
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.048 = phi i64 [ %83, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %.lr.ph
+  %.048 = phi i64 [ %83, %.lr.ph ], [ 0, %.preheader ]
   %78 = getelementptr inbounds nuw i64, ptr %61, i64 %.048
   %79 = load i64, ptr %78, align 8, !tbaa !46
   %80 = getelementptr inbounds nuw i64, ptr %52, i64 %.048
@@ -18095,7 +18087,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %70
   %82 = add i64 %81, %79
   store i64 %82, ptr %80, align 8, !tbaa !46
   %83 = add nuw i64 %.048, 1
-  %exitcond.not = icmp eq i64 %83, %umax
+  %exitcond.not = icmp eq i64 %83, %56
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !386
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %3, %11
@@ -18908,7 +18900,6 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit: ; preds = %115, %.noexc
   %139 = getelementptr inbounds nuw i8, ptr %113, i64 8
   %140 = load ptr, ptr %139, align 8, !tbaa !396
   %141 = load ptr, ptr %140, align 8, !tbaa !323
-  %umax = call i64 @llvm.umax.i64(i64 %137, i64 1)
   br label %154
 
 ._crit_edge120:                                   ; preds = %154, %.._crit_edge120_crit_edge
@@ -18941,7 +18932,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit: ; preds = %115, %.noexc
   store i64 %159, ptr %160, align 8, !tbaa !46
   %161 = add i64 %.289116, 1
   %162 = add nuw i64 %.0117, 1
-  %exitcond133.not = icmp eq i64 %162, %umax
+  %exitcond133.not = icmp eq i64 %162, %137
   br i1 %exitcond133.not, label %._crit_edge120, label %154, !llvm.loop !403
 
 163:                                              ; preds = %._crit_edge120
@@ -20510,11 +20501,7 @@ _ZStneItSaItEEbRKSt6vectorIT_T0_ES6_.exit.thread41: ; preds = %35, %_ZStneItSaIt
 
 .preheader:                                       ; preds = %_ZStneItSaItEEbRKSt6vectorIT_T0_ES6_.exit.thread41
   %.not49 = icmp eq ptr %51, %52
-  br i1 %.not49, label %.loopexit, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %.preheader
-  %umax = tail call i64 @llvm.umax.i64(i64 %56, i64 1)
-  br label %.lr.ph
+  br i1 %.not49, label %.loopexit, label %.lr.ph
 
 65:                                               ; preds = %_ZStneItSaItEEbRKSt6vectorIT_T0_ES6_.exit.thread41
   %66 = tail call ptr @__cxa_allocate_exception(i64 16) #25
@@ -20562,8 +20549,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %70
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #25
   br i1 %.022, label %.sink.split, label %84
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.048 = phi i64 [ %83, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %.lr.ph
+  %.048 = phi i64 [ %83, %.lr.ph ], [ 0, %.preheader ]
   %78 = getelementptr inbounds nuw i64, ptr %61, i64 %.048
   %79 = load i64, ptr %78, align 8, !tbaa !46
   %80 = getelementptr inbounds nuw i64, ptr %52, i64 %.048
@@ -20571,7 +20558,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %70
   %82 = add i64 %81, %79
   store i64 %82, ptr %80, align 8, !tbaa !46
   %83 = add nuw i64 %.048, 1
-  %exitcond.not = icmp eq i64 %83, %umax
+  %exitcond.not = icmp eq i64 %83, %56
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !420
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %3, %11
@@ -21381,7 +21368,6 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit: ; preds = %115, %.noexc
   %139 = getelementptr inbounds nuw i8, ptr %113, i64 8
   %140 = load ptr, ptr %139, align 8, !tbaa !428
   %141 = load ptr, ptr %140, align 8, !tbaa !323
-  %umax = call i64 @llvm.umax.i64(i64 %137, i64 1)
   br label %154
 
 ._crit_edge120:                                   ; preds = %154, %.._crit_edge120_crit_edge
@@ -21414,7 +21400,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit: ; preds = %115, %.noexc
   store i64 %159, ptr %160, align 8, !tbaa !46
   %161 = add i64 %.289116, 1
   %162 = add nuw i64 %.0117, 1
-  %exitcond133.not = icmp eq i64 %162, %umax
+  %exitcond133.not = icmp eq i64 %162, %137
   br i1 %exitcond133.not, label %._crit_edge120, label %154, !llvm.loop !435
 
 163:                                              ; preds = %._crit_edge120
@@ -22983,11 +22969,7 @@ _ZStneIjSaIjEEbRKSt6vectorIT_T0_ES6_.exit.thread41: ; preds = %35, %_ZStneIjSaIj
 
 .preheader:                                       ; preds = %_ZStneIjSaIjEEbRKSt6vectorIT_T0_ES6_.exit.thread41
   %.not49 = icmp eq ptr %51, %52
-  br i1 %.not49, label %.loopexit, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %.preheader
-  %umax = tail call i64 @llvm.umax.i64(i64 %56, i64 1)
-  br label %.lr.ph
+  br i1 %.not49, label %.loopexit, label %.lr.ph
 
 65:                                               ; preds = %_ZStneIjSaIjEEbRKSt6vectorIT_T0_ES6_.exit.thread41
   %66 = tail call ptr @__cxa_allocate_exception(i64 16) #25
@@ -23035,8 +23017,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %70
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #25
   br i1 %.022, label %.sink.split, label %84
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.048 = phi i64 [ %83, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %.lr.ph
+  %.048 = phi i64 [ %83, %.lr.ph ], [ 0, %.preheader ]
   %78 = getelementptr inbounds nuw i64, ptr %61, i64 %.048
   %79 = load i64, ptr %78, align 8, !tbaa !46
   %80 = getelementptr inbounds nuw i64, ptr %52, i64 %.048
@@ -23044,7 +23026,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %70
   %82 = add i64 %81, %79
   store i64 %82, ptr %80, align 8, !tbaa !46
   %83 = add nuw i64 %.048, 1
-  %exitcond.not = icmp eq i64 %83, %umax
+  %exitcond.not = icmp eq i64 %83, %56
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !452
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %3, %11
@@ -23853,7 +23835,6 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit: ; preds = %115, %.noexc
   %139 = getelementptr inbounds nuw i8, ptr %113, i64 8
   %140 = load ptr, ptr %139, align 8, !tbaa !458
   %141 = load ptr, ptr %140, align 8, !tbaa !323
-  %umax = call i64 @llvm.umax.i64(i64 %137, i64 1)
   br label %154
 
 ._crit_edge120:                                   ; preds = %154, %.._crit_edge120_crit_edge
@@ -23886,7 +23867,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit: ; preds = %115, %.noexc
   store i64 %159, ptr %160, align 8, !tbaa !46
   %161 = add i64 %.289116, 1
   %162 = add nuw i64 %.0117, 1
-  %exitcond133.not = icmp eq i64 %162, %umax
+  %exitcond133.not = icmp eq i64 %162, %137
   br i1 %exitcond133.not, label %._crit_edge120, label %154, !llvm.loop !462
 
 163:                                              ; preds = %._crit_edge120
@@ -25455,11 +25436,7 @@ _ZStneImSaImEEbRKSt6vectorIT_T0_ES6_.exit.thread41: ; preds = %35, %_ZStneImSaIm
 
 .preheader:                                       ; preds = %_ZStneImSaImEEbRKSt6vectorIT_T0_ES6_.exit.thread41
   %.not49 = icmp eq ptr %51, %52
-  br i1 %.not49, label %.loopexit, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %.preheader
-  %umax = tail call i64 @llvm.umax.i64(i64 %56, i64 1)
-  br label %.lr.ph
+  br i1 %.not49, label %.loopexit, label %.lr.ph
 
 65:                                               ; preds = %_ZStneImSaImEEbRKSt6vectorIT_T0_ES6_.exit.thread41
   %66 = tail call ptr @__cxa_allocate_exception(i64 16) #25
@@ -25507,8 +25484,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %70
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #25
   br i1 %.022, label %.sink.split, label %84
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.048 = phi i64 [ %83, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %.lr.ph
+  %.048 = phi i64 [ %83, %.lr.ph ], [ 0, %.preheader ]
   %78 = getelementptr inbounds nuw i64, ptr %61, i64 %.048
   %79 = load i64, ptr %78, align 8, !tbaa !46
   %80 = getelementptr inbounds nuw i64, ptr %52, i64 %.048
@@ -25516,7 +25493,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %70
   %82 = add i64 %81, %79
   store i64 %82, ptr %80, align 8, !tbaa !46
   %83 = add nuw i64 %.048, 1
-  %exitcond.not = icmp eq i64 %83, %umax
+  %exitcond.not = icmp eq i64 %83, %56
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !478
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %3, %11
@@ -27803,11 +27780,7 @@ _ZStneIaSaIaEEbRKSt6vectorIT_T0_ES6_.exit.thread41: ; preds = %35, %_ZStneIaSaIa
 
 .preheader:                                       ; preds = %_ZStneIaSaIaEEbRKSt6vectorIT_T0_ES6_.exit.thread41
   %.not49 = icmp eq ptr %51, %52
-  br i1 %.not49, label %.loopexit, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %.preheader
-  %umax = tail call i64 @llvm.umax.i64(i64 %56, i64 1)
-  br label %.lr.ph
+  br i1 %.not49, label %.loopexit, label %.lr.ph
 
 65:                                               ; preds = %_ZStneIaSaIaEEbRKSt6vectorIT_T0_ES6_.exit.thread41
   %66 = tail call ptr @__cxa_allocate_exception(i64 16) #25
@@ -27855,8 +27828,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %70
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #25
   br i1 %.022, label %.sink.split, label %84
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.048 = phi i64 [ %83, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %.lr.ph
+  %.048 = phi i64 [ %83, %.lr.ph ], [ 0, %.preheader ]
   %78 = getelementptr inbounds nuw i64, ptr %61, i64 %.048
   %79 = load i64, ptr %78, align 8, !tbaa !46
   %80 = getelementptr inbounds nuw i64, ptr %52, i64 %.048
@@ -27864,7 +27837,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %70
   %82 = add i64 %81, %79
   store i64 %82, ptr %80, align 8, !tbaa !46
   %83 = add nuw i64 %.048, 1
-  %exitcond.not = icmp eq i64 %83, %umax
+  %exitcond.not = icmp eq i64 %83, %56
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !509
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %3, %11
@@ -28674,7 +28647,6 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit: ; preds = %115, %.noexc
   %139 = getelementptr inbounds nuw i8, ptr %113, i64 8
   %140 = load ptr, ptr %139, align 8, !tbaa !516
   %141 = load ptr, ptr %140, align 8, !tbaa !323
-  %umax = call i64 @llvm.umax.i64(i64 %137, i64 1)
   br label %154
 
 ._crit_edge120:                                   ; preds = %154, %.._crit_edge120_crit_edge
@@ -28707,7 +28679,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit: ; preds = %115, %.noexc
   store i64 %159, ptr %160, align 8, !tbaa !46
   %161 = add i64 %.289116, 1
   %162 = add nuw i64 %.0117, 1
-  %exitcond133.not = icmp eq i64 %162, %umax
+  %exitcond133.not = icmp eq i64 %162, %137
   br i1 %exitcond133.not, label %._crit_edge120, label %154, !llvm.loop !523
 
 163:                                              ; preds = %._crit_edge120
@@ -30276,11 +30248,7 @@ _ZStneIsSaIsEEbRKSt6vectorIT_T0_ES6_.exit.thread41: ; preds = %35, %_ZStneIsSaIs
 
 .preheader:                                       ; preds = %_ZStneIsSaIsEEbRKSt6vectorIT_T0_ES6_.exit.thread41
   %.not49 = icmp eq ptr %51, %52
-  br i1 %.not49, label %.loopexit, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %.preheader
-  %umax = tail call i64 @llvm.umax.i64(i64 %56, i64 1)
-  br label %.lr.ph
+  br i1 %.not49, label %.loopexit, label %.lr.ph
 
 65:                                               ; preds = %_ZStneIsSaIsEEbRKSt6vectorIT_T0_ES6_.exit.thread41
   %66 = tail call ptr @__cxa_allocate_exception(i64 16) #25
@@ -30328,8 +30296,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %70
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #25
   br i1 %.022, label %.sink.split, label %84
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.048 = phi i64 [ %83, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %.lr.ph
+  %.048 = phi i64 [ %83, %.lr.ph ], [ 0, %.preheader ]
   %78 = getelementptr inbounds nuw i64, ptr %61, i64 %.048
   %79 = load i64, ptr %78, align 8, !tbaa !46
   %80 = getelementptr inbounds nuw i64, ptr %52, i64 %.048
@@ -30337,7 +30305,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %70
   %82 = add i64 %81, %79
   store i64 %82, ptr %80, align 8, !tbaa !46
   %83 = add nuw i64 %.048, 1
-  %exitcond.not = icmp eq i64 %83, %umax
+  %exitcond.not = icmp eq i64 %83, %56
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !540
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %3, %11
@@ -31147,7 +31115,6 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit: ; preds = %115, %.noexc
   %139 = getelementptr inbounds nuw i8, ptr %113, i64 8
   %140 = load ptr, ptr %139, align 8, !tbaa !547
   %141 = load ptr, ptr %140, align 8, !tbaa !323
-  %umax = call i64 @llvm.umax.i64(i64 %137, i64 1)
   br label %154
 
 ._crit_edge120:                                   ; preds = %154, %.._crit_edge120_crit_edge
@@ -31180,7 +31147,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit: ; preds = %115, %.noexc
   store i64 %159, ptr %160, align 8, !tbaa !46
   %161 = add i64 %.289116, 1
   %162 = add nuw i64 %.0117, 1
-  %exitcond133.not = icmp eq i64 %162, %umax
+  %exitcond133.not = icmp eq i64 %162, %137
   br i1 %exitcond133.not, label %._crit_edge120, label %154, !llvm.loop !554
 
 163:                                              ; preds = %._crit_edge120
@@ -32749,11 +32716,7 @@ _ZStneIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread41: ; preds = %35, %_ZStneIiSaIi
 
 .preheader:                                       ; preds = %_ZStneIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread41
   %.not49 = icmp eq ptr %51, %52
-  br i1 %.not49, label %.loopexit, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %.preheader
-  %umax = tail call i64 @llvm.umax.i64(i64 %56, i64 1)
-  br label %.lr.ph
+  br i1 %.not49, label %.loopexit, label %.lr.ph
 
 65:                                               ; preds = %_ZStneIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread41
   %66 = tail call ptr @__cxa_allocate_exception(i64 16) #25
@@ -32801,8 +32764,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %70
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #25
   br i1 %.022, label %.sink.split, label %84
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.048 = phi i64 [ %83, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %.lr.ph
+  %.048 = phi i64 [ %83, %.lr.ph ], [ 0, %.preheader ]
   %78 = getelementptr inbounds nuw i64, ptr %61, i64 %.048
   %79 = load i64, ptr %78, align 8, !tbaa !46
   %80 = getelementptr inbounds nuw i64, ptr %52, i64 %.048
@@ -32810,7 +32773,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %70
   %82 = add i64 %81, %79
   store i64 %82, ptr %80, align 8, !tbaa !46
   %83 = add nuw i64 %.048, 1
-  %exitcond.not = icmp eq i64 %83, %umax
+  %exitcond.not = icmp eq i64 %83, %56
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !571
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %3, %11
@@ -33619,7 +33582,6 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit: ; preds = %115, %.noexc
   %139 = getelementptr inbounds nuw i8, ptr %113, i64 8
   %140 = load ptr, ptr %139, align 8, !tbaa !578
   %141 = load ptr, ptr %140, align 8, !tbaa !323
-  %umax = call i64 @llvm.umax.i64(i64 %137, i64 1)
   br label %154
 
 ._crit_edge120:                                   ; preds = %154, %.._crit_edge120_crit_edge
@@ -33652,7 +33614,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit: ; preds = %115, %.noexc
   store i64 %159, ptr %160, align 8, !tbaa !46
   %161 = add i64 %.289116, 1
   %162 = add nuw i64 %.0117, 1
-  %exitcond133.not = icmp eq i64 %162, %umax
+  %exitcond133.not = icmp eq i64 %162, %137
   br i1 %exitcond133.not, label %._crit_edge120, label %154, !llvm.loop !585
 
 163:                                              ; preds = %._crit_edge120
@@ -35221,11 +35183,7 @@ _ZStneIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit.thread41: ; preds = %35, %_ZStneIlSaIl
 
 .preheader:                                       ; preds = %_ZStneIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit.thread41
   %.not49 = icmp eq ptr %51, %52
-  br i1 %.not49, label %.loopexit, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %.preheader
-  %umax = tail call i64 @llvm.umax.i64(i64 %56, i64 1)
-  br label %.lr.ph
+  br i1 %.not49, label %.loopexit, label %.lr.ph
 
 65:                                               ; preds = %_ZStneIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit.thread41
   %66 = tail call ptr @__cxa_allocate_exception(i64 16) #25
@@ -35273,8 +35231,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %70
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #25
   br i1 %.022, label %.sink.split, label %84
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.048 = phi i64 [ %83, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %.lr.ph
+  %.048 = phi i64 [ %83, %.lr.ph ], [ 0, %.preheader ]
   %78 = getelementptr inbounds nuw i64, ptr %61, i64 %.048
   %79 = load i64, ptr %78, align 8, !tbaa !46
   %80 = getelementptr inbounds nuw i64, ptr %52, i64 %.048
@@ -35282,7 +35240,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %70
   %82 = add i64 %81, %79
   store i64 %82, ptr %80, align 8, !tbaa !46
   %83 = add nuw i64 %.048, 1
-  %exitcond.not = icmp eq i64 %83, %umax
+  %exitcond.not = icmp eq i64 %83, %56
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !602
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %3, %11
@@ -36092,7 +36050,6 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit: ; preds = %115, %.noexc
   %139 = getelementptr inbounds nuw i8, ptr %113, i64 8
   %140 = load ptr, ptr %139, align 8, !tbaa !613
   %141 = load ptr, ptr %140, align 8, !tbaa !323
-  %umax = call i64 @llvm.umax.i64(i64 %137, i64 1)
   br label %154
 
 ._crit_edge120:                                   ; preds = %154, %.._crit_edge120_crit_edge
@@ -36125,7 +36082,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit: ; preds = %115, %.noexc
   store i64 %159, ptr %160, align 8, !tbaa !46
   %161 = add i64 %.289116, 1
   %162 = add nuw i64 %.0117, 1
-  %exitcond133.not = icmp eq i64 %162, %umax
+  %exitcond133.not = icmp eq i64 %162, %137
   br i1 %exitcond133.not, label %._crit_edge120, label %154, !llvm.loop !620
 
 163:                                              ; preds = %._crit_edge120
@@ -37707,11 +37664,7 @@ _ZStneIfSaIfEEbRKSt6vectorIT_T0_ES6_.exit:        ; preds = %39, %35
 
 .preheader:                                       ; preds = %_ZStneIfSaIfEEbRKSt6vectorIT_T0_ES6_.exit
   %.not49 = icmp eq ptr %57, %58
-  br i1 %.not49, label %.loopexit, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %.preheader
-  %umax = tail call i64 @llvm.umax.i64(i64 %62, i64 1)
-  br label %.lr.ph
+  br i1 %.not49, label %.loopexit, label %.lr.ph
 
 71:                                               ; preds = %_ZStneIfSaIfEEbRKSt6vectorIT_T0_ES6_.exit
   %72 = tail call ptr @__cxa_allocate_exception(i64 16) #25
@@ -37759,8 +37712,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %76
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #25
   br i1 %.022, label %.sink.split, label %90
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.048 = phi i64 [ %89, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %.lr.ph
+  %.048 = phi i64 [ %89, %.lr.ph ], [ 0, %.preheader ]
   %84 = getelementptr inbounds nuw i64, ptr %67, i64 %.048
   %85 = load i64, ptr %84, align 8, !tbaa !46
   %86 = getelementptr inbounds nuw i64, ptr %58, i64 %.048
@@ -37768,7 +37721,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %76
   %88 = add i64 %87, %85
   store i64 %88, ptr %86, align 8, !tbaa !46
   %89 = add nuw i64 %.048, 1
-  %exitcond.not = icmp eq i64 %89, %umax
+  %exitcond.not = icmp eq i64 %89, %62
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !638
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %3, %11
@@ -38577,7 +38530,6 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit: ; preds = %115, %.noexc
   %139 = getelementptr inbounds nuw i8, ptr %113, i64 8
   %140 = load ptr, ptr %139, align 8, !tbaa !649
   %141 = load ptr, ptr %140, align 8, !tbaa !323
-  %umax = call i64 @llvm.umax.i64(i64 %137, i64 1)
   br label %154
 
 ._crit_edge120:                                   ; preds = %154, %.._crit_edge120_crit_edge
@@ -38610,7 +38562,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit: ; preds = %115, %.noexc
   store i64 %159, ptr %160, align 8, !tbaa !46
   %161 = add i64 %.289116, 1
   %162 = add nuw i64 %.0117, 1
-  %exitcond133.not = icmp eq i64 %162, %umax
+  %exitcond133.not = icmp eq i64 %162, %137
   br i1 %exitcond133.not, label %._crit_edge120, label %154, !llvm.loop !656
 
 163:                                              ; preds = %._crit_edge120
@@ -40192,11 +40144,7 @@ _ZStneIdSaIdEEbRKSt6vectorIT_T0_ES6_.exit:        ; preds = %39, %35
 
 .preheader:                                       ; preds = %_ZStneIdSaIdEEbRKSt6vectorIT_T0_ES6_.exit
   %.not49 = icmp eq ptr %57, %58
-  br i1 %.not49, label %.loopexit, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %.preheader
-  %umax = tail call i64 @llvm.umax.i64(i64 %62, i64 1)
-  br label %.lr.ph
+  br i1 %.not49, label %.loopexit, label %.lr.ph
 
 71:                                               ; preds = %_ZStneIdSaIdEEbRKSt6vectorIT_T0_ES6_.exit
   %72 = tail call ptr @__cxa_allocate_exception(i64 16) #25
@@ -40244,8 +40192,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %76
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #25
   br i1 %.022, label %.sink.split, label %90
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.048 = phi i64 [ %89, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %.lr.ph
+  %.048 = phi i64 [ %89, %.lr.ph ], [ 0, %.preheader ]
   %84 = getelementptr inbounds nuw i64, ptr %67, i64 %.048
   %85 = load i64, ptr %84, align 8, !tbaa !46
   %86 = getelementptr inbounds nuw i64, ptr %58, i64 %.048
@@ -40253,7 +40201,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %76
   %88 = add i64 %87, %85
   store i64 %88, ptr %86, align 8, !tbaa !46
   %89 = add nuw i64 %.048, 1
-  %exitcond.not = icmp eq i64 %89, %umax
+  %exitcond.not = icmp eq i64 %89, %62
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !674
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %3, %11
@@ -43103,11 +43051,7 @@ _ZStneIN6duckdb8string_tESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit: ; preds = %48, %35
 
 .preheader:                                       ; preds = %_ZStneIN6duckdb8string_tESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit
   %.not49 = icmp eq ptr %66, %67
-  br i1 %.not49, label %.loopexit, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %.preheader
-  %umax = tail call i64 @llvm.umax.i64(i64 %71, i64 1)
-  br label %.lr.ph
+  br i1 %.not49, label %.loopexit, label %.lr.ph
 
 80:                                               ; preds = %_ZStneIN6duckdb8string_tESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit
   %81 = tail call ptr @__cxa_allocate_exception(i64 16) #25
@@ -43155,8 +43099,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %85
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #25
   br i1 %.022, label %.sink.split, label %99
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.048 = phi i64 [ %98, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %.lr.ph
+  %.048 = phi i64 [ %98, %.lr.ph ], [ 0, %.preheader ]
   %93 = getelementptr inbounds nuw i64, ptr %76, i64 %.048
   %94 = load i64, ptr %93, align 8, !tbaa !46
   %95 = getelementptr inbounds nuw i64, ptr %67, i64 %.048
@@ -43164,7 +43108,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %85
   %97 = add i64 %96, %94
   store i64 %97, ptr %95, align 8, !tbaa !46
   %98 = add nuw i64 %.048, 1
-  %exitcond.not = icmp eq i64 %98, %umax
+  %exitcond.not = icmp eq i64 %98, %71
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !709
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %3, %11

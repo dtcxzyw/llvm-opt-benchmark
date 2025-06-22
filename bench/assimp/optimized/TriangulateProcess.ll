@@ -790,11 +790,7 @@ _ZN6Assimp12NewellNormalILi3ELi3ELi3EfEEvR10aiVector3tIT2_EiPS2_S5_S5_.exit: ; p
   %.1343 = select i1 %333, i32 %.0, i32 %.0342
   %.1341 = select i1 %333, i32 %.0342, i32 %.0
   invoke void @_ZNSt6vectorI10aiVector2tIfESaIS1_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %59, i64 noundef %wide.trip.count420)
-          to label %.preheader349.preheader unwind label %338
-
-.preheader349.preheader:                          ; preds = %332
-  %wide.trip.count425 = zext i32 %97 to i64
-  br label %.preheader349
+          to label %.preheader349 unwind label %338
 
 334:                                              ; preds = %_ZNK10aiVector3tIfEixEj.exit269
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #18
@@ -813,8 +809,8 @@ _ZN6Assimp12NewellNormalILi3ELi3ELi3EfEEvR10aiVector3tIT2_EiPS2_S5_S5_.exit: ; p
           cleanup
   br label %469
 
-.preheader349:                                    ; preds = %.preheader349.preheader, %_ZNK10aiVector3tIfEixEj.exit269
-  %indvars.iv422 = phi i64 [ 0, %.preheader349.preheader ], [ %indvars.iv.next423, %_ZNK10aiVector3tIfEixEj.exit269 ]
+.preheader349:                                    ; preds = %332, %_ZNK10aiVector3tIfEixEj.exit269
+  %indvars.iv422 = phi i64 [ %indvars.iv.next423, %_ZNK10aiVector3tIfEixEj.exit269 ], [ 0, %332 ]
   %340 = getelementptr inbounds nuw i32, ptr %96, i64 %indvars.iv422
   %341 = load i32, ptr %340, align 4
   %342 = zext i32 %341 to i64
@@ -861,7 +857,7 @@ _ZNK10aiVector3tIfEixEj.exit269:                  ; preds = %_ZNK10aiVector3tIfE
   %358 = getelementptr inbounds nuw %class.aiVector2t, ptr %357, i64 %indvars.iv422, i32 1
   store float %.0.i268, ptr %358, align 4
   %indvars.iv.next423 = add nuw nsw i64 %indvars.iv422, 1
-  %exitcond426.not = icmp eq i64 %indvars.iv.next423, %wide.trip.count425
+  %exitcond426.not = icmp eq i64 %indvars.iv.next423, %wide.trip.count420
   br i1 %exitcond426.not, label %334, label %.preheader349, !llvm.loop !10
 
 ._crit_edge382:                                   ; preds = %.preheader348
@@ -1813,7 +1809,6 @@ define linkonce_odr hidden noundef ptr @_ZN6mapbox6detail6EarcutIjE10linkedListI
 
 .lr.ph.preheader:                                 ; preds = %3
   %17 = tail call i64 @llvm.usub.sat.i64(i64 %16, i64 1)
-  %umax = tail call i64 @llvm.umax.i64(i64 %16, i64 1)
   %.phi.trans.insert = getelementptr inbounds nuw %class.aiVector2t, ptr %12, i64 %17
   %.pre = load float, ptr %.phi.trans.insert, align 4
   %.phi.trans.insert72 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert, i64 4
@@ -1837,7 +1832,7 @@ define linkonce_odr hidden noundef ptr @_ZN6mapbox6detail6EarcutIjE10linkedListI
   %29 = fadd double %26, %27
   %30 = tail call double @llvm.fmuladd.f64(double %28, double %29, double %.055)
   %31 = add nuw i64 %.04154, 1
-  %exitcond.not = icmp eq i64 %31, %umax
+  %exitcond.not = icmp eq i64 %31, %16
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph
@@ -1847,165 +1842,161 @@ define linkonce_odr hidden noundef ptr @_ZN6mapbox6detail6EarcutIjE10linkedListI
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br i1 %33, label %.lr.ph63, label %.lr.ph59
 
-.lr.ph63:                                         ; preds = %._crit_edge
-  %umax70 = tail call i64 @llvm.umax.i64(i64 %16, i64 1)
-  br label %36
-
-36:                                               ; preds = %.lr.ph63, %_ZN6mapbox6detail6EarcutIjE10insertNodeI10aiVector2tIfEEEPNS2_4NodeEmRKT_S7_.exit
-  %.162 = phi i64 [ 0, %.lr.ph63 ], [ %55, %_ZN6mapbox6detail6EarcutIjE10insertNodeI10aiVector2tIfEEEPNS2_4NodeEmRKT_S7_.exit ]
-  %.04361 = phi ptr [ null, %.lr.ph63 ], [ %45, %_ZN6mapbox6detail6EarcutIjE10insertNodeI10aiVector2tIfEEEPNS2_4NodeEmRKT_S7_.exit ]
-  %37 = load i64, ptr %34, align 8
-  %38 = add i64 %37, %.162
-  %39 = load ptr, ptr %1, align 8
-  %40 = getelementptr inbounds nuw %class.aiVector2t, ptr %39, i64 %.162
+.lr.ph63:                                         ; preds = %._crit_edge, %_ZN6mapbox6detail6EarcutIjE10insertNodeI10aiVector2tIfEEEPNS2_4NodeEmRKT_S7_.exit
+  %.162 = phi i64 [ %54, %_ZN6mapbox6detail6EarcutIjE10insertNodeI10aiVector2tIfEEEPNS2_4NodeEmRKT_S7_.exit ], [ 0, %._crit_edge ]
+  %.04361 = phi ptr [ %44, %_ZN6mapbox6detail6EarcutIjE10insertNodeI10aiVector2tIfEEEPNS2_4NodeEmRKT_S7_.exit ], [ null, %._crit_edge ]
+  %36 = load i64, ptr %34, align 8
+  %37 = add i64 %36, %.162
+  %38 = load ptr, ptr %1, align 8
+  %39 = getelementptr inbounds nuw %class.aiVector2t, ptr %38, i64 %.162
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #18
-  %41 = trunc i64 %38 to i32
-  store i32 %41, ptr %7, align 4
+  %40 = trunc i64 %37 to i32
+  store i32 %40, ptr %7, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #18
-  %42 = load float, ptr %40, align 4
-  store float %42, ptr %8, align 4
+  %41 = load float, ptr %39, align 4
+  store float %41, ptr %8, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #18
-  %43 = getelementptr inbounds nuw i8, ptr %40, i64 4
-  %44 = load float, ptr %43, align 4
-  store float %44, ptr %9, align 4
-  %45 = call noundef ptr @_ZN6mapbox6detail6EarcutIjE10ObjectPoolINS2_4NodeESaIS4_EE9constructIJjffEEEPS4_DpOT_(ptr noundef nonnull align 8 dereferenceable(49) %35, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 4 dereferenceable(4) %9)
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 4
+  %43 = load float, ptr %42, align 4
+  store float %43, ptr %9, align 4
+  %44 = call noundef ptr @_ZN6mapbox6detail6EarcutIjE10ObjectPoolINS2_4NodeESaIS4_EE9constructIJjffEEEPS4_DpOT_(ptr noundef nonnull align 8 dereferenceable(49) %35, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 4 dereferenceable(4) %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #18
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #18
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #18
   %.not.i = icmp eq ptr %.04361, null
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 32
-  br i1 %.not.i, label %47, label %49
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 32
+  br i1 %.not.i, label %46, label %48
 
-47:                                               ; preds = %36
-  %48 = getelementptr inbounds nuw i8, ptr %45, i64 24
-  store ptr %45, ptr %48, align 8
-  store ptr %45, ptr %46, align 8
+46:                                               ; preds = %.lr.ph63
+  %47 = getelementptr inbounds nuw i8, ptr %44, i64 24
+  store ptr %44, ptr %47, align 8
+  store ptr %44, ptr %45, align 8
   br label %_ZN6mapbox6detail6EarcutIjE10insertNodeI10aiVector2tIfEEEPNS2_4NodeEmRKT_S7_.exit
 
-49:                                               ; preds = %36
-  %50 = getelementptr inbounds nuw i8, ptr %.04361, i64 32
-  %51 = load ptr, ptr %50, align 8
-  store ptr %51, ptr %46, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %45, i64 24
-  store ptr %.04361, ptr %52, align 8
-  %53 = load ptr, ptr %50, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 24
-  store ptr %45, ptr %54, align 8
-  store ptr %45, ptr %50, align 8
+48:                                               ; preds = %.lr.ph63
+  %49 = getelementptr inbounds nuw i8, ptr %.04361, i64 32
+  %50 = load ptr, ptr %49, align 8
+  store ptr %50, ptr %45, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %44, i64 24
+  store ptr %.04361, ptr %51, align 8
+  %52 = load ptr, ptr %49, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 24
+  store ptr %44, ptr %53, align 8
+  store ptr %44, ptr %49, align 8
   br label %_ZN6mapbox6detail6EarcutIjE10insertNodeI10aiVector2tIfEEEPNS2_4NodeEmRKT_S7_.exit
 
-_ZN6mapbox6detail6EarcutIjE10insertNodeI10aiVector2tIfEEEPNS2_4NodeEmRKT_S7_.exit: ; preds = %47, %49
-  %55 = add nuw i64 %.162, 1
-  %exitcond71.not = icmp eq i64 %55, %umax70
-  br i1 %exitcond71.not, label %.loopexit, label %36, !llvm.loop !24
+_ZN6mapbox6detail6EarcutIjE10insertNodeI10aiVector2tIfEEEPNS2_4NodeEmRKT_S7_.exit: ; preds = %46, %48
+  %54 = add nuw i64 %.162, 1
+  %exitcond71.not = icmp eq i64 %54, %16
+  br i1 %exitcond71.not, label %.loopexit, label %.lr.ph63, !llvm.loop !24
 
 .lr.ph59:                                         ; preds = %._crit_edge, %_ZN6mapbox6detail6EarcutIjE10insertNodeI10aiVector2tIfEEEPNS2_4NodeEmRKT_S7_.exit49
-  %.258 = phi i64 [ %56, %_ZN6mapbox6detail6EarcutIjE10insertNodeI10aiVector2tIfEEEPNS2_4NodeEmRKT_S7_.exit49 ], [ %16, %._crit_edge ]
-  %.24557 = phi ptr [ %65, %_ZN6mapbox6detail6EarcutIjE10insertNodeI10aiVector2tIfEEEPNS2_4NodeEmRKT_S7_.exit49 ], [ null, %._crit_edge ]
-  %56 = add i64 %.258, -1
-  %57 = load i64, ptr %34, align 8
-  %58 = add i64 %57, %56
-  %59 = load ptr, ptr %1, align 8
-  %60 = getelementptr inbounds nuw %class.aiVector2t, ptr %59, i64 %56
+  %.258 = phi i64 [ %55, %_ZN6mapbox6detail6EarcutIjE10insertNodeI10aiVector2tIfEEEPNS2_4NodeEmRKT_S7_.exit49 ], [ %16, %._crit_edge ]
+  %.24557 = phi ptr [ %64, %_ZN6mapbox6detail6EarcutIjE10insertNodeI10aiVector2tIfEEEPNS2_4NodeEmRKT_S7_.exit49 ], [ null, %._crit_edge ]
+  %55 = add i64 %.258, -1
+  %56 = load i64, ptr %34, align 8
+  %57 = add i64 %56, %55
+  %58 = load ptr, ptr %1, align 8
+  %59 = getelementptr inbounds nuw %class.aiVector2t, ptr %58, i64 %55
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #18
-  %61 = trunc i64 %58 to i32
-  store i32 %61, ptr %4, align 4
+  %60 = trunc i64 %57 to i32
+  store i32 %60, ptr %4, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #18
-  %62 = load float, ptr %60, align 4
-  store float %62, ptr %5, align 4
+  %61 = load float, ptr %59, align 4
+  store float %61, ptr %5, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #18
-  %63 = getelementptr inbounds nuw i8, ptr %60, i64 4
-  %64 = load float, ptr %63, align 4
-  store float %64, ptr %6, align 4
-  %65 = call noundef ptr @_ZN6mapbox6detail6EarcutIjE10ObjectPoolINS2_4NodeESaIS4_EE9constructIJjffEEEPS4_DpOT_(ptr noundef nonnull align 8 dereferenceable(49) %35, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  %62 = getelementptr inbounds nuw i8, ptr %59, i64 4
+  %63 = load float, ptr %62, align 4
+  store float %63, ptr %6, align 4
+  %64 = call noundef ptr @_ZN6mapbox6detail6EarcutIjE10ObjectPoolINS2_4NodeESaIS4_EE9constructIJjffEEEPS4_DpOT_(ptr noundef nonnull align 8 dereferenceable(49) %35, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #18
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #18
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #18
   %.not.i48 = icmp eq ptr %.24557, null
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 32
-  br i1 %.not.i48, label %67, label %69
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 32
+  br i1 %.not.i48, label %66, label %68
 
-67:                                               ; preds = %.lr.ph59
-  %68 = getelementptr inbounds nuw i8, ptr %65, i64 24
-  store ptr %65, ptr %68, align 8
-  store ptr %65, ptr %66, align 8
+66:                                               ; preds = %.lr.ph59
+  %67 = getelementptr inbounds nuw i8, ptr %64, i64 24
+  store ptr %64, ptr %67, align 8
+  store ptr %64, ptr %65, align 8
   br label %_ZN6mapbox6detail6EarcutIjE10insertNodeI10aiVector2tIfEEEPNS2_4NodeEmRKT_S7_.exit49
 
-69:                                               ; preds = %.lr.ph59
-  %70 = getelementptr inbounds nuw i8, ptr %.24557, i64 32
-  %71 = load ptr, ptr %70, align 8
-  store ptr %71, ptr %66, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %65, i64 24
-  store ptr %.24557, ptr %72, align 8
-  %73 = load ptr, ptr %70, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 24
-  store ptr %65, ptr %74, align 8
-  store ptr %65, ptr %70, align 8
+68:                                               ; preds = %.lr.ph59
+  %69 = getelementptr inbounds nuw i8, ptr %.24557, i64 32
+  %70 = load ptr, ptr %69, align 8
+  store ptr %70, ptr %65, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %64, i64 24
+  store ptr %.24557, ptr %71, align 8
+  %72 = load ptr, ptr %69, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 24
+  store ptr %64, ptr %73, align 8
+  store ptr %64, ptr %69, align 8
   br label %_ZN6mapbox6detail6EarcutIjE10insertNodeI10aiVector2tIfEEEPNS2_4NodeEmRKT_S7_.exit49
 
-_ZN6mapbox6detail6EarcutIjE10insertNodeI10aiVector2tIfEEEPNS2_4NodeEmRKT_S7_.exit49: ; preds = %67, %69
-  %.not = icmp eq i64 %56, 0
+_ZN6mapbox6detail6EarcutIjE10insertNodeI10aiVector2tIfEEEPNS2_4NodeEmRKT_S7_.exit49: ; preds = %66, %68
+  %.not = icmp eq i64 %55, 0
   br i1 %.not, label %.loopexit, label %.lr.ph59, !llvm.loop !25
 
 .loopexit:                                        ; preds = %_ZN6mapbox6detail6EarcutIjE10insertNodeI10aiVector2tIfEEEPNS2_4NodeEmRKT_S7_.exit49, %_ZN6mapbox6detail6EarcutIjE10insertNodeI10aiVector2tIfEEEPNS2_4NodeEmRKT_S7_.exit
-  %.144 = phi ptr [ %45, %_ZN6mapbox6detail6EarcutIjE10insertNodeI10aiVector2tIfEEEPNS2_4NodeEmRKT_S7_.exit ], [ %65, %_ZN6mapbox6detail6EarcutIjE10insertNodeI10aiVector2tIfEEEPNS2_4NodeEmRKT_S7_.exit49 ]
-  %75 = getelementptr inbounds nuw i8, ptr %.144, i64 32
-  %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %.144, i64 8
-  %78 = load double, ptr %77, align 8
-  %79 = getelementptr inbounds nuw i8, ptr %76, i64 8
-  %80 = load double, ptr %79, align 8
-  %81 = fcmp oeq double %78, %80
-  br i1 %81, label %_ZN6mapbox6detail6EarcutIjE6equalsEPKNS2_4NodeES5_.exit, label %_ZN6mapbox6detail6EarcutIjE6equalsEPKNS2_4NodeES5_.exit.thread
+  %.144 = phi ptr [ %44, %_ZN6mapbox6detail6EarcutIjE10insertNodeI10aiVector2tIfEEEPNS2_4NodeEmRKT_S7_.exit ], [ %64, %_ZN6mapbox6detail6EarcutIjE10insertNodeI10aiVector2tIfEEEPNS2_4NodeEmRKT_S7_.exit49 ]
+  %74 = getelementptr inbounds nuw i8, ptr %.144, i64 32
+  %75 = load ptr, ptr %74, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %.144, i64 8
+  %77 = load double, ptr %76, align 8
+  %78 = getelementptr inbounds nuw i8, ptr %75, i64 8
+  %79 = load double, ptr %78, align 8
+  %80 = fcmp oeq double %77, %79
+  br i1 %80, label %_ZN6mapbox6detail6EarcutIjE6equalsEPKNS2_4NodeES5_.exit, label %_ZN6mapbox6detail6EarcutIjE6equalsEPKNS2_4NodeES5_.exit.thread
 
 _ZN6mapbox6detail6EarcutIjE6equalsEPKNS2_4NodeES5_.exit: ; preds = %.loopexit
-  %82 = getelementptr inbounds nuw i8, ptr %.144, i64 16
-  %83 = load double, ptr %82, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %76, i64 16
-  %85 = load double, ptr %84, align 8
-  %86 = fcmp oeq double %83, %85
-  br i1 %86, label %87, label %_ZN6mapbox6detail6EarcutIjE6equalsEPKNS2_4NodeES5_.exit.thread
+  %81 = getelementptr inbounds nuw i8, ptr %.144, i64 16
+  %82 = load double, ptr %81, align 8
+  %83 = getelementptr inbounds nuw i8, ptr %75, i64 16
+  %84 = load double, ptr %83, align 8
+  %85 = fcmp oeq double %82, %84
+  br i1 %85, label %86, label %_ZN6mapbox6detail6EarcutIjE6equalsEPKNS2_4NodeES5_.exit.thread
 
-87:                                               ; preds = %_ZN6mapbox6detail6EarcutIjE6equalsEPKNS2_4NodeES5_.exit
-  %88 = getelementptr inbounds nuw i8, ptr %.144, i64 24
-  %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds nuw i8, ptr %76, i64 24
-  store ptr %89, ptr %90, align 8
-  %91 = load ptr, ptr %75, align 8
-  %92 = getelementptr inbounds nuw i8, ptr %89, i64 32
-  store ptr %91, ptr %92, align 8
-  %93 = getelementptr inbounds nuw i8, ptr %.144, i64 48
-  %94 = load ptr, ptr %93, align 8
-  %.not.i50 = icmp eq ptr %94, null
+86:                                               ; preds = %_ZN6mapbox6detail6EarcutIjE6equalsEPKNS2_4NodeES5_.exit
+  %87 = getelementptr inbounds nuw i8, ptr %.144, i64 24
+  %88 = load ptr, ptr %87, align 8
+  %89 = getelementptr inbounds nuw i8, ptr %75, i64 24
+  store ptr %88, ptr %89, align 8
+  %90 = load ptr, ptr %74, align 8
+  %91 = getelementptr inbounds nuw i8, ptr %88, i64 32
+  store ptr %90, ptr %91, align 8
+  %92 = getelementptr inbounds nuw i8, ptr %.144, i64 48
+  %93 = load ptr, ptr %92, align 8
+  %.not.i50 = icmp eq ptr %93, null
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.144, i64 56
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
-  br i1 %.not.i50, label %._crit_edge.i, label %95
+  br i1 %.not.i50, label %._crit_edge.i, label %94
 
-95:                                               ; preds = %87
-  %96 = getelementptr inbounds nuw i8, ptr %94, i64 56
-  store ptr %.pre.i, ptr %96, align 8
+94:                                               ; preds = %86
+  %95 = getelementptr inbounds nuw i8, ptr %93, i64 56
+  store ptr %.pre.i, ptr %95, align 8
   br label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %95, %87
+._crit_edge.i:                                    ; preds = %94, %86
   %.not11.i = icmp eq ptr %.pre.i, null
-  br i1 %.not11.i, label %_ZN6mapbox6detail6EarcutIjE10removeNodeEPNS2_4NodeE.exit, label %97
+  br i1 %.not11.i, label %_ZN6mapbox6detail6EarcutIjE10removeNodeEPNS2_4NodeE.exit, label %96
 
-97:                                               ; preds = %._crit_edge.i
-  %98 = load ptr, ptr %93, align 8
-  %99 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 48
-  store ptr %98, ptr %99, align 8
+96:                                               ; preds = %._crit_edge.i
+  %97 = load ptr, ptr %92, align 8
+  %98 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 48
+  store ptr %97, ptr %98, align 8
   br label %_ZN6mapbox6detail6EarcutIjE10removeNodeEPNS2_4NodeE.exit
 
-_ZN6mapbox6detail6EarcutIjE10removeNodeEPNS2_4NodeE.exit: ; preds = %._crit_edge.i, %97
-  %100 = load ptr, ptr %75, align 8
+_ZN6mapbox6detail6EarcutIjE10removeNodeEPNS2_4NodeE.exit: ; preds = %._crit_edge.i, %96
+  %99 = load ptr, ptr %74, align 8
   br label %_ZN6mapbox6detail6EarcutIjE6equalsEPKNS2_4NodeES5_.exit.thread
 
 _ZN6mapbox6detail6EarcutIjE6equalsEPKNS2_4NodeES5_.exit.thread: ; preds = %3, %.loopexit, %_ZN6mapbox6detail6EarcutIjE10removeNodeEPNS2_4NodeE.exit, %_ZN6mapbox6detail6EarcutIjE6equalsEPKNS2_4NodeES5_.exit
-  %.3 = phi ptr [ %100, %_ZN6mapbox6detail6EarcutIjE10removeNodeEPNS2_4NodeE.exit ], [ %.144, %_ZN6mapbox6detail6EarcutIjE6equalsEPKNS2_4NodeES5_.exit ], [ %.144, %.loopexit ], [ null, %3 ]
-  %101 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %102 = load i64, ptr %101, align 8
-  %103 = add i64 %102, %16
-  store i64 %103, ptr %101, align 8
+  %.3 = phi ptr [ %99, %_ZN6mapbox6detail6EarcutIjE10removeNodeEPNS2_4NodeE.exit ], [ %.144, %_ZN6mapbox6detail6EarcutIjE6equalsEPKNS2_4NodeES5_.exit ], [ %.144, %.loopexit ], [ null, %3 ]
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %101 = load i64, ptr %100, align 8
+  %102 = add i64 %101, %16
+  store i64 %102, ptr %100, align 8
   ret ptr %.3
 }
 
@@ -2044,11 +2035,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPN6mapbox6detail6EarcutIjE4NodeESt6vec
 
 .noexc:                                           ; preds = %12
   invoke void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__normal_iteratorIPPN6mapbox6detail6EarcutIjE4NodeESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterIZNS5_14eliminateHolesIS9_IS9_I10aiVector2tIfESaISH_EESaISJ_EEEES7_RKT_S7_EUlPKS6_SQ_E_EEEvSM_SM_T0_(ptr %.sroa.0.1, ptr %.sroa.11.1)
-          to label %.lr.ph73.preheader unwind label %75
-
-.lr.ph73.preheader:                               ; preds = %.noexc
-  %umax = tail call i64 @llvm.umax.i64(i64 %16, i64 1)
-  br label %.lr.ph73
+          to label %.lr.ph73 unwind label %75
 
 .lr.ph:                                           ; preds = %3, %_ZNSt6vectorIPN6mapbox6detail6EarcutIjE4NodeESaIS5_EE9push_backEOS5_.exit
   %.02068 = phi i64 [ %71, %_ZNSt6vectorIPN6mapbox6detail6EarcutIjE4NodeESaIS5_EE9push_backEOS5_.exit ], [ 1, %3 ]
@@ -2214,9 +2201,9 @@ _ZNSt6vectorIPN6mapbox6detail6EarcutIjE4NodeESaIS5_EED2Ev.exit: ; preds = %._cri
           cleanup
   br label %83
 
-.lr.ph73:                                         ; preds = %.lr.ph73.preheader, %80
-  %.072 = phi i64 [ %81, %80 ], [ 0, %.lr.ph73.preheader ]
-  %.01971 = phi ptr [ %79, %80 ], [ %2, %.lr.ph73.preheader ]
+.lr.ph73:                                         ; preds = %.noexc, %80
+  %.072 = phi i64 [ %81, %80 ], [ 0, %.noexc ]
+  %.01971 = phi ptr [ %79, %80 ], [ %2, %.noexc ]
   %77 = getelementptr inbounds nuw ptr, ptr %.sroa.0.1, i64 %.072
   %78 = load ptr, ptr %77, align 8
   %79 = invoke noundef ptr @_ZN6mapbox6detail6EarcutIjE13eliminateHoleEPNS2_4NodeES4_(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef %78, ptr noundef %.01971)
@@ -2224,7 +2211,7 @@ _ZNSt6vectorIPN6mapbox6detail6EarcutIjE4NodeESaIS5_EED2Ev.exit: ; preds = %._cri
 
 80:                                               ; preds = %.lr.ph73
   %81 = add nuw i64 %.072, 1
-  %exitcond84.not = icmp eq i64 %81, %umax
+  %exitcond84.not = icmp eq i64 %81, %16
   br i1 %exitcond84.not, label %._crit_edge74, label %.lr.ph73, !llvm.loop !28
 
 .thread:                                          ; preds = %.lr.ph73

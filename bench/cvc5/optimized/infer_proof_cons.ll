@@ -13005,7 +13005,6 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit2706: ; preds 
   %4385 = ptrtoint ptr %4383 to i64
   %4386 = sub i64 %4384, %4385
   %4387 = ashr exact i64 %4386, 3
-  %umax = call i64 @llvm.umax.i64(i64 %4387, i64 1)
   br label %.lr.ph4379
 
 4388:                                             ; preds = %.lr.ph4374, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2786
@@ -13920,7 +13919,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2786: ; preds = %_ZNSt6vectorIN4cv
 
 4806:                                             ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2796
   %4807 = add nuw i64 %.08134377, 1
-  %exitcond4403.not = icmp eq i64 %4807, %umax
+  %exitcond4403.not = icmp eq i64 %4807, %4387
   br i1 %exitcond4403.not, label %.critedge1430, label %.lr.ph4379, !llvm.loop !191
 
 .lr.ph4379:                                       ; preds = %.lr.ph4379.preheader, %4806

@@ -47617,7 +47617,6 @@ _ZNSt6vectorIfSaIfEE12emplace_backIJRKfEEERfDpOT_.exit350.i: ; preds = %_ZNSt6ve
   %2518 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %2519 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %2520 = ashr exact i64 %2253, 4
-  %umax = call i64 @llvm.umax.i64(i64 %2520, i64 1)
   %2521 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %2476
   %2522 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %2477
   %2523 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %2476
@@ -48849,7 +48848,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i54
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit545.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i543.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i544.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %37) #35
-  %exitcond.not = icmp eq i64 %2583, %umax
+  %exitcond.not = icmp eq i64 %2583, %2520
   br i1 %exitcond.not, label %._crit_edge1068.i, label %.lr.ph.i.i353.i, !llvm.loop !462
 
 2949:                                             ; preds = %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i380.i

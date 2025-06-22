@@ -13060,8 +13060,6 @@ _ZN11realclosure7manager3imp7inc_refEPNS_5valueE.exit.i.i: ; preds = %_ZN7obj_re
   %234 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %235 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %236 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %umax = call i32 @llvm.umax.i32(i32 %1, i32 1)
-  %wide.trip.count309 = zext i32 %umax to i64
   br label %267
 
 ._crit_edge296:                                   ; preds = %_ZN15ref_buffer_coreIN11realclosure5valueE19ref_manager_wrapperIS1_NS0_7manager3impEELj32EE9push_backEPS1_.exit210
@@ -13405,7 +13403,7 @@ _ZN7obj_refIN11realclosure5valueENS0_7manager3impEEaSERKS4_.exit218: ; preds = %
 354:                                              ; preds = %347, %338, %349, %332
   %.1 = phi i1 [ %.051291, %338 ], [ %.051291, %349 ], [ %.051291, %332 ], [ %spec.select96, %347 ]
   %indvars.iv.next303 = add nuw nsw i64 %indvars.iv302, 1
-  %exitcond305.not = icmp eq i64 %indvars.iv.next303, %wide.trip.count309
+  %exitcond305.not = icmp eq i64 %indvars.iv.next303, %wide.trip.count
   br i1 %exitcond305.not, label %331, label %332, !llvm.loop !239
 
 355:                                              ; preds = %331
@@ -13508,7 +13506,7 @@ _ZN15ref_buffer_coreIN11realclosure5valueE19ref_manager_wrapperIS1_NS0_7manager3
   %storemerge277 = add i32 %.sink328, 1
   store i32 %storemerge277, ptr %209, align 8, !tbaa !126
   %indvars.iv.next307 = add nuw nsw i64 %indvars.iv306, 1
-  %exitcond310.not = icmp eq i64 %indvars.iv.next307, %wide.trip.count309
+  %exitcond310.not = icmp eq i64 %indvars.iv.next307, %wide.trip.count
   br i1 %exitcond310.not, label %._crit_edge296, label %267, !llvm.loop !240
 
 389:                                              ; preds = %304, %328, %360, %336, %287
@@ -53678,9 +53676,6 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #23
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #23

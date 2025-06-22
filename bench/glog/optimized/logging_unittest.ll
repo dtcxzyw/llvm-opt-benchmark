@@ -45693,7 +45693,6 @@ define linkonce_odr hidden void @_ZNK7testing8internal14FunctionMockerIFvN6googl
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %23 = icmp ugt i64 %12, 1
-  %umax = tail call i64 @llvm.umax.i64(i64 %12, i64 1)
   br label %24
 
 ._crit_edge:                                      ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit, %3
@@ -45793,7 +45792,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %54, %62
   call void @_ZNK7testing8internal16TypedExpectationIFvN6google11LogSeverityERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_EE20ExplainMatchResultToERKSt5tupleIJS3_SB_SB_EEPSo(ptr noundef nonnull align 8 dereferenceable(368) %27, ptr noundef nonnull align 8 dereferenceable(20) %1, ptr noundef nonnull %2)
   call void @_ZNK7testing8internal15ExpectationBase19DescribeCallCountToEPSo(ptr noundef nonnull align 8 dereferenceable(232) %27, ptr noundef nonnull %2)
   %66 = add nuw i64 %.021, 1
-  %exitcond.not = icmp eq i64 %66, %umax
+  %exitcond.not = icmp eq i64 %66, %12
   br i1 %exitcond.not, label %._crit_edge, label %24, !llvm.loop !705
 }
 

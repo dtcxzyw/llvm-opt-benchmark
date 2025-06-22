@@ -716,7 +716,6 @@ _ZNSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEE7reserveEm.exit.
   %223 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %224 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %225 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %umax = call i64 @llvm.umax.i64(i64 %187, i64 1)
   br label %232
 
 _ZNSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEE7reserveEm.exit._crit_edge.loopexit: ; preds = %_ZNSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEE7reserveEm.exit
@@ -764,7 +763,7 @@ _ZNSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEE7reserveEm.exit.
 
 _ZNSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEE7reserveEm.exit: ; preds = %464
   %indvars.iv.next815 = add nuw i64 %indvars.iv814, 1
-  %exitcond817.not = icmp eq i64 %indvars.iv.next815, %umax
+  %exitcond817.not = icmp eq i64 %indvars.iv.next815, %187
   br i1 %exitcond817.not, label %_ZNSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEE7reserveEm.exit._crit_edge.loopexit, label %232, !llvm.loop !72
 
 238:                                              ; preds = %232, %464

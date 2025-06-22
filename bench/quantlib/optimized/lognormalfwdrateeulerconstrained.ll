@@ -3909,7 +3909,6 @@ for.body.lr.ph:                                   ; preds = %_ZNSt8valarrayIbEaS
   %sub.ptr.div.i76 = ashr exact i64 %sub.ptr.sub.i75, 3
   %displacements_ = getelementptr inbounds nuw i8, ptr %this, i64 504
   %61 = load ptr, ptr %displacements_, align 8, !tbaa !45
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i76, i64 1)
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %for.body, %_ZNSt8valarrayIbEaSERKS0_.exit
@@ -3925,7 +3924,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %call80 = tail call double @log(double noundef %add) #23, !tbaa !87
   store double %call80, ptr %add.ptr.i, align 8, !tbaa !47
   %inc = add nuw i64 %i.0116, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i76
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !111
 
 eh.resume:                                        ; preds = %ehcleanup66, %ehcleanup25

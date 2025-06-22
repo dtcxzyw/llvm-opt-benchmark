@@ -42,10 +42,10 @@ define internal range(i32 0, 52) i32 @alias_pix_read_probe(ptr noundef readonly 
 .preheader.lr.ph:                                 ; preds = %1
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 10
   %21 = tail call i16 @llvm.bswap.i16(i16 %.fr)
-  %22 = lshr exact i32 %16, 3
-  %23 = zext nneg i32 %22 to i64
-  %24 = icmp ult i16 %21, 2
-  %umax = select i1 %24, i32 1, i32 2
+  %22 = tail call i16 @llvm.umin.i16(i16 %21, i16 2)
+  %invariant.umin = zext nneg i16 %22 to i32
+  %23 = lshr exact i32 %16, 3
+  %24 = zext nneg i32 %23 to i64
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %38
@@ -72,13 +72,13 @@ define internal range(i32 0, 52) i32 @alias_pix_read_probe(ptr noundef readonly 
   br i1 %34, label %.thread, label %35
 
 35:                                               ; preds = %33
-  %36 = getelementptr inbounds nuw i8, ptr %26, i64 %23
+  %36 = getelementptr inbounds nuw i8, ptr %26, i64 %24
   %37 = icmp samesign ult i32 %31, %11
   br i1 %37, label %25, label %38, !llvm.loop !13
 
 38:                                               ; preds = %35
   %39 = add nuw nsw i32 %.02552, 1
-  %exitcond.not = icmp eq i32 %39, %umax
+  %exitcond.not = icmp eq i32 %39, %invariant.umin
   br i1 %exitcond.not, label %.thread, label %.preheader, !llvm.loop !15
 
 .thread:                                          ; preds = %38, %33, %25, %29, %1
@@ -94,6 +94,9 @@ declare ptr @av_default_item_name(ptr noundef) #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.bswap.i16(i16) #2
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.umin.i16(i16, i16) #2
 
 attributes #0 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

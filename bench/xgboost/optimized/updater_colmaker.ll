@@ -24558,7 +24558,6 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %82 = sub i64 %76, %77
   %83 = ashr exact i64 %82, 2
   %84 = load ptr, ptr %1, align 8, !tbaa !700
-  %umax = call i64 @llvm.umax.i64(i64 %83, i64 1)
   br label %90
 
 ._crit_edge:                                      ; preds = %98, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
@@ -24585,7 +24584,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 98:                                               ; preds = %90, %94
   %99 = add nuw i64 %.028131, 1
-  %exitcond.not = icmp eq i64 %99, %umax
+  %exitcond.not = icmp eq i64 %99, %83
   br i1 %exitcond.not, label %._crit_edge, label %90, !llvm.loop !707
 
 100:                                              ; preds = %._crit_edge
@@ -24727,7 +24726,6 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %136, i64 1816
   %150 = getelementptr inbounds nuw i8, ptr %136, i64 4984
   %151 = getelementptr inbounds nuw i8, ptr %136, i64 3168
-  %umax141 = call i64 @llvm.umax.i64(i64 %142, i64 1)
   br label %152
 
 152:                                              ; preds = %.lr.ph133, %236
@@ -24870,7 +24868,7 @@ _ZNSt22bernoulli_distributionclISt23mersenne_twister_engineImLm32ELm624ELm397ELm
 
 236:                                              ; preds = %_ZNSt22bernoulli_distributionclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEbRT_.exit, %232, %152
   %237 = add nuw i64 %.027132, 1
-  %exitcond142.not = icmp eq i64 %237, %umax141
+  %exitcond142.not = icmp eq i64 %237, %142
   br i1 %exitcond142.not, label %.loopexit, label %152, !llvm.loop !718
 
 .loopexit:                                        ; preds = %236, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit63, %._crit_edge

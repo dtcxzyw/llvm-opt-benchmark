@@ -5516,7 +5516,6 @@ _ZN5Yosys5RTLIL11ObjIteratorIPNS0_6ModuleEED2Ev.exit1547: ; preds = %_ZNSt6vecto
   %1956 = ptrtoint ptr %.sroa.105424.2 to i64
   %1957 = sub i64 %1956, %1955
   %1958 = ashr exact i64 %1957, 3
-  %umax = call i64 @llvm.umax.i64(i64 %1958, i64 1)
   br label %.lr.ph10254
 
 _ZN5Yosys5RTLIL11ObjIteratorIPNS0_6ModuleEED2Ev.exit1557.thread: ; preds = %_ZN12_GLOBAL__N_124check_if_top_has_changedEPN5Yosys5RTLIL6DesignEPNS1_6ModuleE.exit.thread
@@ -5661,7 +5660,7 @@ _ZNSt3setIPN5Yosys5RTLIL6ModuleENS1_8IdString19compare_ptr_by_nameIS2_EESaIS3_EE
 
 1999:                                             ; preds = %.lr.ph10254
   %2000 = add nuw i64 %.085210253, 1
-  %exitcond.not = icmp eq i64 %2000, %umax
+  %exitcond.not = icmp eq i64 %2000, %1958
   br i1 %exitcond.not, label %._crit_edge10255.thread12732, label %.lr.ph10254, !llvm.loop !162
 
 _ZN5Yosys5RTLIL11ObjIteratorIPNS0_6ModuleEED2Ev.exit1557.thread5624: ; preds = %.lr.ph10254

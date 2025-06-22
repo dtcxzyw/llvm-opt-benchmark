@@ -7119,7 +7119,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit96: ; preds = %_ZN
   %332 = getelementptr i8, ptr %330, i64 -24
   %333 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %334 = getelementptr inbounds nuw i8, ptr %15, i64 128
-  %umax = call i64 @llvm.umax.i64(i64 %283, i64 1)
   br label %370
 
 ._crit_edge:                                      ; preds = %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit96
@@ -7365,7 +7364,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %334) #27
   call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %15) #27
   %423 = add nuw i64 %.0183, 1
-  %exitcond188.not = icmp eq i64 %423, %umax
+  %exitcond188.not = icmp eq i64 %423, %283
   br i1 %exitcond188.not, label %._crit_edge, label %370, !llvm.loop !279
 
 424:                                              ; preds = %370

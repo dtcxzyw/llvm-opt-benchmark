@@ -1895,20 +1895,19 @@ define linkonce_odr hidden noundef i32 @_ZN11OpenImageIO6v3_1_07Strutil24extract
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %26 = load ptr, ptr %25, align 8, !tbaa !114
   %27 = load ptr, ptr %6, align 8, !tbaa !117
-  %.not38 = icmp eq ptr %26, %27
-  br i1 %.not38, label %._crit_edge, label %.lr.ph
-
-.lr.ph:                                           ; preds = %24
   %28 = ptrtoint ptr %26 to i64
   %29 = ptrtoint ptr %27 to i64
   %30 = sub i64 %28, %29
   %31 = ashr exact i64 %30, 4
+  %.not38 = icmp eq ptr %26, %27
+  br i1 %.not38, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %24
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %33 = icmp eq ptr %10, %11
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.fr = freeze i1 %33
-  %umax40 = call i64 @llvm.umax.i64(i64 %31, i64 1)
   br i1 %.fr, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZNSt6vectorIfSaIfEE9push_backERKf.exit.us
@@ -1986,7 +1985,7 @@ _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIP
 
 _ZNSt6vectorIfSaIfEE9push_backERKf.exit.us:       ; preds = %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.us, %45
   %66 = add nuw i64 %.02037.us, 1
-  %exitcond41.not = icmp eq i64 %66, %umax40
+  %exitcond41.not = icmp eq i64 %66, %31
   br i1 %exitcond41.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !118
 
 .loopexit.split.us:                               ; preds = %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i.us, %.lr.ph.split.us
@@ -2076,7 +2075,7 @@ _ZNSt6vectorIfSaIfEE9push_backERKf.exit.us:       ; preds = %_ZNSt6vectorIfSaIfE
 
 _ZNSt6vectorIfSaIfEE9push_backERKf.exit:          ; preds = %82, %98, %87
   %101 = add nuw i64 %.02037, 1
-  %exitcond.not = icmp eq i64 %101, %umax40
+  %exitcond.not = icmp eq i64 %101, %31
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !118
 
 102:                                              ; preds = %._crit_edge

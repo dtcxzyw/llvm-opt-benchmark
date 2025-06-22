@@ -1458,7 +1458,6 @@ define void @_ZNK10open_spiel8efg_game8EFGState14ActionToStringB5cxx11Eil(ptr de
   %20 = ptrtoint ptr %18 to i64
   %21 = sub i64 %19, %20
   %22 = ashr exact i64 %21, 3
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %22, i64 1)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %26, %.lr.ph.preheader.i
@@ -1470,7 +1469,7 @@ define void @_ZNK10open_spiel8efg_game8EFGState14ActionToStringB5cxx11Eil(ptr de
 
 26:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %umax.i
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %22
   br i1 %exitcond.not.i, label %_ZNK10open_spiel8efg_game8EFGState9ActionIdxEl.exit.thread, label %.lr.ph.i, !llvm.loop !4
 
 _ZNK10open_spiel8efg_game8EFGState9ActionIdxEl.exit.thread: ; preds = %26, %4
@@ -1556,7 +1555,6 @@ define noundef i32 @_ZNK10open_spiel8efg_game8EFGState9ActionIdxEl(ptr noundef n
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
   %12 = ashr exact i64 %11, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %12, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %16
@@ -1568,7 +1566,7 @@ define noundef i32 @_ZNK10open_spiel8efg_game8EFGState9ActionIdxEl(ptr noundef n
 
 16:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %12
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge.loopexit.split.loop.exit:             ; preds = %.lr.ph
@@ -3571,7 +3569,6 @@ define void @_ZN10open_spiel8efg_game8EFGState13DoApplyActionEl(ptr noundef nonn
   %75 = ptrtoint ptr %73 to i64
   %76 = sub i64 %74, %75
   %77 = ashr exact i64 %76, 3
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %77, i64 1)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %81, %.lr.ph.preheader.i
@@ -3583,7 +3580,7 @@ define void @_ZN10open_spiel8efg_game8EFGState13DoApplyActionEl(ptr noundef nonn
 
 81:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %umax.i
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %77
   br i1 %exitcond.not.i, label %_ZNK10open_spiel8efg_game8EFGState9ActionIdxEl.exit.thread, label %.lr.ph.i, !llvm.loop !4
 
 _ZNK10open_spiel8efg_game8EFGState9ActionIdxEl.exit.thread: ; preds = %81, %68

@@ -14996,7 +14996,6 @@ define internal noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L24_Dra
   %16 = sub i64 %14, %15
   %17 = ashr exact i64 %16, 3
   %18 = ptrtoint ptr %.pre to i64
-  %umax = tail call i64 @llvm.umax.i64(i64 %17, i64 1)
   br label %19
 
 19:                                               ; preds = %19, %.lr.ph
@@ -15007,7 +15006,7 @@ define internal noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L24_Dra
   %23 = xor i64 %18, %22
   %24 = icmp ult i64 %23, 8
   %25 = add nuw i64 %.01316, 1
-  %exitcond.not = icmp eq i64 %25, %umax
+  %exitcond.not = icmp eq i64 %25, %17
   %or.cond = select i1 %24, i1 true, i1 %exitcond.not
   br i1 %or.cond, label %._crit_edge, label %19, !llvm.loop !73
 
@@ -16901,7 +16900,6 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDat
   %132 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %133 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %134 = getelementptr inbounds nuw i8, ptr %26, i64 32
-  %umax = tail call i64 @llvm.umax.i64(i64 %117, i64 1)
   br label %135
 
 135:                                              ; preds = %.lr.ph, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit
@@ -17127,7 +17125,7 @@ _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_13HdRenderI
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %239, %226, %224, %142
   %243 = add nuw i64 %.067408, 1
-  %exitcond.not = icmp eq i64 %243, %umax
+  %exitcond.not = icmp eq i64 %243, %117
   br i1 %exitcond.not, label %._crit_edge, label %135, !llvm.loop !100
 
 ._crit_edge:                                      ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit, %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDataE.exit110
@@ -17157,7 +17155,6 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit: ; preds = %._cri
   %250 = sub i64 %248, %249
   %251 = ashr exact i64 %250, 4
   %252 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %umax.i = call i64 @llvm.umax.i64(i64 %251, i64 1)
   br label %253
 
 253:                                              ; preds = %271, %.lr.ph.i
@@ -17186,7 +17183,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit: ; preds = %._cri
 
 271:                                              ; preds = %261
   %272 = add nuw i64 %.032.i, 1
-  %exitcond.not.i = icmp eq i64 %272, %umax.i
+  %exitcond.not.i = icmp eq i64 %272, %251
   br i1 %exitcond.not.i, label %._crit_edge.i, label %253, !llvm.loop !104
 
 .loopexit.i:                                      ; preds = %261, %253

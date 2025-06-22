@@ -296,7 +296,6 @@ _ZN5mmu_t4loadItEET_m13xlate_flags_t.exit:        ; preds = %107, %110, %114
   %.not118 = icmp eq i64 %127, 0
   %128 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %129 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %umax = call i64 @llvm.umax.i64(i64 %57, i64 1)
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %131
@@ -402,7 +401,7 @@ _ZN5mmu_t4loadItEET_m13xlate_flags_t.exit86:      ; preds = %154, %157, %_ZNSt6v
   %181 = add i64 %180, 1
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %176, i64 noundef %181) #18
   %182 = add nuw nsw i64 %.073121, 1
-  %exitcond.not = icmp eq i64 %182, %umax
+  %exitcond.not = icmp eq i64 %182, %57
   br i1 %exitcond.not, label %131, label %133, !llvm.loop !186
 
 .loopexit:                                        ; preds = %131, %125, %54
@@ -743,7 +742,6 @@ _ZN5mmu_t4loadItEET_m13xlate_flags_t.exit86:      ; preds = %107, %110, %114
   %.not118 = icmp eq i64 %127, 0
   %128 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %129 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %umax = call i64 @llvm.umax.i64(i64 %57, i64 1)
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %131
@@ -849,7 +847,7 @@ _ZN5mmu_t4loadItEET_m13xlate_flags_t.exit:        ; preds = %154, %157, %_ZNSt6v
   %181 = add i64 %180, 1
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %176, i64 noundef %181) #18
   %182 = add nuw nsw i64 %.073121, 1
-  %exitcond.not = icmp eq i64 %182, %umax
+  %exitcond.not = icmp eq i64 %182, %57
   br i1 %exitcond.not, label %131, label %133, !llvm.loop !196
 
 .loopexit:                                        ; preds = %131, %125, %54
@@ -1072,7 +1070,6 @@ _ZN5mmu_t4loadItEET_m13xlate_flags_t.exit86:      ; preds = %107, %110, %114
   %.not118 = icmp eq i64 %127, 0
   %128 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %129 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %umax = call i64 @llvm.umax.i64(i64 %57, i64 1)
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %131
@@ -1178,7 +1175,7 @@ _ZN5mmu_t4loadItEET_m13xlate_flags_t.exit:        ; preds = %154, %157, %_ZNSt6v
   %181 = add i64 %180, 1
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %176, i64 noundef %181) #18
   %182 = add nuw nsw i64 %.073121, 1
-  %exitcond.not = icmp eq i64 %182, %umax
+  %exitcond.not = icmp eq i64 %182, %57
   br i1 %exitcond.not, label %131, label %133, !llvm.loop !199
 
 .loopexit:                                        ; preds = %131, %125, %54
@@ -1403,7 +1400,6 @@ _ZN5mmu_t4loadItEET_m13xlate_flags_t.exit86:      ; preds = %107, %110, %114
   %.not118 = icmp eq i64 %127, 0
   %128 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %129 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %umax = call i64 @llvm.umax.i64(i64 %57, i64 1)
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %131
@@ -1509,7 +1505,7 @@ _ZN5mmu_t4loadItEET_m13xlate_flags_t.exit:        ; preds = %154, %157, %_ZNSt6v
   %181 = add i64 %180, 1
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %176, i64 noundef %181) #18
   %182 = add nuw nsw i64 %.073121, 1
-  %exitcond.not = icmp eq i64 %182, %umax
+  %exitcond.not = icmp eq i64 %182, %57
   br i1 %exitcond.not, label %131, label %133, !llvm.loop !202
 
 .loopexit:                                        ; preds = %131, %125, %54
@@ -1748,7 +1744,6 @@ _ZN5mmu_t4loadItEET_m13xlate_flags_t.exit92:      ; preds = %114, %117, %121
   %.not126 = icmp eq i64 %134, 0
   %135 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %136 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %umax = call i64 @llvm.umax.i64(i64 %64, i64 1)
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %138
@@ -1854,7 +1849,7 @@ _ZN5mmu_t4loadItEET_m13xlate_flags_t.exit:        ; preds = %161, %164, %_ZNSt6v
   %188 = add i64 %187, 1
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %183, i64 noundef %188) #18
   %189 = add nuw nsw i64 %.075129, 1
-  %exitcond.not = icmp eq i64 %189, %umax
+  %exitcond.not = icmp eq i64 %189, %64
   br i1 %exitcond.not, label %138, label %140, !llvm.loop !205
 
 .loopexit:                                        ; preds = %138, %132, %61
@@ -2095,7 +2090,6 @@ _ZN5mmu_t4loadItEET_m13xlate_flags_t.exit92:      ; preds = %114, %117, %121
   %.not126 = icmp eq i64 %134, 0
   %135 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %136 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %umax = call i64 @llvm.umax.i64(i64 %64, i64 1)
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %138
@@ -2201,7 +2195,7 @@ _ZN5mmu_t4loadItEET_m13xlate_flags_t.exit:        ; preds = %161, %164, %_ZNSt6v
   %188 = add i64 %187, 1
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %183, i64 noundef %188) #18
   %189 = add nuw nsw i64 %.075129, 1
-  %exitcond.not = icmp eq i64 %189, %umax
+  %exitcond.not = icmp eq i64 %189, %64
   br i1 %exitcond.not, label %138, label %140, !llvm.loop !208
 
 .loopexit:                                        ; preds = %138, %132, %61
@@ -2440,7 +2434,6 @@ _ZN5mmu_t4loadItEET_m13xlate_flags_t.exit92:      ; preds = %114, %117, %121
   %.not126 = icmp eq i64 %134, 0
   %135 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %136 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %umax = call i64 @llvm.umax.i64(i64 %64, i64 1)
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %138
@@ -2546,7 +2539,7 @@ _ZN5mmu_t4loadItEET_m13xlate_flags_t.exit:        ; preds = %161, %164, %_ZNSt6v
   %188 = add i64 %187, 1
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %183, i64 noundef %188) #18
   %189 = add nuw nsw i64 %.075129, 1
-  %exitcond.not = icmp eq i64 %189, %umax
+  %exitcond.not = icmp eq i64 %189, %64
   br i1 %exitcond.not, label %138, label %140, !llvm.loop !211
 
 .loopexit:                                        ; preds = %138, %132, %61
@@ -2787,7 +2780,6 @@ _ZN5mmu_t4loadItEET_m13xlate_flags_t.exit92:      ; preds = %114, %117, %121
   %.not126 = icmp eq i64 %134, 0
   %135 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %136 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %umax = call i64 @llvm.umax.i64(i64 %64, i64 1)
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %138
@@ -2893,7 +2885,7 @@ _ZN5mmu_t4loadItEET_m13xlate_flags_t.exit:        ; preds = %161, %164, %_ZNSt6v
   %188 = add i64 %187, 1
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %183, i64 noundef %188) #18
   %189 = add nuw nsw i64 %.075129, 1
-  %exitcond.not = icmp eq i64 %189, %umax
+  %exitcond.not = icmp eq i64 %189, %64
   br i1 %exitcond.not, label %138, label %140, !llvm.loop !214
 
 .loopexit:                                        ; preds = %138, %132, %61

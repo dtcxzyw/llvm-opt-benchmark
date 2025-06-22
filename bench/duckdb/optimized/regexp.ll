@@ -4369,7 +4369,6 @@ _ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE5clearEv.exit: ; p
   %96 = ptrtoint ptr %.sroa.098.0 to i64
   %97 = sub i64 %95, %96
   %98 = ashr exact i64 %97, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %98, i64 1)
   br label %.lr.ph158
 
 ._crit_edge159:                                   ; preds = %139, %_ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE5clearEv.exit
@@ -4471,7 +4470,7 @@ _ZNSt8_Rb_treeIN10duckdb_re29RuneRangeES1_St9_IdentityIS1_ENS0_13RuneRangeLessES
 
 139:                                              ; preds = %.noexc54, %121
   %140 = add nuw i64 %.011157, 1
-  %exitcond.not = icmp eq i64 %140, %umax
+  %exitcond.not = icmp eq i64 %140, %98
   br i1 %exitcond.not, label %._crit_edge159, label %.lr.ph158, !llvm.loop !145
 
 141:                                              ; preds = %_ZNSt8_Rb_treeIN10duckdb_re29RuneRangeES1_St9_IdentityIS1_ENS0_13RuneRangeLessESaIS1_EE10_M_insert_IRKS1_NS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit.i.i

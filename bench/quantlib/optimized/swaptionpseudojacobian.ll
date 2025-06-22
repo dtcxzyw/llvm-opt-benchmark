@@ -2748,7 +2748,6 @@ for.body.i.i.preheader:                           ; preds = %do.end187.i
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %call5.i.i.i.i2.i.i219 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
-  %umax = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i, i64 1)
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i.preheader, %call7.i.i.noexc
@@ -2768,7 +2767,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i.prehea
 call7.i.i.noexc:                                  ; preds = %for.body.i.i
   %add.i.i = fadd double %price.014.i.i, %call7.i.i308
   %inc.i.i = add nuw i64 %i.015.i.i, 1
-  %exitcond849.not = icmp eq i64 %inc.i.i, %umax
+  %exitcond849.not = icmp eq i64 %inc.i.i, %sub.ptr.div.i.i.i
   br i1 %exitcond849.not, label %_ZNK8QuantLib12_GLOBAL__N_18QuickCapclEd.exit.i, label %for.body.i.i, !llvm.loop !69
 
 _ZNK8QuantLib12_GLOBAL__N_18QuickCapclEd.exit.i:  ; preds = %call7.i.i.noexc
@@ -2792,7 +2791,6 @@ for.body.i139.i.preheader:                        ; preds = %_ZNK8QuantLib12_GLO
   %sub.ptr.rhs.cast.i.i152.i = ptrtoint ptr %call5.i.i.i.i2.i.i219 to i64
   %sub.ptr.sub.i.i153.i = sub i64 %sub.ptr.lhs.cast.i.i151.i, %sub.ptr.rhs.cast.i.i152.i
   %sub.ptr.div.i.i154.i = ashr exact i64 %sub.ptr.sub.i.i153.i, 3
-  %umax850 = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i154.i, i64 1)
   br label %for.body.i139.i
 
 for.body.i139.i:                                  ; preds = %for.body.i139.i.preheader, %call7.i147.i.noexc
@@ -2812,7 +2810,7 @@ for.body.i139.i:                                  ; preds = %for.body.i139.i.pre
 call7.i147.i.noexc:                               ; preds = %for.body.i139.i
   %add.i148.i = fadd double %price.014.i141.i, %call7.i147.i309
   %inc.i149.i = add nuw i64 %i.015.i140.i, 1
-  %exitcond851.not = icmp eq i64 %inc.i149.i, %umax850
+  %exitcond851.not = icmp eq i64 %inc.i149.i, %sub.ptr.div.i.i154.i
   br i1 %exitcond851.not, label %_ZNK8QuantLib12_GLOBAL__N_18QuickCapclEd.exit159.i, label %for.body.i139.i, !llvm.loop !69
 
 _ZNK8QuantLib12_GLOBAL__N_18QuickCapclEd.exit159.i: ; preds = %call7.i147.i.noexc, %_ZNK8QuantLib12_GLOBAL__N_18QuickCapclEd.exit.i.thread
@@ -4154,7 +4152,6 @@ for.body.i.preheader:                             ; preds = %invoke.cont337
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %call5.i.i.i.i2.i.i219 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
-  %umax855 = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %call9.i.noexc
@@ -4174,7 +4171,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
 call9.i.noexc:                                    ; preds = %for.body.i
   %add.i = fadd double %vega.016.i, %call9.i375
   %inc.i = add nuw i64 %i.017.i, 1
-  %exitcond856.not = icmp eq i64 %inc.i, %umax855
+  %exitcond856.not = icmp eq i64 %inc.i, %sub.ptr.div.i.i
   br i1 %exitcond856.not, label %invoke.cont340, label %for.body.i, !llvm.loop !82
 
 invoke.cont340:                                   ; preds = %call9.i.noexc, %invoke.cont337.thread, %invoke.cont337

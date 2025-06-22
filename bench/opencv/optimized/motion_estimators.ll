@@ -1880,11 +1880,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc127, %_ZNSt6v
 
 .noexc129:                                        ; preds = %84
   invoke void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN2cv6detail9GraphEdgeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterISt7greaterIS4_EEEEvT_SF_T0_(ptr %.sroa.0250.0.lcssa, ptr %.sroa.20.0.lcssa)
-          to label %.lr.ph.preheader unwind label %94
-
-.lr.ph.preheader:                                 ; preds = %.noexc129
-  %umax = call i64 @llvm.umax.i64(i64 %88, i64 1)
-  br label %.lr.ph
+          to label %.lr.ph unwind label %94
 
 .preheader:                                       ; preds = %130, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit
   call void @llvm.assume(i1 %.not.i.i.i.i125)
@@ -1902,8 +1898,8 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc127, %_ZNSt6v
           cleanup
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit182
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %130
-  %.076375 = phi i64 [ %131, %130 ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.noexc129, %130
+  %.076375 = phi i64 [ %131, %130 ], [ 0, %.noexc129 ]
   %96 = getelementptr inbounds nuw %"struct.cv::detail::GraphEdge", ptr %.sroa.0250.0.lcssa, i64 %.076375
   %97 = load i32, ptr %96, align 4, !tbaa !92
   %98 = invoke noundef i32 @_ZN2cv6detail12DisjointSets13findSetByElemEi(ptr noundef nonnull align 8 dereferenceable(72) %10, i32 noundef %97)
@@ -1965,7 +1961,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc127, %_ZNSt6v
 
 130:                                              ; preds = %115, %103
   %131 = add nuw i64 %.076375, 1
-  %exitcond451.not = icmp eq i64 %131, %umax
+  %exitcond451.not = icmp eq i64 %131, %88
   br i1 %exitcond451.not, label %.preheader, label %.lr.ph, !llvm.loop !147
 
 _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i131: ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
@@ -2085,7 +2081,6 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
   %175 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %176 = add nsw i64 %165, -4
   %smax460 = call i32 @llvm.smax.i32(i32 %0, i32 1)
-  %umax463 = call i64 @llvm.umax.i64(i64 %164, i64 1)
   %wide.trip.count461 = zext nneg i32 %smax460 to i64
   br label %181
 
@@ -2635,7 +2630,7 @@ _ZNK2cv6detail5Graph16walkBreadthFirstIN12_GLOBAL__N_111IncDistanceEEET_iS5_.exi
 
 ._crit_edge:                                      ; preds = %.lr.ph383
   %417 = add nuw i64 %.074387, 1
-  %exitcond464.not = icmp eq i64 %417, %umax463
+  %exitcond464.not = icmp eq i64 %417, %164
   br i1 %exitcond464.not, label %._crit_edge389, label %181, !llvm.loop !151
 
 418:                                              ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i
@@ -3793,7 +3788,6 @@ _ZNSt6vectorISt4pairIiiESaIS1_EE5clearEv.exit:    ; preds = %4, %40
   %56 = sub i64 %54, %55
   %57 = ashr exact i64 %56, 3
   %58 = load ptr, ptr %2, align 8, !tbaa !62
-  %umax = tail call i64 @llvm.umax.i64(i64 %57, i64 1)
   br label %106
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorISt4pairIiiESaIS1_EE9push_backEOS1_.exit, %.preheader91
@@ -3913,7 +3907,7 @@ _ZNSt6vectorISt4pairIiiESaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt6vectorISt
   %116 = load i32, ptr %115, align 8, !tbaa !126
   %117 = add nsw i32 %107, %116
   %118 = add nuw i64 %.043100, 1
-  %exitcond.not = icmp eq i64 %118, %umax
+  %exitcond.not = icmp eq i64 %118, %57
   br i1 %exitcond.not, label %._crit_edge103, label %106, !llvm.loop !193
 
 ._crit_edge103:                                   ; preds = %106
@@ -5486,7 +5480,6 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit.i111:            ; preds = %240
   %269 = getelementptr inbounds nuw i8, ptr %266, i64 16
   %270 = load ptr, ptr %76, align 8
   %271 = load ptr, ptr %77, align 8
-  %umax = call i64 @llvm.umax.i64(i64 %261, i64 1)
   br label %309
 
 ._crit_edge:                                      ; preds = %367, %253
@@ -5691,7 +5684,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit.i111:            ; preds = %240
 367:                                              ; preds = %309, %312
   %.2 = phi i32 [ %366, %312 ], [ %.1116, %309 ]
   %368 = add nuw i64 %.081115, 1
-  %exitcond.not = icmp eq i64 %368, %umax
+  %exitcond.not = icmp eq i64 %368, %261
   br i1 %exitcond.not, label %._crit_edge, label %309, !llvm.loop !248
 
 369:                                              ; preds = %308, %293
@@ -7235,7 +7228,6 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit.i148:            ; preds = %238
   %272 = fmul double %91, %96
   %273 = load ptr, ptr %76, align 8
   %274 = load ptr, ptr %77, align 8
-  %umax = call i64 @llvm.umax.i64(i64 %259, i64 1)
   br label %309
 
 ._crit_edge:                                      ; preds = %412, %251
@@ -7478,7 +7470,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit.i148:            ; preds = %238
 412:                                              ; preds = %309, %312
   %.2 = phi i32 [ %411, %312 ], [ %.1154, %309 ]
   %413 = add nuw i64 %.0111153, 1
-  %exitcond.not = icmp eq i64 %413, %umax
+  %exitcond.not = icmp eq i64 %413, %259
   br i1 %exitcond.not, label %._crit_edge, label %309, !llvm.loop !288
 
 414:                                              ; preds = %308, %302
@@ -8200,7 +8192,6 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit.i:               ; preds = %103
   %132 = getelementptr inbounds nuw i8, ptr %129, i64 16
   %133 = load ptr, ptr %41, align 8
   %134 = load ptr, ptr %42, align 8
-  %umax = call i64 @llvm.umax.i64(i64 %124, i64 1)
   br label %155
 
 ._crit_edge:                                      ; preds = %207, %116
@@ -8327,7 +8318,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit.i:               ; preds = %103
 207:                                              ; preds = %155, %158
   %.2 = phi i32 [ %206, %158 ], [ %.164, %155 ]
   %208 = add nuw i64 %.04963, 1
-  %exitcond.not = icmp eq i64 %208, %umax
+  %exitcond.not = icmp eq i64 %208, %124
   br i1 %exitcond.not, label %._crit_edge, label %155, !llvm.loop !317
 
 209:                                              ; preds = %154, %150
@@ -8921,7 +8912,6 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit.i:               ; preds = %102
   %131 = getelementptr inbounds nuw i8, ptr %128, i64 16
   %132 = load ptr, ptr %56, align 8
   %133 = load ptr, ptr %57, align 8
-  %umax = call i64 @llvm.umax.i64(i64 %123, i64 1)
   br label %155
 
 ._crit_edge:                                      ; preds = %207, %115
@@ -9054,7 +9044,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit.i:               ; preds = %102
 207:                                              ; preds = %155, %158
   %.2 = phi i32 [ %206, %158 ], [ %.174, %155 ]
   %208 = add nuw i64 %.06173, 1
-  %exitcond.not = icmp eq i64 %208, %umax
+  %exitcond.not = icmp eq i64 %208, %123
   br i1 %exitcond.not, label %._crit_edge, label %155, !llvm.loop !329
 
 209:                                              ; preds = %154, %150, %148
@@ -12912,7 +12902,6 @@ _ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.
   %70 = ashr exact i64 %69, 2
   %71 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %72 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %umax = call i64 @llvm.umax.i64(i64 %70, i64 1)
   br label %132
 
 73:                                               ; preds = %.lr.ph, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
@@ -13100,7 +13089,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
 
 139:                                              ; preds = %_ZNSt6vectorIN2cv6detail11MatchesInfoESaIS2_EE9push_backERKS2_.exit
   %140 = add nuw i64 %.042131, 1
-  %exitcond150.not = icmp eq i64 %140, %umax
+  %exitcond150.not = icmp eq i64 %140, %70
   br i1 %exitcond150.not, label %._crit_edge134.loopexit, label %132, !llvm.loop !447
 
 141:                                              ; preds = %132
@@ -13149,7 +13138,7 @@ _ZNSt6vectorIN2cv6detail11MatchesInfoESaIS2_EE9push_backERKS2_.exit: ; preds = %
   %161 = getelementptr inbounds i8, ptr %158, i64 -164
   store i32 %160, ptr %161, align 4, !tbaa !451
   %162 = add nuw i64 %.041130, 1
-  %exitcond149.not = icmp eq i64 %162, %umax
+  %exitcond149.not = icmp eq i64 %162, %70
   br i1 %exitcond149.not, label %139, label %143, !llvm.loop !452
 
 163:                                              ; preds = %157, %154

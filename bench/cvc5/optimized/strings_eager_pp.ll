@@ -219,7 +219,6 @@ define hidden noundef range(i32 0, 2) i32 @_ZN4cvc58internal13preprocessing6pass
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %umax = call i64 @llvm.umax.i64(i64 %23, i64 1)
   br label %31
 
 29:                                               ; preds = %2
@@ -742,7 +741,7 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit71: ; preds = 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit74: ; preds = %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit71, %245, %251
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
   %255 = add nuw i64 %.033125, 1
-  %exitcond.not = icmp eq i64 %255, %umax
+  %exitcond.not = icmp eq i64 %255, %23
   br i1 %exitcond.not, label %.loopexit, label %31, !llvm.loop !65
 
 256:                                              ; preds = %201

@@ -266,9 +266,8 @@ define hidden void @_ZN4lean7mpn_divEPKjmS1_mPjS2_(ptr noundef readonly captures
 
 .lr.ph115.preheader:                              ; preds = %.preheader103
   %15 = sub i64 %14, %3
-  %umax = tail call i64 @llvm.umax.i64(i64 %15, i64 1)
-  %16 = shl nuw i64 %umax, 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %4, i8 0, i64 %16, i1 false), !tbaa !3
+  %16 = shl nuw i64 %15, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %4, i8 0, i64 %16, i1 false), !tbaa !3
   br label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %.lr.ph115.preheader, %.preheader103

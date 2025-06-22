@@ -2045,7 +2045,6 @@ _ZNSt3__16vectorIN7mitsuba3refINS1_5ShapeIfN5drjit6MatrixINS1_8SpectrumIfLm4EEEL
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %umax = tail call i64 @llvm.umax.i64(i64 %13, i64 1)
   br label %24
 
 24:                                               ; preds = %.lr.ph, %94
@@ -2217,7 +2216,7 @@ _ZNSt3__16vectorIfNS_9allocatorIfEEED2B8ne190000Ev.exit: ; preds = %90, %92
 94:                                               ; preds = %_ZNSt3__16vectorIfNS_9allocatorIfEEE12emplace_backIJRfEEES5_DpOT_.exit, %38, %45
   %95 = phi ptr [ %.0.i19, %_ZNSt3__16vectorIfNS_9allocatorIfEEE12emplace_backIJRfEEES5_DpOT_.exit ], [ %25, %38 ], [ %25, %45 ]
   %96 = add nuw i64 %.039, 1
-  %exitcond.not = icmp eq i64 %96, %umax
+  %exitcond.not = icmp eq i64 %96, %13
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %24, !llvm.loop !20
 
 ._crit_edge.loopexit:                             ; preds = %94

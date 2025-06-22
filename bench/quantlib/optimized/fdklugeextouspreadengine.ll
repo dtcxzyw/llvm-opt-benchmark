@@ -11551,7 +11551,6 @@ for.body.lr.ph.i:                                 ; preds = %for.cond.cleanup169
   %sub.ptr.sub.i.i213 = sub i64 %sub.ptr.lhs.cast.i.i211, %sub.ptr.rhs.cast.i.i212
   %sub.ptr.div.i.i214 = ashr exact i64 %sub.ptr.sub.i.i213, 3
   %124 = load ptr, ptr %coordinates_.i208, align 8, !tbaa !270
-  %umax.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i214, i64 1)
   br label %for.body.i
 
 for.body.i:                                       ; preds = %if.then.i217, %for.body.lr.ph.i
@@ -11568,7 +11567,7 @@ for.body.i:                                       ; preds = %if.then.i217, %for.
 if.then.i217:                                     ; preds = %for.body.i
   store i64 0, ptr %add.ptr.i.i216, align 8, !tbaa !36
   %inc9.i = add nuw i64 %i.08.i, 1
-  %exitcond.not.i = icmp eq i64 %inc9.i, %umax.i
+  %exitcond.not.i = icmp eq i64 %inc9.i, %sub.ptr.div.i.i214
   br i1 %exitcond.not.i, label %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit.loopexit, label %for.body.i, !llvm.loop !293
 
 _ZN8QuantLib19FdmLinearOpIteratorppEv.exit.loopexit: ; preds = %if.then.i217, %for.body.i
@@ -12896,7 +12895,6 @@ for.body.lr.ph.split.us:                          ; preds = %for.body.lr.ph
   %sub.ptr.rhs.cast.i.i64.us = ptrtoint ptr %47 to i64
   %sub.ptr.sub.i.i65.us = sub i64 %sub.ptr.lhs.cast.i.i63.us, %sub.ptr.rhs.cast.i.i64.us
   %sub.ptr.div.i.i.us = ashr exact i64 %sub.ptr.sub.i.i65.us, 3
-  %umax.i.us = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.us, i64 1)
   br i1 %cmp7.not.i.us, label %for.body.us.us, label %for.body.us
 
 for.body.us.us:                                   ; preds = %for.body.lr.ph.split.us, %for.body.us.us
@@ -12948,7 +12946,7 @@ for.body.i.us:                                    ; preds = %if.then.i.us, %for.
 if.then.i.us:                                     ; preds = %for.body.i.us
   store i64 0, ptr %add.ptr.i.i67.us, align 8, !tbaa !36
   %inc9.i.us = add nuw i64 %i.08.i.us, 1
-  %exitcond.not.i.us = icmp eq i64 %inc9.i.us, %umax.i.us
+  %exitcond.not.i.us = icmp eq i64 %inc9.i.us, %sub.ptr.div.i.i.us
   br i1 %exitcond.not.i.us, label %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit.loopexit.us, label %for.body.i.us, !llvm.loop !293
 
 _ZN8QuantLib19FdmLinearOpIteratorppEv.exit.loopexit.us: ; preds = %if.then.i.us, %for.body.i.us
@@ -13082,7 +13080,6 @@ for.body.lr.ph.i:                                 ; preds = %invoke.cont45
   %sub.ptr.rhs.cast.i.i64 = ptrtoint ptr %89 to i64
   %sub.ptr.sub.i.i65 = sub i64 %sub.ptr.lhs.cast.i.i63, %sub.ptr.rhs.cast.i.i64
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i65, 3
-  %umax.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   br label %for.body.i
 
 for.body.i:                                       ; preds = %if.then.i, %for.body.lr.ph.i
@@ -13099,7 +13096,7 @@ for.body.i:                                       ; preds = %if.then.i, %for.bod
 if.then.i:                                        ; preds = %for.body.i
   store i64 0, ptr %add.ptr.i.i67, align 8, !tbaa !36
   %inc9.i = add nuw i64 %i.08.i, 1
-  %exitcond.not.i = icmp eq i64 %inc9.i, %umax.i
+  %exitcond.not.i = icmp eq i64 %inc9.i, %sub.ptr.div.i.i
   br i1 %exitcond.not.i, label %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit.loopexit, label %for.body.i, !llvm.loop !293
 
 _ZN8QuantLib19FdmLinearOpIteratorppEv.exit.loopexit: ; preds = %if.then.i, %for.body.i
@@ -15648,7 +15645,6 @@ invoke.cont14:                                    ; preds = %if.end.i.i.i.i.i.i.
   store ptr %__first.addr.0.i.i.i.i.i71, ptr %_M_finish.i.i.i80, align 8, !tbaa !158
   store ptr %tmp2.sroa.12.2, ptr %_M_end_of_storage.i.i.i81, align 8, !tbaa !157
   %18 = load ptr, ptr %add.ptr.i, align 8, !tbaa !155
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub, i64 1)
   br label %for.body18
 
 for.body18:                                       ; preds = %invoke.cont14, %for.inc
@@ -15712,11 +15708,11 @@ if.then27:                                        ; preds = %if.end
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end, %if.then27
-  %exitcond.not = icmp eq i64 %add, %umax
+  %exitcond.not = icmp eq i64 %add, %sub
   br i1 %exitcond.not, label %for.end, label %for.body18, !llvm.loop !333
 
 for.end:                                          ; preds = %for.body18, %for.inc
-  %k.1.lcssa = phi i64 [ %k.1339, %for.body18 ], [ %umax, %for.inc ]
+  %k.1.lcssa = phi i64 [ %k.1339, %for.body18 ], [ %sub, %for.inc ]
   %tobool.not.i.i.i92 = icmp eq ptr %16, null
   br i1 %tobool.not.i.i.i92, label %_ZNSt6vectorIdSaIdEED2Ev.exit98, label %if.then.i.i.i93
 
@@ -16479,14 +16475,14 @@ entry:
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %y, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !301
   %1 = load ptr, ptr %y, align 8, !tbaa !300
-  %cmp15.not = icmp eq ptr %0, %1
-  br i1 %cmp15.not, label %for.cond.cleanup, label %for.body.lr.ph
-
-for.body.lr.ph:                                   ; preds = %entry
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 24
+  %cmp15.not = icmp eq ptr %0, %1
+  br i1 %cmp15.not, label %for.cond.cleanup, label %for.body.lr.ph
+
+for.body.lr.ph:                                   ; preds = %entry
   %2 = load ptr, ptr %y2, align 8, !tbaa !300
   %second.i = getelementptr inbounds nuw i8, ptr %d, i64 64
   %second5.i = getelementptr inbounds nuw i8, ptr %d2, i64 64
@@ -16505,7 +16501,6 @@ for.body.lr.ph:                                   ; preds = %entry
   %6 = load ptr, ptr %second5.i, align 8
   %add.ptr.i.i.i65.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %cmp82.i = icmp ugt i64 %sub.ptr.div.i.i9, 2
-  %umax18 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   br i1 %cmp82.i, label %for.body.us.preheader, label %for.body
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
@@ -16527,13 +16522,12 @@ for.body.preheader.i.us:                          ; preds = %for.body.us
   %sub.ptr.rhs.cast.i.i.i.us = ptrtoint ptr %9 to i64
   %sub.ptr.sub.i.i.i.us = sub i64 %sub.ptr.lhs.cast.i.i.i.us, %sub.ptr.rhs.cast.i.i.i.us
   %sub.ptr.div.i.i.i.us = sdiv exact i64 %sub.ptr.sub.i.i.i.us, 24
-  %umax.i.us = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.us, i64 1)
   %10 = load ptr, ptr %add.ptr.i.i4.us, align 8, !tbaa !303
   br label %for.body.i.us.us
 
 _ZN8QuantLib6detail14n_cubic_splineINS0_17base_cubic_splineEEC2ERKNS0_4DataINS4_ISt6vectorIdSaIdEENS0_8EmptyArgEEES9_EESC_RKNS0_9DataTableINSD_IdEEEERSF_RNS0_5PointINSJ_ISE_NS0_8EmptyResEEESL_EE.exit.us: ; preds = %_ZN8QuantLib6detail17base_cubic_splineC2ERKNS0_4DataISt6vectorIdSaIdEENS0_8EmptyArgEEES9_RKNS0_9DataTableIdEERSB_RNS0_5PointISB_NS0_8EmptyResEEE.exit.us.us, %for.body.us
   %inc.us = add nuw i64 %j.016.us, 1
-  %exitcond19.not = icmp eq i64 %inc.us, %umax18
+  %exitcond19.not = icmp eq i64 %inc.us, %sub.ptr.div.i.i
   br i1 %exitcond19.not, label %for.cond.cleanup, label %for.body.us, !llvm.loop !335
 
 for.body.i.us.us:                                 ; preds = %_ZN8QuantLib6detail17base_cubic_splineC2ERKNS0_4DataISt6vectorIdSaIdEENS0_8EmptyArgEEES9_RKNS0_9DataTableIdEERSB_RNS0_5PointISB_NS0_8EmptyResEEE.exit.us.us, %for.body.preheader.i.us
@@ -16634,7 +16628,7 @@ while.body.i.us.us:                               ; preds = %while.body.preheade
 
 _ZN8QuantLib6detail17base_cubic_splineC2ERKNS0_4DataISt6vectorIdSaIdEENS0_8EmptyArgEEES9_RKNS0_9DataTableIdEERSB_RNS0_5PointISB_NS0_8EmptyResEEE.exit.us.us: ; preds = %while.body.i.us.us
   %inc.i.us.us = add nuw i64 %j.06.i.us.us, 1
-  %exitcond.not.i.us.us = icmp eq i64 %inc.i.us.us, %umax.i.us
+  %exitcond.not.i.us.us = icmp eq i64 %inc.i.us.us, %sub.ptr.div.i.i.i.us
   br i1 %exitcond.not.i.us.us, label %_ZN8QuantLib6detail14n_cubic_splineINS0_17base_cubic_splineEEC2ERKNS0_4DataINS4_ISt6vectorIdSaIdEENS0_8EmptyArgEEES9_EESC_RKNS0_9DataTableINSD_IdEEEERSF_RNS0_5PointINSJ_ISE_NS0_8EmptyResEEESL_EE.exit.us, label %for.body.i.us.us, !llvm.loop !338
 
 while.body.preheader.i.loopexit.us.us:            ; preds = %for.body.i12.us.us
@@ -16662,7 +16656,6 @@ for.body.preheader.i:                             ; preds = %for.body
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %40 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 24
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i, i64 1)
   %41 = load ptr, ptr %add.ptr.i.i4, align 8, !tbaa !303
   br label %for.body.i
 
@@ -16721,12 +16714,12 @@ while.body.i:                                     ; preds = %while.body.i, %for.
 
 _ZN8QuantLib6detail17base_cubic_splineC2ERKNS0_4DataISt6vectorIdSaIdEENS0_8EmptyArgEEES9_RKNS0_9DataTableIdEERSB_RNS0_5PointISB_NS0_8EmptyResEEE.exit: ; preds = %while.body.i
   %inc.i = add nuw i64 %j.06.i, 1
-  %exitcond.not.i = icmp eq i64 %inc.i, %umax.i
+  %exitcond.not.i = icmp eq i64 %inc.i, %sub.ptr.div.i.i.i
   br i1 %exitcond.not.i, label %_ZN8QuantLib6detail14n_cubic_splineINS0_17base_cubic_splineEEC2ERKNS0_4DataINS4_ISt6vectorIdSaIdEENS0_8EmptyArgEEES9_EESC_RKNS0_9DataTableINSD_IdEEEERSF_RNS0_5PointINSJ_ISE_NS0_8EmptyResEEESL_EE.exit, label %for.body.i, !llvm.loop !338
 
 _ZN8QuantLib6detail14n_cubic_splineINS0_17base_cubic_splineEEC2ERKNS0_4DataINS4_ISt6vectorIdSaIdEENS0_8EmptyArgEEES9_EESC_RKNS0_9DataTableINSD_IdEEEERSF_RNS0_5PointINSJ_ISE_NS0_8EmptyResEEESL_EE.exit: ; preds = %_ZN8QuantLib6detail17base_cubic_splineC2ERKNS0_4DataISt6vectorIdSaIdEENS0_8EmptyArgEEES9_RKNS0_9DataTableIdEERSB_RNS0_5PointISB_NS0_8EmptyResEEE.exit, %for.body
   %inc = add nuw i64 %j.016, 1
-  %exitcond.not = icmp eq i64 %inc, %umax18
+  %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i.i
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !335
 }
 
@@ -18264,7 +18257,6 @@ for.body.preheader:                               ; preds = %entry
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 24
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   br label %for.body
 
 for.cond.cleanup.loopexit:                        ; preds = %_ZN8QuantLib6detail14n_cubic_splintINS0_17base_cubic_splintEEC2ERKNS0_5PointIdNS4_IdNS0_8EmptyResEEEEES9_S9_S9_RKNS4_ImNS4_ImNS0_8EmptyDimEEEEERKNS0_4DataINSF_ISt6vectorIdSaIdEENS0_8EmptyArgEEESK_EESN_RKNS0_9DataTableINSO_IdEEEERSQ_RNS4_INS4_ISP_S5_EESU_EESW_SW_Rd.exit
@@ -18363,7 +18355,6 @@ for.body.lr.ph.i:                                 ; preds = %for.body
   %46 = load ptr, ptr %second23, align 8, !tbaa !155
   %47 = load i64, ptr %second11.i, align 8, !tbaa !357
   %add.i8.i = add i64 %47, 1
-  %umax.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i, i64 1)
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
@@ -18391,7 +18382,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %60 = call double @llvm.fmuladd.f64(double %58, double %59, double %57)
   store double %60, ptr %add.ptr.i.i.i6.i, align 8, !tbaa !81
   %inc.i = add nuw i64 %j.014.i, 1
-  %exitcond.not.i = icmp eq i64 %inc.i, %umax.i
+  %exitcond.not.i = icmp eq i64 %inc.i, %sub.ptr.div.i.i.i
   br i1 %exitcond.not.i, label %_ZN8QuantLib6detail14n_cubic_splintINS0_17base_cubic_splintEEC2ERKNS0_5PointIdNS4_IdNS0_8EmptyResEEEEES9_S9_S9_RKNS4_ImNS4_ImNS0_8EmptyDimEEEEERKNS0_4DataINSF_ISt6vectorIdSaIdEENS0_8EmptyArgEEESK_EESN_RKNS0_9DataTableINSO_IdEEEERSQ_RNS4_INS4_ISP_S5_EESU_EESW_SW_Rd.exit, label %for.body.i, !llvm.loop !359
 
 _ZN8QuantLib6detail14n_cubic_splintINS0_17base_cubic_splintEEC2ERKNS0_5PointIdNS4_IdNS0_8EmptyResEEEEES9_S9_S9_RKNS4_ImNS4_ImNS0_8EmptyDimEEEEERKNS0_4DataINSF_ISt6vectorIdSaIdEENS0_8EmptyArgEEESK_EESN_RKNS0_9DataTableINSO_IdEEEERSQ_RNS4_INS4_ISP_S5_EESU_EESW_SW_Rd.exit: ; preds = %for.body.i, %for.body
@@ -18419,7 +18410,7 @@ _ZN8QuantLib6detail14n_cubic_splintINS0_17base_cubic_splintEEC2ERKNS0_5PointIdNS
   store double %74, ptr %add.ptr.i.i.i6, align 8, !tbaa !81
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %agg.tmp.ensured28.i)
   %inc = add nuw i64 %j.09, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i.i
   br i1 %exitcond.not, label %for.cond.cleanup.loopexit, label %for.body, !llvm.loop !362
 }
 

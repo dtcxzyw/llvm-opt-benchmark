@@ -796,8 +796,7 @@ define internal noundef i32 @filter_slice(ptr noundef readonly captures(none) %0
   %umin.i.i.i.i.us = zext i1 %103 to i32
   %.neg6.i.i.i.us = sub i32 %102, %101
   %104 = add i32 %.neg6.i.i.i.us, %umin.i.neg8.i.i.i.us
-  %umax.i.i.i.i.us = call i32 @llvm.umax.i32(i32 %86, i32 1)
-  %105 = udiv i32 %104, %umax.i.i.i.i.us
+  %105 = udiv i32 %104, %86
   %106 = add i32 %105, %umin.i.i.i.i.us
   %107 = mul i32 %106, %86
   %108 = sub i32 %101, %89
@@ -808,7 +807,7 @@ search_boundary.exit.i.i.us:                      ; preds = %97, %.loopexit.loop
   %.0.i.i.i.i.us = phi i32 [ 0, %82 ], [ %109, %.loopexit.loopexit.i.i.i.i.us ], [ %.2.i.i.i.i.us, %97 ]
   %110 = sub nsw i32 %83, %85
   %111 = icmp eq i32 %spec.select84.us, %110
-  br i1 %111, label %search_boundary.exit78.i.i.us, label %112
+  br i1 %111, label %search_boundary.exit77.i.i.us, label %112
 
 112:                                              ; preds = %search_boundary.exit.i.i.us
   %113 = icmp sgt i32 %spec.select84.us, %110
@@ -822,7 +821,7 @@ search_boundary.exit.i.i.us:                      ; preds = %97, %.loopexit.loop
   %.2.i.i70.i.i.us = phi i32 [ %115, %114 ], [ %118, %116 ]
   %117 = icmp sgt i32 %.2.i.i70.i.i.us, %110
   %118 = sub nsw i32 %.2.i.i70.i.i.us, %86
-  br i1 %117, label %116, label %search_boundary.exit78.i.i.us, !llvm.loop !96
+  br i1 %117, label %116, label %search_boundary.exit77.i.i.us, !llvm.loop !96
 
 .loopexit.loopexit.i.i72.i.i.us:                  ; preds = %112
   %119 = sub i32 %spec.select84.us, %91
@@ -834,161 +833,158 @@ search_boundary.exit.i.i.us:                      ; preds = %97, %.loopexit.loop
   %umin.i.i75.i.i.us = zext i1 %122 to i32
   %.neg6.i76.i.i.us = sub i32 %121, %120
   %123 = add i32 %.neg6.i76.i.i.us, %umin.i.neg8.i74.i.i.us
-  %umax.i.i77.i.i.us = call i32 @llvm.umax.i32(i32 %86, i32 1)
-  %124 = udiv i32 %123, %umax.i.i77.i.i.us
+  %124 = udiv i32 %123, %86
   %125 = add i32 %124, %umin.i.i75.i.i.us
   %126 = mul i32 %125, %86
   %127 = sub i32 %120, %89
   %128 = add i32 %127, %126
-  br label %search_boundary.exit78.i.i.us
+  br label %search_boundary.exit77.i.i.us
 
-search_boundary.exit78.i.i.us:                    ; preds = %116, %.loopexit.loopexit.i.i72.i.i.us, %search_boundary.exit.i.i.us
+search_boundary.exit77.i.i.us:                    ; preds = %116, %.loopexit.loopexit.i.i72.i.i.us, %search_boundary.exit.i.i.us
   %.0.i.i71.i.i.us = phi i32 [ %spec.select84.us, %search_boundary.exit.i.i.us ], [ %128, %.loopexit.loopexit.i.i72.i.i.us ], [ %.2.i.i70.i.i.us, %116 ]
-  br i1 %74, label %search_boundary.exit87.i.i.us, label %129
+  br i1 %74, label %search_boundary.exit85.i.i.us, label %129
 
-129:                                              ; preds = %search_boundary.exit78.i.i.us
-  br i1 %75, label %.loopexit.loopexit.i.i81.i.i.us, label %130
+129:                                              ; preds = %search_boundary.exit77.i.i.us
+  br i1 %75, label %.loopexit.loopexit.i.i80.i.i.us, label %130
 
 130:                                              ; preds = %129
   %131 = add nsw i32 %91, %spec.select83.us
   br label %132
 
 132:                                              ; preds = %132, %130
-  %.2.i.i79.i.i.us = phi i32 [ %131, %130 ], [ %134, %132 ]
-  %133 = icmp sgt i32 %.2.i.i79.i.i.us, 0
-  %134 = sub nsw i32 %.2.i.i79.i.i.us, %86
-  br i1 %133, label %132, label %search_boundary.exit87.i.i.us, !llvm.loop !96
+  %.2.i.i78.i.i.us = phi i32 [ %131, %130 ], [ %134, %132 ]
+  %133 = icmp sgt i32 %.2.i.i78.i.i.us, 0
+  %134 = sub nsw i32 %.2.i.i78.i.i.us, %86
+  br i1 %133, label %132, label %search_boundary.exit85.i.i.us, !llvm.loop !96
 
-.loopexit.loopexit.i.i81.i.i.us:                  ; preds = %129
+.loopexit.loopexit.i.i80.i.i.us:                  ; preds = %129
   %135 = sub i32 %spec.select83.us, %91
   %136 = add i32 %90, %spec.select83.us
-  %smax.i.i82.i.i.us = call i32 @llvm.smax.i32(i32 %135, i32 0)
-  %137 = add i32 %smax.i.i82.i.i.us, %89
+  %smax.i.i81.i.i.us = call i32 @llvm.smax.i32(i32 %135, i32 0)
+  %137 = add i32 %smax.i.i81.i.i.us, %89
   %138 = icmp ne i32 %137, %136
-  %umin.i.neg8.i83.i.i.us = sext i1 %138 to i32
-  %umin.i.i84.i.i.us = zext i1 %138 to i32
-  %.neg6.i85.i.i.us = sub i32 %137, %136
-  %139 = add i32 %.neg6.i85.i.i.us, %umin.i.neg8.i83.i.i.us
-  %umax.i.i86.i.i.us = call i32 @llvm.umax.i32(i32 %86, i32 1)
-  %140 = udiv i32 %139, %umax.i.i86.i.i.us
-  %141 = add i32 %140, %umin.i.i84.i.i.us
+  %umin.i.neg8.i82.i.i.us = sext i1 %138 to i32
+  %umin.i.i83.i.i.us = zext i1 %138 to i32
+  %.neg6.i84.i.i.us = sub i32 %137, %136
+  %139 = add i32 %.neg6.i84.i.i.us, %umin.i.neg8.i82.i.i.us
+  %140 = udiv i32 %139, %86
+  %141 = add i32 %140, %umin.i.i83.i.i.us
   %142 = mul i32 %141, %86
   %143 = sub i32 %136, %89
   %144 = add i32 %143, %142
-  br label %search_boundary.exit87.i.i.us
+  br label %search_boundary.exit85.i.i.us
 
-search_boundary.exit87.i.i.us:                    ; preds = %132, %.loopexit.loopexit.i.i81.i.i.us, %search_boundary.exit78.i.i.us
-  %.0.i.i80.i.i.us = phi i32 [ 0, %search_boundary.exit78.i.i.us ], [ %144, %.loopexit.loopexit.i.i81.i.i.us ], [ %.2.i.i79.i.i.us, %132 ]
+search_boundary.exit85.i.i.us:                    ; preds = %132, %.loopexit.loopexit.i.i80.i.i.us, %search_boundary.exit77.i.i.us
+  %.0.i.i79.i.i.us = phi i32 [ 0, %search_boundary.exit77.i.i.us ], [ %144, %.loopexit.loopexit.i.i80.i.i.us ], [ %.2.i.i78.i.i.us, %132 ]
   %145 = sub nsw i32 %84, %85
   %146 = icmp eq i32 %spec.select83.us, %145
-  br i1 %146, label %search_boundary.exit96.i.i.us, label %147
+  br i1 %146, label %search_boundary.exit93.i.i.us, label %147
 
-147:                                              ; preds = %search_boundary.exit87.i.i.us
+147:                                              ; preds = %search_boundary.exit85.i.i.us
   %148 = icmp sgt i32 %spec.select83.us, %145
-  br i1 %148, label %.loopexit.loopexit.i.i90.i.i.us, label %149
+  br i1 %148, label %.loopexit.loopexit.i.i88.i.i.us, label %149
 
 149:                                              ; preds = %147
   %150 = add nsw i32 %91, %spec.select83.us
   br label %151
 
 151:                                              ; preds = %151, %149
-  %.2.i.i88.i.i.us = phi i32 [ %150, %149 ], [ %153, %151 ]
-  %152 = icmp sgt i32 %.2.i.i88.i.i.us, %145
-  %153 = sub nsw i32 %.2.i.i88.i.i.us, %86
-  br i1 %152, label %151, label %search_boundary.exit96.i.i.us, !llvm.loop !96
+  %.2.i.i86.i.i.us = phi i32 [ %150, %149 ], [ %153, %151 ]
+  %152 = icmp sgt i32 %.2.i.i86.i.i.us, %145
+  %153 = sub nsw i32 %.2.i.i86.i.i.us, %86
+  br i1 %152, label %151, label %search_boundary.exit93.i.i.us, !llvm.loop !96
 
-.loopexit.loopexit.i.i90.i.i.us:                  ; preds = %147
+.loopexit.loopexit.i.i88.i.i.us:                  ; preds = %147
   %154 = sub i32 %spec.select83.us, %91
   %155 = add i32 %90, %spec.select83.us
-  %smax.i.i91.i.i.us = call i32 @llvm.smax.i32(i32 %145, i32 %154)
-  %156 = add i32 %smax.i.i91.i.i.us, %89
+  %smax.i.i89.i.i.us = call i32 @llvm.smax.i32(i32 %145, i32 %154)
+  %156 = add i32 %smax.i.i89.i.i.us, %89
   %157 = icmp ne i32 %156, %155
-  %umin.i.neg8.i92.i.i.us = sext i1 %157 to i32
-  %umin.i.i93.i.i.us = zext i1 %157 to i32
-  %.neg6.i94.i.i.us = sub i32 %156, %155
-  %158 = add i32 %.neg6.i94.i.i.us, %umin.i.neg8.i92.i.i.us
-  %umax.i.i95.i.i.us = call i32 @llvm.umax.i32(i32 %86, i32 1)
-  %159 = udiv i32 %158, %umax.i.i95.i.i.us
-  %160 = add i32 %159, %umin.i.i93.i.i.us
+  %umin.i.neg8.i90.i.i.us = sext i1 %157 to i32
+  %umin.i.i91.i.i.us = zext i1 %157 to i32
+  %.neg6.i92.i.i.us = sub i32 %156, %155
+  %158 = add i32 %.neg6.i92.i.i.us, %umin.i.neg8.i90.i.i.us
+  %159 = udiv i32 %158, %86
+  %160 = add i32 %159, %umin.i.i91.i.i.us
   %161 = mul i32 %160, %86
   %162 = sub i32 %155, %89
   %163 = add i32 %162, %161
-  br label %search_boundary.exit96.i.i.us
+  br label %search_boundary.exit93.i.i.us
 
-search_boundary.exit96.i.i.us:                    ; preds = %151, %.loopexit.loopexit.i.i90.i.i.us, %search_boundary.exit87.i.i.us
-  %.0.i.i89.i.i.us = phi i32 [ %spec.select83.us, %search_boundary.exit87.i.i.us ], [ %163, %.loopexit.loopexit.i.i90.i.i.us ], [ %.2.i.i88.i.i.us, %151 ]
-  %.not105.i.i.us = icmp sgt i32 %.0.i.i80.i.i.us, %.0.i.i89.i.i.us
-  %.not69101.i.i.us = icmp sgt i32 %.0.i.i.i.i.us, %.0.i.i71.i.i.us
-  %or.cond = select i1 %.not105.i.i.us, i1 true, i1 %.not69101.i.i.us
-  br i1 %or.cond, label %._crit_edge109.i.i.us, label %.preheader.i.i.us
+search_boundary.exit93.i.i.us:                    ; preds = %151, %.loopexit.loopexit.i.i88.i.i.us, %search_boundary.exit85.i.i.us
+  %.0.i.i87.i.i.us = phi i32 [ %spec.select83.us, %search_boundary.exit85.i.i.us ], [ %163, %.loopexit.loopexit.i.i88.i.i.us ], [ %.2.i.i86.i.i.us, %151 ]
+  %.not102.i.i.us = icmp sgt i32 %.0.i.i79.i.i.us, %.0.i.i87.i.i.us
+  %.not6998.i.i.us = icmp sgt i32 %.0.i.i.i.i.us, %.0.i.i71.i.i.us
+  %or.cond = select i1 %.not102.i.i.us, i1 true, i1 %.not6998.i.i.us
+  br i1 %or.cond, label %._crit_edge106.i.i.us, label %.preheader.i.i.us
 
-.preheader.i.i.us:                                ; preds = %search_boundary.exit96.i.i.us, %._crit_edge.i.i.us
-  %.0108.i.i.us = phi i32 [ %.us-phi.i.i.us, %._crit_edge.i.i.us ], [ 0, %search_boundary.exit96.i.i.us ]
-  %.067106.i.i.us = phi i32 [ %179, %._crit_edge.i.i.us ], [ %.0.i.i80.i.i.us, %search_boundary.exit96.i.i.us ]
-  %.067106.fr.i.i.us = freeze i32 %.067106.i.i.us
-  %164 = icmp eq i32 %.067106.fr.i.i.us, %spec.select83.us
+.preheader.i.i.us:                                ; preds = %search_boundary.exit93.i.i.us, %._crit_edge.i.i.us
+  %.0105.i.i.us = phi i32 [ %.us-phi.i.i.us, %._crit_edge.i.i.us ], [ 0, %search_boundary.exit93.i.i.us ]
+  %.067103.i.i.us = phi i32 [ %179, %._crit_edge.i.i.us ], [ %.0.i.i79.i.i.us, %search_boundary.exit93.i.i.us ]
+  %.067103.fr.i.i.us = freeze i32 %.067103.i.i.us
+  %164 = icmp eq i32 %.067103.fr.i.i.us, %spec.select83.us
   br i1 %164, label %.lr.ph.split.i.i.us, label %.lr.ph.split.us.i.i.us
 
 .lr.ph.split.us.i.i.us:                           ; preds = %.preheader.i.i.us
   %165 = load ptr, ptr %66, align 8, !tbaa !97
-  %166 = sext i32 %.0108.i.i.us to i64
+  %166 = sext i32 %.0105.i.i.us to i64
   br label %167
 
 167:                                              ; preds = %167, %.lr.ph.split.us.i.i.us
   %indvars.iv.i.i.us = phi i64 [ %indvars.iv.next.i.i.us, %167 ], [ %166, %.lr.ph.split.us.i.i.us ]
-  %.068102.us.i.i.us = phi i32 [ %169, %167 ], [ %.0.i.i.i.i.us, %.lr.ph.split.us.i.i.us ]
+  %.06899.us.i.i.us = phi i32 [ %169, %167 ], [ %.0.i.i.i.i.us, %.lr.ph.split.us.i.i.us ]
   %indvars.iv.next.i.i.us = add nsw i64 %indvars.iv.i.i.us, 1
   %168 = getelementptr inbounds %struct.PosCode, ptr %165, i64 %indvars.iv.i.i.us
-  store i32 %.068102.us.i.i.us, ptr %168, align 4, !tbaa !49
+  store i32 %.06899.us.i.i.us, ptr %168, align 4, !tbaa !49
   %.sroa.4.0..sroa_idx.us.i.i.us = getelementptr inbounds nuw i8, ptr %168, i64 4
-  store i32 %.067106.fr.i.i.us, ptr %.sroa.4.0..sroa_idx.us.i.i.us, align 4, !tbaa !49
-  %169 = add nsw i32 %.068102.us.i.i.us, %86
+  store i32 %.067103.fr.i.i.us, ptr %.sroa.4.0..sroa_idx.us.i.i.us, align 4, !tbaa !49
+  %169 = add nsw i32 %.06899.us.i.i.us, %86
   %.not69.us.i.i.us = icmp sgt i32 %169, %.0.i.i71.i.i.us
-  br i1 %.not69.us.i.i.us, label %._crit_edge.loopexit112.i.i.us, label %167, !llvm.loop !98
+  br i1 %.not69.us.i.i.us, label %._crit_edge.loopexit109.i.i.us, label %167, !llvm.loop !98
 
-._crit_edge.loopexit112.i.i.us:                   ; preds = %167
+._crit_edge.loopexit109.i.i.us:                   ; preds = %167
   %170 = trunc nsw i64 %indvars.iv.next.i.i.us to i32
   br label %._crit_edge.i.i.us
 
 .lr.ph.split.i.i.us:                              ; preds = %.preheader.i.i.us, %177
-  %.1103.i.i.us = phi i32 [ %.2.i.i.us, %177 ], [ %.0108.i.i.us, %.preheader.i.i.us ]
-  %.068102.i.i.us = phi i32 [ %178, %177 ], [ %.0.i.i.i.i.us, %.preheader.i.i.us ]
-  %171 = icmp eq i32 %.068102.i.i.us, %spec.select84.us
+  %.1100.i.i.us = phi i32 [ %.2.i.i.us, %177 ], [ %.0105.i.i.us, %.preheader.i.i.us ]
+  %.06899.i.i.us = phi i32 [ %178, %177 ], [ %.0.i.i.i.i.us, %.preheader.i.i.us ]
+  %171 = icmp eq i32 %.06899.i.i.us, %spec.select84.us
   br i1 %171, label %177, label %172
 
 172:                                              ; preds = %.lr.ph.split.i.i.us
   %173 = load ptr, ptr %66, align 8, !tbaa !97
-  %174 = add nsw i32 %.1103.i.i.us, 1
-  %175 = sext i32 %.1103.i.i.us to i64
+  %174 = add nsw i32 %.1100.i.i.us, 1
+  %175 = sext i32 %.1100.i.i.us to i64
   %176 = getelementptr inbounds %struct.PosCode, ptr %173, i64 %175
-  store i32 %.068102.i.i.us, ptr %176, align 4, !tbaa !49
+  store i32 %.06899.i.i.us, ptr %176, align 4, !tbaa !49
   %.sroa.4.0..sroa_idx.i.i.us = getelementptr inbounds nuw i8, ptr %176, i64 4
   store i32 %spec.select83.us, ptr %.sroa.4.0..sroa_idx.i.i.us, align 4, !tbaa !49
   br label %177
 
 177:                                              ; preds = %172, %.lr.ph.split.i.i.us
-  %.2.i.i.us = phi i32 [ %174, %172 ], [ %.1103.i.i.us, %.lr.ph.split.i.i.us ]
-  %178 = add nsw i32 %.068102.i.i.us, %86
+  %.2.i.i.us = phi i32 [ %174, %172 ], [ %.1100.i.i.us, %.lr.ph.split.i.i.us ]
+  %178 = add nsw i32 %.06899.i.i.us, %86
   %.not69.i.i.us = icmp sgt i32 %178, %.0.i.i71.i.i.us
   br i1 %.not69.i.i.us, label %._crit_edge.i.i.us, label %.lr.ph.split.i.i.us, !llvm.loop !98
 
-._crit_edge.i.i.us:                               ; preds = %177, %._crit_edge.loopexit112.i.i.us
-  %.us-phi.i.i.us = phi i32 [ %170, %._crit_edge.loopexit112.i.i.us ], [ %.2.i.i.us, %177 ]
-  %179 = add nsw i32 %.067106.fr.i.i.us, %86
-  %.not.i.i.us = icmp sgt i32 %179, %.0.i.i89.i.i.us
-  br i1 %.not.i.i.us, label %._crit_edge109.loopexit113.i.i.us, label %.preheader.i.i.us, !llvm.loop !99
+._crit_edge.i.i.us:                               ; preds = %177, %._crit_edge.loopexit109.i.i.us
+  %.us-phi.i.i.us = phi i32 [ %170, %._crit_edge.loopexit109.i.i.us ], [ %.2.i.i.us, %177 ]
+  %179 = add nsw i32 %.067103.fr.i.i.us, %86
+  %.not.i.i.us = icmp sgt i32 %179, %.0.i.i87.i.i.us
+  br i1 %.not.i.i.us, label %._crit_edge106.loopexit110.i.i.us, label %.preheader.i.i.us, !llvm.loop !99
 
-._crit_edge109.loopexit113.i.i.us:                ; preds = %._crit_edge.i.i.us
+._crit_edge106.loopexit110.i.i.us:                ; preds = %._crit_edge.i.i.us
   %.pre.i.i.us = load i32, ptr %65, align 8, !tbaa !35
-  %.pre115.i.i.us = load i32, ptr %29, align 4, !tbaa !33
+  %.pre112.i.i.us = load i32, ptr %29, align 4, !tbaa !33
   %.pre.i.us = load i32, ptr %61, align 4, !tbaa !94
-  br label %._crit_edge109.i.i.us
+  br label %._crit_edge106.i.i.us
 
-._crit_edge109.i.i.us:                            ; preds = %._crit_edge109.loopexit113.i.i.us, %search_boundary.exit96.i.i.us
-  %180 = phi i32 [ %77, %search_boundary.exit96.i.i.us ], [ %.pre.i.us, %._crit_edge109.loopexit113.i.i.us ]
-  %181 = phi i32 [ %85, %search_boundary.exit96.i.i.us ], [ %.pre115.i.i.us, %._crit_edge109.loopexit113.i.i.us ]
-  %182 = phi i32 [ %.fr.i.i.us, %search_boundary.exit96.i.i.us ], [ %.pre.i.i.us, %._crit_edge109.loopexit113.i.i.us ]
-  %.0.lcssa.i.i.us = phi i32 [ 0, %search_boundary.exit96.i.i.us ], [ %.us-phi.i.i.us, %._crit_edge109.loopexit113.i.i.us ]
+._crit_edge106.i.i.us:                            ; preds = %._crit_edge106.loopexit110.i.i.us, %search_boundary.exit93.i.i.us
+  %180 = phi i32 [ %77, %search_boundary.exit93.i.i.us ], [ %.pre.i.us, %._crit_edge106.loopexit110.i.i.us ]
+  %181 = phi i32 [ %85, %search_boundary.exit93.i.i.us ], [ %.pre112.i.i.us, %._crit_edge106.loopexit110.i.i.us ]
+  %182 = phi i32 [ %.fr.i.i.us, %search_boundary.exit93.i.i.us ], [ %.pre.i.i.us, %._crit_edge106.loopexit110.i.i.us ]
+  %.0.lcssa.i.i.us = phi i32 [ 0, %search_boundary.exit93.i.i.us ], [ %.us-phi.i.i.us, %._crit_edge106.loopexit110.i.i.us ]
   store double 0.000000e+00, ptr %67, align 8, !tbaa !100
   store i32 %spec.select83.us, ptr %68, align 4, !tbaa !103
   store i32 %spec.select84.us, ptr %69, align 8, !tbaa !104
@@ -1008,7 +1004,7 @@ search_boundary.exit96.i.i.us:                    ; preds = %151, %.loopexit.loo
   %195 = icmp sgt i32 %.0.lcssa.i.i.us, 0
   br i1 %195, label %.lr.ph.i.i.i.us, label %block_matching.exit.us
 
-.lr.ph.i.i.i.us:                                  ; preds = %._crit_edge109.i.i.us
+.lr.ph.i.i.i.us:                                  ; preds = %._crit_edge106.i.i.us
   %wide.trip.count.i.i.i.us = zext nneg i32 %.0.lcssa.i.i.us to i64
   br label %196
 
@@ -1070,8 +1066,8 @@ search_boundary.exit96.i.i.us:                    ; preds = %151, %.loopexit.loo
   store i32 %spec.select83.us, ptr %68, align 4, !tbaa !103
   br label %block_matching.exit.us
 
-block_matching.exit.us:                           ; preds = %222, %._crit_edge109.i.i.us, %223
-  %storemerge = phi i32 [ 1, %223 ], [ 1, %._crit_edge109.i.i.us ], [ %.4.i.i.i.us, %222 ]
+block_matching.exit.us:                           ; preds = %222, %._crit_edge106.i.i.us, %223
+  %storemerge = phi i32 [ 1, %223 ], [ 1, %._crit_edge106.i.i.us ], [ %.4.i.i.i.us, %222 ]
   store i32 %storemerge, ptr %63, align 8, !tbaa !95
   %224 = load ptr, ptr %73, align 8, !tbaa !31
   call void %224(ptr noundef nonnull %7, ptr noundef %13, i32 noundef %17, ptr noundef %15, i32 noundef %19, i32 noundef %spec.select83.us, i32 noundef %spec.select84.us, i32 noundef %21, i32 noundef %2) #15
@@ -3086,9 +3082,6 @@ declare void @ff_avfilter_link_set_in_status(ptr noundef, i32 noundef, i64 nound
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #14
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #14

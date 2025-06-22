@@ -3062,7 +3062,6 @@ _ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2ImiEERKT_RKT0_.exit.preheader: ; pred
   %332 = icmp sgt i64 %329, 0
   %333 = load ptr, ptr %15, align 8, !tbaa !103
   %334 = load ptr, ptr %33, align 8, !tbaa !103
-  %umax = call i64 @llvm.umax.i64(i64 %323, i64 1)
   br label %337
 
 335:                                              ; preds = %320
@@ -3120,7 +3119,7 @@ _ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2ImiEERKT_RKT0_.exit: ; preds = %.lr.p
   %364 = getelementptr i32, ptr %334, i64 %.096387
   store i32 %363, ptr %364, align 4, !tbaa !106
   %365 = add nuw i64 %.096387, 1
-  %exitcond407.not = icmp eq i64 %365, %umax
+  %exitcond407.not = icmp eq i64 %365, %323
   br i1 %exitcond407.not, label %_ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2ImiEERKT_RKT0_.exit._crit_edge, label %337, !llvm.loop !151
 
 _ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2ImiEERKT_RKT0_.exit._crit_edge: ; preds = %_ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2ImiEERKT_RKT0_.exit, %_ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2ImiEERKT_RKT0_.exit.preheader
@@ -7284,7 +7283,6 @@ _ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2ImiEERKT_RKT0_.exit.preheader: ; pred
   %332 = icmp sgt i64 %329, 0
   %333 = load ptr, ptr %15, align 8, !tbaa !103
   %334 = load ptr, ptr %33, align 8, !tbaa !103
-  %umax = call i64 @llvm.umax.i64(i64 %323, i64 1)
   br label %337
 
 335:                                              ; preds = %320
@@ -7342,7 +7340,7 @@ _ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2ImiEERKT_RKT0_.exit: ; preds = %.lr.p
   %364 = getelementptr i32, ptr %334, i64 %.096382
   store i32 %363, ptr %364, align 4, !tbaa !106
   %365 = add nuw i64 %.096382, 1
-  %exitcond402.not = icmp eq i64 %365, %umax
+  %exitcond402.not = icmp eq i64 %365, %323
   br i1 %exitcond402.not, label %_ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2ImiEERKT_RKT0_.exit._crit_edge, label %337, !llvm.loop !296
 
 _ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2ImiEERKT_RKT0_.exit._crit_edge: ; preds = %_ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2ImiEERKT_RKT0_.exit, %_ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2ImiEERKT_RKT0_.exit.preheader
@@ -9601,7 +9599,6 @@ _ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2ImiEERKT_RKT0_.exit.preheader: ; pred
   %332 = icmp sgt i64 %329, 0
   %333 = load ptr, ptr %15, align 8, !tbaa !103
   %334 = load ptr, ptr %33, align 8, !tbaa !103
-  %umax = call i64 @llvm.umax.i64(i64 %323, i64 1)
   br label %337
 
 335:                                              ; preds = %320
@@ -9659,7 +9656,7 @@ _ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2ImiEERKT_RKT0_.exit: ; preds = %.lr.p
   %364 = getelementptr i32, ptr %334, i64 %.096387
   store i32 %363, ptr %364, align 4, !tbaa !106
   %365 = add nuw i64 %.096387, 1
-  %exitcond407.not = icmp eq i64 %365, %umax
+  %exitcond407.not = icmp eq i64 %365, %323
   br i1 %exitcond407.not, label %_ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2ImiEERKT_RKT0_.exit._crit_edge, label %337, !llvm.loop !344
 
 _ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2ImiEERKT_RKT0_.exit._crit_edge: ; preds = %_ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2ImiEERKT_RKT0_.exit, %_ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2ImiEERKT_RKT0_.exit.preheader

@@ -29814,7 +29814,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit384: ; preds = %_Z
   %334 = ptrtoint ptr %.sroa.0864.0.lcssa to i64
   %335 = sub i64 %333, %334
   %336 = ashr exact i64 %335, 2
-  %umax1099 = call i64 @llvm.umax.i64(i64 %336, i64 1)
   br label %.lr.ph1037
 
 337:                                              ; preds = %._crit_edge.i.i360
@@ -29888,7 +29887,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit395: ; preds = %_Z
 
 358:                                              ; preds = %.lr.ph1037
   %indvars.iv.next1097 = add nuw i64 %indvars.iv1096, 1
-  %exitcond1100.not = icmp eq i64 %indvars.iv.next1097, %umax1099
+  %exitcond1100.not = icmp eq i64 %indvars.iv.next1097, %336
   br i1 %exitcond1100.not, label %._crit_edge1038, label %.lr.ph1037, !llvm.loop !316
 
 .thread:                                          ; preds = %.lr.ph1037
@@ -30491,7 +30490,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit455: ; preds = %_Z
   %551 = ptrtoint ptr %.sroa.0842.0.lcssa to i64
   %552 = sub i64 %550, %551
   %553 = ashr exact i64 %552, 2
-  %umax1091 = call i64 @llvm.umax.i64(i64 %553, i64 1)
   br label %.lr.ph1027
 
 554:                                              ; preds = %._crit_edge1023
@@ -30583,7 +30581,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit466: ; preds = %_Z
 
 583:                                              ; preds = %.lr.ph1027
   %indvars.iv.next1089 = add nuw i64 %indvars.iv1088, 1
-  %exitcond1092.not = icmp eq i64 %indvars.iv.next1089, %umax1091
+  %exitcond1092.not = icmp eq i64 %indvars.iv.next1089, %553
   br i1 %exitcond1092.not, label %._crit_edge1028, label %.lr.ph1027, !llvm.loop !322
 
 .thread934:                                       ; preds = %.lr.ph1027
@@ -31665,7 +31663,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit576: ; preds = %_Z
   %933 = ptrtoint ptr %.sroa.0831.0.lcssa to i64
   %934 = sub i64 %932, %933
   %935 = ashr exact i64 %934, 2
-  %umax = call i64 @llvm.umax.i64(i64 %935, i64 1)
   br label %.lr.ph1016
 
 936:                                              ; preds = %._crit_edge1012
@@ -31757,7 +31754,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit587: ; preds = %_Z
 
 965:                                              ; preds = %.lr.ph1016
   %indvars.iv.next1082 = add nuw i64 %indvars.iv1081, 1
-  %exitcond1084.not = icmp eq i64 %indvars.iv.next1082, %umax
+  %exitcond1084.not = icmp eq i64 %indvars.iv.next1082, %935
   br i1 %exitcond1084.not, label %._crit_edge1017, label %.lr.ph1016, !llvm.loop !324
 
 .thread939:                                       ; preds = %.lr.ph1016

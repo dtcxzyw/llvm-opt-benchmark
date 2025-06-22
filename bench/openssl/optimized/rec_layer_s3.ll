@@ -1543,7 +1543,6 @@ tls_write_check_pending.exit:                     ; preds = %56, %62, %65
 
 .preheader:                                       ; preds = %146
   %149 = getelementptr inbounds nuw i8, ptr %2, i64 %.1163
-  %umax = call i64 @llvm.umax.i64(i64 %spec.store.select, i64 1)
   br label %150
 
 150:                                              ; preds = %.preheader, %150
@@ -1559,7 +1558,7 @@ tls_write_check_pending.exit:                     ; preds = %56, %62, %65
   %156 = getelementptr inbounds nuw i8, ptr %151, i64 16
   store i64 %143, ptr %156, align 8, !tbaa !203
   %157 = add nuw nsw i64 %.0154220, 1
-  %exitcond.not = icmp eq i64 %157, %umax
+  %exitcond.not = icmp eq i64 %157, %spec.store.select
   br i1 %exitcond.not, label %158, label %150, !llvm.loop !204
 
 158:                                              ; preds = %150
@@ -1571,7 +1570,6 @@ tls_write_check_pending.exit:                     ; preds = %56, %62, %65
   %161 = zext i1 %.not196 to i64
   %spec.select203 = add nuw nsw i64 %147, %161
   %162 = getelementptr inbounds nuw i8, ptr %2, i64 %.1163
-  %umax228 = call i64 @llvm.umax.i64(i64 %spec.store.select, i64 1)
   br label %163
 
 163:                                              ; preds = %160, %163
@@ -1592,7 +1590,7 @@ tls_write_check_pending.exit:                     ; preds = %56, %62, %65
   %171 = icmp eq i64 %170, %148
   %172 = sext i1 %171 to i64
   %spec.select204 = add i64 %.1158221, %172
-  %exitcond229.not = icmp eq i64 %170, %umax228
+  %exitcond229.not = icmp eq i64 %170, %spec.store.select
   br i1 %exitcond229.not, label %.loopexit, label %163, !llvm.loop !205
 
 .loopexit:                                        ; preds = %163, %158
@@ -2971,9 +2969,6 @@ declare i32 @llvm.smax.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #8
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #8
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

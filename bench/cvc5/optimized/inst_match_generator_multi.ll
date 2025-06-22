@@ -1461,7 +1461,6 @@ _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEESt6vectorImSaImEESt4lessIS3_ESaISt
   %588 = ptrtoint ptr %586 to i64
   %589 = sub i64 %587, %588
   %590 = ashr exact i64 %589, 3
-  %umax = call i64 @llvm.umax.i64(i64 %590, i64 1)
   br label %.lr.ph894
 
 ._crit_edge895:                                   ; preds = %_ZNSt6vectorImSaImEE9push_backERKm.exit385, %582
@@ -1858,7 +1857,7 @@ _ZNSt6vectorImSaImEE9push_backERKm.exit385:       ; preds = %_ZNSt6vectorImSaImE
   %.sroa.0682.3 = phi ptr [ %.sroa.0682.1890, %731 ], [ %695, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i382 ], [ %.sroa.0682.1890, %680 ]
   %.1119 = phi i32 [ %733, %731 ], [ %.0118892, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i382 ], [ %.0118892, %680 ]
   %734 = add nuw i64 %.0124891, 1
-  %exitcond.not = icmp eq i64 %734, %umax
+  %exitcond.not = icmp eq i64 %734, %590
   br i1 %exitcond.not, label %._crit_edge895, label %.lr.ph894, !llvm.loop !169
 
 .lr.ph919:                                        ; preds = %._crit_edge895, %._crit_edge913
@@ -2967,7 +2966,6 @@ define hidden void @_ZN4cvc58internal6theory11quantifiers4inst23InstMatchGenerat
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %9, i64 1)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %22, %1
@@ -2995,7 +2993,7 @@ define hidden void @_ZN4cvc58internal6theory11quantifiers4inst23InstMatchGenerat
 
 22:                                               ; preds = %.lr.ph, %18
   %23 = add nuw i64 %.014, 1
-  %exitcond.not = icmp eq i64 %23, %umax
+  %exitcond.not = icmp eq i64 %23, %9
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !204
 
 ._crit_edge19:                                    ; preds = %91, %._crit_edge
@@ -3307,12 +3305,11 @@ define hidden noundef i64 @_ZN4cvc58internal6theory11quantifiers4inst23InstMatch
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %umax = tail call i64 @llvm.umax.i64(i64 %13, i64 1)
   br label %18
 
 17:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #20
-  %exitcond.not = icmp eq i64 %19, %umax
+  %exitcond.not = icmp eq i64 %19, %13
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %18, !llvm.loop !209
 
 18:                                               ; preds = %.lr.ph, %17

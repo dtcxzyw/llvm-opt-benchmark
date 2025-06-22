@@ -807,11 +807,7 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i
 
 .preheader:                                       ; preds = %25
   %.not = icmp eq ptr %29, %30
-  br i1 %.not, label %.loopexit46, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %.preheader
-  %umax = call i64 @llvm.umax.i64(i64 %34, i64 1)
-  br label %.lr.ph
+  br i1 %.not, label %.loopexit46, label %.lr.ph
 
 36:                                               ; preds = %23
   %37 = landingpad { ptr, i32 }
@@ -824,8 +820,8 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i
   call void @_ZN5folly9LockedPtrIKNS_12SynchronizedISt6vectorISt10shared_ptrINS_10LogHandlerEESaIS5_EENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNSE_22SynchronizedMutexLevelE2ELNSE_23SynchronizedMutexMethodE0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #16
   br label %182
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNSt10shared_ptrIN5folly10LogHandlerEEaSERKS2_.exit
-  %.01849 = phi i64 [ %81, %_ZNSt10shared_ptrIN5folly10LogHandlerEEaSERKS2_.exit ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %_ZNSt10shared_ptrIN5folly10LogHandlerEEaSERKS2_.exit
+  %.01849 = phi i64 [ %81, %_ZNSt10shared_ptrIN5folly10LogHandlerEEaSERKS2_.exit ], [ 0, %.preheader ]
   %40 = load ptr, ptr %9, align 8, !tbaa !79
   %.not.i.i30 = icmp eq ptr %40, null
   %.neg.i.i31 = select i1 %.not.i.i30, i64 0, i64 -24
@@ -918,7 +914,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i:
 
 _ZNSt10shared_ptrIN5folly10LogHandlerEEaSERKS2_.exit: ; preds = %.lr.ph, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i
   %81 = add nuw i64 %.01849, 1
-  %exitcond.not = icmp eq i64 %81, %umax
+  %exitcond.not = icmp eq i64 %81, %34
   br i1 %exitcond.not, label %.loopexit46, label %.lr.ph, !llvm.loop !89
 
 82:                                               ; preds = %25
@@ -1018,7 +1014,6 @@ _ZN5folly9LockedPtrIKNS_12SynchronizedISt6vectorISt10shared_ptrINS_10LogHandlerE
 .lr.ph51:                                         ; preds = %_ZN5folly9LockedPtrIKNS_12SynchronizedISt6vectorISt10shared_ptrINS_10LogHandlerEESaIS5_EENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNSE_22SynchronizedMutexLevelE2ELNSE_23SynchronizedMutexMethodE0EEEED2Ev.exit
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %119 = getelementptr inbounds nuw i8, ptr %10, i64 23
-  %umax55 = call i64 @llvm.umax.i64(i64 %34, i64 1)
   br label %183
 
 ._crit_edge:                                      ; preds = %201, %_ZN5folly9LockedPtrIKNS_12SynchronizedISt6vectorISt10shared_ptrINS_10LogHandlerEESaIS5_EENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNSE_22SynchronizedMutexLevelE2ELNSE_23SynchronizedMutexMethodE0EEEED2Ev.exit
@@ -1215,7 +1210,7 @@ _ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.ex
 
 201:                                              ; preds = %_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.exit, %183
   %202 = add nuw i64 %.01750, 1
-  %exitcond56.not = icmp eq i64 %202, %umax55
+  %exitcond56.not = icmp eq i64 %202, %34
   br i1 %exitcond56.not, label %._crit_edge, label %183, !llvm.loop !91
 
 203:                                              ; preds = %194

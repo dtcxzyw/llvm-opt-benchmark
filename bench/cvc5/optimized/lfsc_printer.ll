@@ -1803,7 +1803,6 @@ _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit332: ; preds = %.lr.ph.i.i.i, %13
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %163 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %164 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %umax = call i64 @llvm.umax.i64(i64 %161, i64 1)
   br label %169
 
 165:                                              ; preds = %129, %._crit_edge
@@ -2070,7 +2069,7 @@ _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEmSt4lessIS3_ESaISt4pairIKS3_mEEE11
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit345: ; preds = %271, %276, %282
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #23
   %286 = add nuw i64 %.02041378, 1
-  %exitcond.not = icmp eq i64 %286, %umax
+  %exitcond.not = icmp eq i64 %286, %161
   br i1 %exitcond.not, label %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit359.loopexit, label %169, !llvm.loop !88
 
 287:                                              ; preds = %186
@@ -4806,7 +4805,6 @@ _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit596: ; preds = %_ZStlsISt11char_t
   %1368 = ashr exact i64 %1367, 3
   %1369 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %1370 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %umax1453 = call i64 @llvm.umax.i64(i64 %1368, i64 1)
   br label %1371
 
 1371:                                             ; preds = %.lr.ph1437, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit626
@@ -5154,7 +5152,7 @@ _ZNSolsEPFRSoS_E.exit610:                         ; preds = %_ZNSolsEPFRSoS_E.ex
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit626: ; preds = %_ZNSolsEPFRSoS_E.exit610, %1509, %1515
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %55) #23
   %1519 = add nuw i64 %.02031436, 1
-  %exitcond1454.not = icmp eq i64 %1519, %umax1453
+  %exitcond1454.not = icmp eq i64 %1519, %1368
   br i1 %exitcond1454.not, label %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit641, label %1371, !llvm.loop !364
 
 1520:                                             ; preds = %.loopexit1277, %.loopexit.split-lp1278, %1504, %1450
@@ -14530,7 +14528,6 @@ define hidden void @_ZN4cvc58internal5proof11LfscPrinter12printLetListERSoS3_RNS
   %17 = sub i64 %15, %16
   %18 = ashr exact i64 %17, 3
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %umax = call i64 @llvm.umax.i64(i64 %18, i64 1)
   br label %45
 
 ._crit_edge.loopexit:                             ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit56
@@ -14997,7 +14994,7 @@ _ZNSolsEPFRSoS_E.exit:                            ; preds = %_ZNSolsEPFRSoS_E.ex
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit56: ; preds = %_ZNSolsEPFRSoS_E.exit, %203, %209
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #23
   %213 = add nuw i64 %.02776, 1
-  %exitcond.not = icmp eq i64 %213, %umax
+  %exitcond.not = icmp eq i64 %213, %18
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %45, !llvm.loop !544
 
 214:                                              ; preds = %.loopexit, %.loopexit.split-lp, %199, %148, %146

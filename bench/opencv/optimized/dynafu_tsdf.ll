@@ -4364,7 +4364,6 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7cvflann3anyESt4l
 .lr.ph:                                           ; preds = %194
   %196 = getelementptr inbounds nuw i8, ptr %107, i64 48
   %197 = getelementptr inbounds nuw i8, ptr %107, i64 8
-  %umax = call i64 @llvm.umax.i64(i64 %171, i64 1)
   br label %204
 
 ._crit_edge:                                      ; preds = %194
@@ -4445,7 +4444,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %._crit_edge, %._cri
 
 216:                                              ; preds = %204, %208
   %217 = add nuw i64 %.096183, 1
-  %exitcond.not = icmp eq i64 %217, %umax
+  %exitcond.not = icmp eq i64 %217, %171
   br i1 %exitcond.not, label %._crit_edge.thread, label %204, !llvm.loop !247
 
 _ZNSt6vectorIfSaIfEED2Ev.exit118:                 ; preds = %203, %.body

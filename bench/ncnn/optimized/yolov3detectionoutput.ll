@@ -2148,7 +2148,6 @@ _ZNSt6vectorImSaImEE5clearEv.exit:                ; preds = %4, %8
   %15 = sub i64 %13, %14
   %16 = sdiv exact i64 %15, 28
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %umax = tail call i64 @llvm.umax.i64(i64 %16, i64 1)
   br label %18
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorImSaImEE9push_backERKm.exit, %_ZNSt6vectorImSaImEE5clearEv.exit
@@ -2297,7 +2296,7 @@ _ZNSt6vectorImSaImEE9push_backERKm.exit:          ; preds = %_ZN4ncnnL17intersec
   %95 = phi ptr [ %88, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i ], [ %19, %78 ], [ %19, %_ZN4ncnnL17intersection_areaERKNS_21Yolov3DetectionOutput8BBoxRectES3_.exit ]
   %96 = phi ptr [ %92, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i ], [ %79, %78 ], [ %20, %_ZN4ncnnL17intersection_areaERKNS_21Yolov3DetectionOutput8BBoxRectES3_.exit ]
   %97 = add nuw i64 %storemerge36, 1
-  %exitcond39.not = icmp eq i64 %97, %umax
+  %exitcond39.not = icmp eq i64 %97, %16
   br i1 %exitcond39.not, label %._crit_edge, label %18, !llvm.loop !91
 }
 

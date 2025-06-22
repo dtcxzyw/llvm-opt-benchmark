@@ -883,7 +883,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47: ; preds = %_ZN
   %90 = sdiv exact i64 %89, 24
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %92 = load ptr, ptr %91, align 8, !tbaa !44
-  %umax = tail call i64 @llvm.umax.i64(i64 %90, i64 1)
   br label %102
 
 ._crit_edge:                                      ; preds = %102, %61
@@ -940,7 +939,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47: ; preds = %_ZN
   %132 = fptrunc double %131 to float
   store float %132, ptr %127, align 4, !tbaa !60
   %133 = add nuw i64 %.02763, 1
-  %exitcond.not = icmp eq i64 %133, %umax
+  %exitcond.not = icmp eq i64 %133, %90
   br i1 %exitcond.not, label %._crit_edge, label %102, !llvm.loop !62
 
 134:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit44, %._crit_edge, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -1334,7 +1333,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50: ; preds = %_ZN
   %77 = sub i64 %75, %76
   %78 = sdiv exact i64 %77, 12
   %79 = load ptr, ptr %36, align 8, !tbaa !44
-  %umax = tail call i64 @llvm.umax.i64(i64 %78, i64 1)
   br label %89
 
 ._crit_edge:                                      ; preds = %92, %68
@@ -1360,7 +1358,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50: ; preds = %_ZN
 
 92:                                               ; preds = %94
   %93 = add nuw i64 %.03254, 1
-  %exitcond55.not = icmp eq i64 %93, %umax
+  %exitcond55.not = icmp eq i64 %93, %78
   br i1 %exitcond55.not, label %._crit_edge, label %89, !llvm.loop !68
 
 94:                                               ; preds = %89, %94

@@ -282,8 +282,6 @@ compute_slice_width.exit:                         ; preds = %compute_slice_heigh
 
 .preheader483.preheader:                          ; preds = %.preheader483.lr.ph
   %179 = sext i32 %.0.i to i64
-  %umax = tail call i32 @llvm.umax.i32(i32 %.055.i, i32 1)
-  %wide.trip.count = zext nneg i32 %umax to i64
   br label %.preheader483
 
 .preheader483.us:                                 ; preds = %.preheader483.lr.ph, %.preheader483.us
@@ -698,7 +696,7 @@ init_column_sums.exit:                            ; preds = %._crit_edge148.i, %
 
 ._crit_edge511:                                   ; preds = %.loopexit, %init_column_sums.exit
   %indvars.iv.next582 = add nuw nsw i64 %indvars.iv581, 1
-  %exitcond584.not = icmp eq i64 %indvars.iv.next582, %wide.trip.count
+  %exitcond584.not = icmp eq i64 %indvars.iv.next582, %59
   br i1 %exitcond584.not, label %226, label %272
 
 388:                                              ; preds = %.lr.ph510, %.loopexit
@@ -1111,9 +1109,6 @@ declare i16 @llvm.smax.i16(i16, i16) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #8
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.smin.i16(i16, i16) #8

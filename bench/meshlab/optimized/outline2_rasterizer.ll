@@ -154,7 +154,6 @@ define void @_ZN20QtOutline2Rasterizer9rasterizeERN3vcg18RasterizedOutline2Efiii
   %52 = ptrtoint ptr %47 to i64
   %53 = sub i64 %51, %52
   %54 = ashr exact i64 %53, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %54, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN3vcg4Box2IfE3AddERKNS_6Point2IfEE.exit
@@ -198,7 +197,7 @@ _ZN3vcg4Box2IfE3AddERKNS_6Point2IfEE.exit:        ; preds = %.lr.ph, %73, %68
   %.sroa.14.2 = phi float [ %.sroa.14.1, %73 ], [ %.sroa.14.1, %68 ], [ %62, %.lr.ph ]
   %.sroa.19.1 = phi float [ %64, %73 ], [ %.sroa.19.0407, %68 ], [ %64, %.lr.ph ]
   %74 = add nuw i64 %.0108408, 1
-  %exitcond.not = icmp eq i64 %74, %umax
+  %exitcond.not = icmp eq i64 %74, %54
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge.loopexit:                             ; preds = %_ZN3vcg4Box2IfE3AddERKNS_6Point2IfEE.exit
@@ -252,7 +251,6 @@ _ZNSt16allocator_traitsISaIN3vcg6Point2IfEEEE8allocateERS3_m.exit.i.i.i.i161: ; 
   %85 = ptrtoint ptr %80 to i64
   %86 = sub i64 %84, %85
   %87 = ashr exact i64 %86, 3
-  %umax453 = tail call i64 @llvm.umax.i64(i64 %87, i64 1)
   br label %.lr.ph413
 
 .lr.ph413:                                        ; preds = %.lr.ph413.preheader, %106
@@ -305,7 +303,7 @@ _ZNSt16allocator_traitsISaIN3vcg6Point2IfEEEE8allocateERS3_m.exit.i.i.i.i161: ; 
   %117 = add nsw i32 %116, 1
   store i32 %117, ptr %115, align 4
   %118 = add nuw i64 %.0122412, 1
-  %exitcond454.not = icmp eq i64 %118, %umax453
+  %exitcond454.not = icmp eq i64 %118, %87
   br i1 %exitcond454.not, label %._crit_edge414, label %.lr.ph413, !llvm.loop !8
 
 119:                                              ; preds = %_ZNSt16allocator_traitsISaIN3vcg6Point2IfEEEE8allocateERS3_m.exit.i.i.i.i161, %.noexc.i.i168
@@ -2702,7 +2700,6 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit88.us:     ; preds = %155, %_ZNSt6vectorI
   %167 = ptrtoint ptr %165 to i64
   %168 = sub i64 %166, %167
   %169 = ashr exact i64 %168, 2
-  %umax = tail call i64 @llvm.umax.i64(i64 %169, i64 1)
   br label %.lr.ph149
 
 170:                                              ; preds = %.lr.ph146, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit96
@@ -2815,7 +2812,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit96:        ; preds = %195, %_ZNSt6vectorI
   %220 = load i32, ptr %219, align 4
   %221 = add nsw i32 %220, %.062147
   %222 = add nuw i64 %.0148, 1
-  %exitcond187.not = icmp eq i64 %222, %umax
+  %exitcond187.not = icmp eq i64 %222, %169
   br i1 %exitcond187.not, label %._crit_edge150, label %.lr.ph149, !llvm.loop !64
 
 ._crit_edge150:                                   ; preds = %.lr.ph149, %.preheader

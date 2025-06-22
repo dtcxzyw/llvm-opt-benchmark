@@ -618,14 +618,10 @@ _ZN8QuantLib6MatrixC2Emm.exit:                    ; preds = %entry, %cond.true.i
   %cmp11.not = icmp eq ptr %0, %1
   %cmp79.not = icmp eq i64 %2, 0
   %or.cond = or i1 %cmp11.not, %cmp79.not
-  br i1 %or.cond, label %nrvo.skipdtor, label %for.cond3.preheader.us.preheader
+  br i1 %or.cond, label %nrvo.skipdtor, label %for.cond3.preheader.us
 
-for.cond3.preheader.us.preheader:                 ; preds = %_ZN8QuantLib6MatrixC2Emm.exit
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
-  br label %for.cond3.preheader.us
-
-for.cond3.preheader.us:                           ; preds = %for.cond3.preheader.us.preheader, %for.cond3.for.cond.cleanup8_crit_edge.us
-  %i.012.us = phi i64 [ %inc17.us, %for.cond3.for.cond.cleanup8_crit_edge.us ], [ 0, %for.cond3.preheader.us.preheader ]
+for.cond3.preheader.us:                           ; preds = %_ZN8QuantLib6MatrixC2Emm.exit, %for.cond3.for.cond.cleanup8_crit_edge.us
+  %i.012.us = phi i64 [ %inc17.us, %for.cond3.for.cond.cleanup8_crit_edge.us ], [ 0, %_ZN8QuantLib6MatrixC2Emm.exit ]
   %add.ptr.i.us = getelementptr inbounds nuw %"class.QuantLib::Array", ptr %1, i64 %i.012.us
   %6 = load ptr, ptr %add.ptr.i.us, align 8, !tbaa !26
   %mul.i.i.us = mul i64 %i.012.us, %2
@@ -644,7 +640,7 @@ invoke.cont14.us:                                 ; preds = %for.cond3.preheader
 
 for.cond3.for.cond.cleanup8_crit_edge.us:         ; preds = %invoke.cont14.us
   %inc17.us = add nuw i64 %i.012.us, 1
-  %exitcond14.not = icmp eq i64 %inc17.us, %umax
+  %exitcond14.not = icmp eq i64 %inc17.us, %sub.ptr.div.i
   br i1 %exitcond14.not, label %nrvo.skipdtor, label %for.cond3.preheader.us, !llvm.loop !48
 
 nrvo.skipdtor:                                    ; preds = %for.cond3.for.cond.cleanup8_crit_edge.us, %_ZN8QuantLib6MatrixC2Emm.exit

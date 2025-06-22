@@ -5969,12 +5969,7 @@ _ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE9push_backEOS2_.exit: ; preds = %62, %_ZN
   %.in = phi i64 [ %89, %.lr.ph.preheader.lr.ph ], [ %110, %106 ]
   %90 = phi ptr [ %86, %.lr.ph.preheader.lr.ph ], [ %107, %106 ]
   %91 = ashr exact i64 %.in, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %91, i64 1)
   br label %.lr.ph
-
-.lr.ph48.preheader:                               ; preds = %.lr.ph
-  %umax56 = tail call i64 @llvm.umax.i64(i64 %91, i64 1)
-  br label %.lr.ph48
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.01644 = phi i64 [ %95, %.lr.ph ], [ 0, %.lr.ph.preheader ]
@@ -5984,11 +5979,11 @@ _ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE9push_backEOS2_.exit: ; preds = %62, %_ZN
   %94 = icmp eq ptr %93, %1
   %spec.select = select i1 %94, i64 %.01644, i64 %.01743
   %95 = add nuw i64 %.01644, 1
-  %exitcond.not = icmp eq i64 %95, %umax
-  br i1 %exitcond.not, label %.lr.ph48.preheader, label %.lr.ph, !llvm.loop !50
+  %exitcond.not = icmp eq i64 %95, %91
+  br i1 %exitcond.not, label %.lr.ph48, label %.lr.ph, !llvm.loop !50
 
-.lr.ph48:                                         ; preds = %.lr.ph48.preheader, %.thread
-  %.01547 = phi i64 [ %111, %.thread ], [ 0, %.lr.ph48.preheader ]
+.lr.ph48:                                         ; preds = %.lr.ph, %.thread
+  %.01547 = phi i64 [ %111, %.thread ], [ 0, %.lr.ph ]
   %96 = getelementptr inbounds ptr, ptr %90, i64 %.01547
   %97 = load ptr, ptr %96, align 8
   %98 = icmp eq ptr %97, null
@@ -6019,7 +6014,7 @@ _ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE9push_backEOS2_.exit: ; preds = %62, %_ZN
 
 .thread:                                          ; preds = %.lr.ph48, %99, %101
   %111 = add nuw i64 %.01547, 1
-  %exitcond57.not = icmp eq i64 %111, %umax56
+  %exitcond57.not = icmp eq i64 %111, %91
   br i1 %exitcond57.not, label %.critedge, label %.lr.ph48, !llvm.loop !52
 
 .critedge:                                        ; preds = %106, %.thread, %_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE9push_backEOS2_.exit

@@ -6323,7 +6323,6 @@ _ZNK11colvarvalue4sizeEv.exit:                    ; preds = %43, %44, %45, %46, 
   %58 = ptrtoint ptr %56 to i64
   %59 = sub i64 %57, %58
   %60 = ashr exact i64 %59, 3
-  %umax37 = tail call i64 @llvm.umax.i64(i64 %60, i64 1)
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %._crit_edge
@@ -6342,7 +6341,6 @@ _ZNK11colvarvalue4sizeEv.exit:                    ; preds = %43, %44, %45, %46, 
   %68 = ptrtoint ptr %66 to i64
   %69 = sub i64 %67, %68
   %70 = sdiv exact i64 %69, 120
-  %umax = tail call i64 @llvm.umax.i64(i64 %70, i64 1)
   br label %.lr.ph
 
 ._crit_edge30:                                    ; preds = %._crit_edge, %.preheader27
@@ -6351,7 +6349,7 @@ _ZNK11colvarvalue4sizeEv.exit:                    ; preds = %43, %44, %45, %46, 
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %72 = add nuw i64 %.02429, 1
-  %exitcond38.not = icmp eq i64 %72, %umax37
+  %exitcond38.not = icmp eq i64 %72, %60
   br i1 %exitcond38.not, label %._crit_edge30, label %.preheader, !llvm.loop !230
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -6369,7 +6367,7 @@ _ZNK11colvarvalue4sizeEv.exit:                    ; preds = %43, %44, %45, %46, 
   store double %78, ptr %76, align 8, !tbaa !190
   store double %81, ptr %79, align 8, !tbaa !190
   %82 = add nuw i64 %.028, 1
-  %exitcond.not = icmp eq i64 %82, %umax
+  %exitcond.not = icmp eq i64 %82, %70
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !237
 
 .loopexit:                                        ; preds = %_ZNK11colvarvalue4sizeEv.exit, %8

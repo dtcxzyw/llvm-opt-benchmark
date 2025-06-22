@@ -11814,11 +11814,7 @@ _ZN3gmx14LogEntryWriterD2Ev.exit255:              ; preds = %_ZNKSt7__cxx1112bas
   %488 = sub i64 %486, %487
   %489 = ashr exact i64 %488, 2
   %.not332 = icmp eq ptr %484, %485
-  br i1 %.not332, label %._crit_edge, label %.preheader303.preheader
-
-.preheader303.preheader:                          ; preds = %483
-  %umax = call i64 @llvm.umax.i64(i64 %489, i64 1)
-  br label %.preheader303
+  br i1 %.not332, label %._crit_edge, label %.preheader303
 
 490:                                              ; preds = %.loopexit, %480
   %491 = phi ptr [ %.pre, %480 ], [ %545, %.loopexit ]
@@ -11944,8 +11940,8 @@ _ZN3gmx14LogEntryWriterD2Ev.exit255:              ; preds = %_ZNKSt7__cxx1112bas
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i, %547
   br label %490, !llvm.loop !793
 
-.preheader303:                                    ; preds = %.preheader303.preheader, %564
-  %.0105316 = phi i64 [ %565, %564 ], [ 0, %.preheader303.preheader ]
+.preheader303:                                    ; preds = %483, %564
+  %.0105316 = phi i64 [ %565, %564 ], [ 0, %483 ]
   %559 = getelementptr inbounds nuw i32, ptr %485, i64 %.0105316
   %560 = load i32, ptr %559, align 4, !tbaa !325
   %561 = sext i32 %560 to i64
@@ -11961,7 +11957,7 @@ _ZN3gmx14LogEntryWriterD2Ev.exit255:              ; preds = %_ZNKSt7__cxx1112bas
 
 564:                                              ; preds = %566
   %565 = add nuw i64 %.0105316, 1
-  %exitcond338.not = icmp eq i64 %565, %umax
+  %exitcond338.not = icmp eq i64 %565, %489
   br i1 %exitcond338.not, label %._crit_edge, label %.preheader303, !llvm.loop !794
 
 566:                                              ; preds = %.preheader303, %566

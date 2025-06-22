@@ -7880,7 +7880,6 @@ for.body.lr.ph:                                   ; preds = %_ZNSt6vectorIdSaIdE
   %pn.i.i = getelementptr inbounds nuw i8, ptr %coupon, i64 8
   %capRates_ = getelementptr inbounds nuw i8, ptr %this, i64 136
   %floorRates_ = getelementptr inbounds nuw i8, ptr %this, i64 160
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %_ZN5boost10shared_ptrIN8QuantLib18YoYInflationCouponEED2Ev.exit, %_ZNSt6vectorIdSaIdEE6resizeEm.exit200
@@ -8226,7 +8225,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i, %i
 _ZN5boost10shared_ptrIN8QuantLib18YoYInflationCouponEED2Ev.exit: ; preds = %if.end163, %if.then.i.i272, %.noexc.i.i, %if.then.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %coupon) #27
   %inc = add nuw i64 %i.0315, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !138
 
 ehcleanup166:                                     ; preds = %lpad89, %lpad80, %lpad72, %ehcleanup68

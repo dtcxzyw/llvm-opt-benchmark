@@ -340,7 +340,6 @@ _ZN9benchmark8internal18GetNullLogInstanceEv.exit22: ; preds = %_ZN9benchmark8in
   %27 = ptrtoint ptr %24 to i64
   %28 = sub i64 %26, %27
   %29 = ashr exact i64 %28, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %29, i64 1)
   br label %.lr.ph.i
 
 .lr.ph47.i.preheader:                             ; preds = %.lr.ph.i
@@ -350,7 +349,6 @@ _ZN9benchmark8internal18GetNullLogInstanceEv.exit22: ; preds = %_ZN9benchmark8in
   %33 = ptrtoint ptr %24 to i64
   %34 = sub i64 %32, %33
   %35 = ashr exact i64 %34, 3
-  %umax155 = tail call i64 @llvm.umax.i64(i64 %35, i64 1)
   br label %.lr.ph47.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
@@ -364,7 +362,7 @@ _ZN9benchmark8internal18GetNullLogInstanceEv.exit22: ; preds = %_ZN9benchmark8in
   %39 = fadd double %.03240.i, %38
   %40 = fadd double %.03539.i, %38
   %41 = add nuw i64 %.03638.i, 1
-  %exitcond.not = icmp eq i64 %41, %umax
+  %exitcond.not = icmp eq i64 %41, %29
   br i1 %exitcond.not, label %.lr.ph47.i.preheader, label %.lr.ph.i, !llvm.loop !27
 
 .lr.ph47.i:                                       ; preds = %.lr.ph47.i.preheader, %.lr.ph47.i
@@ -376,7 +374,7 @@ _ZN9benchmark8internal18GetNullLogInstanceEv.exit22: ; preds = %_ZN9benchmark8in
   %square.i = fmul double %44, %44
   %45 = fadd double %.03444.i, %square.i
   %46 = add nuw i64 %.03345.i, 1
-  %exitcond156.not = icmp eq i64 %46, %umax155
+  %exitcond156.not = icmp eq i64 %46, %35
   br i1 %exitcond156.not, label %.loopexit90.loopexit, label %.lr.ph47.i, !llvm.loop !32
 
 .loopexit90.loopexit:                             ; preds = %.lr.ph47.i
@@ -992,7 +990,6 @@ _ZNSt6vectorIdSaIdEE9push_backEOd.exit70:         ; preds = %_ZNSt6vectorIdSaIdE
   %142 = ptrtoint ptr %139 to i64
   %143 = sub i64 %141, %142
   %144 = ashr exact i64 %143, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %144, i64 1)
   br label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.noexc72
@@ -1002,7 +999,6 @@ _ZNSt6vectorIdSaIdEE9push_backEOd.exit70:         ; preds = %_ZNSt6vectorIdSaIdE
   %148 = ptrtoint ptr %139 to i64
   %149 = sub i64 %147, %148
   %150 = ashr exact i64 %149, 3
-  %umax213 = tail call i64 @llvm.umax.i64(i64 %150, i64 1)
   br label %.lr.ph47.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.noexc72
@@ -1022,7 +1018,7 @@ _ZNSt6vectorIdSaIdEE9push_backEOd.exit70:         ; preds = %_ZNSt6vectorIdSaIdE
   %157 = fadd double %.03240.i, %156
   %158 = tail call double @llvm.fmuladd.f64(double %156, double %153, double %.03539.i)
   %159 = add nuw i64 %.03638.i, 1
-  %exitcond.not = icmp eq i64 %159, %umax
+  %exitcond.not = icmp eq i64 %159, %144
   br i1 %exitcond.not, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !27
 
 .lr.ph47.i:                                       ; preds = %._crit_edge.i, %.noexc73
@@ -1041,7 +1037,7 @@ _ZNSt6vectorIdSaIdEE9push_backEOd.exit70:         ; preds = %_ZNSt6vectorIdSaIdE
   %square.i = fmul double %166, %166
   %167 = fadd double %.03444.i, %square.i
   %168 = add nuw i64 %.03345.i, 1
-  %exitcond214.not = icmp eq i64 %168, %umax213
+  %exitcond214.not = icmp eq i64 %168, %150
   br i1 %exitcond214.not, label %.loopexit177.loopexit, label %.lr.ph47.i, !llvm.loop !32
 
 .loopexit177.loopexit:                            ; preds = %.noexc73
@@ -1068,7 +1064,6 @@ _ZNSt6vectorIdSaIdEE9push_backEOd.exit70:         ; preds = %_ZNSt6vectorIdSaIdE
   %180 = ptrtoint ptr %139 to i64
   %181 = sub i64 %179, %180
   %182 = ashr exact i64 %181, 3
-  %umax215 = tail call i64 @llvm.umax.i64(i64 %182, i64 1)
   br label %.lr.ph.i75
 
 ._crit_edge.i81:                                  ; preds = %.noexc96
@@ -1078,7 +1073,6 @@ _ZNSt6vectorIdSaIdEE9push_backEOd.exit70:         ; preds = %_ZNSt6vectorIdSaIdE
   %186 = ptrtoint ptr %139 to i64
   %187 = sub i64 %185, %186
   %188 = ashr exact i64 %187, 3
-  %umax217 = tail call i64 @llvm.umax.i64(i64 %188, i64 1)
   br label %.lr.ph47.i85
 
 .lr.ph.i75:                                       ; preds = %.lr.ph.i75.preheader, %.noexc96
@@ -1098,7 +1092,7 @@ _ZNSt6vectorIdSaIdEE9push_backEOd.exit70:         ; preds = %_ZNSt6vectorIdSaIdE
   %195 = fadd double %.03240.i77, %194
   %196 = tail call double @llvm.fmuladd.f64(double %194, double %191, double %.03539.i78)
   %197 = add nuw i64 %.03638.i79, 1
-  %exitcond216.not = icmp eq i64 %197, %umax215
+  %exitcond216.not = icmp eq i64 %197, %182
   br i1 %exitcond216.not, label %._crit_edge.i81, label %.lr.ph.i75, !llvm.loop !27
 
 .lr.ph47.i85:                                     ; preds = %._crit_edge.i81, %.noexc97
@@ -1117,7 +1111,7 @@ _ZNSt6vectorIdSaIdEE9push_backEOd.exit70:         ; preds = %_ZNSt6vectorIdSaIdE
   %square.i88 = fmul double %204, %204
   %205 = fadd double %.03444.i87, %square.i88
   %206 = add nuw i64 %.03345.i86, 1
-  %exitcond218.not = icmp eq i64 %206, %umax217
+  %exitcond218.not = icmp eq i64 %206, %188
   br i1 %exitcond218.not, label %.loopexit171.loopexit, label %.lr.ph47.i85, !llvm.loop !32
 
 .loopexit171.loopexit:                            ; preds = %.noexc97

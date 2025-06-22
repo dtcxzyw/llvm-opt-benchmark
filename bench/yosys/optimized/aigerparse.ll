@@ -17036,11 +17036,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit242: ; preds = %_Z
 
 .preheader1184:                                   ; preds = %404
   %.not2145 = icmp eq i32 %395, 0
-  br i1 %.not2145, label %._crit_edge2141, label %.lr.ph2140.preheader
-
-.lr.ph2140.preheader:                             ; preds = %.preheader1184
-  %umax2962 = call i32 @llvm.umax.i32(i32 %396, i32 1)
-  br label %.lr.ph2140
+  br i1 %.not2145, label %._crit_edge2141, label %.lr.ph2140
 
 .loopexit1286:                                    ; preds = %378
   %lpad.loopexit1288 = landingpad { ptr, i32 }
@@ -17082,8 +17078,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit242: ; preds = %_Z
           cleanup
   br label %2037
 
-.lr.ph2140:                                       ; preds = %.lr.ph2140.preheader, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit395
-  %.01262139 = phi i32 [ %1973, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit395 ], [ 0, %.lr.ph2140.preheader ]
+.lr.ph2140:                                       ; preds = %.preheader1184, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit395
+  %.01262139 = phi i32 [ %1973, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit395 ], [ 0, %.preheader1184 ]
   %408 = load ptr, ptr %64, align 8, !tbaa !57
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %24) #26
   %409 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %408, ptr noundef nonnull %24, i64 noundef 4)
@@ -17620,11 +17616,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit277: ; preds = %_Z
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %39) #26
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %39, i8 0, i64 56, i1 false)
   %.not2146 = icmp eq i32 %426, 0
-  br i1 %.not2146, label %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i, label %.lr.ph2138.preheader
-
-.lr.ph2138.preheader:                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit277
-  %umax2960 = call i32 @llvm.umax.i32(i32 %427, i32 1)
-  br label %.lr.ph2138
+  br i1 %.not2146, label %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i, label %.lr.ph2138
 
 ._crit_edge:                                      ; preds = %947
   %.pre2971 = load ptr, ptr %335, align 8, !tbaa !185
@@ -17727,8 +17719,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit281: ; preds = %_Z
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %37) #26
   br label %2036
 
-.lr.ph2138:                                       ; preds = %.lr.ph2138.preheader, %947
-  %.01282137 = phi i32 [ %948, %947 ], [ 0, %.lr.ph2138.preheader ]
+.lr.ph2138:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit277, %947
+  %.01282137 = phi i32 [ %948, %947 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit277 ]
   %678 = load ptr, ptr %64, align 8, !tbaa !57
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21) #26
   %679 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %678, ptr noundef nonnull %21, i64 noundef 4)
@@ -18326,7 +18318,7 @@ _ZN5Yosys5RTLIL7SigSpec6appendEPNS0_4WireE.exit:  ; preds = %_ZSt8_DestroyIPN5Yo
 
 947:                                              ; preds = %685, %_ZN5Yosys5RTLIL7SigSpec6appendEPNS0_4WireE.exit
   %948 = add nuw i32 %.01282137, 1
-  %exitcond2961.not = icmp eq i32 %948, %umax2960
+  %exitcond2961.not = icmp eq i32 %948, %427
   br i1 %exitcond2961.not, label %._crit_edge, label %.lr.ph2138, !llvm.loop !245
 
 949:                                              ; preds = %688
@@ -20737,7 +20729,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i393: ; preds = 
 _ZN5Yosys5RTLIL7SigSpecD2Ev.exit395:              ; preds = %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i393, %1968
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %39) #26
   %1973 = add nuw i32 %.01262139, 1
-  %exitcond2963.not = icmp eq i32 %1973, %umax2962
+  %exitcond2963.not = icmp eq i32 %1973, %396
   br i1 %exitcond2963.not, label %._crit_edge2141, label %.lr.ph2140, !llvm.loop !296
 
 1974:                                             ; preds = %1011
@@ -21596,14 +21588,10 @@ _ZNSt6vectorIiSaIiEE12emplace_backIJjEEERiDpOT_.exit468: ; preds = %_ZNSt6vector
 
 2243:                                             ; preds = %.noexc500
   %2244 = load i32, ptr %7, align 4, !tbaa !40
+  %2245 = call noundef i32 @llvm.bswap.i32(i32 %2244)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #26
   %.not2142 = icmp eq i32 %2244, 0
-  br i1 %.not2142, label %.loopexit1207, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %2243
-  %2245 = call noundef i32 @llvm.bswap.i32(i32 %2244)
-  %umax = call i32 @llvm.umax.i32(i32 %2245, i32 1)
-  br label %.lr.ph
+  br i1 %.not2142, label %.loopexit1207, label %.lr.ph
 
 .loopexit1271:                                    ; preds = %2235
   %lpad.loopexit1273 = landingpad { ptr, i32 }
@@ -21615,8 +21603,8 @@ _ZNSt6vectorIiSaIiEE12emplace_backIJjEEERiDpOT_.exit468: ; preds = %_ZNSt6vector
           cleanup
   br label %2565
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EE12emplace_backIJRS3_EEES7_DpOT_.exit
-  %.01272132 = phi i32 [ %2487, %_ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EE12emplace_backIJRS3_EEES7_DpOT_.exit ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %2243, %_ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EE12emplace_backIJRS3_EEES7_DpOT_.exit
+  %.01272132 = phi i32 [ %2487, %_ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EE12emplace_backIJRS3_EEES7_DpOT_.exit ], [ 0, %2243 ]
   %2246 = load ptr, ptr %64, align 8, !tbaa !57
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #26
   %2247 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %2246, ptr noundef nonnull %6, i64 noundef 4)
@@ -22205,7 +22193,7 @@ _ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EE17_M_realloc_insertIJRS3_EEEvN9__gnu_cx
 
 _ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EE12emplace_backIJRS3_EEES7_DpOT_.exit: ; preds = %_ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EE17_M_realloc_insertIJRS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, %2465
   %2487 = add nuw i32 %.01272132, 1
-  %exitcond.not = icmp eq i32 %2487, %umax
+  %exitcond.not = icmp eq i32 %2487, %2245
   br i1 %exitcond.not, label %.loopexit1207, label %.lr.ph, !llvm.loop !306
 
 .loopexit1220:                                    ; preds = %.lr.ph
@@ -38379,9 +38367,6 @@ declare i32 @llvm.smax.i32(i32, i32) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #24
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #24
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

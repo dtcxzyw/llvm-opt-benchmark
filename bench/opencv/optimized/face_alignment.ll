@@ -907,7 +907,6 @@ define hidden noundef zeroext i1 @_ZN2cv4face18FacemarkKazemiImpl14setMeanExtrem
   %.promoted16 = load float, ptr %14, align 8, !tbaa !55
   %.promoted17 = load float, ptr %15, align 4, !tbaa !58
   %.promoted18 = load float, ptr %16, align 8, !tbaa !57
-  %umax = tail call i64 @llvm.umax.i64(i64 %12, i64 1)
   br label %27
 
 17:                                               ; preds = %1
@@ -994,7 +993,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 50:                                               ; preds = %46, %49
   %51 = phi float [ %28, %46 ], [ %43, %49 ]
   %52 = add nuw i64 %.015, 1
-  %exitcond.not = icmp eq i64 %52, %umax
+  %exitcond.not = icmp eq i64 %52, %12
   br i1 %exitcond.not, label %._crit_edge, label %27, !llvm.loop !74
 }
 

@@ -957,7 +957,6 @@ define hidden noundef i64 @_ZN2cv4face18FacemarkKazemiImpl18getNearestLandmarkEN
   %13 = ashr exact i64 %12, 3
   %.sroa.0.0.vec.extract29 = extractelement <2 x float> %1, i64 0
   %.sroa.0.4.vec.extract30 = extractelement <2 x float> %1, i64 1
-  %umax = tail call i64 @llvm.umax.i64(i64 %13, i64 1)
   br label %24
 
 14:                                               ; preds = %2
@@ -1014,7 +1013,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.123 = select i1 %31, float %sqrt, float %.02232
   %.1 = select i1 %31, i64 %.02034, i64 %.02133
   %32 = add nuw i64 %.02034, 1
-  %exitcond.not = icmp eq i64 %32, %umax
+  %exitcond.not = icmp eq i64 %32, %13
   br i1 %exitcond.not, label %._crit_edge, label %24, !llvm.loop !94
 }
 
@@ -1196,7 +1195,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %88 = ashr exact i64 %87, 3
   %.sroa.0.0.vec.extract29.i = extractelement <2 x float> %.sroa.02.0.copyload, i64 0
   %.sroa.0.4.vec.extract30.i = extractelement <2 x float> %.sroa.02.0.copyload, i64 1
-  %umax.i = call i64 @llvm.umax.i64(i64 %88, i64 1)
   %89 = extractelement <2 x float> %.sroa.02.0.copyload, i64 0
   %90 = extractelement <2 x float> %.sroa.02.0.copyload, i64 1
   br label %101
@@ -1255,7 +1253,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
   %.123.i = select i1 %108, float %sqrt.i, float %.02232.i
   %.1.i = select i1 %108, i64 %.02034.i, i64 %.02133.i
   %109 = add nuw i64 %.02034.i, 1
-  %exitcond.not.i = icmp eq i64 %109, %umax.i
+  %exitcond.not.i = icmp eq i64 %109, %88
   br i1 %exitcond.not.i, label %110, label %101, !llvm.loop !94
 
 110:                                              ; preds = %101
@@ -2149,14 +2147,10 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm.exit: ; preds = %4, %_ZNSt12_Vecto
   %24 = sub i64 %22, %23
   %25 = sdiv exact i64 %24, 232
   %.not113 = icmp eq ptr %21, %7
-  br i1 %.not113, label %.preheader98, label %.preheader99.preheader
+  br i1 %.not113, label %.preheader98, label %.preheader99
 
-.preheader99.preheader:                           ; preds = %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm.exit
-  %umax = tail call i64 @llvm.umax.i64(i64 %25, i64 1)
-  br label %.preheader99
-
-.preheader99:                                     ; preds = %.preheader99.preheader, %._crit_edge
-  %.047103 = phi i64 [ %39, %._crit_edge ], [ 0, %.preheader99.preheader ]
+.preheader99:                                     ; preds = %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm.exit, %._crit_edge
+  %.047103 = phi i64 [ %39, %._crit_edge ], [ 0, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm.exit ]
   %26 = getelementptr inbounds nuw %"struct.cv::face::training_sample", ptr %7, i64 %.047103
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8, !tbaa !70
@@ -2180,7 +2174,6 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm.exit: ; preds = %4, %_ZNSt12_Vecto
   %35 = sub i64 %.sroa.16.0, %34
   %36 = ashr exact i64 %35, 3
   %37 = uitofp i64 %25 to float
-  %umax119 = tail call i64 @llvm.umax.i64(i64 %36, i64 1)
   br label %48
 
 .thread:                                          ; preds = %16, %_ZNKSt6vectorIN2cv6Point_IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i
@@ -2190,7 +2183,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm.exit: ; preds = %4, %_ZNSt12_Vecto
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader99
   %39 = add nuw i64 %.047103, 1
-  %exitcond.not = icmp eq i64 %39, %umax
+  %exitcond.not = icmp eq i64 %39, %25
   br i1 %exitcond.not, label %.preheader98, label %.preheader99, !llvm.loop !153
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -2226,7 +2219,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm.exit: ; preds = %4, %_ZNSt12_Vecto
   %54 = fdiv float %53, %37
   store float %54, ptr %52, align 4, !tbaa !93
   %55 = add nuw i64 %.044104, 1
-  %exitcond120.not = icmp eq i64 %55, %umax119
+  %exitcond120.not = icmp eq i64 %55, %36
   br i1 %exitcond120.not, label %.preheader97, label %48, !llvm.loop !155
 
 .preheader96:                                     ; preds = %.preheader97, %._crit_edge108

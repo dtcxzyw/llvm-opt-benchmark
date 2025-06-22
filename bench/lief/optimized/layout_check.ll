@@ -6622,7 +6622,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.2182 = phi i64 [ %751, %746 ], [ 0, %699 ], [ %.1181, %.critedge ]
   %.5178 = phi i64 [ %748, %746 ], [ 0, %699 ], [ %.1174, %.critedge ]
   %755 = icmp eq ptr %.sroa.0635.0.lcssa1200, %.sroa.45.0.lcssa1199
-  br i1 %755, label %756, label %.preheader.preheader.i
+  br i1 %755, label %756, label %763
 
 756:                                              ; preds = %.loopexit
   %757 = load ptr, ptr %11, align 8, !tbaa !3
@@ -6635,174 +6635,171 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %762 = call noundef zeroext i1 @_ZN4LIEF5MachO13LayoutChecker5errorIJEEEbPKcDpRKT_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull @.str.44)
   br label %.thread710
 
-.preheader.preheader.i:                           ; preds = %.loopexit
-  %763 = ptrtoint ptr %.sroa.45.0.lcssa1199 to i64
-  %764 = ptrtoint ptr %.sroa.0635.0.lcssa1200 to i64
-  %765 = sub i64 %763, %764
-  %766 = sdiv exact i64 %765, 24
-  %umax.i = call i64 @llvm.umax.i64(i64 %766, i64 1)
+763:                                              ; preds = %.loopexit
+  %764 = ptrtoint ptr %.sroa.45.0.lcssa1199 to i64
+  %765 = ptrtoint ptr %.sroa.0635.0.lcssa1200 to i64
+  %766 = sub i64 %764, %765
+  %767 = sdiv exact i64 %766, 24
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %._crit_edge.i, %.preheader.preheader.i
-  %indvars.iv.in.i = phi i64 [ %766, %.preheader.preheader.i ], [ %indvars.iv.i, %._crit_edge.i ]
-  %.0193.i = phi i64 [ 0, %.preheader.preheader.i ], [ %.neg.i, %._crit_edge.i ]
+.preheader.i:                                     ; preds = %763, %._crit_edge.i
+  %indvars.iv.in.i = phi i64 [ %767, %763 ], [ %indvars.iv.i, %._crit_edge.i ]
+  %.0193.i = phi i64 [ 0, %763 ], [ %.neg.i, %._crit_edge.i ]
   %indvars.iv.i = add i64 %indvars.iv.in.i, -1
-  %.neg.i = add nuw i64 %.0193.i, 1
-  %.not6.i = icmp eq i64 %766, %.neg.i
+  %.neg.i = add i64 %.0193.i, 1
+  %.not6.i = icmp eq i64 %767, %.neg.i
   br i1 %.not6.i, label %.lr.ph989.preheader, label %.lr.ph.i
 
-._crit_edge.i:                                    ; preds = %776
-  %exitcond7.not.i = icmp eq i64 %.neg.i, %umax.i
-  %or.cond.i = or i1 %exitcond7.not.i, %.1.i
-  br i1 %or.cond.i, label %.lr.ph989.preheader, label %.preheader.i, !llvm.loop !468
+._crit_edge.i:                                    ; preds = %777
+  br i1 %.1.i, label %.lr.ph989.preheader, label %.preheader.i, !llvm.loop !468
 
-.lr.ph.i:                                         ; preds = %.preheader.i, %776
-  %.02.i = phi i64 [ %770, %776 ], [ 0, %.preheader.i ]
-  %.0171.i = phi i1 [ %.1.i, %776 ], [ true, %.preheader.i ]
-  %767 = getelementptr inbounds nuw %struct.chunk_t, ptr %.sroa.0635.0.lcssa1200, i64 %.02.i
-  %768 = getelementptr inbounds nuw i8, ptr %767, i64 8
-  %769 = load i32, ptr %768, align 8, !tbaa !318
-  %770 = add nuw i64 %.02.i, 1
-  %771 = getelementptr inbounds nuw %struct.chunk_t, ptr %.sroa.0635.0.lcssa1200, i64 %770
-  %772 = getelementptr inbounds nuw i8, ptr %771, i64 8
-  %773 = load i32, ptr %772, align 8, !tbaa !318
-  %774 = icmp ugt i32 %769, %773
-  br i1 %774, label %775, label %776
+.lr.ph.i:                                         ; preds = %.preheader.i, %777
+  %.02.i = phi i64 [ %771, %777 ], [ 0, %.preheader.i ]
+  %.0171.i = phi i1 [ %.1.i, %777 ], [ true, %.preheader.i ]
+  %768 = getelementptr inbounds nuw %struct.chunk_t, ptr %.sroa.0635.0.lcssa1200, i64 %.02.i
+  %769 = getelementptr inbounds nuw i8, ptr %768, i64 8
+  %770 = load i32, ptr %769, align 8, !tbaa !318
+  %771 = add nuw i64 %.02.i, 1
+  %772 = getelementptr inbounds nuw %struct.chunk_t, ptr %.sroa.0635.0.lcssa1200, i64 %771
+  %773 = getelementptr inbounds nuw i8, ptr %772, i64 8
+  %774 = load i32, ptr %773, align 8, !tbaa !318
+  %775 = icmp ugt i32 %770, %774
+  br i1 %775, label %776, label %777
 
-775:                                              ; preds = %.lr.ph.i
+776:                                              ; preds = %.lr.ph.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %767, i64 24, i1 false), !tbaa.struct !320
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %767, ptr noundef nonnull align 8 dereferenceable(24) %771, i64 24, i1 false), !tbaa.struct !320
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %771, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false), !tbaa.struct !320
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %768, i64 24, i1 false), !tbaa.struct !320
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %768, ptr noundef nonnull align 8 dereferenceable(24) %772, i64 24, i1 false), !tbaa.struct !320
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %772, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false), !tbaa.struct !320
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
-  br label %776
+  br label %777
 
-776:                                              ; preds = %775, %.lr.ph.i
-  %.1.i = phi i1 [ false, %775 ], [ %.0171.i, %.lr.ph.i ]
-  %exitcond.not.i = icmp eq i64 %770, %indvars.iv.i
+777:                                              ; preds = %776, %.lr.ph.i
+  %.1.i = phi i1 [ false, %776 ], [ %.0171.i, %.lr.ph.i ]
+  %exitcond.not.i = icmp eq i64 %771, %indvars.iv.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !469
 
 .lr.ph989.preheader:                              ; preds = %._crit_edge.i, %.preheader.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #22
   br label %.lr.ph989
 
-.lr.ph989:                                        ; preds = %.lr.ph989.preheader, %814
-  %.0141987 = phi i64 [ %815, %814 ], [ 0, %.lr.ph989.preheader ]
-  %.0142986 = phi i64 [ %810, %814 ], [ %.5178, %.lr.ph989.preheader ]
-  %.0.i544980985 = phi ptr [ %.0.i544, %814 ], [ @.str.45, %.lr.ph989.preheader ]
-  %777 = getelementptr inbounds nuw %struct.chunk_t, ptr %.sroa.0635.0.lcssa1200, i64 %.0141987
-  %778 = getelementptr inbounds nuw i8, ptr %777, i64 8
-  %779 = load i32, ptr %778, align 8, !tbaa !318
-  %780 = zext i32 %779 to i64
-  %781 = icmp ugt i64 %.0142986, %780
-  br i1 %781, label %782, label %787
+.lr.ph989:                                        ; preds = %.lr.ph989.preheader, %815
+  %.0141987 = phi i64 [ %816, %815 ], [ 0, %.lr.ph989.preheader ]
+  %.0142986 = phi i64 [ %811, %815 ], [ %.5178, %.lr.ph989.preheader ]
+  %.0.i544980985 = phi ptr [ %.0.i544, %815 ], [ @.str.45, %.lr.ph989.preheader ]
+  %778 = getelementptr inbounds nuw %struct.chunk_t, ptr %.sroa.0635.0.lcssa1200, i64 %.0141987
+  %779 = getelementptr inbounds nuw i8, ptr %778, i64 8
+  %780 = load i32, ptr %779, align 8, !tbaa !318
+  %781 = zext i32 %780 to i64
+  %782 = icmp ugt i64 %.0142986, %781
+  br i1 %782, label %783, label %788
 
-782:                                              ; preds = %.lr.ph989
+783:                                              ; preds = %.lr.ph989
   store ptr %.0.i544980985, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #22
-  %783 = load i32, ptr %777, align 8, !tbaa !315
-  %switch.tableidx = add i32 %783, -1
-  %784 = icmp ult i32 %switch.tableidx, 17
-  br i1 %784, label %switch.lookup, label %_ZZN4LIEF5MachO13LayoutChecker14check_linkeditEvEN7chunk_t9to_stringEZNS1_14check_linkeditEvENS2_4KINDE.exit
+  %784 = load i32, ptr %778, align 8, !tbaa !315
+  %switch.tableidx = add i32 %784, -1
+  %785 = icmp ult i32 %switch.tableidx, 17
+  br i1 %785, label %switch.lookup, label %_ZZN4LIEF5MachO13LayoutChecker14check_linkeditEvEN7chunk_t9to_stringEZNS1_14check_linkeditEvENS2_4KINDE.exit
 
-switch.lookup:                                    ; preds = %782
-  %785 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [17 x ptr], ptr @switch.table._ZN4LIEF5MachO13LayoutChecker14check_linkeditEv.124, i64 0, i64 %785
+switch.lookup:                                    ; preds = %783
+  %786 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [17 x ptr], ptr @switch.table._ZN4LIEF5MachO13LayoutChecker14check_linkeditEv.124, i64 0, i64 %786
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZZN4LIEF5MachO13LayoutChecker14check_linkeditEvEN7chunk_t9to_stringEZNS1_14check_linkeditEvENS2_4KINDE.exit
 
-_ZZN4LIEF5MachO13LayoutChecker14check_linkeditEvEN7chunk_t9to_stringEZNS1_14check_linkeditEvENS2_4KINDE.exit: ; preds = %782, %switch.lookup
-  %.0.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.99, %782 ]
+_ZZN4LIEF5MachO13LayoutChecker14check_linkeditEvEN7chunk_t9to_stringEZNS1_14check_linkeditEvENS2_4KINDE.exit: ; preds = %783, %switch.lookup
+  %.0.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.99, %783 ]
   store ptr %.0.i, ptr %8, align 8, !tbaa !271
-  %786 = call noundef zeroext i1 @_ZN4LIEF5MachO13LayoutChecker5errorIJPKcS4_EEEbS4_DpRKT_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull @.str.46, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
+  %787 = call noundef zeroext i1 @_ZN4LIEF5MachO13LayoutChecker5errorIJPKcS4_EEEbS4_DpRKT_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull @.str.46, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
   br label %.thread710.thread
 
-787:                                              ; preds = %.lr.ph989
-  %788 = getelementptr inbounds nuw i8, ptr %777, i64 16
-  %789 = load i64, ptr %788, align 8, !tbaa !319
-  %790 = icmp ult i64 %.2182, %780
-  %791 = sub nuw i64 %.2182, %780
-  %792 = icmp ugt i64 %789, %791
-  %793 = select i1 %790, i1 true, i1 %792
-  br i1 %793, label %794, label %799
+788:                                              ; preds = %.lr.ph989
+  %789 = getelementptr inbounds nuw i8, ptr %778, i64 16
+  %790 = load i64, ptr %789, align 8, !tbaa !319
+  %791 = icmp ult i64 %.2182, %781
+  %792 = sub nuw i64 %.2182, %781
+  %793 = icmp ugt i64 %790, %792
+  %794 = select i1 %791, i1 true, i1 %793
+  br i1 %794, label %795, label %800
 
-794:                                              ; preds = %787
+795:                                              ; preds = %788
   store ptr %.0.i544980985, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #22
-  %795 = load i32, ptr %777, align 8, !tbaa !315
-  %switch.tableidx1518 = add i32 %795, -1
-  %796 = icmp ult i32 %switch.tableidx1518, 17
-  br i1 %796, label %switch.lookup1517, label %_ZZN4LIEF5MachO13LayoutChecker14check_linkeditEvEN7chunk_t9to_stringEZNS1_14check_linkeditEvENS2_4KINDE.exit541
+  %796 = load i32, ptr %778, align 8, !tbaa !315
+  %switch.tableidx1518 = add i32 %796, -1
+  %797 = icmp ult i32 %switch.tableidx1518, 17
+  br i1 %797, label %switch.lookup1517, label %_ZZN4LIEF5MachO13LayoutChecker14check_linkeditEvEN7chunk_t9to_stringEZNS1_14check_linkeditEvENS2_4KINDE.exit541
 
-switch.lookup1517:                                ; preds = %794
-  %797 = zext nneg i32 %switch.tableidx1518 to i64
-  %switch.gep1519 = getelementptr inbounds nuw [17 x ptr], ptr @switch.table._ZN4LIEF5MachO13LayoutChecker14check_linkeditEv.124, i64 0, i64 %797
+switch.lookup1517:                                ; preds = %795
+  %798 = zext nneg i32 %switch.tableidx1518 to i64
+  %switch.gep1519 = getelementptr inbounds nuw [17 x ptr], ptr @switch.table._ZN4LIEF5MachO13LayoutChecker14check_linkeditEv.124, i64 0, i64 %798
   %switch.load1520 = load ptr, ptr %switch.gep1519, align 8
   br label %_ZZN4LIEF5MachO13LayoutChecker14check_linkeditEvEN7chunk_t9to_stringEZNS1_14check_linkeditEvENS2_4KINDE.exit541
 
-_ZZN4LIEF5MachO13LayoutChecker14check_linkeditEvEN7chunk_t9to_stringEZNS1_14check_linkeditEvENS2_4KINDE.exit541: ; preds = %794, %switch.lookup1517
-  %.0.i540 = phi ptr [ %switch.load1520, %switch.lookup1517 ], [ @.str.99, %794 ]
+_ZZN4LIEF5MachO13LayoutChecker14check_linkeditEvEN7chunk_t9to_stringEZNS1_14check_linkeditEvENS2_4KINDE.exit541: ; preds = %795, %switch.lookup1517
+  %.0.i540 = phi ptr [ %switch.load1520, %switch.lookup1517 ], [ @.str.99, %795 ]
   store ptr %.0.i540, ptr %9, align 8, !tbaa !271
-  %798 = call noundef zeroext i1 @_ZN4LIEF5MachO13LayoutChecker5errorIJPKcEEEbS4_DpRKT_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull @.str.47, ptr noundef nonnull align 8 dereferenceable(8) %9)
+  %799 = call noundef zeroext i1 @_ZN4LIEF5MachO13LayoutChecker5errorIJPKcEEEbS4_DpRKT_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull @.str.47, ptr noundef nonnull align 8 dereferenceable(8) %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #22
   br label %.thread710.thread
 
-799:                                              ; preds = %787
-  %800 = getelementptr inbounds nuw i8, ptr %777, i64 4
-  %801 = load i32, ptr %800, align 4, !tbaa !317
-  %802 = add i32 %801, -1
-  %803 = and i32 %802, %779
-  %.not229 = icmp eq i32 %803, 0
-  br i1 %.not229, label %809, label %804
+800:                                              ; preds = %788
+  %801 = getelementptr inbounds nuw i8, ptr %778, i64 4
+  %802 = load i32, ptr %801, align 4, !tbaa !317
+  %803 = add i32 %802, -1
+  %804 = and i32 %803, %780
+  %.not229 = icmp eq i32 %804, 0
+  br i1 %.not229, label %810, label %805
 
-804:                                              ; preds = %799
+805:                                              ; preds = %800
   store ptr %.0.i544980985, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #22
-  %805 = load i32, ptr %777, align 8, !tbaa !315
-  %switch.tableidx1522 = add i32 %805, -1
-  %806 = icmp ult i32 %switch.tableidx1522, 17
-  br i1 %806, label %switch.lookup1521, label %_ZZN4LIEF5MachO13LayoutChecker14check_linkeditEvEN7chunk_t9to_stringEZNS1_14check_linkeditEvENS2_4KINDE.exit543
+  %806 = load i32, ptr %778, align 8, !tbaa !315
+  %switch.tableidx1522 = add i32 %806, -1
+  %807 = icmp ult i32 %switch.tableidx1522, 17
+  br i1 %807, label %switch.lookup1521, label %_ZZN4LIEF5MachO13LayoutChecker14check_linkeditEvEN7chunk_t9to_stringEZNS1_14check_linkeditEvENS2_4KINDE.exit543
 
-switch.lookup1521:                                ; preds = %804
-  %807 = zext nneg i32 %switch.tableidx1522 to i64
-  %switch.gep1523 = getelementptr inbounds nuw [17 x ptr], ptr @switch.table._ZN4LIEF5MachO13LayoutChecker14check_linkeditEv.124, i64 0, i64 %807
+switch.lookup1521:                                ; preds = %805
+  %808 = zext nneg i32 %switch.tableidx1522 to i64
+  %switch.gep1523 = getelementptr inbounds nuw [17 x ptr], ptr @switch.table._ZN4LIEF5MachO13LayoutChecker14check_linkeditEv.124, i64 0, i64 %808
   %switch.load1524 = load ptr, ptr %switch.gep1523, align 8
   br label %_ZZN4LIEF5MachO13LayoutChecker14check_linkeditEvEN7chunk_t9to_stringEZNS1_14check_linkeditEvENS2_4KINDE.exit543
 
-_ZZN4LIEF5MachO13LayoutChecker14check_linkeditEvEN7chunk_t9to_stringEZNS1_14check_linkeditEvENS2_4KINDE.exit543: ; preds = %804, %switch.lookup1521
-  %.0.i542 = phi ptr [ %switch.load1524, %switch.lookup1521 ], [ @.str.99, %804 ]
+_ZZN4LIEF5MachO13LayoutChecker14check_linkeditEvEN7chunk_t9to_stringEZNS1_14check_linkeditEvENS2_4KINDE.exit543: ; preds = %805, %switch.lookup1521
+  %.0.i542 = phi ptr [ %switch.load1524, %switch.lookup1521 ], [ @.str.99, %805 ]
   store ptr %.0.i542, ptr %10, align 8, !tbaa !271
-  %808 = call noundef zeroext i1 @_ZN4LIEF5MachO13LayoutChecker5errorIJPKcEEEbS4_DpRKT_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull @.str.48, ptr noundef nonnull align 8 dereferenceable(8) %10)
+  %809 = call noundef zeroext i1 @_ZN4LIEF5MachO13LayoutChecker5errorIJPKcEEEbS4_DpRKT_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull @.str.48, ptr noundef nonnull align 8 dereferenceable(8) %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
   br label %.thread710.thread
 
-809:                                              ; preds = %799
-  %810 = add i64 %789, %780
-  %811 = load i32, ptr %777, align 8, !tbaa !315
-  %switch.tableidx1526 = add i32 %811, -1
-  %812 = icmp ult i32 %switch.tableidx1526, 17
-  br i1 %812, label %switch.lookup1525, label %814
+810:                                              ; preds = %800
+  %811 = add i64 %790, %781
+  %812 = load i32, ptr %778, align 8, !tbaa !315
+  %switch.tableidx1526 = add i32 %812, -1
+  %813 = icmp ult i32 %switch.tableidx1526, 17
+  br i1 %813, label %switch.lookup1525, label %815
 
-switch.lookup1525:                                ; preds = %809
-  %813 = zext nneg i32 %switch.tableidx1526 to i64
-  %switch.gep1527 = getelementptr inbounds nuw [17 x ptr], ptr @switch.table._ZN4LIEF5MachO13LayoutChecker14check_linkeditEv.124, i64 0, i64 %813
+switch.lookup1525:                                ; preds = %810
+  %814 = zext nneg i32 %switch.tableidx1526 to i64
+  %switch.gep1527 = getelementptr inbounds nuw [17 x ptr], ptr @switch.table._ZN4LIEF5MachO13LayoutChecker14check_linkeditEv.124, i64 0, i64 %814
   %switch.load1528 = load ptr, ptr %switch.gep1527, align 8
-  br label %814
+  br label %815
 
-814:                                              ; preds = %809, %switch.lookup1525
-  %.0.i544 = phi ptr [ %switch.load1528, %switch.lookup1525 ], [ @.str.99, %809 ]
-  %815 = add nuw i64 %.0141987, 1
-  %exitcond.not = icmp eq i64 %815, %umax.i
+815:                                              ; preds = %810, %switch.lookup1525
+  %.0.i544 = phi ptr [ %switch.load1528, %switch.lookup1525 ], [ @.str.99, %810 ]
+  %816 = add nuw i64 %.0141987, 1
+  %exitcond.not = icmp eq i64 %816, %767
   br i1 %exitcond.not, label %.thread710.thread, label %.lr.ph989, !llvm.loop !470
 
-.thread710.thread:                                ; preds = %814, %_ZZN4LIEF5MachO13LayoutChecker14check_linkeditEvEN7chunk_t9to_stringEZNS1_14check_linkeditEvENS2_4KINDE.exit, %_ZZN4LIEF5MachO13LayoutChecker14check_linkeditEvEN7chunk_t9to_stringEZNS1_14check_linkeditEvENS2_4KINDE.exit541, %_ZZN4LIEF5MachO13LayoutChecker14check_linkeditEvEN7chunk_t9to_stringEZNS1_14check_linkeditEvENS2_4KINDE.exit543
-  %.not230745 = phi i1 [ false, %_ZZN4LIEF5MachO13LayoutChecker14check_linkeditEvEN7chunk_t9to_stringEZNS1_14check_linkeditEvENS2_4KINDE.exit543 ], [ false, %_ZZN4LIEF5MachO13LayoutChecker14check_linkeditEvEN7chunk_t9to_stringEZNS1_14check_linkeditEvENS2_4KINDE.exit541 ], [ false, %_ZZN4LIEF5MachO13LayoutChecker14check_linkeditEvEN7chunk_t9to_stringEZNS1_14check_linkeditEvENS2_4KINDE.exit ], [ true, %814 ]
-  %.12 = phi i1 [ %808, %_ZZN4LIEF5MachO13LayoutChecker14check_linkeditEvEN7chunk_t9to_stringEZNS1_14check_linkeditEvENS2_4KINDE.exit543 ], [ %798, %_ZZN4LIEF5MachO13LayoutChecker14check_linkeditEvEN7chunk_t9to_stringEZNS1_14check_linkeditEvENS2_4KINDE.exit541 ], [ %786, %_ZZN4LIEF5MachO13LayoutChecker14check_linkeditEvEN7chunk_t9to_stringEZNS1_14check_linkeditEvENS2_4KINDE.exit ], [ undef, %814 ]
+.thread710.thread:                                ; preds = %815, %_ZZN4LIEF5MachO13LayoutChecker14check_linkeditEvEN7chunk_t9to_stringEZNS1_14check_linkeditEvENS2_4KINDE.exit, %_ZZN4LIEF5MachO13LayoutChecker14check_linkeditEvEN7chunk_t9to_stringEZNS1_14check_linkeditEvENS2_4KINDE.exit541, %_ZZN4LIEF5MachO13LayoutChecker14check_linkeditEvEN7chunk_t9to_stringEZNS1_14check_linkeditEvENS2_4KINDE.exit543
+  %.not230745 = phi i1 [ false, %_ZZN4LIEF5MachO13LayoutChecker14check_linkeditEvEN7chunk_t9to_stringEZNS1_14check_linkeditEvENS2_4KINDE.exit543 ], [ false, %_ZZN4LIEF5MachO13LayoutChecker14check_linkeditEvEN7chunk_t9to_stringEZNS1_14check_linkeditEvENS2_4KINDE.exit541 ], [ false, %_ZZN4LIEF5MachO13LayoutChecker14check_linkeditEvEN7chunk_t9to_stringEZNS1_14check_linkeditEvENS2_4KINDE.exit ], [ true, %815 ]
+  %.12 = phi i1 [ %809, %_ZZN4LIEF5MachO13LayoutChecker14check_linkeditEvEN7chunk_t9to_stringEZNS1_14check_linkeditEvENS2_4KINDE.exit543 ], [ %799, %_ZZN4LIEF5MachO13LayoutChecker14check_linkeditEvEN7chunk_t9to_stringEZNS1_14check_linkeditEvENS2_4KINDE.exit541 ], [ %787, %_ZZN4LIEF5MachO13LayoutChecker14check_linkeditEvEN7chunk_t9to_stringEZNS1_14check_linkeditEvENS2_4KINDE.exit ], [ undef, %815 ]
   %spec.select234 = or i1 %.not230745, %.12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #22
-  br label %816
+  br label %817
 
 .thread710:                                       ; preds = %_ZNSt6vectorIZN4LIEF5MachO13LayoutChecker14check_linkeditEvE7chunk_tSaIS3_EE12emplace_backIJZNS2_14check_linkeditEvENS3_4KINDEijjEEERS3_DpOT_.exit, %129, %124, %144, %136, %686, %690, %693, %756, %761, %.thread720, %680
   %.sroa.0635.1719 = phi ptr [ %.sroa.0635.3, %680 ], [ %.sroa.0635.0.lcssa1200, %686 ], [ %.sroa.0635.0.lcssa1200, %690 ], [ %.sroa.0635.0.lcssa1200, %693 ], [ %.sroa.0635.0.lcssa1200, %761 ], [ %.sroa.0635.0.lcssa1200, %.thread720 ], [ %.sroa.0635.0.lcssa1200, %756 ], [ %.sroa.0635.2.ph, %124 ], [ %.sroa.0635.2.ph, %129 ], [ %.sroa.0635.2.ph, %136 ], [ %.sroa.0635.2.ph, %144 ], [ %.sroa.0635.0960, %_ZNSt6vectorIZN4LIEF5MachO13LayoutChecker14check_linkeditEvE7chunk_tSaIS3_EE12emplace_backIJZNS2_14check_linkeditEvENS3_4KINDEijjEEERS3_DpOT_.exit ]
@@ -6810,20 +6807,20 @@ switch.lookup1525:                                ; preds = %809
   %.8 = phi i1 [ %681, %680 ], [ %687, %686 ], [ %691, %690 ], [ %694, %693 ], [ %762, %761 ], [ %754, %.thread720 ], [ true, %756 ], [ %125, %124 ], [ %130, %129 ], [ %137, %136 ], [ %145, %144 ], [ %109, %_ZNSt6vectorIZN4LIEF5MachO13LayoutChecker14check_linkeditEvE7chunk_tSaIS3_EE12emplace_backIJZNS2_14check_linkeditEvENS3_4KINDEijjEEERS3_DpOT_.exit ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #22
   %.not.i.i.i546 = icmp eq ptr %.sroa.0635.1719, null
-  br i1 %.not.i.i.i546, label %_ZNSt6vectorIZN4LIEF5MachO13LayoutChecker14check_linkeditEvE7chunk_tSaIS3_EED2Ev.exit, label %816
+  br i1 %.not.i.i.i546, label %_ZNSt6vectorIZN4LIEF5MachO13LayoutChecker14check_linkeditEvE7chunk_tSaIS3_EED2Ev.exit, label %817
 
-816:                                              ; preds = %.thread710.thread, %.thread710
+817:                                              ; preds = %.thread710.thread, %.thread710
   %.81209 = phi i1 [ %spec.select234, %.thread710.thread ], [ %.8, %.thread710 ]
   %.sroa.101.17181208 = phi ptr [ %.sroa.101.0.lcssa1198, %.thread710.thread ], [ %.sroa.101.1718, %.thread710 ]
   %.sroa.0635.17191207 = phi ptr [ %.sroa.0635.0.lcssa1200, %.thread710.thread ], [ %.sroa.0635.1719, %.thread710 ]
-  %817 = ptrtoint ptr %.sroa.101.17181208 to i64
-  %818 = ptrtoint ptr %.sroa.0635.17191207 to i64
-  %819 = sub i64 %817, %818
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0635.17191207, i64 noundef %819) #25
+  %818 = ptrtoint ptr %.sroa.101.17181208 to i64
+  %819 = ptrtoint ptr %.sroa.0635.17191207 to i64
+  %820 = sub i64 %818, %819
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0635.17191207, i64 noundef %820) #25
   br label %_ZNSt6vectorIZN4LIEF5MachO13LayoutChecker14check_linkeditEvE7chunk_tSaIS3_EED2Ev.exit
 
-_ZNSt6vectorIZN4LIEF5MachO13LayoutChecker14check_linkeditEvE7chunk_tSaIS3_EED2Ev.exit: ; preds = %.thread710, %816
-  %.81210 = phi i1 [ %.8, %.thread710 ], [ %.81209, %816 ]
+_ZNSt6vectorIZN4LIEF5MachO13LayoutChecker14check_linkeditEvE7chunk_tSaIS3_EED2Ev.exit: ; preds = %.thread710, %817
+  %.81210 = phi i1 [ %.8, %.thread710 ], [ %.81209, %817 ]
   ret i1 %.81210
 }
 

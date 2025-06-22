@@ -1136,20 +1136,19 @@ _ZNSt6vectorImSaImEE5clearEv.exit.i:              ; preds = %213, %215
 .noexc119:                                        ; preds = %.noexc44.i
   store float 0.000000e+00, ptr %230, align 4, !tbaa !82
   %231 = icmp eq i64 %226, 20
-  br i1 %231, label %.lr.ph.preheader.i, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i
+  br i1 %231, label %.lr.ph.i.preheader, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc119
   %232 = getelementptr i8, ptr %230, i64 4
   %233 = add nsw i64 %229, -4
   call void @llvm.memset.p0.i64(ptr align 4 %232, i8 0, i64 %233, i1 false), !tbaa !82
-  br label %.lr.ph.preheader.i
+  br label %.lr.ph.i.preheader
 
-.lr.ph.preheader.i:                               ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i, %.noexc119
-  %umax.i = call i64 @llvm.umax.i64(i64 %227, i64 1)
+.lr.ph.i.preheader:                               ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i, %.noexc119
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.03665.i = phi i64 [ %246, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
+  %.03665.i = phi i64 [ %246, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
   %234 = getelementptr inbounds nuw %"struct.ncnn::BBoxRect", ptr %169, i64 %.03665.i
   %235 = getelementptr inbounds nuw i8, ptr %234, i64 8
   %236 = load float, ptr %235, align 4, !tbaa !83
@@ -1164,7 +1163,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc119
   %245 = getelementptr inbounds nuw float, ptr %230, i64 %.03665.i
   store float %244, ptr %245, align 4, !tbaa !82
   %246 = add nuw i64 %.03665.i, 1
-  %exitcond.not.i = icmp eq i64 %246, %umax.i
+  %exitcond.not.i = icmp eq i64 %246, %227
   br i1 %exitcond.not.i, label %.lr.ph74.i, label %.lr.ph.i, !llvm.loop !88
 
 ._crit_edge75.i:                                  ; preds = %_ZNSt6vectorImSaImEE9push_backERKm.exit.i
@@ -1333,7 +1332,7 @@ _ZNSt6vectorImSaImEE9push_backERKm.exit.i:        ; preds = %_ZNSt6vectorImSaImE
   %321 = phi ptr [ %248, %._crit_edge.i ], [ %314, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i ], [ %248, %304 ]
   %322 = phi ptr [ %249, %._crit_edge.i ], [ %318, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i ], [ %305, %304 ]
   %323 = add nuw i64 %storemerge73.i, 1
-  %exitcond81.not.i = icmp eq i64 %323, %umax.i
+  %exitcond81.not.i = icmp eq i64 %323, %227
   br i1 %exitcond81.not.i, label %._crit_edge75.i, label %.lr.ph74.i, !llvm.loop !91
 
 _ZNSt6vectorIfSaIfEED2Ev.exit49.i:                ; preds = %.loopexit.split-lp.i, %.loopexit.i
@@ -1352,7 +1351,6 @@ _ZN4ncnnL17nms_sorted_bboxesERKSt6vectorINS_8BBoxRectESaIS1_EERS0_ImSaImEEf.exit
 .lr.ph335.preheader:                              ; preds = %_ZN4ncnnL17nms_sorted_bboxesERKSt6vectorINS_8BBoxRectESaIS1_EERS0_ImSaImEEf.exit
   %325 = sub i64 %.sroa.10210.3, %324
   %326 = ashr exact i64 %325, 3
-  %umax = call i64 @llvm.umax.i64(i64 %326, i64 1)
   br label %.lr.ph335
 
 ._crit_edge336.loopexit:                          ; preds = %_ZNSt6vectorIfSaIfEE9push_backERKf.exit
@@ -1516,7 +1514,7 @@ _ZNSt6vectorIfSaIfEE9push_backERKf.exit:          ; preds = %_ZNSt6vectorIfSaIfE
   %.sroa.12.1 = phi ptr [ %379, %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i ], [ %.sroa.12.0333, %359 ]
   %.sroa.9.1 = getelementptr inbounds nuw i8, ptr %.pn235, i64 4
   %380 = add nuw i64 %.083334, 1
-  %exitcond.not = icmp eq i64 %380, %umax
+  %exitcond.not = icmp eq i64 %380, %326
   br i1 %exitcond.not, label %._crit_edge336.loopexit, label %.lr.ph335, !llvm.loop !93
 
 .loopexit:                                        ; preds = %_ZNKSt6vectorIN4ncnn8BBoxRectESaIS1_EE12_M_check_lenEmPKc.exit.i.i, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i

@@ -562,8 +562,6 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_RKT0_.exit
   %84 = ptrtoint ptr %82 to i64
   %85 = sub i64 %83, %84
   %86 = ashr exact i64 %85, 2
-  %umax = tail call i64 @llvm.umax.i64(i64 %86, i64 1)
-  %umax28 = tail call i64 @llvm.umax.i64(i64 %80, i64 1)
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
@@ -609,12 +607,12 @@ _ZNK5ZXing9GenericGF8multiplyEii.exit.us:         ; preds = %98, %92
   %115 = xor i32 %114, %.0.i.us
   store i32 %115, ptr %113, align 4, !tbaa !8
   %116 = add nuw i64 %.021.us, 1
-  %exitcond.not = icmp eq i64 %116, %umax
+  %exitcond.not = icmp eq i64 %116, %86
   br i1 %exitcond.not, label %._crit_edge.us, label %92, !llvm.loop !26
 
 ._crit_edge.us:                                   ; preds = %_ZNK5ZXing9GenericGF8multiplyEii.exit.us
   %117 = add nuw i64 %.01822.us, 1
-  %exitcond29.not = icmp eq i64 %117, %umax28
+  %exitcond29.not = icmp eq i64 %117, %80
   br i1 %exitcond29.not, label %._crit_edge23, label %.preheader.us, !llvm.loop !27
 
 ._crit_edge23:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_RKT0_.exit

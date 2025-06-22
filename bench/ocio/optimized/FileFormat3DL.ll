@@ -2419,7 +2419,6 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev11Lut3DOpDataELN9__gnu_cxx12_Lock_poli
   %721 = load ptr, ptr %682, align 8, !tbaa !124
   %722 = getelementptr inbounds nuw i8, ptr %721, i64 200
   %723 = load ptr, ptr %722, align 8, !tbaa !114
-  %umax = call i64 @llvm.umax.i64(i64 %669, i64 1)
   br label %726
 
 724:                                              ; preds = %716
@@ -2436,7 +2435,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev11Lut3DOpDataELN9__gnu_cxx12_Lock_poli
   %731 = getelementptr inbounds nuw float, ptr %723, i64 %.0724
   store float %730, ptr %731, align 4, !tbaa !116
   %732 = add nuw i64 %.0724, 1
-  %exitcond868.not = icmp eq i64 %732, %umax
+  %exitcond868.not = icmp eq i64 %732, %669
   br i1 %exitcond868.not, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_115LocalCachedFileELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.thread, label %726, !llvm.loop !129
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_115LocalCachedFileELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.thread: ; preds = %726
@@ -2773,8 +2772,6 @@ cdce.end._crit_edge:                              ; preds = %cdce.end, %cdce.end
 
 cdce.end191.preheader:                            ; preds = %cdce.end._crit_edge
   %invariant.gep195 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  %umax = call i32 @llvm.umax.i32(i32 %51, i32 1)
-  %wide.trip.count = zext nneg i32 %umax to i64
   br label %135
 
 106:                                              ; preds = %94, %93
@@ -2896,7 +2893,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit115: ; preds = %160
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit117: ; preds = %163
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %62
   br i1 %exitcond.not, label %131, label %135, !llvm.loop !137
 
 165:                                              ; preds = %163, %160, %157, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit115, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit113, %135
@@ -5954,9 +5951,6 @@ declare double @exp2(double) local_unnamed_addr
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #25
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #25
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

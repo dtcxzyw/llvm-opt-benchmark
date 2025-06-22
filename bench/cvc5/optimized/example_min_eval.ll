@@ -322,7 +322,6 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %77, %71, %.crited
   %106 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %umax = call i64 @llvm.umax.i64(i64 %105, i64 1)
   br label %113
 
 109:                                              ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit
@@ -491,7 +490,7 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIP
 
 _ZNSt6vectorImSaImEE9push_backERKm.exit:          ; preds = %.lr.ph.i.i.i.i, %119, %..loopexit_crit_edge21.i.i.i.i, %.noexc40, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i, %154
   %178 = add nuw i64 %.0153, 1
-  %exitcond.not = icmp eq i64 %178, %umax
+  %exitcond.not = icmp eq i64 %178, %105
   br i1 %exitcond.not, label %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit, label %113, !llvm.loop !53
 
 _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit:  ; preds = %_ZNSt6vectorImSaImEE9push_backERKm.exit, %99

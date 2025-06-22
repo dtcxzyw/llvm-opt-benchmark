@@ -20172,7 +20172,6 @@ _ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic
   %151 = sub i64 %149, %150
   %152 = ashr exact i64 %151, 2
   %153 = load ptr, ptr %8, align 8, !tbaa !509
-  %umax = call i64 @llvm.umax.i64(i64 %152, i64 1)
   br label %154
 
 154:                                              ; preds = %.lr.ph, %154
@@ -20187,7 +20186,7 @@ _ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic
   %161 = fdiv float %160, %.sroa.speculated
   store float %161, ptr %159, align 4, !tbaa !513
   %162 = add nuw i64 %.031158, 1
-  %exitcond.not = icmp eq i64 %162, %umax
+  %exitcond.not = icmp eq i64 %162, %152
   br i1 %exitcond.not, label %.loopexit145, label %154, !llvm.loop !523
 
 .loopexit145:                                     ; preds = %154, %146, %143

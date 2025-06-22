@@ -8425,11 +8425,7 @@ define dso_local noundef ptr @_ZN11flatbuffers6Parser10LookupEnumERKNSt7__cxx111
   store i64 0, ptr %18, align 8, !tbaa !4
   store i8 0, ptr %17, align 8, !tbaa !13
   %.not103.i = icmp eq ptr %11, %12
-  br i1 %.not103.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit.thread92.i, label %.lr.ph.preheader.i
-
-.lr.ph.preheader.i:                               ; preds = %9
-  %umax.i = call i64 @llvm.umax.i64(i64 %16, i64 1)
-  br label %.lr.ph.i
+  br i1 %.not103.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit.thread92.i, label %.lr.ph.i
 
 .preheader.i:                                     ; preds = %42
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -8437,8 +8433,8 @@ define dso_local noundef ptr @_ZN11flatbuffers6Parser10LookupEnumERKNSt7__cxx111
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 248
   br label %48
 
-.lr.ph.i:                                         ; preds = %42, %.lr.ph.preheader.i
-  %.03899.i = phi i64 [ %47, %42 ], [ 0, %.lr.ph.preheader.i ]
+.lr.ph.i:                                         ; preds = %9, %42
+  %.03899.i = phi i64 [ %47, %42 ], [ 0, %9 ]
   %22 = load ptr, ptr %5, align 8, !tbaa !178
   %23 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %.03899.i
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -8495,7 +8491,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i: ; 
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 %33
   store i8 0, ptr %46, align 1, !tbaa !13
   %47 = add nuw i64 %.03899.i, 1
-  %exitcond.not.i = icmp eq i64 %47, %umax.i
+  %exitcond.not.i = icmp eq i64 %47, %16
   br i1 %exitcond.not.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !323
 
 .loopexit94.i:                                    ; preds = %41, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit.i.i
@@ -91548,7 +91544,6 @@ _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc89
   %187 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %188 = getelementptr inbounds nuw i8, ptr %0, i64 275
   %189 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %umax = call i64 @llvm.umax.i64(i64 %185, i64 1)
   br label %221
 
 190:                                              ; preds = %_ZNK11flatbuffers6String3strB5cxx11Ev.exit
@@ -91792,7 +91787,7 @@ _ZNK10reflection5Field6offsetEv.exit:             ; preds = %298, %_ZNK11flatbuf
 321:                                              ; preds = %._crit_edge, %314
   %.pre-phi = phi i64 [ %.pre152, %._crit_edge ], [ %278, %314 ]
   %.162.ph = phi i64 [ %.061142, %._crit_edge ], [ %318, %314 ]
-  %exitcond151.not = icmp eq i64 %.pre-phi, %umax
+  %exitcond151.not = icmp eq i64 %.pre-phi, %185
   br i1 %exitcond151.not, label %.critedge.thread, label %221, !llvm.loop !1925
 
 .critedge.thread.sink.split:                      ; preds = %267, %260, %257

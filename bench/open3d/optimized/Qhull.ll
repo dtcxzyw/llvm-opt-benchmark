@@ -257,7 +257,6 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %3
   tail call void @llvm.memset.p0.i64(ptr align 8 %41, i8 0, i64 %43, i1 false), !tbaa !36
   %invariant.gep = getelementptr i8, ptr %40, i64 8
   %invariant.gep400 = getelementptr i8, ptr %40, i64 16
-  %umax = tail call i64 @llvm.umax.i64(i64 %35, i64 1)
   br label %.lr.ph
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
@@ -294,7 +293,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit201.thread:          ; preds = %38, %39
   %gep401 = getelementptr double, ptr %invariant.gep400, i64 %49
   store double %54, ptr %gep401, align 8, !tbaa !36
   %55 = add nuw i64 %.065402, 1
-  %exitcond.not = icmp eq i64 %55, %umax
+  %exitcond.not = icmp eq i64 %55, %35
   br i1 %exitcond.not, label %._crit_edge.i.i, label %.lr.ph, !llvm.loop !38
 
 56:                                               ; preds = %._crit_edge.i.i

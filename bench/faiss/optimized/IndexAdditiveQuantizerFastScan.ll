@@ -552,7 +552,6 @@ _ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i: ; preds = %42
 .lr.ph:                                           ; preds = %49
   %55 = lshr exact i64 %41, 2
   %56 = uitofp nneg i32 %51 to float
-  %umax = tail call i64 @llvm.umax.i64(i64 %55, i64 1)
   br label %61
 
 57:                                               ; preds = %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit
@@ -572,7 +571,7 @@ _ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i: ; preds = %42
   %64 = fdiv float %63, %56
   store float %64, ptr %62, align 4, !tbaa !72
   %65 = add nuw i64 %.03070, 1
-  %exitcond.not = icmp eq i64 %65, %umax
+  %exitcond.not = icmp eq i64 %65, %55
   br i1 %exitcond.not, label %.loopexit, label %61, !llvm.loop !77
 
 .loopexit:                                        ; preds = %61, %49, %.noexc44.thread
@@ -2197,9 +2196,6 @@ declare void @llvm.assume(i1 noundef) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #22
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #22

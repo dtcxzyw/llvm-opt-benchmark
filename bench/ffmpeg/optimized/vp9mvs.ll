@@ -300,7 +300,7 @@ vp89_rac_get_tree.exit89.i:                       ; preds = %vpx_rac_renorm.exit
   %187 = add i32 %186, 1
   store i32 %187, ptr %185, align 4, !tbaa !52
   %188 = getelementptr inbounds nuw i8, ptr %0, i64 1132
-  %189 = zext nneg i32 %182 to i64
+  %189 = zext i32 %182 to i64
   %190 = getelementptr inbounds nuw [11 x i32], ptr %188, i64 0, i64 %189
   %191 = load i32, ptr %190, align 4, !tbaa !52
   %192 = add i32 %191, 1
@@ -311,8 +311,6 @@ vp89_rac_get_tree.exit89.i:                       ; preds = %vpx_rac_renorm.exit
 .lr.ph:                                           ; preds = %vp89_rac_get_tree.exit89.i
   %193 = getelementptr inbounds nuw i8, ptr %102, i64 11885
   %194 = getelementptr inbounds nuw i8, ptr %0, i64 1184
-  %umax = tail call i32 @llvm.umax.i32(i32 %182, i32 1)
-  %wide.trip.count = zext i32 %umax to i64
   br label %195
 
 195:                                              ; preds = %.lr.ph, %vpx_rac_renorm.exit152
@@ -378,7 +376,7 @@ vpx_rac_renorm.exit152:                           ; preds = %195, %209, %213
   %239 = add i32 %238, 1
   store i32 %239, ptr %237, align 4, !tbaa !52
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %189
   br i1 %exitcond.not, label %._crit_edge, label %195, !llvm.loop !55
 
 ._crit_edge:                                      ; preds = %vpx_rac_renorm.exit152
@@ -881,7 +879,7 @@ vp89_rac_get_tree.exit89.i87:                     ; preds = %vpx_rac_renorm.exit
   %581 = add i32 %580, 1
   store i32 %581, ptr %579, align 4, !tbaa !52
   %582 = getelementptr inbounds nuw i8, ptr %0, i64 1336
-  %583 = zext nneg i32 %576 to i64
+  %583 = zext i32 %576 to i64
   %584 = getelementptr inbounds nuw [11 x i32], ptr %582, i64 0, i64 %583
   %585 = load i32, ptr %584, align 4, !tbaa !52
   %586 = add i32 %585, 1
@@ -892,8 +890,6 @@ vp89_rac_get_tree.exit89.i87:                     ; preds = %vpx_rac_renorm.exit
 .lr.ph283:                                        ; preds = %vp89_rac_get_tree.exit89.i87
   %587 = getelementptr inbounds nuw i8, ptr %495, i64 11918
   %588 = getelementptr inbounds nuw i8, ptr %0, i64 1388
-  %umax350 = tail call i32 @llvm.umax.i32(i32 %576, i32 1)
-  %wide.trip.count351 = zext i32 %umax350 to i64
   br label %589
 
 589:                                              ; preds = %.lr.ph283, %vpx_rac_renorm.exit176
@@ -959,7 +955,7 @@ vpx_rac_renorm.exit176:                           ; preds = %589, %603, %607
   %633 = add i32 %632, 1
   store i32 %633, ptr %631, align 4, !tbaa !52
   %indvars.iv.next348 = add nuw nsw i64 %indvars.iv347, 1
-  %exitcond352.not = icmp eq i64 %indvars.iv.next348, %wide.trip.count351
+  %exitcond352.not = icmp eq i64 %indvars.iv.next348, %583
   br i1 %exitcond352.not, label %._crit_edge284, label %589, !llvm.loop !55
 
 ._crit_edge284:                                   ; preds = %vpx_rac_renorm.exit176
@@ -1607,7 +1603,7 @@ vp89_rac_get_tree.exit89.i103:                    ; preds = %vpx_rac_renorm.exit
   %1061 = add i32 %1060, 1
   store i32 %1061, ptr %1059, align 4, !tbaa !52
   %1062 = getelementptr inbounds nuw i8, ptr %0, i64 1132
-  %1063 = zext nneg i32 %1056 to i64
+  %1063 = zext i32 %1056 to i64
   %1064 = getelementptr inbounds nuw [11 x i32], ptr %1062, i64 0, i64 %1063
   %1065 = load i32, ptr %1064, align 4, !tbaa !52
   %1066 = add i32 %1065, 1
@@ -1618,8 +1614,6 @@ vp89_rac_get_tree.exit89.i103:                    ; preds = %vpx_rac_renorm.exit
 .lr.ph300:                                        ; preds = %vp89_rac_get_tree.exit89.i103
   %1067 = getelementptr inbounds nuw i8, ptr %976, i64 11885
   %1068 = getelementptr inbounds nuw i8, ptr %0, i64 1184
-  %umax356 = tail call i32 @llvm.umax.i32(i32 %1056, i32 1)
-  %wide.trip.count357 = zext i32 %umax356 to i64
   br label %1069
 
 1069:                                             ; preds = %.lr.ph300, %vpx_rac_renorm.exit200
@@ -1685,7 +1679,7 @@ vpx_rac_renorm.exit200:                           ; preds = %1069, %1083, %1087
   %1113 = add i32 %1112, 1
   store i32 %1113, ptr %1111, align 4, !tbaa !52
   %indvars.iv.next354 = add nuw nsw i64 %indvars.iv353, 1
-  %exitcond358.not = icmp eq i64 %indvars.iv.next354, %wide.trip.count357
+  %exitcond358.not = icmp eq i64 %indvars.iv.next354, %1063
   br i1 %exitcond358.not, label %._crit_edge301, label %1069, !llvm.loop !55
 
 ._crit_edge301:                                   ; preds = %vpx_rac_renorm.exit200
@@ -2188,7 +2182,7 @@ vp89_rac_get_tree.exit89.i119:                    ; preds = %vpx_rac_renorm.exit
   %1455 = add i32 %1454, 1
   store i32 %1455, ptr %1453, align 4, !tbaa !52
   %1456 = getelementptr inbounds nuw i8, ptr %0, i64 1336
-  %1457 = zext nneg i32 %1450 to i64
+  %1457 = zext i32 %1450 to i64
   %1458 = getelementptr inbounds nuw [11 x i32], ptr %1456, i64 0, i64 %1457
   %1459 = load i32, ptr %1458, align 4, !tbaa !52
   %1460 = add i32 %1459, 1
@@ -2199,8 +2193,6 @@ vp89_rac_get_tree.exit89.i119:                    ; preds = %vpx_rac_renorm.exit
 .lr.ph316:                                        ; preds = %vp89_rac_get_tree.exit89.i119
   %1461 = getelementptr inbounds nuw i8, ptr %1369, i64 11918
   %1462 = getelementptr inbounds nuw i8, ptr %0, i64 1388
-  %umax362 = tail call i32 @llvm.umax.i32(i32 %1450, i32 1)
-  %wide.trip.count363 = zext i32 %umax362 to i64
   br label %1463
 
 1463:                                             ; preds = %.lr.ph316, %vpx_rac_renorm.exit224
@@ -2266,7 +2258,7 @@ vpx_rac_renorm.exit224:                           ; preds = %1463, %1477, %1481
   %1507 = add i32 %1506, 1
   store i32 %1507, ptr %1505, align 4, !tbaa !52
   %indvars.iv.next360 = add nuw nsw i64 %indvars.iv359, 1
-  %exitcond364.not = icmp eq i64 %indvars.iv.next360, %wide.trip.count363
+  %exitcond364.not = icmp eq i64 %indvars.iv.next360, %1457
   br i1 %exitcond364.not, label %._crit_edge317, label %1463, !llvm.loop !55
 
 ._crit_edge317:                                   ; preds = %vpx_rac_renorm.exit224
@@ -5029,9 +5021,6 @@ declare i16 @llvm.bswap.i16(i16) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #2
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

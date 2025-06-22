@@ -69,15 +69,11 @@ entry:
   %cmp26 = icmp ult i64 %sub.ptr.div.i.i.i.i, 2
   %cmp423.not = icmp eq ptr %0, %1
   %or.cond = select i1 %cmp26, i1 true, i1 %cmp423.not
-  br i1 %or.cond, label %for.cond.cleanup, label %for.cond3.preheader.us.preheader
+  br i1 %or.cond, label %for.cond.cleanup, label %for.cond3.preheader.us
 
-for.cond3.preheader.us.preheader:                 ; preds = %entry
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  br label %for.cond3.preheader.us
-
-for.cond3.preheader.us:                           ; preds = %for.cond3.preheader.us.preheader, %for.cond3.for.cond.cleanup5_crit_edge.us
-  %i.028.us = phi i64 [ %inc15.us, %for.cond3.for.cond.cleanup5_crit_edge.us ], [ 1, %for.cond3.preheader.us.preheader ]
-  %averagePerformance.027.us = phi double [ %8, %for.cond3.for.cond.cleanup5_crit_edge.us ], [ 0.000000e+00, %for.cond3.preheader.us.preheader ]
+for.cond3.preheader.us:                           ; preds = %entry, %for.cond3.for.cond.cleanup5_crit_edge.us
+  %i.028.us = phi i64 [ %inc15.us, %for.cond3.for.cond.cleanup5_crit_edge.us ], [ 1, %entry ]
+  %averagePerformance.027.us = phi double [ %8, %for.cond3.for.cond.cleanup5_crit_edge.us ], [ 0.000000e+00, %entry ]
   br label %for.body6.us
 
 for.body6.us:                                     ; preds = %for.cond3.preheader.us, %for.body6.us
@@ -94,7 +90,7 @@ for.body6.us:                                     ; preds = %for.cond3.preheader
   %sub13.us = fadd double %div.us, -1.000000e+00
   %8 = tail call double @llvm.fmuladd.f64(double %5, double %sub13.us, double %averagePerformance.124.us)
   %inc.us = add nuw i64 %j.025.us, 1
-  %exitcond.not = icmp eq i64 %inc.us, %umax
+  %exitcond.not = icmp eq i64 %inc.us, %sub.ptr.div.i.i
   br i1 %exitcond.not, label %for.cond3.for.cond.cleanup5_crit_edge.us, label %for.body6.us, !llvm.loop !22
 
 for.cond3.for.cond.cleanup5_crit_edge.us:         ; preds = %for.body6.us
@@ -133,15 +129,12 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib21PagodaMultiPathPricerD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  tail call void @_ZdlPvm(ptr noundef nonnull %this, i64 noundef 32) #7
+  tail call void @_ZdlPvm(ptr noundef nonnull %this, i64 noundef 32) #6
   ret void
 }
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #5
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #6
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -149,8 +142,7 @@ attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable wi
 attributes #3 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { builtin nounwind }
+attributes #6 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

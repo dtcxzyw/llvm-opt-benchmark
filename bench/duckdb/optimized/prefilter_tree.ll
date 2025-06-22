@@ -3505,7 +3505,6 @@ _ZN10duckdb_re211SparseArrayIiEC2Ei.exit50:       ; preds = %31, %.lr.ph.i.i47
   %41 = ptrtoint ptr %39 to i64
   %42 = sub i64 %40, %41
   %43 = ashr exact i64 %42, 2
-  %umax = tail call i64 @llvm.umax.i64(i64 %43, i64 1)
   br label %49
 
 .preheader:                                       ; preds = %_ZN10duckdb_re211SparseArrayIiE3setEiRKi.exit
@@ -3563,7 +3562,7 @@ _ZNK10duckdb_re211SparseArrayIiE9has_indexEi.exit.thread.i.i: ; preds = %_ZNK10d
 _ZN10duckdb_re211SparseArrayIiE3setEiRKi.exit:    ; preds = %65, %49
   %68 = phi i32 [ %66, %65 ], [ %50, %49 ]
   %69 = add nuw i64 %.03393, 1
-  %exitcond.not = icmp eq i64 %69, %umax
+  %exitcond.not = icmp eq i64 %69, %43
   br i1 %exitcond.not, label %.preheader, label %49, !llvm.loop !153
 
 _ZN10duckdb_re211SparseArrayIiED2Ev.exit55:       ; preds = %._crit_edge103, %_ZN10duckdb_re211SparseArrayIiEC2Ei.exit50, %.preheader
@@ -3595,11 +3594,7 @@ _ZN10duckdb_re211SparseArrayIiED2Ev.exit55:       ; preds = %._crit_edge103, %_Z
   %82 = load ptr, ptr %45, align 8, !tbaa !145
   %.fr = freeze ptr %82
   %.not.i.i.i56.not = icmp eq ptr %.fr, null
-  br i1 %.not.i.i.i56.not, label %._crit_edge, label %.lr.ph95.split.preheader
-
-.lr.ph95.split.preheader:                         ; preds = %.lr.ph95
-  %umax117 = tail call i64 @llvm.umax.i64(i64 %81, i64 1)
-  br label %.lr.ph95.split
+  br i1 %.not.i.i.i56.not, label %._crit_edge, label %.lr.ph95.split
 
 ._crit_edge:                                      ; preds = %_ZN10duckdb_re211SparseArrayIiE3setEiRKi.exit65, %.lr.ph95, %70
   %83 = getelementptr inbounds nuw i8, ptr %73, i64 8
@@ -3614,8 +3609,8 @@ _ZN10duckdb_re211SparseArrayIiED2Ev.exit55:       ; preds = %._crit_edge103, %_Z
   %87 = load i32, ptr %22, align 8
   br label %111
 
-.lr.ph95.split:                                   ; preds = %.lr.ph95.split.preheader, %_ZN10duckdb_re211SparseArrayIiE3setEiRKi.exit65
-  %.03494 = phi i64 [ %107, %_ZN10duckdb_re211SparseArrayIiE3setEiRKi.exit65 ], [ 0, %.lr.ph95.split.preheader ]
+.lr.ph95.split:                                   ; preds = %.lr.ph95, %_ZN10duckdb_re211SparseArrayIiE3setEiRKi.exit65
+  %.03494 = phi i64 [ %107, %_ZN10duckdb_re211SparseArrayIiE3setEiRKi.exit65 ], [ 0, %.lr.ph95 ]
   %88 = getelementptr inbounds nuw i32, ptr %77, i64 %.03494
   %89 = load i32, ptr %88, align 4, !tbaa !80
   %90 = load i32, ptr %44, align 4
@@ -3657,7 +3652,7 @@ _ZNK10duckdb_re211SparseArrayIiE9has_indexEi.exit.thread.i.i60: ; preds = %_ZNK1
 
 _ZN10duckdb_re211SparseArrayIiE3setEiRKi.exit65:  ; preds = %105, %.lr.ph95.split
   %107 = add nuw i64 %.03494, 1
-  %exitcond118.not = icmp eq i64 %107, %umax117
+  %exitcond118.not = icmp eq i64 %107, %81
   br i1 %exitcond118.not, label %._crit_edge, label %.lr.ph95.split, !llvm.loop !154
 
 ._crit_edge103:                                   ; preds = %_ZN10duckdb_re211SparseArrayIiE3setEiRKi.exit81, %._crit_edge

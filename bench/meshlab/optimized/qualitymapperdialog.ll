@@ -17949,33 +17949,29 @@ define void @_ZN19QualityMapperDialog22on_clampButton_clickedEv(ptr noundef nonn
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %5, align 8
-  %14 = icmp eq ptr %12, %13
-  br i1 %14, label %15, label %.lr.ph.preheader.i
+  %14 = ptrtoint ptr %12 to i64
+  %15 = ptrtoint ptr %13 to i64
+  %16 = sub i64 %14, %15
+  %17 = ashr exact i64 %16, 2
+  %18 = icmp eq ptr %12, %13
+  br i1 %18, label %19, label %.lr.ph.i
 
-15:                                               ; preds = %1
-  %16 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %17 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %18 = load ptr, ptr %17, align 8
-  %19 = load ptr, ptr %16, align 8
-  %20 = icmp eq ptr %18, %19
-  br i1 %20, label %_ZNK3vcg9HistogramIfE10PercentileEf.exit, label %._crit_edge24.i
+19:                                               ; preds = %1
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %22 = load ptr, ptr %21, align 8
+  %23 = load ptr, ptr %20, align 8
+  %24 = icmp eq ptr %22, %23
+  br i1 %24, label %_ZNK3vcg9HistogramIfE10PercentileEf.exit, label %._crit_edge24.i
 
-.lr.ph.preheader.i:                               ; preds = %1
-  %21 = ptrtoint ptr %12 to i64
-  %22 = ptrtoint ptr %13 to i64
-  %23 = sub i64 %21, %22
-  %24 = ashr exact i64 %23, 2
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %24, i64 1)
-  br label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.019.i = phi i64 [ %28, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
-  %.01518.i = phi float [ %27, %.lr.ph.i ], [ 0.000000e+00, %.lr.ph.preheader.i ]
+.lr.ph.i:                                         ; preds = %1, %.lr.ph.i
+  %.019.i = phi i64 [ %28, %.lr.ph.i ], [ 0, %1 ]
+  %.01518.i = phi float [ %27, %.lr.ph.i ], [ 0.000000e+00, %1 ]
   %25 = getelementptr inbounds float, ptr %13, i64 %.019.i
   %26 = load float, ptr %25, align 4
   %27 = fadd float %.01518.i, %26
   %28 = add nuw i64 %.019.i, 1
-  %exitcond.not.i = icmp eq i64 %28, %umax.i
+  %exitcond.not.i = icmp eq i64 %28, %17
   br i1 %exitcond.not.i, label %.lr.ph23.preheader.i, label %.lr.ph.i, !llvm.loop !174
 
 .lr.ph23.preheader.i:                             ; preds = %.lr.ph.i
@@ -17993,25 +17989,25 @@ define void @_ZN19QualityMapperDialog22on_clampButton_clickedEv(ptr noundef nonn
 
 34:                                               ; preds = %.lr.ph23.i
   %35 = add nuw i64 %.121.i, 1
-  %exitcond30.not.i = icmp eq i64 %35, %umax.i
+  %exitcond30.not.i = icmp eq i64 %35, %17
   br i1 %exitcond30.not.i, label %._crit_edge24.i.loopexit, label %.lr.ph23.i, !llvm.loop !175
 
 ._crit_edge24.i.loopexit:                         ; preds = %.lr.ph23.i, %34
-  %.1.lcssa.i.ph = phi i64 [ %.121.i, %.lr.ph23.i ], [ %umax.i, %34 ]
+  %.1.lcssa.i.ph = phi i64 [ %.121.i, %.lr.ph23.i ], [ %17, %34 ]
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 24
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %._crit_edge24.i
 
-._crit_edge24.i:                                  ; preds = %._crit_edge24.i.loopexit, %15
-  %36 = phi ptr [ %19, %15 ], [ %.pre, %._crit_edge24.i.loopexit ]
-  %.1.lcssa.i = phi i64 [ 0, %15 ], [ %.1.lcssa.i.ph, %._crit_edge24.i.loopexit ]
+._crit_edge24.i:                                  ; preds = %._crit_edge24.i.loopexit, %19
+  %36 = phi ptr [ %23, %19 ], [ %.pre, %._crit_edge24.i.loopexit ]
+  %.1.lcssa.i = phi i64 [ 0, %19 ], [ %.1.lcssa.i.ph, %._crit_edge24.i.loopexit ]
   %37 = getelementptr float, ptr %36, i64 %.1.lcssa.i
   %38 = getelementptr i8, ptr %37, i64 4
   %39 = load float, ptr %38, align 4
   br label %_ZNK3vcg9HistogramIfE10PercentileEf.exit
 
-_ZNK3vcg9HistogramIfE10PercentileEf.exit:         ; preds = %15, %._crit_edge24.i
-  %.016.i = phi float [ %39, %._crit_edge24.i ], [ 0.000000e+00, %15 ]
+_ZNK3vcg9HistogramIfE10PercentileEf.exit:         ; preds = %19, %._crit_edge24.i
+  %.016.i = phi float [ %39, %._crit_edge24.i ], [ 0.000000e+00, %19 ]
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 600
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
@@ -18025,72 +18021,68 @@ _ZNK3vcg9HistogramIfE10PercentileEf.exit:         ; preds = %15, %._crit_edge24.
   %49 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %50 = load ptr, ptr %49, align 8
   %51 = load ptr, ptr %43, align 8
-  %52 = icmp eq ptr %50, %51
-  br i1 %52, label %53, label %.lr.ph.preheader.i1
+  %52 = ptrtoint ptr %50 to i64
+  %53 = ptrtoint ptr %51 to i64
+  %54 = sub i64 %52, %53
+  %55 = ashr exact i64 %54, 2
+  %56 = icmp eq ptr %50, %51
+  br i1 %56, label %57, label %.lr.ph.i1
 
-53:                                               ; preds = %_ZNK3vcg9HistogramIfE10PercentileEf.exit
-  %54 = getelementptr inbounds nuw i8, ptr %43, i64 24
-  %55 = getelementptr inbounds nuw i8, ptr %43, i64 32
-  %56 = load ptr, ptr %55, align 8
-  %57 = load ptr, ptr %54, align 8
-  %58 = icmp eq ptr %56, %57
-  br i1 %58, label %_ZNK3vcg9HistogramIfE10PercentileEf.exit16, label %._crit_edge24.i12
+57:                                               ; preds = %_ZNK3vcg9HistogramIfE10PercentileEf.exit
+  %58 = getelementptr inbounds nuw i8, ptr %43, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %43, i64 32
+  %60 = load ptr, ptr %59, align 8
+  %61 = load ptr, ptr %58, align 8
+  %62 = icmp eq ptr %60, %61
+  br i1 %62, label %_ZNK3vcg9HistogramIfE10PercentileEf.exit13, label %._crit_edge24.i9
 
-.lr.ph.preheader.i1:                              ; preds = %_ZNK3vcg9HistogramIfE10PercentileEf.exit
-  %59 = ptrtoint ptr %50 to i64
-  %60 = ptrtoint ptr %51 to i64
-  %61 = sub i64 %59, %60
-  %62 = ashr exact i64 %61, 2
-  %umax.i2 = tail call i64 @llvm.umax.i64(i64 %62, i64 1)
-  br label %.lr.ph.i3
-
-.lr.ph.i3:                                        ; preds = %.lr.ph.i3, %.lr.ph.preheader.i1
-  %.019.i4 = phi i64 [ %66, %.lr.ph.i3 ], [ 0, %.lr.ph.preheader.i1 ]
-  %.01518.i5 = phi float [ %65, %.lr.ph.i3 ], [ 0.000000e+00, %.lr.ph.preheader.i1 ]
-  %63 = getelementptr inbounds float, ptr %51, i64 %.019.i4
+.lr.ph.i1:                                        ; preds = %_ZNK3vcg9HistogramIfE10PercentileEf.exit, %.lr.ph.i1
+  %.019.i2 = phi i64 [ %66, %.lr.ph.i1 ], [ 0, %_ZNK3vcg9HistogramIfE10PercentileEf.exit ]
+  %.01518.i3 = phi float [ %65, %.lr.ph.i1 ], [ 0.000000e+00, %_ZNK3vcg9HistogramIfE10PercentileEf.exit ]
+  %63 = getelementptr inbounds float, ptr %51, i64 %.019.i2
   %64 = load float, ptr %63, align 4
-  %65 = fadd float %.01518.i5, %64
-  %66 = add nuw i64 %.019.i4, 1
-  %exitcond.not.i6 = icmp eq i64 %66, %umax.i2
-  br i1 %exitcond.not.i6, label %.lr.ph23.preheader.i7, label %.lr.ph.i3, !llvm.loop !174
+  %65 = fadd float %.01518.i3, %64
+  %66 = add nuw i64 %.019.i2, 1
+  %exitcond.not.i4 = icmp eq i64 %66, %55
+  br i1 %exitcond.not.i4, label %.lr.ph23.preheader.i5, label %.lr.ph.i1, !llvm.loop !174
 
-.lr.ph23.preheader.i7:                            ; preds = %.lr.ph.i3
+.lr.ph23.preheader.i5:                            ; preds = %.lr.ph.i1
   %67 = fmul float %48, %65
-  br label %.lr.ph23.i9
+  br label %.lr.ph23.i6
 
-.lr.ph23.i9:                                      ; preds = %72, %.lr.ph23.preheader.i7
-  %.121.i10 = phi i64 [ %73, %72 ], [ 0, %.lr.ph23.preheader.i7 ]
-  %.01420.i11 = phi float [ %70, %72 ], [ 0.000000e+00, %.lr.ph23.preheader.i7 ]
-  %68 = getelementptr inbounds float, ptr %51, i64 %.121.i10
+.lr.ph23.i6:                                      ; preds = %72, %.lr.ph23.preheader.i5
+  %.121.i7 = phi i64 [ %73, %72 ], [ 0, %.lr.ph23.preheader.i5 ]
+  %.01420.i8 = phi float [ %70, %72 ], [ 0.000000e+00, %.lr.ph23.preheader.i5 ]
+  %68 = getelementptr inbounds float, ptr %51, i64 %.121.i7
   %69 = load float, ptr %68, align 4
-  %70 = fadd float %.01420.i11, %69
+  %70 = fadd float %.01420.i8, %69
   %71 = fcmp ult float %70, %67
-  br i1 %71, label %72, label %._crit_edge24.i12.loopexit
+  br i1 %71, label %72, label %._crit_edge24.i9.loopexit
 
-72:                                               ; preds = %.lr.ph23.i9
-  %73 = add nuw i64 %.121.i10, 1
-  %exitcond30.not.i15 = icmp eq i64 %73, %umax.i2
-  br i1 %exitcond30.not.i15, label %._crit_edge24.i12.loopexit, label %.lr.ph23.i9, !llvm.loop !175
+72:                                               ; preds = %.lr.ph23.i6
+  %73 = add nuw i64 %.121.i7, 1
+  %exitcond30.not.i12 = icmp eq i64 %73, %55
+  br i1 %exitcond30.not.i12, label %._crit_edge24.i9.loopexit, label %.lr.ph23.i6, !llvm.loop !175
 
-._crit_edge24.i12.loopexit:                       ; preds = %.lr.ph23.i9, %72
-  %.1.lcssa.i13.ph = phi i64 [ %.121.i10, %.lr.ph23.i9 ], [ %umax.i2, %72 ]
-  %.phi.trans.insert19 = getelementptr inbounds nuw i8, ptr %43, i64 24
-  %.pre20 = load ptr, ptr %.phi.trans.insert19, align 8
-  br label %._crit_edge24.i12
+._crit_edge24.i9.loopexit:                        ; preds = %.lr.ph23.i6, %72
+  %.1.lcssa.i10.ph = phi i64 [ %.121.i7, %.lr.ph23.i6 ], [ %55, %72 ]
+  %.phi.trans.insert16 = getelementptr inbounds nuw i8, ptr %43, i64 24
+  %.pre17 = load ptr, ptr %.phi.trans.insert16, align 8
+  br label %._crit_edge24.i9
 
-._crit_edge24.i12:                                ; preds = %._crit_edge24.i12.loopexit, %53
-  %74 = phi ptr [ %57, %53 ], [ %.pre20, %._crit_edge24.i12.loopexit ]
-  %.1.lcssa.i13 = phi i64 [ 0, %53 ], [ %.1.lcssa.i13.ph, %._crit_edge24.i12.loopexit ]
-  %75 = getelementptr float, ptr %74, i64 %.1.lcssa.i13
+._crit_edge24.i9:                                 ; preds = %._crit_edge24.i9.loopexit, %57
+  %74 = phi ptr [ %61, %57 ], [ %.pre17, %._crit_edge24.i9.loopexit ]
+  %.1.lcssa.i10 = phi i64 [ 0, %57 ], [ %.1.lcssa.i10.ph, %._crit_edge24.i9.loopexit ]
+  %75 = getelementptr float, ptr %74, i64 %.1.lcssa.i10
   %76 = getelementptr i8, ptr %75, i64 4
   %77 = load float, ptr %76, align 4
-  br label %_ZNK3vcg9HistogramIfE10PercentileEf.exit16
+  br label %_ZNK3vcg9HistogramIfE10PercentileEf.exit13
 
-_ZNK3vcg9HistogramIfE10PercentileEf.exit16:       ; preds = %53, %._crit_edge24.i12
-  %.016.i14 = phi float [ %77, %._crit_edge24.i12 ], [ 0.000000e+00, %53 ]
+_ZNK3vcg9HistogramIfE10PercentileEf.exit13:       ; preds = %57, %._crit_edge24.i9
+  %.016.i11 = phi float [ %77, %._crit_edge24.i9 ], [ 0.000000e+00, %57 ]
   %78 = load ptr, ptr %40, align 8
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 12
-  store float %.016.i14, ptr %79, align 4
+  store float %.016.i11, ptr %79, align 4
   tail call void @_ZN19QualityMapperDialog22initEqualizerSpinboxesEv(ptr noundef nonnull align 8 dereferenceable(824) %0)
   %80 = tail call noundef zeroext i1 @_ZN19QualityMapperDialog22drawEqualizerHistogramEbb(ptr noundef nonnull align 8 dereferenceable(824) %0, i1 noundef zeroext true, i1 noundef zeroext true)
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 568
@@ -18098,11 +18090,11 @@ _ZNK3vcg9HistogramIfE10PercentileEf.exit16:       ; preds = %53, %._crit_edge24.
   %83 = tail call noundef zeroext i1 @_ZNK15QAbstractButton9isCheckedEv(ptr noundef nonnull align 8 dereferenceable(48) %82)
   br i1 %83, label %84, label %85
 
-84:                                               ; preds = %_ZNK3vcg9HistogramIfE10PercentileEf.exit16
+84:                                               ; preds = %_ZNK3vcg9HistogramIfE10PercentileEf.exit13
   tail call void @_ZN19QualityMapperDialog22on_applyButton_clickedEv(ptr noundef nonnull align 8 dereferenceable(824) %0)
   br label %85
 
-85:                                               ; preds = %84, %_ZNK3vcg9HistogramIfE10PercentileEf.exit16
+85:                                               ; preds = %84, %_ZNK3vcg9HistogramIfE10PercentileEf.exit13
   ret void
 }
 

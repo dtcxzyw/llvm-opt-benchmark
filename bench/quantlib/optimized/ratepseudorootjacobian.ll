@@ -3154,7 +3154,6 @@ do.body141.preheader:                             ; preds = %for.cond.preheader
   %sub.ptr.rhs.cast.i174 = ptrtoint ptr %88 to i64
   %sub.ptr.sub.i175 = sub i64 %sub.ptr.lhs.cast.i173, %sub.ptr.rhs.cast.i174
   %sub.ptr.div.i176 = sdiv exact i64 %sub.ptr.sub.i175, 24
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i176, i64 1)
   br label %do.body141
 
 if.then98:                                        ; preds = %do.body94
@@ -3694,7 +3693,7 @@ ehcleanup235:                                     ; preds = %ehcleanup234, %lpad
 
 for.inc:                                          ; preds = %do.body190
   %inc = add nuw i64 %i.0365, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i176
   br i1 %exitcond.not, label %for.cond241.preheader, label %do.body141, !llvm.loop !71
 
 for.cond.cleanup243:                              ; preds = %for.inc250, %for.cond241.preheader
@@ -5914,7 +5913,6 @@ for.cond158.preheader.lr.ph.split.us:             ; preds = %for.cond153.prehead
 
 for.cond158.preheader.us.us.preheader:            ; preds = %for.cond158.preheader.lr.ph.split.us
   %79 = shl nuw i64 %59, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %for.cond158.preheader.us.us
 
 for.cond158.preheader.us.us:                      ; preds = %for.cond158.preheader.us.us.preheader, %for.cond158.for.cond.cleanup160_crit_edge.split.us.us.us
@@ -5932,7 +5930,7 @@ for.cond163.preheader.us.us.us:                   ; preds = %for.cond163.prehead
   %scevgep = getelementptr i8, ptr %80, i64 %83
   tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep, i8 0, i64 %79, i1 false), !tbaa !40
   %inc175.us.us.us = add nuw i64 %k.0277.us.us.us, 1
-  %exitcond315.not = icmp eq i64 %inc175.us.us.us, %umax
+  %exitcond315.not = icmp eq i64 %inc175.us.us.us, %sub.ptr.div.i
   br i1 %exitcond315.not, label %for.cond158.for.cond.cleanup160_crit_edge.split.us.us.us, label %for.cond163.preheader.us.us.us, !llvm.loop !90
 
 for.cond158.for.cond.cleanup160_crit_edge.split.us.us.us: ; preds = %for.cond163.preheader.us.us.us

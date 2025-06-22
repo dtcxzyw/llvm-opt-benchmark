@@ -861,7 +861,6 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc48
 
 .lr.ph.i.i:                                       ; preds = %._crit_edge152
   %78 = getelementptr i8, ptr %69, i64 %76
-  %umax.i.i = call i64 @llvm.umax.i64(i64 %77, i64 1)
   br label %79
 
 79:                                               ; preds = %79, %.lr.ph.i.i
@@ -880,7 +879,7 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc48
   %90 = call double @log(double noundef %89) #24, !tbaa !32
   %91 = call double @llvm.fmuladd.f64(double %82, double %90, double %.02.i.i)
   %92 = add nuw i64 %.0151.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %92, %umax.i.i
+  %exitcond.not.i.i = icmp eq i64 %92, %77
   br i1 %exitcond.not.i.i, label %_ZN4absl18profiling_internal12_GLOBAL__N_124AndersonDarlingStatisticERKSt6vectorIdSaIdEE.exit.i, label %79, !llvm.loop !33
 
 _ZN4absl18profiling_internal12_GLOBAL__N_124AndersonDarlingStatisticERKSt6vectorIdSaIdEE.exit.i: ; preds = %79, %._crit_edge152.thread, %._crit_edge152
@@ -5716,9 +5715,6 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #23
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #23
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -1861,15 +1861,14 @@ _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNK6Assimp3IF
   %51 = icmp eq i64 %40, 4
   br i1 %51, label %.lr.ph.preheader, label %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
 
+.lr.ph.preheader:                                 ; preds = %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc180
+  br label %.lr.ph
+
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc180
   %52 = getelementptr i8, ptr %49, i64 8
   %53 = add nsw i64 %48, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %52, i8 0, i64 %53, i1 false)
   br label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc180
-  %umax = tail call i64 @llvm.umax.i64(i64 %41, i64 1)
-  br label %.lr.ph
 
 .preheader578.lr.ph:                              ; preds = %.lr.ph
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #25
@@ -1896,7 +1895,7 @@ _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc180
   %63 = zext i32 %62 to i64
   %64 = add i64 %.0142621, %63
   %65 = add nuw i64 %.0143620, 1
-  %exitcond.not = icmp eq i64 %65, %umax
+  %exitcond.not = icmp eq i64 %65, %41
   br i1 %exitcond.not, label %.preheader578.lr.ph, label %.lr.ph, !llvm.loop !59
 
 .preheader578:                                    ; preds = %.preheader578.lr.ph, %._crit_edge624
@@ -2903,7 +2902,6 @@ _ZSt5countISt13_Bit_iteratorbENSt15iterator_traitsIT_E15difference_typeES2_S2_RK
   %525 = ptrtoint ptr %523 to i64
   %526 = sub i64 %524, %525
   %527 = ashr exact i64 %526, 2
-  %umax697 = call i64 @llvm.umax.i64(i64 %527, i64 1)
   br label %534
 
 ._crit_edge638:                                   ; preds = %576, %.preheader
@@ -2988,7 +2986,7 @@ _ZSt5countISt13_Bit_iteratorbENSt15iterator_traitsIT_E15difference_typeES2_S2_RK
   %.1 = phi i64 [ %.0559634, %534 ], [ %.0150635, %575 ], [ %.0559634, %.loopexit574 ]
   %.1148 = phi double [ %.0147636, %534 ], [ %573, %575 ], [ %.0147636, %.loopexit574 ]
   %577 = add nuw i64 %.0150635, 1
-  %exitcond698.not = icmp eq i64 %577, %umax697
+  %exitcond698.not = icmp eq i64 %577, %527
   br i1 %exitcond698.not, label %._crit_edge638, label %534, !llvm.loop !100
 
 578:                                              ; preds = %._crit_edge638
@@ -4712,7 +4710,6 @@ define hidden void @_ZN6Assimp3IFC20ConvertAxisPlacementER12aiMatrix4x4tIdERKNS0
   %12 = ptrtoint ptr %10 to i64
   %13 = sub i64 %11, %12
   %14 = ashr exact i64 %13, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %14, i64 1)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %_ZN10aiVector3tIdEixEj.exit.i
@@ -4735,7 +4732,7 @@ _ZN10aiVector3tIdEixEj.exit.i:                    ; preds = %19, %18, %.lr.ph.i
   %.0.i.i = phi ptr [ %.sroa.626, %18 ], [ %.sroa.8, %19 ], [ %.sroa.025, %.lr.ph.i ]
   store double %16, ptr %.0.i.i, align 8
   %20 = add nuw i64 %.07.i, 1
-  %exitcond.not = icmp eq i64 %20, %umax
+  %exitcond.not = icmp eq i64 %20, %14
   br i1 %exitcond.not, label %_ZN6Assimp3IFC21ConvertCartesianPointER10aiVector3tIdERKNS0_10Schema_2x317IfcCartesianPointE.exit, label %.lr.ph.i, !llvm.loop !152
 
 _ZN6Assimp3IFC21ConvertCartesianPointER10aiVector3tIdERKNS0_10Schema_2x317IfcCartesianPointE.exit: ; preds = %_ZN10aiVector3tIdEixEj.exit.i, %2
@@ -5084,7 +5081,6 @@ define hidden void @_ZN6Assimp3IFC20ConvertAxisPlacementER12aiMatrix4x4tIdERKNS0
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
   %13 = ashr exact i64 %12, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %13, i64 1)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %_ZN10aiVector3tIdEixEj.exit.i
@@ -5107,7 +5103,7 @@ _ZN10aiVector3tIdEixEj.exit.i:                    ; preds = %18, %17, %.lr.ph.i
   %.0.i.i = phi ptr [ %.sroa.69, %17 ], [ %.sroa.8, %18 ], [ %.sroa.08, %.lr.ph.i ]
   store double %15, ptr %.0.i.i, align 8
   %19 = add nuw i64 %.07.i, 1
-  %exitcond.not = icmp eq i64 %19, %umax
+  %exitcond.not = icmp eq i64 %19, %13
   br i1 %exitcond.not, label %_ZN6Assimp3IFC21ConvertCartesianPointER10aiVector3tIdERKNS0_10Schema_2x317IfcCartesianPointE.exit, label %.lr.ph.i, !llvm.loop !152
 
 _ZN6Assimp3IFC21ConvertCartesianPointER10aiVector3tIdERKNS0_10Schema_2x317IfcCartesianPointE.exit: ; preds = %_ZN10aiVector3tIdEixEj.exit.i, %2
@@ -5347,7 +5343,6 @@ define hidden void @_ZN6Assimp3IFC24ConvertTransformOperatorER12aiMatrix4x4tIdER
   %13 = ptrtoint ptr %11 to i64
   %14 = sub i64 %12, %13
   %15 = ashr exact i64 %14, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %15, i64 1)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %_ZN10aiVector3tIdEixEj.exit.i
@@ -5370,7 +5365,7 @@ _ZN10aiVector3tIdEixEj.exit.i:                    ; preds = %20, %19, %.lr.ph.i
   %.0.i.i = phi ptr [ %.sroa.6126, %19 ], [ %.sroa.8127, %20 ], [ %.sroa.0125, %.lr.ph.i ]
   store double %17, ptr %.0.i.i, align 8
   %21 = add nuw i64 %.07.i, 1
-  %exitcond.not = icmp eq i64 %21, %umax
+  %exitcond.not = icmp eq i64 %21, %15
   br i1 %exitcond.not, label %_ZN6Assimp3IFC21ConvertCartesianPointER10aiVector3tIdERKNS0_10Schema_2x317IfcCartesianPointE.exit, label %.lr.ph.i, !llvm.loop !152
 
 _ZN6Assimp3IFC21ConvertCartesianPointER10aiVector3tIdERKNS0_10Schema_2x317IfcCartesianPointE.exit: ; preds = %_ZN10aiVector3tIdEixEj.exit.i, %2

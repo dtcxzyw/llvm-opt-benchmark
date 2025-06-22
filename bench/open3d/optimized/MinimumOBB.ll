@@ -7792,7 +7792,6 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit1681:            ; preds = %_ZNSt6vectorIiSaIiE
   %2748 = ptrtoint ptr %.sroa.02196.3.lcssa to i64
   %2749 = sub i64 %2747, %2748
   %2750 = ashr exact i64 %2749, 2
-  %umax = call i64 @llvm.umax.i64(i64 %2750, i64 1)
   br label %"_ZZN6open3d1t8geometry6kernel11minimum_obb24ComputeMinimumOBBJylankiERKNS_4core6TensorEbENK3$_7clERdS9_.exit.lr.ph.us"
 
 "_ZZN6open3d1t8geometry6kernel11minimum_obb24ComputeMinimumOBBJylankiERKNS_4core6TensorEbENK3$_7clERdS9_.exit.lr.ph.us": ; preds = %"_ZZN6open3d1t8geometry6kernel11minimum_obb24ComputeMinimumOBBJylankiERKNS_4core6TensorEbENK3$_7clERdS9_.exit.lr.ph.us.preheader", %._crit_edge4862.us
@@ -8123,7 +8122,7 @@ _ZNK5Eigen10MatrixBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE10normalizedEv.exit171
   %.3774.us = phi i32 [ %.27734860.us, %2821 ], [ %.4775.us, %2949 ]
   %.13753.us = phi double [ %.127524861.us, %2821 ], [ %.14754.us, %2949 ]
   %2951 = add nuw i64 %.08084856.us, 1
-  %exitcond5370.not = icmp eq i64 %2951, %umax
+  %exitcond5370.not = icmp eq i64 %2951, %2750
   br i1 %exitcond5370.not, label %._crit_edge4862.us, label %"_ZZN6open3d1t8geometry6kernel11minimum_obb24ComputeMinimumOBBJylankiERKNS_4core6TensorEbENK3$_7clERdS9_.exit.us", !llvm.loop !195
 
 .preheader3551.us:                                ; preds = %_ZNK5Eigen10MatrixBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE10normalizedEv.exit1717.us

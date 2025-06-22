@@ -573,7 +573,6 @@ _ZNSt11_Deque_baseIPKN3ue212_GLOBAL__N_18TreeNodeESaIS4_EE16_M_destroy_nodesEPPS
   %187 = ptrtoint ptr %.sroa.088.2.i to i64
   %188 = sub i64 %186, %187
   %189 = ashr exact i64 %188, 2
-  %umax.i = call i64 @llvm.umax.i64(i64 %189, i64 1)
   br label %.lr.ph161.i
 
 190:                                              ; preds = %.loopexit.i, %.preheader103.i
@@ -1038,7 +1037,7 @@ _ZNSt5dequeIPKN3ue212_GLOBAL__N_18TreeNodeESaIS4_EE16_M_push_back_auxIJS4_EEEvDp
 
 ._crit_edge.i:                                    ; preds = %.lr.ph158.i, %.lr.ph161.i
   %382 = add nuw i64 %.045160.i, 1
-  %exitcond201.not.i = icmp eq i64 %382, %umax.i
+  %exitcond201.not.i = icmp eq i64 %382, %189
   br i1 %exitcond201.not.i, label %._crit_edge162.loopexit.i, label %.lr.ph161.i, !llvm.loop !11
 
 .lr.ph158.i:                                      ; preds = %.lr.ph158.i, %.lr.ph158.preheader.i

@@ -2352,7 +2352,6 @@ define dso_local noundef ptr @_Z21get_fact_mgr_for_funcPK8Function(ptr noundef r
   %5 = ptrtoint ptr %3 to i64
   %6 = sub i64 %4, %5
   %7 = ashr exact i64 %6, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %7, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %15
@@ -2370,7 +2369,7 @@ define dso_local noundef ptr @_Z21get_fact_mgr_for_funcPK8Function(ptr noundef r
 
 15:                                               ; preds = %.lr.ph
   %16 = add nuw i64 %.0610, 1
-  %exitcond.not = icmp eq i64 %16, %umax
+  %exitcond.not = icmp eq i64 %16, %7
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !44
 
 .loopexit:                                        ; preds = %15, %1, %11
@@ -2391,7 +2390,6 @@ define dso_local noundef ptr @_Z12get_fact_mgrPK9CGContext(ptr noundef readonly 
   %6 = ptrtoint ptr %4 to i64
   %7 = sub i64 %5, %6
   %8 = ashr exact i64 %7, 3
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %8, i64 1)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %16, %.lr.ph.preheader.i
@@ -2409,7 +2407,7 @@ define dso_local noundef ptr @_Z12get_fact_mgrPK9CGContext(ptr noundef readonly 
 
 16:                                               ; preds = %.lr.ph.i
   %17 = add nuw i64 %.0610.i, 1
-  %exitcond.not.i = icmp eq i64 %17, %umax.i
+  %exitcond.not.i = icmp eq i64 %17, %8
   br i1 %exitcond.not.i, label %_Z21get_fact_mgr_for_funcPK8Function.exit, label %.lr.ph.i, !llvm.loop !44
 
 _Z21get_fact_mgr_for_funcPK8Function.exit:        ; preds = %16, %1, %12
@@ -2432,7 +2430,6 @@ define dso_local noundef ptr @_Z21find_function_by_nameRKNSt7__cxx1112basic_stri
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8, !tbaa !28
   %10 = load ptr, ptr %0, align 8
-  %umax = tail call i64 @llvm.umax.i64(i64 %7, i64 1)
   %11 = icmp eq i64 %9, 0
   br label %12
 
@@ -2456,7 +2453,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread6: ; preds = %12, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
   %21 = add nuw i64 %.07, 1
-  %exitcond.not = icmp eq i64 %21, %umax
+  %exitcond.not = icmp eq i64 %21, %7
   br i1 %exitcond.not, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread, label %12, !llvm.loop !73
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread6, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit, %18, %1
@@ -2477,7 +2474,6 @@ define dso_local noundef i32 @_Z20find_function_in_setRKSt6vectorIPK8FunctionSaI
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %9, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %15
@@ -2493,7 +2489,7 @@ define dso_local noundef i32 @_Z20find_function_in_setRKSt6vectorIPK8FunctionSaI
 
 15:                                               ; preds = %.lr.ph
   %16 = add nuw i64 %.09, 1
-  %exitcond.not = icmp eq i64 %16, %umax
+  %exitcond.not = icmp eq i64 %16, %9
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !77
 
 .loopexit:                                        ; preds = %15, %2, %13
@@ -4621,7 +4617,6 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %21, 
   %39 = ptrtoint ptr %37 to i64
   %40 = sub i64 %38, %39
   %41 = ashr exact i64 %40, 3
-  %umax.i = call i64 @llvm.umax.i64(i64 %41, i64 1)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %49, %.lr.ph.preheader.i
@@ -4639,7 +4634,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %21, 
 
 49:                                               ; preds = %.lr.ph.i
   %50 = add nuw i64 %.0610.i, 1
-  %exitcond.not.i = icmp eq i64 %50, %umax.i
+  %exitcond.not.i = icmp eq i64 %50, %41
   br i1 %exitcond.not.i, label %_Z21get_fact_mgr_for_funcPK8Function.exit, label %.lr.ph.i, !llvm.loop !44
 
 _Z21get_fact_mgr_for_funcPK8Function.exit:        ; preds = %49, %35, %45
@@ -6214,7 +6209,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25: ; preds = %_ZN
   %39 = ptrtoint ptr %37 to i64
   %40 = sub i64 %38, %39
   %41 = ashr exact i64 %40, 3
-  %umax.i = call i64 @llvm.umax.i64(i64 %41, i64 1)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %49, %.lr.ph.preheader.i
@@ -6232,7 +6226,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25: ; preds = %_ZN
 
 49:                                               ; preds = %.lr.ph.i
   %50 = add nuw i64 %.0610.i, 1
-  %exitcond.not.i = icmp eq i64 %50, %umax.i
+  %exitcond.not.i = icmp eq i64 %50, %41
   br i1 %exitcond.not.i, label %_Z21get_fact_mgr_for_funcPK8Function.exit, label %.lr.ph.i, !llvm.loop !44
 
 _Z21get_fact_mgr_for_funcPK8Function.exit:        ; preds = %49, %35, %45
@@ -6430,7 +6424,6 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %24, 
   %38 = ptrtoint ptr %36 to i64
   %39 = sub i64 %37, %38
   %40 = ashr exact i64 %39, 3
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %40, i64 1)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %48, %.lr.ph.preheader.i
@@ -6448,7 +6441,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %24, 
 
 48:                                               ; preds = %.lr.ph.i
   %49 = add nuw i64 %.0610.i, 1
-  %exitcond.not.i = icmp eq i64 %49, %umax.i
+  %exitcond.not.i = icmp eq i64 %49, %40
   br i1 %exitcond.not.i, label %_Z21get_fact_mgr_for_funcPK8Function.exit, label %.lr.ph.i, !llvm.loop !44
 
 _Z21get_fact_mgr_for_funcPK8Function.exit:        ; preds = %48, %34, %44
@@ -6761,7 +6754,6 @@ define dso_local void @_ZN8Function15compute_summaryEv(ptr noundef nonnull align
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %18, %.lr.ph.preheader.i
@@ -6779,7 +6771,7 @@ define dso_local void @_ZN8Function15compute_summaryEv(ptr noundef nonnull align
 
 18:                                               ; preds = %.lr.ph.i
   %19 = add nuw i64 %.0610.i, 1
-  %exitcond.not.i = icmp eq i64 %19, %umax.i
+  %exitcond.not.i = icmp eq i64 %19, %10
   br i1 %exitcond.not.i, label %_Z21get_fact_mgr_for_funcPK8Function.exit, label %.lr.ph.i, !llvm.loop !44
 
 _Z21get_fact_mgr_for_funcPK8Function.exit:        ; preds = %18, %1, %14

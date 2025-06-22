@@ -13083,7 +13083,6 @@ while.end:                                        ; preds = %if.end17
 
 land.rhs.preheader:                               ; preds = %while.cond.preheader, %while.end
   %nDecimalIndex.0.lcssa96 = phi i32 [ %spec.select, %while.end ], [ -1, %while.cond.preheader ]
-  %umax = tail call i64 @llvm.umax.i64(i64 %nLength.addr.0, i64 1)
   br label %land.rhs
 
 if.then19:                                        ; preds = %while.end
@@ -13133,15 +13132,14 @@ land.rhs:                                         ; preds = %land.rhs.preheader,
 
 for.inc50:                                        ; preds = %land.rhs
   %inc51 = add nuw i64 %i43.072, 1
-  %exitcond86.not = icmp eq i64 %inc51, %umax
-  br i1 %exitcond86.not, label %if.end56, label %land.rhs, !llvm.loop !234
+  %exitcond86.not = icmp eq i64 %inc51, %nLength.addr.0
+  br i1 %exitcond86.not, label %if.then58, label %land.rhs, !llvm.loop !234
 
-if.end56:                                         ; preds = %land.rhs, %for.inc50
-  %i43.0.lcssa = phi i64 [ %i43.072, %land.rhs ], [ %umax, %for.inc50 ]
-  %cmp53 = icmp eq i64 %i43.0.lcssa, %nLength.addr.0
+if.end56:                                         ; preds = %land.rhs
+  %cmp53 = icmp eq i64 %i43.072, %nLength.addr.0
   br i1 %cmp53, label %if.then58, label %if.else61
 
-if.then58:                                        ; preds = %if.end56
+if.then58:                                        ; preds = %for.inc50, %if.end56
   store i8 48, ptr %pString, align 1
   %arrayidx60 = getelementptr inbounds nuw i8, ptr %pString, i64 1
   store i8 0, ptr %arrayidx60, align 1

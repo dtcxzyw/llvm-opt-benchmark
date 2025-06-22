@@ -67833,7 +67833,6 @@ _ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit:            ; preds = %_ZNSt6vectorIdSaIdE
   %1068 = load ptr, ptr %65, align 8, !tbaa !328
   %1069 = load ptr, ptr %64, align 8, !tbaa !328
   %1070 = load ptr, ptr %643, align 8, !tbaa !326
-  %umax = call i64 @llvm.umax.i64(i64 %1067, i64 1)
   br label %1081
 
 ._crit_edge845:                                   ; preds = %1186, %_ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit
@@ -68160,7 +68159,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit593: ; preds = %_Z
 
 1186:                                             ; preds = %1095, %1094
   %1187 = add nuw i64 %.0198843, 1
-  %exitcond.not = icmp eq i64 %1187, %umax
+  %exitcond.not = icmp eq i64 %1187, %1067
   br i1 %exitcond.not, label %._crit_edge845, label %1081, !llvm.loop !924
 
 ._crit_edge851:                                   ; preds = %_ZNK6casadi13GenericMatrixINS_2MXEE3nnzEv.exit678, %._crit_edge845

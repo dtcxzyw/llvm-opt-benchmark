@@ -792,7 +792,6 @@ _ZN3igl6opengl4glfw6Viewer4initEv.exit:           ; preds = %.lr.ph.i.i52, %_ZNK
   %212 = ptrtoint ptr %.pre.i56 to i64
   %213 = sub i64 %211, %212
   %214 = sdiv exact i64 %213, 544
-  %umax.i.i = call i64 @llvm.umax.i64(i64 %214, i64 1)
   br label %.lr.ph.i.i53
 
 .lr.ph.i.i53:                                     ; preds = %218, %.lr.ph.preheader.i.i
@@ -804,7 +803,7 @@ _ZN3igl6opengl4glfw6Viewer4initEv.exit:           ; preds = %.lr.ph.i.i52, %_ZNK
 
 218:                                              ; preds = %.lr.ph.i.i53
   %219 = add nuw i64 %.0710.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %219, %umax.i.i
+  %exitcond.not.i.i = icmp eq i64 %219, %214
   br i1 %exitcond.not.i.i, label %_ZN3igl6opengl4glfw6Viewer4coreEj.exit, label %.lr.ph.i.i53, !llvm.loop !120
 
 _ZN3igl6opengl4glfw6Viewer4coreEj.exit:           ; preds = %.lr.ph.i.i53, %218, %207, %209
@@ -1051,7 +1050,6 @@ define dso_local noundef nonnull align 16 dereferenceable(544) ptr @_ZN3igl6open
   %13 = ptrtoint ptr %11 to i64
   %14 = sub i64 %12, %13
   %15 = sdiv exact i64 %14, 544
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %15, i64 1)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %19, %.lr.ph.preheader.i
@@ -1063,7 +1061,7 @@ define dso_local noundef nonnull align 16 dereferenceable(544) ptr @_ZN3igl6open
 
 19:                                               ; preds = %.lr.ph.i
   %20 = add nuw i64 %.0710.i, 1
-  %exitcond.not.i = icmp eq i64 %20, %umax.i
+  %exitcond.not.i = icmp eq i64 %20, %15
   br i1 %exitcond.not.i, label %_ZNK3igl6opengl4glfw6Viewer10core_indexEi.exit, label %.lr.ph.i, !llvm.loop !120
 
 _ZNK3igl6opengl4glfw6Viewer10core_indexEi.exit:   ; preds = %19, %.lr.ph.i, %7, %4
@@ -2754,7 +2752,6 @@ define dso_local noundef nonnull align 8 dereferenceable(1488) ptr @_ZN3igl6open
   %13 = ptrtoint ptr %11 to i64
   %14 = sub i64 %12, %13
   %15 = sdiv exact i64 %14, 1488
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %15, i64 1)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %19, %.lr.ph.preheader.i
@@ -2766,7 +2763,7 @@ define dso_local noundef nonnull align 8 dereferenceable(1488) ptr @_ZN3igl6open
 
 19:                                               ; preds = %.lr.ph.i
   %20 = add nuw i64 %.0710.i, 1
-  %exitcond.not.i = icmp eq i64 %20, %umax.i
+  %exitcond.not.i = icmp eq i64 %20, %15
   br i1 %exitcond.not.i, label %_ZNK3igl6opengl4glfw6Viewer10mesh_indexEi.exit, label %.lr.ph.i, !llvm.loop !180
 
 _ZNK3igl6opengl4glfw6Viewer10mesh_indexEi.exit:   ; preds = %19, %.lr.ph.i, %7, %4
@@ -5077,7 +5074,6 @@ define dso_local void @_ZN3igl6opengl4glfw6Viewer19select_hovered_coreEv(ptr nou
   %19 = load i32, ptr %18, align 4
   %20 = sub nsw i32 %17, %19
   %21 = sitofp i32 %20 to float
-  %umax = call i64 @llvm.umax.i64(i64 %13, i64 1)
   br label %22
 
 22:                                               ; preds = %.lr.ph, %32
@@ -5110,7 +5106,7 @@ define dso_local void @_ZN3igl6opengl4glfw6Viewer19select_hovered_coreEv(ptr nou
 
 32:                                               ; preds = %22, %27
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %13
   br i1 %exitcond.not, label %.loopexit, label %22, !llvm.loop !208
 
 .loopexit:                                        ; preds = %32, %1, %.critedge
@@ -5212,7 +5208,6 @@ _ZNKSt8functionIFbRN3igl6opengl4glfw6ViewerEiiEEclES4_ii.exit: ; preds = %._crit
   %60 = load i32, ptr %14, align 4
   %61 = sub nsw i32 %59, %60
   %62 = sitofp i32 %61 to float
-  %umax.i = call i64 @llvm.umax.i64(i64 %56, i64 1)
   br label %63
 
 63:                                               ; preds = %73, %.lr.ph.i
@@ -5245,7 +5240,7 @@ _ZNKSt8functionIFbRN3igl6opengl4glfw6ViewerEiiEEclES4_ii.exit: ; preds = %._crit
 
 73:                                               ; preds = %68, %63
   %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %umax.i
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %56
   br i1 %exitcond.not.i, label %_ZN3igl6opengl4glfw6Viewer19select_hovered_coreEv.exit, label %63, !llvm.loop !208
 
 _ZN3igl6opengl4glfw6Viewer19select_hovered_coreEv.exit: ; preds = %73, %45, %.critedge.i
@@ -5911,7 +5906,6 @@ define dso_local noundef zeroext i1 @_ZN3igl6opengl4glfw6Viewer12mouse_scrollEf(
   %25 = load i32, ptr %24, align 4
   %26 = sub nsw i32 %23, %25
   %27 = sitofp i32 %26 to float
-  %umax.i = call i64 @llvm.umax.i64(i64 %19, i64 1)
   br label %28
 
 28:                                               ; preds = %38, %.lr.ph.i
@@ -5944,7 +5938,7 @@ define dso_local noundef zeroext i1 @_ZN3igl6opengl4glfw6Viewer12mouse_scrollEf(
 
 38:                                               ; preds = %33, %28
   %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %umax.i
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %19
   br i1 %exitcond.not.i, label %_ZN3igl6opengl4glfw6Viewer19select_hovered_coreEv.exit, label %28, !llvm.loop !208
 
 _ZN3igl6opengl4glfw6Viewer19select_hovered_coreEv.exit: ; preds = %38, %9, %.critedge.i
@@ -8276,7 +8270,6 @@ define dso_local noundef i64 @_ZNK3igl6opengl4glfw6Viewer10mesh_indexEi(ptr noun
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = sdiv exact i64 %9, 1488
-  %umax = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %14
@@ -8288,7 +8281,7 @@ define dso_local noundef i64 @_ZNK3igl6opengl4glfw6Viewer10mesh_indexEi(ptr noun
 
 14:                                               ; preds = %.lr.ph
   %15 = add nuw i64 %.0710, 1
-  %exitcond.not = icmp eq i64 %15, %umax
+  %exitcond.not = icmp eq i64 %15, %10
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !180
 
 ._crit_edge:                                      ; preds = %14, %.lr.ph, %2
@@ -8321,7 +8314,6 @@ define dso_local noundef nonnull align 8 dereferenceable(1488) ptr @_ZNK3igl6ope
   %13 = ptrtoint ptr %11 to i64
   %14 = sub i64 %12, %13
   %15 = sdiv exact i64 %14, 1488
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %15, i64 1)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %19, %.lr.ph.preheader.i
@@ -8333,7 +8325,7 @@ define dso_local noundef nonnull align 8 dereferenceable(1488) ptr @_ZNK3igl6ope
 
 19:                                               ; preds = %.lr.ph.i
   %20 = add nuw i64 %.0710.i, 1
-  %exitcond.not.i = icmp eq i64 %20, %umax.i
+  %exitcond.not.i = icmp eq i64 %20, %15
   br i1 %exitcond.not.i, label %_ZNK3igl6opengl4glfw6Viewer10mesh_indexEi.exit, label %.lr.ph.i, !llvm.loop !180
 
 _ZNK3igl6opengl4glfw6Viewer10mesh_indexEi.exit:   ; preds = %19, %.lr.ph.i, %7, %4
@@ -8430,7 +8422,6 @@ define dso_local noundef i64 @_ZNK3igl6opengl4glfw6Viewer10core_indexEi(ptr noun
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = sdiv exact i64 %9, 544
-  %umax = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %14
@@ -8442,7 +8433,7 @@ define dso_local noundef i64 @_ZNK3igl6opengl4glfw6Viewer10core_indexEi(ptr noun
 
 14:                                               ; preds = %.lr.ph
   %15 = add nuw i64 %.0710, 1
-  %exitcond.not = icmp eq i64 %15, %umax
+  %exitcond.not = icmp eq i64 %15, %10
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !120
 
 ._crit_edge:                                      ; preds = %14, %.lr.ph, %2
@@ -8475,7 +8466,6 @@ define dso_local noundef nonnull align 16 dereferenceable(544) ptr @_ZNK3igl6ope
   %13 = ptrtoint ptr %11 to i64
   %14 = sub i64 %12, %13
   %15 = sdiv exact i64 %14, 544
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %15, i64 1)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %19, %.lr.ph.preheader.i
@@ -8487,7 +8477,7 @@ define dso_local noundef nonnull align 16 dereferenceable(544) ptr @_ZNK3igl6ope
 
 19:                                               ; preds = %.lr.ph.i
   %20 = add nuw i64 %.0710.i, 1
-  %exitcond.not.i = icmp eq i64 %20, %umax.i
+  %exitcond.not.i = icmp eq i64 %20, %15
   br i1 %exitcond.not.i, label %_ZNK3igl6opengl4glfw6Viewer10core_indexEi.exit, label %.lr.ph.i, !llvm.loop !120
 
 _ZNK3igl6opengl4glfw6Viewer10core_indexEi.exit:   ; preds = %19, %.lr.ph.i, %7, %4

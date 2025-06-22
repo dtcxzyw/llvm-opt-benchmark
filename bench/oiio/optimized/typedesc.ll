@@ -3052,7 +3052,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i: ; preds
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %37 = add nsw i64 %24, -1
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  %umax169 = tail call i64 @llvm.umax.i64(i64 %24, i64 1)
   br i1 %.not161, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48, label %.lr.ph126.split.us
 
 .lr.ph126.split.us:                               ; preds = %.lr.ph126, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit66.us
@@ -3105,7 +3104,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63.us: ; 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit66.us: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63.us, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit62.us
   %61 = add nuw i64 %.026125.us, 1
-  %exitcond168.not = icmp eq i64 %61, %umax169
+  %exitcond168.not = icmp eq i64 %61, %24
   br i1 %exitcond168.not, label %._crit_edge127, label %.lr.ph126.split.us, !llvm.loop !82
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48.us: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48.us.preheader, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit55.us
@@ -3377,7 +3376,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63: ; pre
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit66: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48
   %128 = add nuw i64 %.026125, 1
-  %exitcond170.not = icmp eq i64 %128, %umax169
+  %exitcond170.not = icmp eq i64 %128, %24
   br i1 %exitcond170.not, label %._crit_edge127, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48, !llvm.loop !82
 
 129:                                              ; preds = %._crit_edge127
@@ -3489,7 +3488,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i: ; preds
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %37 = add nsw i64 %24, -1
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  %umax168 = tail call i64 @llvm.umax.i64(i64 %24, i64 1)
   br i1 %.not160, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48, label %.lr.ph125.split.us
 
 .lr.ph125.split.us:                               ; preds = %.lr.ph125, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit66.us
@@ -3542,7 +3540,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63.us: ; 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit66.us: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63.us, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit62.us
   %61 = add nuw i64 %.026124.us, 1
-  %exitcond167.not = icmp eq i64 %61, %umax168
+  %exitcond167.not = icmp eq i64 %61, %24
   br i1 %exitcond167.not, label %._crit_edge126, label %.lr.ph125.split.us, !llvm.loop !101
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48.us: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48.us.preheader, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit55.us
@@ -3814,7 +3812,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63: ; pre
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit66: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48
   %128 = add nuw i64 %.026124, 1
-  %exitcond169.not = icmp eq i64 %128, %umax168
+  %exitcond169.not = icmp eq i64 %128, %24
   br i1 %exitcond169.not, label %._crit_edge126, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48, !llvm.loop !101
 
 129:                                              ; preds = %._crit_edge126
@@ -3926,7 +3924,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i: ; preds
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %37 = add nsw i64 %24, -1
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  %umax168 = tail call i64 @llvm.umax.i64(i64 %24, i64 1)
   br i1 %.not160, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48, label %.lr.ph125.split.us
 
 .lr.ph125.split.us:                               ; preds = %.lr.ph125, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit66.us
@@ -3979,7 +3976,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63.us: ; 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit66.us: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63.us, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit62.us
   %61 = add nuw i64 %.026124.us, 1
-  %exitcond167.not = icmp eq i64 %61, %umax168
+  %exitcond167.not = icmp eq i64 %61, %24
   br i1 %exitcond167.not, label %._crit_edge126, label %.lr.ph125.split.us, !llvm.loop !113
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48.us: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48.us.preheader, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit55.us
@@ -4251,7 +4248,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63: ; pre
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit66: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48
   %127 = add nuw i64 %.026124, 1
-  %exitcond169.not = icmp eq i64 %127, %umax168
+  %exitcond169.not = icmp eq i64 %127, %24
   br i1 %exitcond169.not, label %._crit_edge126, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48, !llvm.loop !113
 
 128:                                              ; preds = %._crit_edge126
@@ -4363,7 +4360,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i: ; preds
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %37 = add nsw i64 %24, -1
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  %umax168 = tail call i64 @llvm.umax.i64(i64 %24, i64 1)
   br i1 %.not160, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48, label %.lr.ph125.split.us
 
 .lr.ph125.split.us:                               ; preds = %.lr.ph125, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit66.us
@@ -4416,7 +4412,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63.us: ; 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit66.us: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63.us, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit62.us
   %61 = add nuw i64 %.026124.us, 1
-  %exitcond167.not = icmp eq i64 %61, %umax168
+  %exitcond167.not = icmp eq i64 %61, %24
   br i1 %exitcond167.not, label %._crit_edge126, label %.lr.ph125.split.us, !llvm.loop !125
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48.us: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48.us.preheader, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit55.us
@@ -4688,7 +4684,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63: ; pre
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit66: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48
   %127 = add nuw i64 %.026124, 1
-  %exitcond169.not = icmp eq i64 %127, %umax168
+  %exitcond169.not = icmp eq i64 %127, %24
   br i1 %exitcond169.not, label %._crit_edge126, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48, !llvm.loop !125
 
 128:                                              ; preds = %._crit_edge126
@@ -4800,7 +4796,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i: ; preds
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %37 = add nsw i64 %24, -1
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  %umax168 = tail call i64 @llvm.umax.i64(i64 %24, i64 1)
   br i1 %.not160, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48, label %.lr.ph125.split.us
 
 .lr.ph125.split.us:                               ; preds = %.lr.ph125, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit66.us
@@ -4853,7 +4848,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63.us: ; 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit66.us: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63.us, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit62.us
   %61 = add nuw i64 %.026124.us, 1
-  %exitcond167.not = icmp eq i64 %61, %umax168
+  %exitcond167.not = icmp eq i64 %61, %24
   br i1 %exitcond167.not, label %._crit_edge126, label %.lr.ph125.split.us, !llvm.loop !137
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48.us: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48.us.preheader, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit55.us
@@ -5125,7 +5120,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63: ; pre
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit66: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48
   %127 = add nuw i64 %.026124, 1
-  %exitcond169.not = icmp eq i64 %127, %umax168
+  %exitcond169.not = icmp eq i64 %127, %24
   br i1 %exitcond169.not, label %._crit_edge126, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48, !llvm.loop !137
 
 128:                                              ; preds = %._crit_edge126
@@ -5237,7 +5232,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i: ; preds
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %36 = add nsw i64 %23, -1
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %umax95 = tail call i64 @llvm.umax.i64(i64 %23, i64 1)
   br i1 %.not87, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48, label %.lr.ph52.split.us
 
 .lr.ph52.split.us:                                ; preds = %.lr.ph52, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit66.us
@@ -5290,7 +5284,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63.us: ; 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit66.us: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63.us, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit62.us
   %60 = add nuw i64 %.02651.us, 1
-  %exitcond94.not = icmp eq i64 %60, %umax95
+  %exitcond94.not = icmp eq i64 %60, %23
   br i1 %exitcond94.not, label %._crit_edge53, label %.lr.ph52.split.us, !llvm.loop !149
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48.us: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48.us.preheader, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit55.us
@@ -5561,7 +5555,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63: ; pre
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit66: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48
   %125 = add nuw i64 %.02651, 1
-  %exitcond96.not = icmp eq i64 %125, %umax95
+  %exitcond96.not = icmp eq i64 %125, %23
   br i1 %exitcond96.not, label %._crit_edge53, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48, !llvm.loop !149
 
 126:                                              ; preds = %._crit_edge53
@@ -5673,7 +5667,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i: ; preds
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %37 = add nsw i64 %24, -1
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  %umax168 = tail call i64 @llvm.umax.i64(i64 %24, i64 1)
   br i1 %.not160, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48, label %.lr.ph125.split.us
 
 .lr.ph125.split.us:                               ; preds = %.lr.ph125, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit66.us
@@ -5726,7 +5719,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63.us: ; 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit66.us: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63.us, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit62.us
   %61 = add nuw i64 %.026124.us, 1
-  %exitcond167.not = icmp eq i64 %61, %umax168
+  %exitcond167.not = icmp eq i64 %61, %24
   br i1 %exitcond167.not, label %._crit_edge126, label %.lr.ph125.split.us, !llvm.loop !161
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48.us: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48.us.preheader, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit55.us
@@ -5998,7 +5991,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63: ; pre
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit66: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48
   %127 = add nuw i64 %.026124, 1
-  %exitcond169.not = icmp eq i64 %127, %umax168
+  %exitcond169.not = icmp eq i64 %127, %24
   br i1 %exitcond169.not, label %._crit_edge126, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48, !llvm.loop !161
 
 128:                                              ; preds = %._crit_edge126
@@ -6110,7 +6103,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i: ; preds
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %37 = add nsw i64 %24, -1
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  %umax168 = tail call i64 @llvm.umax.i64(i64 %24, i64 1)
   br i1 %.not160, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48, label %.lr.ph125.split.us
 
 .lr.ph125.split.us:                               ; preds = %.lr.ph125, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit66.us
@@ -6163,7 +6155,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63.us: ; 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit66.us: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63.us, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit62.us
   %61 = add nuw i64 %.026124.us, 1
-  %exitcond167.not = icmp eq i64 %61, %umax168
+  %exitcond167.not = icmp eq i64 %61, %24
   br i1 %exitcond167.not, label %._crit_edge126, label %.lr.ph125.split.us, !llvm.loop !175
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48.us: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48.us.preheader, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit55.us
@@ -6435,7 +6427,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63: ; pre
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit66: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48
   %127 = add nuw i64 %.026124, 1
-  %exitcond169.not = icmp eq i64 %127, %umax168
+  %exitcond169.not = icmp eq i64 %127, %24
   br i1 %exitcond169.not, label %._crit_edge126, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48, !llvm.loop !175
 
 128:                                              ; preds = %._crit_edge126
@@ -6547,7 +6539,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i: ; preds
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %37 = add nsw i64 %24, -1
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  %umax168 = tail call i64 @llvm.umax.i64(i64 %24, i64 1)
   br i1 %.not160, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48, label %.lr.ph125.split.us
 
 .lr.ph125.split.us:                               ; preds = %.lr.ph125, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit66.us
@@ -6600,7 +6591,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63.us: ; 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit66.us: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63.us, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit62.us
   %61 = add nuw i64 %.026124.us, 1
-  %exitcond167.not = icmp eq i64 %61, %umax168
+  %exitcond167.not = icmp eq i64 %61, %24
   br i1 %exitcond167.not, label %._crit_edge126, label %.lr.ph125.split.us, !llvm.loop !187
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48.us: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48.us.preheader, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit55.us
@@ -6873,7 +6864,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63: ; pre
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit66: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48
   %128 = add nuw i64 %.026124, 1
-  %exitcond169.not = icmp eq i64 %128, %umax168
+  %exitcond169.not = icmp eq i64 %128, %24
   br i1 %exitcond169.not, label %._crit_edge126, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48, !llvm.loop !187
 
 129:                                              ; preds = %._crit_edge126
@@ -6985,7 +6976,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i: ; preds
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %37 = add nsw i64 %24, -1
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  %umax168 = tail call i64 @llvm.umax.i64(i64 %24, i64 1)
   br i1 %.not160, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48, label %.lr.ph125.split.us
 
 .lr.ph125.split.us:                               ; preds = %.lr.ph125, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit66.us
@@ -7038,7 +7028,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63.us: ; 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit66.us: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63.us, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit62.us
   %61 = add nuw i64 %.026124.us, 1
-  %exitcond167.not = icmp eq i64 %61, %umax168
+  %exitcond167.not = icmp eq i64 %61, %24
   br i1 %exitcond167.not, label %._crit_edge126, label %.lr.ph125.split.us, !llvm.loop !199
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48.us: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48.us.preheader, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit55.us
@@ -7311,7 +7301,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63: ; pre
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit66: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48
   %128 = add nuw i64 %.026124, 1
-  %exitcond169.not = icmp eq i64 %128, %umax168
+  %exitcond169.not = icmp eq i64 %128, %24
   br i1 %exitcond169.not, label %._crit_edge126, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48, !llvm.loop !199
 
 129:                                              ; preds = %._crit_edge126
@@ -7449,7 +7439,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i: ; preds
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %37 = add nsw i64 %24, -1
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  %umax168 = tail call i64 @llvm.umax.i64(i64 %24, i64 1)
   br i1 %.not160, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48, label %.lr.ph125.split.us
 
 .lr.ph125.split.us:                               ; preds = %.lr.ph125, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit66.us
@@ -7502,7 +7491,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63.us: ; 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit66.us: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63.us, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit62.us
   %61 = add nuw i64 %.026124.us, 1
-  %exitcond167.not = icmp eq i64 %61, %umax168
+  %exitcond167.not = icmp eq i64 %61, %24
   br i1 %exitcond167.not, label %._crit_edge126, label %.lr.ph125.split.us, !llvm.loop !214
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48.us: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48.us.preheader, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit55.us
@@ -7774,7 +7763,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63: ; pre
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit66: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48
   %127 = add nuw i64 %.026124, 1
-  %exitcond169.not = icmp eq i64 %127, %umax168
+  %exitcond169.not = icmp eq i64 %127, %24
   br i1 %exitcond169.not, label %._crit_edge126, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48, !llvm.loop !214
 
 128:                                              ; preds = %._crit_edge126
@@ -7886,7 +7875,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i: ; preds
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %37 = add nsw i64 %24, -1
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  %umax168 = tail call i64 @llvm.umax.i64(i64 %24, i64 1)
   br i1 %.not160, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48, label %.lr.ph125.split.us
 
 .lr.ph125.split.us:                               ; preds = %.lr.ph125, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit66.us
@@ -7939,7 +7927,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63.us: ; 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit66.us: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63.us, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit62.us
   %61 = add nuw i64 %.026124.us, 1
-  %exitcond167.not = icmp eq i64 %61, %umax168
+  %exitcond167.not = icmp eq i64 %61, %24
   br i1 %exitcond167.not, label %._crit_edge126, label %.lr.ph125.split.us, !llvm.loop !226
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48.us: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48.us.preheader, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit55.us
@@ -8211,7 +8199,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63: ; pre
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit66: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48
   %127 = add nuw i64 %.026124, 1
-  %exitcond169.not = icmp eq i64 %127, %umax168
+  %exitcond169.not = icmp eq i64 %127, %24
   br i1 %exitcond169.not, label %._crit_edge126, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48, !llvm.loop !226
 
 128:                                              ; preds = %._crit_edge126
@@ -8323,7 +8311,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i: ; preds
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %37 = add nsw i64 %24, -1
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  %umax168 = tail call i64 @llvm.umax.i64(i64 %24, i64 1)
   br i1 %.not160, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48, label %.lr.ph125.split.us
 
 .lr.ph125.split.us:                               ; preds = %.lr.ph125, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit66.us
@@ -8376,7 +8363,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63.us: ; 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit66.us: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63.us, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit62.us
   %61 = add nuw i64 %.026124.us, 1
-  %exitcond167.not = icmp eq i64 %61, %umax168
+  %exitcond167.not = icmp eq i64 %61, %24
   br i1 %exitcond167.not, label %._crit_edge126, label %.lr.ph125.split.us, !llvm.loop !238
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48.us: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48.us.preheader, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit55.us
@@ -8648,7 +8635,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63: ; pre
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit66: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48
   %127 = add nuw i64 %.026124, 1
-  %exitcond169.not = icmp eq i64 %127, %umax168
+  %exitcond169.not = icmp eq i64 %127, %24
   br i1 %exitcond169.not, label %._crit_edge126, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48, !llvm.loop !238
 
 128:                                              ; preds = %._crit_edge126
@@ -8760,7 +8747,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i: ; preds
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %37 = add nsw i64 %24, -1
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  %umax168 = tail call i64 @llvm.umax.i64(i64 %24, i64 1)
   br i1 %.not160, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48, label %.lr.ph125.split.us
 
 .lr.ph125.split.us:                               ; preds = %.lr.ph125, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit66.us
@@ -8813,7 +8799,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63.us: ; 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit66.us: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63.us, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit62.us
   %61 = add nuw i64 %.026124.us, 1
-  %exitcond167.not = icmp eq i64 %61, %umax168
+  %exitcond167.not = icmp eq i64 %61, %24
   br i1 %exitcond167.not, label %._crit_edge126, label %.lr.ph125.split.us, !llvm.loop !250
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48.us: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48.us.preheader, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit55.us
@@ -9085,7 +9071,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63: ; pre
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit66: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48
   %127 = add nuw i64 %.026124, 1
-  %exitcond169.not = icmp eq i64 %127, %umax168
+  %exitcond169.not = icmp eq i64 %127, %24
   br i1 %exitcond169.not, label %._crit_edge126, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48, !llvm.loop !250
 
 128:                                              ; preds = %._crit_edge126
@@ -9197,7 +9183,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i: ; preds
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %37 = add nsw i64 %24, -1
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  %umax168 = tail call i64 @llvm.umax.i64(i64 %24, i64 1)
   br i1 %.not160, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48, label %.lr.ph125.split.us
 
 .lr.ph125.split.us:                               ; preds = %.lr.ph125, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit66.us
@@ -9250,7 +9235,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63.us: ; 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit66.us: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63.us, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit62.us
   %61 = add nuw i64 %.026124.us, 1
-  %exitcond167.not = icmp eq i64 %61, %umax168
+  %exitcond167.not = icmp eq i64 %61, %24
   br i1 %exitcond167.not, label %._crit_edge126, label %.lr.ph125.split.us, !llvm.loop !262
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48.us: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48.us.preheader, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit55.us
@@ -9521,7 +9506,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63: ; pre
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit66: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48
   %127 = add nuw i64 %.026124, 1
-  %exitcond169.not = icmp eq i64 %127, %umax168
+  %exitcond169.not = icmp eq i64 %127, %24
   br i1 %exitcond169.not, label %._crit_edge126, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48, !llvm.loop !262
 
 128:                                              ; preds = %._crit_edge126
@@ -9633,7 +9618,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i: ; preds
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %37 = add nsw i64 %24, -1
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  %umax168 = tail call i64 @llvm.umax.i64(i64 %24, i64 1)
   br i1 %.not160, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48, label %.lr.ph125.split.us
 
 .lr.ph125.split.us:                               ; preds = %.lr.ph125, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit66.us
@@ -9686,7 +9670,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63.us: ; 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit66.us: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63.us, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit62.us
   %61 = add nuw i64 %.026124.us, 1
-  %exitcond167.not = icmp eq i64 %61, %umax168
+  %exitcond167.not = icmp eq i64 %61, %24
   br i1 %exitcond167.not, label %._crit_edge126, label %.lr.ph125.split.us, !llvm.loop !274
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48.us: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48.us.preheader, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit55.us
@@ -9957,7 +9941,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63: ; pre
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit66: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48
   %127 = add nuw i64 %.026124, 1
-  %exitcond169.not = icmp eq i64 %127, %umax168
+  %exitcond169.not = icmp eq i64 %127, %24
   br i1 %exitcond169.not, label %._crit_edge126, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48, !llvm.loop !274
 
 128:                                              ; preds = %._crit_edge126
@@ -10069,7 +10053,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i: ; preds
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %37 = add nsw i64 %24, -1
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  %umax168 = tail call i64 @llvm.umax.i64(i64 %24, i64 1)
   br i1 %.not160, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48, label %.lr.ph125.split.us
 
 .lr.ph125.split.us:                               ; preds = %.lr.ph125, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit66.us
@@ -10122,7 +10105,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63.us: ; 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit66.us: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63.us, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit62.us
   %61 = add nuw i64 %.026124.us, 1
-  %exitcond167.not = icmp eq i64 %61, %umax168
+  %exitcond167.not = icmp eq i64 %61, %24
   br i1 %exitcond167.not, label %._crit_edge126, label %.lr.ph125.split.us, !llvm.loop !286
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48.us: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48.us.preheader, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit55.us
@@ -10393,7 +10376,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63: ; pre
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit66: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48
   %127 = add nuw i64 %.026124, 1
-  %exitcond169.not = icmp eq i64 %127, %umax168
+  %exitcond169.not = icmp eq i64 %127, %24
   br i1 %exitcond169.not, label %._crit_edge126, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48, !llvm.loop !286
 
 128:                                              ; preds = %._crit_edge126
@@ -10505,7 +10488,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i: ; preds
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %37 = add nsw i64 %24, -1
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  %umax168 = tail call i64 @llvm.umax.i64(i64 %24, i64 1)
   br i1 %.not160, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48, label %.lr.ph125.split.us
 
 .lr.ph125.split.us:                               ; preds = %.lr.ph125, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit66.us
@@ -10558,7 +10540,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63.us: ; 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit66.us: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63.us, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit62.us
   %61 = add nuw i64 %.026124.us, 1
-  %exitcond167.not = icmp eq i64 %61, %umax168
+  %exitcond167.not = icmp eq i64 %61, %24
   br i1 %exitcond167.not, label %._crit_edge126, label %.lr.ph125.split.us, !llvm.loop !298
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48.us: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48.us.preheader, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit55.us
@@ -10829,7 +10811,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63: ; pre
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit66: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48
   %127 = add nuw i64 %.026124, 1
-  %exitcond169.not = icmp eq i64 %127, %umax168
+  %exitcond169.not = icmp eq i64 %127, %24
   br i1 %exitcond169.not, label %._crit_edge126, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48, !llvm.loop !298
 
 128:                                              ; preds = %._crit_edge126
@@ -10941,7 +10923,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i: ; preds
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %37 = add nsw i64 %24, -1
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  %umax168 = tail call i64 @llvm.umax.i64(i64 %24, i64 1)
   br i1 %.not160, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48, label %.lr.ph125.split.us
 
 .lr.ph125.split.us:                               ; preds = %.lr.ph125, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit66.us
@@ -10994,7 +10975,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63.us: ; 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit66.us: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63.us, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit62.us
   %61 = add nuw i64 %.026124.us, 1
-  %exitcond167.not = icmp eq i64 %61, %umax168
+  %exitcond167.not = icmp eq i64 %61, %24
   br i1 %exitcond167.not, label %._crit_edge126, label %.lr.ph125.split.us, !llvm.loop !310
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48.us: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48.us.preheader, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit55.us
@@ -11303,7 +11284,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63: ; pre
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit66: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48
   %148 = add nuw i64 %.026124, 1
-  %exitcond169.not = icmp eq i64 %148, %umax168
+  %exitcond169.not = icmp eq i64 %148, %24
   br i1 %exitcond169.not, label %._crit_edge126, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48, !llvm.loop !310
 
 149:                                              ; preds = %._crit_edge126
@@ -11415,7 +11396,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i: ; preds
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %37 = add nsw i64 %24, -1
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  %umax168 = tail call i64 @llvm.umax.i64(i64 %24, i64 1)
   br i1 %.not160, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48, label %.lr.ph125.split.us
 
 .lr.ph125.split.us:                               ; preds = %.lr.ph125, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit66.us
@@ -11468,7 +11448,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63.us: ; 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit66.us: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63.us, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit62.us
   %61 = add nuw i64 %.026124.us, 1
-  %exitcond167.not = icmp eq i64 %61, %umax168
+  %exitcond167.not = icmp eq i64 %61, %24
   br i1 %exitcond167.not, label %._crit_edge126, label %.lr.ph125.split.us, !llvm.loop !325
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48.us: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48.us.preheader, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit55.us
@@ -11777,7 +11757,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63: ; pre
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit66: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48
   %148 = add nuw i64 %.026124, 1
-  %exitcond169.not = icmp eq i64 %148, %umax168
+  %exitcond169.not = icmp eq i64 %148, %24
   br i1 %exitcond169.not, label %._crit_edge126, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48, !llvm.loop !325
 
 149:                                              ; preds = %._crit_edge126
@@ -11889,7 +11869,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i: ; preds
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %37 = add nsw i64 %24, -1
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  %umax168 = tail call i64 @llvm.umax.i64(i64 %24, i64 1)
   br i1 %.not160, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48, label %.lr.ph125.split.us
 
 .lr.ph125.split.us:                               ; preds = %.lr.ph125, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit66.us
@@ -11942,7 +11921,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63.us: ; 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit66.us: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63.us, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit62.us
   %61 = add nuw i64 %.026124.us, 1
-  %exitcond167.not = icmp eq i64 %61, %umax168
+  %exitcond167.not = icmp eq i64 %61, %24
   br i1 %exitcond167.not, label %._crit_edge126, label %.lr.ph125.split.us, !llvm.loop !337
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48.us: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48.us.preheader, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit55.us
@@ -12214,7 +12193,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63: ; pre
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit66: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48
   %127 = add nuw i64 %.026124, 1
-  %exitcond169.not = icmp eq i64 %127, %umax168
+  %exitcond169.not = icmp eq i64 %127, %24
   br i1 %exitcond169.not, label %._crit_edge126, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48, !llvm.loop !337
 
 128:                                              ; preds = %._crit_edge126
@@ -12326,7 +12305,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i: ; preds
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %37 = add nsw i64 %24, -1
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  %umax168 = tail call i64 @llvm.umax.i64(i64 %24, i64 1)
   br i1 %.not160, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48, label %.lr.ph125.split.us
 
 .lr.ph125.split.us:                               ; preds = %.lr.ph125, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit66.us
@@ -12379,7 +12357,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63.us: ; 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit66.us: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63.us, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit62.us
   %61 = add nuw i64 %.026124.us, 1
-  %exitcond167.not = icmp eq i64 %61, %umax168
+  %exitcond167.not = icmp eq i64 %61, %24
   br i1 %exitcond167.not, label %._crit_edge126, label %.lr.ph125.split.us, !llvm.loop !351
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48.us: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48.us.preheader, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit55.us
@@ -12651,7 +12629,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63: ; pre
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit66: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48
   %127 = add nuw i64 %.026124, 1
-  %exitcond169.not = icmp eq i64 %127, %umax168
+  %exitcond169.not = icmp eq i64 %127, %24
   br i1 %exitcond169.not, label %._crit_edge126, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48, !llvm.loop !351
 
 128:                                              ; preds = %._crit_edge126
@@ -12763,7 +12741,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i: ; preds
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %37 = add nsw i64 %24, -1
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  %umax168 = tail call i64 @llvm.umax.i64(i64 %24, i64 1)
   br i1 %.not160, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48, label %.lr.ph125.split.us
 
 .lr.ph125.split.us:                               ; preds = %.lr.ph125, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit66.us
@@ -12816,7 +12793,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63.us: ; 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit66.us: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63.us, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit62.us
   %61 = add nuw i64 %.026124.us, 1
-  %exitcond167.not = icmp eq i64 %61, %umax168
+  %exitcond167.not = icmp eq i64 %61, %24
   br i1 %exitcond167.not, label %._crit_edge126, label %.lr.ph125.split.us, !llvm.loop !363
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48.us: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48.us.preheader, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit55.us
@@ -13087,7 +13064,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63: ; pre
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit66: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48
   %127 = add nuw i64 %.026124, 1
-  %exitcond169.not = icmp eq i64 %127, %umax168
+  %exitcond169.not = icmp eq i64 %127, %24
   br i1 %exitcond169.not, label %._crit_edge126, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48, !llvm.loop !363
 
 128:                                              ; preds = %._crit_edge126
@@ -13199,7 +13176,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i: ; preds
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %37 = add nsw i64 %24, -1
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  %umax168 = tail call i64 @llvm.umax.i64(i64 %24, i64 1)
   br i1 %.not160, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48, label %.lr.ph125.split.us
 
 .lr.ph125.split.us:                               ; preds = %.lr.ph125, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit66.us
@@ -13252,7 +13228,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63.us: ; 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit66.us: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63.us, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit62.us
   %61 = add nuw i64 %.026124.us, 1
-  %exitcond167.not = icmp eq i64 %61, %umax168
+  %exitcond167.not = icmp eq i64 %61, %24
   br i1 %exitcond167.not, label %._crit_edge126, label %.lr.ph125.split.us, !llvm.loop !377
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48.us: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48.us.preheader, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit55.us
@@ -13523,7 +13499,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63: ; pre
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit66: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i63, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48
   %127 = add nuw i64 %.026124, 1
-  %exitcond169.not = icmp eq i64 %127, %umax168
+  %exitcond169.not = icmp eq i64 %127, %24
   br i1 %exitcond169.not, label %._crit_edge126, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit48, !llvm.loop !377
 
 128:                                              ; preds = %._crit_edge126
@@ -13652,7 +13628,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i: ; preds
   %53 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %54 = add nsw i64 %30, -1
   %55 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  %umax265 = tail call i64 @llvm.umax.i64(i64 %30, i64 1)
   br i1 %.not257, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit62, label %.lr.ph201.split.us
 
 .lr.ph201.split.us:                               ; preds = %.lr.ph201, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit97.us
@@ -13705,7 +13680,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i94.us: ; 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit97.us: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i94.us, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit93.us
   %78 = add nuw i64 %.030200.us, 1
-  %exitcond264.not = icmp eq i64 %78, %umax265
+  %exitcond264.not = icmp eq i64 %78, %30
   br i1 %exitcond264.not, label %._crit_edge202, label %.lr.ph201.split.us, !llvm.loop !389
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit62.us: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit62.us.preheader, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit89.us
@@ -14239,7 +14214,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i94: ; pre
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit97: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i94, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit62
   %216 = add nuw i64 %.030200, 1
-  %exitcond266.not = icmp eq i64 %216, %umax265
+  %exitcond266.not = icmp eq i64 %216, %30
   br i1 %exitcond266.not, label %._crit_edge202, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit62, !llvm.loop !389
 
 217:                                              ; preds = %._crit_edge202
@@ -14368,7 +14343,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i: ; preds
   %53 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %54 = add nsw i64 %30, -1
   %55 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  %umax260 = tail call i64 @llvm.umax.i64(i64 %30, i64 1)
   br i1 %.not252, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit62, label %.lr.ph196.split.us
 
 .lr.ph196.split.us:                               ; preds = %.lr.ph196, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit97.us
@@ -14421,7 +14395,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i94.us: ; 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit97.us: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i94.us, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit93.us
   %78 = add nuw i64 %.030195.us, 1
-  %exitcond259.not = icmp eq i64 %78, %umax260
+  %exitcond259.not = icmp eq i64 %78, %30
   br i1 %exitcond259.not, label %._crit_edge197, label %.lr.ph196.split.us, !llvm.loop !411
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit62.us: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit62.us.preheader, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit89.us
@@ -14955,7 +14929,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i94: ; pre
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit97: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i94, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit62
   %216 = add nuw i64 %.030195, 1
-  %exitcond261.not = icmp eq i64 %216, %umax260
+  %exitcond261.not = icmp eq i64 %216, %30
   br i1 %exitcond261.not, label %._crit_edge197, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit62, !llvm.loop !411
 
 217:                                              ; preds = %._crit_edge197

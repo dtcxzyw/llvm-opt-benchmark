@@ -43016,7 +43016,6 @@ _ZNK2OT4post13accelerator_t15get_glyph_countEv.exit.thread40: ; preds = %4, %_ZN
 .lr.ph:                                           ; preds = %.preheader45
   %23 = zext nneg i32 %.0.i43 to i64
   %24 = shl nuw nsw i64 %23, 1
-  %wide.trip.count = zext nneg i32 %.0.i43 to i64
   br label %25
 
 25:                                               ; preds = %.lr.ph, %33
@@ -43030,7 +43029,7 @@ _ZNK2OT4post13accelerator_t15get_glyph_countEv.exit.thread40: ; preds = %4, %_ZN
   %28 = getelementptr inbounds nuw i16, ptr %26, i64 %indvars.iv
   store i16 %27, ptr %28, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %23
   br i1 %exitcond.not, label %29, label %.preheader, !llvm.loop !147
 
 29:                                               ; preds = %.preheader

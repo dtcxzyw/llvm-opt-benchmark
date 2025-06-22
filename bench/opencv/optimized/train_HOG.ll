@@ -3864,7 +3864,6 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i643: ; preds = %.noexc646, %
   %419 = ptrtoint ptr %409 to i64
   %420 = sub i64 %418, %419
   %421 = sdiv exact i64 %420, 96
-  %umax = call i64 @llvm.umax.i64(i64 %421, i64 1)
   br label %427
 
 422:                                              ; preds = %408
@@ -3881,7 +3880,7 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i643: ; preds = %.noexc646, %
 
 425:                                              ; preds = %427
   %426 = add nuw i64 %.0120824, 1
-  %exitcond.not = icmp eq i64 %426, %umax
+  %exitcond.not = icmp eq i64 %426, %421
   br i1 %exitcond.not, label %._crit_edge, label %427, !llvm.loop !155
 
 427:                                              ; preds = %.lr.ph, %425

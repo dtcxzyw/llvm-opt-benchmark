@@ -341,7 +341,6 @@ define noundef i32 @_ZN20colvarbias_histogram6updateEv(ptr noundef nonnull align
   %43 = getelementptr inbounds nuw i8, ptr %36, i64 672
   %44 = load ptr, ptr %43, align 8, !tbaa !48
   %45 = load ptr, ptr %5, align 8, !tbaa !49
-  %umax = call i64 @llvm.umax.i64(i64 %34, i64 1)
   br label %46
 
 46:                                               ; preds = %.lr.ph66, %46
@@ -378,7 +377,7 @@ define noundef i32 @_ZN20colvarbias_histogram6updateEv(ptr noundef nonnull align
   %70 = getelementptr inbounds nuw i32, ptr %45, i64 %.01865
   store i32 %69, ptr %70, align 4, !tbaa !12
   %71 = add nuw i64 %.01865, 1
-  %exitcond.not = icmp eq i64 %71, %umax
+  %exitcond.not = icmp eq i64 %71, %34
   br i1 %exitcond.not, label %._crit_edge67, label %46, !llvm.loop !64
 
 ._crit_edge67:                                    ; preds = %46, %.preheader
@@ -921,7 +920,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit71: ; preds = %_ZN
   %90 = ptrtoint ptr %88 to i64
   %91 = sub i64 %89, %90
   %92 = ashr exact i64 %91, 3
-  %umax = call i64 @llvm.umax.i64(i64 %92, i64 1)
   br label %.lr.ph
 
 .preheader:                                       ; preds = %84
@@ -933,7 +931,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit71: ; preds = %_ZN
   %94 = ptrtoint ptr %88 to i64
   %95 = sub i64 %93, %94
   %96 = ashr exact i64 %95, 3
-  %umax161 = call i64 @llvm.umax.i64(i64 %96, i64 1)
   br label %.lr.ph154
 
 .lr.ph154:                                        ; preds = %.lr.ph154.preheader, %216
@@ -1290,12 +1287,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit113: ; preds = %_Z
 216:                                              ; preds = %_ZNK11colvarvalue4sizeEv.exit.thread, %_ZNK11colvarvalue4sizeEv.exit, %184
   %.0.i.ph150 = phi i64 [ %.0.i.ph, %_ZNK11colvarvalue4sizeEv.exit.thread ], [ %159, %_ZNK11colvarvalue4sizeEv.exit ], [ %.0.i.ph151152, %184 ]
   %217 = add nuw i64 %.0153, 1
-  %exitcond162.not = icmp eq i64 %217, %umax161
+  %exitcond162.not = icmp eq i64 %217, %96
   br i1 %exitcond162.not, label %.loopexit146, label %.lr.ph154, !llvm.loop !130
 
 218:                                              ; preds = %.lr.ph
   %219 = add nuw i64 %.1149, 1
-  %exitcond.not = icmp eq i64 %219, %umax
+  %exitcond.not = icmp eq i64 %219, %92
   br i1 %exitcond.not, label %.loopexit146, label %.lr.ph, !llvm.loop !131
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %218

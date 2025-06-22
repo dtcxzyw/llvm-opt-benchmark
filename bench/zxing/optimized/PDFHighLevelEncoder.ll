@@ -1616,7 +1616,6 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit129:        ; preds = %241, %243
   %254 = ashr exact i64 %253, 2
   %255 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %256 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %umax = call i64 @llvm.umax.i64(i64 %254, i64 1)
   br label %258
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
@@ -1667,7 +1666,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit129:        ; preds = %241, %243
 
 _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %269, %271, %274
   %278 = add nuw i64 %.049143, 1
-  %exitcond.not = icmp eq i64 %278, %umax
+  %exitcond.not = icmp eq i64 %278, %254
   br i1 %exitcond.not, label %._crit_edge, label %258, !llvm.loop !33
 
 279:                                              ; preds = %._crit_edge

@@ -3278,7 +3278,6 @@ _ZNSt6vectorIN2cv3VecIiLi2EEESaIS2_EED2Ev.exit663: ; preds = %.loopexit1025, %.l
   %930 = sub i64 %928, %929
   %931 = ashr exact i64 %930, 4
   %932 = getelementptr inbounds nuw i8, ptr %.0370, i64 8
-  %umax = call i64 @llvm.umax.i64(i64 %931, i64 1)
   br label %1154
 
 .lr.ph1984:                                       ; preds = %.preheader1024, %1117
@@ -4365,7 +4364,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit: ; preds = %1
   %.2365 = phi i32 [ %.5368, %._crit_edge2005 ], [ %.13642025, %._crit_edge1992 ], [ %.13642025, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit733 ], [ %.43672318, %._crit_edge2005.thread ], [ %.43672318, %1382 ], [ %.43672318, %1391 ]
   %.2358 = phi i32 [ %1207, %._crit_edge2005 ], [ %.13572026, %._crit_edge1992 ], [ %.13572026, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit733 ], [ %1207, %._crit_edge2005.thread ], [ %1207, %1391 ], [ %.13572026, %1382 ]
   %1394 = add nuw i64 %.03952021, 1
-  %exitcond2275.not = icmp eq i64 %1394, %umax
+  %exitcond2275.not = icmp eq i64 %1394, %931
   br i1 %exitcond2275.not, label %._crit_edge2028.loopexit, label %1154, !llvm.loop !179
 
 _ZNSt6vectorIdSaIdEE9push_backERKd.exit:          ; preds = %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i, %1135

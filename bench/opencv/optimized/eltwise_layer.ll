@@ -7358,11 +7358,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit194: ; preds = %_Z
   %407 = sub i64 %405, %406
   %408 = ashr exact i64 %407, 2
   %409 = icmp eq i64 %408, %114
-  br i1 %409, label %.lr.ph241.preheader, label %410
-
-.lr.ph241.preheader:                              ; preds = %404
-  %umax = call i64 @llvm.umax.i64(i64 %114, i64 1)
-  br label %.lr.ph241
+  br i1 %409, label %.lr.ph241, label %410
 
 410:                                              ; preds = %404
   invoke void @_ZN2cv6detail17check_failed_autoEmmRKNS0_12CheckContextE(i64 noundef %408, i64 noundef %114, ptr noundef nonnull align 8 dereferenceable(48) @_ZZN2cv3dnn16EltwiseLayerImpl14EltwiseInvoker3runERS1_PKNS_3MatEiRS4_iE15__cv_check__393) #27
@@ -7378,11 +7374,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit194: ; preds = %_Z
 
 414:                                              ; preds = %.lr.ph241
   %415 = add nuw i64 %.0240, 1
-  %exitcond271.not = icmp eq i64 %415, %umax
+  %exitcond271.not = icmp eq i64 %415, %114
   br i1 %exitcond271.not, label %.critedge, label %.lr.ph241, !llvm.loop !196
 
-.lr.ph241:                                        ; preds = %.lr.ph241.preheader, %414
-  %.0240 = phi i64 [ %415, %414 ], [ 0, %.lr.ph241.preheader ]
+.lr.ph241:                                        ; preds = %404, %414
+  %.0240 = phi i64 [ %415, %414 ], [ 0, %404 ]
   %416 = getelementptr inbounds nuw float, ptr %.pre285, i64 %.0240
   %417 = load float, ptr %416, align 4, !tbaa !71
   %418 = fcmp une float %417, 1.000000e+00

@@ -8999,7 +8999,6 @@ for.body.preheader:                               ; preds = %_ZNSt6vectorIlSaIlE
   tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i34, i8 0, i64 %18, i1 false)
   %_M_finish.i.i7.i = getelementptr inbounds nuw i8, ptr %intValues, i64 8
   store ptr %add.ptr.i.i.i33, ptr %_M_finish.i.i7.i, align 8
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %if.end31
@@ -9028,7 +9027,7 @@ if.end31:                                         ; preds = %if.then29, %for.bod
   %add.ptr.i46 = getelementptr inbounds i64, ptr %23, i64 %i.024
   store i64 %conv, ptr %add.ptr.i46, align 8
   %inc = add nuw i64 %i.024, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !131
 
 for.end:                                          ; preds = %if.end31
@@ -9462,7 +9461,6 @@ for.body.preheader:                               ; preds = %_ZNSt6vectorIlSaIlE
   tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i34, i8 0, i64 %18, i1 false)
   %_M_finish.i.i7.i = getelementptr inbounds nuw i8, ptr %intValues, i64 8
   store ptr %add.ptr.i.i.i33, ptr %_M_finish.i.i7.i, align 8
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %if.end31
@@ -9490,7 +9488,7 @@ if.end31:                                         ; preds = %if.then29, %for.bod
   %add.ptr.i46 = getelementptr inbounds i64, ptr %23, i64 %i.024
   store i64 %24, ptr %add.ptr.i46, align 8
   %inc = add nuw i64 %i.024, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !141
 
 for.end:                                          ; preds = %if.end31

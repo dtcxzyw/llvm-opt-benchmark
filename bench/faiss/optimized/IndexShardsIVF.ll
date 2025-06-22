@@ -425,7 +425,6 @@ define void @_ZN5faiss14IndexShardsIVF12add_with_idsElPKfPKl(ptr noundef nonnull
   %14 = ptrtoint ptr %12 to i64
   %15 = sub i64 %13, %14
   %16 = ashr exact i64 %15, 4
-  %umax = tail call i64 @llvm.umax.i64(i64 %16, i64 1)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %23
@@ -448,7 +447,7 @@ define void @_ZN5faiss14IndexShardsIVF12add_with_idsElPKfPKl(ptr noundef nonnull
 23:                                               ; preds = %20, %.lr.ph
   %24 = phi i1 [ false, %.lr.ph ], [ %22, %20 ]
   %25 = add nuw i64 %.036160, 1
-  %exitcond.not = icmp eq i64 %25, %umax
+  %exitcond.not = icmp eq i64 %25, %16
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !42
 
 26:                                               ; preds = %._crit_edge

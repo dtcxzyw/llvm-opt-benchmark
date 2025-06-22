@@ -688,7 +688,6 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN11ModelWriter15shape_inference
 
 .lr.ph:                                           ; preds = %12
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %umax = tail call i64 @llvm.umax.i64(i64 %21, i64 1)
   br label %32
 
 32:                                               ; preds = %.lr.ph, %.critedge
@@ -720,7 +719,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN11ModelWriter15shape_inference
 
 .critedge:                                        ; preds = %32
   %52 = add nuw i64 %.0124301, 1
-  %exitcond.not = icmp eq i64 %52, %umax
+  %exitcond.not = icmp eq i64 %52, %21
   br i1 %exitcond.not, label %.critedge152, label %32, !llvm.loop !56
 
 .critedge152:                                     ; preds = %.critedge, %12
@@ -736,7 +735,6 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN11ModelWriter15shape_inference
   %53 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %54 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %55 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %umax333 = call i64 @llvm.umax.i64(i64 %21, i64 1)
   br label %62
 
 .critedge154.preheader:                           ; preds = %130, %.preheader224
@@ -748,7 +746,6 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN11ModelWriter15shape_inference
   %57 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %59 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  %umax335 = call i64 @llvm.umax.i64(i64 %30, i64 1)
   br label %149
 
 60:                                               ; preds = %.critedge152
@@ -919,7 +916,7 @@ _ZN4ncnn3MatD2Ev.exit155:                         ; preds = %115, %113, %121, %1
 
 130:                                              ; preds = %62, %70, %_ZN4ncnn3MatD2Ev.exit155
   %131 = add nuw i64 %.0138303, 1
-  %exitcond334.not = icmp eq i64 %131, %umax333
+  %exitcond334.not = icmp eq i64 %131, %21
   br i1 %exitcond334.not, label %.critedge154.preheader, label %62, !llvm.loop !79
 
 132:                                              ; preds = %72
@@ -945,7 +942,6 @@ _ZN4ncnn3MatD2Ev.exit155:                         ; preds = %115, %113, %121, %1
   %146 = getelementptr inbounds nuw i8, ptr %5, i64 52
   %147 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %148 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %umax337 = call i64 @llvm.umax.i64(i64 %21, i64 1)
   br label %213
 
 149:                                              ; preds = %.lr.ph309, %.critedge154
@@ -1095,12 +1091,8 @@ _ZN4ncnn3MatD2Ev.exit157:                         ; preds = %197, %195, %203, %2
 
 .critedge154:                                     ; preds = %149, %_ZN4ncnn3MatD2Ev.exit157
   %212 = add nuw i64 %.0143308, 1
-  %exitcond336.not = icmp eq i64 %212, %umax335
+  %exitcond336.not = icmp eq i64 %212, %30
   br i1 %exitcond336.not, label %.critedge154._crit_edge, label %149, !llvm.loop !88
-
-.lr.ph319.preheader:                              ; preds = %.loopexit223
-  %umax339 = call i64 @llvm.umax.i64(i64 %21, i64 1)
-  br label %.lr.ph319
 
 213:                                              ; preds = %.lr.ph313, %.loopexit223
   %.0137312 = phi i64 [ 0, %.lr.ph313 ], [ %316, %.loopexit223 ]
@@ -1316,11 +1308,11 @@ _ZN4ncnn3MatD2Ev.exit159:                         ; preds = %301, %298, %307, %3
 
 .loopexit223:                                     ; preds = %_ZN4ncnn3MatD2Ev.exit158, %.preheader222, %213
   %316 = add nuw i64 %.0137312, 1
-  %exitcond338.not = icmp eq i64 %316, %umax337
-  br i1 %exitcond338.not, label %.lr.ph319.preheader, label %213, !llvm.loop !97
+  %exitcond338.not = icmp eq i64 %316, %21
+  br i1 %exitcond338.not, label %.lr.ph319, label %213, !llvm.loop !97
 
-.lr.ph319:                                        ; preds = %.lr.ph319.preheader, %.loopexit
-  %.0131318 = phi i64 [ %491, %.loopexit ], [ 0, %.lr.ph319.preheader ]
+.lr.ph319:                                        ; preds = %.loopexit223, %.loopexit
+  %.0131318 = phi i64 [ %491, %.loopexit ], [ 0, %.loopexit223 ]
   %317 = load ptr, ptr %13, align 8, !tbaa !39
   %318 = load ptr, ptr %317, align 8, !tbaa !44
   %319 = getelementptr inbounds nuw ptr, ptr %318, i64 %.0131318
@@ -1619,7 +1611,7 @@ _ZN4ncnn3MataSERKS0_.exit165:                     ; preds = %.noexc164, %.lr.ph3
 
 .loopexit:                                        ; preds = %_ZN4ncnn3MataSERKS0_.exit165, %.preheader, %.lr.ph319
   %491 = add nuw i64 %.0131318, 1
-  %exitcond340.not = icmp eq i64 %491, %umax339
+  %exitcond340.not = icmp eq i64 %491, %21
   br i1 %exitcond340.not, label %.loopexit221, label %.lr.ph319, !llvm.loop !101
 
 .loopexit221:                                     ; preds = %.loopexit, %.critedge154._crit_edge, %132
@@ -2050,7 +2042,6 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN11ModelWriter25estimate_memory
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  %umax = call i64 @llvm.umax.i64(i64 %22, i64 1)
   br label %51
 
 47:                                               ; preds = %13
@@ -2235,7 +2226,7 @@ _ZN4ncnn3MatD2Ev.exit82:                          ; preds = %113, %102, %119, %1
 
 128:                                              ; preds = %51, %59, %_ZN4ncnn3MatD2Ev.exit82
   %129 = add nuw i64 %.073162, 1
-  %exitcond.not = icmp eq i64 %129, %umax
+  %exitcond.not = icmp eq i64 %129, %22
   br i1 %exitcond.not, label %.critedge, label %51, !llvm.loop !126
 
 130:                                              ; preds = %61
@@ -2264,7 +2255,6 @@ _ZN4ncnn3MatD2Ev.exit82:                          ; preds = %113, %102, %119, %1
   %144 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %145 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %146 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %umax170 = call i64 @llvm.umax.i64(i64 %31, i64 1)
   br label %181
 
 ._crit_edge:                                      ; preds = %252, %.critedge
@@ -2490,7 +2480,7 @@ _ZN4ncnn3MatD2Ev.exit81:                          ; preds = %237, %_ZNSt6vectorI
 
 252:                                              ; preds = %191, %181, %188, %_ZN4ncnn3MatD2Ev.exit81
   %253 = add nuw i64 %.064163, 1
-  %exitcond171.not = icmp eq i64 %253, %umax170
+  %exitcond171.not = icmp eq i64 %253, %31
   br i1 %exitcond171.not, label %._crit_edge, label %181, !llvm.loop !129
 
 254:                                              ; preds = %232, %200
@@ -4339,7 +4329,6 @@ define dso_local noundef i32 @_ZN11ModelWriter4saveEPKcS1_(ptr noundef nonnull r
 
 .lr.ph4370:                                       ; preds = %3
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %umax4401 = call i64 @llvm.umax.i64(i64 %20, i64 1)
   br label %41
 
 ._crit_edge4371:                                  ; preds = %.loopexit4221
@@ -4357,7 +4346,6 @@ define dso_local noundef i32 @_ZN11ModelWriter4saveEPKcS1_(ptr noundef nonnull r
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %39 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %umax4411 = call i64 @llvm.umax.i64(i64 %20, i64 1)
   br label %176
 
 41:                                               ; preds = %.lr.ph4370, %.loopexit4221
@@ -4386,7 +4374,6 @@ define dso_local noundef i32 @_ZN11ModelWriter4saveEPKcS1_(ptr noundef nonnull r
   %56 = ptrtoint ptr %54 to i64
   %57 = sub i64 %55, %56
   %58 = ashr exact i64 %57, 2
-  %umax = call i64 @llvm.umax.i64(i64 %58, i64 1)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.noexc4130, %49
@@ -4402,7 +4389,6 @@ define dso_local noundef i32 @_ZN11ModelWriter4saveEPKcS1_(ptr noundef nonnull r
   %64 = ptrtoint ptr %62 to i64
   %65 = sub i64 %63, %64
   %66 = ashr exact i64 %65, 2
-  %umax4399 = call i64 @llvm.umax.i64(i64 %66, i64 1)
   br label %.lr.ph4366
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.noexc4130
@@ -4554,7 +4540,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_Identi
 
 .noexc4130:                                       ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13.i, %.noexc4132
   %117 = add nuw i64 %.029814363, 1
-  %exitcond.not = icmp eq i64 %117, %umax
+  %exitcond.not = icmp eq i64 %117, %58
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !152
 
 118:                                              ; preds = %.noexc4131, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE10_M_insert_IRKS5_NSB_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS5_EPSt18_Rb_tree_node_baseSJ_OT_RT0_.exit.i
@@ -4711,7 +4697,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_Identi
 
 .noexc4150:                                       ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13.i4176, %.noexc4152
   %170 = add nuw i64 %.030064364, 1
-  %exitcond4400.not = icmp eq i64 %170, %umax4399
+  %exitcond4400.not = icmp eq i64 %170, %66
   br i1 %exitcond4400.not, label %.loopexit4221, label %.lr.ph4366, !llvm.loop !153
 
 171:                                              ; preds = %.noexc4151, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE10_M_insert_IRKS5_NSB_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS5_EPSt18_Rb_tree_node_baseSJ_OT_RT0_.exit.i4141
@@ -4722,7 +4708,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_Identi
 .loopexit4221:                                    ; preds = %.noexc4150, %._crit_edge, %41
   %.12978 = phi i32 [ %.029774368, %41 ], [ %50, %._crit_edge ], [ %50, %.noexc4150 ]
   %173 = add nuw i64 %.029794367, 1
-  %exitcond4402.not = icmp eq i64 %173, %umax4401
+  %exitcond4402.not = icmp eq i64 %173, %20
   br i1 %exitcond4402.not, label %._crit_edge4371, label %41, !llvm.loop !154
 
 ._crit_edge4388:                                  ; preds = %5696, %._crit_edge4371.thread
@@ -4782,26 +4768,18 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_Identi
   %213 = load ptr, ptr %212, align 8, !tbaa !52
   %214 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.26, ptr noundef %211, ptr noundef %213, i64 noundef %202, i64 noundef %210) #24
   %.not4394 = icmp eq ptr %197, %198
-  br i1 %.not4394, label %.preheader4220, label %.lr.ph4374.preheader
-
-.lr.ph4374.preheader:                             ; preds = %194
-  %umax4403 = call i64 @llvm.umax.i64(i64 %202, i64 1)
-  br label %.lr.ph4374
+  br i1 %.not4394, label %.preheader4220, label %.lr.ph4374
 
 .preheader4220:                                   ; preds = %.lr.ph4374, %194
   %.not4395 = icmp eq ptr %205, %206
-  br i1 %.not4395, label %.critedge.loopexit.thread, label %.lr.ph4376.preheader
+  br i1 %.not4395, label %.critedge.loopexit.thread, label %.lr.ph4376
 
 .critedge.loopexit.thread:                        ; preds = %.preheader4220
   %215 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.28, i64 noundef %209) #24
   br label %.loopexit
 
-.lr.ph4376.preheader:                             ; preds = %.preheader4220
-  %umax4405 = call i64 @llvm.umax.i64(i64 %210, i64 1)
-  br label %.lr.ph4376
-
-.lr.ph4374:                                       ; preds = %.lr.ph4374.preheader, %.lr.ph4374
-  %.030084372 = phi i64 [ %225, %.lr.ph4374 ], [ 0, %.lr.ph4374.preheader ]
+.lr.ph4374:                                       ; preds = %194, %.lr.ph4374
+  %.030084372 = phi i64 [ %225, %.lr.ph4374 ], [ 0, %194 ]
   %216 = load ptr, ptr %195, align 8, !tbaa !77
   %217 = getelementptr inbounds nuw i32, ptr %216, i64 %.030084372
   %218 = load i32, ptr %217, align 4, !tbaa !78
@@ -4812,18 +4790,17 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_Identi
   %223 = load ptr, ptr %222, align 8, !tbaa !52
   %224 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.27, ptr noundef %223) #24
   %225 = add nuw i64 %.030084372, 1
-  %exitcond4404.not = icmp eq i64 %225, %umax4403
+  %exitcond4404.not = icmp eq i64 %225, %202
   br i1 %exitcond4404.not, label %.preheader4220, label %.lr.ph4374, !llvm.loop !155
 
 .lr.ph4380:                                       ; preds = %.lr.ph4376
   %226 = load ptr, ptr %203, align 8, !tbaa !77
   %227 = load ptr, ptr %31, align 8, !tbaa !45
   %228 = load ptr, ptr %227, align 8, !tbaa !49
-  %umax4407 = call i64 @llvm.umax.i64(i64 %210, i64 1)
   br label %241
 
-.lr.ph4376:                                       ; preds = %.lr.ph4376.preheader, %.lr.ph4376
-  %.030094375 = phi i64 [ %238, %.lr.ph4376 ], [ 0, %.lr.ph4376.preheader ]
+.lr.ph4376:                                       ; preds = %.preheader4220, %.lr.ph4376
+  %.030094375 = phi i64 [ %238, %.lr.ph4376 ], [ 0, %.preheader4220 ]
   %229 = load ptr, ptr %203, align 8, !tbaa !77
   %230 = getelementptr inbounds nuw i32, ptr %229, i64 %.030094375
   %231 = load i32, ptr %230, align 4, !tbaa !78
@@ -4834,12 +4811,12 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_Identi
   %236 = load ptr, ptr %235, align 8, !tbaa !52
   %237 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.27, ptr noundef %236) #24
   %238 = add nuw i64 %.030094375, 1
-  %exitcond4406.not = icmp eq i64 %238, %umax4405
+  %exitcond4406.not = icmp eq i64 %238, %210
   br i1 %exitcond4406.not, label %.lr.ph4380, label %.lr.ph4376, !llvm.loop !156
 
 239:                                              ; preds = %241
   %240 = add nuw i64 %.030134378, 1
-  %exitcond4408.not = icmp eq i64 %240, %umax4407
+  %exitcond4408.not = icmp eq i64 %240, %210
   br i1 %exitcond4408.not, label %.critedge.loopexit, label %241, !llvm.loop !157
 
 241:                                              ; preds = %.lr.ph4380, %239
@@ -4854,7 +4831,6 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_Identi
 
 .critedge.loopexit:                               ; preds = %239
   %247 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.28, i64 noundef %209) #24
-  %umax4409 = call i64 @llvm.umax.i64(i64 %210, i64 1)
   br label %.lr.ph4383
 
 .lr.ph4383:                                       ; preds = %.critedge.loopexit, %.lr.ph4383
@@ -4876,7 +4852,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_Identi
   %262 = load i32, ptr %261, align 8, !tbaa !84
   %263 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.29, i32 noundef %256, i32 noundef %258, i32 noundef %260, i32 noundef %262) #24
   %264 = add nuw i64 %.030144382, 1
-  %exitcond4410.not = icmp eq i64 %264, %umax4409
+  %exitcond4410.not = icmp eq i64 %264, %210
   br i1 %exitcond4410.not, label %.loopexit, label %.lr.ph4383, !llvm.loop !158
 
 .loopexit:                                        ; preds = %241, %.lr.ph4383, %.critedge.loopexit.thread
@@ -14095,7 +14071,7 @@ _ZNK4ncnn3Mat5emptyEv.exit4094.thread:            ; preds = %1520, %1644, %3045,
 5696:                                             ; preds = %269, %_ZNK4ncnn3Mat5emptyEv.exit4094.thread, %189, %184, %176
   %.1 = phi i64 [ %.04385, %176 ], [ %.04385, %184 ], [ %.04385, %189 ], [ %.04385, %269 ], [ %.3, %_ZNK4ncnn3Mat5emptyEv.exit4094.thread ]
   %5697 = add nuw i64 %.030074384, 1
-  %exitcond4412.not = icmp eq i64 %5697, %umax4411
+  %exitcond4412.not = icmp eq i64 %5697, %20
   br i1 %exitcond4412.not, label %._crit_edge4388, label %176, !llvm.loop !769
 
 5698:                                             ; preds = %4244, %_ZN4ncnn3MatD2Ev.exit, %3459, %_ZN4ncnn3MatD2Ev.exit4054, %3127, %_ZN4ncnn3MatD2Ev.exit4056, %5376, %5277, %5227, %5150, %5018, %4793, %4415, %4342, %4124, %4070, %3941, %3851, %3753, %3658, %3608, %2884, %2724, %2493, %2339, %2151, %1932, %1790, %1414, %1212, %1043, %865, %675, %527, %332, %317, %294
@@ -27056,19 +27032,14 @@ define dso_local noundef i32 @_ZN11NetQuantize15fuse_requantizeEv(ptr noundef no
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
   %.not313 = icmp eq ptr %5, %6
-  br i1 %.not313, label %._crit_edge312, label %.lr.ph286.preheader
-
-.lr.ph286.preheader:                              ; preds = %1
-  %umax = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
-  br label %.lr.ph286
+  br i1 %.not313, label %._crit_edge312, label %.lr.ph286
 
 .lr.ph311:                                        ; preds = %_ZN4ncnn3MataSERKS0_.exit212
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %umax318 = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %403
 
-.lr.ph286:                                        ; preds = %.lr.ph286.preheader, %_ZN4ncnn3MataSERKS0_.exit212
-  %.0284 = phi i64 [ %.pre-phi345, %_ZN4ncnn3MataSERKS0_.exit212 ], [ 0, %.lr.ph286.preheader ]
+.lr.ph286:                                        ; preds = %1, %_ZN4ncnn3MataSERKS0_.exit212
+  %.0284 = phi i64 [ %.pre-phi345, %_ZN4ncnn3MataSERKS0_.exit212 ], [ 0, %1 ]
   %12 = load ptr, ptr %2, align 8, !tbaa !39
   %13 = load ptr, ptr %12, align 8, !tbaa !44
   %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %.0284
@@ -27720,7 +27691,7 @@ _ZN4ncnn3Mat7releaseEv.exit228:                   ; preds = %373, %372, %358, %3
 
 _ZN4ncnn3MataSERKS0_.exit212:                     ; preds = %62, %._ZN4ncnn3MataSERKS0_.exit212_crit_edge, %_ZN4ncnn3Mat7releaseEv.exit228, %.critedge195, %._crit_edge, %91, %99, %172, %180, %253, %261, %335, %344, %327, %_ZN4ncnn3MataSERKS0_.exit214
   %.pre-phi345 = phi i64 [ %.pre344, %._ZN4ncnn3MataSERKS0_.exit212_crit_edge ], [ %.0156280, %_ZN4ncnn3Mat7releaseEv.exit228 ], [ %.0156280, %.critedge195 ], [ %.0156280, %._crit_edge ], [ %.0156280, %91 ], [ %.0156280, %99 ], [ %.0156280, %172 ], [ %.0156280, %180 ], [ %.0156280, %253 ], [ %.0156280, %261 ], [ %.0156280, %335 ], [ %.0156280, %344 ], [ %.0156280, %327 ], [ %.0156280, %_ZN4ncnn3MataSERKS0_.exit214 ], [ %.0156280, %62 ]
-  %exitcond315.not = icmp eq i64 %.pre-phi345, %umax
+  %exitcond315.not = icmp eq i64 %.pre-phi345, %10
   br i1 %exitcond315.not, label %.lr.ph311, label %.lr.ph286, !llvm.loop !859
 
 ._crit_edge312:                                   ; preds = %_ZN4ncnn3MataSERKS0_.exit, %1
@@ -28503,7 +28474,7 @@ _ZN4ncnn3Mat7releaseEv.exit240:                   ; preds = %838, %837, %823, %8
 
 _ZN4ncnn3MataSERKS0_.exit:                        ; preds = %447, %._crit_edge301, %511, %505, %492, %._ZN4ncnn3MataSERKS0_.exit_crit_edge, %_ZN4ncnn3Mat7releaseEv.exit240, %.critedge204, %._crit_edge292, %_ZN4ncnn3MataSERKS0_.exit206, %792, %809, %800, %726, %718, %645, %637, %564, %556
   %.pre-phi = phi i64 [ %.pre343, %._ZN4ncnn3MataSERKS0_.exit_crit_edge ], [ %.0158287, %_ZN4ncnn3Mat7releaseEv.exit240 ], [ %.0158287, %.critedge204 ], [ %.0158287, %._crit_edge292 ], [ %.0158287, %_ZN4ncnn3MataSERKS0_.exit206 ], [ %.0158287, %792 ], [ %.0158287, %809 ], [ %.0158287, %800 ], [ %.0158287, %726 ], [ %.0158287, %718 ], [ %.0158287, %645 ], [ %.0158287, %637 ], [ %.0158287, %564 ], [ %.0158287, %556 ], [ %.0158287, %492 ], [ %.0158287, %505 ], [ %.0158287, %511 ], [ %.0158287, %._crit_edge301 ], [ %.0158287, %447 ]
-  %exitcond319.not = icmp eq i64 %.pre-phi, %umax318
+  %exitcond319.not = icmp eq i64 %.pre-phi, %10
   br i1 %exitcond319.not, label %._crit_edge312, label %403, !llvm.loop !863
 }
 

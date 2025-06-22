@@ -173,7 +173,6 @@ define hidden noundef i32 @_ZN4ncnn3Net21custom_layer_to_indexEPKc(ptr noundef n
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
   %12 = ashr exact i64 %11, 5
-  %umax = tail call i64 @llvm.umax.i64(i64 %12, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %19
@@ -190,7 +189,7 @@ define hidden noundef i32 @_ZN4ncnn3Net21custom_layer_to_indexEPKc(ptr noundef n
 
 19:                                               ; preds = %.lr.ph
   %20 = add nuw i64 %.0812, 1
-  %exitcond.not = icmp eq i64 %20, %umax
+  %exitcond.not = icmp eq i64 %20, %12
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !23
 
 .loopexit:                                        ; preds = %19, %2, %17
@@ -292,7 +291,6 @@ define hidden noundef ptr @_ZN4ncnn3Net30create_overwrite_builtin_layerEi(ptr no
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
   %12 = ashr exact i64 %11, 5
-  %umax = tail call i64 @llvm.umax.i64(i64 %12, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %16
@@ -304,7 +302,7 @@ define hidden noundef ptr @_ZN4ncnn3Net30create_overwrite_builtin_layerEi(ptr no
 
 16:                                               ; preds = %.lr.ph
   %17 = add nuw i64 %.01620, 1
-  %exitcond.not = icmp eq i64 %17, %umax
+  %exitcond.not = icmp eq i64 %17, %12
   br i1 %exitcond.not, label %.thread, label %.lr.ph, !llvm.loop !48
 
 18:                                               ; preds = %.lr.ph
@@ -4163,7 +4161,6 @@ _ZN4ncnnL17get_masked_optionERKNS_6OptionEi.exit: ; preds = %62, %124
   %160 = ptrtoint ptr %158 to i64
   %161 = sub i64 %159, %160
   %162 = ashr exact i64 %161, 5
-  %umax = call i64 @llvm.umax.i64(i64 %162, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %166
@@ -4175,7 +4172,7 @@ _ZN4ncnnL17get_masked_optionERKNS_6OptionEi.exit: ; preds = %62, %124
 
 166:                                              ; preds = %.lr.ph
   %167 = add nuw i64 %.042, 1
-  %exitcond.not = icmp eq i64 %167, %umax
+  %exitcond.not = icmp eq i64 %167, %162
   br i1 %exitcond.not, label %.thread, label %.lr.ph, !llvm.loop !160
 
 168:                                              ; preds = %.lr.ph
@@ -4661,14 +4658,10 @@ define hidden noundef i32 @_ZN4ncnn3Net21register_custom_layerEPKcPFPNS_5LayerEP
   %19 = sub i64 %17, %18
   %20 = ashr exact i64 %19, 5
   %.not4068.not = icmp eq ptr %15, %16
-  br i1 %.not4068.not, label %.critedge.thread, label %.lr.ph.preheader
+  br i1 %.not4068.not, label %.critedge.thread, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %7
-  %umax = tail call i64 @llvm.umax.i64(i64 %20, i64 1)
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %35
-  %.03669 = phi i64 [ %36, %35 ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %7, %35
+  %.03669 = phi i64 [ %36, %35 ], [ 0, %7 ]
   %21 = getelementptr inbounds nuw %"struct.ncnn::overwrite_builtin_layer_registry_entry", ptr %16, i64 %.03669
   %22 = load i32, ptr %21, align 8, !tbaa !46
   %23 = icmp eq i32 %22, %6
@@ -4693,7 +4686,7 @@ define hidden noundef i32 @_ZN4ncnn3Net21register_custom_layerEPKcPFPNS_5LayerEP
 
 35:                                               ; preds = %.lr.ph
   %36 = add nuw i64 %.03669, 1
-  %exitcond.not = icmp eq i64 %36, %umax
+  %exitcond.not = icmp eq i64 %36, %20
   br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !168
 
 .critedge:                                        ; preds = %35
@@ -4909,14 +4902,10 @@ define hidden noundef i32 @_ZN4ncnn3Net21register_custom_layerEiPFPNS_5LayerEPvE
   %21 = sub i64 %19, %20
   %22 = ashr exact i64 %21, 5
   %.not3851.not = icmp eq ptr %17, %18
-  br i1 %.not3851.not, label %.critedge.thread, label %.lr.ph.preheader
+  br i1 %.not3851.not, label %.critedge.thread, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %9
-  %umax = tail call i64 @llvm.umax.i64(i64 %22, i64 1)
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %37
-  %.03152 = phi i64 [ %38, %37 ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %9, %37
+  %.03152 = phi i64 [ %38, %37 ], [ 0, %9 ]
   %23 = getelementptr inbounds nuw %"struct.ncnn::overwrite_builtin_layer_registry_entry", ptr %18, i64 %.03152
   %24 = load i32, ptr %23, align 8, !tbaa !46
   %25 = icmp eq i32 %24, %1
@@ -4941,7 +4930,7 @@ define hidden noundef i32 @_ZN4ncnn3Net21register_custom_layerEiPFPNS_5LayerEPvE
 
 37:                                               ; preds = %.lr.ph
   %38 = add nuw i64 %.03152, 1
-  %exitcond.not = icmp eq i64 %38, %umax
+  %exitcond.not = icmp eq i64 %38, %22
   br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !170
 
 .critedge:                                        ; preds = %37

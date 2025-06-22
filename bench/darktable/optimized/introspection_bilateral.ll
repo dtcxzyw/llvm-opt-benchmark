@@ -348,7 +348,6 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %139 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %140 = zext nneg i32 %95 to i64
   %.not334 = icmp ugt i32 %spec.select, %22
-  %umax = tail call i64 @llvm.umax.i64(i64 %99, i64 1)
   %smax368 = tail call i64 @llvm.smax.i64(i64 %137, i64 %99)
   br label %144
 
@@ -411,7 +410,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   store <4 x float> %.0233.val, ptr %153, align 16, !tbaa !74, !alias.scope !80, !nontemporal !78
   %154 = add nuw nsw i64 %.0231303, 1
   %155 = getelementptr inbounds nuw i8, ptr %.0233302, i64 16
-  %exitcond365.not = icmp eq i64 %154, %umax
+  %exitcond365.not = icmp eq i64 %154, %99
   br i1 %exitcond365.not, label %.preheader265, label %.preheader266, !llvm.loop !83
 
 .preheader264:                                    ; preds = %198, %.preheader265

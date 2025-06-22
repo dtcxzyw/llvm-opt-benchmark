@@ -381,7 +381,6 @@ define dso_local void @_Z15JoinStringPieceB5cxx11RKSt6vectorI11StringPieceSaIS0_
   %12 = sub i64 %10, %11
   %13 = ashr exact i64 %12, 4
   %14 = add nsw i64 %13, -1
-  %umax = tail call i64 @llvm.umax.i64(i64 %13, i64 1)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
@@ -401,7 +400,7 @@ define dso_local void @_Z15JoinStringPieceB5cxx11RKSt6vectorI11StringPieceSaIS0_
   %18 = load i64, ptr %17, align 8, !tbaa !35
   %19 = add i64 %18, %.02134
   %20 = add nuw i64 %.02035, 1
-  %exitcond.not = icmp eq i64 %20, %umax
+  %exitcond.not = icmp eq i64 %20, %13
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !37
 
 21:                                               ; preds = %._crit_edge

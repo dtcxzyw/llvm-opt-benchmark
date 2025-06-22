@@ -2057,7 +2057,6 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit43: ; preds = %57
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   store i64 6, ptr %79, align 8, !tbaa !122
   %invariant.gep107 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %wide.trip.count = zext nneg i32 %42 to i64
   br label %82
 
 80:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit58
@@ -2101,7 +2100,7 @@ _ZNSolsEf.exit56:                                 ; preds = %_ZStlsISt11char_tra
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit58: ; preds = %_ZNSolsEf.exit56
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %53
   br i1 %exitcond.not, label %80, label %82, !llvm.loop !123
 
 97:                                               ; preds = %_ZNSolsEf.exit56, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit54, %_ZNSolsEf.exit52, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit50, %_ZNSolsEf.exit, %82

@@ -909,7 +909,7 @@ for.cond135.preheader:                            ; preds = %for.cond135.prehead
   br label %for.body138
 
 for.cond.cleanup137:                              ; preds = %for.body138
-  %88 = add i64 %cond, %m.0487
+  %88 = add i64 %period, %m.0487
   %div143 = fdiv double %add, %conv
   %89 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !49
   %cmp.not.i.i168 = icmp eq ptr %89, %86
@@ -986,7 +986,7 @@ for.body138:                                      ; preds = %for.cond135.prehead
   %add = fadd double %sum.1482, %92
   %inc = add nuw i64 %l.0481, 1
   %inc140 = add i64 %m.1483, 1
-  %exitcond.not = icmp eq i64 %inc, %cond
+  %exitcond.not = icmp eq i64 %inc, %period
   br i1 %exitcond.not, label %for.cond.cleanup137, label %for.body138, !llvm.loop !60
 
 invoke.cont145:                                   ; preds = %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i, %if.then.i.i169

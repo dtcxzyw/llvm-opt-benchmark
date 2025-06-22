@@ -2480,7 +2480,6 @@ define noundef i64 @_ZNK9grpc_core12EndpointList8Endpoint5IndexEv(ptr noundef no
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
   %11 = ashr exact i64 %10, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %11, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %15
@@ -2492,7 +2491,7 @@ define noundef i64 @_ZNK9grpc_core12EndpointList8Endpoint5IndexEv(ptr noundef no
 
 15:                                               ; preds = %.lr.ph
   %16 = add nuw i64 %.069, 1
-  %exitcond.not = icmp eq i64 %16, %umax
+  %exitcond.not = icmp eq i64 %16, %11
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !133
 
 ._crit_edge:                                      ; preds = %15, %.lr.ph, %1

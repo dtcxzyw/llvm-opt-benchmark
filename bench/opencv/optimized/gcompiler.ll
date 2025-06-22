@@ -2715,7 +2715,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
   %633 = getelementptr inbounds nuw i8, ptr %26, i64 264
   %634 = getelementptr inbounds nuw i8, ptr %26, i64 280
   %635 = getelementptr inbounds nuw i8, ptr %26, i64 288
-  %umax.i = call i64 @llvm.umax.i64(i64 %585, i64 1)
   br label %649
 
 636:                                              ; preds = %609
@@ -3023,7 +3022,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50.i: ; preds = %7
   call void @_ZN2cv5gimpl13SubgraphMatchD2Ev(ptr noundef nonnull align 8 dereferenceable(328) %26) #25
   call void @llvm.lifetime.end.p0(i64 328, ptr nonnull %26) #25
   %731 = add nuw i64 %.02266.i, 1
-  %exitcond.not.i = icmp eq i64 %731, %umax.i
+  %exitcond.not.i = icmp eq i64 %731, %585
   br i1 %exitcond.not.i, label %_ZN12_GLOBAL__N_120checkTransformationsERKN2cv14GKernelPackageERKSt6vectorISt10unique_ptrIN3ade5GraphESt14default_deleteIS7_EESaISA_EESE_.exit, label %649, !llvm.loop !129
 
 732:                                              ; preds = %713

@@ -24320,14 +24320,10 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit:              ; preds = %349, %353, %359
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31) #26
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30) #26
   %.not213 = icmp eq ptr %194, %195
-  br i1 %.not213, label %._crit_edge207, label %.lr.ph206.preheader
-
-.lr.ph206.preheader:                              ; preds = %_ZN4cvc58internal8TypeNodeD2Ev.exit
-  %umax = call i64 @llvm.umax.i64(i64 %199, i64 1)
-  br label %.lr.ph206
+  br i1 %.not213, label %._crit_edge207, label %.lr.ph206
 
 .loopexit:                                        ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit157, %.lr.ph206
-  %exitcond215.not = icmp eq i64 %380, %umax
+  %exitcond215.not = icmp eq i64 %380, %199
   br i1 %exitcond215.not, label %._crit_edge207, label %.lr.ph206, !llvm.loop !751
 
 ._crit_edge207:                                   ; preds = %.loopexit, %_ZN4cvc58internal8TypeNodeD2Ev.exit
@@ -24388,8 +24384,8 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit:              ; preds = %349, %353, %359
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30) #26
   br label %527
 
-.lr.ph206:                                        ; preds = %.lr.ph206.preheader, %.loopexit
-  %.033205 = phi i64 [ %380, %.loopexit ], [ 0, %.lr.ph206.preheader ]
+.lr.ph206:                                        ; preds = %_ZN4cvc58internal8TypeNodeD2Ev.exit, %.loopexit
+  %.033205 = phi i64 [ %380, %.loopexit ], [ 0, %_ZN4cvc58internal8TypeNodeD2Ev.exit ]
   %380 = add nuw i64 %.033205, 1
   %381 = icmp ult i64 %380, %199
   br i1 %381, label %.lr.ph204, label %.loopexit
@@ -32107,7 +32103,6 @@ _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEENS1_6theory3sep9TheorySep8HeapInfo
   %3011 = getelementptr inbounds nuw i8, ptr %137, i64 8
   %3012 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %3013 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  %umax = call i64 @llvm.umax.i64(i64 %3007, i64 1)
   %3014 = getelementptr inbounds nuw i8, ptr %136, i64 19
   br label %3021
 
@@ -33026,7 +33021,7 @@ _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit2189: ; preds = %3083, %_ZN4cvc58
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2376: ; preds = %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit2189, %3355, %3361
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %133) #26
   %3365 = add nuw i64 %.03506, 1
-  %exitcond.not = icmp eq i64 %3365, %umax
+  %exitcond.not = icmp eq i64 %3365, %3007
   br i1 %exitcond.not, label %._crit_edge3509, label %3021, !llvm.loop !888
 
 .body2213:                                        ; preds = %3148, %3159, %3338

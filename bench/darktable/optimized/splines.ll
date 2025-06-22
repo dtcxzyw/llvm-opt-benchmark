@@ -4215,7 +4215,6 @@ _ZNSt6vectorIfSaIfEE9push_backEOf.exit:           ; preds = %_ZNSt6vectorIfSaIfE
 
 .lr.ph264:                                        ; preds = %.preheader
   %106 = load ptr, ptr %0, align 8
-  %umax = tail call i64 @llvm.umax.i64(i64 %8, i64 1)
   br label %120
 
 107:                                              ; preds = %.lr.ph262, %107
@@ -4287,7 +4286,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %151, %.preheader
   br label %151
 
 151:                                              ; preds = %131, %142, %128
-  %exitcond283.not = icmp eq i64 %121, %umax
+  %exitcond283.not = icmp eq i64 %121, %8
   br i1 %exitcond283.not, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %120, !llvm.loop !134
 
 152:                                              ; preds = %.loopexit, %.loopexit.split-lp, %103

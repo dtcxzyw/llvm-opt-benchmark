@@ -233,7 +233,6 @@ _ZN4Luau7CodeGenL10readVarIntEPhRm.exit66:        ; preds = %_ZN4Luau7CodeGenL10
 _ZNSt6vectorIN4Luau7CodeGen19BytecodeRegTypeInfoESaIS2_EE6resizeEm.exit: ; preds = %100, %102, %104, %106
   %107 = phi ptr [ %.pre, %100 ], [ %94, %102 ], [ %94, %104 ], [ %94, %106 ]
   %invariant.gep = getelementptr i8, ptr %9, i64 1
-  %wide.trip.count = zext i32 %68 to i64
   br label %108
 
 108:                                              ; preds = %_ZNSt6vectorIN4Luau7CodeGen19BytecodeRegTypeInfoESaIS2_EE6resizeEm.exit, %_ZN4Luau7CodeGenL10readVarIntEPhRm.exit80
@@ -290,7 +289,7 @@ _ZN4Luau7CodeGenL10readVarIntEPhRm.exit80:        ; preds = %123
   %133 = getelementptr inbounds nuw i8, ptr %109, i64 8
   store i32 %132, ptr %133, align 4, !tbaa !101
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %91
   br i1 %exitcond.not, label %.loopexit, label %108, !llvm.loop !102
 
 .loopexit:                                        ; preds = %_ZN4Luau7CodeGenL10readVarIntEPhRm.exit80, %88, %_ZNSt6vectorIhSaIhEE6resizeEmRKh.exit54, %1
@@ -1102,7 +1101,6 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit.i:             ; preds = %86, %84, %83, %81
   %91 = sub i64 %89, %90
   %92 = sdiv exact i64 %91, 12
   %invariant.gep.i = getelementptr inbounds nuw i8, ptr %.pre.i, i64 4
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %92, i64 1)
   br label %99
 
 .preheader.i:                                     ; preds = %99, %_ZNSt6vectorIjSaIjEE6resizeEm.exit.i
@@ -1124,7 +1122,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit.i:             ; preds = %86, %84, %83, %81
   %104 = zext i8 %103 to i64
   %gep.i = getelementptr inbounds nuw i32, ptr %invariant.gep.i, i64 %104
   store i32 %101, ptr %gep.i, align 4, !tbaa !115
-  %exitcond.not.i = icmp eq i64 %100, %umax.i
+  %exitcond.not.i = icmp eq i64 %100, %92
   br i1 %exitcond.not.i, label %.preheader.i, label %99, !llvm.loop !138
 
 .lr.ph27.i:                                       ; preds = %.preheader.i, %110
@@ -1185,7 +1183,6 @@ _ZN4Luau7CodeGenL25prepareRegTypeInfoLookupsERNS0_16BytecodeTypeInfoE.exit: ; pr
   %133 = ptrtoint ptr %131 to i64
   %134 = ptrtoint ptr %132 to i64
   %135 = sub i64 %133, %134
-  %umax = tail call i64 @llvm.umax.i64(i64 %135, i64 1)
   br label %.lr.ph
 
 ._crit_edge838:                                   ; preds = %._crit_edge835, %_ZN4Luau7CodeGenL25prepareRegTypeInfoLookupsERNS0_16BytecodeTypeInfoE.exit
@@ -1210,7 +1207,7 @@ _ZN4Luau7CodeGenL25prepareRegTypeInfoLookupsERNS0_16BytecodeTypeInfoE.exit: ; pr
   %143 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 0, i64 %.0819
   store i8 %142, ptr %143, align 1, !tbaa !89
   %144 = add nuw i64 %.0819, 1
-  %exitcond.not = icmp eq i64 %144, %umax
+  %exitcond.not = icmp eq i64 %144, %135
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !141
 
 ._crit_edge823:                                   ; preds = %.lr.ph822, %._crit_edge

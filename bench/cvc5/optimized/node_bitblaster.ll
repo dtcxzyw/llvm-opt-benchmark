@@ -25442,7 +25442,6 @@ define linkonce_odr hidden void @_ZN4cvc58internal6theory2bv10UdivUremBBINS0_12N
   %83 = ashr exact i64 %82, 3
   %84 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %85 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %umax = call i64 @llvm.umax.i64(i64 %83, i64 1)
   br label %94
 
 ._crit_edge:                                      ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit85, %76
@@ -25687,7 +25686,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit83: ; preds = %_ZN4cvc58internal12
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit85: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit83, %178, %184
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #24
   %188 = add nuw i64 %.028173, 1
-  %exitcond.not = icmp eq i64 %188, %umax
+  %exitcond.not = icmp eq i64 %188, %83
   br i1 %exitcond.not, label %._crit_edge, label %94, !llvm.loop !687
 
 189:                                              ; preds = %111
@@ -25738,7 +25737,6 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit85: ; preds = %_ZN4cvc58internal12
   %204 = ptrtoint ptr %202 to i64
   %205 = sub i64 %203, %204
   %206 = ashr exact i64 %205, 3
-  %umax179 = call i64 @llvm.umax.i64(i64 %206, i64 1)
   br label %.lr.ph176
 
 ._crit_edge177:                                   ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit164, %199
@@ -26562,7 +26560,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit161: ; preds = %_ZN4cvc58internal1
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit164: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit161, %564, %570
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32) #24
   %574 = add nuw i64 %.0174, 1
-  %exitcond180.not = icmp eq i64 %574, %umax179
+  %exitcond180.not = icmp eq i64 %574, %206
   br i1 %exitcond180.not, label %._crit_edge177, label %.lr.ph176, !llvm.loop !703
 
 575:                                              ; preds = %307

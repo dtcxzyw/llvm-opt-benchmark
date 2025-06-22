@@ -1273,7 +1273,6 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase15_SendPrims
   %17 = sub i64 %15, %16
   %18 = ashr exact i64 %17, 4
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %umax = tail call i64 @llvm.umax.i64(i64 %18, i64 1)
   br label %20
 
 20:                                               ; preds = %.lr.ph, %34
@@ -1313,7 +1312,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i
 
 34:                                               ; preds = %.critedge, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i11
   %35 = add nuw i64 %.012, 1
-  %exitcond.not = icmp eq i64 %35, %umax
+  %exitcond.not = icmp eq i64 %35, %18
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %20, !llvm.loop !14
 
 ._crit_edge.loopexit:                             ; preds = %34
@@ -1407,7 +1406,6 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase17_SendPrims
   %17 = sub i64 %15, %16
   %18 = ashr exact i64 %17, 4
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %umax = tail call i64 @llvm.umax.i64(i64 %18, i64 1)
   br label %20
 
 20:                                               ; preds = %.lr.ph, %34
@@ -1447,7 +1445,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i
 
 34:                                               ; preds = %.critedge, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i11
   %35 = add nuw i64 %.012, 1
-  %exitcond.not = icmp eq i64 %35, %umax
+  %exitcond.not = icmp eq i64 %35, %18
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %20, !llvm.loop !15
 
 ._crit_edge.loopexit:                             ; preds = %34
@@ -1507,7 +1505,6 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase17_SendPrims
   %17 = sub i64 %15, %16
   %18 = ashr exact i64 %17, 4
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %umax = tail call i64 @llvm.umax.i64(i64 %18, i64 1)
   br label %20
 
 20:                                               ; preds = %.lr.ph, %34
@@ -1547,7 +1544,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i
 
 34:                                               ; preds = %.critedge, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i11
   %35 = add nuw i64 %.012, 1
-  %exitcond.not = icmp eq i64 %35, %umax
+  %exitcond.not = icmp eq i64 %35, %18
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %20, !llvm.loop !16
 
 ._crit_edge.loopexit:                             ; preds = %34
@@ -1607,7 +1604,6 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase17_SendPrims
   %17 = sub i64 %15, %16
   %18 = ashr exact i64 %17, 4
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %umax = tail call i64 @llvm.umax.i64(i64 %18, i64 1)
   br label %20
 
 20:                                               ; preds = %.lr.ph, %34
@@ -1647,7 +1643,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i
 
 34:                                               ; preds = %.critedge, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i11
   %35 = add nuw i64 %.012, 1
-  %exitcond.not = icmp eq i64 %35, %umax
+  %exitcond.not = icmp eq i64 %35, %18
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %20, !llvm.loop !17
 
 ._crit_edge.loopexit:                             ; preds = %34

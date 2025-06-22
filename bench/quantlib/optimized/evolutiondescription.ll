@@ -878,7 +878,6 @@ while.cond.preheader.lr.ph:                       ; preds = %if.end163
   %90 = load ptr, ptr %rateTimes_275, align 8, !tbaa !23
   %91 = load ptr, ptr %firstAliveRate_, align 8, !tbaa !33
   %92 = load ptr, ptr %evolutionTimes_, align 8, !tbaa !23
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i120, i64 1)
   br label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %while.cond.preheader.lr.ph, %while.end
@@ -904,7 +903,7 @@ while.end:                                        ; preds = %while.cond
   %add.ptr.i218 = getelementptr inbounds nuw double, ptr %92, i64 %j.0334
   %94 = load double, ptr %add.ptr.i218, align 8, !tbaa !31
   %inc172 = add nuw i64 %j.0334, 1
-  %exitcond.not = icmp eq i64 %inc172, %umax
+  %exitcond.not = icmp eq i64 %inc172, %sub.ptr.div.i120
   br i1 %exitcond.not, label %for.cond.cleanup, label %while.cond.preheader, !llvm.loop !44
 
 ehcleanup174:                                     ; preds = %lpad109, %ehcleanup96, %ehcleanup159, %lpad41
@@ -1876,7 +1875,6 @@ while.cond.preheader.lr.ph:                       ; preds = %do.end
   %sub.ptr.sub.i43 = sub i64 %sub.ptr.lhs.cast.i41, %sub.ptr.rhs.cast.i42
   %sub.ptr.div.i44 = ashr exact i64 %sub.ptr.sub.i43, 3
   %25 = load ptr, ptr %numeraires, align 8, !tbaa !33
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i44, i64 1)
   br label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %while.cond.preheader.lr.ph, %while.end
@@ -1907,7 +1905,7 @@ while.end:                                        ; preds = %while.cond
   %cmp43 = icmp eq i64 %28, %.sroa.speculated
   %29 = select i1 %cmp43, i1 %res.069, i1 false
   %inc44 = add nuw i64 %i.070, 1
-  %exitcond.not = icmp eq i64 %inc44, %umax
+  %exitcond.not = icmp eq i64 %inc44, %sub.ptr.div.i44
   br i1 %exitcond.not, label %for.cond.cleanup, label %while.cond.preheader, !llvm.loop !53
 
 unreachable:                                      ; preds = %invoke.cont22
@@ -2214,7 +2212,6 @@ while.cond.preheader.lr.ph:                       ; preds = %if.end.i.i.i.i.i.i.
   %__first.addr.0.i.i.i.i.i.ph = phi ptr [ %add.ptr.i.i.i, %if.end.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i, %if.then.i.i.i.i.i ]
   %_M_finish.i.i7.i76 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %__first.addr.0.i.i.i.i.i.ph, ptr %_M_finish.i.i7.i76, align 8, !tbaa !36
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i46, i64 1)
   br label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %while.cond.preheader.lr.ph, %while.end
@@ -2238,7 +2235,7 @@ while.end:                                        ; preds = %while.cond
   %add.ptr.i50 = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i2.i.i48, i64 %i.073
   store i64 %.sroa.speculated, ptr %add.ptr.i50, align 8, !tbaa !35
   %inc51 = add nuw i64 %i.073, 1
-  %exitcond.not = icmp eq i64 %inc51, %umax
+  %exitcond.not = icmp eq i64 %inc51, %sub.ptr.div.i46
   br i1 %exitcond.not, label %nrvo.skipdtor, label %while.cond.preheader, !llvm.loop !56
 
 nrvo.skipdtor:                                    ; preds = %while.end, %invoke.cont38
@@ -2310,9 +2307,6 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #19
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #19
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

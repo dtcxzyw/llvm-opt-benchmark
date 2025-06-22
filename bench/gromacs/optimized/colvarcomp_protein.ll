@@ -4151,14 +4151,14 @@ _ZN12colvarmodule13integer_powerERKdi.exit:       ; preds = %3, %._crit_edge.i
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 1632
   %26 = load ptr, ptr %25, align 8, !tbaa !146
   %27 = load ptr, ptr %24, align 8, !tbaa !150
-  %.not = icmp eq ptr %26, %27
-  br i1 %.not, label %.loopexit87, label %.lr.ph95
-
-.lr.ph95:                                         ; preds = %_ZN12colvarmodule13integer_powerERKdi.exit
   %28 = ptrtoint ptr %26 to i64
   %29 = ptrtoint ptr %27 to i64
   %30 = sub i64 %28, %29
   %31 = ashr exact i64 %30, 3
+  %.not = icmp eq ptr %26, %27
+  br i1 %.not, label %.loopexit87, label %.lr.ph95
+
+.lr.ph95:                                         ; preds = %_ZN12colvarmodule13integer_powerERKdi.exit
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 1672
   %33 = load double, ptr %32, align 8, !tbaa !64
   %34 = fsub double 1.000000e+00, %33
@@ -4171,7 +4171,6 @@ _ZN12colvarmodule13integer_powerERKdi.exit:       ; preds = %3, %._crit_edge.i
   %41 = fmul double %23, %36
   %42 = fdiv double 1.000000e+00, %40
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %umax113 = tail call i64 @llvm.umax.i64(i64 %31, i64 1)
   br label %44
 
 44:                                               ; preds = %.lr.ph95, %._crit_edge92
@@ -4217,12 +4216,11 @@ _ZN12colvarmodule13integer_powerERKdi.exit:       ; preds = %3, %._crit_edge.i
   %79 = ashr exact i64 %78, 2
   %80 = icmp sgt i64 %79, 0
   %81 = load ptr, ptr %2, align 8
-  %umax111 = tail call i64 @llvm.umax.i64(i64 %73, i64 1)
   br label %83
 
 ._crit_edge92:                                    ; preds = %._crit_edge, %44
   %82 = add nuw i64 %.093, 1
-  %exitcond114.not = icmp eq i64 %82, %umax113
+  %exitcond114.not = icmp eq i64 %82, %31
   br i1 %exitcond114.not, label %.loopexit87, label %44, !llvm.loop !181
 
 83:                                               ; preds = %.lr.ph91, %._crit_edge
@@ -4241,12 +4239,11 @@ _ZN12colvarmodule13integer_powerERKdi.exit:       ; preds = %3, %._crit_edge.i
   %91 = ptrtoint ptr %89 to i64
   %92 = sub i64 %90, %91
   %93 = sdiv exact i64 %92, 120
-  %umax = tail call i64 @llvm.umax.i64(i64 %93, i64 1)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8_RKT0_.exit, %83
   %94 = add nuw i64 %.06489, 1
-  %exitcond112.not = icmp eq i64 %94, %umax111
+  %exitcond112.not = icmp eq i64 %94, %73
   br i1 %exitcond112.not, label %._crit_edge92, label %83, !llvm.loop !182
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8_RKT0_.exit
@@ -4304,7 +4301,7 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8
   %125 = fadd double %116, %124
   store double %125, ptr %123, align 8, !tbaa !189
   %126 = add nuw i64 %.06688, 1
-  %exitcond.not = icmp eq i64 %126, %umax
+  %exitcond.not = icmp eq i64 %126, %93
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !190
 
 .loopexit87:                                      ; preds = %._crit_edge92, %_ZN12colvarmodule13integer_powerERKdi.exit
@@ -4312,14 +4309,14 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %129 = load ptr, ptr %128, align 8, !tbaa !160
   %130 = load ptr, ptr %127, align 8, !tbaa !164
-  %.not69 = icmp eq ptr %129, %130
-  br i1 %.not69, label %.loopexit, label %.lr.ph106
-
-.lr.ph106:                                        ; preds = %.loopexit87
   %131 = ptrtoint ptr %129 to i64
   %132 = ptrtoint ptr %130 to i64
   %133 = sub i64 %131, %132
   %134 = ashr exact i64 %133, 3
+  %.not69 = icmp eq ptr %129, %130
+  br i1 %.not69, label %.loopexit, label %.lr.ph106
+
+.lr.ph106:                                        ; preds = %.loopexit87
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 1672
   %136 = load double, ptr %135, align 8, !tbaa !64
   %137 = uitofp i64 %134 to double
@@ -4327,7 +4324,6 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8
   %139 = fmul double %23, 5.000000e-01
   %140 = fmul double %139, %138
   %141 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %umax119 = tail call i64 @llvm.umax.i64(i64 %134, i64 1)
   br label %142
 
 142:                                              ; preds = %.lr.ph106, %._crit_edge103
@@ -4354,12 +4350,11 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8
   %158 = ashr exact i64 %157, 2
   %159 = icmp sgt i64 %158, 0
   %160 = load ptr, ptr %2, align 8
-  %umax117 = tail call i64 @llvm.umax.i64(i64 %152, i64 1)
   br label %162
 
 ._crit_edge103:                                   ; preds = %._crit_edge99, %142
   %161 = add nuw i64 %.068104, 1
-  %exitcond120.not = icmp eq i64 %161, %umax119
+  %exitcond120.not = icmp eq i64 %161, %134
   br i1 %exitcond120.not, label %.loopexit, label %142, !llvm.loop !191
 
 162:                                              ; preds = %.lr.ph102, %._crit_edge99
@@ -4378,12 +4373,11 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8
   %170 = ptrtoint ptr %168 to i64
   %171 = sub i64 %169, %170
   %172 = sdiv exact i64 %171, 120
-  %umax115 = tail call i64 @llvm.umax.i64(i64 %172, i64 1)
   br label %.lr.ph98
 
 ._crit_edge99:                                    ; preds = %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8_RKT0_.exit79, %162
   %173 = add nuw i64 %.067100, 1
-  %exitcond118.not = icmp eq i64 %173, %umax117
+  %exitcond118.not = icmp eq i64 %173, %152
   br i1 %exitcond118.not, label %._crit_edge103, label %162, !llvm.loop !192
 
 .lr.ph98:                                         ; preds = %.lr.ph98.preheader, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8_RKT0_.exit79
@@ -4441,7 +4435,7 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8
   %204 = fadd double %195, %203
   store double %204, ptr %202, align 8, !tbaa !189
   %205 = add nuw i64 %.06596, 1
-  %exitcond116.not = icmp eq i64 %205, %umax115
+  %exitcond116.not = icmp eq i64 %205, %172
   br i1 %exitcond116.not, label %._crit_edge99, label %.lr.ph98, !llvm.loop !196
 
 .loopexit:                                        ; preds = %._crit_edge103, %.loopexit87
@@ -8899,7 +8893,6 @@ _ZN12colvarmodule13integer_powerERKdi.exit:       ; preds = %3, %._crit_edge.i
   %33 = load ptr, ptr %32, align 8, !tbaa !201
   %invariant.gep = getelementptr i8, ptr %33, i64 8
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %umax44 = tail call i64 @llvm.umax.i64(i64 %31, i64 1)
   br label %35
 
 ._crit_edge39:                                    ; preds = %._crit_edge36, %_ZN12colvarmodule13integer_powerERKdi.exit
@@ -8944,12 +8937,11 @@ _ZN12colvarmodule13integer_powerERKdi.exit:       ; preds = %3, %._crit_edge.i
   %65 = ashr exact i64 %64, 2
   %66 = icmp sgt i64 %65, 0
   %67 = load ptr, ptr %2, align 8
-  %umax42 = tail call i64 @llvm.umax.i64(i64 %59, i64 1)
   br label %69
 
 ._crit_edge36:                                    ; preds = %._crit_edge, %35
   %68 = add nuw i64 %.037, 1
-  %exitcond45.not = icmp eq i64 %68, %umax44
+  %exitcond45.not = icmp eq i64 %68, %31
   br i1 %exitcond45.not, label %._crit_edge39, label %35, !llvm.loop !270
 
 69:                                               ; preds = %.lr.ph35, %._crit_edge
@@ -8968,12 +8960,11 @@ _ZN12colvarmodule13integer_powerERKdi.exit:       ; preds = %3, %._crit_edge.i
   %77 = ptrtoint ptr %75 to i64
   %78 = sub i64 %76, %77
   %79 = sdiv exact i64 %78, 120
-  %umax = tail call i64 @llvm.umax.i64(i64 %79, i64 1)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8_RKT0_.exit, %69
   %80 = add nuw i64 %.02733, 1
-  %exitcond43.not = icmp eq i64 %80, %umax42
+  %exitcond43.not = icmp eq i64 %80, %59
   br i1 %exitcond43.not, label %._crit_edge36, label %69, !llvm.loop !271
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8_RKT0_.exit
@@ -9031,7 +9022,7 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8
   %111 = fadd double %102, %110
   store double %111, ptr %109, align 8, !tbaa !189
   %112 = add nuw i64 %.02832, 1
-  %exitcond.not = icmp eq i64 %112, %umax
+  %exitcond.not = icmp eq i64 %112, %79
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !275
 }
 

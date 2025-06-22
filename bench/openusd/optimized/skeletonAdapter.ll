@@ -26994,11 +26994,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_10GfMatrix4dELj4EE12_Ini
           to label %238 unwind label %.loopexit.split-lp
 
 238:                                              ; preds = %229
+  %.sroa.speculated256 = call i64 @llvm.umin.i64(i64 %6, i64 %237)
   %.not331 = icmp eq i64 %237, 0
   br i1 %.not331, label %._crit_edge327, label %.lr.ph326
 
 .lr.ph326:                                        ; preds = %238
-  %.sroa.speculated256 = call i64 @llvm.umin.i64(i64 %6, i64 %237)
   %239 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %240 = or disjoint i64 2, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoINS_10GfMatrix4dEEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
   %241 = inttoptr i64 %240 to ptr
@@ -28301,15 +28301,14 @@ _ZNK32pxrInternal_v0_24__pxrReserved__13UsdSchemaBase7GetPrimEv.exit: ; preds = 
           to label %823 unwind label %.loopexit.split-lp302
 
 823:                                              ; preds = %813
+  %.sroa.speculated = call i64 @llvm.umin.i64(i64 %6, i64 %822)
   %.not328 = icmp eq i64 %822, 0
   br i1 %.not328, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %823
-  %.sroa.speculated = call i64 @llvm.umin.i64(i64 %6, i64 %822)
   %824 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %825 = or disjoint i64 2, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoINS_10GfMatrix4dEEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
   %826 = inttoptr i64 %825 to ptr
-  %umax = call i64 @llvm.umax.i64(i64 %.sroa.speculated, i64 1)
   br label %827
 
 827:                                              ; preds = %.lr.ph, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit241
@@ -28365,7 +28364,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueaSEOS0_.exit238: ; preds = %831, %8
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit241: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueaSEOS0_.exit238, %842
   store ptr null, ptr %824, align 8
   %850 = add nuw i64 %.098317, 1
-  %exitcond.not = icmp eq i64 %850, %umax
+  %exitcond.not = icmp eq i64 %850, %.sroa.speculated
   br i1 %exitcond.not, label %._crit_edge, label %827, !llvm.loop !119
 
 851:                                              ; preds = %793

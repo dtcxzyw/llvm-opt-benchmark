@@ -6113,7 +6113,6 @@ define internal fastcc void @hwloc_propagate_symmetric_subtree(ptr noundef captu
   %17 = load ptr, ptr %16, align 8, !tbaa !82
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %15, ptr align 8 %17, i64 %14, i1 false)
   %wide.trip.count = zext i32 %3 to i64
-  %wide.trip.count22 = zext i32 %3 to i64
   br label %.lr.ph10.us
 
 .lr.ph10.us.loopexit:                             ; preds = %.preheader.us
@@ -6139,7 +6138,7 @@ define internal fastcc void @hwloc_propagate_symmetric_subtree(ptr noundef captu
   %26 = load ptr, ptr %25, align 8, !tbaa !55
   store ptr %26, ptr %23, align 8, !tbaa !50
   %indvars.iv.next19 = add nuw nsw i64 %indvars.iv18, 1
-  %exitcond23.not = icmp eq i64 %indvars.iv.next19, %wide.trip.count22
+  %exitcond23.not = icmp eq i64 %indvars.iv.next19, %13
   br i1 %exitcond23.not, label %.lr.ph10.us.loopexit, label %.preheader.us, !llvm.loop !180
 
 27:                                               ; preds = %.lr.ph10.us, %22

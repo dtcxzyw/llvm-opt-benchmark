@@ -7651,11 +7651,7 @@ _ZNSt6vectorI5edparSaIS0_EED2Ev.exit:             ; preds = %996, %990
   %1014 = sub i64 %1012, %1013
   %1015 = sdiv exact i64 %1014, 888
   %.not48.i = icmp eq ptr %1010, %1011
-  br i1 %.not48.i, label %._crit_edge.i, label %.lr.ph.preheader.i
-
-.lr.ph.preheader.i:                               ; preds = %.preheader.i
-  %umax.i = call i64 @llvm.umax.i64(i64 %1015, i64 1)
-  br label %.lr.ph.i
+  br i1 %.not48.i, label %._crit_edge.i, label %.lr.ph.i
 
 1016:                                             ; preds = %1006, %1002
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %132) #25
@@ -7683,8 +7679,8 @@ _ZNSt6vectorI5edparSaIS0_EED2Ev.exit:             ; preds = %996, %990
   %.not.i41 = icmp eq i64 %1015, %1022
   br i1 %.not.i41, label %_ZL33crosscheck_edi_file_vs_checkpointRK9gmx_edsamP14edsamhistory_t.exit, label %1061
 
-.lr.ph.i:                                         ; preds = %1059, %.lr.ph.preheader.i
-  %.047.i = phi i64 [ %1060, %1059 ], [ 0, %.lr.ph.preheader.i ]
+.lr.ph.i:                                         ; preds = %.preheader.i, %1059
+  %.047.i = phi i64 [ %1060, %1059 ], [ 0, %.preheader.i ]
   %1023 = getelementptr inbounds nuw i32, ptr %1004, i64 %.047.i
   %1024 = load i32, ptr %1023, align 4, !tbaa !187
   %1025 = getelementptr inbounds nuw %struct.edpar, ptr %1011, i64 %.047.i
@@ -7761,7 +7757,7 @@ _ZNSt6vectorI5edparSaIS0_EED2Ev.exit:             ; preds = %996, %990
 
 1059:                                             ; preds = %1041
   %1060 = add nuw i64 %.047.i, 1
-  %exitcond.not.i = icmp eq i64 %1060, %umax.i
+  %exitcond.not.i = icmp eq i64 %1060, %1015
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !429
 
 1061:                                             ; preds = %._crit_edge.i

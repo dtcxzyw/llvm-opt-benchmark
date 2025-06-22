@@ -530,8 +530,7 @@ parse_size_field.exit252:                         ; preds = %.thread275, %117, %
 
 .preheader:                                       ; preds = %158
   %162 = trunc i32 %160 to i16
-  %umax = tail call i32 @llvm.umax.i32(i32 %71, i32 1)
-  %wide.trip.count342 = zext nneg i32 %umax to i64
+  %wide.trip.count342 = zext nneg i32 %71 to i64
   br label %164
 
 .thread289:                                       ; preds = %158
@@ -555,8 +554,7 @@ parse_size_field.exit252:                         ; preds = %.thread275, %117, %
 .loopexit294:                                     ; preds = %164, %148, %55, %29, %20
   %.0221 = phi i32 [ 1, %20 ], [ 2, %29 ], [ 2, %55 ], [ %71, %148 ], [ %71, %164 ]
   %.0217 = phi i32 [ 0, %20 ], [ 0, %29 ], [ 0, %55 ], [ %.1218, %148 ], [ %.1218, %164 ]
-  %umax347 = tail call i32 @llvm.umax.i32(i32 %.0221, i32 1)
-  %wide.trip.count348 = zext nneg i32 %umax347 to i64
+  %wide.trip.count348 = zext nneg i32 %.0221 to i64
   br label %171
 
 171:                                              ; preds = %.loopexit294, %178
@@ -673,9 +671,6 @@ declare i8 @llvm.umin.i8(i8, i8) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #4
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #4
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

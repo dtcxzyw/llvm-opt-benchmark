@@ -1435,7 +1435,6 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %98 = load ptr, ptr %2, align 8, !tbaa !21
   %99 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %100 = load i64, ptr %99, align 8, !tbaa !12
-  %umax = call i64 @llvm.umax.i64(i64 %94, i64 1)
   br label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit
 
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit._crit_edge: ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.preheader
@@ -1485,7 +1484,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %118 = urem i64 %indvars.iv.next121, %94
   %119 = trunc nuw nsw i64 %118 to i32
   store i32 %119, ptr %117, align 4, !tbaa !30
-  %exitcond123.not = icmp eq i64 %indvars.iv.next121, %umax
+  %exitcond123.not = icmp eq i64 %indvars.iv.next121, %94
   br i1 %exitcond123.not, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit._crit_edge.thread, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit, !llvm.loop !75
 
 120:                                              ; preds = %106
@@ -1898,7 +1897,6 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %44 = load ptr, ptr %2, align 8, !tbaa !21
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %46 = load i64, ptr %45, align 8, !tbaa !12
-  %umax = call i64 @llvm.umax.i64(i64 %40, i64 1)
   br label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit
 
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit._crit_edge: ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.preheader
@@ -1948,7 +1946,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %64 = urem i64 %indvars.iv.next111, %40
   %65 = trunc nuw nsw i64 %64 to i32
   store i32 %65, ptr %63, align 4, !tbaa !30
-  %exitcond113.not = icmp eq i64 %indvars.iv.next111, %umax
+  %exitcond113.not = icmp eq i64 %indvars.iv.next111, %40
   br i1 %exitcond113.not, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit._crit_edge.thread, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit, !llvm.loop !91
 
 66:                                               ; preds = %52
@@ -11295,7 +11293,7 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
 
 .lr.ph493.preheader:                              ; preds = %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6resizeEmm.exit417
   %573 = shl nuw i64 %470, 3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %572, i8 0, i64 %573, i1 false), !tbaa !94
+  call void @llvm.memset.p0.i64(ptr align 8 %572, i8 0, i64 %573, i1 false), !tbaa !94
   br label %.preheader476
 
 .preheader476:                                    ; preds = %.lr.ph493.preheader, %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6resizeEmm.exit417
@@ -58984,7 +58982,6 @@ _ZN4CGAL8internal18TDS2_edge_iteratorINS_30Triangulation_data_structure_2INS_25C
   %627 = ptrtoint ptr %.sroa.12941.0.lcssa to i64
   %628 = sub i64 %627, %626
   %629 = ashr exact i64 %628, 3
-  %umax = call i64 @llvm.umax.i64(i64 %629, i64 1)
   br label %.lr.ph1430
 
 630:                                              ; preds = %.lr.ph, %_ZN5boost9iterators6detail20iterator_facade_baseIN4CGAL13Prevent_derefINS3_8internal11CC_iteratorINS3_17Compact_containerINS3_23Convex_hull_face_base_2INS3_20Convex_hull_traits_3INS3_5EpickENS3_12Polyhedron_3ISA_NS3_18Polyhedron_items_3ENS3_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS3_28Triangulation_ds_face_base_2INS3_30Triangulation_data_structure_2INS3_25Convex_hull_vertex_base_2INS3_11GT3_for_CH3ISI_EENS3_30Triangulation_ds_vertex_base_2IvEEEENS8_ISI_NSJ_IvEEEEEEEEEENS3_7DefaultESW_SW_EELb0EEERKSY_EESY_NS0_27bidirectional_traversal_tagES10_lLb0ELb0EEppEv.exit
@@ -59467,7 +59464,7 @@ _ZN4CGAL29Halfedge_around_face_iteratorINS_30Triangulation_data_structure_2INS_2
 
 .loopexit1017:                                    ; preds = %_ZN4CGAL29Halfedge_around_face_iteratorINS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEEppEv.exit469, %743, %.lr.ph1430
   %832 = add nuw i64 %.01831428, 1
-  %exitcond.not = icmp eq i64 %832, %umax
+  %exitcond.not = icmp eq i64 %832, %629
   br i1 %exitcond.not, label %.preheader1015, label %.lr.ph1430, !llvm.loop !1423
 
 .preheader1013:                                   ; preds = %839, %.preheader1015

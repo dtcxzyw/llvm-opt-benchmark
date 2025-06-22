@@ -240,7 +240,6 @@ _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i: 
   %scevgep.i.i.i.i.i.i = getelementptr i8, ptr %110, i64 %109
   store ptr %scevgep.i.i.i.i.i.i, ptr %111, align 8, !tbaa !27, !alias.scope !16
   %114 = fmul float %1, 0x3F81072C40000000
-  %umax = call i64 @llvm.umax.i64(i64 %105, i64 1)
   br label %123
 
 ._crit_edge.i:                                    ; preds = %319
@@ -561,7 +560,7 @@ _ZN3gmx19ThreeFry2x64GeneralILj20ELj64EEclEv.exit.i.i.i: ; preds = %.noexc59.i, 
   %.144.i = phi float [ %318, %203 ], [ %.04384.i, %123 ]
   %.1.i = phi i32 [ %204, %203 ], [ %.04285.i, %123 ]
   %320 = add nuw i64 %.05083.i, 1
-  %exitcond.not = icmp eq i64 %320, %umax
+  %exitcond.not = icmp eq i64 %320, %105
   br i1 %exitcond.not, label %._crit_edge.i, label %123, !llvm.loop !37
 
 321:                                              ; preds = %._crit_edge.i
@@ -1317,9 +1316,6 @@ declare i64 @llvm.fshl.i64(i64, i64, i64) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #24
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #22
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }

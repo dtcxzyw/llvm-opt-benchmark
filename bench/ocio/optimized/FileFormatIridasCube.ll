@@ -3898,8 +3898,6 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit64: ; preds = %_ZStl
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
   store i64 6, ptr %116, align 8, !tbaa !141
   %invariant.gep127 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %umax = call i32 @llvm.umax.i32(i32 %42, i32 1)
-  %wide.trip.count = zext nneg i32 %umax to i64
   br label %164
 
 117:                                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit83
@@ -4047,7 +4045,7 @@ _ZNSolsEf.exit81:                                 ; preds = %_ZStlsISt11char_tra
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit83: ; preds = %_ZNSolsEf.exit81
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond131.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %exitcond131.not = icmp eq i64 %indvars.iv.next, %53
   br i1 %exitcond131.not, label %117, label %164, !llvm.loop !142
 
 179:                                              ; preds = %_ZNSolsEf.exit81, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit79, %_ZNSolsEf.exit77, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit75, %_ZNSolsEf.exit, %164
@@ -6339,9 +6337,6 @@ declare i64 @llvm.umax.i64(i64, i64) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #26
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #26
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

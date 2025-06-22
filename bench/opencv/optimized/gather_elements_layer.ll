@@ -967,7 +967,6 @@ _ZN2cv3dnn14dnn4_v20241223L14normalize_axisEii.exit: ; preds = %33
 
 .lr.ph:                                           ; preds = %.preheader
   %47 = zext nneg i32 %42 to i64
-  %umax = tail call i64 @llvm.umax.i64(i64 %23, i64 1)
   br label %49
 
 48:                                               ; preds = %45
@@ -997,7 +996,7 @@ _ZN2cv3dnn14dnn4_v20241223L14normalize_axisEii.exit: ; preds = %33
 
 57:                                               ; preds = %49, %50
   %58 = add nuw i64 %.032, 1
-  %exitcond.not = icmp eq i64 %58, %umax
+  %exitcond.not = icmp eq i64 %58, %23
   br i1 %exitcond.not, label %._crit_edge, label %49, !llvm.loop !75
 }
 
@@ -3781,9 +3780,6 @@ declare i64 @llvm.smin.i64(i64, i64) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #20
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #20

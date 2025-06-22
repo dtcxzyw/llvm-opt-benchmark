@@ -32159,7 +32159,6 @@ _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEESt6vectorIS3_SaIS3_EESt4lessIS3_ES
   %303 = ptrtoint ptr %301 to i64
   %304 = sub i64 %302, %303
   %305 = ashr exact i64 %304, 3
-  %umax = call i64 @llvm.umax.i64(i64 %305, i64 1)
   br label %.lr.ph
 
 306:                                              ; preds = %247
@@ -33066,7 +33065,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit149: ; preds = %_ZN4cvc58internal1
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit152: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit149, %715, %721
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #24
   %725 = add nuw i64 %.0180, 1
-  %exitcond.not = icmp eq i64 %725, %umax
+  %exitcond.not = icmp eq i64 %725, %305
   br i1 %exitcond.not, label %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEESt6vectorIS3_SaIS3_EESt4lessIS3_ESaISt4pairIKS3_S6_EEE4findERSA_.exit.thread, label %.lr.ph, !llvm.loop !714
 
 726:                                              ; preds = %625, %595
@@ -33578,7 +33577,6 @@ _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEESt6vectorIS3_SaIS3_EESt4lessIS3_ES
   %222 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %223 = getelementptr inbounds nuw i8, ptr %45, i64 32
   %224 = getelementptr inbounds nuw i8, ptr %45, i64 40
-  %umax = call i64 @llvm.umax.i64(i64 %219, i64 1)
   br label %237
 
 ._crit_edge:                                      ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit166
@@ -34712,7 +34710,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit163: ; preds = %_ZN4cvc58internal1
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit166: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit163, %722, %728
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35) #24
   %732 = add nuw i64 %.029237, 1
-  %exitcond.not = icmp eq i64 %732, %umax
+  %exitcond.not = icmp eq i64 %732, %219
   br i1 %exitcond.not, label %._crit_edge, label %237, !llvm.loop !730
 
 733:                                              ; preds = %691, %597, %595

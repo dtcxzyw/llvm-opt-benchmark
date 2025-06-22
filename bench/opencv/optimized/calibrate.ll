@@ -1900,7 +1900,6 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit224:              ; preds = %309
   %323 = load ptr, ptr %271, align 8
   %324 = load i64, ptr %323, align 8, !tbaa !42
   %325 = load i64, ptr %322, align 8, !tbaa !42
-  %umax = call i64 @llvm.umax.i64(i64 %321, i64 1)
   %326 = trunc nuw nsw i64 %indvars.iv413 to i32
   br label %.preheader.us
 
@@ -2044,7 +2043,7 @@ _ZN2cv3Mat2atIfEERT_i.exit227.us:                 ; preds = %409, %404, %394
   store float %414, ptr %416, align 4, !tbaa !7
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %417 = add nuw i64 %.0119374.us, 1
-  %exitcond402.not = icmp eq i64 %417, %umax
+  %exitcond402.not = icmp eq i64 %417, %321
   br i1 %exitcond402.not, label %._crit_edge.us381, label %340, !llvm.loop !119
 
 ._crit_edge.us381:                                ; preds = %_ZN2cv3Mat2atIfEERT_i.exit227.us

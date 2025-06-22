@@ -345,7 +345,6 @@ _ZN3net12_GLOBAL__N_110MatchCertsERKSt6vectorINSt7__cxx1112basic_stringIcSt11cha
   %129 = sub i64 %127, %128
   %130 = ashr exact i64 %129, 5
   %131 = load ptr, ptr %1, align 8
-  %umax = call i64 @llvm.umax.i64(i64 %130, i64 1)
   br label %134
 
 .thread:                                          ; preds = %22, %_ZN3net12_GLOBAL__N_110MatchCertsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEN4base16BasicStringPieceIS7_EESE_PKNS_14CommonCertSetsE.exit
@@ -385,7 +384,7 @@ _ZN3net12_GLOBAL__N_110MatchCertsERKSt6vectorINSt7__cxx1112basic_stringIcSt11cha
 143:                                              ; preds = %134, %138
   %.173 = phi i64 [ %142, %138 ], [ %.072199, %134 ]
   %144 = add nuw i64 %.071200, 1
-  %exitcond.not = icmp eq i64 %144, %umax
+  %exitcond.not = icmp eq i64 %144, %130
   br i1 %exitcond.not, label %._crit_edge, label %134, !llvm.loop !37
 
 145:                                              ; preds = %._crit_edge
@@ -1523,7 +1522,6 @@ _ZNSt6vectorImSaImEED2Ev.exit.i:                  ; preds = %120, %_ZN3net12_GLO
   %122 = ptrtoint ptr %.sroa.098.5.i to i64
   %123 = sub i64 %121, %122
   %124 = ashr exact i64 %123, 3
-  %umax.i = call i64 @llvm.umax.i64(i64 %124, i64 1)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %153, %.lr.ph.preheader.i
@@ -1602,7 +1600,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
 
 153:                                              ; preds = %.lr.ph.i
   %154 = add nuw i64 %.0225.i, 1
-  %exitcond.not.i = icmp eq i64 %154, %umax.i
+  %exitcond.not.i = icmp eq i64 %154, %124
   br i1 %exitcond.not.i, label %_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE9push_backERKS2_.exit.thread.thread305.i.thread, label %.lr.ph.i, !llvm.loop !59
 
 _ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE9push_backERKS2_.exit.thread.thread305.i.thread: ; preds = %153

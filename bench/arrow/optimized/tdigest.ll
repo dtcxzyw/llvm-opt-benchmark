@@ -704,7 +704,6 @@ define linkonce_odr void @_ZNK5arrow8internal7TDigest11TDigestImpl8ValidateEv(pt
   %53 = ashr exact i64 %52, 4
   %.val28.i = load double, ptr %49, align 8, !tbaa !30, !noalias !36
   %54 = fmul double %.val28.i, 0xBFF921FB54442D18
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %53, i64 1)
   br label %55
 
 55:                                               ; preds = %66, %.lr.ph.i
@@ -726,7 +725,7 @@ define linkonce_odr void @_ZNK5arrow8internal7TDigest11TDigestImpl8ValidateEv(pt
 
 66:                                               ; preds = %55
   %67 = add nuw i64 %.02336.i, 1
-  %exitcond.not.i = icmp eq i64 %67, %umax.i
+  %exitcond.not.i = icmp eq i64 %67, %53
   br i1 %exitcond.not.i, label %.critedge.i, label %55, !llvm.loop !40
 
 68:                                               ; preds = %55

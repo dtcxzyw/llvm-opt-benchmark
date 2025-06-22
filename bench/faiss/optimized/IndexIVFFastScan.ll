@@ -19866,7 +19866,6 @@ _ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMaxItlEELb1EE7Tri
   %26 = sub i64 %24, %25
   %27 = sdiv exact i64 %26, 24
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %umax = tail call i64 @llvm.umax.i64(i64 %27, i64 1)
   br label %44
 
 29:                                               ; preds = %.lr.ph, %29
@@ -19911,7 +19910,7 @@ _ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMaxItlEELb1EE7Tri
   %52 = getelementptr inbounds nuw %"struct.faiss::simd_result_handlers::RangeHandler<faiss::CMax<unsigned short, long>, true>::Triplet", ptr %.sroa.039.0, i64 %50
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %52, ptr noundef nonnull align 8 dereferenceable(24) %45, i64 24, i1 false), !tbaa.struct !682
   %53 = add nuw i64 %.03156, 1
-  %exitcond.not = icmp eq i64 %53, %umax
+  %exitcond.not = icmp eq i64 %53, %27
   br i1 %exitcond.not, label %._crit_edge59, label %44, !llvm.loop !685
 
 .loopexit:                                        ; preds = %84, %71
@@ -20181,7 +20180,6 @@ _ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMinItlEELb1EE7Tri
   %26 = sub i64 %24, %25
   %27 = sdiv exact i64 %26, 24
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %umax = tail call i64 @llvm.umax.i64(i64 %27, i64 1)
   br label %44
 
 29:                                               ; preds = %.lr.ph, %29
@@ -20226,7 +20224,7 @@ _ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMinItlEELb1EE7Tri
   %52 = getelementptr inbounds nuw %"struct.faiss::simd_result_handlers::RangeHandler<faiss::CMin<unsigned short, long>, true>::Triplet", ptr %.sroa.039.0, i64 %50
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %52, ptr noundef nonnull align 8 dereferenceable(24) %45, i64 24, i1 false), !tbaa.struct !682
   %53 = add nuw i64 %.03156, 1
-  %exitcond.not = icmp eq i64 %53, %umax
+  %exitcond.not = icmp eq i64 %53, %27
   br i1 %exitcond.not, label %._crit_edge59, label %44, !llvm.loop !692
 
 .loopexit:                                        ; preds = %84, %71

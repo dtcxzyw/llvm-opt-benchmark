@@ -142,16 +142,12 @@ _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit:               ; preds = %.noexc45, %_ZNSt6ve
   %29 = sub i64 %27, %28
   %30 = ashr exact i64 %29, 5
   %.not96 = icmp eq ptr %25, %26
-  br i1 %.not96, label %._crit_edge.thread, label %.lr.ph.preheader
+  br i1 %.not96, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge.thread:                               ; preds = %.preheader78
   %31 = getelementptr i8, ptr %.sroa.064.0, i64 %.03994
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %31, i8 0, i64 256, i1 false)
   br label %._crit_edge91
-
-.lr.ph.preheader:                                 ; preds = %.preheader78
-  %umax = tail call i64 @llvm.umax.i64(i64 %30, i64 1)
-  br label %.lr.ph
 
 ._crit_edge95:                                    ; preds = %._crit_edge91, %_ZNSt6vectorIhSaIhEEC2EmRKS0_.exit
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #20
@@ -165,9 +161,9 @@ _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit:               ; preds = %.noexc45, %_ZNSt6ve
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %33, i8 %.1, i64 256, i1 false)
   br label %.lr.ph90
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNK3ue29CharReach4noneEv.exit
-  %.03484 = phi i64 [ %41, %_ZNK3ue29CharReach4noneEv.exit ], [ 0, %.lr.ph.preheader ]
-  %.07583 = phi i8 [ %.1, %_ZNK3ue29CharReach4noneEv.exit ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.preheader78, %_ZNK3ue29CharReach4noneEv.exit
+  %.03484 = phi i64 [ %41, %_ZNK3ue29CharReach4noneEv.exit ], [ 0, %.preheader78 ]
+  %.07583 = phi i8 [ %.1, %_ZNK3ue29CharReach4noneEv.exit ], [ 0, %.preheader78 ]
   %34 = getelementptr inbounds nuw %"class.ue2::CharReach", ptr %26, i64 %.03484
   br label %35
 
@@ -188,7 +184,7 @@ _ZNK3ue29CharReach4noneEv.exit:                   ; preds = %35
   %40 = select i1 %.not13.i.i, i8 %39, i8 0
   %.1 = or i8 %40, %.07583
   %41 = add nuw i64 %.03484, 1
-  %exitcond.not = icmp eq i64 %41, %umax
+  %exitcond.not = icmp eq i64 %41, %30
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 
 ._crit_edge91:                                    ; preds = %.loopexit, %._crit_edge.thread

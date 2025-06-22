@@ -4159,12 +4159,11 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_19NinjaMain8RunBuildEiPPcP6S
   %35 = ptrtoint ptr %33 to i64
   %36 = sub i64 %34, %35
   %37 = ashr exact i64 %36, 3
-  %umax = call i64 @llvm.umax.i64(i64 %37, i64 1)
   br label %.lr.ph
 
 38:                                               ; preds = %45
   %39 = add nuw i64 %.01637, 1
-  %exitcond.not = icmp eq i64 %39, %umax
+  %exitcond.not = icmp eq i64 %39, %37
   br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !174
 
 40:                                               ; preds = %23

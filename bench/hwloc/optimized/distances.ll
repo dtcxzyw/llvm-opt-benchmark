@@ -966,8 +966,7 @@ hwloc_internal_distances_restrict.exit:           ; preds = %37
   br i1 %.not98, label %101, label %.lr.ph112.preheader
 
 .lr.ph112.preheader:                              ; preds = %.thread
-  %umax = tail call i32 @llvm.umax.i32(i32 %.084, i32 1)
-  %wide.trip.count128 = zext i32 %umax to i64
+  %wide.trip.count128 = zext i32 %.084 to i64
   br label %.lr.ph112
 
 .lr.ph112:                                        ; preds = %.lr.ph112.preheader, %.lr.ph112
@@ -1014,13 +1013,11 @@ hwloc_internal_distances_restrict.exit:           ; preds = %37
   ]
 
 .lr.ph117.preheader:                              ; preds = %89
-  %umax139 = tail call i32 @llvm.umax.i32(i32 %.084, i32 1)
-  %wide.trip.count140 = zext i32 %umax139 to i64
+  %wide.trip.count140 = zext i32 %.084 to i64
   br label %.lr.ph117
 
 .lr.ph115.preheader:                              ; preds = %89, %89
-  %umax133 = tail call i32 @llvm.umax.i32(i32 %.084, i32 1)
-  %wide.trip.count134 = zext i32 %umax133 to i64
+  %wide.trip.count134 = zext i32 %.084 to i64
   br label %.lr.ph115
 
 .lr.ph115:                                        ; preds = %.lr.ph115.preheader, %.lr.ph115

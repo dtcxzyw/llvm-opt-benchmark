@@ -431,7 +431,6 @@ for.body71.lr.ph:                                 ; preds = %_ZNSt8valarrayIbE6r
   %53 = load ptr, ptr %isPresent, align 8, !tbaa !20
   %_M_data.i71 = getelementptr inbounds nuw %"class.std::valarray", ptr %53, i64 %i.092, i32 1
   %54 = load ptr, ptr %_M_data.i71, align 8, !tbaa !21
-  %umax = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i61, i64 1)
   br label %for.body71
 
 for.cond.cleanup70:                               ; preds = %invoke.cont84, %_ZNSt8valarrayIbE6resizeEmb.exit
@@ -490,7 +489,7 @@ invoke.cont84:                                    ; preds = %land.rhs.i, %_ZSt13
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %54, i64 %j.086
   store i8 %storedv, ptr %arrayidx.i, align 1, !tbaa !30
   %inc = add nuw i64 %j.086, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i61
   br i1 %exitcond.not, label %for.cond.cleanup70, label %for.body71, !llvm.loop !34
 
 ehcleanup94:                                      ; preds = %lpad37, %lpad52, %lpad65, %lpad27, %lpad
@@ -579,7 +578,6 @@ for.cond.preheader:                               ; preds = %if.end
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %6 = load double, ptr %3, align 8, !tbaa !7
   %sub = add nsw i64 %sub.ptr.div.i25, -1
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i30, i64 1)
   br label %for.body
 
 if.then4:                                         ; preds = %if.end
@@ -780,7 +778,7 @@ for.end:                                          ; preds = %for.cond35, %if.end
   %storemerge = phi i8 [ 0, %for.body ], [ 0, %for.cond35 ], [ 0, %if.end44 ], [ 1, %if.end40 ]
   store i8 %storemerge, ptr %arrayidx.i, align 1, !tbaa !30
   %inc48 = add nuw i64 %i.074, 1
-  %exitcond.not = icmp eq i64 %inc48, %umax
+  %exitcond.not = icmp eq i64 %inc48, %sub.ptr.div.i30
   br i1 %exitcond.not, label %nrvo.skipdtor, label %for.body, !llvm.loop !41
 
 nrvo.skipdtor:                                    ; preds = %for.end, %for.cond.preheader, %_ZNSt8valarrayIbEC2ERKbm.exit

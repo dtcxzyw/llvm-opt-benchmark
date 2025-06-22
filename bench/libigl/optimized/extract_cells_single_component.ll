@@ -915,11 +915,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %_ZNSt6vectorIiSaIiE
 
 .preheader:                                       ; preds = %._crit_edge
   %.not454 = icmp eq i32 %263, %265
-  br i1 %.not454, label %._crit_edge442, label %.lr.ph441.preheader
-
-.lr.ph441.preheader:                              ; preds = %.preheader
-  %umax = call i64 @llvm.umax.i64(i64 %267, i64 1)
-  br label %.lr.ph441
+  br i1 %.not454, label %._crit_edge442, label %.lr.ph441
 
 ._crit_edge442:                                   ; preds = %451, %.preheader
   %343 = load ptr, ptr %13, align 8, !tbaa !11
@@ -946,8 +942,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge442, %34
           cleanup
   br label %456
 
-.lr.ph441:                                        ; preds = %.lr.ph441.preheader, %451
-  %.0135440 = phi i64 [ %352, %451 ], [ 0, %.lr.ph441.preheader ]
+.lr.ph441:                                        ; preds = %.preheader, %451
+  %.0135440 = phi i64 [ %352, %451 ], [ 0, %.preheader ]
   %352 = add nuw i64 %.0135440, 1
   %353 = icmp eq i64 %352, %267
   %354 = select i1 %353, i64 0, i64 %352
@@ -1131,7 +1127,7 @@ _ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nod
   br label %451
 
 451:                                              ; preds = %.noexc282, %437
-  %exitcond470.not = icmp eq i64 %352, %umax
+  %exitcond470.not = icmp eq i64 %352, %267
   br i1 %exitcond470.not, label %._crit_edge442, label %.lr.ph441, !llvm.loop !61
 
 452:                                              ; preds = %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i277, %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i
@@ -2579,11 +2575,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %_ZNSt6vectorIiSaIiE
 
 .preheader:                                       ; preds = %._crit_edge
   %.not454 = icmp eq i32 %263, %265
-  br i1 %.not454, label %._crit_edge442, label %.lr.ph441.preheader
-
-.lr.ph441.preheader:                              ; preds = %.preheader
-  %umax = call i64 @llvm.umax.i64(i64 %267, i64 1)
-  br label %.lr.ph441
+  br i1 %.not454, label %._crit_edge442, label %.lr.ph441
 
 ._crit_edge442:                                   ; preds = %451, %.preheader
   %343 = load ptr, ptr %13, align 8, !tbaa !11
@@ -2610,8 +2602,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge442, %34
           cleanup
   br label %456
 
-.lr.ph441:                                        ; preds = %.lr.ph441.preheader, %451
-  %.0135440 = phi i64 [ %352, %451 ], [ 0, %.lr.ph441.preheader ]
+.lr.ph441:                                        ; preds = %.preheader, %451
+  %.0135440 = phi i64 [ %352, %451 ], [ 0, %.preheader ]
   %352 = add nuw i64 %.0135440, 1
   %353 = icmp eq i64 %352, %267
   %354 = select i1 %353, i64 0, i64 %352
@@ -2795,7 +2787,7 @@ _ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nod
   br label %451
 
 451:                                              ; preds = %.noexc282, %437
-  %exitcond470.not = icmp eq i64 %352, %umax
+  %exitcond470.not = icmp eq i64 %352, %267
   br i1 %exitcond470.not, label %._crit_edge442, label %.lr.ph441, !llvm.loop !102
 
 452:                                              ; preds = %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i277, %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i

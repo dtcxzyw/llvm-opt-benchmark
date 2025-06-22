@@ -2598,7 +2598,6 @@ define noundef ptr @_ZNK19OpenColorIO_v2_5dev9FileRules4Impl19getRuleFromFilepat
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
   %11 = ashr exact i64 %10, 4
-  %umax = tail call i64 @llvm.umax.i64(i64 %11, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %18
@@ -2617,7 +2616,7 @@ define noundef ptr @_ZNK19OpenColorIO_v2_5dev9FileRules4Impl19getRuleFromFilepat
 
 18:                                               ; preds = %.lr.ph
   %19 = add nuw i64 %.01116, 1
-  %exitcond.not = icmp eq i64 %19, %umax
+  %exitcond.not = icmp eq i64 %19, %11
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !68
 
 ._crit_edge.loopexit:                             ; preds = %18
@@ -3634,7 +3633,6 @@ define noundef range(i64 0, -1) i64 @_ZNK19OpenColorIO_v2_5dev9FileRules15getInd
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
   %13 = ashr exact i64 %12, 4
-  %umax = tail call i64 @llvm.umax.i64(i64 %13, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %22
@@ -3651,7 +3649,7 @@ define noundef range(i64 0, -1) i64 @_ZNK19OpenColorIO_v2_5dev9FileRules15getInd
 
 22:                                               ; preds = %.lr.ph
   %23 = add nuw i64 %.01727, 1
-  %exitcond.not = icmp eq i64 %23, %umax
+  %exitcond.not = icmp eq i64 %23, %13
   br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !82
 
 .critedge:                                        ; preds = %22, %2
@@ -6642,7 +6640,6 @@ define noundef ptr @_ZNK19OpenColorIO_v2_5dev9FileRules4Impl25getColorSpaceFromF
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 4
-  %umax.i.i = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %17, %.lr.ph.preheader.i.i
@@ -6660,7 +6657,7 @@ define noundef ptr @_ZNK19OpenColorIO_v2_5dev9FileRules4Impl25getColorSpaceFromF
 
 17:                                               ; preds = %.lr.ph.i.i
   %18 = add nuw i64 %.01116.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %18, %umax.i.i
+  %exitcond.not.i.i = icmp eq i64 %18, %10
   br i1 %exitcond.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !68
 
 ._crit_edge.loopexit.i.i:                         ; preds = %17
@@ -6693,7 +6690,6 @@ define noundef ptr @_ZNK19OpenColorIO_v2_5dev9FileRules4Impl25getColorSpaceFromF
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
   %11 = ashr exact i64 %10, 4
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %11, i64 1)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %18, %.lr.ph.preheader.i
@@ -6712,7 +6708,7 @@ define noundef ptr @_ZNK19OpenColorIO_v2_5dev9FileRules4Impl25getColorSpaceFromF
 
 18:                                               ; preds = %.lr.ph.i
   %19 = add nuw i64 %.01116.i, 1
-  %exitcond.not.i = icmp eq i64 %19, %umax.i
+  %exitcond.not.i = icmp eq i64 %19, %11
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !68
 
 ._crit_edge.loopexit.i:                           ; preds = %18
@@ -6745,7 +6741,6 @@ define noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev9FileRules4Impl30filepathOnl
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 4
-  %umax.i.i = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %16, %.lr.ph.preheader.i.i
@@ -6758,7 +6753,7 @@ define noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev9FileRules4Impl30filepathOnl
   br i1 %14, label %_ZNK19OpenColorIO_v2_5dev9FileRules4Impl25getColorSpaceFromFilepathERKNS_6ConfigEPKcRm.exit, label %16
 
 16:                                               ; preds = %.lr.ph.i.i
-  %exitcond.not.i.i = icmp eq i64 %15, %umax.i.i
+  %exitcond.not.i.i = icmp eq i64 %15, %10
   br i1 %exitcond.not.i.i, label %_ZNK19OpenColorIO_v2_5dev9FileRules4Impl25getColorSpaceFromFilepathERKNS_6ConfigEPKcRm.exit, label %.lr.ph.i.i, !llvm.loop !68
 
 _ZNK19OpenColorIO_v2_5dev9FileRules4Impl25getColorSpaceFromFilepathERKNS_6ConfigEPKcRm.exit: ; preds = %16, %.lr.ph.i.i, %3
@@ -6785,17 +6780,13 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_5devl
   %10 = sub i64 %8, %9
   %11 = ashr exact i64 %10, 4
   %.not89 = icmp eq ptr %6, %7
-  br i1 %.not89, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %2
-  %umax = tail call i64 @llvm.umax.i64(i64 %11, i64 1)
-  br label %.lr.ph
+  br i1 %.not89, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %137, %2
   ret ptr %0
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %137
-  %.05488 = phi i64 [ %134, %137 ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %2, %137
+  %.05488 = phi i64 [ %134, %137 ], [ 0, %2 ]
   %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.22, i64 noundef 15)
   %13 = load ptr, ptr %3, align 8, !tbaa !6
   tail call void @_ZNK19OpenColorIO_v2_5dev9FileRules4Impl16validatePositionEmNS1_14DefaultAllowedE(ptr noundef nonnull align 8 dereferenceable(24) %13, i64 noundef %.05488, i32 noundef 0)
@@ -7022,7 +7013,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit86: ; preds = %116, 
   br label %137
 
 137:                                              ; preds = %135, %132
-  %exitcond90.not = icmp eq i64 %134, %umax
+  %exitcond90.not = icmp eq i64 %134, %11
   br i1 %exitcond90.not, label %._crit_edge, label %.lr.ph, !llvm.loop !129
 }
 
@@ -37876,7 +37867,6 @@ _ZNSt8__detail9_ExecutorIPKcSaINSt7__cxx119sub_matchIS2_EEENS3_12regex_traitsIcE
   %44 = sub i64 %42, %43
   %45 = sdiv exact i64 %44, 24
   %46 = load ptr, ptr %0, align 8
-  %umax = call i64 @llvm.umax.i64(i64 %45, i64 1)
   br label %51
 
 47:                                               ; preds = %_ZNSt6vectorINSt7__cxx119sub_matchIPKcEESaIS4_EEC2ERKS6_.exit
@@ -37912,7 +37902,7 @@ _ZNSt8__detail9_ExecutorIPKcSaINSt7__cxx119sub_matchIS2_EEENS3_12regex_traitsIcE
 
 63:                                               ; preds = %56, %51
   %64 = add nuw i64 %.019, 1
-  %exitcond.not = icmp eq i64 %64, %umax
+  %exitcond.not = icmp eq i64 %64, %45
   br i1 %exitcond.not, label %.loopexit, label %51, !llvm.loop !797
 
 .loopexit:                                        ; preds = %63, %.preheader, %_ZNSt8__detail9_ExecutorIPKcSaINSt7__cxx119sub_matchIS2_EEENS3_12regex_traitsIcEELb0EE20_M_search_from_firstEv.exit
@@ -39262,7 +39252,6 @@ _ZNSt12_Vector_baseISt4pairIPKciESaIS3_EEC2EmRKS4_.exit.i.i: ; preds = %_ZNSt6ve
   %78 = sub i64 %76, %77
   %79 = sdiv exact i64 %78, 24
   %80 = load ptr, ptr %0, align 8
-  %umax = call i64 @llvm.umax.i64(i64 %79, i64 1)
   br label %83
 
 81:                                               ; preds = %.noexc, %.loopexit.i
@@ -39293,7 +39282,7 @@ _ZNSt12_Vector_baseISt4pairIPKciESaIS3_EEC2EmRKS4_.exit.i.i: ; preds = %_ZNSt6ve
 
 95:                                               ; preds = %88, %83
   %96 = add nuw i64 %.023, 1
-  %exitcond.not = icmp eq i64 %96, %umax
+  %exitcond.not = icmp eq i64 %96, %79
   br i1 %exitcond.not, label %.loopexit, label %83, !llvm.loop !806
 
 .loopexit:                                        ; preds = %95, %.preheader, %71
@@ -44726,7 +44715,6 @@ _ZNSt8__detail9_ExecutorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_st
   %42 = sub i64 %40, %41
   %43 = sdiv exact i64 %42, 24
   %44 = load ptr, ptr %0, align 8
-  %umax = call i64 @llvm.umax.i64(i64 %43, i64 1)
   br label %49
 
 45:                                               ; preds = %_ZNSt6vectorINSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNS0_12basic_stringIcSt11char_traitsIcESaIcEEEEEEESaISC_EEC2ERKSE_.exit
@@ -44762,7 +44750,7 @@ _ZNSt8__detail9_ExecutorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_st
 
 61:                                               ; preds = %54, %49
   %62 = add nuw i64 %.020, 1
-  %exitcond.not = icmp eq i64 %62, %umax
+  %exitcond.not = icmp eq i64 %62, %43
   br i1 %exitcond.not, label %.loopexit, label %49, !llvm.loop !894
 
 .loopexit:                                        ; preds = %61, %.preheader, %_ZNSt8__detail9_ExecutorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS5_9sub_matchISB_EEENS5_12regex_traitsIcEELb0EE20_M_search_from_firstEv.exit
@@ -46158,7 +46146,6 @@ _ZNSt12_Vector_baseISt4pairIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic
   %77 = sub i64 %75, %76
   %78 = sdiv exact i64 %77, 24
   %79 = load ptr, ptr %0, align 8
-  %umax = call i64 @llvm.umax.i64(i64 %78, i64 1)
   br label %82
 
 80:                                               ; preds = %.noexc, %.loopexit.i
@@ -46189,7 +46176,7 @@ _ZNSt12_Vector_baseISt4pairIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic
 
 94:                                               ; preds = %87, %82
   %95 = add nuw i64 %.024, 1
-  %exitcond.not = icmp eq i64 %95, %umax
+  %exitcond.not = icmp eq i64 %95, %78
   br i1 %exitcond.not, label %.loopexit, label %82, !llvm.loop !903
 
 .loopexit:                                        ; preds = %94, %.preheader, %70

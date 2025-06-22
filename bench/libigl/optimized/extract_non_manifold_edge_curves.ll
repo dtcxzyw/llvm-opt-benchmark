@@ -143,7 +143,6 @@ _ZNSt6vectorIS_ImSaImEESaIS1_EE5clearEv.exit:     ; preds = %4, %_ZSt8_DestroyIP
   %47 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %48 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %49 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %umax = call i64 @llvm.umax.i64(i64 %40, i64 1)
   br label %60
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorImSaImEE9push_backERKm.exit
@@ -297,7 +296,7 @@ _ZNSt6vectorImSaImEE9push_backERKm.exit:          ; preds = %99, %_ZNSt6vectorIm
   %.sroa.9.1 = phi ptr [ %.sroa.9.0128, %60 ], [ %117, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i ], [ %100, %99 ]
   %.sroa.094.1 = phi ptr [ %.sroa.094.0129, %60 ], [ %113, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i ], [ %.sroa.094.0129, %99 ]
   %120 = add nuw i64 %storemerge130, 1
-  %exitcond.not = icmp eq i64 %120, %umax
+  %exitcond.not = icmp eq i64 %120, %40
   br i1 %exitcond.not, label %._crit_edge, label %60, !llvm.loop !63
 
 .loopexit:                                        ; preds = %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i

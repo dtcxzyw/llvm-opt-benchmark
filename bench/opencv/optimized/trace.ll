@@ -3995,7 +3995,6 @@ define void @_ZN2cv5utils5trace7details12TraceManagerD2Ev(ptr noundef nonnull al
   %23 = ptrtoint ptr %21 to i64
   %24 = sub i64 %22, %23
   %25 = ashr exact i64 %24, 3
-  %umax = call i64 @llvm.umax.i64(i64 %25, i64 1)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %39, %.preheader
@@ -4030,7 +4029,7 @@ define void @_ZN2cv5utils5trace7details12TraceManagerD2Ev(ptr noundef nonnull al
   %.133 = phi i64 [ %38, %31 ], [ %.03263, %.lr.ph ]
   %.1 = phi i64 [ %35, %31 ], [ %.03064, %.lr.ph ]
   %40 = add nuw i64 %.03462, 1
-  %exitcond.not = icmp eq i64 %40, %umax
+  %exitcond.not = icmp eq i64 %40, %25
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !206
 
 41:                                               ; preds = %._crit_edge
@@ -5152,7 +5151,6 @@ _ZN2cv5utils5trace7details15getTraceManagerEv.exit: ; preds = %1, %5, %8
   %38 = getelementptr inbounds nuw i8, ptr %14, i64 120
   %39 = getelementptr inbounds nuw i8, ptr %14, i64 176
   %40 = getelementptr inbounds nuw i8, ptr %14, i64 128
-  %umax = call i64 @llvm.umax.i64(i64 %34, i64 1)
   br label %45
 
 ._crit_edge:                                      ; preds = %.preheader
@@ -5254,7 +5252,7 @@ _ZNK2cv5utils5trace7details23TraceManagerThreadLocal14stackTopRegionEv.exit: ; p
 79:                                               ; preds = %.sink.split, %_ZNK2cv5utils5trace7details23TraceManagerThreadLocal14stackTopRegionEv.exit, %45
   %.sroa.037.1 = phi i32 [ %.sroa.037.043, %45 ], [ %.sroa.037.043, %_ZNK2cv5utils5trace7details23TraceManagerThreadLocal14stackTopRegionEv.exit ], [ %73, %.sink.split ]
   %80 = add nuw i64 %.045, 1
-  %exitcond.not = icmp eq i64 %80, %umax
+  %exitcond.not = icmp eq i64 %80, %34
   br i1 %exitcond.not, label %._crit_edge.thread, label %45, !llvm.loop !237
 
 ._crit_edge.thread:                               ; preds = %79

@@ -1351,8 +1351,7 @@ Ptngc_find_magic_index.exit552._crit_edge:        ; preds = %Ptngc_find_magic_in
 
 .lr.ph710.preheader:                              ; preds = %Ptngc_find_magic_index.exit552._crit_edge
   %501 = mul i32 %spec.select437, 3
-  %umax = call i32 @llvm.umax.i32(i32 %501, i32 1)
-  %wide.trip.count818 = zext i32 %umax to i64
+  %wide.trip.count818 = zext i32 %501 to i64
   br label %.lr.ph710
 
 .lr.ph710:                                        ; preds = %.lr.ph710.preheader, %.lr.ph710

@@ -5803,7 +5803,6 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i85
   %158 = sub i64 %156, %157
   %159 = sdiv exact i64 %158, 28
   %160 = load ptr, ptr %4, align 8, !tbaa !194
-  %umax = tail call i64 @llvm.umax.i64(i64 %159, i64 1)
   br label %161
 
 161:                                              ; preds = %.lr.ph, %.critedge
@@ -6394,7 +6393,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i19
 
 .critedge:                                        ; preds = %204
   %408 = add nuw i64 %.052199, 1
-  %exitcond.not = icmp eq i64 %408, %umax
+  %exitcond.not = icmp eq i64 %408, %159
   br i1 %exitcond.not, label %._crit_edge, label %161, !llvm.loop !219
 
 409:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i181, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i182
@@ -7202,7 +7201,6 @@ define hidden noundef i32 @_ZN6cvtest21getMatchedPointsCountERKSt6vectorIN2cv8Ke
   %10 = ashr exact i64 %9, 4
   %11 = load ptr, ptr %0, align 8, !tbaa !194
   %12 = load ptr, ptr %1, align 8, !tbaa !194
-  %umax = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %13
 
 ._crit_edge:                                      ; preds = %_ZN6cvtest12_GLOBAL__N_115keyPointsEqualsERKN2cv8KeyPointES4_.exit, %3
@@ -7288,7 +7286,7 @@ define hidden noundef i32 @_ZN6cvtest21getMatchedPointsCountERKSt6vectorIN2cv8Ke
 _ZN6cvtest12_GLOBAL__N_115keyPointsEqualsERKN2cv8KeyPointES4_.exit: ; preds = %62, %56, %47, %39, %31, %13
   %69 = phi i32 [ %.015, %13 ], [ %.015, %31 ], [ %.015, %39 ], [ %.015, %47 ], [ %.015, %56 ], [ %spec.select, %62 ]
   %70 = add nuw i64 %.01214, 1
-  %exitcond.not = icmp eq i64 %70, %umax
+  %exitcond.not = icmp eq i64 %70, %10
   br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !245
 }
 

@@ -16290,7 +16290,6 @@ define linkonce_odr dso_local void @_ZN8nlohmann24json_abi_diag_dp_v3_11_36detai
   %29 = ptrtoint ptr %27 to i64
   %30 = sub i64 %28, %29
   %31 = sdiv exact i64 %30, 40
-  %umax = call i64 @llvm.umax.i64(i64 %31, i64 1)
   br label %.lr.ph81
 
 .lr.ph81:                                         ; preds = %.lr.ph81.preheader, %111
@@ -16490,7 +16489,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43: ; preds = %_ZN
 
 111:                                              ; preds = %.lr.ph81
   %112 = add nuw i64 %.02880, 1
-  %exitcond.not = icmp eq i64 %112, %umax
+  %exitcond.not = icmp eq i64 %112, %31
   br i1 %exitcond.not, label %.loopexitthread-pre-split, label %.lr.ph81, !llvm.loop !215
 
 113:                                              ; preds = %21

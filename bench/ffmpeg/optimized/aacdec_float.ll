@@ -2021,7 +2021,6 @@ define internal void @imdct_and_windowing_eld(ptr noundef %0, ptr noundef %1) #3
 .preheader164:                                    ; preds = %71
   %67 = zext nneg i32 %8 to i64
   %68 = zext nneg i32 %52 to i64
-  %wide.trip.count180 = zext nneg i32 %9 to i64
   %69 = getelementptr float, ptr %31, i64 %67
   %invariant.gep206 = getelementptr inbounds nuw float, ptr %31, i64 %67
   %70 = getelementptr float, ptr %31, i64 %68
@@ -2125,7 +2124,7 @@ define internal void @imdct_and_windowing_eld(ptr noundef %0, ptr noundef %1) #3
   %gep209 = getelementptr inbounds nuw float, ptr %invariant.gep208, i64 %indvars.iv177
   store float %143, ptr %gep209, align 4, !tbaa !65
   %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177, 1
-  %exitcond181.not = icmp eq i64 %indvars.iv.next178, %wide.trip.count180
+  %exitcond181.not = icmp eq i64 %indvars.iv.next178, %11
   br i1 %exitcond181.not, label %.preheader, label %111, !llvm.loop !160
 
 144:                                              ; preds = %.preheader, %144

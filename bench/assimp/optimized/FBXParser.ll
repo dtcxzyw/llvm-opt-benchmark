@@ -4541,7 +4541,6 @@ _ZNSt6vectorI9aiColor4tIfESaIS1_EE7reserveEm.exit: ; preds = %_ZNSt12_Vector_bas
 
 156:                                              ; preds = %_ZNSt6vectorI9aiColor4tIfESaIS1_EE7reserveEm.exit
   %157 = load ptr, ptr %14, align 8
-  %umax180 = call i32 @llvm.umax.i32(i32 %136, i32 1)
   %.pre = load ptr, ptr %20, align 8
   br label %160
 
@@ -4652,7 +4651,7 @@ _ZNSt6vectorI9aiColor4tIfESaIS1_EE12emplace_backIJffffEEERS1_DpOT_.exit: ; preds
   %203 = phi ptr [ %200, %_ZNSt6vectorI9aiColor4tIfESaIS1_EE17_M_realloc_insertIJffffEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %179, %174 ]
   %204 = add nuw nsw i32 %.063177, 1
   %205 = getelementptr inbounds nuw i8, ptr %.064176, i64 32
-  %exitcond181.not = icmp eq i32 %204, %umax180
+  %exitcond181.not = icmp eq i32 %204, %136
   br i1 %exitcond181.not, label %.loopexit, label %160, !llvm.loop !45
 
 .loopexit168:                                     ; preds = %_ZNKSt6vectorI9aiColor4tIfESaIS1_EE12_M_check_lenEmPKc.exit.i.i
@@ -4667,7 +4666,6 @@ _ZNSt6vectorI9aiColor4tIfESaIS1_EE12emplace_backIJffffEEERS1_DpOT_.exit: ; preds
 
 206:                                              ; preds = %_ZNSt6vectorI9aiColor4tIfESaIS1_EE7reserveEm.exit
   %207 = load ptr, ptr %14, align 8
-  %umax = call i32 @llvm.umax.i32(i32 %136, i32 1)
   br label %208
 
 208:                                              ; preds = %206, %213
@@ -4682,7 +4680,7 @@ _ZNSt6vectorI9aiColor4tIfESaIS1_EE12emplace_backIJffffEEERS1_DpOT_.exit: ; preds
 213:                                              ; preds = %208
   %214 = add nuw nsw i32 %.061175, 1
   %215 = getelementptr inbounds nuw i8, ptr %.062174, i64 16
-  %exitcond.not = icmp eq i32 %214, %umax
+  %exitcond.not = icmp eq i32 %214, %136
   br i1 %exitcond.not, label %.loopexit, label %208, !llvm.loop !46
 
 216:                                              ; preds = %208
@@ -5513,7 +5511,6 @@ _ZNSt6vectorI10aiVector2tIfESaIS1_EE7reserveEm.exit: ; preds = %_ZNSt12_Vector_b
 154:                                              ; preds = %_ZNSt6vectorI10aiVector2tIfESaIS1_EE7reserveEm.exit
   %155 = load ptr, ptr %14, align 8
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %umax187 = call i32 @llvm.umax.i32(i32 %132, i32 1)
   %.pre189 = load ptr, ptr %156, align 8
   br label %159
 
@@ -5613,7 +5610,7 @@ _ZNSt6vectorI10aiVector2tIfESaIS1_EE12emplace_backIJffEEERS1_DpOT_.exit: ; preds
   %193 = phi ptr [ %190, %_ZNSt6vectorI10aiVector2tIfESaIS1_EE17_M_realloc_insertIJffEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %170, %167 ]
   %194 = add nuw nsw i32 %.059183, 1
   %195 = getelementptr inbounds nuw i8, ptr %.060182, i64 16
-  %exitcond188.not = icmp eq i32 %194, %umax187
+  %exitcond188.not = icmp eq i32 %194, %132
   br i1 %exitcond188.not, label %.loopexit, label %159, !llvm.loop !71
 
 .loopexit168:                                     ; preds = %_ZNKSt6vectorI10aiVector2tIfESaIS1_EE12_M_check_lenEmPKc.exit.i.i
@@ -5629,7 +5626,6 @@ _ZNSt6vectorI10aiVector2tIfESaIS1_EE12emplace_backIJffEEERS1_DpOT_.exit: ; preds
 196:                                              ; preds = %_ZNSt6vectorI10aiVector2tIfESaIS1_EE7reserveEm.exit
   %197 = load ptr, ptr %14, align 8
   %198 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %umax = call i32 @llvm.umax.i32(i32 %132, i32 1)
   %.pre = load ptr, ptr %198, align 8
   br label %199
 
@@ -5724,7 +5720,7 @@ _ZNSt6vectorI10aiVector2tIfESaIS1_EE12emplace_backIJRKfS6_EEERS1_DpOT_.exit: ; p
   %233 = phi ptr [ %230, %_ZNSt6vectorI10aiVector2tIfESaIS1_EE17_M_realloc_insertIJRKfS6_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %208, %203 ]
   %234 = add nuw nsw i32 %.057181, 1
   %235 = getelementptr inbounds nuw i8, ptr %.058180, i64 8
-  %exitcond.not = icmp eq i32 %234, %umax
+  %exitcond.not = icmp eq i32 %234, %132
   br i1 %exitcond.not, label %.loopexit, label %199, !llvm.loop !77
 
 .loopexit170:                                     ; preds = %_ZNKSt6vectorI10aiVector2tIfESaIS1_EE12_M_check_lenEmPKc.exit.i.i95
@@ -13134,9 +13130,6 @@ declare i64 @llvm.smax.i64(i64, i64) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #26
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #26
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

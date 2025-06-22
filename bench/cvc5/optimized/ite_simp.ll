@@ -1819,7 +1819,6 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal13preprocessing6passes7ITESim
   %69 = ptrtoint ptr %67 to i64
   %70 = sub i64 %68, %69
   %71 = ashr exact i64 %70, 3
-  %umax = call i64 @llvm.umax.i64(i64 %71, i64 1)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit224
@@ -2250,7 +2249,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit222: ; preds = %232, %236, %242
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit224: ; preds = %247, %250, %256
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #19
   %260 = add nuw i64 %.0682716, 1
-  %exitcond.not = icmp eq i64 %260, %umax
+  %exitcond.not = icmp eq i64 %260, %71
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !306
 
 261:                                              ; preds = %246, %213
@@ -2301,12 +2300,11 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit224: ; preds = %247, %250, %256
   %280 = ptrtoint ptr %278 to i64
   %281 = sub i64 %279, %280
   %282 = ashr exact i64 %281, 3
-  %umax730 = call i64 @llvm.umax.i64(i64 %282, i64 1)
   br label %.lr.ph720
 
 283:                                              ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit349
   %284 = add nuw i64 %.0683718, 1
-  %exitcond731.not = icmp eq i64 %284, %umax730
+  %exitcond731.not = icmp eq i64 %284, %282
   br i1 %exitcond731.not, label %.loopexit, label %.lr.ph720, !llvm.loop !307
 
 285:                                              ; preds = %271, %269, %265, %264, %.critedge
@@ -3450,12 +3448,11 @@ define hidden noundef range(i32 0, 2) i32 @_ZN4cvc58internal13preprocessing6pass
   %15 = ashr exact i64 %14, 3
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 208
-  %umax = tail call i64 @llvm.umax.i64(i64 %15, i64 1)
   br label %20
 
 18:                                               ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit27
   %19 = add nuw i64 %.02329, 1
-  %exitcond.not = icmp eq i64 %19, %umax
+  %exitcond.not = icmp eq i64 %19, %15
   br i1 %exitcond.not, label %.critedge, label %20, !llvm.loop !309
 
 20:                                               ; preds = %.lr.ph, %18

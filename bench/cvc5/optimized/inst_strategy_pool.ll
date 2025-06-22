@@ -1436,11 +1436,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit45: ; preds = %163, %173, %179
 
 .preheader:                                       ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit45
   %.not3761 = icmp eq ptr %122, %123
-  br i1 %.not3761, label %.loopexit, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %.preheader
-  %umax = call i64 @llvm.umax.i64(i64 %127, i64 1)
-  br label %.lr.ph
+  br i1 %.not3761, label %.loopexit, label %.lr.ph
 
 183:                                              ; preds = %119
   %184 = landingpad { ptr, i32 }
@@ -1463,8 +1459,8 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit45: ; preds = %163, %173, %179
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #24
   br label %320
 
-.lr.ph:                                           ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit57, %.lr.ph.preheader
-  %.062 = phi i64 [ 0, %.lr.ph.preheader ], [ %288, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit57 ]
+.lr.ph:                                           ; preds = %.preheader, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit57
+  %.062 = phi i64 [ %288, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit57 ], [ 0, %.preheader ]
   %190 = load ptr, ptr %6, align 8, !tbaa !325
   %191 = getelementptr inbounds nuw %"class.cvc5::internal::TypeNode", ptr %190, i64 %.062
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #24
@@ -1652,7 +1648,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit57: ; preds = %_ZN4cvc58internal12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #24
   %288 = add nuw i64 %.062, 1
-  %exitcond.not = icmp ne i64 %288, %umax
+  %exitcond.not = icmp ne i64 %288, %127
   %or.cond.not = select i1 %.not60, i1 %exitcond.not, i1 false
   br i1 %or.cond.not, label %.lr.ph, label %.loopexit, !llvm.loop !335
 

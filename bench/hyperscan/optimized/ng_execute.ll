@@ -3350,7 +3350,6 @@ _ZN3ue2L15filter_by_reachERKSt6vectorINS_9StateInfoESaIS1_EEPN5boost14dynamic_bi
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %840, ptr align 8 %834, i64 %837, i1 false), !noalias !111
   %841 = load i64, ptr %206, align 8, !noalias !111
   %842 = lshr exact i64 %837, 3
-  %umax.i.i.i.i = call i64 @llvm.umax.i64(i64 %842, i64 1)
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.noexc97.i.i.i
@@ -3361,8 +3360,8 @@ _ZN3ue2L15filter_by_reachERKSt6vectorINS_9StateInfoESaIS1_EEPN5boost14dynamic_bi
   %846 = load i64, ptr %845, align 8, !noalias !111
   %847 = or i64 %846, %844
   store i64 %847, ptr %845, align 8, !noalias !111
-  %848 = add nuw nsw i64 %.05.i.i.i.i.i, 1
-  %exitcond.not.i.i.i.i = icmp eq i64 %848, %umax.i.i.i.i
+  %848 = add nuw i64 %.05.i.i.i.i.i, 1
+  %exitcond.not.i.i.i.i = icmp eq i64 %848, %842
   br i1 %exitcond.not.i.i.i.i, label %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i.i4.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !114
 
 _ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i.i4.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i
@@ -4832,12 +4831,11 @@ define internal fastcc noundef zeroext i1 @_ZN3ue2L13can_die_earlyERKNS_8NGHolde
   %19 = ptrtoint ptr %17 to i64
   %20 = sub i64 %18, %19
   %21 = ashr exact i64 %20, 3
-  %umax.i.i = tail call i64 @llvm.umax.i64(i64 %21, i64 1)
   br label %.lr.ph.i.i
 
 22:                                               ; preds = %.lr.ph.i.i
   %23 = add nuw i64 %.059.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %23, %umax.i.i
+  %exitcond.not.i.i = icmp eq i64 %23, %21
   br i1 %exitcond.not.i.i, label %_ZNK5boost14dynamic_bitsetImSaImEE4noneEv.exit.thread, label %.lr.ph.i.i, !llvm.loop !145
 
 .lr.ph.i.i:                                       ; preds = %22, %.lr.ph.preheader.i.i

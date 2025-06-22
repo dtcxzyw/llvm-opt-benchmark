@@ -5962,7 +5962,6 @@ _ZNSt6vectorIlSaIlEE6resizeEm.exit:               ; preds = %_ZNSt6vectorIlSaIlE
   %28 = load ptr, ptr %1, align 8, !tbaa !32
   %.sroa.223.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %umax = tail call i64 @llvm.umax.i64(i64 %27, i64 1)
   br label %29
 
 29:                                               ; preds = %.lr.ph, %49
@@ -6026,7 +6025,7 @@ _ZN4llvm4json8fromJSONERKNS0_5ValueERlNS0_4PathE.exit: ; preds = %29, %_ZNK4llvm
   store i64 %.sroa.0.0.i9.i, ptr %31, align 8, !tbaa !14
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   %50 = add nuw i64 %.01529, 1
-  %exitcond.not = icmp eq i64 %50, %umax
+  %exitcond.not = icmp eq i64 %50, %27
   br i1 %exitcond.not, label %.loopexit, label %29, !llvm.loop !612
 
 .thread:                                          ; preds = %3

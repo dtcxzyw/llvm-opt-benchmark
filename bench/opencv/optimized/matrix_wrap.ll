@@ -3202,14 +3202,10 @@ _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i.i121: ; preds = %.lr.ph.i.i.i.
 
 _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit122:  ; preds = %140, %142, %144, %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i.i121
   %.not173 = icmp eq i64 %sext107, 0
-  br i1 %.not173, label %_ZNSt6vectorIN2cv3MatESaIS1_EE5clearEv.exit, label %.lr.ph166.preheader
+  br i1 %.not173, label %_ZNSt6vectorIN2cv3MatESaIS1_EE5clearEv.exit, label %.lr.ph166
 
-.lr.ph166.preheader:                              ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit122
-  %umax186 = tail call i64 @llvm.umax.i64(i64 %121, i64 1)
-  br label %.lr.ph166
-
-.lr.ph166:                                        ; preds = %.lr.ph166.preheader, %153
-  %.0102165 = phi i64 [ %154, %153 ], [ 0, %.lr.ph166.preheader ]
+.lr.ph166:                                        ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit122, %153
+  %.0102165 = phi i64 [ %154, %153 ], [ 0, %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit122 ]
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %5) #17
   %147 = load ptr, ptr %119, align 8, !tbaa !27
   %148 = mul i64 %.0102165, %131
@@ -3224,7 +3220,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit122:  ; preds = %140, %142, %144, %_
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #17
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %5) #17
   %154 = add nuw i64 %.0102165, 1
-  %exitcond187.not = icmp eq i64 %154, %umax186
+  %exitcond187.not = icmp eq i64 %154, %121
   br i1 %exitcond187.not, label %_ZNSt6vectorIN2cv3MatESaIS1_EE5clearEv.exit, label %.lr.ph166, !llvm.loop !108
 
 155:                                              ; preds = %.lr.ph166
@@ -3384,21 +3380,17 @@ _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i.i138: ; preds = %.lr.ph.i.i.i.
 
 _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit139:  ; preds = %220, %222, %224, %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i.i138
   %.not172 = icmp eq ptr %206, %207
-  br i1 %.not172, label %_ZNSt6vectorIN2cv3MatESaIS1_EE5clearEv.exit, label %.lr.ph162.preheader
+  br i1 %.not172, label %_ZNSt6vectorIN2cv3MatESaIS1_EE5clearEv.exit, label %.lr.ph162
 
-.lr.ph162.preheader:                              ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit139
-  %umax182 = tail call i64 @llvm.umax.i64(i64 %211, i64 1)
-  br label %.lr.ph162
-
-.lr.ph162:                                        ; preds = %.lr.ph162.preheader, %.lr.ph162
-  %.0100161 = phi i64 [ %232, %.lr.ph162 ], [ 0, %.lr.ph162.preheader ]
+.lr.ph162:                                        ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit139, %.lr.ph162
+  %.0100161 = phi i64 [ %232, %.lr.ph162 ], [ 0, %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit139 ]
   %227 = load ptr, ptr %204, align 8, !tbaa !51
   %228 = getelementptr inbounds nuw %"class.cv::Mat", ptr %227, i64 %.0100161
   %229 = load ptr, ptr %1, align 8, !tbaa !51
   %230 = getelementptr inbounds nuw %"class.cv::Mat", ptr %229, i64 %.0100161
   %231 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %230, ptr noundef nonnull align 8 dereferenceable(96) %228)
   %232 = add nuw i64 %.0100161, 1
-  %exitcond183.not = icmp eq i64 %232, %umax182
+  %exitcond183.not = icmp eq i64 %232, %211
   br i1 %exitcond183.not, label %_ZNSt6vectorIN2cv3MatESaIS1_EE5clearEv.exit, label %.lr.ph162, !llvm.loop !110
 
 233:                                              ; preds = %2
@@ -3503,14 +3495,10 @@ _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i.i150: ; preds = %.lr.ph.i.i.i.
 
 _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit151:  ; preds = %277, %279, %281, %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i.i150
   %.not = icmp eq ptr %263, %264
-  br i1 %.not, label %_ZNSt6vectorIN2cv3MatESaIS1_EE5clearEv.exit, label %.lr.ph.preheader
+  br i1 %.not, label %_ZNSt6vectorIN2cv3MatESaIS1_EE5clearEv.exit, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit151
-  %umax = tail call i64 @llvm.umax.i64(i64 %268, i64 1)
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %289
-  %.0158 = phi i64 [ %290, %289 ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit151, %289
+  %.0158 = phi i64 [ %290, %289 ], [ 0, %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit151 ]
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %7) #17
   %284 = load ptr, ptr %261, align 8, !tbaa !55
   %285 = getelementptr inbounds nuw %"class.cv::UMat", ptr %284, i64 %.0158
@@ -3524,7 +3512,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit151:  ; preds = %277, %279, %281, %_
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #17
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %7) #17
   %290 = add nuw i64 %.0158, 1
-  %exitcond.not = icmp eq i64 %290, %umax
+  %exitcond.not = icmp eq i64 %290, %268
   br i1 %exitcond.not, label %_ZNSt6vectorIN2cv3MatESaIS1_EE5clearEv.exit, label %.lr.ph, !llvm.loop !112
 
 291:                                              ; preds = %.lr.ph
@@ -3718,14 +3706,10 @@ _ZSt8_DestroyIPN2cv4UMatES1_EvT_S3_RSaIT0_E.exit.i.i61: ; preds = %.lr.ph.i.i.i.
 
 _ZNSt6vectorIN2cv4UMatESaIS1_EE6resizeEm.exit:    ; preds = %33, %35, %37, %_ZSt8_DestroyIPN2cv4UMatES1_EvT_S3_RSaIT0_E.exit.i.i61
   %.not94 = icmp eq ptr %19, %20
-  br i1 %.not94, label %_ZNSt6vectorIN2cv4UMatESaIS1_EE5clearEv.exit, label %.lr.ph92.preheader
+  br i1 %.not94, label %_ZNSt6vectorIN2cv4UMatESaIS1_EE5clearEv.exit, label %.lr.ph92
 
-.lr.ph92.preheader:                               ; preds = %_ZNSt6vectorIN2cv4UMatESaIS1_EE6resizeEm.exit
-  %umax98 = tail call i64 @llvm.umax.i64(i64 %24, i64 1)
-  br label %.lr.ph92
-
-.lr.ph92:                                         ; preds = %.lr.ph92.preheader, %45
-  %.091 = phi i64 [ %46, %45 ], [ 0, %.lr.ph92.preheader ]
+.lr.ph92:                                         ; preds = %_ZNSt6vectorIN2cv4UMatESaIS1_EE6resizeEm.exit, %45
+  %.091 = phi i64 [ %46, %45 ], [ 0, %_ZNSt6vectorIN2cv4UMatESaIS1_EE6resizeEm.exit ]
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #17
   %40 = load ptr, ptr %17, align 8, !tbaa !51
   %41 = getelementptr inbounds nuw %"class.cv::Mat", ptr %40, i64 %.091
@@ -3739,7 +3723,7 @@ _ZNSt6vectorIN2cv4UMatESaIS1_EE6resizeEm.exit:    ; preds = %33, %35, %37, %_ZSt
   call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %3) #17
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #17
   %46 = add nuw i64 %.091, 1
-  %exitcond99.not = icmp eq i64 %46, %umax98
+  %exitcond99.not = icmp eq i64 %46, %24
   br i1 %exitcond99.not, label %_ZNSt6vectorIN2cv4UMatESaIS1_EE5clearEv.exit, label %.lr.ph92, !llvm.loop !114
 
 47:                                               ; preds = %.lr.ph92
@@ -3865,21 +3849,17 @@ _ZSt8_DestroyIPN2cv4UMatES1_EvT_S3_RSaIT0_E.exit.i.i72: ; preds = %.lr.ph.i.i.i.
 
 _ZNSt6vectorIN2cv4UMatESaIS1_EE6resizeEm.exit73:  ; preds = %96, %98, %100, %_ZSt8_DestroyIPN2cv4UMatES1_EvT_S3_RSaIT0_E.exit.i.i72
   %.not = icmp eq ptr %82, %83
-  br i1 %.not, label %_ZNSt6vectorIN2cv4UMatESaIS1_EE5clearEv.exit, label %.lr.ph.preheader
+  br i1 %.not, label %_ZNSt6vectorIN2cv4UMatESaIS1_EE5clearEv.exit, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %_ZNSt6vectorIN2cv4UMatESaIS1_EE6resizeEm.exit73
-  %umax = tail call i64 @llvm.umax.i64(i64 %87, i64 1)
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.04788 = phi i64 [ %108, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %_ZNSt6vectorIN2cv4UMatESaIS1_EE6resizeEm.exit73, %.lr.ph
+  %.04788 = phi i64 [ %108, %.lr.ph ], [ 0, %_ZNSt6vectorIN2cv4UMatESaIS1_EE6resizeEm.exit73 ]
   %103 = load ptr, ptr %80, align 8, !tbaa !55
   %104 = getelementptr inbounds nuw %"class.cv::UMat", ptr %103, i64 %.04788
   %105 = load ptr, ptr %1, align 8, !tbaa !55
   %106 = getelementptr inbounds nuw %"class.cv::UMat", ptr %105, i64 %.04788
   %107 = tail call noundef nonnull align 8 dereferenceable(80) ptr @_ZN2cv4UMataSERKS0_(ptr noundef nonnull align 8 dereferenceable(80) %106, ptr noundef nonnull align 8 dereferenceable(80) %104)
   %108 = add nuw i64 %.04788, 1
-  %exitcond.not = icmp eq i64 %108, %umax
+  %exitcond.not = icmp eq i64 %108, %87
   br i1 %exitcond.not, label %_ZNSt6vectorIN2cv4UMatESaIS1_EE5clearEv.exit, label %.lr.ph, !llvm.loop !116
 
 109:                                              ; preds = %2

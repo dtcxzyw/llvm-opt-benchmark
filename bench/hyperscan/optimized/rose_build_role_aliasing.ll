@@ -4597,7 +4597,6 @@ define hidden void @_ZN3ue215mergeDupeLeavesERNS_13RoseBuildImplE(ptr noundef no
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  %umax = call i64 @llvm.umax.i64(i64 %76, i64 1)
   br label %544
 
 82:                                               ; preds = %.lr.ph576, %539
@@ -6111,7 +6110,7 @@ _ZNK3ue213RoseBuildImpl15isVirtualVertexERKNS_12graph_detail17vertex_descriptorI
 631:                                              ; preds = %_ZNK3ue213RoseBuildImpl15isVirtualVertexERKNS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE.exit.thread, %544
   %.1127 = phi i64 [ %630, %_ZNK3ue213RoseBuildImpl15isVirtualVertexERKNS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE.exit.thread ], [ %.0126584, %544 ]
   %632 = add nuw i64 %.0128583, 1
-  %exitcond.not = icmp eq i64 %632, %umax
+  %exitcond.not = icmp eq i64 %632, %76
   br i1 %exitcond.not, label %._crit_edge586, label %544, !llvm.loop !366
 
 633:                                              ; preds = %._crit_edge586

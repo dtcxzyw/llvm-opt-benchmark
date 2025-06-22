@@ -16751,7 +16751,6 @@ _ZNSt16allocator_traitsISaIN2cv6Point_IiEEEE8allocateERS3_m.exit.i.i.i.i.i: ; pr
   %6012 = ptrtoint ptr %6007 to i64
   %6013 = sub i64 %6011, %6012
   %6014 = ashr exact i64 %6013, 3
-  %umax.i = call i64 @llvm.umax.i64(i64 %6014, i64 1)
   br label %.lr.ph.i1776
 
 ._crit_edge.i:                                    ; preds = %6019, %.noexc23.i
@@ -16798,7 +16797,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit.i:  ; preds = %._crit_edge.i, %599
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #35, !noalias !562
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #35, !noalias !562
   %6020 = add nuw i64 %.038.i, 1
-  %exitcond.not.i = icmp eq i64 %6020, %umax.i
+  %exitcond.not.i = icmp eq i64 %6020, %6014
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i1776, !llvm.loop !569
 
 .thread.i1777:                                    ; preds = %.lr.ph.i1776
@@ -58469,7 +58468,6 @@ _ZNSt6vectorIN6custom12_GLOBAL__N_14FaceESaIS2_EE5clearEv.exit.i.i.i: ; preds = 
   %30 = ptrtoint ptr %23 to i64
   %31 = sub i64 %29, %30
   %32 = sdiv exact i64 %31, 76
-  %umax.i.i.i = tail call i64 @llvm.umax.i64(i64 %32, i64 1)
   br label %.lr.ph.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %43
@@ -58495,7 +58493,7 @@ _ZNSt6vectorIN6custom12_GLOBAL__N_14FaceESaIS2_EE5clearEv.exit.i.i.i: ; preds = 
 
 43:                                               ; preds = %45
   %44 = add nuw i64 %.02.i.i.i, 1
-  %exitcond3.not.i.i.i = icmp eq i64 %44, %umax.i.i.i
+  %exitcond3.not.i.i.i = icmp eq i64 %44, %32
   br i1 %exitcond3.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !1185
 
 45:                                               ; preds = %45, %.lr.ph.i.i.i

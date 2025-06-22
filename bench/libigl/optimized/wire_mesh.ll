@@ -1270,14 +1270,10 @@ _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i.i: ; preds = %400
 .preheader504.lr.ph:                              ; preds = %.sink.split.i.i.i.i
   %invariant.gep = getelementptr i8, ptr %.sink.i.i.i.i, i64 4
   %409 = icmp sgt i64 %396, 0
-  br i1 %409, label %.preheader504.us.preheader, label %._crit_edge530
+  br i1 %409, label %.preheader504.us, label %._crit_edge530
 
-.preheader504.us.preheader:                       ; preds = %.preheader504.lr.ph
-  %umax = call i64 @llvm.umax.i64(i64 %395, i64 1)
-  br label %.preheader504.us
-
-.preheader504.us:                                 ; preds = %.preheader504.us.preheader, %._crit_edge528.us
-  %indvars.iv573 = phi i64 [ 0, %.preheader504.us.preheader ], [ %indvars.iv.next574, %._crit_edge528.us ]
+.preheader504.us:                                 ; preds = %.preheader504.lr.ph, %._crit_edge528.us
+  %indvars.iv573 = phi i64 [ %indvars.iv.next574, %._crit_edge528.us ], [ 0, %.preheader504.lr.ph ]
   %410 = getelementptr inbounds nuw %"struct.std::pair", ptr %391, i64 %indvars.iv573
   %411 = getelementptr inbounds nuw i8, ptr %410, i64 4
   %412 = mul nuw nsw i64 %indvars.iv573, %396
@@ -1305,7 +1301,7 @@ _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i.i: ; preds = %400
 
 ._crit_edge528.us:                                ; preds = %413
   %indvars.iv.next574 = add nuw nsw i64 %indvars.iv573, 1
-  %exitcond576.not = icmp eq i64 %indvars.iv.next574, %umax
+  %exitcond576.not = icmp eq i64 %indvars.iv.next574, %395
   br i1 %exitcond576.not, label %._crit_edge530, label %.preheader504.us, !llvm.loop !162
 
 ._crit_edge530:                                   ; preds = %._crit_edge528.us, %.preheader504.lr.ph, %.sink.split.i.i.i.i

@@ -6446,7 +6446,6 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i69
   %204 = sub i64 %202, %203
   %205 = ashr exact i64 %204, 3
   %206 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  %umax = call i64 @llvm.umax.i64(i64 %205, i64 1)
   br label %207
 
 207:                                              ; preds = %.lr.ph, %235
@@ -6504,7 +6503,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i69
 
 235:                                              ; preds = %230, %227
   %236 = add nuw i64 %.02974, 1
-  %exitcond.not = icmp eq i64 %236, %umax
+  %exitcond.not = icmp eq i64 %236, %205
   br i1 %exitcond.not, label %.loopexit.thread, label %207, !llvm.loop !267
 
 .loopexit:                                        ; preds = %_ZNSt6vectorIP4FactSaIS1_EEaSERKS3_.exit

@@ -15364,8 +15364,6 @@ _ZN10polynomial7manager3imp16cheap_som_buffer5resetEv.exit: ; preds = %_ZNK13mpz
   %86 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr null, ptr %86, align 8, !tbaa !29
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %umax = tail call i32 @llvm.umax.i32(i32 %7, i32 1)
-  %wide.trip.count91 = zext i32 %umax to i64
   br label %93
 
 88:                                               ; preds = %112
@@ -15416,7 +15414,7 @@ _ZN13mpzzp_manager3setER3mpzRKS0_.exit:           ; preds = %_ZN11mpz_managerILb
 
 112:                                              ; preds = %_ZN13mpzzp_manager3setER3mpzRKS0_.exit
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
-  %exitcond92.not = icmp eq i64 %indvars.iv.next89, %wide.trip.count91
+  %exitcond92.not = icmp eq i64 %indvars.iv.next89, %wide.trip.count
   br i1 %exitcond92.not, label %88, label %93, !llvm.loop !231
 
 113:                                              ; preds = %111, %107, %_ZN13mpzzp_manager3setER3mpzRKS0_.exit
@@ -15603,8 +15601,7 @@ _ZN10polynomial7manager3imp16cheap_som_buffer5resetEv.exit71: ; preds = %165, %_
   %183 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr null, ptr %183, align 8, !tbaa !29
   %184 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %umax96 = call i32 @llvm.umax.i32(i32 %7, i32 1)
-  %wide.trip.count97 = zext i32 %umax96 to i64
+  %wide.trip.count97 = zext i32 %7 to i64
   br label %201
 
 185:                                              ; preds = %208
@@ -22879,9 +22876,7 @@ _ZN10polynomial7manager3imp10som_buffer5resetEv.exit: ; preds = %78, %_ZN6vector
   %117 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %118 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %119 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %umax = tail call i32 @llvm.umax.i32(i32 %14, i32 1)
   %wide.trip.count376 = zext i32 %104 to i64
-  %wide.trip.count366 = zext i32 %umax to i64
   br label %139
 
 ._crit_edge352:                                   ; preds = %667, %_ZN10polynomial7manager3imp10som_buffer5resetEv.exit
@@ -24184,7 +24179,7 @@ _ZN13mpzzp_manager3mulERK3mpzS2_RS0_.exit11.i172: ; preds = %646, %629, %640, %.
 
 _ZN13mpzzp_manager3mulERK3mpzS2_RS0_.exit186:     ; preds = %.noexc184, %654, %539, %526
   %indvars.iv.next364 = add nuw nsw i64 %indvars.iv363, 1
-  %exitcond367.not = icmp eq i64 %indvars.iv.next364, %wide.trip.count366
+  %exitcond367.not = icmp eq i64 %indvars.iv.next364, %wide.trip.count
   br i1 %exitcond367.not, label %.preheader, label %526, !llvm.loop !261
 
 ._crit_edge:                                      ; preds = %657, %.preheader

@@ -22716,7 +22716,6 @@ _ZNK7tinyobj9PrimGroup7IsEmptyEv.exit.thread:     ; preds = %7, %15, %_ZNK7tinyo
 .loopexit665.us:                                  ; preds = %128, %132, %129
   %.sroa.0.1.us = phi i64 [ 1, %129 ], [ 0, %132 ], [ 1, %128 ]
   %.sroa.13.1.us = phi i64 [ 2, %129 ], [ %spec.select368.us, %132 ], [ 2, %128 ]
-  %umax = tail call i64 @llvm.umax.i64(i64 %63, i64 1)
   br label %547
 
 135:                                              ; preds = %577
@@ -23814,7 +23813,7 @@ select.unfold.us:                                 ; preds = %_ZN7tinyobjL6pnpoly
 
 577:                                              ; preds = %564, %562, %559, %557, %547
   %.1326.us = phi float [ %576, %564 ], [ %.0325732.us, %562 ], [ %.0325732.us, %559 ], [ %.0325732.us, %557 ], [ %.0325732.us, %547 ]
-  %exitcond855.not = icmp eq i64 %549, %umax
+  %exitcond855.not = icmp eq i64 %549, %63
   br i1 %exitcond855.not, label %135, label %547, !llvm.loop !439
 
 _ZN7tinyobj6face_tD2Ev.exit.us:                   ; preds = %303, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit465.us, %.lr.ph745.split.us

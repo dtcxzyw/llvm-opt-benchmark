@@ -3322,7 +3322,6 @@ _ZSt6fill_nIPdxdET_S1_T0_RKT1_.exit74:            ; preds = %.lr.ph.i.i.i.i70, %
   %39 = ptrtoint ptr %37 to i64
   %40 = sub i64 %38, %39
   %41 = ashr exact i64 %40, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %41, i64 1)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %54, %_ZSt6fill_nIPdxdET_S1_T0_RKT1_.exit74
@@ -3359,7 +3358,7 @@ _ZSt6fill_nIPdxdET_S1_T0_RKT1_.exit74:            ; preds = %.lr.ph.i.i.i.i70, %
 
 54:                                               ; preds = %.sink.split, %51
   %55 = add nuw nsw i64 %.090, 1
-  %exitcond.not = icmp eq i64 %55, %umax
+  %exitcond.not = icmp eq i64 %55, %41
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !187
 
 ._crit_edge95.loopexit:                           ; preds = %99

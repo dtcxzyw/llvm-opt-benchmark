@@ -4639,7 +4639,6 @@ define void @_ZN11colvarvalue8set_onesEd(ptr noundef nonnull align 8 captures(no
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
   %11 = ashr exact i64 %10, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %11, i64 1)
   br label %.lr.ph
 
 12:                                               ; preds = %2
@@ -4672,7 +4671,7 @@ define void @_ZN11colvarvalue8set_onesEd(ptr noundef nonnull align 8 captures(no
   %23 = getelementptr inbounds nuw double, ptr %7, i64 %.012
   store double %1, ptr %23, align 8, !tbaa !31
   %24 = add nuw i64 %.012, 1
-  %exitcond.not = icmp eq i64 %24, %umax
+  %exitcond.not = icmp eq i64 %24, %11
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !92
 
 25:                                               ; preds = %2
@@ -6180,7 +6179,6 @@ _ZN12colvarmodule8vector1dIdEC2Em.exit38:         ; preds = %_ZNSt6vectorIdSaIdE
   %96 = ashr exact i64 %95, 3
   %97 = load ptr, ptr %2, align 8, !tbaa !29
   %98 = load ptr, ptr %0, align 8, !tbaa !29
-  %umax = call i64 @llvm.umax.i64(i64 %96, i64 1)
   br label %99
 
 99:                                               ; preds = %.lr.ph, %99
@@ -6193,7 +6191,7 @@ _ZN12colvarmodule8vector1dIdEC2Em.exit38:         ; preds = %_ZNSt6vectorIdSaIdE
   %105 = getelementptr inbounds nuw double, ptr %98, i64 %.0106
   store double %104, ptr %105, align 8, !tbaa !31
   %106 = add nuw i64 %.0106, 1
-  %exitcond.not = icmp eq i64 %106, %umax
+  %exitcond.not = icmp eq i64 %106, %96
   br i1 %exitcond.not, label %._crit_edge, label %99, !llvm.loop !123
 
 107:                                              ; preds = %_ZN12colvarmodule8vector1dIdEC2Em.exit23
@@ -7262,7 +7260,6 @@ _ZN12colvarmodule8vector1dIdEC2Em.exit38:         ; preds = %_ZNSt6vectorIdSaIdE
   %96 = ashr exact i64 %95, 3
   %97 = load ptr, ptr %2, align 8, !tbaa !29
   %98 = load ptr, ptr %0, align 8, !tbaa !29
-  %umax = call i64 @llvm.umax.i64(i64 %96, i64 1)
   br label %99
 
 99:                                               ; preds = %.lr.ph, %99
@@ -7275,7 +7272,7 @@ _ZN12colvarmodule8vector1dIdEC2Em.exit38:         ; preds = %_ZNSt6vectorIdSaIdE
   %105 = getelementptr inbounds nuw double, ptr %98, i64 %.0106
   store double %104, ptr %105, align 8, !tbaa !31
   %106 = add nuw i64 %.0106, 1
-  %exitcond.not = icmp eq i64 %106, %umax
+  %exitcond.not = icmp eq i64 %106, %96
   br i1 %exitcond.not, label %._crit_edge, label %99, !llvm.loop !145
 
 107:                                              ; preds = %_ZN12colvarmodule8vector1dIdEC2Em.exit23
@@ -7502,7 +7499,6 @@ _ZN12colvarmodule8vector1dIdEC2Em.exit.i:         ; preds = %_ZNSt6vectorIdSaIdE
   %88 = ptrtoint ptr %64 to i64
   %89 = sub i64 %87, %88
   %90 = ashr exact i64 %89, 3
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %90, i64 1)
   br label %91
 
 91:                                               ; preds = %91, %.lr.ph.i
@@ -7513,7 +7509,7 @@ _ZN12colvarmodule8vector1dIdEC2Em.exit.i:         ; preds = %_ZNSt6vectorIdSaIdE
   %95 = getelementptr inbounds nuw double, ptr %85, i64 %.08.i
   store double %94, ptr %95, align 8, !tbaa !31
   %96 = add nuw i64 %.08.i, 1
-  %exitcond.not.i = icmp eq i64 %96, %umax.i
+  %exitcond.not.i = icmp eq i64 %96, %90
   br i1 %exitcond.not.i, label %_ZmlRKN12colvarmodule8vector1dIdEEd.exit, label %91, !llvm.loop !158
 
 _ZmlRKN12colvarmodule8vector1dIdEEd.exit:         ; preds = %91, %_ZN12colvarmodule8vector1dIdEC2Em.exit.i
@@ -7760,7 +7756,6 @@ _ZN12colvarmodule8vector1dIdEC2Em.exit.i:         ; preds = %_ZNSt6vectorIdSaIdE
   %88 = ptrtoint ptr %64 to i64
   %89 = sub i64 %87, %88
   %90 = ashr exact i64 %89, 3
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %90, i64 1)
   br label %91
 
 91:                                               ; preds = %91, %.lr.ph.i
@@ -7771,7 +7766,7 @@ _ZN12colvarmodule8vector1dIdEC2Em.exit.i:         ; preds = %_ZNSt6vectorIdSaIdE
   %95 = getelementptr inbounds nuw double, ptr %85, i64 %.08.i
   store double %94, ptr %95, align 8, !tbaa !31
   %96 = add nuw i64 %.08.i, 1
-  %exitcond.not.i = icmp eq i64 %96, %umax.i
+  %exitcond.not.i = icmp eq i64 %96, %90
   br i1 %exitcond.not.i, label %_ZdvRKN12colvarmodule8vector1dIdEEd.exit, label %91, !llvm.loop !171
 
 _ZdvRKN12colvarmodule8vector1dIdEEd.exit:         ; preds = %91, %_ZN12colvarmodule8vector1dIdEC2Em.exit.i
@@ -8096,7 +8091,6 @@ _ZN12colvarmodule8vector1dIdED2Ev.exit30:         ; preds = %_ZNSt6vectorIdSaIdE
   %71 = sub i64 %69, %70
   %72 = ashr exact i64 %71, 3
   %73 = load ptr, ptr %1, align 8, !tbaa !29
-  %umax = call i64 @llvm.umax.i64(i64 %72, i64 1)
   br label %74
 
 74:                                               ; preds = %.lr.ph, %74
@@ -8108,7 +8102,7 @@ _ZN12colvarmodule8vector1dIdED2Ev.exit30:         ; preds = %_ZNSt6vectorIdSaIdE
   %78 = load double, ptr %77, align 8, !tbaa !31
   %79 = call double @llvm.fmuladd.f64(double %76, double %78, double %.01298)
   %80 = add nuw i64 %.099, 1
-  %exitcond.not = icmp eq i64 %80, %umax
+  %exitcond.not = icmp eq i64 %80, %72
   br i1 %exitcond.not, label %._crit_edge, label %74, !llvm.loop !172
 
 81:                                               ; preds = %_ZN12colvarmodule8vector1dIdEC2Em.exit23
@@ -8338,7 +8332,6 @@ _ZN11colvarvalueD2Ev.exit:                        ; preds = %_ZNSt6vectorIdSaIdE
   %92 = ptrtoint ptr %90 to i64
   %93 = sub i64 %91, %92
   %94 = ashr exact i64 %93, 3
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %94, i64 1)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -8348,7 +8341,7 @@ _ZN11colvarvalueD2Ev.exit:                        ; preds = %_ZNSt6vectorIdSaIdE
   %96 = load double, ptr %95, align 8, !tbaa !31
   %97 = tail call double @llvm.fmuladd.f64(double %96, double %96, double %.067.i)
   %98 = add nuw i64 %.08.i, 1
-  %exitcond.not.i = icmp eq i64 %98, %umax.i
+  %exitcond.not.i = icmp eq i64 %98, %94
   br i1 %exitcond.not.i, label %_ZNK12colvarmodule8vector1dIdE5norm2Ev.exit, label %.lr.ph.i, !llvm.loop !174
 
 _ZNK12colvarmodule8vector1dIdE5norm2Ev.exit:      ; preds = %_ZN11colvarvalueD2Ev.exit, %.lr.ph.i, %86, %1, %18, %8, %4
@@ -8412,7 +8405,6 @@ define noundef double @_ZNK11colvarvalue3sumEv(ptr noundef nonnull readonly alig
   %33 = ptrtoint ptr %31 to i64
   %34 = sub i64 %32, %33
   %35 = ashr exact i64 %34, 3
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %35, i64 1)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -8422,7 +8414,7 @@ define noundef double @_ZNK11colvarvalue3sumEv(ptr noundef nonnull readonly alig
   %37 = load double, ptr %36, align 8, !tbaa !31
   %38 = fadd double %.056.i, %37
   %39 = add nuw i64 %.07.i, 1
-  %exitcond.not.i = icmp eq i64 %39, %umax.i
+  %exitcond.not.i = icmp eq i64 %39, %35
   br i1 %exitcond.not.i, label %_ZNK12colvarmodule8vector1dIdE3sumEv.exit, label %.lr.ph.i, !llvm.loop !175
 
 _ZNK12colvarmodule8vector1dIdE3sumEv.exit:        ; preds = %.lr.ph.i, %27, %1, %15, %6, %3
@@ -8547,7 +8539,6 @@ define noundef double @_ZNK11colvarvalue5dist2ERKS_(ptr noundef nonnull align 8 
   %90 = ptrtoint ptr %88 to i64
   %91 = sub i64 %89, %90
   %92 = ashr exact i64 %91, 3
-  %umax.i = call i64 @llvm.umax.i64(i64 %92, i64 1)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -8557,7 +8548,7 @@ define noundef double @_ZNK11colvarvalue5dist2ERKS_(ptr noundef nonnull align 8 
   %94 = load double, ptr %93, align 8, !tbaa !31
   %95 = call double @llvm.fmuladd.f64(double %94, double %94, double %.067.i)
   %96 = add nuw i64 %.08.i, 1
-  %exitcond.not.i = icmp eq i64 %96, %umax.i
+  %exitcond.not.i = icmp eq i64 %96, %92
   br i1 %exitcond.not.i, label %_ZNSt6vectorIdSaIdEE5clearEv.exit.i.thread, label %.lr.ph.i, !llvm.loop !174
 
 _ZNSt6vectorIdSaIdEE5clearEv.exit.i.thread:       ; preds = %.lr.ph.i
@@ -9073,7 +9064,6 @@ _ZN12colvarmodule8vector1dIdEC2Em.exit.i.i:       ; preds = %_ZNSt6vectorIdSaIdE
   %170 = ptrtoint ptr %145 to i64
   %171 = sub i64 %169, %170
   %172 = ashr exact i64 %171, 3
-  %umax.i.i = call i64 @llvm.umax.i64(i64 %172, i64 1)
   br label %173
 
 173:                                              ; preds = %173, %.lr.ph.i.i
@@ -9084,7 +9074,7 @@ _ZN12colvarmodule8vector1dIdEC2Em.exit.i.i:       ; preds = %_ZNSt6vectorIdSaIdE
   %177 = getelementptr inbounds nuw double, ptr %167, i64 %.08.i.i
   store double %176, ptr %177, align 8, !tbaa !31
   %178 = add nuw i64 %.08.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %178, %umax.i.i
+  %exitcond.not.i.i = icmp eq i64 %178, %172
   br i1 %exitcond.not.i.i, label %_ZmldRKN12colvarmodule8vector1dIdEE.exit, label %173, !llvm.loop !158
 
 _ZmldRKN12colvarmodule8vector1dIdEE.exit:         ; preds = %173, %_ZN12colvarmodule8vector1dIdEC2Em.exit.i.i
@@ -13097,7 +13087,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46: ; preds = %_ZN
   %145 = ptrtoint ptr %143 to i64
   %146 = sub i64 %144, %145
   %147 = ashr exact i64 %146, 3
-  %umax.i.i = tail call i64 @llvm.umax.i64(i64 %147, i64 1)
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
@@ -13107,7 +13096,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46: ; preds = %_ZN
   %149 = load double, ptr %148, align 8, !tbaa !31
   %150 = tail call double @llvm.fmuladd.f64(double %149, double %149, double %.067.i.i)
   %151 = add nuw i64 %.08.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %151, %umax.i.i
+  %exitcond.not.i.i = icmp eq i64 %151, %147
   br i1 %exitcond.not.i.i, label %_ZNK12colvarmodule8vector1dIdE4normEv.exit, label %.lr.ph.i.i, !llvm.loop !174
 
 _ZNK12colvarmodule8vector1dIdE4normEv.exit:       ; preds = %.lr.ph.i.i, %135

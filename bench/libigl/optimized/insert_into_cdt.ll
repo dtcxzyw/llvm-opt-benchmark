@@ -1714,7 +1714,6 @@ _ZN5boost9typeindexeqINS0_14stl_type_indexESt9type_infoEEbRKT0_RKNS0_17type_inde
   %164 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %165 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %166 = getelementptr inbounds nuw i8, ptr %2, i64 208
-  %umax = tail call i64 @llvm.umax.i64(i64 %163, i64 1)
   br label %167
 
 167:                                              ; preds = %.lr.ph, %_ZN4CGAL32Constrained_triangulation_plus_2INS_36Constrained_Delaunay_triangulation_2INS_5EpickENS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS2_NS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS2_NS_25Triangulation_face_base_2IS2_NS_28Triangulation_ds_face_base_2IvEEEEEEEENS_23Exact_intersections_tagEEEE17insert_constraintERKNS_7Point_2IS2_EESL_.exit96
@@ -1756,7 +1755,7 @@ _ZN5boost9typeindexeqINS0_14stl_type_indexESt9type_infoEEbRKT0_RKNS0_17type_inde
 _ZN4CGAL32Constrained_triangulation_plus_2INS_36Constrained_Delaunay_triangulation_2INS_5EpickENS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS2_NS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS2_NS_25Triangulation_face_base_2IS2_NS_28Triangulation_ds_face_base_2IvEEEEEEEENS_23Exact_intersections_tagEEEE17insert_constraintERKNS_7Point_2IS2_EESL_.exit96: ; preds = %167, %184, %186
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #22
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #22
-  %exitcond.not = icmp eq i64 %168, %umax
+  %exitcond.not = icmp eq i64 %168, %163
   br i1 %exitcond.not, label %.loopexit, label %167, !llvm.loop !33
 
 .thread107:                                       ; preds = %49, %3, %73, %_ZN5boost9typeindexeqINS0_14stl_type_indexESt9type_infoEEbRKT0_RKNS0_17type_index_facadeIT_S4_EE.exit.i.i90, %.thread102
@@ -3359,7 +3358,6 @@ _ZN5boost9typeindexeqINS0_14stl_type_indexESt9type_infoEEbRKT0_RKNS0_17type_inde
 
 .lr.ph:                                           ; preds = %616
   %626 = getelementptr inbounds nuw i8, ptr %2, i64 208
-  %umax = tail call i64 @llvm.umax.i64(i64 %625, i64 1)
   br label %627
 
 627:                                              ; preds = %.lr.ph, %_ZN4CGAL6HandleD2Ev.exit249
@@ -3507,7 +3505,7 @@ _ZN4CGAL6HandleD2Ev.exit245:                      ; preds = %649, %653, %656, %6
 
 _ZN4CGAL6HandleD2Ev.exit249:                      ; preds = %673, %677, %680, %683, %686, %_ZN4CGAL6HandleD2Ev.exit245
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %46) #22
-  %exitcond.not = icmp eq i64 %628, %umax
+  %exitcond.not = icmp eq i64 %628, %625
   br i1 %exitcond.not, label %.loopexit, label %627, !llvm.loop !133
 
 690:                                              ; preds = %627
@@ -11739,7 +11737,7 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
 
 .lr.ph493.preheader:                              ; preds = %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6resizeEmm.exit417
   %573 = shl nuw i64 %470, 3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %572, i8 0, i64 %573, i1 false), !tbaa !161
+  call void @llvm.memset.p0.i64(ptr align 8 %572, i8 0, i64 %573, i1 false), !tbaa !161
   br label %.preheader476
 
 .preheader476:                                    ; preds = %.lr.ph493.preheader, %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6resizeEmm.exit417

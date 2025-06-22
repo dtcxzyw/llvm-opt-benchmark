@@ -171,7 +171,6 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %46, %48, %50, %52
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %wide.trip.count = zext i32 %25 to i64
   br label %59
 
 59:                                               ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit, %.critedge54
@@ -368,7 +367,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %138, %140, %142, %1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #17
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %28
   br i1 %exitcond.not, label %.critedge47, label %59, !llvm.loop !53
 
 .critedge:                                        ; preds = %100, %109

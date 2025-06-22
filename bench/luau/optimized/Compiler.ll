@@ -19255,14 +19255,10 @@ define linkonce_odr dso_local noundef zeroext i8 @_ZN4Luau8Compiler8getUpvalEPNS
   %10 = sub i64 %8, %9
   %11 = ashr exact i64 %10, 3
   %.not = icmp eq ptr %6, %7
-  br i1 %.not, label %._crit_edge.thread, label %.lr.ph.preheader
+  br i1 %.not, label %._crit_edge.thread, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %2
-  %umax = tail call i64 @llvm.umax.i64(i64 %11, i64 1)
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %15
-  %.0926 = phi i64 [ %16, %15 ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %2, %15
+  %.0926 = phi i64 [ %16, %15 ], [ 0, %2 ]
   %12 = getelementptr inbounds nuw ptr, ptr %7, i64 %.0926
   %13 = load ptr, ptr %12, align 8, !tbaa !245
   %14 = icmp eq ptr %13, %1
@@ -19270,7 +19266,7 @@ define linkonce_odr dso_local noundef zeroext i8 @_ZN4Luau8Compiler8getUpvalEPNS
 
 15:                                               ; preds = %.lr.ph
   %16 = add nuw i64 %.0926, 1
-  %exitcond.not = icmp eq i64 %16, %umax
+  %exitcond.not = icmp eq i64 %16, %11
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !673
 
 17:                                               ; preds = %.lr.ph

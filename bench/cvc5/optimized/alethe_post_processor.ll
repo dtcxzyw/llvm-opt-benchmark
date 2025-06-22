@@ -3150,7 +3150,6 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit5425: ; preds = %1490, %1496, %150
   %1521 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %1522 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %1523 = getelementptr inbounds nuw i8, ptr %55, i64 16
-  %umax7775 = call i64 @llvm.umax.i64(i64 %1514, i64 1)
   br label %1542
 
 ._crit_edge7675:                                  ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit5488, %1508
@@ -3886,7 +3885,7 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backEOS3_.exit548
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit5488: ; preds = %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backEOS3_.exit5485, %1809, %1815
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %67) #25
   %1819 = add nuw i64 %.029407671, 1
-  %exitcond7776.not = icmp eq i64 %1819, %umax7775
+  %exitcond7776.not = icmp eq i64 %1819, %1514
   br i1 %exitcond7776.not, label %._crit_edge7675, label %1542, !llvm.loop !86
 
 1820:                                             ; preds = %1542
@@ -11849,7 +11848,6 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit5853: ; preds = %4566, %4572, %457
   %4590 = ashr exact i64 %4589, 3
   %4591 = getelementptr inbounds nuw i8, ptr %390, i64 8
   %4592 = getelementptr inbounds nuw i8, ptr %390, i64 16
-  %umax = call i64 @llvm.umax.i64(i64 %4590, i64 1)
   br label %4601
 
 ._crit_edge7638:                                  ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit5868, %4583
@@ -11998,7 +11996,7 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backEOS3_.exit586
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit5868: ; preds = %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backEOS3_.exit5865, %4639, %4645
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %393) #25
   %4649 = add nuw i64 %.035487635, 1
-  %exitcond7771.not = icmp eq i64 %4649, %umax
+  %exitcond7771.not = icmp eq i64 %4649, %4590
   br i1 %exitcond7771.not, label %._crit_edge7638, label %4601, !llvm.loop !125
 
 4650:                                             ; preds = %4601

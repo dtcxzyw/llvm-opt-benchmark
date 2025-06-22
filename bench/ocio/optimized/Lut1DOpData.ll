@@ -3740,7 +3740,6 @@ define hidden void @_ZN19OpenColorIO_v2_5dev11Lut1DOpData5scaleEf(ptr noundef no
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
   %12 = ashr exact i64 %11, 2
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %12, i64 1)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -3750,7 +3749,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev11Lut1DOpData5scaleEf(ptr noundef no
   %15 = fmul float %1, %14
   store float %15, ptr %13, align 4, !tbaa !13
   %16 = add nuw i64 %.07.i, 1
-  %exitcond.not.i = icmp eq i64 %16, %umax.i
+  %exitcond.not.i = icmp eq i64 %16, %12
   br i1 %exitcond.not.i, label %_ZN19OpenColorIO_v2_5dev6ArrayTIfE5scaleEf.exit, label %.lr.ph.i, !llvm.loop !144
 
 _ZN19OpenColorIO_v2_5dev6ArrayTIfE5scaleEf.exit:  ; preds = %.lr.ph.i, %2, %4

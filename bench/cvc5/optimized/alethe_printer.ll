@@ -451,7 +451,6 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal5proof20LetUpdaterPfCallback1
   %45 = sub i64 %43, %44
   %46 = ashr exact i64 %45, 3
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %umax = tail call i64 @llvm.umax.i64(i64 %46, i64 1)
   br label %48
 
 48:                                               ; preds = %.lr.ph101, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit63
@@ -520,7 +519,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit: ; preds = %58, %64, %66
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit63: ; preds = %68, %72, %78
   %82 = add nuw i64 %.052100, 1
-  %exitcond104.not = icmp eq i64 %82, %umax
+  %exitcond104.not = icmp eq i64 %82, %46
   br i1 %exitcond104.not, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, label %48, !llvm.loop !27
 
 83:                                               ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit
@@ -2718,7 +2717,6 @@ _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit210: ; preds = %_ZN4cvc58internal
   %277 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %278 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %279 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %umax = call i64 @llvm.umax.i64(i64 %269, i64 1)
   br label %286
 
 ._crit_edge.i.i211:                               ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit262, %262
@@ -3314,7 +3312,7 @@ _ZNSolsEPFRSoS_E.exit260:                         ; preds = %.noexc334
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit262: ; preds = %_ZNSolsEPFRSoS_E.exit260, %514, %520
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #25
   %524 = add nuw i64 %.0412, 1
-  %exitcond.not = icmp eq i64 %524, %umax
+  %exitcond.not = icmp eq i64 %524, %269
   br i1 %exitcond.not, label %._crit_edge.i.i211, label %286, !llvm.loop !405
 
 525:                                              ; preds = %488

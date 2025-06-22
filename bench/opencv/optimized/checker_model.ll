@@ -3463,7 +3463,6 @@ _ZN2cv3mcc24transform_points_forwardERKNS_4MatxIfLi3ELi3EEERKSt6vectorINS_6Point
 
 .lr.ph.i:                                         ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN2cv6Point_IfEESt6vectorIS4_SaIS4_EEEES4_EvT_SA_RKT0_.exit.i
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #32
-  %umax.i = call i64 @llvm.umax.i64(i64 %145, i64 1)
   br label %184
 
 ._crit_edge.i:                                    ; preds = %_ZN2cvmlIfLi3ELi1ELi3EEENS_4MatxIT_XT0_EXT1_EEERKNS1_IS2_XT0_EXT2_EEERKNS1_IS2_XT2_EXT1_EEE.exit.i
@@ -3521,7 +3520,7 @@ _ZN2cvmlIfLi3ELi1ELi3EEENS_4MatxIT_XT0_EXT1_EEERKNS1_IS2_XT0_EXT2_EEERKNS1_IS2_X
   %.sroa_idx21.i = getelementptr inbounds nuw i8, ptr %201, i64 4
   store float %200, ptr %.sroa_idx21.i, align 4
   %202 = add nuw i64 %.025.i, 1
-  %exitcond.not.i = icmp eq i64 %202, %umax.i
+  %exitcond.not.i = icmp eq i64 %202, %145
   br i1 %exitcond.not.i, label %._crit_edge.i, label %184, !llvm.loop !143
 
 203:                                              ; preds = %_ZN2cv3mcc24transform_points_forwardERKNS_4MatxIfLi3ELi3EEERKSt6vectorINS_6Point_IfEESaIS7_EERS9_.exit
@@ -3823,7 +3822,6 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN2cv6Point_IfEESt6vectorIS4_SaIS4_EEEE
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %umax = tail call i64 @llvm.umax.i64(i64 %12, i64 1)
   br label %30
 
 ._crit_edge:                                      ; preds = %_ZN2cvmlIfLi3ELi1ELi3EEENS_4MatxIT_XT0_EXT1_EEERKNS1_IS2_XT0_EXT2_EEERKNS1_IS2_XT2_EXT1_EEE.exit
@@ -3882,7 +3880,7 @@ _ZN2cvmlIfLi3ELi1ELi3EEENS_4MatxIT_XT0_EXT1_EEERKNS1_IS2_XT0_EXT2_EEERKNS1_IS2_X
   %.sroa_idx21 = getelementptr inbounds nuw i8, ptr %48, i64 4
   store float %46, ptr %.sroa_idx21, align 4
   %49 = add nuw i64 %.025, 1
-  %exitcond.not = icmp eq i64 %49, %umax
+  %exitcond.not = icmp eq i64 %49, %12
   br i1 %exitcond.not, label %._crit_edge, label %30, !llvm.loop !143
 
 50:                                               ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN2cv6Point_IfEESt6vectorIS4_SaIS4_EEEES4_EvT_SA_RKT0_.exit, %._crit_edge

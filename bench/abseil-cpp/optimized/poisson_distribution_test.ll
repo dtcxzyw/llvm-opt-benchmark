@@ -7163,7 +7163,6 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElEvRT_T0_.exit.
 _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit69.i:        ; preds = %314
   %413 = and i64 %315, -4
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %316, i8 0, i64 %413, i1 false), !tbaa !49
-  %umax.i = call i64 @llvm.umax.i64(i64 %311, i64 1)
   br label %.lr.ph.i
 
 ._crit_edge.i.loopexit:                           ; preds = %.lr.ph.i
@@ -7202,7 +7201,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit108.thread.i.loopexit.split-lp: ; preds = %313
   %427 = getelementptr inbounds nuw i32, ptr %316, i64 %indvars.iv.i
   store i32 %426, ptr %427, align 4, !tbaa !49
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond151.not.i = icmp eq i64 %indvars.iv.next.i, %umax.i
+  %exitcond151.not.i = icmp eq i64 %indvars.iv.next.i, %311
   br i1 %exitcond151.not.i, label %._crit_edge.i.loopexit, label %.lr.ph.i, !llvm.loop !274
 
 428:                                              ; preds = %._crit_edge.i
@@ -7282,11 +7281,7 @@ _ZN4absl12log_internal10LogMessagelsILi11EEERS1_RAT__Kc.exit.i: ; preds = %452
   call void @_ZN4absl12log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #48
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #44
   %.not149.i = icmp eq ptr %.sroa.19.0.i, %.sroa.0128.0.i
-  br i1 %.not149.i, label %._crit_edge148.i, label %.lr.ph147.preheader.i
-
-.lr.ph147.preheader.i:                            ; preds = %454
-  %umax152.i = call i64 @llvm.umax.i64(i64 %419, i64 1)
-  br label %.lr.ph147.i
+  br i1 %.not149.i, label %._crit_edge148.i, label %.lr.ph147.i
 
 ._crit_edge148.i:                                 ; preds = %477, %454
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #44
@@ -7319,8 +7314,8 @@ _ZN4absl12log_internal10LogMessagelsILi11EEERS1_RAT__Kc.exit.i: ; preds = %452
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #44
   br label %501
 
-.lr.ph147.i:                                      ; preds = %477, %.lr.ph147.preheader.i
-  %.0145.i = phi i64 [ %478, %477 ], [ 0, %.lr.ph147.preheader.i ]
+.lr.ph147.i:                                      ; preds = %454, %477
+  %.0145.i = phi i64 [ %478, %477 ], [ 0, %454 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #44
   invoke void @_ZN4absl12log_internal10LogMessageC1EPKciNS1_7InfoTagE(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull @.str.2, i32 noundef 442) #47
           to label %464 unwind label %479
@@ -7365,7 +7360,7 @@ _ZN4absl12log_internal10LogMessagelsILi8EEERS1_RAT__Kc.exit.i: ; preds = %473
   call void @_ZN4absl12log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #48
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #44
   %478 = add nuw i64 %.0145.i, 1
-  %exitcond153.not.i = icmp eq i64 %478, %umax152.i
+  %exitcond153.not.i = icmp eq i64 %478, %419
   br i1 %exitcond153.not.i, label %._crit_edge148.i, label %.lr.ph147.i, !llvm.loop !276
 
 479:                                              ; preds = %.lr.ph147.i

@@ -6120,7 +6120,6 @@ _ZNK3ue212_GLOBAL__N_18dfa_info13getAlphaShiftEv.exit320.i: ; preds = %1542
   %1584 = ptrtoint ptr %.val.val.i321.i to i64
   %1585 = sub i64 %1583, %1584
   %1586 = sdiv exact i64 %1585, 96
-  %umax.i.i = call i64 @llvm.umax.i64(i64 %1586, i64 1)
   br label %.lr.ph.i323.i
 
 .lr.ph.i323.i:                                    ; preds = %.lr.ph.i323.i, %.lr.ph.preheader.i.i
@@ -6133,7 +6132,7 @@ _ZNK3ue212_GLOBAL__N_18dfa_info13getAlphaShiftEv.exit320.i: ; preds = %1542
   %1591 = zext nneg i8 %1590 to i64
   %spec.select.i.i = add i64 %.061.i.i, %1591
   %1592 = add nuw i64 %.02.i.i, 1
-  %exitcond.not.i.i89 = icmp eq i64 %1592, %umax.i.i
+  %exitcond.not.i.i89 = icmp eq i64 %1592, %1586
   br i1 %exitcond.not.i.i89, label %_ZN3ue2L21calcShermanRegionSizeERKNS_12_GLOBAL__N_18dfa_infoE.exit.i, label %.lr.ph.i323.i, !llvm.loop !236
 
 _ZN3ue2L21calcShermanRegionSizeERKNS_12_GLOBAL__N_18dfa_infoE.exit.i: ; preds = %.lr.ph.i323.i, %1574
@@ -6968,7 +6967,6 @@ _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc384.i
   %.0.i.i.i.i.i.ph.i = phi ptr [ %2011, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i ], [ %2009, %.noexc384.i ]
   %2013 = load ptr, ptr %64, align 8, !noalias !185
   %.val313.i = load ptr, ptr %48, align 8, !noalias !185
-  %umax.i = call i64 @llvm.umax.i64(i64 %1987, i64 1)
   br label %2019
 
 .preheader476.i:                                  ; preds = %2019
@@ -7005,7 +7003,7 @@ _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc384.i
   %2030 = getelementptr inbounds nuw i64, ptr %2008, i64 %2029
   store i64 %.0261568.i, ptr %2030, align 8
   %2031 = add nuw nsw i64 %.0261568.i, 1
-  %exitcond.not.i99 = icmp eq i64 %2031, %umax.i
+  %exitcond.not.i99 = icmp eq i64 %2031, %1987
   br i1 %exitcond.not.i99, label %.preheader476.i, label %2019, !llvm.loop !247
 
 .loopexit684.i:                                   ; preds = %2139, %.preheader476.i
@@ -7057,7 +7055,6 @@ _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc384.i
 
 .lr.ph573.preheader.i:                            ; preds = %2050
   %2052 = getelementptr inbounds nuw i8, ptr %.0263584.i, i64 2
-  %umax648.i = call i64 @llvm.umax.i64(i64 %2044, i64 1)
   br label %.lr.ph573.i
 
 ._crit_edge574.i:                                 ; preds = %2089, %2050
@@ -7128,8 +7125,8 @@ _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc384.i
   %2090 = trunc nuw i16 %2083 to i8
   %2091 = getelementptr inbounds nuw i8, ptr %.0249570.i, i64 1
   store i8 %2090, ptr %.0249570.i, align 1
-  %2092 = add nuw nsw i64 %.0248571.i, 1
-  %exitcond649.not.i = icmp eq i64 %2092, %umax648.i
+  %2092 = add nuw i64 %.0248571.i, 1
+  %exitcond649.not.i = icmp eq i64 %2092, %2044
   br i1 %exitcond649.not.i, label %._crit_edge574.i, label %.lr.ph573.i, !llvm.loop !248
 
 2093:                                             ; preds = %2086

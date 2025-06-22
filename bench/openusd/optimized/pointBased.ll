@@ -3997,7 +3997,6 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec3fEEESaIS3_EE
   %358 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %359 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %360 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %umax = call i64 @llvm.umax.i64(i64 %27, i64 1)
   br label %361
 
 361:                                              ; preds = %.lr.ph131, %445
@@ -4199,7 +4198,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit117: ; preds = %441,
 
 445:                                              ; preds = %443
   %446 = add nuw i64 %.038130, 1
-  %exitcond.not = icmp eq i64 %446, %umax
+  %exitcond.not = icmp eq i64 %446, %27
   br i1 %exitcond.not, label %._crit_edge132, label %361, !llvm.loop !31
 
 ._crit_edge132:                                   ; preds = %445, %.preheader

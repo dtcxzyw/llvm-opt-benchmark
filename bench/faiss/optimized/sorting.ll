@@ -4218,7 +4218,6 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %54, %56, %58, %60
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorImSaImEE6resizeEm.exit
   %invariant.gep = getelementptr i8, ptr %.pre78.pre, i64 8
-  %umax = tail call i64 @llvm.umax.i64(i64 %68, i64 1)
   br label %71
 
 .preheader:                                       ; preds = %71, %_ZNSt6vectorImSaImEE6resizeEm.exit
@@ -4241,7 +4240,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %54, %56, %58, %60
   %76 = add i64 %75, 1
   store i64 %76, ptr %gep, align 8, !tbaa !4
   %77 = add nuw i64 %.02362, 1
-  %exitcond.not = icmp eq i64 %77, %umax
+  %exitcond.not = icmp eq i64 %77, %68
   br i1 %exitcond.not, label %.preheader, label %71, !llvm.loop !118
 
 ._crit_edge:                                      ; preds = %81, %.preheader
@@ -4395,7 +4394,6 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.thread83:      ; preds = %_ZNSt6vectorImSaImE
 .lr.ph69.preheader:                               ; preds = %_ZNSt6vectorImSaImEEC2ERKS1_.exit.thread, %_ZNSt6vectorImSaImEEC2ERKS1_.exit
   %132 = phi ptr [ null, %_ZNSt6vectorImSaImEEC2ERKS1_.exit.thread ], [ %127, %_ZNSt6vectorImSaImEEC2ERKS1_.exit ]
   %133 = phi ptr [ %129, %_ZNSt6vectorImSaImEEC2ERKS1_.exit.thread ], [ %128, %_ZNSt6vectorImSaImEEC2ERKS1_.exit ]
-  %umax74 = tail call i64 @llvm.umax.i64(i64 %68, i64 1)
   br label %.lr.ph69
 
 _ZNSt6vectorIiSaIiEE6resizeEm.exit.thread:        ; preds = %.lr.ph69
@@ -4422,7 +4420,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.thread:        ; preds = %.lr.ph69
   %144 = getelementptr inbounds nuw i32, ptr %.sroa.050.0, i64 %142
   store i32 %139, ptr %144, align 4, !tbaa !23
   %145 = add nuw i64 %.01668, 1
-  %exitcond75.not = icmp eq i64 %145, %umax74
+  %exitcond75.not = icmp eq i64 %145, %68
   br i1 %exitcond75.not, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.thread, label %.lr.ph69, !llvm.loop !121
 
 _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %_ZNSt6vectorImSaImEEC2ERKS1_.exit, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.thread
@@ -6621,7 +6619,6 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %53, %55, %57, %59
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorImSaImEE6resizeEm.exit
   %invariant.gep = getelementptr i8, ptr %.pre78.pre, i64 8
-  %umax = tail call i64 @llvm.umax.i64(i64 %69, i64 1)
   br label %71
 
 .preheader:                                       ; preds = %71, %_ZNSt6vectorImSaImEE6resizeEm.exit
@@ -6642,7 +6639,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %53, %55, %57, %59
   %75 = add i64 %74, 1
   store i64 %75, ptr %gep, align 8, !tbaa !4
   %76 = add nuw i64 %.02362, 1
-  %exitcond.not = icmp eq i64 %76, %umax
+  %exitcond.not = icmp eq i64 %76, %69
   br i1 %exitcond.not, label %.preheader, label %71, !llvm.loop !158
 
 ._crit_edge:                                      ; preds = %80, %.preheader
@@ -6798,7 +6795,6 @@ _ZNSt6vectorIlSaIlEE6resizeEm.exit.thread80:      ; preds = %_ZNSt6vectorImSaImE
 .lr.ph69.preheader:                               ; preds = %_ZNSt6vectorImSaImEEC2ERKS1_.exit.thread, %_ZNSt6vectorImSaImEEC2ERKS1_.exit
   %133 = phi ptr [ null, %_ZNSt6vectorImSaImEEC2ERKS1_.exit.thread ], [ %128, %_ZNSt6vectorImSaImEEC2ERKS1_.exit ]
   %134 = phi ptr [ %130, %_ZNSt6vectorImSaImEEC2ERKS1_.exit.thread ], [ %129, %_ZNSt6vectorImSaImEEC2ERKS1_.exit ]
-  %umax74 = tail call i64 @llvm.umax.i64(i64 %69, i64 1)
   br label %.lr.ph69
 
 _ZNSt6vectorIlSaIlEE6resizeEm.exit.thread:        ; preds = %.lr.ph69
@@ -6824,7 +6820,7 @@ _ZNSt6vectorIlSaIlEE6resizeEm.exit.thread:        ; preds = %.lr.ph69
   %144 = getelementptr inbounds nuw i64, ptr %.sroa.050.0, i64 %142
   store i64 %140, ptr %144, align 8, !tbaa !4
   %145 = add nuw i64 %.01668, 1
-  %exitcond75.not = icmp eq i64 %145, %umax74
+  %exitcond75.not = icmp eq i64 %145, %69
   br i1 %exitcond75.not, label %_ZNSt6vectorIlSaIlEE6resizeEm.exit.thread, label %.lr.ph69, !llvm.loop !160
 
 _ZNSt6vectorIlSaIlEE6resizeEm.exit:               ; preds = %_ZNSt6vectorImSaImEEC2ERKS1_.exit, %_ZNSt6vectorIlSaIlEE6resizeEm.exit.thread

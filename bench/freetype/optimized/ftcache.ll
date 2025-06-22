@@ -4263,8 +4263,7 @@ define internal i32 @ftc_snode_new(ptr noundef writeonly captures(none) %0, ptr 
 
 .lr.ph.i:                                         ; preds = %21
   %30 = getelementptr inbounds nuw i8, ptr %19, i64 64
-  %umax.i = call i32 @llvm.umax.i32(i32 %spec.store.select.i, i32 1)
-  %wide.trip.count.i = zext nneg i32 %umax.i to i64
+  %wide.trip.count.i = zext nneg i32 %spec.store.select.i to i64
   br label %31
 
 31:                                               ; preds = %31, %.lr.ph.i
@@ -5359,9 +5358,6 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.abs.i16(i16, i1 immarg) #10
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #10
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

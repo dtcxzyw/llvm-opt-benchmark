@@ -6193,7 +6193,6 @@ _ZNSt6vectorIP25PickedPointTreeWidgetItemSaIS1_EE2atEm.exit.preheader: ; preds =
   %43 = ptrtoint ptr %41 to i64
   %44 = sub i64 %42, %43
   %45 = ashr exact i64 %44, 3
-  %umax = call i64 @llvm.umax.i64(i64 %45, i64 1)
   br label %_ZNSt6vectorIP25PickedPointTreeWidgetItemSaIS1_EE2atEm.exit
 
 _ZNSt6vectorIP25PickedPointTreeWidgetItemSaIS1_EE2atEm.exit: ; preds = %_ZNSt6vectorIP25PickedPointTreeWidgetItemSaIS1_EE2atEm.exit.preheader, %_ZNSt6vectorIP25PickedPointTreeWidgetItemSaIS1_EE2atEm.exit
@@ -6225,7 +6224,7 @@ _ZNSt6vectorIP25PickedPointTreeWidgetItemSaIS1_EE2atEm.exit: ; preds = %_ZNSt6ve
   %.115 = select i1 %60, float %59, float %.01435
   %.1 = select i1 %60, ptr %47, ptr %.036
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %45
   br i1 %exitcond.not, label %._crit_edge, label %_ZNSt6vectorIP25PickedPointTreeWidgetItemSaIS1_EE2atEm.exit, !llvm.loop !15
 
 61:                                               ; preds = %36, %29, %26, %19, %16, %9, %_ZN6QDebuglsEf.exit22, %_ZN6QDebuglsEf.exit, %3

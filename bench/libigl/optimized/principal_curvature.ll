@@ -4651,7 +4651,6 @@ _ZN19CurvatureCalculator14getAverageEdgeEv.exit:  ; preds = %_ZNSt6vectorIS_IdSa
   %124 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %125 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %126 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %umax = tail call i64 @llvm.umax.i64(i64 %11, i64 1)
   br label %127
 
 127:                                              ; preds = %_ZN19CurvatureCalculator14getAverageEdgeEv.exit, %325
@@ -5063,7 +5062,7 @@ _ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EED2Ev.exit: ; preds = 
 325:                                              ; preds = %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EED2Ev.exit, %149, %211
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #31
   %326 = add nuw i64 %.0123, 1
-  %exitcond.not = icmp eq i64 %326, %umax
+  %exitcond.not = icmp eq i64 %326, %11
   br i1 %exitcond.not, label %.thread115, label %127, !llvm.loop !262
 
 327:                                              ; preds = %247

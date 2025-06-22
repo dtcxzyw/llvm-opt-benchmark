@@ -7192,7 +7192,6 @@ _ZNSt6vectorIN3ue29LookEntryESaIS1_EE6resizeEm.exit.i.i: ; preds = %.lr.ph.i.i.i
   %580 = ptrtoint ptr %578 to i64
   %581 = sub i64 %579, %580
   %582 = sdiv exact i64 %581, 24
-  %umax.i = call i64 @llvm.umax.i64(i64 %582, i64 1)
   br label %599
 
 ._crit_edge154.i.i:                               ; preds = %._crit_edge151.i.i, %_ZNSt6vectorIN3ue29LookEntryESaIS1_EE6resizeEm.exit.i.i
@@ -7273,7 +7272,7 @@ _ZNSt6vectorIN3ue29LookEntryESaIS1_EED2Ev.exit.i81.i: ; preds = %598, %596
 
 ._crit_edge151.i.i:                               ; preds = %612, %599
   %605 = add nuw i64 %.042152.i.i, 1
-  %exitcond.not.i = icmp eq i64 %605, %umax.i
+  %exitcond.not.i = icmp eq i64 %605, %582
   br i1 %exitcond.not.i, label %._crit_edge154.i.i, label %599, !llvm.loop !208
 
 606:                                              ; preds = %612, %.lr.ph150.i.i

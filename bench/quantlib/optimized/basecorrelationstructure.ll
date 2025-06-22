@@ -3049,7 +3049,6 @@ for.body.lr.ph:                                   ; preds = %if.then.i.i.i.i.i, 
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i55
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %xBegin_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %invoke.cont5, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
@@ -3079,7 +3078,7 @@ invoke.cont5:                                     ; preds = %for.body
   %add.ptr.i = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i8, i64 %i.033
   store double %call6, ptr %add.ptr.i, align 8, !tbaa !36
   %inc = add nuw i64 %i.033, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !66
 
 ehcleanup18.thread:                               ; preds = %for.body
@@ -3242,7 +3241,6 @@ for.body.lr.ph:                                   ; preds = %if.then.i.i.i.i.i, 
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i55
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %xBegin_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %invoke.cont5, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
@@ -3272,7 +3270,7 @@ invoke.cont5:                                     ; preds = %for.body
   %add.ptr.i = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i8, i64 %i.033
   store double %call6, ptr %add.ptr.i, align 8, !tbaa !36
   %inc = add nuw i64 %i.033, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !67
 
 ehcleanup18.thread:                               ; preds = %for.body
@@ -3853,7 +3851,6 @@ for.body.lr.ph:                                   ; preds = %if.then.i.i.i.i.i, 
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i55
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %xBegin_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %invoke.cont5, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
@@ -3883,7 +3880,7 @@ invoke.cont5:                                     ; preds = %for.body
   %add.ptr.i = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i8, i64 %i.033
   store double %call6, ptr %add.ptr.i, align 8, !tbaa !36
   %inc = add nuw i64 %i.033, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !70
 
 ehcleanup18.thread:                               ; preds = %for.body

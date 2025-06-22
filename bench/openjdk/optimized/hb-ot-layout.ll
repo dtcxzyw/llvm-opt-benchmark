@@ -69024,8 +69024,7 @@ _ZL50_hb_glyph_info_is_default_ignorable_and_not_hiddenPK15hb_glyph_info_t.exit1
 
 .critedge139:                                     ; preds = %180, %175, %.critedge137, %_ZL50_hb_glyph_info_is_default_ignorable_and_not_hiddenPK15hb_glyph_info_t.exit153
   %185 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %umax = tail call i32 @llvm.umax.i32(i32 %9, i32 1)
-  %wide.trip.count = zext nneg i32 %umax to i64
+  %wide.trip.count = zext nneg i32 %9 to i64
   br label %186
 
 186:                                              ; preds = %.critedge139, %243
@@ -71128,8 +71127,7 @@ _ZL50_hb_glyph_info_is_default_ignorable_and_not_hiddenPK15hb_glyph_info_t.exit3
   %357 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %358 = icmp ne ptr %354, null
   %.not237 = icmp eq ptr %.0186, null
-  %umax = tail call i32 @llvm.umax.i32(i32 %10, i32 1)
-  %wide.trip.count = zext nneg i32 %umax to i64
+  %wide.trip.count = zext nneg i32 %10 to i64
   br label %359
 
 359:                                              ; preds = %.critedge251, %435
@@ -73940,8 +73938,7 @@ _ZL50_hb_glyph_info_is_default_ignorable_and_not_hiddenPK15hb_glyph_info_t.exit3
   %400 = icmp ne ptr %394, null
   %.not259 = icmp eq ptr %392, null
   %.not260 = icmp eq ptr %.0208, null
-  %umax = tail call i32 @llvm.umax.i32(i32 %10, i32 1)
-  %wide.trip.count = zext nneg i32 %umax to i64
+  %wide.trip.count = zext nneg i32 %10 to i64
   br label %401
 
 401:                                              ; preds = %.critedge275, %525

@@ -4459,7 +4459,6 @@ define linkonce_odr hidden void @_ZNK2cv8internal14VecWriterProxyINS_8KeyPointEL
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %umax = tail call i64 @llvm.umax.i64(i64 %12, i64 1)
   br label %17
 
 ._crit_edge:                                      ; preds = %_ZN2cvL5writeERNS_11FileStorageERKNS_8KeyPointE.exit, %2
@@ -4607,7 +4606,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i: ; preds = %_Z
 _ZN2cvL5writeERNS_11FileStorageERKNS_8KeyPointE.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #14
   %49 = add nuw i64 %.013, 1
-  %exitcond.not = icmp eq i64 %49, %umax
+  %exitcond.not = icmp eq i64 %49, %12
   br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !141
 }
 
@@ -4633,7 +4632,6 @@ define linkonce_odr hidden void @_ZNK2cv8internal14VecWriterProxyINS_6DMatchELi0
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %umax = tail call i64 @llvm.umax.i64(i64 %12, i64 1)
   br label %17
 
 ._crit_edge:                                      ; preds = %_ZN2cvL5writeERNS_11FileStorageERKNS_6DMatchE.exit, %2
@@ -4763,7 +4761,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i: ; preds = %_Z
 _ZN2cvL5writeERNS_11FileStorageERKNS_6DMatchE.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #14
   %46 = add nuw i64 %.013, 1
-  %exitcond.not = icmp eq i64 %46, %umax
+  %exitcond.not = icmp eq i64 %46, %12
   br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !142
 }
 

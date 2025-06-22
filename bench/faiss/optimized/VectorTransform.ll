@@ -2033,15 +2033,14 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i174: ; preds = %.loopexit28
   %294 = icmp eq i64 %287, 1
   br i1 %294, label %.lr.ph349.preheader, label %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i176
 
+.lr.ph349.preheader:                              ; preds = %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i176, %.noexc180
+  br label %.lr.ph349
+
 _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i176: ; preds = %.noexc180
   %295 = getelementptr i8, ptr %292, i64 8
   %296 = add nsw i64 %291, -8
   call void @llvm.memset.p0.i64(ptr align 8 %295, i8 0, i64 %296, i1 false), !tbaa !64
   br label %.lr.ph349.preheader
-
-.lr.ph349.preheader:                              ; preds = %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i176, %.noexc180
-  %umax416 = call i64 @llvm.umax.i64(i64 %287, i64 1)
-  br label %.lr.ph349
 
 ._crit_edge350:                                   ; preds = %.lr.ph349
   %297 = icmp ugt i64 %286, 1152921504606846975
@@ -2084,7 +2083,7 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i184: ; preds = %.noexc188
   %310 = getelementptr inbounds nuw double, ptr %292, i64 %.083348
   store double %309, ptr %310, align 8, !tbaa !64
   %311 = add nuw i64 %.083348, 1
-  %exitcond417.not = icmp eq i64 %311, %umax416
+  %exitcond417.not = icmp eq i64 %311, %287
   br i1 %exitcond417.not, label %._crit_edge350, label %.lr.ph349, !llvm.loop !73
 
 _ZNSt6vectorIdSaIdEEC2EmRKS0_.exit189:            ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i174, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i184, %.noexc188
@@ -2702,7 +2701,6 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc121
 
 .lr.ph:                                           ; preds = %.preheader252
   %63 = load ptr, ptr %60, align 8, !tbaa !31
-  %umax = call i64 @llvm.umax.i64(i64 %30, i64 1)
   br label %81
 
 ._crit_edge:                                      ; preds = %81, %.preheader252
@@ -2754,7 +2752,7 @@ _ZN5faiss15LinearTransformD2Ev.exit:              ; preds = %_ZNSt6vectorIfSaIfE
   %85 = getelementptr inbounds nuw double, ptr %41, i64 %.097260
   store double %84, ptr %85, align 8, !tbaa !64
   %86 = add nuw i64 %.097260, 1
-  %exitcond.not = icmp eq i64 %86, %umax
+  %exitcond.not = icmp eq i64 %86, %30
   br i1 %exitcond.not, label %._crit_edge, label %81, !llvm.loop !88
 
 87:                                               ; preds = %_ZN5faiss15LinearTransformD2Ev.exit, %52

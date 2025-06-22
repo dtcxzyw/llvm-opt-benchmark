@@ -19879,17 +19879,13 @@ _ZN3vcg3tri11UpdateFlagsI6CMeshOE10FaceClearVERS2_.exit: ; preds = %64
   %80 = sub i64 %78, %79
   %81 = ashr exact i64 %80, 3
   %.not47 = icmp eq ptr %76, %77
-  br i1 %.not47, label %._crit_edge, label %.lr.ph.preheader
+  br i1 %.not47, label %._crit_edge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %.preheader
-  %umax = call i64 @llvm.umax.i64(i64 %81, i64 1)
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %98
-  %.02036 = phi i64 [ %151, %98 ], [ 0, %.lr.ph.preheader ]
-  %.sroa.11.035 = phi float [ %150, %98 ], [ 0.000000e+00, %.lr.ph.preheader ]
-  %.sroa.6.034 = phi float [ %149, %98 ], [ 0.000000e+00, %.lr.ph.preheader ]
-  %.sroa.028.033 = phi float [ %148, %98 ], [ 0.000000e+00, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %98
+  %.02036 = phi i64 [ %151, %98 ], [ 0, %.preheader ]
+  %.sroa.11.035 = phi float [ %150, %98 ], [ 0.000000e+00, %.preheader ]
+  %.sroa.6.034 = phi float [ %149, %98 ], [ 0.000000e+00, %.preheader ]
+  %.sroa.028.033 = phi float [ %148, %98 ], [ 0.000000e+00, %.preheader ]
   %82 = getelementptr inbounds ptr, ptr %77, i64 %.02036
   %83 = load ptr, ptr %82, align 8
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 36
@@ -19970,7 +19966,7 @@ _ZN3vcg3tri11UpdateFlagsI6CMeshOE10FaceClearVERS2_.exit: ; preds = %64
   %149 = fadd float %.sroa.6.034, %146
   %150 = fadd float %.sroa.11.035, %147
   %151 = add nuw i64 %.02036, 1
-  %exitcond.not = icmp eq i64 %151, %umax
+  %exitcond.not = icmp eq i64 %151, %81
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !146
 
 152:                                              ; preds = %75
@@ -20017,14 +20013,10 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit23:             ; preds = %._crit_edge, %162
   %.sroa.028.1 = phi float [ %163, %162 ], [ %.sroa.028.0.lcssa, %._crit_edge ]
   %.sroa.6.1 = phi float [ %164, %162 ], [ %.sroa.6.0.lcssa, %._crit_edge ]
   %.sroa.11.1 = phi float [ %165, %162 ], [ %.sroa.11.0.lcssa, %._crit_edge ]
-  br i1 %.not47, label %.loopexit, label %.lr.ph42.preheader
+  br i1 %.not47, label %.loopexit, label %.lr.ph42
 
-.lr.ph42.preheader:                               ; preds = %_ZN3vcg6Point3IfE9NormalizeEv.exit23
-  %umax51 = call i64 @llvm.umax.i64(i64 %81, i64 1)
-  br label %.lr.ph42
-
-.lr.ph42:                                         ; preds = %.lr.ph42.preheader, %.lr.ph42
-  %.041 = phi i64 [ %169, %.lr.ph42 ], [ 0, %.lr.ph42.preheader ]
+.lr.ph42:                                         ; preds = %_ZN3vcg6Point3IfE9NormalizeEv.exit23, %.lr.ph42
+  %.041 = phi i64 [ %169, %.lr.ph42 ], [ 0, %_ZN3vcg6Point3IfE9NormalizeEv.exit23 ]
   %166 = getelementptr inbounds ptr, ptr %77, i64 %.041
   %167 = load ptr, ptr %166, align 8
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 36
@@ -20034,7 +20026,7 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit23:             ; preds = %._crit_edge, %162
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %167, i64 44
   store float %.sroa.11.1, ptr %.sroa.11.0..sroa_idx, align 4
   %169 = add nuw i64 %.041, 1
-  %exitcond52.not = icmp eq i64 %169, %umax51
+  %exitcond52.not = icmp eq i64 %169, %81
   br i1 %exitcond52.not, label %.loopexit, label %.lr.ph42, !llvm.loop !147
 
 .loopexit:                                        ; preds = %.lr.ph42, %_ZN3vcg6Point3IfE9NormalizeEv.exit23, %68

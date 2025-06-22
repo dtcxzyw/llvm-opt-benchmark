@@ -4584,7 +4584,6 @@ _ZN7Imf_3_412_GLOBAL__N_110TileBuffer4postEv.exit: ; preds = %_ZN7Imf_3_412_GLOB
   %679 = ptrtoint ptr %.val to i64
   %680 = sub i64 %678, %679
   %681 = ashr exact i64 %680, 3
-  %umax = call i64 @llvm.umax.i64(i64 %681, i64 1)
   br label %.lr.ph276
 
 ._crit_edge277:                                   ; preds = %.lr.ph276
@@ -4615,7 +4614,7 @@ _ZN7Imf_3_412_GLOBAL__N_110TileBuffer4postEv.exit: ; preds = %_ZN7Imf_3_412_GLOB
   %spec.select123 = select i1 %or.cond.not, ptr %689, ptr %.079273
   store i8 0, ptr %685, align 8, !tbaa !238
   %690 = add nuw i64 %.078274, 1
-  %exitcond316.not = icmp eq i64 %690, %umax
+  %exitcond316.not = icmp eq i64 %690, %681
   br i1 %exitcond316.not, label %._crit_edge277, label %.lr.ph276, !llvm.loop !239
 
 691:                                              ; preds = %._crit_edge277
@@ -8457,7 +8456,6 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i120: ; preds = %.noexc124
   %92 = ptrtoint ptr %.val105 to i64
   %93 = sub i64 %91, %92
   %94 = ashr exact i64 %93, 3
-  %umax = call i64 @llvm.umax.i64(i64 %94, i64 1)
   br label %116
 
 ._crit_edge:                                      ; preds = %116, %88
@@ -8482,7 +8480,6 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i120: ; preds = %.noexc124
   %105 = ptrtoint ptr %103 to i64
   %106 = sub i64 %104, %105
   %107 = ashr exact i64 %106, 3
-  %umax182 = call i64 @llvm.umax.i64(i64 %107, i64 1)
   br label %.lr.ph146
 
 108:                                              ; preds = %1
@@ -8524,7 +8521,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i120: ; preds = %.noexc124
   %126 = getelementptr inbounds nuw i32, ptr %89, i64 %.072142
   store i32 %125, ptr %126, align 4, !tbaa !142
   %127 = add nuw i64 %.072142, 1
-  %exitcond.not = icmp eq i64 %127, %umax
+  %exitcond.not = icmp eq i64 %127, %94
   br i1 %exitcond.not, label %._crit_edge, label %116, !llvm.loop !282
 
 ._crit_edge147:                                   ; preds = %.lr.ph146, %.preheader141
@@ -8560,7 +8557,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i120: ; preds = %.noexc124
   %138 = add i64 %137, %.073145
   %spec.select = call i64 @llvm.umax.i64(i64 %137, i64 %.074144)
   %139 = add nuw i64 %.078143, 1
-  %exitcond183.not = icmp eq i64 %139, %umax182
+  %exitcond183.not = icmp eq i64 %139, %107
   br i1 %exitcond183.not, label %._crit_edge147, label %.lr.ph146, !llvm.loop !283
 
 140:                                              ; preds = %133, %.noexc126

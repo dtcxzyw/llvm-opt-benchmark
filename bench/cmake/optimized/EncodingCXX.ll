@@ -302,7 +302,6 @@ _ZNSt6vectorIPcSaIS0_EE6resizeEm.exit:            ; preds = %7
   %14 = sub i64 %12, %13
   %15 = ashr exact i64 %14, 3
   %16 = load ptr, ptr %1, align 8, !tbaa !4
-  %umax = tail call i64 @llvm.umax.i64(i64 %15, i64 1)
   br label %26
 
 ._crit_edge:                                      ; preds = %31, %2, %_ZNSt6vectorIPcSaIS0_EE6resizeEm.exit
@@ -343,7 +342,7 @@ _ZNSt6vectorIPcSaIS0_EED2Ev.exit:                 ; preds = %17, %20
   %33 = getelementptr inbounds nuw ptr, ptr %.pre13, i64 %.010
   store ptr %32, ptr %33, align 8, !tbaa !11
   %34 = add nuw i64 %.010, 1
-  %exitcond.not = icmp eq i64 %34, %umax
+  %exitcond.not = icmp eq i64 %34, %15
   br i1 %exitcond.not, label %._crit_edge, label %26, !llvm.loop !20
 }
 
@@ -421,7 +420,6 @@ _ZNSt6vectorIPcSaIS0_EE6resizeEm.exit:            ; preds = %25, %27, %29, %31
   %36 = sub i64 %34, %35
   %37 = ashr exact i64 %36, 3
   %38 = load ptr, ptr %1, align 8, !tbaa !4
-  %umax = tail call i64 @llvm.umax.i64(i64 %37, i64 1)
   br label %39
 
 39:                                               ; preds = %.lr.ph22, %44
@@ -440,7 +438,7 @@ _ZNSt6vectorIPcSaIS0_EE6resizeEm.exit:            ; preds = %25, %27, %29, %31
   %46 = getelementptr inbounds nuw ptr, ptr %32, i64 %.121
   store ptr %45, ptr %46, align 8, !tbaa !11
   %47 = add nuw i64 %.121, 1
-  %exitcond.not = icmp eq i64 %47, %umax
+  %exitcond.not = icmp eq i64 %47, %37
   br i1 %exitcond.not, label %.loopexit, label %39, !llvm.loop !22
 
 .loopexit:                                        ; preds = %44, %_ZNSt6vectorIPcSaIS0_EE6resizeEm.exit, %2

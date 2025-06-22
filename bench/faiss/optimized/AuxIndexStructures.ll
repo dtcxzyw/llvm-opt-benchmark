@@ -767,7 +767,6 @@ define void @_ZN5faiss24RangeSearchPartialResult8finalizeEv(ptr noundef nonnull 
   %12 = load ptr, ptr %11, align 8, !tbaa !59
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8, !tbaa !14
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %15
 
 15:                                               ; preds = %15, %.lr.ph.i
@@ -779,7 +778,7 @@ define void @_ZN5faiss24RangeSearchPartialResult8finalizeEv(ptr noundef nonnull 
   %20 = getelementptr inbounds i64, ptr %14, i64 %19
   store i64 %18, ptr %20, align 8, !tbaa !15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %umax.i
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %10
   br i1 %exitcond.not.i, label %_ZN5faiss24RangeSearchPartialResult8set_limsEv.exit, label %15, !llvm.loop !72
 
 _ZN5faiss24RangeSearchPartialResult8set_limsEv.exit: ; preds = %15, %1
@@ -920,7 +919,6 @@ define void @_ZN5faiss24RangeSearchPartialResult8set_limsEv(ptr noundef nonnull 
   %11 = load ptr, ptr %10, align 8, !tbaa !59
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8, !tbaa !14
-  %umax = tail call i64 @llvm.umax.i64(i64 %9, i64 1)
   br label %14
 
 ._crit_edge:                                      ; preds = %14, %1
@@ -935,7 +933,7 @@ define void @_ZN5faiss24RangeSearchPartialResult8set_limsEv(ptr noundef nonnull 
   %19 = getelementptr inbounds i64, ptr %13, i64 %18
   store i64 %17, ptr %19, align 8, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %9
   br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !72
 }
 

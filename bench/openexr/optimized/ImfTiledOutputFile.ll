@@ -4254,7 +4254,6 @@ _ZN7Imf_3_412_GLOBAL__N_110TileBuffer4postEv.exit: ; preds = %_ZN7Imf_3_412_GLOB
   %655 = ptrtoint ptr %.val to i64
   %656 = sub i64 %654, %655
   %657 = ashr exact i64 %656, 3
-  %umax = call i64 @llvm.umax.i64(i64 %657, i64 1)
   br label %.lr.ph273
 
 ._crit_edge274:                                   ; preds = %.lr.ph273
@@ -4285,7 +4284,7 @@ _ZN7Imf_3_412_GLOBAL__N_110TileBuffer4postEv.exit: ; preds = %_ZN7Imf_3_412_GLOB
   %spec.select120 = select i1 %or.cond.not, ptr %665, ptr %.076270
   store i8 0, ptr %661, align 8, !tbaa !221
   %666 = add nuw i64 %.075271, 1
-  %exitcond313.not = icmp eq i64 %666, %umax
+  %exitcond313.not = icmp eq i64 %666, %657
   br i1 %exitcond313.not, label %._crit_edge274, label %.lr.ph273, !llvm.loop !222
 
 667:                                              ; preds = %._crit_edge274
@@ -8378,9 +8377,6 @@ define internal void @_GLOBAL__sub_I_ImfTiledOutputFile.cpp() #21 section ".text
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #22
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #23

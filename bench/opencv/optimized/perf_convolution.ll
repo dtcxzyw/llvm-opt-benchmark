@@ -8604,7 +8604,6 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit.i: ; preds = %23, %21
   %43 = ptrtoint ptr %41 to i64
   %44 = sub i64 %42, %43
   %45 = ashr exact i64 %44, 2
-  %umax.i = call i64 @llvm.umax.i64(i64 %45, i64 1)
   br label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %60, %38
@@ -8642,7 +8641,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit.i: ; preds = %23, %21
 
 60:                                               ; preds = %55
   %61 = add nuw i64 %.0924.i, 1
-  %exitcond.not.i = icmp eq i64 %61, %umax.i
+  %exitcond.not.i = icmp eq i64 %61, %45
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !246
 
 62:                                               ; preds = %55, %53, %51

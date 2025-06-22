@@ -1058,7 +1058,6 @@ _ZNSt6vectorIPdSaIS0_EE9push_backERKS0_.exit322:  ; preds = %_ZNSt6vectorIPdSaIS
   %137 = ptrtoint ptr %.sroa.0352.5 to i64
   %138 = sub i64 %136, %137
   %139 = ashr exact i64 %138, 3
-  %umax = call i64 @llvm.umax.i64(i64 %139, i64 1)
   br label %.lr.ph527.us
 
 .preheader445.split.preheader:                    ; preds = %.preheader445
@@ -1081,7 +1080,7 @@ _ZNSt6vectorIPdSaIS0_EE9push_backERKS0_.exit322:  ; preds = %_ZNSt6vectorIPdSaIS
   %147 = fadd double %146, %142
   store double %147, ptr %140, align 8
   %148 = add nuw i64 %.0262525.us, 1
-  %exitcond.not = icmp eq i64 %148, %umax
+  %exitcond.not = icmp eq i64 %148, %139
   br i1 %exitcond.not, label %._crit_edge528.us, label %141, !llvm.loop !13
 
 ._crit_edge528.us:                                ; preds = %141
@@ -1199,7 +1198,6 @@ _ZNSt6vectorIPdSaIS0_EE9push_backERKS0_.exit322:  ; preds = %_ZNSt6vectorIPdSaIS
   %194 = ptrtoint ptr %.sroa.0362.3410 to i64
   %195 = sub i64 %193, %194
   %196 = ashr exact i64 %195, 3
-  %umax634 = call i64 @llvm.umax.i64(i64 %196, i64 1)
   br label %204
 
 197:                                              ; preds = %.preheader440, %197
@@ -1279,7 +1277,7 @@ _ZNSt6vectorIPdSaIS0_EE9push_backERKS0_.exit322:  ; preds = %_ZNSt6vectorIPdSaIS
   %.1260 = phi double [ %209, %227 ], [ %.0259540, %224 ], [ %.0259540, %204 ]
   %.2241 = phi ptr [ %228, %227 ], [ %.1240542, %224 ], [ %.1240542, %204 ]
   %230 = add nuw i64 %.0258541, 1
-  %exitcond635.not = icmp eq i64 %230, %umax634
+  %exitcond635.not = icmp eq i64 %230, %196
   br i1 %exitcond635.not, label %._crit_edge544, label %204, !llvm.loop !20
 
 ._crit_edge544:                                   ; preds = %229, %.preheader436

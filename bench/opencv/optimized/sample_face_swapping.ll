@@ -336,7 +336,6 @@ _ZN2cv3VecIfLi6EEC2ERKS1_.exit:                   ; preds = %.lr.ph93, %_ZNSt6ve
   %84 = ptrtoint ptr %82 to i64
   %85 = sub i64 %83, %84
   %86 = ashr exact i64 %85, 3
-  %umax = call i64 @llvm.umax.i64(i64 %86, i64 1)
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge89.us
@@ -373,7 +372,7 @@ _ZN2cv3VecIfLi6EEC2ERKS1_.exit:                   ; preds = %.lr.ph93, %_ZNSt6ve
 
 107:                                              ; preds = %105, %98, %92
   %108 = add nuw i64 %.087.us, 1
-  %exitcond.not = icmp eq i64 %108, %umax
+  %exitcond.not = icmp eq i64 %108, %86
   br i1 %exitcond.not, label %._crit_edge89.us, label %92, !llvm.loop !36
 
 ._crit_edge89.us:                                 ; preds = %107

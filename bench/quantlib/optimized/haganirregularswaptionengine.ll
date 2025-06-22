@@ -5649,14 +5649,12 @@ for.body.lr.ph:                                   ; preds = %cond.true.i
   %pn.i.i = getelementptr inbounds nuw i8, ptr %cpn_r, i64 8
   %fairRates_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   %columns_.i.i72 = getelementptr inbounds nuw i8, ptr %arr, i64 16
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %for.body
 
 for.body69.lr.ph:                                 ; preds = %_ZN5boost10shared_ptrIN8QuantLib15FixedRateCouponEED2Ev.exit
   %pn.i.i88 = getelementptr inbounds nuw i8, ptr %cpn_r70, i64 8
   %sub = add nsw i64 %sub.ptr.div.i, -1
   %pn.i.i110 = getelementptr inbounds nuw i8, ptr %cpn_rp1, i64 8
-  %umax212 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %for.body69
 
 lpad:                                             ; preds = %cond.true.i
@@ -5965,7 +5963,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i, %i
 _ZN5boost10shared_ptrIN8QuantLib15FixedRateCouponEED2Ev.exit: ; preds = %invoke.cont55, %if.then.i.i75, %.noexc.i.i, %if.then.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %cpn_r) #26
   %inc62 = add nuw i64 %r.0208, 1
-  %exitcond211.not = icmp eq i64 %inc62, %umax
+  %exitcond211.not = icmp eq i64 %inc62, %sub.ptr.div.i
   br i1 %exitcond211.not, label %for.body69.lr.ph, label %for.body, !llvm.loop !199
 
 ehcleanup59:                                      ; preds = %lpad46, %ehcleanup39
@@ -6248,7 +6246,7 @@ terminate.lpad.i.i167:                            ; preds = %if.then.i.i.i.i171,
 _ZN5boost10shared_ptrIN8QuantLib15FixedRateCouponEED2Ev.exit174: ; preds = %if.end132, %if.then.i.i161, %.noexc.i.i168, %if.then.i.i.i.i171
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %cpn_r70) #26
   %inc137 = add nuw i64 %r65.0210, 1
-  %exitcond213.not = icmp eq i64 %inc137, %umax212
+  %exitcond213.not = icmp eq i64 %inc137, %sub.ptr.div.i
   br i1 %exitcond213.not, label %for.cond.cleanup68, label %for.body69, !llvm.loop !206
 
 ehcleanup133:                                     ; preds = %ehcleanup117, %lpad78

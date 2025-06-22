@@ -924,7 +924,6 @@ _ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_delete
   %41 = sub i64 %39, %40
   %42 = ashr exact i64 %41, 3
   %43 = load ptr, ptr %4, align 8
-  %umax = call i64 @llvm.umax.i64(i64 %42, i64 1)
   br label %.preheader113
 
 .preheader113:                                    ; preds = %.preheader113.lr.ph, %._crit_edge
@@ -996,7 +995,7 @@ _ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_delete
   %78 = phi i32 [ %44, %.preheader113 ], [ %82, %79 ]
   %.1.lcssa = phi ptr [ %.091117, %.preheader113 ], [ %83, %79 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %42
   br i1 %exitcond.not, label %._crit_edge118, label %.preheader113, !llvm.loop !113
 
 79:                                               ; preds = %.lr.ph, %79

@@ -4042,7 +4042,6 @@ _ZNKSt6vectorIS_IN2cv8KeyPointESaIS1_EESaIS3_EE12_M_check_lenEmPKc.exit.i: ; pre
   %76 = sdiv exact i64 %75, 28
   %77 = getelementptr inbounds nuw i8, ptr %58, i64 112
   %78 = getelementptr inbounds nuw i8, ptr %58, i64 168
-  %umax.i = call i64 @llvm.umax.i64(i64 %76, i64 1)
   br label %79
 
 79:                                               ; preds = %79, %.lr.ph.i
@@ -4071,7 +4070,7 @@ _ZNKSt6vectorIS_IN2cv8KeyPointESaIS1_EESaIS3_EE12_M_check_lenEmPKc.exit.i: ; pre
   %101 = getelementptr inbounds i8, ptr %99, i64 %100
   store i8 %88, ptr %101, align 1, !tbaa !75
   %102 = add nuw i64 %.014.i, 1
-  %exitcond.not.i = icmp eq i64 %102, %umax.i
+  %exitcond.not.i = icmp eq i64 %102, %76
   br i1 %exitcond.not.i, label %_ZN2cv10BriskLayer14getAgastPointsEiRSt6vectorINS_8KeyPointESaIS2_EE.exit, label %79, !llvm.loop !176
 
 _ZN2cv10BriskLayer14getAgastPointsEiRSt6vectorINS_8KeyPointESaIS2_EE.exit: ; preds = %79, %.noexc204
@@ -4099,7 +4098,6 @@ _ZN2cv10BriskLayer14getAgastPointsEiRSt6vectorINS_8KeyPointESaIS2_EE.exit: ; pre
   %114 = sub i64 %112, %113
   %115 = sdiv exact i64 %114, 28
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %umax502 = call i64 @llvm.umax.i64(i64 %115, i64 1)
   br label %_ZNSt6vectorIS_IN2cv8KeyPointESaIS1_EESaIS3_EE2atEm.exit
 
 _ZNSt6vectorIS_IN2cv8KeyPointESaIS1_EESaIS3_EE2atEm.exit: ; preds = %207, %.lr.ph420
@@ -4301,7 +4299,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt6vector
 
 207:                                              ; preds = %125, %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE9push_backEOS1_.exit
   %208 = add nuw i64 %.0166418, 1
-  %exitcond503.not = icmp eq i64 %208, %umax502
+  %exitcond503.not = icmp eq i64 %208, %115
   br i1 %exitcond503.not, label %.loopexit, label %_ZNSt6vectorIS_IN2cv8KeyPointESaIS1_EESaIS3_EE2atEm.exit, !llvm.loop !182
 
 209:                                              ; preds = %126
@@ -4407,7 +4405,6 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt6vector
   br i1 %.not421, label %.loopexit317, label %.lr.ph410.preheader
 
 .lr.ph410.preheader:                              ; preds = %.preheader328
-  %umax = call i64 @llvm.umax.i64(i64 %243, i64 1)
   %.not.i.i229 = icmp ult i64 %indvars.iv499, %40
   %247 = getelementptr inbounds nuw %"class.std::vector.8", ptr %47, i64 %indvars.iv499
   %248 = trunc nuw nsw i64 %indvars.iv499 to i32
@@ -4419,7 +4416,6 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt6vector
 .lr.ph412:                                        ; preds = %.preheader
   %249 = getelementptr inbounds nuw i8, ptr %235, i64 192
   %250 = getelementptr inbounds nuw i8, ptr %235, i64 196
-  %umax497 = call i64 @llvm.umax.i64(i64 %243, i64 1)
   %.not.i.i210 = icmp ult i64 %indvars.iv499, %40
   %251 = getelementptr inbounds nuw %"class.std::vector.8", ptr %47, i64 %indvars.iv499
   %252 = trunc nuw nsw i64 %indvars.iv499 to i32
@@ -4674,7 +4670,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE9push_backEOS1_.exit228: ; preds = %_ZNSt6vec
 
 364:                                              ; preds = %264, %363
   %365 = add nuw i64 %.0168411, 1
-  %exitcond498.not = icmp eq i64 %365, %umax497
+  %exitcond498.not = icmp eq i64 %365, %243
   br i1 %exitcond498.not, label %.loopexit317, label %253, !llvm.loop !197
 
 366:                                              ; preds = %278
@@ -4918,7 +4914,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE9push_backEOS1_.exit247: ; preds = %416, %_ZN
 
 438:                                              ; preds = %396, %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE9push_backEOS1_.exit247
   %439 = add nuw i64 %.0139409, 1
-  %exitcond.not = icmp eq i64 %439, %umax
+  %exitcond.not = icmp eq i64 %439, %243
   br i1 %exitcond.not, label %.loopexit317, label %.lr.ph410, !llvm.loop !202
 
 440:                                              ; preds = %.loopexit335, %.loopexit.split-lp336, %407
@@ -5181,7 +5177,6 @@ define hidden void @_ZN2cv10BriskLayer14getAgastPointsEiRSt6vectorINS_8KeyPointE
   %24 = sdiv exact i64 %23, 28
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %umax = call i64 @llvm.umax.i64(i64 %24, i64 1)
   br label %27
 
 ._crit_edge:                                      ; preds = %27, %3
@@ -5213,7 +5208,7 @@ define hidden void @_ZN2cv10BriskLayer14getAgastPointsEiRSt6vectorINS_8KeyPointE
   %49 = getelementptr inbounds i8, ptr %47, i64 %48
   store i8 %36, ptr %49, align 1, !tbaa !75
   %50 = add nuw i64 %.014, 1
-  %exitcond.not = icmp eq i64 %50, %umax
+  %exitcond.not = icmp eq i64 %50, %24
   br i1 %exitcond.not, label %._crit_edge, label %27, !llvm.loop !176
 }
 

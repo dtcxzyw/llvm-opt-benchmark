@@ -675,14 +675,10 @@ _ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEES
   %42 = getelementptr inbounds nuw i8, ptr %25, i64 100
   %43 = load i8, ptr %42, align 4, !tbaa !93, !range !63, !noundef !64
   %44 = trunc nuw i8 %43 to i1
-  br i1 %44, label %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.us.preheader, label %.lr.ph.split
+  br i1 %44, label %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.us, label %.lr.ph.split
 
-_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.us.preheader: ; preds = %.lr.ph
-  %umax52 = tail call i64 @llvm.umax.i64(i64 %41, i64 1)
-  br label %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.us
-
-_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.us: ; preds = %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.us.preheader, %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.us
-  %indvars.iv49 = phi i64 [ 0, %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.us.preheader ], [ %indvars.iv.next50, %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.us ]
+_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.us: ; preds = %.lr.ph, %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.us
+  %indvars.iv49 = phi i64 [ %indvars.iv.next50, %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.us ], [ 0, %.lr.ph ]
   %45 = getelementptr inbounds nuw %"class.draco::IndexType.64", ptr %37, i64 %indvars.iv49
   %.sroa.03.0.copyload.us = load i32, ptr %45, align 4, !tbaa !94
   %46 = zext i32 %.sroa.03.0.copyload.us to i64
@@ -690,13 +686,12 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
   %48 = trunc nuw nsw i64 %indvars.iv49 to i32
   store i32 %48, ptr %47, align 4, !tbaa !87
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
-  %exitcond53.not = icmp eq i64 %indvars.iv.next50, %umax52
+  %exitcond53.not = icmp eq i64 %indvars.iv.next50, %41
   br i1 %exitcond53.not, label %._crit_edge, label %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.us, !llvm.loop !95
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %49 = getelementptr inbounds nuw i8, ptr %25, i64 72
   %50 = load ptr, ptr %49, align 8, !tbaa !97
-  %umax = tail call i64 @llvm.umax.i64(i64 %41, i64 1)
   br label %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit
 
 ._crit_edge:                                      ; preds = %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit, %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.us, %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEES3_EC2Em.exit
@@ -718,7 +713,7 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
   %60 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %60, ptr %59, align 4, !tbaa !87
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %41
   br i1 %exitcond.not, label %._crit_edge, label %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit, !llvm.loop !95
 
 61:                                               ; preds = %._crit_edge

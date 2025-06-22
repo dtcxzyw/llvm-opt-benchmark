@@ -2487,7 +2487,6 @@ define noundef range(i64 0, -1) i64 @_ZNK19OpenColorIO_v2_5dev12ViewingRules15ge
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
   %13 = ashr exact i64 %12, 4
-  %umax = tail call i64 @llvm.umax.i64(i64 %13, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %22
@@ -2504,7 +2503,7 @@ define noundef range(i64 0, -1) i64 @_ZNK19OpenColorIO_v2_5dev12ViewingRules15ge
 
 22:                                               ; preds = %.lr.ph
   %23 = add nuw i64 %.01727, 1
-  %exitcond.not = icmp eq i64 %23, %umax
+  %exitcond.not = icmp eq i64 %23, %13
   br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !89
 
 .critedge:                                        ; preds = %22, %2
@@ -6130,17 +6129,13 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_5devl
   %10 = sub i64 %8, %9
   %11 = ashr exact i64 %10, 4
   %.not92 = icmp eq ptr %6, %7
-  br i1 %.not92, label %._crit_edge91, label %.lr.ph90.preheader
-
-.lr.ph90.preheader:                               ; preds = %2
-  %umax98 = tail call i64 @llvm.umax.i64(i64 %11, i64 1)
-  br label %.lr.ph90
+  br i1 %.not92, label %._crit_edge91, label %.lr.ph90
 
 ._crit_edge91:                                    ; preds = %143, %2
   ret ptr %0
 
-.lr.ph90:                                         ; preds = %.lr.ph90.preheader, %143
-  %.06088 = phi i64 [ %140, %143 ], [ 0, %.lr.ph90.preheader ]
+.lr.ph90:                                         ; preds = %2, %143
+  %.06088 = phi i64 [ %140, %143 ], [ 0, %2 ]
   %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.23, i64 noundef 18)
   %13 = load ptr, ptr %3, align 8, !tbaa !6
   tail call void @_ZNK19OpenColorIO_v2_5dev12ViewingRules4Impl16validatePositionEm(ptr noundef nonnull align 8 dereferenceable(24) %13, i64 noundef %.06088)
@@ -6387,7 +6382,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit81: ; preds = %122, 
   br label %143
 
 143:                                              ; preds = %141, %138
-  %exitcond99.not = icmp eq i64 %140, %umax98
+  %exitcond99.not = icmp eq i64 %140, %11
   br i1 %exitcond99.not, label %._crit_edge91, label %.lr.ph90, !llvm.loop !138
 }
 
@@ -6411,7 +6406,6 @@ define hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev8FindRuleESt10shared_p
   %15 = ashr exact i64 %14, 4
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %umax = tail call i64 @llvm.umax.i64(i64 %15, i64 1)
   br label %18
 
 18:                                               ; preds = %.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit26
@@ -6539,7 +6533,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i24
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit26: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i25, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i24
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #25
   %65 = add nuw i64 %.01439, 1
-  %exitcond.not = icmp eq i64 %65, %umax
+  %exitcond.not = icmp eq i64 %65, %15
   br i1 %exitcond.not, label %.critedge19, label %18, !llvm.loop !141
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit23: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i21, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i22

@@ -29571,7 +29571,6 @@ _ZNSt6vectorIN7xgboost6common4SpanINS0_6detail20GradientPairInternalIdEELm184467
   %48 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store ptr %46, ptr %48, align 8, !tbaa !188
   store ptr %scevgep.i.i.i.i.i, ptr %47, align 8, !tbaa !994
-  %umax = call i64 @llvm.umax.i64(i64 %40, i64 1)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %61, %.thread
@@ -29605,7 +29604,7 @@ _ZNSt6vectorIN7xgboost6common4SpanINS0_6detail20GradientPairInternalIdEELm184467
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %64, i64 8
   store ptr %63, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !1047
   %65 = add nuw i64 %.02837, 1
-  %exitcond.not = icmp eq i64 %65, %umax
+  %exitcond.not = icmp eq i64 %65, %40
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !1048
 
 .thread40:                                        ; preds = %.lr.ph
@@ -104568,7 +104567,6 @@ _ZNSt6vectorIN7xgboost4tree14CPUExpandEntryESaIS2_EE17_S_check_init_lenEmRKS3_.e
   %40 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %41 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %42 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %umax = tail call i64 @llvm.umax.i64(i64 %23, i64 1)
   br label %45
 
 ._crit_edge:                                      ; preds = %_ZN7xgboost4JsonD2Ev.exit45, %.thread
@@ -104712,7 +104710,7 @@ _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %_ZNSt6vectorIS_IcSa
 _ZN7xgboost4JsonD2Ev.exit45:                      ; preds = %_ZNSt6vectorIcSaIcEED2Ev.exit, %86, %90
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #23
   %94 = add nuw i64 %.02399, 1
-  %exitcond.not = icmp eq i64 %94, %umax
+  %exitcond.not = icmp eq i64 %94, %23
   br i1 %exitcond.not, label %._crit_edge, label %45, !llvm.loop !3132
 
 95:                                               ; preds = %45

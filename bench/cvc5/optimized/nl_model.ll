@@ -15936,11 +15936,7 @@ _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit419: ; preds = %155, %149
   %175 = add nsw i64 %173, %174
   %176 = trunc nsw i64 %175 to i32
   %.not2169 = icmp eq i64 %175, 0
-  br i1 %.not2169, label %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit463, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %169
-  %umax = call i32 @llvm.umax.i32(i32 %176, i32 1)
-  br label %.lr.ph
+  br i1 %.not2169, label %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit463, label %.lr.ph
 
 177:                                              ; preds = %152
   %178 = landingpad { ptr, i32 }
@@ -15957,12 +15953,12 @@ _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit419: ; preds = %155, %149
           cleanup
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit1126
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
-  %.01882146 = phi i32 [ %183, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ], [ 0, %.lr.ph.preheader ]
-  %.01892145 = phi i32 [ %.1190, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ], [ 0, %.lr.ph.preheader ]
-  %.sroa.01685.22144 = phi ptr [ %.sroa.01685.4, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ], [ null, %.lr.ph.preheader ]
-  %.sroa.121691.22143 = phi ptr [ %.sroa.121691.3, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ], [ null, %.lr.ph.preheader ]
-  %.sroa.181693.22142 = phi ptr [ %.sroa.181693.4, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ], [ null, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %169, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
+  %.01882146 = phi i32 [ %183, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ], [ 0, %169 ]
+  %.01892145 = phi i32 [ %.1190, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ], [ 0, %169 ]
+  %.sroa.01685.22144 = phi ptr [ %.sroa.01685.4, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ], [ null, %169 ]
+  %.sroa.121691.22143 = phi ptr [ %.sroa.121691.3, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ], [ null, %169 ]
+  %.sroa.181693.22142 = phi ptr [ %.sroa.181693.4, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ], [ null, %169 ]
   %183 = add nuw i32 %.01882146, 1
   %.not325 = icmp eq i32 %183, %176
   br i1 %.not325, label %.critedge352.thread, label %184
@@ -16350,7 +16346,7 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %333, %_ZNSt6vectorI
   %.sroa.121691.3 = phi ptr [ %.sroa.121691.22143, %.critedge352 ], [ %351, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ], [ %334, %333 ]
   %.sroa.01685.4 = phi ptr [ %.sroa.01685.22144, %.critedge352 ], [ %347, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ], [ %.sroa.01685.22144, %333 ]
   %.1190 = phi i32 [ %.01892145, %.critedge352 ], [ %183, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ], [ %183, %333 ]
-  %exitcond.not = icmp eq i32 %183, %umax
+  %exitcond.not = icmp eq i32 %183, %176
   br i1 %exitcond.not, label %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit463, label %.lr.ph, !llvm.loop !232
 
 364:                                              ; preds = %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit419
@@ -25064,9 +25060,6 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #23
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #23
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

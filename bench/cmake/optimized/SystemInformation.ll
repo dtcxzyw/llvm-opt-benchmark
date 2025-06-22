@@ -10203,7 +10203,6 @@ _ZN5cmsys12_GLOBAL__N_19LoadLinesEP8_IO_FILERSt6vectorINSt7__cxx1112basic_string
   %99 = ptrtoint ptr %97 to i64
   %100 = sub i64 %98, %99
   %101 = ashr exact i64 %100, 5
-  %umax.i = call i64 @llvm.umax.i64(i64 %101, i64 1)
   br label %102
 
 102:                                              ; preds = %.critedge.i, %.lr.ph.i
@@ -10374,7 +10373,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27.i: ; preds = %_
 
 .critedge.i:                                      ; preds = %102
   %160 = add nuw i64 %.02233.i, 1
-  %exitcond.not.i = icmp eq i64 %160, %umax.i
+  %exitcond.not.i = icmp eq i64 %160, %101
   br i1 %exitcond.not.i, label %_ZN5cmsys12_GLOBAL__N_19NameValueIxEEiRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EERKS8_RT_.exit, label %102, !llvm.loop !241
 
 _ZN5cmsys12_GLOBAL__N_19NameValueIxEEiRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EERKS8_RT_.exit: ; preds = %.critedge.i, %_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED1Ev.exit.i, %91

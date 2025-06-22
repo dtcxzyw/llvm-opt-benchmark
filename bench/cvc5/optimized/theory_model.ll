@@ -18404,13 +18404,10 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit..critedge37_crit_edge: ; preds = 
 
 _ZNKSt6vectorISt4pairIN4cvc58internal12NodeTemplateILb0EEEmESaIS5_EE12_M_check_lenEmPKc.exit.i78: ; preds = %214
   %220 = ashr exact i64 %217, 4
-  %.sroa.speculated.i.i79 = call i64 @llvm.umax.i64(i64 %220, i64 1)
-  %221 = add nsw i64 %.sroa.speculated.i.i79, %220
+  %221 = ashr exact i64 %217, 3
   %222 = icmp ult i64 %221, %220
   %223 = call i64 @llvm.umin.i64(i64 %221, i64 576460752303423487)
   %224 = select i1 %222, i64 576460752303423487, i64 %223
-  %.not.i.i80 = icmp ne i64 %224, 0
-  call void @llvm.assume(i1 %.not.i.i80)
   %225 = shl nuw nsw i64 %224, 4
   %226 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %225) #26
           to label %.noexc97 unwind label %.loopexit185
@@ -18550,13 +18547,10 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit61: ; preds = %_ZNSt6vectorISt4pai
 
 _ZNKSt6vectorISt4pairIN4cvc58internal12NodeTemplateILb0EEEmESaIS5_EE12_M_check_lenEmPKc.exit.i98: ; preds = %274
   %280 = ashr exact i64 %277, 4
-  %.sroa.speculated.i.i99 = call i64 @llvm.umax.i64(i64 %280, i64 1)
-  %281 = add nsw i64 %.sroa.speculated.i.i99, %280
+  %281 = ashr exact i64 %277, 3
   %282 = icmp ult i64 %281, %280
   %283 = call i64 @llvm.umin.i64(i64 %281, i64 576460752303423487)
   %284 = select i1 %282, i64 576460752303423487, i64 %283
-  %.not.i.i100 = icmp ne i64 %284, 0
-  call void @llvm.assume(i1 %.not.i.i100)
   %285 = shl nuw nsw i64 %284, 4
   %286 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %285) #26
           to label %.noexc117 unwind label %.loopexit

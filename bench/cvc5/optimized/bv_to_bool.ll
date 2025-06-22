@@ -381,12 +381,11 @@ define hidden noundef range(i32 0, 2) i32 @_ZN4cvc58internal13preprocessing6pass
   %14 = sub i64 %12, %13
   %15 = ashr exact i64 %14, 3
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 208
-  %umax = call i64 @llvm.umax.i64(i64 %15, i64 1)
   br label %23
 
 17:                                               ; preds = %56
   %18 = add nuw i64 %.01627, 1
-  %exitcond.not = icmp eq i64 %18, %umax
+  %exitcond.not = icmp eq i64 %18, %15
   br i1 %exitcond.not, label %._crit_edge, label %23, !llvm.loop !44
 
 19:                                               ; preds = %2

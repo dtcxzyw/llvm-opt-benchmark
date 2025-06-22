@@ -13812,7 +13812,6 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TfMapLookupPtrISt3mapINS_7SdfPathENS_18Hd
 
 .lr.ph:                                           ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14TfMapLookupPtrISt3mapINS_7SdfPathENS_18HdUnitTestDelegate10_InstancerESt4lessIS2_ESaISt4pairIKS2_S4_EEES2_EEPNT_11mapped_typeERSC_RKT0_.exit
   %.0.copyload.i2.i = load i64, ptr %3, align 4
-  %umax = tail call i64 @llvm.umax.i64(i64 %48, i64 1)
   br label %49
 
 49:                                               ; preds = %.lr.ph, %54
@@ -13849,11 +13848,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TfMapLookupPtrISt3mapINS_7SdfPathENS_18Hd
 
 54:                                               ; preds = %49
   %55 = add nuw i64 %.02043, 1
-  %exitcond.not = icmp eq i64 %55, %umax
-  br i1 %exitcond.not, label %._crit_edge, label %49, !llvm.loop !42
+  %exitcond.not = icmp eq i64 %55, %48
+  br i1 %exitcond.not, label %_ZN32pxrInternal_v0_24__pxrReserved__14TfMapLookupPtrISt3mapINS_7SdfPathENS_18HdUnitTestDelegate10_InstancerESt4lessIS2_ESaISt4pairIKS2_S4_EEES2_EEPNT_11mapped_typeERSC_RKT0_.exit.thread, label %49, !llvm.loop !42
 
-._crit_edge:                                      ; preds = %54, %49, %_ZN32pxrInternal_v0_24__pxrReserved__14TfMapLookupPtrISt3mapINS_7SdfPathENS_18HdUnitTestDelegate10_InstancerESt4lessIS2_ESaISt4pairIKS2_S4_EEES2_EEPNT_11mapped_typeERSC_RKT0_.exit
-  %.020.lcssa = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__14TfMapLookupPtrISt3mapINS_7SdfPathENS_18HdUnitTestDelegate10_InstancerESt4lessIS2_ESaISt4pairIKS2_S4_EEES2_EEPNT_11mapped_typeERSC_RKT0_.exit ], [ %.02043, %49 ], [ %umax, %54 ]
+._crit_edge:                                      ; preds = %49, %_ZN32pxrInternal_v0_24__pxrReserved__14TfMapLookupPtrISt3mapINS_7SdfPathENS_18HdUnitTestDelegate10_InstancerESt4lessIS2_ESaISt4pairIKS2_S4_EEES2_EEPNT_11mapped_typeERSC_RKT0_.exit
+  %.020.lcssa = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__14TfMapLookupPtrISt3mapINS_7SdfPathENS_18HdUnitTestDelegate10_InstancerESt4lessIS2_ESaISt4pairIKS2_S4_EEES2_EEPNT_11mapped_typeERSC_RKT0_.exit ], [ %.02043, %49 ]
   %56 = icmp eq i64 %.020.lcssa, %48
   br i1 %56, label %_ZN32pxrInternal_v0_24__pxrReserved__14TfMapLookupPtrISt3mapINS_7SdfPathENS_18HdUnitTestDelegate10_InstancerESt4lessIS2_ESaISt4pairIKS2_S4_EEES2_EEPNT_11mapped_typeERSC_RKT0_.exit.thread, label %.preheader
 
@@ -13890,7 +13889,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TfMapLookupPtrISt3mapINS_7SdfPathENS_18Hd
   %71 = add nuw i64 %.0, 1
   br label %59, !llvm.loop !43
 
-_ZN32pxrInternal_v0_24__pxrReserved__14TfMapLookupPtrISt3mapINS_7SdfPathENS_18HdUnitTestDelegate10_InstancerESt4lessIS2_ESaISt4pairIKS2_S4_EEES2_EEPNT_11mapped_typeERSC_RKT0_.exit.thread: ; preds = %61, %17, %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_NS0_18HdUnitTestDelegate10_InstancerEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.i.i.i, %.noexc26, %._crit_edge
+_ZN32pxrInternal_v0_24__pxrReserved__14TfMapLookupPtrISt3mapINS_7SdfPathENS_18HdUnitTestDelegate10_InstancerESt4lessIS2_ESaISt4pairIKS2_S4_EEES2_EEPNT_11mapped_typeERSC_RKT0_.exit.thread: ; preds = %54, %61, %17, %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_NS0_18HdUnitTestDelegate10_InstancerEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.i.i.i, %.noexc26, %._crit_edge
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   br i1 %9, label %72, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit
 
@@ -21958,14 +21957,10 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate20AddGridW
 
 .preheader:                                       ; preds = %22
   %.not = icmp eq ptr %24, %25
-  br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %.preheader
-  %umax = call i64 @llvm.umax.i64(i64 %29, i64 1)
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %40
-  %.077 = phi i64 [ %48, %40 ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %40
+  %.077 = phi i64 [ %48, %40 ], [ 0, %.preheader ]
   %30 = uitofp i64 %.077 to double
   %31 = fmul double %30, 1.000000e-01
   %32 = call double @sin(double noundef %31) #23
@@ -21992,7 +21987,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate20AddGridW
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 8
   store float %43, ptr %.sroa.3.0..sroa_idx, align 4
   %48 = add nuw i64 %.077, 1
-  %exitcond.not = icmp eq i64 %48, %umax
+  %exitcond.not = icmp eq i64 %48, %29
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !73
 
 .thread:                                          ; preds = %8
@@ -22495,14 +22490,10 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate22AddGridW
 
 .preheader:                                       ; preds = %22
   %.not = icmp eq ptr %24, %25
-  br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %.preheader
-  %umax = call i64 @llvm.umax.i64(i64 %29, i64 1)
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %40
-  %.077 = phi i64 [ %48, %40 ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %40
+  %.077 = phi i64 [ %48, %40 ], [ 0, %.preheader ]
   %30 = uitofp i64 %.077 to double
   %31 = fmul double %30, 1.000000e-01
   %32 = call double @sin(double noundef %31) #23
@@ -22529,7 +22520,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate22AddGridW
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 8
   store float %43, ptr %.sroa.3.0..sroa_idx, align 4
   %48 = add nuw i64 %.077, 1
-  %exitcond.not = icmp eq i64 %48, %umax
+  %exitcond.not = icmp eq i64 %48, %29
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !74
 
 .thread:                                          ; preds = %8
@@ -23031,14 +23022,10 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate27AddGridW
 
 .preheader:                                       ; preds = %22
   %.not = icmp eq ptr %24, %25
-  br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %.preheader
-  %umax = call i64 @llvm.umax.i64(i64 %29, i64 1)
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %40
-  %.077 = phi i64 [ %48, %40 ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %40
+  %.077 = phi i64 [ %48, %40 ], [ 0, %.preheader ]
   %30 = uitofp i64 %.077 to double
   %31 = fmul double %30, 1.000000e-01
   %32 = call double @sin(double noundef %31) #23
@@ -23065,7 +23052,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate27AddGridW
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 8
   store float %43, ptr %.sroa.3.0..sroa_idx, align 4
   %48 = add nuw i64 %.077, 1
-  %exitcond.not = icmp eq i64 %48, %umax
+  %exitcond.not = icmp eq i64 %48, %29
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !75
 
 .thread:                                          ; preds = %8

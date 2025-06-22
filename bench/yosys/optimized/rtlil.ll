@@ -12717,7 +12717,6 @@ define noundef zeroext i1 @_ZNK5Yosys5RTLIL5Const7as_boolEv(ptr noundef nonnull 
   %6 = ptrtoint ptr %4 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
-  %umax = tail call i64 @llvm.umax.i64(i64 %8, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
@@ -12726,7 +12725,7 @@ define noundef zeroext i1 @_ZNK5Yosys5RTLIL5Const7as_boolEv(ptr noundef nonnull 
   %10 = load i8, ptr %9, align 1, !tbaa !70
   %11 = icmp eq i8 %10, 1
   %12 = add nuw i64 %.0710, 1
-  %exitcond.not = icmp eq i64 %12, %umax
+  %exitcond.not = icmp eq i64 %12, %8
   %or.cond = select i1 %11, i1 true, i1 %exitcond.not
   br i1 %or.cond, label %.critedge, label %.lr.ph, !llvm.loop !88
 
@@ -12745,20 +12744,17 @@ define noundef i32 @_ZNK5Yosys5RTLIL5Const6as_intEb(ptr noundef nonnull align 8 
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
+  %invariant.umin = tail call i64 @llvm.umin.i64(i64 %9, i64 32)
   %.not = icmp eq i64 %9, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %2
-  %umax = tail call i64 @llvm.umin.i64(i64 %9, i64 32)
-  br label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.017.lcssa = phi i32 [ 0, %2 ], [ %.1, %.lr.ph ]
   br i1 %1, label %17, label %.loopexit
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.01620 = phi i64 [ %16, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.01719 = phi i32 [ %.1, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %2, %.lr.ph
+  %.01620 = phi i64 [ %16, %.lr.ph ], [ 0, %2 ]
+  %.01719 = phi i32 [ %.1, %.lr.ph ], [ 0, %2 ]
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 %.01620
   %11 = load i8, ptr %10, align 1, !tbaa !70
   %12 = icmp eq i8 %11, 1
@@ -12767,7 +12763,7 @@ define noundef i32 @_ZNK5Yosys5RTLIL5Const6as_intEb(ptr noundef nonnull align 8 
   %15 = select i1 %12, i32 %14, i32 0
   %.1 = or i32 %15, %.01719
   %16 = add nuw nsw i64 %.01620, 1
-  %exitcond.not = icmp eq i64 %16, %umax
+  %exitcond.not = icmp eq i64 %16, %invariant.umin
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !89
 
 17:                                               ; preds = %._crit_edge
@@ -15084,7 +15080,6 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEE4findE
   %41 = ptrtoint ptr %39 to i64
   %42 = ptrtoint ptr %40 to i64
   %43 = sub i64 %41, %42
-  %umax.i = call i64 @llvm.umax.i64(i64 %43, i64 1)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -15093,7 +15088,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEE4findE
   %45 = load i8, ptr %44, align 1, !tbaa !70
   %46 = icmp eq i8 %45, 1
   %47 = add nuw i64 %.0710.i, 1
-  %exitcond.not.i = icmp eq i64 %47, %umax.i
+  %exitcond.not.i = icmp eq i64 %47, %43
   %or.cond = select i1 %46, i1 true, i1 %exitcond.not.i
   br i1 %or.cond, label %_ZNK5Yosys5RTLIL5Const7as_boolEv.exit, label %.lr.ph.i, !llvm.loop !88
 
@@ -34966,7 +34961,6 @@ _ZNSt6vectorIN5Yosys5RTLIL8IdStringESaIS2_EE5clearEv.exit: ; preds = %_ZSt4sortI
   %290 = sub i64 %289, %288
   %291 = ashr exact i64 %290, 3
   %292 = getelementptr inbounds nuw i8, ptr %0, i64 552
-  %umax = tail call i64 @llvm.umax.i64(i64 %291, i64 1)
   br label %297
 
 ._crit_edge167:                                   ; preds = %_ZNSt6vectorIN5Yosys5RTLIL8IdStringESaIS2_EE5clearEv.exit
@@ -35031,7 +35025,7 @@ _ZNSt6vectorIN5Yosys5RTLIL8IdStringESaIS2_EE9push_backERKS2_.exit: ; preds = %._
   %315 = trunc i64 %314 to i32
   %316 = getelementptr inbounds nuw i8, ptr %313, i64 100
   store i32 %315, ptr %316, align 4, !tbaa !480
-  %exitcond.not = icmp eq i64 %314, %umax
+  %exitcond.not = icmp eq i64 %314, %291
   br i1 %exitcond.not, label %._crit_edge167.thread, label %297, !llvm.loop !496
 
 .thread118:                                       ; preds = %312
@@ -38229,13 +38223,10 @@ _ZN5Yosys5RTLIL8SigChunkD2Ev.exit27:              ; preds = %172, %176
 
 .lr.ph.i.i.i.i.i.preheader:                       ; preds = %190
   %196 = ashr exact i64 %193, 4
-  %.sroa.speculated.i.i.i29 = tail call i64 @llvm.umax.i64(i64 %196, i64 1)
-  %197 = add nsw i64 %.sroa.speculated.i.i.i29, %196
+  %197 = ashr exact i64 %193, 3
   %198 = icmp ult i64 %197, %196
   %199 = tail call i64 @llvm.umin.i64(i64 %197, i64 576460752303423487)
   %200 = select i1 %198, i64 576460752303423487, i64 %199
-  %.not.i.i.i30 = icmp ne i64 %200, 0
-  tail call void @llvm.assume(i1 %.not.i.i.i30)
   %201 = shl nuw nsw i64 %200, 4
   %202 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %201) #41
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 %193
@@ -137059,7 +137050,6 @@ define noundef zeroext i1 @_ZNK5Yosys5RTLIL7SigSpeceqERKS1_(ptr noundef nonnull 
   %35 = sub i64 %33, %34
   %36 = sdiv exact i64 %35, 40
   %37 = load ptr, ptr %19, align 8, !tbaa !516
-  %umax = tail call i64 @llvm.umax.i64(i64 %36, i64 1)
   br label %38
 
 38:                                               ; preds = %.lr.ph, %_ZNK5Yosys5RTLIL8SigChunkneERKS1_.exit
@@ -137125,7 +137115,7 @@ define noundef zeroext i1 @_ZNK5Yosys5RTLIL7SigSpeceqERKS1_(ptr noundef nonnull 
 
 _ZNK5Yosys5RTLIL8SigChunkneERKS1_.exit:           ; preds = %75, %72
   %78 = add nuw i64 %.01325, 1
-  %exitcond.not = icmp eq i64 %78, %umax
+  %exitcond.not = icmp eq i64 %78, %36
   br i1 %exitcond.not, label %._crit_edge, label %38, !llvm.loop !908
 
 .loopexit:                                        ; preds = %56, %38, %44, %50, %.lr.ph.i.i.i.i.i.i.i
@@ -147727,7 +147717,6 @@ define noundef zeroext i1 @_ZNK5Yosys5RTLIL7SigSpecltERKS1_(ptr noundef nonnull 
   %39 = sub i64 %37, %38
   %40 = sdiv exact i64 %39, 40
   %41 = load ptr, ptr %20, align 8, !tbaa !516
-  %umax = tail call i64 @llvm.umax.i64(i64 %40, i64 1)
   br label %44
 
 42:                                               ; preds = %30
@@ -147896,7 +147885,7 @@ define noundef zeroext i1 @_ZNK5Yosys5RTLIL7SigSpecltERKS1_(ptr noundef nonnull 
 
 _ZNK5Yosys5RTLIL8SigChunkneERKS1_.exit:           ; preds = %81, %78
   %137 = add nuw i64 %.01948, 1
-  %exitcond.not = icmp eq i64 %137, %umax
+  %exitcond.not = icmp eq i64 %137, %40
   br i1 %exitcond.not, label %._crit_edge, label %44, !llvm.loop !1027
 
 ._crit_edge:                                      ; preds = %_ZNK5Yosys5RTLIL8SigChunkneERKS1_.exit, %.preheader
@@ -148005,12 +147994,11 @@ define noundef zeroext i1 @_ZNK5Yosys5RTLIL7SigSpec13is_fully_zeroEv(ptr noundef
   %18 = ptrtoint ptr %16 to i64
   %19 = ptrtoint ptr %17 to i64
   %20 = sub i64 %18, %19
-  %umax = tail call i64 @llvm.umax.i64(i64 %20, i64 1)
   br label %.lr.ph
 
 21:                                               ; preds = %.lr.ph
   %22 = add nuw i64 %.0623, 1
-  %exitcond.not = icmp eq i64 %22, %umax
+  %exitcond.not = icmp eq i64 %22, %20
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !1029
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %21
@@ -148067,12 +148055,11 @@ define noundef zeroext i1 @_ZNK5Yosys5RTLIL7SigSpec13is_fully_onesEv(ptr noundef
   %18 = ptrtoint ptr %16 to i64
   %19 = ptrtoint ptr %17 to i64
   %20 = sub i64 %18, %19
-  %umax = tail call i64 @llvm.umax.i64(i64 %20, i64 1)
   br label %.lr.ph
 
 21:                                               ; preds = %.lr.ph
   %22 = add nuw i64 %.0623, 1
-  %exitcond.not = icmp eq i64 %22, %umax
+  %exitcond.not = icmp eq i64 %22, %20
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !1031
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %21
@@ -148129,12 +148116,11 @@ define noundef zeroext i1 @_ZNK5Yosys5RTLIL7SigSpec12is_fully_defEv(ptr noundef 
   %18 = ptrtoint ptr %16 to i64
   %19 = ptrtoint ptr %17 to i64
   %20 = sub i64 %18, %19
-  %umax = tail call i64 @llvm.umax.i64(i64 %20, i64 1)
   br label %.lr.ph
 
 21:                                               ; preds = %.lr.ph
   %22 = add nuw i64 %.0727, 1
-  %exitcond.not = icmp eq i64 %22, %umax
+  %exitcond.not = icmp eq i64 %22, %20
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !1033
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %21
@@ -148191,12 +148177,11 @@ define noundef zeroext i1 @_ZNK5Yosys5RTLIL7SigSpec14is_fully_undefEv(ptr nounde
   %18 = ptrtoint ptr %16 to i64
   %19 = ptrtoint ptr %17 to i64
   %20 = sub i64 %18, %19
-  %umax = tail call i64 @llvm.umax.i64(i64 %20, i64 1)
   br label %.lr.ph
 
 21:                                               ; preds = %.lr.ph
   %22 = add nuw i64 %.0727, 1
-  %exitcond.not = icmp eq i64 %22, %umax
+  %exitcond.not = icmp eq i64 %22, %20
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !1035
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %21
@@ -148254,12 +148239,11 @@ define noundef zeroext i1 @_ZNK5Yosys5RTLIL7SigSpec15has_marked_bitsEv(ptr nound
   %18 = ptrtoint ptr %16 to i64
   %19 = ptrtoint ptr %17 to i64
   %20 = sub i64 %18, %19
-  %umax = tail call i64 @llvm.umax.i64(i64 %20, i64 1)
   br label %.lr.ph
 
 21:                                               ; preds = %.lr.ph
   %22 = add nuw i64 %.0621, 1
-  %exitcond.not = icmp eq i64 %22, %umax
+  %exitcond.not = icmp eq i64 %22, %20
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !1037
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %21
@@ -148461,7 +148445,6 @@ _ZN5Yosys5RTLIL5ConstC2ERKSt6vectorINS0_5StateESaIS3_EE.exit: ; preds = %.thread
   %32 = ptrtoint ptr %30 to i64
   %33 = ptrtoint ptr %31 to i64
   %34 = sub i64 %32, %33
-  %umax.i = call i64 @llvm.umax.i64(i64 %34, i64 1)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -148470,7 +148453,7 @@ _ZN5Yosys5RTLIL5ConstC2ERKSt6vectorINS0_5StateESaIS3_EE.exit: ; preds = %.thread
   %36 = load i8, ptr %35, align 1, !tbaa !70
   %37 = icmp eq i8 %36, 1
   %38 = add nuw i64 %.0710.i, 1
-  %exitcond.not.i = icmp eq i64 %38, %umax.i
+  %exitcond.not.i = icmp eq i64 %38, %34
   %or.cond = select i1 %37, i1 true, i1 %exitcond.not.i
   br i1 %or.cond, label %_ZNK5Yosys5RTLIL5Const7as_boolEv.exit, label %.lr.ph.i, !llvm.loop !88
 
@@ -148562,20 +148545,17 @@ _ZN5Yosys5RTLIL5ConstC2ERKSt6vectorINS0_5StateESaIS3_EE.exit: ; preds = %.thread
   %33 = ptrtoint ptr %31 to i64
   %34 = ptrtoint ptr %32 to i64
   %35 = sub i64 %33, %34
+  %invariant.umin.i = call i64 @llvm.umin.i64(i64 %35, i64 32)
   %.not.i = icmp eq i64 %35, 0
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.preheader.i
-
-.lr.ph.preheader.i:                               ; preds = %.noexc
-  %umax.i = call i64 @llvm.umin.i64(i64 %35, i64 32)
-  br label %.lr.ph.i
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.noexc
   %.017.lcssa.i = phi i32 [ 0, %.noexc ], [ %.1.i, %.lr.ph.i ]
   br i1 %1, label %43, label %_ZNK5Yosys5RTLIL5Const6as_intEb.exit
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.01620.i = phi i64 [ %42, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
-  %.01719.i = phi i32 [ %.1.i, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
+.lr.ph.i:                                         ; preds = %.noexc, %.lr.ph.i
+  %.01620.i = phi i64 [ %42, %.lr.ph.i ], [ 0, %.noexc ]
+  %.01719.i = phi i32 [ %.1.i, %.lr.ph.i ], [ 0, %.noexc ]
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 %.01620.i
   %37 = load i8, ptr %36, align 1, !tbaa !70
   %38 = icmp eq i8 %37, 1
@@ -148584,7 +148564,7 @@ _ZN5Yosys5RTLIL5ConstC2ERKSt6vectorINS0_5StateESaIS3_EE.exit: ; preds = %.thread
   %41 = select i1 %38, i32 %40, i32 0
   %.1.i = or i32 %41, %.01719.i
   %42 = add nuw nsw i64 %.01620.i, 1
-  %exitcond.not.i = icmp eq i64 %42, %umax.i
+  %exitcond.not.i = icmp eq i64 %42, %invariant.umin.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !89
 
 43:                                               ; preds = %._crit_edge.i

@@ -6253,7 +6253,6 @@ for.body682.preheader:                            ; preds = %invoke.cont674
   %.pre = ptrtoint ptr %__first.sroa.0.1.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %.pre, %sub.ptr.rhs.cast.i.i.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
-  %umax = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i, i64 1)
   br label %for.body682
 
 lpad610:                                          ; preds = %if.then.i.i.i637
@@ -6465,7 +6464,7 @@ invoke.cont741:                                   ; preds = %_ZNK8QuantLib9Param
   %call738 = call double @sqrt(double noundef %384) #28, !tbaa !61
   %mul.rl.i.i783 = fmul double %div734, %call738
   %add.r.i = fadd double %C_u_inf.sroa.0.01105, %mul.rl.i.i783
-  %exitcond.not = icmp eq i64 %add687, %umax
+  %exitcond.not = icmp eq i64 %add687, %sub.ptr.div.i.i.i
   br i1 %exitcond.not, label %invoke.cont775, label %for.body682, !llvm.loop !153
 
 lpad699:                                          ; preds = %_ZNK8QuantLib9ParameterclEd.exit.i721, %cond.false.i.i.i725, %cond.false.i714, %for.body682
@@ -11950,9 +11949,6 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.log.f64(double) #27
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #27
 
 attributes #0 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #1 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

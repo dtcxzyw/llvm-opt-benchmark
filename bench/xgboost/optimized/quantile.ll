@@ -7522,11 +7522,7 @@ _ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit:            ; preds = %.noexc81, %_ZNSt6ve
   %.sroa.21288.0 = phi ptr [ null, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i ], [ %43, %.noexc81 ]
   %.sroa.0274.0 = phi ptr [ null, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i ], [ %40, %.noexc81 ]
   %.not314 = icmp eq ptr %31, %32
-  br i1 %.not314, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %_ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit
-  %umax = tail call i64 @llvm.umax.i64(i64 %36, i64 1)
-  br label %.lr.ph
+  br i1 %.not314, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit
   %44 = icmp eq ptr %.sroa.0274.0, %.sroa.21288.0
@@ -7570,14 +7566,14 @@ _ZN4dmlc11LogCheck_EQImiEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_tra
   invoke void @_ZN4dmlc14LogCheckFormatImiEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS7_EERKT_RKT0_(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %9, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0274.0, ptr noundef nonnull align 4 dereferenceable(4) %10)
           to label %_ZN4dmlc11LogCheck_EQImiEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS7_EERKT_RKT0_.exit unwind label %71
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.060308 = phi i64 [ %58, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %_ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit, %.lr.ph
+  %.060308 = phi i64 [ %58, %.lr.ph ], [ 0, %_ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit ]
   %56 = getelementptr inbounds nuw %"class.std::set", ptr %32, i64 %.060308, i32 0, i32 0, i32 1, i32 1
   %57 = load i64, ptr %56, align 8, !tbaa !295
   %58 = add nuw i64 %.060308, 1
   %59 = getelementptr inbounds nuw i64, ptr %.sroa.0274.0, i64 %58
   store i64 %57, ptr %59, align 8, !tbaa !55
-  %exitcond.not = icmp eq i64 %58, %umax
+  %exitcond.not = icmp eq i64 %58, %36
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !296
 
 _ZN4dmlc11LogCheck_EQImiEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS7_EERKT_RKT0_.exit: ; preds = %55
@@ -15081,11 +15077,7 @@ _ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit:            ; preds = %.noexc81, %_ZNSt6ve
   %.sroa.21288.0 = phi ptr [ null, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i ], [ %43, %.noexc81 ]
   %.sroa.0274.0 = phi ptr [ null, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i ], [ %40, %.noexc81 ]
   %.not314 = icmp eq ptr %31, %32
-  br i1 %.not314, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %_ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit
-  %umax = tail call i64 @llvm.umax.i64(i64 %36, i64 1)
-  br label %.lr.ph
+  br i1 %.not314, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit
   %44 = icmp eq ptr %.sroa.0274.0, %.sroa.21288.0
@@ -15129,14 +15121,14 @@ _ZN4dmlc11LogCheck_EQImiEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_tra
   invoke void @_ZN4dmlc14LogCheckFormatImiEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS7_EERKT_RKT0_(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %9, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0274.0, ptr noundef nonnull align 4 dereferenceable(4) %10)
           to label %_ZN4dmlc11LogCheck_EQImiEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS7_EERKT_RKT0_.exit unwind label %71
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.060308 = phi i64 [ %58, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %_ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit, %.lr.ph
+  %.060308 = phi i64 [ %58, %.lr.ph ], [ 0, %_ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit ]
   %56 = getelementptr inbounds nuw %"class.std::set", ptr %32, i64 %.060308, i32 0, i32 0, i32 1, i32 1
   %57 = load i64, ptr %56, align 8, !tbaa !295
   %58 = add nuw i64 %.060308, 1
   %59 = getelementptr inbounds nuw i64, ptr %.sroa.0274.0, i64 %58
   store i64 %57, ptr %59, align 8, !tbaa !55
-  %exitcond.not = icmp eq i64 %58, %umax
+  %exitcond.not = icmp eq i64 %58, %36
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !524
 
 _ZN4dmlc11LogCheck_EQImiEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS7_EERKT_RKT0_.exit: ; preds = %55

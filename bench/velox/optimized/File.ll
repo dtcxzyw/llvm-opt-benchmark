@@ -287,18 +287,14 @@ entry:
 
 for.cond.preheader:                               ; preds = %entry
   %cmp424.not = icmp eq ptr %regions.coerce1, %regions.coerce0
-  br i1 %cmp424.not, label %for.end, label %for.body.preheader
-
-for.body.preheader:                               ; preds = %for.cond.preheader
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
-  br label %for.body
+  br i1 %cmp424.not, label %for.end, label %for.body
 
 if.then:                                          ; preds = %entry
   tail call void @llvm.trap()
   unreachable
 
-for.body:                                         ; preds = %for.body.preheader, %for.body
-  %i.025 = phi i64 [ %inc, %for.body ], [ 0, %for.body.preheader ]
+for.body:                                         ; preds = %for.cond.preheader, %for.body
+  %i.025 = phi i64 [ %inc, %for.body ], [ 0, %for.cond.preheader ]
   %arrayidx.i = getelementptr inbounds %"struct.facebook::velox::common::Region", ptr %regions.coerce0, i64 %i.025
   %arrayidx.i19 = getelementptr inbounds %"class.folly::IOBuf", ptr %iobufs.coerce0, i64 %i.025
   %length = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
@@ -320,7 +316,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %add.i = add i64 %6, %5
   store i64 %add.i, ptr %length_.i, align 8
   %inc = add nuw i64 %i.025, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !4
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader

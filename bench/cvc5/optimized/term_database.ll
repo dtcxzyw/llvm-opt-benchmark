@@ -9240,11 +9240,7 @@ _ZSt8_DestroyIPSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS4_EES6_EvT_S8_R
 
 _ZNSt6vectorIS_IN4cvc58internal12NodeTemplateILb0EEESaIS3_EESaIS5_EE6resizeEm.exit: ; preds = %465, %467, %469, %_ZSt8_DestroyIPSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS4_EES6_EvT_S8_RSaIT0_E.exit.i.i
   %.not1462 = icmp eq ptr %451, %452
-  br i1 %.not1462, label %.critedge291, label %_ZN4cvc58internal11Cvc5ostreamlsIA2_cEERS1_RKT_.exit.preheader
-
-_ZN4cvc58internal11Cvc5ostreamlsIA2_cEERS1_RKT_.exit.preheader: ; preds = %_ZNSt6vectorIS_IN4cvc58internal12NodeTemplateILb0EEESaIS3_EESaIS5_EE6resizeEm.exit
-  %umax = call i64 @llvm.umax.i64(i64 %456, i64 1)
-  br label %_ZN4cvc58internal11Cvc5ostreamlsIA2_cEERS1_RKT_.exit
+  br i1 %.not1462, label %.critedge291, label %_ZN4cvc58internal11Cvc5ostreamlsIA2_cEERS1_RKT_.exit
 
 479:                                              ; preds = %379
   %480 = landingpad { ptr, i32 }
@@ -9278,8 +9274,8 @@ _ZN4cvc58internal11Cvc5ostreamlsIA2_cEERS1_RKT_.exit.preheader: ; preds = %_ZNSt
           cleanup
   br label %1174
 
-_ZN4cvc58internal11Cvc5ostreamlsIA2_cEERS1_RKT_.exit: ; preds = %_ZN4cvc58internal11Cvc5ostreamlsIA2_cEERS1_RKT_.exit.preheader, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE9push_backERKS3_.exit
-  %.01971437 = phi i64 [ %560, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE9push_backERKS3_.exit ], [ 0, %_ZN4cvc58internal11Cvc5ostreamlsIA2_cEERS1_RKT_.exit.preheader ]
+_ZN4cvc58internal11Cvc5ostreamlsIA2_cEERS1_RKT_.exit: ; preds = %_ZNSt6vectorIS_IN4cvc58internal12NodeTemplateILb0EEESaIS3_EESaIS5_EE6resizeEm.exit, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE9push_backERKS3_.exit
+  %.01971437 = phi i64 [ %560, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE9push_backERKS3_.exit ], [ 0, %_ZNSt6vectorIS_IN4cvc58internal12NodeTemplateILb0EEESaIS3_EESaIS5_EE6resizeEm.exit ]
   %490 = load ptr, ptr %400, align 8, !tbaa !505
   %491 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate.510", ptr %490, i64 %.01971437
   %492 = load ptr, ptr %491, align 8, !tbaa !366
@@ -9470,7 +9466,7 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE17_M_realloc_insertIJRK
 
 _ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE9push_backERKS3_.exit: ; preds = %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, %541, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb0EEESt6vectorIS5_SaIS5_EEEES5_ET_SB_SB_RKT0_.exit
   %560 = add nuw i64 %.01971437, 1
-  %exitcond.not = icmp eq i64 %560, %umax
+  %exitcond.not = icmp eq i64 %560, %456
   br i1 %exitcond.not, label %.critedge291, label %_ZN4cvc58internal11Cvc5ostreamlsIA2_cEERS1_RKT_.exit, !llvm.loop !558
 
 .critedge291:                                     ; preds = %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE9push_backERKS3_.exit, %_ZNSt6vectorIS_IN4cvc58internal12NodeTemplateILb0EEESaIS3_EESaIS5_EE6resizeEm.exit

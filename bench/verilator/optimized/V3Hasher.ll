@@ -16240,8 +16240,7 @@ _ZNK17AstNodeArrayDType13elementsConstEv.exit:    ; preds = %_ZNK8AstRange9leftC
 .lr.ph:                                           ; preds = %_ZNK17AstNodeArrayDType13elementsConstEv.exit
   %41 = sub i32 %40, %39
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %umax = tail call i32 @llvm.umax.i32(i32 %41, i32 1)
-  %wide.trip.count = zext i32 %umax to i64
+  %wide.trip.count = zext i32 %41 to i64
   br label %43
 
 43:                                               ; preds = %.lr.ph, %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit
@@ -21451,9 +21450,6 @@ declare i32 @llvm.smin.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #18
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #17
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

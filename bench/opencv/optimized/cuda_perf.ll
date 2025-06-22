@@ -346,7 +346,6 @@ _ZNSt6vectorImSaImEEC2EmRKS0_.exit:               ; preds = %.noexc44
 .lr.ph.preheader:                                 ; preds = %.noexc44, %_ZNSt6vectorImSaImEEC2EmRKS0_.exit
   %28 = phi i64 [ %20, %_ZNSt6vectorImSaImEEC2EmRKS0_.exit ], [ 1, %.noexc44 ]
   %.0.i.i.i.i.i96 = phi ptr [ %26, %_ZNSt6vectorImSaImEEC2EmRKS0_.exit ], [ %24, %.noexc44 ]
-  %umax = tail call i64 @llvm.umax.i64(i64 %28, i64 1)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i
@@ -361,7 +360,7 @@ _ZNSt6vectorImSaImEEC2EmRKS0_.exit:               ; preds = %.noexc44
   %30 = getelementptr inbounds nuw i64, ptr %23, i64 %.03371
   store i64 %.03371, ptr %30, align 8, !tbaa !22
   %31 = add nuw i64 %.03371, 1
-  %exitcond.not = icmp eq i64 %31, %umax
+  %exitcond.not = icmp eq i64 %31, %28
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
 _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEN4perf18KeypointIdxCompareEEvT_S9_T0_.exit: ; preds = %._crit_edge
@@ -491,7 +490,6 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %58, %61
   %84 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %85 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %86 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %umax77 = call i64 @llvm.umax.i64(i64 %29, i64 1)
   br label %96
 
 ._crit_edge75:                                    ; preds = %123, %82
@@ -606,7 +604,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %58, %61
 
 123:                                              ; preds = %112, %104
   %124 = add nuw i64 %.02372, 1
-  %exitcond78.not = icmp eq i64 %124, %umax77
+  %exitcond78.not = icmp eq i64 %124, %29
   br i1 %exitcond78.not, label %._crit_edge75, label %96, !llvm.loop !54
 
 125:                                              ; preds = %._crit_edge75

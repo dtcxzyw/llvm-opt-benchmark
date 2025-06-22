@@ -3405,7 +3405,6 @@ define linkonce_odr noundef zeroext i1 @_ZN3g2o11BlockSolverINS_17BlockSolverTra
 
 .lr.ph.preheader:                                 ; preds = %2
   %20 = ashr exact i64 %15, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %20, i64 1)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %52, %2
@@ -3474,7 +3473,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3g2o11BlockSolverINS_17BlockSolverTra
   %56 = phi i32 [ %30, %47 ], [ %43, %42 ]
   %57 = add i32 %37, %.0119216
   %58 = add nuw i64 %.0120215, 1
-  %exitcond.not = icmp eq i64 %58, %umax
+  %exitcond.not = icmp eq i64 %58, %20
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !434
 
 ._crit_edge222.loopexit:                          ; preds = %103
@@ -5040,27 +5039,19 @@ _ZN3g2o17SparseBlockMatrixIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE5clearEb.e
 
 .preheader33.i:                                   ; preds = %94
   %.not38.i = icmp eq ptr %82, %83
-  br i1 %.not38.i, label %.preheader.i, label %.lr.ph.preheader.i
-
-.lr.ph.preheader.i:                               ; preds = %.preheader33.i
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %87, i64 1)
-  br label %.lr.ph.i91
+  br i1 %.not38.i, label %.preheader.i, label %.lr.ph.i91
 
 110:                                              ; preds = %.lr.ph.i91
   %111 = add nuw i64 %.01835.i, 1
-  %exitcond.not.i92 = icmp eq i64 %111, %umax.i
+  %exitcond.not.i92 = icmp eq i64 %111, %87
   br i1 %exitcond.not.i92, label %.preheader.i, label %.lr.ph.i91, !llvm.loop !509
 
 .preheader.i:                                     ; preds = %110, %.preheader33.i
   %.not39.i = icmp eq ptr %97, %98
-  br i1 %.not39.i, label %._crit_edge.i, label %.lr.ph37.preheader.i
+  br i1 %.not39.i, label %._crit_edge.i, label %.lr.ph37.i
 
-.lr.ph37.preheader.i:                             ; preds = %.preheader.i
-  %umax41.i = tail call i64 @llvm.umax.i64(i64 %102, i64 1)
-  br label %.lr.ph37.i
-
-.lr.ph.i91:                                       ; preds = %110, %.lr.ph.preheader.i
-  %.01835.i = phi i64 [ %111, %110 ], [ 0, %.lr.ph.preheader.i ]
+.lr.ph.i91:                                       ; preds = %.preheader33.i, %110
+  %.01835.i = phi i64 [ %111, %110 ], [ 0, %.preheader33.i ]
   %112 = getelementptr inbounds nuw i32, ptr %83, i64 %.01835.i
   %113 = load i32, ptr %112, align 4, !tbaa !29
   %114 = getelementptr inbounds nuw i32, ptr %90, i64 %.01835.i
@@ -5070,11 +5061,11 @@ _ZN3g2o17SparseBlockMatrixIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE5clearEb.e
 
 116:                                              ; preds = %.lr.ph37.i
   %117 = add nuw i64 %.036.i, 1
-  %exitcond42.not.i = icmp eq i64 %117, %umax41.i
+  %exitcond42.not.i = icmp eq i64 %117, %102
   br i1 %exitcond42.not.i, label %._crit_edge.i, label %.lr.ph37.i, !llvm.loop !510
 
-.lr.ph37.i:                                       ; preds = %116, %.lr.ph37.preheader.i
-  %.036.i = phi i64 [ %117, %116 ], [ 0, %.lr.ph37.preheader.i ]
+.lr.ph37.i:                                       ; preds = %.preheader.i, %116
+  %.036.i = phi i64 [ %117, %116 ], [ 0, %.preheader.i ]
   %118 = getelementptr inbounds nuw i32, ptr %98, i64 %.036.i
   %119 = load i32, ptr %118, align 4, !tbaa !29
   %120 = getelementptr inbounds nuw i32, ptr %106, i64 %.036.i
@@ -26435,7 +26426,6 @@ define linkonce_odr noundef zeroext i1 @_ZN3g2o11BlockSolverINS_17BlockSolverTra
 
 .lr.ph.preheader:                                 ; preds = %2
   %20 = ashr exact i64 %15, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %20, i64 1)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %52, %2
@@ -26504,7 +26494,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3g2o11BlockSolverINS_17BlockSolverTra
   %56 = phi i32 [ %30, %47 ], [ %43, %42 ]
   %57 = add i32 %37, %.0119380
   %58 = add nuw i64 %.0120379, 1
-  %exitcond.not = icmp eq i64 %58, %umax
+  %exitcond.not = icmp eq i64 %58, %20
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !1394
 
 ._crit_edge386.loopexit:                          ; preds = %89
@@ -29145,27 +29135,19 @@ _ZN3g2o17SparseBlockMatrixIN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEEE5clearEb.exit:
 
 .preheader33.i:                                   ; preds = %76
   %.not38.i = icmp eq ptr %64, %65
-  br i1 %.not38.i, label %.preheader.i, label %.lr.ph.preheader.i
-
-.lr.ph.preheader.i:                               ; preds = %.preheader33.i
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %69, i64 1)
-  br label %.lr.ph.i73
+  br i1 %.not38.i, label %.preheader.i, label %.lr.ph.i73
 
 92:                                               ; preds = %.lr.ph.i73
   %93 = add nuw i64 %.01835.i, 1
-  %exitcond.not.i74 = icmp eq i64 %93, %umax.i
+  %exitcond.not.i74 = icmp eq i64 %93, %69
   br i1 %exitcond.not.i74, label %.preheader.i, label %.lr.ph.i73, !llvm.loop !1439
 
 .preheader.i:                                     ; preds = %92, %.preheader33.i
   %.not39.i = icmp eq ptr %79, %80
-  br i1 %.not39.i, label %._crit_edge.i, label %.lr.ph37.preheader.i
+  br i1 %.not39.i, label %._crit_edge.i, label %.lr.ph37.i
 
-.lr.ph37.preheader.i:                             ; preds = %.preheader.i
-  %umax41.i = tail call i64 @llvm.umax.i64(i64 %84, i64 1)
-  br label %.lr.ph37.i
-
-.lr.ph.i73:                                       ; preds = %92, %.lr.ph.preheader.i
-  %.01835.i = phi i64 [ %93, %92 ], [ 0, %.lr.ph.preheader.i ]
+.lr.ph.i73:                                       ; preds = %.preheader33.i, %92
+  %.01835.i = phi i64 [ %93, %92 ], [ 0, %.preheader33.i ]
   %94 = getelementptr inbounds nuw i32, ptr %65, i64 %.01835.i
   %95 = load i32, ptr %94, align 4, !tbaa !29
   %96 = getelementptr inbounds nuw i32, ptr %72, i64 %.01835.i
@@ -29175,11 +29157,11 @@ _ZN3g2o17SparseBlockMatrixIN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEEE5clearEb.exit:
 
 98:                                               ; preds = %.lr.ph37.i
   %99 = add nuw i64 %.036.i, 1
-  %exitcond42.not.i = icmp eq i64 %99, %umax41.i
+  %exitcond42.not.i = icmp eq i64 %99, %84
   br i1 %exitcond42.not.i, label %._crit_edge.i, label %.lr.ph37.i, !llvm.loop !1440
 
-.lr.ph37.i:                                       ; preds = %98, %.lr.ph37.preheader.i
-  %.036.i = phi i64 [ %99, %98 ], [ 0, %.lr.ph37.preheader.i ]
+.lr.ph37.i:                                       ; preds = %.preheader.i, %98
+  %.036.i = phi i64 [ %99, %98 ], [ 0, %.preheader.i ]
   %100 = getelementptr inbounds nuw i32, ptr %80, i64 %.036.i
   %101 = load i32, ptr %100, align 4, !tbaa !29
   %102 = getelementptr inbounds nuw i32, ptr %88, i64 %.036.i
@@ -38135,7 +38117,6 @@ _ZN5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEEmIINS_13CwiseBinaryOp
   %586 = ptrtoint ptr %582 to i64
   %587 = sub i64 %585, %586
   %588 = sdiv exact i64 %587, 72
-  %umax = call i64 @llvm.umax.i64(i64 %588, i64 1)
   br label %.lr.ph.i141
 
 .lr.ph.i141:                                      ; preds = %.lr.ph.i141.preheader, %.lr.ph.i141
@@ -38183,7 +38164,7 @@ _ZN5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEEmIINS_13CwiseBinaryOp
   %626 = getelementptr inbounds nuw i32, ptr %584, i64 %.012.i142
   %627 = load i32, ptr %626, align 4, !tbaa !29
   %628 = add nuw i64 %.012.i142, 1
-  %exitcond.not = icmp eq i64 %628, %umax
+  %exitcond.not = icmp eq i64 %628, %588
   br i1 %exitcond.not, label %_ZN3g2o15LinearSolverPCGIN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEEE8multDiagERKSt6vectorIiSaIiEERS5_IS3_SaIS3_EERKNS2_IdLin1ELi1ELi0ELin1ELi1EEERSD_.exit144, label %.lr.ph.i141, !llvm.loop !1666
 
 _ZN3g2o15LinearSolverPCGIN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEEE8multDiagERKSt6vectorIiSaIiEERS5_IS3_SaIS3_EERKNS2_IdLin1ELi1ELi0ELin1ELi1EEERSD_.exit144: ; preds = %.lr.ph.i141, %_ZN5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEEmIINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS6_18scalar_constant_opIdEEKS2_EESC_EEEERS2_RKNS0_IT_EE.exit
@@ -39016,7 +38997,6 @@ define linkonce_odr noundef zeroext i1 @_ZN3g2o11BlockSolverINS_17BlockSolverTra
 
 .lr.ph.preheader:                                 ; preds = %2
   %20 = ashr exact i64 %15, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %20, i64 1)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %52, %2
@@ -39085,7 +39065,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3g2o11BlockSolverINS_17BlockSolverTra
   %56 = phi i32 [ %30, %47 ], [ %43, %42 ]
   %57 = add i32 %37, %.0119380
   %58 = add nuw i64 %.0120379, 1
-  %exitcond.not = icmp eq i64 %58, %umax
+  %exitcond.not = icmp eq i64 %58, %20
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !1739
 
 ._crit_edge386.loopexit:                          ; preds = %89
@@ -41727,27 +41707,19 @@ _ZN3g2o17SparseBlockMatrixIN5Eigen6MatrixIdLi6ELi6ELi0ELi6ELi6EEEE5clearEb.exit:
 
 .preheader33.i:                                   ; preds = %77
   %.not38.i = icmp eq ptr %65, %66
-  br i1 %.not38.i, label %.preheader.i, label %.lr.ph.preheader.i
-
-.lr.ph.preheader.i:                               ; preds = %.preheader33.i
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %70, i64 1)
-  br label %.lr.ph.i73
+  br i1 %.not38.i, label %.preheader.i, label %.lr.ph.i73
 
 93:                                               ; preds = %.lr.ph.i73
   %94 = add nuw i64 %.01835.i, 1
-  %exitcond.not.i74 = icmp eq i64 %94, %umax.i
+  %exitcond.not.i74 = icmp eq i64 %94, %70
   br i1 %exitcond.not.i74, label %.preheader.i, label %.lr.ph.i73, !llvm.loop !1782
 
 .preheader.i:                                     ; preds = %93, %.preheader33.i
   %.not39.i = icmp eq ptr %80, %81
-  br i1 %.not39.i, label %._crit_edge.i, label %.lr.ph37.preheader.i
+  br i1 %.not39.i, label %._crit_edge.i, label %.lr.ph37.i
 
-.lr.ph37.preheader.i:                             ; preds = %.preheader.i
-  %umax41.i = tail call i64 @llvm.umax.i64(i64 %85, i64 1)
-  br label %.lr.ph37.i
-
-.lr.ph.i73:                                       ; preds = %93, %.lr.ph.preheader.i
-  %.01835.i = phi i64 [ %94, %93 ], [ 0, %.lr.ph.preheader.i ]
+.lr.ph.i73:                                       ; preds = %.preheader33.i, %93
+  %.01835.i = phi i64 [ %94, %93 ], [ 0, %.preheader33.i ]
   %95 = getelementptr inbounds nuw i32, ptr %66, i64 %.01835.i
   %96 = load i32, ptr %95, align 4, !tbaa !29
   %97 = getelementptr inbounds nuw i32, ptr %73, i64 %.01835.i
@@ -41757,11 +41729,11 @@ _ZN3g2o17SparseBlockMatrixIN5Eigen6MatrixIdLi6ELi6ELi0ELi6ELi6EEEE5clearEb.exit:
 
 99:                                               ; preds = %.lr.ph37.i
   %100 = add nuw i64 %.036.i, 1
-  %exitcond42.not.i = icmp eq i64 %100, %umax41.i
+  %exitcond42.not.i = icmp eq i64 %100, %85
   br i1 %exitcond42.not.i, label %._crit_edge.i, label %.lr.ph37.i, !llvm.loop !1783
 
-.lr.ph37.i:                                       ; preds = %99, %.lr.ph37.preheader.i
-  %.036.i = phi i64 [ %100, %99 ], [ 0, %.lr.ph37.preheader.i ]
+.lr.ph37.i:                                       ; preds = %.preheader.i, %99
+  %.036.i = phi i64 [ %100, %99 ], [ 0, %.preheader.i ]
   %101 = getelementptr inbounds nuw i32, ptr %81, i64 %.036.i
   %102 = load i32, ptr %101, align 4, !tbaa !29
   %103 = getelementptr inbounds nuw i32, ptr %89, i64 %.036.i
@@ -50352,7 +50324,6 @@ _ZN5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEEmIINS_13CwiseBinaryOp
   %649 = ptrtoint ptr %645 to i64
   %650 = sub i64 %648, %649
   %651 = sdiv exact i64 %650, 288
-  %umax = call i64 @llvm.umax.i64(i64 %651, i64 1)
   br label %.lr.ph.i141
 
 .lr.ph.i141:                                      ; preds = %.lr.ph.i141.preheader, %.lr.ph.i141
@@ -50461,7 +50432,7 @@ _ZN5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEEmIINS_13CwiseBinaryOp
   %749 = getelementptr inbounds nuw i32, ptr %647, i64 %.012.i142
   %750 = load i32, ptr %749, align 4, !tbaa !29
   %751 = add nuw i64 %.012.i142, 1
-  %exitcond.not = icmp eq i64 %751, %umax
+  %exitcond.not = icmp eq i64 %751, %651
   br i1 %exitcond.not, label %_ZN3g2o15LinearSolverPCGIN5Eigen6MatrixIdLi6ELi6ELi0ELi6ELi6EEEE8multDiagERKSt6vectorIiSaIiEERS5_IS3_SaIS3_EERKNS2_IdLin1ELi1ELi0ELin1ELi1EEERSD_.exit144, label %.lr.ph.i141, !llvm.loop !2003
 
 _ZN3g2o15LinearSolverPCGIN5Eigen6MatrixIdLi6ELi6ELi0ELi6ELi6EEEE8multDiagERKSt6vectorIiSaIiEERS5_IS3_SaIS3_EERKNS2_IdLin1ELi1ELi0ELin1ELi1EEERSD_.exit144: ; preds = %.lr.ph.i141, %_ZN5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEEmIINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS6_18scalar_constant_opIdEEKS2_EESC_EEEERS2_RKNS0_IT_EE.exit
@@ -52144,7 +52115,6 @@ define linkonce_odr noundef zeroext i1 @_ZN3g2o11BlockSolverINS_17BlockSolverTra
 
 .lr.ph.preheader:                                 ; preds = %2
   %20 = ashr exact i64 %15, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %20, i64 1)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %52, %2
@@ -52213,7 +52183,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3g2o11BlockSolverINS_17BlockSolverTra
   %56 = phi i32 [ %30, %47 ], [ %43, %42 ]
   %57 = add i32 %37, %.0119380
   %58 = add nuw i64 %.0120379, 1
-  %exitcond.not = icmp eq i64 %58, %umax
+  %exitcond.not = icmp eq i64 %58, %20
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !2174
 
 ._crit_edge386.loopexit:                          ; preds = %89
@@ -54856,27 +54826,19 @@ _ZN3g2o17SparseBlockMatrixIN5Eigen6MatrixIdLi7ELi7ELi0ELi7ELi7EEEE5clearEb.exit:
 
 .preheader33.i:                                   ; preds = %78
   %.not38.i = icmp eq ptr %66, %67
-  br i1 %.not38.i, label %.preheader.i, label %.lr.ph.preheader.i
-
-.lr.ph.preheader.i:                               ; preds = %.preheader33.i
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %71, i64 1)
-  br label %.lr.ph.i73
+  br i1 %.not38.i, label %.preheader.i, label %.lr.ph.i73
 
 94:                                               ; preds = %.lr.ph.i73
   %95 = add nuw i64 %.01835.i, 1
-  %exitcond.not.i74 = icmp eq i64 %95, %umax.i
+  %exitcond.not.i74 = icmp eq i64 %95, %71
   br i1 %exitcond.not.i74, label %.preheader.i, label %.lr.ph.i73, !llvm.loop !2217
 
 .preheader.i:                                     ; preds = %94, %.preheader33.i
   %.not39.i = icmp eq ptr %81, %82
-  br i1 %.not39.i, label %._crit_edge.i, label %.lr.ph37.preheader.i
+  br i1 %.not39.i, label %._crit_edge.i, label %.lr.ph37.i
 
-.lr.ph37.preheader.i:                             ; preds = %.preheader.i
-  %umax41.i = tail call i64 @llvm.umax.i64(i64 %86, i64 1)
-  br label %.lr.ph37.i
-
-.lr.ph.i73:                                       ; preds = %94, %.lr.ph.preheader.i
-  %.01835.i = phi i64 [ %95, %94 ], [ 0, %.lr.ph.preheader.i ]
+.lr.ph.i73:                                       ; preds = %.preheader33.i, %94
+  %.01835.i = phi i64 [ %95, %94 ], [ 0, %.preheader33.i ]
   %96 = getelementptr inbounds nuw i32, ptr %67, i64 %.01835.i
   %97 = load i32, ptr %96, align 4, !tbaa !29
   %98 = getelementptr inbounds nuw i32, ptr %74, i64 %.01835.i
@@ -54886,11 +54848,11 @@ _ZN3g2o17SparseBlockMatrixIN5Eigen6MatrixIdLi7ELi7ELi0ELi7ELi7EEEE5clearEb.exit:
 
 100:                                              ; preds = %.lr.ph37.i
   %101 = add nuw i64 %.036.i, 1
-  %exitcond42.not.i = icmp eq i64 %101, %umax41.i
+  %exitcond42.not.i = icmp eq i64 %101, %86
   br i1 %exitcond42.not.i, label %._crit_edge.i, label %.lr.ph37.i, !llvm.loop !2218
 
-.lr.ph37.i:                                       ; preds = %100, %.lr.ph37.preheader.i
-  %.036.i = phi i64 [ %101, %100 ], [ 0, %.lr.ph37.preheader.i ]
+.lr.ph37.i:                                       ; preds = %.preheader.i, %100
+  %.036.i = phi i64 [ %101, %100 ], [ 0, %.preheader.i ]
   %102 = getelementptr inbounds nuw i32, ptr %82, i64 %.036.i
   %103 = load i32, ptr %102, align 4, !tbaa !29
   %104 = getelementptr inbounds nuw i32, ptr %90, i64 %.036.i

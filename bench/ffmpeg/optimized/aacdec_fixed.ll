@@ -3646,7 +3646,6 @@ define internal void @imdct_and_windowing_eld_fixed(ptr noundef %0, ptr noundef 
 .preheader164:                                    ; preds = %74
   %70 = zext nneg i32 %8 to i64
   %71 = zext nneg i32 %52 to i64
-  %wide.trip.count180 = zext nneg i32 %9 to i64
   %72 = getelementptr i32, ptr %31, i64 %70
   %invariant.gep206 = getelementptr inbounds nuw i32, ptr %31, i64 %70
   %73 = getelementptr i32, ptr %31, i64 %71
@@ -3796,7 +3795,7 @@ define internal void @imdct_and_windowing_eld_fixed(ptr noundef %0, ptr noundef 
   %gep209 = getelementptr inbounds nuw i32, ptr %invariant.gep208, i64 %indvars.iv177
   store i32 %192, ptr %gep209, align 4, !tbaa !64
   %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177, 1
-  %exitcond181.not = icmp eq i64 %indvars.iv.next178, %wide.trip.count180
+  %exitcond181.not = icmp eq i64 %indvars.iv.next178, %11
   br i1 %exitcond181.not, label %.preheader, label %137, !llvm.loop !162
 
 193:                                              ; preds = %.preheader, %193

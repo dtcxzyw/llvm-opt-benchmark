@@ -7227,7 +7227,6 @@ _ZN3netL12WriteLengthZEmjNS_10ZDataClassEP10z_stream_s.exit96: ; preds = %207
   %218 = add nsw i64 %217, -1
   %219 = icmp eq i64 %216, 16
   %220 = getelementptr inbounds nuw i8, ptr %.sroa.0237.1.lcssa, i64 8
-  %umax490 = call i64 @llvm.umax.i64(i64 %217, i64 1)
   br label %222
 
 ._crit_edge434:                                   ; preds = %_ZN3netL12WriteLengthZEmjNS_10ZDataClassEP10z_stream_s.exit96
@@ -8325,7 +8324,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i20
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit208: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i207, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i206
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16) #25
   %526 = add nuw i64 %.041432, 1
-  %exitcond491.not = icmp eq i64 %526, %umax490
+  %exitcond491.not = icmp eq i64 %526, %217
   br i1 %exitcond491.not, label %._crit_edge434.thread, label %222, !llvm.loop !200
 
 ._crit_edge434.thread:                            ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit208

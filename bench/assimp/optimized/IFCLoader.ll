@@ -3896,11 +3896,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit245.i: ; preds = %
   %928 = getelementptr inbounds nuw i8, ptr %921, i64 1112
   store ptr %926, ptr %928, align 8
   %.not450.i = icmp eq i64 %.085.in.i, 0
-  br i1 %.not450.i, label %._crit_edge449.i, label %.lr.ph448.preheader.i
-
-.lr.ph448.preheader.i:                            ; preds = %927
-  %umax.i = call i64 @llvm.umax.i64(i64 %.085.i, i64 1)
-  br label %.lr.ph448.i
+  br i1 %.not450.i, label %._crit_edge449.i, label %.lr.ph448.i
 
 929:                                              ; preds = %._crit_edge.i.i239.i
   %930 = landingpad { ptr, i32 }
@@ -3926,8 +3922,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit248.i: ; preds = %
   call void @_ZdlPvm(ptr noundef nonnull %901, i64 noundef 1144) #32
   br label %.body.i
 
-.lr.ph448.i:                                      ; preds = %.lr.ph448.i, %.lr.ph448.preheader.i
-  %.066446.i = phi i64 [ %946, %.lr.ph448.i ], [ 0, %.lr.ph448.preheader.i ]
+.lr.ph448.i:                                      ; preds = %927, %.lr.ph448.i
+  %.066446.i = phi i64 [ %946, %.lr.ph448.i ], [ 0, %927 ]
   %937 = getelementptr inbounds nuw ptr, ptr %.sroa.0275.9.i, i64 %.066446.i
   %938 = load ptr, ptr %937, align 8
   %939 = load ptr, ptr %509, align 8
@@ -3940,7 +3936,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit248.i: ; preds = %
   %945 = getelementptr inbounds nuw ptr, ptr %944, i64 %.066446.i
   store ptr %938, ptr %945, align 8
   %946 = add nuw i64 %.066446.i, 1
-  %exitcond.not.i = icmp eq i64 %946, %umax.i
+  %exitcond.not.i = icmp eq i64 %946, %.085.i
   br i1 %exitcond.not.i, label %._crit_edge449.thread.i, label %.lr.ph448.i, !llvm.loop !27
 
 ._crit_edge442.thread.i:                          ; preds = %._crit_edge442.i, %_ZN6Assimp12LogFunctionsINS_11IFCImporterEE7LogWarnIJRA65_KcEEEvDpOT_.exit.i

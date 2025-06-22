@@ -300,7 +300,6 @@ for.body.preheader.i:                             ; preds = %.noexc
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
-  %umax.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   br label %for.body.i
 
 for.body.i:                                       ; preds = %.noexc11, %for.body.preheader.i
@@ -326,7 +325,7 @@ for.body.i:                                       ; preds = %.noexc11, %for.body
 
 .noexc11:                                         ; preds = %.noexc10
   %inc.i = add nuw i64 %i.015.i, 1
-  %exitcond.not.i = icmp eq i64 %inc.i, %umax.i
+  %exitcond.not.i = icmp eq i64 %inc.i, %sub.ptr.div.i.i
   br i1 %exitcond.not.i, label %invoke.cont3thread-pre-split, label %for.body.i, !llvm.loop !27
 
 invoke.cont3thread-pre-split:                     ; preds = %.noexc11
@@ -469,7 +468,6 @@ for.body.preheader.i:                             ; preds = %.noexc
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
-  %umax.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   br label %for.body.i
 
 for.body.i:                                       ; preds = %.noexc22, %for.body.preheader.i
@@ -495,7 +493,7 @@ for.body.i:                                       ; preds = %.noexc22, %for.body
 
 .noexc22:                                         ; preds = %.noexc21
   %inc.i = add nuw i64 %i.015.i, 1
-  %exitcond.not.i = icmp eq i64 %inc.i, %umax.i
+  %exitcond.not.i = icmp eq i64 %inc.i, %sub.ptr.div.i.i
   br i1 %exitcond.not.i, label %invoke.cont9thread-pre-split, label %for.body.i, !llvm.loop !27
 
 invoke.cont9thread-pre-split:                     ; preds = %.noexc22
@@ -2467,9 +2465,6 @@ entry:
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #18
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #19
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.smin.i16(i16, i16) #19

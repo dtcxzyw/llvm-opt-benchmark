@@ -44734,7 +44734,6 @@ _ZNSt6vectorISt8optionalIPKN4Luau4TypeEESaIS5_EE9push_backEOS5_.exit302: ; preds
   %276 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %277 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %278 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %umax = call i64 @llvm.umax.i64(i64 %272, i64 1)
   br label %286
 
 ._crit_edge1082.loopexit:                         ; preds = %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EE9push_backERKS3_.exit
@@ -45210,7 +45209,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EE9push_backERKS3_.exit: ; preds = %405, %_ZNSt
   %.sroa.24.1 = phi ptr [ %.sroa.24.01076, %_ZN4Luau13InferencePackD2Ev.exit ], [ %326, %324 ], [ %344, %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %367, %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %350, %349 ], [ %.sroa.24.4, %_ZNSt6vectorIPN4Luau7VariantIJNS0_8VariadicENS0_8NegationENS0_11ConjunctionENS0_11DisjunctionENS0_11EquivalenceENS0_11PropositionEEEESaIS9_EE17_M_realloc_insertIJRKS9_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i ], [ %.sroa.24.4, %405 ]
   %.sroa.0651.1 = phi ptr [ %.sroa.0651.01078, %_ZN4Luau13InferencePackD2Ev.exit ], [ %.sroa.0651.01078, %324 ], [ %339, %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %363, %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %.sroa.0651.01078, %349 ], [ %.sroa.0651.8, %_ZNSt6vectorIPN4Luau7VariantIJNS0_8VariadicENS0_8NegationENS0_11ConjunctionENS0_11DisjunctionENS0_11EquivalenceENS0_11PropositionEEEESaIS9_EE17_M_realloc_insertIJRKS9_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i ], [ %.sroa.0651.8, %405 ]
   %449 = add nuw i64 %.01551079, 1
-  %exitcond.not = icmp eq i64 %449, %umax
+  %exitcond.not = icmp eq i64 %449, %272
   br i1 %exitcond.not, label %._crit_edge1082.loopexit, label %286, !llvm.loop !1002
 
 450:                                              ; preds = %._crit_edge1082

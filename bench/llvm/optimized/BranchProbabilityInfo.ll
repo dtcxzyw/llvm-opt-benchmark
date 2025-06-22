@@ -9124,7 +9124,6 @@ _ZN4llvm10CallbackVHD2Ev.exit:                    ; preds = %_ZN4llvm6detail12De
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #23
   %92 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %93 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %umax = call i32 @llvm.umax.i32(i32 %11, i32 1)
   br label %94
 
 94:                                               ; preds = %_ZN4llvm10CallbackVHD2Ev.exit, %94
@@ -9142,7 +9141,7 @@ _ZN4llvm10CallbackVHD2Ev.exit:                    ; preds = %_ZN4llvm6detail12De
   store i32 %.sroa.05.0.copyload, ptr %96, align 4, !tbaa !136
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #23
   %97 = add nuw i32 %storemerge39, 1
-  %exitcond.not = icmp eq i32 %97, %umax
+  %exitcond.not = icmp eq i32 %97, %11
   br i1 %exitcond.not, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapISt4pairIPKNS_10BasicBlockEjENS_17BranchProbabilityENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S7_EEEES6_S7_S9_SC_E8containsERKS6_.exit, label %94, !llvm.loop !474
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapISt4pairIPKNS_10BasicBlockEjENS_17BranchProbabilityENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S7_EEEES6_S7_S9_SC_E8containsERKS6_.exit: ; preds = %.lr.ph.i.i.i, %94, %13, %_ZN4llvm10BasicBlock13getTerminatorEv.exit

@@ -599,7 +599,6 @@ define dso_local void @_ZN4llvm3pdb16GSIStreamBuilder21finalizeGlobalBucketsEj(p
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %15, i8 0, i64 %14, i1 false)
   %16 = getelementptr inbounds nuw %"struct.llvm::pdb::BulkPublic", ptr %15, i64 %10
   %17 = ptrtoint ptr %16 to i64
-  %umax = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
@@ -645,7 +644,7 @@ _ZNSt6vectorIN4llvm3pdb10BulkPublicESaIS2_EED2Ev.exit: ; preds = %._crit_edge, %
   %36 = trunc i64 %35 to i32
   %37 = add i32 %.025, %36
   %38 = add nuw i64 %.01224, 1
-  %exitcond.not = icmp eq i64 %38, %umax
+  %exitcond.not = icmp eq i64 %38, %10
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !59
 }
 

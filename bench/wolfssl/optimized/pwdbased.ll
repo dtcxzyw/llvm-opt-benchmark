@@ -517,7 +517,6 @@ define i32 @wc_PKCS12_PBKDF_ex(ptr noundef writeonly captures(address_is_null) %
   %64 = icmp sgt i32 %5, 1
   %.not192 = icmp eq i32 %43, 0
   %65 = getelementptr inbounds nuw i8, ptr %18, i64 1
-  %wide.trip.count = zext nneg i32 %.fr to i64
   br label %73
 
 .lr.ph178:                                        ; preds = %.lr.ph178.preheader, %.lr.ph178
@@ -597,7 +596,7 @@ DoPKCS12Hash.exit:                                ; preds = %73, %._crit_edge.i
   %96 = getelementptr inbounds nuw [144 x i8], ptr %14, i64 0, i64 %indvars.iv198
   store i8 %95, ptr %96, align 1, !tbaa !11
   %indvars.iv.next199 = add nuw nsw i64 %indvars.iv198, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next199, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next199, %51
   br i1 %exitcond.not, label %97, label %.preheader172, !llvm.loop !17
 
 97:                                               ; preds = %.preheader172

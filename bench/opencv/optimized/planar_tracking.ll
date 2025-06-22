@@ -1535,7 +1535,6 @@ define hidden void @_ZN7example7Tracker13setFirstFrameEN2cv3MatESt6vectorINS1_6P
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #20
   %36 = trunc i64 %26 to i32
   store i32 %36, ptr %7, align 4, !tbaa !131
-  %umax = tail call i64 @llvm.umax.i64(i64 %26, i64 1)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.loopexit42.thread
@@ -1558,7 +1557,7 @@ define hidden void @_ZN7example7Tracker13setFirstFrameEN2cv3MatESt6vectorINS1_6P
   %46 = getelementptr inbounds nuw i8, ptr %42, i64 4
   store i32 %45, ptr %46, align 4, !tbaa !134
   %47 = add nuw i64 %.01343, 1
-  %exitcond.not = icmp eq i64 %47, %umax
+  %exitcond.not = icmp eq i64 %47, %26
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !135
 
 48:                                               ; preds = %._crit_edge

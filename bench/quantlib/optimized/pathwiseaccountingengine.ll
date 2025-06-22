@@ -8138,14 +8138,10 @@ invoke.cont18:                                    ; preds = %call5.i.i.i.i2.i.i.
 
 for.body.lr.ph:                                   ; preds = %invoke.cont18
   %cmp24180.not = icmp eq ptr %__first.addr.0.i.i.i.i.i, %6
-  br i1 %cmp24180.not, label %for.body, label %for.body.us.preheader
+  br i1 %cmp24180.not, label %for.body, label %for.body.us
 
-for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
-  br label %for.body.us
-
-for.body.us:                                      ; preds = %for.body.us.preheader, %for.cond22.for.cond.cleanup25_crit_edge.us
-  %i.0183.us = phi i64 [ %inc35.us, %for.cond22.for.cond.cleanup25_crit_edge.us ], [ 0, %for.body.us.preheader ]
+for.body.us:                                      ; preds = %for.body.lr.ph, %for.cond22.for.cond.cleanup25_crit_edge.us
+  %i.0183.us = phi i64 [ %inc35.us, %for.cond22.for.cond.cleanup25_crit_edge.us ], [ 0, %for.body.lr.ph ]
   %call21.us = invoke noundef double @_ZN8QuantLib29PathwiseVegasAccountingEngine16singlePathValuesERSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(624) %this, ptr noundef nonnull align 8 dereferenceable(24) %values)
           to label %for.body26.us unwind label %lpad19.split.us
 
@@ -8162,7 +8158,7 @@ for.body26.us:                                    ; preds = %for.body.us, %for.b
   %19 = tail call double @llvm.fmuladd.f64(double %16, double %16, double %18)
   store double %19, ptr %add.ptr.i103.us, align 8, !tbaa !62
   %inc.us = add nuw i64 %j.0181.us, 1
-  %exitcond187.not = icmp eq i64 %inc.us, %umax
+  %exitcond187.not = icmp eq i64 %inc.us, %sub.ptr.div.i
   br i1 %exitcond187.not, label %for.cond22.for.cond.cleanup25_crit_edge.us, label %for.body26.us, !llvm.loop !205
 
 for.cond22.for.cond.cleanup25_crit_edge.us:       ; preds = %for.body26.us
@@ -8182,7 +8178,6 @@ for.body42.lr.ph:                                 ; preds = %for.cond38.preheade
   %conv = uitofp i64 %numberOfPaths to double
   %21 = load ptr, ptr %means, align 8, !tbaa !60
   %22 = load ptr, ptr %errors, align 8, !tbaa !60
-  %umax189 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %for.body42
 
 lpad5:                                            ; preds = %if.then.i45, %if.then.i
@@ -8277,7 +8272,7 @@ for.body42:                                       ; preds = %for.body42.lr.ph, %
   %add.ptr.i135 = getelementptr inbounds nuw double, ptr %22, i64 %j37.0185
   store double %call53, ptr %add.ptr.i135, align 8, !tbaa !62
   %inc56 = add nuw i64 %j37.0185, 1
-  %exitcond190.not = icmp eq i64 %inc56, %umax189
+  %exitcond190.not = icmp eq i64 %inc56, %sub.ptr.div.i
   br i1 %exitcond190.not, label %if.then.i.i.i110, label %for.body42, !llvm.loop !209
 
 ehcleanup:                                        ; preds = %if.then.i.i.i, %lpad19
@@ -12771,14 +12766,10 @@ invoke.cont21:                                    ; preds = %call5.i.i.i.i2.i.i.
 
 for.body.lr.ph:                                   ; preds = %invoke.cont21
   %cmp27180.not = icmp eq ptr %__first.addr.0.i.i.i.i.i, %8
-  br i1 %cmp27180.not, label %for.body, label %for.body.us.preheader
+  br i1 %cmp27180.not, label %for.body, label %for.body.us
 
-for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
-  br label %for.body.us
-
-for.body.us:                                      ; preds = %for.body.us.preheader, %for.cond25.for.cond.cleanup28_crit_edge.us
-  %i.0183.us = phi i64 [ %inc38.us, %for.cond25.for.cond.cleanup28_crit_edge.us ], [ 0, %for.body.us.preheader ]
+for.body.us:                                      ; preds = %for.body.lr.ph, %for.cond25.for.cond.cleanup28_crit_edge.us
+  %i.0183.us = phi i64 [ %inc38.us, %for.cond25.for.cond.cleanup28_crit_edge.us ], [ 0, %for.body.lr.ph ]
   %call24.us = invoke noundef double @_ZN8QuantLib34PathwiseVegasOuterAccountingEngine16singlePathValuesERSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(664) %this, ptr noundef nonnull align 8 dereferenceable(24) %values)
           to label %for.body29.us unwind label %lpad22.split.us
 
@@ -12795,7 +12786,7 @@ for.body29.us:                                    ; preds = %for.body.us, %for.b
   %21 = tail call double @llvm.fmuladd.f64(double %18, double %18, double %20)
   store double %21, ptr %add.ptr.i103.us, align 8, !tbaa !62
   %inc.us = add nuw i64 %j.0181.us, 1
-  %exitcond187.not = icmp eq i64 %inc.us, %umax
+  %exitcond187.not = icmp eq i64 %inc.us, %sub.ptr.div.i
   br i1 %exitcond187.not, label %for.cond25.for.cond.cleanup28_crit_edge.us, label %for.body29.us, !llvm.loop !281
 
 for.cond25.for.cond.cleanup28_crit_edge.us:       ; preds = %for.body29.us
@@ -12815,7 +12806,6 @@ for.body45.lr.ph:                                 ; preds = %for.cond41.preheade
   %conv = uitofp i64 %numberOfPaths to double
   %23 = load ptr, ptr %means, align 8, !tbaa !60
   %24 = load ptr, ptr %errors, align 8, !tbaa !60
-  %umax189 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %for.body45
 
 lpad8:                                            ; preds = %if.then.i45, %if.then.i
@@ -12910,7 +12900,7 @@ for.body45:                                       ; preds = %for.body45.lr.ph, %
   %add.ptr.i135 = getelementptr inbounds nuw double, ptr %24, i64 %j40.0185
   store double %call56, ptr %add.ptr.i135, align 8, !tbaa !62
   %inc59 = add nuw i64 %j40.0185, 1
-  %exitcond190.not = icmp eq i64 %inc59, %umax189
+  %exitcond190.not = icmp eq i64 %inc59, %sub.ptr.div.i
   br i1 %exitcond190.not, label %if.then.i.i.i110, label %for.body45, !llvm.loop !283
 
 ehcleanup:                                        ; preds = %if.then.i.i.i, %lpad22

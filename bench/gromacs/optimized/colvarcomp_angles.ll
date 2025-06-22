@@ -1249,7 +1249,6 @@ define void @_ZN6colvar12dipole_angle14calc_gradientsEv(ptr noundef nonnull alig
   %76 = ptrtoint ptr %74 to i64
   %77 = sub i64 %75, %76
   %78 = sdiv exact i64 %77, 120
-  %umax = tail call i64 @llvm.umax.i64(i64 %78, i64 1)
   br label %.lr.ph
 
 .preheader58:                                     ; preds = %.lr.ph, %1
@@ -1268,7 +1267,6 @@ define void @_ZN6colvar12dipole_angle14calc_gradientsEv(ptr noundef nonnull alig
   %87 = sub i64 %85, %86
   %88 = sdiv exact i64 %87, 120
   %89 = getelementptr inbounds nuw i8, ptr %80, i64 1304
-  %umax66 = tail call i64 @llvm.umax.i64(i64 %88, i64 1)
   br label %116
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -1293,7 +1291,7 @@ define void @_ZN6colvar12dipole_angle14calc_gradientsEv(ptr noundef nonnull alig
   %.sroa.527.0..sroa_idx = getelementptr inbounds nuw i8, ptr %90, i64 112
   store double %102, ptr %.sroa.527.0..sroa_idx, align 8, !tbaa !87
   %104 = add nuw i64 %.059, 1
-  %exitcond.not = icmp eq i64 %104, %umax
+  %exitcond.not = icmp eq i64 %104, %78
   br i1 %exitcond.not, label %.preheader58, label %.lr.ph, !llvm.loop !170
 
 .preheader:                                       ; preds = %116, %.preheader58
@@ -1312,7 +1310,6 @@ define void @_ZN6colvar12dipole_angle14calc_gradientsEv(ptr noundef nonnull alig
   %113 = sub i64 %111, %112
   %114 = sdiv exact i64 %113, 120
   %115 = getelementptr inbounds nuw i8, ptr %106, i64 1304
-  %umax68 = tail call i64 @llvm.umax.i64(i64 %114, i64 1)
   br label %133
 
 116:                                              ; preds = %.lr.ph61, %116
@@ -1338,7 +1335,7 @@ define void @_ZN6colvar12dipole_angle14calc_gradientsEv(ptr noundef nonnull alig
   %.sroa.524.0..sroa_idx = getelementptr inbounds nuw i8, ptr %117, i64 112
   store double %130, ptr %.sroa.524.0..sroa_idx, align 8, !tbaa !87
   %132 = add nuw i64 %.160, 1
-  %exitcond67.not = icmp eq i64 %132, %umax66
+  %exitcond67.not = icmp eq i64 %132, %88
   br i1 %exitcond67.not, label %.preheader, label %116, !llvm.loop !175
 
 133:                                              ; preds = %.lr.ph63, %133
@@ -1361,7 +1358,7 @@ define void @_ZN6colvar12dipole_angle14calc_gradientsEv(ptr noundef nonnull alig
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %134, i64 112
   store double %144, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !87
   %146 = add nuw i64 %.262, 1
-  %exitcond69.not = icmp eq i64 %146, %umax68
+  %exitcond69.not = icmp eq i64 %146, %114
   br i1 %exitcond69.not, label %._crit_edge, label %133, !llvm.loop !179
 
 ._crit_edge:                                      ; preds = %133, %.preheader
@@ -4490,9 +4487,6 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #22
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #23
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #21
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

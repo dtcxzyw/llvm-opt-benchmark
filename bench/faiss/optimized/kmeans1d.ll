@@ -2131,7 +2131,6 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %246, %248
   %262 = getelementptr float, ptr %.val10.i, i64 %261
   %263 = mul nsw i64 %257, %1
   %264 = getelementptr i64, ptr %.sroa.0211.0, i64 %263
-  %umax = call i64 @llvm.umax.i64(i64 %256, i64 1)
   br label %278
 
 _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %"_ZZN5faiss8kmeans1dEPKfmmPfENK3$_0clEll.exit", %_ZNSt14_Function_baseD2Ev.exit
@@ -2252,7 +2251,7 @@ _ZN5faiss12_GLOBAL__N_114CostCalculatorclEll.exit13.i: ; preds = %._ZN5faiss12_G
   store float %.0.i, ptr %325, align 4, !tbaa !54
   %326 = getelementptr i64, ptr %264, i64 %.088255
   store i64 %280, ptr %326, align 8, !tbaa !9
-  %exitcond284.not = icmp eq i64 %.pre-phi, %umax
+  %exitcond284.not = icmp eq i64 %.pre-phi, %256
   br i1 %exitcond284.not, label %_ZNSt6vectorIlSaIlEED2Ev.exit, label %278, !llvm.loop !93
 
 327:                                              ; preds = %268, %270, %273

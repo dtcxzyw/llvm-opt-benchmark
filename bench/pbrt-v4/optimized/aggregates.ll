@@ -9228,7 +9228,6 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i59: ; preds = %.noexc63
 
 .lr.ph121.preheader:                              ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i59, %.noexc63
   %.0.i.i.i.i.i60.ph = phi ptr [ %142, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i59 ], [ %143, %.noexc63 ]
-  %umax = call i64 @llvm.umax.i64(i64 %107, i64 1)
   br label %.lr.ph121
 
 ._crit_edge122.loopexit:                          ; preds = %.lr.ph121
@@ -9281,7 +9280,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i59: ; preds = %.noexc63
   %168 = getelementptr inbounds nuw i32, ptr %141, i64 %.0120
   store i32 %167, ptr %168, align 4, !tbaa !48
   %169 = add nuw i64 %.0120, 1
-  %exitcond125.not = icmp eq i64 %169, %umax
+  %exitcond125.not = icmp eq i64 %169, %107
   br i1 %exitcond125.not, label %._crit_edge122.loopexit, label %.lr.ph121, !llvm.loop !358
 
 170:                                              ; preds = %._crit_edge122

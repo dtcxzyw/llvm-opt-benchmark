@@ -126032,7 +126032,6 @@ _ZNSt6vectorIN5Yosys5RTLIL5ConstESaIS2_EE9push_backEOS2_.exit695: ; preds = %.no
   %1103 = ptrtoint ptr %1101 to i64
   %1104 = ptrtoint ptr %1102 to i64
   %1105 = sub i64 %1103, %1104
-  %umax = call i64 @llvm.umax.i64(i64 %1105, i64 1)
   br label %1120
 
 ._crit_edge1035:                                  ; preds = %.preheader989
@@ -126080,7 +126079,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit: ; preds = %._crit_edge1035, 
 
 1126:                                             ; preds = %1120, %1125
   %1127 = add nuw i64 %.03281033, 1
-  %exitcond.not = icmp eq i64 %1127, %umax
+  %exitcond.not = icmp eq i64 %1127, %1105
   br i1 %exitcond.not, label %._crit_edge1035.thread, label %1120, !llvm.loop !1349
 
 1128:                                             ; preds = %._crit_edge1038

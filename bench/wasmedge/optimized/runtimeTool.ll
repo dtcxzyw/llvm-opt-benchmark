@@ -3366,7 +3366,6 @@ _ZN8WasmEdge5AsyncIN5cxx208expectedISt6vectorISt4pairINS_7VariantIJjimlfdonDv2_m
   %1158 = ptrtoint ptr %1156 to i64
   %1159 = sub i64 %1158, %1157
   %1160 = ashr exact i64 %1159, 5
-  %umax = call i64 @llvm.umax.i64(i64 %1160, i64 1)
   br label %.lr.ph875
 
 .lr.ph875:                                        ; preds = %.lr.ph875.preheader, %1181
@@ -3417,7 +3416,7 @@ _ZN8WasmEdge5AsyncIN5cxx208expectedISt6vectorISt4pairINS_7VariantIJjimlfdonDv2_m
 
 1181:                                             ; preds = %.invoke, %.lr.ph875
   %1182 = add nuw i64 %.095874, 1
-  %exitcond.not = icmp eq i64 %1182, %umax
+  %exitcond.not = icmp eq i64 %1182, %1160
   br i1 %exitcond.not, label %.loopexit948, label %.lr.ph875, !llvm.loop !58
 
 .loopexit948:                                     ; preds = %1181

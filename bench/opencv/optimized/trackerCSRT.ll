@@ -1905,7 +1905,6 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc80
   %.sroa.0144.0180186 = phi ptr [ null, %.preheader152.thread ], [ %78, %.preheader152 ]
   %113 = ashr exact i64 %.in, 2
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %umax = call i64 @llvm.umax.i64(i64 %113, i64 1)
   br label %162
 
 115:                                              ; preds = %3
@@ -2060,10 +2059,6 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc80
   call void @_ZdlPv(ptr noundef nonnull %78) #28
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
-.lr.ph166.preheader:                              ; preds = %162
-  %umax175 = call i64 @llvm.umax.i64(i64 %113, i64 1)
-  br label %.lr.ph166
-
 162:                                              ; preds = %.lr.ph161, %162
   %.029160 = phi i64 [ 0, %.lr.ph161 ], [ %173, %162 ]
   %.030159 = phi float [ 0.000000e+00, %.lr.ph161 ], [ %172, %162 ]
@@ -2079,8 +2074,8 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc80
   store float %171, ptr %163, align 4, !tbaa !97
   %172 = fadd float %.030159, %171
   %173 = add nuw i64 %.029160, 1
-  %exitcond.not = icmp eq i64 %173, %umax
-  br i1 %exitcond.not, label %.lr.ph166.preheader, label %162, !llvm.loop !112
+  %exitcond.not = icmp eq i64 %173, %113
+  br i1 %exitcond.not, label %.lr.ph166, label %162, !llvm.loop !112
 
 ._crit_edge:                                      ; preds = %.lr.ph166, %.preheader152
   %.sroa.0144.0180187 = phi ptr [ %78, %.preheader152 ], [ %.sroa.0144.0180186, %.lr.ph166 ]
@@ -2093,14 +2088,14 @@ _ZNSt6vectorIfSaIfEED2Ev.exit83:                  ; preds = %.preheader152.threa
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %14) #27
   br label %178
 
-.lr.ph166:                                        ; preds = %.lr.ph166.preheader, %.lr.ph166
-  %.028165 = phi i64 [ %177, %.lr.ph166 ], [ 0, %.lr.ph166.preheader ]
+.lr.ph166:                                        ; preds = %162, %.lr.ph166
+  %.028165 = phi i64 [ %177, %.lr.ph166 ], [ 0, %162 ]
   %174 = getelementptr inbounds nuw float, ptr %112, i64 %.028165
   %175 = load float, ptr %174, align 4, !tbaa !97
   %176 = fdiv float %175, %172
   store float %176, ptr %174, align 4, !tbaa !97
   %177 = add nuw i64 %.028165, 1
-  %exitcond176.not = icmp eq i64 %177, %umax175
+  %exitcond176.not = icmp eq i64 %177, %113
   br i1 %exitcond176.not, label %._crit_edge, label %.lr.ph166, !llvm.loop !113
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %161, %131
@@ -4138,7 +4133,6 @@ define hidden void @_ZN2cv8tracking4impl15TrackerCSRTImpl17update_histogramsERKN
   %39 = fpext float %36 to double
   %40 = load ptr, ptr %9, align 8, !tbaa !39
   %41 = load ptr, ptr %7, align 8, !tbaa !39
-  %umax = call i64 @llvm.umax.i64(i64 %34, i64 1)
   br label %54
 
 ._crit_edge:                                      ; preds = %54, %.preheader
@@ -4192,7 +4186,7 @@ define hidden void @_ZN2cv8tracking4impl15TrackerCSRTImpl17update_histogramsERKN
   %66 = call double @llvm.fmuladd.f64(double %38, double %62, double %65)
   store double %66, ptr %63, align 8, !tbaa !52
   %67 = add nuw i64 %.061, 1
-  %exitcond.not = icmp eq i64 %67, %umax
+  %exitcond.not = icmp eq i64 %67, %34
   br i1 %exitcond.not, label %._crit_edge, label %54, !llvm.loop !158
 
 68:                                               ; preds = %._crit_edge
@@ -6551,7 +6545,6 @@ _ZNSt6vectorIfSaIfEED2Ev.exit..preheader_crit_edge: ; preds = %_ZNSt6vectorIfSaI
   %633 = ptrtoint ptr %630 to i64
   %634 = sub i64 %632, %633
   %635 = ashr exact i64 %634, 2
-  %umax = call i64 @llvm.umax.i64(i64 %635, i64 1)
   br label %.lr.ph329
 
 636:                                              ; preds = %537
@@ -6727,7 +6720,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit..preheader_crit_edge: ; preds = %_ZNSt6vectorIfSaI
   %688 = fdiv float %687, %.085.lcssa
   store float %688, ptr %686, align 4, !tbaa !97
   %689 = add nuw i64 %.086328, 1
-  %exitcond.not = icmp eq i64 %689, %umax
+  %exitcond.not = icmp eq i64 %689, %635
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph329, !llvm.loop !212
 
 690:                                              ; preds = %680, %682, %684, %655

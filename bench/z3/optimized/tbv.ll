@@ -259,8 +259,7 @@ define hidden noundef ptr @_ZN11tbv_manager8allocateEmjj(ptr noundef nonnull ali
 
 .lr.ph.preheader.i:                               ; preds = %4
   %9 = sub i32 %8, %3
-  %umax.i = tail call i32 @llvm.umax.i32(i32 %9, i32 1)
-  %wide.trip.count.i = zext i32 %umax.i to i64
+  %wide.trip.count.i = zext i32 %9 to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -306,8 +305,7 @@ define hidden void @_ZN11tbv_manager3setER3tbvmjj(ptr noundef nonnull readnone a
 
 .lr.ph.preheader:                                 ; preds = %5
   %7 = sub i32 %6, %4
-  %umax = tail call i32 @llvm.umax.i32(i32 %7, i32 1)
-  %wide.trip.count = zext i32 %umax to i64
+  %wide.trip.count = zext i32 %7 to i64
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -581,7 +579,6 @@ _ZNK8rational9is_uint64Ev.exit.preheader:         ; preds = %16, %5
 
 _ZNK8rational9is_uint64Ev.exit.preheader16:       ; preds = %_ZNK8rational9is_uint64Ev.exit.preheader
   %15 = sub i32 %14, %4
-  %umax = tail call i32 @llvm.umax.i32(i32 %15, i32 1)
   br label %_ZNK8rational9is_uint64Ev.exit
 
 16:                                               ; preds = %5
@@ -598,8 +595,7 @@ _ZNK8rational9is_uint64Ev.exit.preheader16:       ; preds = %_ZNK8rational9is_ui
 
 .lr.ph.preheader.i:                               ; preds = %19
   %23 = sub i32 %22, %4
-  %umax.i = tail call i32 @llvm.umax.i32(i32 %23, i32 1)
-  %wide.trip.count.i = zext i32 %umax.i to i64
+  %wide.trip.count.i = zext i32 %23 to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -659,7 +655,7 @@ _ZNK8rational9is_uint64Ev.exit:                   ; preds = %_ZNK8rational9is_ui
   %64 = xor i32 %63, %54
   store i32 %64, ptr %53, align 4, !tbaa !17
   %65 = add nuw i32 %.015, 1
-  %exitcond.not = icmp eq i32 %65, %umax
+  %exitcond.not = icmp eq i32 %65, %15
   br i1 %exitcond.not, label %_ZN11tbv_manager3setER3tbvmjj.exit, label %_ZNK8rational9is_uint64Ev.exit, !llvm.loop !31
 
 _ZN11tbv_manager3setER3tbvmjj.exit:               ; preds = %_ZNK8rational9is_uint64Ev.exit, %.lr.ph.i, %_ZNK8rational9is_uint64Ev.exit.preheader, %19
@@ -1751,9 +1747,6 @@ declare void @llvm.assume(i1 noundef) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #22
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #23

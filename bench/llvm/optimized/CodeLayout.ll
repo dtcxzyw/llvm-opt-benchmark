@@ -5224,7 +5224,6 @@ _ZN12_GLOBAL__N_110ExtTSPImpl15mergeChainPairsEv.exit.i: ; preds = %1283, %._cri
 
 .lr.ph.preheader.i.i:                             ; preds = %.lr.ph44.i.i
   %1298 = ashr exact i64 %1297, 3
-  %umax.i.i = tail call i64 @llvm.umax.i64(i64 %1298, i64 1)
   br label %.lr.ph.i6.i
 
 ._crit_edge.loopexit.i.i:                         ; preds = %1336
@@ -5322,7 +5321,7 @@ _ZNK12_GLOBAL__N_16ChainT6isColdEv.exit40.i.i:    ; preds = %.lr.ph.i35.i.i
 
 1336:                                             ; preds = %1335, %_ZNK12_GLOBAL__N_16ChainT6isColdEv.exit40.i.i, %_ZNK12_GLOBAL__N_16ChainT6isColdEv.exit40.thr_comm.i.i, %1316, %1313, %.lr.ph.i6.i
   %1337 = add nuw i64 %.02241.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %1337, %umax.i.i
+  %exitcond.not.i.i = icmp eq i64 %1337, %1298
   br i1 %exitcond.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i6.i, !llvm.loop !289
 
 _ZN12_GLOBAL__N_110ExtTSPImpl15mergeColdChainsEv.exit.i: ; preds = %._crit_edge.i10.i, %_ZN12_GLOBAL__N_110ExtTSPImpl15mergeChainPairsEv.exit.i
@@ -8117,7 +8116,6 @@ _ZNSt6vectorIPN12_GLOBAL__N_15NodeTESaIS2_EEaSEOS4_.exit.i.i.i.i: ; preds = %760
   %777 = ptrtoint ptr %.val8.i.i.i.i to i64
   %778 = sub i64 %776, %777
   %779 = ashr exact i64 %778, 3
-  %umax.i.i.i.i = call i64 @llvm.umax.i64(i64 %779, i64 1)
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i, %.lr.ph.preheader.i.i.i.i
@@ -8129,7 +8127,7 @@ _ZNSt6vectorIPN12_GLOBAL__N_15NodeTESaIS2_EEaSEOS4_.exit.i.i.i.i: ; preds = %760
   %783 = getelementptr inbounds nuw i8, ptr %781, i64 8
   store i64 %.011.i.i.i.i, ptr %783, align 8, !tbaa !270, !noalias !382
   %784 = add nuw i64 %.011.i.i.i.i, 1
-  %exitcond.not.i.i.i.i = icmp eq i64 %784, %umax.i.i.i.i
+  %exitcond.not.i.i.i.i = icmp eq i64 %784, %779
   br i1 %exitcond.not.i.i.i.i, label %_ZNSt6vectorIPN12_GLOBAL__N_15NodeTESaIS2_EED2Ev.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !411
 
 _ZNSt6vectorIPN12_GLOBAL__N_15NodeTESaIS2_EED2Ev.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt6vectorIPN12_GLOBAL__N_15NodeTESaIS2_EEaSEOS4_.exit.i.i.i.i
@@ -10108,7 +10106,6 @@ _ZNSt6vectorIPN12_GLOBAL__N_15NodeTESaIS2_EEaSEOS4_.exit.i: ; preds = %32, %_ZN1
   %49 = ptrtoint ptr %.val8.i to i64
   %50 = sub i64 %48, %49
   %51 = ashr exact i64 %50, 3
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %51, i64 1)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -10120,7 +10117,7 @@ _ZNSt6vectorIPN12_GLOBAL__N_15NodeTESaIS2_EEaSEOS4_.exit.i: ; preds = %32, %_ZN1
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store i64 %.011.i, ptr %55, align 8, !tbaa !270
   %56 = add nuw i64 %.011.i, 1
-  %exitcond.not.i = icmp eq i64 %56, %umax.i
+  %exitcond.not.i = icmp eq i64 %56, %51
   br i1 %exitcond.not.i, label %_ZNSt6vectorIPN12_GLOBAL__N_15NodeTESaIS2_EED2Ev.exit, label %.lr.ph.i, !llvm.loop !411
 
 _ZNSt6vectorIPN12_GLOBAL__N_15NodeTESaIS2_EED2Ev.exit: ; preds = %.lr.ph.i, %_ZNSt6vectorIPN12_GLOBAL__N_15NodeTESaIS2_EEaSEOS4_.exit.i

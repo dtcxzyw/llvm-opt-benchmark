@@ -23263,7 +23263,6 @@ define noundef range(i32 0, 2) i32 @_ZNK6casadi11FmuFunction4evalEPPKdPPdPxS4_Pv
   %28 = ptrtoint ptr %26 to i64
   %29 = sub i64 %27, %28
   %30 = sdiv exact i64 %29, 56
-  %umax = tail call i64 @llvm.umax.i64(i64 %30, i64 1)
   br label %.lr.ph
 
 31:                                               ; preds = %6
@@ -23584,7 +23583,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit198: ; preds = %_Z
   %.1144 = phi i1 [ %.0143353, %122 ], [ %.0143353, %125 ], [ true, %126 ], [ %.0143353, %127 ], [ %.0143353, %128 ], [ %.0143353, %.lr.ph ]
   %.1142 = phi i1 [ %.0141354, %122 ], [ true, %125 ], [ %.0141354, %126 ], [ %.0141354, %127 ], [ %.0141354, %128 ], [ %.0141354, %.lr.ph ]
   %130 = add nuw i64 %.0153351, 1
-  %exitcond.not = icmp eq i64 %130, %umax
+  %exitcond.not = icmp eq i64 %130, %30
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !459
 
 131:                                              ; preds = %._crit_edge
@@ -23715,7 +23714,6 @@ _ZNK6casadi16FunctionInternal8size1_inEx.exit:    ; preds = %178
   %196 = mul nsw i64 %189, %.0145363
   %197 = load ptr, ptr %165, align 8, !tbaa !342
   %invariant.gep361 = getelementptr double, ptr %197, i64 %196
-  %umax409 = tail call i64 @llvm.umax.i64(i64 %195, i64 1)
   br label %201
 
 ._crit_edge360:                                   ; preds = %201, %_ZNK6casadi16FunctionInternal8size1_inEx.exit
@@ -23733,7 +23731,7 @@ _ZNK6casadi16FunctionInternal8size1_inEx.exit:    ; preds = %178
   %gep = getelementptr double, ptr %invariant.gep, i64 %204
   store double %202, ptr %gep, align 8, !tbaa !309
   %205 = add nuw i64 %.0140358, 1
-  %exitcond410.not = icmp eq i64 %205, %umax409
+  %exitcond410.not = icmp eq i64 %205, %195
   br i1 %exitcond410.not, label %._crit_edge360, label %201, !llvm.loop !461
 
 .loopexit338:                                     ; preds = %._crit_edge360, %171, %163, %167

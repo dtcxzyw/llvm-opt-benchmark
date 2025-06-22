@@ -165,15 +165,11 @@ define noundef double @_ZNK3gmx17CorrelationTensor16getVolumeElementEd(ptr nound
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %14 = load double, ptr %13, align 8, !tbaa !14
   %15 = fcmp ogt double %14, 0.000000e+00
-  br i1 %15, label %_ZNK3gmx17CorrelationTensor15getTimeIntegralEid.exit.us.preheader, label %.lr.ph.split
+  br i1 %15, label %_ZNK3gmx17CorrelationTensor15getTimeIntegralEid.exit.us, label %.lr.ph.split
 
-_ZNK3gmx17CorrelationTensor15getTimeIntegralEid.exit.us.preheader: ; preds = %.lr.ph
-  %umax10 = tail call i64 @llvm.umax.i64(i64 %12, i64 1)
-  br label %_ZNK3gmx17CorrelationTensor15getTimeIntegralEid.exit.us
-
-_ZNK3gmx17CorrelationTensor15getTimeIntegralEid.exit.us: ; preds = %_ZNK3gmx17CorrelationTensor15getTimeIntegralEid.exit.us.preheader, %_ZNK3gmx17CorrelationTensor15getTimeIntegralEid.exit.us
-  %.06.us = phi i64 [ %25, %_ZNK3gmx17CorrelationTensor15getTimeIntegralEid.exit.us ], [ 0, %_ZNK3gmx17CorrelationTensor15getTimeIntegralEid.exit.us.preheader ]
-  %16 = phi i64 [ %24, %_ZNK3gmx17CorrelationTensor15getTimeIntegralEid.exit.us ], [ 0, %_ZNK3gmx17CorrelationTensor15getTimeIntegralEid.exit.us.preheader ]
+_ZNK3gmx17CorrelationTensor15getTimeIntegralEid.exit.us: ; preds = %.lr.ph, %_ZNK3gmx17CorrelationTensor15getTimeIntegralEid.exit.us
+  %.06.us = phi i64 [ %25, %_ZNK3gmx17CorrelationTensor15getTimeIntegralEid.exit.us ], [ 0, %.lr.ph ]
+  %16 = phi i64 [ %24, %_ZNK3gmx17CorrelationTensor15getTimeIntegralEid.exit.us ], [ 0, %.lr.ph ]
   %sext.us = shl i64 %.06.us, 32
   %17 = ashr exact i64 %sext.us, 29
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 %17
@@ -185,12 +181,11 @@ _ZNK3gmx17CorrelationTensor15getTimeIntegralEid.exit.us: ; preds = %_ZNK3gmx17Co
   store double %22, ptr %23, align 8, !tbaa !4
   %24 = add i64 %16, 1
   %25 = add nuw i64 %.06.us, 1
-  %exitcond11.not = icmp eq i64 %25, %umax10
+  %exitcond11.not = icmp eq i64 %25, %12
   br i1 %exitcond11.not, label %._crit_edge, label %_ZNK3gmx17CorrelationTensor15getTimeIntegralEid.exit.us, !llvm.loop !28
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %26 = fmul double %1, 0.000000e+00
-  %umax = tail call i64 @llvm.umax.i64(i64 %12, i64 1)
   br label %_ZNK3gmx17CorrelationTensor15getTimeIntegralEid.exit
 
 ._crit_edge:                                      ; preds = %_ZNK3gmx17CorrelationTensor15getTimeIntegralEid.exit, %_ZNK3gmx17CorrelationTensor15getTimeIntegralEid.exit.us
@@ -265,7 +260,7 @@ _ZNK3gmx17CorrelationTensor15getTimeIntegralEid.exit: ; preds = %.lr.ph.split, %
   store double %26, ptr %70, align 8, !tbaa !4
   %71 = add i64 %69, 1
   %72 = add nuw i64 %.06, 1
-  %exitcond.not = icmp eq i64 %72, %umax
+  %exitcond.not = icmp eq i64 %72, %12
   br i1 %exitcond.not, label %._crit_edge, label %_ZNK3gmx17CorrelationTensor15getTimeIntegralEid.exit, !llvm.loop !28
 }
 
@@ -977,11 +972,11 @@ define void @_ZN3gmx17CorrelationTensor7addDataEdNS_8ArrayRefIKdEEbd(ptr noundef
   %20 = ptrtoint ptr %18 to i64
   %21 = ptrtoint ptr %19 to i64
   %22 = sub i64 %20, %21
-  %.not33 = icmp eq i64 %22, 96
-  br i1 %.not33, label %._crit_edge, label %.lr.ph
+  %.not32 = icmp eq i64 %22, 96
+  br i1 %.not32, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %_ZN3gmx20CorrelationBlockData7addDataEdNS_8ArrayRefIKdEE.exit26, %15
-  %.lcssa = phi ptr [ %18, %15 ], [ %74, %_ZN3gmx20CorrelationBlockData7addDataEdNS_8ArrayRefIKdEE.exit26 ]
+._crit_edge:                                      ; preds = %_ZN3gmx20CorrelationBlockData7addDataEdNS_8ArrayRefIKdEE.exit25, %15
+  %.lcssa = phi ptr [ %18, %15 ], [ %74, %_ZN3gmx20CorrelationBlockData7addDataEdNS_8ArrayRefIKdEE.exit25 ]
   %23 = getelementptr inbounds i8, ptr %.lcssa, i64 -96
   %24 = load double, ptr %23, align 8, !tbaa !48
   %25 = fadd double %1, %24
@@ -1002,7 +997,6 @@ define void @_ZN3gmx17CorrelationTensor7addDataEdNS_8ArrayRefIKdEEbd(ptr noundef
   %34 = ptrtoint ptr %32 to i64
   %35 = sub i64 %33, %34
   %36 = ashr exact i64 %35, 4
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %36, i64 1)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -1014,13 +1008,13 @@ define void @_ZN3gmx17CorrelationTensor7addDataEdNS_8ArrayRefIKdEEbd(ptr noundef
   %41 = tail call double @llvm.fmuladd.f64(double %1, double %38, double %40)
   store double %41, ptr %39, align 8, !tbaa !49
   %42 = add nuw i64 %.08.i, 1
-  %exitcond.not.i = icmp eq i64 %42, %umax.i
+  %exitcond.not.i = icmp eq i64 %42, %36
   br i1 %exitcond.not.i, label %_ZN3gmx20CorrelationBlockData7addDataEdNS_8ArrayRefIKdEE.exit, label %.lr.ph.i, !llvm.loop !52
 
-.lr.ph:                                           ; preds = %15, %_ZN3gmx20CorrelationBlockData7addDataEdNS_8ArrayRefIKdEE.exit26
-  %43 = phi ptr [ %75, %_ZN3gmx20CorrelationBlockData7addDataEdNS_8ArrayRefIKdEE.exit26 ], [ %19, %15 ]
-  %.032 = phi i64 [ %73, %_ZN3gmx20CorrelationBlockData7addDataEdNS_8ArrayRefIKdEE.exit26 ], [ 0, %15 ]
-  %44 = getelementptr inbounds nuw %"class.gmx::CorrelationBlockData", ptr %43, i64 %.032
+.lr.ph:                                           ; preds = %15, %_ZN3gmx20CorrelationBlockData7addDataEdNS_8ArrayRefIKdEE.exit25
+  %43 = phi ptr [ %75, %_ZN3gmx20CorrelationBlockData7addDataEdNS_8ArrayRefIKdEE.exit25 ], [ %19, %15 ]
+  %.031 = phi i64 [ %73, %_ZN3gmx20CorrelationBlockData7addDataEdNS_8ArrayRefIKdEE.exit25 ], [ 0, %15 ]
+  %44 = getelementptr inbounds nuw %"class.gmx::CorrelationBlockData", ptr %43, i64 %.031
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 32
   %46 = load double, ptr %45, align 8, !tbaa !31
   %47 = fdiv double %16, %46
@@ -1050,30 +1044,29 @@ define void @_ZN3gmx17CorrelationTensor7addDataEdNS_8ArrayRefIKdEEbd(ptr noundef
   %61 = load ptr, ptr %60, align 8, !tbaa !33
   %62 = load ptr, ptr %59, align 8, !tbaa !34
   %.not.i20 = icmp eq ptr %61, %62
-  br i1 %.not.i20, label %_ZN3gmx20CorrelationBlockData7addDataEdNS_8ArrayRefIKdEE.exit26, label %.lr.ph.preheader.i21
+  br i1 %.not.i20, label %_ZN3gmx20CorrelationBlockData7addDataEdNS_8ArrayRefIKdEE.exit25, label %.lr.ph.preheader.i21
 
 .lr.ph.preheader.i21:                             ; preds = %53
   %63 = ptrtoint ptr %61 to i64
   %64 = ptrtoint ptr %62 to i64
   %65 = sub i64 %63, %64
   %66 = ashr exact i64 %65, 4
-  %umax.i22 = tail call i64 @llvm.umax.i64(i64 %66, i64 1)
-  br label %.lr.ph.i23
+  br label %.lr.ph.i22
 
-.lr.ph.i23:                                       ; preds = %.lr.ph.i23, %.lr.ph.preheader.i21
-  %.08.i24 = phi i64 [ %72, %.lr.ph.i23 ], [ 0, %.lr.ph.preheader.i21 ]
-  %67 = getelementptr inbounds double, ptr %2, i64 %.08.i24
+.lr.ph.i22:                                       ; preds = %.lr.ph.i22, %.lr.ph.preheader.i21
+  %.08.i23 = phi i64 [ %72, %.lr.ph.i22 ], [ 0, %.lr.ph.preheader.i21 ]
+  %67 = getelementptr inbounds double, ptr %2, i64 %.08.i23
   %68 = load double, ptr %67, align 8, !tbaa !4
-  %69 = getelementptr inbounds nuw %"struct.gmx::CorrelationBlockData::CoordData", ptr %62, i64 %.08.i24
+  %69 = getelementptr inbounds nuw %"struct.gmx::CorrelationBlockData::CoordData", ptr %62, i64 %.08.i23
   %70 = load double, ptr %69, align 8, !tbaa !49
   %71 = tail call double @llvm.fmuladd.f64(double %1, double %68, double %70)
   store double %71, ptr %69, align 8, !tbaa !49
-  %72 = add nuw i64 %.08.i24, 1
-  %exitcond.not.i25 = icmp eq i64 %72, %umax.i22
-  br i1 %exitcond.not.i25, label %_ZN3gmx20CorrelationBlockData7addDataEdNS_8ArrayRefIKdEE.exit26, label %.lr.ph.i23, !llvm.loop !52
+  %72 = add nuw i64 %.08.i23, 1
+  %exitcond.not.i24 = icmp eq i64 %72, %66
+  br i1 %exitcond.not.i24, label %_ZN3gmx20CorrelationBlockData7addDataEdNS_8ArrayRefIKdEE.exit25, label %.lr.ph.i22, !llvm.loop !52
 
-_ZN3gmx20CorrelationBlockData7addDataEdNS_8ArrayRefIKdEE.exit26: ; preds = %.lr.ph.i23, %53
-  %73 = add nuw i64 %.032, 1
+_ZN3gmx20CorrelationBlockData7addDataEdNS_8ArrayRefIKdEE.exit25: ; preds = %.lr.ph.i22, %53
+  %73 = add nuw i64 %.031, 1
   %74 = load ptr, ptr %17, align 8, !tbaa !30
   %75 = load ptr, ptr %0, align 8, !tbaa !10
   %76 = ptrtoint ptr %74 to i64

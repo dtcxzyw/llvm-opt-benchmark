@@ -991,7 +991,6 @@ _ZN32pxrInternal_v0_24__pxrReserved__11TfMallocTag4AutoC2IRA3_KcJRA200_S3_EEEOT_
   %29 = ptrtoint ptr %27 to i64
   %30 = sub i64 %28, %29
   %31 = ashr exact i64 %30, 7
-  %umax = tail call i64 @llvm.umax.i64(i64 %31, i64 1)
   br label %.lr.ph45
 
 .lr.ph45:                                         ; preds = %.lr.ph45.preheader, %77
@@ -1123,7 +1122,7 @@ _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_16Hd_PrimTy
 
 77:                                               ; preds = %_ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_16Hd_PrimTypeIndexINS0_7HdSprimEE9_PrimInfoENS1_4HashESt8equal_toIS1_ESaISt4pairIKS1_S5_EEE5clearEv.exit
   %78 = add nuw i64 %.01544, 1
-  %exitcond.not = icmp eq i64 %78, %umax
+  %exitcond.not = icmp eq i64 %78, %31
   br i1 %exitcond.not, label %._crit_edge46.loopexit, label %.lr.ph45, !llvm.loop !18
 
 ._crit_edge46.loopexit:                           ; preds = %77
@@ -2043,7 +2042,6 @@ _ZN32pxrInternal_v0_24__pxrReserved__11TfMallocTag4AutoC2IRA3_KcJRA244_S3_EEEOT_
   %46 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %47 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %48 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %umax = tail call i64 @llvm.umax.i64(i64 %36, i64 1)
   br label %49
 
 49:                                               ; preds = %.lr.ph171, %_ZNSt6vectorIZN32pxrInternal_v0_24__pxrReserved__16Hd_PrimTypeIndexINS0_7HdSprimEE13RemoveSubtreeERKNS0_7SdfPathEPNS0_15HdSceneDelegateERNS0_15HdChangeTrackerEPNS0_16HdRenderDelegateEE6_RangeSaISD_EED2Ev.exit63
@@ -2606,7 +2604,7 @@ _ZNSt6vectorIZN32pxrInternal_v0_24__pxrReserved__16Hd_PrimTypeIndexINS0_7HdSprim
 _ZNSt6vectorIZN32pxrInternal_v0_24__pxrReserved__16Hd_PrimTypeIndexINS0_7HdSprimEE13RemoveSubtreeERKNS0_7SdfPathEPNS0_15HdSceneDelegateERNS0_15HdChangeTrackerEPNS0_16HdRenderDelegateEE6_RangeSaISD_EED2Ev.exit63: ; preds = %69, %261, %262
   call void @_ZN32pxrInternal_v0_24__pxrReserved__12HdPrimGatherD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %9) #11
   %266 = add nuw i64 %.034170, 1
-  %exitcond.not = icmp eq i64 %266, %umax
+  %exitcond.not = icmp eq i64 %266, %36
   br i1 %exitcond.not, label %._crit_edge172.loopexit, label %49, !llvm.loop !28
 
 ._crit_edge172.loopexit:                          ; preds = %_ZNSt6vectorIZN32pxrInternal_v0_24__pxrReserved__16Hd_PrimTypeIndexINS0_7HdSprimEE13RemoveSubtreeERKNS0_7SdfPathEPNS0_15HdSceneDelegateERNS0_15HdChangeTrackerEPNS0_16HdRenderDelegateEE6_RangeSaISD_EED2Ev.exit63
@@ -3704,7 +3702,6 @@ _ZN32pxrInternal_v0_24__pxrReserved__11TfMallocTag4AutoC2IRA3_KcJRA196_S3_EEEOT_
   %29 = ptrtoint ptr %27 to i64
   %30 = sub i64 %28, %29
   %31 = ashr exact i64 %30, 7
-  %umax = tail call i64 @llvm.umax.i64(i64 %31, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN32pxrInternal_v0_24__pxrReserved__16Hd_PrimTypeIndexINS_7HdSprimEE26_RenderDelegateDestroyPrimEPNS_16HdRenderDelegateEPS1_.exit
@@ -3739,7 +3736,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__11TfMallocTag4AutoC2IRA3_KcJRA196_S3_EEEOT_
 _ZN32pxrInternal_v0_24__pxrReserved__16Hd_PrimTypeIndexINS_7HdSprimEE26_RenderDelegateDestroyPrimEPNS_16HdRenderDelegateEPS1_.exit: ; preds = %.noexc15
   store ptr null, ptr %33, align 8
   %46 = add nuw i64 %.0929, 1
-  %exitcond.not = icmp eq i64 %46, %umax
+  %exitcond.not = icmp eq i64 %46, %31
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
 
 47:                                               ; preds = %21, %_ZN32pxrInternal_v0_24__pxrReserved__11TfMallocTag5_PushEPKc.exit.i
@@ -3870,7 +3867,6 @@ _ZNSt6vectorIPN32pxrInternal_v0_24__pxrReserved__15HdSceneDelegateESaIS2_EE5clea
   %45 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %47 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %umax = tail call i64 @llvm.umax.i64(i64 %27, i64 1)
   br label %48
 
 48:                                               ; preds = %.lr.ph94, %._crit_edge.thread
@@ -4223,7 +4219,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25WorkWithScopedParallelismIZNS_16Hd_PrimTy
   %.1.lcssa102 = phi ptr [ %.2, %_ZN32pxrInternal_v0_24__pxrReserved__25WorkWithScopedParallelismIZNS_16Hd_PrimTypeIndexINS_7HdSprimEE9SyncPrimsERNS_15HdChangeTrackerEPNS_13HdRenderParamEPNS_16HdRenderDelegateEEUlvE_EEDaOT_b.exit ], [ %.2, %._crit_edge ], [ %.093, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__19_ParallelSyncHelperINS0_7HdSprimEE9SyncEntryESaIS4_EE7reserveEm.exit ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19_ParallelSyncHelperINS_7HdSprimEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %8) #11
   %171 = add nuw i64 %.02892, 1
-  %exitcond.not = icmp eq i64 %171, %umax
+  %exitcond.not = icmp eq i64 %171, %27
   br i1 %exitcond.not, label %._crit_edge95, label %48, !llvm.loop !42
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %129
@@ -4905,7 +4901,6 @@ _ZN32pxrInternal_v0_24__pxrReserved__11TfMallocTag4AutoC2IRA3_KcJRA200_S3_EEEOT_
   %29 = ptrtoint ptr %27 to i64
   %30 = sub i64 %28, %29
   %31 = ashr exact i64 %30, 7
-  %umax = tail call i64 @llvm.umax.i64(i64 %31, i64 1)
   br label %.lr.ph44
 
 .lr.ph44:                                         ; preds = %.lr.ph44.preheader, %77
@@ -5033,7 +5028,7 @@ _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_16Hd_PrimTy
 
 77:                                               ; preds = %_ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_16Hd_PrimTypeIndexINS0_7HdBprimEE9_PrimInfoENS1_4HashESt8equal_toIS1_ESaISt4pairIKS1_S5_EEE5clearEv.exit
   %78 = add nuw i64 %.01543, 1
-  %exitcond.not = icmp eq i64 %78, %umax
+  %exitcond.not = icmp eq i64 %78, %31
   br i1 %exitcond.not, label %._crit_edge45.loopexit, label %.lr.ph44, !llvm.loop !55
 
 ._crit_edge45.loopexit:                           ; preds = %77
@@ -5904,7 +5899,6 @@ _ZN32pxrInternal_v0_24__pxrReserved__11TfMallocTag4AutoC2IRA3_KcJRA244_S3_EEEOT_
   %46 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %47 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %48 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %umax = tail call i64 @llvm.umax.i64(i64 %36, i64 1)
   br label %49
 
 49:                                               ; preds = %.lr.ph170, %_ZNSt6vectorIZN32pxrInternal_v0_24__pxrReserved__16Hd_PrimTypeIndexINS0_7HdBprimEE13RemoveSubtreeERKNS0_7SdfPathEPNS0_15HdSceneDelegateERNS0_15HdChangeTrackerEPNS0_16HdRenderDelegateEE6_RangeSaISD_EED2Ev.exit62
@@ -6463,7 +6457,7 @@ _ZNSt6vectorIZN32pxrInternal_v0_24__pxrReserved__16Hd_PrimTypeIndexINS0_7HdBprim
 _ZNSt6vectorIZN32pxrInternal_v0_24__pxrReserved__16Hd_PrimTypeIndexINS0_7HdBprimEE13RemoveSubtreeERKNS0_7SdfPathEPNS0_15HdSceneDelegateERNS0_15HdChangeTrackerEPNS0_16HdRenderDelegateEE6_RangeSaISD_EED2Ev.exit62: ; preds = %69, %261, %262
   call void @_ZN32pxrInternal_v0_24__pxrReserved__12HdPrimGatherD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %9) #11
   %266 = add nuw i64 %.034169, 1
-  %exitcond.not = icmp eq i64 %266, %umax
+  %exitcond.not = icmp eq i64 %266, %36
   br i1 %exitcond.not, label %._crit_edge171.loopexit, label %49, !llvm.loop !61
 
 ._crit_edge171.loopexit:                          ; preds = %_ZNSt6vectorIZN32pxrInternal_v0_24__pxrReserved__16Hd_PrimTypeIndexINS0_7HdBprimEE13RemoveSubtreeERKNS0_7SdfPathEPNS0_15HdSceneDelegateERNS0_15HdChangeTrackerEPNS0_16HdRenderDelegateEE6_RangeSaISD_EED2Ev.exit62
@@ -7469,7 +7463,6 @@ _ZN32pxrInternal_v0_24__pxrReserved__11TfMallocTag4AutoC2IRA3_KcJRA196_S3_EEEOT_
   %29 = ptrtoint ptr %27 to i64
   %30 = sub i64 %28, %29
   %31 = ashr exact i64 %30, 7
-  %umax = tail call i64 @llvm.umax.i64(i64 %31, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN32pxrInternal_v0_24__pxrReserved__16Hd_PrimTypeIndexINS_7HdBprimEE26_RenderDelegateDestroyPrimEPNS_16HdRenderDelegateEPS1_.exit
@@ -7504,7 +7497,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__11TfMallocTag4AutoC2IRA3_KcJRA196_S3_EEEOT_
 _ZN32pxrInternal_v0_24__pxrReserved__16Hd_PrimTypeIndexINS_7HdBprimEE26_RenderDelegateDestroyPrimEPNS_16HdRenderDelegateEPS1_.exit: ; preds = %.noexc15
   store ptr null, ptr %33, align 8
   %46 = add nuw i64 %.0929, 1
-  %exitcond.not = icmp eq i64 %46, %umax
+  %exitcond.not = icmp eq i64 %46, %31
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !64
 
 47:                                               ; preds = %21, %_ZN32pxrInternal_v0_24__pxrReserved__11TfMallocTag5_PushEPKc.exit.i
@@ -7635,7 +7628,6 @@ _ZNSt6vectorIPN32pxrInternal_v0_24__pxrReserved__15HdSceneDelegateESaIS2_EE5clea
   %45 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %47 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %umax = tail call i64 @llvm.umax.i64(i64 %27, i64 1)
   br label %48
 
 48:                                               ; preds = %.lr.ph94, %._crit_edge.thread
@@ -7988,7 +7980,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25WorkWithScopedParallelismIZNS_16Hd_PrimTy
   %.1.lcssa102 = phi ptr [ %.2, %_ZN32pxrInternal_v0_24__pxrReserved__25WorkWithScopedParallelismIZNS_16Hd_PrimTypeIndexINS_7HdBprimEE9SyncPrimsERNS_15HdChangeTrackerEPNS_13HdRenderParamEPNS_16HdRenderDelegateEEUlvE_EEDaOT_b.exit ], [ %.2, %._crit_edge ], [ %.093, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__19_ParallelSyncHelperINS0_7HdBprimEE9SyncEntryESaIS4_EE7reserveEm.exit ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19_ParallelSyncHelperINS_7HdBprimEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %8) #11
   %171 = add nuw i64 %.02892, 1
-  %exitcond.not = icmp eq i64 %171, %umax
+  %exitcond.not = icmp eq i64 %171, %27
   br i1 %exitcond.not, label %._crit_edge95, label %48, !llvm.loop !73
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %129

@@ -15972,7 +15972,6 @@ for.body.preheader:                               ; preds = %_ZN8QuantLib6detail
   %sub.ptr.rhs.cast.i = ptrtoint ptr %21 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %for.body, %_ZN8QuantLib6detail8SviSpecs6directERKNS_5ArrayERKSt6vectorIbSaIbEERKS5_IdSaIdEEd.exit
@@ -15987,7 +15986,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %add.ptr.i = getelementptr inbounds nuw double, ptr %21, i64 %i.012
   store double %23, ptr %add.ptr.i, align 8, !tbaa !81
   %inc = add nuw i64 %i.012, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !279
 
 invoke.cont17:                                    ; preds = %for.cond.cleanup
@@ -16156,7 +16155,6 @@ for.body.preheader:                               ; preds = %_ZN8QuantLib6detail
   %sub.ptr.rhs.cast.i = ptrtoint ptr %21 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %for.body, %_ZN8QuantLib6detail8SviSpecs6directERKNS_5ArrayERKSt6vectorIbSaIbEERKS5_IdSaIdEEd.exit
@@ -16171,7 +16169,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %add.ptr.i = getelementptr inbounds nuw double, ptr %21, i64 %i.010
   store double %23, ptr %add.ptr.i, align 8, !tbaa !81
   %inc = add nuw i64 %i.010, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !283
 
 invoke.cont:                                      ; preds = %for.cond.cleanup

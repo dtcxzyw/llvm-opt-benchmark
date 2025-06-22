@@ -66176,8 +66176,6 @@ _ZN11ast_manager7inc_refEP3ast.exit.i:            ; preds = %_ZN11ast_manager5mk
   %87 = getelementptr inbounds nuw i8, ptr %15, i64 20
   %88 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %89 = and i64 %indvars.iv, 4294967295
-  %umax = call i32 @llvm.umax.i32(i32 %1, i32 1)
-  %wide.trip.count283 = zext i32 %umax to i64
   br label %98
 
 .critedge.preheader:                              ; preds = %select.unfold
@@ -66493,7 +66491,7 @@ _ZN8rationalD2Ev.exit133:                         ; preds = %.noexc.i132
   br label %613
 
 select.unfold:                                    ; preds = %_ZN8rationalD2Ev.exit133, %_ZN8rationalD2Ev.exit
-  %exitcond284.not = icmp eq i64 %indvars.iv.next281, %wide.trip.count283
+  %exitcond284.not = icmp eq i64 %indvars.iv.next281, %wide.trip.count
   br i1 %exitcond284.not, label %.critedge.preheader, label %98, !llvm.loop !1247
 
 .critedge:                                        ; preds = %_ZN8rationalD2Ev.exit152
@@ -173560,8 +173558,6 @@ _ZN11ast_manager7inc_refEP3ast.exit.i:            ; preds = %_ZN11ast_manager5mk
   %87 = getelementptr inbounds nuw i8, ptr %15, i64 20
   %88 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %89 = and i64 %indvars.iv, 4294967295
-  %umax = call i32 @llvm.umax.i32(i32 %1, i32 1)
-  %wide.trip.count282 = zext i32 %umax to i64
   br label %98
 
 .critedge.preheader:                              ; preds = %select.unfold
@@ -173877,7 +173873,7 @@ _ZN8rationalD2Ev.exit133:                         ; preds = %.noexc.i132
   br label %614
 
 select.unfold:                                    ; preds = %_ZN8rationalD2Ev.exit133, %_ZN8rationalD2Ev.exit
-  %exitcond283.not = icmp eq i64 %indvars.iv.next280, %wide.trip.count282
+  %exitcond283.not = icmp eq i64 %indvars.iv.next280, %wide.trip.count
   br i1 %exitcond283.not, label %.critedge.preheader, label %98, !llvm.loop !2223
 
 .critedge:                                        ; preds = %_ZN8rationalD2Ev.exit152
@@ -278255,8 +278251,6 @@ _ZN11ast_manager7inc_refEP3ast.exit.i:            ; preds = %_ZN11ast_manager5mk
   %87 = getelementptr inbounds nuw i8, ptr %15, i64 20
   %88 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %89 = and i64 %indvars.iv, 4294967295
-  %umax = call i32 @llvm.umax.i32(i32 %1, i32 1)
-  %wide.trip.count282 = zext i32 %umax to i64
   br label %98
 
 .critedge.preheader:                              ; preds = %select.unfold
@@ -278572,7 +278566,7 @@ _ZN8rationalD2Ev.exit133:                         ; preds = %.noexc.i132
   br label %614
 
 select.unfold:                                    ; preds = %_ZN8rationalD2Ev.exit133, %_ZN8rationalD2Ev.exit
-  %exitcond283.not = icmp eq i64 %indvars.iv.next280, %wide.trip.count282
+  %exitcond283.not = icmp eq i64 %indvars.iv.next280, %wide.trip.count
   br i1 %exitcond283.not, label %.critedge.preheader, label %98, !llvm.loop !2907
 
 .critedge:                                        ; preds = %_ZN8rationalD2Ev.exit152

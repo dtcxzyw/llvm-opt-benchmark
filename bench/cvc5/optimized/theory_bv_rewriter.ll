@@ -65263,7 +65263,6 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit89: ; preds = %_ZN4cvc58internal12
   %181 = sub i32 %180, %46
   %182 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %183 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %umax = call i32 @llvm.umax.i32(i32 %181, i32 1)
   br label %188
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backERKS3_.exit, %179
@@ -65329,7 +65328,7 @@ _ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_J
 
 _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backERKS3_.exit: ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i, %210
   %211 = add nuw i32 %.0166, 1
-  %exitcond.not = icmp eq i32 %211, %umax
+  %exitcond.not = icmp eq i32 %211, %181
   br i1 %exitcond.not, label %._crit_edge, label %188, !llvm.loop !1872
 
 212:                                              ; preds = %210, %206
@@ -68431,7 +68430,6 @@ define linkonce_odr hidden void @_ZN4cvc58internal6theory2bv19ApplyRuleToChildre
 
 .lr.ph.preheader:                                 ; preds = %24
   %31 = trunc nsw i64 %30 to i32
-  %umax = call i32 @llvm.umax.i32(i32 %31, i32 1)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, %24
@@ -68505,7 +68503,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal6theory2bv19ApplyRuleToChildre
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %52, %56, %62
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #24
   %66 = add nuw i32 %.0517, 1
-  %exitcond.not = icmp eq i32 %66, %umax
+  %exitcond.not = icmp eq i32 %66, %31
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !1964
 
 67:                                               ; preds = %.lr.ph
@@ -92477,9 +92475,6 @@ declare i64 @llvm.umin.i64(i64, i64) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #22
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #22
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

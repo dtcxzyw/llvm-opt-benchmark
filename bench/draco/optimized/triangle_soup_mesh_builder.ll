@@ -501,7 +501,6 @@ define void @_ZN5draco23TriangleSoupMeshBuilder8FinalizeEv(ptr dead_on_unwind no
   %20 = sub i64 %18, %19
   %21 = load ptr, ptr %3, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 168
-  %umax = tail call i64 @llvm.umax.i64(i64 %20, i64 1)
   br label %24
 
 ._crit_edge:                                      ; preds = %33, %10
@@ -528,7 +527,7 @@ define void @_ZN5draco23TriangleSoupMeshBuilder8FinalizeEv(ptr dead_on_unwind no
 
 33:                                               ; preds = %24, %28
   %34 = add nuw i64 %.05, 1
-  %exitcond.not = icmp eq i64 %34, %umax
+  %exitcond.not = icmp eq i64 %34, %20
   br i1 %exitcond.not, label %._crit_edge, label %24, !llvm.loop !61
 
 35:                                               ; preds = %._crit_edge, %9

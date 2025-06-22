@@ -93640,7 +93640,6 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8UsdStageEED2Ev.exit34: ; pre
   %113 = load ptr, ptr %3, align 8
   %114 = load ptr, ptr %.sroa.038.049, align 8
   %115 = ptrtoint ptr %114 to i64
-  %umax = call i64 @llvm.umax.i64(i64 %112, i64 1)
   br label %116
 
 116:                                              ; preds = %.lr.ph, %163
@@ -93721,7 +93720,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathaSERKS0_.exit: ; preds = %122, %_ZN
 
 163:                                              ; preds = %116
   %164 = add nuw i64 %.02547, 1
-  %exitcond.not = icmp eq i64 %164, %umax
+  %exitcond.not = icmp eq i64 %164, %112
   br i1 %exitcond.not, label %.critedge, label %116, !llvm.loop !760
 
 .critedge:                                        ; preds = %163, %106

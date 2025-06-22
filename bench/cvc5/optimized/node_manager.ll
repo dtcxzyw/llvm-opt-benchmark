@@ -21117,11 +21117,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %49
   %56 = sub i64 %54, %55
   %57 = ashr exact i64 %56, 3
   %.not = icmp eq ptr %52, %53
-  br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
-  %umax = call i64 @llvm.umax.i64(i64 %57, i64 1)
-  br label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %99, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
   call void @llvm.lifetime.start.p0(i64 448, ptr nonnull %12) #9
@@ -21181,8 +21177,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
           cleanup
   br label %.body72
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %99
-  %.024231 = phi i64 [ %100, %99 ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit, %99
+  %.024231 = phi i64 [ %100, %99 ], [ 0, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit ]
   %84 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %50, ptr noundef nonnull @.str.22, i64 noundef 1)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit71 unwind label %101
 
@@ -21221,7 +21217,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit71: ; preds = %.lr.p
   call void @_ZN4cvc58internal7options7ioutils5ScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(46) %10) #9
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10) #9
   %100 = add nuw i64 %.024231, 1
-  %exitcond.not = icmp eq i64 %100, %umax
+  %exitcond.not = icmp eq i64 %100, %57
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !404
 
 101:                                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit71, %.lr.ph
@@ -21450,7 +21446,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit103: ; preds = %_Z
   %200 = getelementptr i8, ptr %198, i64 -24
   %201 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %202 = getelementptr inbounds nuw i8, ptr %18, i64 128
-  %umax236 = call i64 @llvm.umax.i64(i64 %57, i64 1)
   br label %242
 
 ._crit_edge234:                                   ; preds = %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit103
@@ -21875,7 +21870,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %202) #9
   call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %18) #9
   %362 = add nuw i64 %.0232, 1
-  %exitcond237.not = icmp eq i64 %362, %umax236
+  %exitcond237.not = icmp eq i64 %362, %57
   br i1 %exitcond237.not, label %._crit_edge234, label %242, !llvm.loop !438
 
 363:                                              ; preds = %242

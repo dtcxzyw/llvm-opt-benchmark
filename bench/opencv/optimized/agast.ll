@@ -19031,10 +19031,8 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %12093, %.noexc269, 
   br i1 %.not661, label %._crit_edge660, label %.lr.ph657
 
 .lr.ph657:                                        ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit
-  %umax = call i64 @llvm.umax.i64(i64 %12098, i64 1)
-  %12107 = shl nuw i64 %umax, 2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %.sroa.0280.1, i8 -1, i64 %12107, i1 false), !tbaa !40
-  %umax963 = call i64 @llvm.umax.i64(i64 %12098, i64 1)
+  %12107 = shl nuw nsw i64 %12098, 2
+  call void @llvm.memset.p0.i64(ptr align 4 %.sroa.0280.1, i8 -1, i64 %12107, i1 false), !tbaa !40
   br label %12111
 
 .thread:                                          ; preds = %12101, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i
@@ -19060,7 +19058,6 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %12093, %.noexc269, 
 .lr.ph659:                                        ; preds = %12199
   %12109 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12110 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %umax965 = call i64 @llvm.umax.i64(i64 %12098, i64 1)
   br label %12202
 
 12111:                                            ; preds = %.lr.ph657, %12199
@@ -19241,7 +19238,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %12093, %.noexc269, 
 12199:                                            ; preds = %12186, %12187, %12179, %12196, %12198, %12188, %12164, %12158, %12155
   %12200 = getelementptr inbounds nuw i8, ptr %.sroa.0271.0651, i64 28
   %12201 = add nuw i64 %.099652, 1
-  %exitcond964.not = icmp eq i64 %12201, %umax963
+  %exitcond964.not = icmp eq i64 %12201, %12098
   br i1 %exitcond964.not, label %.lr.ph659, label %12111, !llvm.loop !178
 
 12202:                                            ; preds = %.lr.ph659, %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE9push_backERKS1_.exit
@@ -19328,7 +19325,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__
 
 _ZNSt6vectorIN2cv8KeyPointESaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %12211, %12202
   %12234 = add nuw i64 %.1100658, 1
-  %exitcond966.not = icmp eq i64 %12234, %umax965
+  %exitcond966.not = icmp eq i64 %12234, %12098
   br i1 %exitcond966.not, label %._crit_edge660.thread, label %12202, !llvm.loop !183
 
 ._crit_edge660:                                   ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit

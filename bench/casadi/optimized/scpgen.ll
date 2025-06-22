@@ -15218,7 +15218,6 @@ _ZSt6fill_nIPPdxDnET_S2_T0_RKT1_.exit:            ; preds = %_ZSt6fill_nIPPKdxDn
   %31 = sdiv exact i64 %30, 152
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 456
   %33 = load ptr, ptr %32, align 8, !tbaa !374
-  %umax = tail call i64 @llvm.umax.i64(i64 %31, i64 1)
   br label %40
 
 ._crit_edge:                                      ; preds = %40, %_ZSt6fill_nIPPdxDnET_S2_T0_RKT1_.exit
@@ -15237,7 +15236,7 @@ _ZSt6fill_nIPPdxDnET_S2_T0_RKT1_.exit:            ; preds = %_ZSt6fill_nIPPKdxDn
   %43 = getelementptr inbounds nuw ptr, ptr %.pre, i64 %.0208
   store ptr %42, ptr %43, align 8, !tbaa !378
   %44 = add nuw nsw i64 %.0208, 1
-  %exitcond.not = icmp eq i64 %44, %umax
+  %exitcond.not = icmp eq i64 %44, %31
   br i1 %exitcond.not, label %._crit_edge, label %40, !llvm.loop !432
 
 45:                                               ; preds = %._crit_edge, %2
@@ -16305,7 +16304,6 @@ _ZSt6fill_nIPPKdxDnET_S3_T0_RKT1_.exit:           ; preds = %2, %.lr.ph.preheade
 .lr.ph:                                           ; preds = %_ZSt6fill_nIPPKdxDnET_S3_T0_RKT1_.exit
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 456
   %29 = load ptr, ptr %28, align 8, !tbaa !374
-  %umax = tail call i64 @llvm.umax.i64(i64 %27, i64 1)
   br label %36
 
 ._crit_edge:                                      ; preds = %_ZSt6fill_nIPPKdxDnET_S3_T0_RKT1_.exit
@@ -16329,7 +16327,7 @@ _ZSt6fill_nIPPKdxDnET_S3_T0_RKT1_.exit:           ; preds = %2, %.lr.ph.preheade
   %41 = getelementptr inbounds ptr, ptr %11, i64 %40
   store ptr %38, ptr %41, align 8, !tbaa !378
   %42 = add nuw i64 %.054, 1
-  %exitcond.not = icmp eq i64 %42, %umax
+  %exitcond.not = icmp eq i64 %42, %27
   br i1 %exitcond.not, label %._crit_edge.thread, label %36, !llvm.loop !450
 
 43:                                               ; preds = %._crit_edge
@@ -16346,7 +16344,6 @@ _ZSt6fill_nIPPKdxDnET_S3_T0_RKT1_.exit:           ; preds = %2, %.lr.ph.preheade
   store ptr null, ptr %49, align 8, !tbaa !378
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 456
   %51 = load ptr, ptr %50, align 8, !tbaa !374
-  %umax67 = tail call i64 @llvm.umax.i64(i64 %27, i64 1)
   br label %52
 
 52:                                               ; preds = %.lr.ph58, %52
@@ -16358,7 +16355,7 @@ _ZSt6fill_nIPPKdxDnET_S3_T0_RKT1_.exit:           ; preds = %2, %.lr.ph.preheade
   %57 = getelementptr inbounds ptr, ptr %11, i64 %56
   store ptr %54, ptr %57, align 8, !tbaa !378
   %58 = add nuw i64 %.04756, 1
-  %exitcond68.not = icmp eq i64 %58, %umax67
+  %exitcond68.not = icmp eq i64 %58, %27
   br i1 %exitcond68.not, label %.loopexit, label %52, !llvm.loop !451
 
 .loopexit:                                        ; preds = %52, %43, %._crit_edge.thread, %._crit_edge
@@ -16410,16 +16407,11 @@ _ZSt6fill_nIPPdxDnET_S2_T0_RKT1_.exit:            ; preds = %.loopexit, %.lr.ph.
 .lr.ph60:                                         ; preds = %_ZSt6fill_nIPPdxDnET_S2_T0_RKT1_.exit
   %88 = getelementptr inbounds nuw i8, ptr %1, i64 456
   %89 = load ptr, ptr %88, align 8, !tbaa !374
-  br i1 %70, label %.lr.ph60.split.us, label %.lr.ph60.split.preheader
-
-.lr.ph60.split.preheader:                         ; preds = %.lr.ph60
-  %umax69 = tail call i64 @llvm.umax.i64(i64 %87, i64 1)
-  br label %.lr.ph60.split
+  br i1 %70, label %.lr.ph60.split.us, label %.lr.ph60.split
 
 .lr.ph60.split.us:                                ; preds = %.lr.ph60
   %invariant.gep = getelementptr i8, ptr %89, i64 48
   %invariant.gep62 = getelementptr i8, ptr %83, i64 88
-  %umax71 = tail call i64 @llvm.umax.i64(i64 %87, i64 1)
   br label %90
 
 90:                                               ; preds = %90, %.lr.ph60.split.us
@@ -16431,7 +16423,7 @@ _ZSt6fill_nIPPdxDnET_S2_T0_RKT1_.exit:            ; preds = %.loopexit, %.lr.ph.
   %93 = getelementptr inbounds ptr, ptr %65, i64 %92
   store ptr %91, ptr %93, align 8, !tbaa !378
   %94 = add nuw i64 %.04659.us, 1
-  %exitcond72.not = icmp eq i64 %94, %umax71
+  %exitcond72.not = icmp eq i64 %94, %87
   br i1 %exitcond72.not, label %._crit_edge61, label %90, !llvm.loop !452
 
 ._crit_edge61:                                    ; preds = %.lr.ph60.split, %90, %_ZSt6fill_nIPPdxDnET_S2_T0_RKT1_.exit
@@ -16458,8 +16450,8 @@ _ZSt6fill_nIPPdxDnET_S2_T0_RKT1_.exit:            ; preds = %.loopexit, %.lr.ph.
   store double %113, ptr %111, align 8, !tbaa !446
   ret void
 
-.lr.ph60.split:                                   ; preds = %.lr.ph60.split.preheader, %.lr.ph60.split
-  %.04659 = phi i64 [ %126, %.lr.ph60.split ], [ 0, %.lr.ph60.split.preheader ]
+.lr.ph60.split:                                   ; preds = %.lr.ph60, %.lr.ph60.split
+  %.04659 = phi i64 [ %126, %.lr.ph60.split ], [ 0, %.lr.ph60 ]
   %114 = getelementptr inbounds nuw %"struct.casadi::ScpgenMemory::VarMem", ptr %89, i64 %.04659
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 48
   %116 = load ptr, ptr %115, align 8, !tbaa !412
@@ -16475,7 +16467,7 @@ _ZSt6fill_nIPPdxDnET_S2_T0_RKT1_.exit:            ; preds = %.loopexit, %.lr.ph.
   %125 = getelementptr inbounds ptr, ptr %65, i64 %124
   store ptr %122, ptr %125, align 8, !tbaa !378
   %126 = add nuw i64 %.04659, 1
-  %exitcond70.not = icmp eq i64 %126, %umax69
+  %exitcond70.not = icmp eq i64 %126, %87
   br i1 %exitcond70.not, label %._crit_edge61, label %.lr.ph60.split, !llvm.loop !452
 }
 
@@ -16522,7 +16514,6 @@ _ZSt6fill_nIPPKdxDnET_S3_T0_RKT1_.exit:           ; preds = %2, %.lr.ph.preheade
 .lr.ph:                                           ; preds = %_ZSt6fill_nIPPKdxDnET_S3_T0_RKT1_.exit
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 456
   %29 = load ptr, ptr %28, align 8, !tbaa !374
-  %umax = tail call i64 @llvm.umax.i64(i64 %27, i64 1)
   br label %36
 
 ._crit_edge:                                      ; preds = %_ZSt6fill_nIPPKdxDnET_S3_T0_RKT1_.exit
@@ -16546,7 +16537,7 @@ _ZSt6fill_nIPPKdxDnET_S3_T0_RKT1_.exit:           ; preds = %2, %.lr.ph.preheade
   %41 = getelementptr inbounds ptr, ptr %11, i64 %40
   store ptr %38, ptr %41, align 8, !tbaa !378
   %42 = add nuw i64 %.063, 1
-  %exitcond.not = icmp eq i64 %42, %umax
+  %exitcond.not = icmp eq i64 %42, %27
   br i1 %exitcond.not, label %._crit_edge.thread, label %36, !llvm.loop !454
 
 43:                                               ; preds = %._crit_edge
@@ -16563,7 +16554,6 @@ _ZSt6fill_nIPPKdxDnET_S3_T0_RKT1_.exit:           ; preds = %2, %.lr.ph.preheade
   store ptr null, ptr %49, align 8, !tbaa !378
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 456
   %51 = load ptr, ptr %50, align 8, !tbaa !374
-  %umax70 = tail call i64 @llvm.umax.i64(i64 %27, i64 1)
   br label %52
 
 52:                                               ; preds = %.lr.ph67, %52
@@ -16575,7 +16565,7 @@ _ZSt6fill_nIPPKdxDnET_S3_T0_RKT1_.exit:           ; preds = %2, %.lr.ph.preheade
   %57 = getelementptr inbounds ptr, ptr %11, i64 %56
   store ptr %54, ptr %57, align 8, !tbaa !378
   %58 = add nuw i64 %.03865, 1
-  %exitcond71.not = icmp eq i64 %58, %umax70
+  %exitcond71.not = icmp eq i64 %58, %27
   br i1 %exitcond71.not, label %.loopexit, label %52, !llvm.loop !455
 
 .loopexit:                                        ; preds = %52, %43, %._crit_edge.thread, %._crit_edge
@@ -16770,7 +16760,6 @@ _ZSt6fill_nIPPKdxDnET_S3_T0_RKT1_.exit:           ; preds = %2, %.lr.ph.preheade
 .lr.ph:                                           ; preds = %_ZSt6fill_nIPPKdxDnET_S3_T0_RKT1_.exit
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 456
   %29 = load ptr, ptr %28, align 8, !tbaa !374
-  %umax = tail call i64 @llvm.umax.i64(i64 %27, i64 1)
   br label %36
 
 ._crit_edge:                                      ; preds = %_ZSt6fill_nIPPKdxDnET_S3_T0_RKT1_.exit
@@ -16794,7 +16783,7 @@ _ZSt6fill_nIPPKdxDnET_S3_T0_RKT1_.exit:           ; preds = %2, %.lr.ph.preheade
   %41 = getelementptr inbounds ptr, ptr %11, i64 %40
   store ptr %38, ptr %41, align 8, !tbaa !378
   %42 = add nuw i64 %.084, 1
-  %exitcond.not = icmp eq i64 %42, %umax
+  %exitcond.not = icmp eq i64 %42, %27
   br i1 %exitcond.not, label %._crit_edge.thread, label %36, !llvm.loop !458
 
 43:                                               ; preds = %._crit_edge
@@ -16821,7 +16810,6 @@ _ZSt6fill_nIPPKdxDnET_S3_T0_RKT1_.exit:           ; preds = %2, %.lr.ph.preheade
   store ptr %56, ptr %59, align 8, !tbaa !378
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 456
   %61 = load ptr, ptr %60, align 8, !tbaa !374
-  %umax91 = tail call i64 @llvm.umax.i64(i64 %27, i64 1)
   br label %62
 
 62:                                               ; preds = %.lr.ph88, %62
@@ -16833,7 +16821,7 @@ _ZSt6fill_nIPPKdxDnET_S3_T0_RKT1_.exit:           ; preds = %2, %.lr.ph.preheade
   %67 = getelementptr inbounds ptr, ptr %11, i64 %66
   store ptr %64, ptr %67, align 8, !tbaa !378
   %68 = add nuw i64 %.04986, 1
-  %exitcond92.not = icmp eq i64 %68, %umax91
+  %exitcond92.not = icmp eq i64 %68, %27
   br i1 %exitcond92.not, label %.loopexit, label %62, !llvm.loop !460
 
 .loopexit:                                        ; preds = %62, %43, %._crit_edge.thread, %._crit_edge
@@ -19405,7 +19393,6 @@ _ZSt6fill_nIPPKdxDnET_S3_T0_RKT1_.exit:           ; preds = %2, %.lr.ph.preheade
 .lr.ph:                                           ; preds = %_ZSt6fill_nIPPKdxDnET_S3_T0_RKT1_.exit
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 456
   %34 = load ptr, ptr %33, align 8, !tbaa !374
-  %umax = tail call i64 @llvm.umax.i64(i64 %32, i64 1)
   br label %38
 
 ._crit_edge:                                      ; preds = %38, %_ZSt6fill_nIPPKdxDnET_S3_T0_RKT1_.exit
@@ -19423,7 +19410,7 @@ _ZSt6fill_nIPPKdxDnET_S3_T0_RKT1_.exit:           ; preds = %2, %.lr.ph.preheade
   %43 = getelementptr inbounds ptr, ptr %11, i64 %42
   store ptr %40, ptr %43, align 8, !tbaa !378
   %44 = add nuw i64 %.050, 1
-  %exitcond.not = icmp eq i64 %44, %umax
+  %exitcond.not = icmp eq i64 %44, %32
   br i1 %exitcond.not, label %._crit_edge, label %38, !llvm.loop !493
 
 45:                                               ; preds = %._crit_edge
@@ -19448,7 +19435,6 @@ _ZSt6fill_nIPPKdxDnET_S3_T0_RKT1_.exit:           ; preds = %2, %.lr.ph.preheade
 .lr.ph54:                                         ; preds = %45
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 456
   %61 = load ptr, ptr %60, align 8, !tbaa !374
-  %umax63 = tail call i64 @llvm.umax.i64(i64 %32, i64 1)
   br label %62
 
 62:                                               ; preds = %.lr.ph54, %62
@@ -19460,7 +19446,7 @@ _ZSt6fill_nIPPKdxDnET_S3_T0_RKT1_.exit:           ; preds = %2, %.lr.ph.preheade
   %67 = getelementptr inbounds ptr, ptr %11, i64 %66
   store ptr %64, ptr %67, align 8, !tbaa !378
   %68 = add nuw i64 %.04352, 1
-  %exitcond64.not = icmp eq i64 %68, %umax63
+  %exitcond64.not = icmp eq i64 %68, %32
   br i1 %exitcond64.not, label %.loopexit, label %62, !llvm.loop !494
 
 .loopexit:                                        ; preds = %62, %45, %._crit_edge
@@ -19491,16 +19477,11 @@ _ZSt6fill_nIPPdxDnET_S2_T0_RKT1_.exit:            ; preds = %.loopexit, %.lr.ph.
   %80 = load ptr, ptr %79, align 8, !tbaa !374
   %81 = load i8, ptr %35, align 8, !tbaa !178, !range !55, !noundef !56
   %82 = trunc nuw i8 %81 to i1
-  br i1 %82, label %.lr.ph56.split.us, label %.lr.ph56.split.preheader
-
-.lr.ph56.split.preheader:                         ; preds = %.lr.ph56
-  %umax65 = tail call i64 @llvm.umax.i64(i64 %78, i64 1)
-  br label %.lr.ph56.split
+  br i1 %82, label %.lr.ph56.split.us, label %.lr.ph56.split
 
 .lr.ph56.split.us:                                ; preds = %.lr.ph56
   %invariant.gep = getelementptr inbounds nuw i8, ptr %80, i64 8
   %invariant.gep58 = getelementptr inbounds nuw i8, ptr %74, i64 136
-  %umax67 = tail call i64 @llvm.umax.i64(i64 %78, i64 1)
   br label %83
 
 83:                                               ; preds = %83, %.lr.ph56.split.us
@@ -19512,7 +19493,7 @@ _ZSt6fill_nIPPdxDnET_S2_T0_RKT1_.exit:            ; preds = %.loopexit, %.lr.ph.
   %86 = getelementptr inbounds ptr, ptr %.pre, i64 %85
   store ptr %84, ptr %86, align 8, !tbaa !378
   %87 = add nuw nsw i64 %.04255.us, 1
-  %exitcond68.not = icmp eq i64 %87, %umax67
+  %exitcond68.not = icmp eq i64 %87, %78
   br i1 %exitcond68.not, label %._crit_edge57, label %83, !llvm.loop !495
 
 ._crit_edge57:                                    ; preds = %.lr.ph56.split, %83, %_ZSt6fill_nIPPdxDnET_S2_T0_RKT1_.exit
@@ -19533,8 +19514,8 @@ _ZSt6fill_nIPPdxDnET_S2_T0_RKT1_.exit:            ; preds = %.loopexit, %.lr.ph.
   store double %101, ptr %99, align 8, !tbaa !448
   ret void
 
-.lr.ph56.split:                                   ; preds = %.lr.ph56.split.preheader, %.lr.ph56.split
-  %.04255 = phi i64 [ %114, %.lr.ph56.split ], [ 0, %.lr.ph56.split.preheader ]
+.lr.ph56.split:                                   ; preds = %.lr.ph56, %.lr.ph56.split
+  %.04255 = phi i64 [ %114, %.lr.ph56.split ], [ 0, %.lr.ph56 ]
   %102 = getelementptr inbounds nuw %"struct.casadi::ScpgenMemory::VarMem", ptr %80, i64 %.04255
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 8
   %104 = load ptr, ptr %103, align 8, !tbaa !409
@@ -19550,7 +19531,7 @@ _ZSt6fill_nIPPdxDnET_S2_T0_RKT1_.exit:            ; preds = %.loopexit, %.lr.ph.
   %113 = getelementptr inbounds ptr, ptr %.pre, i64 %112
   store ptr %110, ptr %113, align 8, !tbaa !378
   %114 = add nuw nsw i64 %.04255, 1
-  %exitcond66.not = icmp eq i64 %114, %umax65
+  %exitcond66.not = icmp eq i64 %114, %78
   br i1 %exitcond66.not, label %._crit_edge57, label %.lr.ph56.split, !llvm.loop !495
 }
 

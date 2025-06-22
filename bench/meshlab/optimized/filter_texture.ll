@@ -20052,7 +20052,6 @@ _ZNSt6vectorIPN3vcg3tri12VoronoiAtlasI6CMeshOE8VoroMeshESaIS6_EE9push_backERKS6_
   %1164 = ptrtoint ptr %.sroa.0372.7 to i64
   %1165 = sub i64 %1163, %1164
   %1166 = ashr exact i64 %1165, 3
-  %umax = call i64 @llvm.umax.i64(i64 %1166, i64 1)
   br label %.lr.ph760
 
 .lr.ph760:                                        ; preds = %.lr.ph760.preheader, %_ZN3vcg3tri6AppendINS0_12VoronoiAtlasI6CMeshOE8VoroMeshES5_E4MeshERS5_S7_bb.exit232
@@ -20070,7 +20069,7 @@ _ZNSt6vectorIPN3vcg3tri12VoronoiAtlasI6CMeshOE8VoroMeshESaIS6_EE9push_backERKS6_
 
 _ZN3vcg3tri6AppendINS0_12VoronoiAtlasI6CMeshOE8VoroMeshES5_E4MeshERS5_S7_bb.exit232: ; preds = %1172, %.lr.ph760
   %1173 = add nuw i64 %.057759, 1
-  %exitcond.not = icmp eq i64 %1173, %umax
+  %exitcond.not = icmp eq i64 %1173, %1166
   br i1 %exitcond.not, label %._crit_edge761, label %.lr.ph760, !llvm.loop !136
 
 ._crit_edge761:                                   ; preds = %_ZN3vcg3tri6AppendINS0_12VoronoiAtlasI6CMeshOE8VoroMeshES5_E4MeshERS5_S7_bb.exit232
@@ -20183,14 +20182,10 @@ _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit:   ; preds = %_ZNSt6vectorIPN3vcg
   %1209 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 %1208, ptr %1209, align 8
   %.not771 = icmp eq ptr %.sroa.8.1.lcssa, %.sroa.0390.1.lcssa
-  br i1 %.not771, label %._crit_edge769, label %.lr.ph768.preheader
+  br i1 %.not771, label %._crit_edge769, label %.lr.ph768
 
-.lr.ph768.preheader:                              ; preds = %1203
-  %umax943 = call i64 @llvm.umax.i64(i64 %1207, i64 1)
-  br label %.lr.ph768
-
-.lr.ph768:                                        ; preds = %.lr.ph768.preheader, %_ZN3vcg3tri6AppendI6CMeshONS0_12VoronoiAtlasIS2_E8VoroMeshEE4MeshERS2_RS5_bb.exit
-  %.056766 = phi i64 [ %1252, %_ZN3vcg3tri6AppendI6CMeshONS0_12VoronoiAtlasIS2_E8VoroMeshEE4MeshERS2_RS5_bb.exit ], [ 0, %.lr.ph768.preheader ]
+.lr.ph768:                                        ; preds = %1203, %_ZN3vcg3tri6AppendI6CMeshONS0_12VoronoiAtlasIS2_E8VoroMeshEE4MeshERS2_RS5_bb.exit
+  %.056766 = phi i64 [ %1252, %_ZN3vcg3tri6AppendI6CMeshONS0_12VoronoiAtlasIS2_E8VoroMeshEE4MeshERS2_RS5_bb.exit ], [ 0, %1203 ]
   %1210 = getelementptr inbounds ptr, ptr %.sroa.0390.1.lcssa, i64 %.056766
   %1211 = load ptr, ptr %1210, align 8
   %1212 = getelementptr inbounds nuw i8, ptr %1211, i64 72
@@ -20299,7 +20294,7 @@ _ZNSt6vectorIPN3vcg3tri12VoronoiAtlasI6CMeshOE10VoroVertexESaIS6_EED2Ev.exit251:
 
 _ZN3vcg3tri6AppendI6CMeshONS0_12VoronoiAtlasIS2_E8VoroMeshEE4MeshERS2_RS5_bb.exit: ; preds = %._crit_edge765
   %1252 = add nuw i64 %.056766, 1
-  %exitcond944.not = icmp eq i64 %1252, %umax943
+  %exitcond944.not = icmp eq i64 %1252, %1207
   br i1 %exitcond944.not, label %._crit_edge769, label %.lr.ph768, !llvm.loop !140
 
 ._crit_edge769:                                   ; preds = %_ZN3vcg3tri6AppendI6CMeshONS0_12VoronoiAtlasIS2_E8VoroMeshEE4MeshERS2_RS5_bb.exit, %1203
@@ -30287,7 +30282,6 @@ define linkonce_odr void @_ZN3vcg3tri13PoissonSolverINS0_12VoronoiAtlasI6CMeshOE
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
   %13 = ashr exact i64 %12, 6
-  %umax = tail call i64 @llvm.umax.i64(i64 %13, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %52
@@ -30373,7 +30367,7 @@ _ZNSt6vectorIPN3vcg3tri12VoronoiAtlasI6CMeshOE10VoroVertexESaIS6_EE17_M_realloc_
 
 52:                                               ; preds = %.lr.ph
   %53 = add nuw i64 %.033, 1
-  %exitcond.not = icmp eq i64 %53, %umax
+  %exitcond.not = icmp eq i64 %53, %13
   br i1 %exitcond.not, label %_ZNSt6vectorIPN3vcg3tri12VoronoiAtlasI6CMeshOE10VoroVertexESaIS6_EE9push_backEOS6_.exit, label %.lr.ph, !llvm.loop !238
 
 .lr.ph.i:                                         ; preds = %1
@@ -55008,15 +55002,11 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3vcg3tri14UpdateTopologyINS3_12Vorono
   %20 = sub i64 %18, %19
   %21 = ashr exact i64 %20, 5
   %.not = icmp eq ptr %.pre, %.pre24
-  br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3vcg3tri14UpdateTopologyINS3_12VoronoiAtlasI6CMeshOE8VoroMeshEE5PEdgeESt6vectorISA_SaISA_EEEEEvT_SG_.exit
-  %umax = call i64 @llvm.umax.i64(i64 %21, i64 1)
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %53
-  %.023 = phi i64 [ %22, %53 ], [ 0, %.lr.ph.preheader ]
-  %.01722 = phi i64 [ %.1, %53 ], [ 1, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3vcg3tri14UpdateTopologyINS3_12VoronoiAtlasI6CMeshOE8VoroMeshEE5PEdgeESt6vectorISA_SaISA_EEEEEvT_SG_.exit, %53
+  %.023 = phi i64 [ %22, %53 ], [ 0, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3vcg3tri14UpdateTopologyINS3_12VoronoiAtlasI6CMeshOE8VoroMeshEE5PEdgeESt6vectorISA_SaISA_EEEEEvT_SG_.exit ]
+  %.01722 = phi i64 [ %.1, %53 ], [ 1, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3vcg3tri14UpdateTopologyINS3_12VoronoiAtlasI6CMeshOE8VoroMeshEE5PEdgeESt6vectorISA_SaISA_EEEEEvT_SG_.exit ]
   %22 = add nuw i64 %.023, 1
   %23 = icmp eq i64 %22, %21
   br i1 %23, label %36, label %24
@@ -55078,7 +55068,7 @@ _ZNSt6vectorIN3vcg3tri14UpdateTopologyINS1_12VoronoiAtlasI6CMeshOE8VoroMeshEE5PE
 
 53:                                               ; preds = %.thread, %46, %48, %51
   %.1 = phi i64 [ %52, %51 ], [ 1, %48 ], [ 1, %46 ], [ 1, %.thread ]
-  %exitcond.not = icmp eq i64 %22, %umax
+  %exitcond.not = icmp eq i64 %22, %21
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !564
 
 ._crit_edge:                                      ; preds = %53, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3vcg3tri14UpdateTopologyINS3_12VoronoiAtlasI6CMeshOE8VoroMeshEE5PEdgeESt6vectorISA_SaISA_EEEEEvT_SG_.exit.thread, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3vcg3tri14UpdateTopologyINS3_12VoronoiAtlasI6CMeshOE8VoroMeshEE5PEdgeESt6vectorISA_SaISA_EEEEEvT_SG_.exit
@@ -67660,7 +67650,6 @@ define linkonce_odr noundef zeroext i1 @_ZN3vcg10RectPackerIfE13PackOccupancyERK
   %19 = ptrtoint ptr %17 to i64
   %20 = sub i64 %18, %19
   %21 = ashr exact i64 %20, 4
-  %umax = tail call i64 @llvm.umax.i64(i64 %21, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -67678,7 +67667,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3vcg10RectPackerIfE13PackOccupancyERK
   %31 = fsub float %28, %30
   %32 = tail call float @llvm.fmuladd.f32(float %26, float %31, float %.04681)
   %33 = add nuw i64 %.04880, 1
-  %exitcond.not = icmp eq i64 %33, %umax
+  %exitcond.not = icmp eq i64 %33, %21
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !751
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5

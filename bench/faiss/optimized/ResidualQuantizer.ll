@@ -872,7 +872,6 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit158:            ; preds = %_ZSt6fill_nIPfmfET_
   %292 = ptrtoint ptr %.sroa.0239.2 to i64
   %293 = sub i64 %291, %292
   %294 = ashr exact i64 %293, 2
-  %umax = call i64 @llvm.umax.i64(i64 %294, i64 1)
   br label %.lr.ph758
 
 295:                                              ; preds = %289
@@ -917,7 +916,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit158:            ; preds = %_ZSt6fill_nIPfmfET_
   %316 = load float, ptr %315, align 4, !tbaa !57
   %317 = fadd float %.080756, %316
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond1061.not = icmp eq i64 %indvars.iv.next, %umax
+  %exitcond1061.not = icmp eq i64 %indvars.iv.next, %294
   br i1 %exitcond1061.not, label %._crit_edge759.loopexit, label %.lr.ph758, !llvm.loop !77
 
 318:                                              ; preds = %._crit_edge759

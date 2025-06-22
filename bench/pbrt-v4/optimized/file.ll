@@ -2384,7 +2384,6 @@ define linkonce_odr dso_local void @_ZNK10filesystem4path3strB5cxx11ENS0_9path_t
   %18 = ptrtoint ptr %16 to i64
   %19 = sub i64 %17, %18
   %20 = ashr exact i64 %19, 5
-  %umax = call i64 @llvm.umax.i64(i64 %20, i64 1)
   br label %.lr.ph
 
 21:                                               ; preds = %10
@@ -2414,7 +2413,7 @@ define linkonce_odr dso_local void @_ZNK10filesystem4path3strB5cxx11ENS0_9path_t
   %32 = add i64 %.01427, 1
   %33 = add i64 %32, %31
   %34 = add nuw i64 %.01328, 1
-  %exitcond.not = icmp eq i64 %34, %umax
+  %exitcond.not = icmp eq i64 %34, %20
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !50
 
 35:                                               ; preds = %._crit_edge

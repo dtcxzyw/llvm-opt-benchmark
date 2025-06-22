@@ -3637,7 +3637,6 @@ for.cond50.preheader.lr.ph:                       ; preds = %if.then43
   %rebateOffset_ = getelementptr inbounds nuw i8, ptr %this, i64 208
   %22 = load i64, ptr %rebateOffset_, align 8
   %23 = load ptr, ptr %cashFlowsGenerated, align 8
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %for.cond50.preheader
 
 for.cond50.preheader:                             ; preds = %for.cond50.preheader.lr.ph, %for.cond.cleanup53
@@ -3654,7 +3653,7 @@ for.body54.lr.ph:                                 ; preds = %for.cond50.preheade
 
 for.cond.cleanup53:                               ; preds = %for.body54, %for.cond50.preheader
   %inc58 = add nuw i64 %i.041, 1
-  %exitcond.not = icmp eq i64 %inc58, %umax
+  %exitcond.not = icmp eq i64 %inc58, %sub.ptr.div.i
   br i1 %exitcond.not, label %if.end77, label %for.cond50.preheader, !llvm.loop !110
 
 for.body54:                                       ; preds = %for.body54.lr.ph, %for.body54

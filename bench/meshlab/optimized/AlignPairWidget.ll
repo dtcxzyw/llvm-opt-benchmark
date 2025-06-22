@@ -1457,7 +1457,6 @@ _ZN3vcg11glTranslateERKNS_6Point3IfEE.exit:       ; preds = %341
   %438 = load float, ptr %11, align 4
   %439 = load float, ptr %67, align 4
   %440 = load float, ptr %68, align 4
-  %umax = call i64 @llvm.umax.i64(i64 %437, i64 1)
   br label %441
 
 441:                                              ; preds = %.lr.ph168, %441
@@ -1483,7 +1482,7 @@ _ZN3vcg11glTranslateERKNS_6Point3IfEE.exit:       ; preds = %341
   %.152 = select i1 %455, i32 %456, i32 %.051165
   %.150 = select i1 %455, double %454, double %.049166
   %457 = add nuw i64 %.048167, 1
-  %exitcond.not = icmp eq i64 %457, %umax
+  %exitcond.not = icmp eq i64 %457, %437
   br i1 %exitcond.not, label %._crit_edge169, label %441, !llvm.loop !18
 
 ._crit_edge169:                                   ; preds = %441

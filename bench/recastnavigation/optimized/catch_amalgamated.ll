@@ -4520,7 +4520,6 @@ _ZNSt6vectorIdSaIdEE7reserveEm.exit24.thread.i:   ; preds = %_ZNSt12_Vector_base
 _ZNSt6vectorIdSaIdEE5clearEv.exit.preheader.us.preheader.i: ; preds = %_ZNSt6vectorIdSaIdEE7reserveEm.exit24.thread.i
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 %27
   %42 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %28, i64 1)
   br label %_ZNSt6vectorIdSaIdEE5clearEv.exit.preheader.us.i
 
 _ZNSt6vectorIdSaIdEE5clearEv.exit.preheader.preheader.i: ; preds = %_ZNSt6vectorIdSaIdEE7reserveEm.exit24.i
@@ -4654,8 +4653,8 @@ _ZNSt6vectorIdSaIdEE9push_backERKd.exit.us.i:     ; preds = %_ZNSt6vectorIdSaIdE
   %.pn66.us.i = phi ptr [ %87, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.us.i ], [ %.sroa.9.182.us.i, %73 ]
   %.sroa.048.4.us.i = phi ptr [ %86, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.us.i ], [ %.sroa.048.283.us.i, %73 ]
   %.sroa.9.4.us.i = getelementptr inbounds nuw i8, ptr %.pn66.us.i, i64 8
-  %92 = add nuw nsw i64 %.01484.us.i, 1
-  %exitcond.not.i = icmp eq i64 %92, %umax.i
+  %92 = add nuw i64 %.01484.us.i, 1
+  %exitcond.not.i = icmp eq i64 %92, %28
   br i1 %exitcond.not.i, label %_ZNSt6vectorIdSaIdEE5clearEv.exit._crit_edge.us.i, label %70, !llvm.loop !16
 
 _ZNSt6vectorIdSaIdEE5clearEv.exit._crit_edge.us.i: ; preds = %_ZNSt6vectorIdSaIdEE9push_backERKd.exit.us.i

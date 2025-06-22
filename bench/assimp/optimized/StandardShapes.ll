@@ -900,7 +900,6 @@ switch.lookup:                                    ; preds = %8
 .lr.ph:                                           ; preds = %.loopexit44
   %39 = zext i32 %1 to i64
   %40 = shl nuw nsw i64 %39, 2
-  %wide.trip.count = zext i32 %1 to i64
   br label %46
 
 ._crit_edge.loopexit:                             ; preds = %50
@@ -947,7 +946,7 @@ switch.lookup:                                    ; preds = %8
   store i32 %.145, ptr %53, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %54 = add i32 %.145, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %39
   br i1 %exitcond.not, label %50, label %51, !llvm.loop !43
 
 .loopexit.loopexit:                               ; preds = %._crit_edge

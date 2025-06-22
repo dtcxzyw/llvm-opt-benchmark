@@ -2793,15 +2793,11 @@ if.end40:                                         ; preds = %if.then4.i.i, %if.t
   %conv42 = zext i32 %19 to i64
   %N..i = call i64 @llvm.umin.i64(i64 %conv42, i64 %Bytes2.sroa.4.0264)
   %cmp45257.not = icmp eq i32 %19, 0
-  br i1 %cmp45257.not, label %for.end, label %for.body.preheader
+  br i1 %cmp45257.not, label %for.end, label %for.body
 
-for.body.preheader:                               ; preds = %if.end40
-  %umax = call i64 @llvm.umax.i64(i64 %N..i, i64 1)
-  br label %for.body
-
-for.body:                                         ; preds = %for.body.preheader, %if.end52
-  %CharsPrinted.0259 = phi i32 [ %add58, %if.end52 ], [ 0, %for.body.preheader ]
-  %I.0258 = phi i64 [ %inc57, %if.end52 ], [ 0, %for.body.preheader ]
+for.body:                                         ; preds = %if.end40, %if.end52
+  %CharsPrinted.0259 = phi i32 [ %add58, %if.end52 ], [ 0, %if.end40 ]
+  %I.0258 = phi i64 [ %inc57, %if.end52 ], [ 0, %if.end40 ]
   %tobool46.not = icmp eq i64 %I.0258, 0
   br i1 %tobool46.not, label %if.end52, label %land.lhs.true
 
@@ -2838,7 +2834,7 @@ if.end52:                                         ; preds = %if.then4.i.i56, %if
   call void @_ZN4llvh9write_hexERNS_11raw_ostreamEmNS_13HexPrintStyleENS_8OptionalImEE(ptr noundef nonnull align 8 dereferenceable(36) %this, i64 noundef %conv54, i32 noundef %cond, i64 2, i8 1) #26
   %inc57 = add nuw nsw i64 %I.0258, 1
   %add58 = add i32 %CharsPrinted.1, 2
-  %exitcond.not = icmp eq i64 %inc57, %umax
+  %exitcond.not = icmp eq i64 %inc57, %N..i
   br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !11
 
 for.end.loopexit:                                 ; preds = %if.end52

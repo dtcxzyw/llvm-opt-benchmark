@@ -4074,14 +4074,10 @@ define dso_local void @_ZN5clang15VariablePattern20addVariableOccurenceEPKNS_7Va
   %10 = sub i64 %8, %9
   %11 = ashr exact i64 %10, 3
   %.not = icmp eq ptr %6, %7
-  br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %3
-  %umax = tail call i64 @llvm.umax.i64(i64 %11, i64 1)
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %44
-  %storemerge36 = phi i64 [ %45, %44 ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %3, %44
+  %storemerge36 = phi i64 [ %45, %44 ], [ 0, %3 ]
   %12 = getelementptr inbounds nuw ptr, ptr %7, i64 %storemerge36
   %13 = load ptr, ptr %12, align 8, !tbaa !455
   %14 = icmp eq ptr %13, %1
@@ -4161,7 +4157,7 @@ _ZNSt6vectorIN5clang15VariablePattern17VariableOccurenceESaIS2_EE17_M_realloc_in
 
 44:                                               ; preds = %.lr.ph
   %45 = add nuw i64 %storemerge36, 1
-  %exitcond.not = icmp eq i64 %45, %umax
+  %exitcond.not = icmp eq i64 %45, %11
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !471
 
 ._crit_edge:                                      ; preds = %44, %3

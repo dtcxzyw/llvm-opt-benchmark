@@ -2045,18 +2045,14 @@ define noundef i32 @_ZN3gmx10BiasWriter22writeToEnergySubblocksERKNS_4BiasEP13t_
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 5
   %.not = icmp eq ptr %5, %6
-  br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %3
-  %umax = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
-  br label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %11 = trunc i64 %10 to i32
   ret i32 %11
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.015 = phi i64 [ %25, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %3, %.lr.ph
+  %.015 = phi i64 [ %25, %.lr.ph ], [ 0, %3 ]
   %12 = getelementptr inbounds nuw %struct.t_enxsubblock, ptr %2, i64 %.015
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 1, ptr %13, align 4, !tbaa !115
@@ -2074,7 +2070,7 @@ define noundef i32 @_ZN3gmx10BiasWriter22writeToEnergySubblocksERKNS_4BiasEP13t_
   %24 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %16, ptr %24, align 8, !tbaa !124
   %25 = add nuw i64 %.015, 1
-  %exitcond.not = icmp eq i64 %25, %umax
+  %exitcond.not = icmp eq i64 %25, %10
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !125
 }
 

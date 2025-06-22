@@ -2435,7 +2435,6 @@ define internal noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L29_Dir
   %21 = ashr exact i64 %20, 3
   %22 = load ptr, ptr %3, align 8
   %23 = ptrtoint ptr %22 to i64
-  %umax = call i64 @llvm.umax.i64(i64 %21, i64 1)
   br label %24
 
 24:                                               ; preds = %24, %.lr.ph
@@ -2446,7 +2445,7 @@ define internal noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L29_Dir
   %28 = xor i64 %23, %27
   %29 = icmp ugt i64 %28, 7
   %30 = add nuw i64 %.024, 1
-  %exitcond.not = icmp ne i64 %30, %umax
+  %exitcond.not = icmp ne i64 %30, %21
   %or.cond28.not = select i1 %29, i1 %exitcond.not, i1 false
   br i1 %or.cond28.not, label %24, label %.loopexit, !llvm.loop !19
 

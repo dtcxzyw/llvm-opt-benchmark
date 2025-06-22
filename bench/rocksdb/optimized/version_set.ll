@@ -5607,7 +5607,6 @@ define void @_ZN7rocksdb25DoGenerateLevelFilesBriefEPNS_15LevelFilesBriefERKSt6v
 .lr.ph.preheader:                                 ; preds = %20
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %15, ptr %33, align 8, !tbaa !596
-  %umax = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
   %.pre = load ptr, ptr %1, align 8, !tbaa !361
   br label %.lr.ph
 
@@ -5669,7 +5668,7 @@ define void @_ZN7rocksdb25DoGenerateLevelFilesBriefEPNS_15LevelFilesBriefERKSt6v
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %52, i64 72
   store i64 %44, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !285
   %72 = add nuw i64 %.046, 1
-  %exitcond.not = icmp eq i64 %72, %umax
+  %exitcond.not = icmp eq i64 %72, %10
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !601
 }
 
@@ -22001,7 +22000,6 @@ _ZNSt6vectorIN7rocksdb12_GLOBAL__N_15FsizeESaIS2_EEC2EmRKS3_.exit: ; preds = %.l
   %83 = ptrtoint ptr %81 to i64
   %84 = sub i64 %82, %83
   %85 = ashr exact i64 %84, 3
-  %umax = call i64 @llvm.umax.i64(i64 %85, i64 1)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZNSt6vectorIN7rocksdb12_GLOBAL__N_15FsizeESaIS2_EEC2EmRKS3_.exit
@@ -22027,7 +22025,7 @@ _ZNSt6vectorIN7rocksdb12_GLOBAL__N_15FsizeESaIS2_EEC2EmRKS3_.exit: ; preds = %.l
   %94 = getelementptr inbounds nuw i8, ptr %91, i64 8
   store ptr %93, ptr %94, align 8, !tbaa !1324
   %95 = add nuw i64 %.039363, 1
-  %exitcond.not = icmp eq i64 %95, %umax
+  %exitcond.not = icmp eq i64 %95, %85
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !1325
 
 96:                                               ; preds = %._crit_edge
@@ -24164,7 +24162,6 @@ _ZNSt6vectorIN7rocksdb12_GLOBAL__N_15FsizeESaIS2_EE9push_backERKS2_.exit.i: ; pr
   %828 = ptrtoint ptr %.sroa.14.4.i to i64
   %829 = sub i64 %828, %827
   %830 = ashr exact i64 %829, 4
-  %umax.i = call i64 @llvm.umax.i64(i64 %830, i64 1)
   br label %.lr.ph76.i
 
 .lr.ph71.i:                                       ; preds = %_ZNSt6vectorIN7rocksdb12_GLOBAL__N_15FsizeESaIS2_EE9push_backERKS2_.exit.i, %_ZNSt6vectorIN7rocksdb12_GLOBAL__N_15FsizeESaIS2_EE9push_backERKS2_.exit83.i
@@ -24271,7 +24268,7 @@ _ZNSt6vectorIN7rocksdb12_GLOBAL__N_15FsizeESaIS2_EE9push_backERKS2_.exit83.i: ; 
   %857 = getelementptr inbounds nuw %"struct.rocksdb::(anonymous namespace)::Fsize", ptr %.sroa.0182.1, i64 %.075.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %857, ptr noundef nonnull align 8 dereferenceable(16) %856, i64 16, i1 false), !tbaa.struct !1319
   %858 = add nuw i64 %.075.i, 1
-  %exitcond89.not.i = icmp eq i64 %858, %umax.i
+  %exitcond89.not.i = icmp eq i64 %858, %830
   br i1 %exitcond89.not.i, label %._crit_edge.thread.i, label %.lr.ph76.i, !llvm.loop !1363
 
 859:                                              ; preds = %854

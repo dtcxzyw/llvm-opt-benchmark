@@ -11583,7 +11583,6 @@ define internal range(i32 -1094995529, 1) i32 @mov_read_stss(ptr noundef readonl
 
 .preheader:                                       ; preds = %45
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %wide.trip.count = zext nneg i32 %26 to i64
   br label %50
 
 50:                                               ; preds = %.preheader, %52
@@ -11598,7 +11597,7 @@ define internal range(i32 -1094995529, 1) i32 @mov_read_stss(ptr noundef readonl
   %55 = getelementptr inbounds nuw i32, ptr %54, i64 %indvars.iv
   store i32 %53, ptr %55, align 4, !tbaa !83
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %46
   br i1 %exitcond.not, label %.critedge, label %50, !llvm.loop !476
 
 .critedge.thread:                                 ; preds = %50
@@ -11773,7 +11772,6 @@ define internal range(i32 -1094995529, 1) i32 @mov_read_stsz(ptr noundef readonl
   %81 = add nsw i32 %.077, -16
   %82 = sub nsw i32 48, %.077
   %83 = sub nsw i32 32, %.077
-  %wide.trip.count104 = zext nneg i32 %39 to i64
   br i1 %78, label %get_bits_long.exit.us, label %get_bits_long.exit
 
 get_bits_long.exit.us:                            ; preds = %74, %97
@@ -11801,7 +11799,7 @@ get_bits_long.exit.us:                            ; preds = %74, %97
   %100 = add nsw i64 %84, %94
   store i64 %100, ptr %80, align 8, !tbaa !270
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
-  %exitcond105.not = icmp eq i64 %indvars.iv.next101, %wide.trip.count104
+  %exitcond105.not = icmp eq i64 %indvars.iv.next101, %59
   br i1 %exitcond105.not, label %.split95.us, label %get_bits_long.exit.us, !llvm.loop !478
 
 get_bits_long.exit:                               ; preds = %74, %127
@@ -11847,7 +11845,7 @@ get_bits_long.exit:                               ; preds = %74, %127
   %130 = add nsw i64 %101, %123
   store i64 %130, ptr %80, align 8, !tbaa !270
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count104
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %59
   br i1 %exitcond.not, label %.split95.us, label %get_bits_long.exit, !llvm.loop !478
 
 .split95.us:                                      ; preds = %127, %97
@@ -15287,7 +15285,6 @@ define internal range(i32 -541478725, 1) i32 @mov_read_sbgp(ptr noundef readonly
 41:                                               ; preds = %38
   store ptr %40, ptr %25, align 8, !tbaa !562
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %wide.trip.count = zext i32 %32 to i64
   br label %43
 
 43:                                               ; preds = %41, %45
@@ -15304,7 +15301,7 @@ define internal range(i32 -541478725, 1) i32 @mov_read_sbgp(ptr noundef readonly
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 4
   store i32 %48, ptr %49, align 4, !tbaa !565
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %39
   br i1 %exitcond.not, label %.critedge, label %43, !llvm.loop !566
 
 .critedge.split.loop.exit52:                      ; preds = %43

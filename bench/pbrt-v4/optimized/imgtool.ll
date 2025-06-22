@@ -18411,7 +18411,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit509: ; preds = %_Z
   %942 = getelementptr inbounds nuw i8, ptr %42, i64 32
   %943 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %944 = getelementptr inbounds nuw i8, ptr %40, i64 32
-  %umax = call i64 @llvm.umax.i64(i64 %795, i64 1)
   %945 = getelementptr inbounds nuw i8, ptr %41, i64 17
   %946 = getelementptr inbounds nuw i8, ptr %41, i64 49
   %947 = getelementptr inbounds nuw i8, ptr %41, i64 81
@@ -18508,7 +18507,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit512: ; preds = %_Z
 
 ._crit_edge1209:                                  ; preds = %_ZN4pbrt16ImageChannelDescD2Ev.exit, %.preheader
   %indvars.iv.next1282 = add nuw i64 %indvars.iv1281, 1
-  %exitcond1284.not = icmp eq i64 %indvars.iv.next1282, %umax
+  %exitcond1284.not = icmp eq i64 %indvars.iv.next1282, %795
   br i1 %exitcond1284.not, label %._crit_edge1212, label %967, !llvm.loop !344
 
 975:                                              ; preds = %967

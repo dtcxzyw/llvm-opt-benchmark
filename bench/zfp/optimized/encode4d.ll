@@ -1091,8 +1091,7 @@ define internal fastcc i32 @encode_ints_uint64(ptr noalias noundef captures(none
   br i1 %.not146.i, label %.preheader83.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %11
-  %umax.i = tail call i32 @llvm.umax.i32(i32 %12, i32 1)
-  %wide.trip.count.i = zext i32 %umax.i to i64
+  %wide.trip.count.i = zext i32 %12 to i64
   br label %15
 
 .preheader83.i:                                   ; preds = %stream_write_bit.exit.i, %11

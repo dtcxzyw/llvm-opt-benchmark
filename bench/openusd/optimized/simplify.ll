@@ -3045,7 +3045,6 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKno
   %687 = ptrtoint ptr %.val158 to i64
   %688 = sub i64 %687, %686
   %689 = sdiv exact i64 %688, 24
-  %umax = call i64 @llvm.umax.i64(i64 %689, i64 1)
   br label %.lr.ph477
 
 690:                                              ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE9push_backERKS2_.exit272
@@ -3058,7 +3057,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKno
 
 691:                                              ; preds = %.lr.ph477
   %692 = add nuw i64 %.0119476, 1
-  %exitcond.not = icmp eq i64 %692, %umax
+  %exitcond.not = icmp eq i64 %692, %689
   br i1 %exitcond.not, label %._crit_edge478, label %.lr.ph477, !llvm.loop !16
 
 ._crit_edge478:                                   ; preds = %691, %.preheader
@@ -3096,16 +3095,12 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESaIS1_EE5clearEv.ex
   %705 = sub i64 %704, %686
   %706 = sdiv exact i64 %705, 24
   %.not495 = icmp eq ptr %.val160, %.val
-  br i1 %.not495, label %._crit_edge486, label %.lr.ph485.preheader
+  br i1 %.not495, label %._crit_edge486, label %.lr.ph485
 
-.lr.ph485.preheader:                              ; preds = %703
-  %umax522 = call i64 @llvm.umax.i64(i64 %706, i64 1)
-  br label %.lr.ph485
-
-.lr.ph485:                                        ; preds = %.lr.ph485.preheader, %718
-  %.0114483 = phi i64 [ %719, %718 ], [ 0, %.lr.ph485.preheader ]
-  %.0115482 = phi i1 [ %.1116, %718 ], [ true, %.lr.ph485.preheader ]
-  %.0117481 = phi i64 [ %.1118, %718 ], [ 0, %.lr.ph485.preheader ]
+.lr.ph485:                                        ; preds = %703, %718
+  %.0114483 = phi i64 [ %719, %718 ], [ 0, %703 ]
+  %.0115482 = phi i1 [ %.1116, %718 ], [ true, %703 ]
+  %.0117481 = phi i64 [ %.1118, %718 ], [ 0, %703 ]
   %707 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::(anonymous namespace)::_EditSimplifyKnotInfo", ptr %.val, i64 %.0114483
   %708 = getelementptr inbounds nuw i8, ptr %707, i64 12
   %709 = load i8, ptr %708, align 4
@@ -3131,7 +3126,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESaIS1_EE5clearEv.ex
   %.1118 = phi i64 [ %.0114483, %717 ], [ %.0117481, %711 ], [ %.0117.mux, %.lr.ph485 ]
   %.1116 = phi i1 [ false, %717 ], [ false, %711 ], [ %.0115.mux, %.lr.ph485 ]
   %719 = add nuw i64 %.0114483, 1
-  %exitcond523.not = icmp eq i64 %719, %umax522
+  %exitcond523.not = icmp eq i64 %719, %706
   br i1 %exitcond523.not, label %._crit_edge486, label %.lr.ph485, !llvm.loop !17
 
 ._crit_edge486:                                   ; preds = %718, %703
@@ -4459,7 +4454,6 @@ _ZNSt6vectorISt4pairIPN32pxrInternal_v0_24__pxrReserved__8TsSplineENS1_15GfMulti
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorISt4pairIPN32pxrInternal_v0_24__pxrReserved__8TsSplineENS1_15GfMultiIntervalEESaIS5_EE7reserveEm.exit
   %99 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %umax = tail call i64 @llvm.umax.i64(i64 %73, i64 1)
   br label %100
 
 100:                                              ; preds = %.lr.ph, %_ZNSt6vectorISt4pairIPN32pxrInternal_v0_24__pxrReserved__8TsSplineENS1_15GfMultiIntervalEESaIS5_EE12emplace_backIJRKS3_RKS4_EEERS5_DpOT_.exit
@@ -4537,7 +4531,7 @@ _ZNSt16allocator_traitsISaISt4pairIPN32pxrInternal_v0_24__pxrReserved__8TsSpline
 
 _ZNSt6vectorISt4pairIPN32pxrInternal_v0_24__pxrReserved__8TsSplineENS1_15GfMultiIntervalEESaIS5_EE12emplace_backIJRKS3_RKS4_EEERS5_DpOT_.exit: ; preds = %129, %_ZNSt16allocator_traitsISaISt4pairIPN32pxrInternal_v0_24__pxrReserved__8TsSplineENS1_15GfMultiIntervalEEEE9constructIS5_JRKS3_RKS4_EEEvRS6_PT_DpOT0_.exit.i
   %130 = add nuw i64 %.02553, 1
-  %exitcond.not = icmp eq i64 %130, %umax
+  %exitcond.not = icmp eq i64 %130, %73
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %100, !llvm.loop !22
 
 .loopexit:                                        ; preds = %116, %129

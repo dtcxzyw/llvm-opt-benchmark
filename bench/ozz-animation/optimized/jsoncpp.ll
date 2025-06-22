@@ -18296,7 +18296,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit227.i: ; preds = %
   %560 = ashr exact i64 %559, 5
   %561 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %562 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %umax = call i64 @llvm.umax.i64(i64 %560, i64 1)
   br label %605
 
 ._crit_edge:                                      ; preds = %648, %553
@@ -18535,7 +18534,7 @@ _ZN4Json5ValueaSERKS0_.exit:                      ; preds = %_ZN4Json5ValueixERK
 
 648:                                              ; preds = %_ZN4Json5ValueaSERKS0_.exit, %_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EE4findERKS5_.exit
   %649 = add nuw i64 %.01339, 1
-  %exitcond.not = icmp eq i64 %649, %umax
+  %exitcond.not = icmp eq i64 %649, %560
   br i1 %exitcond.not, label %._crit_edge, label %605, !llvm.loop !409
 
 650:                                              ; preds = %646, %603
@@ -41233,7 +41232,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131.i: ; preds = %
   %350 = ashr exact i64 %349, 5
   %351 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %352 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %umax = call i64 @llvm.umax.i64(i64 %350, i64 1)
   br label %395
 
 ._crit_edge:                                      ; preds = %438, %343
@@ -41472,7 +41470,7 @@ _ZN4Json5ValueaSERKS0_.exit:                      ; preds = %_ZN4Json5ValueixERK
 
 438:                                              ; preds = %_ZN4Json5ValueaSERKS0_.exit, %_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EE4findERKS5_.exit
   %439 = add nuw i64 %.01339, 1
-  %exitcond.not = icmp eq i64 %439, %umax
+  %exitcond.not = icmp eq i64 %439, %350
   br i1 %exitcond.not, label %._crit_edge, label %395, !llvm.loop !644
 
 440:                                              ; preds = %436, %393

@@ -3317,7 +3317,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
   %44 = sdiv exact i64 %43, 96
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %46 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %umax.i.i.i = call i64 @llvm.umax.i64(i64 %44, i64 1)
   br label %47
 
 47:                                               ; preds = %_ZN2cvL5writeINS_3MatEEEvRNS_11FileStorageERKT_.exit.i.i.i, %.lr.ph.i.i.i
@@ -3371,7 +3370,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i: ; preds
 _ZN2cvL5writeINS_3MatEEEvRNS_11FileStorageERKT_.exit.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #16
   %61 = add nuw i64 %.07.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %61, %umax.i.i.i
+  %exitcond.not.i.i.i = icmp eq i64 %61, %44
   br i1 %exitcond.not.i.i.i, label %_ZN2cvL5writeINS_3MatEEEvRNS_11FileStorageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISD_EE.exit, label %47, !llvm.loop !98
 
 62:                                               ; preds = %29

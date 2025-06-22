@@ -2964,7 +2964,6 @@ _ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit: ; preds = %13, %.noexc39
   %33 = lshr exact i64 %32, 2
   %34 = trunc i64 %33 to i32
   %35 = sub nsw i32 0, %34
-  %umax = call i64 @llvm.umax.i64(i64 %30, i64 1)
   br label %38
 
 36:                                               ; preds = %12, %11
@@ -2994,7 +2993,7 @@ _ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit: ; preds = %13, %.noexc39
   %46 = add nsw i32 %45, %40
   store i32 %46, ptr %39, align 4, !tbaa !66
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %30
   br i1 %exitcond.not, label %.lr.ph62, label %38, !llvm.loop !94
 
 47:                                               ; preds = %42
@@ -3440,7 +3439,6 @@ _ZNSt6vectorIiSaIiEEaSERKS1_.exit:                ; preds = %25, %_ZNSt12_Vector
 
 .lr.ph120.preheader:                              ; preds = %_ZNSt6vectorIiSaIiEEaSERKS1_.exit
   %41 = ashr exact i64 %31, 2
-  %umax144 = call i64 @llvm.umax.i64(i64 %41, i64 1)
   br label %.lr.ph120
 
 .lr.ph120:                                        ; preds = %.lr.ph120.preheader, %.lr.ph120
@@ -3448,7 +3446,7 @@ _ZNSt6vectorIiSaIiEEaSERKS1_.exit:                ; preds = %25, %_ZNSt12_Vector
   %42 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv
   store i32 1, ptr %42, align 4, !tbaa !66
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond145.not = icmp eq i64 %indvars.iv.next, %umax144
+  %exitcond145.not = icmp eq i64 %indvars.iv.next, %41
   br i1 %exitcond145.not, label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit, label %.lr.ph120, !llvm.loop !109
 
 _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %19
@@ -3556,7 +3554,6 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i: ; preds = %61
   %76 = lshr exact i64 %75, 2
   %77 = trunc i64 %76 to i32
   %78 = sub nsw i32 0, %77
-  %umax = tail call i64 @llvm.umax.i64(i64 %72, i64 1)
   br label %85
 
 ._crit_edge:                                      ; preds = %90
@@ -3601,7 +3598,7 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i: ; preds = %61
   %95 = getelementptr inbounds nuw i32, ptr %67, i64 %94
   store i32 -1, ptr %95, align 4, !tbaa !66
   %96 = add nuw i64 %.02197, 1
-  %exitcond.not = icmp eq i64 %96, %umax
+  %exitcond.not = icmp eq i64 %96, %72
   br i1 %exitcond.not, label %._crit_edge, label %85, !llvm.loop !110
 
 97:                                               ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit57

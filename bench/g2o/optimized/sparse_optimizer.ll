@@ -804,7 +804,6 @@ define void @_ZN3g2o15SparseOptimizer17clearIndexMappingEv(ptr noundef nonnull r
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %9, i64 1)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
@@ -818,7 +817,7 @@ define void @_ZN3g2o15SparseOptimizer17clearIndexMappingEv(ptr noundef nonnull r
   store i32 -1, ptr %12, align 8, !tbaa !153
   store ptr null, ptr %10, align 8, !tbaa !150
   %13 = add nuw i64 %.04, 1
-  %exitcond.not = icmp eq i64 %13, %umax
+  %exitcond.not = icmp eq i64 %13, %9
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !155
 }
 
@@ -996,7 +995,6 @@ define noundef zeroext i1 @_ZN3g2o15SparseOptimizer22initializeOptimizationERSt3
   %19 = ptrtoint ptr %17 to i64
   %20 = sub i64 %18, %19
   %21 = ashr exact i64 %20, 3
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %21, i64 1)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -1007,7 +1005,7 @@ define noundef zeroext i1 @_ZN3g2o15SparseOptimizer22initializeOptimizationERSt3
   store i32 -1, ptr %24, align 8, !tbaa !153
   store ptr null, ptr %22, align 8, !tbaa !150
   %25 = add nuw i64 %.04.i, 1
-  %exitcond.not.i = icmp eq i64 %25, %umax.i
+  %exitcond.not.i = icmp eq i64 %25, %21
   br i1 %exitcond.not.i, label %_ZN3g2o15SparseOptimizer17clearIndexMappingEv.exit, label %.lr.ph.i, !llvm.loop !155
 
 _ZN3g2o15SparseOptimizer17clearIndexMappingEv.exit: ; preds = %.lr.ph.i, %8
@@ -1672,7 +1670,6 @@ define noundef zeroext i1 @_ZN3g2o15SparseOptimizer22initializeOptimizationERSt3
   %14 = ptrtoint ptr %12 to i64
   %15 = sub i64 %13, %14
   %16 = ashr exact i64 %15, 3
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %16, i64 1)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -1683,7 +1680,7 @@ define noundef zeroext i1 @_ZN3g2o15SparseOptimizer22initializeOptimizationERSt3
   store i32 -1, ptr %19, align 8, !tbaa !153
   store ptr null, ptr %17, align 8, !tbaa !150
   %20 = add nuw i64 %.04.i, 1
-  %exitcond.not.i = icmp eq i64 %20, %umax.i
+  %exitcond.not.i = icmp eq i64 %20, %16
   br i1 %exitcond.not.i, label %_ZN3g2o15SparseOptimizer17clearIndexMappingEv.exit, label %.lr.ph.i, !llvm.loop !155
 
 _ZN3g2o15SparseOptimizer17clearIndexMappingEv.exit: ; preds = %.lr.ph.i, %2
@@ -4807,7 +4804,6 @@ define noundef zeroext i1 @_ZN3g2o15SparseOptimizer12removeVertexEPNS_10HyperGra
   %13 = ptrtoint ptr %11 to i64
   %14 = sub i64 %12, %13
   %15 = ashr exact i64 %14, 3
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %15, i64 1)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -4818,7 +4814,7 @@ define noundef zeroext i1 @_ZN3g2o15SparseOptimizer12removeVertexEPNS_10HyperGra
   store i32 -1, ptr %18, align 8, !tbaa !153
   store ptr null, ptr %16, align 8, !tbaa !150
   %19 = add nuw i64 %.04.i, 1
-  %exitcond.not.i = icmp eq i64 %19, %umax.i
+  %exitcond.not.i = icmp eq i64 %19, %15
   br i1 %exitcond.not.i, label %_ZN3g2o15SparseOptimizer17clearIndexMappingEv.exit, label %.lr.ph.i, !llvm.loop !155
 
 _ZN3g2o15SparseOptimizer17clearIndexMappingEv.exit: ; preds = %.lr.ph.i

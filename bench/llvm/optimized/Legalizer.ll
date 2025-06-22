@@ -6110,8 +6110,7 @@ _ZN4llvm28LegalizationArtifactCombiner14isArtifactCastEj.exit.thread297: ; preds
   %212 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %213 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %214 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %umax367 = call i32 @llvm.umax.i32(i32 %197, i32 1)
-  %wide.trip.count368 = zext nneg i32 %umax367 to i64
+  %wide.trip.count368 = zext nneg i32 %197 to i64
   br label %215
 
 215:                                              ; preds = %202, %_ZN4llvm11SmallVectorINS_8RegisterELj8EED2Ev.exit
@@ -6374,8 +6373,7 @@ _ZN4llvm11SmallVectorINS_8RegisterELj8EED2Ev.exit: ; preds = %_ZN4llvm15SmallVec
   %339 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %340 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %341 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %umax = call i32 @llvm.umax.i32(i32 %24, i32 1)
-  %wide.trip.count362 = zext i32 %umax to i64
+  %wide.trip.count362 = zext i32 %24 to i64
   br label %.lr.ph333.preheader
 
 .lr.ph333.preheader:                              ; preds = %_ZN4llvm11SmallVectorINS_8RegisterELj8EED2Ev.exit240, %332

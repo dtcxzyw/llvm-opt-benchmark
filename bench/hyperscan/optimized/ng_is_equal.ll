@@ -484,12 +484,11 @@ _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolder
   %142 = sub i64 %140, %141
   %143 = ashr exact i64 %142, 4
   %144 = load ptr, ptr %19, align 8
-  %umax = call i64 @llvm.umax.i64(i64 %143, i64 1)
   br label %147
 
 145:                                              ; preds = %147
   %146 = add nuw i64 %.0138301, 1
-  %exitcond.not = icmp eq i64 %146, %umax
+  %exitcond.not = icmp eq i64 %146, %143
   br i1 %exitcond.not, label %.critedge165, label %147, !llvm.loop !41
 
 147:                                              ; preds = %.lr.ph, %145

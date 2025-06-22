@@ -5671,7 +5671,6 @@ _ZN4llvm13SmallDenseMapIPNS_8FunctionEiLj4ENS_12DenseMapInfoIS2_vEENS_6detail12D
   %866 = ptrtoint ptr %.sroa.0270.5 to i64
   %867 = sub i64 %865, %866
   %868 = sdiv exact i64 %867, 344
-  %umax = call i64 @llvm.umax.i64(i64 %868, i64 1)
   br label %_ZN4llvm13SmallDenseMapIPNS_8FunctionEiLj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_iEEEC2Ej.exit.i
 
 _ZN4llvm13SmallDenseMapIPNS_8FunctionEiLj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_iEEEC2Ej.exit._crit_edge.loopexit.i: ; preds = %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_8FunctionEiLj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixERKS3_.exit
@@ -5855,7 +5854,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_8FunctionEiLj4ENS_12DenseMapInfoIS
   %.0.i195 = getelementptr inbounds nuw i8, ptr %.pn.i194, i64 8
   store i32 %872, ptr %.0.i195, align 4, !tbaa !66
   %962 = add nuw i64 %.03793.i, 1
-  %exitcond.not = icmp eq i64 %962, %umax
+  %exitcond.not = icmp eq i64 %962, %868
   br i1 %exitcond.not, label %_ZN4llvm13SmallDenseMapIPNS_8FunctionEiLj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_iEEEC2Ej.exit._crit_edge.loopexit.i, label %_ZN4llvm13SmallDenseMapIPNS_8FunctionEiLj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_iEEEC2Ej.exit.i, !llvm.loop !472
 
 .lr.ph97.i:                                       ; preds = %_ZN4llvm13SmallDenseMapIPNS_8FunctionEiLj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_iEEEC2Ej.exit._crit_edge.i

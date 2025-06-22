@@ -2888,7 +2888,6 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %882
   %917 = getelementptr inbounds nuw i8, ptr %117, i64 16
   %918 = getelementptr inbounds nuw i8, ptr %116, i64 8
   %919 = getelementptr inbounds nuw i8, ptr %116, i64 16
-  %umax = call i64 @llvm.umax.i64(i64 %905, i64 1)
   br label %920
 
 920:                                              ; preds = %.lr.ph, %_ZNSt6vectorIN2cv3MatESaIS1_EE9push_backERKS1_.exit424
@@ -3002,7 +3001,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backERKS1_.exit424: ; preds = %.noexc422, %9
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %118) #23
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %118) #23
   %948 = add nuw i64 %.0102579, 1
-  %exitcond.not = icmp eq i64 %948, %umax
+  %exitcond.not = icmp eq i64 %948, %905
   br i1 %exitcond.not, label %._crit_edge, label %920, !llvm.loop !151
 
 949:                                              ; preds = %946, %944

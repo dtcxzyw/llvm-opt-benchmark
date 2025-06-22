@@ -315,7 +315,6 @@ define internal i32 @sunrast_decode_frame(ptr noundef %0, ptr noundef %1, ptr no
 .lr.ph271:                                        ; preds = %.preheader263
   %147 = zext nneg i32 %79 to i64
   %148 = zext nneg i32 %77 to i64
-  %umax303 = tail call i32 @llvm.umax.i32(i32 %22, i32 1)
   br label %186
 
 149:                                              ; preds = %143
@@ -412,7 +411,7 @@ define internal i32 @sunrast_decode_frame(ptr noundef %0, ptr noundef %1, ptr no
   %191 = getelementptr inbounds i8, ptr %.6269, i64 %.0224
   %192 = getelementptr inbounds nuw i8, ptr %.3209270, i64 %147
   %193 = add nuw i32 %.0225268, 1
-  %exitcond304.not = icmp eq i32 %193, %umax303
+  %exitcond304.not = icmp eq i32 %193, %22
   br i1 %exitcond304.not, label %.critedge, label %186, !llvm.loop !42
 
 .critedge:                                        ; preds = %186, %190, %183, %149
@@ -457,7 +456,6 @@ define internal i32 @sunrast_decode_frame(ptr noundef %0, ptr noundef %1, ptr no
   %209 = mul i32 %208, %25
   %210 = icmp eq i32 %24, 16777216
   %umax316 = tail call i32 @llvm.umax.i32(i32 %209, i32 1)
-  %umax319 = tail call i32 @llvm.umax.i32(i32 %22, i32 1)
   %wide.trip.count317 = zext i32 %umax316 to i64
   br i1 %210, label %.preheader.us.us, label %.preheader.us
 
@@ -535,7 +533,7 @@ define internal i32 @sunrast_decode_frame(ptr noundef %0, ptr noundef %1, ptr no
   %262 = getelementptr inbounds i8, ptr %.7287.us.us, i64 %261
   %263 = getelementptr inbounds nuw i8, ptr %.1217289.us.us, i64 %206
   %264 = add nuw nsw i32 %.1226286.us.us, 1
-  %exitcond320.not = icmp eq i32 %264, %umax319
+  %exitcond320.not = icmp eq i32 %264, %22
   br i1 %exitcond320.not, label %._crit_edge291, label %.preheader.us.us, !llvm.loop !44
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph.split.us, %._crit_edge285.split.us293
@@ -567,7 +565,7 @@ define internal i32 @sunrast_decode_frame(ptr noundef %0, ptr noundef %1, ptr no
   %275 = getelementptr inbounds i8, ptr %.7287.us, i64 %274
   %276 = getelementptr inbounds nuw i8, ptr %.1217289.us, i64 %206
   %277 = add nuw nsw i32 %.1226286.us, 1
-  %exitcond312.not = icmp eq i32 %277, %umax319
+  %exitcond312.not = icmp eq i32 %277, %22
   br i1 %exitcond312.not, label %._crit_edge291, label %.preheader.us, !llvm.loop !44
 
 ._crit_edge291:                                   ; preds = %._crit_edge285.split.us293, %._crit_edge285.split.us.us.us, %.preheader.lr.ph, %.thread325, %200

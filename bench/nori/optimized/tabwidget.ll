@@ -176,7 +176,6 @@ define hidden void @_ZN7nanogui13TabWidgetBase10remove_tabEi(ptr noundef nonnull
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
   %12 = ashr exact i64 %11, 2
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %12, i64 1)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %16, %.lr.ph.preheader.i
@@ -188,7 +187,7 @@ define hidden void @_ZN7nanogui13TabWidgetBase10remove_tabEi(ptr noundef nonnull
 
 16:                                               ; preds = %.lr.ph.i
   %17 = add nuw i64 %.08.i, 1
-  %exitcond.not.i = icmp eq i64 %17, %umax.i
+  %exitcond.not.i = icmp eq i64 %17, %12
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !7
 
 ._crit_edge.i:                                    ; preds = %16, %2
@@ -354,7 +353,6 @@ define hidden noundef i32 @_ZNK7nanogui13TabWidgetBase9tab_indexEi(ptr noundef n
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 2
-  %umax = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %16
@@ -370,7 +368,7 @@ define hidden noundef i32 @_ZNK7nanogui13TabWidgetBase9tab_indexEi(ptr noundef n
 
 16:                                               ; preds = %.lr.ph
   %17 = add nuw i64 %.08, 1
-  %exitcond.not = icmp eq i64 %17, %umax
+  %exitcond.not = icmp eq i64 %17, %10
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %16, %2

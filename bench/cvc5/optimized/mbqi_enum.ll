@@ -4531,7 +4531,6 @@ _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit536: ; preds = %_ZN4cvc58internal
   %452 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %453 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %454 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  %umax = call i64 @llvm.umax.i64(i64 %434, i64 1)
   br label %467
 
 455:                                              ; preds = %366
@@ -6081,7 +6080,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit857: ; preds = %_ZN4cvc58internal1
 
 1148:                                             ; preds = %1147
   %1149 = add nuw i64 %.01311215, 1
-  %exitcond.not = icmp eq i64 %1149, %umax
+  %exitcond.not = icmp eq i64 %1149, %434
   br i1 %exitcond.not, label %.critedge300, label %467, !llvm.loop !396
 
 1150:                                             ; preds = %1098, %1089, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit845

@@ -15075,11 +15075,7 @@ _ZNSt12__shared_ptrIN2cv3dnn14dnn4_v2024122316ONNXGraphWrapperELN9__gnu_cxx12_Lo
 
 .preheader:                                       ; preds = %103
   %.not5892.not = icmp eq ptr %104, %105
-  br i1 %.not5892.not, label %.critedge66, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %.preheader
-  %umax = call i64 @llvm.umax.i64(i64 %109, i64 1)
-  br label %.lr.ph
+  br i1 %.not5892.not, label %.critedge66, label %.lr.ph
 
 116:                                              ; preds = %.critedge
   %117 = landingpad { ptr, i32 }
@@ -15088,11 +15084,11 @@ _ZNSt12__shared_ptrIN2cv3dnn14dnn4_v2024122316ONNXGraphWrapperELN9__gnu_cxx12_Lo
 
 118:                                              ; preds = %.lr.ph
   %119 = add nuw i64 %.093, 1
-  %exitcond94.not = icmp eq i64 %119, %umax
+  %exitcond94.not = icmp eq i64 %119, %109
   br i1 %exitcond94.not, label %.critedge66, label %.lr.ph, !llvm.loop !653
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %118
-  %.093 = phi i64 [ %119, %118 ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %118
+  %.093 = phi i64 [ %119, %118 ], [ 0, %.preheader ]
   %120 = getelementptr inbounds nuw i64, ptr %105, i64 %.093
   %121 = load i64, ptr %120, align 8, !tbaa !463
   %122 = add nsw i64 %121, %52
@@ -31942,7 +31938,6 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElSt10multip
   %149 = load ptr, ptr %12, align 8, !tbaa !465
   %150 = load i32, ptr %149, align 4, !tbaa !434
   %151 = sext i32 %150 to i64
-  %umax = call i64 @llvm.umax.i64(i64 %148, i64 1)
   br label %156
 
 ._crit_edge:                                      ; preds = %156, %.preheader
@@ -31969,7 +31964,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElSt10multip
   %159 = mul nsw i64 %158, %151
   store i64 %159, ptr %157, align 8, !tbaa !463
   %160 = add nuw i64 %.036147, 1
-  %exitcond.not = icmp eq i64 %160, %umax
+  %exitcond.not = icmp eq i64 %160, %148
   br i1 %exitcond.not, label %._crit_edge, label %156, !llvm.loop !797
 
 161:                                              ; preds = %._crit_edge
@@ -32054,7 +32049,6 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElSt10multip
   %205 = load ptr, ptr %21, align 8, !tbaa !798
   %206 = load ptr, ptr %18, align 8
   %207 = load ptr, ptr %16, align 8
-  %umax164 = call i64 @llvm.umax.i64(i64 %204, i64 1)
   br label %212
 
 ._crit_edge156:                                   ; preds = %226, %197
@@ -32096,7 +32090,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElSt10multip
   %227 = getelementptr inbounds nuw i64, ptr %200, i64 %indvars.iv161
   store i64 %.sink, ptr %227, align 8, !tbaa !463
   %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 1
-  %exitcond165.not = icmp eq i64 %indvars.iv.next162, %umax164
+  %exitcond165.not = icmp eq i64 %indvars.iv.next162, %204
   br i1 %exitcond165.not, label %._crit_edge156, label %212, !llvm.loop !802
 
 228:                                              ; preds = %._crit_edge156

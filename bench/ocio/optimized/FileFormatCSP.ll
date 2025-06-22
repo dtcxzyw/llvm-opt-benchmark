@@ -4469,7 +4469,6 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_129rsr_Interpolator1D_Raw_createEj.exit: ; 
   %1536 = load ptr, ptr %1535, align 8, !tbaa !48
   %1537 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %1538 = load ptr, ptr %1537, align 8, !tbaa !129
-  %umax = call i64 @llvm.umax.i64(i64 %1514, i64 1)
   br label %1703
 
 ._crit_edge1095:                                  ; preds = %1703, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_129rsr_Interpolator1D_Raw_createEj.exit
@@ -4719,7 +4718,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_132rsr_Interpolator1D_createFromRawEPNS0_23
   %1709 = getelementptr inbounds nuw float, ptr %1538, i64 %.02111093
   store float %1708, ptr %1709, align 4, !tbaa !55
   %1710 = add nuw i64 %.02111093, 1
-  %exitcond1129.not = icmp eq i64 %1710, %umax
+  %exitcond1129.not = icmp eq i64 %1710, %1514
   br i1 %exitcond1129.not, label %._crit_edge1095, label %1703, !llvm.loop !140
 
 1711:                                             ; preds = %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_130rsr_Interpolator1D_interpolateEfPNS0_19rsr_Interpolator1D_E.exit
@@ -6762,8 +6761,6 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit215: ; preds = %507
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit217.preheader: ; preds = %510
   %invariant.gep472 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %umax = call i32 @llvm.umax.i32(i32 %23, i32 1)
-  %wide.trip.count = zext nneg i32 %umax to i64
   br label %514
 
 512:                                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit231
@@ -6807,7 +6804,7 @@ _ZNSolsEf.exit229:                                ; preds = %_ZStlsISt11char_tra
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit231: ; preds = %_ZNSolsEf.exit229
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond483.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %exitcond483.not = icmp eq i64 %indvars.iv.next, %34
   br i1 %exitcond483.not, label %512, label %514, !llvm.loop !171
 
 529:                                              ; preds = %_ZNSolsEf.exit229, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit227, %_ZNSolsEf.exit225, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit223, %_ZNSolsEf.exit221, %514
@@ -10533,9 +10530,6 @@ declare i64 @llvm.umax.i64(i64, i64) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #28
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #28
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

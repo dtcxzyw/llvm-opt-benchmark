@@ -2540,13 +2540,10 @@ _ZNSt6vectorIdSaIdEE9push_backEOd.exit120:        ; preds = %143, %_ZNSt6vectorI
 
 _ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i.i130: ; preds = %188
   %194 = ashr exact i64 %191, 3
-  %.sroa.speculated.i.i.i.i131 = tail call i64 @llvm.umax.i64(i64 %194, i64 1)
-  %195 = add nsw i64 %.sroa.speculated.i.i.i.i131, %194
+  %195 = ashr exact i64 %191, 2
   %196 = icmp ult i64 %195, %194
   %197 = tail call i64 @llvm.umin.i64(i64 %195, i64 1152921504606846975)
   %198 = select i1 %196, i64 1152921504606846975, i64 %197
-  %.not.i.i.i.i132 = icmp ne i64 %198, 0
-  tail call void @llvm.assume(i1 %.not.i.i.i.i132)
   %199 = shl nuw nsw i64 %198, 3
   %200 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %199) #25
           to label %.noexc137 unwind label %286

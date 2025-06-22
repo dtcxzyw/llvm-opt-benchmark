@@ -1102,7 +1102,6 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %if.else.i164, %if.t
 
 for.body.lr.ph:                                   ; preds = %_ZNSt6vectorIbSaIbEE6resizeEmb.exit
   %fixedPayDates113 = getelementptr inbounds nuw i8, ptr %args, i64 120
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i144, i64 1)
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %if.end145, %_ZNSt6vectorIbSaIbEE6resizeEmb.exit
@@ -1271,7 +1270,7 @@ if.end145:                                        ; preds = %_ZNSt14_Bit_referen
   %and.i.sink = phi i64 [ %or.i, %if.then142 ], [ %and.i, %_ZNSt14_Bit_referenceaSEb.exit ]
   store i64 %and.i.sink, ptr %storemerge.i.i.i.i.i, align 8, !tbaa !8
   %inc = add nuw i64 %i.0345, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i144
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !58
 
 invoke.cont153:                                   ; preds = %invoke.cont.i.i184, %if.then5.i181, %if.else.i179, %if.then.i185
@@ -1340,7 +1339,6 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit232:           ; preds = %if.else.i222, %if.t
 
 for.body162.lr.ph:                                ; preds = %_ZNSt6vectorIbSaIbEE6resizeEmb.exit232
   %floatingPayDates177 = getelementptr inbounds nuw i8, ptr %args, i64 240
-  %umax348 = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i172, i64 1)
   br label %for.body162
 
 for.cond.cleanup161:                              ; preds = %if.end210, %_ZNSt6vectorIbSaIbEE6resizeEmb.exit232
@@ -1470,7 +1468,7 @@ if.end210:                                        ; preds = %_ZNSt14_Bit_referen
   %and.i257.sink = phi i64 [ %or.i259, %if.then207 ], [ %and.i257, %_ZNSt14_Bit_referenceaSEb.exit260 ]
   store i64 %and.i257.sink, ptr %storemerge.i.i.i.i.i249, align 8, !tbaa !8
   %inc215 = add nuw i64 %i158.0347, 1
-  %exitcond349.not = icmp eq i64 %inc215, %umax348
+  %exitcond349.not = icmp eq i64 %inc215, %sub.ptr.div.i172
   br i1 %exitcond349.not, label %for.cond.cleanup161, label %for.body162, !llvm.loop !60
 
 ehcleanup221:                                     ; preds = %lpad152, %lpad94, %lpad80, %lpad.i135, %lpad.i, %ehcleanup124, %ehcleanup112, %ehcleanup188, %ehcleanup175, %ehcleanup76, %ehcleanup32

@@ -991,7 +991,6 @@ _ZN4absl12lts_2024011612log_internal10LogMessagelsILi14EEERS2_RAT__Kc.exit: ; pr
   %171 = ptrtoint ptr %.sroa.091.0148154 to i64
   %172 = sub i64 %170, %171
   %173 = ashr exact i64 %172, 2
-  %umax = call i64 @llvm.umax.i64(i64 %173, i64 1)
   br label %.lr.ph125
 
 .preheader:                                       ; preds = %.lr.ph125, %163
@@ -1025,7 +1024,7 @@ _ZN4absl12lts_2024011612log_internal10LogMessagelsILi14EEERS2_RAT__Kc.exit: ; pr
   %188 = getelementptr inbounds nuw double, ptr %169, i64 %indvars.iv134
   store double %187, ptr %188, align 8, !tbaa !34
   %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
-  %exitcond137.not = icmp eq i64 %indvars.iv.next135, %umax
+  %exitcond137.not = icmp eq i64 %indvars.iv.next135, %173
   br i1 %exitcond137.not, label %.preheader, label %.lr.ph125, !llvm.loop !73
 
 ._crit_edge129:                                   ; preds = %.lr.ph128, %.preheader

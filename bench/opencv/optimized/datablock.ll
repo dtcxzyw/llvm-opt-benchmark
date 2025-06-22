@@ -188,7 +188,6 @@ _ZNSt6vectorIN5zxing3RefINS0_6qrcode9DataBlockEEESaIS4_EE17_S_check_init_lenEmRK
   %19 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %16) #16
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %19, ptr align 8 %13, i64 %16, i1 false)
   %20 = lshr exact i64 %16, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %20, i64 1)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %32
@@ -238,7 +237,7 @@ _ZNSt12_Vector_baseIN5zxing3RefINS0_6qrcode9DataBlockEEESaIS4_EEC2EmRKS5_.exit.t
 32:                                               ; preds = %.lr.ph
   %33 = add nsw i32 %31, %.0211
   %34 = add nuw i64 %.068210, 1
-  %exitcond.not = icmp eq i64 %34, %umax
+  %exitcond.not = icmp eq i64 %34, %20
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
 
 .thread180:                                       ; preds = %.lr.ph
@@ -256,11 +255,7 @@ _ZNSt12_Vector_baseIN5zxing3RefINS0_6qrcode9DataBlockEEESaIS4_EEC2EmRKS5_.exit.t
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %40, ptr %43, align 8, !tbaa !32
   store ptr %41, ptr %42, align 8, !tbaa !33
-  br i1 %.not.i.i.i.i, label %._crit_edge217, label %.lr.ph216.preheader
-
-.lr.ph216.preheader:                              ; preds = %36
-  %umax266 = tail call i64 @llvm.umax.i64(i64 %37, i64 1)
-  br label %.lr.ph216
+  br i1 %.not.i.i.i.i, label %._crit_edge217, label %.lr.ph216
 
 ._crit_edge217.loopexit:                          ; preds = %73
   %44 = trunc nsw i64 %indvars.iv to i32
@@ -297,9 +292,9 @@ _ZNSt12_Vector_baseIN5zxing3RefINS0_6qrcode9DataBlockEEESaIS4_EEC2EmRKS5_.exit.t
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #14
   br label %304
 
-.lr.ph216:                                        ; preds = %.lr.ph216.preheader, %73
-  %.096214 = phi i64 [ %indvars.iv, %73 ], [ 0, %.lr.ph216.preheader ]
-  %.0100213 = phi i64 [ %74, %73 ], [ 0, %.lr.ph216.preheader ]
+.lr.ph216:                                        ; preds = %36, %73
+  %.096214 = phi i64 [ %indvars.iv, %73 ], [ 0, %36 ]
+  %.0100213 = phi i64 [ %74, %73 ], [ 0, %36 ]
   %66 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0100213
   %67 = load ptr, ptr %66, align 8, !tbaa !28
   %sext = shl i64 %.096214, 32
@@ -318,7 +313,7 @@ _ZNSt12_Vector_baseIN5zxing3RefINS0_6qrcode9DataBlockEEESaIS4_EEC2EmRKS5_.exit.t
 
 73:                                               ; preds = %71
   %74 = add nuw i64 %.0100213, 1
-  %exitcond267.not = icmp eq i64 %74, %umax266
+  %exitcond267.not = icmp eq i64 %74, %37
   br i1 %exitcond267.not, label %._crit_edge217.loopexit, label %.lr.ph216, !llvm.loop !38
 
 75:                                               ; preds = %69
@@ -1230,9 +1225,6 @@ _ZN5zxing5ArrayIcED2Ev.exit:                      ; preds = %1, %4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #12
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #13

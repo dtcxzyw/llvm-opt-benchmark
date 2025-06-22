@@ -279,7 +279,6 @@ define void @_ZN10open_spiel10algorithms22RandomRolloutEvaluator8EvaluateERKNS_5
   %31 = ptrtoint ptr %296 to i64
   %32 = sub i64 %30, %31
   %33 = ashr exact i64 %32, 3
-  %umax96 = call i64 @llvm.umax.i64(i64 %33, i64 1)
   br label %.lr.ph82
 
 34:                                               ; preds = %.lr.ph80, %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit
@@ -841,7 +840,7 @@ _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit38: ; pre
   %325 = fdiv double %324, %322
   store double %325, ptr %323, align 8
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
-  %exitcond97.not = icmp eq i64 %indvars.iv.next94, %umax96
+  %exitcond97.not = icmp eq i64 %indvars.iv.next94, %33
   br i1 %exitcond97.not, label %._crit_edge, label %.lr.ph82, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph82, %3, %.preheader

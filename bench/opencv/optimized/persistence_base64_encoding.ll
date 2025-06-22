@@ -1089,7 +1089,6 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(88) ptr @_ZN2
   %25 = ptrtoint ptr %23 to i64
   %26 = sub i64 %24, %25
   %27 = sdiv exact i64 %26, 24
-  %umax.i = call i64 @llvm.umax.i64(i64 %27, i64 1)
   br label %28
 
 28:                                               ; preds = %.noexc, %.lr.ph.i
@@ -1109,7 +1108,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(88) ptr @_ZN2
 
 .noexc:                                           ; preds = %28
   %40 = add nuw i64 %.09.i, 1
-  %exitcond.not.i = icmp eq i64 %40, %umax.i
+  %exitcond.not.i = icmp eq i64 %40, %27
   br i1 %exitcond.not.i, label %.loopexit.loopexit, label %28, !llvm.loop !139
 
 .loopexit.loopexit:                               ; preds = %.noexc

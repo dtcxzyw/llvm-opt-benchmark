@@ -958,7 +958,7 @@ define dso_local noundef i32 @avtab_read(ptr noundef %0, ptr noundef captures(no
   %21 = trunc i64 %20 to i32
   %22 = tail call i32 @llvm.umin.i32(i32 %21, i32 65536)
   %23 = icmp ugt i32 %18, 31
-  br i1 %23, label %.preheader28, label %.thread8
+  br i1 %23, label %.preheader27, label %.thread8
 
 .thread8:                                         ; preds = %13, %15
   %24 = phi i32 [ %22, %15 ], [ 2, %13 ]
@@ -967,7 +967,7 @@ define dso_local noundef i32 @avtab_read(ptr noundef %0, ptr noundef captures(no
   %27 = tail call noalias ptr @kvmalloc_node(i64 noundef %26, i32 noundef 3520, i32 noundef -1) #15
   store ptr %27, ptr %0, align 8
   %28 = icmp eq ptr %27, null
-  br i1 %28, label %.loopexit12, label %29
+  br i1 %28, label %.thread9, label %29
 
 29:                                               ; preds = %.thread8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -975,15 +975,15 @@ define dso_local noundef i32 @avtab_read(ptr noundef %0, ptr noundef captures(no
   %31 = add nsw i32 %24, -1
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %31, ptr %32, align 8
-  br label %.preheader28
+  br label %.preheader27
 
-.preheader28:                                     ; preds = %29, %15
+.preheader27:                                     ; preds = %29, %15
   br label %33
 
-33:                                               ; preds = %.preheader28, %36
-  %34 = phi i32 [ %37, %36 ], [ 0, %.preheader28 ]
+33:                                               ; preds = %.preheader27, %36
+  %34 = phi i32 [ %37, %36 ], [ 0, %.preheader27 ]
   %35 = tail call i32 @avtab_read_item(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @avtab_insertf, ptr noundef null)
-  switch i32 %35, label %.loopexit12 [
+  switch i32 %35, label %.thread9 [
     i32 0, label %36
     i32 -12, label %.thread
     i32 -17, label %.thread.loopexit
@@ -992,10 +992,10 @@ define dso_local noundef i32 @avtab_read(ptr noundef %0, ptr noundef captures(no
 36:                                               ; preds = %33
   %37 = add nuw i32 %34, 1
   %38 = icmp eq i32 %37, %9
-  br i1 %38, label %.loopexit13, label %33, !llvm.loop !15
+  br i1 %38, label %.loopexit12, label %33, !llvm.loop !15
 
-.loopexit13:                                      ; preds = %36, %.loopexit11, %.loopexit12
-  %39 = phi i32 [ %43, %.loopexit12 ], [ %43, %.loopexit11 ], [ 0, %36 ]
+.loopexit12:                                      ; preds = %36, %.loopexit11, %.thread9
+  %39 = phi i32 [ %43, %.thread9 ], [ %43, %.loopexit11 ], [ 0, %36 ]
   ret i32 %39
 
 .thread.loopexit:                                 ; preds = %33
@@ -1005,14 +1005,14 @@ define dso_local noundef i32 @avtab_read(ptr noundef %0, ptr noundef captures(no
   %40 = phi ptr [ @.str.14, %7 ], [ @.str.13, %3 ], [ @.str.16, %.thread.loopexit ], [ @.str.15, %33 ]
   %41 = phi i32 [ -22, %7 ], [ -22, %3 ], [ %35, %.thread.loopexit ], [ %35, %33 ]
   %42 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull %40) #16
-  br label %.loopexit12
+  br label %.thread9
 
-.loopexit12:                                      ; preds = %33, %.thread8, %.thread
+.thread9:                                         ; preds = %33, %.thread8, %.thread
   %43 = phi i32 [ %41, %.thread ], [ -12, %.thread8 ], [ %35, %33 ]
   %44 = icmp eq ptr %0, null
-  br i1 %44, label %.loopexit13, label %45
+  br i1 %44, label %.loopexit12, label %45
 
-45:                                               ; preds = %.loopexit12
+45:                                               ; preds = %.thread9
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %47 = load i32, ptr %46, align 4
   %48 = icmp eq i32 %47, 0
@@ -1065,7 +1065,7 @@ define dso_local noundef i32 @avtab_read(ptr noundef %0, ptr noundef captures(no
   %73 = load ptr, ptr %0, align 8
   tail call void @kvfree(ptr noundef %73) #13
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %0, i8 0, i64 20, i1 false)
-  br label %.loopexit13
+  br label %.loopexit12
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

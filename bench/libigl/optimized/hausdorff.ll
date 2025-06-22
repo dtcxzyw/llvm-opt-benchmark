@@ -5692,7 +5692,6 @@ _ZNKSt6vectorISt4pairIN4CGAL7Point_3INS1_16Simple_cartesianIdEEEEN9__gnu_cxx17__
 .lr.ph76:                                         ; preds = %.lr.ph.i.i.i30.i
   %199 = getelementptr inbounds nuw i8, ptr %195, i64 %191
   %200 = load ptr, ptr %8, align 8, !tbaa !376
-  %umax = call i64 @llvm.umax.i64(i64 %192, i64 1)
   br label %239
 
 .preheader:                                       ; preds = %239, %186
@@ -5754,7 +5753,7 @@ _ZNKSt6vectorISt4pairIN4CGAL7Point_3INS1_16Simple_cartesianIdEEEEN9__gnu_cxx17__
   %245 = load i64, ptr %243, align 8, !tbaa !47
   store i64 %245, ptr %244, align 8, !tbaa !47
   %246 = add nuw i64 %.01875, 1
-  %exitcond.not = icmp eq i64 %246, %umax
+  %exitcond.not = icmp eq i64 %246, %192
   br i1 %exitcond.not, label %.preheader, label %239, !llvm.loop !461
 
 _ZNK5boost9container3dtl14deque_iteratorIPN4CGAL17Kd_tree_leaf_nodeINS3_21Search_traits_adapterISt4pairINS3_7Point_3INS3_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS3_10Triangle_3IS9_EESt6vectorISE_SaISE_EEEEENS3_26First_of_pair_property_mapISK_EENS3_13AABB_traits_3IS9_NS3_25AABB_triangle_primitive_3IS9_SJ_St17integral_constantIbLb0EEEENS3_7DefaultEEEEENS3_16Sliding_midpointISU_NS3_15Plane_separatorIdEEEESP_IbLb1EESQ_EELb0EEmiERKS12_.exit._crit_edge: ; preds = %_ZN5boost9container3dtl14deque_iteratorIPN4CGAL17Kd_tree_leaf_nodeINS3_21Search_traits_adapterISt4pairINS3_7Point_3INS3_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS3_10Triangle_3IS9_EESt6vectorISE_SaISE_EEEEENS3_26First_of_pair_property_mapISK_EENS3_13AABB_traits_3IS9_NS3_25AABB_triangle_primitive_3IS9_SJ_St17integral_constantIbLb0EEEENS3_7DefaultEEEEENS3_16Sliding_midpointISU_NS3_15Plane_separatorIdEEEESP_IbLb1EESQ_EELb0EEpLEl.exit26, %.preheader

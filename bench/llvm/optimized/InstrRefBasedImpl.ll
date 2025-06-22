@@ -4594,8 +4594,11 @@ _ZN4llvm13DebugVariableC2EPKNS_15DILocalVariableEPKNS_12DIExpressionEPKNS_10DILo
     i32 3, label %83
     i32 2, label %._crit_edge._crit_edge.i.i.i.i.i.i.i
     i32 1, label %._crit_edge._crit_edge52.i.i.i.i.i.i.i
-    i32 0, label %.preheader.i
+    i32 0, label %.lr.ph.i.preheader
   ]
+
+.lr.ph.i.preheader:                               ; preds = %_ZN4llvm6any_ofIRNS_8ArrayRefIN15LiveDebugValues7DbgOpIDEEEZNS2_8DbgValueC1ES4_RKNS2_18DbgValuePropertiesEEUlS3_E_EEbOT_T0_.exit.i, %._crit_edge._crit_edge52.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i
+  br label %.lr.ph.i
 
 83:                                               ; preds = %._crit_edge.i.i.i.i.i.i.i
   %.sroa.0.0.copyload.i33.i.i.i.i.i.i.i = load i32, ptr %.029.lcssa.i.i.i.i.i.i.i, align 4, !tbaa !77
@@ -4620,7 +4623,7 @@ _ZN4llvm13DebugVariableC2EPKNS_15DILocalVariableEPKNS_12DIExpressionEPKNS_10DILo
   %.2.i.i.i.i.i.i.i = phi ptr [ %89, %88 ], [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %.sroa.0.0.copyload.i35.i.i.i.i.i.i.i = load i32, ptr %.2.i.i.i.i.i.i.i, align 4, !tbaa !77
   %90 = icmp eq i32 %.sroa.0.0.copyload.i35.i.i.i.i.i.i.i, %54
-  br i1 %90, label %_ZN4llvm6any_ofIRNS_8ArrayRefIN15LiveDebugValues7DbgOpIDEEEZNS2_8DbgValueC1ES4_RKNS2_18DbgValuePropertiesEEUlS3_E_EEbOT_T0_.exit.i, label %.preheader.i
+  br i1 %90, label %_ZN4llvm6any_ofIRNS_8ArrayRefIN15LiveDebugValues7DbgOpIDEEEZNS2_8DbgValueC1ES4_RKNS2_18DbgValuePropertiesEEUlS3_E_EEbOT_T0_.exit.i, label %.lr.ph.i.preheader
 
 ._crit_edge.i.i.i.i.i.unreachabledefault.i.i:     ; preds = %._crit_edge.i.i.i.i.i.i.i
   unreachable
@@ -4640,26 +4643,21 @@ _ZN4llvm6any_ofIRNS_8ArrayRefIN15LiveDebugValues7DbgOpIDEEEZNS2_8DbgValueC1ES4_R
 _ZN4llvm6any_ofIRNS_8ArrayRefIN15LiveDebugValues7DbgOpIDEEEZNS2_8DbgValueC1ES4_RKNS2_18DbgValuePropertiesEEUlS3_E_EEbOT_T0_.exit.i: ; preds = %67, %_ZN4llvm6any_ofIRNS_8ArrayRefIN15LiveDebugValues7DbgOpIDEEEZNS2_8DbgValueC1ES4_RKNS2_18DbgValuePropertiesEEUlS3_E_EEbOT_T0_.exit.i.loopexit.split.loop.exit, %_ZN4llvm6any_ofIRNS_8ArrayRefIN15LiveDebugValues7DbgOpIDEEEZNS2_8DbgValueC1ES4_RKNS2_18DbgValuePropertiesEEUlS3_E_EEbOT_T0_.exit.i.loopexit.split.loop.exit28, %_ZN4llvm6any_ofIRNS_8ArrayRefIN15LiveDebugValues7DbgOpIDEEEZNS2_8DbgValueC1ES4_RKNS2_18DbgValuePropertiesEEUlS3_E_EEbOT_T0_.exit.i.loopexit.split.loop.exit30, %._crit_edge._crit_edge52.i.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i, %83
   %.028.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %83 ], [ %.1.i.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i.i.i ], [ %91, %_ZN4llvm6any_ofIRNS_8ArrayRefIN15LiveDebugValues7DbgOpIDEEEZNS2_8DbgValueC1ES4_RKNS2_18DbgValuePropertiesEEUlS3_E_EEbOT_T0_.exit.i.loopexit.split.loop.exit ], [ %92, %_ZN4llvm6any_ofIRNS_8ArrayRefIN15LiveDebugValues7DbgOpIDEEEZNS2_8DbgValueC1ES4_RKNS2_18DbgValuePropertiesEEUlS3_E_EEbOT_T0_.exit.i.loopexit.split.loop.exit28 ], [ %93, %_ZN4llvm6any_ofIRNS_8ArrayRefIN15LiveDebugValues7DbgOpIDEEEZNS2_8DbgValueC1ES4_RKNS2_18DbgValuePropertiesEEUlS3_E_EEbOT_T0_.exit.i.loopexit.split.loop.exit30 ], [ %.02946.i.i.i.i.i.i.i, %67 ]
   %.not.i11 = icmp eq ptr %64, %.028.i.i.i.i.i.i.i
-  br i1 %.not.i11, label %.preheader.i, label %94
-
-.preheader.i:                                     ; preds = %_ZN4llvm6any_ofIRNS_8ArrayRefIN15LiveDebugValues7DbgOpIDEEEZNS2_8DbgValueC1ES4_RKNS2_18DbgValuePropertiesEEUlS3_E_EEbOT_T0_.exit.i, %._crit_edge._crit_edge52.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i
-  %umax = call i32 @llvm.umax.i32(i32 %50, i32 1)
-  %wide.trip.count = zext nneg i32 %umax to i64
-  br label %.lr.ph.i
+  br i1 %.not.i11, label %.lr.ph.i.preheader, label %94
 
 94:                                               ; preds = %_ZN4llvm6any_ofIRNS_8ArrayRefIN15LiveDebugValues7DbgOpIDEEEZNS2_8DbgValueC1ES4_RKNS2_18DbgValuePropertiesEEUlS3_E_EEbOT_T0_.exit.i, %57
   store i32 0, ptr %61, align 8, !tbaa !660
   store i32 0, ptr %58, align 8, !tbaa !654
   br label %_ZN15LiveDebugValues8DbgValueC2EN4llvm8ArrayRefINS_7DbgOpIDEEERKNS_18DbgValuePropertiesE.exit
 
-.lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
-  %indvars.iv = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next, %.lr.ph.i ]
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
   %95 = getelementptr inbounds nuw %"struct.LiveDebugValues::DbgOpID", ptr %53, i64 %indvars.iv
   %96 = getelementptr inbounds nuw [8 x %"struct.LiveDebugValues::DbgOpID"], ptr %11, i64 0, i64 %indvars.iv
   %97 = load i32, ptr %95, align 4, !tbaa !77
   store i32 %97, ptr %96, align 4, !tbaa !77
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %51
   br i1 %exitcond.not, label %_ZN15LiveDebugValues8DbgValueC2EN4llvm8ArrayRefINS_7DbgOpIDEEERKNS_18DbgValuePropertiesE.exit, label %.lr.ph.i, !llvm.loop !662
 
 98:                                               ; preds = %_ZN4llvm13DebugVariableC2EPKNS_15DILocalVariableEPKNS_12DIExpressionEPKNS_10DILocationE.exit

@@ -384,7 +384,6 @@ define hidden noundef range(i32 0, 2) i32 @_ZN4cvc58internal13preprocessing6pass
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 208
-  %umax = tail call i64 @llvm.umax.i64(i64 %14, i64 1)
   br label %20
 
 20:                                               ; preds = %.lr.ph, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
@@ -575,7 +574,7 @@ _ZN4cvc58internal9TrustNodeD2Ev.exit24:           ; preds = %.critedge, %87, %93
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %_ZN4cvc58internal9TrustNodeD2Ev.exit24, %99, %105
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19
   %109 = add nuw i64 %.02040, 1
-  %exitcond.not = icmp eq i64 %109, %umax
+  %exitcond.not = icmp eq i64 %109, %14
   br i1 %exitcond.not, label %.loopexit, label %20, !llvm.loop !269
 
 110:                                              ; preds = %_ZN4cvc58internal9TrustNodeD2Ev.exit

@@ -4593,7 +4593,6 @@ for.body.preheader.i:                             ; preds = %call5.i.i.i.i2.i.i4
   %sub.ptr.rhs.cast.i7.i = ptrtoint ptr %call5.i.i.i.i2.i.i4.i33 to i64
   %sub.ptr.sub.i8.i = sub i64 %sub.ptr.lhs.cast.i6.i, %sub.ptr.rhs.cast.i7.i
   %sub.ptr.div.i9.i = ashr exact i64 %sub.ptr.sub.i8.i, 3
-  %umax.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i9.i, i64 1)
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
@@ -4603,7 +4602,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %add.ptr.i10.i = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i2.i.i4.i33, i64 %indvars.iv.i
   store i64 %15, ptr %add.ptr.i10.i, align 8, !noalias !46
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %umax.i
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %sub.ptr.div.i9.i
   br i1 %exitcond.not.i, label %invoke.cont31, label %for.body.i, !llvm.loop !49
 
 invoke.cont31:                                    ; preds = %for.body.i, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i
@@ -7547,25 +7546,21 @@ for.end145:                                       ; preds = %for.end145.loopexit
 
 for.cond.preheader.i:                             ; preds = %for.end145
   %cmp421.not.i = icmp eq ptr %__first.addr.0.i.i.i.i.i, %scores.sroa.0.0
-  br i1 %cmp421.not.i, label %_ZN8facebook5velox5cache14SsdFileTracker15setRegionScoresERKSt6vectorIlSaIlEE.exit, label %for.body.i.preheader
-
-for.body.i.preheader:                             ; preds = %for.cond.preheader.i
-  %umax = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
-  br label %for.body.i
+  br i1 %cmp421.not.i, label %_ZN8facebook5velox5cache14SsdFileTracker15setRegionScoresERKSt6vectorIlSaIlEE.exit, label %for.body.i
 
 if.then.i157:                                     ; preds = %for.end145
   call void @llvm.trap()
   unreachable
 
-for.body.i:                                       ; preds = %for.body.i.preheader, %for.body.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %for.body.i.preheader ]
+for.body.i:                                       ; preds = %for.cond.preheader.i, %for.body.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %for.cond.preheader.i ]
   %add.ptr.i.i158 = getelementptr inbounds nuw i64, ptr %scores.sroa.0.0, i64 %indvars.iv.i
   %79 = load i64, ptr %add.ptr.i.i158, align 8
   %80 = load ptr, ptr %tracker_, align 8
   %add.ptr.i16.i = getelementptr inbounds nuw i64, ptr %80, i64 %indvars.iv.i
   store i64 %79, ptr %add.ptr.i16.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next.i, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next.i, %sub.ptr.div.i
   br i1 %exitcond.not, label %_ZN8facebook5velox5cache14SsdFileTracker15setRegionScoresERKSt6vectorIlSaIlEE.exit, label %for.body.i, !llvm.loop !80
 
 _ZN8facebook5velox5cache14SsdFileTracker15setRegionScoresERKSt6vectorIlSaIlEE.exit: ; preds = %for.body.i, %for.cond.preheader.i

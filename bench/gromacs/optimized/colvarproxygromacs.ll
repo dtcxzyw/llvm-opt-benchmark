@@ -1949,7 +1949,6 @@ define noundef i32 @_ZN3gmx18ColvarProxyGromacs9init_atomEi(ptr noundef nonnull 
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
   %11 = ashr exact i64 %10, 2
-  %umax = tail call i64 @llvm.umax.i64(i64 %11, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %21
@@ -1971,7 +1970,7 @@ define noundef i32 @_ZN3gmx18ColvarProxyGromacs9init_atomEi(ptr noundef nonnull 
 
 21:                                               ; preds = %.lr.ph
   %22 = add nuw i64 %.01521, 1
-  %exitcond.not = icmp eq i64 %22, %umax
+  %exitcond.not = icmp eq i64 %22, %11
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !175
 
 ._crit_edge:                                      ; preds = %21, %2
@@ -2269,7 +2268,6 @@ define noundef i32 @_ZThn256_N3gmx18ColvarProxyGromacs9init_atomEi(ptr noundef %
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
   %12 = ashr exact i64 %11, 2
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %12, i64 1)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %22, %.lr.ph.preheader.i
@@ -2291,7 +2289,7 @@ define noundef i32 @_ZThn256_N3gmx18ColvarProxyGromacs9init_atomEi(ptr noundef %
 
 22:                                               ; preds = %.lr.ph.i
   %23 = add nuw i64 %.01521.i, 1
-  %exitcond.not.i = icmp eq i64 %23, %umax.i
+  %exitcond.not.i = icmp eq i64 %23, %12
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !175
 
 ._crit_edge.i:                                    ; preds = %22, %2
@@ -5714,9 +5712,6 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #24
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.fshl.i64(i64, i64, i64) #24

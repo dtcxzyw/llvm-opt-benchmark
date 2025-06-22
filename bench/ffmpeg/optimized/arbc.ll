@@ -79,7 +79,6 @@ bytestream2_get_le16.exit:                        ; preds = %4
 
 39:                                               ; preds = %36, %32
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %umax = tail call i32 @llvm.umax.i32(i32 %24, i32 1)
   br label %41
 
 41:                                               ; preds = %39, %.thread127
@@ -401,7 +400,7 @@ bytestream2_get_le16.exit.i:                      ; preds = %161, %160
 .thread127:                                       ; preds = %202, %107, %.thread118, %bytestream2_get_le16.exit63.i
   %.277124 = phi i32 [ %203, %202 ], [ %.6, %bytestream2_get_le16.exit63.i ], [ %.075135, %.thread118 ], [ %.6, %107 ]
   %204 = add nuw nsw i32 %.072136, 1
-  %exitcond.not = icmp eq i32 %204, %umax
+  %exitcond.not = icmp eq i32 %204, %24
   br i1 %exitcond.not, label %.thread131, label %41, !llvm.loop !47
 
 .thread131:                                       ; preds = %.thread127
@@ -696,9 +695,6 @@ declare i32 @llvm.smin.i32(i32, i32) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #4
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #4
 
 attributes #0 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

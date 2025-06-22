@@ -1931,7 +1931,6 @@ for.body36.lr.ph:                                 ; preds = %invoke.cont5.i, %in
   %digits_.i = getelementptr inbounds nuw i8, ptr %ref.tmp44, i64 16
   %sub.ptr.rhs.cast.i45 = ptrtoint ptr %digits_.i to i64
   %_M_str.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp44, i64 8
-  %umax = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %for.body36
 
 for.body36:                                       ; preds = %for.body36.lr.ph, %invoke.cont50
@@ -1974,7 +1973,7 @@ invoke.cont48:                                    ; preds = %invoke.cont47
 invoke.cont50:                                    ; preds = %invoke.cont48
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp43) #26
   %indvars.iv.next235 = add nuw i64 %indvars.iv234, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next235, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next235, %sub.ptr.div.i
   br i1 %exitcond.not, label %for.end54, label %for.body36, !llvm.loop !57
 
 lpad49:                                           ; preds = %invoke.cont48
@@ -2106,7 +2105,6 @@ for.body70.lr.ph:                                 ; preds = %invoke.cont5.i97, %
   %digits_.i120 = getelementptr inbounds nuw i8, ptr %ref.tmp80, i64 16
   %sub.ptr.rhs.cast.i122 = ptrtoint ptr %digits_.i120 to i64
   %_M_str.i.i124 = getelementptr inbounds nuw i8, ptr %ref.tmp80, i64 8
-  %umax240 = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %for.body70
 
 for.body70:                                       ; preds = %for.body70.lr.ph, %invoke.cont87
@@ -2149,7 +2147,7 @@ invoke.cont84:                                    ; preds = %invoke.cont83
 invoke.cont87:                                    ; preds = %invoke.cont84
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp79) #26
   %indvars.iv.next238 = add nuw i64 %indvars.iv237, 1
-  %exitcond241.not = icmp eq i64 %indvars.iv.next238, %umax240
+  %exitcond241.not = icmp eq i64 %indvars.iv.next238, %sub.ptr.div.i
   br i1 %exitcond241.not, label %for.end91, label %for.body70, !llvm.loop !61
 
 lpad86:                                           ; preds = %invoke.cont84

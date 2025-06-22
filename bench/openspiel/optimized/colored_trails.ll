@@ -4237,7 +4237,6 @@ define noundef range(i32 0, -2147483648) i32 @_ZNK10open_spiel14colored_trails5T
   %19 = ashr exact i64 %18, 2
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = load ptr, ptr %20, align 8
-  %umax = tail call i64 @llvm.umax.i64(i64 %19, i64 1)
   br label %22
 
 22:                                               ; preds = %.lr.ph, %22
@@ -4258,7 +4257,7 @@ define noundef range(i32 0, -2147483648) i32 @_ZNK10open_spiel14colored_trails5T
   %35 = tail call i32 @llvm.abs.i32(i32 %34, i1 true)
   %36 = add nuw nsw i32 %29, %35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %19
   br i1 %exitcond.not, label %.loopexit, label %22, !llvm.loop !44
 
 .loopexit:                                        ; preds = %22, %.preheader, %2, %7
@@ -12168,7 +12167,6 @@ _ZNK10open_spiel14colored_trails17ColoredTrailsGame11LookupTradeEi.exit: ; preds
   %294 = sub i64 %292, %293
   %295 = ashr exact i64 %294, 2
   %296 = load ptr, ptr %248, align 8
-  %umax.i = call i64 @llvm.umax.i64(i64 %295, i64 1)
   br label %297
 
 297:                                              ; preds = %297, %.lr.ph.i103
@@ -12189,7 +12187,7 @@ _ZNK10open_spiel14colored_trails17ColoredTrailsGame11LookupTradeEi.exit: ; preds
   %310 = call i32 @llvm.abs.i32(i32 %309, i1 true)
   %311 = add nuw nsw i32 %304, %310
   %indvars.iv.next.i105 = add nuw nsw i64 %indvars.iv.i104, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i105, %umax.i
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i105, %295
   br i1 %exitcond.not.i, label %_ZNK10open_spiel14colored_trails5Trade10DistanceToERKS1_.exit, label %297, !llvm.loop !44
 
 _ZNK10open_spiel14colored_trails5Trade10DistanceToERKS1_.exit: ; preds = %297, %_ZNK10open_spiel14colored_trails17ColoredTrailsGame11LookupTradeEi.exit, %284, %.preheader.i

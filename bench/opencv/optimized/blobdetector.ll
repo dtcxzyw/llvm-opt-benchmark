@@ -5261,7 +5261,6 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i23
   %324 = load float, ptr %297, align 8, !tbaa !197
   %325 = fpext float %324 to double
   %326 = getelementptr inbounds nuw i8, ptr %322, i64 16
-  %umax = call i64 @llvm.umax.i64(i64 %321, i64 1)
   br label %331
 
 327:                                              ; preds = %306
@@ -5608,7 +5607,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EEaSERKS4_.exit: ; preds = %_ZSt4copyIN9__gnu_
 
 .critedge194:                                     ; preds = %352
   %470 = add nuw i64 %.0141650, 1
-  %exitcond.not = icmp eq i64 %470, %umax
+  %exitcond.not = icmp eq i64 %470, %321
   br i1 %exitcond.not, label %._crit_edge, label %331, !llvm.loop !207
 
 ._crit_edge:                                      ; preds = %.critedge194, %.preheader483
@@ -6485,17 +6484,13 @@ _ZNSt6vectorIN2cv22SimpleBlobDetectorImpl6CenterESaIS2_EED2Ev.exit366: ; preds =
 
 .preheader:                                       ; preds = %720
   %.not698 = icmp eq ptr %724, %725
-  br i1 %.not698, label %._crit_edge688, label %.lr.ph687.preheader
+  br i1 %.not698, label %._crit_edge688, label %.lr.ph687
 
-.lr.ph687.preheader:                              ; preds = %.preheader
-  %umax811 = call i64 @llvm.umax.i64(i64 %729, i64 1)
-  br label %.lr.ph687
-
-.lr.ph687:                                        ; preds = %.lr.ph687.preheader, %.lr.ph687
-  %.0103686 = phi i64 [ %741, %.lr.ph687 ], [ 0, %.lr.ph687.preheader ]
-  %.0104685 = phi double [ %740, %.lr.ph687 ], [ 0.000000e+00, %.lr.ph687.preheader ]
-  %.sroa.0435.0684 = phi double [ %738, %.lr.ph687 ], [ 0.000000e+00, %.lr.ph687.preheader ]
-  %.sroa.9438.0683 = phi double [ %739, %.lr.ph687 ], [ 0.000000e+00, %.lr.ph687.preheader ]
+.lr.ph687:                                        ; preds = %.preheader, %.lr.ph687
+  %.0103686 = phi i64 [ %741, %.lr.ph687 ], [ 0, %.preheader ]
+  %.0104685 = phi double [ %740, %.lr.ph687 ], [ 0.000000e+00, %.preheader ]
+  %.sroa.0435.0684 = phi double [ %738, %.lr.ph687 ], [ 0.000000e+00, %.preheader ]
+  %.sroa.9438.0683 = phi double [ %739, %.lr.ph687 ], [ 0.000000e+00, %.preheader ]
   %732 = getelementptr inbounds nuw %"struct.cv::SimpleBlobDetectorImpl::Center", ptr %725, i64 %.0103686
   %733 = getelementptr inbounds nuw i8, ptr %732, i64 24
   %734 = load double, ptr %733, align 8, !tbaa !205
@@ -6508,7 +6503,7 @@ _ZNSt6vectorIN2cv22SimpleBlobDetectorImpl6CenterESaIS2_EED2Ev.exit366: ; preds =
   %739 = fadd double %.sroa.9438.0683, %737
   %740 = fadd double %.0104685, %734
   %741 = add nuw i64 %.0103686, 1
-  %exitcond812.not = icmp eq i64 %741, %umax811
+  %exitcond812.not = icmp eq i64 %741, %729
   br i1 %exitcond812.not, label %._crit_edge688, label %.lr.ph687, !llvm.loop !232
 
 ._crit_edge688:                                   ; preds = %.lr.ph687, %.preheader

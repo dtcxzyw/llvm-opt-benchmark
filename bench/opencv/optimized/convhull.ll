@@ -905,8 +905,6 @@ _ZSt4sortIPPN2cv6Point_IfEENS0_14CHullCmpPointsIfEEEvT_S7_T0_.exit: ; preds = %_
 
 .preheader.preheader:                             ; preds = %367
   %372 = sext i32 %362 to i64
-  %umax = call i32 @llvm.umax.i32(i32 %.4242.lcssa, i32 1)
-  %wide.trip.count494 = zext i32 %umax to i64
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %386
@@ -929,29 +927,25 @@ _ZSt4sortIPPN2cv6Point_IfEENS0_14CHullCmpPointsIfEEEvT_S7_T0_.exit: ; preds = %_
   %384 = load i32, ptr %383, align 4, !tbaa !50
   %385 = icmp sge i32 %375, %384
   %.not280 = xor i1 %370, %385
-  br i1 %.not280, label %386, label %.split.loop.exit
+  br i1 %.not280, label %386, label %387
 
 386:                                              ; preds = %.preheader, %381
   %indvars.iv.next492 = add nuw nsw i64 %indvars.iv491, 1
-  %exitcond495.not = icmp eq i64 %indvars.iv.next492, %wide.trip.count494
-  br i1 %exitcond495.not, label %.split.loop.exit510, label %.preheader, !llvm.loop !56
+  %exitcond495.not = icmp eq i64 %indvars.iv.next492, %wide.trip.count489
+  br i1 %exitcond495.not, label %.thread, label %.preheader, !llvm.loop !56
 
-.split.loop.exit:                                 ; preds = %381
-  %387 = trunc nuw nsw i64 %indvars.iv491 to i32
-  br label %.split.loop.exit510
+387:                                              ; preds = %381
+  %388 = trunc nuw nsw i64 %indvars.iv491 to i32
+  %389 = icmp eq i32 %.4242.lcssa, %388
+  br i1 %389, label %.thread, label %391
 
-.split.loop.exit510:                              ; preds = %386, %.split.loop.exit
-  %.8234.lcssa = phi i32 [ %387, %.split.loop.exit ], [ %umax, %386 ]
-  %388 = icmp eq i32 %.8234.lcssa, %.4242.lcssa
-  br i1 %388, label %389, label %391
-
-389:                                              ; preds = %.split.loop.exit510
+.thread:                                          ; preds = %386, %387
   %390 = shl nuw nsw i64 %wide.trip.count489, 2
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %110, ptr nonnull align 4 %106, i64 %390, i1 false)
   br label %391
 
-391:                                              ; preds = %._crit_edge426, %367, %389, %.split.loop.exit510, %364, %358, %192
-  %.0238 = phi i32 [ 1, %192 ], [ %.4242.lcssa, %358 ], [ %.4242.lcssa, %364 ], [ %.4242.lcssa, %.split.loop.exit510 ], [ %.4242.lcssa, %389 ], [ %.4242.lcssa, %367 ], [ %.4242.lcssa, %._crit_edge426 ]
+391:                                              ; preds = %._crit_edge426, %367, %.thread, %387, %364, %358, %192
+  %.0238 = phi i32 [ 1, %192 ], [ %.4242.lcssa, %358 ], [ %.4242.lcssa, %364 ], [ %.4242.lcssa, %387 ], [ %.4242.lcssa, %.thread ], [ %.4242.lcssa, %367 ], [ %.4242.lcssa, %._crit_edge426 ]
   br i1 %79, label %400, label %392
 
 392:                                              ; preds = %391
@@ -5898,9 +5892,6 @@ declare void @llvm.assume(i1 noundef) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #18
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #18
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #19

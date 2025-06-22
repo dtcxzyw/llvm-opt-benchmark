@@ -8881,7 +8881,6 @@ define hidden void @_ZN4cvc58internal6theory11quantifiers9SygusInst15registerCeL
   %52 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %53 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %54 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %umax = tail call i64 @llvm.umax.i64(i64 %47, i64 1)
   br label %57
 
 ._crit_edge:                                      ; preds = %_ZN4cvc58internal8TypeNodeD2Ev.exit, %3
@@ -9843,7 +9842,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit209: ; preds = %_ZNSt6vectorIN4cvc
 _ZN4cvc58internal8TypeNodeD2Ev.exit:              ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit209, %490, %496
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #27
   %500 = add nuw i64 %.0399, 1
-  %exitcond.not = icmp eq i64 %500, %umax
+  %exitcond.not = icmp eq i64 %500, %47
   br i1 %exitcond.not, label %._crit_edge, label %57, !llvm.loop !541
 
 501:                                              ; preds = %325

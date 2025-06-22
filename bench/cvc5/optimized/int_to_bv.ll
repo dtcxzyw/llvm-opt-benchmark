@@ -2981,7 +2981,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit323: ; preds = %12
   %1297 = sub i64 %1295, %1296
   %1298 = ashr exact i64 %1297, 3
   %1299 = trunc i64 %.3164 to i32
-  %umax = call i64 @llvm.umax.i64(i64 %1298, i64 1)
   br label %1300
 
 1300:                                             ; preds = %.lr.ph1011, %_ZN4cvc58internal8TypeNodeD2Ev.exit342
@@ -3269,7 +3268,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit339: ; preds = %_ZN4cvc58internal1
 _ZN4cvc58internal8TypeNodeD2Ev.exit342:           ; preds = %1406, %1410, %1416
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %75) #23
   %1420 = add nuw i64 %.0751009, 1
-  %exitcond.not = icmp eq i64 %1420, %umax
+  %exitcond.not = icmp eq i64 %1420, %1298
   br i1 %exitcond.not, label %.loopexit767, label %1300, !llvm.loop !307
 
 1421:                                             ; preds = %1397, %1405, %1308

@@ -8227,7 +8227,6 @@ _ZN12colvarmodule13integer_powerERKdi.exit:       ; preds = %3, %._crit_edge.i
   %60 = ashr exact i64 %59, 2
   %61 = icmp sgt i64 %60, 0
   %62 = load ptr, ptr %2, align 8, !tbaa !234
-  %umax = call i64 @llvm.umax.i64(i64 %54, i64 1)
   br label %168
 
 63:                                               ; preds = %38
@@ -8308,7 +8307,6 @@ _ZN12colvarmodule13integer_powerERKdi.exit:       ; preds = %3, %._crit_edge.i
   %123 = ashr exact i64 %122, 2
   %124 = icmp sgt i64 %123, 0
   %125 = load ptr, ptr %2, align 8, !tbaa !234
-  %umax106 = call i64 @llvm.umax.i64(i64 %117, i64 1)
   br label %126
 
 126:                                              ; preds = %.lr.ph97, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8_RKT0_.exit
@@ -8375,7 +8373,7 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8
   %166 = fadd double %157, %165
   store double %166, ptr %164, align 8, !tbaa !249
   %167 = add nuw i64 %.05496, 1
-  %exitcond107.not = icmp eq i64 %167, %umax106
+  %exitcond107.not = icmp eq i64 %167, %117
   br i1 %exitcond107.not, label %.loopexit93, label %126, !llvm.loop !359
 
 168:                                              ; preds = %.lr.ph, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8_RKT0_.exit66
@@ -8433,7 +8431,7 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8
   %199 = fadd double %190, %198
   store double %199, ptr %197, align 8, !tbaa !249
   %200 = add nuw i64 %.05695, 1
-  %exitcond.not = icmp eq i64 %200, %umax
+  %exitcond.not = icmp eq i64 %200, %54
   br i1 %exitcond.not, label %.loopexit93, label %168, !llvm.loop !363
 
 .loopexit93:                                      ; preds = %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8_RKT0_.exit66, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8_RKT0_.exit, %.preheader, %63
@@ -8474,7 +8472,6 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8
   %227 = getelementptr inbounds nuw i8, ptr %211, i64 1472
   %228 = load ptr, ptr %227, align 8, !tbaa !234
   %229 = load ptr, ptr %2, align 8, !tbaa !234
-  %umax108 = call i64 @llvm.umax.i64(i64 %219, i64 1)
   br label %230
 
 230:                                              ; preds = %.lr.ph99, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8_RKT0_.exit76
@@ -8531,7 +8528,7 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8
   %260 = fadd double %251, %259
   store double %260, ptr %258, align 8, !tbaa !249
   %261 = add nuw i64 %.05598, 1
-  %exitcond109.not = icmp eq i64 %261, %umax108
+  %exitcond109.not = icmp eq i64 %261, %219
   br i1 %exitcond109.not, label %.loopexit, label %230, !llvm.loop !367
 
 .loopexit:                                        ; preds = %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8_RKT0_.exit76, %209, %205, %.loopexit93

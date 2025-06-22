@@ -1589,7 +1589,6 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i:                  ; preds = %69, %_ZNSt6vectorIi
   %77 = ashr exact i64 %76, 2
   %78 = load ptr, ptr %52, align 8, !tbaa !31
   %79 = load ptr, ptr %65, align 8, !tbaa !31
-  %umax.i = call i64 @llvm.umax.i64(i64 %77, i64 1)
   br label %80
 
 80:                                               ; preds = %80, %.lr.ph.i
@@ -1602,7 +1601,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i:                  ; preds = %69, %_ZNSt6vectorIi
   %86 = getelementptr inbounds nuw i32, ptr %79, i64 %.015.i
   store i32 %85, ptr %86, align 4, !tbaa !80
   %87 = add nuw i64 %.015.i, 1
-  %exitcond.not.i = icmp eq i64 %87, %umax.i
+  %exitcond.not.i = icmp eq i64 %87, %77
   br i1 %exitcond.not.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit31, label %80, !llvm.loop !83
 
 _ZNSt6vectorIiSaIiEED2Ev.exit31:                  ; preds = %80, %_ZNSt6vectorIiSaIiEED2Ev.exit.i
@@ -3978,7 +3977,6 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i:                  ; preds = %48, %_ZNSt6vectorIi
   %56 = ashr exact i64 %55, 2
   %57 = load ptr, ptr %28, align 8, !tbaa !31
   %58 = load ptr, ptr %44, align 8, !tbaa !31
-  %umax.i = call i64 @llvm.umax.i64(i64 %56, i64 1)
   br label %59
 
 59:                                               ; preds = %59, %.lr.ph.i
@@ -3991,7 +3989,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i:                  ; preds = %48, %_ZNSt6vectorIi
   %65 = getelementptr inbounds nuw i32, ptr %58, i64 %.015.i
   store i32 %64, ptr %65, align 4, !tbaa !80
   %66 = add nuw i64 %.015.i, 1
-  %exitcond.not.i = icmp eq i64 %66, %umax.i
+  %exitcond.not.i = icmp eq i64 %66, %56
   br i1 %exitcond.not.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit20, label %59, !llvm.loop !83
 
 _ZNSt6vectorIiSaIiEED2Ev.exit20:                  ; preds = %59, %_ZNSt6vectorIiSaIiEED2Ev.exit.i
@@ -4360,9 +4358,6 @@ declare i64 @llvm.smin.i64(i64, i64) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #20
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #20
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }

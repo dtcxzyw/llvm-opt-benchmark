@@ -2076,7 +2076,6 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNKSt6vectorIiSaIi
   %25 = ptrtoint ptr %12 to i64
   %26 = sub i64 %24, %25
   %27 = sdiv exact i64 %26, 24
-  %umax = tail call i64 @llvm.umax.i64(i64 %27, i64 1)
   br label %.lr.ph
 
 28:                                               ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
@@ -2303,7 +2302,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit95: ; preds = %_ZN
   %109 = load i32, ptr %108, align 4, !tbaa !56
   %110 = add nsw i32 %109, %.0158170
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %27
   br i1 %exitcond.not, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i83, label %.lr.ph, !llvm.loop !99
 
 _ZNSt6vectorIiSaIiEE9push_backERKi.exit91:        ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i83

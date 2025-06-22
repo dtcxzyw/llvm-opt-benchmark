@@ -437,7 +437,6 @@ _ZNSt5dequeIhSaIhEE9push_backERKh.exit.i:         ; preds = %99, %95
 
 .preheader:                                       ; preds = %.loopexit46
   %105 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %umax = call i64 @llvm.umax.i64(i64 %32, i64 1)
   %.pre = load ptr, ptr %54, align 8, !tbaa !28, !noalias !60
   br label %108
 
@@ -509,7 +508,7 @@ _ZNSt5dequeIhSaIhEE9pop_frontEv.exit:             ; preds = %129, %131
   %storemerge.i = phi ptr [ %130, %129 ], [ %135, %131 ]
   store ptr %storemerge.i, ptr %54, align 8, !tbaa !64
   %137 = add nuw i64 %.049, 1
-  %exitcond.not = icmp eq i64 %137, %umax
+  %exitcond.not = icmp eq i64 %137, %32
   br i1 %exitcond.not, label %.loopexit, label %108, !llvm.loop !68
 
 138:                                              ; preds = %120

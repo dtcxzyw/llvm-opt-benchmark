@@ -2010,19 +2010,15 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZN4llvm19BinaryStr
 
 _ZN4llvm5ErrorD2Ev.exit118.preheader:             ; preds = %_ZN4llvm5ErrorD2Ev.exit
   %.not264.not = icmp eq i32 %231, 0
-  br i1 %.not264.not, label %.critedge89, label %_ZN4llvm5ErrorD2Ev.exit122.preheader
-
-_ZN4llvm5ErrorD2Ev.exit122.preheader:             ; preds = %_ZN4llvm5ErrorD2Ev.exit118.preheader
-  %umax = call i32 @llvm.umax.i32(i32 %.sroa.speculated225, i32 1)
-  br label %_ZN4llvm5ErrorD2Ev.exit122
+  br i1 %.not264.not, label %.critedge89, label %_ZN4llvm5ErrorD2Ev.exit122
 
 _ZN4llvm5ErrorD2Ev.exit118:                       ; preds = %_ZN4llvm5ErrorD2Ev.exit122
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
-  %exitcond.not = icmp eq i32 %indvars.iv.next, %umax
+  %exitcond.not = icmp eq i32 %indvars.iv.next, %.sroa.speculated225
   br i1 %exitcond.not, label %.critedge89, label %_ZN4llvm5ErrorD2Ev.exit122, !llvm.loop !230
 
-_ZN4llvm5ErrorD2Ev.exit122:                       ; preds = %_ZN4llvm5ErrorD2Ev.exit122.preheader, %_ZN4llvm5ErrorD2Ev.exit118
-  %indvars.iv = phi i32 [ 0, %_ZN4llvm5ErrorD2Ev.exit122.preheader ], [ %indvars.iv.next, %_ZN4llvm5ErrorD2Ev.exit118 ]
+_ZN4llvm5ErrorD2Ev.exit122:                       ; preds = %_ZN4llvm5ErrorD2Ev.exit118.preheader, %_ZN4llvm5ErrorD2Ev.exit118
+  %indvars.iv = phi i32 [ %indvars.iv.next, %_ZN4llvm5ErrorD2Ev.exit118 ], [ 0, %_ZN4llvm5ErrorD2Ev.exit118.preheader ]
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7) #21, !noalias !231
   %249 = load ptr, ptr %235, align 8, !tbaa !217, !noalias !231
   %250 = load ptr, ptr %249, align 8, !tbaa !103, !noalias !231
@@ -3793,7 +3789,6 @@ _ZNSt6vectorIP15LLVMOpaqueErrorSaIS1_EEC2EmRKS1_RKS2_.exit.i.i.i: ; preds = %86
   %98 = urem i64 %91, %.sroa.speculated.i.i.i
   %99 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %100 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  %umax.i.i.i = call i64 @llvm.umax.i64(i64 %.sroa.speculated.i.i.i, i64 1)
   %101 = getelementptr inbounds nuw i8, ptr %19, i64 8
   br label %106
 
@@ -3844,7 +3839,7 @@ _ZNSt6vectorIP15LLVMOpaqueErrorSaIS1_EEC2EmRKS1_RKS2_.exit.i.i.i: ; preds = %86
 
 _ZNSt14_Function_baseD2Ev.exit.i.i.i:             ; preds = %114, %106
   %116 = add nuw nsw i64 %.02540.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %116, %umax.i.i.i
+  %exitcond.not.i.i.i = icmp eq i64 %116, %.sroa.speculated.i.i.i
   br i1 %exitcond.not.i.i.i, label %102, label %106, !llvm.loop !304
 
 ._crit_edge.i.i.i:                                ; preds = %"_ZZN4llvm20parallelForEachErrorIRSt6vectorISt10unique_ptrINS_3pdb26DbiModuleDescriptorBuilderESt14default_deleteIS4_EESaIS7_EEZNS3_16DbiStreamBuilder6commitERKNS_3msf9MSFLayoutENS_23WritableBinaryStreamRefEE3$_0EENS_5ErrorEOT_T0_ENKUlP15LLVMOpaqueErrorSN_E_clESN_SN_.exit.i.i.i"
@@ -6187,9 +6182,6 @@ declare i64 @llvm.umin.i64(i64, i64) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #19
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #19
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -5715,7 +5715,6 @@ _ZNSt6vectorISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBas
   %712 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %713 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %714 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %umax.i = call i64 @llvm.umax.i64(i64 %595, i64 1)
   br label %715
 
 715:                                              ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__32HdRetainedTypedSampledDataSourceINS0_7SdfPathEEEED2Ev.exit128.i, %.lr.ph.i70
@@ -6637,7 +6636,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__32HdRetainedTypedSampledDataSourceINS0_7SdfPathEEEED2Ev.exit128.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i127.i, %1111, %1098, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS0_7SdfPathEEEED2Ev.exit121.i
   call void @_ZN32pxrInternal_v0_24__pxrReserved__18HdDependencySchema7BuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %36) #25, !noalias !67
   %1116 = add nuw i64 %.0325.i, 1
-  %exitcond.not.i76 = icmp eq i64 %1116, %umax.i
+  %exitcond.not.i76 = icmp eq i64 %1116, %595
   br i1 %exitcond.not.i76, label %._crit_edge.i, label %715, !llvm.loop !85
 
 1117:                                             ; preds = %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE11_M_allocateEm.exit.i.i, %599

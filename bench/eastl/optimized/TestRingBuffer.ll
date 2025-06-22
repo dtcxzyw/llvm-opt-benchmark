@@ -2078,15 +2078,14 @@ if.end.i.i.i.i.i.i.i.i.i:                         ; preds = %call.i.i.i.i.i.noex
 
 _ZN5eastl31uninitialized_value_construct_nIPimEET_S2_T0_.exit.i.i: ; preds = %if.end.i.i.i.i.i.i.i.i.i, %call.i.i.i.i.i.noexc
   %retval.0.i.i.i.i.i.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i.i ], [ %call.i.i.i.i.i1, %call.i.i.i.i.i.noexc ]
-  %2 = shl nuw i64 %add, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %retval.0.i.i.i.i.i.i.i.i.i, i8 0, i64 %2, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 4 %retval.0.i.i.i.i.i.i.i.i.i, i8 0, i64 %mul.i13.i.i, i1 false)
   %add.ptr.i.i = getelementptr inbounds i32, ptr %retval.0.i.i.i.i.i.i.i.i.i, i64 %add
-  %3 = load ptr, ptr %this, align 8
-  %tobool.not.i15.i.i = icmp eq ptr %3, null
+  %2 = load ptr, ptr %this, align 8
+  %tobool.not.i15.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i15.i.i, label %_ZN5eastl10VectorBaseIiNS_9allocatorEE6DoFreeEPim.exit.i.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i:   ; preds = %_ZN5eastl31uninitialized_value_construct_nIPimEET_S2_T0_.exit.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #15
+  tail call void @_ZdaPv(ptr noundef nonnull %2) #15
   br label %_ZN5eastl10VectorBaseIiNS_9allocatorEE6DoFreeEPim.exit.i.i
 
 _ZN5eastl10VectorBaseIiNS_9allocatorEE6DoFreeEPim.exit.i.i: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i, %_ZN5eastl31uninitialized_value_construct_nIPimEET_S2_T0_.exit.i.i
@@ -2102,28 +2101,28 @@ if.else.i:                                        ; preds = %entry
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.else.i, %_ZN5eastl10VectorBaseIiNS_9allocatorEE6DoFreeEPim.exit.i.i
-  %4 = phi ptr [ null, %if.else.i ], [ %call.i.i.i.i.i1, %_ZN5eastl10VectorBaseIiNS_9allocatorEE6DoFreeEPim.exit.i.i ]
+  %3 = phi ptr [ null, %if.else.i ], [ %call.i.i.i.i.i1, %_ZN5eastl10VectorBaseIiNS_9allocatorEE6DoFreeEPim.exit.i.i ]
   %mBegin = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store ptr %4, ptr %mBegin, align 8
+  store ptr %3, ptr %mBegin, align 8
   %mEnd = getelementptr inbounds nuw i8, ptr %this, i64 32
-  store ptr %4, ptr %mEnd, align 8
+  store ptr %3, ptr %mEnd, align 8
   %mSize = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i64 0, ptr %mSize, align 8
   ret void
 
 lpad:                                             ; preds = %_ZN5eastl10VectorBaseIiNS_9allocatorEE10DoAllocateEm.exit.i.i
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %6 = load ptr, ptr %this, align 8
-  %tobool.not.i.i = icmp eq ptr %6, null
+  %5 = load ptr, ptr %this, align 8
+  %tobool.not.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i, label %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i.i:     ; preds = %lpad
-  tail call void @_ZdaPv(ptr noundef nonnull %6) #15
+  tail call void @_ZdaPv(ptr noundef nonnull %5) #15
   br label %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit
 
 _ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit:       ; preds = %lpad, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i
-  resume { ptr, i32 } %5
+  resume { ptr, i32 } %4
 }
 
 declare i32 @__gxx_personality_v0(...)
@@ -2159,15 +2158,14 @@ if.end.i.i.i.i.i.i.i.i.i:                         ; preds = %call.i.i.i.i.i.noex
 
 _ZN5eastl31uninitialized_value_construct_nIPimEET_S2_T0_.exit.i.i: ; preds = %if.end.i.i.i.i.i.i.i.i.i, %call.i.i.i.i.i.noexc
   %retval.0.i.i.i.i.i.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i.i ], [ %call.i.i.i.i.i1, %call.i.i.i.i.i.noexc ]
-  %2 = shl nuw i64 %add, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %retval.0.i.i.i.i.i.i.i.i.i, i8 0, i64 %2, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 4 %retval.0.i.i.i.i.i.i.i.i.i, i8 0, i64 %mul.i13.i.i, i1 false)
   %add.ptr.i.i = getelementptr inbounds i32, ptr %retval.0.i.i.i.i.i.i.i.i.i, i64 %add
-  %3 = load ptr, ptr %this, align 8
-  %tobool.not.i15.i.i = icmp eq ptr %3, null
+  %2 = load ptr, ptr %this, align 8
+  %tobool.not.i15.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i15.i.i, label %_ZN5eastl10VectorBaseIiNS_9allocatorEE6DoFreeEPim.exit.i.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i:   ; preds = %_ZN5eastl31uninitialized_value_construct_nIPimEET_S2_T0_.exit.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #15
+  tail call void @_ZdaPv(ptr noundef nonnull %2) #15
   br label %_ZN5eastl10VectorBaseIiNS_9allocatorEE6DoFreeEPim.exit.i.i
 
 _ZN5eastl10VectorBaseIiNS_9allocatorEE6DoFreeEPim.exit.i.i: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i, %_ZN5eastl31uninitialized_value_construct_nIPimEET_S2_T0_.exit.i.i
@@ -2183,28 +2181,28 @@ if.else.i:                                        ; preds = %entry
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.else.i, %_ZN5eastl10VectorBaseIiNS_9allocatorEE6DoFreeEPim.exit.i.i
-  %4 = phi ptr [ null, %if.else.i ], [ %call.i.i.i.i.i1, %_ZN5eastl10VectorBaseIiNS_9allocatorEE6DoFreeEPim.exit.i.i ]
+  %3 = phi ptr [ null, %if.else.i ], [ %call.i.i.i.i.i1, %_ZN5eastl10VectorBaseIiNS_9allocatorEE6DoFreeEPim.exit.i.i ]
   %mBegin = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store ptr %4, ptr %mBegin, align 8
+  store ptr %3, ptr %mBegin, align 8
   %mEnd = getelementptr inbounds nuw i8, ptr %this, i64 32
-  store ptr %4, ptr %mEnd, align 8
+  store ptr %3, ptr %mEnd, align 8
   %mSize = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i64 0, ptr %mSize, align 8
   ret void
 
 lpad:                                             ; preds = %_ZN5eastl10VectorBaseIiNS_9allocatorEE10DoAllocateEm.exit.i.i
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %6 = load ptr, ptr %this, align 8
-  %tobool.not.i.i = icmp eq ptr %6, null
+  %5 = load ptr, ptr %this, align 8
+  %tobool.not.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i, label %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i.i:     ; preds = %lpad
-  tail call void @_ZdaPv(ptr noundef nonnull %6) #15
+  tail call void @_ZdaPv(ptr noundef nonnull %5) #15
   br label %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit
 
 _ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit:       ; preds = %lpad, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i
-  resume { ptr, i32 } %5
+  resume { ptr, i32 } %4
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2895,15 +2893,14 @@ if.end.i.i.i.i.i.i.i.i.i:                         ; preds = %call.i.i.i.i.i.noex
 
 _ZN5eastl31uninitialized_value_construct_nIPimEET_S2_T0_.exit.i.i: ; preds = %if.end.i.i.i.i.i.i.i.i.i, %call.i.i.i.i.i.noexc
   %retval.0.i.i.i.i.i.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i.i ], [ %call.i.i.i.i.i1, %call.i.i.i.i.i.noexc ]
-  %2 = shl nuw i64 %add, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %retval.0.i.i.i.i.i.i.i.i.i, i8 0, i64 %2, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 4 %retval.0.i.i.i.i.i.i.i.i.i, i8 0, i64 %mul.i13.i.i, i1 false)
   %add.ptr.i.i = getelementptr inbounds i32, ptr %retval.0.i.i.i.i.i.i.i.i.i, i64 %add
-  %3 = load ptr, ptr %this, align 8
-  %tobool.not.i15.i.i = icmp eq ptr %3, null
+  %2 = load ptr, ptr %this, align 8
+  %tobool.not.i15.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i15.i.i, label %_ZN5eastl10VectorBaseIiNS_9allocatorEE6DoFreeEPim.exit.i.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i:   ; preds = %_ZN5eastl31uninitialized_value_construct_nIPimEET_S2_T0_.exit.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #15
+  tail call void @_ZdaPv(ptr noundef nonnull %2) #15
   br label %_ZN5eastl10VectorBaseIiNS_9allocatorEE6DoFreeEPim.exit.i.i
 
 _ZN5eastl10VectorBaseIiNS_9allocatorEE6DoFreeEPim.exit.i.i: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i, %_ZN5eastl31uninitialized_value_construct_nIPimEET_S2_T0_.exit.i.i
@@ -2919,54 +2916,54 @@ if.else.i:                                        ; preds = %entry
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.else.i, %_ZN5eastl10VectorBaseIiNS_9allocatorEE6DoFreeEPim.exit.i.i
-  %4 = phi ptr [ null, %if.else.i ], [ %call.i.i.i.i.i1, %_ZN5eastl10VectorBaseIiNS_9allocatorEE6DoFreeEPim.exit.i.i ]
+  %3 = phi ptr [ null, %if.else.i ], [ %call.i.i.i.i.i1, %_ZN5eastl10VectorBaseIiNS_9allocatorEE6DoFreeEPim.exit.i.i ]
   %mBegin = getelementptr inbounds nuw i8, ptr %this, i64 24
   %mEnd = getelementptr inbounds nuw i8, ptr %this, i64 32
   %mSize = getelementptr inbounds nuw i8, ptr %this, i64 40
   %add.ptr.i = getelementptr inbounds i32, ptr %ilist.coerce0, i64 %ilist.coerce1
-  store ptr %4, ptr %mBegin, align 8
-  store ptr %4, ptr %mEnd, align 8
+  store ptr %3, ptr %mBegin, align 8
+  store ptr %3, ptr %mEnd, align 8
   store i64 0, ptr %mSize, align 8
   %cmp.not6.i = icmp eq i64 %ilist.coerce1, 0
   br i1 %cmp.not6.i, label %_ZN5eastl11ring_bufferIiNS_6vectorIiNS_9allocatorEEES2_E6assignIPKiEEvT_S8_.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %invoke.cont, %_ZN5eastl11ring_bufferIiNS_6vectorIiNS_9allocatorEEES2_E9push_backERKi.exit.i
-  %5 = phi ptr [ %10, %_ZN5eastl11ring_bufferIiNS_6vectorIiNS_9allocatorEEES2_E9push_backERKi.exit.i ], [ %4, %invoke.cont ]
+  %4 = phi ptr [ %9, %_ZN5eastl11ring_bufferIiNS_6vectorIiNS_9allocatorEEES2_E9push_backERKi.exit.i ], [ %3, %invoke.cont ]
   %first.addr.07.i = phi ptr [ %incdec.ptr.i, %_ZN5eastl11ring_bufferIiNS_6vectorIiNS_9allocatorEEES2_E9push_backERKi.exit.i ], [ %ilist.coerce0, %invoke.cont ]
-  %6 = load i32, ptr %first.addr.07.i, align 4
-  store i32 %6, ptr %5, align 4
-  %7 = load ptr, ptr %mEnd, align 8
-  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %5 = load i32, ptr %first.addr.07.i, align 4
+  store i32 %5, ptr %4, align 4
+  %6 = load ptr, ptr %mEnd, align 8
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %6, i64 4
   store ptr %incdec.ptr.i.i, ptr %mEnd, align 8
-  %8 = load ptr, ptr %mpEnd.i, align 8
-  %cmp.i.i2 = icmp eq ptr %incdec.ptr.i.i, %8
+  %7 = load ptr, ptr %mpEnd.i, align 8
+  %cmp.i.i2 = icmp eq ptr %incdec.ptr.i.i, %7
   br i1 %cmp.i.i2, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i
-  %9 = load ptr, ptr %this, align 8
-  store ptr %9, ptr %mEnd, align 8
+  %8 = load ptr, ptr %this, align 8
+  store ptr %8, ptr %mEnd, align 8
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %for.body.i
-  %10 = phi ptr [ %9, %if.then.i.i ], [ %incdec.ptr.i.i, %for.body.i ]
-  %11 = load ptr, ptr %mBegin, align 8
-  %cmp7.i.i = icmp eq ptr %10, %11
+  %9 = phi ptr [ %8, %if.then.i.i ], [ %incdec.ptr.i.i, %for.body.i ]
+  %10 = load ptr, ptr %mBegin, align 8
+  %cmp7.i.i = icmp eq ptr %9, %10
   br i1 %cmp7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.end.i.i
-  %incdec.ptr10.i.i = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %incdec.ptr10.i.i = getelementptr inbounds nuw i8, ptr %10, i64 4
   store ptr %incdec.ptr10.i.i, ptr %mBegin, align 8
-  %cmp13.i.i = icmp eq ptr %incdec.ptr10.i.i, %8
+  %cmp13.i.i = icmp eq ptr %incdec.ptr10.i.i, %7
   br i1 %cmp13.i.i, label %if.then14.i.i, label %_ZN5eastl11ring_bufferIiNS_6vectorIiNS_9allocatorEEES2_E9push_backERKi.exit.i
 
 if.then14.i.i:                                    ; preds = %if.then8.i.i
-  %12 = load ptr, ptr %this, align 8
-  store ptr %12, ptr %mBegin, align 8
+  %11 = load ptr, ptr %this, align 8
+  store ptr %11, ptr %mBegin, align 8
   br label %_ZN5eastl11ring_bufferIiNS_6vectorIiNS_9allocatorEEES2_E9push_backERKi.exit.i
 
 if.else.i.i:                                      ; preds = %if.end.i.i
-  %13 = load i64, ptr %mSize, align 8
-  %inc.i.i = add i64 %13, 1
+  %12 = load i64, ptr %mSize, align 8
+  %inc.i.i = add i64 %12, 1
   store i64 %inc.i.i, ptr %mSize, align 8
   br label %_ZN5eastl11ring_bufferIiNS_6vectorIiNS_9allocatorEEES2_E9push_backERKi.exit.i
 
@@ -2979,18 +2976,18 @@ _ZN5eastl11ring_bufferIiNS_6vectorIiNS_9allocatorEEES2_E6assignIPKiEEvT_S8_.exit
   ret void
 
 lpad:                                             ; preds = %_ZN5eastl10VectorBaseIiNS_9allocatorEE10DoAllocateEm.exit.i.i
-  %14 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %15 = load ptr, ptr %this, align 8
-  %tobool.not.i.i = icmp eq ptr %15, null
+  %14 = load ptr, ptr %this, align 8
+  %tobool.not.i.i = icmp eq ptr %14, null
   br i1 %tobool.not.i.i, label %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i.i:     ; preds = %lpad
-  tail call void @_ZdaPv(ptr noundef nonnull %15) #15
+  tail call void @_ZdaPv(ptr noundef nonnull %14) #15
   br label %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit
 
 _ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit:       ; preds = %lpad, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i
-  resume { ptr, i32 } %14
+  resume { ptr, i32 } %13
 }
 
 ; Function Attrs: mustprogress uwtable

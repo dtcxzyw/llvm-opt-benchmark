@@ -1092,7 +1092,6 @@ for.body211.preheader:                            ; preds = %for.cond205.prehead
   %sub.ptr.rhs.cast.i200 = ptrtoint ptr %arrayidx208.val to i64
   %sub.ptr.sub.i201 = sub i64 %sub.ptr.lhs.cast.i199, %sub.ptr.rhs.cast.i200
   %sub.ptr.div.i202 = ashr exact i64 %sub.ptr.sub.i201, 5
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i202, i64 1)
   br label %for.body211
 
 for.body211:                                      ; preds = %for.body211.preheader, %invoke.cont237
@@ -1184,7 +1183,7 @@ _ZNSt12_Vector_baseIPKN6google8protobuf15FieldDescriptorESaIS4_EE13_M_deallocate
 invoke.cont237:                                   ; preds = %if.then.i.i.i.i.i.i.i.i.i429, %for.body211, %_ZNSt12_Vector_baseIPKN6google8protobuf15FieldDescriptorESaIS4_EE13_M_deallocateEPS4_m.exit.i484
   %65 = phi ptr [ %add.ptr50.i435, %if.then.i.i.i.i.i.i.i.i.i429 ], [ %59, %for.body211 ], [ %add.ptr.i.i.i.i.i.i.i.i59.i476, %_ZNSt12_Vector_baseIPKN6google8protobuf15FieldDescriptorESaIS4_EE13_M_deallocateEPS4_m.exit.i484 ]
   %indvars.iv.next634 = add nuw i64 %indvars.iv633, 1
-  %exitcond636.not = icmp eq i64 %indvars.iv.next634, %umax
+  %exitcond636.not = icmp eq i64 %indvars.iv.next634, %sub.ptr.div.i202
   br i1 %exitcond636.not, label %for.inc243, label %for.body211, !llvm.loop !11
 
 for.inc243:                                       ; preds = %invoke.cont237, %for.cond205.preheader

@@ -5139,7 +5139,6 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit.preheader: ; preds = %_ZNK2cv
   %23 = ptrtoint ptr %21 to i64
   %24 = sub i64 %22, %23
   %25 = ashr exact i64 %24, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %25, i64 1)
   br label %.lr.ph
 
 26:                                               ; preds = %_ZNK2cv7details14TlsAbstraction7getDataEv.exit.thread44
@@ -5285,7 +5284,7 @@ _ZN2cv7details10ThreadDataD2Ev.exit:              ; preds = %._crit_edge, %85
 
 _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %.lr.ph
   %86 = add nuw i64 %.03149, 1
-  %exitcond.not = icmp eq i64 %86, %umax
+  %exitcond.not = icmp eq i64 %86, %25
   br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !142
 
 .body:                                            ; preds = %50, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %68
@@ -6908,11 +6907,7 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit.preheader: ; preds = %_ZN2cv7
   %63 = sub i64 %61, %62
   %64 = ashr exact i64 %63, 3
   %.not63 = icmp eq ptr %59, %60
-  br i1 %.not63, label %.critedge.thread, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit.preheader
-  %umax = tail call i64 @llvm.umax.i64(i64 %64, i64 1)
-  br label %.lr.ph
+  br i1 %.not63, label %.critedge.thread, label %.lr.ph
 
 65:                                               ; preds = %_ZN2cv7details14TlsAbstraction7setDataEPv.exit
   tail call void @_ZSt20__throw_system_errori(i32 noundef %56) #50
@@ -6924,8 +6919,8 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit.preheader: ; preds = %_ZN2cv7
   tail call void @_ZdlPv(ptr noundef nonnull %34) #51
   br label %common.resume
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit
-  %.059 = phi i64 [ %75, %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit.preheader, %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit
+  %.059 = phi i64 [ %75, %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit ], [ 0, %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit.preheader ]
   %68 = getelementptr inbounds nuw ptr, ptr %60, i64 %.059
   %69 = load ptr, ptr %68, align 8, !tbaa !130
   %70 = icmp eq ptr %69, null
@@ -6942,7 +6937,7 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit.preheader: ; preds = %_ZN2cv7
 
 _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %.lr.ph
   %75 = add nuw i64 %.059, 1
-  %exitcond.not = icmp eq i64 %75, %umax
+  %exitcond.not = icmp eq i64 %75, %64
   br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !175
 
 .critedge:                                        ; preds = %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit

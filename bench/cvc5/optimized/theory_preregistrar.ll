@@ -493,7 +493,6 @@ define hidden void @_ZN4cvc58internal4prop18TheoryPreregistrar15notifyBacktrackE
 .lr.ph:                                           ; preds = %1
   %14 = ashr exact i64 %13, 4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %umax = tail call i64 @llvm.umax.i64(i64 %14, i64 1)
   br label %16
 
 16:                                               ; preds = %.lr.ph, %23
@@ -514,7 +513,7 @@ define hidden void @_ZN4cvc58internal4prop18TheoryPreregistrar15notifyBacktrackE
   store ptr %25, ptr %2, align 8, !tbaa !229
   call void @_ZN4cvc58internal12TheoryEngine11preRegisterENS0_12NodeTemplateILb0EEE(ptr noundef nonnull align 8 dereferenceable(1480) %24, ptr noundef nonnull %2)
   %26 = add nuw i64 %.033, 1
-  %exitcond.not = icmp eq i64 %26, %umax
+  %exitcond.not = icmp eq i64 %26, %14
   br i1 %exitcond.not, label %.critedge, label %16, !llvm.loop !237
 
 .critedge:                                        ; preds = %23, %16, %1

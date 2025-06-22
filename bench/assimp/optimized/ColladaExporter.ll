@@ -18298,7 +18298,6 @@ _ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i: ; preds = %663
 
 .lr.ph791.preheader:                              ; preds = %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i
   %665 = getelementptr inbounds nuw i8, ptr %664, i64 %659
-  %umax = call i64 @llvm.umax.i64(i64 %660, i64 1)
   br label %.lr.ph791
 
 ._crit_edge792:                                   ; preds = %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
@@ -18398,7 +18397,7 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %_ZNSt6vectorIjSaIjE
   %695 = load i32, ptr %694, align 4
   %696 = add i32 %695, %.0649786
   %697 = add nuw i64 %.088790, 1
-  %exitcond842.not = icmp eq i64 %697, %umax
+  %exitcond842.not = icmp eq i64 %697, %660
   br i1 %exitcond842.not, label %._crit_edge792, label %.lr.ph791, !llvm.loop !145
 
 .loopexit681:                                     ; preds = %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i
@@ -18450,7 +18449,6 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %663, %.noexc483, %.
 
 .lr.ph809.preheader:                              ; preds = %.preheader
   %710 = ashr exact i64 %709, 2
-  %umax853 = call i64 @llvm.umax.i64(i64 %710, i64 1)
   br label %.lr.ph809
 
 711:                                              ; preds = %668
@@ -18539,7 +18537,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %_ZStlsISt11char_tra
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit497: ; preds = %751
   %753 = add nuw i64 %.0808, 1
-  %exitcond854.not = icmp eq i64 %753, %umax853
+  %exitcond854.not = icmp eq i64 %753, %710
   br i1 %exitcond854.not, label %_ZNSt6vectorIiSaIiEE5clearEv.exit, label %.lr.ph809, !llvm.loop !149
 
 .thread:                                          ; preds = %.lr.ph809, %751

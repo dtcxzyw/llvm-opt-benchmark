@@ -8922,7 +8922,6 @@ _ZN3vcg3tri13UpdateQualityI6CMeshOE8FaceAreaERS2_.exit: ; preds = %.lr.ph.i, %2
   %80 = ptrtoint ptr %78 to i64
   %81 = sub i64 %79, %80
   %82 = ashr exact i64 %81, 3
-  %umax = call i64 @llvm.umax.i64(i64 %82, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -8943,7 +8942,7 @@ _ZN3vcg3tri13UpdateQualityI6CMeshOE8FaceAreaERS2_.exit: ; preds = %.lr.ph.i, %2
   %95 = fpext float %94 to double
   %96 = fadd double %.02331, %95
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %82
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !123
 
 97:                                               ; preds = %._crit_edge, %74

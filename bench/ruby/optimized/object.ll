@@ -662,7 +662,6 @@ rbimpl_size_mul_or_raise.exit:                    ; preds = %44, %50, %53
   %55 = zext i32 %14 to i64
   %56 = shl nuw nsw i64 %55, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %.040, ptr noundef nonnull readonly align 1 %.0.i, i64 noundef range(i64 1, 0) %56, i1 noundef false) #23
-  %wide.trip.count = zext i32 %14 to i64
   br label %58
 
 57:                                               ; preds = %rb_obj_written.exit
@@ -685,7 +684,7 @@ rbimpl_size_mul_or_raise.exit:                    ; preds = %44, %50, %53
 
 rb_obj_written.exit:                              ; preds = %58, %65
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %55
   br i1 %exitcond.not, label %57, label %58, !llvm.loop !35
 
 66:                                               ; preds = %10, %57, %41, %5

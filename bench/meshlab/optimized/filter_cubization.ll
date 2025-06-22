@@ -5204,20 +5204,20 @@ define void @_ZN16CubizationPlugin11applyFilterB5cxx11EPK7QActionRK17RichParamet
 33:                                               ; preds = %7
   %34 = tail call noundef ptr @_ZN12MeshDocument2mmEv(ptr noundef nonnull align 8 dereferenceable(192) %4)
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 652
-  %.sroa.0120.0.copyload = load float, ptr %35, align 4
+  %.sroa.0117.0.copyload = load float, ptr %35, align 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 656
   %.sroa.2.0.copyload = load float, ptr %.sroa.2.0..sroa_idx, align 4
-  %.sroa.3121.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 660
-  %.sroa.3121.0.copyload = load float, ptr %.sroa.3121.0..sroa_idx, align 4
+  %.sroa.3118.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 660
+  %.sroa.3118.0.copyload = load float, ptr %.sroa.3118.0..sroa_idx, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 664
   %.sroa.4.0.copyload = load float, ptr %.sroa.4.0..sroa_idx, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 668
   %.sroa.5.0.copyload = load float, ptr %.sroa.5.0..sroa_idx, align 4
-  %.sroa.6122.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 672
-  %.sroa.6122.0.copyload = load float, ptr %.sroa.6122.0..sroa_idx, align 4
-  %36 = fsub float %.sroa.4.0.copyload, %.sroa.0120.0.copyload
+  %.sroa.6119.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 672
+  %.sroa.6119.0.copyload = load float, ptr %.sroa.6119.0..sroa_idx, align 4
+  %36 = fsub float %.sroa.4.0.copyload, %.sroa.0117.0.copyload
   %37 = fsub float %.sroa.5.0.copyload, %.sroa.2.0.copyload
-  %38 = fsub float %.sroa.6122.0.copyload, %.sroa.3121.0.copyload
+  %38 = fsub float %.sroa.6119.0.copyload, %.sroa.3118.0.copyload
   %39 = fcmp olt float %37, %38
   %40 = select i1 %39, float %38, float %37
   %41 = fcmp olt float %36, %40
@@ -5541,33 +5541,29 @@ _ZN7QStringD2Ev.exit:                             ; preds = %148, %_ZN9QtPrivate
   %157 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %158 = load ptr, ptr %157, align 8
   %159 = load ptr, ptr %26, align 8
-  %160 = icmp eq ptr %158, %159
-  br i1 %160, label %161, label %.lr.ph.preheader.i
+  %160 = ptrtoint ptr %158 to i64
+  %161 = ptrtoint ptr %159 to i64
+  %162 = sub i64 %160, %161
+  %163 = ashr exact i64 %162, 2
+  %164 = icmp eq ptr %158, %159
+  br i1 %164, label %165, label %.lr.ph.i
 
-161:                                              ; preds = %156
-  %162 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  %163 = getelementptr inbounds nuw i8, ptr %26, i64 32
-  %164 = load ptr, ptr %163, align 8
-  %165 = load ptr, ptr %162, align 8
-  %166 = icmp eq ptr %164, %165
-  br i1 %166, label %_ZNK3vcg9HistogramIfE10PercentileEf.exit89.thread, label %_ZNK3vcg9HistogramIfE10PercentileEf.exit.thread
+165:                                              ; preds = %156
+  %166 = getelementptr inbounds nuw i8, ptr %26, i64 24
+  %167 = getelementptr inbounds nuw i8, ptr %26, i64 32
+  %168 = load ptr, ptr %167, align 8
+  %169 = load ptr, ptr %166, align 8
+  %170 = icmp eq ptr %168, %169
+  br i1 %170, label %_ZNK3vcg9HistogramIfE10PercentileEf.exit86.thread, label %_ZNK3vcg9HistogramIfE10PercentileEf.exit.thread
 
-.lr.ph.preheader.i:                               ; preds = %156
-  %167 = ptrtoint ptr %158 to i64
-  %168 = ptrtoint ptr %159 to i64
-  %169 = sub i64 %167, %168
-  %170 = ashr exact i64 %169, 2
-  %umax.i = call i64 @llvm.umax.i64(i64 %170, i64 1)
-  br label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.019.i = phi i64 [ %174, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
-  %.01518.i = phi float [ %173, %.lr.ph.i ], [ 0.000000e+00, %.lr.ph.preheader.i ]
+.lr.ph.i:                                         ; preds = %156, %.lr.ph.i
+  %.019.i = phi i64 [ %174, %.lr.ph.i ], [ 0, %156 ]
+  %.01518.i = phi float [ %173, %.lr.ph.i ], [ 0.000000e+00, %156 ]
   %171 = getelementptr inbounds float, ptr %159, i64 %.019.i
   %172 = load float, ptr %171, align 4
   %173 = fadd float %.01518.i, %172
   %174 = add nuw i64 %.019.i, 1
-  %exitcond.not.i73 = icmp eq i64 %174, %umax.i
+  %exitcond.not.i73 = icmp eq i64 %174, %163
   br i1 %exitcond.not.i73, label %.lr.ph23.preheader.i, label %.lr.ph.i, !llvm.loop !69
 
 .lr.ph23.preheader.i:                             ; preds = %.lr.ph.i
@@ -5585,70 +5581,70 @@ _ZN7QStringD2Ev.exit:                             ; preds = %148, %_ZN9QtPrivate
 
 180:                                              ; preds = %.lr.ph23.i
   %181 = add nuw i64 %.121.i, 1
-  %exitcond30.not.i = icmp eq i64 %181, %umax.i
+  %exitcond30.not.i = icmp eq i64 %181, %163
   br i1 %exitcond30.not.i, label %_ZNK3vcg9HistogramIfE10PercentileEf.exit, label %.lr.ph23.i, !llvm.loop !70
 
 _ZNK3vcg9HistogramIfE10PercentileEf.exit:         ; preds = %.lr.ph23.i, %180
-  %.1.lcssa.i = phi i64 [ %.121.i, %.lr.ph23.i ], [ %umax.i, %180 ]
+  %.1.lcssa.i = phi i64 [ %.121.i, %.lr.ph23.i ], [ %163, %180 ]
   %182 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %183 = load ptr, ptr %182, align 8
   %184 = getelementptr float, ptr %183, i64 %.1.lcssa.i
   %185 = getelementptr i8, ptr %184, i64 4
   %186 = load float, ptr %185, align 4
-  br label %.lr.ph.i76
+  br label %.lr.ph.i74
 
-_ZNK3vcg9HistogramIfE10PercentileEf.exit.thread:  ; preds = %161
-  %187 = getelementptr i8, ptr %165, i64 4
+_ZNK3vcg9HistogramIfE10PercentileEf.exit.thread:  ; preds = %165
+  %187 = getelementptr i8, ptr %169, i64 4
   %188 = load float, ptr %187, align 4
-  br label %_ZNK3vcg9HistogramIfE10PercentileEf.exit89
+  br label %_ZNK3vcg9HistogramIfE10PercentileEf.exit86
 
-.lr.ph.i76:                                       ; preds = %.lr.ph.i76, %_ZNK3vcg9HistogramIfE10PercentileEf.exit
-  %.019.i77 = phi i64 [ %192, %.lr.ph.i76 ], [ 0, %_ZNK3vcg9HistogramIfE10PercentileEf.exit ]
-  %.01518.i78 = phi float [ %191, %.lr.ph.i76 ], [ 0.000000e+00, %_ZNK3vcg9HistogramIfE10PercentileEf.exit ]
-  %189 = getelementptr inbounds float, ptr %159, i64 %.019.i77
+.lr.ph.i74:                                       ; preds = %_ZNK3vcg9HistogramIfE10PercentileEf.exit, %.lr.ph.i74
+  %.019.i75 = phi i64 [ %192, %.lr.ph.i74 ], [ 0, %_ZNK3vcg9HistogramIfE10PercentileEf.exit ]
+  %.01518.i76 = phi float [ %191, %.lr.ph.i74 ], [ 0.000000e+00, %_ZNK3vcg9HistogramIfE10PercentileEf.exit ]
+  %189 = getelementptr inbounds float, ptr %159, i64 %.019.i75
   %190 = load float, ptr %189, align 4
-  %191 = fadd float %.01518.i78, %190
-  %192 = add nuw i64 %.019.i77, 1
-  %exitcond.not.i79 = icmp eq i64 %192, %umax.i
-  br i1 %exitcond.not.i79, label %.lr.ph23.preheader.i80, label %.lr.ph.i76, !llvm.loop !69
+  %191 = fadd float %.01518.i76, %190
+  %192 = add nuw i64 %.019.i75, 1
+  %exitcond.not.i77 = icmp eq i64 %192, %163
+  br i1 %exitcond.not.i77, label %.lr.ph23.preheader.i78, label %.lr.ph.i74, !llvm.loop !69
 
-.lr.ph23.preheader.i80:                           ; preds = %.lr.ph.i76
+.lr.ph23.preheader.i78:                           ; preds = %.lr.ph.i74
   %193 = fmul float %191, 0x3FEFAE1480000000
-  br label %.lr.ph23.i82
+  br label %.lr.ph23.i79
 
-.lr.ph23.i82:                                     ; preds = %198, %.lr.ph23.preheader.i80
-  %.121.i83 = phi i64 [ %199, %198 ], [ 0, %.lr.ph23.preheader.i80 ]
-  %.01420.i84 = phi float [ %196, %198 ], [ 0.000000e+00, %.lr.ph23.preheader.i80 ]
-  %194 = getelementptr inbounds float, ptr %159, i64 %.121.i83
+.lr.ph23.i79:                                     ; preds = %198, %.lr.ph23.preheader.i78
+  %.121.i80 = phi i64 [ %199, %198 ], [ 0, %.lr.ph23.preheader.i78 ]
+  %.01420.i81 = phi float [ %196, %198 ], [ 0.000000e+00, %.lr.ph23.preheader.i78 ]
+  %194 = getelementptr inbounds float, ptr %159, i64 %.121.i80
   %195 = load float, ptr %194, align 4
-  %196 = fadd float %.01420.i84, %195
+  %196 = fadd float %.01420.i81, %195
   %197 = fcmp ult float %196, %193
-  br i1 %197, label %198, label %_ZNK3vcg9HistogramIfE10PercentileEf.exit89
+  br i1 %197, label %198, label %_ZNK3vcg9HistogramIfE10PercentileEf.exit86
 
-198:                                              ; preds = %.lr.ph23.i82
-  %199 = add nuw i64 %.121.i83, 1
-  %exitcond30.not.i88 = icmp eq i64 %199, %umax.i
-  br i1 %exitcond30.not.i88, label %_ZNK3vcg9HistogramIfE10PercentileEf.exit89, label %.lr.ph23.i82, !llvm.loop !70
+198:                                              ; preds = %.lr.ph23.i79
+  %199 = add nuw i64 %.121.i80, 1
+  %exitcond30.not.i85 = icmp eq i64 %199, %163
+  br i1 %exitcond30.not.i85, label %_ZNK3vcg9HistogramIfE10PercentileEf.exit86, label %.lr.ph23.i79, !llvm.loop !70
 
-_ZNK3vcg9HistogramIfE10PercentileEf.exit89:       ; preds = %.lr.ph23.i82, %198, %_ZNK3vcg9HistogramIfE10PercentileEf.exit.thread
-  %200 = phi ptr [ %165, %_ZNK3vcg9HistogramIfE10PercentileEf.exit.thread ], [ %183, %198 ], [ %183, %.lr.ph23.i82 ]
-  %.016.i124 = phi float [ %188, %_ZNK3vcg9HistogramIfE10PercentileEf.exit.thread ], [ %186, %198 ], [ %186, %.lr.ph23.i82 ]
-  %.1.lcssa.i86 = phi i64 [ 0, %_ZNK3vcg9HistogramIfE10PercentileEf.exit.thread ], [ %.121.i83, %.lr.ph23.i82 ], [ %umax.i, %198 ]
-  %201 = getelementptr float, ptr %200, i64 %.1.lcssa.i86
+_ZNK3vcg9HistogramIfE10PercentileEf.exit86:       ; preds = %.lr.ph23.i79, %198, %_ZNK3vcg9HistogramIfE10PercentileEf.exit.thread
+  %200 = phi ptr [ %169, %_ZNK3vcg9HistogramIfE10PercentileEf.exit.thread ], [ %183, %198 ], [ %183, %.lr.ph23.i79 ]
+  %.016.i121 = phi float [ %188, %_ZNK3vcg9HistogramIfE10PercentileEf.exit.thread ], [ %186, %198 ], [ %186, %.lr.ph23.i79 ]
+  %.1.lcssa.i83 = phi i64 [ 0, %_ZNK3vcg9HistogramIfE10PercentileEf.exit.thread ], [ %.121.i80, %.lr.ph23.i79 ], [ %163, %198 ]
+  %201 = getelementptr float, ptr %200, i64 %.1.lcssa.i83
   %202 = getelementptr i8, ptr %201, i64 4
   %203 = load float, ptr %202, align 4
-  %204 = fcmp oeq float %.016.i124, %203
-  br i1 %204, label %_ZNK3vcg9HistogramIfE10PercentileEf.exit89.thread, label %._crit_edge23.i
+  %204 = fcmp oeq float %.016.i121, %203
+  br i1 %204, label %_ZNK3vcg9HistogramIfE10PercentileEf.exit86.thread, label %._crit_edge23.i
 
-._crit_edge23.i:                                  ; preds = %_ZNK3vcg9HistogramIfE10PercentileEf.exit89
+._crit_edge23.i:                                  ; preds = %_ZNK3vcg9HistogramIfE10PercentileEf.exit86
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %144, i64 8
-  %.pre.i90 = load ptr, ptr %.phi.trans.insert.i, align 8
+  %.pre.i87 = load ptr, ptr %.phi.trans.insert.i, align 8
   %.phi.trans.insert24.i = getelementptr inbounds nuw i8, ptr %144, i64 16
   %.pre25.i = load ptr, ptr %.phi.trans.insert24.i, align 8
   br label %235
 
-_ZNK3vcg9HistogramIfE10PercentileEf.exit89.thread: ; preds = %161, %_ZNK3vcg9HistogramIfE10PercentileEf.exit89
-  %205 = phi ptr [ %200, %_ZNK3vcg9HistogramIfE10PercentileEf.exit89 ], [ %165, %161 ]
+_ZNK3vcg9HistogramIfE10PercentileEf.exit86.thread: ; preds = %165, %_ZNK3vcg9HistogramIfE10PercentileEf.exit86
+  %205 = phi ptr [ %200, %_ZNK3vcg9HistogramIfE10PercentileEf.exit86 ], [ %169, %165 ]
   %206 = getelementptr inbounds nuw i8, ptr %144, i64 264
   %207 = load i32, ptr %206, align 8
   %208 = getelementptr inbounds nuw i8, ptr %144, i64 8
@@ -5664,10 +5660,10 @@ _ZNK3vcg9HistogramIfE10PercentileEf.exit89.thread: ; preds = %161, %_ZNK3vcg9His
   %.not2025.i.i.i = icmp eq ptr %211, %210
   br i1 %217, label %.preheader.i.i.i, label %.preheader21.i.i.i
 
-.preheader21.i.i.i:                               ; preds = %_ZNK3vcg9HistogramIfE10PercentileEf.exit89.thread
+.preheader21.i.i.i:                               ; preds = %_ZNK3vcg9HistogramIfE10PercentileEf.exit86.thread
   br i1 %.not2025.i.i.i, label %_ZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_.exit.i, label %.lr.ph.i.i.i
 
-.preheader.i.i.i:                                 ; preds = %_ZNK3vcg9HistogramIfE10PercentileEf.exit89.thread
+.preheader.i.i.i:                                 ; preds = %_ZNK3vcg9HistogramIfE10PercentileEf.exit86.thread
   br i1 %.not2025.i.i.i, label %_ZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_.exit.i, label %.lr.ph27.i.i.i
 
 .lr.ph27.i.i.i:                                   ; preds = %.preheader.i.i.i, %.lr.ph27.i.i.i
@@ -5727,14 +5723,14 @@ _ZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_.exit.i: ; preds =
 235:                                              ; preds = %_ZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_.exit.i, %._crit_edge23.i
   %236 = phi ptr [ %205, %_ZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_.exit.i ], [ %200, %._crit_edge23.i ]
   %237 = phi ptr [ %210, %_ZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_.exit.i ], [ %.pre25.i, %._crit_edge23.i ]
-  %238 = phi ptr [ %211, %_ZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_.exit.i ], [ %.pre.i90, %._crit_edge23.i ]
+  %238 = phi ptr [ %211, %_ZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_.exit.i ], [ %.pre.i87, %._crit_edge23.i ]
   %.010.i = phi float [ %.sroa.01.4.vec.extract.i, %_ZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_.exit.i ], [ %203, %._crit_edge23.i ]
-  %.0.i = phi float [ %.sroa.01.0.vec.extract.i, %_ZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_.exit.i ], [ %.016.i124, %._crit_edge23.i ]
+  %.0.i = phi float [ %.sroa.01.0.vec.extract.i, %_ZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_.exit.i ], [ %.016.i121, %._crit_edge23.i ]
   %239 = getelementptr inbounds nuw i8, ptr %144, i64 16
   %.not20.i = icmp eq ptr %238, %237
-  br i1 %.not20.i, label %_ZN3vcg3tri11UpdateColorI6CMeshOE20PerVertexQualityRampERS2_ffNS_8ColorMapE.exit, label %.lr.ph.i91
+  br i1 %.not20.i, label %_ZN3vcg3tri11UpdateColorI6CMeshOE20PerVertexQualityRampERS2_ffNS_8ColorMapE.exit, label %.lr.ph.i88
 
-.lr.ph.i91:                                       ; preds = %235, %249
+.lr.ph.i88:                                       ; preds = %235, %249
   %240 = phi ptr [ %250, %249 ], [ %237, %235 ]
   %.sroa.013.021.i = phi ptr [ %251, %249 ], [ %238, %235 ]
   %241 = getelementptr inbounds nuw i8, ptr %.sroa.013.021.i, i64 20
@@ -5743,7 +5739,7 @@ _ZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_.exit.i: ; preds =
   %.not18.i = icmp eq i32 %243, 0
   br i1 %.not18.i, label %244, label %249
 
-244:                                              ; preds = %.lr.ph.i91
+244:                                              ; preds = %.lr.ph.i88
   %245 = getelementptr inbounds nuw i8, ptr %.sroa.013.021.i, i64 36
   %246 = load float, ptr %245, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
@@ -5764,19 +5760,19 @@ _ZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_.exit.i: ; preds =
   %.pre = load ptr, ptr %239, align 8
   br label %249
 
-249:                                              ; preds = %.noexc, %.lr.ph.i91
-  %250 = phi ptr [ %.pre, %.noexc ], [ %240, %.lr.ph.i91 ]
+249:                                              ; preds = %.noexc, %.lr.ph.i88
+  %250 = phi ptr [ %.pre, %.noexc ], [ %240, %.lr.ph.i88 ]
   %251 = getelementptr inbounds nuw i8, ptr %.sroa.013.021.i, i64 48
-  %.not.i92 = icmp eq ptr %251, %250
-  br i1 %.not.i92, label %_ZN3vcg3tri11UpdateColorI6CMeshOE20PerVertexQualityRampERS2_ffNS_8ColorMapE.exit.loopexit, label %.lr.ph.i91, !llvm.loop !73
+  %.not.i89 = icmp eq ptr %251, %250
+  br i1 %.not.i89, label %_ZN3vcg3tri11UpdateColorI6CMeshOE20PerVertexQualityRampERS2_ffNS_8ColorMapE.exit.loopexit, label %.lr.ph.i88, !llvm.loop !73
 
 _ZN3vcg3tri11UpdateColorI6CMeshOE20PerVertexQualityRampERS2_ffNS_8ColorMapE.exit.loopexit: ; preds = %249
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %26, i64 24
-  %.pre146 = load ptr, ptr %.phi.trans.insert, align 8
+  %.pre143 = load ptr, ptr %.phi.trans.insert, align 8
   br label %_ZN3vcg3tri11UpdateColorI6CMeshOE20PerVertexQualityRampERS2_ffNS_8ColorMapE.exit
 
 _ZN3vcg3tri11UpdateColorI6CMeshOE20PerVertexQualityRampERS2_ffNS_8ColorMapE.exit: ; preds = %_ZN3vcg3tri11UpdateColorI6CMeshOE20PerVertexQualityRampERS2_ffNS_8ColorMapE.exit.loopexit, %235
-  %252 = phi ptr [ %.pre146, %_ZN3vcg3tri11UpdateColorI6CMeshOE20PerVertexQualityRampERS2_ffNS_8ColorMapE.exit.loopexit ], [ %236, %235 ]
+  %252 = phi ptr [ %.pre143, %_ZN3vcg3tri11UpdateColorI6CMeshOE20PerVertexQualityRampERS2_ffNS_8ColorMapE.exit.loopexit ], [ %236, %235 ]
   %.not.i.i.i.i = icmp eq ptr %252, null
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit.i, label %253
 
@@ -5827,52 +5823,52 @@ _ZN3vcg9HistogramIfED2Ev.exit:                    ; preds = %255, %_ZNSt6vectorI
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12)
   %262 = getelementptr inbounds nuw i8, ptr %144, i64 1132
   call void @llvm.experimental.noalias.scope.decl(metadata !74)
-  br label %.preheader19.i.i93
+  br label %.preheader19.i.i90
 
-.preheader19.i.i93:                               ; preds = %276, %261
-  %indvars.iv29.i.i94 = phi i64 [ 0, %261 ], [ %indvars.iv.next30.i.i103, %276 ]
-  %263 = shl nuw nsw i64 %indvars.iv29.i.i94, 2
-  br label %.preheader.i.i95
+.preheader19.i.i90:                               ; preds = %276, %261
+  %indvars.iv29.i.i91 = phi i64 [ 0, %261 ], [ %indvars.iv.next30.i.i100, %276 ]
+  %263 = shl nuw nsw i64 %indvars.iv29.i.i91, 2
+  br label %.preheader.i.i92
 
-.preheader.i.i95:                                 ; preds = %273, %.preheader19.i.i93
-  %indvars.iv25.i.i96 = phi i64 [ 0, %.preheader19.i.i93 ], [ %indvars.iv.next26.i.i101, %273 ]
+.preheader.i.i92:                                 ; preds = %273, %.preheader19.i.i90
+  %indvars.iv25.i.i93 = phi i64 [ 0, %.preheader19.i.i90 ], [ %indvars.iv.next26.i.i98, %273 ]
   br label %264
 
-264:                                              ; preds = %264, %.preheader.i.i95
-  %indvars.iv.i.i97 = phi i64 [ 0, %.preheader.i.i95 ], [ %indvars.iv.next.i.i99, %264 ]
-  %.01620.i.i98 = phi float [ 0.000000e+00, %.preheader.i.i95 ], [ %272, %264 ]
-  %265 = add nuw nsw i64 %indvars.iv.i.i97, %263
+264:                                              ; preds = %264, %.preheader.i.i92
+  %indvars.iv.i.i94 = phi i64 [ 0, %.preheader.i.i92 ], [ %indvars.iv.next.i.i96, %264 ]
+  %.01620.i.i95 = phi float [ 0.000000e+00, %.preheader.i.i92 ], [ %272, %264 ]
+  %265 = add nuw nsw i64 %indvars.iv.i.i94, %263
   %266 = getelementptr inbounds nuw [16 x float], ptr %21, i64 0, i64 %265
   %267 = load float, ptr %266, align 4
-  %268 = shl nuw nsw i64 %indvars.iv.i.i97, 2
-  %269 = add nuw nsw i64 %268, %indvars.iv25.i.i96
+  %268 = shl nuw nsw i64 %indvars.iv.i.i94, 2
+  %269 = add nuw nsw i64 %268, %indvars.iv25.i.i93
   %270 = getelementptr inbounds nuw [16 x float], ptr %262, i64 0, i64 %269
   %271 = load float, ptr %270, align 4, !noalias !74
-  %272 = call float @llvm.fmuladd.f32(float %267, float %271, float %.01620.i.i98)
-  %indvars.iv.next.i.i99 = add nuw nsw i64 %indvars.iv.i.i97, 1
-  %exitcond.not.i.i100 = icmp eq i64 %indvars.iv.next.i.i99, 4
-  br i1 %exitcond.not.i.i100, label %273, label %264, !llvm.loop !38
+  %272 = call float @llvm.fmuladd.f32(float %267, float %271, float %.01620.i.i95)
+  %indvars.iv.next.i.i96 = add nuw nsw i64 %indvars.iv.i.i94, 1
+  %exitcond.not.i.i97 = icmp eq i64 %indvars.iv.next.i.i96, 4
+  br i1 %exitcond.not.i.i97, label %273, label %264, !llvm.loop !38
 
 273:                                              ; preds = %264
-  %274 = add nuw nsw i64 %indvars.iv25.i.i96, %263
+  %274 = add nuw nsw i64 %indvars.iv25.i.i93, %263
   %275 = getelementptr inbounds nuw [16 x float], ptr %12, i64 0, i64 %274
   store float %272, ptr %275, align 4, !alias.scope !74
-  %indvars.iv.next26.i.i101 = add nuw nsw i64 %indvars.iv25.i.i96, 1
-  %exitcond28.not.i.i102 = icmp eq i64 %indvars.iv.next26.i.i101, 4
-  br i1 %exitcond28.not.i.i102, label %276, label %.preheader.i.i95, !llvm.loop !39
+  %indvars.iv.next26.i.i98 = add nuw nsw i64 %indvars.iv25.i.i93, 1
+  %exitcond28.not.i.i99 = icmp eq i64 %indvars.iv.next26.i.i98, 4
+  br i1 %exitcond28.not.i.i99, label %276, label %.preheader.i.i92, !llvm.loop !39
 
 276:                                              ; preds = %273
-  %indvars.iv.next30.i.i103 = add nuw nsw i64 %indvars.iv29.i.i94, 1
-  %exitcond32.not.i.i104 = icmp eq i64 %indvars.iv.next30.i.i103, 4
-  br i1 %exitcond32.not.i.i104, label %_ZNK3vcg8Matrix44IfEmlERKS1_.exit.i105, label %.preheader19.i.i93, !llvm.loop !40
+  %indvars.iv.next30.i.i100 = add nuw nsw i64 %indvars.iv29.i.i91, 1
+  %exitcond32.not.i.i101 = icmp eq i64 %indvars.iv.next30.i.i100, 4
+  br i1 %exitcond32.not.i.i101, label %_ZNK3vcg8Matrix44IfEmlERKS1_.exit.i102, label %.preheader19.i.i90, !llvm.loop !40
 
-_ZNK3vcg8Matrix44IfEmlERKS1_.exit.i105:           ; preds = %276
+_ZNK3vcg8Matrix44IfEmlERKS1_.exit.i102:           ; preds = %276
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %262, ptr noundef nonnull align 4 dereferenceable(64) %12, i64 64, i1 false)
   call void @_Z6FreezeR9MeshModel(ptr noundef nonnull align 8 dereferenceable(1288) %144)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12)
   br label %277
 
-277:                                              ; preds = %_ZNK3vcg8Matrix44IfEmlERKS1_.exit.i105, %_ZN3vcg9HistogramIfED2Ev.exit
+277:                                              ; preds = %_ZNK3vcg8Matrix44IfEmlERKS1_.exit.i102, %_ZN3vcg9HistogramIfED2Ev.exit
   call void @_ZN9MeshModel19updateBoxAndNormalsEv(ptr noundef nonnull align 8 dereferenceable(1288) %144)
   %278 = load ptr, ptr %1, align 8
   %279 = getelementptr i8, ptr %278, i64 -32
@@ -5881,10 +5877,10 @@ _ZNK3vcg8Matrix44IfEmlERKS1_.exit.i105:           ; preds = %276
   %282 = call i64 @clock() #31
   %283 = getelementptr inbounds nuw i8, ptr %281, i64 8
   %284 = load ptr, ptr %283, align 8
-  %.not.i108 = icmp eq ptr %284, null
-  br i1 %.not.i108, label %_ZNK19MeshLabPluginLogger3logIJfRdEEEvPKcDpOT_.exit, label %.noexc109
+  %.not.i105 = icmp eq ptr %284, null
+  br i1 %.not.i105, label %_ZNK19MeshLabPluginLogger3logIJfRdEEEvPKcDpOT_.exit, label %.noexc106
 
-.noexc109:                                        ; preds = %277
+.noexc106:                                        ; preds = %277
   %285 = sub nsw i64 %282, %145
   %286 = sitofp i64 %285 to float
   %287 = fdiv float %286, 1.000000e+06
@@ -5896,11 +5892,11 @@ _ZNK3vcg8Matrix44IfEmlERKS1_.exit.i105:           ; preds = %276
   %291 = icmp sgt i32 %290, 4095
   br i1 %291, label %292, label %_ZN11GLLogStream4logfIJfRdEEEviPKcDpOT_.exit.i
 
-292:                                              ; preds = %.noexc109
+292:                                              ; preds = %.noexc106
   call void @_ZN11GLLogStream3logEiPKc(ptr noundef nonnull align 8 dereferenceable(40) %284, i32 noundef 2, ptr noundef nonnull @.str.30)
   br label %_ZN11GLLogStream4logfIJfRdEEEviPKcDpOT_.exit.i
 
-_ZN11GLLogStream4logfIJfRdEEEviPKcDpOT_.exit.i:   ; preds = %292, %.noexc109
+_ZN11GLLogStream4logfIJfRdEEEviPKcDpOT_.exit.i:   ; preds = %292, %.noexc106
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %11)
   br label %_ZNK19MeshLabPluginLogger3logIJfRdEEEvPKcDpOT_.exit
 

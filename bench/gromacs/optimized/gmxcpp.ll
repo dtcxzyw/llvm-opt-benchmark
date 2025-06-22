@@ -4856,13 +4856,10 @@ _ZL15is_ifdeffed_outN3gmx8ArrayRefIKiEE.exit.i:   ; preds = %120
 
 _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i.i: ; preds = %136
   %138 = ashr exact i64 %126, 2
-  %.sroa.speculated.i.i.i.i.i = call i64 @llvm.umax.i64(i64 %138, i64 1)
-  %139 = add nsw i64 %.sroa.speculated.i.i.i.i.i, %138
+  %139 = ashr exact i64 %126, 1
   %140 = icmp ult i64 %139, %138
   %141 = call i64 @llvm.umin.i64(i64 %139, i64 2305843009213693951)
   %142 = select i1 %140, i64 2305843009213693951, i64 %141
-  %.not.i.i.i.i.i = icmp ne i64 %142, 0
-  call void @llvm.assume(i1 %.not.i.i.i.i.i)
   %143 = shl nuw nsw i64 %142, 2
   %144 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %143) #25
           to label %.noexc101 unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -5438,7 +5435,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit162.i: ; preds = %
   %373 = sub i64 %371, %372
   %374 = ashr exact i64 %373, 6
   %375 = load ptr, ptr %9, align 8
-  %umax.i = call i64 @llvm.umax.i64(i64 %374, i64 1)
   br label %376
 
 376:                                              ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit164.thread184.i, %.lr.ph.i96
@@ -5461,7 +5457,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit164.thread184.i: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit164.i, %376
   %384 = add nuw i64 %.0104193.i, 1
-  %exitcond.not.i = icmp eq i64 %384, %umax.i
+  %exitcond.not.i = icmp eq i64 %384, %374
   br i1 %exitcond.not.i, label %.invoke281, label %376, !llvm.loop !183
 
 _ZL17process_directivePP7gmx_cppRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i155.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i154.i

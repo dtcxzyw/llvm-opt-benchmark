@@ -4806,7 +4806,6 @@ _ZN2cvL12unpackOctaveERKNS_8KeyPointERiS3_Rf.exit.preheader: ; preds = %.prehead
   %103 = ptrtoint ptr %101 to i64
   %104 = sub i64 %102, %103
   %105 = sdiv exact i64 %104, 28
-  %umax = call i64 @llvm.umax.i64(i64 %105, i64 1)
   br label %_ZN2cvL12unpackOctaveERKNS_8KeyPointERiS3_Rf.exit
 
 ._crit_edge.loopexit:                             ; preds = %_ZN2cvL12unpackOctaveERKNS_8KeyPointERiS3_Rf.exit
@@ -4842,7 +4841,7 @@ _ZN2cvL12unpackOctaveERKNS_8KeyPointERiS3_Rf.exit: ; preds = %_ZN2cvL12unpackOct
   %118 = add nsw i32 %114, -2
   %.sroa.speculated105 = call i32 @llvm.smax.i32(i32 %.0137143, i32 %118)
   %119 = add nuw i64 %.049145, 1
-  %exitcond.not = icmp eq i64 %119, %umax
+  %exitcond.not = icmp eq i64 %119, %105
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %_ZN2cvL12unpackOctaveERKNS_8KeyPointERiS3_Rf.exit, !llvm.loop !214
 
 120:                                              ; preds = %._crit_edge
@@ -5366,7 +5365,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit83: ; preds = %_ZN
   %305 = shl nuw nsw i32 1, %304
   %306 = uitofp nneg i32 %305 to float
   %307 = fdiv float 1.000000e+00, %306
-  %umax151 = call i64 @llvm.umax.i64(i64 %303, i64 1)
   br label %308
 
 308:                                              ; preds = %.lr.ph, %308
@@ -5391,7 +5389,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit83: ; preds = %_ZN
   %323 = fmul float %307, %322
   store float %323, ptr %321, align 4, !tbaa !230
   %324 = add nuw i64 %.048148, 1
-  %exitcond152.not = icmp eq i64 %324, %umax151
+  %exitcond152.not = icmp eq i64 %324, %303
   br i1 %exitcond152.not, label %.loopexit, label %308, !llvm.loop !231
 
 .loopexit:                                        ; preds = %308, %.preheader, %296

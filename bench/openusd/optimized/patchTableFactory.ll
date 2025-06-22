@@ -7845,7 +7845,6 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %30, %32, %34, %36
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 288
   %51 = getelementptr inbounds nuw i8, ptr %47, i64 264
   %52 = getelementptr inbounds nuw i8, ptr %47, i64 336
-  %umax = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %58
 
 .preheader:                                       ; preds = %_ZZN10OpenSubdiv6v3_6_03Far17PatchTableBuilder19LegacyGregoryHelper19FinalizeQuadOffsetsERSt6vectorIjSaIjEEEN10QuadOffset6AssignERKNS0_3Vtr8internal5LevelEiPj.exit, %_ZNSt6vectorIjSaIjEE6resizeEm.exit
@@ -7859,7 +7858,6 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %30, %32, %34, %36
   %55 = getelementptr inbounds nuw i8, ptr %47, i64 288
   %56 = getelementptr inbounds nuw i8, ptr %47, i64 264
   %57 = getelementptr inbounds nuw i8, ptr %47, i64 336
-  %umax46 = tail call i64 @llvm.umax.i64(i64 %18, i64 1)
   br label %101
 
 58:                                               ; preds = %.lr.ph, %_ZZN10OpenSubdiv6v3_6_03Far17PatchTableBuilder19LegacyGregoryHelper19FinalizeQuadOffsetsERSt6vectorIjSaIjEEEN10QuadOffset6AssignERKNS0_3Vtr8internal5LevelEiPj.exit
@@ -7934,7 +7932,7 @@ _ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit.i: ; preds = %89, %.
 _ZZN10OpenSubdiv6v3_6_03Far17PatchTableBuilder19LegacyGregoryHelper19FinalizeQuadOffsetsERSt6vectorIjSaIjEEEN10QuadOffset6AssignERKNS0_3Vtr8internal5LevelEiPj.exit: ; preds = %_ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit.i
   %99 = getelementptr inbounds nuw i8, ptr %.02137, i64 16
   %100 = add nuw i64 %.02038, 1
-  %exitcond.not = icmp eq i64 %100, %umax
+  %exitcond.not = icmp eq i64 %100, %10
   br i1 %exitcond.not, label %.preheader, label %58, !llvm.loop !81
 
 101:                                              ; preds = %.lr.ph41, %_ZZN10OpenSubdiv6v3_6_03Far17PatchTableBuilder19LegacyGregoryHelper19FinalizeQuadOffsetsERSt6vectorIjSaIjEEEN10QuadOffset6AssignERKNS0_3Vtr8internal5LevelEiPj.exit34
@@ -8009,7 +8007,7 @@ _ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit.i24: ; preds = %132,
 _ZZN10OpenSubdiv6v3_6_03Far17PatchTableBuilder19LegacyGregoryHelper19FinalizeQuadOffsetsERSt6vectorIjSaIjEEEN10QuadOffset6AssignERKNS0_3Vtr8internal5LevelEiPj.exit34: ; preds = %_ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit.i24
   %142 = getelementptr inbounds nuw i8, ptr %.139, i64 16
   %143 = add nuw i64 %.040, 1
-  %exitcond47.not = icmp eq i64 %143, %umax46
+  %exitcond47.not = icmp eq i64 %143, %18
   br i1 %exitcond47.not, label %.loopexit, label %101, !llvm.loop !82
 
 .loopexit:                                        ; preds = %_ZZN10OpenSubdiv6v3_6_03Far17PatchTableBuilder19LegacyGregoryHelper19FinalizeQuadOffsetsERSt6vectorIjSaIjEEEN10QuadOffset6AssignERKNS0_3Vtr8internal5LevelEiPj.exit34, %.preheader, %2

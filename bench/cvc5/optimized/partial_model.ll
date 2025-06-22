@@ -3354,19 +3354,18 @@ define hidden void @_ZN4cvc58internal6theory5arith6linear14ArithVariables24attem
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %4 = load ptr, ptr %3, align 8, !tbaa !110
   %5 = load ptr, ptr %2, align 8, !tbaa !71
-  %.not = icmp eq ptr %4, %5
-  br i1 %.not, label %._crit_edge.thread, label %.lr.ph
-
-.lr.ph:                                           ; preds = %1
   %6 = ptrtoint ptr %4 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 2
+  %.not = icmp eq ptr %4, %5
+  br i1 %.not, label %._crit_edge.thread, label %.lr.ph
+
+.lr.ph:                                           ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %umax = tail call i64 @llvm.umax.i64(i64 %9, i64 1)
   br label %14
 
 14:                                               ; preds = %.lr.ph, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
@@ -3451,7 +3450,7 @@ _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIP
 _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i, %26, %48
   %.1 = phi i64 [ %50, %48 ], [ %.0711, %26 ], [ %.0711, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ]
   %51 = add nuw i64 %.012, 1
-  %exitcond.not = icmp eq i64 %51, %umax
+  %exitcond.not = icmp eq i64 %51, %9
   br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !163
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIjSaIjEE9push_backERKj.exit

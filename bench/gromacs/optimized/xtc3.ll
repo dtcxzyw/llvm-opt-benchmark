@@ -1276,8 +1276,7 @@ positive_int.exit655:                             ; preds = %556, %559, %561
 
 .lr.ph981.preheader:                              ; preds = %._crit_edge974
   %585 = mul i32 %spec.select568, 3
-  %umax = call i32 @llvm.umax.i32(i32 %585, i32 1)
-  %wide.trip.count1096 = zext i32 %umax to i64
+  %wide.trip.count1096 = zext i32 %585 to i64
   br label %.lr.ph981
 
 .lr.ph981:                                        ; preds = %.lr.ph981.preheader, %.lr.ph981
@@ -1935,8 +1934,7 @@ insert_value_in_array.exit701:                    ; preds = %870, %874
   br label %.loopexit
 
 .lr.ph998.preheader:                              ; preds = %885
-  %umax1120 = call i32 @llvm.umax.i32(i32 %886, i32 1)
-  %wide.trip.count1121 = zext i32 %umax1120 to i64
+  %wide.trip.count1121 = zext i32 %886 to i64
   %.pre.i703.pre = load ptr, ptr %172, align 8, !tbaa !24
   br label %.lr.ph998
 

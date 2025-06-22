@@ -79118,7 +79118,6 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %35, %37, %39, %41
   %55 = sub i64 %44, %.pre-phi
   %56 = ashr exact i64 %55, 3
   %57 = add nsw i64 %56, -1
-  %umax = tail call i64 @llvm.umax.i64(i64 %54, i64 1)
   br label %58
 
 58:                                               ; preds = %.lr.ph26, %58
@@ -79132,7 +79131,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %35, %37, %39, %41
   store i64 %.024, ptr %63, align 8, !tbaa !68
   store i64 %64, ptr %59, align 8, !tbaa !147
   %65 = add nuw i64 %.024, 1
-  %exitcond.not = icmp eq i64 %65, %umax
+  %exitcond.not = icmp eq i64 %65, %54
   br i1 %exitcond.not, label %.loopexit, label %58, !llvm.loop !782
 
 .loopexit:                                        ; preds = %58, %._crit_edge, %_ZN4entt17next_power_of_twoImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_.exit
@@ -86473,7 +86472,6 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %35, %37, %39, %41
   %55 = sub i64 %44, %.pre-phi
   %56 = ashr exact i64 %55, 3
   %57 = add nsw i64 %56, -1
-  %umax = tail call i64 @llvm.umax.i64(i64 %54, i64 1)
   br label %58
 
 58:                                               ; preds = %.lr.ph26, %58
@@ -86488,7 +86486,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %35, %37, %39, %41
   store i64 %.024, ptr %64, align 8, !tbaa !68
   store i64 %65, ptr %59, align 8, !tbaa !70
   %66 = add nuw i64 %.024, 1
-  %exitcond.not = icmp eq i64 %66, %umax
+  %exitcond.not = icmp eq i64 %66, %54
   br i1 %exitcond.not, label %.loopexit, label %58, !llvm.loop !958
 
 .loopexit:                                        ; preds = %58, %._crit_edge, %_ZN4entt17next_power_of_twoImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_.exit
@@ -90874,7 +90872,6 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %35, %37, %39, %41
   %55 = sub i64 %44, %.pre-phi
   %56 = ashr exact i64 %55, 3
   %57 = add nsw i64 %56, -1
-  %umax = tail call i64 @llvm.umax.i64(i64 %54, i64 1)
   br label %58
 
 58:                                               ; preds = %.lr.ph26, %58
@@ -90889,7 +90886,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %35, %37, %39, %41
   store i64 %.024, ptr %64, align 8, !tbaa !68
   store i64 %65, ptr %59, align 8, !tbaa !70
   %66 = add nuw i64 %.024, 1
-  %exitcond.not = icmp eq i64 %66, %umax
+  %exitcond.not = icmp eq i64 %66, %54
   br i1 %exitcond.not, label %.loopexit, label %58, !llvm.loop !1024
 
 .loopexit:                                        ; preds = %58, %._crit_edge, %_ZN4entt17next_power_of_twoImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_.exit
@@ -98067,7 +98064,6 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %35, %37, %39, %41
   %52 = ptrtoint ptr %50 to i64
   %53 = sub i64 %51, %52
   %54 = sdiv exact i64 %53, 40
-  %umax = tail call i64 @llvm.umax.i64(i64 %54, i64 1)
   br label %.lr.ph26
 
 .lr.ph26:                                         ; preds = %.lr.ph26.preheader, %_ZNK4entt9dense_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIS6_ESt8equal_toIvESaIS6_EE15value_to_bucketIS6_EEmRKT_.exit
@@ -98103,7 +98099,7 @@ _ZNK4entt9dense_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashI
   %75 = getelementptr inbounds nuw %"struct.std::pair.185", ptr %74, i64 %.024
   store i64 %73, ptr %75, align 8, !tbaa !1087
   %76 = add nuw i64 %.024, 1
-  %exitcond.not = icmp eq i64 %76, %umax
+  %exitcond.not = icmp eq i64 %76, %54
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph26, !llvm.loop !1089
 
 .loopexit:                                        ; preds = %_ZNK4entt9dense_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIS6_ESt8equal_toIvESaIS6_EE15value_to_bucketIS6_EEmRKT_.exit, %._crit_edge, %_ZN4entt17next_power_of_twoImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_.exit
@@ -101966,7 +101962,6 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %35, %37, %39, %41
   %55 = sub i64 %44, %.pre-phi
   %56 = lshr exact i64 %55, 3
   %57 = add nuw nsw i64 %56, 4294967295
-  %umax = tail call i64 @llvm.umax.i64(i64 %54, i64 1)
   br label %58
 
 58:                                               ; preds = %.lr.ph26, %58
@@ -101981,7 +101976,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %35, %37, %39, %41
   store i64 %.024, ptr %64, align 8, !tbaa !68
   store i64 %65, ptr %59, align 8, !tbaa !1135
   %66 = add nuw i64 %.024, 1
-  %exitcond.not = icmp eq i64 %66, %umax
+  %exitcond.not = icmp eq i64 %66, %54
   br i1 %exitcond.not, label %.loopexit, label %58, !llvm.loop !1138
 
 .loopexit:                                        ; preds = %58, %._crit_edge, %_ZN4entt17next_power_of_twoImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_.exit
@@ -102089,7 +102084,6 @@ _ZNSt6vectorImN4test18throwing_allocatorImEEE6resizeEm.exit: ; preds = %36, %38,
   %56 = sub i64 %45, %.pre-phi
   %57 = ashr exact i64 %56, 3
   %58 = add nsw i64 %57, -1
-  %umax = tail call i64 @llvm.umax.i64(i64 %55, i64 1)
   br label %59
 
 59:                                               ; preds = %.lr.ph26, %59
@@ -102103,7 +102097,7 @@ _ZNSt6vectorImN4test18throwing_allocatorImEEE6resizeEm.exit: ; preds = %36, %38,
   store i64 %.024, ptr %64, align 8, !tbaa !68
   store i64 %65, ptr %60, align 8, !tbaa !147
   %66 = add nuw i64 %.024, 1
-  %exitcond.not = icmp eq i64 %66, %umax
+  %exitcond.not = icmp eq i64 %66, %55
   br i1 %exitcond.not, label %.loopexit, label %59, !llvm.loop !1139
 
 .loopexit:                                        ; preds = %59, %._crit_edge, %_ZN4entt17next_power_of_twoImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_.exit
@@ -103158,7 +103152,6 @@ _ZNSt6vectorImNSt3pmr21polymorphic_allocatorImEEE6resizeEm.exit: ; preds = %36, 
   %56 = sub i64 %45, %.pre-phi
   %57 = ashr exact i64 %56, 3
   %58 = add nsw i64 %57, -1
-  %umax = tail call i64 @llvm.umax.i64(i64 %55, i64 1)
   br label %59
 
 59:                                               ; preds = %.lr.ph26, %59
@@ -103173,7 +103166,7 @@ _ZNSt6vectorImNSt3pmr21polymorphic_allocatorImEEE6resizeEm.exit: ; preds = %36, 
   store i64 %.024, ptr %65, align 8, !tbaa !68
   store i64 %66, ptr %60, align 8, !tbaa !70
   %67 = add nuw i64 %.024, 1
-  %exitcond.not = icmp eq i64 %67, %umax
+  %exitcond.not = icmp eq i64 %67, %55
   br i1 %exitcond.not, label %.loopexit, label %59, !llvm.loop !1167
 
 .loopexit:                                        ; preds = %59, %._crit_edge, %_ZN4entt17next_power_of_twoImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_.exit
@@ -103598,7 +103591,6 @@ _ZNSt6vectorImNSt3pmr21polymorphic_allocatorImEEE6resizeEm.exit: ; preds = %36, 
   %53 = ptrtoint ptr %51 to i64
   %54 = sub i64 %52, %53
   %55 = sdiv exact i64 %54, 48
-  %umax = tail call i64 @llvm.umax.i64(i64 %55, i64 1)
   br label %56
 
 56:                                               ; preds = %.lr.ph26, %_ZNK4entt9dense_setINSt7__cxx1112basic_stringIcSt11char_traitsIcENSt3pmr21polymorphic_allocatorIcEEEESt4hashIS8_ESt8equal_toIvENS6_IS8_EEE15value_to_bucketIS8_EEmRKT_.exit
@@ -103635,7 +103627,7 @@ _ZNK4entt9dense_setINSt7__cxx1112basic_stringIcSt11char_traitsIcENSt3pmr21polymo
   %78 = getelementptr inbounds nuw %"struct.std::pair.187", ptr %77, i64 %.024
   store i64 %76, ptr %78, align 8, !tbaa !1170
   %79 = add nuw i64 %.024, 1
-  %exitcond.not = icmp eq i64 %79, %umax
+  %exitcond.not = icmp eq i64 %79, %55
   br i1 %exitcond.not, label %.loopexit, label %56, !llvm.loop !1172
 
 .loopexit:                                        ; preds = %_ZNK4entt9dense_setINSt7__cxx1112basic_stringIcSt11char_traitsIcENSt3pmr21polymorphic_allocatorIcEEEESt4hashIS8_ESt8equal_toIvENS6_IS8_EEE15value_to_bucketIS8_EEmRKT_.exit, %._crit_edge, %_ZN4entt17next_power_of_twoImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_.exit

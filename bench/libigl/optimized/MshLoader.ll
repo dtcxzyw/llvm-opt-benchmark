@@ -5489,7 +5489,6 @@ define dso_local noundef zeroext i1 @_ZNK3igl9MshLoader23is_element_map_identity
   %8 = ptrtoint ptr %5 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 2
-  %umax = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
@@ -5499,7 +5498,7 @@ define dso_local noundef zeroext i1 @_ZNK3igl9MshLoader23is_element_map_identity
   %13 = zext i32 %12 to i64
   %.not = icmp eq i64 %indvars.iv, %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp ne i64 %indvars.iv.next, %umax
+  %exitcond.not = icmp ne i64 %indvars.iv.next, %10
   %or.cond.not = select i1 %.not, i1 %exitcond.not, i1 false
   br i1 %or.cond.not, label %.lr.ph, label %._crit_edge, !llvm.loop !156
 

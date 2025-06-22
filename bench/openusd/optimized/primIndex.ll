@@ -1727,15 +1727,11 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_18PcpPrimIndex_GraphEEptEv.ex
   %35 = sub i64 %33, %34
   %36 = ashr exact i64 %35, 2
   %.not31 = icmp eq ptr %31, %32
-  br i1 %.not31, label %._crit_edge, label %.lr.ph.preheader
+  br i1 %.not31, label %._crit_edge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_18PcpPrimIndex_GraphEEptEv.exit
-  %umax = tail call i64 @llvm.umax.i64(i64 %36, i64 1)
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %49
-  %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %49 ]
-  %.030 = phi i64 [ 0, %.lr.ph.preheader ], [ %50, %49 ]
+.lr.ph:                                           ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_18PcpPrimIndex_GraphEEptEv.exit, %49
+  %indvars.iv = phi i64 [ %indvars.iv.next, %49 ], [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_18PcpPrimIndex_GraphEEptEv.exit ]
+  %.030 = phi i64 [ %50, %49 ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_18PcpPrimIndex_GraphEEptEv.exit ]
   %37 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Pcp_CompressedSdSite", ptr %32, i64 %.030
   %38 = load i16, ptr %37, align 2
   %39 = zext i16 %38 to i64
@@ -1772,7 +1768,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_18PcpPrimIndex_GraphEEptEv.ex
 
 49:                                               ; preds = %.lr.ph
   %50 = add nuw i64 %.030, 1
-  %exitcond.not = icmp eq i64 %50, %umax
+  %exitcond.not = icmp eq i64 %50, %36
   %indvars.iv.next = add i64 %indvars.iv, 1
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 

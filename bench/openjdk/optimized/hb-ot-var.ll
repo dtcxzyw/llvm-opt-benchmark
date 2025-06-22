@@ -1127,8 +1127,7 @@ _ZNK10hb_array_tIKN2OT7HBFixedINS0_7IntTypeIiLj4EEELj16EEEE9sub_arrayEjPj.exit.i
   br i1 %.not.i, label %.loopexit.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %_ZNK10hb_array_tIKN2OT7HBFixedINS0_7IntTypeIiLj4EEELj16EEEE9sub_arrayEjPj.exit.i
-  %umax.i = tail call i32 @llvm.umax.i32(i32 %.sroa.speculated.i.i, i32 1)
-  %wide.trip.count.i = zext nneg i32 %umax.i to i64
+  %wide.trip.count.i = zext nneg i32 %.sroa.speculated.i.i to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i

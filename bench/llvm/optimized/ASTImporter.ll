@@ -29691,7 +29691,6 @@ _ZN4llvm15SmallVectorImplIPN5clang21TemplateParameterListEE7reserveEm.exit.i.i..
 _ZN4llvm11SmallVectorIPN5clang21TemplateParameterListELj2EEC2Em.exit: ; preds = %_ZN4llvm15SmallVectorImplIPN5clang21TemplateParameterListEE7reserveEm.exit.i.i.i, %.lr.ph.preheader.i.i.i
   store i32 %12, ptr %17, align 8, !tbaa !29
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %wide.trip.count = zext i32 %12 to i64
   br label %25
 
 25:                                               ; preds = %_ZN4llvm11SmallVectorIPN5clang21TemplateParameterListELj2EEC2Em.exit, %34
@@ -29716,7 +29715,7 @@ _ZN4llvm11SmallVectorIPN5clang21TemplateParameterListELj2EEC2Em.exit: ; preds = 
   store ptr %35, ptr %37, align 8, !tbaa !2669
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %15
   br i1 %exitcond.not, label %_ZN4llvm5ErrorD2Ev.exit17, label %25, !llvm.loop !3016
 
 38:                                               ; preds = %25
@@ -56864,7 +56863,6 @@ _ZN4llvm15SmallVectorImplIPN5clang21TemplateParameterListEE7reserveEm.exit.i.i..
 _ZN4llvm11SmallVectorIPN5clang21TemplateParameterListELj2EEC2Em.exit: ; preds = %_ZN4llvm15SmallVectorImplIPN5clang21TemplateParameterListEE7reserveEm.exit.i.i.i, %.lr.ph.preheader.i.i.i
   store i32 %12, ptr %17, align 8, !tbaa !29
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %wide.trip.count = zext i32 %12 to i64
   br label %25
 
 25:                                               ; preds = %_ZN4llvm11SmallVectorIPN5clang21TemplateParameterListELj2EEC2Em.exit, %34
@@ -56889,7 +56887,7 @@ _ZN4llvm11SmallVectorIPN5clang21TemplateParameterListELj2EEC2Em.exit: ; preds = 
   store ptr %35, ptr %37, align 8, !tbaa !2669
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %15
   br i1 %exitcond.not, label %_ZN4llvm5ErrorD2Ev.exit17, label %25, !llvm.loop !5258
 
 38:                                               ; preds = %25

@@ -6,8 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.AVMD5 = type { i64, [64 x i8], [4 x i32] }
 
 @av_md5_size = local_unnamed_addr constant i32 88, align 4
-@.str = private unnamed_addr constant [2 x i8] c"\80\00", align 1
-@.str.1 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 
 ; Function Attrs: nounwind uwtable
 define noalias ptr @av_md5_alloc() local_unnamed_addr #0 {
@@ -711,124 +709,92 @@ define void @av_md5_final(ptr noundef captures(none) %0, ptr noundef writeonly c
   %8 = add i64 %4, 1
   store i64 %8, ptr %0, align 8, !tbaa !4
   %.not.i.not = icmp eq i32 %7, 0
-  br i1 %.not.i.not, label %16, label %9
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br i1 %.not.i.not, label %15, label %10
 
-9:                                                ; preds = %2
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+10:                                               ; preds = %2
   %11 = and i64 %4, 63
-  %12 = getelementptr inbounds nuw i8, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 %11
   store i8 -128, ptr %12, align 1
   %13 = icmp eq i32 %7, 63
-  br i1 %13, label %14, label %av_md5_update.exit
+  br i1 %13, label %.loopexit.i, label %av_md5_update.exit
 
-14:                                               ; preds = %9
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  tail call fastcc void @body(ptr noundef nonnull %15, ptr noundef nonnull %10, i64 noundef 1)
-  br label %16
-
-16:                                               ; preds = %14, %2
-  %.041.i = phi i64 [ 0, %14 ], [ 1, %2 ]
-  %.0.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @.str, i64 1), %14 ], [ @.str, %2 ]
-  %17 = ptrtoint ptr %.0.i to i64
-  %18 = and i64 %17, 3
-  %.not44.i = icmp eq i64 %18, 0
-  br i1 %.not44.i, label %19, label %.loopexit.i
-
-19:                                               ; preds = %16
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  tail call fastcc void @body(ptr noundef nonnull %20, ptr noundef nonnull %.0.i, i64 noundef 0)
-  br label %.loopexit.i
-
-.loopexit.i:                                      ; preds = %16, %19
-  br i1 %.not.i.not, label %21, label %av_md5_update.exit
-
-21:                                               ; preds = %.loopexit.i
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %22, ptr nonnull align 1 %.0.i, i64 %.041.i, i1 false)
+.loopexit.i:                                      ; preds = %10
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  tail call fastcc void @body(ptr noundef nonnull %14, ptr noundef nonnull %9, i64 noundef 1)
   br label %av_md5_update.exit
 
-av_md5_update.exit:                               ; preds = %9, %.loopexit.i, %21
-  %23 = load i64, ptr %0, align 8, !tbaa !4
-  %24 = and i64 %23, 63
-  %.not35 = icmp eq i64 %24, 56
-  br i1 %.not35, label %av_md5_update.exit33, label %.lr.ph
+15:                                               ; preds = %2
+  store i8 -128, ptr %9, align 8
+  br label %av_md5_update.exit
+
+av_md5_update.exit:                               ; preds = %.loopexit.i, %10, %15
+  %16 = load i64, ptr %0, align 8, !tbaa !4
+  %17 = and i64 %16, 63
+  %.not27 = icmp eq i64 %17, 56
+  br i1 %.not27, label %av_md5_update.exit25, label %.lr.ph
 
 .lr.ph:                                           ; preds = %av_md5_update.exit
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  br label %27
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  br label %20
 
-27:                                               ; preds = %.lr.ph, %av_md5_update.exit21
-  %28 = phi i64 [ %24, %.lr.ph ], [ %43, %av_md5_update.exit21 ]
-  %29 = phi i64 [ %23, %.lr.ph ], [ %42, %av_md5_update.exit21 ]
-  %30 = trunc i64 %29 to i32
-  %31 = and i32 %30, 63
-  %32 = add i64 %29, 1
+20:                                               ; preds = %.lr.ph, %av_md5_update.exit17
+  %21 = phi i64 [ %17, %.lr.ph ], [ %31, %av_md5_update.exit17 ]
+  %22 = phi i64 [ %16, %.lr.ph ], [ %30, %av_md5_update.exit17 ]
+  %23 = trunc i64 %22 to i32
+  %24 = and i32 %23, 63
+  %25 = add i64 %22, 1
+  store i64 %25, ptr %0, align 8, !tbaa !4
+  %.not.i10.not = icmp eq i32 %24, 0
+  br i1 %.not.i10.not, label %29, label %26
+
+26:                                               ; preds = %20
+  %27 = getelementptr inbounds nuw i8, ptr %18, i64 %21
+  store i8 0, ptr %27, align 1
+  %28 = icmp eq i32 %24, 63
+  br i1 %28, label %.loopexit.i15, label %av_md5_update.exit17
+
+.loopexit.i15:                                    ; preds = %26
+  tail call fastcc void @body(ptr noundef nonnull %19, ptr noundef nonnull %18, i64 noundef 1)
+  br label %av_md5_update.exit17
+
+29:                                               ; preds = %20
+  store i8 0, ptr %18, align 8
+  br label %av_md5_update.exit17
+
+av_md5_update.exit17:                             ; preds = %.loopexit.i15, %26, %29
+  %30 = load i64, ptr %0, align 8, !tbaa !4
+  %31 = and i64 %30, 63
+  %.not = icmp eq i64 %31, 56
+  br i1 %.not, label %av_md5_update.exit25, label %20, !llvm.loop !16
+
+av_md5_update.exit25:                             ; preds = %av_md5_update.exit17, %av_md5_update.exit
+  %.lcssa26 = phi i64 [ %16, %av_md5_update.exit ], [ %30, %av_md5_update.exit17 ]
+  %32 = add i64 %.lcssa26, 8
   store i64 %32, ptr %0, align 8, !tbaa !4
-  %.not.i10.not = icmp eq i32 %31, 0
-  br i1 %.not.i10.not, label %37, label %33
-
-33:                                               ; preds = %27
-  %34 = getelementptr inbounds nuw i8, ptr %25, i64 %28
-  store i8 0, ptr %34, align 1
-  %35 = icmp eq i32 %31, 63
-  br i1 %35, label %36, label %av_md5_update.exit21
-
-36:                                               ; preds = %33
-  tail call fastcc void @body(ptr noundef nonnull %26, ptr noundef nonnull %25, i64 noundef 1)
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store i64 %5, ptr %34, align 1
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  tail call fastcc void @body(ptr noundef nonnull %35, ptr noundef nonnull %33, i64 noundef 1)
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  call fastcc void @body(ptr noundef nonnull %35, ptr noundef nonnull %36, i64 noundef 0)
   br label %37
 
-37:                                               ; preds = %36, %27
-  %.041.i11 = phi i64 [ 0, %36 ], [ 1, %27 ]
-  %.0.i12 = phi ptr [ getelementptr inbounds nuw (i8, ptr @.str.1, i64 1), %36 ], [ @.str.1, %27 ]
-  %38 = ptrtoint ptr %.0.i12 to i64
-  %39 = and i64 %38, 3
-  %.not44.i13 = icmp eq i64 %39, 0
-  br i1 %.not44.i13, label %40, label %.loopexit.i18
-
-40:                                               ; preds = %37
-  tail call fastcc void @body(ptr noundef nonnull %26, ptr noundef nonnull %.0.i12, i64 noundef 0)
-  br label %.loopexit.i18
-
-.loopexit.i18:                                    ; preds = %37, %40
-  br i1 %.not.i10.not, label %41, label %av_md5_update.exit21
-
-41:                                               ; preds = %.loopexit.i18
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %25, ptr nonnull align 1 %.0.i12, i64 %.041.i11, i1 false)
-  br label %av_md5_update.exit21
-
-av_md5_update.exit21:                             ; preds = %33, %.loopexit.i18, %41
-  %42 = load i64, ptr %0, align 8, !tbaa !4
-  %43 = and i64 %42, 63
-  %.not = icmp eq i64 %43, 56
-  br i1 %.not, label %av_md5_update.exit33, label %27, !llvm.loop !16
-
-av_md5_update.exit33:                             ; preds = %av_md5_update.exit21, %av_md5_update.exit
-  %.lcssa34 = phi i64 [ %23, %av_md5_update.exit ], [ %42, %av_md5_update.exit21 ]
-  %44 = add i64 %.lcssa34, 8
-  store i64 %44, ptr %0, align 8, !tbaa !4
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i64 %5, ptr %46, align 1
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  tail call fastcc void @body(ptr noundef nonnull %47, ptr noundef nonnull %45, i64 noundef 1)
-  %48 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call fastcc void @body(ptr noundef nonnull %47, ptr noundef nonnull %48, i64 noundef 0)
-  br label %49
-
-49:                                               ; preds = %av_md5_update.exit33, %49
-  %indvars.iv = phi i64 [ 0, %av_md5_update.exit33 ], [ %indvars.iv.next, %49 ]
-  %50 = sub nuw nsw i64 3, %indvars.iv
-  %51 = getelementptr inbounds nuw [4 x i32], ptr %47, i64 0, i64 %50
-  %52 = load i32, ptr %51, align 4, !tbaa !9
-  %53 = shl nuw nsw i64 %indvars.iv, 2
-  %54 = getelementptr inbounds nuw i8, ptr %1, i64 %53
-  store i32 %52, ptr %54, align 1, !tbaa !13
+37:                                               ; preds = %av_md5_update.exit25, %37
+  %indvars.iv = phi i64 [ 0, %av_md5_update.exit25 ], [ %indvars.iv.next, %37 ]
+  %38 = sub nuw nsw i64 3, %indvars.iv
+  %39 = getelementptr inbounds nuw [4 x i32], ptr %35, i64 0, i64 %38
+  %40 = load i32, ptr %39, align 4, !tbaa !9
+  %41 = shl nuw nsw i64 %indvars.iv, 2
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 %41
+  store i32 %40, ptr %42, align 1, !tbaa !13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %55, label %49, !llvm.loop !17
+  br i1 %exitcond.not, label %43, label %37, !llvm.loop !17
 
-55:                                               ; preds = %49
+43:                                               ; preds = %37
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
   ret void
 }

@@ -3787,7 +3787,6 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_15Angle12analyzeFrame
   %53 = icmp ugt i64 %52, 8
   %54 = zext i1 %49 to i64
   %55 = zext i1 %53 to i64
-  %umax.i = call i64 @llvm.umax.i64(i64 %41, i64 1)
   br label %56
 
 56:                                               ; preds = %_ZN3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator9nextGroupEv.exit.i, %.lr.ph139.i
@@ -4090,7 +4089,7 @@ _ZN3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator9nextGroupEv.exit.i
   %166 = add nuw i64 %.022137.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, %54
   %indvars.iv.next145.i = add nuw nsw i64 %indvars.iv144.i, %55
-  %exitcond149.not.i = icmp eq i64 %166, %umax.i
+  %exitcond149.not.i = icmp eq i64 %166, %41
   br i1 %exitcond149.not.i, label %.loopexit, label %56, !llvm.loop !205
 
 167:                                              ; preds = %141

@@ -3652,19 +3652,15 @@ _ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_11UsdTimeCodeES2_.exit.i.i.i.i.i: ;
 
 .preheader:                                       ; preds = %78
   %.not103 = icmp eq ptr %.sroa.9.0.lcssa, %.sroa.042.1.lcssa
-  br i1 %.not103, label %_ZSteqIN32pxrInternal_v0_24__pxrReserved__11UsdTimeCodeESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit, label %.lr.ph101.preheader
-
-.lr.ph101.preheader:                              ; preds = %.preheader
-  %umax = tail call i64 @llvm.umax.i64(i64 %79, i64 1)
-  br label %.lr.ph101
+  br i1 %.not103, label %_ZSteqIN32pxrInternal_v0_24__pxrReserved__11UsdTimeCodeESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit, label %.lr.ph101
 
 86:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__11UsdTimeCode8GetValueEv.exit29
   %87 = add nuw i64 %.0100, 1
-  %exitcond.not = icmp eq i64 %87, %umax
+  %exitcond.not = icmp eq i64 %87, %79
   br i1 %exitcond.not, label %_ZSteqIN32pxrInternal_v0_24__pxrReserved__11UsdTimeCodeESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit._ZSteqIN32pxrInternal_v0_24__pxrReserved__11UsdTimeCodeESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit.thread_crit_edge, label %.lr.ph101, !llvm.loop !115
 
-.lr.ph101:                                        ; preds = %.lr.ph101.preheader, %86
-  %.0100 = phi i64 [ %87, %86 ], [ 0, %.lr.ph101.preheader ]
+.lr.ph101:                                        ; preds = %.preheader, %86
+  %.0100 = phi i64 [ %87, %86 ], [ 0, %.preheader ]
   %88 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::UsdTimeCode", ptr %.sroa.042.1.lcssa, i64 %.0100
   %89 = load double, ptr %88, align 8
   %90 = fcmp uno double %89, 0.000000e+00

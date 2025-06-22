@@ -548,7 +548,6 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   %212 = ptrtoint ptr %.sroa.11.1 to i64
   %213 = sub i64 %212, %209
   %214 = ashr exact i64 %213, 3
-  %umax = call i64 @llvm.umax.i64(i64 %214, i64 1)
   br label %.lr.ph680
 
 215:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit
@@ -2178,7 +2177,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit.i: ; pre
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit.i
   %723 = add nuw i64 %.044678, 1
-  %exitcond.not = icmp eq i64 %723, %umax
+  %exitcond.not = icmp eq i64 %723, %214
   br i1 %exitcond.not, label %._crit_edge681, label %.lr.ph680, !llvm.loop !103
 
 _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i

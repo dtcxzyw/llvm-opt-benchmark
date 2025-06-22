@@ -12629,11 +12629,7 @@ _ZN7xgboost3gbm8GBLinear14LazySumWeightsEPNS_7DMatrixE.exit: ; preds = %_ZN7xgbo
 
 .preheader.i:                                     ; preds = %136
   %.not10.i = icmp eq ptr %144, %145
-  br i1 %.not10.i, label %_ZN7xgboost3gbm8GBLinear16CheckConvergenceEv.exit, label %.lr.ph.preheader.i
-
-.lr.ph.preheader.i:                               ; preds = %.preheader.i
-  %umax.i = call i64 @llvm.umax.i64(i64 %149, i64 1)
-  br label %.lr.ph.i42
+  br i1 %.not10.i, label %_ZN7xgboost3gbm8GBLinear16CheckConvergenceEv.exit, label %.lr.ph.i42
 
 150:                                              ; preds = %136
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -12642,9 +12638,9 @@ _ZN7xgboost3gbm8GBLinear14LazySumWeightsEPNS_7DMatrixE.exit: ; preds = %_ZN7xgbo
   %153 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIfSaIfEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %137, ptr noundef nonnull align 8 dereferenceable(24) %89)
   br label %_ZN7xgboost3gbm8GBLinear16CheckConvergenceEv.exit.thread
 
-.lr.ph.i42:                                       ; preds = %.lr.ph.i42, %.lr.ph.preheader.i
-  %.09.i = phi i64 [ %161, %.lr.ph.i42 ], [ 0, %.lr.ph.preheader.i ]
-  %.078.i = phi float [ %.sroa.speculated.i, %.lr.ph.i42 ], [ 0.000000e+00, %.lr.ph.preheader.i ]
+.lr.ph.i42:                                       ; preds = %.preheader.i, %.lr.ph.i42
+  %.09.i = phi i64 [ %161, %.lr.ph.i42 ], [ 0, %.preheader.i ]
+  %.078.i = phi float [ %.sroa.speculated.i, %.lr.ph.i42 ], [ 0.000000e+00, %.preheader.i ]
   %154 = getelementptr inbounds nuw float, ptr %145, i64 %.09.i
   %155 = load float, ptr %154, align 4, !tbaa !164
   %156 = getelementptr inbounds nuw float, ptr %140, i64 %.09.i
@@ -12654,7 +12650,7 @@ _ZN7xgboost3gbm8GBLinear14LazySumWeightsEPNS_7DMatrixE.exit: ; preds = %_ZN7xgbo
   %160 = fcmp olt float %.078.i, %159
   %.sroa.speculated.i = select i1 %160, float %159, float %.078.i
   %161 = add nuw i64 %.09.i, 1
-  %exitcond.not.i = icmp eq i64 %161, %umax.i
+  %exitcond.not.i = icmp eq i64 %161, %149
   br i1 %exitcond.not.i, label %_ZN7xgboost3gbm8GBLinear16CheckConvergenceEv.exit, label %.lr.ph.i42, !llvm.loop !358
 
 _ZN7xgboost3gbm8GBLinear16CheckConvergenceEv.exit: ; preds = %.lr.ph.i42, %.preheader.i

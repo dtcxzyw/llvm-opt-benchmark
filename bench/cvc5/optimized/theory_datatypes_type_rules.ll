@@ -6811,7 +6811,6 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit71: ; preds = %113, 
 
 .lr.ph.preheader:                                 ; preds = %144
   %151 = trunc nsw i64 %150 to i32
-  %umax = call i32 @llvm.umax.i32(i32 %151, i32 1)
   br label %.lr.ph
 
 152:                                              ; preds = %135
@@ -7117,7 +7116,7 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit91:            ; preds = %.critedge, %273, %2
 
 296:                                              ; preds = %292, %286, %_ZN4cvc58internal8TypeNodeD2Ev.exit91
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #21
-  %exitcond.not = icmp eq i32 %196, %umax
+  %exitcond.not = icmp eq i32 %196, %151
   br i1 %exitcond.not, label %.critedge63, label %.lr.ph, !llvm.loop !298
 
 297:                                              ; preds = %223, %225, %227

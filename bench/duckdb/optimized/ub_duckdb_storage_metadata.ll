@@ -2928,7 +2928,6 @@ define void @_ZN6duckdb15MetadataManager5WriteERNS_11WriteStreamE(ptr noundef no
   %21 = ptrtoint ptr %19 to i64
   %22 = ptrtoint ptr %20 to i64
   %23 = sub i64 %21, %22
-  %umax = call i64 @llvm.umax.i64(i64 %23, i64 1)
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %_ZN6duckdb6vectorIhLb1EEixEm.exit
@@ -3009,7 +3008,7 @@ _ZN6duckdb6vectorIhLb1EEixEm.exit:                ; preds = %.lr.ph.i.i
   %44 = shl nuw i64 1, %43
   %45 = or i64 %44, %.08.i.i
   %46 = add nuw i64 %.067.i.i, 1
-  %exitcond18.not = icmp eq i64 %46, %umax
+  %exitcond18.not = icmp eq i64 %46, %23
   br i1 %exitcond18.not, label %_ZN6duckdb13MetadataBlock5WriteERNS_11WriteStreamE.exit, label %.lr.ph.i.i, !llvm.loop !129
 
 _ZN6duckdb13MetadataBlock5WriteERNS_11WriteStreamE.exit: ; preds = %_ZN6duckdb6vectorIhLb1EEixEm.exit, %.lr.ph
@@ -3840,7 +3839,6 @@ _ZNSt13unordered_mapIlN6duckdb13MetadataBlockESt4hashIlESt8equal_toIlESaISt4pair
   %48 = ptrtoint ptr %46 to i64
   %49 = ptrtoint ptr %47 to i64
   %50 = sub i64 %48, %49
-  %umax = tail call i64 @llvm.umax.i64(i64 %50, i64 1)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %_ZN6duckdb6vectorIhLb1EEixEm.exit
@@ -3921,7 +3919,7 @@ _ZN6duckdb6vectorIhLb1EEixEm.exit:                ; preds = %.lr.ph.i
   %70 = shl nuw i64 1, %69
   %71 = or i64 %70, %.08.i
   %72 = add nuw i64 %.067.i, 1
-  %exitcond89.not = icmp eq i64 %72, %umax
+  %exitcond89.not = icmp eq i64 %72, %50
   br i1 %exitcond89.not, label %_ZN6duckdb13MetadataBlock19FreeBlocksToIntegerEv.exit, label %.lr.ph.i, !llvm.loop !129
 
 _ZN6duckdb13MetadataBlock19FreeBlocksToIntegerEv.exit: ; preds = %_ZN6duckdb6vectorIhLb1EEixEm.exit, %_ZNSt13unordered_mapIlN6duckdb13MetadataBlockESt4hashIlESt8equal_toIlESaISt4pairIKlS1_EEE4findERS7_.exit
@@ -3979,7 +3977,6 @@ _ZNSt13unordered_mapIlN6duckdb13MetadataBlockESt4hashIlESt8equal_toIlESaISt4pair
   %95 = ptrtoint ptr %93 to i64
   %96 = ptrtoint ptr %94 to i64
   %97 = sub i64 %95, %96
-  %umax91 = tail call i64 @llvm.umax.i64(i64 %97, i64 1)
   br label %.lr.ph.i20
 
 .lr.ph.i20:                                       ; preds = %.lr.ph.i20.preheader, %_ZN6duckdb6vectorIhLb1EEixEm.exit39
@@ -4056,7 +4053,7 @@ _ZN6duckdb6vectorIhLb1EEixEm.exit39:              ; preds = %.lr.ph.i20
   %117 = shl nuw i64 1, %116
   %118 = or i64 %117, %.08.i21
   %119 = add nuw i64 %.067.i22, 1
-  %exitcond92.not = icmp eq i64 %119, %umax91
+  %exitcond92.not = icmp eq i64 %119, %97
   br i1 %exitcond92.not, label %_ZN6duckdb13MetadataBlock19FreeBlocksToIntegerEv.exit24.loopexit, label %.lr.ph.i20, !llvm.loop !129
 
 _ZN6duckdb13MetadataBlock19FreeBlocksToIntegerEv.exit24.loopexit: ; preds = %_ZN6duckdb6vectorIhLb1EEixEm.exit39

@@ -13225,7 +13225,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit: ; preds = %4
   %486 = ptrtoint ptr %484 to i64
   %487 = sub i64 %485, %486
   %488 = sdiv exact i64 %487, 120
-  %umax.i.i = call i64 @llvm.umax.i64(i64 %488, i64 1)
   br label %489
 
 489:                                              ; preds = %489, %.lr.ph.i.i
@@ -13237,7 +13236,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit: ; preds = %4
   %494 = select i1 %493, double %490, double %492
   store double %494, ptr %480, align 8, !tbaa !222
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %umax.i.i
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %488
   br i1 %exitcond.not.i.i, label %_ZN5ceres8internal19SetSummaryFinalCostINS_6Solver7SummaryEEEvPT_.exit.i, label %489, !llvm.loop !400
 
 _ZN5ceres8internal19SetSummaryFinalCostINS_6Solver7SummaryEEEvPT_.exit.i: ; preds = %489, %.noexc198

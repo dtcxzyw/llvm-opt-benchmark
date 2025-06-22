@@ -934,7 +934,6 @@ _ZN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEC2INS_14CwiseNullaryOpINS_8internal18scal
 
 .lr.ph:                                           ; preds = %_ZN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEC2INS_14CwiseNullaryOpINS_8internal18scalar_constant_opIiEES1_EEEERKNS_9EigenBaseIT_EE.exit.preheader
   %54 = load <4 x i32>, ptr %3, align 16, !tbaa !22
-  %umax = tail call i64 @llvm.umax.i64(i64 %31, i64 1)
   br label %_ZN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEC2INS_14CwiseNullaryOpINS_8internal18scalar_constant_opIiEES1_EEEERKNS_9EigenBaseIT_EE.exit
 
 _ZN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEC2INS_14CwiseNullaryOpINS_8internal18scalar_constant_opIiEES1_EEEERKNS_9EigenBaseIT_EE.exit._crit_edge: ; preds = %_ZN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEC2INS_14CwiseNullaryOpINS_8internal18scalar_constant_opIiEES1_EEEERKNS_9EigenBaseIT_EE.exit, %_ZN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEC2INS_14CwiseNullaryOpINS_8internal18scalar_constant_opIiEES1_EEEERKNS_9EigenBaseIT_EE.exit.preheader
@@ -952,7 +951,7 @@ _ZN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEC2INS_14CwiseNullaryOpINS_8internal18scal
   %61 = add <4 x i32> %54, %60
   store <4 x i32> %61, ptr %59, align 16, !tbaa !22
   %62 = add nuw i64 %.015, 1
-  %exitcond.not = icmp eq i64 %62, %umax
+  %exitcond.not = icmp eq i64 %62, %31
   br i1 %exitcond.not, label %_ZN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEC2INS_14CwiseNullaryOpINS_8internal18scalar_constant_opIiEES1_EEEERKNS_9EigenBaseIT_EE.exit._crit_edge, label %_ZN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEC2INS_14CwiseNullaryOpINS_8internal18scalar_constant_opIiEES1_EEEERKNS_9EigenBaseIT_EE.exit, !llvm.loop !29
 
 63:                                               ; preds = %2, %_ZN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEC2INS_14CwiseNullaryOpINS_8internal18scalar_constant_opIiEES1_EEEERKNS_9EigenBaseIT_EE.exit._crit_edge
@@ -1725,7 +1724,6 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc40
 .lr.ph:                                           ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc40
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %umax = call i64 @llvm.umax.i64(i64 %17, i64 1)
   br label %31
 
 ._crit_edge:                                      ; preds = %64, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
@@ -1809,7 +1807,7 @@ _ZNSt13unordered_mapISt5tupleIJdddEEmN6open3d7utility10hash_tupleIS1_EESt8equal_
   %.135 = phi i64 [ %53, %43 ], [ %.03469, %_ZNSt13unordered_mapISt5tupleIJdddEEmN6open3d7utility10hash_tupleIS1_EESt8equal_toIS1_ESaISt4pairIKS1_mEEEixERS9_.exit44 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #32
   %65 = add nuw i64 %.03370, 1
-  %exitcond.not = icmp eq i64 %65, %umax
+  %exitcond.not = icmp eq i64 %65, %17
   br i1 %exitcond.not, label %._crit_edge, label %31, !llvm.loop !66
 
 .thread:                                          ; preds = %54, %56
@@ -32260,7 +32258,6 @@ define noundef nonnull align 8 dereferenceable(144) ptr @_ZN6open3d8geometry9Tet
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %umax = call i64 @llvm.umax.i64(i64 %18, i64 1)
   br label %.noexc25
 
 ._crit_edge:                                      ; preds = %62
@@ -32362,7 +32359,7 @@ _ZNSt13unordered_mapISt5tupleIJiiiiEEmN6open3d7utility10hash_tupleIS1_EESt8equal
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #32
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #32
   %63 = add nuw i64 %.01835, 1
-  %exitcond.not = icmp eq i64 %63, %umax
+  %exitcond.not = icmp eq i64 %63, %18
   br i1 %exitcond.not, label %._crit_edge, label %.noexc25, !llvm.loop !672
 
 64:                                               ; preds = %60, %58
@@ -33124,6 +33121,9 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %._crit_edge
   %28 = icmp eq i64 %9, 24
   br i1 %28, label %.lr.ph136.preheader, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
 
+.lr.ph136.preheader:                              ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc50
+  br label %.lr.ph136
+
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc50
   %29 = getelementptr i8, ptr %26, i64 4
   %30 = add nsw i64 %25, -4
@@ -33195,10 +33195,6 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc50
   %.not = icmp eq ptr %74, %21
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-.lr.ph136.preheader:                              ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc50
-  %umax = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
-  br label %.lr.ph136
-
 ._crit_edge137.loopexit:                          ; preds = %96
   %75 = ptrtoint ptr %27 to i64
   br label %._crit_edge137
@@ -33251,7 +33247,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc50
   %97 = getelementptr inbounds nuw i32, ptr %26, i64 %.039135
   store i32 %.sink, ptr %97, align 4, !tbaa !25
   %98 = add nuw i64 %.039135, 1
-  %exitcond.not = icmp eq i64 %98, %umax
+  %exitcond.not = icmp eq i64 %98, %10
   br i1 %exitcond.not, label %._crit_edge137.loopexit, label %.lr.ph136, !llvm.loop !694
 
 99:                                               ; preds = %._crit_edge137
@@ -33382,11 +33378,7 @@ define noundef nonnull align 8 dereferenceable(144) ptr @_ZN6open3d8geometry9Tet
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 4
   %.not33 = icmp eq ptr %5, %6
-  br i1 %.not33, label %._crit_edge.thread, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %1
-  %umax = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
-  br label %.lr.ph
+  br i1 %.not33, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %37
   %.pre = load ptr, ptr %4, align 8, !tbaa !23
@@ -33430,9 +33422,9 @@ _ZNSt6vectorIN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEENS0_17aligned_allocatorIS2_EE
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #32
   ret ptr %0
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %37
-  %.032 = phi i64 [ %.1, %37 ], [ 0, %.lr.ph.preheader ]
-  %.02231 = phi i64 [ %38, %37 ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %1, %37
+  %.032 = phi i64 [ %.1, %37 ], [ 0, %1 ]
+  %.02231 = phi i64 [ %38, %37 ], [ 0, %1 ]
   %22 = load ptr, ptr %3, align 8, !tbaa !7
   %23 = getelementptr inbounds nuw %"class.Eigen::Matrix.21", ptr %22, i64 %.02231
   %24 = load i32, ptr %23, align 4, !tbaa !25
@@ -33469,7 +33461,7 @@ _ZNSt6vectorIN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEENS0_17aligned_allocatorIS2_EE
 37:                                               ; preds = %33, %30, %27, %.lr.ph
   %.1 = phi i64 [ %36, %33 ], [ %.032, %30 ], [ %.032, %27 ], [ %.032, %.lr.ph ]
   %38 = add nuw i64 %.02231, 1
-  %exitcond.not = icmp eq i64 %38, %umax
+  %exitcond.not = icmp eq i64 %38, %10
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !695
 }
 

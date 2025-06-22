@@ -30321,7 +30321,6 @@ _ZN5Ipopt11TNLPAdapter14update_local_xERKNS_6VectorE.exit: ; preds = %77, %90
   %139 = getelementptr inbounds nuw i8, ptr %3, i64 233
   %140 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %141 = getelementptr inbounds nuw i8, ptr %3, i64 240
-  %umax = tail call i64 @llvm.umax.i64(i64 %129, i64 1)
   br label %142
 
 142:                                              ; preds = %.lr.ph112, %179
@@ -30388,7 +30387,7 @@ _ZN5Ipopt11TNLPAdapter14update_local_xERKNS_6VectorE.exit: ; preds = %77, %90
   %182 = tail call double @llvm.fmuladd.f64(double %.081, double %152, double %181)
   store double %182, ptr %gep, align 8, !tbaa !123
   %183 = add nuw i64 %.085111, 1
-  %exitcond.not = icmp eq i64 %183, %umax
+  %exitcond.not = icmp eq i64 %183, %129
   br i1 %exitcond.not, label %.loopexit, label %142, !llvm.loop !342
 
 .loopexit:                                        ; preds = %179, %111, %103

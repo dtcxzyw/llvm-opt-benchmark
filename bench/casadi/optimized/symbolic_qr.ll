@@ -1052,7 +1052,6 @@ _ZSt6fill_nIPxmxET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc136
   %.0.i.i.i.i.i.ph = phi ptr [ %89, %_ZSt6fill_nIPxmxET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %91, %.noexc136 ]
   %95 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %.0.i.i.i.i.i.ph, ptr %95, align 8, !tbaa !48
-  %umax = call i64 @llvm.umax.i64(i64 %84, i64 1)
   br label %124
 
 ._crit_edge:                                      ; preds = %124, %94
@@ -1137,7 +1136,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit147: ; preds = %_Z
   %127 = getelementptr inbounds nuw i64, ptr %88, i64 %126
   store i64 %.070536, ptr %127, align 8, !tbaa !53
   %128 = add nuw nsw i64 %.070536, 1
-  %exitcond.not = icmp eq i64 %128, %umax
+  %exitcond.not = icmp eq i64 %128, %84
   br i1 %exitcond.not, label %._crit_edge, label %124, !llvm.loop !55
 
 129:                                              ; preds = %_ZNSt6vectorIxSaIxEE17_S_check_init_lenEmRKS0_.exit.i137
@@ -1148,7 +1147,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit147: ; preds = %_Z
   %.0.i.i.i.i.i140.ph = phi ptr [ %107, %_ZSt6fill_nIPxmxET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i139 ], [ %109, %.noexc143 ]
   %130 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %.0.i.i.i.i.i140.ph, ptr %130, align 8, !tbaa !48
-  %umax547 = call i64 @llvm.umax.i64(i64 %102, i64 1)
   br label %133
 
 ._crit_edge541:                                   ; preds = %133, %129
@@ -1169,7 +1167,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit147: ; preds = %_Z
   %136 = getelementptr inbounds nuw i64, ptr %106, i64 %135
   store i64 %.071538, ptr %136, align 8, !tbaa !53
   %137 = add nuw nsw i64 %.071538, 1
-  %exitcond548.not = icmp eq i64 %137, %umax547
+  %exitcond548.not = icmp eq i64 %137, %102
   br i1 %exitcond548.not, label %._crit_edge541, label %133, !llvm.loop !56
 
 _ZN6casadi13GenericMatrixINS_6MatrixINS_6SXElemEEEEclISt6vectorIxSaIxEES8_EENS_9SubMatrixIS3_T_T0_EERKSA_RKSB_.exit: ; preds = %._crit_edge541

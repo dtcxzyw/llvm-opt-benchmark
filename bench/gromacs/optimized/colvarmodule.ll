@@ -11917,7 +11917,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit150: ; preds = %_Z
   %202 = ashr exact i64 %201, 5
   %203 = load i64, ptr %128, align 8, !tbaa !60
   %204 = load ptr, ptr %14, align 8
-  %umax = call i64 @llvm.umax.i64(i64 %202, i64 1)
   %205 = icmp eq i64 %203, 0
   br label %206
 
@@ -11949,7 +11948,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread312: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit, %206, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread
   %216 = phi i32 [ %212, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread ], [ %.087460, %206 ], [ %spec.select, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ]
   %217 = add nuw i64 %.092459, 1
-  %exitcond.not = icmp eq i64 %217, %umax
+  %exitcond.not = icmp eq i64 %217, %202
   br i1 %exitcond.not, label %._crit_edge, label %206, !llvm.loop !305
 
 218:                                              ; preds = %185, %175, %163

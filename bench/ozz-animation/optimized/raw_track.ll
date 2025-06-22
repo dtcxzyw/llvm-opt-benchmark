@@ -110,7 +110,6 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK3ozz9animation7offline8interna
   %6 = ptrtoint ptr %4 to i64
   %7 = sub i64 %5, %6
   %8 = sdiv exact i64 %7, 12
-  %umax = tail call i64 @llvm.umax.i64(i64 %8, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
@@ -124,7 +123,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK3ozz9animation7offline8interna
   %13 = fcmp ugt float %10, %.01623
   %or.cond21 = and i1 %13, %or.cond.not30
   %14 = add nuw i64 %.01524, 1
-  %exitcond.not = icmp ne i64 %14, %umax
+  %exitcond.not = icmp ne i64 %14, %8
   %or.cond.not = select i1 %or.cond21, i1 %exitcond.not, i1 false
   br i1 %or.cond.not, label %.lr.ph, label %.critedge, !llvm.loop !15
 
@@ -168,7 +167,6 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK3ozz9animation7offline8interna
   %6 = ptrtoint ptr %4 to i64
   %7 = sub i64 %5, %6
   %8 = ashr exact i64 %7, 4
-  %umax = tail call i64 @llvm.umax.i64(i64 %8, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
@@ -182,7 +180,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK3ozz9animation7offline8interna
   %13 = fcmp ugt float %10, %.01623
   %or.cond21 = and i1 %13, %or.cond.not30
   %14 = add nuw i64 %.01524, 1
-  %exitcond.not = icmp ne i64 %14, %umax
+  %exitcond.not = icmp ne i64 %14, %8
   %or.cond.not = select i1 %or.cond21, i1 %exitcond.not, i1 false
   br i1 %or.cond.not, label %.lr.ph, label %.critedge, !llvm.loop !24
 
@@ -306,7 +304,6 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK3ozz9animation7offline8interna
   %6 = ptrtoint ptr %4 to i64
   %7 = sub i64 %5, %6
   %8 = sdiv exact i64 %7, 20
-  %umax = tail call i64 @llvm.umax.i64(i64 %8, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
@@ -320,7 +317,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK3ozz9animation7offline8interna
   %13 = fcmp ugt float %10, %.01623
   %or.cond21 = and i1 %13, %or.cond.not30
   %14 = add nuw i64 %.01524, 1
-  %exitcond.not = icmp ne i64 %14, %umax
+  %exitcond.not = icmp ne i64 %14, %8
   %or.cond.not = select i1 %or.cond21, i1 %exitcond.not, i1 false
   br i1 %or.cond.not, label %.lr.ph, label %.critedge, !llvm.loop !47
 
@@ -444,7 +441,6 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK3ozz9animation7offline8interna
   %6 = ptrtoint ptr %4 to i64
   %7 = sub i64 %5, %6
   %8 = sdiv exact i64 %7, 24
-  %umax = tail call i64 @llvm.umax.i64(i64 %8, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
@@ -458,7 +454,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK3ozz9animation7offline8interna
   %13 = fcmp ugt float %10, %.01623
   %or.cond21 = and i1 %13, %or.cond.not30
   %14 = add nuw i64 %.01524, 1
-  %exitcond.not = icmp ne i64 %14, %umax
+  %exitcond.not = icmp ne i64 %14, %8
   %or.cond.not = select i1 %or.cond21, i1 %exitcond.not, i1 false
   br i1 %or.cond.not, label %.lr.ph, label %.critedge, !llvm.loop !57
 
@@ -582,7 +578,6 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK3ozz9animation7offline8interna
   %6 = ptrtoint ptr %4 to i64
   %7 = sub i64 %5, %6
   %8 = sdiv exact i64 %7, 24
-  %umax = tail call i64 @llvm.umax.i64(i64 %8, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
@@ -596,7 +591,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK3ozz9animation7offline8interna
   %13 = fcmp ugt float %10, %.01623
   %or.cond21 = and i1 %13, %or.cond.not30
   %14 = add nuw i64 %.01524, 1
-  %exitcond.not = icmp ne i64 %14, %umax
+  %exitcond.not = icmp ne i64 %14, %8
   %or.cond.not = select i1 %or.cond21, i1 %exitcond.not, i1 false
   br i1 %or.cond.not, label %.lr.ph, label %.critedge, !llvm.loop !67
 

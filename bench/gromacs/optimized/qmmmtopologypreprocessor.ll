@@ -716,7 +716,6 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %24 = ptrtoint ptr %22 to i64
   %25 = sub i64 %23, %24
   %26 = sdiv exact i64 %25, 56
-  %umax = tail call i64 @llvm.umax.i64(i64 %26, i64 1)
   br label %.lr.ph
 
 .lr.ph226:                                        ; preds = %.lr.ph
@@ -741,7 +740,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %40 = add nsw i32 %39, %35
   store i32 %40, ptr %38, align 4, !tbaa !41
   %41 = add nuw i64 %.0104198, 1
-  %exitcond.not = icmp eq i64 %41, %umax
+  %exitcond.not = icmp eq i64 %41, %26
   br i1 %exitcond.not, label %.lr.ph226, label %.lr.ph, !llvm.loop !63
 
 ._crit_edge227:                                   ; preds = %._crit_edge221, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
@@ -1360,7 +1359,6 @@ define void @_ZN3gmx24QMMMTopologyPreprocessor22modifyQMMMVirtualSitesEP10gmx_mt
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 172
-  %umax = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %18
 
 ._crit_edge:                                      ; preds = %.loopexit50, %2
@@ -1555,7 +1553,7 @@ _ZN3gmx24QMMMTopologyPreprocessor8isQMAtomEl.exit: ; preds = %_ZNSt8_Rb_treeIiiS
 
 .loopexit50:                                      ; preds = %.loopexit, %18
   %103 = add nuw i64 %.04561, 1
-  %exitcond80.not = icmp eq i64 %103, %umax
+  %exitcond80.not = icmp eq i64 %103, %10
   br i1 %exitcond80.not, label %._crit_edge, label %18, !llvm.loop !134
 }
 

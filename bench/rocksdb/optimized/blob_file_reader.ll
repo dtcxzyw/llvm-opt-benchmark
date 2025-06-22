@@ -4196,7 +4196,6 @@ _ZNK7rocksdb22RandomAccessFileReader13use_direct_ioEv.exit: ; preds = %_ZNK7rock
   %228 = ptrtoint ptr %226 to i64
   %229 = sub i64 %227, %228
   %230 = sdiv exact i64 %229, 96
-  %umax312 = call i64 @llvm.umax.i64(i64 %230, i64 1)
   br label %.lr.ph294
 
 _ZN7rocksdb6StatusD2Ev.exit229.thread:            ; preds = %_ZNK7rocksdb21FSRandomAccessFilePtrptEv.exit.i, %234
@@ -4211,7 +4210,7 @@ _ZN7rocksdb6StatusD2Ev.exit229.thread:            ; preds = %_ZNK7rocksdb21FSRan
   %232 = getelementptr inbounds nuw %"struct.rocksdb::FSReadRequest", ptr %226, i64 %.0105293, i32 2
   store ptr null, ptr %232, align 8, !tbaa !354
   %233 = add nuw i64 %.0105293, 1
-  %exitcond313.not = icmp eq i64 %233, %umax312
+  %exitcond313.not = icmp eq i64 %233, %230
   br i1 %exitcond313.not, label %.loopexit267, label %.lr.ph294, !llvm.loop !355
 
 234:                                              ; preds = %_ZNK7rocksdb22RandomAccessFileReader13use_direct_ioEv.exit
@@ -4230,7 +4229,6 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EE5resetIPcvEEvT_.exit.preheader309: 
   %240 = ptrtoint ptr %238 to i64
   %241 = sub i64 %239, %240
   %242 = sdiv exact i64 %241, 96
-  %umax = call i64 @llvm.umax.i64(i64 %242, i64 1)
   br label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EE5resetIPcvEEvT_.exit
 
 _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EE5resetIPcvEEvT_.exit: ; preds = %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EE5resetIPcvEEvT_.exit.preheader309, %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EE5resetIPcvEEvT_.exit
@@ -4244,7 +4242,7 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EE5resetIPcvEEvT_.exit: ; preds = %_Z
   %247 = load i64, ptr %246, align 8, !tbaa !348
   %248 = add i64 %247, %.0106291
   %249 = add nuw i64 %.0107290, 1
-  %exitcond311.not = icmp eq i64 %249, %umax
+  %exitcond311.not = icmp eq i64 %249, %242
   br i1 %exitcond311.not, label %.loopexit267, label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EE5resetIPcvEEvT_.exit, !llvm.loop !356
 
 .loopexit267:                                     ; preds = %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EE5resetIPcvEEvT_.exit, %.lr.ph294, %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EE5resetIPcvEEvT_.exit.preheader, %.preheader266

@@ -5810,7 +5810,6 @@ for.cond25.preheader:                             ; preds = %invoke.cont20, %inv
 for.body29.lr.ph:                                 ; preds = %for.cond25.preheader
   %correlation_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   %startTimeBase_ = getelementptr inbounds nuw i8, ptr %this, i64 112
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i39, i64 1)
   %.pre = load ptr, ptr %v_, align 8, !tbaa !112
   br label %for.body29
 
@@ -5863,7 +5862,7 @@ lpad17:                                           ; preds = %cond.false.i, %invo
 for.cond25.loopexit:                              ; preds = %invoke.cont50, %for.body29
   %16 = phi ptr [ %17, %for.body29 ], [ %25, %invoke.cont50 ]
   %var.1.lcssa = phi double [ %20, %for.body29 ], [ %30, %invoke.cont50 ]
-  %exitcond102.not = icmp eq i64 %add38, %umax
+  %exitcond102.not = icmp eq i64 %add38, %sub.ptr.div.i39
   br i1 %exitcond102.not, label %for.cond.cleanup28.thread, label %for.body29, !llvm.loop !125
 
 for.cond.cleanup28.thread:                        ; preds = %for.cond25.loopexit

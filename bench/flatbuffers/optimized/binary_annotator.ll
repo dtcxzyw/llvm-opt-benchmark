@@ -4016,7 +4016,6 @@ select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i428
   %942 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %943 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %944 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  %umax = call i64 @llvm.umax.i64(i64 %585, i64 1)
   %945 = getelementptr inbounds nuw i8, ptr %52, i64 17
   br label %976
 
@@ -8561,7 +8560,7 @@ _ZN11flatbuffers19BinaryRegionCommentD2Ev.exit969: ; preds = %_ZNKSt7__cxx1112ba
 
 2555:                                             ; preds = %_ZN11flatbuffers19BinaryRegionCommentD2Ev.exit705, %_ZN11flatbuffers19BinaryRegionCommentD2Ev.exit969, %982, %997, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit522, %976
   %2556 = add nuw i64 %.02381716, 1
-  %exitcond.not = icmp eq i64 %2556, %umax
+  %exitcond.not = icmp eq i64 %2556, %585
   br i1 %exitcond.not, label %._crit_edge1718, label %976, !llvm.loop !250
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit781: ; preds = %2460, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit957, %2476, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit936, %2436, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i812, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i811, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i780, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i779, %2222, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit837, %2242, %2056, %2416, %2415, %2352, %2351, %2289, %2118, %2042

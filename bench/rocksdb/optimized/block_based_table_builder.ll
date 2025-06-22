@@ -5745,7 +5745,6 @@ define void @_ZN7rocksdb22BlockBasedTableBuilder15EnterUnbufferedEv(ptr noundef 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   %53 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %54 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %umax = call i64 @llvm.umax.i64(i64 %46, i64 1)
   br label %55
 
 55:                                               ; preds = %48, %_ZNSt6vectorImSaImEE12emplace_backIJRmEEES3_DpOT_.exit
@@ -5855,7 +5854,7 @@ _ZNSt6vectorImSaImEE12emplace_backIJRmEEES3_DpOT_.exit: ; preds = %_ZNSt6vectorI
   %96 = select i1 %.not78, i64 0, i64 %46
   %spec.select = sub nuw i64 %95, %96
   %97 = add nuw i64 %.038235, 1
-  %exitcond.not = icmp eq i64 %97, %umax
+  %exitcond.not = icmp eq i64 %97, %46
   br i1 %exitcond.not, label %.critedge, label %55, !llvm.loop !605
 
 .loopexit230:                                     ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit.i, %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i

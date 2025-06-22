@@ -2923,7 +2923,6 @@ define i32 @Abs_ManSupport3(ptr noundef %0, ptr noundef %1, ptr noundef captures
   %62 = getelementptr inbounds i8, ptr %53, i64 %61
   %63 = load i32, ptr %62, align 4, !tbaa !30
   %.not124 = icmp eq i32 %63, %56
-  %wide.trip.count.i = zext nneg i32 %.pr to i64
   br i1 %.not124, label %.lr.ph.i, label %.lr.ph.i80
 
 .lr.ph.i:                                         ; preds = %58, %67
@@ -2935,7 +2934,7 @@ define i32 @Abs_ManSupport3(ptr noundef %0, ptr noundef %1, ptr noundef captures
 
 67:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count
   br i1 %exitcond.not.i, label %.critedge54thread-pre-split, label %.lr.ph.i, !llvm.loop !74
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
@@ -2981,7 +2980,7 @@ define i32 @Abs_ManSupport3(ptr noundef %0, ptr noundef %1, ptr noundef captures
 
 84:                                               ; preds = %.lr.ph.i80
   %indvars.iv.next.i83 = add nuw nsw i64 %indvars.iv.i82, 1
-  %exitcond.not.i84 = icmp eq i64 %indvars.iv.next.i83, %wide.trip.count.i
+  %exitcond.not.i84 = icmp eq i64 %indvars.iv.next.i83, %wide.trip.count
   br i1 %exitcond.not.i84, label %Vec_IntRemove.exit86, label %.lr.ph.i80, !llvm.loop !74
 
 ._crit_edge.i69:                                  ; preds = %.lr.ph.i80
@@ -3071,7 +3070,6 @@ Vec_IntRemove.exit86:                             ; preds = %84, %._crit_edge.i6
   %123 = sub nsw i64 0, %48
   %124 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %44, i64 %123
   %125 = ptrtoint ptr %124 to i64
-  %wide.trip.count.i103 = zext nneg i32 %.pr to i64
   br label %126
 
 126:                                              ; preds = %130, %.lr.ph.i102
@@ -3083,7 +3081,7 @@ Vec_IntRemove.exit86:                             ; preds = %84, %._crit_edge.i6
 
 130:                                              ; preds = %126
   %indvars.iv.next.i105 = add nuw nsw i64 %indvars.iv.i104, 1
-  %exitcond.not.i106 = icmp eq i64 %indvars.iv.next.i105, %wide.trip.count.i103
+  %exitcond.not.i106 = icmp eq i64 %indvars.iv.next.i105, %wide.trip.count
   br i1 %exitcond.not.i106, label %Vec_IntRemove.exit108, label %126, !llvm.loop !74
 
 ._crit_edge.i91:                                  ; preds = %126

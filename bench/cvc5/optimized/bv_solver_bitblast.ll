@@ -4977,7 +4977,6 @@ define hidden void @_ZN4cvc58internal6theory2bv16BVSolverBitblast8getValueENS0_1
   %68 = ashr exact i64 %67, 3
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %umax = call i64 @llvm.umax.i64(i64 %68, i64 1)
   br label %75
 
 71:                                               ; preds = %57
@@ -5140,7 +5139,7 @@ _ZN4cvc58internal7IntegerD2Ev.exit53:             ; preds = %_ZN4cvc58internal7I
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #25
   %133 = add nuw i64 %.03269, 1
-  %exitcond.not = icmp eq i64 %133, %umax
+  %exitcond.not = icmp eq i64 %133, %68
   br i1 %exitcond.not, label %.critedge.loopexit, label %75, !llvm.loop !445
 
 134:                                              ; preds = %119

@@ -365,7 +365,6 @@ _ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit:    ; preds = %114, %115, %120
   %134 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %135 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %136 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %umax = call i64 @llvm.umax.i64(i64 %130, i64 1)
   br label %150
 
 137:                                              ; preds = %372
@@ -908,7 +907,7 @@ _ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit: ; preds = %_ZNSt6vecto
 _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit:    ; preds = %_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit, %359
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #18
   %360 = add nuw i64 %.044255, 1
-  %exitcond290.not = icmp eq i64 %360, %umax
+  %exitcond290.not = icmp eq i64 %360, %130
   br i1 %exitcond290.not, label %.loopexit213, label %150, !llvm.loop !106
 
 .loopexit214:                                     ; preds = %_ZNSt16allocator_traitsISaIN2cv6Point_IfEEEE8allocateERS3_m.exit.i.i.i.i.i.i.i, %229

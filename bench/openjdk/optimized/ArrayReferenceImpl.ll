@@ -655,25 +655,25 @@ writeObjectComponents.exit:                       ; preds = %._crit_edge.i, %57
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 1608
   %99 = load ptr, ptr %98, align 8
   tail call void %99(ptr noundef nonnull %0, ptr noundef %3, i32 noundef range(i32 0, 2147483647) %4, i32 noundef range(i32 0, -2147483648) %5, ptr noundef nonnull %86) #4
-  %wide.trip.count.i58 = zext nneg i32 %5 to i64
+  %wide.trip.count.i = zext nneg i32 %5 to i64
   br label %100
 
 100:                                              ; preds = %100, %96
-  %indvars.iv.i59 = phi i64 [ 0, %96 ], [ %indvars.iv.next.i60, %100 ]
-  %101 = getelementptr inbounds nuw i16, ptr %86, i64 %indvars.iv.i59
+  %indvars.iv.i58 = phi i64 [ 0, %96 ], [ %indvars.iv.next.i59, %100 ]
+  %101 = getelementptr inbounds nuw i16, ptr %86, i64 %indvars.iv.i58
   %102 = load i16, ptr %101, align 2
   %103 = tail call zeroext i16 @outStream_writeChar(ptr noundef %1, i16 noundef zeroext %102) #4
-  %indvars.iv.next.i60 = add nuw nsw i64 %indvars.iv.i59, 1
-  %exitcond.not.i61 = icmp eq i64 %indvars.iv.next.i60, %wide.trip.count.i58
-  br i1 %exitcond.not.i61, label %104, label %100, !llvm.loop !9
+  %indvars.iv.next.i59 = add nuw nsw i64 %indvars.iv.i58, 1
+  %exitcond.not.i60 = icmp eq i64 %indvars.iv.next.i59, %wide.trip.count.i
+  br i1 %exitcond.not.i60, label %104, label %100, !llvm.loop !9
 
 104:                                              ; preds = %100
   tail call void @jvmtiDeallocate(ptr noundef nonnull %86) #4
   br label %writeByteComponents.exit
 
 105:                                              ; preds = %isReferenceTag.exit
-  %.not.i.i62 = icmp eq i32 %5, 0
-  br i1 %.not.i.i62, label %writeByteComponents.exit, label %106
+  %.not.i.i61 = icmp eq i32 %5, 0
+  br i1 %.not.i.i61, label %writeByteComponents.exit, label %106
 
 106:                                              ; preds = %105
   %107 = shl nuw nsw i32 %5, 2
@@ -693,8 +693,8 @@ writeObjectComponents.exit:                       ; preds = %._crit_edge.i, %57
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 528
   %116 = load i32, ptr %115, align 8
   %117 = and i32 %116, 2
-  %.not16.i63 = icmp eq i32 %117, 0
-  br i1 %.not16.i63, label %119, label %118
+  %.not16.i62 = icmp eq i32 %117, 0
+  br i1 %.not16.i62, label %119, label %118
 
 118:                                              ; preds = %111
   tail call void @log_message_begin(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 181) #4
@@ -709,21 +709,21 @@ writeObjectComponents.exit:                       ; preds = %._crit_edge.i, %57
   br label %123
 
 123:                                              ; preds = %123, %119
-  %indvars.iv.i65 = phi i64 [ 0, %119 ], [ %indvars.iv.next.i66, %123 ]
-  %124 = getelementptr inbounds nuw float, ptr %108, i64 %indvars.iv.i65
+  %indvars.iv.i63 = phi i64 [ 0, %119 ], [ %indvars.iv.next.i64, %123 ]
+  %124 = getelementptr inbounds nuw float, ptr %108, i64 %indvars.iv.i63
   %125 = load float, ptr %124, align 4
   %126 = tail call zeroext i16 @outStream_writeFloat(ptr noundef %1, float noundef %125) #4
-  %indvars.iv.next.i66 = add nuw nsw i64 %indvars.iv.i65, 1
-  %exitcond.not.i67 = icmp eq i64 %indvars.iv.next.i66, %112
-  br i1 %exitcond.not.i67, label %127, label %123, !llvm.loop !10
+  %indvars.iv.next.i64 = add nuw nsw i64 %indvars.iv.i63, 1
+  %exitcond.not.i65 = icmp eq i64 %indvars.iv.next.i64, %112
+  br i1 %exitcond.not.i65, label %127, label %123, !llvm.loop !10
 
 127:                                              ; preds = %123
   tail call void @jvmtiDeallocate(ptr noundef nonnull %108) #4
   br label %writeByteComponents.exit
 
 128:                                              ; preds = %isReferenceTag.exit
-  %.not.i.i68 = icmp eq i32 %5, 0
-  br i1 %.not.i.i68, label %writeByteComponents.exit, label %129
+  %.not.i.i66 = icmp eq i32 %5, 0
+  br i1 %.not.i.i66, label %writeByteComponents.exit, label %129
 
 129:                                              ; preds = %128
   %130 = shl nuw nsw i32 %5, 3
@@ -743,8 +743,8 @@ writeObjectComponents.exit:                       ; preds = %._crit_edge.i, %57
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 528
   %139 = load i32, ptr %138, align 8
   %140 = and i32 %139, 2
-  %.not16.i69 = icmp eq i32 %140, 0
-  br i1 %.not16.i69, label %142, label %141
+  %.not16.i67 = icmp eq i32 %140, 0
+  br i1 %.not16.i67, label %142, label %141
 
 141:                                              ; preds = %134
   tail call void @log_message_begin(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 198) #4
@@ -759,21 +759,21 @@ writeObjectComponents.exit:                       ; preds = %._crit_edge.i, %57
   br label %146
 
 146:                                              ; preds = %146, %142
-  %indvars.iv.i71 = phi i64 [ 0, %142 ], [ %indvars.iv.next.i72, %146 ]
-  %147 = getelementptr inbounds nuw double, ptr %131, i64 %indvars.iv.i71
+  %indvars.iv.i68 = phi i64 [ 0, %142 ], [ %indvars.iv.next.i69, %146 ]
+  %147 = getelementptr inbounds nuw double, ptr %131, i64 %indvars.iv.i68
   %148 = load double, ptr %147, align 8
   %149 = tail call zeroext i16 @outStream_writeDouble(ptr noundef %1, double noundef %148) #4
-  %indvars.iv.next.i72 = add nuw nsw i64 %indvars.iv.i71, 1
-  %exitcond.not.i73 = icmp eq i64 %indvars.iv.next.i72, %135
-  br i1 %exitcond.not.i73, label %150, label %146, !llvm.loop !11
+  %indvars.iv.next.i69 = add nuw nsw i64 %indvars.iv.i68, 1
+  %exitcond.not.i70 = icmp eq i64 %indvars.iv.next.i69, %135
+  br i1 %exitcond.not.i70, label %150, label %146, !llvm.loop !11
 
 150:                                              ; preds = %146
   tail call void @jvmtiDeallocate(ptr noundef nonnull %131) #4
   br label %writeByteComponents.exit
 
 151:                                              ; preds = %isReferenceTag.exit
-  %.not.i.i74 = icmp eq i32 %5, 0
-  br i1 %.not.i.i74, label %writeByteComponents.exit, label %152
+  %.not.i.i71 = icmp eq i32 %5, 0
+  br i1 %.not.i.i71, label %writeByteComponents.exit, label %152
 
 152:                                              ; preds = %151
   %153 = shl nuw nsw i32 %5, 2
@@ -793,8 +793,8 @@ writeObjectComponents.exit:                       ; preds = %._crit_edge.i, %57
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 528
   %162 = load i32, ptr %161, align 8
   %163 = and i32 %162, 2
-  %.not16.i75 = icmp eq i32 %163, 0
-  br i1 %.not16.i75, label %165, label %164
+  %.not16.i72 = icmp eq i32 %163, 0
+  br i1 %.not16.i72, label %165, label %164
 
 164:                                              ; preds = %157
   tail call void @log_message_begin(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 147) #4
@@ -809,21 +809,21 @@ writeObjectComponents.exit:                       ; preds = %._crit_edge.i, %57
   br label %169
 
 169:                                              ; preds = %169, %165
-  %indvars.iv.i77 = phi i64 [ 0, %165 ], [ %indvars.iv.next.i78, %169 ]
-  %170 = getelementptr inbounds nuw i32, ptr %154, i64 %indvars.iv.i77
+  %indvars.iv.i73 = phi i64 [ 0, %165 ], [ %indvars.iv.next.i74, %169 ]
+  %170 = getelementptr inbounds nuw i32, ptr %154, i64 %indvars.iv.i73
   %171 = load i32, ptr %170, align 4
   %172 = tail call zeroext i16 @outStream_writeInt(ptr noundef %1, i32 noundef %171) #4
-  %indvars.iv.next.i78 = add nuw nsw i64 %indvars.iv.i77, 1
-  %exitcond.not.i79 = icmp eq i64 %indvars.iv.next.i78, %158
-  br i1 %exitcond.not.i79, label %173, label %169, !llvm.loop !12
+  %indvars.iv.next.i74 = add nuw nsw i64 %indvars.iv.i73, 1
+  %exitcond.not.i75 = icmp eq i64 %indvars.iv.next.i74, %158
+  br i1 %exitcond.not.i75, label %173, label %169, !llvm.loop !12
 
 173:                                              ; preds = %169
   tail call void @jvmtiDeallocate(ptr noundef nonnull %154) #4
   br label %writeByteComponents.exit
 
 174:                                              ; preds = %isReferenceTag.exit
-  %.not.i.i80 = icmp eq i32 %5, 0
-  br i1 %.not.i.i80, label %writeByteComponents.exit, label %175
+  %.not.i.i76 = icmp eq i32 %5, 0
+  br i1 %.not.i.i76, label %writeByteComponents.exit, label %175
 
 175:                                              ; preds = %174
   %176 = shl nuw nsw i32 %5, 3
@@ -843,8 +843,8 @@ writeObjectComponents.exit:                       ; preds = %._crit_edge.i, %57
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 528
   %185 = load i32, ptr %184, align 8
   %186 = and i32 %185, 2
-  %.not16.i81 = icmp eq i32 %186, 0
-  br i1 %.not16.i81, label %188, label %187
+  %.not16.i77 = icmp eq i32 %186, 0
+  br i1 %.not16.i77, label %188, label %187
 
 187:                                              ; preds = %180
   tail call void @log_message_begin(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 164) #4
@@ -859,21 +859,21 @@ writeObjectComponents.exit:                       ; preds = %._crit_edge.i, %57
   br label %192
 
 192:                                              ; preds = %192, %188
-  %indvars.iv.i83 = phi i64 [ 0, %188 ], [ %indvars.iv.next.i84, %192 ]
-  %193 = getelementptr inbounds nuw i64, ptr %177, i64 %indvars.iv.i83
+  %indvars.iv.i78 = phi i64 [ 0, %188 ], [ %indvars.iv.next.i79, %192 ]
+  %193 = getelementptr inbounds nuw i64, ptr %177, i64 %indvars.iv.i78
   %194 = load i64, ptr %193, align 8
   %195 = tail call zeroext i16 @outStream_writeLong(ptr noundef %1, i64 noundef %194) #4
-  %indvars.iv.next.i84 = add nuw nsw i64 %indvars.iv.i83, 1
-  %exitcond.not.i85 = icmp eq i64 %indvars.iv.next.i84, %181
-  br i1 %exitcond.not.i85, label %196, label %192, !llvm.loop !13
+  %indvars.iv.next.i79 = add nuw nsw i64 %indvars.iv.i78, 1
+  %exitcond.not.i80 = icmp eq i64 %indvars.iv.next.i79, %181
+  br i1 %exitcond.not.i80, label %196, label %192, !llvm.loop !13
 
 196:                                              ; preds = %192
   tail call void @jvmtiDeallocate(ptr noundef nonnull %177) #4
   br label %writeByteComponents.exit
 
 197:                                              ; preds = %isReferenceTag.exit
-  %.not.i.i86 = icmp eq i32 %5, 0
-  br i1 %.not.i.i86, label %writeByteComponents.exit, label %198
+  %.not.i.i81 = icmp eq i32 %5, 0
+  br i1 %.not.i.i81, label %writeByteComponents.exit, label %198
 
 198:                                              ; preds = %197
   %199 = shl nuw i32 %5, 1
@@ -892,8 +892,8 @@ writeObjectComponents.exit:                       ; preds = %._crit_edge.i, %57
   %206 = getelementptr inbounds nuw i8, ptr %205, i64 528
   %207 = load i32, ptr %206, align 8
   %208 = and i32 %207, 2
-  %.not16.i87 = icmp eq i32 %208, 0
-  br i1 %.not16.i87, label %210, label %209
+  %.not16.i82 = icmp eq i32 %208, 0
+  br i1 %.not16.i82, label %210, label %209
 
 209:                                              ; preds = %203
   tail call void @log_message_begin(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 130) #4
@@ -905,25 +905,25 @@ writeObjectComponents.exit:                       ; preds = %._crit_edge.i, %57
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 1616
   %213 = load ptr, ptr %212, align 8
   tail call void %213(ptr noundef nonnull %0, ptr noundef %3, i32 noundef range(i32 0, 2147483647) %4, i32 noundef range(i32 0, -2147483648) %5, ptr noundef nonnull %200) #4
-  %wide.trip.count.i88 = zext nneg i32 %5 to i64
+  %wide.trip.count.i83 = zext nneg i32 %5 to i64
   br label %214
 
 214:                                              ; preds = %214, %210
-  %indvars.iv.i89 = phi i64 [ 0, %210 ], [ %indvars.iv.next.i90, %214 ]
-  %215 = getelementptr inbounds nuw i16, ptr %200, i64 %indvars.iv.i89
+  %indvars.iv.i84 = phi i64 [ 0, %210 ], [ %indvars.iv.next.i85, %214 ]
+  %215 = getelementptr inbounds nuw i16, ptr %200, i64 %indvars.iv.i84
   %216 = load i16, ptr %215, align 2
   %217 = tail call zeroext i16 @outStream_writeShort(ptr noundef %1, i16 noundef signext %216) #4
-  %indvars.iv.next.i90 = add nuw nsw i64 %indvars.iv.i89, 1
-  %exitcond.not.i91 = icmp eq i64 %indvars.iv.next.i90, %wide.trip.count.i88
-  br i1 %exitcond.not.i91, label %218, label %214, !llvm.loop !14
+  %indvars.iv.next.i85 = add nuw nsw i64 %indvars.iv.i84, 1
+  %exitcond.not.i86 = icmp eq i64 %indvars.iv.next.i85, %wide.trip.count.i83
+  br i1 %exitcond.not.i86, label %218, label %214, !llvm.loop !14
 
 218:                                              ; preds = %214
   tail call void @jvmtiDeallocate(ptr noundef nonnull %200) #4
   br label %writeByteComponents.exit
 
 219:                                              ; preds = %isReferenceTag.exit
-  %.not.i.i92 = icmp eq i32 %5, 0
-  br i1 %.not.i.i92, label %writeByteComponents.exit, label %220
+  %.not.i.i87 = icmp eq i32 %5, 0
+  br i1 %.not.i.i87, label %writeByteComponents.exit, label %220
 
 220:                                              ; preds = %219
   %221 = tail call ptr @jvmtiAllocate(i32 noundef range(i32 0, -2147483648) %5) #4
@@ -941,8 +941,8 @@ writeObjectComponents.exit:                       ; preds = %._crit_edge.i, %57
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 528
   %228 = load i32, ptr %227, align 8
   %229 = and i32 %228, 2
-  %.not16.i93 = icmp eq i32 %229, 0
-  br i1 %.not16.i93, label %231, label %230
+  %.not16.i88 = icmp eq i32 %229, 0
+  br i1 %.not16.i88, label %231, label %230
 
 230:                                              ; preds = %224
   tail call void @log_message_begin(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 79) #4
@@ -957,13 +957,13 @@ writeObjectComponents.exit:                       ; preds = %._crit_edge.i, %57
   br label %235
 
 235:                                              ; preds = %235, %231
-  %indvars.iv.i95 = phi i64 [ 0, %231 ], [ %indvars.iv.next.i96, %235 ]
-  %236 = getelementptr inbounds nuw i8, ptr %221, i64 %indvars.iv.i95
+  %indvars.iv.i89 = phi i64 [ 0, %231 ], [ %indvars.iv.next.i90, %235 ]
+  %236 = getelementptr inbounds nuw i8, ptr %221, i64 %indvars.iv.i89
   %237 = load i8, ptr %236, align 1
   %238 = tail call zeroext i16 @outStream_writeBoolean(ptr noundef %1, i8 noundef zeroext %237) #4
-  %indvars.iv.next.i96 = add nuw nsw i64 %indvars.iv.i95, 1
-  %exitcond.not.i97 = icmp eq i64 %indvars.iv.next.i96, %225
-  br i1 %exitcond.not.i97, label %239, label %235, !llvm.loop !15
+  %indvars.iv.next.i90 = add nuw nsw i64 %indvars.iv.i89, 1
+  %exitcond.not.i91 = icmp eq i64 %indvars.iv.next.i90, %225
+  br i1 %exitcond.not.i91, label %239, label %235, !llvm.loop !15
 
 239:                                              ; preds = %235
   tail call void @jvmtiDeallocate(ptr noundef nonnull %221) #4

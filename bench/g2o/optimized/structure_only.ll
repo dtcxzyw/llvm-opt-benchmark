@@ -1215,7 +1215,6 @@ _ZNSt6vectorIbSaIbEEC2EmRKS0_.exit:               ; preds = %98, %.lr.ph280
   %105 = ptrtoint ptr %102 to i64
   %106 = sub i64 %104, %105
   %107 = ashr exact i64 %106, 3
-  %umax = call i64 @llvm.umax.i64(i64 %107, i64 1)
   br label %.lr.ph272
 
 ._crit_edge273:                                   ; preds = %130, %_ZNSt6vectorIbSaIbEEC2EmRKS0_.exit
@@ -1265,7 +1264,7 @@ _ZNSt14_Bit_referenceaSEb.exit:                   ; preds = %123, %126
 
 130:                                              ; preds = %_ZNSt14_Bit_referenceaSEb.exit, %.lr.ph272
   %131 = add nuw i64 %.0105271, 1
-  %exitcond.not = icmp eq i64 %131, %umax
+  %exitcond.not = icmp eq i64 %131, %107
   br i1 %exitcond.not, label %._crit_edge273, label %.lr.ph272, !llvm.loop !107
 
 132:                                              ; preds = %._crit_edge273
@@ -1293,7 +1292,6 @@ _ZNSt14_Bit_referenceaSEb.exit:                   ; preds = %123, %126
   %143 = ptrtoint ptr %141 to i64
   %144 = sub i64 %142, %143
   %145 = ashr exact i64 %144, 3
-  %umax322 = call i64 @llvm.umax.i64(i64 %145, i64 1)
   br label %.lr.ph275
 
 ._crit_edge276:                                   ; preds = %169, %.preheader
@@ -1346,7 +1344,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %._crit_edge276, %14
 
 169:                                              ; preds = %158, %.lr.ph275
   %170 = add nuw i64 %.0100274, 1
-  %exitcond323.not = icmp eq i64 %170, %umax322
+  %exitcond323.not = icmp eq i64 %170, %145
   br i1 %exitcond323.not, label %._crit_edge276, label %.lr.ph275, !llvm.loop !109
 
 171:                                              ; preds = %154
@@ -2508,7 +2506,6 @@ _ZNSt6vectorIbSaIbEEC2EmRKS0_.exit:               ; preds = %102, %.lr.ph289
   %109 = ptrtoint ptr %106 to i64
   %110 = sub i64 %108, %109
   %111 = ashr exact i64 %110, 3
-  %umax = call i64 @llvm.umax.i64(i64 %111, i64 1)
   br label %.lr.ph281
 
 ._crit_edge282:                                   ; preds = %134, %_ZNSt6vectorIbSaIbEEC2EmRKS0_.exit
@@ -2558,7 +2555,7 @@ _ZNSt14_Bit_referenceaSEb.exit:                   ; preds = %127, %130
 
 134:                                              ; preds = %_ZNSt14_Bit_referenceaSEb.exit, %.lr.ph281
   %135 = add nuw i64 %.0105280, 1
-  %exitcond.not = icmp eq i64 %135, %umax
+  %exitcond.not = icmp eq i64 %135, %111
   br i1 %exitcond.not, label %._crit_edge282, label %.lr.ph281, !llvm.loop !151
 
 136:                                              ; preds = %._crit_edge282
@@ -2586,7 +2583,6 @@ _ZNSt14_Bit_referenceaSEb.exit:                   ; preds = %127, %130
   %147 = ptrtoint ptr %145 to i64
   %148 = sub i64 %146, %147
   %149 = ashr exact i64 %148, 3
-  %umax332 = call i64 @llvm.umax.i64(i64 %149, i64 1)
   br label %.lr.ph284
 
 ._crit_edge285:                                   ; preds = %173, %.preheader
@@ -2639,7 +2635,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %._crit_edge285, %15
 
 173:                                              ; preds = %162, %.lr.ph284
   %174 = add nuw i64 %.0100283, 1
-  %exitcond333.not = icmp eq i64 %174, %umax332
+  %exitcond333.not = icmp eq i64 %174, %149
   br i1 %exitcond333.not, label %._crit_edge285, label %.lr.ph284, !llvm.loop !153
 
 175:                                              ; preds = %158

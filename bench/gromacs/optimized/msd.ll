@@ -4649,11 +4649,7 @@ define internal noundef double @_ZN3gmx15analysismodules12_GLOBAL__N_123calcAver
   %7 = sub i64 %5, %6
   %8 = sdiv exact i64 %7, 24
   %.not = icmp eq ptr %1, %0
-  br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %4
-  %umax = tail call i64 @llvm.umax.i64(i64 %8, i64 1)
-  br label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %.05.lcssa = phi double [ 0.000000e+00, %4 ], [ %29, %.lr.ph ]
@@ -4661,9 +4657,9 @@ define internal noundef double @_ZN3gmx15analysismodules12_GLOBAL__N_123calcAver
   %10 = fdiv double %.05.lcssa, %9
   ret double %10
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.010 = phi i64 [ %30, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.059 = phi double [ %29, %.lr.ph ], [ 0.000000e+00, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %4, %.lr.ph
+  %.010 = phi i64 [ %30, %.lr.ph ], [ 0, %4 ]
+  %.059 = phi double [ %29, %.lr.ph ], [ 0.000000e+00, %4 ]
   %11 = getelementptr inbounds %"class.gmx::BasicVector", ptr %0, i64 %.010
   %12 = getelementptr inbounds %"class.gmx::BasicVector", ptr %2, i64 %.010
   %13 = load double, ptr %11, align 8, !tbaa !87
@@ -4684,7 +4680,7 @@ define internal noundef double @_ZN3gmx15analysismodules12_GLOBAL__N_123calcAver
   %28 = tail call noundef double @llvm.fmuladd.f64(double %27, double %27, double %22)
   %29 = fadd double %.059, %28
   %30 = add nuw i64 %.010, 1
-  %exitcond.not = icmp eq i64 %30, %umax
+  %exitcond.not = icmp eq i64 %30, %8
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !333
 }
 
@@ -6725,11 +6721,7 @@ define internal noundef double @_ZN3gmx15analysismodules12_GLOBAL__N_123calcAver
   %7 = sub i64 %5, %6
   %8 = sdiv exact i64 %7, 24
   %.not = icmp eq ptr %1, %0
-  br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %4
-  %umax = tail call i64 @llvm.umax.i64(i64 %8, i64 1)
-  br label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %.05.lcssa = phi double [ 0.000000e+00, %4 ], [ %15, %.lr.ph ]
@@ -6737,9 +6729,9 @@ define internal noundef double @_ZN3gmx15analysismodules12_GLOBAL__N_123calcAver
   %10 = fdiv double %.05.lcssa, %9
   ret double %10
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.011 = phi i64 [ %16, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.0510 = phi double [ %15, %.lr.ph ], [ 0.000000e+00, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %4, %.lr.ph
+  %.011 = phi i64 [ %16, %.lr.ph ], [ 0, %4 ]
+  %.0510 = phi double [ %15, %.lr.ph ], [ 0.000000e+00, %4 ]
   %11 = getelementptr inbounds %"class.gmx::BasicVector", ptr %0, i64 %.011
   %12 = getelementptr inbounds %"class.gmx::BasicVector", ptr %2, i64 %.011
   %.val = load double, ptr %11, align 8, !tbaa !87
@@ -6748,7 +6740,7 @@ define internal noundef double @_ZN3gmx15analysismodules12_GLOBAL__N_123calcAver
   %14 = tail call noundef double @llvm.fmuladd.f64(double %13, double %13, double 0.000000e+00)
   %15 = fadd double %.0510, %14
   %16 = add nuw i64 %.011, 1
-  %exitcond.not = icmp eq i64 %16, %umax
+  %exitcond.not = icmp eq i64 %16, %8
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !381
 }
 
@@ -6759,11 +6751,7 @@ define internal noundef double @_ZN3gmx15analysismodules12_GLOBAL__N_123calcAver
   %7 = sub i64 %5, %6
   %8 = sdiv exact i64 %7, 24
   %.not = icmp eq ptr %1, %0
-  br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %4
-  %umax = tail call i64 @llvm.umax.i64(i64 %8, i64 1)
-  br label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %.05.lcssa = phi double [ 0.000000e+00, %4 ], [ %15, %.lr.ph ]
@@ -6771,9 +6759,9 @@ define internal noundef double @_ZN3gmx15analysismodules12_GLOBAL__N_123calcAver
   %10 = fdiv double %.05.lcssa, %9
   ret double %10
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.011 = phi i64 [ %16, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.0510 = phi double [ %15, %.lr.ph ], [ 0.000000e+00, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %4, %.lr.ph
+  %.011 = phi i64 [ %16, %.lr.ph ], [ 0, %4 ]
+  %.0510 = phi double [ %15, %.lr.ph ], [ 0.000000e+00, %4 ]
   %11 = getelementptr %"class.gmx::BasicVector", ptr %0, i64 %.011, i32 0, i64 1
   %.val = load double, ptr %11, align 8, !tbaa !87
   %12 = getelementptr %"class.gmx::BasicVector", ptr %2, i64 %.011, i32 0, i64 1
@@ -6782,7 +6770,7 @@ define internal noundef double @_ZN3gmx15analysismodules12_GLOBAL__N_123calcAver
   %14 = tail call noundef double @llvm.fmuladd.f64(double %13, double %13, double 0.000000e+00)
   %15 = fadd double %.0510, %14
   %16 = add nuw i64 %.011, 1
-  %exitcond.not = icmp eq i64 %16, %umax
+  %exitcond.not = icmp eq i64 %16, %8
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !382
 }
 
@@ -6793,11 +6781,7 @@ define internal noundef double @_ZN3gmx15analysismodules12_GLOBAL__N_123calcAver
   %7 = sub i64 %5, %6
   %8 = sdiv exact i64 %7, 24
   %.not = icmp eq ptr %1, %0
-  br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %4
-  %umax = tail call i64 @llvm.umax.i64(i64 %8, i64 1)
-  br label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %.05.lcssa = phi double [ 0.000000e+00, %4 ], [ %15, %.lr.ph ]
@@ -6805,9 +6789,9 @@ define internal noundef double @_ZN3gmx15analysismodules12_GLOBAL__N_123calcAver
   %10 = fdiv double %.05.lcssa, %9
   ret double %10
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.011 = phi i64 [ %16, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.0510 = phi double [ %15, %.lr.ph ], [ 0.000000e+00, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %4, %.lr.ph
+  %.011 = phi i64 [ %16, %.lr.ph ], [ 0, %4 ]
+  %.0510 = phi double [ %15, %.lr.ph ], [ 0.000000e+00, %4 ]
   %11 = getelementptr %"class.gmx::BasicVector", ptr %0, i64 %.011, i32 0, i64 2
   %.val = load double, ptr %11, align 8, !tbaa !87
   %12 = getelementptr %"class.gmx::BasicVector", ptr %2, i64 %.011, i32 0, i64 2
@@ -6816,7 +6800,7 @@ define internal noundef double @_ZN3gmx15analysismodules12_GLOBAL__N_123calcAver
   %14 = tail call noundef double @llvm.fmuladd.f64(double %13, double %13, double 0.000000e+00)
   %15 = fadd double %.0510, %14
   %16 = add nuw i64 %.011, 1
-  %exitcond.not = icmp eq i64 %16, %umax
+  %exitcond.not = icmp eq i64 %16, %8
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !383
 }
 
@@ -6827,11 +6811,7 @@ define internal noundef double @_ZN3gmx15analysismodules12_GLOBAL__N_123calcAver
   %7 = sub i64 %5, %6
   %8 = sdiv exact i64 %7, 24
   %.not = icmp eq ptr %1, %0
-  br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %4
-  %umax = tail call i64 @llvm.umax.i64(i64 %8, i64 1)
-  br label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %.05.lcssa = phi double [ 0.000000e+00, %4 ], [ %21, %.lr.ph ]
@@ -6839,9 +6819,9 @@ define internal noundef double @_ZN3gmx15analysismodules12_GLOBAL__N_123calcAver
   %10 = fdiv double %.05.lcssa, %9
   ret double %10
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.013 = phi i64 [ %22, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.0512 = phi double [ %21, %.lr.ph ], [ 0.000000e+00, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %4, %.lr.ph
+  %.013 = phi i64 [ %22, %.lr.ph ], [ 0, %4 ]
+  %.0512 = phi double [ %21, %.lr.ph ], [ 0.000000e+00, %4 ]
   %11 = getelementptr inbounds %"class.gmx::BasicVector", ptr %0, i64 %.013
   %12 = getelementptr inbounds %"class.gmx::BasicVector", ptr %2, i64 %.013
   %13 = getelementptr i8, ptr %11, i64 8
@@ -6858,7 +6838,7 @@ define internal noundef double @_ZN3gmx15analysismodules12_GLOBAL__N_123calcAver
   %20 = tail call noundef double @llvm.fmuladd.f64(double %19, double %19, double %18)
   %21 = fadd double %.0512, %20
   %22 = add nuw i64 %.013, 1
-  %exitcond.not = icmp eq i64 %22, %umax
+  %exitcond.not = icmp eq i64 %22, %8
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !384
 }
 
@@ -6869,11 +6849,7 @@ define internal noundef double @_ZN3gmx15analysismodules12_GLOBAL__N_123calcAver
   %7 = sub i64 %5, %6
   %8 = sdiv exact i64 %7, 24
   %.not = icmp eq ptr %1, %0
-  br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %4
-  %umax = tail call i64 @llvm.umax.i64(i64 %8, i64 1)
-  br label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %.05.lcssa = phi double [ 0.000000e+00, %4 ], [ %19, %.lr.ph ]
@@ -6881,9 +6857,9 @@ define internal noundef double @_ZN3gmx15analysismodules12_GLOBAL__N_123calcAver
   %10 = fdiv double %.05.lcssa, %9
   ret double %10
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.013 = phi i64 [ %20, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.0512 = phi double [ %19, %.lr.ph ], [ 0.000000e+00, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %4, %.lr.ph
+  %.013 = phi i64 [ %20, %.lr.ph ], [ 0, %4 ]
+  %.0512 = phi double [ %19, %.lr.ph ], [ 0.000000e+00, %4 ]
   %11 = getelementptr inbounds %"class.gmx::BasicVector", ptr %0, i64 %.013
   %12 = getelementptr inbounds %"class.gmx::BasicVector", ptr %2, i64 %.013
   %.val = load double, ptr %11, align 8, !tbaa !87
@@ -6898,7 +6874,7 @@ define internal noundef double @_ZN3gmx15analysismodules12_GLOBAL__N_123calcAver
   %18 = tail call noundef double @llvm.fmuladd.f64(double %17, double %17, double %16)
   %19 = fadd double %.0512, %18
   %20 = add nuw i64 %.013, 1
-  %exitcond.not = icmp eq i64 %20, %umax
+  %exitcond.not = icmp eq i64 %20, %8
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !385
 }
 
@@ -6909,11 +6885,7 @@ define internal noundef double @_ZN3gmx15analysismodules12_GLOBAL__N_123calcAver
   %7 = sub i64 %5, %6
   %8 = sdiv exact i64 %7, 24
   %.not = icmp eq ptr %1, %0
-  br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %4
-  %umax = tail call i64 @llvm.umax.i64(i64 %8, i64 1)
-  br label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %.05.lcssa = phi double [ 0.000000e+00, %4 ], [ %19, %.lr.ph ]
@@ -6921,9 +6893,9 @@ define internal noundef double @_ZN3gmx15analysismodules12_GLOBAL__N_123calcAver
   %10 = fdiv double %.05.lcssa, %9
   ret double %10
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.013 = phi i64 [ %20, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.0512 = phi double [ %19, %.lr.ph ], [ 0.000000e+00, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %4, %.lr.ph
+  %.013 = phi i64 [ %20, %.lr.ph ], [ 0, %4 ]
+  %.0512 = phi double [ %19, %.lr.ph ], [ 0.000000e+00, %4 ]
   %11 = getelementptr inbounds %"class.gmx::BasicVector", ptr %0, i64 %.013
   %12 = getelementptr inbounds %"class.gmx::BasicVector", ptr %2, i64 %.013
   %.val = load double, ptr %11, align 8, !tbaa !87
@@ -6938,7 +6910,7 @@ define internal noundef double @_ZN3gmx15analysismodules12_GLOBAL__N_123calcAver
   %18 = tail call noundef double @llvm.fmuladd.f64(double %17, double %17, double %16)
   %19 = fadd double %.0512, %18
   %20 = add nuw i64 %.013, 1
-  %exitcond.not = icmp eq i64 %20, %umax
+  %exitcond.not = icmp eq i64 %20, %8
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !386
 }
 

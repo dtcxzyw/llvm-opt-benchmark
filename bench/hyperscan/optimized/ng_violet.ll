@@ -28166,7 +28166,6 @@ _ZN5boost14dynamic_bitsetImSaImEE6resizeEmb.exit.i: ; preds = %166, %_ZNSt6vecto
   %187 = ptrtoint ptr %.sroa.0226.0.i to i64
   %188 = sub i64 %186, %187
   %189 = ashr exact i64 %188, 3
-  %umax298.i = call i64 @llvm.umax.i64(i64 %189, i64 1)
   br label %.lr.ph.i137.preheader.i
 
 190:                                              ; preds = %_ZNSt13unordered_mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEEN5boost14dynamic_bitsetImSaImEEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SC_EEE5clearEv.exit.i, %.lr.ph269.i
@@ -28847,7 +28846,7 @@ _ZN5boost14dynamic_bitsetImSaImEEoRERKS2_.exit.i: ; preds = %.loopexit246.i, %.l
   %458 = or i64 %457, %455
   store i64 %458, ptr %456, align 8
   %459 = add nuw i64 %.05.i138.i, 1
-  %exitcond299.not.i = icmp eq i64 %459, %umax298.i
+  %exitcond299.not.i = icmp eq i64 %459, %189
   br i1 %exitcond299.not.i, label %_ZN5boost14dynamic_bitsetImSaImEEoRERKS2_.exit139.loopexit.i, label %.lr.ph.i137.i, !llvm.loop !935
 
 _ZN5boost14dynamic_bitsetImSaImEEoRERKS2_.exit139.loopexit.i: ; preds = %.lr.ph.i137.i

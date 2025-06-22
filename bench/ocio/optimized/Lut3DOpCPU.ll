@@ -3319,7 +3319,6 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer9RangeTree8initIndsEv.ex
   %.not29.i.i = icmp eq i64 %.pre37, 0
   %434 = shl nuw i64 %.pre35, 3
   %435 = load ptr, ptr %367, align 8
-  %umax201.i = call i64 @llvm.umax.i64(i64 %433, i64 1)
   br i1 %.not.i81.i, label %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer9RangeTree10indsToHashEm.exit.us.i, label %.lr.ph26.i.i
 
 _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer9RangeTree10indsToHashEm.exit.us.i: ; preds = %.lr.ph161.i, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer9RangeTree10indsToHashEm.exit.us.i
@@ -3329,7 +3328,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer9RangeTree10indsToHashEm
   store i64 0, ptr %436, align 8, !tbaa !186
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #28
   %437 = add nuw i64 %.059160.us.i, 1
-  %exitcond202.not.i = icmp eq i64 %437, %umax201.i
+  %exitcond202.not.i = icmp eq i64 %437, %433
   br i1 %exitcond202.not.i, label %._crit_edge162.thread207.i, label %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer9RangeTree10indsToHashEm.exit.us.i, !llvm.loop !188
 
 438:                                              ; preds = %438, %.lr.ph158.i
@@ -3590,7 +3589,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer9RangeTree10indsToHashEm
   store i64 %516, ptr %518, align 8, !tbaa !186
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #28
   %519 = add nuw i64 %.059160.i, 1
-  %exitcond200.not.i = icmp eq i64 %519, %umax201.i
+  %exitcond200.not.i = icmp eq i64 %519, %433
   br i1 %exitcond200.not.i, label %._crit_edge162.thread207.i, label %.lr.ph26.i.i, !llvm.loop !188
 
 _ZNSt6vectorImSaImEEC2EmRKS0_.exit.i:             ; preds = %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i, %.noexc80.i
@@ -3845,7 +3844,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit65.i.i:         ; preds = %558, %556, %554, %.
   %632 = getelementptr inbounds nuw i64, ptr %490, i64 %.053163.i
   store i64 %631, ptr %632, align 8, !tbaa !110
   %633 = add nuw i64 %.053163.i, 1
-  %exitcond204.not.i = icmp eq i64 %633, %umax201.i
+  %exitcond204.not.i = icmp eq i64 %633, %433
   br i1 %exitcond204.not.i, label %._crit_edge165.i.loopexit, label %629, !llvm.loop !201
 
 .loopexit135.i:                                   ; preds = %._crit_edge.us80.i.i, %578

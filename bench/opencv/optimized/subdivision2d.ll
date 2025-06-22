@@ -2859,7 +2859,6 @@ define void @_ZN2cv8Subdiv2D12clearVoronoiEv(ptr noundef nonnull align 8 capture
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 5
-  %umax = tail call i64 @llvm.umax.i64(i64 %9, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -2870,7 +2869,7 @@ define void @_ZN2cv8Subdiv2D12clearVoronoiEv(ptr noundef nonnull align 8 capture
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 20
   store i32 0, ptr %12, align 4, !tbaa !9
   %13 = add nuw i64 %.010, 1
-  %exitcond.not = icmp eq i64 %13, %umax
+  %exitcond.not = icmp eq i64 %13, %9
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !75
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
@@ -2887,7 +2886,6 @@ define void @_ZN2cv8Subdiv2D12clearVoronoiEv(ptr noundef nonnull align 8 capture
   %20 = ashr exact i64 %19, 4
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %.promoted = load i32, ptr %21, align 4
-  %umax16 = tail call i64 @llvm.umax.i64(i64 %20, i64 1)
   br label %22
 
 22:                                               ; preds = %.lr.ph13, %32
@@ -2912,7 +2910,7 @@ define void @_ZN2cv8Subdiv2D12clearVoronoiEv(ptr noundef nonnull align 8 capture
 32:                                               ; preds = %22, %27
   %33 = phi i32 [ %23, %22 ], [ %28, %27 ]
   %34 = add nuw i64 %.111, 1
-  %exitcond17.not = icmp eq i64 %34, %umax16
+  %exitcond17.not = icmp eq i64 %34, %20
   br i1 %exitcond17.not, label %._crit_edge14, label %22, !llvm.loop !76
 
 ._crit_edge14:                                    ; preds = %32, %._crit_edge
@@ -2941,7 +2939,6 @@ define void @_ZN2cv8Subdiv2D11calcVoronoiEv(ptr noundef nonnull align 8 captures
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
   %13 = ashr exact i64 %12, 5
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %13, i64 1)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -2952,7 +2949,7 @@ define void @_ZN2cv8Subdiv2D11calcVoronoiEv(ptr noundef nonnull align 8 captures
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 20
   store i32 0, ptr %16, align 4, !tbaa !9
   %17 = add nuw i64 %.010.i, 1
-  %exitcond.not.i = icmp eq i64 %17, %umax.i
+  %exitcond.not.i = icmp eq i64 %17, %13
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !75
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %5
@@ -2969,7 +2966,6 @@ define void @_ZN2cv8Subdiv2D11calcVoronoiEv(ptr noundef nonnull align 8 captures
   %24 = ashr exact i64 %23, 4
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %.promoted.i = load i32, ptr %25, align 4
-  %umax16.i = tail call i64 @llvm.umax.i64(i64 %24, i64 1)
   br label %26
 
 26:                                               ; preds = %36, %.lr.ph13.i
@@ -2994,7 +2990,7 @@ define void @_ZN2cv8Subdiv2D11calcVoronoiEv(ptr noundef nonnull align 8 captures
 36:                                               ; preds = %31, %26
   %37 = phi i32 [ %27, %26 ], [ %32, %31 ]
   %38 = add nuw i64 %.111.i, 1
-  %exitcond17.not.i = icmp eq i64 %38, %umax16.i
+  %exitcond17.not.i = icmp eq i64 %38, %24
   br i1 %exitcond17.not.i, label %_ZN2cv8Subdiv2D12clearVoronoiEv.exit, label %26, !llvm.loop !76
 
 _ZN2cv8Subdiv2D12clearVoronoiEv.exit:             ; preds = %36, %._crit_edge.i

@@ -36301,11 +36301,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19: ; preds = %_ZN
 
 56:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZN19OpenColorIO_v2_5dev24CTFReaderGradingCurveElt8getCurveEv.exit
   %.not21 = icmp eq ptr %10, %11
-  br i1 %.not21, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %56
-  %umax = call i64 @llvm.umax.i64(i64 %15, i64 1)
-  br label %.lr.ph
+  br i1 %.not21, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %85, %56
   %57 = load ptr, ptr %18, align 8, !tbaa !33
@@ -36360,8 +36356,8 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveELN9__gnu_cxx12_L
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #33
   ret void
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %85
-  %.020 = phi i64 [ %86, %85 ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %56, %85
+  %.020 = phi i64 [ %86, %85 ], [ 0, %56 ]
   %79 = load ptr, ptr %8, align 8, !tbaa !880
   %80 = getelementptr inbounds nuw float, ptr %79, i64 %.020
   %81 = load float, ptr %80, align 4, !tbaa !212
@@ -36373,7 +36369,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveELN9__gnu_cxx12_L
 
 85:                                               ; preds = %.lr.ph
   %86 = add nuw i64 %.020, 1
-  %exitcond.not = icmp eq i64 %86, %umax
+  %exitcond.not = icmp eq i64 %86, %15
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !897
 
 87:                                               ; preds = %.lr.ph

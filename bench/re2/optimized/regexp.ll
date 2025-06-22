@@ -4356,7 +4356,6 @@ for.body41.preheader:                             ; preds = %_ZNSt3setIN3re29Run
   %sub.ptr.rhs.cast.i = ptrtoint ptr %v.sroa.0.1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %for.body41
 
 for.body41:                                       ; preds = %for.body41.preheader, %invoke.cont44
@@ -4434,7 +4433,7 @@ call5.i.i.i.i.i.i.i.i.noexc:                      ; preds = %_ZNSt8_Rb_treeIN3re
 
 invoke.cont44:                                    ; preds = %call5.i.i.i.i.i.i.i.i.noexc, %if.end12.i.i.i
   %inc = add nuw i64 %i.0207, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i
   br i1 %exitcond.not, label %for.end47, label %for.body41, !llvm.loop !45
 
 for.end47:                                        ; preds = %invoke.cont44, %_ZNSt3setIN3re29RuneRangeENS0_13RuneRangeLessESaIS1_EE5clearEv.exit

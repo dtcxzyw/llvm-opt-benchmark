@@ -7024,6 +7024,7 @@ define internal fastcc void @display_luminance_mask(ptr noalias noundef readonly
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %28 = load i32, ptr %27, align 4, !tbaa !108
   %29 = tail call i32 @llvm.smin.i32(i32 %26, i32 %28)
+  %30 = sext i32 %29 to i64
   %.not = icmp eq i32 %29, 0
   br i1 %.not, label %._crit_edge64, label %.preheader.lr.ph
 
@@ -7031,56 +7032,52 @@ define internal fastcc void @display_luminance_mask(ptr noalias noundef readonly
   %invariant.gep = getelementptr i8, ptr %0, i64 12
   %invariant.gep60 = getelementptr i8, ptr %2, i64 12
   %.not65 = icmp eq i32 %23, 0
-  br i1 %.not65, label %._crit_edge64, label %.preheader.us.preheader
+  br i1 %.not65, label %._crit_edge64, label %.preheader.us
 
-.preheader.us.preheader:                          ; preds = %.preheader.lr.ph
-  %umax68 = sext i32 %29 to i64
-  br label %.preheader.us
+.preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.us
+  %.04763.us = phi i64 [ %53, %._crit_edge.us ], [ 0, %.preheader.lr.ph ]
+  %31 = add i64 %.04763.us, %17
+  %32 = mul i64 %31, %20
+  %33 = add i64 %32, %10
+  %34 = mul i64 %.04763.us, %24
+  br label %35
 
-.preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
-  %.04763.us = phi i64 [ %52, %._crit_edge.us ], [ 0, %.preheader.us.preheader ]
-  %30 = add i64 %.04763.us, %17
-  %31 = mul i64 %30, %20
-  %32 = add i64 %31, %10
-  %33 = mul i64 %.04763.us, %24
-  br label %34
+35:                                               ; preds = %.preheader.us, %47
+  %.04862.us = phi i64 [ 0, %.preheader.us ], [ %49, %47 ]
+  %36 = add i64 %33, %.04862.us
+  %37 = getelementptr inbounds nuw float, ptr %1, i64 %36
+  %38 = load float, ptr %37, align 4, !tbaa !6
+  %39 = fadd reassoc nsz arcp contract afn float %38, -3.906250e-03
+  %40 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %39, float 0.000000e+00)
+  %41 = fmul reassoc nsz arcp contract afn float %40, 0x3FF0101020000000
+  %42 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %41, float 1.000000e+00)
+  %43 = tail call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %42)
+  %44 = add i64 %.04862.us, %34
+  %45 = shl i64 %44, 2
+  %46 = getelementptr inbounds nuw float, ptr %2, i64 %45
+  br label %50
 
-34:                                               ; preds = %.preheader.us, %46
-  %.04862.us = phi i64 [ 0, %.preheader.us ], [ %48, %46 ]
-  %35 = add i64 %32, %.04862.us
-  %36 = getelementptr inbounds nuw float, ptr %1, i64 %35
-  %37 = load float, ptr %36, align 4, !tbaa !6
-  %38 = fadd reassoc nsz arcp contract afn float %37, -3.906250e-03
-  %39 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %38, float 0.000000e+00)
-  %40 = fmul reassoc nsz arcp contract afn float %39, 0x3FF0101020000000
-  %41 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %40, float 1.000000e+00)
-  %42 = tail call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %41)
-  %43 = add i64 %.04862.us, %33
-  %44 = shl i64 %43, 2
-  %45 = getelementptr inbounds nuw float, ptr %2, i64 %44
-  br label %49
-
-46:                                               ; preds = %49
-  %.idx.us = shl i64 %35, 4
+47:                                               ; preds = %50
+  %.idx.us = shl i64 %36, 4
   %gep.us = getelementptr i8, ptr %invariant.gep, i64 %.idx.us
-  %47 = load float, ptr %gep.us, align 4, !tbaa !6
-  %gep61.us = getelementptr float, ptr %invariant.gep60, i64 %44
-  store float %47, ptr %gep61.us, align 4, !tbaa !6
-  %48 = add nuw i64 %.04862.us, 1
-  %exitcond67.not = icmp eq i64 %48, %24
-  br i1 %exitcond67.not, label %._crit_edge.us, label %34
+  %48 = load float, ptr %gep.us, align 4, !tbaa !6
+  %gep61.us = getelementptr float, ptr %invariant.gep60, i64 %45
+  store float %48, ptr %gep61.us, align 4, !tbaa !6
+  %49 = add nuw i64 %.04862.us, 1
+  %exitcond67.not = icmp eq i64 %49, %24
+  br i1 %exitcond67.not, label %._crit_edge.us, label %35
 
-49:                                               ; preds = %49, %34
-  %.059.us = phi i64 [ 0, %34 ], [ %51, %49 ]
-  %50 = getelementptr inbounds nuw float, ptr %45, i64 %.059.us
-  store float %42, ptr %50, align 4, !tbaa !6
-  %51 = add nuw nsw i64 %.059.us, 1
-  %exitcond.not = icmp eq i64 %51, 4
-  br i1 %exitcond.not, label %46, label %49
+50:                                               ; preds = %50, %35
+  %.059.us = phi i64 [ 0, %35 ], [ %52, %50 ]
+  %51 = getelementptr inbounds nuw float, ptr %46, i64 %.059.us
+  store float %43, ptr %51, align 4, !tbaa !6
+  %52 = add nuw nsw i64 %.059.us, 1
+  %exitcond.not = icmp eq i64 %52, 4
+  br i1 %exitcond.not, label %47, label %50
 
-._crit_edge.us:                                   ; preds = %46
-  %52 = add nuw i64 %.04763.us, 1
-  %exitcond69.not = icmp eq i64 %52, %umax68
+._crit_edge.us:                                   ; preds = %47
+  %53 = add nuw i64 %.04763.us, 1
+  %exitcond69.not = icmp eq i64 %53, %30
   br i1 %exitcond69.not, label %._crit_edge64, label %.preheader.us
 
 ._crit_edge64:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %5

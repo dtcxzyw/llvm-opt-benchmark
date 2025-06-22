@@ -35516,12 +35516,11 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 .lr.ph.preheader.i.i.i:                           ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i
   %148 = ashr exact i64 %140, 2
-  %umax.i.i.i = tail call i64 @llvm.umax.i64(i64 %148, i64 1)
   br label %.lr.ph.i.i.i
 
 149:                                              ; preds = %.lr.ph.i.i.i
   %150 = add nuw i64 %.01225.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %150, %umax.i.i.i
+  %exitcond.not.i.i.i = icmp eq i64 %150, %148
   br i1 %exitcond.not.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i, !llvm.loop !1075
 
 .lr.ph.i.i.i:                                     ; preds = %149, %.lr.ph.preheader.i.i.i

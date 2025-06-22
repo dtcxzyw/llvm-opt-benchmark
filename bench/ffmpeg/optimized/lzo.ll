@@ -40,9 +40,9 @@ define range(i32 0, 16) i32 @av_lzo1x_decode(ptr noundef %0, ptr noundef capture
 select.unfold.i:                                  ; preds = %12
   %21 = add nsw i32 %19, -17
   %.not183 = icmp ule i32 %.pre, %21
-  %spec.select.i = add nsw i32 %.pre, -1
+  %spec.select39.i = add nsw i32 %.pre, -1
   %.sroa.64.6 = zext i1 %.not183 to i32
-  %.0.i = select i1 %.not183, i32 %spec.select.i, i32 %21
+  %.0.i = select i1 %.not183, i32 %spec.select39.i, i32 %21
   %22 = icmp ult i32 %5, %.0.i
   %23 = or disjoint i32 %.sroa.64.6, 2
   %spec.select184 = select i1 %22, i32 %23, i32 %.sroa.64.6

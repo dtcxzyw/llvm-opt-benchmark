@@ -3849,7 +3849,6 @@ _ZNSt10unique_ptrIN10open_spiel3BotESt14default_deleteIS1_EED2Ev.exit158: ; pred
   %211 = ptrtoint ptr %208 to i64
   %212 = sub i64 %211, %210
   %213 = ashr exact i64 %212, 3
-  %umax = call i64 @llvm.umax.i64(i64 %213, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %224
@@ -3872,7 +3871,7 @@ _ZNSt10unique_ptrIN10open_spiel3BotESt14default_deleteIS1_EED2Ev.exit158: ; pred
 
 224:                                              ; preds = %.lr.ph, %220
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %213
   br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !130
 
 ._crit_edge:                                      ; preds = %.preheader

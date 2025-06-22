@@ -796,7 +796,6 @@ for.body.preheader:                               ; preds = %_ZNSt6vectorIdSaIdE
   %.pre318 = ptrtoint ptr %.pre313 to i64
   %sub.ptr.sub.i133 = sub i64 %.pre318, %.pre319
   %sub.ptr.div.i134 = ashr exact i64 %sub.ptr.sub.i133, 3
-  %umax = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i134, i64 1)
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
@@ -806,7 +805,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %91 = call double @llvm.fmuladd.f64(double %conv194, double %div189, double %32)
   %add.ptr.i135 = getelementptr inbounds nuw double, ptr %.pre314, i64 %i.0296
   store double %91, ptr %add.ptr.i135, align 8, !tbaa !22
-  %exitcond.not = icmp eq i64 %add193, %umax
+  %exitcond.not = icmp eq i64 %add193, %sub.ptr.div.i134
   br i1 %exitcond.not, label %if.end226, label %for.body, !llvm.loop !37
 
 if.then.i.i137:                                   ; preds = %if.end179

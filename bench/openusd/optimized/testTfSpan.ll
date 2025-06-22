@@ -84,7 +84,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
   %16 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfSpan", align 8
   %17 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfSpan.1", align 8
   %18 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfSpan.1", align 8
-  %19 = tail call noalias noundef nonnull dereferenceable(20) ptr @_Znwm(i64 noundef 20) #11
+  %19 = tail call noalias noundef nonnull dereferenceable(20) ptr @_Znwm(i64 noundef 20) #10
   store ptr %19, ptr %9, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 20
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -103,7 +103,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
   %.sink315.sroa.gep325 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %.sink315.sroa.gep327 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %.sink315.sroa.gep328 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %23 = invoke noalias noundef nonnull dereferenceable(20) ptr @_Znwm(i64 noundef 20) #11
+  %23 = invoke noalias noundef nonnull dereferenceable(20) ptr @_Znwm(i64 noundef 20) #10
           to label %24 unwind label %87
 
 24:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit43
@@ -245,7 +245,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
   store ptr @__PRETTY_FUNCTION__.main, ptr %.sink315.sroa.phi320, align 8
   store i8 0, ptr %.sink315.sroa.phi323, align 8
   store i32 4, ptr %.sink315.sroa.phi326, align 8
-  invoke void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %.sink315, ptr noundef nonnull @.str.14, ptr noundef nonnull %91) #12
+  invoke void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %.sink315, ptr noundef nonnull @.str.14, ptr noundef nonnull %91) #11
           to label %.cont unwind label %89
 
 .cont:                                            ; preds = %.invoke
@@ -254,7 +254,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 92:                                               ; preds = %75
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
   %.sroa.015.0.i = getelementptr inbounds nuw i8, ptr %76, i64 8
-  %93 = invoke noalias noundef nonnull dereferenceable(12) ptr @_Znwm(i64 noundef 12) #11
+  %93 = invoke noalias noundef nonnull dereferenceable(12) ptr @_Znwm(i64 noundef 12) #10
           to label %95 unwind label %_ZNSt12_Vector_baseIiSaIiEED2Ev.exit.i60
 
 _ZNSt12_Vector_baseIiSaIiEED2Ev.exit.i60:         ; preds = %92
@@ -295,7 +295,7 @@ _ZSt5equalIPKiN9__gnu_cxx17__normal_iteratorIS1_St6vectorIiSaIiEEEEEbT_S8_T0_.ex
   store i8 0, ptr %.sroa.5233.0..sroa_idx, align 8
   %99 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i32 4, ptr %99, align 8
-  invoke void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %6, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.8) #12
+  invoke void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %6, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.8) #11
           to label %.noexc65 unwind label %129
 
 .noexc65:                                         ; preds = %98
@@ -303,7 +303,7 @@ _ZSt5equalIPKiN9__gnu_cxx17__normal_iteratorIS1_St6vectorIiSaIiEEEEEbT_S8_T0_.ex
 
 100:                                              ; preds = %_ZSt5equalIPKiN9__gnu_cxx17__normal_iteratorIS1_St6vectorIiSaIiEEEEEbT_S8_T0_.exit.thread, %_ZSt5equalIPKiN9__gnu_cxx17__normal_iteratorIS1_St6vectorIiSaIiEEEEEbT_S8_T0_.exit
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
-  %101 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #11
+  %101 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #10
           to label %103 unwind label %_ZNSt12_Vector_baseIiSaIiEED2Ev.exit.i71
 
 _ZNSt12_Vector_baseIiSaIiEED2Ev.exit.i71:         ; preds = %100
@@ -332,7 +332,7 @@ _ZNSt12_Vector_baseIiSaIiEED2Ev.exit.i71:         ; preds = %100
   store i8 0, ptr %.sroa.5214.0..sroa_idx, align 8
   %105 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i32 4, ptr %105, align 8
-  invoke void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %5, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.9) #12
+  invoke void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %5, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.9) #11
           to label %.noexc80 unwind label %131
 
 .noexc80:                                         ; preds = %104
@@ -340,7 +340,7 @@ _ZNSt12_Vector_baseIiSaIiEED2Ev.exit.i71:         ; preds = %100
 
 106:                                              ; preds = %103
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
-  %107 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #11
+  %107 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #10
           to label %109 unwind label %_ZNSt12_Vector_baseIiSaIiEED2Ev.exit.i83
 
 _ZNSt12_Vector_baseIiSaIiEED2Ev.exit.i83:         ; preds = %106
@@ -369,7 +369,7 @@ _ZNSt12_Vector_baseIiSaIiEED2Ev.exit.i83:         ; preds = %106
   store i8 0, ptr %.sroa.5195.0..sroa_idx, align 8
   %111 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 4, ptr %111, align 8
-  invoke void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %4, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.10) #12
+  invoke void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %4, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.10) #11
           to label %.noexc92 unwind label %133
 
 .noexc92:                                         ; preds = %110
@@ -377,7 +377,7 @@ _ZNSt12_Vector_baseIiSaIiEED2Ev.exit.i83:         ; preds = %106
 
 112:                                              ; preds = %109
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
-  %113 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #11
+  %113 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #10
           to label %115 unwind label %_ZNSt12_Vector_baseIiSaIiEED2Ev.exit.i97
 
 _ZNSt12_Vector_baseIiSaIiEED2Ev.exit.i97:         ; preds = %112
@@ -407,7 +407,7 @@ _ZNSt12_Vector_baseIiSaIiEED2Ev.exit.i97:         ; preds = %112
   store i8 0, ptr %.sroa.5176.0..sroa_idx, align 8
   %118 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i32 4, ptr %118, align 8
-  invoke void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %3, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.11) #12
+  invoke void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %3, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.11) #11
           to label %.noexc106 unwind label %_ZNSt6vectorIiSaIiEED2Ev.exit120
 
 .noexc106:                                        ; preds = %117
@@ -415,10 +415,10 @@ _ZNSt12_Vector_baseIiSaIiEED2Ev.exit.i97:         ; preds = %112
 
 _ZNSt6vectorIiSaIiEED2Ev.exit117:                 ; preds = %115
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
-  call void @_ZdlPvm(ptr noundef nonnull %113, i64 noundef 8) #13
-  call void @_ZdlPvm(ptr noundef nonnull %107, i64 noundef 8) #13
-  call void @_ZdlPvm(ptr noundef nonnull %101, i64 noundef 8) #13
-  call void @_ZdlPvm(ptr noundef nonnull %93, i64 noundef 12) #13
+  call void @_ZdlPvm(ptr noundef nonnull %113, i64 noundef 8) #12
+  call void @_ZdlPvm(ptr noundef nonnull %107, i64 noundef 8) #12
+  call void @_ZdlPvm(ptr noundef nonnull %101, i64 noundef 8) #12
+  call void @_ZdlPvm(ptr noundef nonnull %93, i64 noundef 12) #12
   %119 = load ptr, ptr %10, align 8
   %120 = load ptr, ptr %25, align 8
   %.not309 = icmp eq ptr %120, %119
@@ -429,7 +429,6 @@ _ZNSt6vectorIiSaIiEED2Ev.exit117:                 ; preds = %115
   %122 = ptrtoint ptr %119 to i64
   %123 = sub i64 %121, %122
   %124 = ashr exact i64 %123, 2
-  %umax = call i64 @llvm.umax.i64(i64 %124, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -439,7 +438,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit117:                 ; preds = %115
   %127 = trunc i64 %126 to i32
   %128 = mul i32 %127, 10
   store i32 %128, ptr %125, align 4
-  %exitcond.not = icmp eq i64 %126, %umax
+  %exitcond.not = icmp eq i64 %126, %124
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 
 129:                                              ; preds = %98
@@ -460,26 +459,26 @@ _ZNSt6vectorIiSaIiEED2Ev.exit117:                 ; preds = %115
 _ZNSt6vectorIiSaIiEED2Ev.exit120:                 ; preds = %117
   %135 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPvm(ptr noundef nonnull %113, i64 noundef 8) #13
+  call void @_ZdlPvm(ptr noundef nonnull %113, i64 noundef 8) #12
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit123
 
 _ZNSt6vectorIiSaIiEED2Ev.exit123:                 ; preds = %_ZNSt12_Vector_baseIiSaIiEED2Ev.exit.i97, %_ZNSt6vectorIiSaIiEED2Ev.exit120, %133
   %.pn = phi { ptr, i32 } [ %135, %_ZNSt6vectorIiSaIiEED2Ev.exit120 ], [ %134, %133 ], [ %114, %_ZNSt12_Vector_baseIiSaIiEED2Ev.exit.i97 ]
-  call void @_ZdlPvm(ptr noundef nonnull %107, i64 noundef 8) #13
+  call void @_ZdlPvm(ptr noundef nonnull %107, i64 noundef 8) #12
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit126
 
 _ZNSt6vectorIiSaIiEED2Ev.exit126:                 ; preds = %_ZNSt12_Vector_baseIiSaIiEED2Ev.exit.i83, %_ZNSt6vectorIiSaIiEED2Ev.exit123, %131
   %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit123 ], [ %132, %131 ], [ %108, %_ZNSt12_Vector_baseIiSaIiEED2Ev.exit.i83 ]
-  call void @_ZdlPvm(ptr noundef nonnull %101, i64 noundef 8) #13
+  call void @_ZdlPvm(ptr noundef nonnull %101, i64 noundef 8) #12
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit129
 
 _ZNSt6vectorIiSaIiEED2Ev.exit129:                 ; preds = %_ZNSt12_Vector_baseIiSaIiEED2Ev.exit.i71, %_ZNSt6vectorIiSaIiEED2Ev.exit126, %129
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit126 ], [ %130, %129 ], [ %102, %_ZNSt12_Vector_baseIiSaIiEED2Ev.exit.i71 ]
-  call void @_ZdlPvm(ptr noundef nonnull %93, i64 noundef 12) #13
+  call void @_ZdlPvm(ptr noundef nonnull %93, i64 noundef 12) #12
   br label %.body61
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZNSt6vectorIiSaIiEED2Ev.exit117
-  %136 = invoke noalias noundef nonnull dereferenceable(20) ptr @_Znwm(i64 noundef 20) #11
+  %136 = invoke noalias noundef nonnull dereferenceable(20) ptr @_Znwm(i64 noundef 20) #10
           to label %138 unwind label %_ZNSt12_Vector_baseIiSaIiEED2Ev.exit.i131
 
 _ZNSt12_Vector_baseIiSaIiEED2Ev.exit.i131:        ; preds = %._crit_edge
@@ -519,7 +518,7 @@ _ZSt5equalIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS1_IPKiS5_EEEbT_
   store i8 0, ptr %.sroa.5.0..sroa_idx, align 8
   %145 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 4, ptr %145, align 8
-  invoke void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %2, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.13) #12
+  invoke void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %2, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.13) #11
           to label %.noexc139 unwind label %_ZNSt6vectorIiSaIiEED2Ev.exit152
 
 .noexc139:                                        ; preds = %144
@@ -527,7 +526,7 @@ _ZSt5equalIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS1_IPKiS5_EEEbT_
 
 146:                                              ; preds = %_ZSt5equalIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS1_IPKiS5_EEEbT_SA_T0_.exit, %_ZSt5equalIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS1_IPKiS5_EEEbT_SA_T0_.exit.thread
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2)
-  call void @_ZdlPvm(ptr noundef nonnull %136, i64 noundef 20) #13
+  call void @_ZdlPvm(ptr noundef nonnull %136, i64 noundef 20) #12
   %147 = load ptr, ptr %10, align 8
   %.not.i.i.i144 = icmp eq ptr %147, null
   br i1 %.not.i.i.i144, label %_ZNSt6vectorIiSaIiEED2Ev.exit146, label %148
@@ -537,7 +536,7 @@ _ZSt5equalIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS1_IPKiS5_EEEbT_
   %150 = load ptr, ptr %27, align 8
   %151 = ptrtoint ptr %150 to i64
   %152 = sub i64 %151, %149
-  call void @_ZdlPvm(ptr noundef nonnull %147, i64 noundef %152) #13
+  call void @_ZdlPvm(ptr noundef nonnull %147, i64 noundef %152) #12
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit146
 
 _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %146, %148
@@ -550,7 +549,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %146, %148
   %156 = ptrtoint ptr %155 to i64
   %157 = ptrtoint ptr %153 to i64
   %158 = sub i64 %156, %157
-  call void @_ZdlPvm(ptr noundef nonnull %153, i64 noundef %158) #13
+  call void @_ZdlPvm(ptr noundef nonnull %153, i64 noundef %158) #12
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit149
 
 _ZNSt6vectorIiSaIiEED2Ev.exit149:                 ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit146, %154
@@ -559,7 +558,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit149:                 ; preds = %_ZNSt6vectorIiSaIiE
 _ZNSt6vectorIiSaIiEED2Ev.exit152:                 ; preds = %144
   %159 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPvm(ptr noundef nonnull %136, i64 noundef 20) #13
+  call void @_ZdlPvm(ptr noundef nonnull %136, i64 noundef 20) #12
   br label %.body61
 
 .body61:                                          ; preds = %_ZNSt12_Vector_baseIiSaIiEED2Ev.exit.i131, %_ZNSt12_Vector_baseIiSaIiEED2Ev.exit.i60, %_ZNSt6vectorIiSaIiEED2Ev.exit152, %_ZNSt6vectorIiSaIiEED2Ev.exit129, %89
@@ -573,7 +572,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit152:                 ; preds = %144
   %163 = ptrtoint ptr %162 to i64
   %164 = ptrtoint ptr %160 to i64
   %165 = sub i64 %163, %164
-  call void @_ZdlPvm(ptr noundef nonnull %160, i64 noundef %165) #13
+  call void @_ZdlPvm(ptr noundef nonnull %160, i64 noundef %165) #12
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit155
 
 _ZNSt6vectorIiSaIiEED2Ev.exit155:                 ; preds = %161, %.body61, %87
@@ -587,7 +586,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit155:                 ; preds = %161, %.body61, %87
   %169 = ptrtoint ptr %168 to i64
   %170 = ptrtoint ptr %166 to i64
   %171 = sub i64 %169, %170
-  call void @_ZdlPvm(ptr noundef nonnull %166, i64 noundef %171) #13
+  call void @_ZdlPvm(ptr noundef nonnull %166, i64 noundef %171) #12
   br label %.body
 
 .body:                                            ; preds = %167, %_ZNSt6vectorIiSaIiEED2Ev.exit155
@@ -624,7 +623,7 @@ define linkonce_odr dso_local void @_Z27Tf_TestSpanMatchesContainerIN32pxrIntern
   store i8 0, ptr %.sroa.569.0..sroa_idx, align 8
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store i32 4, ptr %12, align 8
-  call void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %7, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.18) #12
+  call void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %7, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.18) #11
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit: ; preds = %2
@@ -653,7 +652,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
   store i8 0, ptr %.sroa.563.0..sroa_idx, align 8
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i32 4, ptr %23, align 8
-  call void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %6, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.19) #12
+  call void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %6, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.19) #11
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit17: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit
@@ -681,7 +680,7 @@ _ZSt5equalIPKiN9__gnu_cxx17__normal_iteratorIS1_St6vectorIiSaIiEEEEEbT_S8_T0_.ex
   store i8 0, ptr %.sroa.557.0..sroa_idx, align 8
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i32 4, ptr %26, align 8
-  call void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %5, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.20) #12
+  call void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %5, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.20) #11
   unreachable
 
 .lr.ph.i.i.preheader.i.i:                         ; preds = %_ZSt5equalIPKiN9__gnu_cxx17__normal_iteratorIS1_St6vectorIiSaIiEEEEEbT_S8_T0_.exit
@@ -715,7 +714,7 @@ _ZSt5equalIPKiN9__gnu_cxx17__normal_iteratorIS1_St6vectorIiSaIiEEEEEbT_S8_T0_.ex
   store i8 0, ptr %.sroa.542.0..sroa_idx, align 8
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 4, ptr %35, align 8
-  call void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %4, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.22) #12
+  call void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %4, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.22) #11
   unreachable
 
 .lr.ph.i.i.i.i29:                                 ; preds = %33, %42
@@ -745,7 +744,7 @@ _ZSt5equalIPKiN9__gnu_cxx17__normal_iteratorIS1_St6vectorIiSaIiEEEEEbT_S8_T0_.ex
   store i8 0, ptr %.sroa.5.0..sroa_idx, align 8
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i32 4, ptr %44, align 8
-  call void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %3, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.23) #12
+  call void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %3, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.23) #11
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit34: ; preds = %42, %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit17
@@ -777,7 +776,7 @@ define linkonce_odr dso_local void @_Z27Tf_TestSpanMatchesContainerIN32pxrIntern
   store i8 0, ptr %.sroa.568.0..sroa_idx, align 8
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store i32 4, ptr %12, align 8
-  call void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %7, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.18) #12
+  call void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %7, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.18) #11
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit: ; preds = %2
@@ -802,7 +801,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
   store i8 0, ptr %.sroa.562.0..sroa_idx, align 8
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i32 4, ptr %19, align 8
-  call void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %6, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.19) #12
+  call void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %6, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.19) #11
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit16: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit
@@ -830,7 +829,7 @@ _ZSt5equalIPKiS1_EbT_S2_T0_.exit:                 ; preds = %_ZN32pxrInternal_v0
   store i8 0, ptr %.sroa.556.0..sroa_idx, align 8
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i32 4, ptr %22, align 8
-  call void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %5, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.20) #12
+  call void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %5, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.20) #11
   unreachable
 
 .lr.ph.i.i.i.preheader.i:                         ; preds = %_ZSt5equalIPKiS1_EbT_S2_T0_.exit
@@ -865,7 +864,7 @@ _ZSt5equalIPKiS1_EbT_S2_T0_.exit:                 ; preds = %_ZN32pxrInternal_v0
   store i8 0, ptr %.sroa.541.0..sroa_idx, align 8
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 4, ptr %32, align 8
-  call void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %4, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.22) #12
+  call void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %4, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.22) #11
   unreachable
 
 .lr.ph.i.i.i.i28:                                 ; preds = %30, %39
@@ -895,7 +894,7 @@ _ZSt5equalIPKiS1_EbT_S2_T0_.exit:                 ; preds = %_ZN32pxrInternal_v0
   store i8 0, ptr %.sroa.5.0..sroa_idx, align 8
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i32 4, ptr %41, align 8
-  call void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %3, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.23) #12
+  call void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %3, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.23) #11
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit33: ; preds = %39, %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit16
@@ -927,7 +926,7 @@ define linkonce_odr dso_local void @_Z27Tf_TestSpanMatchesContainerIN32pxrIntern
   store i8 0, ptr %.sroa.567.0..sroa_idx, align 8
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store i32 4, ptr %12, align 8
-  call void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %7, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.18) #12
+  call void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %7, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.18) #11
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit: ; preds = %2
@@ -956,7 +955,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
   store i8 0, ptr %.sroa.561.0..sroa_idx, align 8
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i32 4, ptr %23, align 8
-  call void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %6, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.19) #12
+  call void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %6, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.19) #11
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit17: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit
@@ -984,7 +983,7 @@ _ZSt5equalIPiN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEEbT_S9_T0_.exi
   store i8 0, ptr %.sroa.555.0..sroa_idx, align 8
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i32 4, ptr %26, align 8
-  call void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %5, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.20) #12
+  call void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %5, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.20) #11
   unreachable
 
 .lr.ph.i.i.preheader.i.i:                         ; preds = %_ZSt5equalIPiN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEEbT_S9_T0_.exit
@@ -1018,7 +1017,7 @@ _ZSt5equalIPiN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEEbT_S9_T0_.exi
   store i8 0, ptr %.sroa.540.0..sroa_idx, align 8
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 4, ptr %35, align 8
-  call void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %4, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.22) #12
+  call void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %4, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.22) #11
   unreachable
 
 .lr.ph.i.i.i.i28:                                 ; preds = %33, %42
@@ -1048,7 +1047,7 @@ _ZSt5equalIPiN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEEbT_S9_T0_.exi
   store i8 0, ptr %.sroa.5.0..sroa_idx, align 8
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i32 4, ptr %44, align 8
-  call void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %3, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.23) #12
+  call void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %3, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.23) #11
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit32: ; preds = %42, %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit17
@@ -1080,7 +1079,7 @@ define linkonce_odr dso_local void @_Z27Tf_TestSpanMatchesContainerIN32pxrIntern
   store i8 0, ptr %.sroa.566.0..sroa_idx, align 8
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store i32 4, ptr %12, align 8
-  call void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %7, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.18) #12
+  call void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %7, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.18) #11
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit: ; preds = %2
@@ -1105,7 +1104,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
   store i8 0, ptr %.sroa.560.0..sroa_idx, align 8
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i32 4, ptr %19, align 8
-  call void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %6, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.19) #12
+  call void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %6, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.19) #11
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit16: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit
@@ -1133,7 +1132,7 @@ _ZSt5equalIPKiPiEbT_S3_T0_.exit:                  ; preds = %_ZN32pxrInternal_v0
   store i8 0, ptr %.sroa.554.0..sroa_idx, align 8
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i32 4, ptr %22, align 8
-  call void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %5, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.20) #12
+  call void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %5, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.20) #11
   unreachable
 
 .lr.ph.i.i.i.preheader.i:                         ; preds = %_ZSt5equalIPKiPiEbT_S3_T0_.exit
@@ -1168,7 +1167,7 @@ _ZSt5equalIPKiPiEbT_S3_T0_.exit:                  ; preds = %_ZN32pxrInternal_v0
   store i8 0, ptr %.sroa.539.0..sroa_idx, align 8
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 4, ptr %32, align 8
-  call void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %4, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.22) #12
+  call void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %4, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.22) #11
   unreachable
 
 .lr.ph.i.i.i.i27:                                 ; preds = %30, %39
@@ -1198,7 +1197,7 @@ _ZSt5equalIPKiPiEbT_S3_T0_.exit:                  ; preds = %_ZN32pxrInternal_v0
   store i8 0, ptr %.sroa.5.0..sroa_idx, align 8
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i32 4, ptr %41, align 8
-  call void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %3, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.23) #12
+  call void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %3, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.23) #11
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit31: ; preds = %39, %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit16
@@ -1226,9 +1225,6 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #10
-
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress norecurse uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
@@ -1239,10 +1235,9 @@ attributes #6 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="t
 attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #9 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { builtin allocsize(0) }
-attributes #12 = { noreturn }
-attributes #13 = { builtin nounwind }
+attributes #10 = { builtin allocsize(0) }
+attributes #11 = { noreturn }
+attributes #12 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

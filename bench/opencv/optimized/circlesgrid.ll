@@ -2363,7 +2363,6 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i: ; preds =
 .lr.ph.preheader:                                 ; preds = %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i
   %59 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %56) #32
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %59, i8 0, i64 %56, i1 false), !tbaa !45
-  %umax = tail call i64 @llvm.umax.i64(i64 %57, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -2395,7 +2394,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i: ; preds =
   %.sroa.0.4.vec.insert.i102 = insertelement <2 x float> %.sroa.0.0.vec.insert.i101, float %77, i64 1
   %78 = getelementptr inbounds nuw %"class.cv::Point_", ptr %59, i64 %.060155
   store <2 x float> %.sroa.0.4.vec.insert.i102, ptr %78, align 4
-  %exitcond.not = icmp eq i64 %60, %umax
+  %exitcond.not = icmp eq i64 %60, %57
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !136
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i
@@ -2416,11 +2415,10 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i: ; preds =
   %82 = load ptr, ptr %81, align 8
   %83 = getelementptr inbounds nuw i8, ptr %14, i64 72
   %84 = load ptr, ptr %83, align 8
-  %umax167 = call i64 @llvm.umax.i64(i64 %57, i64 1)
   br label %87
 
 .loopexit:                                        ; preds = %96, %87
-  %exitcond168.not = icmp eq i64 %88, %umax167
+  %exitcond168.not = icmp eq i64 %88, %57
   br i1 %exitcond168.not, label %._crit_edge162, label %87, !llvm.loop !137
 
 85:                                               ; preds = %._crit_edge
@@ -3436,7 +3434,6 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit114: ; preds = %_ZNSt6v
   %222 = call float @llvm.fmuladd.f32(float %188, float %188, float %221)
   %223 = fpext float %222 to double
   %sqrt.i122 = call double @llvm.sqrt.f64(double %223)
-  %umax = call i64 @llvm.umax.i64(i64 %209, i64 1)
   br label %231
 
 ._crit_edge196:                                   ; preds = %231, %174
@@ -3485,7 +3482,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit114: ; preds = %_ZNSt6v
   %249 = zext i1 %248 to i64
   %.1 = add i64 %.072192, %249
   %250 = add nuw i64 %.071193, 1
-  %exitcond.not = icmp eq i64 %250, %umax
+  %exitcond.not = icmp eq i64 %250, %209
   br i1 %exitcond.not, label %._crit_edge196, label %231, !llvm.loop !180
 
 ._crit_edge201:                                   ; preds = %.lr.ph200, %.preheader
@@ -3721,7 +3718,6 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE12emplace_backIJiiEEEvDpOT_.exit123: ; preds
   %82 = ashr exact i64 %81, 3
   %83 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %84 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %umax = tail call i64 @llvm.umax.i64(i64 %82, i64 1)
   br label %89
 
 85:                                               ; preds = %_ZNKSt6vectorIN2cv6Point_IiEESaIS2_EE12_M_check_lenEmPKc.exit.i.i93, %51
@@ -3937,7 +3933,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE12emplace_backIJffEEEvDpOT_.exit: ; preds = 
   %163 = phi ptr [ %140, %138 ], [ %159, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_M_realloc_insertIJffEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i148 ], [ %110, %108 ], [ %129, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_M_realloc_insertIJffEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ]
   %164 = phi ptr [ %92, %138 ], [ %153, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_M_realloc_insertIJffEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i148 ], [ %92, %108 ], [ %123, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_M_realloc_insertIJffEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ]
   %165 = add nuw i64 %.027226, 1
-  %exitcond.not = icmp eq i64 %165, %umax
+  %exitcond.not = icmp eq i64 %165, %82
   br i1 %exitcond.not, label %._crit_edge, label %89, !llvm.loop !215
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE12emplace_backIJffEEEvDpOT_.exit, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE12emplace_backIJiiEEEvDpOT_.exit123
@@ -10181,22 +10177,18 @@ define hidden noundef zeroext i1 @_ZN17CirclesGridFinder18isDetectionCorrectEv(p
 
 24:                                               ; preds = %19
   %.not65172.not = icmp eq ptr %10, %11
-  br i1 %.not65172.not, label %.critedge, label %.lr.ph176.split.us.split.preheader
+  br i1 %.not65172.not, label %.critedge, label %.lr.ph176.split.us.split
 
 .thread240:                                       ; preds = %7
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 172
   store i8 0, ptr %25, align 4, !tbaa !275
   %.pre237.pre = load i64, ptr %16, align 8, !tbaa !272
   %.not65172.not242 = icmp eq ptr %10, %11
-  br i1 %.not65172.not242, label %.critedge, label %.lr.ph176.split.split.us.preheader
+  br i1 %.not65172.not242, label %.critedge, label %.lr.ph176.split.split.us
 
-.lr.ph176.split.us.split.preheader:               ; preds = %24
-  %umax224 = tail call i64 @llvm.umax.i64(i64 %15, i64 1)
-  br label %.lr.ph176.split.us.split
-
-.lr.ph176.split.us.split:                         ; preds = %.lr.ph176.split.us.split.preheader, %34
-  %.040174.us = phi i64 [ %35, %34 ], [ 0, %.lr.ph176.split.us.split.preheader ]
-  %.042173.us = phi i64 [ %36, %34 ], [ 0, %.lr.ph176.split.us.split.preheader ]
+.lr.ph176.split.us.split:                         ; preds = %24, %34
+  %.040174.us = phi i64 [ %35, %34 ], [ 0, %24 ]
+  %.042173.us = phi i64 [ %36, %34 ], [ 0, %24 ]
   %26 = getelementptr inbounds nuw %"class.std::vector.49", ptr %11, i64 %.042173.us
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8, !tbaa !344
@@ -10211,16 +10203,12 @@ define hidden noundef zeroext i1 @_ZN17CirclesGridFinder18isDetectionCorrectEv(p
 34:                                               ; preds = %.lr.ph176.split.us.split
   %35 = add i64 %18, %.040174.us
   %36 = add nuw i64 %.042173.us, 1
-  %exitcond225.not = icmp eq i64 %36, %umax224
+  %exitcond225.not = icmp eq i64 %36, %15
   br i1 %exitcond225.not, label %.critedge, label %.lr.ph176.split.us.split, !llvm.loop !385
 
-.lr.ph176.split.split.us.preheader:               ; preds = %.thread240
-  %umax226 = tail call i64 @llvm.umax.i64(i64 %15, i64 1)
-  br label %.lr.ph176.split.split.us
-
-.lr.ph176.split.split.us:                         ; preds = %.lr.ph176.split.split.us.preheader, %45
-  %.040174.us178 = phi i64 [ %46, %45 ], [ 0, %.lr.ph176.split.split.us.preheader ]
-  %.042173.us179 = phi i64 [ %47, %45 ], [ 0, %.lr.ph176.split.split.us.preheader ]
+.lr.ph176.split.split.us:                         ; preds = %.thread240, %45
+  %.040174.us178 = phi i64 [ %46, %45 ], [ 0, %.thread240 ]
+  %.042173.us179 = phi i64 [ %47, %45 ], [ 0, %.thread240 ]
   %37 = getelementptr inbounds nuw %"class.std::vector.49", ptr %11, i64 %.042173.us179
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load ptr, ptr %38, align 8, !tbaa !344
@@ -10235,7 +10223,7 @@ define hidden noundef zeroext i1 @_ZN17CirclesGridFinder18isDetectionCorrectEv(p
 45:                                               ; preds = %.lr.ph176.split.split.us
   %46 = add i64 %.pre237.pre, %.040174.us178
   %47 = add nuw i64 %.042173.us179, 1
-  %exitcond227.not = icmp eq i64 %47, %umax226
+  %exitcond227.not = icmp eq i64 %47, %15
   br i1 %exitcond227.not, label %.critedge, label %.lr.ph176.split.split.us, !llvm.loop !385
 
 .split.us:                                        ; preds = %.lr.ph176.split.us.split
@@ -12388,7 +12376,6 @@ define hidden noundef i64 @_ZNK17CirclesGridFinder19findNearestKeypointEN2cv6Poi
   %9 = ashr exact i64 %8, 3
   %.sroa.017.0.vec.extract = extractelement <2 x float> %1, i64 0
   %.sroa.017.4.vec.extract = extractelement <2 x float> %1, i64 1
-  %umax = tail call i64 @llvm.umax.i64(i64 %9, i64 1)
   br label %10
 
 ._crit_edge:                                      ; preds = %10, %2
@@ -12414,7 +12401,7 @@ define hidden noundef i64 @_ZNK17CirclesGridFinder19findNearestKeypointEN2cv6Poi
   %.110 = select i1 %19, double %sqrt.i, double %.0918
   %.1 = select i1 %19, i64 %.0819, i64 %.020
   %20 = add nuw i64 %.0819, 1
-  %exitcond.not = icmp eq i64 %20, %umax
+  %exitcond.not = icmp eq i64 %20, %9
   br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !420
 }
 
@@ -12438,7 +12425,6 @@ define hidden void @_ZN17CirclesGridFinder8addPointEN2cv6Point_IfEERSt6vectorImS
   %10 = ashr exact i64 %9, 3
   %.sroa.017.0.vec.extract.i = extractelement <2 x float> %1, i64 0
   %.sroa.017.4.vec.extract.i = extractelement <2 x float> %1, i64 1
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %11
 
 11:                                               ; preds = %11, %.lr.ph.i
@@ -12460,7 +12446,7 @@ define hidden void @_ZN17CirclesGridFinder8addPointEN2cv6Point_IfEERSt6vectorImS
   %.110.i = select i1 %20, double %sqrt.i.i, double %.0918.i
   %.1.i = select i1 %20, i64 %.0819.i, i64 %.020.i
   %21 = add nuw i64 %.0819.i, 1
-  %exitcond.not.i = icmp eq i64 %21, %umax.i
+  %exitcond.not.i = icmp eq i64 %21, %10
   br i1 %exitcond.not.i, label %_ZNK17CirclesGridFinder19findNearestKeypointEN2cv6Point_IfEE.exit, label %11, !llvm.loop !420
 
 _ZNK17CirclesGridFinder19findNearestKeypointEN2cv6Point_IfEE.exit: ; preds = %11, %._ZNK17CirclesGridFinder19findNearestKeypointEN2cv6Point_IfEE.exit_crit_edge
@@ -13261,8 +13247,6 @@ define hidden noundef zeroext i1 @_ZN17CirclesGridFinder13areCentersNewERKSt6vec
   %15 = ptrtoint ptr %13 to i64
   %16 = sub i64 %14, %15
   %17 = sdiv exact i64 %16, 24
-  %umax = tail call i64 @llvm.umax.i64(i64 %17, i64 1)
-  %umax46 = tail call i64 @llvm.umax.i64(i64 %9, i64 1)
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %..thread_crit_edge.us
@@ -13391,12 +13375,12 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEmET_S8_S8_RKT0_.e
 
 _ZSt4findIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEmET_S8_S8_RKT0_.exit.thread.us: ; preds = %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEmET_S8_S8_RKT0_.exit.us, %._crit_edge.i.i.i.us
   %70 = add nuw i64 %.01836.us, 1
-  %exitcond.not = icmp eq i64 %70, %umax
+  %exitcond.not = icmp eq i64 %70, %17
   br i1 %exitcond.not, label %..thread_crit_edge.us, label %19, !llvm.loop !430
 
 ..thread_crit_edge.us:                            ; preds = %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEmET_S8_S8_RKT0_.exit.thread.us
   %71 = add nuw i64 %.01737.us, 1
-  %exitcond47.not = icmp eq i64 %71, %umax46
+  %exitcond47.not = icmp eq i64 %71, %9
   br i1 %exitcond47.not, label %.loopexit, label %.preheader.us, !llvm.loop !431
 
 .loopexit:                                        ; preds = %..thread_crit_edge.us, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEmET_S8_S8_RKT0_.exit.us, %.preheader.lr.ph, %2
@@ -16221,7 +16205,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %46 = ptrtoint ptr %44 to i64
   %47 = sub i64 %45, %46
   %48 = sdiv exact i64 %47, 24
-  %umax46.i = call i64 @llvm.umax.i64(i64 %48, i64 1)
   br i1 %.not.i.fr, label %.split.us.preheader, label %.split
 
 .split.us.preheader:                              ; preds = %41
@@ -16234,31 +16217,27 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = load ptr, ptr %50, align 8, !tbaa !485
   %52 = load ptr, ptr %49, align 8, !tbaa !488
-  %.not3140.not.i = icmp eq ptr %51, %52
-  br i1 %.not3140.not.i, label %_ZN17CirclesGridFinder21doesIntersectionExistERKSt6vectorINS_7SegmentESaIS1_EERKS0_IS3_SaIS3_EE.exit, label %.preheader32.lr.ph.i
-
-.preheader32.lr.ph.i:                             ; preds = %.split
   %53 = ptrtoint ptr %51 to i64
   %54 = ptrtoint ptr %52 to i64
   %55 = sub i64 %53, %54
   %56 = ashr exact i64 %55, 4
-  %umax48.i = call i64 @llvm.umax.i64(i64 %56, i64 1)
-  br label %.preheader32.us.i
+  %.not3140.not.i = icmp eq ptr %51, %52
+  br i1 %.not3140.not.i, label %_ZN17CirclesGridFinder21doesIntersectionExistERKSt6vectorINS_7SegmentESaIS1_EERKS0_IS3_SaIS3_EE.exit, label %.preheader32.us.i
 
-.preheader32.us.i:                                ; preds = %._crit_edge39.us.i, %.preheader32.lr.ph.i
-  %.02141.us.i = phi i64 [ %108, %._crit_edge39.us.i ], [ 0, %.preheader32.lr.ph.i ]
+.preheader32.us.i:                                ; preds = %.split, %._crit_edge39.us.i
+  %.02141.us.i = phi i64 [ %108, %._crit_edge39.us.i ], [ 0, %.split ]
   %57 = getelementptr inbounds nuw %"struct.CirclesGridFinder::Segment", ptr %52, i64 %.02141.us.i
   %.sroa.23.0..sroa_idx.us.i = getelementptr inbounds nuw i8, ptr %57, i64 8
   br label %.preheader.us.i
 
 58:                                               ; preds = %61
   %59 = add nuw i64 %.02637.us.i, 1
-  %exitcond.not.i = icmp eq i64 %59, %umax.i
+  %exitcond.not.i = icmp eq i64 %59, %103
   br i1 %exitcond.not.i, label %._crit_edge.us.i, label %61, !llvm.loop !489
 
 ._crit_edge.us.i:                                 ; preds = %58, %.preheader.us.i
   %60 = add nuw i64 %.02538.us.i, 1
-  %exitcond47.not.i = icmp eq i64 %60, %umax46.i
+  %exitcond47.not.i = icmp eq i64 %60, %48
   br i1 %exitcond47.not.i, label %._crit_edge39.us.i, label %.preheader.us.i, !llvm.loop !490
 
 61:                                               ; preds = %.lr.ph.us.i, %58
@@ -16326,12 +16305,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %105 = extractelement <2 x float> %104, i64 0
   %106 = fsub float %.sroa.0.4.vec.extract12.i25.i.us.i, %.sroa.0.4.vec.extract12.i.i.us.i
   %107 = fneg float %105
-  %umax.i = call i64 @llvm.umax.i64(i64 %103, i64 1)
   br label %61
 
 ._crit_edge39.us.i:                               ; preds = %._crit_edge.us.i
   %108 = add nuw i64 %.02141.us.i, 1
-  %exitcond49.not.i = icmp eq i64 %108, %umax48.i
+  %exitcond49.not.i = icmp eq i64 %108, %56
   br i1 %exitcond49.not.i, label %_ZN17CirclesGridFinder21doesIntersectionExistERKSt6vectorINS_7SegmentESaIS1_EERKS0_IS3_SaIS3_EE.exit, label %.preheader32.us.i, !llvm.loop !491
 
 _ZN17CirclesGridFinder21doesIntersectionExistERKSt6vectorINS_7SegmentESaIS1_EERKS0_IS3_SaIS3_EE.exit: ; preds = %._crit_edge39.us.i, %61, %.split
@@ -18720,8 +18698,6 @@ define hidden noundef zeroext i1 @_ZN17CirclesGridFinder21doesIntersectionExistE
   %14 = ptrtoint ptr %12 to i64
   %15 = sub i64 %13, %14
   %16 = sdiv exact i64 %15, 24
-  %umax46 = tail call i64 @llvm.umax.i64(i64 %16, i64 1)
-  %umax48 = tail call i64 @llvm.umax.i64(i64 %9, i64 1)
   br label %.preheader32.us
 
 .preheader32.us:                                  ; preds = %.preheader32.us.preheader, %._crit_edge39.us
@@ -18732,12 +18708,12 @@ define hidden noundef zeroext i1 @_ZN17CirclesGridFinder21doesIntersectionExistE
 
 18:                                               ; preds = %21
   %19 = add nuw i64 %.02637.us, 1
-  %exitcond.not = icmp eq i64 %19, %umax
+  %exitcond.not = icmp eq i64 %19, %63
   br i1 %exitcond.not, label %._crit_edge.us, label %21, !llvm.loop !489
 
 ._crit_edge.us:                                   ; preds = %18, %.preheader.us
   %20 = add nuw i64 %.02538.us, 1
-  %exitcond47.not = icmp eq i64 %20, %umax46
+  %exitcond47.not = icmp eq i64 %20, %16
   br i1 %exitcond47.not, label %._crit_edge39.us, label %.preheader.us, !llvm.loop !490
 
 21:                                               ; preds = %.lr.ph.us, %18
@@ -18805,12 +18781,11 @@ define hidden noundef zeroext i1 @_ZN17CirclesGridFinder21doesIntersectionExistE
   %65 = extractelement <2 x float> %64, i64 0
   %66 = fsub float %.sroa.0.4.vec.extract12.i25.i.us, %.sroa.0.4.vec.extract12.i.i.us
   %67 = fneg float %65
-  %umax = tail call i64 @llvm.umax.i64(i64 %63, i64 1)
   br label %21
 
 ._crit_edge39.us:                                 ; preds = %._crit_edge.us
   %68 = add nuw i64 %.02141.us, 1
-  %exitcond49.not = icmp eq i64 %68, %umax48
+  %exitcond49.not = icmp eq i64 %68, %9
   br i1 %exitcond49.not, label %.loopexit, label %.preheader32.us, !llvm.loop !491
 
 .loopexit:                                        ; preds = %._crit_edge39.us, %21, %.preheader32.lr.ph, %2

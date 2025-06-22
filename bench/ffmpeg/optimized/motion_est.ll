@@ -10850,7 +10850,6 @@ define i32 @ff_get_best_fcode(ptr noundef readonly captures(none) %0, ptr nounde
 
 .preheader94.us:                                  ; preds = %63
   %68 = tail call i8 @llvm.umin.i8(i8 %..us, i8 8)
-  %invariant.umin.us = zext nneg i8 %68 to i32
   %.not112 = icmp eq i8 %..us, 0
   br i1 %.not112, label %.loopexit.us, label %.lr.ph.us
 
@@ -10860,8 +10859,7 @@ define i32 @ff_get_best_fcode(ptr noundef readonly captures(none) %0, ptr nounde
   br i1 %70, label %.lr.ph.split.us.us.preheader, label %.lr.ph.split.us106
 
 .lr.ph.split.us.us.preheader:                     ; preds = %.lr.ph.us
-  %umax124 = tail call i32 @llvm.umax.i32(i32 %invariant.umin.us, i32 1)
-  %wide.trip.count125 = zext nneg i32 %umax124 to i64
+  %wide.trip.count125 = zext nneg i8 %68 to i64
   br label %.lr.ph.split.us.us
 
 .lr.ph.split.us106:                               ; preds = %.lr.ph.us
@@ -10875,8 +10873,7 @@ define i32 @ff_get_best_fcode(ptr noundef readonly captures(none) %0, ptr nounde
   br i1 %77, label %.lr.ph.split.split.us.us.preheader, label %.loopexit.us
 
 .lr.ph.split.split.us.us.preheader:               ; preds = %.lr.ph.split.us106
-  %umax = tail call i32 @llvm.umax.i32(i32 %invariant.umin.us, i32 1)
-  %wide.trip.count = zext nneg i32 %umax to i64
+  %wide.trip.count = zext nneg i8 %68 to i64
   br label %.lr.ph.split.split.us.us
 
 .lr.ph.split.us.us:                               ; preds = %.lr.ph.split.us.us.preheader, %.lr.ph.split.us.us
@@ -16344,9 +16341,6 @@ declare i32 @llvm.ctpop.i32(i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #13
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #13

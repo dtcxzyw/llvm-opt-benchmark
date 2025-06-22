@@ -2134,7 +2134,6 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backERKS3_.exit14
   %455 = ptrtoint ptr %453 to i64
   %456 = sub i64 %454, %455
   %457 = ashr exact i64 %456, 3
-  %umax = call i64 @llvm.umax.i64(i64 %457, i64 1)
   br label %.lr.ph666
 
 ._crit_edge667:                                   ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit166, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backERKS3_.exit141
@@ -2409,7 +2408,7 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backERKS3_.exit16
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit166: ; preds = %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backERKS3_.exit163, %548, %554
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28) #21
   %558 = add nuw i64 %.040665, 1
-  %exitcond.not = icmp eq i64 %558, %umax
+  %exitcond.not = icmp eq i64 %558, %457
   br i1 %exitcond.not, label %._crit_edge667, label %.lr.ph666, !llvm.loop !114
 
 559:                                              ; preds = %.lr.ph666

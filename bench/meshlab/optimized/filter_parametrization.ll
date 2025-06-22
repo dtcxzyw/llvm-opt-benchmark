@@ -5152,7 +5152,6 @@ define linkonce_odr void @_ZN3igl13boundary_loopIN5Eigen6MatrixIiLin1ELi3ELi0ELi
   %12 = ptrtoint ptr %10 to i64
   %13 = sub i64 %11, %12
   %14 = sdiv exact i64 %13, 24
-  %umax = call i64 @llvm.umax.i64(i64 %14, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -5172,7 +5171,7 @@ define linkonce_odr void @_ZN3igl13boundary_loopIN5Eigen6MatrixIiLin1ELi3ELi0ELi
   %spec.select = select i1 %23, i32 %24, i32 %.02227
   %spec.select25 = call i64 @llvm.umax.i64(i64 %22, i64 %.02128)
   %25 = add nuw i64 %.02029, 1
-  %exitcond.not = icmp eq i64 %25, %umax
+  %exitcond.not = icmp eq i64 %25, %14
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !65
 
 26:                                               ; preds = %51, %7

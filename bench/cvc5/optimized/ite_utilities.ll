@@ -5799,7 +5799,6 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %13, 
   %28 = ptrtoint ptr %26 to i64
   %29 = sub i64 %27, %28
   %30 = ashr exact i64 %29, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %30, i64 1)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %199, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit
@@ -6211,7 +6210,7 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit: ; preds = %_
 
 199:                                              ; preds = %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit, %.lr.ph
   %200 = add nuw i64 %.049, 1
-  %exitcond.not = icmp eq i64 %200, %umax
+  %exitcond.not = icmp eq i64 %200, %30
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !336
 }
 
@@ -6890,13 +6889,10 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit79: ; preds = %_ZNSt13unordered_ma
 
 _ZNKSt6vectorIN4cvc58internal13preprocessing4util3ite16CTIVStackElementESaIS5_EE12_M_check_lenEmPKc.exit.i96: ; preds = %292
   %298 = ashr exact i64 %295, 4
-  %.sroa.speculated.i.i97 = call i64 @llvm.umax.i64(i64 %298, i64 1)
-  %299 = add nsw i64 %.sroa.speculated.i.i97, %298
+  %299 = ashr exact i64 %295, 3
   %300 = icmp ult i64 %299, %298
   %301 = call i64 @llvm.umin.i64(i64 %299, i64 576460752303423487)
   %302 = select i1 %300, i64 576460752303423487, i64 %301
-  %.not.i.i98 = icmp ne i64 %302, 0
-  call void @llvm.assume(i1 %.not.i.i98)
   %303 = shl nuw nsw i64 %302, 4
   %304 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %303) #27
           to label %.noexc115 unwind label %.loopexit
@@ -15761,13 +15757,10 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit69: ; preds = %_ZNSt13unordered_ma
 
 _ZNKSt6vectorIN4cvc58internal13preprocessing4util3ite17TITEHStackElementESaIS5_EE12_M_check_lenEmPKc.exit.i79: ; preds = %300
   %306 = ashr exact i64 %303, 4
-  %.sroa.speculated.i.i80 = call i64 @llvm.umax.i64(i64 %306, i64 1)
-  %307 = add nsw i64 %.sroa.speculated.i.i80, %306
+  %307 = ashr exact i64 %303, 3
   %308 = icmp ult i64 %307, %306
   %309 = call i64 @llvm.umin.i64(i64 %307, i64 576460752303423487)
   %310 = select i1 %308, i64 576460752303423487, i64 %309
-  %.not.i.i81 = icmp ne i64 %310, 0
-  call void @llvm.assume(i1 %.not.i.i81)
   %311 = shl nuw nsw i64 %310, 4
   %312 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %311) #27
           to label %.noexc98 unwind label %.loopexit
@@ -32278,7 +32271,6 @@ define hidden void @_ZN4cvc58internal13preprocessing4util15countReachable_ENS0_1
 
 .lr.ph.preheader:                                 ; preds = %56
   %66 = trunc nsw i64 %65 to i32
-  %umax = call i32 @llvm.umax.i32(i32 %66, i32 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
@@ -32359,7 +32351,7 @@ _ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit:  ; preds = %86, %92, %94
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %96, %100, %106
   %110 = add nuw i32 %.019, 1
-  %exitcond.not = icmp eq i32 %110, %umax
+  %exitcond.not = icmp eq i32 %110, %66
   br i1 %exitcond.not, label %_ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb1EEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EE4findERKS3_.exit, label %.lr.ph, !llvm.loop !835
 
 111:                                              ; preds = %_ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit
@@ -38554,7 +38546,6 @@ define linkonce_odr hidden void @_ZNK4cvc58internal23StatisticHistogramValueIjE9
   %38 = getelementptr i8, ptr %36, i64 -24
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 128
-  %umax = call i64 @llvm.umax.i64(i64 %19, i64 1)
   br label %60
 
 ._crit_edge:                                      ; preds = %122
@@ -38787,7 +38778,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15
 
 122:                                              ; preds = %60, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
   %123 = add nuw i64 %.021, 1
-  %exitcond.not = icmp eq i64 %123, %umax
+  %exitcond.not = icmp eq i64 %123, %19
   br i1 %exitcond.not, label %._crit_edge, label %60, !llvm.loop !944
 }
 
@@ -38816,7 +38807,6 @@ _ZN4cvc58internal10safe_printILm3EEEviRAT__Kc.exit: ; preds = %2
   %12 = sub i64 %10, %11
   %13 = ashr exact i64 %12, 3
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %umax = tail call i64 @llvm.umax.i64(i64 %13, i64 1)
   br label %17
 
 ._crit_edge:                                      ; preds = %32, %_ZN4cvc58internal10safe_printILm3EEEviRAT__Kc.exit
@@ -38877,7 +38867,7 @@ _ZN4cvc58internal10safe_printILm3EEEviRAT__Kc.exit19: ; preds = %_ZN4cvc58intern
 32:                                               ; preds = %17, %_ZN4cvc58internal10safe_printILm3EEEviRAT__Kc.exit19
   %.2 = phi i1 [ false, %_ZN4cvc58internal10safe_printILm3EEEviRAT__Kc.exit19 ], [ %.021, %17 ]
   %33 = add nuw i64 %.01320, 1
-  %exitcond.not = icmp eq i64 %33, %umax
+  %exitcond.not = icmp eq i64 %33, %13
   br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !945
 }
 

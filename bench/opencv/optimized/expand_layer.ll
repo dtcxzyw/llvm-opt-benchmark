@@ -1493,7 +1493,6 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %36
   %61 = lshr exact i64 %60, 2
   %.neg = sub nsw i64 %61, %51
   %62 = trunc i64 %.neg to i32
-  %umax = call i64 @llvm.umax.i64(i64 %51, i64 1)
   br label %73
 
 ._crit_edge:                                      ; preds = %83, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
@@ -1578,7 +1577,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
   %84 = getelementptr inbounds nuw i32, ptr %55, i64 %indvars.iv
   store i32 %.sink, ptr %84, align 4, !tbaa !49
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %51
   br i1 %exitcond.not, label %._crit_edge, label %73, !llvm.loop !96
 
 85:                                               ; preds = %53, %54
@@ -2145,7 +2144,6 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNSt6vectorIi
   %82 = lshr exact i64 %81, 2
   %.neg = sub nsw i64 %82, %70
   %83 = trunc i64 %.neg to i32
-  %umax = tail call i64 @llvm.umax.i64(i64 %70, i64 1)
   br label %86
 
 ._crit_edge:                                      ; preds = %110, %.loopexit.thread
@@ -2229,7 +2227,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   %111 = getelementptr inbounds nuw i32, ptr %74, i64 %indvars.iv
   store i32 %.sink, ptr %111, align 4, !tbaa !49
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %70
   br i1 %exitcond.not, label %._crit_edge, label %86, !llvm.loop !117
 
 _ZNSt6vectorIS_IiSaIiEESaIS1_EE6assignEmRKS1_.exit: ; preds = %._crit_edge

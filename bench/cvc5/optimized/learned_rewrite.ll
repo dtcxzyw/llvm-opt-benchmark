@@ -2389,7 +2389,6 @@ _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEES3_St4lessIS3_ESaISt4pairIKS3_S3_E
   %839 = sub i64 %837, %838
   %840 = ashr exact i64 %839, 3
   %841 = getelementptr inbounds nuw i8, ptr %1, i64 208
-  %umax = call i64 @llvm.umax.i64(i64 %840, i64 1)
   br label %842
 
 842:                                              ; preds = %.lr.ph810, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit481
@@ -2746,7 +2745,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit478: ; preds = %.critedge201, %982
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit481: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit478, %995, %1001
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31) #25
   %1005 = add nuw i64 %.090808, 1
-  %exitcond.not = icmp eq i64 %1005, %umax
+  %exitcond.not = icmp eq i64 %1005, %840
   br i1 %exitcond.not, label %.critedge203, label %842, !llvm.loop !128
 
 1006:                                             ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit475
@@ -12232,7 +12231,6 @@ define linkonce_odr hidden void @_ZNK4cvc58internal23StatisticHistogramValueINS0
   %38 = getelementptr i8, ptr %36, i64 -24
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 128
-  %umax = call i64 @llvm.umax.i64(i64 %19, i64 1)
   br label %60
 
 ._crit_edge:                                      ; preds = %125
@@ -12477,7 +12475,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15
 
 125:                                              ; preds = %60, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
   %126 = add nuw i64 %.021, 1
-  %exitcond.not = icmp eq i64 %126, %umax
+  %exitcond.not = icmp eq i64 %126, %19
   br i1 %exitcond.not, label %._crit_edge, label %60, !llvm.loop !243
 }
 
@@ -12505,7 +12503,6 @@ _ZN4cvc58internal10safe_printILm3EEEviRAT__Kc.exit: ; preds = %2
   %11 = sub i64 %9, %10
   %12 = ashr exact i64 %11, 3
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %umax = tail call i64 @llvm.umax.i64(i64 %12, i64 1)
   br label %16
 
 ._crit_edge:                                      ; preds = %36, %_ZN4cvc58internal10safe_printILm3EEEviRAT__Kc.exit
@@ -12583,7 +12580,7 @@ _ZN4cvc58internal10safe_printILm3EEEviRAT__Kc.exit20: ; preds = %_ZN4cvc58intern
 36:                                               ; preds = %16, %_ZN4cvc58internal10safe_printILm3EEEviRAT__Kc.exit20
   %.2 = phi i1 [ false, %_ZN4cvc58internal10safe_printILm3EEEviRAT__Kc.exit20 ], [ %.022, %16 ]
   %37 = add nuw i64 %.01321, 1
-  %exitcond.not = icmp eq i64 %37, %umax
+  %exitcond.not = icmp eq i64 %37, %12
   br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !244
 }
 

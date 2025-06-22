@@ -229,18 +229,14 @@ define internal i32 @cdtoons_decode_frame(ptr noundef %0, ptr noundef %1, ptr no
 
 112:                                              ; preds = %108
   %113 = load i16, ptr %99, align 1, !tbaa !36
-  %.not233356.not = icmp eq i16 %113, 0
-  br i1 %.not233356.not, label %.loopexit, label %.lr.ph360.preheader
-
-.lr.ph360.preheader:                              ; preds = %112
   %114 = tail call i16 @llvm.bswap.i16(i16 %113)
-  %115 = tail call i16 @llvm.umax.i16(i16 %114, i16 1)
-  %umax = zext i16 %115 to i32
-  br label %.lr.ph360
+  %115 = zext i16 %114 to i32
+  %.not233356.not = icmp eq i16 %113, 0
+  br i1 %.not233356.not, label %.loopexit, label %.lr.ph360
 
-.lr.ph360:                                        ; preds = %.lr.ph360.preheader, %152
-  %.0197358 = phi i32 [ %154, %152 ], [ 0, %.lr.ph360.preheader ]
-  %.5290357 = phi ptr [ %153, %152 ], [ %109, %.lr.ph360.preheader ]
+.lr.ph360:                                        ; preds = %112, %152
+  %.0197358 = phi i32 [ %154, %152 ], [ 0, %112 ]
+  %.5290357 = phi ptr [ %153, %152 ], [ %109, %112 ]
   %116 = getelementptr inbounds nuw i8, ptr %.5290357, i64 16
   %117 = icmp ugt ptr %116, %12
   br i1 %117, label %118, label %119
@@ -298,7 +294,7 @@ define internal i32 @cdtoons_decode_frame(ptr noundef %0, ptr noundef %1, ptr no
 152:                                              ; preds = %151, %145
   %153 = getelementptr inbounds nuw i8, ptr %116, i64 %140
   %154 = add nuw nsw i32 %.0197358, 1
-  %exitcond.not = icmp eq i32 %154, %umax
+  %exitcond.not = icmp eq i32 %154, %115
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph360, !llvm.loop !47
 
 155:                                              ; preds = %102
@@ -856,9 +852,6 @@ declare i16 @llvm.bswap.i16(i16) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #7
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.umax.i16(i16, i16) #7
 
 attributes #0 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -3008,7 +3008,6 @@ _ZN4cvc58internal11Cvc5ostreamlsIA2_cEERS1_RKT_.exit493: ; preds = %_ZN4cvc58int
   %spec.select = and i1 %619, %not..0164.shrunk
   %620 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %621 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  %umax = call i32 @llvm.umax.i32(i32 %170, i32 1)
   br label %635
 
 ._crit_edge.loopexit:                             ; preds = %832
@@ -3435,7 +3434,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit524: ; preds = %.critedge261, %822
 832:                                              ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit524, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit504
   %.1170 = phi i8 [ %.01691616, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit504 ], [ %818, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit524 ]
   %833 = add nuw i32 %.01671617, 1
-  %exitcond.not = icmp eq i32 %833, %umax
+  %exitcond.not = icmp eq i32 %833, %170
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %635, !llvm.loop !355
 
 834:                                              ; preds = %734, %706
@@ -34856,9 +34855,6 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #25
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #25
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

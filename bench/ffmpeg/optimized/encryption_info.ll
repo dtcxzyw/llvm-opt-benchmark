@@ -198,7 +198,6 @@ define ptr @av_encryption_info_get_side_data(ptr noundef readonly captures(addre
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %45 = getelementptr inbounds nuw i8, ptr %24, i64 48
   %46 = load ptr, ptr %45, align 8, !tbaa !15
-  %umax = tail call i64 @llvm.umax.i64(i64 %17, i64 1)
   br label %47
 
 47:                                               ; preds = %.lr.ph, %47
@@ -215,7 +214,7 @@ define ptr @av_encryption_info_get_side_data(ptr noundef readonly captures(addre
   store i32 %53, ptr %54, align 4, !tbaa !23
   %55 = getelementptr inbounds nuw i8, ptr %.04246, i64 8
   %56 = add nuw nsw i64 %.047, 1
-  %exitcond.not = icmp eq i64 %56, %umax
+  %exitcond.not = icmp eq i64 %56, %17
   br i1 %exitcond.not, label %.loopexit, label %47, !llvm.loop !24
 
 .loopexit:                                        ; preds = %47, %25, %23, %5, %2
@@ -465,21 +464,20 @@ define ptr @av_encryption_init_info_get_side_data(ptr noundef readonly captures(
 
 5:                                                ; preds = %2
   %6 = load i32, ptr %0, align 1, !tbaa !20
+  %7 = tail call i32 @llvm.bswap.i32(i32 %6)
+  %8 = zext i32 %7 to i64
   %.not88 = icmp eq i32 %6, 0
   br i1 %.not88, label %.loopexit, label %.lr.ph86.preheader
 
 .lr.ph86.preheader:                               ; preds = %5
-  %7 = add i64 %1, -4
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %9 = tail call i32 @llvm.bswap.i32(i32 %6)
-  %10 = tail call i32 @llvm.umax.i32(i32 %9, i32 1)
-  %umax94 = zext i32 %10 to i64
+  %9 = add i64 %1, -4
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   br label %.lr.ph86
 
 .lr.ph86:                                         ; preds = %.lr.ph86.preheader, %._crit_edge
   %.06184 = phi i64 [ %56, %._crit_edge ], [ 0, %.lr.ph86.preheader ]
-  %.06283 = phi ptr [ %54, %._crit_edge ], [ %8, %.lr.ph86.preheader ]
-  %.06382 = phi i64 [ %55, %._crit_edge ], [ %7, %.lr.ph86.preheader ]
+  %.06283 = phi ptr [ %54, %._crit_edge ], [ %10, %.lr.ph86.preheader ]
+  %.06382 = phi i64 [ %55, %._crit_edge ], [ %9, %.lr.ph86.preheader ]
   %.06581 = phi ptr [ %.166, %._crit_edge ], [ null, %.lr.ph86.preheader ]
   %.06780 = phi ptr [ %35, %._crit_edge ], [ undef, %.lr.ph86.preheader ]
   %11 = icmp ult i64 %.06382, 16
@@ -534,7 +532,6 @@ define ptr @av_encryption_init_info_get_side_data(ptr noundef readonly captures(
 
 .lr.ph:                                           ; preds = %40
   %44 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  %umax = tail call i64 @llvm.umax.i64(i64 %19, i64 1)
   br label %45
 
 45:                                               ; preds = %.lr.ph, %45
@@ -548,7 +545,7 @@ define ptr @av_encryption_init_info_get_side_data(ptr noundef readonly captures(
   %49 = getelementptr inbounds nuw i8, ptr %.177, i64 %23
   %50 = sub i64 %.16476, %23
   %51 = add nuw nsw i64 %.06078, 1
-  %exitcond.not = icmp eq i64 %51, %umax
+  %exitcond.not = icmp eq i64 %51, %19
   br i1 %exitcond.not, label %._crit_edge, label %45, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %45, %40
@@ -560,7 +557,7 @@ define ptr @av_encryption_init_info_get_side_data(ptr noundef readonly captures(
   %54 = getelementptr inbounds nuw i8, ptr %.1.lcssa, i64 %27
   %55 = sub i64 %.164.lcssa, %27
   %56 = add nuw nsw i64 %.06184, 1
-  %exitcond95.not = icmp eq i64 %56, %umax94
+  %exitcond95.not = icmp eq i64 %56, %8
   br i1 %exitcond95.not, label %.loopexit, label %.lr.ph86, !llvm.loop !45
 
 .loopexit.sink.split:                             ; preds = %33, %12, %.lr.ph86
@@ -723,12 +720,6 @@ define noalias ptr @av_encryption_init_info_add_side_data(ptr noundef readonly c
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #3
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #3
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

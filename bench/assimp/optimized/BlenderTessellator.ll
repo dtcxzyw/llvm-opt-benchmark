@@ -726,11 +726,7 @@ define hidden void @_ZNK6Assimp21BlenderTessellatorP2T13FindLLSQPlaneERKSt6vecto
   %11 = sub i64 %9, %10
   %12 = ashr exact i64 %11, 6
   %.not = icmp eq ptr %7, %8
-  br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %3
-  %umax = tail call i64 @llvm.umax.i64(i64 %12, i64 1)
-  br label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.sroa.068.0.lcssa = phi float [ 0.000000e+00, %3 ], [ %21, %.lr.ph ]
@@ -749,15 +745,11 @@ define hidden void @_ZNK6Assimp21BlenderTessellatorP2T13FindLLSQPlaneERKSt6vecto
   store float %18, ptr %.sroa.444.0..sroa_idx, align 4
   br i1 %.not, label %._crit_edge90, label %.lr.ph89
 
-.lr.ph89:                                         ; preds = %._crit_edge
-  %umax106 = tail call i64 @llvm.umax.i64(i64 %12, i64 1)
-  br label %45
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.076 = phi i64 [ %28, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.sroa.10.075 = phi float [ %27, %.lr.ph ], [ 0.000000e+00, %.lr.ph.preheader ]
-  %.sroa.6.074 = phi float [ %24, %.lr.ph ], [ 0.000000e+00, %.lr.ph.preheader ]
-  %.sroa.068.073 = phi float [ %21, %.lr.ph ], [ 0.000000e+00, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %3, %.lr.ph
+  %.076 = phi i64 [ %28, %.lr.ph ], [ 0, %3 ]
+  %.sroa.10.075 = phi float [ %27, %.lr.ph ], [ 0.000000e+00, %3 ]
+  %.sroa.6.074 = phi float [ %24, %.lr.ph ], [ 0.000000e+00, %3 ]
+  %.sroa.068.073 = phi float [ %21, %.lr.ph ], [ 0.000000e+00, %3 ]
   %19 = getelementptr inbounds nuw %"struct.Assimp::Blender::PointP2T", ptr %8, i64 %.076
   %20 = load float, ptr %19, align 4
   %21 = fadd float %.sroa.068.073, %20
@@ -768,16 +760,16 @@ define hidden void @_ZNK6Assimp21BlenderTessellatorP2T13FindLLSQPlaneERKSt6vecto
   %26 = load float, ptr %25, align 4
   %27 = fadd float %.sroa.10.075, %26
   %28 = add nuw i64 %.076, 1
-  %exitcond.not = icmp eq i64 %28, %umax
+  %exitcond.not = icmp eq i64 %28, %12
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
-._crit_edge90:                                    ; preds = %45, %._crit_edge
-  %.059.lcssa = phi float [ 0.000000e+00, %._crit_edge ], [ %60, %45 ]
-  %.058.lcssa = phi float [ 0.000000e+00, %._crit_edge ], [ %59, %45 ]
-  %.057.lcssa = phi float [ 0.000000e+00, %._crit_edge ], [ %58, %45 ]
-  %.056.lcssa = phi float [ 0.000000e+00, %._crit_edge ], [ %57, %45 ]
-  %.055.lcssa = phi float [ 0.000000e+00, %._crit_edge ], [ %56, %45 ]
-  %.054.lcssa = phi float [ 0.000000e+00, %._crit_edge ], [ %55, %45 ]
+._crit_edge90:                                    ; preds = %.lr.ph89, %._crit_edge
+  %.059.lcssa = phi float [ 0.000000e+00, %._crit_edge ], [ %59, %.lr.ph89 ]
+  %.058.lcssa = phi float [ 0.000000e+00, %._crit_edge ], [ %58, %.lr.ph89 ]
+  %.057.lcssa = phi float [ 0.000000e+00, %._crit_edge ], [ %57, %.lr.ph89 ]
+  %.056.lcssa = phi float [ 0.000000e+00, %._crit_edge ], [ %56, %.lr.ph89 ]
+  %.055.lcssa = phi float [ 0.000000e+00, %._crit_edge ], [ %55, %.lr.ph89 ]
+  %.054.lcssa = phi float [ 0.000000e+00, %._crit_edge ], [ %54, %.lr.ph89 ]
   %29 = fmul float %.057.lcssa, %.054.lcssa
   %30 = fmul float %.058.lcssa, %.054.lcssa
   %31 = fneg float %.058.lcssa
@@ -794,39 +786,39 @@ define hidden void @_ZNK6Assimp21BlenderTessellatorP2T13FindLLSQPlaneERKSt6vecto
   %42 = fmul float %.056.lcssa, %41
   %43 = tail call noundef float @llvm.fmuladd.f32(float %42, float %.056.lcssa, float %40)
   %44 = fcmp oeq float %43, 0.000000e+00
-  br i1 %44, label %62, label %_ZN12aiMatrix3x3tIfE7InverseEv.exit
+  br i1 %44, label %61, label %_ZN12aiMatrix3x3tIfE7InverseEv.exit
 
-45:                                               ; preds = %.lr.ph89, %45
-  %.05487 = phi float [ 0.000000e+00, %.lr.ph89 ], [ %55, %45 ]
-  %.05586 = phi float [ 0.000000e+00, %.lr.ph89 ], [ %56, %45 ]
-  %.05685 = phi float [ 0.000000e+00, %.lr.ph89 ], [ %57, %45 ]
-  %.05784 = phi float [ 0.000000e+00, %.lr.ph89 ], [ %58, %45 ]
-  %.05883 = phi float [ 0.000000e+00, %.lr.ph89 ], [ %59, %45 ]
-  %.05982 = phi float [ 0.000000e+00, %.lr.ph89 ], [ %60, %45 ]
-  %.06081 = phi i64 [ 0, %.lr.ph89 ], [ %61, %45 ]
-  %46 = getelementptr inbounds nuw %"struct.Assimp::Blender::PointP2T", ptr %8, i64 %.06081
-  %47 = load float, ptr %46, align 4
-  %48 = fsub float %47, %16
-  %49 = getelementptr inbounds nuw i8, ptr %46, i64 4
-  %50 = load float, ptr %49, align 4
-  %51 = fsub float %50, %17
-  %52 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %53 = load float, ptr %52, align 4
-  %54 = fsub float %53, %18
-  %55 = tail call float @llvm.fmuladd.f32(float %48, float %48, float %.05487)
-  %56 = tail call float @llvm.fmuladd.f32(float %48, float %51, float %.05586)
-  %57 = tail call float @llvm.fmuladd.f32(float %48, float %54, float %.05685)
-  %58 = tail call float @llvm.fmuladd.f32(float %51, float %51, float %.05784)
-  %59 = tail call float @llvm.fmuladd.f32(float %51, float %54, float %.05883)
-  %60 = tail call float @llvm.fmuladd.f32(float %54, float %54, float %.05982)
-  %61 = add nuw i64 %.06081, 1
-  %exitcond107.not = icmp eq i64 %61, %umax106
-  br i1 %exitcond107.not, label %._crit_edge90, label %45, !llvm.loop !12
+.lr.ph89:                                         ; preds = %._crit_edge, %.lr.ph89
+  %.05487 = phi float [ %54, %.lr.ph89 ], [ 0.000000e+00, %._crit_edge ]
+  %.05586 = phi float [ %55, %.lr.ph89 ], [ 0.000000e+00, %._crit_edge ]
+  %.05685 = phi float [ %56, %.lr.ph89 ], [ 0.000000e+00, %._crit_edge ]
+  %.05784 = phi float [ %57, %.lr.ph89 ], [ 0.000000e+00, %._crit_edge ]
+  %.05883 = phi float [ %58, %.lr.ph89 ], [ 0.000000e+00, %._crit_edge ]
+  %.05982 = phi float [ %59, %.lr.ph89 ], [ 0.000000e+00, %._crit_edge ]
+  %.06081 = phi i64 [ %60, %.lr.ph89 ], [ 0, %._crit_edge ]
+  %45 = getelementptr inbounds nuw %"struct.Assimp::Blender::PointP2T", ptr %8, i64 %.06081
+  %46 = load float, ptr %45, align 4
+  %47 = fsub float %46, %16
+  %48 = getelementptr inbounds nuw i8, ptr %45, i64 4
+  %49 = load float, ptr %48, align 4
+  %50 = fsub float %49, %17
+  %51 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %52 = load float, ptr %51, align 4
+  %53 = fsub float %52, %18
+  %54 = tail call float @llvm.fmuladd.f32(float %47, float %47, float %.05487)
+  %55 = tail call float @llvm.fmuladd.f32(float %47, float %50, float %.05586)
+  %56 = tail call float @llvm.fmuladd.f32(float %47, float %53, float %.05685)
+  %57 = tail call float @llvm.fmuladd.f32(float %50, float %50, float %.05784)
+  %58 = tail call float @llvm.fmuladd.f32(float %50, float %53, float %.05883)
+  %59 = tail call float @llvm.fmuladd.f32(float %53, float %53, float %.05982)
+  %60 = add nuw i64 %.06081, 1
+  %exitcond107.not = icmp eq i64 %60, %12
+  br i1 %exitcond107.not, label %._crit_edge90, label %.lr.ph89, !llvm.loop !12
 
-62:                                               ; preds = %._crit_edge90
+61:                                               ; preds = %._crit_edge90
   %.sroa.4.0..sroa_idx65 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store float 0.000000e+00, ptr %.sroa.4.0..sroa_idx65, align 4
-  br label %93
+  br label %92
 
 _ZN12aiMatrix3x3tIfE7InverseEv.exit:              ; preds = %._crit_edge90
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4) #26
@@ -838,55 +830,55 @@ _ZN12aiMatrix3x3tIfE7InverseEv.exit:              ; preds = %._crit_edge90
   %.sroa.15.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
   %.sroa.17.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 28
   %.sroa.19.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %63 = fdiv float 1.000000e+00, %43
-  %64 = fmul float %.058.lcssa, %31
-  %65 = tail call float @llvm.fmuladd.f32(float %.057.lcssa, float %.059.lcssa, float %64)
-  %66 = fmul float %65, %63
-  %67 = fneg float %63
-  %68 = fmul float %.056.lcssa, %31
-  %69 = tail call float @llvm.fmuladd.f32(float %.055.lcssa, float %.059.lcssa, float %68)
-  %70 = fmul float %69, %67
-  %71 = tail call float @llvm.fmuladd.f32(float %.055.lcssa, float %.058.lcssa, float %42)
-  %72 = fmul float %71, %63
-  %73 = fneg float %.056.lcssa
-  %74 = fmul float %.058.lcssa, %73
-  %75 = tail call float @llvm.fmuladd.f32(float %.055.lcssa, float %.059.lcssa, float %74)
-  %76 = fmul float %75, %67
-  %77 = fmul float %.056.lcssa, %73
-  %78 = tail call float @llvm.fmuladd.f32(float %.054.lcssa, float %.059.lcssa, float %77)
-  %79 = fmul float %78, %63
-  %80 = fmul float %.056.lcssa, %36
-  %81 = tail call float @llvm.fmuladd.f32(float %.054.lcssa, float %.058.lcssa, float %80)
-  %82 = fmul float %81, %67
-  %83 = fmul float %.057.lcssa, %73
-  %84 = tail call float @llvm.fmuladd.f32(float %.055.lcssa, float %.058.lcssa, float %83)
-  %85 = fmul float %84, %63
-  %86 = fmul float %.055.lcssa, %73
-  %87 = tail call float @llvm.fmuladd.f32(float %.054.lcssa, float %.058.lcssa, float %86)
-  %88 = fmul float %87, %67
-  %89 = tail call float @llvm.fmuladd.f32(float %.054.lcssa, float %.057.lcssa, float %37)
-  %90 = fmul float %89, %63
-  store float %66, ptr %4, align 4
-  store float %70, ptr %.sroa.567.0..sroa_idx, align 4
-  store float %72, ptr %.sroa.7.0..sroa_idx, align 4
-  store float %76, ptr %.sroa.9.0..sroa_idx, align 4
-  store float %79, ptr %.sroa.11.0..sroa_idx, align 4
-  store float %82, ptr %.sroa.13.0..sroa_idx, align 4
-  store float %85, ptr %.sroa.15.0..sroa_idx, align 4
-  store float %88, ptr %.sroa.17.0..sroa_idx, align 4
-  store float %90, ptr %.sroa.19.0..sroa_idx, align 4
-  %91 = call { <2 x float>, float } @_ZNK6Assimp21BlenderTessellatorP2T35GetEigenVectorFromLargestEigenValueERK12aiMatrix3x3tIfE(ptr nonnull align 8 poison, ptr noundef nonnull align 4 dereferenceable(36) %4)
-  %.fca.0.extract = extractvalue { <2 x float>, float } %91, 0
-  %.fca.1.extract = extractvalue { <2 x float>, float } %91, 1
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store <2 x float> %.fca.0.extract, ptr %92, align 4
+  %62 = fdiv float 1.000000e+00, %43
+  %63 = fmul float %.058.lcssa, %31
+  %64 = tail call float @llvm.fmuladd.f32(float %.057.lcssa, float %.059.lcssa, float %63)
+  %65 = fmul float %64, %62
+  %66 = fneg float %62
+  %67 = fmul float %.056.lcssa, %31
+  %68 = tail call float @llvm.fmuladd.f32(float %.055.lcssa, float %.059.lcssa, float %67)
+  %69 = fmul float %68, %66
+  %70 = tail call float @llvm.fmuladd.f32(float %.055.lcssa, float %.058.lcssa, float %42)
+  %71 = fmul float %70, %62
+  %72 = fneg float %.056.lcssa
+  %73 = fmul float %.058.lcssa, %72
+  %74 = tail call float @llvm.fmuladd.f32(float %.055.lcssa, float %.059.lcssa, float %73)
+  %75 = fmul float %74, %66
+  %76 = fmul float %.056.lcssa, %72
+  %77 = tail call float @llvm.fmuladd.f32(float %.054.lcssa, float %.059.lcssa, float %76)
+  %78 = fmul float %77, %62
+  %79 = fmul float %.056.lcssa, %36
+  %80 = tail call float @llvm.fmuladd.f32(float %.054.lcssa, float %.058.lcssa, float %79)
+  %81 = fmul float %80, %66
+  %82 = fmul float %.057.lcssa, %72
+  %83 = tail call float @llvm.fmuladd.f32(float %.055.lcssa, float %.058.lcssa, float %82)
+  %84 = fmul float %83, %62
+  %85 = fmul float %.055.lcssa, %72
+  %86 = tail call float @llvm.fmuladd.f32(float %.054.lcssa, float %.058.lcssa, float %85)
+  %87 = fmul float %86, %66
+  %88 = tail call float @llvm.fmuladd.f32(float %.054.lcssa, float %.057.lcssa, float %37)
+  %89 = fmul float %88, %62
+  store float %65, ptr %4, align 4
+  store float %69, ptr %.sroa.567.0..sroa_idx, align 4
+  store float %71, ptr %.sroa.7.0..sroa_idx, align 4
+  store float %75, ptr %.sroa.9.0..sroa_idx, align 4
+  store float %78, ptr %.sroa.11.0..sroa_idx, align 4
+  store float %81, ptr %.sroa.13.0..sroa_idx, align 4
+  store float %84, ptr %.sroa.15.0..sroa_idx, align 4
+  store float %87, ptr %.sroa.17.0..sroa_idx, align 4
+  store float %89, ptr %.sroa.19.0..sroa_idx, align 4
+  %90 = call { <2 x float>, float } @_ZNK6Assimp21BlenderTessellatorP2T35GetEigenVectorFromLargestEigenValueERK12aiMatrix3x3tIfE(ptr nonnull align 8 poison, ptr noundef nonnull align 4 dereferenceable(36) %4)
+  %.fca.0.extract = extractvalue { <2 x float>, float } %90, 0
+  %.fca.1.extract = extractvalue { <2 x float>, float } %90, 1
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store <2 x float> %.fca.0.extract, ptr %91, align 4
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %4) #26
-  br label %93
+  br label %92
 
-93:                                               ; preds = %_ZN12aiMatrix3x3tIfE7InverseEv.exit, %62
-  %.fca.1.extract.sink = phi float [ 0.000000e+00, %62 ], [ %.fca.1.extract, %_ZN12aiMatrix3x3tIfE7InverseEv.exit ]
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store float %.fca.1.extract.sink, ptr %94, align 4
+92:                                               ; preds = %_ZN12aiMatrix3x3tIfE7InverseEv.exit, %61
+  %.fca.1.extract.sink = phi float [ 0.000000e+00, %61 ], [ %.fca.1.extract, %_ZN12aiMatrix3x3tIfE7InverseEv.exit ]
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store float %.fca.1.extract.sink, ptr %93, align 4
   ret void
 }
 

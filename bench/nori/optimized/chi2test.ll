@@ -3306,7 +3306,6 @@ _ZNSt6vectorIZN10hypothesis9chi2_testB5cxx11EiPKdS2_iddiE4CellSaIS3_EE17_S_check
 .lr.ph.preheader:                                 ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %.noexc107
   %22 = phi i64 [ 1, %.noexc107 ], [ %14, %.lr.ph.i.i.i.i.i.i.i.i.i ]
   %.0.i.i.i.i.i176 = phi ptr [ %19, %.noexc107 ], [ %18, %.lr.ph.i.i.i.i.i.i.i.i.i ]
-  %umax = tail call i64 @llvm.umax.i64(i64 %22, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -3318,7 +3317,7 @@ _ZNSt6vectorIZN10hypothesis9chi2_testB5cxx11EiPKdS2_iddiE4CellSaIS3_EE17_S_check
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i64 %.084145, ptr %26, align 8
   %27 = add nuw i64 %.084145, 1
-  %exitcond.not = icmp eq i64 %27, %umax
+  %exitcond.not = icmp eq i64 %27, %22
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %.lr.ph

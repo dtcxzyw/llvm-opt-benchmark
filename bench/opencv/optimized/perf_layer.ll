@@ -4108,11 +4108,7 @@ define linkonce_odr hidden void @_ZN11opencv_test17Layer_NaryEltwise10test_layer
 
 .preheader:                                       ; preds = %41
   %.not162 = icmp eq ptr %43, %44
-  br i1 %.not162, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %.preheader
-  %umax = tail call i64 @llvm.umax.i64(i64 %48, i64 1)
-  br label %.lr.ph
+  br i1 %.not162, label %._crit_edge, label %.lr.ph
 
 55:                                               ; preds = %41
   %56 = tail call ptr @__cxa_allocate_exception(i64 152) #30
@@ -4170,7 +4166,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %61
 
 70:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %48
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !73
 
 ._crit_edge:                                      ; preds = %70, %.preheader
@@ -4247,8 +4243,8 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   %93 = icmp slt i32 %.0.i.i.i.i.i, 0
   br i1 %93, label %_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EE4findERKS5_.exit.thread, label %_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EE4findERKS5_.exit
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %70
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %70 ]
+.lr.ph:                                           ; preds = %.preheader, %70
+  %indvars.iv = phi i64 [ %indvars.iv.next, %70 ], [ 0, %.preheader ]
   %94 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv
   %95 = load i32, ptr %94, align 4, !tbaa !77
   %96 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv

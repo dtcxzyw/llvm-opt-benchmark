@@ -427,7 +427,6 @@ _ZNSt6vectorIiSaIiEEC2ERKS1_.exit.thread:         ; preds = %_ZNSt6vectorImSaImE
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %53, ptr align 4 %46, i64 %49, i1 false)
   %55 = lshr exact i64 %49, 2
   %56 = load ptr, ptr %5, align 8, !tbaa !8
-  %umax = call i64 @llvm.umax.i64(i64 %55, i64 1)
   br label %97
 
 ._crit_edge:                                      ; preds = %97, %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit.thread
@@ -527,7 +526,7 @@ _ZNSt6vectorIiSaIiEEC2ERKS1_.exit.thread:         ; preds = %_ZNSt6vectorImSaImE
   %102 = getelementptr inbounds nuw i32, ptr %53, i64 %.0200
   store i32 %101, ptr %102, align 4, !tbaa !17
   %103 = add nuw i64 %.0200, 1
-  %exitcond.not = icmp eq i64 %103, %umax
+  %exitcond.not = icmp eq i64 %103, %55
   br i1 %exitcond.not, label %._crit_edge, label %97, !llvm.loop !23
 
 .loopexit188.loopexit.split.loop.exit:            ; preds = %67

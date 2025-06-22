@@ -2361,18 +2361,14 @@ if.then.i:                                        ; preds = %if.end5
 
 _ZN4llvh15SmallVectorImplIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEEE7reserveEm.exit: ; preds = %if.end5, %if.then.i
   %cmp793.not = icmp eq ptr %1, %2
-  br i1 %cmp793.not, label %_ZN4llvh15SmallVectorImplIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEEE7reserveEm.exit.for.end_crit_edge, label %for.body.preheader
+  br i1 %cmp793.not, label %_ZN4llvh15SmallVectorImplIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEEE7reserveEm.exit.for.end_crit_edge, label %for.body
 
 _ZN4llvh15SmallVectorImplIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEEE7reserveEm.exit.for.end_crit_edge: ; preds = %_ZN4llvh15SmallVectorImplIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEEE7reserveEm.exit
   %.pre = load i32, ptr %Size.i.i.i.i.i11, align 8
   br label %for.end
 
-for.body.preheader:                               ; preds = %_ZN4llvh15SmallVectorImplIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEEE7reserveEm.exit
-  %umax = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
-  br label %for.body
-
-for.body:                                         ; preds = %for.body.preheader, %for.inc
-  %i.094 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.preheader ]
+for.body:                                         ; preds = %_ZN4llvh15SmallVectorImplIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEEE7reserveEm.exit, %for.inc
+  %i.094 = phi i64 [ %inc, %for.inc ], [ 0, %_ZN4llvh15SmallVectorImplIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEEE7reserveEm.exit ]
   %3 = load ptr, ptr %nativeMatchRanges, align 8
   %add.ptr.i = getelementptr inbounds %"struct.hermes::regex::CapturedRange", ptr %3, i64 %i.094
   %4 = load i32, ptr %add.ptr.i, align 4
@@ -2432,7 +2428,7 @@ for.inc:                                          ; preds = %_ZN4llvh23SmallVect
   %storemerge = add i32 %14, 1
   store i32 %storemerge, ptr %Size.i.i.i.i.i11, align 8
   %inc = add nuw i64 %i.094, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !32
 
 for.end:                                          ; preds = %for.inc, %_ZN4llvh15SmallVectorImplIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEEE7reserveEm.exit.for.end_crit_edge
@@ -2585,18 +2581,14 @@ if.then.i:                                        ; preds = %if.end5
 
 _ZN4llvh15SmallVectorImplIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEEE7reserveEm.exit: ; preds = %if.end5, %if.then.i
   %cmp793.not = icmp eq ptr %1, %2
-  br i1 %cmp793.not, label %_ZN4llvh15SmallVectorImplIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEEE7reserveEm.exit.for.end_crit_edge, label %for.body.preheader
+  br i1 %cmp793.not, label %_ZN4llvh15SmallVectorImplIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEEE7reserveEm.exit.for.end_crit_edge, label %for.body
 
 _ZN4llvh15SmallVectorImplIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEEE7reserveEm.exit.for.end_crit_edge: ; preds = %_ZN4llvh15SmallVectorImplIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEEE7reserveEm.exit
   %.pre = load i32, ptr %Size.i.i.i.i.i11, align 8
   br label %for.end
 
-for.body.preheader:                               ; preds = %_ZN4llvh15SmallVectorImplIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEEE7reserveEm.exit
-  %umax = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
-  br label %for.body
-
-for.body:                                         ; preds = %for.body.preheader, %for.inc
-  %i.094 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.preheader ]
+for.body:                                         ; preds = %_ZN4llvh15SmallVectorImplIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEEE7reserveEm.exit, %for.inc
+  %i.094 = phi i64 [ %inc, %for.inc ], [ 0, %_ZN4llvh15SmallVectorImplIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEEE7reserveEm.exit ]
   %3 = load ptr, ptr %nativeMatchRanges, align 8
   %add.ptr.i = getelementptr inbounds %"struct.hermes::regex::CapturedRange", ptr %3, i64 %i.094
   %4 = load i32, ptr %add.ptr.i, align 4
@@ -2656,7 +2648,7 @@ for.inc:                                          ; preds = %_ZN4llvh23SmallVect
   %storemerge = add i32 %14, 1
   store i32 %storemerge, ptr %Size.i.i.i.i.i11, align 8
   %inc = add nuw i64 %i.094, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !33
 
 for.end:                                          ; preds = %for.inc, %_ZN4llvh15SmallVectorImplIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEEE7reserveEm.exit.for.end_crit_edge

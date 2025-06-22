@@ -3080,14 +3080,12 @@ _ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit: ; pre
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %78 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %79 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %umax = call i32 @llvm.umax.i32(i32 %43, i32 1)
-  %wide.trip.count187 = zext nneg i32 %umax to i64
   br label %87
 
 .loopexit:                                        ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit, %87
   %80 = phi ptr [ %88, %87 ], [ %195, %_ZN7obj_refI4expr11ast_managerED2Ev.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond188.not = icmp eq i64 %indvars.iv.next185, %wide.trip.count187
+  %exitcond188.not = icmp eq i64 %indvars.iv.next185, %50
   br i1 %exitcond188.not, label %81, label %87, !llvm.loop !539
 
 81:                                               ; preds = %.loopexit
@@ -4620,7 +4618,6 @@ _ZN7obj_refI9func_decl11ast_managerEC2EPS0_RS1_.exit: ; preds = %138, %_ZN11ast_
   %149 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %150 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %151 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %wide.trip.count = zext i32 %25 to i64
   br label %173
 
 152:                                              ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit72
@@ -4839,7 +4836,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit70:       ; preds = %_ZN7obj_refI4expr11
 _ZN7obj_refI4expr11ast_managerED2Ev.exit72:       ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit70, %226, %231
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %35
   br i1 %exitcond.not, label %152, label %173, !llvm.loop !577
 
 235:                                              ; preds = %173

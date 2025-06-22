@@ -1185,15 +1185,10 @@ _ZN8QuantLib6MatrixC2Emmd.exit:                   ; preds = %for.body.i.i.i.i, %
   %cmp20.not = icmp eq ptr %2, %3
   %cmp718.not = icmp eq ptr %0, %1
   %or.cond = or i1 %cmp20.not, %cmp718.not
-  br i1 %or.cond, label %for.cond.cleanup, label %for.body.us.preheader
+  br i1 %or.cond, label %for.cond.cleanup, label %for.body.us
 
-for.body.us.preheader:                            ; preds = %_ZN8QuantLib6MatrixC2Emmd.exit
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %umax23 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
-  br label %for.body.us
-
-for.body.us:                                      ; preds = %for.body.us.preheader, %for.cond6.for.cond.cleanup8_crit_edge.us
-  %i.021.us = phi i64 [ %inc16.us, %for.cond6.for.cond.cleanup8_crit_edge.us ], [ 0, %for.body.us.preheader ]
+for.body.us:                                      ; preds = %_ZN8QuantLib6MatrixC2Emmd.exit, %for.cond6.for.cond.cleanup8_crit_edge.us
+  %i.021.us = phi i64 [ %inc16.us, %for.cond6.for.cond.cleanup8_crit_edge.us ], [ 0, %_ZN8QuantLib6MatrixC2Emmd.exit ]
   %add.ptr.i.us = getelementptr inbounds nuw i64, ptr %3, i64 %i.021.us
   %8 = load i64, ptr %add.ptr.i.us, align 8, !tbaa !8
   %invariant.gep.us = getelementptr double, ptr %7, i64 %i.021.us
@@ -1209,12 +1204,12 @@ invoke.cont13.us:                                 ; preds = %for.body.us, %invok
   %gep.us = getelementptr double, ptr %invariant.gep.us, i64 %mul.i.i.us
   store double %10, ptr %gep.us, align 8, !tbaa !27
   %inc.us = add nuw i64 %j.019.us, 1
-  %exitcond.not = icmp eq i64 %inc.us, %umax
+  %exitcond.not = icmp eq i64 %inc.us, %sub.ptr.div.i.i
   br i1 %exitcond.not, label %for.cond6.for.cond.cleanup8_crit_edge.us, label %invoke.cont13.us, !llvm.loop !88
 
 for.cond6.for.cond.cleanup8_crit_edge.us:         ; preds = %invoke.cont13.us
   %inc16.us = add nuw i64 %i.021.us, 1
-  %exitcond24.not = icmp eq i64 %inc16.us, %umax23
+  %exitcond24.not = icmp eq i64 %inc16.us, %sub.ptr.div.i
   br i1 %exitcond24.not, label %for.cond.cleanup, label %for.body.us, !llvm.loop !89
 
 for.cond.cleanup:                                 ; preds = %for.cond6.for.cond.cleanup8_crit_edge.us, %_ZN8QuantLib6MatrixC2Emmd.exit
@@ -1787,7 +1782,6 @@ invoke.cont43.thread:                             ; preds = %invoke.cont5
 
 for.body.lr.ph:                                   ; preds = %invoke.cont5
   %sub = add nsw i64 %sub.ptr.div.i.i, -1
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %if.end
@@ -1855,7 +1849,7 @@ if.end:                                           ; preds = %for.body, %if.then
   %add35 = fadd double %20, %25
   store double %add35, ptr %arrayidx.i135, align 8, !tbaa !27
   %inc = add nuw i64 %j.0503, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !97
 
 invoke.cont43:                                    ; preds = %while.body.i.i, %for.cond.cleanup

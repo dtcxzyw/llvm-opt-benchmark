@@ -979,11 +979,7 @@ define hidden noundef range(i32 -1, 2) i32 @_ZNK4cvc58internal8Sequence3cmpERKS1
 
 .preheader:                                       ; preds = %14
   %.not1921.not = icmp eq ptr %17, %18
-  br i1 %.not1921.not, label %.loopexit, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %.preheader
-  %umax = tail call i64 @llvm.umax.i64(i64 %22, i64 1)
-  br label %.lr.ph
+  br i1 %.not1921.not, label %.loopexit, label %.lr.ph
 
 31:                                               ; preds = %14
   %32 = icmp ult i64 %22, %30
@@ -992,11 +988,11 @@ define hidden noundef range(i32 -1, 2) i32 @_ZNK4cvc58internal8Sequence3cmpERKS1
 
 34:                                               ; preds = %.lr.ph
   %35 = add nuw i64 %.01622, 1
-  %exitcond.not = icmp eq i64 %35, %umax
+  %exitcond.not = icmp eq i64 %35, %22
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !26
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %34
-  %.01622 = phi i64 [ %35, %34 ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %34
+  %.01622 = phi i64 [ %35, %34 ], [ 0, %.preheader ]
   %36 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %18, i64 %.01622
   %37 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %26, i64 %.01622
   %38 = load ptr, ptr %36, align 8, !tbaa !19
@@ -1394,19 +1390,15 @@ _ZNK4cvc58internal8Sequence6prefixEm.exit:        ; preds = %27
 
 .preheader.i.i:                                   ; preds = %39
   %.not1921.not.i.i = icmp eq ptr %40, %41
-  br i1 %.not1921.not.i.i, label %_ZNK4cvc58internal8SequenceeqERKS1_.exit, label %.lr.ph.preheader.i.i
-
-.lr.ph.preheader.i.i:                             ; preds = %.preheader.i.i
-  %umax.i.i = call i64 @llvm.umax.i64(i64 %45, i64 1)
-  br label %.lr.ph.i.i
+  br i1 %.not1921.not.i.i, label %_ZNK4cvc58internal8SequenceeqERKS1_.exit, label %.lr.ph.i.i
 
 51:                                               ; preds = %.lr.ph.i.i
   %52 = add nuw i64 %.01622.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %52, %umax.i.i
+  %exitcond.not.i.i = icmp eq i64 %52, %45
   br i1 %exitcond.not.i.i, label %_ZNK4cvc58internal8SequenceeqERKS1_.exit, label %.lr.ph.i.i, !llvm.loop !26
 
-.lr.ph.i.i:                                       ; preds = %51, %.lr.ph.preheader.i.i
-  %.01622.i.i = phi i64 [ %52, %51 ], [ 0, %.lr.ph.preheader.i.i ]
+.lr.ph.i.i:                                       ; preds = %.preheader.i.i, %51
+  %.01622.i.i = phi i64 [ %52, %51 ], [ 0, %.preheader.i.i ]
   %53 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %41, i64 %.01622.i.i
   %54 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %47, i64 %.01622.i.i
   %55 = load ptr, ptr %53, align 8, !tbaa !19
@@ -1513,19 +1505,15 @@ _ZNK4cvc58internal8Sequence6suffixEm.exit:        ; preds = %27
 
 .preheader.i.i:                                   ; preds = %39
   %.not1921.not.i.i = icmp eq ptr %40, %41
-  br i1 %.not1921.not.i.i, label %_ZNK4cvc58internal8SequenceeqERKS1_.exit, label %.lr.ph.preheader.i.i
-
-.lr.ph.preheader.i.i:                             ; preds = %.preheader.i.i
-  %umax.i.i = call i64 @llvm.umax.i64(i64 %45, i64 1)
-  br label %.lr.ph.i.i
+  br i1 %.not1921.not.i.i, label %_ZNK4cvc58internal8SequenceeqERKS1_.exit, label %.lr.ph.i.i
 
 51:                                               ; preds = %.lr.ph.i.i
   %52 = add nuw i64 %.01622.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %52, %umax.i.i
+  %exitcond.not.i.i = icmp eq i64 %52, %45
   br i1 %exitcond.not.i.i, label %_ZNK4cvc58internal8SequenceeqERKS1_.exit, label %.lr.ph.i.i, !llvm.loop !26
 
-.lr.ph.i.i:                                       ; preds = %51, %.lr.ph.preheader.i.i
-  %.01622.i.i = phi i64 [ %52, %51 ], [ 0, %.lr.ph.preheader.i.i ]
+.lr.ph.i.i:                                       ; preds = %.preheader.i.i, %51
+  %.01622.i.i = phi i64 [ %52, %51 ], [ 0, %.preheader.i.i ]
   %53 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %41, i64 %.01622.i.i
   %54 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %47, i64 %.01622.i.i
   %55 = load ptr, ptr %53, align 8, !tbaa !19
@@ -1800,21 +1788,17 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal8Sequence9hasPrefixERKS1_(pt
 
 .preheader:                                       ; preds = %2
   %.not15 = icmp eq ptr %12, %13
-  br i1 %.not15, label %.loopexit, label %.lr.ph.preheader
+  br i1 %.not15, label %.loopexit, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %.preheader
-  %umax = tail call i64 @llvm.umax.i64(i64 %17, i64 1)
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
-  %.016 = phi i64 [ 0, %.lr.ph.preheader ], [ %23, %.lr.ph ]
+.lr.ph:                                           ; preds = %.preheader, %.lr.ph
+  %.016 = phi i64 [ %23, %.lr.ph ], [ 0, %.preheader ]
   %19 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %6, i64 %.016
   %20 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %13, i64 %.016
   %21 = load ptr, ptr %19, align 8, !tbaa !19
   %22 = load ptr, ptr %20, align 8, !tbaa !19
   %.not14 = icmp eq ptr %21, %22
   %23 = add nuw i64 %.016, 1
-  %exitcond.not = icmp ne i64 %23, %umax
+  %exitcond.not = icmp ne i64 %23, %17
   %or.cond.not = select i1 %.not14, i1 %exitcond.not, i1 false
   br i1 %or.cond.not, label %.lr.ph, label %.loopexit, !llvm.loop !44
 
@@ -1848,21 +1832,17 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal8Sequence9hasSuffixERKS1_(pt
   %21 = sub nuw nsw i64 %10, %18
   %invariant.gep = getelementptr %"class.cvc5::internal::NodeTemplate", ptr %6, i64 %21
   %.not.not18.not = icmp eq ptr %13, %14
-  br i1 %.not.not18.not, label %.critedge, label %.lr.ph.preheader
+  br i1 %.not.not18.not, label %.critedge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %20
-  %umax = tail call i64 @llvm.umax.i64(i64 %18, i64 1)
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
-  %.019 = phi i64 [ 0, %.lr.ph.preheader ], [ %25, %.lr.ph ]
+.lr.ph:                                           ; preds = %20, %.lr.ph
+  %.019 = phi i64 [ %25, %.lr.ph ], [ 0, %20 ]
   %gep = getelementptr %"class.cvc5::internal::NodeTemplate", ptr %invariant.gep, i64 %.019
   %22 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %14, i64 %.019
   %23 = load ptr, ptr %gep, align 8, !tbaa !19
   %24 = load ptr, ptr %22, align 8, !tbaa !19
   %.not = icmp eq ptr %23, %24
   %25 = add nuw i64 %.019, 1
-  %exitcond.not = icmp ne i64 %25, %umax
+  %exitcond.not = icmp ne i64 %25, %18
   %or.cond.not = select i1 %.not, i1 %exitcond.not, i1 false
   br i1 %or.cond.not, label %.lr.ph, label %.critedge, !llvm.loop !45
 

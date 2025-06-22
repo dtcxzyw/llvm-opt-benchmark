@@ -652,7 +652,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit83: ; preds = %_ZN
   %158 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %159 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %160 = getelementptr inbounds nuw i8, ptr %60, i64 16
-  %umax = call i64 @llvm.umax.i64(i64 %154, i64 1)
   br label %204
 
 .lr.ph:                                           ; preds = %148, %_ZNSt6vectorIN2cv6DMatchESaIS1_EE9push_backERKS1_.exit
@@ -939,7 +938,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17_
 
 _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit113: ; preds = %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i110, %245
   %269 = add nuw i64 %.0181, 1
-  %exitcond.not = icmp eq i64 %269, %umax
+  %exitcond.not = icmp eq i64 %269, %154
   br i1 %exitcond.not, label %._crit_edge184, label %204, !llvm.loop !84
 
 .loopexit:                                        ; preds = %_ZNKSt6vectorIN2cv6Point_IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i

@@ -1810,7 +1810,6 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %85
   %106 = ptrtoint ptr %104 to i64
   %107 = sub i64 %105, %106
   %108 = ashr exact i64 %107, 4
-  %umax = call i64 @llvm.umax.i64(i64 %108, i64 1)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %98
@@ -1830,7 +1829,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %85
   store i32 %116, ptr %113, align 4, !tbaa !74
   store i32 %115, ptr %114, align 4, !tbaa !74
   %117 = add nuw i64 %.039, 1
-  %exitcond.not = icmp eq i64 %117, %umax
+  %exitcond.not = icmp eq i64 %117, %108
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !139
 }
 
@@ -2164,7 +2163,6 @@ _ZN2cv6detail15FeaturesMatcherclERKNS0_13ImageFeaturesES4_RNS0_11MatchesInfoE.ex
   %72 = fneg float %71
   %73 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %74 = load ptr, ptr %73, align 8, !tbaa !96
-  %umax = call i64 @llvm.umax.i64(i64 %50, i64 1)
   br label %79
 
 75:                                               ; preds = %35
@@ -2208,7 +2206,7 @@ _ZN2cv6detail15FeaturesMatcherclERKNS0_13ImageFeaturesES4_RNS0_11MatchesInfoE.ex
   %.sroa.1031.0..sroa_idx36 = getelementptr inbounds nuw i8, ptr %94, i64 4
   store float %93, ptr %.sroa.1031.0..sroa_idx36, align 4, !tbaa !75
   %95 = add nuw i64 %.0108127, 1
-  %exitcond.not = icmp eq i64 %95, %umax
+  %exitcond.not = icmp eq i64 %95, %50
   br i1 %exitcond.not, label %._crit_edge, label %79, !llvm.loop !177
 
 ._crit_edge:                                      ; preds = %79, %.preheader126
@@ -2317,7 +2315,6 @@ _ZN2cv6detail15FeaturesMatcherclERKNS0_13ImageFeaturesES4_RNS0_11MatchesInfoE.ex
   %132 = ptrtoint ptr %130 to i64
   %133 = ptrtoint ptr %131 to i64
   %134 = sub i64 %132, %133
-  %umax139 = call i64 @llvm.umax.i64(i64 %134, i64 1)
   br label %.lr.ph130
 
 ._crit_edge131:                                   ; preds = %159, %127
@@ -2359,7 +2356,7 @@ _ZN2cv6detail15FeaturesMatcherclERKNS0_13ImageFeaturesES4_RNS0_11MatchesInfoE.ex
 159:                                              ; preds = %.lr.ph130, %157
   %160 = phi i32 [ %154, %.lr.ph130 ], [ %158, %157 ]
   %161 = add nuw i64 %.0105128, 1
-  %exitcond140.not = icmp eq i64 %161, %umax139
+  %exitcond140.not = icmp eq i64 %161, %134
   br i1 %exitcond140.not, label %._crit_edge131, label %.lr.ph130, !llvm.loop !180
 
 162:                                              ; preds = %._crit_edge131
@@ -2407,7 +2404,6 @@ _ZN2cv6detail15FeaturesMatcherclERKNS0_13ImageFeaturesES4_RNS0_11MatchesInfoE.ex
   %193 = fneg float %192
   %194 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %195 = load ptr, ptr %194, align 8
-  %umax141 = call i64 @llvm.umax.i64(i64 %170, i64 1)
   br label %196
 
 196:                                              ; preds = %.lr.ph134, %216
@@ -2452,7 +2448,7 @@ _ZN2cv6detail15FeaturesMatcherclERKNS0_13ImageFeaturesES4_RNS0_11MatchesInfoE.ex
 216:                                              ; preds = %196, %199
   %.1104 = phi i32 [ %215, %199 ], [ %.0103132, %196 ]
   %217 = add nuw i64 %.0102133, 1
-  %exitcond142.not = icmp eq i64 %217, %umax141
+  %exitcond142.not = icmp eq i64 %217, %170
   br i1 %exitcond142.not, label %._crit_edge135, label %196, !llvm.loop !181
 
 ._crit_edge135:                                   ; preds = %216, %.preheader
@@ -3399,7 +3395,6 @@ define void @_ZN2cv6detail27AffineBestOf2NearestMatcher5matchERKNS0_13ImageFeatu
   %133 = ptrtoint ptr %131 to i64
   %134 = ptrtoint ptr %132 to i64
   %135 = sub i64 %133, %134
-  %umax = call i64 @llvm.umax.i64(i64 %135, i64 1)
   br label %.lr.ph67
 
 ._crit_edge68.loopexit:                           ; preds = %153
@@ -3439,7 +3434,7 @@ define void @_ZN2cv6detail27AffineBestOf2NearestMatcher5matchERKNS0_13ImageFeatu
 153:                                              ; preds = %.lr.ph67, %151
   %154 = phi i32 [ %148, %.lr.ph67 ], [ %152, %151 ]
   %155 = add nuw i64 %.065, 1
-  %exitcond.not = icmp eq i64 %155, %umax
+  %exitcond.not = icmp eq i64 %155, %135
   br i1 %exitcond.not, label %._crit_edge68.loopexit, label %.lr.ph67, !llvm.loop !198
 
 156:                                              ; preds = %._crit_edge68

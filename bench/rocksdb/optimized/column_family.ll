@@ -3155,7 +3155,6 @@ define void @_ZN7rocksdb25CheckCompressionSupportedERKNS_19ColumnFamilyOptionsE(
   %25 = ptrtoint ptr %23 to i64
   %26 = ptrtoint ptr %21 to i64
   %27 = sub i64 %25, %26
-  %umax = tail call i64 @llvm.umax.i64(i64 %27, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %119
@@ -3441,7 +3440,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59: ; preds = %_ZN
 
 119:                                              ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
   %120 = add nuw i64 %.026144, 1
-  %exitcond.not = icmp eq i64 %120, %umax
+  %exitcond.not = icmp eq i64 %120, %27
   br i1 %exitcond.not, label %.thread, label %.lr.ph, !llvm.loop !394
 
 121:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i48, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i49

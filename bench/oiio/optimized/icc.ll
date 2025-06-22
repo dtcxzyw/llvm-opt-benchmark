@@ -1802,14 +1802,14 @@ _ZN11OpenImageIO6v3_1_012_GLOBAL__N_17extractIjEEbNS0_4spanIKhLm1844674407370955
 _ZN11OpenImageIO6v3_1_012_GLOBAL__N_17extractIjEEbNS0_4spanIKhLm18446744073709551615EEERmRT_RNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit166
   %474 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %475 = load i32, ptr %474, align 4, !tbaa !12
+  %476 = call noundef i32 @llvm.bswap.i32(i32 %475)
   %invariant.gep = getelementptr inbounds nuw i8, ptr %0, i64 4
   %invariant.gep463 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %invariant.gep465 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %476 = icmp eq i32 %475, 0
-  br i1 %476, label %.loopexit, label %.lr.ph469
+  %477 = icmp eq i32 %475, 0
+  br i1 %477, label %.loopexit, label %.lr.ph469
 
 .lr.ph469:                                        ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_17extractIjEEbNS0_4spanIKhLm18446744073709551615EEERmRT_RNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %477 = call noundef i32 @llvm.bswap.i32(i32 %475)
   %478 = getelementptr inbounds nuw i8, ptr %69, i64 4
   %479 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %480 = getelementptr inbounds nuw i8, ptr %70, i64 8
@@ -1851,7 +1851,6 @@ _ZN11OpenImageIO6v3_1_012_GLOBAL__N_17extractIjEEbNS0_4spanIKhLm1844674407370955
   %515 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %516 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %.not22.i240 = icmp eq ptr %75, %3
-  %umax485 = call i32 @llvm.umax.i32(i32 %477, i32 1)
   br label %596
 
 517:                                              ; preds = %150
@@ -2891,11 +2890,7 @@ _ZN11OpenImageIO6v3_1_012_GLOBAL__N_17extractIjEEbNS0_4spanIKhLm1844674407370955
 
 .preheader:                                       ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_17extractIjEEbNS0_4spanIKhLm18446744073709551615EEERmRT_RNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit278
   %.not472 = icmp eq i32 %861, 0
-  br i1 %.not472, label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_17extractIjEEbNS0_4spanIKhLm18446744073709551615EEERmRT_RNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit275, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %.preheader
-  %umax = call i32 @llvm.umax.i32(i32 %862, i32 1)
-  br label %.lr.ph
+  br i1 %.not472, label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_17extractIjEEbNS0_4spanIKhLm18446744073709551615EEERmRT_RNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit275, label %.lr.ph
 
 869:                                              ; preds = %.invoke498
   %870 = landingpad { ptr, i32 }
@@ -2904,12 +2899,12 @@ _ZN11OpenImageIO6v3_1_012_GLOBAL__N_17extractIjEEbNS0_4spanIKhLm1844674407370955
 
 871:                                              ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_17extractItEEbNS0_4spanIKhLm18446744073709551615EEERmRT_RNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   %872 = add nuw i32 %.089462, 1
-  %exitcond.not = icmp eq i32 %872, %umax
+  %exitcond.not = icmp eq i32 %872, %862
   br i1 %exitcond.not, label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_17extractIjEEbNS0_4spanIKhLm18446744073709551615EEERmRT_RNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit275, label %.lr.ph, !llvm.loop !96
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %871
-  %.089462 = phi i32 [ %872, %871 ], [ 0, %.lr.ph.preheader ]
-  %.0378461 = phi i64 [ %881, %871 ], [ %863, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %871
+  %.089462 = phi i32 [ %872, %871 ], [ 0, %.preheader ]
+  %.0378461 = phi i64 [ %881, %871 ], [ %863, %.preheader ]
   %873 = add nuw nsw i64 %.0378461, 2
   %.not436 = icmp ugt i64 %873, %1
   br i1 %.not436, label %.invoke499, label %874
@@ -3152,7 +3147,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i30
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %70) #24
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %69) #24
   %967 = add nuw i32 %.088468, 1
-  %exitcond486.not = icmp ne i32 %967, %umax485
+  %exitcond486.not = icmp ne i32 %967, %476
   %or.cond.not = select i1 %cond1, i1 %exitcond486.not, i1 false
   br i1 %or.cond.not, label %596, label %.loopexit, !llvm.loop !104
 

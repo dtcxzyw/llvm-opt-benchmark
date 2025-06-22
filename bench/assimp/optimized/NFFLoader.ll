@@ -5847,7 +5847,6 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %1033, %1014, %_ZSt6
   %.sroa.25.7 = phi ptr [ %1032, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit35.i ], [ %.sroa.25.33957, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ], [ %.sroa.25.33957, %1014 ], [ %.sroa.25.33957, %1033 ]
   %.sroa.15.5 = phi ptr [ %1031, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit35.i ], [ %1019, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ], [ %1015, %1014 ], [ %spec.select2886, %1033 ]
   %.sroa.02553.7 = phi ptr [ %1022, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit35.i ], [ %.sroa.02553.33959, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ], [ %.sroa.02553.33959, %1014 ], [ %.sroa.02553.33959, %1033 ]
-  %wide.trip.count = zext i32 %996 to i64
   br label %1038
 
 1036:                                             ; preds = %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i
@@ -5926,7 +5925,7 @@ _ZN6Assimp9strtoul10EPKcPS1_.exit1284:            ; preds = %.lr.ph.i1276, %.cri
   %1062 = getelementptr inbounds nuw i32, ptr %.sroa.02553.7, i64 %indvars.iv
   store i32 %.0695, ptr %1062, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond4817.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %exitcond4817.not = icmp eq i64 %indvars.iv.next, %1001
   br i1 %exitcond4817.not, label %.loopexit2931, label %1038, !llvm.loop !55
 
 .loopexit2931:                                    ; preds = %1061, %_ZN6Assimp9strtoul10EPKcPS1_.exit1265, %_ZN6Assimp9strtoul10EPKcPS1_.exit1265.thread

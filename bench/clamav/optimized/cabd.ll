@@ -1524,7 +1524,6 @@ define internal fastcc i32 @cabd_read_headers(ptr noundef %0, ptr noundef nonnul
   %167 = getelementptr inbounds nuw i8, ptr %8, i64 13
   %168 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.not210 = icmp eq i32 %4, 0
-  %umax238 = call i32 @llvm.umax.i32(i32 %63, i32 1)
   br label %195
 
 .split:                                           ; preds = %137, %193
@@ -1772,7 +1771,7 @@ define internal fastcc i32 @cabd_read_headers(ptr noundef %0, ptr noundef nonnul
 286:                                              ; preds = %284, %285, %278
   %.1168 = phi ptr [ %.0167228, %278 ], [ %200, %285 ], [ %200, %284 ]
   %287 = add nuw nsw i32 %.1174227, 1
-  %exitcond239.not = icmp eq i32 %287, %umax238
+  %exitcond239.not = icmp eq i32 %287, %63
   br i1 %exitcond239.not, label %288, label %195
 
 288:                                              ; preds = %286
@@ -2847,9 +2846,6 @@ declare i64 @llvm.smin.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #7
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

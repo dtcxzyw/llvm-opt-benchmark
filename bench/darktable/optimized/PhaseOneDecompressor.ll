@@ -396,12 +396,11 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN8rawspeed13PhaseOneStripESt
   %53 = ptrtoint ptr %51 to i64
   %54 = sub i64 %52, %53
   %55 = ashr exact i64 %54, 5
-  %umax = tail call i64 @llvm.umax.i64(i64 %55, i64 1)
   br label %.lr.ph
 
 56:                                               ; preds = %.lr.ph
   %57 = add nuw nsw i64 %.07, 1
-  %exitcond.not = icmp eq i64 %57, %umax
+  %exitcond.not = icmp eq i64 %57, %55
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !102
 
 ._crit_edge:                                      ; preds = %56, %"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN8rawspeed13PhaseOneStripESt6vectorIS3_SaIS3_EEEEZNS2_20PhaseOneDecompressor13prepareStripsEvE3$_0EvT_SB_T0_.exit"
@@ -1549,9 +1548,6 @@ declare void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceab
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #24
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #25

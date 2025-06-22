@@ -28768,19 +28768,15 @@ _ZNK3spv7Builder14getDerefTypeIdEj.exit:          ; preds = %484, %491
 
 _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %524, %525
   %.not429 = icmp eq ptr %.sroa.43.3, %.sroa.0336.3
-  br i1 %.not429, label %._crit_edge, label %.lr.ph.preheader
+  br i1 %.not429, label %._crit_edge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %_ZN3spv11Instruction15reserveOperandsEm.exit
-  %umax = tail call i64 @llvm.umax.i64(i64 %96, i64 1)
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0119424 = phi i64 [ %534, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %_ZN3spv11Instruction15reserveOperandsEm.exit, %.lr.ph
+  %.0119424 = phi i64 [ %534, %.lr.ph ], [ 0, %_ZN3spv11Instruction15reserveOperandsEm.exit ]
   %532 = getelementptr inbounds i32, ptr %.sroa.0336.10, i64 %.0119424
   %533 = load i32, ptr %532, align 4
   tail call void @_ZN3spv11Instruction12addIdOperandEj(ptr noundef nonnull align 8 dereferenceable(96) %504, i32 noundef %533)
   %534 = add nuw i64 %.0119424, 1
-  %exitcond.not = icmp eq i64 %534, %umax
+  %exitcond.not = icmp eq i64 %534, %96
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !487
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZN3spv11Instruction15reserveOperandsEm.exit

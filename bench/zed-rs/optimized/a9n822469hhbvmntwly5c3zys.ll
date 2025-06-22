@@ -5357,7 +5357,6 @@ _ZN4text19VersionedFullOffset11full_offset17ha12ac85a8a204981E.exit.preheader.i:
   %332 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %333 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %334 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %umax.i = call i64 @llvm.umax.i64(i64 %.sroa.0.0.sroa.speculated.i.i.i.i, i64 1)
   br label %339
 
 335:                                              ; preds = %_ZN4text11RopeBuilder6append17h0133f37746acccebE.exit.i
@@ -5384,7 +5383,7 @@ _ZN4text19VersionedFullOffset11full_offset17ha12ac85a8a204981E.exit.preheader.i:
 
 _ZN4text19VersionedFullOffset11full_offset17ha12ac85a8a204981E.exit.loopexit.i: ; preds = %.critedge.i, %967
   %.sroa.06.4.lcssa.i = phi i64 [ %.sroa.06.3.i, %967 ], [ %.sroa.06.5.i, %.critedge.i ]
-  %exitcond.not.i = icmp eq i64 %340, %umax.i
+  %exitcond.not.i = icmp eq i64 %340, %.sroa.0.0.sroa.speculated.i.i.i.i
   br i1 %exitcond.not.i, label %_ZN4text19VersionedFullOffset11full_offset17ha12ac85a8a204981E.exit._crit_edge.i, label %339
 
 _ZN4text19VersionedFullOffset11full_offset17ha12ac85a8a204981E.exit._crit_edge.i: ; preds = %_ZN4text19VersionedFullOffset11full_offset17ha12ac85a8a204981E.exit.loopexit.i
@@ -17858,9 +17857,6 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #22
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #22

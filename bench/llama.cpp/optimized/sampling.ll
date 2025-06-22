@@ -2491,7 +2491,6 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %5
   %27 = ptrtoint ptr %.sink to i64
   %28 = sub i64 %27, %26
   %29 = ashr exact i64 %28, 2
-  %umax = tail call i64 @llvm.umax.i64(i64 %29, i64 1)
   br label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
@@ -2511,7 +2510,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %5
   %35 = getelementptr inbounds nuw i32, ptr %18, i64 %.017
   store i32 %34, ptr %35, align 4, !tbaa !91
   %36 = add nuw i64 %.017, 1
-  %exitcond.not = icmp eq i64 %36, %umax
+  %exitcond.not = icmp eq i64 %36, %29
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !152
 
 37:                                               ; preds = %._crit_edge

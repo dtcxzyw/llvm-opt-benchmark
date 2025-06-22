@@ -2847,11 +2847,7 @@ define void @_ZN10open_spiel9goofspiel14GoofspielState14DoApplyActionsERKSt6vect
   store i32 %.lcssa131, ptr %11, align 4
   store i32 %.lcssa136, ptr %12, align 4
   %.not162 = icmp eq ptr %29, %30
-  br i1 %.not162, label %._crit_edge.thread, label %.lr.ph148.preheader
-
-.lr.ph148.preheader:                              ; preds = %.preheader121
-  %umax = tail call i64 @llvm.umax.i64(i64 %34, i64 1)
-  br label %.lr.ph148
+  br i1 %.not162, label %._crit_edge.thread, label %.lr.ph148
 
 49:                                               ; preds = %.lr.ph, %48
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %48 ]
@@ -2927,11 +2923,11 @@ define void @_ZN10open_spiel9goofspiel14GoofspielState14DoApplyActionsERKSt6vect
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #25
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit73
 
-.lr.ph148:                                        ; preds = %.lr.ph148.preheader, %.lr.ph148
-  %indvars.iv177 = phi i64 [ 0, %.lr.ph148.preheader ], [ %indvars.iv.next178, %.lr.ph148 ]
-  %.044147 = phi i64 [ -1, %.lr.ph148.preheader ], [ %.145120, %.lr.ph148 ]
-  %.051145 = phi i32 [ 0, %.lr.ph148.preheader ], [ %.152, %.lr.ph148 ]
-  %.0144 = phi i32 [ -1, %.lr.ph148.preheader ], [ %.1, %.lr.ph148 ]
+.lr.ph148:                                        ; preds = %.preheader121, %.lr.ph148
+  %indvars.iv177 = phi i64 [ %indvars.iv.next178, %.lr.ph148 ], [ 0, %.preheader121 ]
+  %.044147 = phi i64 [ %.145120, %.lr.ph148 ], [ -1, %.preheader121 ]
+  %.051145 = phi i32 [ %.152, %.lr.ph148 ], [ 0, %.preheader121 ]
+  %.0144 = phi i32 [ %.1, %.lr.ph148 ], [ -1, %.preheader121 ]
   %77 = getelementptr inbounds nuw i64, ptr %30, i64 %indvars.iv177
   %78 = load i64, ptr %77, align 8
   %sext = shl i64 %.044147, 32
@@ -2945,7 +2941,7 @@ define void @_ZN10open_spiel9goofspiel14GoofspielState14DoApplyActionsERKSt6vect
   %.152 = select i1 %80, i32 1, i32 %spec.select
   %.145120 = tail call i64 @llvm.smax.i64(i64 %78, i64 %79)
   %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177, 1
-  %exitcond180.not = icmp eq i64 %indvars.iv.next178, %umax
+  %exitcond180.not = icmp eq i64 %indvars.iv.next178, %34
   br i1 %exitcond180.not, label %._crit_edge, label %.lr.ph148, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph148

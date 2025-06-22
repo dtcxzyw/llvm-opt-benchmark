@@ -177,7 +177,6 @@ land.rhs.lr.ph:                                   ; preds = %entry
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
   %2 = load i64, ptr %date, align 8, !tbaa !22
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %for.inc
@@ -189,11 +188,11 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %fo
 
 for.inc:                                          ; preds = %land.rhs
   %inc = add nuw i64 %i.06, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i
   br i1 %exitcond.not, label %for.end, label %land.rhs, !llvm.loop !23
 
 for.end:                                          ; preds = %land.rhs, %for.inc, %entry
-  %i.0.lcssa = phi i64 [ 0, %entry ], [ %umax, %for.inc ], [ %i.06, %land.rhs ]
+  %i.0.lcssa = phi i64 [ 0, %entry ], [ %sub.ptr.div.i, %for.inc ], [ %i.06, %land.rhs ]
   %4 = getelementptr %"struct.std::pair", ptr %1, i64 %i.0.lcssa
   %second = getelementptr i8, ptr %4, i64 -8
   %5 = load double, ptr %second, align 8, !tbaa !11

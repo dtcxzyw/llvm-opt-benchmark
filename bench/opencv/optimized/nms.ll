@@ -2179,17 +2179,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38: ; preds = %_ZN
 
 97:                                               ; preds = %82
   %.not.i = icmp eq ptr %19, %20
-  br i1 %.not.i, label %._crit_edge.thread.i, label %.lr.ph.preheader.i
+  br i1 %.not.i, label %._crit_edge.thread.i, label %.lr.ph.i
 
 ._crit_edge.thread.i:                             ; preds = %97
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #18
   %98 = getelementptr inbounds nuw i8, ptr %9, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %98, i8 0, i64 16, i1 false)
   br label %120
-
-.lr.ph.preheader.i:                               ; preds = %97
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %24, i64 1)
-  br label %.lr.ph.i
 
 .lr.ph78.i:                                       ; preds = %.lr.ph.i
   %99 = fadd double %.sroa.speculated.i, 1.000000e+00
@@ -2199,9 +2195,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38: ; preds = %_ZN
   %101 = getelementptr inbounds nuw i8, ptr %9, i64 16
   br label %121
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %.071.i = phi double [ 0.000000e+00, %.lr.ph.preheader.i ], [ %.sroa.speculated.i, %.lr.ph.i ]
+.lr.ph.i:                                         ; preds = %97, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %97 ]
+  %.071.i = phi double [ %.sroa.speculated.i, %.lr.ph.i ], [ 0.000000e+00, %97 ]
   %102 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %20, i64 %indvars.iv.i
   %103 = load i32, ptr %102, align 4, !tbaa !40
   %104 = sitofp i32 %103 to double
@@ -2225,7 +2221,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38: ; preds = %_ZN
   %119 = fcmp olt double %115, %.sroa.speculated58.i
   %.sroa.speculated.i = select i1 %119, double %.sroa.speculated58.i, double %115
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %umax.i
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %24
   br i1 %exitcond.not.i, label %.lr.ph78.i, label %.lr.ph.i, !llvm.loop !77
 
 ._crit_edge79.i:                                  ; preds = %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE9push_backEOS2_.exit.i
@@ -2636,17 +2632,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38: ; preds = %_ZN
 
 97:                                               ; preds = %82
   %.not.i = icmp eq ptr %19, %20
-  br i1 %.not.i, label %._crit_edge.thread.i, label %.lr.ph.preheader.i
+  br i1 %.not.i, label %._crit_edge.thread.i, label %.lr.ph.i
 
 ._crit_edge.thread.i:                             ; preds = %97
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #18
   %98 = getelementptr inbounds nuw i8, ptr %9, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %98, i8 0, i64 16, i1 false)
   br label %116
-
-.lr.ph.preheader.i:                               ; preds = %97
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %24, i64 1)
-  br label %.lr.ph.i
 
 .lr.ph78.i:                                       ; preds = %.lr.ph.i
   %99 = fadd double %.sroa.speculated.i, 1.000000e+00
@@ -2656,9 +2648,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38: ; preds = %_ZN
   %101 = getelementptr inbounds nuw i8, ptr %9, i64 16
   br label %117
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %.071.i = phi double [ 0.000000e+00, %.lr.ph.preheader.i ], [ %.sroa.speculated.i, %.lr.ph.i ]
+.lr.ph.i:                                         ; preds = %97, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %97 ]
+  %.071.i = phi double [ %.sroa.speculated.i, %.lr.ph.i ], [ 0.000000e+00, %97 ]
   %102 = getelementptr inbounds nuw %"class.cv::Rect_.46", ptr %20, i64 %indvars.iv.i
   %103 = load double, ptr %102, align 8, !tbaa !56
   %104 = getelementptr inbounds nuw i8, ptr %102, i64 8
@@ -2678,7 +2670,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38: ; preds = %_ZN
   %115 = fcmp olt double %111, %.sroa.speculated58.i
   %.sroa.speculated.i = select i1 %115, double %.sroa.speculated58.i, double %111
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %umax.i
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %24
   br i1 %exitcond.not.i, label %.lr.ph78.i, label %.lr.ph.i, !llvm.loop !85
 
 ._crit_edge79.i:                                  ; preds = %_ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE9push_backEOS2_.exit.i

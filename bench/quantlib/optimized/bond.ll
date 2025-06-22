@@ -8815,13 +8815,10 @@ if.then.i.i.i.i150:                               ; preds = %if.else.i.i128
 
 _ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i.i133: ; preds = %if.else.i.i128
   %sub.ptr.div.i.i.i.i.i134 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i131, 3
-  %.sroa.speculated.i.i.i.i135 = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i134, i64 1)
-  %add.i.i.i.i136 = add nsw i64 %.sroa.speculated.i.i.i.i135, %sub.ptr.div.i.i.i.i.i134
+  %add.i.i.i.i136 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i131, 2
   %cmp7.i.i.i.i137 = icmp ult i64 %add.i.i.i.i136, %sub.ptr.div.i.i.i.i.i134
   %70 = call i64 @llvm.umin.i64(i64 %add.i.i.i.i136, i64 1152921504606846975)
   %cond.i.i.i.i138 = select i1 %cmp7.i.i.i.i137, i64 1152921504606846975, i64 %70
-  %cmp.not.i.i.i.i139 = icmp ne i64 %cond.i.i.i.i138, 0
-  call void @llvm.assume(i1 %cmp.not.i.i.i.i139)
   %mul.i.i.i.i.i.i140 = shl nuw nsw i64 %cond.i.i.i.i138, 3
   %call5.i.i.i.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i140) #32
   %add.ptr.i.i.i141 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i131

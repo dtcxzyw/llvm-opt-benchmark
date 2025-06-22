@@ -378,8 +378,7 @@ define range(i64 -46, 1) i64 @FSEv06_buildDTable(ptr noundef captures(none) %0, 
   %28 = lshr i32 %8, 1
   %29 = add nuw nsw i32 %27, 3
   %30 = add nuw nsw i32 %29, %28
-  %umax = tail call i32 @llvm.umax.i32(i32 %7, i32 1)
-  %wide.trip.count100 = zext nneg i32 %umax to i64
+  %wide.trip.count100 = zext nneg i32 %7 to i64
   br label %.preheader79
 
 .preheader79:                                     ; preds = %.preheader79.lr.ph, %._crit_edge89
@@ -8908,9 +8907,6 @@ declare i32 @llvm.smax.i32(i32, i32) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #26
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #26
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #27

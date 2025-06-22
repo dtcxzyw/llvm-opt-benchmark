@@ -2068,7 +2068,6 @@ define void @_ZN3net22QuicCryptoClientConfig11CachedState8SetProofERKSt6vectorIN
 
 .lr.ph:                                           ; preds = %.preheader
   %45 = ashr exact i64 %38, 5
-  %umax = call i64 @llvm.umax.i64(i64 %45, i64 1)
   br label %46
 
 46:                                               ; preds = %.lr.ph, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread49
@@ -2095,7 +2094,7 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit:
 
 _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread49: ; preds = %54, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit
   %58 = add nuw i64 %.051, 1
-  %exitcond.not = icmp eq i64 %58, %umax
+  %exitcond.not = icmp eq i64 %58, %45
   br i1 %exitcond.not, label %.loopexit, label %46, !llvm.loop !119
 
 .critedge:                                        ; preds = %46, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit, %.thread, %31

@@ -3750,7 +3750,6 @@ define hidden void @_ZNK4cvc58internal16DTypeConstructor14getCardinalityENS0_8Ty
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
   %13 = ashr exact i64 %12, 4
-  %umax = tail call i64 @llvm.umax.i64(i64 %13, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN4cvc58internal8TypeNodeD2Ev.exit
@@ -3810,7 +3809,7 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit:              ; preds = %_ZN4cvc58internal11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #29
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #29
   %34 = add nuw i64 %.0914, 1
-  %exitcond.not = icmp eq i64 %34, %umax
+  %exitcond.not = icmp eq i64 %34, %13
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !197
 
 35:                                               ; preds = %.lr.ph
@@ -6742,7 +6741,6 @@ define hidden noundef i32 @_ZNK4cvc58internal16DTypeConstructor23getSelectorInde
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %umax = tail call i64 @llvm.umax.i64(i64 %11, i64 1)
   br label %15
 
 15:                                               ; preds = %.lr.ph, %35
@@ -6799,7 +6797,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 35:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %36 = add nuw i64 %.0912, 1
-  %exitcond.not = icmp eq i64 %36, %umax
+  %exitcond.not = icmp eq i64 %36, %11
   br i1 %exitcond.not, label %.loopexit, label %15, !llvm.loop !248
 
 .loopexit:                                        ; preds = %35, %2, %33
@@ -6824,7 +6822,6 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal16DTypeConstructor20involves
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 4
-  %umax = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4cvc58internal8TypeNodeD2Ev.exit, %.lr.ph.preheader
@@ -6864,7 +6861,7 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal16DTypeConstructor20involves
 _ZN4cvc58internal8TypeNodeD2Ev.exit:              ; preds = %12, %16, %22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #29
   %26 = add nuw i64 %.0813, 1
-  %exitcond.not = icmp ne i64 %26, %umax
+  %exitcond.not = icmp ne i64 %26, %10
   %or.cond.not = select i1 %11, i1 %exitcond.not, i1 false
   br i1 %or.cond.not, label %.lr.ph, label %_ZN4cvc58internal8TypeNodeD2Ev.exit._crit_edge.loopexit, !llvm.loop !249
 
@@ -6899,7 +6896,6 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal16DTypeConstructor25involves
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 4
-  %umax = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4cvc58internal8TypeNodeD2Ev.exit, %.lr.ph.preheader
@@ -6939,7 +6935,7 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal16DTypeConstructor25involves
 _ZN4cvc58internal8TypeNodeD2Ev.exit:              ; preds = %12, %16, %22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #29
   %26 = add nuw i64 %.0813, 1
-  %exitcond.not = icmp ne i64 %26, %umax
+  %exitcond.not = icmp ne i64 %26, %10
   %or.cond.not = select i1 %11, i1 %exitcond.not, i1 false
   br i1 %or.cond.not, label %.lr.ph, label %_ZN4cvc58internal8TypeNodeD2Ev.exit._crit_edge.loopexit, !llvm.loop !250
 
@@ -7066,7 +7062,6 @@ _ZNSt6vectorIN4cvc58internal8TypeNodeESaIS2_EED2Ev.exit52: ; preds = %_ZNSt6vect
   %57 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %58 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %59 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %umax = call i64 @llvm.umax.i64(i64 %54, i64 1)
   br label %94
 
 ._crit_edge:                                      ; preds = %_ZN4cvc58internal8TypeNodeD2Ev.exit88, %42
@@ -7592,7 +7587,7 @@ _ZN4cvc58internal11CardinalityD2Ev.exit85:        ; preds = %248, %246
 _ZN4cvc58internal8TypeNodeD2Ev.exit88:            ; preds = %253, %257, %263
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #29
   %267 = add nuw i64 %.02291, 1
-  %exitcond.not = icmp eq i64 %267, %umax
+  %exitcond.not = icmp eq i64 %267, %54
   br i1 %exitcond.not, label %._crit_edge, label %94, !llvm.loop !254
 
 268:                                              ; preds = %227, %238, %_ZN4cvc58internal11CardinalityD2Ev.exit85, %225, %.body
@@ -7642,7 +7637,6 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal16DTypeConstructor18computeW
   %10 = ptrtoint ptr %7 to i64
   %11 = sub i64 %9, %10
   %12 = ashr exact i64 %11, 4
-  %umax = tail call i64 @llvm.umax.i64(i64 %12, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN4cvc58internal8TypeNodeD2Ev.exit
@@ -7706,7 +7700,7 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal16DTypeConstructor18computeW
 _ZN4cvc58internal8TypeNodeD2Ev.exit:              ; preds = %.critedge, %27, %33
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #29
   %37 = add nuw i64 %.01826, 1
-  %exitcond.not = icmp eq i64 %37, %umax
+  %exitcond.not = icmp eq i64 %37, %12
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !255
 
 38:                                               ; preds = %23
@@ -8078,12 +8072,11 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit:              ; preds = %_ZNSt6vectorIN4cvc5
   %168 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %169 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %170 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %umax = call i64 @llvm.umax.i64(i64 %161, i64 1)
   br label %173
 
 171:                                              ; preds = %_ZN4cvc58internal8TypeNodeD2Ev.exit326
   %172 = add nuw i64 %.077585, 1
-  %exitcond.not = icmp eq i64 %172, %umax
+  %exitcond.not = icmp eq i64 %172, %161
   br i1 %exitcond.not, label %.critedge129, label %173, !llvm.loop !259
 
 173:                                              ; preds = %.lr.ph, %171
@@ -13333,7 +13326,6 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit59:            ; preds = %_ZN4cvc58internal8T
   %211 = ashr exact i64 %210, 3
   %212 = load ptr, ptr %6, align 8, !tbaa !104
   %213 = load ptr, ptr %212, align 8, !tbaa !77
-  %umax = call i64 @llvm.umax.i64(i64 %211, i64 1)
   br label %214
 
 214:                                              ; preds = %.lr.ph103, %271
@@ -13477,7 +13469,7 @@ _ZNSt6vectorIN4cvc58internal8TypeNodeESaIS2_EED2Ev.exit: ; preds = %_ZSt8_Destro
 
 271:                                              ; preds = %214
   %272 = add nuw i64 %.031101, 1
-  %exitcond.not = icmp eq i64 %272, %umax
+  %exitcond.not = icmp eq i64 %272, %211
   br i1 %exitcond.not, label %.critedge, label %214, !llvm.loop !296
 
 .critedge:                                        ; preds = %271, %204, %._crit_edge
@@ -13506,7 +13498,6 @@ _ZNSt6vectorIN4cvc58internal8TypeNodeESaIS2_EED2Ev.exit: ; preds = %_ZSt8_Destro
   %285 = ptrtoint ptr %283 to i64
   %286 = sub i64 %284, %285
   %287 = ashr exact i64 %286, 3
-  %umax110 = call i64 @llvm.umax.i64(i64 %287, i64 1)
   br label %.lr.ph106
 
 ._crit_edge107:                                   ; preds = %_ZN4cvc58internal8TypeNodeD2Ev.exit65, %280
@@ -13583,7 +13574,7 @@ _ZN4cvc58internal8TypeNodeC2ERKS1_.exit63:        ; preds = %304, %298, %306
 
 _ZN4cvc58internal8TypeNodeD2Ev.exit65:            ; preds = %309, %313, %319
   %323 = add nuw i64 %.020104, 1
-  %exitcond111.not = icmp eq i64 %323, %umax110
+  %exitcond111.not = icmp eq i64 %323, %287
   br i1 %exitcond111.not, label %._crit_edge107, label %.lr.ph106, !llvm.loop !297
 
 324:                                              ; preds = %306

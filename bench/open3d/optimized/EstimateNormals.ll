@@ -2740,7 +2740,6 @@ _ZNSt6vectorIiSaIiEEC2ERKS1_.exit:                ; preds = %197, %195, %194, %.
   %202 = ptrtoint ptr %200 to i64
   %203 = sub i64 %201, %202
   %204 = ashr exact i64 %203, 2
-  %umax = call i64 @llvm.umax.i64(i64 %204, i64 1)
   br label %217
 
 ._crit_edge.i:                                    ; preds = %_ZNSt6vectorIdSaIdEE9push_backERKd.exit.i
@@ -2874,7 +2873,7 @@ _ZNSt6vectorIdSaIdEE9push_backERKd.exit.i:        ; preds = %_ZNSt6vectorIdSaIdE
   %.sroa.012.1.i = phi ptr [ %256, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i ], [ %.sroa.012.034.i, %243 ]
   %.sroa.10.1.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 8
   %262 = add nuw i64 %.035.i, 1
-  %exitcond.not = icmp eq i64 %262, %umax
+  %exitcond.not = icmp eq i64 %262, %204
   br i1 %exitcond.not, label %._crit_edge.i, label %217, !llvm.loop !137
 
 .loopexit.i:                                      ; preds = %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i.i

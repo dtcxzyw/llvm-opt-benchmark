@@ -4692,7 +4692,6 @@ _ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit:            ; preds = %.noexc186, %_ZNSt6v
   %31 = ptrtoint ptr %29 to i64
   %32 = sub i64 %30, %31
   %33 = ashr exact i64 %32, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %33, i64 1)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %59, %_ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit
@@ -4739,7 +4738,7 @@ _ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit:            ; preds = %.noexc186, %_ZNSt6v
 
 59:                                               ; preds = %55, %.lr.ph
   %60 = add nuw i64 %.0148283, 1
-  %exitcond.not = icmp eq i64 %60, %umax
+  %exitcond.not = icmp eq i64 %60, %33
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !303
 
 61:                                               ; preds = %._crit_edge
@@ -6567,7 +6566,6 @@ _ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit:            ; preds = %.noexc186, %_ZNSt6v
   %31 = ptrtoint ptr %29 to i64
   %32 = sub i64 %30, %31
   %33 = ashr exact i64 %32, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %33, i64 1)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %59, %_ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit
@@ -6614,7 +6612,7 @@ _ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit:            ; preds = %.noexc186, %_ZNSt6v
 
 59:                                               ; preds = %55, %.lr.ph
   %60 = add nuw i64 %.0148283, 1
-  %exitcond.not = icmp eq i64 %60, %umax
+  %exitcond.not = icmp eq i64 %60, %33
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !372
 
 61:                                               ; preds = %._crit_edge

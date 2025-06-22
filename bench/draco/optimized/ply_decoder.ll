@@ -4389,7 +4389,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit717: ; preds = %_Z
 .lr.ph764:                                        ; preds = %.preheader
   %807 = sext i32 %806 to i64
   %wide.trip.count777 = and i64 %210, 4294967295
-  %wide.trip.count772 = zext nneg i32 %.3144 to i64
   br label %812
 
 ._crit_edge765:                                   ; preds = %828, %.preheader
@@ -4445,7 +4444,7 @@ _ZNKSt8functionIFhiEEclEi.exit.i:                 ; preds = %814
   %826 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 0, i64 %indvars.iv769
   store i8 %824, ptr %826, align 1, !tbaa !22
   %indvars.iv.next770 = add nuw nsw i64 %indvars.iv769, 1
-  %exitcond773.not = icmp eq i64 %indvars.iv.next770, %wide.trip.count772
+  %exitcond773.not = icmp eq i64 %indvars.iv.next770, %803
   br i1 %exitcond773.not, label %828, label %814, !llvm.loop !151
 
 .loopexit:                                        ; preds = %_ZNKSt8functionIFhiEEclEi.exit.i

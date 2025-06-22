@@ -19003,7 +19003,7 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
 
 .lr.ph493.preheader:                              ; preds = %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6resizeEmm.exit417
   %573 = shl nuw i64 %470, 3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %572, i8 0, i64 %573, i1 false), !tbaa !273
+  call void @llvm.memset.p0.i64(ptr align 8 %572, i8 0, i64 %573, i1 false), !tbaa !273
   br label %.preheader476
 
 .preheader476:                                    ; preds = %.lr.ph493.preheader, %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6resizeEmm.exit417
@@ -27645,7 +27645,6 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8copyleft4cgal30points_
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %31 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %umax = call i64 @llvm.umax.i64(i64 %28, i64 1)
   br label %34
 
 32:                                               ; preds = %5
@@ -27694,7 +27693,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8copyleft4cgal30points_
 
 _ZNSt6vectorIN4CGAL7Point_3INS0_5EpeckEEESaIS3_EE12emplace_backIJRKdS8_S8_EEERS3_DpOT_.exit: ; preds = %50, %.noexc
   %51 = add nuw i64 %.05980, 1
-  %exitcond.not = icmp eq i64 %51, %umax
+  %exitcond.not = icmp eq i64 %51, %28
   br i1 %exitcond.not, label %._crit_edge, label %34, !llvm.loop !442
 
 52:                                               ; preds = %50, %46
@@ -117535,7 +117534,6 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8copyleft4cgal30points_
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %31 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %umax = call i64 @llvm.umax.i64(i64 %28, i64 1)
   br label %34
 
 32:                                               ; preds = %5
@@ -117584,7 +117582,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8copyleft4cgal30points_
 
 _ZNSt6vectorIN4CGAL7Point_3INS0_5EpeckEEESaIS3_EE12emplace_backIJRKNS0_13Lazy_exact_ntIN5boost14multiprecision6numberINS9_8backends16rational_adaptorINSB_15cpp_int_backendILm0ELm0ELNS9_16cpp_integer_typeE1ELNS9_18cpp_int_check_typeE0ESaIyEEEEELNS9_26expression_template_optionE1EEEEESN_SN_EEERS3_DpOT_.exit: ; preds = %50, %.noexc
   %51 = add nuw i64 %.05980, 1
-  %exitcond.not = icmp eq i64 %51, %umax
+  %exitcond.not = icmp eq i64 %51, %28
   br i1 %exitcond.not, label %._crit_edge, label %34, !llvm.loop !2767
 
 52:                                               ; preds = %50, %46
@@ -125735,7 +125733,6 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8copyleft4cgal30points_
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %31 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %umax = call i64 @llvm.umax.i64(i64 %28, i64 1)
   br label %34
 
 32:                                               ; preds = %5
@@ -125784,7 +125781,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8copyleft4cgal30points_
 
 _ZNSt6vectorIN4CGAL7Point_3INS0_5EpeckEEESaIS3_EE12emplace_backIJRKdS8_S8_EEERS3_DpOT_.exit: ; preds = %50, %.noexc
   %51 = add nuw i64 %.05980, 1
-  %exitcond.not = icmp eq i64 %51, %umax
+  %exitcond.not = icmp eq i64 %51, %28
   br i1 %exitcond.not, label %._crit_edge, label %34, !llvm.loop !2948
 
 52:                                               ; preds = %50, %46
@@ -133048,7 +133045,6 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8copyleft4cgal30points_
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %31 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %umax = call i64 @llvm.umax.i64(i64 %28, i64 1)
   br label %34
 
 32:                                               ; preds = %5
@@ -133097,7 +133093,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8copyleft4cgal30points_
 
 _ZNSt6vectorIN4CGAL7Point_3INS0_5EpeckEEESaIS3_EE12emplace_backIJRKNS0_13Lazy_exact_ntIN5boost14multiprecision6numberINS9_8backends16rational_adaptorINSB_15cpp_int_backendILm0ELm0ELNS9_16cpp_integer_typeE1ELNS9_18cpp_int_check_typeE0ESaIyEEEEELNS9_26expression_template_optionE1EEEEESN_SN_EEERS3_DpOT_.exit: ; preds = %50, %.noexc
   %51 = add nuw i64 %.05980, 1
-  %exitcond.not = icmp eq i64 %51, %umax
+  %exitcond.not = icmp eq i64 %51, %28
   br i1 %exitcond.not, label %._crit_edge, label %34, !llvm.loop !3187
 
 52:                                               ; preds = %50, %46
@@ -140548,7 +140544,6 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8copyleft4cgal30points_
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %31 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %umax = call i64 @llvm.umax.i64(i64 %28, i64 1)
   br label %34
 
 32:                                               ; preds = %5
@@ -140597,7 +140592,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8copyleft4cgal30points_
 
 _ZNSt6vectorIN4CGAL7Point_3INS0_5EpeckEEESaIS3_EE12emplace_backIJRKdS8_S8_EEERS3_DpOT_.exit: ; preds = %50, %.noexc
   %51 = add nuw i64 %.05980, 1
-  %exitcond.not = icmp eq i64 %51, %umax
+  %exitcond.not = icmp eq i64 %51, %28
   br i1 %exitcond.not, label %._crit_edge, label %34, !llvm.loop !3426
 
 52:                                               ; preds = %50, %46

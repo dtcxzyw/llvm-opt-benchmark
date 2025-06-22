@@ -7667,7 +7667,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit143: ; preds = %_Z
   %311 = sub i64 %309, %310
   %312 = ashr exact i64 %311, 5
   %313 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %umax = call i64 @llvm.umax.i64(i64 %312, i64 1)
   br label %314
 
 314:                                              ; preds = %.lr.ph, %376
@@ -7854,7 +7853,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit164: ; preds = %_Z
 376:                                              ; preds = %314
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %29) #30
   %377 = add nuw i64 %.0219, 1
-  %exitcond.not = icmp eq i64 %377, %umax
+  %exitcond.not = icmp eq i64 %377, %312
   br i1 %exitcond.not, label %.critedge80, label %314, !llvm.loop !198
 
 378:                                              ; preds = %.noexc.i.i157, %347, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i159, %_ZN7testing7MessageD2Ev.exit155

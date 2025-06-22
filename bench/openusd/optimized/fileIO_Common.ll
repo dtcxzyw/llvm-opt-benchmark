@@ -6370,14 +6370,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility4PutsERNS_14Sdf_TextOutp
 
 37:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility4PutsERNS_14Sdf_TextOutputEmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i, %3
   %.not42.i = icmp eq ptr %15, %16
-  br i1 %.not42.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L16_WriteNameVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRNS_14Sdf_TextOutputEmRKSt6vectorIT_SaISA_EE.exit, label %.lr.ph.preheader.i
+  br i1 %.not42.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L16_WriteNameVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRNS_14Sdf_TextOutputEmRKSt6vectorIT_SaISA_EE.exit, label %.lr.ph.i
 
-.lr.ph.preheader.i:                               ; preds = %37
-  %umax.i = call i64 @llvm.umax.i64(i64 %20, i64 1)
-  br label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility17WriteQuotedStringERNS_14Sdf_TextOutputEmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i, %.lr.ph.preheader.i
-  %.01841.i = phi i64 [ %57, %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility17WriteQuotedStringERNS_14Sdf_TextOutputEmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i ], [ 0, %.lr.ph.preheader.i ]
+.lr.ph.i:                                         ; preds = %37, %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility17WriteQuotedStringERNS_14Sdf_TextOutputEmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i
+  %.01841.i = phi i64 [ %57, %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility17WriteQuotedStringERNS_14Sdf_TextOutputEmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i ], [ 0, %37 ]
   %.not.i = icmp eq i64 %.01841.i, 0
   br i1 %.not.i, label %53, label %38
 
@@ -6468,7 +6464,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility17WriteQuotedStringERNS_
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #18
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   %57 = add nuw i64 %.01841.i, 1
-  %exitcond.not.i = icmp eq i64 %57, %umax.i
+  %exitcond.not.i = icmp eq i64 %57, %20
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !16
 
 ._crit_edge.i:                                    ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility17WriteQuotedStringERNS_14Sdf_TextOutputEmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i
@@ -6644,14 +6640,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility4PutsERNS_14Sdf_TextOutp
 
 37:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility4PutsERNS_14Sdf_TextOutputEmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i, %3
   %.not42.i = icmp eq ptr %15, %16
-  br i1 %.not42.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L16_WriteNameVectorINS_7TfTokenEEEbRNS_14Sdf_TextOutputEmRKSt6vectorIT_SaIS5_EE.exit, label %.lr.ph.preheader.i
+  br i1 %.not42.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L16_WriteNameVectorINS_7TfTokenEEEbRNS_14Sdf_TextOutputEmRKSt6vectorIT_SaIS5_EE.exit, label %.lr.ph.i
 
-.lr.ph.preheader.i:                               ; preds = %37
-  %umax.i = call i64 @llvm.umax.i64(i64 %20, i64 1)
-  br label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility17WriteQuotedStringERNS_14Sdf_TextOutputEmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i, %.lr.ph.preheader.i
-  %.01841.i = phi i64 [ %66, %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility17WriteQuotedStringERNS_14Sdf_TextOutputEmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i ], [ 0, %.lr.ph.preheader.i ]
+.lr.ph.i:                                         ; preds = %37, %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility17WriteQuotedStringERNS_14Sdf_TextOutputEmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i
+  %.01841.i = phi i64 [ %66, %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility17WriteQuotedStringERNS_14Sdf_TextOutputEmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i ], [ 0, %37 ]
   %.not.i = icmp eq i64 %.01841.i, 0
   br i1 %.not.i, label %53, label %38
 
@@ -6759,7 +6751,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility17WriteQuotedStringERNS_
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #18
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   %66 = add nuw i64 %.01841.i, 1
-  %exitcond.not.i = icmp eq i64 %66, %umax.i
+  %exitcond.not.i = icmp eq i64 %66, %20
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !17
 
 ._crit_edge.i:                                    ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility17WriteQuotedStringERNS_14Sdf_TextOutputEmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i
@@ -14885,9 +14877,6 @@ declare i64 @llvm.umin.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #17
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #16
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn }

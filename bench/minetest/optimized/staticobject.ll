@@ -1115,7 +1115,6 @@ for.body.lr.ph:                                   ; preds = %_ZNSt6vectorI12Stat
   %18 = getelementptr inbounds nuw i8, ptr %s_obj, i64 32
   %_M_string_length.i.i.i.i = getelementptr inbounds nuw i8, ptr %s_obj, i64 24
   %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %umax = call i16 @llvm.umax.i16(i16 %rev.i.i.i, i16 1)
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %_ZN12StaticObjectD2Ev.exit, %_ZNSt6vectorI12StaticObjectSaIS0_EE5clearEv.exit
@@ -1212,7 +1211,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont18
 _ZN12StaticObjectD2Ev.exit:                       ; preds = %if.then.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %s_obj) #21
   %inc = add nuw i16 %i.074, 1
-  %exitcond.not = icmp eq i16 %inc, %umax
+  %exitcond.not = icmp eq i16 %inc, %rev.i.i.i
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !61
 
 lpad:                                             ; preds = %if.else.i, %if.then.i.i.i.i.i.i, %for.body
@@ -1980,9 +1979,6 @@ declare i64 @llvm.umin.i64(i64, i64) #17
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #19
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.umax.i16(i16, i16) #17
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare <2 x i32> @llvm.bswap.v2i32(<2 x i32>) #17

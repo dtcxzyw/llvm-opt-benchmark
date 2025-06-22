@@ -10257,7 +10257,6 @@ _ZNSt6vectorIjSaIjEE5clearEv.exit:                ; preds = %9, %13
   %100 = sub i64 %98, %99
   %101 = sdiv exact i64 %100, 12
   %102 = load ptr, ptr %15, align 8, !tbaa !133
-  %umax = tail call i64 @llvm.umax.i64(i64 %101, i64 1)
   br label %105
 
 ._crit_edge353:                                   ; preds = %284, %.preheader
@@ -10529,7 +10528,7 @@ _ZN8TINShiftL22distance_point_segmentEddddddd.exit276: ; preds = %248, %254, %26
   %.1240 = phi double [ %.0239350, %156 ], [ %.0239350, %150 ], [ %.0239350, %144 ], [ %.0239350, %105 ], [ %.0239350, %162 ], [ %.0.i275, %269 ], [ %.4243, %_ZN8TINShiftL22distance_point_segmentEddddddd.exit276 ], [ %281, %283 ], [ %.0239350, %270 ], [ %.0239350, %181 ]
   %.1234 = phi double [ %.0233351, %156 ], [ %.0233351, %150 ], [ %.0233351, %144 ], [ %.0233351, %105 ], [ %.0233351, %162 ], [ %sqrt343, %269 ], [ %.4237, %_ZN8TINShiftL22distance_point_segmentEddddddd.exit276 ], [ %sqrt344, %283 ], [ %.0233351, %270 ], [ %.0233351, %181 ]
   %285 = add nuw i64 %.0253348, 1
-  %exitcond.not = icmp eq i64 %285, %umax
+  %exitcond.not = icmp eq i64 %285, %101
   br i1 %exitcond.not, label %._crit_edge353, label %105, !llvm.loop !257
 
 286:                                              ; preds = %._crit_edge353

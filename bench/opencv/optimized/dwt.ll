@@ -4912,7 +4912,6 @@ opj_v8dwt_interleave_v.exit.i:                    ; preds = %.lr.ph29.i.i, %._cr
   %285 = udiv i32 %81, %spec.select279.i
   %286 = and i32 %285, -8
   %287 = and i32 %81, -8
-  %umax387.i = tail call i32 @llvm.umax.i32(i32 %spec.select279.i, i32 1)
   br label %288
 
 288:                                              ; preds = %294, %283
@@ -4968,8 +4967,7 @@ opj_v8dwt_interleave_v.exit.i:                    ; preds = %.lr.ph29.i.i, %._cr
   %311 = zext i32 %309 to i64
   %312 = getelementptr inbounds nuw float, ptr %.7242333.i, i64 %311
   %313 = tail call i32 @opj_thread_pool_submit_job(ptr noundef %12, ptr noundef nonnull @opj_dwt97_decode_v_func, ptr noundef nonnull %289) #16, !noalias !183
-  %exitcond388.not.i = icmp eq i32 %305, %umax387.i
-  br i1 %exitcond388.not.i, label %314, label %288, !llvm.loop !235
+  br i1 %306, label %314, label %288, !llvm.loop !235
 
 314:                                              ; preds = %294
   tail call void @opj_thread_pool_wait_completion(ptr noundef %12, i32 noundef 0) #16, !noalias !183

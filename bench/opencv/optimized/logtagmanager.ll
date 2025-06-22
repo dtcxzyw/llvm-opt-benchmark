@@ -1478,7 +1478,6 @@ _ZNKSt6vectorIN2cv5utils7logging13LogTagManager14CrossReferenceESaIS4_EE2atEm.ex
   %28 = ptrtoint ptr %26 to i64
   %29 = sub i64 %27, %28
   %30 = sdiv exact i64 %29, 40
-  %umax = tail call i64 @llvm.umax.i64(i64 %30, i64 1)
   br label %_ZNKSt6vectorIN2cv5utils7logging13LogTagManager14CrossReferenceESaIS4_EE2atEm.exit
 
 _ZNKSt6vectorIN2cv5utils7logging13LogTagManager14CrossReferenceESaIS4_EE2atEm.exit: ; preds = %_ZNKSt6vectorIN2cv5utils7logging13LogTagManager14CrossReferenceESaIS4_EE2atEm.exit.preheader, %.critedge
@@ -1507,7 +1506,7 @@ _ZN2cv5utils7logging13LogTagManager24internal_isNamePartMatchENS2_13MatchingScop
 
 .critedge:                                        ; preds = %_ZNKSt6vectorIN2cv5utils7logging13LogTagManager14CrossReferenceESaIS4_EE2atEm.exit, %_ZN2cv5utils7logging13LogTagManager24internal_isNamePartMatchENS2_13MatchingScopeEm.exit
   %41 = add nuw i64 %.03041, 1
-  %exitcond.not = icmp eq i64 %41, %umax
+  %exitcond.not = icmp eq i64 %41, %30
   br i1 %exitcond.not, label %.critedge35, label %_ZNKSt6vectorIN2cv5utils7logging13LogTagManager14CrossReferenceESaIS4_EE2atEm.exit, !llvm.loop !118
 
 .critedge35:                                      ; preds = %.critedge, %22, %_ZN2cv5utils7logging13LogTagManager24internal_isNamePartMatchENS2_13MatchingScopeEm.exit.thread, %2
@@ -2134,16 +2133,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit37: ; preds = %_ZN
 
 _ZNKSt6vectorIN2cv5utils7logging13LogTagManager14CrossReferenceESaIS4_EE2atEm.exit.lr.ph: ; preds = %49
   switch i32 %35, label %.loopexit [
-    i32 2, label %_ZNKSt6vectorIN2cv5utils7logging13LogTagManager14CrossReferenceESaIS4_EE2atEm.exit.us.preheader
+    i32 2, label %_ZNKSt6vectorIN2cv5utils7logging13LogTagManager14CrossReferenceESaIS4_EE2atEm.exit.us
     i32 3, label %_ZNKSt6vectorIN2cv5utils7logging13LogTagManager14CrossReferenceESaIS4_EE2atEm.exit.lr.ph.split.us42
   ]
 
-_ZNKSt6vectorIN2cv5utils7logging13LogTagManager14CrossReferenceESaIS4_EE2atEm.exit.us.preheader: ; preds = %_ZNKSt6vectorIN2cv5utils7logging13LogTagManager14CrossReferenceESaIS4_EE2atEm.exit.lr.ph
-  %umax52 = tail call i64 @llvm.umax.i64(i64 %31, i64 1)
-  br label %_ZNKSt6vectorIN2cv5utils7logging13LogTagManager14CrossReferenceESaIS4_EE2atEm.exit.us
-
-_ZNKSt6vectorIN2cv5utils7logging13LogTagManager14CrossReferenceESaIS4_EE2atEm.exit.us: ; preds = %_ZNKSt6vectorIN2cv5utils7logging13LogTagManager14CrossReferenceESaIS4_EE2atEm.exit.us.preheader, %_ZN2cv5utils7logging13LogTagManager24internal_isNamePartMatchENS2_13MatchingScopeEm.exit.thread39.us
-  %.02741.us = phi i64 [ %63, %_ZN2cv5utils7logging13LogTagManager24internal_isNamePartMatchENS2_13MatchingScopeEm.exit.thread39.us ], [ 0, %_ZNKSt6vectorIN2cv5utils7logging13LogTagManager14CrossReferenceESaIS4_EE2atEm.exit.us.preheader ]
+_ZNKSt6vectorIN2cv5utils7logging13LogTagManager14CrossReferenceESaIS4_EE2atEm.exit.us: ; preds = %_ZNKSt6vectorIN2cv5utils7logging13LogTagManager14CrossReferenceESaIS4_EE2atEm.exit.lr.ph, %_ZN2cv5utils7logging13LogTagManager24internal_isNamePartMatchENS2_13MatchingScopeEm.exit.thread39.us
+  %.02741.us = phi i64 [ %63, %_ZN2cv5utils7logging13LogTagManager24internal_isNamePartMatchENS2_13MatchingScopeEm.exit.thread39.us ], [ 0, %_ZNKSt6vectorIN2cv5utils7logging13LogTagManager14CrossReferenceESaIS4_EE2atEm.exit.lr.ph ]
   %51 = getelementptr inbounds nuw %"struct.cv::utils::logging::LogTagManager::CrossReference", ptr %27, i64 %.02741.us
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 24
   %53 = load ptr, ptr %52, align 8, !tbaa !129
@@ -2170,12 +2165,11 @@ _ZN2cv5utils7logging13LogTagManager24internal_isNamePartMatchENS2_13MatchingScop
 
 _ZN2cv5utils7logging13LogTagManager24internal_isNamePartMatchENS2_13MatchingScopeEm.exit.thread39.us: ; preds = %_ZN2cv5utils7logging13LogTagManager24internal_isNamePartMatchENS2_13MatchingScopeEm.exit.thread.us, %_ZN2cv5utils7logging13LogTagManager24internal_isNamePartMatchENS2_13MatchingScopeEm.exit.us, %55, %_ZNKSt6vectorIN2cv5utils7logging13LogTagManager14CrossReferenceESaIS4_EE2atEm.exit.us
   %63 = add nuw i64 %.02741.us, 1
-  %exitcond53.not = icmp eq i64 %63, %umax52
+  %exitcond53.not = icmp eq i64 %63, %31
   br i1 %exitcond53.not, label %.loopexit, label %_ZNKSt6vectorIN2cv5utils7logging13LogTagManager14CrossReferenceESaIS4_EE2atEm.exit.us, !llvm.loop !130
 
 _ZNKSt6vectorIN2cv5utils7logging13LogTagManager14CrossReferenceESaIS4_EE2atEm.exit.lr.ph.split.us42: ; preds = %_ZNKSt6vectorIN2cv5utils7logging13LogTagManager14CrossReferenceESaIS4_EE2atEm.exit.lr.ph
   %invariant.gep48 = getelementptr i8, ptr %27, i64 24
-  %umax = tail call i64 @llvm.umax.i64(i64 %31, i64 1)
   br label %_ZNKSt6vectorIN2cv5utils7logging13LogTagManager14CrossReferenceESaIS4_EE2atEm.exit.us43
 
 _ZNKSt6vectorIN2cv5utils7logging13LogTagManager14CrossReferenceESaIS4_EE2atEm.exit.us43: ; preds = %_ZN2cv5utils7logging13LogTagManager24internal_isNamePartMatchENS2_13MatchingScopeEm.exit.thread39.us47, %_ZNKSt6vectorIN2cv5utils7logging13LogTagManager14CrossReferenceESaIS4_EE2atEm.exit.lr.ph.split.us42
@@ -2199,7 +2193,7 @@ _ZN2cv5utils7logging13LogTagManager24internal_isNamePartMatchENS2_13MatchingScop
 
 _ZN2cv5utils7logging13LogTagManager24internal_isNamePartMatchENS2_13MatchingScopeEm.exit.thread39.us47: ; preds = %_ZN2cv5utils7logging13LogTagManager24internal_isNamePartMatchENS2_13MatchingScopeEm.exit.thread.us46, %66, %_ZNKSt6vectorIN2cv5utils7logging13LogTagManager14CrossReferenceESaIS4_EE2atEm.exit.us43
   %71 = add nuw i64 %.02741.us44, 1
-  %exitcond.not = icmp eq i64 %71, %umax
+  %exitcond.not = icmp eq i64 %71, %31
   br i1 %exitcond.not, label %.loopexit, label %_ZNKSt6vectorIN2cv5utils7logging13LogTagManager14CrossReferenceESaIS4_EE2atEm.exit.us43, !llvm.loop !130
 
 .loopexit:                                        ; preds = %_ZN2cv5utils7logging13LogTagManager24internal_isNamePartMatchENS2_13MatchingScopeEm.exit.thread39.us47, %_ZN2cv5utils7logging13LogTagManager24internal_isNamePartMatchENS2_13MatchingScopeEm.exit.thread39.us, %_ZNKSt6vectorIN2cv5utils7logging13LogTagManager14CrossReferenceESaIS4_EE2atEm.exit.lr.ph, %49, %23
@@ -2645,17 +2639,13 @@ define hidden void @_ZN2cv5utils7logging13LogTagManager9NameTable29internal_addO
 _ZNSt6vectorImSaImEE6resizeEmRKm.exit:            ; preds = %20, %22, %24, %26
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #24
   %.not = icmp eq ptr %6, %7
-  br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %_ZNSt6vectorImSaImEE6resizeEmRKm.exit
-  %umax = call i64 @llvm.umax.i64(i64 %11, i64 1)
-  br label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorImSaImEE2atEm.exit, %_ZNSt6vectorImSaImEE6resizeEmRKm.exit
   ret void
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNSt6vectorImSaImEE2atEm.exit
-  %.018 = phi i64 [ %44, %_ZNSt6vectorImSaImEE2atEm.exit ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %_ZNSt6vectorImSaImEE6resizeEmRKm.exit, %_ZNSt6vectorImSaImEE2atEm.exit
+  %.018 = phi i64 [ %44, %_ZNSt6vectorImSaImEE2atEm.exit ], [ 0, %_ZNSt6vectorImSaImEE6resizeEmRKm.exit ]
   %27 = load ptr, ptr %5, align 8, !tbaa !82
   %28 = load ptr, ptr %1, align 8, !tbaa !81
   %29 = ptrtoint ptr %27 to i64
@@ -2689,7 +2679,7 @@ _ZNSt6vectorImSaImEE2atEm.exit:                   ; preds = %_ZNKSt6vectorINSt7_
   %43 = getelementptr inbounds nuw i64, ptr %37, i64 %.018
   store i64 %35, ptr %43, align 8, !tbaa !49
   %44 = add nuw i64 %.018, 1
-  %exitcond.not = icmp eq i64 %44, %umax
+  %exitcond.not = icmp eq i64 %44, %11
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !145
 }
 
@@ -2712,7 +2702,6 @@ define hidden void @_ZN2cv5utils7logging13LogTagManager9NameTable26internal_addC
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %umax = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %17
 
 ._crit_edge:                                      ; preds = %_ZNSt18unordered_multimapImSt4pairImmESt4hashImESt8equal_toImESaIS0_IKmS1_EEE7emplaceIJRS6_S1_EEENSt8__detail14_Node_iteratorIS7_Lb0ELb0EEEDpOT_.exit, %3
@@ -2813,7 +2802,7 @@ _ZNSt10_HashtableImSt4pairIKmS0_ImmEESaIS3_ENSt8__detail10_Select1stESt8equal_to
 
 _ZNSt18unordered_multimapImSt4pairImmESt4hashImESt8equal_toImESaIS0_IKmS1_EEE7emplaceIJRS6_S1_EEENSt8__detail14_Node_iteratorIS7_Lb0ELb0EEEDpOT_.exit: ; preds = %.loopexit.i.i.i.i7
   %47 = add nuw i64 %storemerge30, 1
-  %exitcond.not = icmp eq i64 %47, %umax
+  %exitcond.not = icmp eq i64 %47, %10
   br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !151
 }
 
@@ -2925,7 +2914,6 @@ _ZNSt6vectorIN2cv5utils7logging13LogTagManager14CrossReferenceESaIS4_EE7reserveE
 .lr.ph:                                           ; preds = %_ZNSt6vectorIN2cv5utils7logging13LogTagManager14CrossReferenceESaIS4_EE7reserveEm.exit
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %umax = tail call i64 @llvm.umax.i64(i64 %14, i64 1)
   br label %45
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIN2cv5utils7logging13LogTagManager14CrossReferenceESaIS4_EE12emplace_backIJS4_EEEvDpOT_.exit, %_ZNSt6vectorIN2cv5utils7logging13LogTagManager14CrossReferenceESaIS4_EE7reserveEm.exit
@@ -3050,7 +3038,7 @@ _ZNSt6vectorIN2cv5utils7logging13LogTagManager14CrossReferenceESaIS4_EE12emplace
   %88 = phi ptr [ %47, %66 ], [ %86, %_ZNSt6vectorIN2cv5utils7logging13LogTagManager14CrossReferenceESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i ]
   %89 = phi ptr [ %67, %66 ], [ %84, %_ZNSt6vectorIN2cv5utils7logging13LogTagManager14CrossReferenceESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i ]
   %90 = add nuw i64 %.041, 1
-  %exitcond.not = icmp eq i64 %90, %umax
+  %exitcond.not = icmp eq i64 %90, %14
   br i1 %exitcond.not, label %._crit_edge, label %45, !llvm.loop !165
 }
 

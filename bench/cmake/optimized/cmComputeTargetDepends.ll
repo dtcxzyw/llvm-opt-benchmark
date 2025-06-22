@@ -978,7 +978,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit26: ; preds = %_ZN
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %3) #24
   call void @_ZN23cmComputeComponentGraphC1ERK20cmGraphAdjacencyList(ptr noundef nonnull align 8 dereferenceable(224) %3, ptr noundef nonnull align 8 dereferenceable(24) %8)
   invoke void @_ZN23cmComputeComponentGraph7ComputeEv(ptr noundef nonnull align 8 dereferenceable(224) %3)
-          to label %49 unwind label %.loopexit.split-lp86
+          to label %49 unwind label %.loopexit.split-lp85
 
 49:                                               ; preds = %48
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 104
@@ -986,7 +986,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit26: ; preds = %_ZN
   %52 = load ptr, ptr %51, align 8, !tbaa !213
   %53 = load ptr, ptr %50, align 8, !tbaa !216
   %.not2843.i = icmp eq ptr %52, %53
-  br i1 %.not2843.i, label %.loopexit91, label %.lr.ph.i27
+  br i1 %.not2843.i, label %.loopexit90, label %.lr.ph.i27
 
 .lr.ph.i27:                                       ; preds = %49
   %54 = ptrtoint ptr %52 to i64
@@ -994,7 +994,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit26: ; preds = %_ZN
   %56 = sub i64 %54, %55
   %57 = sdiv exact i64 %56, 24
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %umax.i = call i64 @llvm.umax.i64(i64 %57, i64 1)
   br label %59
 
 59:                                               ; preds = %.loopexit.i, %.lr.ph.i27
@@ -1031,7 +1030,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit26: ; preds = %_ZN
   %76 = getelementptr inbounds nuw ptr, ptr %75, i64 %74
   %77 = load ptr, ptr %76, align 8, !tbaa !218
   %78 = invoke noundef i32 @_ZNK17cmGeneratorTarget7GetTypeEv(ptr noundef nonnull align 8 dereferenceable(2912) %77)
-          to label %.noexc29 unwind label %.loopexit85
+          to label %.noexc29 unwind label %.loopexit84
 
 .noexc29:                                         ; preds = %.critedge.i
   %.not.i28 = icmp eq i32 %78, 1
@@ -1039,30 +1038,30 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit26: ; preds = %_ZN
 
 .loopexit.i:                                      ; preds = %72, %.preheader.i, %59
   %79 = add nuw i64 %.02344.i, 1
-  %exitcond.not.i = icmp eq i64 %79, %umax.i
-  br i1 %exitcond.not.i, label %.loopexit91, label %59, !llvm.loop !220
+  %exitcond.not.i = icmp eq i64 %79, %57
+  br i1 %exitcond.not.i, label %.loopexit90, label %59, !llvm.loop !220
 
 .critedge30.sink.split.i:                         ; preds = %69, %.noexc29
   invoke void @_ZN22cmComputeTargetDepends25ComplainAboutBadComponentERK23cmComputeComponentGraphmb(ptr noundef nonnull readonly align 8 dereferenceable(232) %0, ptr noundef nonnull readonly align 8 dereferenceable(224) %3, i64 noundef %.02344.i, i1 noundef zeroext false)
-          to label %_ZN22cmComputeTargetDepends15CheckComponentsERK23cmComputeComponentGraph.exit unwind label %.loopexit.split-lp86
+          to label %_ZN22cmComputeTargetDepends15CheckComponentsERK23cmComputeComponentGraph.exit unwind label %.loopexit.split-lp85
 
-.loopexit85:                                      ; preds = %.critedge.i
-  %lpad.loopexit87 = landingpad { ptr, i32 }
+.loopexit84:                                      ; preds = %.critedge.i
+  %lpad.loopexit86 = landingpad { ptr, i32 }
           cleanup
   br label %187
 
-.loopexit.split-lp86:                             ; preds = %48, %.loopexit91, %80, %84, %.critedge30.sink.split.i
-  %lpad.loopexit.split-lp88 = landingpad { ptr, i32 }
+.loopexit.split-lp85:                             ; preds = %48, %.loopexit90, %80, %84, %.critedge30.sink.split.i
+  %lpad.loopexit.split-lp87 = landingpad { ptr, i32 }
           cleanup
   br label %187
 
-.loopexit91:                                      ; preds = %.loopexit.i, %49
+.loopexit90:                                      ; preds = %.loopexit.i, %49
   invoke void @_ZN22cmComputeTargetDepends18CollectSideEffectsEv(ptr noundef nonnull align 8 dereferenceable(232) %0)
-          to label %80 unwind label %.loopexit.split-lp86
+          to label %80 unwind label %.loopexit.split-lp85
 
-80:                                               ; preds = %.loopexit91
+80:                                               ; preds = %.loopexit90
   invoke void @_ZN22cmComputeTargetDepends24ComputeIntermediateGraphEv(ptr noundef nonnull align 8 dereferenceable(232) %0)
-          to label %81 unwind label %.loopexit.split-lp86
+          to label %81 unwind label %.loopexit.split-lp85
 
 81:                                               ; preds = %80
   %82 = load i8, ptr %27, align 8, !tbaa !177, !range !211, !noundef !212
@@ -1071,7 +1070,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit26: ; preds = %_ZN
 
 84:                                               ; preds = %81
   invoke void @_ZN22cmComputeTargetDepends18DisplaySideEffectsEv(ptr noundef nonnull align 8 dereferenceable(232) %0)
-          to label %._crit_edge.i.i31 unwind label %.loopexit.split-lp86
+          to label %._crit_edge.i.i31 unwind label %.loopexit.split-lp85
 
 ._crit_edge.i.i31:                                ; preds = %84
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #24
@@ -1183,12 +1182,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47: ; preds = %_ZN
           cleanup
   br label %186
 
-.loopexit:                                        ; preds = %.critedge.i57
+.loopexit:                                        ; preds = %.critedge.i56
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %185
 
-.loopexit.split-lp:                               ; preds = %106, %.loopexit84, %.critedge30.sink.split.i60
+.loopexit.split-lp:                               ; preds = %106, %.loopexit83, %.critedge30.sink.split.i59
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %185
@@ -1222,7 +1221,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50: ; preds = %_ZN
   %133 = load ptr, ptr %132, align 8, !tbaa !213
   %134 = load ptr, ptr %131, align 8, !tbaa !216
   %.not2843.i51 = icmp eq ptr %133, %134
-  br i1 %.not2843.i51, label %.loopexit84, label %.lr.ph.i52
+  br i1 %.not2843.i51, label %.loopexit83, label %.lr.ph.i52
 
 .lr.ph.i52:                                       ; preds = %130
   %135 = ptrtoint ptr %133 to i64
@@ -1230,13 +1229,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50: ; preds = %_ZN
   %137 = sub i64 %135, %136
   %138 = sdiv exact i64 %137, 24
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %umax.i53 = call i64 @llvm.umax.i64(i64 %138, i64 1)
   br label %140
 
-140:                                              ; preds = %.loopexit.i63, %.lr.ph.i52
-  %.02344.i54 = phi i64 [ 0, %.lr.ph.i52 ], [ %160, %.loopexit.i63 ]
+140:                                              ; preds = %.loopexit.i62, %.lr.ph.i52
+  %.02344.i53 = phi i64 [ 0, %.lr.ph.i52 ], [ %160, %.loopexit.i62 ]
   %141 = load ptr, ptr %131, align 8, !tbaa !216
-  %142 = getelementptr inbounds nuw %struct.cmGraphNodeList, ptr %141, i64 %.02344.i54
+  %142 = getelementptr inbounds nuw %struct.cmGraphNodeList, ptr %141, i64 %.02344.i53
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 8
   %144 = load ptr, ptr %143, align 8, !tbaa !217
   %145 = load ptr, ptr %142, align 8, !tbaa !179
@@ -1244,57 +1242,57 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50: ; preds = %_ZN
   %147 = ptrtoint ptr %145 to i64
   %148 = sub i64 %146, %147
   %149 = icmp ult i64 %148, 9
-  br i1 %149, label %.loopexit.i63, label %150
+  br i1 %149, label %.loopexit.i62, label %150
 
 150:                                              ; preds = %140
   %151 = load i8, ptr %139, align 1, !tbaa !178, !range !211, !noundef !212
   %152 = trunc nuw i8 %151 to i1
-  br i1 %152, label %.critedge30.sink.split.i60, label %.preheader.i55
+  br i1 %152, label %.critedge30.sink.split.i59, label %.preheader.i54
 
-.preheader.i55:                                   ; preds = %150
-  %.not3541.i56 = icmp eq ptr %145, %144
-  br i1 %.not3541.i56, label %.loopexit.i63, label %.critedge.i57
+.preheader.i54:                                   ; preds = %150
+  %.not3541.i55 = icmp eq ptr %145, %144
+  br i1 %.not3541.i55, label %.loopexit.i62, label %.critedge.i56
 
-153:                                              ; preds = %.noexc65
-  %154 = getelementptr inbounds nuw i8, ptr %.sroa.031.042.i58, i64 8
-  %.not35.i62 = icmp eq ptr %154, %144
-  br i1 %.not35.i62, label %.loopexit.i63, label %.critedge.i57
+153:                                              ; preds = %.noexc64
+  %154 = getelementptr inbounds nuw i8, ptr %.sroa.031.042.i57, i64 8
+  %.not35.i61 = icmp eq ptr %154, %144
+  br i1 %.not35.i61, label %.loopexit.i62, label %.critedge.i56
 
-.critedge.i57:                                    ; preds = %.preheader.i55, %153
-  %.sroa.031.042.i58 = phi ptr [ %154, %153 ], [ %145, %.preheader.i55 ]
-  %155 = load i64, ptr %.sroa.031.042.i58, align 8, !tbaa !173
+.critedge.i56:                                    ; preds = %.preheader.i54, %153
+  %.sroa.031.042.i57 = phi ptr [ %154, %153 ], [ %145, %.preheader.i54 ]
+  %155 = load i64, ptr %.sroa.031.042.i57, align 8, !tbaa !173
   %156 = load ptr, ptr %9, align 8, !tbaa !181
   %157 = getelementptr inbounds nuw ptr, ptr %156, i64 %155
   %158 = load ptr, ptr %157, align 8, !tbaa !218
   %159 = invoke noundef i32 @_ZNK17cmGeneratorTarget7GetTypeEv(ptr noundef nonnull align 8 dereferenceable(2912) %158)
-          to label %.noexc65 unwind label %.loopexit
+          to label %.noexc64 unwind label %.loopexit
 
-.noexc65:                                         ; preds = %.critedge.i57
-  %.not.i59 = icmp eq i32 %159, 1
-  br i1 %.not.i59, label %153, label %.critedge30.sink.split.i60
+.noexc64:                                         ; preds = %.critedge.i56
+  %.not.i58 = icmp eq i32 %159, 1
+  br i1 %.not.i58, label %153, label %.critedge30.sink.split.i59
 
-.loopexit.i63:                                    ; preds = %153, %.preheader.i55, %140
-  %160 = add nuw i64 %.02344.i54, 1
-  %exitcond.not.i64 = icmp eq i64 %160, %umax.i53
-  br i1 %exitcond.not.i64, label %.loopexit84, label %140, !llvm.loop !220
+.loopexit.i62:                                    ; preds = %153, %.preheader.i54, %140
+  %160 = add nuw i64 %.02344.i53, 1
+  %exitcond.not.i63 = icmp eq i64 %160, %138
+  br i1 %exitcond.not.i63, label %.loopexit83, label %140, !llvm.loop !220
 
-.critedge30.sink.split.i60:                       ; preds = %150, %.noexc65
-  invoke void @_ZN22cmComputeTargetDepends25ComplainAboutBadComponentERK23cmComputeComponentGraphmb(ptr noundef nonnull readonly align 8 dereferenceable(232) %0, ptr noundef nonnull readonly align 8 dereferenceable(224) %5, i64 noundef %.02344.i54, i1 noundef zeroext false)
-          to label %_ZN22cmComputeTargetDepends15CheckComponentsERK23cmComputeComponentGraph.exit67 unwind label %.loopexit.split-lp
+.critedge30.sink.split.i59:                       ; preds = %150, %.noexc64
+  invoke void @_ZN22cmComputeTargetDepends25ComplainAboutBadComponentERK23cmComputeComponentGraphmb(ptr noundef nonnull readonly align 8 dereferenceable(232) %0, ptr noundef nonnull readonly align 8 dereferenceable(224) %5, i64 noundef %.02344.i53, i1 noundef zeroext false)
+          to label %_ZN22cmComputeTargetDepends15CheckComponentsERK23cmComputeComponentGraph.exit66 unwind label %.loopexit.split-lp
 
-.loopexit84:                                      ; preds = %.loopexit.i63, %130
+.loopexit83:                                      ; preds = %.loopexit.i62, %130
   %161 = invoke noundef zeroext i1 @_ZN22cmComputeTargetDepends19ComputeFinalDependsERK23cmComputeComponentGraph(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef nonnull align 8 dereferenceable(224) %5)
           to label %162 unwind label %.loopexit.split-lp
 
-162:                                              ; preds = %.loopexit84
-  br i1 %161, label %163, label %_ZN22cmComputeTargetDepends15CheckComponentsERK23cmComputeComponentGraph.exit67
+162:                                              ; preds = %.loopexit83
+  br i1 %161, label %163, label %_ZN22cmComputeTargetDepends15CheckComponentsERK23cmComputeComponentGraph.exit66
 
 163:                                              ; preds = %162
   %164 = load i8, ptr %27, align 8, !tbaa !177, !range !211, !noundef !212
   %165 = trunc nuw i8 %164 to i1
-  br i1 %165, label %._crit_edge.i.i68, label %_ZN22cmComputeTargetDepends15CheckComponentsERK23cmComputeComponentGraph.exit67
+  br i1 %165, label %._crit_edge.i.i67, label %_ZN22cmComputeTargetDepends15CheckComponentsERK23cmComputeComponentGraph.exit66
 
-._crit_edge.i.i68:                                ; preds = %163
+._crit_edge.i.i67:                                ; preds = %163
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #24
   %166 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %166, ptr %7, align 8, !tbaa !172
@@ -1307,58 +1305,58 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50: ; preds = %_ZN
   invoke void @_ZN22cmComputeTargetDepends12DisplayGraphERK20cmGraphAdjacencyListRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef nonnull align 8 dereferenceable(24) %169, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %170 unwind label %177
 
-170:                                              ; preds = %._crit_edge.i.i68
+170:                                              ; preds = %._crit_edge.i.i67
   %171 = load ptr, ptr %7, align 8, !tbaa !174
   %172 = icmp eq ptr %171, %166
-  br i1 %172, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i73, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i72
+  br i1 %172, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i72, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i71
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i73: ; preds = %170
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i72: ; preds = %170
   %173 = load i64, ptr %167, align 8, !tbaa !176
   %174 = icmp ult i64 %173, 16
   call void @llvm.assume(i1 %174)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit74
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i72: ; preds = %170
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i71: ; preds = %170
   %175 = load i64, ptr %166, align 8, !tbaa !175
   %176 = add i64 %175, 1
   call void @_ZdlPvm(ptr noundef %171, i64 noundef %176) #25
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit74
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit74: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i73, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i72
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i72, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i71
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #24
-  br label %_ZN22cmComputeTargetDepends15CheckComponentsERK23cmComputeComponentGraph.exit67
+  br label %_ZN22cmComputeTargetDepends15CheckComponentsERK23cmComputeComponentGraph.exit66
 
-177:                                              ; preds = %._crit_edge.i.i68
+177:                                              ; preds = %._crit_edge.i.i67
   %178 = landingpad { ptr, i32 }
           cleanup
   %179 = load ptr, ptr %7, align 8, !tbaa !174
   %180 = icmp eq ptr %179, %166
-  br i1 %180, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i76, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i75
+  br i1 %180, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i75, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i74
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i76: ; preds = %177
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i75: ; preds = %177
   %181 = load i64, ptr %167, align 8, !tbaa !176
   %182 = icmp ult i64 %181, 16
   call void @llvm.assume(i1 %182)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit77
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit76
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i75: ; preds = %177
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i74: ; preds = %177
   %183 = load i64, ptr %166, align 8, !tbaa !175
   %184 = add i64 %183, 1
   call void @_ZdlPvm(ptr noundef %179, i64 noundef %184) #25
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit77
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit76
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit77: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i75, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i76
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit76: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i74, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i75
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #24
   br label %185
 
-_ZN22cmComputeTargetDepends15CheckComponentsERK23cmComputeComponentGraph.exit67: ; preds = %.critedge30.sink.split.i60, %163, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit74, %162
-  %.112 = phi i1 [ false, %162 ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit74 ], [ true, %163 ], [ false, %.critedge30.sink.split.i60 ]
+_ZN22cmComputeTargetDepends15CheckComponentsERK23cmComputeComponentGraph.exit66: ; preds = %.critedge30.sink.split.i59, %163, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73, %162
+  %.112 = phi i1 [ false, %162 ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73 ], [ true, %163 ], [ false, %.critedge30.sink.split.i59 ]
   call void @_ZN23cmComputeComponentGraphD1Ev(ptr noundef nonnull align 8 dereferenceable(224) %5) #24
   call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %5) #24
   br label %_ZN22cmComputeTargetDepends15CheckComponentsERK23cmComputeComponentGraph.exit
 
-185:                                              ; preds = %.loopexit, %.loopexit.split-lp, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit77, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50
-  %.pn18.pn = phi { ptr, i32 } [ %178, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit77 ], [ %123, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+185:                                              ; preds = %.loopexit, %.loopexit.split-lp, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit76, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50
+  %.pn18.pn = phi { ptr, i32 } [ %178, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit76 ], [ %123, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN23cmComputeComponentGraphD1Ev(ptr noundef nonnull align 8 dereferenceable(224) %5) #24
   br label %186
 
@@ -1367,14 +1365,14 @@ _ZN22cmComputeTargetDepends15CheckComponentsERK23cmComputeComponentGraph.exit67:
   call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %5) #24
   br label %187
 
-_ZN22cmComputeTargetDepends15CheckComponentsERK23cmComputeComponentGraph.exit: ; preds = %.critedge30.sink.split.i, %_ZN22cmComputeTargetDepends15CheckComponentsERK23cmComputeComponentGraph.exit67
-  %.011 = phi i1 [ %.112, %_ZN22cmComputeTargetDepends15CheckComponentsERK23cmComputeComponentGraph.exit67 ], [ false, %.critedge30.sink.split.i ]
+_ZN22cmComputeTargetDepends15CheckComponentsERK23cmComputeComponentGraph.exit: ; preds = %.critedge30.sink.split.i, %_ZN22cmComputeTargetDepends15CheckComponentsERK23cmComputeComponentGraph.exit66
+  %.011 = phi i1 [ %.112, %_ZN22cmComputeTargetDepends15CheckComponentsERK23cmComputeComponentGraph.exit66 ], [ false, %.critedge30.sink.split.i ]
   call void @_ZN23cmComputeComponentGraphD1Ev(ptr noundef nonnull align 8 dereferenceable(224) %3) #24
   call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %3) #24
   ret i1 %.011
 
-187:                                              ; preds = %.loopexit85, %.loopexit.split-lp86, %186, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40
-  %.pn18.pn.pn.pn = phi { ptr, i32 } [ %.pn18.pn.pn, %186 ], [ %97, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40 ], [ %lpad.loopexit87, %.loopexit85 ], [ %lpad.loopexit.split-lp88, %.loopexit.split-lp86 ]
+187:                                              ; preds = %.loopexit84, %.loopexit.split-lp85, %186, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40
+  %.pn18.pn.pn.pn = phi { ptr, i32 } [ %.pn18.pn.pn, %186 ], [ %97, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40 ], [ %lpad.loopexit86, %.loopexit84 ], [ %lpad.loopexit.split-lp87, %.loopexit.split-lp85 ]
   call void @_ZN23cmComputeComponentGraphD1Ev(ptr noundef nonnull align 8 dereferenceable(224) %3) #24
   call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %3) #24
   br label %188
@@ -1631,7 +1629,6 @@ define dso_local void @_ZN22cmComputeTargetDepends12DisplayGraphERK20cmGraphAdja
   %12 = sub i64 %10, %11
   %13 = sdiv exact i64 %12, 24
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %umax = tail call i64 @llvm.umax.i64(i64 %13, i64 1)
   br label %16
 
 ._crit_edge26:                                    ; preds = %._crit_edge, %3
@@ -1658,7 +1655,7 @@ define dso_local void @_ZN22cmComputeTargetDepends12DisplayGraphERK20cmGraphAdja
 
 ._crit_edge:                                      ; preds = %.lr.ph, %16
   %29 = add nuw i64 %.023, 1
-  %exitcond.not = icmp eq i64 %29, %umax
+  %exitcond.not = icmp eq i64 %29, %13
   br i1 %exitcond.not, label %._crit_edge26, label %16, !llvm.loop !235
 
 .lr.ph:                                           ; preds = %16, %.lr.ph
@@ -1700,7 +1697,6 @@ define dso_local noundef zeroext i1 @_ZN22cmComputeTargetDepends15CheckComponent
   %10 = sdiv exact i64 %9, 24
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %umax = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %13
 
 13:                                               ; preds = %.lr.ph, %.loopexit
@@ -1742,7 +1738,7 @@ define dso_local noundef zeroext i1 @_ZN22cmComputeTargetDepends15CheckComponent
 
 .loopexit:                                        ; preds = %26, %.preheader, %13
   %33 = add nuw i64 %.02344, 1
-  %exitcond.not = icmp eq i64 %33, %umax
+  %exitcond.not = icmp eq i64 %33, %10
   br i1 %exitcond.not, label %.critedge30, label %13, !llvm.loop !220
 
 .critedge30.sink.split:                           ; preds = %23, %.critedge
@@ -1893,7 +1889,6 @@ _ZNSt6vectorIN22cmComputeTargetDepends17TargetSideEffectsESaIS1_EE6resizeEm.exit
   %60 = ptrtoint ptr %53 to i64
   %61 = sub i64 %59, %60
   %62 = sdiv exact i64 %61, 24
-  %umax = call i64 @llvm.umax.i64(i64 %62, i64 1)
   br label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %67
@@ -1923,7 +1918,7 @@ _ZNSt3setImSt4lessImESaImEED2Ev.exit:             ; preds = %._crit_edge
 
 67:                                               ; preds = %.lr.ph
   %68 = add nuw i64 %.014, 1
-  %exitcond.not = icmp eq i64 %68, %umax
+  %exitcond.not = icmp eq i64 %68, %62
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !244
 
 69:                                               ; preds = %.lr.ph
@@ -1962,7 +1957,6 @@ define dso_local void @_ZN22cmComputeTargetDepends24ComputeIntermediateGraphEv(p
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %umax = tail call i64 @llvm.umax.i64(i64 %18, i64 1)
   br label %22
 
 ._crit_edge:                                      ; preds = %64, %1
@@ -2074,7 +2068,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit26: ; preds = %_ZN
 
 64:                                               ; preds = %62, %60, %51, %33
   %65 = add nuw i64 %.02131, 1
-  %exitcond.not = icmp eq i64 %65, %umax
+  %exitcond.not = icmp eq i64 %65, %18
   br i1 %exitcond.not, label %._crit_edge, label %22, !llvm.loop !245
 }
 
@@ -2098,7 +2092,6 @@ define dso_local void @_ZN22cmComputeTargetDepends18DisplaySideEffectsEv(ptr nou
   %13 = sdiv exact i64 %12, 96
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %umax = tail call i64 @llvm.umax.i64(i64 %13, i64 1)
   br label %17
 
 ._crit_edge43:                                    ; preds = %._crit_edge39, %1
@@ -2165,7 +2158,7 @@ define dso_local void @_ZN22cmComputeTargetDepends18DisplaySideEffectsEv(ptr nou
 
 ._crit_edge39:                                    ; preds = %._crit_edge, %.loopexit
   %52 = add nuw i64 %.040, 1
-  %exitcond.not = icmp eq i64 %52, %umax
+  %exitcond.not = icmp eq i64 %52, %13
   br i1 %exitcond.not, label %._crit_edge43, label %17, !llvm.loop !246
 
 .lr.ph38:                                         ; preds = %.loopexit, %._crit_edge
@@ -2222,7 +2215,6 @@ define dso_local void @_ZN22cmComputeTargetDepends17DisplayComponentsERK23cmComp
   %13 = sub i64 %11, %12
   %14 = sdiv exact i64 %13, 24
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %umax = tail call i64 @llvm.umax.i64(i64 %14, i64 1)
   br label %17
 
 ._crit_edge22:                                    ; preds = %._crit_edge, %3
@@ -2244,7 +2236,7 @@ define dso_local void @_ZN22cmComputeTargetDepends17DisplayComponentsERK23cmComp
 
 ._crit_edge:                                      ; preds = %.lr.ph, %17
   %25 = add nuw i64 %.019, 1
-  %exitcond.not = icmp eq i64 %25, %umax
+  %exitcond.not = icmp eq i64 %25, %14
   br i1 %exitcond.not, label %._crit_edge22, label %17, !llvm.loop !248
 
 .lr.ph:                                           ; preds = %17, %.lr.ph
@@ -2528,7 +2520,6 @@ _ZNSt3setImSt4lessImESaImEED2Ev.exit73:           ; preds = %.critedge63
   %111 = ptrtoint ptr %109 to i64
   %112 = sub i64 %110, %111
   %113 = sdiv exact i64 %112, 24
-  %umax122 = call i64 @llvm.umax.i64(i64 %113, i64 1)
   br label %.lr.ph117
 
 .lr.ph117:                                        ; preds = %.lr.ph117.preheader, %._crit_edge
@@ -2546,7 +2537,7 @@ _ZNSt3setImSt4lessImESaImEED2Ev.exit73:           ; preds = %.critedge63
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorI11cmGraphEdgeSaIS0_EE12emplace_backIJRmbbRK19cmListFileBacktraceEEERS0_DpOT_.exit, %.lr.ph117
   %122 = add nuw i64 %.057116, 1
-  %exitcond123.not = icmp eq i64 %122, %umax122
+  %exitcond123.not = icmp eq i64 %122, %113
   br i1 %exitcond123.not, label %.loopexit, label %.lr.ph117, !llvm.loop !258
 
 .lr.ph115:                                        ; preds = %.lr.ph117, %_ZNSt6vectorI11cmGraphEdgeSaIS0_EE12emplace_backIJRmbbRK19cmListFileBacktraceEEERS0_DpOT_.exit

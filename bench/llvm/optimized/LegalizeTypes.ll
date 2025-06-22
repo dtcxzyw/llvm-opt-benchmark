@@ -2024,13 +2024,10 @@ _ZN4llvm16DAGTypeLegalizer15AnalyzeNewValueERNS_7SDValueE.exit: ; preds = %18, %
 
 _ZNKSt6vectorIN4llvm7SDValueESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %65
   %71 = ashr exact i64 %68, 4
-  %.sroa.speculated.i.i.i = call i64 @llvm.umax.i64(i64 %71, i64 1)
-  %72 = add nsw i64 %.sroa.speculated.i.i.i, %71
+  %72 = ashr exact i64 %68, 3
   %73 = icmp ult i64 %72, %71
   %74 = call i64 @llvm.umin.i64(i64 %72, i64 576460752303423487)
   %75 = select i1 %73, i64 576460752303423487, i64 %74
-  %.not.i.i.i = icmp ne i64 %75, 0
-  call void @llvm.assume(i1 %.not.i.i.i)
   %76 = shl nuw nsw i64 %75, 4
   %77 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %76) #22
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 %68

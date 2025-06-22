@@ -7272,7 +7272,6 @@ define void @_ZN3gmx16nbnxn_atomdata_t16clearForceBufferEi(ptr noundef nonnull r
   %.sroa.01.0.copyload.i = load i64, ptr %3, align 8
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.22.0.copyload.i = load i64, ptr %.sroa.22.0..sroa_idx.i, align 8, !tbaa !114
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %26, i64 1)
   br label %27
 
 27:                                               ; preds = %36, %.lr.ph.i
@@ -7334,7 +7333,7 @@ _ZN3gmxL14clearBufferAllENS_8ArrayRefIfEE.exit.i: ; preds = %_ZL19bitmask_is_dis
 
 36:                                               ; preds = %_ZN3gmxL14clearBufferAllENS_8ArrayRefIfEE.exit.i, %_ZL19bitmask_is_disjointSt5arrayImLm2EES0_.exit.i
   %37 = add nuw i64 %.016.i, 1
-  %exitcond.not.i = icmp eq i64 %37, %umax.i
+  %exitcond.not.i = icmp eq i64 %37, %26
   br i1 %exitcond.not.i, label %_ZN3gmxL18clearBufferFlaggedILi3EEEviNS_8ArrayRefIKSt5arrayImLm2EEEENS1_IfEE.exit, label %27, !llvm.loop !344
 
 _ZN3gmxL18clearBufferFlaggedILi3EEEviNS_8ArrayRefIKSt5arrayImLm2EEEENS1_IfEE.exit: ; preds = %36, %7

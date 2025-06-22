@@ -3179,8 +3179,7 @@ define internal range(i32 0, 2) i32 @H5S__hyper_is_contiguous(ptr noundef readon
 34:                                               ; preds = %26, %19
   %35 = add i32 %16, -1
   %36 = zext i32 %35 to i64
-  %umax = tail call i32 @llvm.umax.i32(i32 %16, i32 1)
-  %wide.trip.count = zext i32 %umax to i64
+  %wide.trip.count = zext i32 %16 to i64
   br label %37
 
 37:                                               ; preds = %34, %47
@@ -22151,9 +22150,6 @@ declare i64 @llvm.umin.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #13
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umax.i8(i8, i8) #13

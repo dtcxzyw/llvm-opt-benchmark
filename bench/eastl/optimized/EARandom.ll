@@ -707,8 +707,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp414.not, label %for.end17, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %if.then
-  %umax = tail call i32 @llvm.umax.i32(i32 %cond, i32 1)
-  %wide.trip.count = zext nneg i32 %umax to i64
+  %wide.trip.count = zext nneg i32 %cond to i64
   br label %for.body
 
 for.cond8.preheader:                              ; preds = %for.body
@@ -1026,9 +1025,6 @@ declare i32 @llvm.umin.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #9
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10

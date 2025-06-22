@@ -9664,21 +9664,17 @@ _ZStneIN5Yosys5RTLIL5StateESaIS2_EEbRKSt6vectorIT_T0_ES9_.exit: ; preds = %53, %
 
 .preheader:                                       ; preds = %110
   %115 = icmp eq ptr %10, %11
-  br i1 %115, label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread, label %.lr.ph.preheader
+  br i1 %115, label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %.preheader
-  %umax = tail call i64 @llvm.umax.i64(i64 %15, i64 1)
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
-  %.02341 = phi i64 [ 0, %.lr.ph.preheader ], [ %121, %.lr.ph ]
+.lr.ph:                                           ; preds = %.preheader, %.lr.ph
+  %.02341 = phi i64 [ %121, %.lr.ph ], [ 0, %.preheader ]
   %116 = getelementptr inbounds nuw ptr, ptr %11, i64 %.02341
   %117 = load ptr, ptr %116, align 8, !tbaa !55
   %118 = getelementptr inbounds nuw ptr, ptr %19, i64 %.02341
   %119 = load ptr, ptr %118, align 8, !tbaa !55
   %120 = tail call noundef zeroext i1 @_ZNK5Yosys3AST7AstNodeeqERKS1_(ptr noundef nonnull align 8 dereferenceable(284) %117, ptr noundef nonnull align 8 dereferenceable(284) %119)
   %121 = add nuw i64 %.02341, 1
-  %exitcond.not = icmp ne i64 %121, %umax
+  %exitcond.not = icmp ne i64 %121, %15
   %or.cond.not = select i1 %120, i1 %exitcond.not, i1 false
   br i1 %or.cond.not, label %.lr.ph, label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread, !llvm.loop !201
 
@@ -22099,12 +22095,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   %441 = ptrtoint ptr %439 to i64
   %442 = sub i64 %440, %441
   %443 = ashr exact i64 %442, 3
-  %umax = call i64 @llvm.umax.i64(i64 %443, i64 1)
   br label %.critedge
 
 444:                                              ; preds = %.critedge
   %445 = add nuw i64 %.074814, 1
-  %exitcond.not = icmp eq i64 %445, %umax
+  %exitcond.not = icmp eq i64 %445, %443
   br i1 %exitcond.not, label %.loopexit, label %.critedge, !llvm.loop !474
 
 .critedge:                                        ; preds = %.critedge.preheader, %444

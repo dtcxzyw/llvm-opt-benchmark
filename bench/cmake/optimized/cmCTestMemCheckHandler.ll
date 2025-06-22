@@ -12972,7 +12972,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit273: ; preds = %_Z
   %409 = ptrtoint ptr %407 to i64
   %410 = sub i64 %408, %409
   %411 = ashr exact i64 %410, 2
-  %umax = call i64 @llvm.umax.i64(i64 %411, i64 1)
   br label %.lr.ph768
 
 ._crit_edge769:                                   ; preds = %461, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit273
@@ -13141,7 +13140,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit295: ; preds = %_Z
   %466 = add nsw i32 %465, %462
   store i32 %466, ptr %464, align 4, !tbaa !194
   %467 = add nuw i64 %.078767, 1
-  %exitcond.not = icmp eq i64 %467, %umax
+  %exitcond.not = icmp eq i64 %467, %411
   br i1 %exitcond.not, label %._crit_edge769, label %.lr.ph768, !llvm.loop !231
 
 468:                                              ; preds = %._crit_edge769
@@ -24575,7 +24574,6 @@ define dso_local noundef i64 @_ZN22cmCTestMemCheckHandler16FindOrAddWarningERKNS
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load i64, ptr %13, align 8, !tbaa !12
   %15 = load ptr, ptr %1, align 8
-  %umax = tail call i64 @llvm.umax.i64(i64 %12, i64 1)
   %16 = icmp eq i64 %14, 0
   br label %17
 
@@ -24598,7 +24596,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread17: ; preds = %17, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
   %25 = add nuw i64 %.0925, 1
-  %exitcond.not = icmp eq i64 %25, %umax
+  %exitcond.not = icmp eq i64 %25, %12
   br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !463
 
 ._crit_edge:                                      ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread17, %2

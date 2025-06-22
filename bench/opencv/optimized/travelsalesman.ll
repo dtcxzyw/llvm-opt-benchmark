@@ -165,7 +165,6 @@ define hidden noundef double @_ZNK14TravelSalesman6energyEv(ptr noundef nonnull 
   %10 = ashr exact i64 %9, 2
   %11 = load ptr, ptr %0, align 8, !tbaa !4
   %12 = load ptr, ptr %11, align 8, !tbaa !17
-  %umax = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %13
 
 ._crit_edge:                                      ; preds = %13, %1
@@ -195,7 +194,7 @@ define hidden noundef double @_ZNK14TravelSalesman6energyEv(ptr noundef nonnull 
   %sqrt.i = tail call noundef double @llvm.sqrt.f64(double %26)
   %27 = fadd double %.0612, %sqrt.i
   %28 = add nuw i64 %.013, 1
-  %exitcond.not = icmp eq i64 %28, %umax
+  %exitcond.not = icmp eq i64 %28, %10
   br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !32
 }
 
@@ -656,7 +655,6 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit98: ; preds = %_ZNSo
   %198 = ashr exact i64 %197, 2
   %199 = load ptr, ptr %14, align 8, !tbaa !4
   %200 = load ptr, ptr %199, align 8, !tbaa !17
-  %umax.i = call i64 @llvm.umax.i64(i64 %198, i64 1)
   br label %201
 
 201:                                              ; preds = %201, %.lr.ph.i100
@@ -682,7 +680,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit98: ; preds = %_ZNSo
   %sqrt.i.i = call noundef double @llvm.sqrt.f64(double %214)
   %215 = fadd double %.0612.i, %sqrt.i.i
   %216 = add nuw i64 %.013.i, 1
-  %exitcond.not.i = icmp eq i64 %216, %umax.i
+  %exitcond.not.i = icmp eq i64 %216, %198
   br i1 %exitcond.not.i, label %_ZNK14TravelSalesman6energyEv.exit, label %201, !llvm.loop !32
 
 _ZNK14TravelSalesman6energyEv.exit:               ; preds = %201, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit98
@@ -1168,7 +1166,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit72: ; preds = %_ZN
   %83 = ashr exact i64 %82, 2
   %84 = load ptr, ptr %0, align 8, !tbaa !4
   %85 = load ptr, ptr %84, align 8, !tbaa !17
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %83, i64 1)
   br label %86
 
 86:                                               ; preds = %86, %.lr.ph.i
@@ -1194,7 +1191,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit72: ; preds = %_ZN
   %sqrt.i.i = tail call noundef double @llvm.sqrt.f64(double %99)
   %100 = fadd double %.0612.i, %sqrt.i.i
   %101 = add nuw i64 %.013.i, 1
-  %exitcond.not.i = icmp eq i64 %101, %umax.i
+  %exitcond.not.i = icmp eq i64 %101, %83
   br i1 %exitcond.not.i, label %.preheader.lr.ph, label %86, !llvm.loop !32
 
 .preheader.lr.ph:                                 ; preds = %86, %74
@@ -1218,24 +1215,23 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit72: ; preds = %_ZN
   %118 = ptrtoint ptr %79 to i64
   %119 = sub i64 %117, %118
   %120 = ashr exact i64 %119, 2
-  %umax.i75 = tail call i64 @llvm.umax.i64(i64 %120, i64 1)
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %121
-  %.03992 = phi i32 [ 0, %.preheader.lr.ph ], [ %.241, %121 ]
-  %.04391 = phi double [ %.06.lcssa.i, %.preheader.lr.ph ], [ %.245, %121 ]
-  %.04790 = phi double [ %1, %.preheader.lr.ph ], [ %122, %121 ]
+  %.03991 = phi i32 [ 0, %.preheader.lr.ph ], [ %.241, %121 ]
+  %.04390 = phi double [ %.06.lcssa.i, %.preheader.lr.ph ], [ %.245, %121 ]
+  %.04789 = phi double [ %1, %.preheader.lr.ph ], [ %122, %121 ]
   br label %124
 
 121:                                              ; preds = %201
-  %122 = fmul double %3, %.04790
+  %122 = fmul double %3, %.04789
   %123 = fcmp ogt double %122, %2
   br i1 %123, label %.preheader, label %._crit_edge, !llvm.loop !88
 
 124:                                              ; preds = %.preheader, %201
-  %.03889 = phi i64 [ 0, %.preheader ], [ %202, %201 ]
-  %.14088 = phi i32 [ %.03992, %.preheader ], [ %.241, %201 ]
-  %.14487 = phi double [ %.04391, %.preheader ], [ %.245, %201 ]
+  %.03888 = phi i64 [ 0, %.preheader ], [ %202, %201 ]
+  %.14087 = phi i32 [ %.03991, %.preheader ], [ %.241, %201 ]
+  %.14486 = phi double [ %.04390, %.preheader ], [ %.245, %201 ]
   br i1 %111, label %_ZN14TravelSalesman11changeStateEv.exit, label %125
 
 125:                                              ; preds = %124
@@ -1274,44 +1270,44 @@ _ZN14TravelSalesman11changeStateEv.exit:          ; preds = %124, %125
   %148 = sext i32 %143 to i64
   %149 = getelementptr inbounds nuw i32, ptr %79, i64 %148
   store i32 %147, ptr %149, align 4, !tbaa !24
-  br i1 %.not.i, label %_ZNK14TravelSalesman6energyEv.exit85, label %.lr.ph.i74
+  br i1 %.not.i, label %_ZNK14TravelSalesman6energyEv.exit84, label %.lr.ph.i74
 
 .lr.ph.i74:                                       ; preds = %_ZN14TravelSalesman11changeStateEv.exit, %.lr.ph.i74
-  %.013.i76 = phi i64 [ %164, %.lr.ph.i74 ], [ 0, %_ZN14TravelSalesman11changeStateEv.exit ]
-  %.0612.i77 = phi double [ %163, %.lr.ph.i74 ], [ 0.000000e+00, %_ZN14TravelSalesman11changeStateEv.exit ]
-  %150 = getelementptr inbounds nuw %"class.cv::Point_", ptr %105, i64 %.013.i76
-  %151 = getelementptr inbounds nuw i32, ptr %79, i64 %.013.i76
+  %.013.i75 = phi i64 [ %164, %.lr.ph.i74 ], [ 0, %_ZN14TravelSalesman11changeStateEv.exit ]
+  %.0612.i76 = phi double [ %163, %.lr.ph.i74 ], [ 0.000000e+00, %_ZN14TravelSalesman11changeStateEv.exit ]
+  %150 = getelementptr inbounds nuw %"class.cv::Point_", ptr %105, i64 %.013.i75
+  %151 = getelementptr inbounds nuw i32, ptr %79, i64 %.013.i75
   %152 = load i32, ptr %151, align 4, !tbaa !24
   %153 = sext i32 %152 to i64
   %154 = getelementptr inbounds nuw %"class.cv::Point_", ptr %105, i64 %153
-  %.val.i78 = load i32, ptr %150, align 4, !tbaa !29
+  %.val.i77 = load i32, ptr %150, align 4, !tbaa !29
   %155 = getelementptr i8, ptr %150, i64 4
-  %.val7.i79 = load i32, ptr %155, align 4, !tbaa !31
-  %.val8.i80 = load i32, ptr %154, align 4, !tbaa !29
+  %.val7.i78 = load i32, ptr %155, align 4, !tbaa !31
+  %.val8.i79 = load i32, ptr %154, align 4, !tbaa !29
   %156 = getelementptr i8, ptr %154, i64 4
-  %.val9.i81 = load i32, ptr %156, align 4, !tbaa !31
-  %157 = sub nsw i32 %.val.i78, %.val8.i80
-  %158 = sub nsw i32 %.val7.i79, %.val9.i81
+  %.val9.i80 = load i32, ptr %156, align 4, !tbaa !31
+  %157 = sub nsw i32 %.val.i77, %.val8.i79
+  %158 = sub nsw i32 %.val7.i78, %.val9.i80
   %159 = sitofp i32 %157 to double
   %160 = sitofp i32 %158 to double
   %161 = fmul double %160, %160
   %162 = tail call double @llvm.fmuladd.f64(double %159, double %159, double %161)
-  %sqrt.i.i82 = tail call noundef double @llvm.sqrt.f64(double %162)
-  %163 = fadd double %.0612.i77, %sqrt.i.i82
-  %164 = add nuw i64 %.013.i76, 1
-  %exitcond.not.i83 = icmp eq i64 %164, %umax.i75
-  br i1 %exitcond.not.i83, label %_ZNK14TravelSalesman6energyEv.exit85, label %.lr.ph.i74, !llvm.loop !32
+  %sqrt.i.i81 = tail call noundef double @llvm.sqrt.f64(double %162)
+  %163 = fadd double %.0612.i76, %sqrt.i.i81
+  %164 = add nuw i64 %.013.i75, 1
+  %exitcond.not.i82 = icmp eq i64 %164, %120
+  br i1 %exitcond.not.i82, label %_ZNK14TravelSalesman6energyEv.exit84, label %.lr.ph.i74, !llvm.loop !32
 
-_ZNK14TravelSalesman6energyEv.exit85:             ; preds = %.lr.ph.i74, %_ZN14TravelSalesman11changeStateEv.exit
-  %.06.lcssa.i84 = phi double [ 0.000000e+00, %_ZN14TravelSalesman11changeStateEv.exit ], [ %163, %.lr.ph.i74 ]
-  %165 = fcmp olt double %.06.lcssa.i84, %.14487
+_ZNK14TravelSalesman6energyEv.exit84:             ; preds = %.lr.ph.i74, %_ZN14TravelSalesman11changeStateEv.exit
+  %.06.lcssa.i83 = phi double [ 0.000000e+00, %_ZN14TravelSalesman11changeStateEv.exit ], [ %163, %.lr.ph.i74 ]
+  %165 = fcmp olt double %.06.lcssa.i83, %.14486
   br i1 %165, label %166, label %168
 
-166:                                              ; preds = %_ZNK14TravelSalesman6energyEv.exit85
-  %167 = add nsw i32 %.14088, 1
+166:                                              ; preds = %_ZNK14TravelSalesman6energyEv.exit84
+  %167 = add nsw i32 %.14087, 1
   br label %201
 
-168:                                              ; preds = %_ZNK14TravelSalesman6energyEv.exit85
+168:                                              ; preds = %_ZNK14TravelSalesman6energyEv.exit84
   %169 = load i64, ptr %6, align 8, !tbaa !18
   %170 = and i64 %169, 4294967295
   %171 = mul nuw i64 %170, 4164903690
@@ -1327,15 +1323,15 @@ _ZNK14TravelSalesman6energyEv.exit85:             ; preds = %.lr.ph.i74, %_ZN14T
   %180 = or disjoint i64 %179, %174
   %181 = uitofp i64 %180 to double
   %182 = fmul double %181, 0x3BF0000000000000
-  %183 = fsub double %.06.lcssa.i84, %.14487
+  %183 = fsub double %.06.lcssa.i83, %.14486
   %184 = fneg double %183
-  %185 = fdiv double %184, %.04790
+  %185 = fdiv double %184, %.04789
   %186 = tail call double @exp(double noundef %185) #18, !tbaa !24
   %187 = fcmp olt double %182, %186
   br i1 %187, label %188, label %190
 
 188:                                              ; preds = %168
-  %189 = add nsw i32 %.14088, 1
+  %189 = add nsw i32 %.14087, 1
   br label %201
 
 190:                                              ; preds = %168
@@ -1355,9 +1351,9 @@ _ZNK14TravelSalesman6energyEv.exit85:             ; preds = %.lr.ph.i74, %_ZN14T
   br label %201
 
 201:                                              ; preds = %188, %190, %166
-  %.245 = phi double [ %.06.lcssa.i84, %166 ], [ %.06.lcssa.i84, %188 ], [ %.14487, %190 ]
-  %.241 = phi i32 [ %167, %166 ], [ %189, %188 ], [ %.14088, %190 ]
-  %202 = add nuw i64 %.03889, 1
+  %.245 = phi double [ %.06.lcssa.i83, %166 ], [ %.06.lcssa.i83, %188 ], [ %.14486, %190 ]
+  %.241 = phi i32 [ %167, %166 ], [ %189, %188 ], [ %.14087, %190 ]
+  %202 = add nuw i64 %.03888, 1
   %exitcond.not = icmp eq i64 %202, %4
   br i1 %exitcond.not, label %121, label %124, !llvm.loop !89
 
@@ -1435,9 +1431,6 @@ declare void @llvm.assume(i1 noundef) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.sqrt.f64(double) #16
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17

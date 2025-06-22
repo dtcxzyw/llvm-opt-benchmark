@@ -37655,134 +37655,134 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_read_scaling_list
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 24
   br label %.preheader
 
-.preheader:                                       ; preds = %3, %68
-  %indvars.iv104 = phi i64 [ 0, %3 ], [ %indvars.iv.next105, %68 ]
+.preheader:                                       ; preds = %3, %69
+  %indvars.iv104 = phi i64 [ 0, %3 ], [ %indvars.iv.next105, %69 ]
   %indvars.iv104.tr = trunc i64 %indvars.iv104 to i32
   %24 = shl i32 %indvars.iv104.tr, 1
   %25 = shl nuw nsw i32 16, %24
-  %26 = icmp samesign ugt i64 %indvars.iv104, 1
-  %27 = add nsw i64 %indvars.iv104, -2
-  %28 = icmp eq i64 %indvars.iv104, 3
-  %umax = call i32 @llvm.umin.i32(i32 %25, i32 64)
-  %29 = select i1 %28, i64 3, i64 1
-  %30 = trunc nuw nsw i64 %indvars.iv104 to i32
-  %31 = trunc nsw i64 %27 to i32
-  %wide.trip.count = zext nneg i32 %umax to i64
-  br label %32
+  %26 = call i32 @llvm.umin.i32(i32 %25, i32 64)
+  %27 = icmp samesign ugt i64 %indvars.iv104, 1
+  %28 = add nsw i64 %indvars.iv104, -2
+  %29 = icmp eq i64 %indvars.iv104, 3
+  %30 = select i1 %29, i64 3, i64 1
+  %31 = trunc nuw nsw i64 %indvars.iv104 to i32
+  %32 = trunc nsw i64 %28 to i32
+  %wide.trip.count = zext nneg i32 %26 to i64
+  br label %33
 
-32:                                               ; preds = %.preheader, %.loopexit
+33:                                               ; preds = %.preheader, %.loopexit
   %indvars.iv101 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next102, %.loopexit ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #11
   store i32 2, ptr %5, align 4, !tbaa !63
-  store i32 %30, ptr %12, align 4, !tbaa !63
-  %33 = trunc nuw nsw i64 %indvars.iv101 to i32
-  store i32 %33, ptr %13, align 4, !tbaa !63
-  %34 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 1, ptr noundef nonnull @.str.389, ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef 0, i32 noundef 1) #11
-  %35 = icmp sgt i32 %34, -1
-  br i1 %35, label %37, label %36
+  store i32 %31, ptr %12, align 4, !tbaa !63
+  %34 = trunc nuw nsw i64 %indvars.iv101 to i32
+  store i32 %34, ptr %13, align 4, !tbaa !63
+  %35 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 1, ptr noundef nonnull @.str.389, ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef 0, i32 noundef 1) #11
+  %36 = icmp sgt i32 %35, -1
+  br i1 %36, label %38, label %37
 
-36:                                               ; preds = %32
+37:                                               ; preds = %33
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #11
   br label %.loopexit82
 
-37:                                               ; preds = %32
-  %38 = load i32, ptr %4, align 4, !tbaa !63
-  %39 = trunc i32 %38 to i8
-  %40 = getelementptr inbounds nuw [4 x [6 x i8]], ptr %2, i64 0, i64 %indvars.iv104, i64 %indvars.iv101
-  store i8 %39, ptr %40, align 1, !tbaa !25
+38:                                               ; preds = %33
+  %39 = load i32, ptr %4, align 4, !tbaa !63
+  %40 = trunc i32 %39 to i8
+  %41 = getelementptr inbounds nuw [4 x [6 x i8]], ptr %2, i64 0, i64 %indvars.iv104, i64 %indvars.iv101
+  store i8 %40, ptr %41, align 1, !tbaa !25
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #11
-  %.not = icmp eq i8 %39, 0
-  br i1 %.not, label %41, label %50
+  %.not = icmp eq i8 %40, 0
+  br i1 %.not, label %42, label %51
 
-41:                                               ; preds = %37
+42:                                               ; preds = %38
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #11
   store i32 2, ptr %7, align 4, !tbaa !63
-  store i32 %30, ptr %21, align 4, !tbaa !63
-  store i32 %33, ptr %22, align 4, !tbaa !63
+  store i32 %31, ptr %21, align 4, !tbaa !63
+  store i32 %34, ptr %22, align 4, !tbaa !63
   %.cmp = icmp samesign ugt i64 %indvars.iv101, 2
-  %42 = zext i1 %.cmp to i32
-  %43 = select i1 %28, i32 %42, i32 %33
-  %44 = call fastcc i32 @cbs_read_ue_golomb(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.390, ptr noundef nonnull %7, ptr noundef %6, i32 noundef 0, i32 noundef %43)
-  %45 = icmp sgt i32 %44, -1
-  br i1 %45, label %.thread75, label %49
+  %43 = zext i1 %.cmp to i32
+  %44 = select i1 %29, i32 %43, i32 %34
+  %45 = call fastcc i32 @cbs_read_ue_golomb(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.390, ptr noundef nonnull %7, ptr noundef %6, i32 noundef 0, i32 noundef %44)
+  %46 = icmp sgt i32 %45, -1
+  br i1 %46, label %.thread75, label %50
 
-.thread75:                                        ; preds = %41
-  %46 = load i32, ptr %6, align 4, !tbaa !63
-  %47 = trunc i32 %46 to i8
-  %48 = getelementptr inbounds nuw [4 x [6 x i8]], ptr %23, i64 0, i64 %indvars.iv104, i64 %indvars.iv101
-  store i8 %47, ptr %48, align 1, !tbaa !25
+.thread75:                                        ; preds = %42
+  %47 = load i32, ptr %6, align 4, !tbaa !63
+  %48 = trunc i32 %47 to i8
+  %49 = getelementptr inbounds nuw [4 x [6 x i8]], ptr %23, i64 0, i64 %indvars.iv104, i64 %indvars.iv101
+  store i8 %48, ptr %49, align 1, !tbaa !25
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #11
   br label %.loopexit
 
-49:                                               ; preds = %41
+50:                                               ; preds = %42
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #11
   br label %.loopexit82
 
-50:                                               ; preds = %37
-  br i1 %26, label %51, label %.preheader124
+51:                                               ; preds = %38
+  br i1 %27, label %52, label %.preheader124
 
-.preheader124:                                    ; preds = %.thread77, %50
-  br label %58
+.preheader124:                                    ; preds = %.thread77, %51
+  br label %59
 
-51:                                               ; preds = %50
+52:                                               ; preds = %51
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #11
   store i32 2, ptr %9, align 4, !tbaa !63
-  store i32 %31, ptr %14, align 4, !tbaa !63
-  store i32 %33, ptr %15, align 4, !tbaa !63
-  %52 = call fastcc i32 @cbs_read_se_golomb(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.391, ptr noundef nonnull %9, ptr noundef %8, i32 noundef -7, i32 noundef 247)
-  %53 = icmp sgt i32 %52, -1
-  br i1 %53, label %.thread77, label %57
+  store i32 %32, ptr %14, align 4, !tbaa !63
+  store i32 %34, ptr %15, align 4, !tbaa !63
+  %53 = call fastcc i32 @cbs_read_se_golomb(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.391, ptr noundef nonnull %9, ptr noundef %8, i32 noundef -7, i32 noundef 247)
+  %54 = icmp sgt i32 %53, -1
+  br i1 %54, label %.thread77, label %58
 
-.thread77:                                        ; preds = %51
-  %54 = load i32, ptr %8, align 4, !tbaa !63
-  %55 = trunc i32 %54 to i16
-  %56 = getelementptr inbounds nuw [4 x [6 x i16]], ptr %16, i64 0, i64 %27, i64 %indvars.iv101
-  store i16 %55, ptr %56, align 2, !tbaa !129
+.thread77:                                        ; preds = %52
+  %55 = load i32, ptr %8, align 4, !tbaa !63
+  %56 = trunc i32 %55 to i16
+  %57 = getelementptr inbounds nuw [4 x [6 x i16]], ptr %16, i64 0, i64 %28, i64 %indvars.iv101
+  store i16 %56, ptr %57, align 2, !tbaa !129
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #11
   br label %.preheader124
 
-57:                                               ; preds = %51
+58:                                               ; preds = %52
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #11
   br label %.loopexit82
 
-58:                                               ; preds = %.preheader124, %63
-  %indvars.iv = phi i64 [ %indvars.iv.next, %63 ], [ 0, %.preheader124 ]
+59:                                               ; preds = %.preheader124, %64
+  %indvars.iv = phi i64 [ %indvars.iv.next, %64 ], [ 0, %.preheader124 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #11
   store i32 3, ptr %11, align 4, !tbaa !63
-  store i32 %30, ptr %17, align 4, !tbaa !63
-  store i32 %33, ptr %18, align 4, !tbaa !63
-  %59 = trunc nuw nsw i64 %indvars.iv to i32
-  store i32 %59, ptr %19, align 4, !tbaa !63
-  %60 = call fastcc i32 @cbs_read_se_golomb(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.392, ptr noundef nonnull %11, ptr noundef %10, i32 noundef -128, i32 noundef 127)
-  %61 = icmp sgt i32 %60, -1
-  br i1 %61, label %63, label %62
+  store i32 %31, ptr %17, align 4, !tbaa !63
+  store i32 %34, ptr %18, align 4, !tbaa !63
+  %60 = trunc nuw nsw i64 %indvars.iv to i32
+  store i32 %60, ptr %19, align 4, !tbaa !63
+  %61 = call fastcc i32 @cbs_read_se_golomb(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.392, ptr noundef nonnull %11, ptr noundef %10, i32 noundef -128, i32 noundef 127)
+  %62 = icmp sgt i32 %61, -1
+  br i1 %62, label %64, label %63
 
-62:                                               ; preds = %58
+63:                                               ; preds = %59
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #11
   br label %.loopexit82
 
-63:                                               ; preds = %58
-  %64 = load i32, ptr %10, align 4, !tbaa !63
-  %65 = trunc i32 %64 to i8
-  %66 = getelementptr inbounds nuw [4 x [6 x [64 x i8]]], ptr %20, i64 0, i64 %indvars.iv104, i64 %indvars.iv101, i64 %indvars.iv
-  store i8 %65, ptr %66, align 1, !tbaa !25
+64:                                               ; preds = %59
+  %65 = load i32, ptr %10, align 4, !tbaa !63
+  %66 = trunc i32 %65 to i8
+  %67 = getelementptr inbounds nuw [4 x [6 x [64 x i8]]], ptr %20, i64 0, i64 %indvars.iv104, i64 %indvars.iv101, i64 %indvars.iv
+  store i8 %66, ptr %67, align 1, !tbaa !25
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %58, !llvm.loop !1019
+  br i1 %exitcond.not, label %.loopexit, label %59, !llvm.loop !1019
 
-.loopexit:                                        ; preds = %63, %.thread75
-  %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, %29
-  %67 = icmp samesign ult i64 %indvars.iv.next102, 6
-  br i1 %67, label %32, label %68, !llvm.loop !1020
+.loopexit:                                        ; preds = %64, %.thread75
+  %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, %30
+  %68 = icmp samesign ult i64 %indvars.iv.next102, 6
+  br i1 %68, label %33, label %69, !llvm.loop !1020
 
-68:                                               ; preds = %.loopexit
+69:                                               ; preds = %.loopexit
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
   %exitcond107.not = icmp eq i64 %indvars.iv.next105, 4
   br i1 %exitcond107.not, label %.loopexit82, label %.preheader, !llvm.loop !1021
 
-.loopexit82:                                      ; preds = %68, %62, %57, %49, %36
-  %.366 = phi i32 [ %60, %62 ], [ %52, %57 ], [ %44, %49 ], [ %34, %36 ], [ 0, %68 ]
+.loopexit82:                                      ; preds = %69, %63, %58, %50, %37
+  %.366 = phi i32 [ %61, %63 ], [ %53, %58 ], [ %45, %50 ], [ %35, %37 ], [ 0, %69 ]
   ret i32 %.366
 }
 
@@ -43432,101 +43432,101 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_write_scaling_lis
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %.preheader
 
-.preheader:                                       ; preds = %3, %61
-  %indvars.iv90 = phi i64 [ 0, %3 ], [ %indvars.iv.next91, %61 ]
+.preheader:                                       ; preds = %3, %62
+  %indvars.iv90 = phi i64 [ 0, %3 ], [ %indvars.iv.next91, %62 ]
   %indvars.iv90.tr = trunc i64 %indvars.iv90 to i32
   %20 = shl i32 %indvars.iv90.tr, 1
   %21 = shl nuw nsw i32 16, %20
-  %22 = icmp samesign ugt i64 %indvars.iv90, 1
-  %23 = add nsw i64 %indvars.iv90, -2
-  %24 = icmp eq i64 %indvars.iv90, 3
-  %umax = call i32 @llvm.umin.i32(i32 %21, i32 64)
-  %25 = select i1 %24, i64 3, i64 1
-  %26 = trunc nuw nsw i64 %indvars.iv90 to i32
-  %27 = trunc nsw i64 %23 to i32
-  %wide.trip.count = zext nneg i32 %umax to i64
-  br label %28
+  %22 = call i32 @llvm.umin.i32(i32 %21, i32 64)
+  %23 = icmp samesign ugt i64 %indvars.iv90, 1
+  %24 = add nsw i64 %indvars.iv90, -2
+  %25 = icmp eq i64 %indvars.iv90, 3
+  %26 = select i1 %25, i64 3, i64 1
+  %27 = trunc nuw nsw i64 %indvars.iv90 to i32
+  %28 = trunc nsw i64 %24 to i32
+  %wide.trip.count = zext nneg i32 %22 to i64
+  br label %29
 
-28:                                               ; preds = %.preheader, %.loopexit
+29:                                               ; preds = %.preheader, %.loopexit
   %indvars.iv87 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next88, %.loopexit ]
-  %29 = getelementptr inbounds nuw [4 x [6 x i8]], ptr %2, i64 0, i64 %indvars.iv90, i64 %indvars.iv87
-  %30 = load i8, ptr %29, align 1, !tbaa !25
-  %31 = zext i8 %30 to i32
+  %30 = getelementptr inbounds nuw [4 x [6 x i8]], ptr %2, i64 0, i64 %indvars.iv90, i64 %indvars.iv87
+  %31 = load i8, ptr %30, align 1, !tbaa !25
+  %32 = zext i8 %31 to i32
   store i32 2, ptr %4, align 4, !tbaa !63
-  store i32 %26, ptr %8, align 4, !tbaa !63
-  %32 = trunc nuw nsw i64 %indvars.iv87 to i32
-  store i32 %32, ptr %9, align 4, !tbaa !63
-  %33 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %1, i32 noundef 1, ptr noundef nonnull @.str.389, ptr noundef nonnull %4, i32 noundef %31, i32 noundef 0, i32 noundef 1) #11
-  %34 = icmp sgt i32 %33, -1
-  br i1 %34, label %35, label %.loopexit77
+  store i32 %27, ptr %8, align 4, !tbaa !63
+  %33 = trunc nuw nsw i64 %indvars.iv87 to i32
+  store i32 %33, ptr %9, align 4, !tbaa !63
+  %34 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %1, i32 noundef 1, ptr noundef nonnull @.str.389, ptr noundef nonnull %4, i32 noundef %32, i32 noundef 0, i32 noundef 1) #11
+  %35 = icmp sgt i32 %34, -1
+  br i1 %35, label %36, label %.loopexit77
 
-35:                                               ; preds = %28
-  %36 = load i8, ptr %29, align 1, !tbaa !25
-  %.not = icmp eq i8 %36, 0
-  br i1 %.not, label %37, label %45
+36:                                               ; preds = %29
+  %37 = load i8, ptr %30, align 1, !tbaa !25
+  %.not = icmp eq i8 %37, 0
+  br i1 %.not, label %38, label %46
 
-37:                                               ; preds = %35
-  %38 = getelementptr inbounds nuw [4 x [6 x i8]], ptr %17, i64 0, i64 %indvars.iv90, i64 %indvars.iv87
-  %39 = load i8, ptr %38, align 1, !tbaa !25
-  %40 = zext i8 %39 to i32
+38:                                               ; preds = %36
+  %39 = getelementptr inbounds nuw [4 x [6 x i8]], ptr %17, i64 0, i64 %indvars.iv90, i64 %indvars.iv87
+  %40 = load i8, ptr %39, align 1, !tbaa !25
+  %41 = zext i8 %40 to i32
   store i32 2, ptr %5, align 4, !tbaa !63
-  store i32 %26, ptr %18, align 4, !tbaa !63
-  store i32 %32, ptr %19, align 4, !tbaa !63
+  store i32 %27, ptr %18, align 4, !tbaa !63
+  store i32 %33, ptr %19, align 4, !tbaa !63
   %.cmp = icmp samesign ugt i64 %indvars.iv87, 2
-  %41 = zext i1 %.cmp to i32
-  %42 = select i1 %24, i32 %41, i32 %32
-  %43 = call fastcc i32 @cbs_write_ue_golomb(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.390, ptr noundef nonnull %5, i32 noundef %40, i32 noundef 0, i32 noundef %42)
-  %44 = icmp sgt i32 %43, -1
-  br i1 %44, label %.loopexit, label %.loopexit77
+  %42 = zext i1 %.cmp to i32
+  %43 = select i1 %25, i32 %42, i32 %33
+  %44 = call fastcc i32 @cbs_write_ue_golomb(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.390, ptr noundef nonnull %5, i32 noundef %41, i32 noundef 0, i32 noundef %43)
+  %45 = icmp sgt i32 %44, -1
+  br i1 %45, label %.loopexit, label %.loopexit77
 
-45:                                               ; preds = %35
-  br i1 %22, label %46, label %.preheader100
+46:                                               ; preds = %36
+  br i1 %23, label %47, label %.preheader100
 
-46:                                               ; preds = %45
-  %47 = getelementptr inbounds nuw [4 x [6 x i16]], ptr %10, i64 0, i64 %23, i64 %indvars.iv87
-  %48 = load i16, ptr %47, align 2, !tbaa !129
-  %49 = sext i16 %48 to i32
+47:                                               ; preds = %46
+  %48 = getelementptr inbounds nuw [4 x [6 x i16]], ptr %10, i64 0, i64 %24, i64 %indvars.iv87
+  %49 = load i16, ptr %48, align 2, !tbaa !129
+  %50 = sext i16 %49 to i32
   store i32 2, ptr %6, align 4, !tbaa !63
-  store i32 %27, ptr %11, align 4, !tbaa !63
-  store i32 %32, ptr %12, align 4, !tbaa !63
-  %50 = call fastcc i32 @cbs_write_se_golomb(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.391, ptr noundef nonnull %6, i32 noundef %49, i32 noundef -7, i32 noundef 247)
-  %51 = icmp sgt i32 %50, -1
-  br i1 %51, label %.preheader100, label %.loopexit77
+  store i32 %28, ptr %11, align 4, !tbaa !63
+  store i32 %33, ptr %12, align 4, !tbaa !63
+  %51 = call fastcc i32 @cbs_write_se_golomb(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.391, ptr noundef nonnull %6, i32 noundef %50, i32 noundef -7, i32 noundef 247)
+  %52 = icmp sgt i32 %51, -1
+  br i1 %52, label %.preheader100, label %.loopexit77
 
-.preheader100:                                    ; preds = %46, %45
-  br label %53
+.preheader100:                                    ; preds = %47, %46
+  br label %54
 
-52:                                               ; preds = %53
+53:                                               ; preds = %54
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %53, !llvm.loop !1142
+  br i1 %exitcond.not, label %.loopexit, label %54, !llvm.loop !1142
 
-53:                                               ; preds = %.preheader100, %52
-  %indvars.iv = phi i64 [ %indvars.iv.next, %52 ], [ 0, %.preheader100 ]
-  %54 = getelementptr inbounds nuw [4 x [6 x [64 x i8]]], ptr %13, i64 0, i64 %indvars.iv90, i64 %indvars.iv87, i64 %indvars.iv
-  %55 = load i8, ptr %54, align 1, !tbaa !25
-  %56 = sext i8 %55 to i32
+54:                                               ; preds = %.preheader100, %53
+  %indvars.iv = phi i64 [ %indvars.iv.next, %53 ], [ 0, %.preheader100 ]
+  %55 = getelementptr inbounds nuw [4 x [6 x [64 x i8]]], ptr %13, i64 0, i64 %indvars.iv90, i64 %indvars.iv87, i64 %indvars.iv
+  %56 = load i8, ptr %55, align 1, !tbaa !25
+  %57 = sext i8 %56 to i32
   store i32 3, ptr %7, align 4, !tbaa !63
-  store i32 %26, ptr %14, align 4, !tbaa !63
-  store i32 %32, ptr %15, align 4, !tbaa !63
-  %57 = trunc nuw nsw i64 %indvars.iv to i32
-  store i32 %57, ptr %16, align 4, !tbaa !63
-  %58 = call fastcc i32 @cbs_write_se_golomb(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.392, ptr noundef nonnull %7, i32 noundef %56, i32 noundef -128, i32 noundef 127)
-  %59 = icmp sgt i32 %58, -1
-  br i1 %59, label %52, label %.loopexit77
+  store i32 %27, ptr %14, align 4, !tbaa !63
+  store i32 %33, ptr %15, align 4, !tbaa !63
+  %58 = trunc nuw nsw i64 %indvars.iv to i32
+  store i32 %58, ptr %16, align 4, !tbaa !63
+  %59 = call fastcc i32 @cbs_write_se_golomb(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.392, ptr noundef nonnull %7, i32 noundef %57, i32 noundef -128, i32 noundef 127)
+  %60 = icmp sgt i32 %59, -1
+  br i1 %60, label %53, label %.loopexit77
 
-.loopexit:                                        ; preds = %52, %37
-  %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, %25
-  %60 = icmp samesign ult i64 %indvars.iv.next88, 6
-  br i1 %60, label %28, label %61, !llvm.loop !1143
+.loopexit:                                        ; preds = %53, %38
+  %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, %26
+  %61 = icmp samesign ult i64 %indvars.iv.next88, 6
+  br i1 %61, label %29, label %62, !llvm.loop !1143
 
-61:                                               ; preds = %.loopexit
+62:                                               ; preds = %.loopexit
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
   %exitcond93.not = icmp eq i64 %indvars.iv.next91, 4
   br i1 %exitcond93.not, label %.loopexit77, label %.preheader, !llvm.loop !1144
 
-.loopexit77:                                      ; preds = %61, %46, %37, %28, %53
-  %.3 = phi i32 [ %58, %53 ], [ %33, %28 ], [ %43, %37 ], [ %50, %46 ], [ 0, %61 ]
+.loopexit77:                                      ; preds = %62, %47, %38, %29, %54
+  %.3 = phi i32 [ %59, %54 ], [ %34, %29 ], [ %44, %38 ], [ %51, %47 ], [ 0, %62 ]
   ret i32 %.3
 }
 

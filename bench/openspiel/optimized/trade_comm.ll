@@ -3016,7 +3016,6 @@ _ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i23: ; preds = %73
   %82 = getelementptr inbounds nuw i64, ptr %80, i64 %77
   store ptr %82, ptr %78, align 8
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %umax = tail call i32 @llvm.umax.i32(i32 %76, i32 1)
   br label %84
 
 84:                                               ; preds = %.lr.ph, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit38
@@ -3093,7 +3092,7 @@ _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS
 _ZNSt6vectorIlSaIlEE9push_backEOl.exit38:         ; preds = %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i35, %90
   %113 = phi ptr [ %110, %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i35 ], [ %92, %90 ]
   %114 = add nuw i32 %.051, 1
-  %exitcond.not = icmp eq i32 %114, %umax
+  %exitcond.not = icmp eq i32 %114, %76
   br i1 %exitcond.not, label %.loopexit, label %84, !llvm.loop !7
 
 .loopexit46:                                      ; preds = %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i30
@@ -3210,8 +3209,6 @@ _ZNSt12_Vector_baseISt4pairIldESaIS1_EE11_M_allocateEm.exit.i: ; preds = %13
   %23 = uitofp nneg i32 %16 to double
   %24 = fdiv double 1.000000e+00, %23
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %umax = tail call i32 @llvm.umax.i32(i32 %16, i32 1)
-  %wide.trip.count = zext nneg i32 %umax to i64
   br label %26
 
 26:                                               ; preds = %.lr.ph, %_ZNSt6vectorISt4pairIldESaIS1_EE9push_backEOS1_.exit
@@ -3296,7 +3293,7 @@ _ZNSt6vectorISt4pairIldESaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt6vectorISt
   %52 = phi ptr [ %44, %_ZNSt6vectorISt4pairIldESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %29, %30 ]
   %53 = phi ptr [ %50, %_ZNSt6vectorISt4pairIldESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %28, %30 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %17
   br i1 %exitcond.not, label %._crit_edge, label %26, !llvm.loop !13
 
 .loopexit:                                        ; preds = %_ZNKSt6vectorISt4pairIldESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
@@ -9638,9 +9635,6 @@ declare i64 @llvm.umin.i64(i64, i64) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #21
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #20
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #22

@@ -11165,7 +11165,6 @@ _ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb1EE
   %2414 = ptrtoint ptr %2412 to i64
   %2415 = sub i64 %2413, %2414
   %2416 = ashr exact i64 %2415, 3
-  %umax1587 = call i64 @llvm.umax.i64(i64 %2416, i64 1)
   br label %.lr.ph1544
 
 2417:                                             ; preds = %2405
@@ -11204,7 +11203,7 @@ _ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb1EE
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %204) #25
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %204) #25
   %2429 = add nuw i64 %.05501543, 1
-  %exitcond1588.not = icmp eq i64 %2429, %umax1587
+  %exitcond1588.not = icmp eq i64 %2429, %2416
   br i1 %exitcond1588.not, label %.loopexit1481, label %.lr.ph1544, !llvm.loop !140
 
 2430:                                             ; preds = %.lr.ph1544
@@ -11347,11 +11346,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1256: ; preds = %_
 
 .lr.ph:                                           ; preds = %2463
   %.not = icmp eq i64 %.fr1560, 8
-  br i1 %.not, label %.lr.ph.split.us, label %.lr.ph.split.preheader
-
-.lr.ph.split.preheader:                           ; preds = %.lr.ph
-  %umax = call i64 @llvm.umax.i64(i64 %2470, i64 1)
-  br label %.lr.ph.split
+  br i1 %.not, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %221) #25
@@ -11509,8 +11504,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1259: ; preds = %_
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %212) #25
   br label %2545
 
-.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %.critedge
-  %.05551536 = phi i64 [ %2516, %.critedge ], [ 0, %.lr.ph.split.preheader ]
+.lr.ph.split:                                     ; preds = %.lr.ph, %.critedge
+  %.05551536 = phi i64 [ %2516, %.critedge ], [ 0, %.lr.ph ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %221) #25
   %2516 = add nuw i64 %.05551536, 1
   %2517 = sub i64 %2470, %2516
@@ -11582,7 +11577,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1259: ; preds = %_
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %223) #25
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %223) #25
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #25
-  %exitcond.not = icmp eq i64 %2516, %umax
+  %exitcond.not = icmp eq i64 %2516, %2470
   br i1 %exitcond.not, label %.critedge983, label %.lr.ph.split, !llvm.loop !141
 
 2537:                                             ; preds = %2526

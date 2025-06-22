@@ -1419,15 +1419,10 @@ _ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit:            ; preds = %.noexc17, %_ZNSt6ve
   %.not = icmp eq ptr %5, %6
   %.not32 = icmp eq ptr %12, %13
   %or.cond = or i1 %.not, %.not32
-  br i1 %or.cond, label %._crit_edge31, label %.preheader.us.preheader
+  br i1 %or.cond, label %._crit_edge31, label %.preheader.us
 
-.preheader.us.preheader:                          ; preds = %_ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit
-  %umax = tail call i64 @llvm.umax.i64(i64 %17, i64 1)
-  %umax34 = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
-  br label %.preheader.us
-
-.preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
-  %.01330.us = phi i64 [ %36, %._crit_edge.us ], [ 0, %.preheader.us.preheader ]
+.preheader.us:                                    ; preds = %_ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit, %._crit_edge.us
+  %.01330.us = phi i64 [ %36, %._crit_edge.us ], [ 0, %_ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit ]
   %27 = getelementptr inbounds nuw double, ptr %6, i64 %.01330.us
   %28 = getelementptr inbounds nuw double, ptr %.sroa.021.0, i64 %.01330.us
   %.pre = load double, ptr %27, align 8, !tbaa !10
@@ -1442,12 +1437,12 @@ _ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit:            ; preds = %.noexc17, %_ZNSt6ve
   %34 = tail call double @llvm.fmuladd.f64(double %.pre, double %31, double %33)
   store double %34, ptr %32, align 8, !tbaa !10
   %35 = add nuw nsw i64 %.029.us, 1
-  %exitcond.not = icmp eq i64 %35, %umax
+  %exitcond.not = icmp eq i64 %35, %17
   br i1 %exitcond.not, label %._crit_edge.us, label %29, !llvm.loop !36
 
 ._crit_edge.us:                                   ; preds = %29
   %36 = add nuw nsw i64 %.01330.us, 1
-  %exitcond35.not = icmp eq i64 %36, %umax34
+  %exitcond35.not = icmp eq i64 %36, %10
   br i1 %exitcond35.not, label %._crit_edge31, label %.preheader.us, !llvm.loop !37
 
 ._crit_edge31:                                    ; preds = %._crit_edge.us, %_ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit
@@ -2312,11 +2307,7 @@ _ZNSt6vectorIdSaIdEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPdmdET_
   %.0.i.i.i.i.i = phi ptr [ %15, %.noexc10 ], [ %14, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ]
   store double 0.000000e+00, ptr %.sroa.014.0, align 8, !tbaa !10
   %.not = icmp eq ptr %4, %5
-  br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %_ZNSt6vectorIdSaIdEEC2EmRKS0_.exit
-  %umax = tail call i64 @llvm.umax.i64(i64 %9, i64 1)
-  br label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZNSt6vectorIdSaIdEEC2EmRKS0_.exit
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
@@ -2355,8 +2346,8 @@ _ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.thread.i.i.i: ; preds = %_ZNSt6v
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %26, ptr nonnull align 8 %.sroa.014.0, i64 %20, i1 false)
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.023 = phi i64 [ %31, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %_ZNSt6vectorIdSaIdEEC2EmRKS0_.exit, %.lr.ph
+  %.023 = phi i64 [ %31, %.lr.ph ], [ 0, %_ZNSt6vectorIdSaIdEEC2EmRKS0_.exit ]
   %29 = getelementptr inbounds nuw double, ptr %5, i64 %.023
   %30 = load double, ptr %29, align 8, !tbaa !10
   %31 = add nuw nsw i64 %.023, 1
@@ -2364,7 +2355,7 @@ _ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.thread.i.i.i: ; preds = %_ZNSt6v
   %33 = fdiv double %30, %32
   %34 = getelementptr inbounds nuw double, ptr %.sroa.014.0, i64 %31
   store double %33, ptr %34, align 8, !tbaa !10
-  %exitcond.not = icmp eq i64 %31, %umax
+  %exitcond.not = icmp eq i64 %31, %9
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !45
 
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %.noexc5.i.i, %_ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.thread.i.i.i

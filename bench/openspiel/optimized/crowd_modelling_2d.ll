@@ -8553,7 +8553,6 @@ define void @_ZNK10open_spiel18crowd_modelling_2d21CrowdModelling2dState7Rewards
   %42 = sitofp i32 %41 to double
   %43 = load i32, ptr %14, align 4
   %44 = load i32, ptr %16, align 8
-  %umax = tail call i64 @llvm.umax.i64(i64 %38, i64 1)
   br label %49
 
 45:                                               ; preds = %9
@@ -8588,7 +8587,7 @@ define void @_ZNK10open_spiel18crowd_modelling_2d21CrowdModelling2dState7Rewards
   %65 = uitofp nneg i32 %64 to double
   %66 = tail call double @llvm.fmuladd.f64(double %59, double %65, double %.02541)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %38
   br i1 %exitcond.not, label %._crit_edge, label %49, !llvm.loop !68
 
 ._crit_edge:                                      ; preds = %49, %.preheader

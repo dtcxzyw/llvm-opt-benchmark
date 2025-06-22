@@ -1198,7 +1198,6 @@ _ZNSt16allocator_traitsISaISt5tupleIJPN5draco14PointAttributeEjNS1_8DataTypeEjjE
   %25 = ptrtoint ptr %14 to i64
   %26 = sub i64 %24, %25
   %27 = sdiv exact i64 %26, 24
-  %umax = tail call i64 @llvm.umax.i64(i64 %27, i64 1)
   br label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
@@ -1225,7 +1224,7 @@ _ZNSt16allocator_traitsISaISt5tupleIJPN5draco14PointAttributeEjNS1_8DataTypeEjjE
   %35 = mul i32 %34, %33
   %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %.018, i32 %35)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %27
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !111
 
 36:                                               ; preds = %._crit_edge
@@ -2513,7 +2512,6 @@ _ZNSt16allocator_traitsISaISt5tupleIJPN5draco14PointAttributeEjNS1_8DataTypeEjjE
   %25 = ptrtoint ptr %14 to i64
   %26 = sub i64 %24, %25
   %27 = sdiv exact i64 %26, 24
-  %umax = tail call i64 @llvm.umax.i64(i64 %27, i64 1)
   br label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
@@ -2540,7 +2538,7 @@ _ZNSt16allocator_traitsISaISt5tupleIJPN5draco14PointAttributeEjNS1_8DataTypeEjjE
   %35 = mul i32 %34, %33
   %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %.018, i32 %35)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %27
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !147
 
 36:                                               ; preds = %._crit_edge

@@ -3451,11 +3451,7 @@ _ZN4absl15random_internal9ChiSquareIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIl
 _ZN4absl12log_internal10LogMessagelsILi7EEERS1_RAT__Kc.exit: ; preds = %474
   call void @_ZN4absl12log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %26) #40
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %26) #36
-  br i1 %.not371442, label %._crit_edge449, label %.lr.ph448.preheader
-
-.lr.ph448.preheader:                              ; preds = %_ZN4absl12log_internal10LogMessagelsILi7EEERS1_RAT__Kc.exit
-  %umax = call i64 @llvm.umax.i64(i64 %448, i64 1)
-  br label %.lr.ph448
+  br i1 %.not371442, label %._crit_edge449, label %.lr.ph448
 
 ._crit_edge449:                                   ; preds = %496, %_ZN4absl12log_internal10LogMessagelsILi7EEERS1_RAT__Kc.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %28) #36
@@ -3488,8 +3484,8 @@ _ZN4absl12log_internal10LogMessagelsILi7EEERS1_RAT__Kc.exit: ; preds = %474
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %26) #36
   br label %587
 
-.lr.ph448:                                        ; preds = %.lr.ph448.preheader, %496
-  %.0447 = phi i64 [ %497, %496 ], [ 0, %.lr.ph448.preheader ]
+.lr.ph448:                                        ; preds = %_ZN4absl12log_internal10LogMessagelsILi7EEERS1_RAT__Kc.exit, %496
+  %.0447 = phi i64 [ %497, %496 ], [ 0, %_ZN4absl12log_internal10LogMessagelsILi7EEERS1_RAT__Kc.exit ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %27) #36
   invoke void @_ZN4absl12log_internal10LogMessageC1EPKciNS1_7InfoTagE(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull @.str.2, i32 noundef 307) #39
           to label %484 unwind label %498
@@ -3533,7 +3529,7 @@ _ZN4absl12log_internal10LogMessagelsILi8EEERS1_RAT__Kc.exit: ; preds = %492
   call void @_ZN4absl12log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %27) #40
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27) #36
   %497 = add nuw i64 %.0447, 1
-  %exitcond471.not = icmp eq i64 %497, %umax
+  %exitcond471.not = icmp eq i64 %497, %448
   br i1 %exitcond471.not, label %._crit_edge449, label %.lr.ph448, !llvm.loop !117
 
 498:                                              ; preds = %.lr.ph448

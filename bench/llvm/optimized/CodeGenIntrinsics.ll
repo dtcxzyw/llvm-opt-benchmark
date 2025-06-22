@@ -652,7 +652,6 @@ _ZNSt6vectorIN4llvm21CodeGenIntrinsicTable9TargetSetESaIS2_EE9push_backEOS2_.exi
   %64 = ptrtoint ptr %62 to i64
   %65 = sub i64 %63, %64
   %66 = sdiv exact i64 %65, 240
-  %umax = call i64 @llvm.umax.i64(i64 %66, i64 1)
   br label %.lr.ph67
 
 67:                                               ; preds = %.lr.ph, %_ZN4llvm16CodeGenIntrinsicD2Ev.exit
@@ -900,7 +899,7 @@ _ZNSt6vectorIN4llvm21CodeGenIntrinsicTable9TargetSetESaIS2_EE9push_backEOS2_.exi
 _ZN4llvmneENS_9StringRefES0_.exit.thread59:       ; preds = %119, %_ZN4llvmneENS_9StringRefES0_.exit, %_ZNSt6vectorIN4llvm21CodeGenIntrinsicTable9TargetSetESaIS2_EE9push_backEOS2_.exit38
   %150 = phi ptr [ %114, %119 ], [ %114, %_ZN4llvmneENS_9StringRefES0_.exit ], [ %149, %_ZNSt6vectorIN4llvm21CodeGenIntrinsicTable9TargetSetESaIS2_EE9push_backEOS2_.exit38 ]
   %151 = add nuw i64 %.01865, 1
-  %exitcond.not = icmp eq i64 %151, %umax
+  %exitcond.not = icmp eq i64 %151, %66
   br i1 %exitcond.not, label %._crit_edge68.loopexit, label %.lr.ph67, !llvm.loop !78
 }
 

@@ -2758,21 +2758,20 @@ define void @_ZN5folly10SubprocessC2ERKSt6vectorINSt7__cxx1112basic_stringIcSt11
   %33 = shl nsw i64 %31, 3
   %34 = select i1 %32, i64 -1, i64 %33
   %35 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %34) #52
-          to label %.lr.ph.preheader.i unwind label %21
+          to label %.noexc unwind label %21
 
-.lr.ph.preheader.i:                               ; preds = %26
+.noexc:                                           ; preds = %26
   store ptr %35, ptr %6, align 8, !tbaa !134, !alias.scope !131
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %30, i64 1)
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.01.i = phi i64 [ %39, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
+.lr.ph.i:                                         ; preds = %.noexc, %.lr.ph.i
+  %.01.i = phi i64 [ %39, %.lr.ph.i ], [ 0, %.noexc ]
   %36 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %12, i64 %.01.i
   %37 = load ptr, ptr %36, align 8, !tbaa !11, !noalias !131
   %38 = getelementptr inbounds nuw ptr, ptr %35, i64 %.01.i
   store ptr %37, ptr %38, align 8, !tbaa !38, !noalias !131
   %39 = add nuw i64 %.01.i, 1
-  %exitcond.not.i = icmp eq i64 %39, %umax.i
+  %exitcond.not.i = icmp eq i64 %39, %30
   br i1 %exitcond.not.i, label %40, label %.lr.ph.i, !llvm.loop !136
 
 40:                                               ; preds = %.lr.ph.i
@@ -3265,20 +3264,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 .noexc36:                                         ; preds = %70
   store ptr %79, ptr %8, align 8, !tbaa !134, !alias.scope !149
   %.not.i = icmp eq ptr %53, %49
-  br i1 %.not.i, label %.loopexit, label %.lr.ph.preheader.i
+  br i1 %.not.i, label %.loopexit, label %.lr.ph.i
 
-.lr.ph.preheader.i:                               ; preds = %.noexc36
-  %umax.i = call i64 @llvm.umax.i64(i64 %74, i64 1)
-  br label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.01.i = phi i64 [ %83, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
+.lr.ph.i:                                         ; preds = %.noexc36, %.lr.ph.i
+  %.01.i = phi i64 [ %83, %.lr.ph.i ], [ 0, %.noexc36 ]
   %80 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %49, i64 %.01.i
   %81 = load ptr, ptr %80, align 8, !tbaa !11, !noalias !149
   %82 = getelementptr inbounds nuw ptr, ptr %79, i64 %.01.i
   store ptr %81, ptr %82, align 8, !tbaa !38, !noalias !149
   %83 = add nuw i64 %.01.i, 1
-  %exitcond.not.i = icmp eq i64 %83, %umax.i
+  %exitcond.not.i = icmp eq i64 %83, %74
   br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !136
 
 .loopexit:                                        ; preds = %.lr.ph.i, %.noexc36
@@ -5079,20 +5074,16 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
 
 .noexc76:                                         ; preds = %101
   %.not.i75 = icmp eq ptr %.val65, %.val
-  br i1 %.not.i75, label %_ZNSt10unique_ptrIA_PKcSt14default_deleteIS2_EED2Ev.exit, label %.lr.ph.preheader.i
+  br i1 %.not.i75, label %_ZNSt10unique_ptrIA_PKcSt14default_deleteIS2_EED2Ev.exit, label %.lr.ph.i
 
-.lr.ph.preheader.i:                               ; preds = %.noexc76
-  %umax.i = call i64 @llvm.umax.i64(i64 %106, i64 1)
-  br label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.01.i = phi i64 [ %115, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
+.lr.ph.i:                                         ; preds = %.noexc76, %.lr.ph.i
+  %.01.i = phi i64 [ %115, %.lr.ph.i ], [ 0, %.noexc76 ]
   %112 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.val, i64 %.01.i
   %113 = load ptr, ptr %112, align 8, !tbaa !11, !noalias !200
   %114 = getelementptr inbounds nuw ptr, ptr %111, i64 %.01.i
   store ptr %113, ptr %114, align 8, !tbaa !38, !noalias !200
   %115 = add nuw i64 %.01.i, 1
-  %exitcond.not.i = icmp eq i64 %115, %umax.i
+  %exitcond.not.i = icmp eq i64 %115, %106
   br i1 %exitcond.not.i, label %_ZNSt10unique_ptrIA_PKcSt14default_deleteIS2_EED2Ev.exit, label %.lr.ph.i, !llvm.loop !136
 
 _ZNSt10unique_ptrIA_PKcSt14default_deleteIS2_EED2Ev.exit: ; preds = %.lr.ph.i, %.noexc76

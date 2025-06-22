@@ -2621,17 +2621,16 @@ _ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE9push_backERKf.exit: ; preds
   %49 = phi i64 [ 1, %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE9push_backERKf.exit ], [ 0, %18 ]
   %50 = phi i64 [ 4, %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE9push_backERKf.exit ], [ 0, %18 ]
   %51 = shl i64 %1, 31
+  %52 = ashr exact i64 %51, 32
   %invariant.gep = getelementptr i8, ptr %0, i64 4
   %.not143 = icmp eq i64 %51, 0
   br i1 %.not143, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %47
-  %52 = ashr exact i64 %51, 32
   %53 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %54 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %55 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %56 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %umax = tail call i64 @llvm.umax.i64(i64 %52, i64 1)
   br label %66
 
 ._crit_edge:                                      ; preds = %145, %47
@@ -2847,7 +2846,7 @@ _ZN4pstd3pmr21polymorphic_allocatorIfE17deallocate_objectIfEEvPT_m.exit.i.i75: ;
 145:                                              ; preds = %125, %144
   %146 = phi ptr [ %98, %125 ], [ %96, %144 ]
   %147 = add nuw i64 %.011142, 1
-  %exitcond.not = icmp eq i64 %147, %umax
+  %exitcond.not = icmp eq i64 %147, %52
   br i1 %exitcond.not, label %._crit_edge, label %66, !llvm.loop !116
 
 148:                                              ; preds = %._crit_edge
@@ -34398,9 +34397,6 @@ declare float @llvm.sqrt.f32(float) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #28
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #27

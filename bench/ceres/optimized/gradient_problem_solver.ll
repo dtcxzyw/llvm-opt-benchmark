@@ -1715,7 +1715,6 @@ _ZN5Eigen3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEaSIS
   %436 = ptrtoint ptr %434 to i64
   %437 = sub i64 %435, %436
   %438 = sdiv exact i64 %437, 120
-  %umax.i = call i64 @llvm.umax.i64(i64 %438, i64 1)
   br label %439
 
 439:                                              ; preds = %439, %.lr.ph.i
@@ -1727,7 +1726,7 @@ _ZN5Eigen3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEaSIS
   %444 = select i1 %443, double %440, double %442
   store double %444, ptr %398, align 8, !tbaa !157
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %umax.i
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %438
   br i1 %exitcond.not.i, label %_ZNK5ceres21GradientProblemSolver7Summary16IsSolutionUsableEv.exit, label %439, !llvm.loop !251
 
 445:                                              ; preds = %_ZNSt6vectorIPN5ceres17IterationCallbackESaIS2_EE6insertEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EEOS2_.exit136

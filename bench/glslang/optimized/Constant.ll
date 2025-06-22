@@ -10811,7 +10811,6 @@ define linkonce_odr noundef double @_ZN7glslang16TConstUnionArray3dotERKS0_(ptr 
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
-  %umax = tail call i64 @llvm.umax.i64(i64 %12, i64 1)
   br label %17
 
 17:                                               ; preds = %.lr.ph, %17
@@ -10823,7 +10822,7 @@ define linkonce_odr noundef double @_ZN7glslang16TConstUnionArray3dotERKS0_(ptr 
   %21 = load double, ptr %20, align 8
   %22 = tail call double @llvm.fmuladd.f64(double %19, double %21, double %.078)
   %23 = add nuw i64 %.09, 1
-  %exitcond.not = icmp eq i64 %23, %umax
+  %exitcond.not = icmp eq i64 %23, %12
   br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %17, %2

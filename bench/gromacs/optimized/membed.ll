@@ -3593,7 +3593,6 @@ _ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit220.preheader.i: ; preds = %_ZL13gmx_snew
   %1380 = ptrtoint ptr %.val.i to i64
   %1381 = sub i64 %1379, %1380
   %1382 = sdiv exact i64 %1381, 56
-  %umax.i.i = call i64 @llvm.umax.i64(i64 %1382, i64 1)
   br label %.lr.ph.i229.i
 
 .lr.ph.i229.i:                                    ; preds = %1387, %.lr.ph.preheader.i228.i
@@ -3607,7 +3606,7 @@ _ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit220.preheader.i: ; preds = %_ZL13gmx_snew
 
 1387:                                             ; preds = %.lr.ph.i229.i
   %1388 = add nuw i64 %.0167.i.i, 1
-  %exitcond.not.i230.i = icmp eq i64 %1388, %umax.i.i
+  %exitcond.not.i230.i = icmp eq i64 %1388, %1382
   br i1 %exitcond.not.i230.i, label %._crit_edge.i.i, label %.lr.ph.i229.i, !llvm.loop !287
 
 ._crit_edge.i.i:                                  ; preds = %1372, %1387
@@ -4595,8 +4594,7 @@ _ZN3gmx16EnumerationArrayI23SimulationAtomGroupTypeSt6vectorIhSaIhEELS1_10EED2Ev
   br i1 %.not.i364, label %.preheader71.i, label %.lr.ph.preheader.i365
 
 .lr.ph.preheader.i365:                            ; preds = %.noexc377
-  %umax.i = call i64 @llvm.umax.i64(i64 %1830, i64 1)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %1824, i8 1, i64 %umax.i, i1 false), !tbaa !178
+  call void @llvm.memset.p0.i64(ptr align 1 %1824, i8 1, i64 %1830, i1 false), !tbaa !178
   br label %.preheader71.i
 
 .preheader71.i:                                   ; preds = %.lr.ph.preheader.i365, %.noexc377
@@ -4610,16 +4608,11 @@ _ZN3gmx16EnumerationArrayI23SimulationAtomGroupTypeSt6vectorIhSaIhEELS1_10EED2Ev
   %1834 = ptrtoint ptr %1832 to i64
   %1835 = sub i64 %1833, %1834
   %1836 = sdiv exact i64 %1835, 56
-  %umax99.i = call i64 @llvm.umax.i64(i64 %1836, i64 1)
   br label %1837
 
 .preheader70.i:                                   ; preds = %.critedge.i366, %.preheader71.i
   %.054.lcssa.i = phi i32 [ 0, %.preheader71.i ], [ %spec.select61.i, %.critedge.i366 ]
-  br i1 %.not.i364, label %._crit_edge96.i, label %.lr.ph95.preheader.i
-
-.lr.ph95.preheader.i:                             ; preds = %.preheader70.i
-  %umax109.i = call i64 @llvm.umax.i64(i64 %1830, i64 1)
-  br label %.lr.ph95.i
+  br i1 %.not.i364, label %._crit_edge96.i, label %.lr.ph95.i
 
 1837:                                             ; preds = %.critedge.i366, %.lr.ph90.i
   %.05189.i = phi i64 [ 0, %.lr.ph90.i ], [ %1865, %.critedge.i366 ]
@@ -4683,15 +4676,15 @@ _ZN3gmx16EnumerationArrayI23SimulationAtomGroupTypeSt6vectorIhSaIhEELS1_10EED2Ev
   %1864 = select i1 %1863, i32 %1845, i32 0
   %spec.select61.i = add nsw i32 %1864, %.05488.i
   %1865 = add nuw i64 %.05189.i, 1
-  %exitcond100.not.i = icmp eq i64 %1865, %umax99.i
+  %exitcond100.not.i = icmp eq i64 %1865, %1836
   br i1 %exitcond100.not.i, label %.preheader70.i, label %1837, !llvm.loop !350
 
 ._crit_edge96.i:                                  ; preds = %.loopexit.i367, %.preheader70.i
   invoke void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.89, ptr noundef nonnull @.str.1, i32 noundef 920, ptr noundef %1824)
           to label %_ZL9rm_bondedP7t_blockP10gmx_mtop_t.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 
-.lr.ph95.i:                                       ; preds = %.loopexit.i367, %.lr.ph95.preheader.i
-  %.094.i = phi i64 [ %1881, %.loopexit.i367 ], [ 0, %.lr.ph95.preheader.i ]
+.lr.ph95.i:                                       ; preds = %.preheader70.i, %.loopexit.i367
+  %.094.i = phi i64 [ %1881, %.loopexit.i367 ], [ 0, %.preheader70.i ]
   %1866 = getelementptr inbounds nuw i8, ptr %1824, i64 %.094.i
   %1867 = load i8, ptr %1866, align 1, !tbaa !178, !range !351, !noundef !352
   %1868 = trunc nuw i8 %1867 to i1
@@ -4739,7 +4732,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit63.i:            ; preds = %1880, %.preheader.i
 
 .loopexit.i367:                                   ; preds = %_ZNSt6vectorIiSaIiEE5clearEv.exit63.i, %.lr.ph95.i
   %1881 = add nuw i64 %.094.i, 1
-  %exitcond110.not.i = icmp eq i64 %1881, %umax109.i
+  %exitcond110.not.i = icmp eq i64 %1881, %1830
   br i1 %exitcond110.not.i, label %._crit_edge96.i, label %.lr.ph95.i, !llvm.loop !355
 
 _ZL9rm_bondedP7t_blockP10gmx_mtop_t.exit:         ; preds = %._crit_edge96.i

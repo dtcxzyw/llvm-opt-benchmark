@@ -1637,7 +1637,6 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %13, %15, %16, %18
   %33 = sub i64 %31, %32
   %34 = ashr exact i64 %33, 2
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %umax = tail call i64 @llvm.umax.i64(i64 %26, i64 1)
   br label %36
 
 36:                                               ; preds = %.lr.ph70, %._crit_edge
@@ -1791,7 +1790,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %13, %15, %16, %18
 
 ._crit_edge:                                      ; preds = %100, %.split49.us, %.split.us.us, %80, %.thread.us.us, %42
   %103 = add nuw i64 %.04669, 1
-  %exitcond.not = icmp eq i64 %103, %umax
+  %exitcond.not = icmp eq i64 %103, %26
   br i1 %exitcond.not, label %.critedge, label %36, !llvm.loop !160
 
 .critedge:                                        ; preds = %._crit_edge, %36, %_ZNSt6vectorIiSaIiEE6resizeEm.exit
@@ -2949,7 +2948,6 @@ _ZSt13adjacent_findIN9__gnu_cxx17__normal_iteratorIPKN8rawspeed18AbstractPrefixC
   %25 = ptrtoint ptr %12 to i64
   %26 = sub i64 %24, %25
   %27 = ashr exact i64 %26, 2
-  %umax = tail call i64 @llvm.umax.i64(i64 %27, i64 1)
   br label %.preheader
 
 .lr.ph:                                           ; preds = %1, %32
@@ -3001,7 +2999,7 @@ _ZSt13adjacent_findIN9__gnu_cxx17__normal_iteratorIPKN8rawspeed18AbstractPrefixC
 
 ._crit_edge28:                                    ; preds = %44, %.preheader
   %46 = add nuw i64 %.01729, 1
-  %exitcond34.not = icmp eq i64 %46, %umax
+  %exitcond34.not = icmp eq i64 %46, %27
   br i1 %exitcond34.not, label %._crit_edge30, label %.preheader, !llvm.loop !180
 
 47:                                               ; preds = %.lr.ph27, %44

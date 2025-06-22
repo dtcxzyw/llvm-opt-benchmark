@@ -5506,7 +5506,6 @@ _ZNSt6vectorIfSaIfEED2Ev.exit88.thread:           ; preds = %79
   %171 = sub i64 %169, %170
   %172 = ashr exact i64 %171, 6
   %173 = load ptr, ptr %8, align 8, !tbaa !161
-  %umax = call i64 @llvm.umax.i64(i64 %172, i64 1)
   br label %174
 
 174:                                              ; preds = %.lr.ph232, %_ZN2cvpLIffLi3EEERNS_3VecIT_XT1_EEES4_RKNS1_IT0_XT1_EEE.exit
@@ -5558,7 +5557,7 @@ _ZN2cvpLIffLi3EEERNS_3VecIT_XT1_EEES4_RKNS1_IT0_XT1_EEE.exit: ; preds = %_ZN2cvm
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %12) #38
   %194 = fadd float %.0230, %176
   %195 = add nuw i64 %.136229, 1
-  %exitcond.not = icmp eq i64 %195, %umax
+  %exitcond.not = icmp eq i64 %195, %172
   br i1 %exitcond.not, label %._crit_edge233, label %174, !llvm.loop !204
 
 196:                                              ; preds = %._crit_edge
@@ -33285,7 +33284,6 @@ _ZNSt6vectorIN7cvflann14AutotunedIndexINS0_9L2_SimpleIfEEE8CostDataESaIS5_EE9pus
   %203 = ashr exact i64 %202, 6
   %204 = getelementptr inbounds nuw i8, ptr %1, i64 252
   %205 = load float, ptr %204, align 4, !tbaa !388
-  %umax = call i64 @llvm.umax.i64(i64 %203, i64 1)
   br label %236
 
 ._crit_edge:                                      ; preds = %236, %196
@@ -33408,7 +33406,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit69: ; preds = %_ZN
   %242 = fcmp olt float %241, %.03789
   %.138 = select i1 %242, float %241, float %.03789
   %243 = add nuw i64 %.03690, 1
-  %exitcond.not = icmp eq i64 %243, %umax
+  %exitcond.not = icmp eq i64 %243, %203
   br i1 %exitcond.not, label %._crit_edge, label %236, !llvm.loop !784
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7cvflann3anyESt4lessIS5_ESaISt4pairIKS5_S7_EEEC2ERKSE_.exit: ; preds = %221, %._crit_edge

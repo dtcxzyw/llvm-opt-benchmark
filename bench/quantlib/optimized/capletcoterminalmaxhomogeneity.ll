@@ -1907,7 +1907,6 @@ invoke.cont84:                                    ; preds = %_ZNSt6vectorIN8Quan
   %sub.ptr.rhs.cast.i193 = ptrtoint ptr %call5.i.i.i.i2.i.i190 to i64
   %rows_3.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp89, i64 8
   %columns_4.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp89, i64 16
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %_ZN8QuantLib6MatrixD2Ev.exit, %_ZNSt6vectorIN8QuantLib6MatrixESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
@@ -1958,7 +1957,7 @@ _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
 _ZN8QuantLib6MatrixD2Ev.exit:                     ; preds = %invoke.cont95, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp89) #23
   %inc = add nuw i64 %i.0890, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !75
 
 lpad92:                                           ; preds = %invoke.cont93, %for.body
@@ -2176,7 +2175,6 @@ for.body141.lr.ph:                                ; preds = %_ZNSt6vectorIS_IdSa
   %_M_end_of_storage.i.i.i303.i = getelementptr inbounds nuw i8, ptr %basis.i, i64 16
   %add.ptr.i.i311 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i243, i64 8
   %cmp30.i = fcmp olt double %caplet0Swaption1Priority, 5.000000e-01
-  %umax952 = call i64 @llvm.umax.i64(i64 %numberOfFactors, i64 1)
   br label %for.body141
 
 for.cond.cleanup140:                              ; preds = %invoke.cont248, %_ZNSt6vectorIS_IdSaIdEESaIS1_EE9push_backERKS1_.exit
@@ -2231,7 +2229,6 @@ _ZNSt6vectorIN8QuantLib6MatrixESaIS1_EE6resizeEm.exit: ; preds = %if.else.i268, 
 
 for.body267.lr.ph:                                ; preds = %if.then.i271, %_ZNSt6vectorIN8QuantLib6MatrixESaIS1_EE6resizeEm.exit
   %cmp275908.not = icmp eq i64 %call1, 0
-  %umax961 = call i64 @llvm.umax.i64(i64 %numberOfFactors, i64 1)
   %.pre966 = load ptr, ptr %swapCovariancePseudoRoots, align 8, !tbaa !80
   br label %for.body267
 
@@ -2359,7 +2356,7 @@ invoke.cont179:                                   ; preds = %for.cond168.prehead
   %91 = load double, ptr %arrayidx181, align 8, !tbaa !74
   %92 = call double @llvm.fmuladd.f64(double %90, double %91, double %correlation.0894)
   %inc185 = add nuw i64 %l.0895, 1
-  %exitcond953.not = icmp eq i64 %inc185, %umax952
+  %exitcond953.not = icmp eq i64 %inc185, %numberOfFactors
   br i1 %exitcond953.not, label %for.cond.cleanup170, label %invoke.cont179, !llvm.loop !92
 
 invoke.cont199:                                   ; preds = %for.cond.cleanup170
@@ -3726,7 +3723,7 @@ invoke.cont287:                                   ; preds = %for.body277, %invok
   %mul290 = fmul double %265, %266
   store double %mul290, ptr %arrayidx289, align 8, !tbaa !74
   %inc292 = add nuw i64 %i280.0907, 1
-  %exitcond962.not = icmp eq i64 %inc292, %umax961
+  %exitcond962.not = icmp eq i64 %inc292, %numberOfFactors
   br i1 %exitcond962.not, label %for.cond.cleanup283, label %invoke.cont287, !llvm.loop !119
 
 if.then305:                                       ; preds = %for.cond.cleanup276

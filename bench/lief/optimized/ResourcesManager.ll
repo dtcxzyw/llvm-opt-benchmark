@@ -9191,7 +9191,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit167: ; preds = %_Z
   %457 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %458 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %459 = add nsw i64 %.sroa.speculated, -1
-  %umax = call i64 @llvm.umax.i64(i64 %.sroa.speculated, i64 1)
   br label %562
 
 ._crit_edge:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit210, %440
@@ -9666,7 +9665,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit210: ; preds = %_Z
   %636 = getelementptr inbounds nuw i8, ptr %635, i64 %619
   store i8 0, ptr %636, align 1, !tbaa !73
   %637 = add nuw nsw i64 %.047308, 1
-  %exitcond.not = icmp eq i64 %637, %umax
+  %exitcond.not = icmp eq i64 %637, %.sroa.speculated
   br i1 %exitcond.not, label %._crit_edge, label %562, !llvm.loop !719
 
 638:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit196, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit167
@@ -10441,7 +10440,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit80: ; preds = %_ZN
   %270 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %271 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %272 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  %umax = call i64 @llvm.umax.i64(i64 %263, i64 1)
   br label %357
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4LIEF2PE14ResourceDialogESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEmEvRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4LIEF2PE14ResourceDialogESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEmEvRT_T0_.exit.i.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit98
@@ -10796,7 +10794,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit118: ; preds = %_Z
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %34) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %33) #23
   %398 = add nuw i64 %storemerge28172, 1
-  %exitcond.not = icmp eq i64 %398, %umax
+  %exitcond.not = icmp eq i64 %398, %263
   br i1 %exitcond.not, label %.lr.ph.i.i.i.i100, label %357, !llvm.loop !801
 }
 

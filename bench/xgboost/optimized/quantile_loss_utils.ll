@@ -348,7 +348,6 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %_ZNKSt6vector
   store ptr %25, ptr %18, align 8, !tbaa !3
   %26 = getelementptr inbounds nuw i8, ptr %21, i64 %12
   store ptr %26, ptr %19, align 8, !tbaa !22
-  %umax = tail call i64 @llvm.umax.i64(i64 %13, i64 1)
   br label %28
 
 ._crit_edge:                                      ; preds = %28, %2
@@ -368,7 +367,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %_ZNKSt6vector
   %31 = getelementptr inbounds nuw float, ptr %21, i64 %.032
   store float %30, ptr %31, align 4, !tbaa !20
   %32 = add nuw i64 %.032, 1
-  %exitcond.not = icmp eq i64 %32, %umax
+  %exitcond.not = icmp eq i64 %32, %13
   br i1 %exitcond.not, label %._crit_edge, label %28, !llvm.loop !26
 
 33:                                               ; preds = %._crit_edge

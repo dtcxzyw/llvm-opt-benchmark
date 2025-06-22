@@ -8191,15 +8191,11 @@ _ZN3vcg4face3PosI6CFaceOEC2EPS2_P8CVertexO.exit33: ; preds = %38, %33
 .lr.ph:                                           ; preds = %.preheader
   %56 = load ptr, ptr %42, align 8
   %.not10.i.i.i = icmp eq ptr %56, null
-  br i1 %.not10.i.i.i, label %._crit_edge, label %.lr.ph.i.i.i.preheader
+  br i1 %.not10.i.i.i, label %._crit_edge, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i.preheader:                           ; preds = %.lr.ph
-  %umax = call i64 @llvm.umax.i64(i64 %55, i64 1)
-  br label %.lr.ph.i.i.i
-
-.lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.preheader, %_ZNSt3setIP8CVertexOSt4lessIS1_ESaIS1_EE4findERKS1_.exit
-  %.052 = phi i64 [ %68, %_ZNSt3setIP8CVertexOSt4lessIS1_ESaIS1_EE4findERKS1_.exit ], [ 0, %.lr.ph.i.i.i.preheader ]
-  %.02451 = phi i32 [ %spec.select, %_ZNSt3setIP8CVertexOSt4lessIS1_ESaIS1_EE4findERKS1_.exit ], [ 0, %.lr.ph.i.i.i.preheader ]
+.lr.ph.i.i.i:                                     ; preds = %.lr.ph, %_ZNSt3setIP8CVertexOSt4lessIS1_ESaIS1_EE4findERKS1_.exit
+  %.052 = phi i64 [ %68, %_ZNSt3setIP8CVertexOSt4lessIS1_ESaIS1_EE4findERKS1_.exit ], [ 0, %.lr.ph ]
+  %.02451 = phi i32 [ %spec.select, %_ZNSt3setIP8CVertexOSt4lessIS1_ESaIS1_EE4findERKS1_.exit ], [ 0, %.lr.ph ]
   %57 = getelementptr inbounds ptr, ptr %51, i64 %.052
   %58 = load ptr, ptr %57, align 8
   br label %59
@@ -8235,7 +8231,7 @@ _ZNSt3setIP8CVertexOSt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; preds = %64, %_ZNSt8
   %67 = zext i1 %.not to i32
   %spec.select = add nuw nsw i32 %.02451, %67
   %68 = add nuw i64 %.052, 1
-  %exitcond.not = icmp eq i64 %68, %umax
+  %exitcond.not = icmp eq i64 %68, %55
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.i.i.i, !llvm.loop !61
 
 69:                                               ; preds = %39, %_ZN3vcg4face3PosI6CFaceOEC2EPS2_P8CVertexO.exit33

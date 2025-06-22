@@ -24033,21 +24033,17 @@ define linkonce_odr noundef zeroext i1 @_ZZN5arrow7compute8internal22GetFunction
 
 .preheader.i.i.i.i.i.i:                           ; preds = %3
   %17 = icmp eq ptr %.val3.i.i.i.i.i, %.val.i.i.i.i.i
-  br i1 %17, label %_ZN5arrow7compute8internal11CompareImplINS0_15QuantileOptionsEEC2INS_8internal13PropertyTupleIJNS6_18DataMemberPropertyIS3_St6vectorIdSaIdEEEENS8_IS3_NS3_13InterpolationEEENS8_IS3_bEENS8_IS3_jEEEEEEERKS3_SJ_RKT_.exit, label %.lr.ph.preheader.i.i.i.i.i.i
+  br i1 %17, label %_ZN5arrow7compute8internal11CompareImplINS0_15QuantileOptionsEEC2INS_8internal13PropertyTupleIJNS6_18DataMemberPropertyIS3_St6vectorIdSaIdEEEENS8_IS3_NS3_13InterpolationEEENS8_IS3_bEENS8_IS3_jEEEEEEERKS3_SJ_RKT_.exit, label %.lr.ph.i.i.i.i.i.i
 
-.lr.ph.preheader.i.i.i.i.i.i:                     ; preds = %.preheader.i.i.i.i.i.i
-  %umax.i.i.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %13, i64 1)
-  br label %.lr.ph.i.i.i.i.i.i
-
-.lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %.lr.ph.preheader.i.i.i.i.i.i
-  %.0105.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i.i.i.i ], [ %21, %.lr.ph.i.i.i.i.i.i ]
+.lr.ph.i.i.i.i.i.i:                               ; preds = %.preheader.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i
+  %.0105.i.i.i.i.i.i = phi i64 [ %21, %.lr.ph.i.i.i.i.i.i ], [ 0, %.preheader.i.i.i.i.i.i ]
   %18 = getelementptr inbounds nuw double, ptr %.val.i.i.i.i.i, i64 %.0105.i.i.i.i.i.i
   %19 = getelementptr inbounds nuw double, ptr %.val4.i.i.i.i.i, i64 %.0105.i.i.i.i.i.i
   %.val.i.i.i.i.i.i = load double, ptr %18, align 8, !tbaa !685
   %.val12.i.i.i.i.i.i = load double, ptr %19, align 8, !tbaa !685
   %20 = fcmp oeq double %.val.i.i.i.i.i.i, %.val12.i.i.i.i.i.i
   %21 = add nuw i64 %.0105.i.i.i.i.i.i, 1
-  %exitcond.not.i.i.i.i.i.i = icmp ne i64 %21, %umax.i.i.i.i.i.i
+  %exitcond.not.i.i.i.i.i.i = icmp ne i64 %21, %13
   %or.cond.not = select i1 %20, i1 %exitcond.not.i.i.i.i.i.i, i1 false
   br i1 %or.cond.not, label %.lr.ph.i.i.i.i.i.i, label %_ZN5arrow7compute8internal11CompareImplINS0_15QuantileOptionsEEC2INS_8internal13PropertyTupleIJNS6_18DataMemberPropertyIS3_St6vectorIdSaIdEEEENS8_IS3_NS3_13InterpolationEEENS8_IS3_bEENS8_IS3_jEEEEEEERKS3_SJ_RKT_.exit, !llvm.loop !687
 
@@ -32395,21 +32391,17 @@ define linkonce_odr noundef zeroext i1 @_ZZN5arrow7compute8internal22GetFunction
 
 .preheader.i.i.i.i.i.i:                           ; preds = %3
   %17 = icmp eq ptr %.val3.i.i.i.i.i, %.val.i.i.i.i.i
-  br i1 %17, label %_ZN5arrow7compute8internal11CompareImplINS0_14TDigestOptionsEEC2INS_8internal13PropertyTupleIJNS6_18DataMemberPropertyIS3_St6vectorIdSaIdEEEENS8_IS3_jEESD_NS8_IS3_bEESD_EEEEERKS3_SH_RKT_.exit, label %.lr.ph.preheader.i.i.i.i.i.i
+  br i1 %17, label %_ZN5arrow7compute8internal11CompareImplINS0_14TDigestOptionsEEC2INS_8internal13PropertyTupleIJNS6_18DataMemberPropertyIS3_St6vectorIdSaIdEEEENS8_IS3_jEESD_NS8_IS3_bEESD_EEEEERKS3_SH_RKT_.exit, label %.lr.ph.i.i.i.i.i.i
 
-.lr.ph.preheader.i.i.i.i.i.i:                     ; preds = %.preheader.i.i.i.i.i.i
-  %umax.i.i.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %13, i64 1)
-  br label %.lr.ph.i.i.i.i.i.i
-
-.lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %.lr.ph.preheader.i.i.i.i.i.i
-  %.0105.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i.i.i.i ], [ %21, %.lr.ph.i.i.i.i.i.i ]
+.lr.ph.i.i.i.i.i.i:                               ; preds = %.preheader.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i
+  %.0105.i.i.i.i.i.i = phi i64 [ %21, %.lr.ph.i.i.i.i.i.i ], [ 0, %.preheader.i.i.i.i.i.i ]
   %18 = getelementptr inbounds nuw double, ptr %.val.i.i.i.i.i, i64 %.0105.i.i.i.i.i.i
   %19 = getelementptr inbounds nuw double, ptr %.val4.i.i.i.i.i, i64 %.0105.i.i.i.i.i.i
   %.val.i.i.i.i.i.i = load double, ptr %18, align 8, !tbaa !685
   %.val12.i.i.i.i.i.i = load double, ptr %19, align 8, !tbaa !685
   %20 = fcmp oeq double %.val.i.i.i.i.i.i, %.val12.i.i.i.i.i.i
   %21 = add nuw i64 %.0105.i.i.i.i.i.i, 1
-  %exitcond.not.i.i.i.i.i.i = icmp ne i64 %21, %umax.i.i.i.i.i.i
+  %exitcond.not.i.i.i.i.i.i = icmp ne i64 %21, %13
   %or.cond.not = select i1 %20, i1 %exitcond.not.i.i.i.i.i.i, i1 false
   br i1 %or.cond.not, label %.lr.ph.i.i.i.i.i.i, label %_ZN5arrow7compute8internal11CompareImplINS0_14TDigestOptionsEEC2INS_8internal13PropertyTupleIJNS6_18DataMemberPropertyIS3_St6vectorIdSaIdEEEENS8_IS3_jEESD_NS8_IS3_bEESD_EEEEERKS3_SH_RKT_.exit, !llvm.loop !687
 

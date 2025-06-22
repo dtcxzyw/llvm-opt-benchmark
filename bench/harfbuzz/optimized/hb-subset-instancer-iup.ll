@@ -1095,7 +1095,7 @@ _ZN11hb_vector_tIbLb0EED2Ev.exit.i:               ; preds = %449, %447
   %453 = getelementptr inbounds nuw i8, ptr %192, i64 %indvars.iv63.i
   store i8 %452, ptr %453, align 1, !tbaa !37
   %indvars.iv.next64.i = add nuw nsw i64 %indvars.iv63.i, 1
-  %exitcond67.not.i = icmp eq i64 %indvars.iv.next64.i, %.sroa.3.8.insert.ext.i.i
+  %exitcond67.not.i = icmp eq i64 %indvars.iv.next64.i, %.sroa.3.8.insert.ext.i.i95
   br i1 %exitcond67.not.i, label %447, label %450, !llvm.loop !95
 
 454:                                              ; preds = %_ZN11hb_vector_tIbLb0EED2Ev.exit.i, %429, %427
@@ -1563,7 +1563,7 @@ _ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE3hasEj.exit.i: ; preds = %592, %5
 
 608:                                              ; preds = %606, %_ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE3hasEj.exit.i
   %indvars.iv.next75.i = add nuw nsw i64 %indvars.iv74.i, 1
-  %exitcond78.not.i = icmp eq i64 %indvars.iv.next75.i, %.sroa.3.8.insert.ext.i.i
+  %exitcond78.not.i = icmp eq i64 %indvars.iv.next75.i, %.sroa.3.8.insert.ext.i.i95
   br i1 %exitcond78.not.i, label %562, label %570, !llvm.loop !135
 
 _ZN11hb_vector_tIiLb0EED2Ev.exit207.thread.i:     ; preds = %474, %.thread.i.i.i

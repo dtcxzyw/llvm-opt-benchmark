@@ -6409,7 +6409,6 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %8
   store ptr %45, ptr %44, align 8, !tbaa !220
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %14) #31
   store i8 1, ptr %14, align 1, !tbaa !37
-  %umax = tail call i64 @llvm.umax.i64(i64 %25, i64 1)
   br label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
@@ -6451,7 +6450,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %8
   %60 = load i32, ptr %59, align 4, !tbaa !33
   %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %60, i32 %.0196214)
   %61 = add nuw i64 %.065215, 1
-  %exitcond.not = icmp eq i64 %61, %umax
+  %exitcond.not = icmp eq i64 %61, %25
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !221
 
 62:                                               ; preds = %.lr.ph.preheader.i.i.i.i.i
@@ -21512,7 +21511,6 @@ define linkonce_odr hidden void @_ZZN2cv5aruco13ArucoDetector17ArucoDetectorImpl
   %66 = uitofp nneg i32 %48 to float
   %67 = sitofp i32 %59 to float
   %68 = sitofp i32 %44 to float
-  %umax.i = call i64 @llvm.umax.i64(i64 %65, i64 1)
   br label %79
 
 69:                                               ; preds = %42
@@ -21568,7 +21566,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
   %.123.i = select i1 %or.cond.i, float %85, float %.0221.i
   %.1.i = select i1 %or.cond.i, i64 %.0212.i, i64 %.0203.i
   %88 = add nuw i64 %.0212.i, 1
-  %exitcond.not.i = icmp eq i64 %88, %umax.i
+  %exitcond.not.i = icmp eq i64 %88, %65
   br i1 %exitcond.not.i, label %_ZN2cv5arucoL31_findOptPyrImageForCanonicalImgERKSt6vectorINS_3MatESaIS2_EEiii.exit, label %79, !llvm.loop !543
 
 _ZN2cv5arucoL31_findOptPyrImageForCanonicalImgERKSt6vectorINS_3MatESaIS2_EEiii.exit: ; preds = %79, %.preheader.i

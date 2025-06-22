@@ -850,7 +850,6 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc11
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %.0.i.i.i.i.i.ph, ptr %20, align 8, !tbaa !14
   %.pre16 = load ptr, ptr %1, align 8, !tbaa !3
-  %umax = tail call i64 @llvm.umax.i64(i64 %11, i64 1)
   br label %21
 
 ._crit_edge:                                      ; preds = %21, %19
@@ -870,7 +869,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc11
   %29 = getelementptr inbounds nuw i32, ptr %13, i64 %.014
   store i32 %28, ptr %29, align 4, !tbaa !16
   %30 = add nuw i64 %.014, 1
-  %exitcond.not = icmp eq i64 %30, %umax
+  %exitcond.not = icmp eq i64 %30, %11
   br i1 %exitcond.not, label %._crit_edge, label %21, !llvm.loop !36
 
 31:                                               ; preds = %._crit_edge
@@ -1071,8 +1070,6 @@ _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIiSaI
   store ptr %.0.i.i.i.i.i.i.i, ptr %73, align 8, !tbaa !14
   %74 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %75 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %umax = tail call i64 @llvm.umax.i64(i64 %59, i64 1)
-  %umax52 = tail call i64 @llvm.umax.i64(i64 %55, i64 1)
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
@@ -1123,12 +1120,12 @@ _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIiSaI
   %105 = sub nsw i32 %101, %104
   store i32 %105, ptr %81, align 4, !tbaa !16
   %106 = add nuw i64 %.038.us43, 1
-  %exitcond.not = icmp eq i64 %106, %umax
+  %exitcond.not = icmp eq i64 %106, %59
   br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph.split.us45, !llvm.loop !37
 
 ._crit_edge.us:                                   ; preds = %100, %.lr.ph.split.us.us
   %107 = add nuw i64 %.02539.us, 1
-  %exitcond53.not = icmp eq i64 %107, %umax52
+  %exitcond53.not = icmp eq i64 %107, %55
   br i1 %exitcond53.not, label %._crit_edge42, label %.lr.ph.us, !llvm.loop !38
 
 .lr.ph.split.us.us:                               ; preds = %.lr.ph.split.us.us.preheader, %.lr.ph.split.us.us
@@ -1140,7 +1137,7 @@ _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIiSaI
   %112 = sub nsw i32 %109, %111
   store i32 %112, ptr %108, align 4, !tbaa !16
   %113 = add nuw i64 %.038.us.us, 1
-  %exitcond51.not = icmp eq i64 %113, %umax
+  %exitcond51.not = icmp eq i64 %113, %59
   br i1 %exitcond51.not, label %._crit_edge.us, label %.lr.ph.split.us.us, !llvm.loop !37
 
 ._crit_edge42:                                    ; preds = %._crit_edge.us
@@ -1355,7 +1352,6 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc20
   %69 = getelementptr inbounds nuw i8, ptr %.pre29, i64 8
   %70 = getelementptr inbounds nuw i8, ptr %.pre29, i64 32
   %71 = sext i32 %2 to i64
-  %umax = tail call i64 @llvm.umax.i64(i64 %59, i64 1)
   br label %.lr.ph.split
 
 ._crit_edge:                                      ; preds = %_ZNK5ZXing6Pdf4179ModulusGF8multiplyEii.exit, %67
@@ -1391,7 +1387,7 @@ _ZNK5ZXing6Pdf4179ModulusGF8multiplyEii.exit:     ; preds = %.lr.ph.split, %75
   %89 = getelementptr inbounds nuw i32, ptr %61, i64 %.023
   store i32 %.0.i, ptr %89, align 4, !tbaa !16
   %90 = add nuw i64 %.023, 1
-  %exitcond.not = icmp eq i64 %90, %umax
+  %exitcond.not = icmp eq i64 %90, %59
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !39
 
 91:                                               ; preds = %._crit_edge
@@ -1567,7 +1563,6 @@ _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIiSaI
   %58 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
   %59 = getelementptr inbounds nuw i8, ptr %.pre, i64 32
   %60 = sext i32 %3 to i64
-  %umax = tail call i64 @llvm.umax.i64(i64 %46, i64 1)
   br label %63
 
 ._crit_edge:                                      ; preds = %_ZNK5ZXing6Pdf4179ModulusGF8multiplyEii.exit, %.loopexit
@@ -1607,7 +1602,7 @@ _ZNK5ZXing6Pdf4179ModulusGF8multiplyEii.exit:     ; preds = %63, %67
   %81 = getelementptr inbounds nuw i32, ptr %56, i64 %.023
   store i32 %.0.i, ptr %81, align 4, !tbaa !16
   %82 = add nuw i64 %.023, 1
-  %exitcond.not = icmp eq i64 %82, %umax
+  %exitcond.not = icmp eq i64 %82, %46
   br i1 %exitcond.not, label %._crit_edge, label %63, !llvm.loop !40
 
 83:                                               ; preds = %._crit_edge

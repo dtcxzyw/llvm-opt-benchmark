@@ -4403,7 +4403,6 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv3dnn16ReshapeLayerImpl18upd
   %17 = load ptr, ptr %14, align 8, !tbaa !67
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %19 = load ptr, ptr %18, align 8, !tbaa !67
-  %umax = tail call i64 @llvm.umax.i64(i64 %13, i64 1)
   br label %20
 
 20:                                               ; preds = %.lr.ph, %20
@@ -4419,7 +4418,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv3dnn16ReshapeLayerImpl18upd
   %29 = getelementptr inbounds nuw i32, ptr %19, i64 %28
   store i32 %25, ptr %29, align 4, !tbaa !72
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %13
   br i1 %exitcond.not, label %.loopexit, label %20, !llvm.loop !120
 
 .loopexit:                                        ; preds = %20, %.preheader, %2

@@ -3575,7 +3575,6 @@ _ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit:            ; preds = %.noexc212, %_ZNSt6v
   %356 = ashr exact i64 %355, 3
   %357 = getelementptr inbounds nuw i8, ptr %191, i64 16
   %358 = load float, ptr %357, align 8, !tbaa !118
-  %umax = call i64 @llvm.umax.i64(i64 %356, i64 1)
   br label %476
 
 .loopexit507:                                     ; preds = %327
@@ -3795,7 +3794,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %493 = getelementptr inbounds nuw double, ptr %.sroa.0370.2, i64 %indvars.iv883
   store double %492, ptr %493, align 8, !tbaa !125
   %indvars.iv.next884 = add nuw nsw i64 %indvars.iv883, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next884, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next884, %356
   br i1 %exitcond.not, label %.loopexit504.loopexit, label %476, !llvm.loop !132
 
 .loopexit504.loopexit:                            ; preds = %476
@@ -6762,15 +6761,14 @@ _ZSt6fill_nIPPKcmS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc43
   store i32 0, ptr %43, align 4, !tbaa !95
   br i1 %39, label %.lr.ph.preheader, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
 
+.lr.ph.preheader:                                 ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc47
+  br label %.lr.ph
+
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc47
   %45 = getelementptr i8, ptr %43, i64 4
   %46 = add nsw i64 %42, -4
   call void @llvm.memset.p0.i64(ptr align 4 %45, i8 0, i64 %46, i1 false), !tbaa !95
   br label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc47
-  %umax = call i64 @llvm.umax.i64(i64 %33, i64 1)
-  br label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %47 = ptrtoint ptr %.0.i.i.i.i.i.ph to i64
@@ -6803,7 +6801,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit62.thread:           ; preds = %41
   %57 = getelementptr inbounds nuw i32, ptr %43, i64 %.030144
   store i32 %56, ptr %57, align 4, !tbaa !95
   %58 = add nuw i64 %.030144, 1
-  %exitcond.not = icmp eq i64 %58, %umax
+  %exitcond.not = icmp eq i64 %58, %33
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !248
 
 59:                                               ; preds = %._crit_edge

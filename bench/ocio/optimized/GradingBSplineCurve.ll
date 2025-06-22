@@ -1400,7 +1400,6 @@ define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev23GradingBSplineCurve
   %8 = ptrtoint ptr %5 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 2
-  %umax = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
@@ -1409,7 +1408,7 @@ define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev23GradingBSplineCurve
   %12 = load float, ptr %11, align 4, !tbaa !41
   %13 = fcmp oeq float %12, 0.000000e+00
   %14 = add nuw i64 %.057, 1
-  %exitcond.not = icmp ne i64 %14, %umax
+  %exitcond.not = icmp ne i64 %14, %10
   %or.cond.not = select i1 %13, i1 %exitcond.not, i1 false
   br i1 %or.cond.not, label %.lr.ph, label %._crit_edge, !llvm.loop !62
 
@@ -2385,7 +2384,6 @@ _ZNSt6vectorIfSaIfEEaSERKS1_.exit:                ; preds = %_ZSt4copyIN9__gnu_c
   %279 = ptrtoint ptr %.val56 to i64
   %280 = sub i64 %278, %279
   %281 = ashr exact i64 %280, 2
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %281, i64 1)
   br label %.lr.ph.i66.outer
 
 .lr.ph.i66.outer:                                 ; preds = %.thread, %.lr.ph.preheader.i
@@ -2432,7 +2430,7 @@ _ZNSt6vectorIfSaIfEEaSERKS1_.exit:                ; preds = %_ZSt4copyIN9__gnu_c
 310:                                              ; preds = %287, %.lr.ph.i66
   %.168.i = phi i64 [ %.0676.i, %.lr.ph.i66 ], [ %288, %287 ]
   %311 = add nuw i64 %.0695.i, 1
-  %exitcond.not.i67 = icmp eq i64 %311, %umax.i
+  %exitcond.not.i67 = icmp eq i64 %311, %281
   br i1 %exitcond.not.i67, label %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_112AdjustSlopesERKSt6vectorINS_19GradingControlPointESaIS2_EERS1_IfSaIfEES9_.exit, label %.lr.ph.i66, !llvm.loop !76
 
 .thread:                                          ; preds = %287
@@ -2454,7 +2452,7 @@ _ZNSt6vectorIfSaIfEEaSERKS1_.exit:                ; preds = %_ZSt4copyIN9__gnu_c
   %325 = fmul float %304, %323
   store float %325, ptr %313, align 4, !tbaa !41
   %326 = add nuw i64 %.0695.i, 1
-  %exitcond.not.i67198 = icmp eq i64 %326, %umax.i
+  %exitcond.not.i67198 = icmp eq i64 %326, %281
   br i1 %exitcond.not.i67198, label %_ZNSt6vectorIfSaIfEE5clearEv.exit, label %.lr.ph.i66.outer, !llvm.loop !76
 
 _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_112AdjustSlopesERKSt6vectorINS_19GradingControlPointESaIS2_EERS1_IfSaIfEES9_.exit: ; preds = %310

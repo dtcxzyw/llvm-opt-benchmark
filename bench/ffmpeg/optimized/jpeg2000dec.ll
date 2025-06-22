@@ -440,73 +440,72 @@ bytestream2_init.exit:                            ; preds = %4
   store ptr %155, ptr %13, align 8, !tbaa !43
   %156 = load i16, ptr %124, align 1, !tbaa !44
   %157 = tail call i16 @llvm.bswap.i16(i16 %156)
-  %158 = zext i16 %157 to i32
-  %159 = getelementptr inbounds nuw i8, ptr %114, i64 11
-  store ptr %159, ptr %13, align 8, !tbaa !43
-  %160 = load i8, ptr %155, align 1, !tbaa !44
-  %161 = getelementptr inbounds nuw i8, ptr %114, i64 12
-  store ptr %161, ptr %13, align 8, !tbaa !43
-  %162 = load i8, ptr %159, align 1, !tbaa !44
-  %163 = and i8 %162, 127
-  %164 = zext nneg i8 %163 to i32
-  %165 = add nuw nsw i32 %164, 1
-  %166 = getelementptr inbounds nuw i8, ptr %114, i64 13
-  store ptr %166, ptr %13, align 8, !tbaa !43
-  %167 = load i8, ptr %161, align 1, !tbaa !44
-  %168 = and i8 %167, 127
-  %169 = zext nneg i8 %168 to i32
-  %170 = add nuw nsw i32 %169, 1
-  %171 = getelementptr inbounds nuw i8, ptr %114, i64 14
-  store ptr %171, ptr %13, align 8, !tbaa !43
-  %172 = load i8, ptr %166, align 1, !tbaa !44
-  %173 = and i8 %172, 127
-  %174 = zext nneg i8 %173 to i32
-  %175 = add nuw nsw i32 %174, 1
-  %176 = icmp ugt i16 %157, 256
-  %177 = icmp ne i8 %160, 3
-  %or.cond7.i = select i1 %176, i1 true, i1 %177
-  %178 = icmp samesign ugt i8 %163, 15
-  %or.cond10.i = select i1 %or.cond7.i, i1 true, i1 %178
-  %179 = icmp samesign ugt i8 %168, 15
-  %or.cond13.i = select i1 %or.cond10.i, i1 true, i1 %179
-  %180 = icmp samesign ugt i8 %173, 15
-  %or.cond16.i = select i1 %or.cond13.i, i1 true, i1 %180
-  br i1 %or.cond16.i, label %255, label %181
+  %158 = getelementptr inbounds nuw i8, ptr %114, i64 11
+  store ptr %158, ptr %13, align 8, !tbaa !43
+  %159 = load i8, ptr %155, align 1, !tbaa !44
+  %160 = getelementptr inbounds nuw i8, ptr %114, i64 12
+  store ptr %160, ptr %13, align 8, !tbaa !43
+  %161 = load i8, ptr %158, align 1, !tbaa !44
+  %162 = and i8 %161, 127
+  %163 = zext nneg i8 %162 to i32
+  %164 = add nuw nsw i32 %163, 1
+  %165 = getelementptr inbounds nuw i8, ptr %114, i64 13
+  store ptr %165, ptr %13, align 8, !tbaa !43
+  %166 = load i8, ptr %160, align 1, !tbaa !44
+  %167 = and i8 %166, 127
+  %168 = zext nneg i8 %167 to i32
+  %169 = add nuw nsw i32 %168, 1
+  %170 = getelementptr inbounds nuw i8, ptr %114, i64 14
+  store ptr %170, ptr %13, align 8, !tbaa !43
+  %171 = load i8, ptr %165, align 1, !tbaa !44
+  %172 = and i8 %171, 127
+  %173 = zext nneg i8 %172 to i32
+  %174 = add nuw nsw i32 %173, 1
+  %175 = icmp ugt i16 %157, 256
+  %176 = icmp ne i8 %159, 3
+  %or.cond7.i = select i1 %175, i1 true, i1 %176
+  %177 = icmp samesign ugt i8 %162, 15
+  %or.cond10.i = select i1 %or.cond7.i, i1 true, i1 %177
+  %178 = icmp samesign ugt i8 %167, 15
+  %or.cond13.i = select i1 %or.cond10.i, i1 true, i1 %178
+  %179 = icmp samesign ugt i8 %172, 15
+  %or.cond16.i = select i1 %or.cond13.i, i1 true, i1 %179
+  br i1 %or.cond16.i, label %255, label %180
 
-181:                                              ; preds = %154
-  %182 = add nuw nsw i32 %174, 8
+180:                                              ; preds = %154
+  %181 = zext nneg i16 %157 to i32
+  %182 = add nuw nsw i32 %173, 8
   %183 = lshr i32 %182, 3
-  %184 = add nuw nsw i32 %164, 8
+  %184 = add nuw nsw i32 %163, 8
   %185 = lshr i32 %184, 3
-  %186 = add nuw nsw i32 %169, 8
+  %186 = add nuw nsw i32 %168, 8
   %187 = lshr i32 %186, 3
   %188 = add nuw nsw i32 %187, %185
   %189 = add nuw nsw i32 %188, %183
-  %190 = mul nuw nsw i32 %189, %158
+  %190 = mul nuw nsw i32 %189, %181
   %191 = icmp ult i32 %131, %190
   br i1 %191, label %255, label %192
 
-192:                                              ; preds = %181
+192:                                              ; preds = %180
   store i8 1, ptr %44, align 4, !tbaa !46
   %.not268.i = icmp eq i16 %156, 0
   br i1 %.not268.i, label %.thread.i, label %.lr.ph265.i
 
 .lr.ph265.i:                                      ; preds = %192
-  %193 = icmp samesign ult i8 %163, 8
-  %194 = add nsw i32 %164, -7
-  %195 = sub nuw nsw i32 7, %164
-  %196 = icmp samesign ult i8 %168, 8
-  %197 = add nsw i32 %169, -7
-  %198 = sub nuw nsw i32 7, %169
-  %199 = icmp samesign ult i8 %173, 8
-  %200 = add nsw i32 %174, -7
-  %201 = sub nuw nsw i32 7, %174
-  %umax.i = tail call i32 @llvm.umax.i32(i32 %158, i32 1)
-  %wide.trip.count.i = zext nneg i32 %umax.i to i64
+  %193 = icmp samesign ult i8 %162, 8
+  %194 = add nsw i32 %163, -7
+  %195 = sub nuw nsw i32 7, %163
+  %196 = icmp samesign ult i8 %167, 8
+  %197 = add nsw i32 %168, -7
+  %198 = sub nuw nsw i32 7, %168
+  %199 = icmp samesign ult i8 %172, 8
+  %200 = add nsw i32 %173, -7
+  %201 = sub nuw nsw i32 7, %173
+  %wide.trip.count.i = zext nneg i16 %157 to i64
   br label %202
 
 202:                                              ; preds = %247, %.lr.ph265.i
-  %203 = phi ptr [ %171, %.lr.ph265.i ], [ %248, %247 ]
+  %203 = phi ptr [ %170, %.lr.ph265.i ], [ %248, %247 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph265.i ], [ %indvars.iv.next.i, %247 ]
   br i1 %193, label %204, label %211
 
@@ -516,7 +515,7 @@ bytestream2_init.exit:                            ; preds = %4
   %206 = load i8, ptr %203, align 1, !tbaa !44
   %207 = zext i8 %206 to i32
   %208 = shl nuw nsw i32 %207, %195
-  %209 = lshr i32 %208, %165
+  %209 = lshr i32 %208, %164
   %210 = or i32 %209, %208
   br label %217
 
@@ -540,7 +539,7 @@ bytestream2_init.exit:                            ; preds = %4
   %221 = load i8, ptr %218, align 1, !tbaa !44
   %222 = zext i8 %221 to i32
   %223 = shl nuw nsw i32 %222, %198
-  %224 = lshr i32 %223, %170
+  %224 = lshr i32 %223, %169
   %225 = or i32 %224, %223
   br label %232
 
@@ -564,7 +563,7 @@ bytestream2_init.exit:                            ; preds = %4
   %236 = load i8, ptr %233, align 1, !tbaa !44
   %237 = zext i8 %236 to i32
   %238 = shl nuw nsw i32 %237, %201
-  %239 = lshr i32 %238, %175
+  %239 = lshr i32 %238, %174
   %240 = or i32 %239, %238
   br label %247
 
@@ -591,7 +590,7 @@ bytestream2_init.exit:                            ; preds = %4
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.thread.i, label %202, !llvm.loop !48
 
-255:                                              ; preds = %181, %154
+255:                                              ; preds = %180, %154
   %256 = load ptr, ptr %12, align 8, !tbaa !35
   tail call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef %256, ptr noundef nonnull @.str.13) #11
   %257 = load ptr, ptr %23, align 8, !tbaa !41

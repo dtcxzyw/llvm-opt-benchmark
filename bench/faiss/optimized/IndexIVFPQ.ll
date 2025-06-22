@@ -10028,7 +10028,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
   %104 = load ptr, ptr %103, align 8
   %sext101.i = shl i64 %95, 32
   %105 = ashr exact i64 %sext101.i, 32
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %94, i64 1)
   %106 = icmp sgt i32 %96, 0
   %factor.op.mul.i = mul i64 %102, %105
   %factor.op.mul103.i = mul i64 %102, %92
@@ -10067,7 +10066,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
 ._crit_edge.i.loopexit.us:                        ; preds = %.lr.ph.i.us
   %117 = ashr i64 %.04178.i.us, %98
   %indvars.iv.next91.i.us = add nuw nsw i64 %indvars.iv90.i.us, 1
-  %exitcond.not.i.us = icmp eq i64 %indvars.iv.next91.i.us, %umax.i
+  %exitcond.not.i.us = icmp eq i64 %indvars.iv.next91.i.us, %94
   br i1 %exitcond.not.i.us, label %.loopexit.i, label %.lr.ph.preheader.i.us, !llvm.loop !499
 
 118:                                              ; preds = %33

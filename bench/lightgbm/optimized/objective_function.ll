@@ -25553,11 +25553,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %63, %40, %_ZSt6fill
 .preheader3.i:                                    ; preds = %.lr.ph.i, %._crit_edge
   %.02.lcssa.i = phi double [ %71, %._crit_edge ], [ %.sroa.speculated.i, %.lr.ph.i ]
   %.not.i = icmp eq ptr %.sroa.10.1, %.sroa.0.1
-  br i1 %.not.i, label %_ZN8LightGBM6CommonL7SoftmaxEPSt6vectorIdSaIdEE.exit, label %.lr.ph10.preheader.i
-
-.lr.ph10.preheader.i:                             ; preds = %.preheader3.i
-  %umax.i = call i64 @llvm.umax.i64(i64 %75, i64 1)
-  br label %.lr.ph10.i
+  br i1 %.not.i, label %_ZN8LightGBM6CommonL7SoftmaxEPSt6vectorIdSaIdEE.exit, label %.lr.ph10.i
 
 .lr.ph.i:                                         ; preds = %._crit_edge, %.lr.ph.i
   %.0246.i = phi i64 [ %80, %.lr.ph.i ], [ 1, %._crit_edge ]
@@ -25570,9 +25566,9 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %63, %40, %_ZSt6fill
   %exitcond.not.i = icmp eq i64 %80, %75
   br i1 %exitcond.not.i, label %.preheader3.i, label %.lr.ph.i, !llvm.loop !494
 
-.lr.ph10.i:                                       ; preds = %.lr.ph10.i, %.lr.ph10.preheader.i
-  %.0229.i = phi i64 [ %86, %.lr.ph10.i ], [ 0, %.lr.ph10.preheader.i ]
-  %.0238.i = phi double [ %85, %.lr.ph10.i ], [ 0.000000e+00, %.lr.ph10.preheader.i ]
+.lr.ph10.i:                                       ; preds = %.preheader3.i, %.lr.ph10.i
+  %.0229.i = phi i64 [ %86, %.lr.ph10.i ], [ 0, %.preheader3.i ]
+  %.0238.i = phi double [ %85, %.lr.ph10.i ], [ 0.000000e+00, %.preheader3.i ]
   %81 = getelementptr inbounds nuw double, ptr %.sroa.0.1, i64 %.0229.i
   %82 = load double, ptr %81, align 8, !tbaa !153
   %83 = fsub double %82, %.02.lcssa.i
@@ -25580,7 +25576,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %63, %40, %_ZSt6fill
   store double %84, ptr %81, align 8, !tbaa !153
   %85 = fadd double %.0238.i, %84
   %86 = add nuw i64 %.0229.i, 1
-  %exitcond15.not.i = icmp eq i64 %86, %umax.i
+  %exitcond15.not.i = icmp eq i64 %86, %75
   br i1 %exitcond15.not.i, label %.lr.ph13.i, label %.lr.ph10.i, !llvm.loop !495
 
 .lr.ph13.i:                                       ; preds = %.lr.ph10.i, %.lr.ph13.i
@@ -25590,7 +25586,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %63, %40, %_ZSt6fill
   %89 = fdiv double %88, %85
   store double %89, ptr %87, align 8, !tbaa !153
   %90 = add nuw i64 %.012.i, 1
-  %exitcond17.not.i = icmp eq i64 %90, %umax.i
+  %exitcond17.not.i = icmp eq i64 %90, %75
   br i1 %exitcond17.not.i, label %_ZN8LightGBM6CommonL7SoftmaxEPSt6vectorIdSaIdEE.exit.loopexit, label %.lr.ph13.i, !llvm.loop !496
 
 _ZN8LightGBM6CommonL7SoftmaxEPSt6vectorIdSaIdEE.exit.loopexit: ; preds = %.lr.ph13.i
@@ -25862,11 +25858,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %64, %41, %_ZSt6fill
 .preheader3.i:                                    ; preds = %.lr.ph.i, %._crit_edge
   %.02.lcssa.i = phi double [ %72, %._crit_edge ], [ %.sroa.speculated.i, %.lr.ph.i ]
   %.not.i = icmp eq ptr %.sroa.10.1, %.sroa.0.1
-  br i1 %.not.i, label %_ZN8LightGBM6CommonL7SoftmaxEPSt6vectorIdSaIdEE.exit, label %.lr.ph10.preheader.i
-
-.lr.ph10.preheader.i:                             ; preds = %.preheader3.i
-  %umax.i = call i64 @llvm.umax.i64(i64 %76, i64 1)
-  br label %.lr.ph10.i
+  br i1 %.not.i, label %_ZN8LightGBM6CommonL7SoftmaxEPSt6vectorIdSaIdEE.exit, label %.lr.ph10.i
 
 .lr.ph.i:                                         ; preds = %._crit_edge, %.lr.ph.i
   %.0246.i = phi i64 [ %81, %.lr.ph.i ], [ 1, %._crit_edge ]
@@ -25879,9 +25871,9 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %64, %41, %_ZSt6fill
   %exitcond.not.i = icmp eq i64 %81, %76
   br i1 %exitcond.not.i, label %.preheader3.i, label %.lr.ph.i, !llvm.loop !494
 
-.lr.ph10.i:                                       ; preds = %.lr.ph10.i, %.lr.ph10.preheader.i
-  %.0229.i = phi i64 [ %87, %.lr.ph10.i ], [ 0, %.lr.ph10.preheader.i ]
-  %.0238.i = phi double [ %86, %.lr.ph10.i ], [ 0.000000e+00, %.lr.ph10.preheader.i ]
+.lr.ph10.i:                                       ; preds = %.preheader3.i, %.lr.ph10.i
+  %.0229.i = phi i64 [ %87, %.lr.ph10.i ], [ 0, %.preheader3.i ]
+  %.0238.i = phi double [ %86, %.lr.ph10.i ], [ 0.000000e+00, %.preheader3.i ]
   %82 = getelementptr inbounds nuw double, ptr %.sroa.0.1, i64 %.0229.i
   %83 = load double, ptr %82, align 8, !tbaa !153
   %84 = fsub double %83, %.02.lcssa.i
@@ -25889,7 +25881,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %64, %41, %_ZSt6fill
   store double %85, ptr %82, align 8, !tbaa !153
   %86 = fadd double %.0238.i, %85
   %87 = add nuw i64 %.0229.i, 1
-  %exitcond15.not.i = icmp eq i64 %87, %umax.i
+  %exitcond15.not.i = icmp eq i64 %87, %76
   br i1 %exitcond15.not.i, label %.lr.ph13.i, label %.lr.ph10.i, !llvm.loop !495
 
 .lr.ph13.i:                                       ; preds = %.lr.ph10.i, %.lr.ph13.i
@@ -25899,7 +25891,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %64, %41, %_ZSt6fill
   %90 = fdiv double %89, %86
   store double %90, ptr %88, align 8, !tbaa !153
   %91 = add nuw i64 %.012.i, 1
-  %exitcond17.not.i = icmp eq i64 %91, %umax.i
+  %exitcond17.not.i = icmp eq i64 %91, %76
   br i1 %exitcond17.not.i, label %_ZN8LightGBM6CommonL7SoftmaxEPSt6vectorIdSaIdEE.exit.loopexit, label %.lr.ph13.i, !llvm.loop !496
 
 _ZN8LightGBM6CommonL7SoftmaxEPSt6vectorIdSaIdEE.exit.loopexit: ; preds = %.lr.ph13.i

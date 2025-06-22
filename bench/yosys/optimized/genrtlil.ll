@@ -4357,7 +4357,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit: ; preds = %4
   %325 = ptrtoint ptr %323 to i64
   %326 = sub i64 %324, %325
   %327 = ashr exact i64 %326, 3
-  %umax = call i64 @llvm.umax.i64(i64 %327, i64 1)
   br label %.lr.ph2071
 
 328:                                              ; preds = %287
@@ -4534,7 +4533,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1071: ; preds = %_
 
 390:                                              ; preds = %.lr.ph2071
   %391 = add nuw i64 %.05642070, 1
-  %exitcond2134.not = icmp eq i64 %391, %umax
+  %exitcond2134.not = icmp eq i64 %391, %327
   br i1 %exitcond2134.not, label %.loopexit, label %.lr.ph2071, !llvm.loop !130
 
 .loopexit:                                        ; preds = %390, %388, %319

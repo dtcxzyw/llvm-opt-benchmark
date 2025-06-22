@@ -326,10 +326,9 @@ define hidden noundef zeroext i1 @_ZN11mpn_manager3divEPKjjS1_jPjS2_(ptr noundef
 
 .lr.ph99.preheader:                               ; preds = %.preheader94
   %14 = sub i32 %13, %4
-  %15 = tail call i32 @llvm.umax.i32(i32 %14, i32 1)
-  %umax106 = zext i32 %15 to i64
-  %16 = shl nuw nsw i64 %umax106, 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %5, i8 0, i64 %16, i1 false), !tbaa !3
+  %15 = zext i32 %14 to i64
+  %16 = shl nuw nsw i64 %15, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %5, i8 0, i64 %16, i1 false), !tbaa !3
   br label %.preheader
 
 .preheader:                                       ; preds = %.lr.ph99.preheader, %.preheader94

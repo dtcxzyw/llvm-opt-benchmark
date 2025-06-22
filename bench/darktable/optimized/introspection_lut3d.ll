@@ -1559,21 +1559,13 @@ define hidden zeroext i16 @calculate_clut_haldclut(ptr readnone captures(none) %
   br i1 %101, label %.preheader, label %.preheader70
 
 .preheader70:                                     ; preds = %97
-  br i1 %.not80, label %.loopexit, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %.preheader70
-  %umax = call i64 @llvm.umax.i64(i64 %88, i64 1)
-  br label %.lr.ph
+  br i1 %.not80, label %.loopexit, label %.lr.ph
 
 .preheader:                                       ; preds = %97
-  br i1 %.not80, label %.loopexit, label %.lr.ph78.preheader
+  br i1 %.not80, label %.loopexit, label %.lr.ph78
 
-.lr.ph78.preheader:                               ; preds = %.preheader
-  %umax84 = call i64 @llvm.umax.i64(i64 %88, i64 1)
-  br label %.lr.ph78
-
-.lr.ph78:                                         ; preds = %.lr.ph78.preheader, %.lr.ph78
-  %.05377 = phi i64 [ %107, %.lr.ph78 ], [ 0, %.lr.ph78.preheader ]
+.lr.ph78:                                         ; preds = %.preheader, %.lr.ph78
+  %.05377 = phi i64 [ %107, %.lr.ph78 ], [ 0, %.preheader ]
   %102 = getelementptr inbounds nuw i8, ptr %74, i64 %.05377
   %103 = load i8, ptr %102, align 1, !tbaa !73
   %104 = uitofp i8 %103 to float
@@ -1581,11 +1573,11 @@ define hidden zeroext i16 @calculate_clut_haldclut(ptr readnone captures(none) %
   %106 = getelementptr inbounds nuw float, ptr %94, i64 %.05377
   store float %105, ptr %106, align 4, !tbaa !18
   %107 = add nuw i64 %.05377, 1
-  %exitcond85.not = icmp eq i64 %107, %umax84
+  %exitcond85.not = icmp eq i64 %107, %88
   br i1 %exitcond85.not, label %.loopexit, label %.lr.ph78
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.076 = phi i64 [ %119, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.preheader70, %.lr.ph
+  %.076 = phi i64 [ %119, %.lr.ph ], [ 0, %.preheader70 ]
   %108 = shl i64 %.076, 1
   %109 = getelementptr inbounds nuw i8, ptr %74, i64 %108
   %110 = load i8, ptr %109, align 1, !tbaa !73
@@ -1599,7 +1591,7 @@ define hidden zeroext i16 @calculate_clut_haldclut(ptr readnone captures(none) %
   %118 = getelementptr inbounds nuw float, ptr %94, i64 %.076
   store float %117, ptr %118, align 4, !tbaa !18
   %119 = add nuw i64 %.076, 1
-  %exitcond.not = icmp eq i64 %119, %umax
+  %exitcond.not = icmp eq i64 %119, %88
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph78, %.preheader70, %.preheader
@@ -4438,9 +4430,6 @@ declare i8 @llvm.umin.i8(i8, i8) #23
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #24
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #23

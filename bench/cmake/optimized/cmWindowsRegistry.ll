@@ -762,7 +762,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit36.i: ; preds = %_Z
   br i1 %110, label %_ZN12_GLOBAL__N_17StrucmpESt17basic_string_viewIcSt11char_traitsIcEES3_.exit.thread55.i, label %.preheader.preheader.i.i
 
 .preheader.preheader.i.i:                         ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit36.i
-  %umax.i = call i64 @llvm.umin.i64(i64 %108, i64 9)
+  %invariant.umin.i.i = call i64 @llvm.umin.i64(i64 %108, i64 9)
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %120, %.preheader.preheader.i.i
@@ -780,7 +780,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit36.i: ; preds = %_Z
 
 120:                                              ; preds = %.preheader.i.i
   %121 = add nuw nsw i64 %.011.i.i, 1
-  %exitcond.not.i = icmp eq i64 %121, %umax.i
+  %exitcond.not.i = icmp eq i64 %121, %invariant.umin.i.i
   br i1 %exitcond.not.i, label %_ZN12_GLOBAL__N_17StrucmpESt17basic_string_viewIcSt11char_traitsIcEES3_.exit.i, label %.preheader.i.i, !llvm.loop !56
 
 _ZN12_GLOBAL__N_17StrucmpESt17basic_string_viewIcSt11char_traitsIcEES3_.exit.i: ; preds = %120

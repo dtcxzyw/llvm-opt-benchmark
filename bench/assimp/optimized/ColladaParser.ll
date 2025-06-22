@@ -13692,7 +13692,6 @@ _ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; 
   %107 = ptrtoint ptr %.val18 to i64
   %108 = sub i64 %106, %107
   %109 = ashr exact i64 %108, 6
-  %umax.i = call i64 @llvm.umax.i64(i64 %109, i64 1)
   %110 = icmp eq i64 %.val17.fr, 0
   br i1 %110, label %.lr.ph.preheader.i.split.us, label %.lr.ph.i
 
@@ -13709,7 +13708,7 @@ _ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; 
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread5.i.us: ; preds = %.lr.ph.i.us
   %113 = add nuw i64 %.0109.i.us, 1
-  %exitcond.not.i.us = icmp eq i64 %113, %umax.i
+  %exitcond.not.i.us = icmp eq i64 %113, %109
   br i1 %exitcond.not.i.us, label %_ZL13FindCommonKeyRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt4pairIS4_S4_ESaIS9_EERm.exit, label %.lr.ph.i.us, !llvm.loop !102
 
 .lr.ph.i:                                         ; preds = %.lr.ph.preheader.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread5.i
@@ -13728,7 +13727,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread5.i: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i, %.lr.ph.i
   %120 = add nuw i64 %.0109.i, 1
-  %exitcond.not.i = icmp eq i64 %120, %umax.i
+  %exitcond.not.i = icmp eq i64 %120, %109
   br i1 %exitcond.not.i, label %_ZL13FindCommonKeyRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt4pairIS4_S4_ESaIS9_EERm.exit, label %.lr.ph.i, !llvm.loop !102
 
 .split.us:                                        ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i, %.lr.ph.i.us

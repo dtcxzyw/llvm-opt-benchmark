@@ -38634,13 +38634,10 @@ _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIP
 
 _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i43: ; preds = %72
   %78 = ashr exact i64 %75, 2
-  %.sroa.speculated.i.i.i44 = tail call i64 @llvm.umax.i64(i64 %78, i64 1)
-  %79 = add nsw i64 %.sroa.speculated.i.i.i44, %78
+  %79 = ashr exact i64 %75, 1
   %80 = icmp ult i64 %79, %78
   %81 = tail call i64 @llvm.umin.i64(i64 %79, i64 2305843009213693951)
   %82 = select i1 %80, i64 2305843009213693951, i64 %81
-  %.not.i.i.i45 = icmp ne i64 %82, 0
-  tail call void @llvm.assume(i1 %.not.i.i.i45)
   %83 = shl nuw nsw i64 %82, 2
   %84 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %83) #30
   %85 = getelementptr inbounds i8, ptr %84, i64 %75
@@ -40189,13 +40186,10 @@ _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIP
 
 _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i43: ; preds = %72
   %78 = ashr exact i64 %75, 2
-  %.sroa.speculated.i.i.i44 = tail call i64 @llvm.umax.i64(i64 %78, i64 1)
-  %79 = add nsw i64 %.sroa.speculated.i.i.i44, %78
+  %79 = ashr exact i64 %75, 1
   %80 = icmp ult i64 %79, %78
   %81 = tail call i64 @llvm.umin.i64(i64 %79, i64 2305843009213693951)
   %82 = select i1 %80, i64 2305843009213693951, i64 %81
-  %.not.i.i.i45 = icmp ne i64 %82, 0
-  tail call void @llvm.assume(i1 %.not.i.i.i45)
   %83 = shl nuw nsw i64 %82, 2
   %84 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %83) #30
   %85 = getelementptr inbounds i8, ptr %84, i64 %75
@@ -42926,13 +42920,10 @@ _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIP
 
 _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i43.i: ; preds = %72
   %78 = ashr exact i64 %75, 2
-  %.sroa.speculated.i.i.i44.i = tail call i64 @llvm.umax.i64(i64 %78, i64 1)
-  %79 = add nsw i64 %.sroa.speculated.i.i.i44.i, %78
+  %79 = ashr exact i64 %75, 1
   %80 = icmp ult i64 %79, %78
   %81 = tail call i64 @llvm.umin.i64(i64 %79, i64 2305843009213693951)
   %82 = select i1 %80, i64 2305843009213693951, i64 %81
-  %.not.i.i.i45.i = icmp ne i64 %82, 0
-  tail call void @llvm.assume(i1 %.not.i.i.i45.i)
   %83 = shl nuw nsw i64 %82, 2
   %84 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %83) #30
   %85 = getelementptr inbounds i8, ptr %84, i64 %75

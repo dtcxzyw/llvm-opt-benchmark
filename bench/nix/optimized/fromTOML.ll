@@ -3226,9 +3226,8 @@ define linkonce_odr void @_ZN4toml5parseINS_16discard_commentsETtTpTyESt13unorde
   unreachable
 
 _ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %36
-  %.sroa.speculated.i.i.i.i = call i64 @llvm.umax.i64(i64 %39, i64 1)
-  %42 = add i64 %.sroa.speculated.i.i.i.i, %39
-  %43 = icmp ult i64 %42, %39
+  %42 = shl i64 %39, 1
+  %43 = icmp slt i64 %39, 0
   %44 = call i64 @llvm.umin.i64(i64 %42, i64 9223372036854775807)
   %45 = select i1 %43, i64 9223372036854775807, i64 %44
   %.not.i.i.i.i = icmp eq i64 %45, 0
@@ -4226,7 +4225,6 @@ _ZN4toml3getISt6vectorINS_11basic_valueINS_16discard_commentsESt13unordered_mapS
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %90 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %umax.i.i.i = call i64 @llvm.umax.i64(i64 %86, i64 1)
   br label %91
 
 91:                                               ; preds = %_ZNKSt8functionIFvRN3nix5ValueEN4toml11basic_valueINS3_16discard_commentsESt13unordered_mapSt6vectorEEEEclES2_S8_.exit58.i.i.i, %.lr.ph.i.i.i
@@ -4304,7 +4302,7 @@ _ZN4toml3getISt6vectorINS_11basic_valueINS_16discard_commentsESt13unordered_mapS
 _ZNKSt8functionIFvRN3nix5ValueEN4toml11basic_valueINS3_16discard_commentsESt13unordered_mapSt6vectorEEEEclES2_S8_.exit58.i.i.i: ; preds = %123
   call void @_ZN4toml11basic_valueINS_16discard_commentsESt13unordered_mapSt6vectorED2Ev(ptr noundef nonnull align 8 dereferenceable(65) %9) #30
   %126 = add nuw i64 %.04199.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %126, %umax.i.i.i
+  %exitcond.not.i.i.i = icmp eq i64 %126, %86
   br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %91, !llvm.loop !13
 
 .loopexit89.i.i.i:                                ; preds = %106, %97

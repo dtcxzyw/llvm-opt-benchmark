@@ -4362,12 +4362,11 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
   %128 = ptrtoint ptr %126 to i64
   %129 = sub i64 %127, %128
   %130 = ashr exact i64 %129, 3
-  %umax = call i64 @llvm.umax.i64(i64 %130, i64 1)
   br label %.lr.ph
 
 131:                                              ; preds = %.lr.ph
   %132 = add nuw i64 %.060, 1
-  %exitcond.not = icmp eq i64 %132, %umax
+  %exitcond.not = icmp eq i64 %132, %130
   br i1 %exitcond.not, label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread56, label %.lr.ph, !llvm.loop !226
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %131
@@ -11928,7 +11927,6 @@ define noundef i32 @_ZN10colvarbias18communicate_forcesEv(ptr noundef nonnull re
   %41 = load ptr, ptr %40, align 8, !tbaa !269
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %43 = load ptr, ptr %42, align 8, !tbaa !188
-  %umax = tail call i64 @llvm.umax.i64(i64 %31, i64 1)
   br label %44
 
 44:                                               ; preds = %.lr.ph, %44
@@ -11965,7 +11963,7 @@ define noundef i32 @_ZN10colvarbias18communicate_forcesEv(ptr noundef nonnull re
   %68 = getelementptr inbounds nuw i32, ptr %43, i64 %.02277
   store i32 %67, ptr %68, align 4, !tbaa !154
   %69 = add nuw i64 %.02277, 1
-  %exitcond.not = icmp eq i64 %69, %umax
+  %exitcond.not = icmp eq i64 %69, %31
   br i1 %exitcond.not, label %._crit_edge, label %44, !llvm.loop !356
 
 ._crit_edge:                                      ; preds = %44, %.preheader.._crit_edge_crit_edge
@@ -12762,7 +12760,6 @@ define linkonce_odr void @_ZN11colvarvaluepLERKS_(ptr noundef nonnull align 8 de
   %56 = sub i64 %54, %55
   %57 = ashr exact i64 %56, 3
   %58 = load ptr, ptr %49, align 8, !tbaa !269
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %57, i64 1)
   br label %59
 
 59:                                               ; preds = %59, %.lr.ph.i
@@ -12774,7 +12771,7 @@ define linkonce_odr void @_ZN11colvarvaluepLERKS_(ptr noundef nonnull align 8 de
   %64 = fadd double %61, %63
   store double %64, ptr %62, align 8, !tbaa !59
   %65 = add nuw i64 %.06.i, 1
-  %exitcond.not.i = icmp eq i64 %65, %umax.i
+  %exitcond.not.i = icmp eq i64 %65, %57
   br i1 %exitcond.not.i, label %_ZN12colvarmodule8vector1dIdEpLERKS1_.exit, label %59, !llvm.loop !368
 
 66:                                               ; preds = %2

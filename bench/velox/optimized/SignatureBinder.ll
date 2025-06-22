@@ -292,15 +292,11 @@ if.else:                                          ; preds = %entry
 if.end41:                                         ; preds = %for.inc, %if.else, %if.end, %if.then11
   %actualTypes_46 = getelementptr inbounds nuw i8, ptr %this, i64 120
   %cmp4454.not = icmp eq ptr %1, %2
-  br i1 %cmp4454.not, label %return, label %land.rhs.preheader
+  br i1 %cmp4454.not, label %return, label %land.rhs
 
-land.rhs.preheader:                               ; preds = %if.end41
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
-  br label %land.rhs
-
-land.rhs:                                         ; preds = %land.rhs.preheader, %for.inc65
-  %indvars.iv = phi i64 [ 0, %land.rhs.preheader ], [ %indvars.iv.next, %for.inc65 ]
-  %allBound.055 = phi i1 [ true, %land.rhs.preheader ], [ %allBound.1, %for.inc65 ]
+land.rhs:                                         ; preds = %if.end41, %for.inc65
+  %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc65 ], [ 0, %if.end41 ]
+  %allBound.055 = phi i1 [ %allBound.1, %for.inc65 ], [ true, %if.end41 ]
   %17 = load ptr, ptr %actualTypes_46, align 8
   %_M_finish.i38 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %18 = load ptr, ptr %_M_finish.i38, align 8
@@ -328,7 +324,7 @@ if.then54:                                        ; preds = %for.body49
 for.inc65:                                        ; preds = %if.then54, %for.body49
   %allBound.1 = phi i1 [ %spec.select, %if.then54 ], [ false, %for.body49 ]
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %sub.ptr.div.i
   br i1 %exitcond.not, label %return, label %land.rhs, !llvm.loop !6
 
 return:                                           ; preds = %land.lhs.true, %for.inc65, %land.rhs, %if.end41, %if.else, %if.then

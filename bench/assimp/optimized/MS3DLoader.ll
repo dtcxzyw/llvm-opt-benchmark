@@ -468,7 +468,6 @@ define hidden void @_ZN6Assimp12MS3DImporter18CollectChildJointsERKSt6vectorINS0
   %16 = sdiv exact i64 %15, 176
   %17 = load ptr, ptr %2, align 8
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %umax = tail call i64 @llvm.umax.i64(i64 %16, i64 1)
   br label %45
 
 ._crit_edge:                                      ; preds = %.critedge, %5
@@ -534,7 +533,7 @@ define hidden void @_ZN6Assimp12MS3DImporter18CollectChildJointsERKSt6vectorINS0
 .critedge:                                        ; preds = %45, %54
   %.1 = phi i32 [ %spec.select, %54 ], [ %.0146, %45 ]
   %58 = add nuw i64 %.055145, 1
-  %exitcond.not = icmp eq i64 %58, %umax
+  %exitcond.not = icmp eq i64 %58, %16
   br i1 %exitcond.not, label %._crit_edge, label %45, !llvm.loop !3
 
 ._crit_edge158:                                   ; preds = %.critedge2, %._crit_edge

@@ -4735,8 +4735,7 @@ sub_0699:                                         ; preds = %.tail694.thread
   %391 = zext i8 %376 to i32
   %392 = zext i16 %386 to i32
   %393 = zext i16 %386 to i64
-  %umax = call i16 @llvm.umax.i16(i16 %390, i16 1)
-  %wide.trip.count865 = zext i16 %umax to i64
+  %wide.trip.count865 = zext i16 %390 to i64
   %394 = icmp ne i8 %376, 0
   br label %.preheader
 
@@ -7848,9 +7847,6 @@ declare i16 @llvm.umin.i16(i16, i16) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #18
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.umax.i16(i16, i16) #18
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

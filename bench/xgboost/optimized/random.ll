@@ -1391,7 +1391,6 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZNSt6vectorIfSaIfE
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %63, i64 1816
   %82 = getelementptr inbounds nuw i8, ptr %63, i64 4984
   %83 = getelementptr inbounds nuw i8, ptr %63, i64 3168
-  %umax = call i64 @llvm.umax.i64(i64 %69, i64 1)
   br label %90
 
 ._crit_edge:                                      ; preds = %169, %.preheader
@@ -1549,7 +1548,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %173 = getelementptr inbounds nuw float, ptr %.sroa.073.0, i64 %.03289
   store float %172, ptr %173, align 4, !tbaa !61
   %174 = add nuw i64 %.03289, 1
-  %exitcond98.not = icmp eq i64 %174, %umax
+  %exitcond98.not = icmp eq i64 %174, %69
   br i1 %exitcond98.not, label %._crit_edge, label %90, !llvm.loop !74
 
 175:                                              ; preds = %91

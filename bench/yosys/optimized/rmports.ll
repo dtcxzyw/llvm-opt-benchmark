@@ -6456,7 +6456,6 @@ _ZNK5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE7do_hashERKS3_.ex
   %1938 = sub i64 %1936, %1937
   %1939 = ashr exact i64 %1938, 2
   %1940 = load i32, ptr %19, align 4, !tbaa !42
-  %umax = call i64 @llvm.umax.i64(i64 %1939, i64 1)
   br label %1943
 
 .loopexit:                                        ; preds = %1897, %1900
@@ -6493,7 +6492,7 @@ _ZNK5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE7do_hashERKS3_.ex
 
 1952:                                             ; preds = %1943
   %1953 = add nuw i64 %.0151527, 1
-  %exitcond801.not = icmp eq i64 %1953, %umax
+  %exitcond801.not = icmp eq i64 %1953, %1939
   br i1 %exitcond801.not, label %_ZNSt6vectorIN5Yosys5RTLIL8IdStringESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EE.exit, label %1943, !llvm.loop !178
 
 _ZNSt6vectorIN5Yosys5RTLIL8IdStringESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EE.exit: ; preds = %1952, %1933, %1947

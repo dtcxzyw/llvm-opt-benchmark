@@ -396,8 +396,7 @@ define dso_local void @span_to_scratch(i64 %0) local_unnamed_addr #0 {
   %20 = and i64 %4, 255
   %21 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 %20
   %22 = getelementptr inbounds i8, ptr %21, i64 -1
-  %umax = tail call i32 @llvm.umax.i32(i32 %6, i32 1)
-  %wide.trip.count = zext nneg i32 %umax to i64
+  %wide.trip.count = zext nneg i32 %6 to i64
   br label %23
 
 23:                                               ; preds = %._crit_edge, %28

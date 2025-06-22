@@ -40513,19 +40513,15 @@ define internal fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter19va
 
 .preheader:                                       ; preds = %5
   %.not119 = icmp eq ptr %.val49, %.val48
-  br i1 %.not119, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %.preheader
-  %umax = tail call i64 @llvm.umax.i64(i64 %16, i64 1)
-  br label %.lr.ph
+  br i1 %.not119, label %._crit_edge, label %.lr.ph
 
 23:                                               ; preds = %.lr.ph
   %24 = add nuw i64 %.021108, 1
-  %exitcond.not = icmp eq i64 %24, %umax
+  %exitcond.not = icmp eq i64 %24, %16
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !589
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %23
-  %.021108 = phi i64 [ %24, %23 ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %23
+  %.021108 = phi i64 [ %24, %23 ], [ 0, %.preheader ]
   %25 = getelementptr inbounds nuw %"struct.jsonnet::internal::(anonymous namespace)::Value", ptr %.val48, i64 %.021108
   %26 = load i32, ptr %25, align 8, !tbaa !304
   %27 = getelementptr inbounds nuw i32, ptr %.val52, i64 %.021108

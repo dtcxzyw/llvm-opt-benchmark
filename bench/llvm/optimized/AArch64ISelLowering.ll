@@ -109100,8 +109100,7 @@ _ZNSt8optionalIjEaSIN4llvm21AArch64SVEPredPattern16SVEPREDPATValuesEEENSt9enable
   %216 = getelementptr inbounds nuw i8, ptr %.0.i181224, i64 24
   %217 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %218 = zext i32 %84 to i64
-  %umax = call i32 @llvm.umax.i32(i32 %3, i32 1)
-  %wide.trip.count = zext i32 %umax to i64
+  %wide.trip.count = zext i32 %3 to i64
   br label %219
 
 219:                                              ; preds = %193, %_ZN4llvm11SmallVectorIPNS_5ValueELj5EED2Ev.exit

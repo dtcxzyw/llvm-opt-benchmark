@@ -1396,7 +1396,6 @@ _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit225.thread: ; preds = %244, %_ZN4
   %258 = ashr exact i64 %257, 3
   %259 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %invariant.gep = getelementptr inbounds nuw i8, ptr %14, i64 256
-  %umax = call i64 @llvm.umax.i64(i64 %258, i64 1)
   br label %266
 
 ._crit_edge:                                      ; preds = %_ZNSolsEPFRSoS_E.exit, %251
@@ -1489,7 +1488,7 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i318: ; preds = %.noexc321, %
 
 _ZNSolsEPFRSoS_E.exit:                            ; preds = %.noexc323
   %292 = add nuw i64 %.035437, 1
-  %exitcond445.not = icmp eq i64 %292, %umax
+  %exitcond445.not = icmp eq i64 %292, %258
   br i1 %exitcond445.not, label %._crit_edge, label %266, !llvm.loop !127
 
 293:                                              ; preds = %266

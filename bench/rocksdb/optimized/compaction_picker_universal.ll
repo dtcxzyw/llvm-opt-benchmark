@@ -3699,7 +3699,6 @@ _ZN7rocksdb12_GLOBAL__N_126UniversalCompactionBuilder29PickCompactionToReduceSiz
   %1481 = ptrtoint ptr %.val73 to i64
   %1482 = sub i64 %1480, %1481
   %1483 = sdiv exact i64 %1482, 40
-  %umax = call i64 @llvm.umax.i64(i64 %1483, i64 1)
   br label %.lr.ph309
 
 ._crit_edge:                                      ; preds = %1494, %.loopexit
@@ -3727,7 +3726,7 @@ _ZN7rocksdb12_GLOBAL__N_126UniversalCompactionBuilder29PickCompactionToReduceSiz
 1494:                                             ; preds = %1489, %.lr.ph309
   %.148 = phi i32 [ %.047307, %.lr.ph309 ], [ %spec.select, %1489 ]
   %1495 = add nuw i64 %.046308, 1
-  %exitcond.not = icmp eq i64 %1495, %umax
+  %exitcond.not = icmp eq i64 %1495, %1483
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph309, !llvm.loop !405
 
 1496:                                             ; preds = %._crit_edge

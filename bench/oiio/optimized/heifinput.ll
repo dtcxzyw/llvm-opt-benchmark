@@ -1247,7 +1247,6 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %153, %_ZNK4heif7Con
 .lr.ph.preheader:                                 ; preds = %159
   %165 = sub i64 %163, %164
   %166 = ashr exact i64 %165, 2
-  %umax = call i64 @llvm.umax.i64(i64 %166, i64 1)
   br label %.lr.ph
 
 167:                                              ; preds = %4
@@ -1417,7 +1416,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit51: ; preds = %_ZN
 
 229:                                              ; preds = %.lr.ph
   %230 = add nuw i64 %.02380, 1
-  %exitcond.not = icmp eq i64 %230, %umax
+  %exitcond.not = icmp eq i64 %230, %166
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !112
 
 .loopexit:                                        ; preds = %229, %159, %187

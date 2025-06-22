@@ -1804,7 +1804,6 @@ define dso_local noundef range(i32 -2147483646, -2147483648) i32 @_ZNK4Type16get
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
   %11 = ashr exact i64 %10, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %11, i64 1)
   br label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
@@ -1819,7 +1818,7 @@ define dso_local noundef range(i32 -2147483646, -2147483648) i32 @_ZNK4Type16get
   %15 = tail call noundef i32 @_ZNK4Type16get_struct_depthEv(ptr noundef nonnull align 8 dereferenceable(136) %14)
   %spec.select = tail call i32 @llvm.smax.i32(i32 %15, i32 %.01113)
   %16 = add nuw i64 %.01014, 1
-  %exitcond.not = icmp eq i64 %16, %umax
+  %exitcond.not = icmp eq i64 %16, %11
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !76
 
 ._crit_edge:                                      ; preds = %.preheader, %._crit_edge.loopexit, %1
@@ -2306,19 +2305,15 @@ define dso_local noundef nonnull align 8 dereferenceable(136) ptr @_ZN4Type15get
   %11 = sub i64 %9, %10
   %12 = ashr exact i64 %11, 3
   %.not = icmp eq ptr %7, %8
-  br i1 %.not, label %._crit_edge.thread, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %.preheader
-  %umax = tail call i64 @llvm.umax.i64(i64 %12, i64 1)
-  br label %.lr.ph
+  br i1 %.not, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %24
   %13 = icmp eq ptr %25, null
   br i1 %13, label %._crit_edge.thread, label %_ZNSt6vectorIP4TypeSaIS1_EE9push_backERKS1_.exit
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %24
-  %14 = phi ptr [ %25, %24 ], [ null, %.lr.ph.preheader ]
-  %.01725 = phi i64 [ %26, %24 ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %24
+  %14 = phi ptr [ %25, %24 ], [ null, %.preheader ]
+  %.01725 = phi i64 [ %26, %24 ], [ 0, %.preheader ]
   %15 = getelementptr inbounds nuw ptr, ptr %8, i64 %.01725
   %16 = load ptr, ptr %15, align 8, !tbaa !35
   %17 = load i32, ptr %16, align 8, !tbaa !36
@@ -2338,7 +2333,7 @@ define dso_local noundef nonnull align 8 dereferenceable(136) ptr @_ZN4Type15get
 24:                                               ; preds = %23, %19, %.lr.ph
   %25 = phi ptr [ %16, %23 ], [ %14, %19 ], [ %14, %.lr.ph ]
   %26 = add nuw i64 %.01725, 1
-  %exitcond.not = icmp eq i64 %26, %umax
+  %exitcond.not = icmp eq i64 %26, %12
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !98
 
 ._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge
@@ -2561,12 +2556,11 @@ define dso_local noundef ptr @_ZN4Type9find_typeEPKS_(ptr noundef readnone captu
   %5 = ptrtoint ptr %3 to i64
   %6 = sub i64 %4, %5
   %7 = ashr exact i64 %6, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %7, i64 1)
   br label %.lr.ph
 
 8:                                                ; preds = %.lr.ph
   %9 = add nuw i64 %.069, 1
-  %exitcond.not = icmp eq i64 %9, %umax
+  %exitcond.not = icmp eq i64 %9, %7
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !99
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %8
@@ -2590,19 +2584,15 @@ define dso_local noundef ptr @_ZN4Type17find_pointer_typeEPKS_b(ptr noundef %0, 
   %7 = sub i64 %5, %6
   %8 = ashr exact i64 %7, 3
   %.not = icmp eq ptr %3, %4
-  br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %2
-  %umax = tail call i64 @llvm.umax.i64(i64 %8, i64 1)
-  br label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 9:                                                ; preds = %.lr.ph
   %10 = add nuw i64 %.01030, 1
-  %exitcond.not = icmp eq i64 %10, %umax
+  %exitcond.not = icmp eq i64 %10, %8
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !100
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %9
-  %.01030 = phi i64 [ %10, %9 ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %2, %9
+  %.01030 = phi i64 [ %10, %9 ], [ 0, %2 ]
   %11 = getelementptr inbounds nuw ptr, ptr %4, i64 %.01030
   %12 = load ptr, ptr %11, align 8, !tbaa !35
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -2756,7 +2746,6 @@ define dso_local noundef zeroext i1 @_ZNK4Type13has_int_fieldEv(ptr noundef nonn
   %13 = ptrtoint ptr %11 to i64
   %14 = sub i64 %12, %13
   %15 = ashr exact i64 %14, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %15, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
@@ -2765,7 +2754,7 @@ define dso_local noundef zeroext i1 @_ZNK4Type13has_int_fieldEv(ptr noundef nonn
   %17 = load ptr, ptr %16, align 8, !tbaa !35
   %18 = tail call noundef zeroext i1 @_ZNK4Type13has_int_fieldEv(ptr noundef nonnull align 8 dereferenceable(136) %17)
   %19 = add nuw i64 %.0911, 1
-  %exitcond.not = icmp eq i64 %19, %umax
+  %exitcond.not = icmp eq i64 %19, %15
   %or.cond = select i1 %18, i1 true, i1 %exitcond.not
   br i1 %or.cond, label %.loopexit, label %.lr.ph, !llvm.loop !102
 
@@ -4745,12 +4734,11 @@ define dso_local noundef zeroext i1 @_ZNK4Type21contain_pointer_fieldEv(ptr noun
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
   %11 = ashr exact i64 %10, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %11, i64 1)
   br label %.lr.ph
 
 12:                                               ; preds = %.lr.ph
   %13 = add nuw i64 %.0511, 1
-  %exitcond.not = icmp eq i64 %13, %umax
+  %exitcond.not = icmp eq i64 %13, %11
   br i1 %exitcond.not, label %.thread, label %.lr.ph, !llvm.loop !109
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %12
@@ -4784,7 +4772,6 @@ define dso_local noundef zeroext i1 @_ZNK4Type13has_bitfieldsEv(ptr noundef nonn
   %9 = ashr exact i64 %8, 3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %11 = load ptr, ptr %10, align 8, !tbaa !85
-  %umax = tail call i64 @llvm.umax.i64(i64 %9, i64 1)
   br label %12
 
 12:                                               ; preds = %.lr.ph, %23
@@ -4807,7 +4794,7 @@ define dso_local noundef zeroext i1 @_ZNK4Type13has_bitfieldsEv(ptr noundef nonn
 
 23:                                               ; preds = %16, %21
   %24 = add nuw i64 %.0710, 1
-  %exitcond.not = icmp eq i64 %24, %umax
+  %exitcond.not = icmp eq i64 %24, %9
   br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !110
 
 ._crit_edge:                                      ; preds = %23, %12, %21, %1
@@ -8158,7 +8145,6 @@ _ZNSt6vectorIPK4TypeSaIS2_EEC2ERKS4_.exit:        ; preds = %165, %.noexc84.thre
   %171 = ptrtoint ptr %168 to i64
   %172 = sub i64 %170, %171
   %173 = ashr exact i64 %172, 3
-  %umax.i = call i64 @llvm.umax.i64(i64 %173, i64 1)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -8169,7 +8155,7 @@ _ZNSt6vectorIPK4TypeSaIS2_EEC2ERKS4_.exit:        ; preds = %165, %.noexc84.thre
   %177 = load i8, ptr %176, align 8, !tbaa !83, !range !62, !noundef !63
   %178 = trunc nuw i8 %177 to i1
   %179 = add nuw i64 %.0810.i, 1
-  %exitcond.not.i = icmp eq i64 %179, %umax.i
+  %exitcond.not.i = icmp eq i64 %179, %173
   %or.cond173 = select i1 %178, i1 true, i1 %exitcond.not.i
   br i1 %or.cond173, label %.thread125, label %.lr.ph.i, !llvm.loop !241
 
@@ -9107,7 +9093,6 @@ _ZN10EnumeratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5beginEv.ex
   %99 = ptrtoint ptr %97 to i64
   %100 = sub i64 %98, %99
   %101 = ashr exact i64 %100, 3
-  %umax = call i64 @llvm.umax.i64(i64 %101, i64 1)
   br label %.lr.ph.i23
 
 .lr.ph.i23:                                       ; preds = %.lr.ph.i23.preheader, %115
@@ -9139,7 +9124,7 @@ _ZN10EnumeratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5beginEv.ex
 
 115:                                              ; preds = %112, %.lr.ph.i23
   %116 = add nuw i64 %.012.i, 1
-  %exitcond.not = icmp eq i64 %116, %umax
+  %exitcond.not = icmp eq i64 %116, %101
   br i1 %exitcond.not, label %_ZN4Type22delete_useless_structsERSt6vectorIPKS_SaIS2_EES5_.exit, label %.lr.ph.i23, !llvm.loop !247
 
 _ZN4Type22delete_useless_structsERSt6vectorIPKS_SaIS2_EES5_.exit: ; preds = %115, %94
@@ -9887,7 +9872,6 @@ _ZNSt6vectorIPK4TypeSaIS2_EEC2ERKS4_.exit:        ; preds = %82, %.noexc58.threa
   %88 = ptrtoint ptr %85 to i64
   %89 = sub i64 %87, %88
   %90 = ashr exact i64 %89, 3
-  %umax.i = call i64 @llvm.umax.i64(i64 %90, i64 1)
   br label %.lr.ph.i60
 
 .lr.ph.i60:                                       ; preds = %.lr.ph.i60, %.lr.ph.preheader.i
@@ -9898,7 +9882,7 @@ _ZNSt6vectorIPK4TypeSaIS2_EEC2ERKS4_.exit:        ; preds = %82, %.noexc58.threa
   %94 = load i8, ptr %93, align 8, !tbaa !83, !range !62, !noundef !63
   %95 = trunc nuw i8 %94 to i1
   %96 = add nuw i64 %.0810.i, 1
-  %exitcond.not.i61 = icmp eq i64 %96, %umax.i
+  %exitcond.not.i61 = icmp eq i64 %96, %90
   %or.cond = select i1 %95, i1 true, i1 %exitcond.not.i61
   br i1 %or.cond, label %.thread86, label %.lr.ph.i60, !llvm.loop !241
 
@@ -10174,7 +10158,6 @@ _ZNSt6vectorIPK4TypeSaIS2_EEC2ERKS4_.exit:        ; preds = %28, %.noexc27.threa
   %34 = ptrtoint ptr %31 to i64
   %35 = sub i64 %33, %34
   %36 = ashr exact i64 %35, 3
-  %umax.i = call i64 @llvm.umax.i64(i64 %36, i64 1)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -10185,7 +10168,7 @@ _ZNSt6vectorIPK4TypeSaIS2_EEC2ERKS4_.exit:        ; preds = %28, %.noexc27.threa
   %40 = load i8, ptr %39, align 8, !tbaa !83, !range !62, !noundef !63
   %41 = trunc nuw i8 %40 to i1
   %42 = add nuw i64 %.0810.i, 1
-  %exitcond.not.i = icmp eq i64 %42, %umax.i
+  %exitcond.not.i = icmp eq i64 %42, %36
   %or.cond = select i1 %41, i1 true, i1 %exitcond.not.i
   br i1 %or.cond, label %.thread, label %.lr.ph.i, !llvm.loop !241
 
@@ -10875,12 +10858,11 @@ define dso_local noundef zeroext i1 @_ZNK4Type11has_paddingEv(ptr noundef nonnul
   %14 = ashr exact i64 %13, 3
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %16 = load ptr, ptr %15, align 8, !tbaa !85
-  %umax = tail call i64 @llvm.umax.i64(i64 %14, i64 1)
   br label %19
 
 17:                                               ; preds = %23
   %18 = add nuw i64 %.0611, 1
-  %exitcond.not = icmp eq i64 %18, %umax
+  %exitcond.not = icmp eq i64 %18, %14
   br i1 %exitcond.not, label %.loopexit, label %19, !llvm.loop !257
 
 19:                                               ; preds = %.lr.ph, %17
@@ -10920,7 +10902,6 @@ define dso_local noundef zeroext i1 @_ZNK4Type24is_full_bitfields_structEv(ptr n
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 2
-  %umax = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
@@ -10929,7 +10910,7 @@ define dso_local noundef zeroext i1 @_ZNK4Type24is_full_bitfields_structEv(ptr n
   %12 = load i32, ptr %11, align 4, !tbaa !88
   %13 = icmp sgt i32 %12, -1
   %14 = add nuw i64 %.07, 1
-  %exitcond.not = icmp ne i64 %14, %umax
+  %exitcond.not = icmp ne i64 %14, %10
   %or.cond.not = select i1 %13, i1 %exitcond.not, i1 false
   br i1 %or.cond.not, label %.lr.ph, label %.loopexit, !llvm.loop !258
 

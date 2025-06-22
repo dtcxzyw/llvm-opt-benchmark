@@ -12851,8 +12851,6 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.i149: ; preds = %16
 
 _ZlsRSo6symbol.exit154:                           ; preds = %.invoke486, %.noexc152
   %170 = sub i32 %136, %110
-  %umax = call i32 @llvm.umax.i32(i32 %110, i32 1)
-  %wide.trip.count426 = zext i32 %umax to i64
   br label %175
 
 171:                                              ; preds = %_ZNSolsEj.exit169
@@ -12913,7 +12911,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit167: ; preds = %_Zls
 
 _ZNSolsEj.exit169:                                ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit167
   %indvars.iv.next424 = add nuw nsw i64 %indvars.iv423, 1
-  %exitcond427.not = icmp eq i64 %indvars.iv.next424, %wide.trip.count426
+  %exitcond427.not = icmp eq i64 %indvars.iv.next424, %wide.trip.count
   br i1 %exitcond427.not, label %171, label %175, !llvm.loop !433
 
 195:                                              ; preds = %.invoke488, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit167, %_ZlsRSo6symbol.exit165, %.noexc163, %185, %175

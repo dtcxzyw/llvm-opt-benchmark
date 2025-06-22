@@ -92,7 +92,6 @@ define weak_odr dso_local void @_ZN3igl13boundary_loopIN5Eigen6MatrixIiLin1ELin1
   %20 = sub i64 %19, %18
   %21 = ashr exact i64 %20, 2
   %22 = load ptr, ptr %1, align 8, !tbaa !14
-  %umax = call i64 @llvm.umax.i64(i64 %21, i64 1)
   br label %30
 
 ._crit_edge:                                      ; preds = %.preheader
@@ -125,7 +124,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge, %._cri
   %33 = getelementptr inbounds i32, ptr %22, i64 %.015
   store i32 %32, ptr %33, align 4, !tbaa !17
   %34 = add nuw i64 %.015, 1
-  %exitcond.not = icmp eq i64 %34, %umax
+  %exitcond.not = icmp eq i64 %34, %21
   br i1 %exitcond.not, label %._crit_edge.thread, label %30, !llvm.loop !19
 
 35:                                               ; preds = %2, %_ZNSt6vectorIiSaIiEED2Ev.exit
@@ -174,7 +173,6 @@ define linkonce_odr dso_local void @_ZN3igl13boundary_loopIN5Eigen6MatrixIiLin1E
   %12 = ptrtoint ptr %10 to i64
   %13 = sub i64 %11, %12
   %14 = sdiv exact i64 %13, 24
-  %umax = call i64 @llvm.umax.i64(i64 %14, i64 1)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
@@ -203,7 +201,7 @@ define linkonce_odr dso_local void @_ZN3igl13boundary_loopIN5Eigen6MatrixIiLin1E
   %spec.select = select i1 %26, i32 %27, i32 %.02231
   %spec.select29 = call i64 @llvm.umax.i64(i64 %25, i64 %.02132)
   %28 = add nuw i64 %.02033, 1
-  %exitcond.not = icmp eq i64 %28, %umax
+  %exitcond.not = icmp eq i64 %28, %14
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 
 ._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge

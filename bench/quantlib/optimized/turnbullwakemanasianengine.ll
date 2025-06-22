@@ -1897,7 +1897,6 @@ for.cond.cleanup358:                              ; preds = %invoke.cont429
 
 for.body448.preheader:                            ; preds = %for.cond.cleanup358
   %sub.ptr.div.i387 = ashr exact i64 %sub.ptr.sub.i386, 3
-  %umax = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i387, i64 1)
   br label %for.body448
 
 _ZNSt6vectorIdSaIdEED2Ev.exit900.thread:          ; preds = %cond.false.i377, %cond.false.i372, %invoke.cont344, %invoke.cont340, %invoke.cont338
@@ -2450,7 +2449,7 @@ for.body458.lr.ph:                                ; preds = %for.body448
 for.cond.cleanup457:                              ; preds = %for.body458, %for.body448
   %EA2.1.lcssa = phi double [ %205, %for.body448 ], [ %208, %for.body458 ]
   %inc469 = add nuw i64 %i.01305, 1
-  %exitcond1421.not = icmp eq i64 %inc469, %umax
+  %exitcond1421.not = icmp eq i64 %inc469, %sub.ptr.div.i387
   br i1 %exitcond1421.not, label %for.cond.cleanup447, label %for.body448, !llvm.loop !109
 
 for.body458:                                      ; preds = %for.body458.lr.ph, %for.body458

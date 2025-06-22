@@ -4393,87 +4393,86 @@ _ZL15skip_annotationPKhii.exit:                   ; preds = %.lr.ph.i, %26, %._Z
   %35 = tail call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i70)
   %36 = zext i16 %35 to i32
   %37 = tail call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i71)
-  %38 = load i32, ptr %16, align 4
-  %39 = icmp ne i16 %.0.i.i.i70, 0
-  %40 = icmp sgt i32 %38, %36
-  %41 = and i1 %39, %40
-  br i1 %41, label %42, label %.critedge
+  %38 = zext i16 %37 to i32
+  %39 = load i32, ptr %16, align 4
+  %40 = icmp ne i16 %.0.i.i.i70, 0
+  %41 = icmp sgt i32 %39, %36
+  %42 = and i1 %40, %41
+  br i1 %42, label %43, label %.critedge
 
-42:                                               ; preds = %_ZL15skip_annotationPKhii.exit
-  %43 = load ptr, ptr %9, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
-  %45 = zext i16 %35 to i64
-  %46 = getelementptr inbounds nuw i8, ptr %44, i64 %45
-  %47 = load volatile i8, ptr %46, align 1
+43:                                               ; preds = %_ZL15skip_annotationPKhii.exit
+  %44 = load ptr, ptr %9, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 4
+  %46 = zext i16 %35 to i64
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 %46
+  %48 = load volatile i8, ptr %47, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !8
-  %48 = icmp eq i8 %47, 1
-  br i1 %48, label %_ZL15check_symbol_atPK12ConstantPooli.exit, label %.critedge
+  %49 = icmp eq i8 %48, 1
+  br i1 %49, label %_ZL15check_symbol_atPK12ConstantPooli.exit, label %.critedge
 
-_ZL15check_symbol_atPK12ConstantPooli.exit:       ; preds = %42
-  %49 = getelementptr inbounds nuw i64, ptr %10, i64 %45
-  %50 = load ptr, ptr %49, align 8
-  %51 = icmp eq ptr %50, null
-  br i1 %51, label %.critedge, label %52
+_ZL15check_symbol_atPK12ConstantPooli.exit:       ; preds = %43
+  %50 = getelementptr inbounds nuw i64, ptr %10, i64 %46
+  %51 = load ptr, ptr %50, align 8
+  %52 = icmp eq ptr %51, null
+  br i1 %52, label %.critedge, label %53
 
-52:                                               ; preds = %_ZL15check_symbol_atPK12ConstantPooli.exit
+53:                                               ; preds = %_ZL15check_symbol_atPK12ConstantPooli.exit
   %.not67 = icmp eq i16 %.0.i.i.i71, 0
-  br i1 %.not67, label %71, label %53
+  br i1 %.not67, label %72, label %54
 
-53:                                               ; preds = %52
-  %54 = getelementptr inbounds nuw i8, ptr %34, i64 4
-  %.0.i.i.i72 = load i16, ptr %54, align 1
-  %55 = tail call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i72)
-  %56 = zext i16 %55 to i32
-  %57 = load i32, ptr %16, align 4
-  %58 = icmp ne i16 %.0.i.i.i72, 0
-  %59 = icmp sgt i32 %57, %56
-  %60 = and i1 %58, %59
-  br i1 %60, label %61, label %.critedge
+54:                                               ; preds = %53
+  %55 = getelementptr inbounds nuw i8, ptr %34, i64 4
+  %.0.i.i.i72 = load i16, ptr %55, align 1
+  %56 = tail call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i72)
+  %57 = zext i16 %56 to i32
+  %58 = load i32, ptr %16, align 4
+  %59 = icmp ne i16 %.0.i.i.i72, 0
+  %60 = icmp sgt i32 %58, %57
+  %61 = and i1 %59, %60
+  br i1 %61, label %62, label %.critedge
 
-61:                                               ; preds = %53
-  %62 = load ptr, ptr %9, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 4
-  %64 = zext i16 %55 to i64
-  %65 = getelementptr inbounds nuw i8, ptr %63, i64 %64
-  %66 = load volatile i8, ptr %65, align 1
+62:                                               ; preds = %54
+  %63 = load ptr, ptr %9, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 4
+  %65 = zext i16 %56 to i64
+  %66 = getelementptr inbounds nuw i8, ptr %64, i64 %65
+  %67 = load volatile i8, ptr %66, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !8
-  %67 = icmp eq i8 %66, 1
-  br i1 %67, label %_ZL15check_symbol_atPK12ConstantPooli.exit74, label %.critedge
+  %68 = icmp eq i8 %67, 1
+  br i1 %68, label %_ZL15check_symbol_atPK12ConstantPooli.exit74, label %.critedge
 
-_ZL15check_symbol_atPK12ConstantPooli.exit74:     ; preds = %61
-  %68 = getelementptr inbounds nuw i64, ptr %10, i64 %64
-  %69 = load ptr, ptr %68, align 8
-  %70 = icmp eq ptr %69, null
-  br i1 %70, label %.critedge, label %71
+_ZL15check_symbol_atPK12ConstantPooli.exit74:     ; preds = %62
+  %69 = getelementptr inbounds nuw i64, ptr %10, i64 %65
+  %70 = load ptr, ptr %69, align 8
+  %71 = icmp eq ptr %70, null
+  br i1 %71, label %.critedge, label %72
 
-71:                                               ; preds = %_ZL15check_symbol_atPK12ConstantPooli.exit74, %52
-  %.060 = phi ptr [ %69, %_ZL15check_symbol_atPK12ConstantPooli.exit74 ], [ null, %52 ]
-  %72 = tail call noundef i32 @_ZN19AnnotationCollector16annotation_indexEPK15ClassLoaderDataPK6Symbolb(ptr noundef nonnull align 4 dereferenceable(10) %3, ptr noundef %4, ptr noundef nonnull %50, i1 noundef zeroext %5)
-  %73 = icmp eq i32 %72, 0
-  br i1 %73, label %.backedge, label %74
+72:                                               ; preds = %_ZL15check_symbol_atPK12ConstantPooli.exit74, %53
+  %.060 = phi ptr [ %70, %_ZL15check_symbol_atPK12ConstantPooli.exit74 ], [ null, %53 ]
+  %73 = tail call noundef i32 @_ZN19AnnotationCollector16annotation_indexEPK15ClassLoaderDataPK6Symbolb(ptr noundef nonnull align 4 dereferenceable(10) %3, ptr noundef %4, ptr noundef nonnull %51, i1 noundef zeroext %5)
+  %74 = icmp eq i32 %73, 0
+  br i1 %74, label %.backedge, label %75
 
-74:                                               ; preds = %71
-  %75 = shl nuw nsw i32 1, %72
-  %76 = load i32, ptr %17, align 4
-  %77 = or i32 %76, %75
-  store i32 %77, ptr %17, align 4
-  switch i32 %72, label %.backedge [
-    i32 15, label %78
+75:                                               ; preds = %72
+  %76 = shl nuw nsw i32 1, %73
+  %77 = load i32, ptr %17, align 4
+  %78 = or i32 %77, %76
+  store i32 %78, ptr %17, align 4
+  switch i32 %73, label %.backedge [
+    i32 15, label %79
     i32 11, label %118
   ]
 
-78:                                               ; preds = %74
+79:                                               ; preds = %75
   br i1 %.not67, label %.backedge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %78
-  %79 = getelementptr inbounds nuw i8, ptr %34, i64 4
-  %80 = tail call i16 @llvm.umax.i16(i16 %37, i16 1)
-  %umax = zext i16 %80 to i32
+.lr.ph.preheader:                                 ; preds = %79
+  %80 = getelementptr inbounds nuw i8, ptr %34, i64 4
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %115
   %.05884 = phi i32 [ %116, %115 ], [ 0, %.lr.ph.preheader ]
-  %.05983 = phi ptr [ %.1, %115 ], [ %79, %.lr.ph.preheader ]
+  %.05983 = phi ptr [ %.1, %115 ], [ %80, %.lr.ph.preheader ]
   %.0.i.i.i75 = load i16, ptr %.05983, align 1
   %81 = tail call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i75)
   %82 = zext i16 %81 to i32
@@ -4533,16 +4532,16 @@ _ZL15check_symbol_atPK12ConstantPooli.exit77:     ; preds = %.lr.ph, %87, %94
 115:                                              ; preds = %101, %99
   %.1 = phi ptr [ %100, %99 ], [ %102, %101 ]
   %116 = add nuw nsw i32 %.05884, 1
-  %exitcond.not = icmp eq i32 %116, %umax
+  %exitcond.not = icmp eq i32 %116, %38
   br i1 %exitcond.not, label %.backedge, label %.lr.ph, !llvm.loop !20
 
-.backedge:                                        ; preds = %115, %138, %74, %112, %105, %78, %71
+.backedge:                                        ; preds = %115, %138, %75, %112, %105, %79, %72
   %117 = icmp slt i32 %.in, 2
   %.not = icmp sgt i32 %.018.i, %11
   %or.cond = select i1 %117, i1 true, i1 %.not
   br i1 %or.cond, label %.critedge, label %19, !llvm.loop !21
 
-118:                                              ; preds = %74
+118:                                              ; preds = %75
   %119 = icmp eq i16 %.0.i.i.i71, 256
   %120 = sub nsw i32 %.018.i, %.05687
   %121 = icmp eq i32 %120, 9
@@ -4578,7 +4577,7 @@ _ZL15check_symbol_atPK12ConstantPooli.exit77:     ; preds = %.lr.ph, %87, %94
   store i16 %.0, ptr %18, align 4
   br label %.backedge
 
-.critedge:                                        ; preds = %_ZL15check_symbol_atPK12ConstantPooli.exit, %_ZL15check_symbol_atPK12ConstantPooli.exit74, %.backedge, %_ZL15skip_annotationPKhii.exit, %42, %53, %61, %8, %6
+.critedge:                                        ; preds = %_ZL15check_symbol_atPK12ConstantPooli.exit, %_ZL15check_symbol_atPK12ConstantPooli.exit74, %.backedge, %_ZL15skip_annotationPKhii.exit, %43, %54, %62, %8, %6
   ret void
 }
 
@@ -4798,8 +4797,7 @@ _ZN13GrowableArrayI9FieldInfoEC2Ei.exit:          ; preds = %.lr.ph.i.i, %26
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 430
   %67 = shl nuw nsw i64 %wide.trip.count.i, 3
-  %umax = call i32 @llvm.umax.i32(i32 %33, i32 1)
-  %wide.trip.count = zext nneg i32 %umax to i64
+  %wide.trip.count = zext i16 %28 to i64
   br label %68
 
 68:                                               ; preds = %.lr.ph, %_ZN15ClassFileParser24FieldAnnotationCollectorD2Ev.exit
@@ -6403,12 +6401,11 @@ _ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit29: ; preds = %29, %38
 
 .lr.ph:                                           ; preds = %.preheader
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %umax = tail call i32 @llvm.umax.i32(i32 %30, i32 1)
   br label %43
 
 41:                                               ; preds = %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit
   %42 = add nuw nsw i32 %.037, 1
-  %exitcond.not = icmp eq i32 %42, %umax
+  %exitcond.not = icmp eq i32 %42, %30
   br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !31
 
 43:                                               ; preds = %.lr.ph, %41
@@ -9626,8 +9623,7 @@ _ZN15MetadataFactory9new_arrayIP6MethodEEP5ArrayIT_EP15ClassLoaderDataiS4_P10Jav
 
 .preheader:                                       ; preds = %_ZN15MetadataFactory9new_arrayIP6MethodEEP5ArrayIT_EP15ClassLoaderDataiS4_P10JavaThread.exit
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %umax70 = tail call i32 @llvm.umax.i32(i32 %23, i32 1)
-  %wide.trip.count71 = zext nneg i32 %umax70 to i64
+  %wide.trip.count71 = zext i16 %21 to i64
   br i1 %2, label %.preheader.split.us, label %.preheader.split
 
 .preheader.split.us:                              ; preds = %.preheader, %54
@@ -9723,8 +9719,7 @@ _ZN15MetadataFactory9new_arrayIP6MethodEEP5ArrayIT_EP15ClassLoaderDataiS4_P10Jav
   %84 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 2056, i32 noundef 0) #23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2052) %84, i8 0, i64 2052, i1 false)
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 2048
-  %umax76 = tail call i32 @llvm.umax.i32(i32 %23, i32 1)
-  %wide.trip.count77 = zext nneg i32 %umax76 to i64
+  %wide.trip.count77 = zext i16 %21 to i64
   br label %86
 
 86:                                               ; preds = %73, %.loopexit
@@ -11040,8 +11035,7 @@ _ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit36: ; preds = %36, %46
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %50 = getelementptr inbounds nuw i8, ptr %29, i64 4
-  %umax = tail call i32 @llvm.umax.i32(i32 %22, i32 1)
-  %wide.trip.count = zext nneg i32 %umax to i64
+  %wide.trip.count = zext i16 %.032 to i64
   br label %51
 
 51:                                               ; preds = %.preheader, %75
@@ -11346,32 +11340,28 @@ _ZNK15ClassFileParser28verify_legal_field_signatureEPK6SymbolS2_P10JavaThread.ex
 _ZNK15ClassFileParser28verify_legal_field_signatureEPK6SymbolS2_P10JavaThread.exit.thread: ; preds = %115, %102, %_ZNK15ClassFileParser28verify_legal_field_signatureEPK6SymbolS2_P10JavaThread.exit
   %122 = load ptr, ptr %6, align 8
   %.0.i.i.i.i182 = load i16, ptr %122, align 1
-  %123 = getelementptr inbounds nuw i8, ptr %122, i64 2
-  store ptr %123, ptr %6, align 8
-  %124 = add i32 %.1370, 6
+  %123 = tail call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i182)
+  %124 = getelementptr inbounds nuw i8, ptr %122, i64 2
+  store ptr %124, ptr %6, align 8
+  %125 = add i32 %.1370, 6
+  %126 = zext i16 %123 to i32
   %.not375 = icmp eq i16 %.0.i.i.i.i182, 0
-  br i1 %.not375, label %._crit_edge, label %.lr.ph.preheader
+  br i1 %.not375, label %._crit_edge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %_ZNK15ClassFileParser28verify_legal_field_signatureEPK6SymbolS2_P10JavaThread.exit.thread
-  %125 = tail call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i182)
-  %126 = tail call i16 @llvm.umax.i16(i16 %125, i16 1)
-  %umax = zext i16 %126 to i32
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %286
-  %.2359 = phi i32 [ %287, %286 ], [ %124, %.lr.ph.preheader ]
-  %.0139358 = phi i16 [ %.1140, %286 ], [ 0, %.lr.ph.preheader ]
-  %.0141357 = phi i32 [ %288, %286 ], [ 0, %.lr.ph.preheader ]
-  %.0142356 = phi i1 [ %.1143, %286 ], [ false, %.lr.ph.preheader ]
-  %.0144355 = phi i32 [ %.1145, %286 ], [ 0, %.lr.ph.preheader ]
-  %.0147354 = phi ptr [ %.1148, %286 ], [ null, %.lr.ph.preheader ]
-  %.0150353 = phi i32 [ %.1151, %286 ], [ 0, %.lr.ph.preheader ]
-  %.0152352 = phi ptr [ %.1153, %286 ], [ null, %.lr.ph.preheader ]
-  %.0154351 = phi i1 [ %.1155, %286 ], [ false, %.lr.ph.preheader ]
-  %.0156350 = phi i32 [ %.1157, %286 ], [ 0, %.lr.ph.preheader ]
-  %.0159349 = phi ptr [ %.1160, %286 ], [ null, %.lr.ph.preheader ]
-  %.0162348 = phi i32 [ %.1163, %286 ], [ 0, %.lr.ph.preheader ]
-  %.0164347 = phi ptr [ %.1165, %286 ], [ null, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %_ZNK15ClassFileParser28verify_legal_field_signatureEPK6SymbolS2_P10JavaThread.exit.thread, %286
+  %.2359 = phi i32 [ %287, %286 ], [ %125, %_ZNK15ClassFileParser28verify_legal_field_signatureEPK6SymbolS2_P10JavaThread.exit.thread ]
+  %.0139358 = phi i16 [ %.1140, %286 ], [ 0, %_ZNK15ClassFileParser28verify_legal_field_signatureEPK6SymbolS2_P10JavaThread.exit.thread ]
+  %.0141357 = phi i32 [ %288, %286 ], [ 0, %_ZNK15ClassFileParser28verify_legal_field_signatureEPK6SymbolS2_P10JavaThread.exit.thread ]
+  %.0142356 = phi i1 [ %.1143, %286 ], [ false, %_ZNK15ClassFileParser28verify_legal_field_signatureEPK6SymbolS2_P10JavaThread.exit.thread ]
+  %.0144355 = phi i32 [ %.1145, %286 ], [ 0, %_ZNK15ClassFileParser28verify_legal_field_signatureEPK6SymbolS2_P10JavaThread.exit.thread ]
+  %.0147354 = phi ptr [ %.1148, %286 ], [ null, %_ZNK15ClassFileParser28verify_legal_field_signatureEPK6SymbolS2_P10JavaThread.exit.thread ]
+  %.0150353 = phi i32 [ %.1151, %286 ], [ 0, %_ZNK15ClassFileParser28verify_legal_field_signatureEPK6SymbolS2_P10JavaThread.exit.thread ]
+  %.0152352 = phi ptr [ %.1153, %286 ], [ null, %_ZNK15ClassFileParser28verify_legal_field_signatureEPK6SymbolS2_P10JavaThread.exit.thread ]
+  %.0154351 = phi i1 [ %.1155, %286 ], [ false, %_ZNK15ClassFileParser28verify_legal_field_signatureEPK6SymbolS2_P10JavaThread.exit.thread ]
+  %.0156350 = phi i32 [ %.1157, %286 ], [ 0, %_ZNK15ClassFileParser28verify_legal_field_signatureEPK6SymbolS2_P10JavaThread.exit.thread ]
+  %.0159349 = phi ptr [ %.1160, %286 ], [ null, %_ZNK15ClassFileParser28verify_legal_field_signatureEPK6SymbolS2_P10JavaThread.exit.thread ]
+  %.0162348 = phi i32 [ %.1163, %286 ], [ 0, %_ZNK15ClassFileParser28verify_legal_field_signatureEPK6SymbolS2_P10JavaThread.exit.thread ]
+  %.0164347 = phi ptr [ %.1165, %286 ], [ null, %_ZNK15ClassFileParser28verify_legal_field_signatureEPK6SymbolS2_P10JavaThread.exit.thread ]
   %127 = load ptr, ptr %38, align 8
   %128 = load ptr, ptr %6, align 8
   %129 = ptrtoint ptr %127 to i64
@@ -11732,7 +11722,7 @@ _ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit200: ; preds = %_ZNK15ClassFile
   %.1140 = phi i16 [ %179, %_ZN15ClassFileParser33parse_generic_signature_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.0139358, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit ], [ %.0139358, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit197 ], [ %.0139358, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit200 ], [ %.0139358, %.sink.split ]
   %287 = add i32 %141, %139
   %288 = add nuw nsw i32 %.0141357, 1
-  %exitcond.not = icmp eq i32 %288, %umax
+  %exitcond.not = icmp eq i32 %288, %126
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !56
 
 ._crit_edge:                                      ; preds = %286, %_ZNK15ClassFileParser28verify_legal_field_signatureEPK6SymbolS2_P10JavaThread.exit.thread
@@ -11745,7 +11735,7 @@ _ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit200: ; preds = %_ZNK15ClassFile
   %.0147.lcssa = phi ptr [ null, %_ZNK15ClassFileParser28verify_legal_field_signatureEPK6SymbolS2_P10JavaThread.exit.thread ], [ %.1148, %286 ]
   %.0144.lcssa = phi i32 [ 0, %_ZNK15ClassFileParser28verify_legal_field_signatureEPK6SymbolS2_P10JavaThread.exit.thread ], [ %.1145, %286 ]
   %.0139.lcssa = phi i16 [ 0, %_ZNK15ClassFileParser28verify_legal_field_signatureEPK6SymbolS2_P10JavaThread.exit.thread ], [ %.1140, %286 ]
-  %.2.lcssa = phi i32 [ %124, %_ZNK15ClassFileParser28verify_legal_field_signatureEPK6SymbolS2_P10JavaThread.exit.thread ], [ %287, %286 ]
+  %.2.lcssa = phi i32 [ %125, %_ZNK15ClassFileParser28verify_legal_field_signatureEPK6SymbolS2_P10JavaThread.exit.thread ], [ %287, %286 ]
   %289 = icmp ne ptr %.0164.lcssa, null
   %290 = icmp ne ptr %.0159.lcssa, null
   %or.cond.i201 = or i1 %289, %290
@@ -12107,8 +12097,7 @@ _ZN15MetadataFactory9new_arrayItEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.ex
   %52 = getelementptr inbounds nuw i8, ptr %44, i64 4
   %53 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %umax112 = tail call i32 @llvm.umax.i32(i32 %25, i32 1)
-  %wide.trip.count = zext nneg i32 %umax112 to i64
+  %wide.trip.count = zext i16 %23 to i64
   br label %55
 
 55:                                               ; preds = %.lr.ph103, %._crit_edge
@@ -12229,7 +12218,6 @@ _ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit69: ; preds = %_ZNK15Cl
 
 .lr.ph.preheader:                                 ; preds = %113
   %115 = sext i32 %114 to i64
-  %umax = tail call i32 @llvm.umax.i32(i32 %94, i32 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %137
@@ -12294,7 +12282,7 @@ _ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit73: ; preds = %123,
   %138 = getelementptr inbounds i16, ptr %52, i64 %indvars.iv
   store i16 %117, ptr %138, align 2
   %139 = add nuw nsw i32 %.099, 1
-  %exitcond.not = icmp eq i32 %139, %umax
+  %exitcond.not = icmp eq i32 %139, %94
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !58
 
 ._crit_edge.loopexit:                             ; preds = %137
@@ -19810,9 +19798,6 @@ declare i32 @llvm.smax.i32(i32, i32) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #20
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.umax.i16(i16, i16) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #20

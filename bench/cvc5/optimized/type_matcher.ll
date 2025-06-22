@@ -1395,7 +1395,6 @@ _ZNSt6vectorIN4cvc58internal8TypeNodeESaIS2_EE5clearEv.exit: ; preds = %2, %_ZSt
   %26 = sub i64 %24, %25
   %27 = ashr exact i64 %26, 3
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %umax = tail call i64 @llvm.umax.i64(i64 %27, i64 1)
   br label %29
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIN4cvc58internal8TypeNodeESaIS2_EE9push_backERKS2_.exit, %_ZNSt6vectorIN4cvc58internal8TypeNodeESaIS2_EE5clearEv.exit
@@ -1531,7 +1530,7 @@ _ZNSt16allocator_traitsISaIN4cvc58internal8TypeNodeEEE9constructIS2_JRKS2_EEEvRS
 
 _ZNSt6vectorIN4cvc58internal8TypeNodeESaIS2_EE9push_backERKS2_.exit: ; preds = %92, %_ZNSt16allocator_traitsISaIN4cvc58internal8TypeNodeEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i11, %69, %_ZNSt16allocator_traitsISaIN4cvc58internal8TypeNodeEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i
   %93 = add nuw i64 %.013, 1
-  %exitcond.not = icmp eq i64 %93, %umax
+  %exitcond.not = icmp eq i64 %93, %27
   br i1 %exitcond.not, label %._crit_edge, label %29, !llvm.loop !33
 }
 

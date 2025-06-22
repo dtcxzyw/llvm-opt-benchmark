@@ -116,7 +116,7 @@ define hidden void @_ZN2cv11bioinspired11RetinaColorC2Ejji(ptr noundef nonnull a
   store i64 %8, ptr %6, align 8, !tbaa !6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %10 = shl nuw nsw i64 %8, 2
-  %11 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %10) #18
+  %11 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %10) #17
           to label %12 unwind label %87
 
 12:                                               ; preds = %4
@@ -128,7 +128,7 @@ define hidden void @_ZN2cv11bioinspired11RetinaColorC2Ejji(ptr noundef nonnull a
   store i64 %15, ptr %13, align 8, !tbaa !13
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %17 = shl nuw nsw i64 %15, 2
-  %18 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %17) #18
+  %18 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %17) #17
           to label %19 unwind label %89
 
 19:                                               ; preds = %12
@@ -137,7 +137,7 @@ define hidden void @_ZN2cv11bioinspired11RetinaColorC2Ejji(ptr noundef nonnull a
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store i64 %8, ptr %20, align 8, !tbaa !13
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %22 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %10) #18
+  %22 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %10) #17
           to label %23 unwind label %91
 
 23:                                               ; preds = %19
@@ -146,7 +146,7 @@ define hidden void @_ZN2cv11bioinspired11RetinaColorC2Ejji(ptr noundef nonnull a
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 256
   store i64 %15, ptr %24, align 8, !tbaa !13
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %26 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %17) #18
+  %26 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %17) #17
           to label %27 unwind label %93
 
 27:                                               ; preds = %23
@@ -155,7 +155,7 @@ define hidden void @_ZN2cv11bioinspired11RetinaColorC2Ejji(ptr noundef nonnull a
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store i64 %15, ptr %28, align 8, !tbaa !13
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %30 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %17) #18
+  %30 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %17) #17
           to label %31 unwind label %95
 
 31:                                               ; preds = %27
@@ -164,7 +164,7 @@ define hidden void @_ZN2cv11bioinspired11RetinaColorC2Ejji(ptr noundef nonnull a
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 288
   store i64 %15, ptr %32, align 8, !tbaa !13
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %34 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %17) #18
+  %34 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %17) #17
           to label %35 unwind label %97
 
 35:                                               ; preds = %31
@@ -173,7 +173,7 @@ define hidden void @_ZN2cv11bioinspired11RetinaColorC2Ejji(ptr noundef nonnull a
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store i64 %15, ptr %36, align 8, !tbaa !13
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %38 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %17) #18
+  %38 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %17) #17
           to label %39 unwind label %99
 
 39:                                               ; preds = %35
@@ -185,7 +185,7 @@ define hidden void @_ZN2cv11bioinspired11RetinaColorC2Ejji(ptr noundef nonnull a
   store i64 %42, ptr %40, align 8, !tbaa !13
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %44 = shl nuw nsw i64 %42, 2
-  %45 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %44) #18
+  %45 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %44) #17
           to label %46 unwind label %101
 
 46:                                               ; preds = %39
@@ -371,54 +371,54 @@ _ZN2cv11bioinspired11RetinaColor15clearAllBuffersEv.exit: ; preds = %.lr.ph.i.i2
   %104 = landingpad { ptr, i32 }
           cleanup
   %105 = load ptr, ptr %43, align 8, !tbaa !16
-  tail call void @_ZdlPv(ptr noundef %105) #19
+  tail call void @_ZdlPv(ptr noundef %105) #18
   br label %106
 
 106:                                              ; preds = %103, %101
   %.pn.pn = phi { ptr, i32 } [ %104, %103 ], [ %102, %101 ]
   %107 = load ptr, ptr %37, align 8, !tbaa !16
-  tail call void @_ZdlPv(ptr noundef %107) #19
+  tail call void @_ZdlPv(ptr noundef %107) #18
   br label %108
 
 108:                                              ; preds = %106, %99
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %106 ], [ %100, %99 ]
   %109 = load ptr, ptr %33, align 8, !tbaa !16
-  tail call void @_ZdlPv(ptr noundef %109) #19
+  tail call void @_ZdlPv(ptr noundef %109) #18
   br label %110
 
 110:                                              ; preds = %108, %97
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %108 ], [ %98, %97 ]
   %111 = load ptr, ptr %29, align 8, !tbaa !16
-  tail call void @_ZdlPv(ptr noundef %111) #19
+  tail call void @_ZdlPv(ptr noundef %111) #18
   br label %112
 
 112:                                              ; preds = %110, %95
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %110 ], [ %96, %95 ]
   %113 = load ptr, ptr %25, align 8, !tbaa !16
-  tail call void @_ZdlPv(ptr noundef %113) #19
+  tail call void @_ZdlPv(ptr noundef %113) #18
   br label %114
 
 114:                                              ; preds = %112, %93
   %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %112 ], [ %94, %93 ]
   %115 = load ptr, ptr %21, align 8, !tbaa !16
-  tail call void @_ZdlPv(ptr noundef %115) #19
+  tail call void @_ZdlPv(ptr noundef %115) #18
   br label %116
 
 116:                                              ; preds = %114, %91
   %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn, %114 ], [ %92, %91 ]
   %117 = load ptr, ptr %16, align 8, !tbaa !16
-  tail call void @_ZdlPv(ptr noundef %117) #19
+  tail call void @_ZdlPv(ptr noundef %117) #18
   br label %118
 
 118:                                              ; preds = %116, %89
   %.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn, %116 ], [ %90, %89 ]
   %119 = load ptr, ptr %9, align 8, !tbaa !12
-  tail call void @_ZdlPv(ptr noundef %119) #19
+  tail call void @_ZdlPv(ptr noundef %119) #18
   br label %120
 
 120:                                              ; preds = %118, %87
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn, %118 ], [ %88, %87 ]
-  tail call void @_ZN2cv11bioinspired17BasicRetinaFilterD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %5) #19
+  tail call void @_ZN2cv11bioinspired17BasicRetinaFilterD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %5) #18
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn.pn.pn
 }
 
@@ -436,9 +436,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2cv11bioinspired11RetinaColor18_initColorSamplingEv(ptr noundef nonnull align 8 dereferenceable(349) initializes((336, 348)) %0) local_unnamed_addr #3 align 2 {
-  %2 = tail call i64 @time(ptr noundef null) #19
+  %2 = tail call i64 @time(ptr noundef null) #18
   %3 = trunc i64 %2 to i32
-  tail call void @srand(i32 noundef %3) #19
+  tail call void @srand(i32 noundef %3) #18
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 340
   store float 0.000000e+00, ptr %4, align 4, !tbaa !58
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 344
@@ -537,7 +537,7 @@ define hidden void @_ZN2cv11bioinspired11RetinaColor18_initColorSamplingEv(ptr n
   br i1 %.not.i.i.i, label %55, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
 
 55:                                               ; preds = %._crit_edge44
-  tail call void @_ZSt16__throw_bad_castv() #20
+  tail call void @_ZSt16__throw_bad_castv() #19
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %._crit_edge44
@@ -567,7 +567,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %58, 
 
 68:                                               ; preds = %.lr.ph43, %83
   %indvars.iv63 = phi i64 [ 0, %.lr.ph43 ], [ %indvars.iv.next64, %83 ]
-  %69 = tail call i32 @rand() #19
+  %69 = tail call i32 @rand() #18
   %70 = srem i32 %69, 24
   %71 = icmp ult i32 %70, 8
   br i1 %71, label %72, label %75
@@ -701,13 +701,12 @@ _ZNSt8valarrayIfEaSERKf.exit:                     ; preds = %.lr.ph.i.i.preheade
   tail call void @_ZN2cv11bioinspired17BasicRetinaFilter23_spatiotemporalLPfilterEPKfPfj(ptr noundef nonnull align 8 dereferenceable(168) %124, ptr noundef nonnull %137, ptr noundef nonnull %139, i32 noundef 0)
   %140 = load i64, ptr %119, align 8, !tbaa !61
   %141 = trunc i64 %140 to i32
+  %142 = mul i32 %141, 3
   %.not56 = icmp eq i32 %141, 0
   br i1 %.not56, label %._crit_edge52, label %.lr.ph51.preheader
 
 .lr.ph51.preheader:                               ; preds = %._crit_edge47
-  %142 = load ptr, ptr %125, align 8, !tbaa !16
-  %143 = mul i32 %141, 3
-  %umax = tail call i32 @llvm.umax.i32(i32 %143, i32 1)
+  %143 = load ptr, ptr %125, align 8, !tbaa !16
   br label %.lr.ph51
 
 144:                                              ; preds = %.lr.ph46, %144
@@ -728,13 +727,13 @@ _ZNSt8valarrayIfEaSERKf.exit:                     ; preds = %.lr.ph.i.i.preheade
 
 .lr.ph51:                                         ; preds = %.lr.ph51.preheader, %.lr.ph51
   %.049 = phi i32 [ %152, %.lr.ph51 ], [ 0, %.lr.ph51.preheader ]
-  %.02848 = phi ptr [ %153, %.lr.ph51 ], [ %142, %.lr.ph51.preheader ]
+  %.02848 = phi ptr [ %153, %.lr.ph51 ], [ %143, %.lr.ph51.preheader ]
   %150 = load float, ptr %.02848, align 4, !tbaa !31
   %151 = fdiv float 1.000000e+00, %150
   store float %151, ptr %.02848, align 4, !tbaa !31
   %152 = add nuw i32 %.049, 1
   %153 = getelementptr inbounds nuw i8, ptr %.02848, i64 4
-  %exitcond71.not = icmp eq i32 %152, %umax
+  %exitcond71.not = icmp eq i32 %152, %142
   br i1 %exitcond71.not, label %._crit_edge52, label %.lr.ph51, !llvm.loop !93
 
 154:                                              ; preds = %1, %._crit_edge52
@@ -852,30 +851,30 @@ define hidden void @_ZN2cv11bioinspired11RetinaColorD2Ev(ptr noundef nonnull ali
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv11bioinspired11RetinaColorE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %3 = load ptr, ptr %2, align 8, !tbaa !16
-  tail call void @_ZdlPv(ptr noundef %3) #19
+  tail call void @_ZdlPv(ptr noundef %3) #18
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %5 = load ptr, ptr %4, align 8, !tbaa !16
-  tail call void @_ZdlPv(ptr noundef %5) #19
+  tail call void @_ZdlPv(ptr noundef %5) #18
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %7 = load ptr, ptr %6, align 8, !tbaa !16
-  tail call void @_ZdlPv(ptr noundef %7) #19
+  tail call void @_ZdlPv(ptr noundef %7) #18
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %9 = load ptr, ptr %8, align 8, !tbaa !16
-  tail call void @_ZdlPv(ptr noundef %9) #19
+  tail call void @_ZdlPv(ptr noundef %9) #18
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %11 = load ptr, ptr %10, align 8, !tbaa !16
-  tail call void @_ZdlPv(ptr noundef %11) #19
+  tail call void @_ZdlPv(ptr noundef %11) #18
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %13 = load ptr, ptr %12, align 8, !tbaa !16
-  tail call void @_ZdlPv(ptr noundef %13) #19
+  tail call void @_ZdlPv(ptr noundef %13) #18
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %15 = load ptr, ptr %14, align 8, !tbaa !16
-  tail call void @_ZdlPv(ptr noundef %15) #19
+  tail call void @_ZdlPv(ptr noundef %15) #18
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %17 = load ptr, ptr %16, align 8, !tbaa !12
-  tail call void @_ZdlPv(ptr noundef %17) #19
+  tail call void @_ZdlPv(ptr noundef %17) #18
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @_ZN2cv11bioinspired17BasicRetinaFilterD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %18) #19
+  tail call void @_ZN2cv11bioinspired17BasicRetinaFilterD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %18) #18
   ret void
 }
 
@@ -884,31 +883,31 @@ define hidden void @_ZN2cv11bioinspired11RetinaColorD0Ev(ptr noundef nonnull ali
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv11bioinspired11RetinaColorE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %3 = load ptr, ptr %2, align 8, !tbaa !16
-  tail call void @_ZdlPv(ptr noundef %3) #19
+  tail call void @_ZdlPv(ptr noundef %3) #18
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %5 = load ptr, ptr %4, align 8, !tbaa !16
-  tail call void @_ZdlPv(ptr noundef %5) #19
+  tail call void @_ZdlPv(ptr noundef %5) #18
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %7 = load ptr, ptr %6, align 8, !tbaa !16
-  tail call void @_ZdlPv(ptr noundef %7) #19
+  tail call void @_ZdlPv(ptr noundef %7) #18
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %9 = load ptr, ptr %8, align 8, !tbaa !16
-  tail call void @_ZdlPv(ptr noundef %9) #19
+  tail call void @_ZdlPv(ptr noundef %9) #18
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %11 = load ptr, ptr %10, align 8, !tbaa !16
-  tail call void @_ZdlPv(ptr noundef %11) #19
+  tail call void @_ZdlPv(ptr noundef %11) #18
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %13 = load ptr, ptr %12, align 8, !tbaa !16
-  tail call void @_ZdlPv(ptr noundef %13) #19
+  tail call void @_ZdlPv(ptr noundef %13) #18
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %15 = load ptr, ptr %14, align 8, !tbaa !16
-  tail call void @_ZdlPv(ptr noundef %15) #19
+  tail call void @_ZdlPv(ptr noundef %15) #18
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %17 = load ptr, ptr %16, align 8, !tbaa !12
-  tail call void @_ZdlPv(ptr noundef %17) #19
+  tail call void @_ZdlPv(ptr noundef %17) #18
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @_ZN2cv11bioinspired17BasicRetinaFilterD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %18) #19
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #21
+  tail call void @_ZN2cv11bioinspired17BasicRetinaFilterD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %18) #18
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #20
   ret void
 }
 
@@ -954,10 +953,10 @@ _ZN2cv11bioinspired17BasicRetinaFilter15clearAllBuffersEv.exit: ; preds = %_ZN2c
   br i1 %.not.i, label %23, label %20
 
 20:                                               ; preds = %_ZN2cv11bioinspired17BasicRetinaFilter15clearAllBuffersEv.exit
-  tail call void @_ZdlPv(ptr noundef %.pre.i) #19
+  tail call void @_ZdlPv(ptr noundef %.pre.i) #18
   store i64 %17, ptr %15, align 8, !tbaa !6
   %21 = shl nuw nsw i64 %17, 2
-  %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #18
+  %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #17
   store ptr %22, ptr %18, align 8, !tbaa !12
   br label %23
 
@@ -982,10 +981,10 @@ _ZNSt8valarrayIjE6resizeEmj.exit:                 ; preds = %.lr.ph.i.i.i.prehea
   br i1 %.not.i16, label %34, label %31
 
 31:                                               ; preds = %_ZNSt8valarrayIjE6resizeEmj.exit
-  tail call void @_ZdlPv(ptr noundef %.pre.i17) #19
+  tail call void @_ZdlPv(ptr noundef %.pre.i17) #18
   store i64 %28, ptr %26, align 8, !tbaa !13
   %32 = shl nuw nsw i64 %28, 2
-  %33 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %32) #18
+  %33 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %32) #17
   store ptr %33, ptr %29, align 8, !tbaa !16
   br label %34
 
@@ -1007,10 +1006,10 @@ _ZNSt8valarrayIfE6resizeEmf.exit:                 ; preds = %.lr.ph.i.i.i18.preh
   br i1 %.not.i20, label %43, label %40
 
 40:                                               ; preds = %_ZNSt8valarrayIfE6resizeEmf.exit
-  tail call void @_ZdlPv(ptr noundef %.pre.i21) #19
+  tail call void @_ZdlPv(ptr noundef %.pre.i21) #18
   store i64 %17, ptr %37, align 8, !tbaa !13
   %41 = shl nuw nsw i64 %17, 2
-  %42 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %41) #18
+  %42 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %41) #17
   store ptr %42, ptr %38, align 8, !tbaa !16
   br label %43
 
@@ -1032,10 +1031,10 @@ _ZNSt8valarrayIfE6resizeEmf.exit26:               ; preds = %.lr.ph.i.i.i23.preh
   br i1 %.not.i27, label %52, label %49
 
 49:                                               ; preds = %_ZNSt8valarrayIfE6resizeEmf.exit26
-  tail call void @_ZdlPv(ptr noundef %.pre.i28) #19
+  tail call void @_ZdlPv(ptr noundef %.pre.i28) #18
   store i64 %28, ptr %46, align 8, !tbaa !13
   %50 = shl nuw nsw i64 %28, 2
-  %51 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %50) #18
+  %51 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %50) #17
   store ptr %51, ptr %47, align 8, !tbaa !16
   br label %52
 
@@ -1057,10 +1056,10 @@ _ZNSt8valarrayIfE6resizeEmf.exit33:               ; preds = %.lr.ph.i.i.i30.preh
   br i1 %.not.i34, label %61, label %58
 
 58:                                               ; preds = %_ZNSt8valarrayIfE6resizeEmf.exit33
-  tail call void @_ZdlPv(ptr noundef %.pre.i35) #19
+  tail call void @_ZdlPv(ptr noundef %.pre.i35) #18
   store i64 %28, ptr %55, align 8, !tbaa !13
   %59 = shl nuw nsw i64 %28, 2
-  %60 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %59) #18
+  %60 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %59) #17
   store ptr %60, ptr %56, align 8, !tbaa !16
   br label %61
 
@@ -1082,10 +1081,10 @@ _ZNSt8valarrayIfE6resizeEmf.exit40:               ; preds = %.lr.ph.i.i.i37.preh
   br i1 %.not.i41, label %70, label %67
 
 67:                                               ; preds = %_ZNSt8valarrayIfE6resizeEmf.exit40
-  tail call void @_ZdlPv(ptr noundef %.pre.i42) #19
+  tail call void @_ZdlPv(ptr noundef %.pre.i42) #18
   store i64 %28, ptr %64, align 8, !tbaa !13
   %68 = shl nuw nsw i64 %28, 2
-  %69 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %68) #18
+  %69 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %68) #17
   store ptr %69, ptr %65, align 8, !tbaa !16
   br label %70
 
@@ -1107,10 +1106,10 @@ _ZNSt8valarrayIfE6resizeEmf.exit47:               ; preds = %.lr.ph.i.i.i44.preh
   br i1 %.not.i48, label %79, label %76
 
 76:                                               ; preds = %_ZNSt8valarrayIfE6resizeEmf.exit47
-  tail call void @_ZdlPv(ptr noundef %.pre.i49) #19
+  tail call void @_ZdlPv(ptr noundef %.pre.i49) #18
   store i64 %28, ptr %73, align 8, !tbaa !13
   %77 = shl nuw nsw i64 %28, 2
-  %78 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %77) #18
+  %78 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %77) #17
   store ptr %78, ptr %74, align 8, !tbaa !16
   br label %79
 
@@ -1134,10 +1133,10 @@ _ZNSt8valarrayIfE6resizeEmf.exit54:               ; preds = %.lr.ph.i.i.i51.preh
   br i1 %.not.i55, label %90, label %87
 
 87:                                               ; preds = %_ZNSt8valarrayIfE6resizeEmf.exit54
-  tail call void @_ZdlPv(ptr noundef %.pre.i56) #19
+  tail call void @_ZdlPv(ptr noundef %.pre.i56) #18
   store i64 %84, ptr %82, align 8, !tbaa !13
   %88 = shl nuw nsw i64 %84, 2
-  %89 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %88) #18
+  %89 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %88) #17
   store ptr %89, ptr %85, align 8, !tbaa !16
   br label %90
 
@@ -1530,7 +1529,7 @@ _ZNSt8valarrayIfEaSERKf.exit:                     ; preds = %.lr.ph.i.i.preheade
   br label %189
 
 ._crit_edge195:                                   ; preds = %189, %160
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #19
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #18
   %171 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %172 = load i64, ptr %171, align 8, !tbaa !150
   %173 = trunc i64 %172 to i32
@@ -1538,7 +1537,7 @@ _ZNSt8valarrayIfEaSERKf.exit:                     ; preds = %.lr.ph.i.i.preheade
   store i32 2, ptr %7, align 4, !tbaa !151
   %175 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 %174, ptr %175, align 4, !tbaa !153
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #19
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #18
   %176 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %177 = load i64, ptr %176, align 8, !tbaa !62
   %178 = trunc i64 %177 to i32
@@ -1605,9 +1604,9 @@ _ZNSt8valarrayIfEaSERKf.exit:                     ; preds = %.lr.ph.i.i.preheade
   br i1 %exitcond226.not, label %._crit_edge195, label %189, !llvm.loop !162
 
 221:                                              ; preds = %._crit_edge195
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %8) #19
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %8) #18
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #18
   %222 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %223 = load ptr, ptr %222, align 8, !tbaa !16
   %224 = load ptr, ptr %32, align 8, !tbaa !16
@@ -1737,9 +1736,9 @@ common.resume:                                    ; preds = %380, %293
 293:                                              ; preds = %._crit_edge195
   %294 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %8) #19
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %8) #18
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #18
   br label %common.resume
 
 295:                                              ; preds = %.lr.ph197, %295
@@ -1858,12 +1857,12 @@ common.resume:                                    ; preds = %380, %293
   %.pre-phi = phi i32 [ 0, %._crit_edge201 ], [ 0, %.preheader ], [ 0, %.preheader169 ], [ %325, %346 ], [ %58, %139 ]
   %373 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %374 = load ptr, ptr %373, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #19
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #18
   %375 = mul i32 %.pre-phi, 3
   store i32 0, ptr %5, align 4, !tbaa !151
   %376 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %375, ptr %376, align 4, !tbaa !153
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #19
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #18
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv11bioinspired25Parallel_clipBufferValuesIfEE, i64 16), ptr %6, align 8, !tbaa !3
   %377 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %374, ptr %377, align 8, !tbaa !170
@@ -1877,15 +1876,15 @@ common.resume:                                    ; preds = %380, %293
 380:                                              ; preds = %.loopexit
   %381 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #19
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #18
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
   br label %common.resume
 
 _ZN2cv11bioinspired11RetinaColor29clipRGBOutput_0_maxInputValueEPff.exit: ; preds = %.loopexit
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #19
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #18
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
   %382 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %383 = load i8, ptr %382, align 4, !tbaa !29, !range !174, !noundef !175
   %384 = trunc nuw i8 %383 to i1
@@ -2085,7 +2084,7 @@ define hidden void @_ZN2cv11bioinspired11RetinaColor35_interpolateImageDemultipl
   br i1 %.not.i.i.i, label %82, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
 
 82:                                               ; preds = %74
-  tail call void @_ZSt16__throw_bad_castv() #20
+  tail call void @_ZSt16__throw_bad_castv() #19
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %74
@@ -2169,11 +2168,11 @@ define hidden void @_ZN2cv11bioinspired11RetinaColor24_adaptiveSpatialLPfilterEP
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i64, ptr %9, align 8, !tbaa !150
   %11 = trunc i64 %10 to i32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #19
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #18
   store i32 0, ptr %6, align 4, !tbaa !151
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %11, ptr %12, align 4, !tbaa !153
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #19
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #18
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %14 = load ptr, ptr %13, align 8, !tbaa !16
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -2198,16 +2197,16 @@ common.resume:                                    ; preds = %50, %22
 22:                                               ; preds = %3
   %23 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %7) #19
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %7) #18
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #18
   br label %common.resume
 
 _ZN2cv11bioinspired11RetinaColor40_adaptiveHorizontalCausalFilter_addInputEPKfPfjj.exit: ; preds = %3
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %7) #19
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %7) #18
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #18
   %25 = load i64, ptr %9, align 8, !tbaa !150
   %26 = trunc i64 %25 to i32
   %27 = load ptr, ptr %13, align 8, !tbaa !16
@@ -2222,11 +2221,11 @@ _ZN2cv11bioinspired11RetinaColor40_adaptiveHorizontalCausalFilter_addInputEPKfPf
   call void @_ZN2cv11bioinspired17BasicRetinaFilter31_verticalCausalFilter_IrregularEPfjjPKf(ptr noundef nonnull align 8 dereferenceable(168) %24, ptr noundef %2, i32 noundef 0, i32 noundef %29, ptr noundef nonnull %34)
   %35 = load i64, ptr %15, align 8, !tbaa !62
   %36 = trunc i64 %35 to i32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #19
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #18
   store i32 0, ptr %4, align 4, !tbaa !151
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %36, ptr %37, align 4, !tbaa !153
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #19
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #18
   %38 = load ptr, ptr %13, align 8, !tbaa !16
   %39 = load i64, ptr %31, align 8, !tbaa !61
   %40 = and i64 %39, 4294967295
@@ -2251,15 +2250,15 @@ _ZN2cv11bioinspired11RetinaColor40_adaptiveHorizontalCausalFilter_addInputEPKfPf
 50:                                               ; preds = %_ZN2cv11bioinspired11RetinaColor40_adaptiveHorizontalCausalFilter_addInputEPKfPfjj.exit
   %51 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %5) #19
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %5) #18
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #18
   br label %common.resume
 
 _ZN2cv11bioinspired11RetinaColor42_adaptiveVerticalAnticausalFilter_multGainEPfjj.exit: ; preds = %_ZN2cv11bioinspired11RetinaColor40_adaptiveHorizontalCausalFilter_addInputEPKfPfjj.exit
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %5) #19
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %5) #18
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #18
   ret void
 }
 
@@ -2271,7 +2270,7 @@ define hidden void @_ZN2cv11bioinspired11RetinaColor29clipRGBOutput_0_maxInputVa
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %8 = load ptr, ptr %7, align 8
   %.0 = select i1 %6, ptr %8, ptr %1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #19
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #18
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = load i64, ptr %9, align 8, !tbaa !61
   %11 = trunc i64 %10 to i32
@@ -2279,7 +2278,7 @@ define hidden void @_ZN2cv11bioinspired11RetinaColor29clipRGBOutput_0_maxInputVa
   store i32 0, ptr %4, align 4, !tbaa !151
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %12, ptr %13, align 4, !tbaa !153
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #19
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #18
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv11bioinspired25Parallel_clipBufferValuesIfEE, i64 16), ptr %5, align 8, !tbaa !3
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %.0, ptr %14, align 8, !tbaa !170
@@ -2291,17 +2290,17 @@ define hidden void @_ZN2cv11bioinspired11RetinaColor29clipRGBOutput_0_maxInputVa
           to label %17 unwind label %18
 
 17:                                               ; preds = %3
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #19
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #18
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #18
   ret void
 
 18:                                               ; preds = %3
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #19
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #18
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #18
   resume { ptr, i32 } %19
 }
 
@@ -2322,7 +2321,7 @@ define linkonce_odr hidden void @_ZN2cv11bioinspired14TemplateBufferIfE34normali
   br i1 %.not.i.i.i, label %16, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
 
 16:                                               ; preds = %8
-  tail call void @_ZSt16__throw_bad_castv() #20
+  tail call void @_ZSt16__throw_bad_castv() #19
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %8
@@ -3058,11 +3057,11 @@ define hidden void @_ZN2cv11bioinspired11RetinaColor27_getNormalizedContoursImag
 define hidden void @_ZN2cv11bioinspired11RetinaColor40_adaptiveHorizontalCausalFilter_addInputEPKfPfjj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(349) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.cv::Range", align 4
   %7 = alloca %"class.cv::bioinspired::RetinaColor::Parallel_adaptiveHorizontalCausalFilter_addInput", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #19
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #18
   store i32 %3, ptr %6, align 4, !tbaa !151
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %4, ptr %8, align 4, !tbaa !153
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #19
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #18
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %10 = load ptr, ptr %9, align 8, !tbaa !16
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -3081,17 +3080,17 @@ define hidden void @_ZN2cv11bioinspired11RetinaColor40_adaptiveHorizontalCausalF
           to label %18 unwind label %19
 
 18:                                               ; preds = %5
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %7) #19
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %7) #18
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #18
   ret void
 
 19:                                               ; preds = %5
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %7) #19
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %7) #18
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #18
   resume { ptr, i32 } %20
 }
 
@@ -3103,11 +3102,11 @@ declare void @_ZN2cv11bioinspired17BasicRetinaFilter31_verticalCausalFilter_Irre
 define hidden void @_ZN2cv11bioinspired11RetinaColor42_adaptiveVerticalAnticausalFilter_multGainEPfjj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(349) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.cv::Range", align 4
   %6 = alloca %"class.cv::bioinspired::RetinaColor::Parallel_adaptiveVerticalAnticausalFilter_multGain", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #19
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #18
   store i32 %2, ptr %5, align 4, !tbaa !151
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %3, ptr %7, align 4, !tbaa !153
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #19
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #18
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %9 = load ptr, ptr %8, align 8, !tbaa !16
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -3137,17 +3136,17 @@ define hidden void @_ZN2cv11bioinspired11RetinaColor42_adaptiveVerticalAnticausa
           to label %27 unwind label %28
 
 27:                                               ; preds = %4
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %6) #19
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %6) #18
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
   ret void
 
 28:                                               ; preds = %4
   %29 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %6) #19
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %6) #18
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
   resume { ptr, i32 } %29
 }
 
@@ -3285,7 +3284,7 @@ define hidden noundef zeroext i1 @_ZN2cv11bioinspired11RetinaColor34applyKrausko
   br i1 %.not.i.i.i, label %14, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
 
 14:                                               ; preds = %6
-  tail call void @_ZSt16__throw_bad_castv() #20
+  tail call void @_ZSt16__throw_bad_castv() #19
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %6
@@ -3450,7 +3449,7 @@ define hidden noundef zeroext i1 @_ZN2cv11bioinspired11RetinaColor21applyLMS2Lab
   br i1 %.not.i.i.i, label %14, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
 
 14:                                               ; preds = %6
-  tail call void @_ZSt16__throw_bad_castv() #20
+  tail call void @_ZSt16__throw_bad_castv() #19
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %6
@@ -3530,8 +3529,8 @@ _ZN2cv11bioinspired11RetinaColor31_applyImageColorSpaceConversionERKSt8valarrayI
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv11bioinspired11RetinaColor24Parallel_computeGradientD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #12 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #19
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #21
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #18
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #20
   ret void
 }
 
@@ -3648,8 +3647,8 @@ define linkonce_odr hidden void @_ZNK2cv11bioinspired11RetinaColor24Parallel_com
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv11bioinspired11RetinaColor48Parallel_adaptiveHorizontalCausalFilter_addInputD0Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) unnamed_addr #12 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #19
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #21
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #18
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #20
   ret void
 }
 
@@ -3714,8 +3713,8 @@ define linkonce_odr hidden void @_ZNK2cv11bioinspired11RetinaColor48Parallel_ada
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv11bioinspired11RetinaColor50Parallel_adaptiveVerticalAnticausalFilter_multGainD0Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) unnamed_addr #12 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #19
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #21
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #18
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #20
   ret void
 }
 
@@ -3809,8 +3808,8 @@ declare float @llvm.fabs.f32(float) #8
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv11bioinspired25Parallel_clipBufferValuesIfED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #12 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #19
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #21
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #18
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #20
   ret void
 }
 
@@ -3862,12 +3861,9 @@ define linkonce_odr hidden void @_ZNK2cv11bioinspired25Parallel_clipBufferValues
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_retinacolor.cpp() #16 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #19
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #18
   ret void
 }
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #17
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
@@ -3886,11 +3882,10 @@ attributes #13 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-si
 attributes #14 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #16 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #18 = { allocsize(0) }
-attributes #19 = { nounwind }
-attributes #20 = { noreturn }
-attributes #21 = { builtin nounwind }
+attributes #17 = { allocsize(0) }
+attributes #18 = { nounwind }
+attributes #19 = { noreturn }
+attributes #20 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

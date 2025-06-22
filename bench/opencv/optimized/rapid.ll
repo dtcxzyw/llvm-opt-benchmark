@@ -2365,13 +2365,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i: ; preds = %203
   %209 = ashr exact i64 %206, 2
-  %.sroa.speculated.i.i.i = call i64 @llvm.umax.i64(i64 %209, i64 1)
-  %210 = add nsw i64 %.sroa.speculated.i.i.i, %209
+  %210 = ashr exact i64 %206, 1
   %211 = icmp ult i64 %210, %209
   %212 = call i64 @llvm.umin.i64(i64 %210, i64 2305843009213693951)
   %213 = select i1 %211, i64 2305843009213693951, i64 %212
-  %.not.i.i.i31 = icmp ne i64 %213, 0
-  call void @llvm.assume(i1 %.not.i.i.i31)
   %214 = shl nuw nsw i64 %213, 2
   %215 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %214) #28
           to label %.noexc33 unwind label %320

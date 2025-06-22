@@ -27055,14 +27055,13 @@ invoke.cont66:                                    ; preds = %if.then.i.i.i.i.i.i
   %sub.ptr.lhs.cast.i297 = ptrtoint ptr %add.ptr.i.i.i2911106 to i64
   %sub.ptr.rhs.cast.i298 = ptrtoint ptr %cond.i.i.i.i2901097 to i64
   %sub.ptr.sub.i299 = sub i64 %sub.ptr.lhs.cast.i297, %sub.ptr.rhs.cast.i298
+  %sub.ptr.div.i300 = ashr exact i64 %sub.ptr.sub.i299, 3
   %cmp691308.not = icmp eq ptr %add.ptr.i.i.i2911106, %cond.i.i.i.i2901097
   br i1 %cmp691308.not, label %for.cond.cleanup70, label %for.body71.lr.ph
 
 for.body71.lr.ph:                                 ; preds = %invoke.cont66
-  %sub.ptr.div.i300 = ashr exact i64 %sub.ptr.sub.i299, 3
   %neg = fneg double %call62
   %tenor_ = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.01311, i64 44
-  %umax = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i300, i64 1)
   br label %invoke.cont74
 
 for.cond.cleanup70:                               ; preds = %invoke.cont294, %invoke.cont66
@@ -28124,7 +28123,7 @@ _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS
 
 invoke.cont294:                                   ; preds = %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i669, %if.then.i.i648
   %inc297 = add nuw i64 %j.01309, 1
-  %exitcond.not = icmp eq i64 %inc297, %umax
+  %exitcond.not = icmp eq i64 %inc297, %sub.ptr.div.i300
   br i1 %exitcond.not, label %for.cond.cleanup70, label %invoke.cont74, !llvm.loop !535
 
 lpad117:                                          ; preds = %catch

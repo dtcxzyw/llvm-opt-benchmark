@@ -2117,7 +2117,6 @@ define linkonce_odr hidden void @_ZN2cv3dnn16PermuteLayerImpl7forwardERKNS_11_In
 .lr.ph:                                           ; preds = %.preheader144
   %41 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %42 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %umax = call i64 @llvm.umax.i64(i64 %37, i64 1)
   br label %43
 
 43:                                               ; preds = %.lr.ph, %83
@@ -2222,7 +2221,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 83:                                               ; preds = %70, %80
   %84 = add nuw i64 %.098146, 1
-  %exitcond.not = icmp eq i64 %84, %umax
+  %exitcond.not = icmp eq i64 %84, %37
   br i1 %exitcond.not, label %.loopexit143, label %43, !llvm.loop !122
 
 85:                                               ; preds = %30
@@ -2243,7 +2242,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %96 = icmp eq i64 %89, 4
   %.not163 = icmp eq i64 %87, 0
   %.not164 = icmp eq i64 %89, 0
-  %umax178 = call i64 @llvm.umax.i64(i64 %37, i64 1)
   br label %97
 
 97:                                               ; preds = %.lr.ph160, %.loopexit
@@ -2554,7 +2552,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit128: ; preds = %_Z
 
 .loopexit:                                        ; preds = %._crit_edge.us, %.preheader141, %._crit_edge.us157, %.preheader, %202, %183, %172, %175
   %221 = add nuw i64 %.199159, 1
-  %exitcond179.not = icmp eq i64 %221, %umax178
+  %exitcond179.not = icmp eq i64 %221, %37
   br i1 %exitcond179.not, label %.loopexit143, label %97, !llvm.loop !130
 
 .loopexit143:                                     ; preds = %83, %.loopexit, %.preheader144, %85

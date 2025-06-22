@@ -1755,7 +1755,6 @@ _ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25Create
   %64 = ptrtoint ptr %62 to i64
   %65 = sub i64 %63, %64
   %66 = ashr exact i64 %65, 2
-  %umax = tail call i64 @llvm.umax.i64(i64 %66, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -1765,7 +1764,7 @@ _ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25Create
   %69 = getelementptr inbounds nuw i32, ptr %58, i64 %.05286
   store i32 %68, ptr %69, align 4, !tbaa !55
   %70 = add nuw i64 %.05286, 1
-  %exitcond.not = icmp eq i64 %70, %umax
+  %exitcond.not = icmp eq i64 %70, %66
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !104
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader

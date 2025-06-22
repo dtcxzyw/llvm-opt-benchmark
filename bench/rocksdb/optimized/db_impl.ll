@@ -32224,7 +32224,6 @@ _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %_ZN7rocksdb6Statusa
   br i1 %.not307, label %.loopexit, label %.lr.ph306
 
 .lr.ph306:                                        ; preds = %_ZN7rocksdb6StatusD2Ev.exit
-  %umax344 = call i64 @llvm.umax.i64(i64 %38, i64 1)
   %.not.i.i.i = icmp eq ptr %71, null
   br label %73
 
@@ -32292,7 +32291,7 @@ _ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EED2Ev.exit.i.i: ; preds = %_ZNKSt14
 
 _ZN7rocksdb22PinnableAttributeGroup9SetStatusERKNS_6StatusE.exit: ; preds = %_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EED2Ev.exit.i.i, %73
   %88 = add nuw i64 %.047305, 1
-  %exitcond345.not = icmp eq i64 %88, %umax344
+  %exitcond345.not = icmp eq i64 %88, %38
   br i1 %exitcond345.not, label %.loopexit, label %73, !llvm.loop !1701
 
 .thread353:                                       ; preds = %83
@@ -32361,7 +32360,6 @@ _ZN7rocksdb22PinnableAttributeGroup9SetStatusERKNS_6StatusE.exit: ; preds = %_ZN
   br label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %113, %119
-  %umax = call i64 @llvm.umax.i64(i64 %38, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNSt6vectorIPN7rocksdb18ColumnFamilyHandleESaIS2_EE12emplace_backIJS2_EEERS2_DpOT_.exit
@@ -32719,7 +32717,7 @@ _ZNSt6vectorIPN7rocksdb18ColumnFamilyHandleESaIS2_EE12emplace_backIJS2_EEERS2_Dp
   %.sroa.12.1 = phi ptr [ %227, %_ZNSt6vectorIPN7rocksdb18ColumnFamilyHandleESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.12.0293, %209 ]
   %.sroa.9.1 = getelementptr inbounds nuw i8, ptr %.pn209, i64 8
   %228 = add nuw i64 %.046297, 1
-  %exitcond.not = icmp eq i64 %228, %umax
+  %exitcond.not = icmp eq i64 %228, %38
   br i1 %exitcond.not, label %.loopexit216, label %.lr.ph, !llvm.loop !1715
 
 .loopexit221:                                     ; preds = %_ZNKSt6vectorIPN7rocksdb18ColumnFamilyHandleESaIS2_EE12_M_check_lenEmPKc.exit.i.i
@@ -32750,7 +32748,6 @@ _ZNSt6vectorIPN7rocksdb18ColumnFamilyHandleESaIS2_EE12emplace_backIJS2_EEERS2_Dp
   %236 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %237 = getelementptr inbounds nuw i8, ptr %22, i64 5
   %238 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %umax340 = call i64 @llvm.umax.i64(i64 %38, i64 1)
   br label %239
 
 239:                                              ; preds = %.lr.ph302, %270
@@ -32871,7 +32868,7 @@ _ZN7rocksdb6StatusD2Ev.exit138:                   ; preds = %_ZNKSt14default_del
 
 270:                                              ; preds = %239, %_ZN7rocksdb6StatusD2Ev.exit135
   %271 = add nuw i64 %.045301, 1
-  %exitcond341.not = icmp eq i64 %271, %umax340
+  %exitcond341.not = icmp eq i64 %271, %38
   br i1 %exitcond341.not, label %.loopexit215, label %239, !llvm.loop !1716
 
 272:                                              ; preds = %.loopexit216
@@ -32936,11 +32933,7 @@ _ZNSt12_Vector_baseIN7rocksdb6StatusESaIS1_EEC2EmRKS2_.exit.i: ; preds = %_ZNSt1
   %291 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr %289, ptr %291, align 8, !tbaa !1726
   invoke void @_ZN7rocksdb6DBImpl14MultiGetCommonERKNS_11ReadOptionsEmPPNS_18ColumnFamilyHandleEPKNS_5SliceEPNS_13PinnableSliceEPNS_19PinnableWideColumnsEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_6StatusEb(ptr noundef nonnull align 64 dereferenceable(6868) %1, ptr noundef nonnull align 8 dereferenceable(168) %15, i64 noundef %38, ptr noundef %.sroa.0195.0278, ptr noundef %.sroa.0201.0239, ptr noundef null, ptr noundef nonnull %276, ptr noundef null, ptr noundef nonnull %284, i1 noundef zeroext false)
-          to label %.lr.ph304.preheader unwind label %333
-
-.lr.ph304.preheader:                              ; preds = %290
-  %umax342 = call i64 @llvm.umax.i64(i64 %38, i64 1)
-  br label %.lr.ph304
+          to label %.lr.ph304 unwind label %333
 
 ._crit_edge:                                      ; preds = %_ZN7rocksdb22PinnableAttributeGroup10SetColumnsEONS_19PinnableWideColumnsE.exit
   %292 = load ptr, ptr %291, align 8, !tbaa !1726
@@ -33067,8 +33060,8 @@ _ZNSt6vectorIN7rocksdb19PinnableWideColumnsESaIS1_EED2Ev.exit: ; preds = %_ZSt8_
           cleanup
   br label %.loopexit.split-lp
 
-.lr.ph304:                                        ; preds = %.lr.ph304.preheader, %_ZN7rocksdb22PinnableAttributeGroup10SetColumnsEONS_19PinnableWideColumnsE.exit
-  %.0303 = phi i64 [ %423, %_ZN7rocksdb22PinnableAttributeGroup10SetColumnsEONS_19PinnableWideColumnsE.exit ], [ 0, %.lr.ph304.preheader ]
+.lr.ph304:                                        ; preds = %290, %_ZN7rocksdb22PinnableAttributeGroup10SetColumnsEONS_19PinnableWideColumnsE.exit
+  %.0303 = phi i64 [ %423, %_ZN7rocksdb22PinnableAttributeGroup10SetColumnsEONS_19PinnableWideColumnsE.exit ], [ 0, %290 ]
   %335 = load ptr, ptr %4, align 8, !tbaa !1700
   %336 = getelementptr inbounds nuw %"class.rocksdb::PinnableAttributeGroup", ptr %335, i64 %.0303
   %337 = getelementptr inbounds nuw i8, ptr %336, i64 8
@@ -33278,7 +33271,7 @@ _ZN7rocksdb19PinnableWideColumns5ResetEv.exit.i.i: ; preds = %422, %_ZN7rocksdb1
 
 _ZN7rocksdb22PinnableAttributeGroup10SetColumnsEONS_19PinnableWideColumnsE.exit: ; preds = %_ZN7rocksdb22PinnableAttributeGroup9SetStatusERKNS_6StatusE.exit174, %_ZN7rocksdb19PinnableWideColumns5ResetEv.exit.i.i
   %423 = add nuw i64 %.0303, 1
-  %exitcond343.not = icmp eq i64 %423, %umax342
+  %exitcond343.not = icmp eq i64 %423, %38
   br i1 %exitcond343.not, label %._crit_edge, label %.lr.ph304, !llvm.loop !1730
 
 .loopexit210:                                     ; preds = %.lr.ph.i.i.i.i.i.i
@@ -47026,7 +47019,6 @@ _ZNSt6vectorIPN7rocksdb18ColumnFamilyHandleESaIS2_EE5clearEv.exit: ; preds = %7,
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %35 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %umax = call i64 @llvm.umax.i64(i64 %24, i64 1)
   br label %37
 
 37:                                               ; preds = %.lr.ph, %83
@@ -47182,7 +47174,7 @@ _ZNSt6vectorIPN7rocksdb18ColumnFamilyHandleESaIS2_EE17_M_realloc_insertIJRKS2_EE
 83:                                               ; preds = %_ZNSt6vectorIPN7rocksdb18ColumnFamilyHandleESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %59
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #39
   %84 = add nuw i64 %.02068, 1
-  %exitcond.not = icmp eq i64 %84, %umax
+  %exitcond.not = icmp eq i64 %84, %24
   br i1 %exitcond.not, label %.loopexit, label %37, !llvm.loop !2092
 
 85:                                               ; preds = %.loopexit51, %.loopexit.split-lp, %54
@@ -47425,7 +47417,6 @@ _ZNSt6vectorIPKN7rocksdb19ColumnFamilyOptionsESaIS3_EE7reserveEm.exit: ; preds =
   %42 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %44 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %umax = call i64 @llvm.umax.i64(i64 %22, i64 1)
   br label %46
 
 _ZNSt6vectorIPKN7rocksdb19ColumnFamilyOptionsESaIS3_EED2Ev.exit45.thread: ; preds = %_ZNSt12_Vector_baseIPKN7rocksdb19ColumnFamilyOptionsESaIS3_EE11_M_allocateEm.exit.i, %25
@@ -47666,7 +47657,7 @@ _ZNSt6vectorIPKN7rocksdb19ColumnFamilyOptionsESaIS3_EE17_M_realloc_insertIJS3_EE
   %121 = phi ptr [ %48, %98 ], [ %118, %_ZNSt6vectorIPKN7rocksdb19ColumnFamilyOptionsESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #39
   %122 = add nuw i64 %.02298, 1
-  %exitcond.not = icmp eq i64 %122, %umax
+  %exitcond.not = icmp eq i64 %122, %22
   br i1 %exitcond.not, label %.loopexit, label %46, !llvm.loop !2097
 
 .loopexit55:                                      ; preds = %_ZNKSt6vectorIPKN7rocksdb19ColumnFamilyOptionsESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i
@@ -83741,11 +83732,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resize
           to label %.preheader unwind label %112
 
 .preheader:                                       ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit50
-  br i1 %.not.i.i.i.i, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %.preheader
-  %umax = tail call i64 @llvm.umax.i64(i64 %15, i64 1)
-  br label %.lr.ph
+  br i1 %.not.i.i.i.i, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm.exit, %.preheader
   %124 = load ptr, ptr %62, align 8, !tbaa !2921
@@ -83796,8 +83783,8 @@ _ZNSt6vectorIN7rocksdb13PinnableSliceESaIS1_EED2Ev.exit: ; preds = %_ZSt8_Destro
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #39
   ret void
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm.exit
-  %.065 = phi i64 [ %156, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm.exit ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm.exit
+  %.065 = phi i64 [ %156, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm.exit ], [ 0, %.preheader ]
   %141 = getelementptr inbounds nuw %"class.rocksdb::Status", ptr %120, i64 %.065
   %142 = load i8, ptr %141, align 8, !tbaa !777
   %143 = icmp eq i8 %142, 0
@@ -83822,7 +83809,7 @@ _ZNSt6vectorIN7rocksdb13PinnableSliceESaIS1_EED2Ev.exit: ; preds = %_ZSt8_Destro
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm.exit: ; preds = %144, %.lr.ph
   %156 = add nuw i64 %.065, 1
-  %exitcond.not = icmp eq i64 %156, %umax
+  %exitcond.not = icmp eq i64 %156, %15
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !2924
 
 157:                                              ; preds = %154, %112

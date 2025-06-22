@@ -6883,7 +6883,6 @@ _ZN2cv8ximgproc10SuperpixelD2Ev.exit515:          ; preds = %_ZNSt6vectorIiSaIiE
   %1387 = load ptr, ptr %1036, align 8, !tbaa !144
   %1388 = load ptr, ptr %1037, align 8, !tbaa !145
   %1389 = load i64, ptr %1388, align 8, !tbaa !142
-  %umax = call i64 @llvm.umax.i64(i64 %1384, i64 1)
   br label %1414
 
 .lr.ph2986:                                       ; preds = %.lr.ph2986.preheader, %.lr.ph2986
@@ -6931,7 +6930,7 @@ _ZN2cv8ximgproc10SuperpixelD2Ev.exit515:          ; preds = %_ZNSt6vectorIiSaIiE
   %1423 = getelementptr inbounds i32, ptr %1421, i64 %1422
   store i32 %.0.lcssa, ptr %1423, align 4, !tbaa !59
   %1424 = add nuw i64 %.03132988, 1
-  %exitcond3488.not = icmp eq i64 %1424, %umax
+  %exitcond3488.not = icmp eq i64 %1424, %1384
   br i1 %exitcond3488.not, label %.loopexit1447, label %1414, !llvm.loop !202
 
 .loopexit1447:                                    ; preds = %1414, %._crit_edge2987, %._crit_edge2983

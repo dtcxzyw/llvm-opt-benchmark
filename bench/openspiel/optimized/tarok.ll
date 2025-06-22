@@ -10812,7 +10812,6 @@ _ZNSt6vectorIlSaIlEE2atEm.exit.lr.ph:             ; preds = %197
   %206 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %207 = load i32, ptr %206, align 4
   %208 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %umax = tail call i64 @llvm.umax.i64(i64 %203, i64 1)
   br label %_ZNSt6vectorIlSaIlEE2atEm.exit
 
 _ZNSt6vectorIlSaIlEE2atEm.exit:                   ; preds = %_ZNSt6vectorIlSaIlEE2atEm.exit.lr.ph, %217
@@ -10847,7 +10846,7 @@ _ZNK10open_spiel5tarok10TarokState23TrickCardsIndexToPlayerEi.exit: ; preds = %.
 
 217:                                              ; preds = %_ZNSt6vectorIlSaIlEE2atEm.exit, %_ZNK10open_spiel5tarok10TarokState23TrickCardsIndexToPlayerEi.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %203
   br i1 %exitcond.not, label %_ZNSt6vectorIlSaIlEE5clearEv.exit, label %_ZNSt6vectorIlSaIlEE2atEm.exit, !llvm.loop !85
 
 _ZNSt6vectorIlSaIlEE5clearEv.exit:                ; preds = %217, %197, %189, %.critedge, %196, %192, %_ZNSt6vectorIlSaIlEE5eraseEN9__gnu_cxx17__normal_iteratorIPKlS1_EE.exit

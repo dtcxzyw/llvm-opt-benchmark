@@ -1082,7 +1082,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62: ; preds = %_ZN
   %110 = sdiv exact i64 %109, 24
   %111 = load ptr, ptr %67, align 8, !tbaa !62
   %112 = load ptr, ptr %5, align 8, !tbaa !36
-  %umax = tail call i64 @llvm.umax.i64(i64 %110, i64 1)
   br label %122
 
 ._crit_edge:                                      ; preds = %122, %97
@@ -1132,7 +1131,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62: ; preds = %_ZN
   %146 = fptrunc double %145 to float
   store float %146, ptr %143, align 4, !tbaa !64
   %147 = add nuw i64 %.02769, 1
-  %exitcond.not = icmp eq i64 %147, %umax
+  %exitcond.not = icmp eq i64 %147, %110
   br i1 %exitcond.not, label %._crit_edge, label %122, !llvm.loop !66
 
 148:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit49, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59, %._crit_edge, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -1732,20 +1731,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit92: ; preds = %_ZN
   tail call void @_ZNSt6vectorIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESaIS2_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %148)
   %149 = load ptr, ptr %46, align 8, !tbaa !70
   %150 = load ptr, ptr %45, align 8, !tbaa !73
+  %151 = ptrtoint ptr %149 to i64
+  %152 = ptrtoint ptr %150 to i64
+  %153 = sub i64 %151, %152
+  %154 = sdiv exact i64 %153, 12
   %.not = icmp eq ptr %149, %150
   %.pre = load ptr, ptr %4, align 8, !tbaa !36
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %141
-  %151 = ptrtoint ptr %149 to i64
-  %152 = ptrtoint ptr %150 to i64
-  %153 = sub i64 %151, %152
-  %154 = sdiv exact i64 %153, 12
   %155 = load ptr, ptr %41, align 8, !tbaa !62
   %156 = getelementptr inbounds nuw i8, ptr %2, i64 440
   %157 = load i32, ptr %156, align 8, !tbaa !74
   %158 = icmp eq i32 %157, 0
-  %umax108 = tail call i64 @llvm.umax.i64(i64 %154, i64 1)
   br i1 %158, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
@@ -1801,7 +1799,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit92: ; preds = %_ZN
 
 .split103.us.us:                                  ; preds = %172
   %193 = add nuw i64 %.048104.us, 1
-  %exitcond109.not = icmp eq i64 %193, %umax108
+  %exitcond109.not = icmp eq i64 %193, %154
   br i1 %exitcond109.not, label %._crit_edge, label %.split.us.us, !llvm.loop !77
 
 .lr.ph.split:                                     ; preds = %.lr.ph
@@ -1831,7 +1829,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit92: ; preds = %_ZN
 
 .split103:                                        ; preds = %208
   %207 = add nuw i64 %.048104, 1
-  %exitcond106.not = icmp eq i64 %207, %umax108
+  %exitcond106.not = icmp eq i64 %207, %154
   br i1 %exitcond106.not, label %._crit_edge, label %.split, !llvm.loop !77
 
 208:                                              ; preds = %.split, %208

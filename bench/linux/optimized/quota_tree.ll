@@ -113,7 +113,7 @@ define dso_local i32 @qtree_write_dquot(ptr noundef captures(none) %0, ptr nound
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %9 = load i32, ptr %8, align 4
   %10 = zext i32 %9 to i64
-  %11 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %10, i32 noundef 3136) #7
+  %11 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %10, i32 noundef 3136) #6
   %12 = icmp eq ptr %11, null
   br i1 %12, label %53, label %13
 
@@ -124,7 +124,7 @@ define dso_local i32 @qtree_write_dquot(ptr noundef captures(none) %0, ptr nound
   br i1 %16, label %17, label %28
 
 17:                                               ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #7
   store i32 1, ptr %3, align 4
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %19 = load i32, ptr %18, align 4
@@ -133,30 +133,30 @@ define dso_local i32 @qtree_write_dquot(ptr noundef captures(none) %0, ptr nound
 
 .thread:                                          ; preds = %17
   %21 = load ptr, ptr %6, align 8
-  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %21, ptr noundef nonnull @__func__.dq_insert_tree, ptr noundef nonnull @.str.6) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #8
+  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %21, ptr noundef nonnull @__func__.dq_insert_tree, ptr noundef nonnull @.str.6) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #7
   br label %25
 
 22:                                               ; preds = %17
   %23 = call fastcc i32 @do_insert_tree(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #7
   %24 = icmp slt i32 %23, 0
   br i1 %24, label %25, label %28
 
 25:                                               ; preds = %.thread, %22
   %26 = phi i32 [ -5, %.thread ], [ %23, %22 ]
   %27 = sext i32 %26 to i64
-  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %7, ptr noundef nonnull @__func__.qtree_write_dquot, ptr noundef nonnull @.str, i64 noundef %27) #8
+  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %7, ptr noundef nonnull @__func__.qtree_write_dquot, ptr noundef nonnull @.str, i64 noundef %27) #7
   br label %51
 
 28:                                               ; preds = %22, %13
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  tail call void @_raw_spin_lock(ptr noundef nonnull %29) #8
+  tail call void @_raw_spin_lock(ptr noundef nonnull %29) #7
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %31 = load ptr, ptr %30, align 8
   %32 = load ptr, ptr %31, align 8
-  tail call void %32(ptr noundef nonnull %11, ptr noundef %1) #8
-  tail call void @_raw_spin_unlock(ptr noundef nonnull %29) #8
+  tail call void %32(ptr noundef nonnull %11, ptr noundef %1) #7
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %29) #7
   %33 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %34 = load ptr, ptr %33, align 16
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 168
@@ -164,14 +164,14 @@ define dso_local i32 @qtree_write_dquot(ptr noundef captures(none) %0, ptr nound
   %37 = load i32, ptr %8, align 4
   %38 = zext i32 %37 to i64
   %39 = load i64, ptr %14, align 8
-  %40 = tail call i64 %36(ptr noundef %7, i32 noundef %5, ptr noundef nonnull %11, i64 noundef %38, i64 noundef %39) #8
+  %40 = tail call i64 %36(ptr noundef %7, i32 noundef %5, ptr noundef nonnull %11, i64 noundef %38, i64 noundef %39) #7
   %41 = load i32, ptr %8, align 4
   %42 = zext i32 %41 to i64
   %43 = icmp eq i64 %40, %42
   br i1 %43, label %48, label %44
 
 44:                                               ; preds = %28
-  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %7, ptr noundef nonnull @__func__.qtree_write_dquot, ptr noundef nonnull @.str.1) #8
+  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %7, ptr noundef nonnull @__func__.qtree_write_dquot, ptr noundef nonnull @.str.1) #7
   %45 = icmp sgt i64 %40, -1
   %46 = trunc i64 %40 to i32
   %47 = select i1 %45, i32 -28, i32 %46
@@ -180,12 +180,12 @@ define dso_local i32 @qtree_write_dquot(ptr noundef captures(none) %0, ptr nound
 48:                                               ; preds = %44, %28
   %49 = phi i32 [ %47, %44 ], [ 0, %28 ]
   %50 = load i32, ptr @percpu_counter_batch, align 4
-  tail call void @percpu_counter_add_batch(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @dqstats, i64 184), i64 noundef 1, i32 noundef %50) #8
+  tail call void @percpu_counter_add_batch(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @dqstats, i64 184), i64 noundef 1, i32 noundef %50) #7
   br label %51
 
 51:                                               ; preds = %48, %25
   %52 = phi i32 [ %26, %25 ], [ %49, %48 ]
-  tail call void @kfree(ptr noundef nonnull %11) #8
+  tail call void @kfree(ptr noundef nonnull %11) #7
   br label %53
 
 53:                                               ; preds = %51, %2
@@ -202,7 +202,7 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @qtree_delete_dquot(ptr noundef captures(none) %0, ptr noundef captures(none) %1) #2 align 16 {
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #7
   store i32 1, ptr %3, align 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %5 = load i64, ptr %4, align 8
@@ -215,7 +215,7 @@ define dso_local i32 @qtree_delete_dquot(ptr noundef captures(none) %0, ptr noun
 
 9:                                                ; preds = %7, %2
   %10 = phi i32 [ %8, %7 ], [ 0, %2 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #7
   ret i32 %10
 }
 
@@ -225,8 +225,8 @@ define internal fastcc i32 @remove_tree(ptr noundef captures(none) %0, ptr nound
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load i32, ptr %6, align 8
   %8 = zext i32 %7 to i64
-  %9 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %8, i32 noundef 3136) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #8
+  %9 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %8, i32 noundef 3136) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
   %10 = icmp eq ptr %9, null
   br i1 %10, label %337, label %11
 
@@ -247,7 +247,7 @@ define internal fastcc i32 @remove_tree(ptr noundef captures(none) %0, ptr nound
   %24 = load i32, ptr %23, align 8
   %25 = zext nneg i32 %24 to i64
   %26 = shl i64 %22, %25
-  %27 = tail call i64 %19(ptr noundef %13, i32 noundef %21, ptr noundef nonnull %9, i64 noundef %15, i64 noundef %26) #8
+  %27 = tail call i64 %19(ptr noundef %13, i32 noundef %21, ptr noundef nonnull %9, i64 noundef %15, i64 noundef %26) #7
   %28 = trunc i64 %27 to i32
   %29 = icmp slt i32 %28, 0
   br i1 %29, label %30, label %34
@@ -256,13 +256,13 @@ define internal fastcc i32 @remove_tree(ptr noundef captures(none) %0, ptr nound
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %32 = load ptr, ptr %31, align 8
   %33 = load i32, ptr %2, align 4
-  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %32, ptr noundef nonnull @__func__.remove_tree, ptr noundef nonnull @.str.18, i32 noundef %33) #8
+  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %32, ptr noundef nonnull @__func__.remove_tree, ptr noundef nonnull @.str.18, i32 noundef %33) #7
   br label %335
 
 34:                                               ; preds = %11
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %36 = load i64, ptr %35, align 8
-  %37 = tail call i32 @from_kqid(ptr noundef nonnull @init_user_ns, i64 %36) #8
+  %37 = tail call i32 @from_kqid(ptr noundef nonnull @init_user_ns, i64 %36) #7
   %38 = load i32, ptr %6, align 8
   %39 = lshr i32 %38, 2
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -297,7 +297,7 @@ define internal fastcc i32 @remove_tree(ptr noundef captures(none) %0, ptr nound
 
 61:                                               ; preds = %.loopexit38
   %62 = load ptr, ptr %55, align 8
-  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %62, ptr noundef nonnull @__func__.do_check_range, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.8, i32 noundef %54, i32 noundef 1, i32 noundef %58) #8
+  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %62, ptr noundef nonnull @__func__.do_check_range, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.8, i32 noundef %54, i32 noundef 1, i32 noundef %58) #7
   br label %335
 
 63:                                               ; preds = %.loopexit38
@@ -307,7 +307,7 @@ define internal fastcc i32 @remove_tree(ptr noundef captures(none) %0, ptr nound
 
 66:                                               ; preds = %63
   %67 = zext i32 %38 to i64
-  %68 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %67, i32 noundef 3136) #7
+  %68 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %67, i32 noundef 3136) #6
   %69 = icmp eq ptr %68, null
   br i1 %69, label %243, label %70
 
@@ -324,7 +324,7 @@ define internal fastcc i32 @remove_tree(ptr noundef captures(none) %0, ptr nound
 78:                                               ; preds = %70
   %79 = load ptr, ptr %55, align 8
   %80 = trunc i64 %75 to i32
-  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %79, ptr noundef nonnull @__func__.free_dqentry, ptr noundef nonnull @.str.20, i32 noundef %54, i32 noundef %80) #8
+  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %79, ptr noundef nonnull @__func__.free_dqentry, ptr noundef nonnull @.str.20, i32 noundef %54, i32 noundef %80) #7
   br label %237
 
 81:                                               ; preds = %70
@@ -338,14 +338,14 @@ define internal fastcc i32 @remove_tree(ptr noundef captures(none) %0, ptr nound
   %88 = load ptr, ptr %87, align 8
   %89 = load i32, ptr %20, align 8
   %90 = shl i64 %75, %74
-  %91 = tail call i64 %88(ptr noundef %82, i32 noundef %89, ptr noundef nonnull %68, i64 noundef %84, i64 noundef %90) #8
+  %91 = tail call i64 %88(ptr noundef %82, i32 noundef %89, ptr noundef nonnull %68, i64 noundef %84, i64 noundef %90) #7
   %92 = trunc i64 %91 to i32
   %93 = icmp slt i32 %92, 0
   br i1 %93, label %94, label %96
 
 94:                                               ; preds = %81
   %95 = load ptr, ptr %55, align 8
-  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %95, ptr noundef nonnull @__func__.free_dqentry, ptr noundef nonnull @.str.18, i32 noundef %54) #8
+  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %95, ptr noundef nonnull @__func__.free_dqentry, ptr noundef nonnull @.str.18, i32 noundef %54) #7
   br label %237
 
 96:                                               ; preds = %81
@@ -374,7 +374,7 @@ define internal fastcc i32 @remove_tree(ptr noundef captures(none) %0, ptr nound
 .thread34:                                        ; preds = %104, %107
   %110 = phi i32 [ %108, %107 ], [ %105, %104 ]
   %111 = load ptr, ptr %55, align 8
-  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %111, ptr noundef nonnull @__func__.free_dqentry, ptr noundef nonnull @.str.21, i32 noundef %54) #8
+  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %111, ptr noundef nonnull @__func__.free_dqentry, ptr noundef nonnull @.str.21, i32 noundef %54) #7
   br label %237
 
 112:                                              ; preds = %99
@@ -401,7 +401,7 @@ define internal fastcc i32 @remove_tree(ptr noundef captures(none) %0, ptr nound
   br i1 %131, label %132, label %213
 
 132:                                              ; preds = %112
-  %133 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %126, i32 noundef 3136) #7
+  %133 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %126, i32 noundef 3136) #6
   %134 = icmp eq ptr %133, null
   br i1 %134, label %211, label %135
 
@@ -422,14 +422,14 @@ define internal fastcc i32 @remove_tree(ptr noundef captures(none) %0, ptr nound
   %147 = load i32, ptr %23, align 8
   %148 = zext nneg i32 %147 to i64
   %149 = shl i64 %75, %148
-  %150 = tail call i64 %143(ptr noundef %139, i32 noundef %144, ptr noundef nonnull %68, i64 noundef %146, i64 noundef %149) #8
+  %150 = tail call i64 %143(ptr noundef %139, i32 noundef %144, ptr noundef nonnull %68, i64 noundef %146, i64 noundef %149) #7
   %151 = load i32, ptr %6, align 8
   %152 = zext i32 %151 to i64
   %153 = icmp eq i64 %150, %152
   br i1 %153, label %157, label %154
 
 154:                                              ; preds = %135
-  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %139, ptr noundef nonnull @__func__.write_blk, ptr noundef nonnull @.str.1) #8
+  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %139, ptr noundef nonnull @__func__.write_blk, ptr noundef nonnull @.str.1) #7
   %155 = icmp sgt i64 %150, -1
   %156 = select i1 %155, i64 -5, i64 %150
   br label %157
@@ -459,7 +459,7 @@ define internal fastcc i32 @remove_tree(ptr noundef captures(none) %0, ptr nound
   %174 = load i32, ptr %23, align 8
   %175 = zext nneg i32 %174 to i64
   %176 = shl i64 %173, %175
-  %177 = tail call i64 %171(ptr noundef %165, i32 noundef %172, ptr noundef nonnull %133, i64 noundef %167, i64 noundef %176) #8
+  %177 = tail call i64 %171(ptr noundef %165, i32 noundef %172, ptr noundef nonnull %133, i64 noundef %167, i64 noundef %176) #7
   %178 = trunc i64 %177 to i32
   %179 = icmp slt i32 %178, 0
   br i1 %179, label %206, label %180
@@ -480,14 +480,14 @@ define internal fastcc i32 @remove_tree(ptr noundef captures(none) %0, ptr nound
   %192 = load i32, ptr %23, align 8
   %193 = zext nneg i32 %192 to i64
   %194 = shl i64 %191, %193
-  %195 = tail call i64 %187(ptr noundef %183, i32 noundef %188, ptr noundef nonnull %133, i64 noundef %190, i64 noundef %194) #8
+  %195 = tail call i64 %187(ptr noundef %183, i32 noundef %188, ptr noundef nonnull %133, i64 noundef %190, i64 noundef %194) #7
   %196 = load i32, ptr %6, align 8
   %197 = zext i32 %196 to i64
   %198 = icmp eq i64 %195, %197
   br i1 %198, label %202, label %199
 
 199:                                              ; preds = %180
-  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %183, ptr noundef nonnull @__func__.write_blk, ptr noundef nonnull @.str.1) #8
+  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %183, ptr noundef nonnull @__func__.write_blk, ptr noundef nonnull @.str.1) #7
   %200 = icmp sgt i64 %195, -1
   %201 = select i1 %200, i64 -5, i64 %195
   br label %202
@@ -500,21 +500,21 @@ define internal fastcc i32 @remove_tree(ptr noundef captures(none) %0, ptr nound
 
 206:                                              ; preds = %202, %164, %157
   %207 = phi i32 [ %159, %157 ], [ %178, %164 ], [ %204, %202 ]
-  tail call void @kfree(ptr noundef nonnull %133) #8
+  tail call void @kfree(ptr noundef nonnull %133) #7
   br label %211
 
 208:                                              ; preds = %161, %202
-  tail call void @kfree(ptr noundef nonnull %133) #8
+  tail call void @kfree(ptr noundef nonnull %133) #7
   store i32 %54, ptr %136, align 4
   %209 = load ptr, ptr %0, align 8
   %210 = load i32, ptr %20, align 8
-  tail call void @mark_info_dirty(ptr noundef %209, i32 noundef %210) #8
+  tail call void @mark_info_dirty(ptr noundef %209, i32 noundef %210) #7
   br label %235
 
 211:                                              ; preds = %206, %132
   %.ph = phi i32 [ -12, %132 ], [ %207, %206 ]
   %212 = load ptr, ptr %55, align 8
-  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %212, ptr noundef nonnull @__func__.free_dqentry, ptr noundef nonnull @.str.22, i32 noundef %54) #8
+  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %212, ptr noundef nonnull @__func__.free_dqentry, ptr noundef nonnull @.str.22, i32 noundef %54) #7
   br label %237
 
 213:                                              ; preds = %112
@@ -526,14 +526,14 @@ define internal fastcc i32 @remove_tree(ptr noundef captures(none) %0, ptr nound
   %219 = load i32, ptr %20, align 8
   %220 = zext nneg i32 %114 to i64
   %221 = shl i64 %75, %220
-  %222 = tail call i64 %218(ptr noundef %214, i32 noundef %219, ptr noundef nonnull %68, i64 noundef %126, i64 noundef %221) #8
+  %222 = tail call i64 %218(ptr noundef %214, i32 noundef %219, ptr noundef nonnull %68, i64 noundef %126, i64 noundef %221) #7
   %223 = load i32, ptr %6, align 8
   %224 = zext i32 %223 to i64
   %225 = icmp eq i64 %222, %224
   br i1 %225, label %229, label %226
 
 226:                                              ; preds = %213
-  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %214, ptr noundef nonnull @__func__.write_blk, ptr noundef nonnull @.str.1) #8
+  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %214, ptr noundef nonnull @__func__.write_blk, ptr noundef nonnull @.str.1) #7
   %227 = icmp sgt i64 %222, -1
   %228 = select i1 %227, i64 -5, i64 %222
   br label %229
@@ -546,7 +546,7 @@ define internal fastcc i32 @remove_tree(ptr noundef captures(none) %0, ptr nound
 
 233:                                              ; preds = %229
   %234 = load ptr, ptr %55, align 8
-  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %234, ptr noundef nonnull @__func__.free_dqentry, ptr noundef nonnull @.str.16, i32 noundef %54) #8
+  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %234, ptr noundef nonnull @__func__.free_dqentry, ptr noundef nonnull @.str.16, i32 noundef %54) #7
   br label %237
 
 235:                                              ; preds = %208, %229, %107
@@ -556,7 +556,7 @@ define internal fastcc i32 @remove_tree(ptr noundef captures(none) %0, ptr nound
 
 237:                                              ; preds = %235, %233, %211, %.thread34, %96, %94, %78
   %238 = phi i32 [ -5, %78 ], [ %92, %94 ], [ %97, %96 ], [ %.ph, %211 ], [ %236, %235 ], [ %231, %233 ], [ %110, %.thread34 ]
-  tail call void @kfree(ptr noundef nonnull %68) #8
+  tail call void @kfree(ptr noundef nonnull %68) #7
   br label %243
 
 239:                                              ; preds = %63
@@ -575,13 +575,13 @@ define internal fastcc i32 @remove_tree(ptr noundef captures(none) %0, ptr nound
 
 248:                                              ; preds = %243
   %249 = load i64, ptr %35, align 8
-  %250 = tail call i32 @from_kqid(ptr noundef nonnull @init_user_ns, i64 %249) #8
+  %250 = tail call i32 @from_kqid(ptr noundef nonnull @init_user_ns, i64 %249) #7
   %251 = load i32, ptr %6, align 8
   %252 = lshr i32 %251, 2
   %253 = load i32, ptr %40, align 4
   %254 = add i32 %253, %42
   %255 = icmp eq i32 %254, 0
-  br i1 %255, label %.loopexit36, label %.preheader
+  br i1 %255, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %248, %.preheader
   %256 = phi i32 [ %258, %.preheader ], [ %254, %248 ]
@@ -589,43 +589,45 @@ define internal fastcc i32 @remove_tree(ptr noundef captures(none) %0, ptr nound
   %258 = add i32 %256, -1
   %259 = udiv i32 %257, %252
   %260 = icmp eq i32 %258, 0
-  br i1 %260, label %.loopexit36, label %.preheader, !llvm.loop !8
+  br i1 %260, label %.loopexit, label %.preheader, !llvm.loop !8
 
-.loopexit36:                                      ; preds = %.preheader, %248
+.loopexit:                                        ; preds = %.preheader, %248
   %261 = phi i32 [ %250, %248 ], [ %259, %.preheader ]
   %262 = urem i32 %261, %252
   %263 = zext nneg i32 %262 to i64
   %264 = getelementptr i32, ptr %9, i64 %263
   store i32 0, ptr %264, align 4
-  %265 = tail call i32 @llvm.umax.i32(i32 %252, i32 1)
-  %266 = zext nneg i32 %265 to i64
-  br label %267
+  %265 = zext nneg i32 %252 to i64
+  br label %266
 
-267:                                              ; preds = %272, %.loopexit36
-  %268 = phi i64 [ 0, %.loopexit36 ], [ %273, %272 ]
-  %269 = getelementptr i32, ptr %9, i64 %268
-  %270 = load i32, ptr %269, align 4
-  %271 = icmp eq i32 %270, 0
-  br i1 %271, label %272, label %275
+266:                                              ; preds = %271, %.loopexit
+  %267 = phi i64 [ 0, %.loopexit ], [ %272, %271 ]
+  %268 = getelementptr i32, ptr %9, i64 %267
+  %269 = load i32, ptr %268, align 4
+  %270 = icmp eq i32 %269, 0
+  br i1 %270, label %271, label %274
 
-272:                                              ; preds = %267
-  %273 = add nuw nsw i64 %268, 1
-  %274 = icmp eq i64 %273, %266
-  br i1 %274, label %.loopexit, label %267, !llvm.loop !11
+271:                                              ; preds = %266
+  %272 = add nuw nsw i64 %267, 1
+  %273 = icmp eq i64 %272, %265
+  br i1 %273, label %.thread36, label %266, !llvm.loop !11
 
-275:                                              ; preds = %267
-  %276 = trunc i64 %268 to i32
-  br label %.loopexit
+274:                                              ; preds = %266
+  %275 = trunc i64 %267 to i32
+  %276 = icmp eq i32 %252, %275
+  br i1 %276, label %.thread36, label %._crit_edge
 
-.loopexit:                                        ; preds = %272, %275
-  %277 = phi i32 [ %276, %275 ], [ %265, %272 ]
-  %278 = icmp ne i32 %277, %252
+._crit_edge:                                      ; preds = %274
   %.pre45 = load i32, ptr %2, align 4
-  %279 = icmp eq i32 %.pre45, 1
-  %or.cond = select i1 %278, i1 true, i1 %279
-  br i1 %or.cond, label %309, label %280
+  %277 = zext i32 %.pre45 to i64
+  br label %309
 
-280:                                              ; preds = %.loopexit
+.thread36:                                        ; preds = %271, %274
+  %278 = load i32, ptr %2, align 4
+  %279 = icmp eq i32 %278, 1
+  br i1 %279, label %309, label %280
+
+280:                                              ; preds = %.thread36
   %281 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %282 = load i32, ptr %281, align 8
   store i32 %282, ptr %9, align 8
@@ -640,18 +642,18 @@ define internal fastcc i32 @remove_tree(ptr noundef captures(none) %0, ptr nound
   %289 = load ptr, ptr %288, align 8
   %290 = load i32, ptr %20, align 8
   %291 = zext i32 %251 to i64
-  %292 = zext i32 %.pre45 to i64
+  %292 = zext i32 %278 to i64
   %293 = load i32, ptr %23, align 8
   %294 = zext nneg i32 %293 to i64
   %295 = shl i64 %292, %294
-  %296 = tail call i64 %289(ptr noundef %285, i32 noundef %290, ptr noundef nonnull %9, i64 noundef %291, i64 noundef %295) #8
+  %296 = tail call i64 %289(ptr noundef %285, i32 noundef %290, ptr noundef nonnull %9, i64 noundef %291, i64 noundef %295) #7
   %297 = load i32, ptr %6, align 8
   %298 = zext i32 %297 to i64
   %299 = icmp eq i64 %296, %298
   br i1 %299, label %303, label %300
 
 300:                                              ; preds = %280
-  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %285, ptr noundef nonnull @__func__.write_blk, ptr noundef nonnull @.str.1) #8
+  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %285, ptr noundef nonnull @__func__.write_blk, ptr noundef nonnull @.str.1) #7
   %301 = icmp sgt i64 %296, -1
   %302 = select i1 %301, i64 -5, i64 %296
   br label %303
@@ -663,36 +665,36 @@ define internal fastcc i32 @remove_tree(ptr noundef captures(none) %0, ptr nound
   br i1 %.not, label %306, label %put_free_dqblk.exit
 
 306:                                              ; preds = %303
-  store i32 %.pre45, ptr %281, align 8
+  store i32 %278, ptr %281, align 8
   %307 = load ptr, ptr %0, align 8
   %308 = load i32, ptr %20, align 8
-  tail call void @mark_info_dirty(ptr noundef %307, i32 noundef %308) #8
+  tail call void @mark_info_dirty(ptr noundef %307, i32 noundef %308) #7
   br label %put_free_dqblk.exit
 
 put_free_dqblk.exit:                              ; preds = %303, %306
   store i32 0, ptr %2, align 4
   br label %335
 
-309:                                              ; preds = %.loopexit
-  %310 = load ptr, ptr %0, align 8
-  %311 = getelementptr inbounds nuw i8, ptr %310, i64 48
-  %312 = load ptr, ptr %311, align 16
-  %313 = getelementptr inbounds nuw i8, ptr %312, i64 168
-  %314 = load ptr, ptr %313, align 8
-  %315 = load i32, ptr %20, align 8
-  %316 = zext i32 %251 to i64
-  %317 = zext i32 %.pre45 to i64
+309:                                              ; preds = %._crit_edge, %.thread36
+  %310 = phi i64 [ %277, %._crit_edge ], [ 1, %.thread36 ]
+  %311 = load ptr, ptr %0, align 8
+  %312 = getelementptr inbounds nuw i8, ptr %311, i64 48
+  %313 = load ptr, ptr %312, align 16
+  %314 = getelementptr inbounds nuw i8, ptr %313, i64 168
+  %315 = load ptr, ptr %314, align 8
+  %316 = load i32, ptr %20, align 8
+  %317 = zext i32 %251 to i64
   %318 = load i32, ptr %23, align 8
   %319 = zext nneg i32 %318 to i64
-  %320 = shl i64 %317, %319
-  %321 = tail call i64 %314(ptr noundef %310, i32 noundef %315, ptr noundef nonnull %9, i64 noundef %316, i64 noundef %320) #8
+  %320 = shl i64 %310, %319
+  %321 = tail call i64 %315(ptr noundef %311, i32 noundef %316, ptr noundef nonnull %9, i64 noundef %317, i64 noundef %320) #7
   %322 = load i32, ptr %6, align 8
   %323 = zext i32 %322 to i64
   %324 = icmp eq i64 %321, %323
   br i1 %324, label %328, label %325
 
 325:                                              ; preds = %309
-  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %310, ptr noundef nonnull @__func__.write_blk, ptr noundef nonnull @.str.1) #8
+  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %311, ptr noundef nonnull @__func__.write_blk, ptr noundef nonnull @.str.1) #7
   %326 = icmp sgt i64 %321, -1
   %327 = select i1 %326, i64 -5, i64 %321
   br label %328
@@ -706,17 +708,17 @@ put_free_dqblk.exit:                              ; preds = %303, %306
 332:                                              ; preds = %328
   %333 = load ptr, ptr %55, align 8
   %334 = load i32, ptr %2, align 4
-  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %333, ptr noundef nonnull @__func__.remove_tree, ptr noundef nonnull @.str.19, i32 noundef %334) #8
+  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %333, ptr noundef nonnull @__func__.remove_tree, ptr noundef nonnull @.str.19, i32 noundef %334) #7
   br label %335
 
 335:                                              ; preds = %61, %332, %328, %put_free_dqblk.exit, %243, %30
   %336 = phi i32 [ %28, %30 ], [ -117, %61 ], [ %245, %243 ], [ %245, %put_free_dqblk.exit ], [ %330, %332 ], [ %330, %328 ]
-  tail call void @kfree(ptr noundef nonnull %9) #8
+  tail call void @kfree(ptr noundef nonnull %9) #7
   br label %337
 
 337:                                              ; preds = %335, %4
   %338 = phi i32 [ %336, %335 ], [ -12, %4 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
   ret i32 %338
 }
 
@@ -735,7 +737,7 @@ define dso_local i32 @qtree_read_dquot(ptr noundef readonly captures(none) %0, p
   br i1 %12, label %13, label %14
 
 13:                                               ; preds = %2
-  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %7, ptr noundef nonnull @__func__.qtree_read_dquot, ptr noundef nonnull @.str.2) #8
+  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %7, ptr noundef nonnull @__func__.qtree_read_dquot, ptr noundef nonnull @.str.2) #7
   br label %82
 
 14:                                               ; preds = %2
@@ -755,14 +757,14 @@ define dso_local i32 @qtree_read_dquot(ptr noundef readonly captures(none) %0, p
 
 23:                                               ; preds = %21
   %24 = load i64, ptr %3, align 8
-  %25 = tail call i32 @from_kqid(ptr noundef nonnull @init_user_ns, i64 %24) #8
-  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %7, ptr noundef nonnull @__func__.qtree_read_dquot, ptr noundef nonnull @.str.3, i32 noundef %25) #8
+  %25 = tail call i32 @from_kqid(ptr noundef nonnull @init_user_ns, i64 %24) #7
+  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %7, ptr noundef nonnull @__func__.qtree_read_dquot, ptr noundef nonnull @.str.3, i32 noundef %25) #7
   br label %26
 
 26:                                               ; preds = %23, %21
   store i64 0, ptr %15, align 8
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %27, i32 8, ptr nonnull elementtype(i8) %27) #8, !srcloc !12
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %27, i32 8, ptr nonnull elementtype(i8) %27) #7, !srcloc !12
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %28, i8 0, i64 72, i1 false)
   %29 = trunc i64 %19 to i32
@@ -776,7 +778,7 @@ define dso_local i32 @qtree_read_dquot(ptr noundef readonly captures(none) %0, p
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %33 = load i32, ptr %32, align 4
   %34 = zext i32 %33 to i64
-  %35 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %34, i32 noundef 3136) #7
+  %35 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %34, i32 noundef 3136) #6
   %36 = icmp eq ptr %35, null
   br i1 %36, label %82, label %37
 
@@ -788,7 +790,7 @@ define dso_local i32 @qtree_read_dquot(ptr noundef readonly captures(none) %0, p
   %42 = load i32, ptr %32, align 4
   %43 = zext i32 %42 to i64
   %44 = load i64, ptr %15, align 8
-  %45 = tail call i64 %41(ptr noundef %7, i32 noundef %5, ptr noundef nonnull %35, i64 noundef %43, i64 noundef %44) #8
+  %45 = tail call i64 %41(ptr noundef %7, i32 noundef %5, ptr noundef nonnull %35, i64 noundef %43, i64 noundef %44) #7
   %46 = trunc i64 %45 to i32
   %47 = load i32, ptr %32, align 4
   %48 = icmp eq i32 %47, %46
@@ -799,22 +801,22 @@ define dso_local i32 @qtree_read_dquot(ptr noundef readonly captures(none) %0, p
   %51 = icmp sgt i32 %46, -1
   %52 = select i1 %51, i32 -5, i32 %46
   %53 = load i64, ptr %3, align 8
-  %54 = tail call i32 @from_kqid(ptr noundef nonnull @init_user_ns, i64 %53) #8
-  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %7, ptr noundef nonnull @__func__.qtree_read_dquot, ptr noundef nonnull @.str.4, i32 noundef %54) #8
+  %54 = tail call i32 @from_kqid(ptr noundef nonnull @init_user_ns, i64 %53) #7
+  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %7, ptr noundef nonnull @__func__.qtree_read_dquot, ptr noundef nonnull @.str.4, i32 noundef %54) #7
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %55, i32 8, ptr nonnull elementtype(i8) %55) #8, !srcloc !12
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %55, i32 8, ptr nonnull elementtype(i8) %55) #7, !srcloc !12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %49, i8 0, i64 72, i1 false)
-  tail call void @kfree(ptr noundef nonnull %35) #8
+  tail call void @kfree(ptr noundef nonnull %35) #7
   br label %79
 
 56:                                               ; preds = %37
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  tail call void @_raw_spin_lock(ptr noundef nonnull %57) #8
+  tail call void @_raw_spin_lock(ptr noundef nonnull %57) #7
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = load ptr, ptr %60, align 8
-  tail call void %61(ptr noundef %1, ptr noundef nonnull %35) #8
+  tail call void %61(ptr noundef %1, ptr noundef nonnull %35) #7
   %62 = load i64, ptr %49, align 8
   %63 = icmp eq i64 %62, 0
   br i1 %63, label %64, label %78
@@ -839,18 +841,18 @@ define dso_local i32 @qtree_read_dquot(ptr noundef readonly captures(none) %0, p
 
 76:                                               ; preds = %72
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %77, i32 8, ptr nonnull elementtype(i8) %77) #8, !srcloc !12
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %77, i32 8, ptr nonnull elementtype(i8) %77) #7, !srcloc !12
   br label %78
 
 78:                                               ; preds = %76, %72, %68, %64, %56
-  tail call void @_raw_spin_unlock(ptr noundef nonnull %57) #8
-  tail call void @kfree(ptr noundef nonnull %35) #8
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %57) #7
+  tail call void @kfree(ptr noundef nonnull %35) #7
   br label %79
 
 79:                                               ; preds = %78, %50, %26
   %80 = phi i32 [ %52, %50 ], [ %46, %78 ], [ %29, %26 ]
   %81 = load i32, ptr @percpu_counter_batch, align 4
-  tail call void @percpu_counter_add_batch(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @dqstats, i64 144), i64 noundef 1, i32 noundef %81) #8
+  tail call void @percpu_counter_add_batch(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @dqstats, i64 144), i64 noundef 1, i32 noundef %81) #7
   br label %82
 
 82:                                               ; preds = %79, %31, %13
@@ -883,7 +885,7 @@ define dso_local i32 @qtree_release_dquot(ptr noundef captures(none) %0, ptr nou
   br i1 %14, label %15, label %23
 
 15:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #7
   store i32 1, ptr %3, align 4
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %17 = load i64, ptr %16, align 8
@@ -896,7 +898,7 @@ define dso_local i32 @qtree_release_dquot(ptr noundef captures(none) %0, ptr nou
 
 21:                                               ; preds = %19, %15
   %22 = phi i32 [ %20, %19 ], [ 0, %15 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #7
   br label %23
 
 23:                                               ; preds = %21, %8, %2
@@ -907,9 +909,9 @@ define dso_local i32 @qtree_release_dquot(ptr noundef captures(none) %0, ptr nou
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i32 -2147483648, 1) i32 @qtree_get_next_id(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #2 align 16 {
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #7
   %4 = load i64, ptr %1, align 4
-  %5 = tail call i32 @from_kqid(ptr noundef nonnull @init_user_ns, i64 %4) #8
+  %5 = tail call i32 @from_kqid(ptr noundef nonnull @init_user_ns, i64 %4) #7
   store i32 %5, ptr %3, align 4
   %6 = call fastcc i32 @find_next_id(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 1, i32 noundef 0)
   %7 = icmp slt i32 %6, 0
@@ -922,8 +924,8 @@ define dso_local range(i32 -2147483648, 1) i32 @qtree_get_next_id(ptr noundef re
   br i1 %11, label %13, label %12
 
 12:                                               ; preds = %8
-  tail call void asm sideeffect "281: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 281b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 281) #8, !srcloc !13
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.25, i32 114, i32 0, i64 12) #8, !srcloc !14
+  tail call void asm sideeffect "281: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 281b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 281) #7, !srcloc !13
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.25, i32 114, i32 0, i64 12) #7, !srcloc !14
   unreachable
 
 13:                                               ; preds = %8
@@ -937,7 +939,7 @@ define dso_local range(i32 -2147483648, 1) i32 @qtree_get_next_id(ptr noundef re
 
 19:                                               ; preds = %13, %2
   %20 = phi i32 [ 0, %13 ], [ %6, %2 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #7
   ret i32 %20
 }
 
@@ -946,7 +948,7 @@ define internal fastcc i32 @find_next_id(ptr noundef readonly captures(none) %0,
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
-  %8 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %7, i32 noundef 3136) #7
+  %8 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %7, i32 noundef 3136) #6
   %9 = load i32, ptr %5, align 8
   %10 = lshr i32 %9, 2
   %11 = icmp eq ptr %8, null
@@ -983,13 +985,13 @@ define internal fastcc i32 @find_next_id(ptr noundef readonly captures(none) %0,
   %33 = load i32, ptr %32, align 8
   %34 = zext nneg i32 %33 to i64
   %35 = shl i64 %31, %34
-  %36 = tail call i64 %28(ptr noundef %23, i32 noundef %30, ptr noundef nonnull %8, i64 noundef %24, i64 noundef %35) #8
+  %36 = tail call i64 %28(ptr noundef %23, i32 noundef %30, ptr noundef nonnull %8, i64 noundef %24, i64 noundef %35) #7
   %37 = icmp slt i64 %36, 0
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %.loopexit17
   %39 = load ptr, ptr %0, align 8
-  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %39, ptr noundef nonnull @__func__.find_next_id, ptr noundef nonnull @.str.23, i32 noundef %2) #8
+  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %39, ptr noundef nonnull @__func__.find_next_id, ptr noundef nonnull @.str.23, i32 noundef %2) #7
   br label %.thread14
 
 40:                                               ; preds = %.loopexit17
@@ -1046,7 +1048,7 @@ define internal fastcc i32 @find_next_id(ptr noundef readonly captures(none) %0,
 
 .thread:                                          ; preds = %71
   %75 = load ptr, ptr %0, align 8
-  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %75, ptr noundef nonnull @__func__.do_check_range, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.8, i32 noundef %66, i32 noundef 0, i32 noundef %73) #8
+  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %75, ptr noundef nonnull @__func__.do_check_range, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.8, i32 noundef %66, i32 noundef 0, i32 noundef %73) #7
   br label %.thread14
 
 76:                                               ; preds = %71
@@ -1080,7 +1082,7 @@ select.unfold:                                    ; preds = %80, %68
 
 .thread14:                                        ; preds = %76, %.thread, %.loopexit, %38
   %92 = phi i64 [ %36, %38 ], [ %91, %.loopexit ], [ -117, %.thread ], [ 0, %76 ]
-  tail call void @kfree(ptr noundef nonnull %8) #8
+  tail call void @kfree(ptr noundef nonnull %8) #7
   %93 = trunc i64 %92 to i32
   br label %94
 
@@ -1098,8 +1100,8 @@ define internal fastcc i32 @do_insert_tree(ptr noundef captures(none) %0, ptr no
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load i32, ptr %6, align 8
   %8 = zext i32 %7 to i64
-  %9 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %8, i32 noundef 3136) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #8
+  %9 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %8, i32 noundef 3136) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
   %10 = icmp eq ptr %9, null
   br i1 %10, label %310, label %11
 
@@ -1136,7 +1138,7 @@ define internal fastcc i32 @do_insert_tree(ptr noundef captures(none) %0, ptr no
   %32 = load i32, ptr %31, align 8
   %33 = zext nneg i32 %32 to i64
   %34 = shl i64 %30, %33
-  %35 = tail call i64 %27(ptr noundef %21, i32 noundef %29, ptr noundef nonnull %9, i64 noundef %23, i64 noundef %34) #8
+  %35 = tail call i64 %27(ptr noundef %21, i32 noundef %29, ptr noundef nonnull %9, i64 noundef %23, i64 noundef %34) #7
   %36 = trunc i64 %35 to i32
   %37 = icmp slt i32 %36, 0
   br i1 %37, label %38, label %42
@@ -1145,13 +1147,13 @@ define internal fastcc i32 @do_insert_tree(ptr noundef captures(none) %0, ptr no
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %40 = load ptr, ptr %39, align 8
   %41 = load i32, ptr %2, align 4
-  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %40, ptr noundef nonnull @__func__.do_insert_tree, ptr noundef nonnull @.str.7, i32 noundef %41) #8
+  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %40, ptr noundef nonnull @__func__.do_insert_tree, ptr noundef nonnull @.str.7, i32 noundef %41) #7
   br label %308
 
 42:                                               ; preds = %20, %17
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %44 = load i64, ptr %43, align 8
-  %45 = tail call i32 @from_kqid(ptr noundef nonnull @init_user_ns, i64 %44) #8
+  %45 = tail call i32 @from_kqid(ptr noundef nonnull @init_user_ns, i64 %44) #7
   %46 = load i32, ptr %6, align 8
   %47 = lshr i32 %46, 2
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -1185,7 +1187,7 @@ define internal fastcc i32 @do_insert_tree(ptr noundef captures(none) %0, ptr no
 
 .thread:                                          ; preds = %.loopexit38
   %68 = load ptr, ptr %63, align 8
-  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %68, ptr noundef nonnull @__func__.do_check_range, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.8, i32 noundef %62, i32 noundef 0, i32 noundef %66) #8
+  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %68, ptr noundef nonnull @__func__.do_check_range, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.8, i32 noundef %62, i32 noundef 0, i32 noundef %66) #7
   br label %308
 
 69:                                               ; preds = %.loopexit38
@@ -1200,7 +1202,7 @@ define internal fastcc i32 @do_insert_tree(ptr noundef captures(none) %0, ptr no
 74:                                               ; preds = %73
   %75 = load ptr, ptr %63, align 8
   %76 = load i64, ptr %43, align 8
-  %77 = tail call i32 @from_kqid(ptr noundef nonnull @init_user_ns, i64 %76) #8
+  %77 = tail call i32 @from_kqid(ptr noundef nonnull @init_user_ns, i64 %76) #7
   %78 = load i32, ptr %6, align 8
   %79 = lshr i32 %78, 2
   %80 = load i32, ptr %48, align 4
@@ -1222,12 +1224,12 @@ define internal fastcc i32 @do_insert_tree(ptr noundef captures(none) %0, ptr no
   %90 = zext nneg i32 %89 to i64
   %91 = getelementptr i32, ptr %9, i64 %90
   %92 = load i32, ptr %91, align 4
-  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %75, ptr noundef nonnull @__func__.do_insert_tree, ptr noundef nonnull @.str.9, i32 noundef %92) #8
+  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %75, ptr noundef nonnull @__func__.do_insert_tree, ptr noundef nonnull @.str.9, i32 noundef %92) #7
   br label %308
 
 93:                                               ; preds = %73
   %94 = zext i32 %46 to i64
-  %95 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %94, i32 noundef 3136) #7
+  %95 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %94, i32 noundef 3136) #6
   %96 = icmp eq ptr %95, null
   br i1 %96, label %219, label %97
 
@@ -1253,7 +1255,7 @@ define internal fastcc i32 @do_insert_tree(ptr noundef captures(none) %0, ptr no
   %113 = load i32, ptr %112, align 8
   %114 = zext nneg i32 %113 to i64
   %115 = shl i64 %111, %114
-  %116 = tail call i64 %108(ptr noundef %102, i32 noundef %110, ptr noundef nonnull %95, i64 noundef %104, i64 noundef %115) #8
+  %116 = tail call i64 %108(ptr noundef %102, i32 noundef %110, ptr noundef nonnull %95, i64 noundef %104, i64 noundef %115) #7
   %117 = trunc i64 %116 to i32
   %118 = icmp slt i32 %117, 0
   br i1 %118, label %216, label %119
@@ -1276,7 +1278,7 @@ define internal fastcc i32 @do_insert_tree(ptr noundef captures(none) %0, ptr no
   %128 = load ptr, ptr %63, align 8
   %129 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %130 = load i32, ptr %129, align 4
-  tail call void @mark_info_dirty(ptr noundef %128, i32 noundef %130) #8
+  tail call void @mark_info_dirty(ptr noundef %128, i32 noundef %130) #7
   br label %131
 
 131:                                              ; preds = %125, %119
@@ -1314,7 +1316,7 @@ define internal fastcc i32 @do_insert_tree(ptr noundef captures(none) %0, ptr no
 
 149:                                              ; preds = %146
   %150 = load ptr, ptr %63, align 8
-  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %150, ptr noundef nonnull @__func__.find_free_dqentry, ptr noundef nonnull @.str.14, i32 noundef %132) #8
+  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %150, ptr noundef nonnull @__func__.find_free_dqentry, ptr noundef nonnull @.str.14, i32 noundef %132) #7
   br label %216
 
 151:                                              ; preds = %._crit_edge, %131
@@ -1365,7 +1367,7 @@ define internal fastcc i32 @do_insert_tree(ptr noundef captures(none) %0, ptr no
 
 178:                                              ; preds = %.loopexit33
   %179 = load ptr, ptr %63, align 8
-  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %179, ptr noundef nonnull @__func__.find_free_dqentry, ptr noundef nonnull @.str.15) #8
+  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %179, ptr noundef nonnull @__func__.find_free_dqentry, ptr noundef nonnull @.str.15) #7
   br label %216
 
 180:                                              ; preds = %.loopexit33
@@ -1381,14 +1383,14 @@ define internal fastcc i32 @do_insert_tree(ptr noundef captures(none) %0, ptr no
   %190 = load i32, ptr %189, align 8
   %191 = zext nneg i32 %190 to i64
   %192 = shl i64 %188, %191
-  %193 = tail call i64 %185(ptr noundef %181, i32 noundef %187, ptr noundef nonnull %95, i64 noundef %.pre-phi, i64 noundef %192) #8
+  %193 = tail call i64 %185(ptr noundef %181, i32 noundef %187, ptr noundef nonnull %95, i64 noundef %.pre-phi, i64 noundef %192) #7
   %194 = load i32, ptr %6, align 8
   %195 = zext i32 %194 to i64
   %196 = icmp eq i64 %193, %195
   br i1 %196, label %200, label %197
 
 197:                                              ; preds = %180
-  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %181, ptr noundef nonnull @__func__.write_blk, ptr noundef nonnull @.str.1) #8
+  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %181, ptr noundef nonnull @__func__.write_blk, ptr noundef nonnull @.str.1) #7
   %198 = icmp sgt i64 %193, -1
   %199 = select i1 %198, i64 -5, i64 %193
   br label %200
@@ -1401,7 +1403,7 @@ define internal fastcc i32 @do_insert_tree(ptr noundef captures(none) %0, ptr no
 
 204:                                              ; preds = %200
   %205 = load ptr, ptr %63, align 8
-  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %205, ptr noundef nonnull @__func__.find_free_dqentry, ptr noundef nonnull @.str.16, i32 noundef %132) #8
+  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %205, ptr noundef nonnull @__func__.find_free_dqentry, ptr noundef nonnull @.str.16, i32 noundef %132) #7
   br label %216
 
 206:                                              ; preds = %200
@@ -1420,7 +1422,7 @@ define internal fastcc i32 @do_insert_tree(ptr noundef captures(none) %0, ptr no
 216:                                              ; preds = %206, %204, %178, %149, %122, %119, %101
   %217 = phi i32 [ %202, %206 ], [ %123, %122 ], [ -5, %178 ], [ %202, %204 ], [ %147, %149 ], [ %117, %101 ], [ %120, %119 ]
   %218 = phi i32 [ %132, %206 ], [ 0, %122 ], [ 0, %178 ], [ 0, %204 ], [ 0, %149 ], [ 0, %101 ], [ 0, %119 ]
-  tail call void @kfree(ptr noundef nonnull %95) #8
+  tail call void @kfree(ptr noundef nonnull %95) #7
   br label %219
 
 219:                                              ; preds = %216, %93
@@ -1443,7 +1445,7 @@ define internal fastcc i32 @do_insert_tree(ptr noundef captures(none) %0, ptr no
 229:                                              ; preds = %225
   %230 = load i32, ptr %5, align 4
   %231 = load i64, ptr %43, align 8
-  %232 = tail call i32 @from_kqid(ptr noundef nonnull @init_user_ns, i64 %231) #8
+  %232 = tail call i32 @from_kqid(ptr noundef nonnull @init_user_ns, i64 %231) #7
   %233 = load i32, ptr %6, align 8
   %234 = lshr i32 %233, 2
   %235 = load i32, ptr %48, align 4
@@ -1479,14 +1481,14 @@ define internal fastcc i32 @do_insert_tree(ptr noundef captures(none) %0, ptr no
   %258 = load i32, ptr %257, align 8
   %259 = zext nneg i32 %258 to i64
   %260 = shl i64 %256, %259
-  %261 = tail call i64 %252(ptr noundef %248, i32 noundef %254, ptr noundef nonnull %9, i64 noundef %255, i64 noundef %260) #8
+  %261 = tail call i64 %252(ptr noundef %248, i32 noundef %254, ptr noundef nonnull %9, i64 noundef %255, i64 noundef %260) #7
   %262 = load i32, ptr %6, align 8
   %263 = zext i32 %262 to i64
   %264 = icmp eq i64 %261, %263
   br i1 %264, label %268, label %265
 
 265:                                              ; preds = %.loopexit
-  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %248, ptr noundef nonnull @__func__.write_blk, ptr noundef nonnull @.str.1) #8
+  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %248, ptr noundef nonnull @__func__.write_blk, ptr noundef nonnull @.str.1) #7
   %266 = icmp sgt i64 %261, -1
   %267 = select i1 %266, i64 -5, i64 %261
   br label %268
@@ -1524,14 +1526,14 @@ define internal fastcc i32 @do_insert_tree(ptr noundef captures(none) %0, ptr no
   %291 = load i32, ptr %290, align 8
   %292 = zext nneg i32 %291 to i64
   %293 = shl i64 %289, %292
-  %294 = tail call i64 %284(ptr noundef %280, i32 noundef %286, ptr noundef nonnull %9, i64 noundef %288, i64 noundef %293) #8
+  %294 = tail call i64 %284(ptr noundef %280, i32 noundef %286, ptr noundef nonnull %9, i64 noundef %288, i64 noundef %293) #7
   %295 = load i32, ptr %6, align 8
   %296 = zext i32 %295 to i64
   %297 = icmp eq i64 %294, %296
   br i1 %297, label %301, label %298
 
 298:                                              ; preds = %274
-  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %280, ptr noundef nonnull @__func__.write_blk, ptr noundef nonnull @.str.1) #8
+  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %280, ptr noundef nonnull @__func__.write_blk, ptr noundef nonnull @.str.1) #7
   %299 = icmp sgt i64 %294, -1
   %300 = select i1 %299, i64 -5, i64 %294
   br label %301
@@ -1546,17 +1548,17 @@ define internal fastcc i32 @do_insert_tree(ptr noundef captures(none) %0, ptr no
   store i32 %275, ptr %276, align 8
   %306 = load ptr, ptr %0, align 8
   %307 = load i32, ptr %285, align 8
-  tail call void @mark_info_dirty(ptr noundef %306, i32 noundef %307) #8
+  tail call void @mark_info_dirty(ptr noundef %306, i32 noundef %307) #7
   br label %308
 
 308:                                              ; preds = %.thread, %305, %301, %271, %268, %.loopexit36, %38, %14
   %309 = phi i32 [ %15, %14 ], [ %270, %268 ], [ %226, %271 ], [ -5, %.loopexit36 ], [ %36, %38 ], [ %226, %301 ], [ %226, %305 ], [ -117, %.thread ]
-  tail call void @kfree(ptr noundef nonnull %9) #8
+  tail call void @kfree(ptr noundef nonnull %9) #7
   br label %310
 
 310:                                              ; preds = %308, %4
   %311 = phi i32 [ %309, %308 ], [ -12, %4 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
   ret i32 %311
 }
 
@@ -1565,7 +1567,7 @@ define internal fastcc i32 @get_free_dqblk(ptr noundef captures(none) %0) unname
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   %4 = zext i32 %3 to i64
-  %5 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %4, i32 noundef 3136) #7
+  %5 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %4, i32 noundef 3136) #6
   %6 = icmp eq ptr %5, null
   br i1 %6, label %93, label %7
 
@@ -1591,7 +1593,7 @@ define internal fastcc i32 @get_free_dqblk(ptr noundef captures(none) %0) unname
   %23 = load i32, ptr %22, align 8
   %24 = zext nneg i32 %23 to i64
   %25 = shl i64 %21, %24
-  %26 = tail call i64 %18(ptr noundef %12, i32 noundef %20, ptr noundef nonnull %5, i64 noundef %14, i64 noundef %25) #8
+  %26 = tail call i64 %18(ptr noundef %12, i32 noundef %20, ptr noundef nonnull %5, i64 noundef %14, i64 noundef %25) #7
   %27 = trunc i64 %26 to i32
   %28 = icmp slt i32 %27, 0
   br i1 %28, label %check_dquot_block_header.exit.thread, label %29
@@ -1606,7 +1608,7 @@ define internal fastcc i32 @get_free_dqblk(ptr noundef captures(none) %0) unname
 
 .thread.i:                                        ; preds = %29
   %35 = load ptr, ptr %0, align 8
-  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %35, ptr noundef nonnull @__func__.do_check_range, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.10, i32 noundef %30, i32 noundef 0, i32 noundef %33) #8
+  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %35, ptr noundef nonnull @__func__.do_check_range, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.10, i32 noundef %30, i32 noundef 0, i32 noundef %33) #7
   br label %check_dquot_block_header.exit.thread
 
 36:                                               ; preds = %29
@@ -1617,7 +1619,7 @@ define internal fastcc i32 @get_free_dqblk(ptr noundef captures(none) %0) unname
 
 .thread6.i:                                       ; preds = %36
   %40 = load ptr, ptr %0, align 8
-  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %40, ptr noundef nonnull @__func__.do_check_range, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.11, i32 noundef %38, i32 noundef 0, i32 noundef %33) #8
+  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %40, ptr noundef nonnull @__func__.do_check_range, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.11, i32 noundef %38, i32 noundef 0, i32 noundef %33) #7
   br label %check_dquot_block_header.exit.thread
 
 41:                                               ; preds = %36
@@ -1637,7 +1639,7 @@ define internal fastcc i32 @get_free_dqblk(ptr noundef captures(none) %0) unname
 
 54:                                               ; preds = %41
   %55 = load ptr, ptr %0, align 8
-  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %55, ptr noundef nonnull @__func__.do_check_range, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.12, i32 noundef %44, i32 noundef 0, i32 noundef %52) #8
+  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %55, ptr noundef nonnull @__func__.do_check_range, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.12, i32 noundef %44, i32 noundef 0, i32 noundef %52) #7
   br label %check_dquot_block_header.exit.thread
 
 check_dquot_block_header.exit:                    ; preds = %41
@@ -1662,14 +1664,14 @@ check_dquot_block_header.exit:                    ; preds = %41
   %70 = load i32, ptr %69, align 8
   %71 = zext nneg i32 %70 to i64
   %72 = shl i64 %68, %71
-  %73 = tail call i64 %65(ptr noundef %61, i32 noundef %67, ptr noundef nonnull %5, i64 noundef %58, i64 noundef %72) #8
+  %73 = tail call i64 %65(ptr noundef %61, i32 noundef %67, ptr noundef nonnull %5, i64 noundef %58, i64 noundef %72) #7
   %74 = load i32, ptr %2, align 8
   %75 = zext i32 %74 to i64
   %76 = icmp eq i64 %73, %75
   br i1 %76, label %80, label %77
 
 77:                                               ; preds = %56
-  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %61, ptr noundef nonnull @__func__.write_blk, ptr noundef nonnull @.str.1) #8
+  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %61, ptr noundef nonnull @__func__.write_blk, ptr noundef nonnull @.str.1) #7
   %78 = icmp sgt i64 %73, -1
   %79 = select i1 %78, i64 -5, i64 %73
   br label %80
@@ -1691,12 +1693,12 @@ check_dquot_block_header.exit:                    ; preds = %41
   %89 = load ptr, ptr %0, align 8
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %91 = load i32, ptr %90, align 8
-  tail call void @mark_info_dirty(ptr noundef %89, i32 noundef %91) #8
+  tail call void @mark_info_dirty(ptr noundef %89, i32 noundef %91) #7
   br label %check_dquot_block_header.exit.thread
 
 check_dquot_block_header.exit.thread:             ; preds = %.thread6.i, %.thread.i, %54, %87, %80, %11
   %92 = phi i32 [ %27, %11 ], [ %88, %87 ], [ %82, %80 ], [ -117, %54 ], [ -117, %.thread.i ], [ -117, %.thread6.i ]
-  tail call void @kfree(ptr noundef nonnull %5) #8
+  tail call void @kfree(ptr noundef nonnull %5) #7
   br label %93
 
 93:                                               ; preds = %check_dquot_block_header.exit.thread, %1
@@ -1728,14 +1730,14 @@ define internal fastcc range(i32 -2147483648, 1) i32 @put_free_dqblk(ptr noundef
   %20 = load i32, ptr %19, align 8
   %21 = zext nneg i32 %20 to i64
   %22 = shl i64 %18, %21
-  %23 = tail call i64 %12(ptr noundef %8, i32 noundef %14, ptr noundef nonnull %1, i64 noundef %17, i64 noundef %22) #8
+  %23 = tail call i64 %12(ptr noundef %8, i32 noundef %14, ptr noundef nonnull %1, i64 noundef %17, i64 noundef %22) #7
   %24 = load i32, ptr %15, align 8
   %25 = zext i32 %24 to i64
   %26 = icmp eq i64 %23, %25
   br i1 %26, label %30, label %27
 
 27:                                               ; preds = %3
-  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %8, ptr noundef nonnull @__func__.write_blk, ptr noundef nonnull @.str.1) #8
+  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %8, ptr noundef nonnull @__func__.write_blk, ptr noundef nonnull @.str.1) #7
   %28 = icmp sgt i64 %23, -1
   %29 = select i1 %28, i64 -5, i64 %23
   br label %30
@@ -1750,7 +1752,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @put_free_dqblk(ptr noundef
   store i32 %2, ptr %4, align 8
   %35 = load ptr, ptr %0, align 8
   %36 = load i32, ptr %13, align 8
-  tail call void @mark_info_dirty(ptr noundef %35, i32 noundef %36) #8
+  tail call void @mark_info_dirty(ptr noundef %35, i32 noundef %36) #7
   br label %37
 
 37:                                               ; preds = %34, %30
@@ -1769,7 +1771,7 @@ define internal fastcc noundef range(i32 -117, 1) i32 @check_dquot_block_header(
 
 .thread:                                          ; preds = %2
   %8 = load ptr, ptr %0, align 8
-  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %8, ptr noundef nonnull @__func__.do_check_range, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.10, i32 noundef %3, i32 noundef 0, i32 noundef %6) #8
+  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %8, ptr noundef nonnull @__func__.do_check_range, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.10, i32 noundef %3, i32 noundef 0, i32 noundef %6) #7
   br label %30
 
 9:                                                ; preds = %2
@@ -1780,7 +1782,7 @@ define internal fastcc noundef range(i32 -117, 1) i32 @check_dquot_block_header(
 
 .thread6:                                         ; preds = %9
   %13 = load ptr, ptr %0, align 8
-  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %13, ptr noundef nonnull @__func__.do_check_range, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.11, i32 noundef %11, i32 noundef 0, i32 noundef %6) #8
+  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %13, ptr noundef nonnull @__func__.do_check_range, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.11, i32 noundef %11, i32 noundef 0, i32 noundef %6) #7
   br label %30
 
 14:                                               ; preds = %9
@@ -1801,7 +1803,7 @@ define internal fastcc noundef range(i32 -117, 1) i32 @check_dquot_block_header(
 
 28:                                               ; preds = %14
   %29 = load ptr, ptr %0, align 8
-  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %29, ptr noundef nonnull @__func__.do_check_range, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.12, i32 noundef %17, i32 noundef 0, i32 noundef %26) #8
+  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %29, ptr noundef nonnull @__func__.do_check_range, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.12, i32 noundef %17, i32 noundef 0, i32 noundef %26) #7
   br label %30
 
 30:                                               ; preds = %.thread6, %.thread, %28, %14
@@ -1817,7 +1819,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @remove_free_dqentry(ptr no
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
-  %7 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %6, i32 noundef 3136) #7
+  %7 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %6, i32 noundef 3136) #6
   %8 = load i32, ptr %1, align 4
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %10 = load i32, ptr %9, align 4
@@ -1844,7 +1846,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @remove_free_dqentry(ptr no
   %26 = load i32, ptr %25, align 8
   %27 = zext nneg i32 %26 to i64
   %28 = shl i64 %24, %27
-  %29 = tail call i64 %21(ptr noundef %15, i32 noundef %23, ptr noundef nonnull %7, i64 noundef %17, i64 noundef %28) #8
+  %29 = tail call i64 %21(ptr noundef %15, i32 noundef %23, ptr noundef nonnull %7, i64 noundef %17, i64 noundef %28) #7
   %30 = trunc i64 %29 to i32
   %31 = icmp slt i32 %30, 0
   br i1 %31, label %126, label %32
@@ -1864,14 +1866,14 @@ define internal fastcc range(i32 -2147483648, 1) i32 @remove_free_dqentry(ptr no
   %43 = load i32, ptr %25, align 8
   %44 = zext nneg i32 %43 to i64
   %45 = shl i64 %24, %44
-  %46 = tail call i64 %39(ptr noundef %35, i32 noundef %40, ptr noundef nonnull %7, i64 noundef %42, i64 noundef %45) #8
+  %46 = tail call i64 %39(ptr noundef %35, i32 noundef %40, ptr noundef nonnull %7, i64 noundef %42, i64 noundef %45) #7
   %47 = load i32, ptr %4, align 8
   %48 = zext i32 %47 to i64
   %49 = icmp eq i64 %46, %48
   br i1 %49, label %53, label %50
 
 50:                                               ; preds = %32
-  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %35, ptr noundef nonnull @__func__.write_blk, ptr noundef nonnull @.str.1) #8
+  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %35, ptr noundef nonnull @__func__.write_blk, ptr noundef nonnull @.str.1) #7
   %51 = icmp sgt i64 %46, -1
   %52 = select i1 %51, i64 -5, i64 %46
   br label %53
@@ -1902,7 +1904,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @remove_free_dqentry(ptr no
   %71 = load i32, ptr %70, align 8
   %72 = zext nneg i32 %71 to i64
   %73 = shl i64 %69, %72
-  %74 = tail call i64 %66(ptr noundef %60, i32 noundef %68, ptr noundef nonnull %7, i64 noundef %62, i64 noundef %73) #8
+  %74 = tail call i64 %66(ptr noundef %60, i32 noundef %68, ptr noundef nonnull %7, i64 noundef %62, i64 noundef %73) #7
   %75 = trunc i64 %74 to i32
   %76 = icmp slt i32 %75, 0
   br i1 %76, label %126, label %77
@@ -1921,14 +1923,14 @@ define internal fastcc range(i32 -2147483648, 1) i32 @remove_free_dqentry(ptr no
   %87 = load i32, ptr %70, align 8
   %88 = zext nneg i32 %87 to i64
   %89 = shl i64 %69, %88
-  %90 = tail call i64 %83(ptr noundef %79, i32 noundef %84, ptr noundef nonnull %7, i64 noundef %86, i64 noundef %89) #8
+  %90 = tail call i64 %83(ptr noundef %79, i32 noundef %84, ptr noundef nonnull %7, i64 noundef %86, i64 noundef %89) #7
   %91 = load i32, ptr %4, align 8
   %92 = zext i32 %91 to i64
   %93 = icmp eq i64 %90, %92
   br i1 %93, label %97, label %94
 
 94:                                               ; preds = %77
-  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %79, ptr noundef nonnull @__func__.write_blk, ptr noundef nonnull @.str.1) #8
+  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %79, ptr noundef nonnull @__func__.write_blk, ptr noundef nonnull @.str.1) #7
   %95 = icmp sgt i64 %90, -1
   %96 = select i1 %95, i64 -5, i64 %90
   br label %97
@@ -1945,11 +1947,11 @@ define internal fastcc range(i32 -2147483648, 1) i32 @remove_free_dqentry(ptr no
   %103 = load ptr, ptr %0, align 8
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %105 = load i32, ptr %104, align 8
-  tail call void @mark_info_dirty(ptr noundef %103, i32 noundef %105) #8
+  tail call void @mark_info_dirty(ptr noundef %103, i32 noundef %105) #7
   br label %106
 
 106:                                              ; preds = %101, %97
-  tail call void @kfree(ptr noundef nonnull %7) #8
+  tail call void @kfree(ptr noundef nonnull %7) #7
   store i32 0, ptr %9, align 4
   store i32 0, ptr %1, align 4
   %107 = load ptr, ptr %0, align 8
@@ -1966,21 +1968,21 @@ define internal fastcc range(i32 -2147483648, 1) i32 @remove_free_dqentry(ptr no
   %118 = load i32, ptr %117, align 8
   %119 = zext nneg i32 %118 to i64
   %120 = shl i64 %116, %119
-  %121 = tail call i64 %111(ptr noundef %107, i32 noundef %113, ptr noundef nonnull %1, i64 noundef %115, i64 noundef %120) #8
+  %121 = tail call i64 %111(ptr noundef %107, i32 noundef %113, ptr noundef nonnull %1, i64 noundef %115, i64 noundef %120) #7
   %122 = load i32, ptr %4, align 8
   %123 = zext i32 %122 to i64
   %124 = icmp eq i64 %121, %123
   br i1 %124, label %128, label %select.unfold
 
 select.unfold:                                    ; preds = %106
-  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %107, ptr noundef nonnull @__func__.write_blk, ptr noundef nonnull @.str.1) #8
+  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %107, ptr noundef nonnull @__func__.write_blk, ptr noundef nonnull @.str.1) #7
   %125 = load ptr, ptr %0, align 8
-  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %125, ptr noundef nonnull @__func__.remove_free_dqentry, ptr noundef nonnull @.str.17, i32 noundef %2) #8
+  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %125, ptr noundef nonnull @__func__.remove_free_dqentry, ptr noundef nonnull @.str.17, i32 noundef %2) #7
   br label %128
 
 126:                                              ; preds = %97, %59, %53, %14
   %127 = phi i32 [ %30, %14 ], [ %55, %53 ], [ %75, %59 ], [ %99, %97 ]
-  tail call void @kfree(ptr noundef nonnull %7) #8
+  tail call void @kfree(ptr noundef nonnull %7) #7
   br label %128
 
 128:                                              ; preds = %106, %126, %select.unfold, %3
@@ -2002,7 +2004,7 @@ define internal fastcc i64 @find_tree_dqentry(ptr noundef readonly captures(none
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
-  %8 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %7, i32 noundef 3136) #7
+  %8 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %7, i32 noundef 3136) #6
   %9 = icmp eq ptr %8, null
   br i1 %9, label %135, label %10
 
@@ -2022,20 +2024,20 @@ define internal fastcc i64 @find_tree_dqentry(ptr noundef readonly captures(none
   %22 = load i32, ptr %21, align 8
   %23 = zext nneg i32 %22 to i64
   %24 = shl i64 %20, %23
-  %25 = tail call i64 %17(ptr noundef %11, i32 noundef %19, ptr noundef nonnull %8, i64 noundef %13, i64 noundef %24) #8
+  %25 = tail call i64 %17(ptr noundef %11, i32 noundef %19, ptr noundef nonnull %8, i64 noundef %13, i64 noundef %24) #7
   %26 = icmp slt i64 %25, 0
   br i1 %26, label %27, label %30
 
 27:                                               ; preds = %10
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %29 = load ptr, ptr %28, align 8
-  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %29, ptr noundef nonnull @__func__.find_tree_dqentry, ptr noundef nonnull @.str.23, i32 noundef %2) #8
+  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %29, ptr noundef nonnull @__func__.find_tree_dqentry, ptr noundef nonnull @.str.23, i32 noundef %2) #7
   br label %133
 
 30:                                               ; preds = %10
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %32 = load i64, ptr %31, align 8
-  %33 = tail call i32 @from_kqid(ptr noundef nonnull @init_user_ns, i64 %32) #8
+  %33 = tail call i32 @from_kqid(ptr noundef nonnull @init_user_ns, i64 %32) #7
   %34 = load i32, ptr %5, align 8
   %35 = lshr i32 %34, 2
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -2072,7 +2074,7 @@ define internal fastcc i64 @find_tree_dqentry(ptr noundef readonly captures(none
 
 .thread:                                          ; preds = %52
   %58 = load ptr, ptr %53, align 8
-  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %58, ptr noundef nonnull @__func__.do_check_range, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.8, i32 noundef %50, i32 noundef 1, i32 noundef %56) #8
+  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %58, ptr noundef nonnull @__func__.do_check_range, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.8, i32 noundef %50, i32 noundef 1, i32 noundef %56) #7
   br label %133
 
 59:                                               ; preds = %52
@@ -2087,7 +2089,7 @@ define internal fastcc i64 @find_tree_dqentry(ptr noundef readonly captures(none
 
 65:                                               ; preds = %59
   %66 = zext i32 %34 to i64
-  %67 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %66, i32 noundef 3136) #7
+  %67 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %66, i32 noundef 3136) #6
   %68 = icmp eq ptr %67, null
   br i1 %68, label %133, label %69
 
@@ -2105,13 +2107,13 @@ define internal fastcc i64 @find_tree_dqentry(ptr noundef readonly captures(none
   %79 = load i32, ptr %21, align 8
   %80 = zext nneg i32 %79 to i64
   %81 = shl i64 %78, %80
-  %82 = tail call i64 %76(ptr noundef %70, i32 noundef %77, ptr noundef nonnull %67, i64 noundef %72, i64 noundef %81) #8
+  %82 = tail call i64 %76(ptr noundef %70, i32 noundef %77, ptr noundef nonnull %67, i64 noundef %72, i64 noundef %81) #7
   %83 = icmp slt i64 %82, 0
   br i1 %83, label %84, label %86
 
 84:                                               ; preds = %69
   %85 = load ptr, ptr %53, align 8
-  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %85, ptr noundef nonnull @__func__.find_block_dqentry, ptr noundef nonnull @.str.23, i32 noundef %50) #8
+  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %85, ptr noundef nonnull @__func__.find_block_dqentry, ptr noundef nonnull @.str.23, i32 noundef %50) #7
   br label %131
 
 86:                                               ; preds = %69
@@ -2137,7 +2139,7 @@ define internal fastcc i64 @find_tree_dqentry(ptr noundef readonly captures(none
   %102 = load ptr, ptr %87, align 8
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 16
   %104 = load ptr, ptr %103, align 8
-  %105 = tail call i32 %104(ptr noundef %100, ptr noundef %1) #8
+  %105 = tail call i32 %104(ptr noundef %100, ptr noundef %1) #7
   %106 = icmp eq i32 %105, 0
   %.pre.pre = load i32, ptr %5, align 8
   %.pre11.pre = load i32, ptr %88, align 4
@@ -2172,8 +2174,8 @@ define internal fastcc i64 @find_tree_dqentry(ptr noundef readonly captures(none
 119:                                              ; preds = %.loopexit
   %120 = load ptr, ptr %53, align 8
   %121 = load i64, ptr %31, align 8
-  %122 = tail call i32 @from_kqid(ptr noundef nonnull @init_user_ns, i64 %121) #8
-  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %120, ptr noundef nonnull @__func__.find_block_dqentry, ptr noundef nonnull @.str.24, i32 noundef %122) #8
+  %122 = tail call i32 @from_kqid(ptr noundef nonnull @init_user_ns, i64 %121) #7
+  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %120, ptr noundef nonnull @__func__.find_block_dqentry, ptr noundef nonnull @.str.24, i32 noundef %122) #7
   br label %131
 
 123:                                              ; preds = %.loopexit
@@ -2188,12 +2190,12 @@ define internal fastcc i64 @find_tree_dqentry(ptr noundef readonly captures(none
 
 131:                                              ; preds = %123, %119, %84
   %132 = phi i64 [ %82, %84 ], [ -5, %119 ], [ %130, %123 ]
-  tail call void @kfree(ptr noundef nonnull %67) #8
+  tail call void @kfree(ptr noundef nonnull %67) #7
   br label %133
 
 133:                                              ; preds = %.thread, %131, %65, %62, %.loopexit10, %27
   %134 = phi i64 [ %25, %27 ], [ %64, %62 ], [ 0, %.loopexit10 ], [ %132, %131 ], [ -12, %65 ], [ -117, %.thread ]
-  tail call void @kfree(ptr noundef nonnull %8) #8
+  tail call void @kfree(ptr noundef nonnull %8) #7
   br label %135
 
 135:                                              ; preds = %133, %4
@@ -2201,18 +2203,14 @@ define internal fastcc i64 @find_tree_dqentry(ptr noundef readonly captures(none
   ret i64 %136
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #6
-
 attributes #0 = { fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #3 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #5 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nounwind allocsize(0) }
-attributes #8 = { nounwind }
+attributes #6 = { nounwind allocsize(0) }
+attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

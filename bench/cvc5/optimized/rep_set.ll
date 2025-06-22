@@ -2767,7 +2767,6 @@ _ZNKSt3mapIN4cvc58internal8TypeNodeESt6vectorINS1_12NodeTemplateILb1EEESaIS5_EES
   %.pre60.i.i.i = sub i64 %34, %.pre59.i.i.i
   %40 = ashr exact i64 %.pre60.i.i.i, 3
   %41 = getelementptr inbounds nuw i8, ptr %scevgep.i.i.i, i64 8
-  %umax81 = tail call i64 @llvm.umax.i64(i64 %30, i64 1)
   br label %.lr.ph.i.i.i10.us
 
 .lr.ph.i.i.i10.us:                                ; preds = %44, %.lr.ph.split.us
@@ -2778,7 +2777,7 @@ _ZNKSt3mapIN4cvc58internal8TypeNodeESt6vectorINS1_12NodeTemplateILb1EEESaIS5_EES
 
 44:                                               ; preds = %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.us
   %45 = add nuw i64 %.029.us, 1
-  %exitcond82.not = icmp eq i64 %45, %umax81
+  %exitcond82.not = icmp eq i64 %45, %30
   br i1 %exitcond82.not, label %.critedge, label %.lr.ph.i.i.i10.us, !llvm.loop !90
 
 46:                                               ; preds = %61, %.lr.ph.i.i.i10.us
@@ -2870,7 +2869,6 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12NodeTemplateILb1EEES
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split
   %80 = load ptr, ptr %31, align 8, !tbaa !23
   %81 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %umax79 = tail call i64 @llvm.umax.i64(i64 %30, i64 1)
   br label %._crit_edge.i.i.i.us30
 
 ._crit_edge.i.i.i.us30:                           ; preds = %85, %.lr.ph.split.split.us
@@ -2882,7 +2880,7 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12NodeTemplateILb1EEES
 
 85:                                               ; preds = %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.us36
   %86 = add nuw i64 %.029.us31, 1
-  %exitcond80.not = icmp eq i64 %86, %umax79
+  %exitcond80.not = icmp eq i64 %86, %30
   br i1 %exitcond80.not, label %.critedge, label %._crit_edge.i.i.i.us30, !llvm.loop !90
 
 87:                                               ; preds = %._crit_edge.i.i.i.us30
@@ -2903,7 +2901,6 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12NodeTemplateILb1EEES
 
 .lr.ph.split.split.us40:                          ; preds = %.lr.ph.split
   %94 = load ptr, ptr %31, align 8, !tbaa !23
-  %umax77 = tail call i64 @llvm.umax.i64(i64 %30, i64 1)
   br label %._crit_edge.i.i.i.us41
 
 ._crit_edge.i.i.i.us41:                           ; preds = %97, %.lr.ph.split.split.us40
@@ -2915,7 +2912,7 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12NodeTemplateILb1EEES
 
 97:                                               ; preds = %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.us49
   %98 = add nuw i64 %.029.us42, 1
-  %exitcond78.not = icmp eq i64 %98, %umax77
+  %exitcond78.not = icmp eq i64 %98, %30
   br i1 %exitcond78.not, label %.critedge, label %._crit_edge.i.i.i.us41, !llvm.loop !90
 
 99:                                               ; preds = %._crit_edge.i.i.i.us41
@@ -2931,7 +2928,6 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12NodeTemplateILb1EEES
 
 .lr.ph.split.split.us53:                          ; preds = %.lr.ph.split
   %103 = load ptr, ptr %31, align 8, !tbaa !23
-  %umax = tail call i64 @llvm.umax.i64(i64 %30, i64 1)
   %104 = icmp eq ptr %31, %33
   br label %._crit_edge.i.i.i.us54
 
@@ -2945,7 +2941,7 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12NodeTemplateILb1EEES
 
 108:                                              ; preds = %._crit_edge.i.i.i.us54
   %109 = add nuw i64 %.029.us55, 1
-  %exitcond.not = icmp eq i64 %109, %umax
+  %exitcond.not = icmp eq i64 %109, %30
   br i1 %exitcond.not, label %.critedge, label %._crit_edge.i.i.i.us54, !llvm.loop !90
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.split

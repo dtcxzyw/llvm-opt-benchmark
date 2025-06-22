@@ -1431,7 +1431,6 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn12MVNLayerImpl8getFLOPSERKSt6
   %13 = trunc nuw i8 %12 to i1
   %14 = select i1 %13, i32 2, i32 1
   %wide.trip.count.i16 = zext nneg i32 %14 to i64
-  %umax = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %15
 
 ._crit_edge:                                      ; preds = %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit23, %3
@@ -1512,7 +1511,7 @@ _ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit23: ; preds = %_ZN2c
   %39 = phi i64 [ 0, %15 ], [ %38, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit23.loopexit ]
   %40 = add nsw i64 %.0932, %39
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %10
   br i1 %exitcond.not, label %._crit_edge, label %15, !llvm.loop !98
 }
 
@@ -2392,9 +2391,6 @@ declare i64 @llvm.smin.i64(i64, i64) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #22
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #22
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }

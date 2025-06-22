@@ -8639,7 +8639,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit213: ; preds = %_Z
   %204 = ptrtoint ptr %202 to i64
   %205 = sub i64 %203, %204
   %206 = ashr exact i64 %205, 3
-  %umax365 = call i64 @llvm.umax.i64(i64 %206, i64 1)
   br label %.lr.ph355
 
 207:                                              ; preds = %198
@@ -8666,7 +8665,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit213: ; preds = %_Z
 
 ._crit_edge352:                                   ; preds = %.lr.ph351, %.lr.ph355
   %218 = add nuw i64 %.0138353, 1
-  %exitcond366.not = icmp eq i64 %218, %umax365
+  %exitcond366.not = icmp eq i64 %218, %206
   br i1 %exitcond366.not, label %.loopexitthread-pre-split, label %.lr.ph355, !llvm.loop !67
 
 .lr.ph351:                                        ; preds = %.lr.ph351.preheader, %.lr.ph351
@@ -9053,7 +9052,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit251: ; preds = %_Z
   %353 = sub i64 %351, %352
   %354 = ashr exact i64 %353, 2
   %355 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %umax = call i64 @llvm.umax.i64(i64 %354, i64 1)
   br label %358
 
 356:                                              ; preds = %346
@@ -9080,7 +9078,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit251: ; preds = %_Z
 
 ._crit_edge:                                      ; preds = %407, %358
   %368 = add nuw i64 %.0136346, 1
-  %exitcond359.not = icmp eq i64 %368, %umax
+  %exitcond359.not = icmp eq i64 %368, %354
   br i1 %exitcond359.not, label %.loopexit339thread-pre-split, label %358, !llvm.loop !69
 
 .lr.ph345:                                        ; preds = %.lr.ph345.preheader, %407

@@ -961,13 +961,10 @@ define void @_ZN4YAML11NodeBuilder4PushERNS_6detail4nodeE(ptr noundef nonnull al
 
 _ZNKSt6vectorIPN4YAML6detail4nodeESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %35
   %41 = ashr exact i64 %38, 3
-  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %41, i64 1)
-  %42 = add nsw i64 %.sroa.speculated.i.i.i.i, %41
+  %42 = ashr exact i64 %38, 2
   %43 = icmp ult i64 %42, %41
   %44 = tail call i64 @llvm.umin.i64(i64 %42, i64 1152921504606846975)
   %45 = select i1 %43, i64 1152921504606846975, i64 %44
-  %.not.i.i.i.i = icmp ne i64 %45, 0
-  tail call void @llvm.assume(i1 %.not.i.i.i.i)
   %46 = shl nuw nsw i64 %45, 3
   %47 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %46) #17
   %48 = getelementptr inbounds i8, ptr %47, i64 %38

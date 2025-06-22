@@ -3972,11 +3972,7 @@ _ZN4cvc58internal7IntegerD2Ev.exit365:            ; preds = %194
   br label %217
 
 .critedge337.preheader:                           ; preds = %._crit_edge657, %198
-  br i1 %214, label %.loopexit460, label %.preheader449.preheader
-
-.preheader449.preheader:                          ; preds = %.critedge337.preheader
-  %umax = call i64 @llvm.umax.i64(i64 %205, i64 1)
-  br label %.preheader449
+  br i1 %214, label %.loopexit460, label %.preheader449
 
 217:                                              ; preds = %.preheader458, %583
   %.0228649 = phi i64 [ %.0234660, %.preheader458 ], [ %584, %583 ]
@@ -5381,9 +5377,9 @@ _ZN4cvc58internal7IntegerD2Ev.exit424:            ; preds = %692
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %36) #19
   br label %common.resume
 
-.preheader449:                                    ; preds = %.preheader449.preheader, %.critedge337
-  %.0221669 = phi i64 [ %796, %.critedge337 ], [ 0, %.preheader449.preheader ]
-  %.0222668 = phi i1 [ %.2.ph, %.critedge337 ], [ false, %.preheader449.preheader ]
+.preheader449:                                    ; preds = %.critedge337.preheader, %.critedge337
+  %.0221669 = phi i64 [ %796, %.critedge337 ], [ 0, %.critedge337.preheader ]
+  %.0222668 = phi i1 [ %.2.ph, %.critedge337 ], [ false, %.critedge337.preheader ]
   %696 = icmp ult i64 %.0221669, %212
   br i1 %696, label %.lr.ph662, label %._crit_edge663
 
@@ -5668,7 +5664,7 @@ _ZN4cvc58internal7IntegerD2Ev.exit436:            ; preds = %791
 .critedge337:                                     ; preds = %.critedge343.thread, %_ZN4cvc58internal7IntegerD2Ev.exit428
   %.2.ph = phi i1 [ %.0222668, %_ZN4cvc58internal7IntegerD2Ev.exit428 ], [ %789, %.critedge343.thread ]
   %796 = add nuw i64 %.0221669, 1
-  %exitcond740.not = icmp eq i64 %796, %umax
+  %exitcond740.not = icmp eq i64 %796, %205
   br i1 %exitcond740.not, label %_ZN4cvc58internal7IntegerD2Ev.exit428._crit_edge.loopexit, label %.preheader449, !llvm.loop !116
 
 _ZN4cvc58internal7IntegerD2Ev.exit428._crit_edge.loopexit: ; preds = %.critedge337
@@ -6306,12 +6302,11 @@ _ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb1EEES3_St4hashIS3_ESt8equal
   %181 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %182 = getelementptr inbounds nuw i8, ptr %51, i64 24
   %183 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %umax = call i64 @llvm.umax.i64(i64 %133, i64 1)
   br label %188
 
 184:                                              ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit660
   %185 = add nuw i64 %.02051039, 1
-  %exitcond.not = icmp eq i64 %185, %umax
+  %exitcond.not = icmp eq i64 %185, %133
   br i1 %exitcond.not, label %.critedge340, label %188, !llvm.loop !128
 
 186:                                              ; preds = %120
@@ -10805,11 +10800,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit660: ; preds = %_ZN4cvc58internal1
   %2159 = sub i64 %2157, %2158
   %2160 = ashr exact i64 %2159, 4
   %2161 = icmp eq ptr %2155, %2156
-  br i1 %2161, label %.loopexit992, label %.lr.ph1048.split.preheader
-
-.lr.ph1048.split.preheader:                       ; preds = %2151
-  %umax1089 = call i64 @llvm.umax.i64(i64 %2160, i64 1)
-  br label %.lr.ph1048.split
+  br i1 %2161, label %.loopexit992, label %.lr.ph1048.split
 
 ._crit_edge1049:                                  ; preds = %._crit_edge1046
   %2162 = getelementptr inbounds nuw i8, ptr %32, i64 8
@@ -10829,15 +10820,15 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit660: ; preds = %_ZN4cvc58internal1
   %2176 = icmp ugt i64 %2168, %2175
   br i1 %2176, label %.loopexit992, label %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit678
 
-.lr.ph1048.split:                                 ; preds = %.lr.ph1048.split.preheader, %._crit_edge1046
-  %.02081047 = phi i64 [ %2178, %._crit_edge1046 ], [ 0, %.lr.ph1048.split.preheader ]
+.lr.ph1048.split:                                 ; preds = %2151, %._crit_edge1046
+  %.02081047 = phi i64 [ %2178, %._crit_edge1046 ], [ 0, %2151 ]
   %2177 = load ptr, ptr %124, align 8, !tbaa !171
   %.not9711042 = icmp eq ptr %2177, null
   br i1 %.not9711042, label %._crit_edge1046, label %.lr.ph1045
 
 ._crit_edge1046:                                  ; preds = %_ZNSt6vectorIN4cvc58internal7IntegerESaIS2_EE9push_backERKS2_.exit664, %.lr.ph1048.split
   %2178 = add nuw i64 %.02081047, 1
-  %exitcond1090.not = icmp eq i64 %2178, %umax1089
+  %exitcond1090.not = icmp eq i64 %2178, %2160
   br i1 %exitcond1090.not, label %._crit_edge1049, label %.lr.ph1048.split, !llvm.loop !183
 
 .lr.ph1045:                                       ; preds = %.lr.ph1048.split, %_ZNSt6vectorIN4cvc58internal7IntegerESaIS2_EE9push_backERKS2_.exit664
@@ -11006,7 +10997,6 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backERKS3_.exit68
 
 .preheader:                                       ; preds = %2239
   %2244 = getelementptr inbounds nuw i8, ptr %91, i64 8
-  %umax1091 = call i64 @llvm.umax.i64(i64 %2149, i64 1)
   br label %2247
 
 2245:                                             ; preds = %._crit_edge1054
@@ -11138,7 +11128,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %_ZN4cvc58internal12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %91) #19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %90) #19
   %2303 = add nuw i64 %.01111065, 1
-  %exitcond1092.not = icmp eq i64 %2303, %umax1091
+  %exitcond1092.not = icmp eq i64 %2303, %2149
   br i1 %exitcond1092.not, label %.loopexit, label %2247, !llvm.loop !189
 
 2304:                                             ; preds = %2252, %2247
@@ -14965,7 +14955,6 @@ _ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_S3_ESaIS6_ENSt
   %1043 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %1044 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %1045 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %umax = call i64 @llvm.umax.i64(i64 %1040, i64 1)
   br label %1046
 
 1046:                                             ; preds = %.lr.ph438, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit336
@@ -15167,7 +15156,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit333: ; preds = %_ZN4cvc58internal1
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit336: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit333, %1126, %1132
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34) #19
   %1136 = add nuw i64 %.095436, 1
-  %exitcond.not = icmp eq i64 %1136, %umax
+  %exitcond.not = icmp eq i64 %1136, %1040
   br i1 %exitcond.not, label %.loopexit, label %1046, !llvm.loop !261
 
 1137:                                             ; preds = %1063

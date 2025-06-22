@@ -2265,7 +2265,6 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit309: ; preds = %_ZSt
   %171 = shl i64 %170, 1
   %172 = add i64 %171, 100
   %173 = add nsw i64 %169, -1
-  %umax = call i64 @llvm.umax.i64(i64 %169, i64 1)
   br label %177
 
 ._crit_edge1005:                                  ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit316, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit309
@@ -2306,7 +2305,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit316: ; preds = %180,
   %186 = sext i32 %185 to i64
   %187 = add i64 %.02281003, %186
   %188 = add nuw i64 %.02301002, 1
-  %exitcond.not = icmp eq i64 %188, %umax
+  %exitcond.not = icmp eq i64 %188, %169
   br i1 %exitcond.not, label %._crit_edge1005, label %177, !llvm.loop !20
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit311: ; preds = %._crit_edge1005
@@ -2597,7 +2596,6 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit428: ; preds = %_ZSt
   %302 = shl i64 %301, 1
   %303 = add i64 %302, 108
   %304 = add nsw i64 %169, -1
-  %umax1122 = call i64 @llvm.umax.i64(i64 %169, i64 1)
   br label %308
 
 ._crit_edge1009:                                  ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit436, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit428
@@ -2638,7 +2636,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit436: ; preds = %311,
   %317 = sext i32 %316 to i64
   %318 = add i64 %.12291007, %317
   %319 = add nuw i64 %.02311006, 1
-  %exitcond1123.not = icmp eq i64 %319, %umax1122
+  %exitcond1123.not = icmp eq i64 %319, %169
   br i1 %exitcond1123.not, label %._crit_edge1009, label %308, !llvm.loop !21
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit430: ; preds = %._crit_edge1009

@@ -608,7 +608,7 @@ define internal fastcc noundef i32 @_ZL18__ieee754_rem_pio2dPd(double noundef %0
 
 .lr.ph39.preheader.i:                             ; preds = %.loopexit13.loopexit.i, %.preheader16.i
   %.0231.i = phi i32 [ 4, %.preheader16.i ], [ %279, %.loopexit13.loopexit.i ]
-  %162 = zext nneg i32 %.0231.i to i64
+  %162 = zext i32 %.0231.i to i64
   %163 = getelementptr inbounds nuw [20 x double], ptr %6, i64 0, i64 %162
   %164 = load double, ptr %163, align 8
   %165 = tail call i32 @llvm.smax.i32(i32 %.0231.i, i32 1)
@@ -767,8 +767,6 @@ _ZL7scalbnAdi.exit.i:                             ; preds = %209, %206, %198, %1
 .thread.i:                                        ; preds = %243, %241
   %.02285.i = phi i32 [ %.0228.i, %243 ], [ 2, %241 ]
   %.02493.i = phi i32 [ %.0249.i, %243 ], [ %221, %241 ]
-  %umax.i = tail call i32 @llvm.umax.i32(i32 %.0231.i, i32 1)
-  %wide.trip.count119.i = zext i32 %umax.i to i64
   br label %245
 
 245:                                              ; preds = %251, %.thread.i
@@ -793,7 +791,7 @@ _ZL7scalbnAdi.exit.i:                             ; preds = %209, %206, %198, %1
   %.not263.i = phi i1 [ true, %249 ], [ false, %.sink.split.i ]
   %.1252.i = phi i32 [ 0, %249 ], [ 1, %.sink.split.i ]
   %indvars.iv.next117.i = add nuw nsw i64 %indvars.iv116.i, 1
-  %exitcond120.not.i = icmp eq i64 %indvars.iv.next117.i, %wide.trip.count119.i
+  %exitcond120.not.i = icmp eq i64 %indvars.iv.next117.i, %162
   br i1 %exitcond120.not.i, label %252, label %245, !llvm.loop !14
 
 252:                                              ; preds = %251
@@ -1744,9 +1742,6 @@ declare i32 @llvm.smax.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #6

@@ -1108,7 +1108,6 @@ _ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEED2Ev.exit: ; preds = %._crit_edge291
   %332 = sdiv exact i64 %331, 24
   %333 = load ptr, ptr %258, align 8, !tbaa !52
   %334 = load ptr, ptr %9, align 8
-  %umax304 = call i64 @llvm.umax.i64(i64 %332, i64 1)
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge283
@@ -1149,7 +1148,7 @@ _ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEED2Ev.exit: ; preds = %._crit_edge291
 
 ._crit_edge283:                                   ; preds = %349, %.preheader
   %348 = add nuw i64 %.0107284, 1
-  %exitcond305.not = icmp eq i64 %348, %umax304
+  %exitcond305.not = icmp eq i64 %348, %332
   br i1 %exitcond305.not, label %._crit_edge285, label %.preheader, !llvm.loop !81
 
 349:                                              ; preds = %.lr.ph282, %349
@@ -1206,7 +1205,6 @@ _ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEED2Ev.exit: ; preds = %._crit_edge291
   %384 = sdiv exact i64 %383, 24
   %385 = load ptr, ptr %258, align 8, !tbaa !52
   %386 = load ptr, ptr %10, align 8
-  %umax = call i64 @llvm.umax.i64(i64 %384, i64 1)
   br label %.preheader249
 
 .preheader249:                                    ; preds = %.preheader249.lr.ph, %._crit_edge278
@@ -1235,7 +1233,7 @@ _ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEED2Ev.exit: ; preds = %._crit_edge291
 
 ._crit_edge278:                                   ; preds = %401, %.preheader249
   %400 = add nuw i64 %.0105279, 1
-  %exitcond302.not = icmp eq i64 %400, %umax
+  %exitcond302.not = icmp eq i64 %400, %384
   br i1 %exitcond302.not, label %._crit_edge280, label %.preheader249, !llvm.loop !83
 
 401:                                              ; preds = %.lr.ph277, %401
@@ -2276,7 +2274,6 @@ _ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEED2Ev.exit: ; preds = %._crit_edge289
   %337 = sdiv exact i64 %336, 24
   %338 = load ptr, ptr %262, align 8, !tbaa !52
   %339 = load ptr, ptr %9, align 8
-  %umax303 = call i64 @llvm.umax.i64(i64 %337, i64 1)
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge281
@@ -2306,7 +2303,7 @@ _ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEED2Ev.exit: ; preds = %._crit_edge289
 
 ._crit_edge281:                                   ; preds = %355, %.preheader
   %354 = add nuw i64 %.0107282, 1
-  %exitcond304.not = icmp eq i64 %354, %umax303
+  %exitcond304.not = icmp eq i64 %354, %337
   br i1 %exitcond304.not, label %._crit_edge283, label %.preheader, !llvm.loop !123
 
 355:                                              ; preds = %.lr.ph280, %355
@@ -2361,7 +2358,6 @@ _ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEED2Ev.exit: ; preds = %._crit_edge289
   %390 = sdiv exact i64 %389, 24
   %391 = load ptr, ptr %262, align 8, !tbaa !52
   %392 = load ptr, ptr %10, align 8
-  %umax = call i64 @llvm.umax.i64(i64 %390, i64 1)
   br label %.preheader247
 
 .preheader247:                                    ; preds = %.preheader247.lr.ph, %._crit_edge276
@@ -2391,7 +2387,7 @@ _ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEED2Ev.exit: ; preds = %._crit_edge289
 
 ._crit_edge276:                                   ; preds = %408, %.preheader247
   %407 = add nuw i64 %.0105277, 1
-  %exitcond301.not = icmp eq i64 %407, %umax
+  %exitcond301.not = icmp eq i64 %407, %390
   br i1 %exitcond301.not, label %._crit_edge278, label %.preheader247, !llvm.loop !125
 
 408:                                              ; preds = %.lr.ph275, %408

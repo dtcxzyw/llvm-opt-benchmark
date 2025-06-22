@@ -27025,15 +27025,11 @@ stbi__get8.exit.i208:                             ; preds = %stbi__refill_buffer
 
 stbi__readval.exit215.preheader:                  ; preds = %307
   %.not364 = icmp eq i8 %.0.i188, 0
-  br i1 %.not364, label %stbi__readval.exit215._crit_edge, label %.lr.ph353.preheader
+  br i1 %.not364, label %stbi__readval.exit215._crit_edge, label %.lr.ph353
 
-.lr.ph353.preheader:                              ; preds = %stbi__readval.exit215.preheader
-  %umax = tail call i32 @llvm.umax.i32(i32 %spec.select328, i32 1)
-  br label %.lr.ph353
-
-.lr.ph353:                                        ; preds = %.lr.ph353.preheader, %stbi__copyval.exit
-  %.0104352 = phi i32 [ %319, %stbi__copyval.exit ], [ 0, %.lr.ph353.preheader ]
-  %.3351 = phi ptr [ %320, %stbi__copyval.exit ], [ %.1109355, %.lr.ph353.preheader ]
+.lr.ph353:                                        ; preds = %stbi__readval.exit215.preheader, %stbi__copyval.exit
+  %.0104352 = phi i32 [ %319, %stbi__copyval.exit ], [ 0, %stbi__readval.exit215.preheader ]
+  %.3351 = phi ptr [ %320, %stbi__copyval.exit ], [ %.1109355, %stbi__readval.exit215.preheader ]
   %309 = load i8, ptr %169, align 1, !tbaa !343
   %310 = zext i8 %309 to i32
   br label %311
@@ -27061,7 +27057,7 @@ stbi__readval.exit215.preheader:                  ; preds = %307
 stbi__copyval.exit:                               ; preds = %317
   %319 = add nuw nsw i32 %.0104352, 1
   %320 = getelementptr inbounds nuw i8, ptr %.3351, i64 4
-  %exitcond379.not = icmp eq i32 %319, %umax
+  %exitcond379.not = icmp eq i32 %319, %spec.select328
   br i1 %exitcond379.not, label %stbi__readval.exit215._crit_edge, label %.lr.ph353, !llvm.loop !346
 
 stbi__readval.exit215._crit_edge:                 ; preds = %stbi__copyval.exit, %stbi__readval.exit215.preheader

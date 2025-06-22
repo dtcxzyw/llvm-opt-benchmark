@@ -7583,7 +7583,6 @@ _ZNSt6vectorIP10SubprocessSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__n
   %187 = ashr exact i64 %186, 3
   %188 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %189 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %umax = call i64 @llvm.umax.i64(i64 %187, i64 1)
   br label %194
 
 190:                                              ; preds = %.critedge84
@@ -7942,7 +7941,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 305:                                              ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i165, %.critedge88
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #19
   %306 = add nuw i64 %.0269, 1
-  %exitcond284.not = icmp eq i64 %306, %umax
+  %exitcond284.not = icmp eq i64 %306, %187
   br i1 %exitcond284.not, label %.critedge90, label %194, !llvm.loop !111
 
 307:                                              ; preds = %_ZN7testing7MessageD2Ev.exit162, %260

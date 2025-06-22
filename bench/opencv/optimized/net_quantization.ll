@@ -2691,7 +2691,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit746: ; preds = %_Z
   %902 = load ptr, ptr %901, align 8, !tbaa !106
   %903 = load ptr, ptr %26, align 8, !tbaa !191
   %904 = load ptr, ptr %27, align 8, !tbaa !192
-  %umax1808 = call i64 @llvm.umax.i64(i64 %900, i64 1)
   br label %946
 
 905:                                              ; preds = %840
@@ -2873,7 +2872,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i76
   %968 = getelementptr inbounds nuw i32, ptr %967, i64 %959
   store i32 %965, ptr %968, align 4, !tbaa !3
   %indvars.iv.next1806 = add nuw nsw i64 %indvars.iv1805, 1
-  %exitcond1809.not = icmp eq i64 %indvars.iv.next1806, %umax1808
+  %exitcond1809.not = icmp eq i64 %indvars.iv.next1806, %900
   br i1 %exitcond1809.not, label %.loopexit1246, label %946, !llvm.loop !197
 
 .critedge549.thread:                              ; preds = %.critedge545.thread1842, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit746, %.critedge549
@@ -3215,7 +3214,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit816: ; preds = %_Z
   %1065 = ashr exact i64 %1064, 3
   %1066 = load ptr, ptr %26, align 8, !tbaa !191
   %1067 = load ptr, ptr %27, align 8, !tbaa !192
-  %umax = call i64 @llvm.umax.i64(i64 %1065, i64 1)
   br label %1107
 
 1068:                                             ; preds = %._crit_edge.i.i765
@@ -3382,7 +3380,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i83
   %1127 = getelementptr inbounds nuw i32, ptr %1126, i64 %1119
   store i32 %1124, ptr %1127, align 4, !tbaa !3
   %indvars.iv.next1803 = add nuw nsw i64 %indvars.iv1802, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next1803, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next1803, %1065
   br i1 %exitcond.not, label %.loopexit1246, label %1107, !llvm.loop !206
 
 .loopexit1246:                                    ; preds = %1107, %946, %.preheader1247, %.preheader1245, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit816, %.critedge576
@@ -3909,11 +3907,7 @@ _ZNSt6vectorIN2cv3dnn14dnn4_v202412236detail8LayerPinESaIS4_EEC2ERKS6_.exit: ; p
   %1360 = sub i64 %1358, %1359
   %1361 = ashr exact i64 %1360, 3
   %.not1693 = icmp eq ptr %.0.lcssa.i.i.i.i.i887, %1351
-  br i1 %.not1693, label %._crit_edge1674, label %.lr.ph1673.preheader
-
-.lr.ph1673.preheader:                             ; preds = %1356
-  %umax1813 = call i64 @llvm.umax.i64(i64 %1361, i64 1)
-  br label %.lr.ph1673
+  br i1 %.not1693, label %._crit_edge1674, label %.lr.ph1673
 
 ._crit_edge1674.loopexit:                         ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
   %.pre1833 = load i32, ptr %57, align 8, !tbaa !193
@@ -3950,8 +3944,8 @@ _ZNSt6vectorIN2cv3dnn14dnn4_v202412236detail8LayerPinESaIS4_EEC2ERKS6_.exit: ; p
           cleanup
   br label %1845
 
-.lr.ph1673:                                       ; preds = %.lr.ph1673.preheader, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
-  %indvars.iv1810 = phi i64 [ 0, %.lr.ph1673.preheader ], [ %indvars.iv.next1811, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
+.lr.ph1673:                                       ; preds = %1356, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
+  %indvars.iv1810 = phi i64 [ %indvars.iv.next1811, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ], [ 0, %1356 ]
   %1373 = getelementptr inbounds nuw %"struct.cv::dnn::dnn4_v20241223::detail::LayerPin", ptr %1351, i64 %indvars.iv1810
   %1374 = load ptr, ptr %63, align 8, !tbaa !191
   %1375 = load i32, ptr %1373, align 4, !tbaa !194
@@ -4108,7 +4102,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
 
 _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i, %1420
   %indvars.iv.next1811 = add nuw i64 %indvars.iv1810, 1
-  %exitcond1814.not = icmp eq i64 %indvars.iv.next1811, %umax1813
+  %exitcond1814.not = icmp eq i64 %indvars.iv.next1811, %1361
   br i1 %exitcond1814.not, label %._crit_edge1674.loopexit, label %.lr.ph1673, !llvm.loop !235
 
 .loopexit:                                        ; preds = %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i
@@ -4437,22 +4431,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i95
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit960: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i959, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i958
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %69) #25
-  br i1 %.not1693, label %._crit_edge1678, label %.lr.ph1677.preheader
-
-.lr.ph1677.preheader:                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit960
-  %umax1818 = call i64 @llvm.umax.i64(i64 %1361, i64 1)
-  br label %.lr.ph1677
+  br i1 %.not1693, label %._crit_edge1678, label %.lr.ph1677
 
 ._crit_edge1678:                                  ; preds = %1688, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit960
   %1555 = invoke noundef i32 @_ZN2cv3dnn14dnn4_v202412233Net4Impl8addLayerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RKiRNS1_11LayerParamsE(ptr noundef nonnull align 8 dereferenceable(504) %1131, ptr noundef nonnull align 8 dereferenceable(32) %1189, ptr noundef nonnull align 8 dereferenceable(32) %1160, ptr noundef nonnull align 4 dereferenceable(4) %1161, ptr noundef nonnull align 8 dereferenceable(136) %1153)
           to label %.preheader unwind label %1691
 
 .preheader:                                       ; preds = %._crit_edge1678
-  br i1 %.not1693, label %._crit_edge1681, label %.lr.ph1680.preheader
-
-.lr.ph1680.preheader:                             ; preds = %.preheader
-  %umax1823 = call i64 @llvm.umax.i64(i64 %1361, i64 1)
-  br label %.lr.ph1680
+  br i1 %.not1693, label %._crit_edge1681, label %.lr.ph1680
 
 1556:                                             ; preds = %._crit_edge.i.i921
   %1557 = landingpad { ptr, i32 }
@@ -4518,8 +4504,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit966: ; preds = %_Z
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %69) #25
   br label %1843
 
-.lr.ph1677:                                       ; preds = %.lr.ph1677.preheader, %1688
-  %indvars.iv1815 = phi i64 [ 0, %.lr.ph1677.preheader ], [ %indvars.iv.next1816, %1688 ]
+.lr.ph1677:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit960, %1688
+  %indvars.iv1815 = phi i64 [ %indvars.iv.next1816, %1688 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit960 ]
   %1572 = getelementptr inbounds nuw %"struct.cv::dnn::dnn4_v20241223::detail::LayerPin", ptr %1351, i64 %indvars.iv1815
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %71) #25
   %1573 = load i32, ptr %1572, align 4, !tbaa !194
@@ -4892,7 +4878,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1003: ; preds = %_
 
 1688:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1000, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit969
   %indvars.iv.next1816 = add nuw i64 %indvars.iv1815, 1
-  %exitcond1819.not = icmp eq i64 %indvars.iv.next1816, %umax1818
+  %exitcond1819.not = icmp eq i64 %indvars.iv.next1816, %1361
   br i1 %exitcond1819.not, label %._crit_edge1678, label %.lr.ph1677, !llvm.loop !244
 
 ._crit_edge1681:                                  ; preds = %1698, %.preheader
@@ -4905,8 +4891,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1003: ; preds = %_
           cleanup
   br label %1843
 
-.lr.ph1680:                                       ; preds = %.lr.ph1680.preheader, %1698
-  %indvars.iv1820 = phi i64 [ 0, %.lr.ph1680.preheader ], [ %indvars.iv.next1821, %1698 ]
+.lr.ph1680:                                       ; preds = %.preheader, %1698
+  %indvars.iv1820 = phi i64 [ %indvars.iv.next1821, %1698 ], [ 0, %.preheader ]
   %1693 = getelementptr inbounds nuw %"struct.cv::dnn::dnn4_v20241223::detail::LayerPin", ptr %1351, i64 %indvars.iv1820
   %1694 = load i32, ptr %1693, align 4, !tbaa !194
   %1695 = getelementptr inbounds nuw i8, ptr %1693, i64 4
@@ -4917,7 +4903,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1003: ; preds = %_
 
 1698:                                             ; preds = %.lr.ph1680
   %indvars.iv.next1821 = add nuw i64 %indvars.iv1820, 1
-  %exitcond1824.not = icmp eq i64 %indvars.iv.next1821, %umax1823
+  %exitcond1824.not = icmp eq i64 %indvars.iv.next1821, %1361
   br i1 %exitcond1824.not, label %._crit_edge1681, label %.lr.ph1680, !llvm.loop !246
 
 1699:                                             ; preds = %.lr.ph1680

@@ -54323,14 +54323,10 @@ define linkonce_odr void @_ZN5arrow8internal22ForEachTupleMemberImplIJLm0ELm1ELm
 
 .preheader.i.i:                                   ; preds = %2
   %19 = icmp eq ptr %.val3.i, %.val.i
-  br i1 %19, label %_ZN5arrow7compute8internal11CompareImplINS0_17MakeStructOptionsEEclINS_8internal18DataMemberPropertyIS3_St6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEEEEvRKT_m.exit, label %.lr.ph.preheader.i.i
+  br i1 %19, label %_ZN5arrow7compute8internal11CompareImplINS0_17MakeStructOptionsEEclINS_8internal18DataMemberPropertyIS3_St6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEEEEvRKT_m.exit, label %.lr.ph.i.i
 
-.lr.ph.preheader.i.i:                             ; preds = %.preheader.i.i
-  %umax.i.i = tail call i64 @llvm.umax.i64(i64 %15, i64 1)
-  br label %.lr.ph.i.i
-
-.lr.ph.i.i:                                       ; preds = %_ZN5arrow7compute8internalL13GenericEqualsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT_SB_.exit.thread.i.i, %.lr.ph.preheader.i.i
-  %.0106.i.i = phi i64 [ %28, %_ZN5arrow7compute8internalL13GenericEqualsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT_SB_.exit.thread.i.i ], [ 0, %.lr.ph.preheader.i.i ]
+.lr.ph.i.i:                                       ; preds = %.preheader.i.i, %_ZN5arrow7compute8internalL13GenericEqualsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT_SB_.exit.thread.i.i
+  %.0106.i.i = phi i64 [ %28, %_ZN5arrow7compute8internalL13GenericEqualsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT_SB_.exit.thread.i.i ], [ 0, %.preheader.i.i ]
   %20 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.val.i, i64 %.0106.i.i
   %21 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.val4.i, i64 %.0106.i.i
   %.val.i.i = load ptr, ptr %20, align 8
@@ -54353,7 +54349,7 @@ _ZN5arrow7compute8internalL13GenericEqualsINSt7__cxx1112basic_stringIcSt11char_t
 
 _ZN5arrow7compute8internalL13GenericEqualsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT_SB_.exit.thread.i.i: ; preds = %_ZN5arrow7compute8internalL13GenericEqualsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT_SB_.exit.i.i, %25
   %28 = add nuw i64 %.0106.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %28, %umax.i.i
+  %exitcond.not.i.i = icmp eq i64 %28, %15
   br i1 %exitcond.not.i.i, label %_ZN5arrow7compute8internal11CompareImplINS0_17MakeStructOptionsEEclINS_8internal18DataMemberPropertyIS3_St6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEEEEvRKT_m.exit, label %.lr.ph.i.i, !llvm.loop !1031
 
 _ZN5arrow7compute8internal11CompareImplINS0_17MakeStructOptionsEEclINS_8internal18DataMemberPropertyIS3_St6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEEEEvRKT_m.exit: ; preds = %.lr.ph.i.i, %_ZN5arrow7compute8internalL13GenericEqualsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT_SB_.exit.i.i, %_ZN5arrow7compute8internalL13GenericEqualsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT_SB_.exit.thread.i.i, %2, %.preheader.i.i

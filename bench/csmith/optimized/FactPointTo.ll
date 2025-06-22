@@ -196,7 +196,6 @@ define dso_local noundef zeroext i1 @_ZNK11FactPointTo7is_nullEv(ptr noundef non
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 3
   %10 = load ptr, ptr @_ZN11FactPointTo8null_ptrE, align 8, !tbaa !19
-  %umax = tail call i64 @llvm.umax.i64(i64 %9, i64 1)
   br label %11
 
 11:                                               ; preds = %11, %.lr.ph
@@ -205,7 +204,7 @@ define dso_local noundef zeroext i1 @_ZNK11FactPointTo7is_nullEv(ptr noundef non
   %13 = load ptr, ptr %12, align 8, !tbaa !19
   %14 = icmp eq ptr %13, %10
   %15 = add nuw i64 %.05, 1
-  %exitcond.not = icmp eq i64 %15, %umax
+  %exitcond.not = icmp eq i64 %15, %9
   %or.cond = select i1 %14, i1 true, i1 %exitcond.not
   br i1 %or.cond, label %._crit_edge, label %11, !llvm.loop !21
 
@@ -1396,7 +1395,6 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   %288 = ashr exact i64 %287, 3
   %289 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %290 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %umax = tail call i64 @llvm.umax.i64(i64 %288, i64 1)
   br label %293
 
 291:                                              ; preds = %280, %274
@@ -1435,7 +1433,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 _ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit189:     ; preds = %._crit_edge288, %299
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15) #22
   %304 = add nuw i64 %.0110289, 1
-  %exitcond.not = icmp eq i64 %304, %umax
+  %exitcond.not = icmp eq i64 %304, %288
   br i1 %exitcond.not, label %._crit_edge292, label %293, !llvm.loop !103
 
 305:                                              ; preds = %293
@@ -3281,12 +3279,11 @@ _ZN11FactPointToC2EPK8Variable.exit:              ; preds = %2
   %25 = sub i64 %23, %24
   %26 = ashr exact i64 %25, 3
   %27 = load ptr, ptr @_ZN11FactPointTo8null_ptrE, align 8, !tbaa !19
-  %umax.i = call i64 @llvm.umax.i64(i64 %26, i64 1)
   br label %30
 
 28:                                               ; preds = %30
   %29 = add nuw i64 %.05.i, 1
-  %exitcond.not.i = icmp eq i64 %29, %umax.i
+  %exitcond.not.i = icmp eq i64 %29, %26
   br i1 %exitcond.not.i, label %_ZNK11FactPointTo7is_nullEv.exit.thread, label %30, !llvm.loop !21
 
 30:                                               ; preds = %28, %.lr.ph.i
@@ -3393,12 +3390,11 @@ define dso_local noundef zeroext i1 @_ZN11FactPointTo12is_valid_ptrEPKcRKSt6vect
   %29 = sub i64 %27, %28
   %30 = ashr exact i64 %29, 3
   %31 = load ptr, ptr @_ZN11FactPointTo8null_ptrE, align 8, !tbaa !19
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %30, i64 1)
   br label %34
 
 32:                                               ; preds = %34
   %33 = add nuw i64 %.05.i, 1
-  %exitcond.not.i = icmp eq i64 %33, %umax.i
+  %exitcond.not.i = icmp eq i64 %33, %30
   br i1 %exitcond.not.i, label %.loopexit, label %34, !llvm.loop !21
 
 34:                                               ; preds = %32, %.lr.ph.i
@@ -3504,12 +3500,11 @@ _ZN11FactPointToC2EPK8Variable.exit:              ; preds = %9
   %37 = sub i64 %35, %36
   %38 = ashr exact i64 %37, 3
   %39 = load ptr, ptr @_ZN11FactPointTo8null_ptrE, align 8, !tbaa !19
-  %umax.i = call i64 @llvm.umax.i64(i64 %38, i64 1)
   br label %42
 
 40:                                               ; preds = %42
   %41 = add nuw i64 %.05.i, 1
-  %exitcond.not.i = icmp eq i64 %41, %umax.i
+  %exitcond.not.i = icmp eq i64 %41, %38
   br i1 %exitcond.not.i, label %_ZNK11FactPointTo7is_nullEv.exit.thread, label %42, !llvm.loop !21
 
 42:                                               ; preds = %40, %.lr.ph.i
@@ -3866,7 +3861,6 @@ _ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit:        ; preds = %30
   %80 = ashr exact i64 %79, 3
   %81 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %82 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %umax149 = call i64 @llvm.umax.i64(i64 %80, i64 1)
   br label %83
 
 83:                                               ; preds = %.lr.ph139, %.thread94
@@ -3930,12 +3924,11 @@ _ZNK8Variable10is_pointerEv.exit76:               ; preds = %92
   %108 = ptrtoint ptr %105 to i64
   %109 = sub i64 %108, %107
   %110 = ashr exact i64 %109, 3
-  %umax = call i64 @llvm.umax.i64(i64 %110, i64 1)
   br label %.lr.ph
 
 111:                                              ; preds = %121
   %112 = add nuw i64 %.0131, 1
-  %exitcond.not = icmp eq i64 %112, %umax
+  %exitcond.not = icmp eq i64 %112, %110
   br i1 %exitcond.not, label %.thread86, label %.lr.ph, !llvm.loop !147
 
 113:                                              ; preds = %103
@@ -3995,7 +3988,7 @@ _ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit78:      ; preds = %.lr.ph
 
 .thread94:                                        ; preds = %99, %92, %_ZNK8Variable10is_pointerEv.exit76
   %133 = add nuw i64 %.048136, 1
-  %exitcond150.not = icmp eq i64 %133, %umax149
+  %exitcond150.not = icmp eq i64 %133, %80
   br i1 %exitcond150.not, label %.critedge, label %83, !llvm.loop !149
 
 .critedge:                                        ; preds = %.thread94, %.thread86.thread, %76
@@ -5227,7 +5220,6 @@ _ZNSt6vectorImSaImEE9push_backERKm.exit:          ; preds = %_ZNSt6vectorImSaImE
   %91 = ptrtoint ptr %.sroa.060.3 to i64
   %92 = sub i64 %90, %91
   %93 = ashr exact i64 %92, 3
-  %umax = call i64 @llvm.umax.i64(i64 %93, i64 1)
   br label %.lr.ph121
 
 .lr.ph121:                                        ; preds = %.lr.ph121.preheader, %106
@@ -5274,7 +5266,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 106:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %107 = add nuw i64 %storemerge39120, 1
-  %exitcond.not = icmp eq i64 %107, %umax
+  %exitcond.not = icmp eq i64 %107, %93
   br i1 %exitcond.not, label %._crit_edge122, label %.lr.ph121, !llvm.loop !162
 
 108:                                              ; preds = %89
@@ -5989,7 +5981,6 @@ _ZNSt6vectorIPK8VariableSaIS2_EEaSEOS4_.exit29:   ; preds = %_ZNSt6vectorIPK8Var
   %42 = ptrtoint ptr %.sroa.13.0 to i64
   %43 = sub i64 %42, %41
   %44 = ashr exact i64 %43, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %44, i64 1)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %40
@@ -6038,7 +6029,7 @@ _ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit33:      ; preds = %._crit_edge.thread,
 
 67:                                               ; preds = %65, %63, %62
   %68 = add nuw i64 %.02151, 1
-  %exitcond.not = icmp eq i64 %68, %umax
+  %exitcond.not = icmp eq i64 %68, %44
   br i1 %exitcond.not, label %._crit_edge.thread62, label %.lr.ph, !llvm.loop !180
 
 ._crit_edge.thread62:                             ; preds = %67

@@ -427,7 +427,6 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %58
   %73 = add i64 %72, 23
   %74 = udiv i64 %73, %72
   %spec.select.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %74, i64 1)
-  %umax = tail call i64 @llvm.umax.i64(i64 %68, i64 1)
   br label %88
 
 ._crit_edge:                                      ; preds = %104, %.loopexit424.thread, %.loopexit424
@@ -512,7 +511,7 @@ select.unfold.i.i.i.i:                            ; preds = %select.unfold.i.i.i
   %106 = getelementptr inbounds nuw float, ptr %64, i64 %.034428
   store float %105, ptr %106, align 4, !tbaa !21
   %107 = add nuw i64 %.034428, 1
-  %exitcond.not = icmp eq i64 %107, %umax
+  %exitcond.not = icmp eq i64 %107, %68
   br i1 %exitcond.not, label %._crit_edge, label %88, !llvm.loop !32
 
 108:                                              ; preds = %85, %.noexc112, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i

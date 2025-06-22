@@ -796,8 +796,7 @@ gettok.exit.thread.i.i.i:                         ; preds = %171
 
 gv_recalloc.exit.i.i.i:                           ; preds = %218, %216, %209
   %.0.i.i.i.i.i = phi ptr [ null, %209 ], [ %211, %218 ], [ %211, %216 ]
-  %umax.i.i.i = call i32 @llvm.umax.i32(i32 %.02057.i.i.i, i32 1)
-  %wide.trip.count.i.i.i = zext i32 %umax.i.i.i to i64
+  %wide.trip.count.i.i.i = zext i32 %.02057.i.i.i to i64
   %invariant.gep.i.i.i = getelementptr ptr, ptr %.0.i.i.i.i.i, i64 %205
   br label %221
 
@@ -3882,9 +3881,6 @@ declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #21
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #22

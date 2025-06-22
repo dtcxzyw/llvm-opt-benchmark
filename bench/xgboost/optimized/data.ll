@@ -3370,11 +3370,7 @@ define linkonce_odr void @_ZN7xgboost6common20ParallelGroupBuilderINS_5EntryEmLb
   %9 = sub i64 %7, %8
   %10 = sdiv exact i64 %9, 24
   %.not = icmp eq ptr %5, %6
-  br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %1
-  %umax = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
-  br label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %11 = add i64 %25, 1
@@ -3390,9 +3386,9 @@ define linkonce_odr void @_ZN7xgboost6common20ParallelGroupBuilderINS_5EntryEmLb
   %16 = icmp eq ptr %13, %15
   br i1 %16, label %30, label %27
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.030 = phi i64 [ %25, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.02229 = phi i64 [ %26, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %1, %.lr.ph
+  %.030 = phi i64 [ %25, %.lr.ph ], [ 0, %1 ]
+  %.02229 = phi i64 [ %26, %.lr.ph ], [ 0, %1 ]
   %17 = getelementptr inbounds nuw %"class.std::vector.89", ptr %6, i64 %.02229
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !115
@@ -3403,7 +3399,7 @@ define linkonce_odr void @_ZN7xgboost6common20ParallelGroupBuilderINS_5EntryEmLb
   %24 = ashr exact i64 %23, 3
   %25 = add i64 %24, %.030
   %26 = add nuw i64 %.02229, 1
-  %exitcond.not = icmp eq i64 %26, %umax
+  %exitcond.not = icmp eq i64 %26, %10
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !162
 
 27:                                               ; preds = %._crit_edge
@@ -3525,7 +3521,6 @@ _ZNSt6vectorIN7xgboost5EntryESaIS1_EE6resizeEm.exit: ; preds = %66, %68, %70, %7
   %85 = ptrtoint ptr %83 to i64
   %86 = sub i64 %84, %85
   %87 = ashr exact i64 %86, 3
-  %umax47 = call i64 @llvm.umax.i64(i64 %81, i64 1)
   br label %89
 
 ._crit_edge36:                                    ; preds = %101, %73
@@ -3559,7 +3554,7 @@ _ZNSt6vectorIN7xgboost5EntryESaIS1_EE6resizeEm.exit: ; preds = %66, %68, %70, %7
 101:                                              ; preds = %96, %89
   %.2 = phi i64 [ %97, %96 ], [ %.132, %89 ]
   %102 = add nuw i64 %.02133, 1
-  %exitcond48.not = icmp eq i64 %102, %umax47
+  %exitcond48.not = icmp eq i64 %102, %81
   br i1 %exitcond48.not, label %._crit_edge36, label %89, !llvm.loop !165
 }
 

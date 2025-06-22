@@ -17377,19 +17377,15 @@ define linkonce_odr noundef zeroext i1 @_ZN3vcg3tri2io11ImporterSTLI4MeshE14IsST
 24:                                               ; preds = %20
   %25 = tail call i32 @fclose(ptr noundef %5)
   %.not39 = icmp eq i64 %21, 0
-  br i1 %.not39, label %.loopexit, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %24
-  %umax = tail call i64 @llvm.umax.i64(i64 %.sroa.speculated, i64 1)
-  br label %.lr.ph
+  br i1 %.not39, label %.loopexit, label %.lr.ph
 
 26:                                               ; preds = %.lr.ph
   %27 = add nuw nsw i64 %.03038, 1
-  %exitcond.not = icmp eq i64 %27, %umax
+  %exitcond.not = icmp eq i64 %27, %.sroa.speculated
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !87
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %26
-  %.03038 = phi i64 [ %27, %26 ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %24, %26
+  %.03038 = phi i64 [ %27, %26 ], [ 0, %24 ]
   %28 = getelementptr inbounds nuw [1000 x i8], ptr %4, i64 0, i64 %.03038
   %29 = load i8, ptr %28, align 1
   %30 = icmp slt i8 %29, 0

@@ -60749,7 +60749,6 @@ define noundef ptr @_ZN7glslang13TParseContext16recordStructCopyERSt3mapIPKNS_7T
   %24 = sub i64 %22, %23
   %25 = ashr exact i64 %24, 5
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 104
-  %umax = tail call i64 @llvm.umax.i64(i64 %25, i64 1)
   br label %27
 
 27:                                               ; preds = %.lr.ph, %_ZNKSt6vectorIN7glslang8TTypeLocENS0_14pool_allocatorIS1_EEE2atEm.exit34
@@ -60872,7 +60871,7 @@ _ZNKSt6vectorIN7glslang8TTypeLocENS0_14pool_allocatorIS1_EEE2atEm.exit34: ; pred
   %114 = shl i64 %113, 1
   store i64 %114, ptr %11, align 8
   %115 = add nuw i64 %.028102, 1
-  %exitcond.not = icmp eq i64 %115, %umax
+  %exitcond.not = icmp eq i64 %115, %25
   br i1 %exitcond.not, label %._crit_edge, label %27, !llvm.loop !159
 
 ._crit_edge:                                      ; preds = %_ZNKSt6vectorIN7glslang8TTypeLocENS0_14pool_allocatorIS1_EEE2atEm.exit34

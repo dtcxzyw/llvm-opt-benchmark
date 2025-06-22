@@ -292,7 +292,6 @@ define noundef zeroext i1 @_ZNK3gmx11Constraints24havePerturbedConstraintsEv(ptr
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
   %13 = ashr exact i64 %12, 2
-  %umax = tail call i64 @llvm.umax.i64(i64 %13, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %24
@@ -314,7 +313,7 @@ define noundef zeroext i1 @_ZNK3gmx11Constraints24havePerturbedConstraintsEv(ptr
 
 24:                                               ; preds = %.lr.ph, %17
   %25 = add nuw i64 %.01316, 1
-  %exitcond.not = icmp eq i64 %25, %umax
+  %exitcond.not = icmp eq i64 %25, %13
   br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !66
 
 .critedge:                                        ; preds = %17, %24, %1

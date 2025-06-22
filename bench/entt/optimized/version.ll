@@ -30277,7 +30277,6 @@ _ZNSt8__detail9_ExecutorIPKcSaINSt7__cxx119sub_matchIS2_EEENS3_12regex_traitsIcE
   %44 = sub i64 %42, %43
   %45 = sdiv exact i64 %44, 24
   %46 = load ptr, ptr %0, align 8
-  %umax = call i64 @llvm.umax.i64(i64 %45, i64 1)
   br label %51
 
 47:                                               ; preds = %_ZNSt6vectorINSt7__cxx119sub_matchIPKcEESaIS4_EEC2ERKS6_.exit
@@ -30313,7 +30312,7 @@ _ZNSt8__detail9_ExecutorIPKcSaINSt7__cxx119sub_matchIS2_EEENS3_12regex_traitsIcE
 
 63:                                               ; preds = %56, %51
   %64 = add nuw i64 %.019, 1
-  %exitcond.not = icmp eq i64 %64, %umax
+  %exitcond.not = icmp eq i64 %64, %45
   br i1 %exitcond.not, label %.loopexit, label %51, !llvm.loop !702
 
 .loopexit:                                        ; preds = %63, %.preheader, %_ZNSt8__detail9_ExecutorIPKcSaINSt7__cxx119sub_matchIS2_EEENS3_12regex_traitsIcEELb0EE20_M_search_from_firstEv.exit
@@ -31663,7 +31662,6 @@ _ZNSt12_Vector_baseISt4pairIPKciESaIS3_EEC2EmRKS4_.exit.i.i: ; preds = %_ZNSt6ve
   %78 = sub i64 %76, %77
   %79 = sdiv exact i64 %78, 24
   %80 = load ptr, ptr %0, align 8
-  %umax = call i64 @llvm.umax.i64(i64 %79, i64 1)
   br label %83
 
 81:                                               ; preds = %.noexc, %.loopexit.i
@@ -31694,7 +31692,7 @@ _ZNSt12_Vector_baseISt4pairIPKciESaIS3_EEC2EmRKS4_.exit.i.i: ; preds = %_ZNSt6ve
 
 95:                                               ; preds = %88, %83
   %96 = add nuw i64 %.023, 1
-  %exitcond.not = icmp eq i64 %96, %umax
+  %exitcond.not = icmp eq i64 %96, %79
   br i1 %exitcond.not, label %.loopexit, label %83, !llvm.loop !711
 
 .loopexit:                                        ; preds = %95, %.preheader, %71

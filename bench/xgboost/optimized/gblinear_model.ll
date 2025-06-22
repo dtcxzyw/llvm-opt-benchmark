@@ -867,14 +867,10 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %38, %40, %42, %44
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit20:             ; preds = %70, %72, %74, %76
   %.not41 = icmp eq ptr %56, %57
-  br i1 %.not41, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEENS1_IPfS6_EEET0_T_SB_SA_.exit, label %.lr.ph.preheader
+  br i1 %.not41, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEENS1_IPfS6_EEET0_T_SB_SA_.exit, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit20
-  %umax = tail call i64 @llvm.umax.i64(i64 %61, i64 1)
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.040 = phi i64 [ %85, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit20, %.lr.ph
+  %.040 = phi i64 [ %85, %.lr.ph ], [ 0, %_ZNSt6vectorIfSaIfEE6resizeEm.exit20 ]
   %77 = load ptr, ptr %54, align 8, !tbaa !54
   %78 = getelementptr inbounds nuw %"class.xgboost::Json", ptr %77, i64 %.040
   %79 = load ptr, ptr %78, align 8, !tbaa !19
@@ -885,7 +881,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit20:             ; preds = %70, %72, %74, %76
   %84 = getelementptr inbounds nuw float, ptr %83, i64 %.040
   store float %82, ptr %84, align 4, !tbaa !10
   %85 = add nuw i64 %.040, 1
-  %exitcond.not = icmp eq i64 %85, %umax
+  %exitcond.not = icmp eq i64 %85, %61
   br i1 %exitcond.not, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEENS1_IPfS6_EEET0_T_SB_SA_.exit, label %.lr.ph, !llvm.loop !55
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEENS1_IPfS6_EEET0_T_SB_SA_.exit: ; preds = %.lr.ph, %_ZNSt6vectorIfSaIfEE6resizeEm.exit20, %47, %_ZNSt6vectorIfSaIfEE6resizeEm.exit

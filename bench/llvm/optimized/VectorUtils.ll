@@ -2112,15 +2112,10 @@ define dso_local void @_ZN4llvm19processShuffleMasksENS_8ArrayRefIiEEjjjNS_12fun
   %.not = icmp ugt i32 %3, %15
   %23 = shl nsw i32 %15, 1
   %24 = zext i32 %16 to i64
-  br i1 %.not, label %.split, label %.split.us.preheader
+  br i1 %.not, label %.split, label %.split.us
 
-.split.us.preheader:                              ; preds = %8
-  %umax = call i32 @llvm.umax.i32(i32 %3, i32 1)
-  %wide.trip.count = zext i32 %umax to i64
-  br label %.split.us
-
-.split.us:                                        ; preds = %.split.us.preheader, %._crit_edge.us
-  %indvars.iv = phi i64 [ 0, %.split.us.preheader ], [ %indvars.iv.next, %._crit_edge.us ]
+.split.us:                                        ; preds = %8, %._crit_edge.us
+  %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge.us ], [ 0, %8 ]
   %25 = load ptr, ptr %9, align 8, !tbaa !25
   %26 = getelementptr inbounds nuw %"class.llvm::SmallVector.18", ptr %25, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #21
@@ -2226,7 +2221,7 @@ _ZN4llvm15SmallVectorImplIiE6assignEmi.exit.us:   ; preds = %_ZSt20uninitialized
 
 ._crit_edge.us:                                   ; preds = %68, %32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %11
   br i1 %exitcond.not, label %.split190.us, label %.split.us, !llvm.loop !91
 
 _ZSt20uninitialized_fill_nIPimiET_S1_T0_RKT1_.exit.i.loopexit.us: ; preds = %.lr.ph.i.i.i.i.i.i.i.us

@@ -6238,7 +6238,6 @@ _ZSt8_DestroyISt10unique_ptrISt4pairIN4llvm9StringRefElESt14default_deleteIS4_EE
   %96 = ptrtoint ptr %.pre29 to i64
   %97 = sub i64 %95, %96
   %98 = ashr exact i64 %97, 3
-  %umax = call i64 @llvm.umax.i64(i64 %98, i64 1)
   br label %.lr.ph19
 
 .lr.ph19:                                         ; preds = %.lr.ph19.preheader, %.lr.ph19
@@ -6248,7 +6247,7 @@ _ZSt8_DestroyISt10unique_ptrISt4pairIN4llvm9StringRefElESt14default_deleteIS4_EE
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 16
   store i64 %.018, ptr %101, align 8, !tbaa !252
   %102 = add nuw i64 %.018, 1
-  %exitcond.not = icmp eq i64 %102, %umax
+  %exitcond.not = icmp eq i64 %102, %98
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph19, !llvm.loop !303
 
 .loopexit:                                        ; preds = %.lr.ph19, %72, %"_ZN4llvm11stable_sortIRSt6vectorISt10unique_ptrISt4pairINS_9StringRefElESt14default_deleteIS5_EESaIS8_EEZN12_GLOBAL__N_122SearchableTableEmitter18collectEnumEntriesERNSC_11GenericEnumES4_S4_NS_8ArrayRefIPKNS_6RecordEEEE3$_0EEvOT_T0_.exit", %._crit_edge

@@ -5077,7 +5077,6 @@ _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %_ZNKSt6vector
 
 .lr.ph.preheader:                                 ; preds = %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i, %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i
   %31 = getelementptr inbounds nuw i32, ptr %27, i64 %23
-  %umax = tail call i64 @llvm.umax.i64(i64 %23, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %37
@@ -5100,7 +5099,7 @@ _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %_ZNKSt6vector
   %39 = getelementptr inbounds nuw i32, ptr %27, i64 %.016464
   store i32 %38, ptr %39, align 4, !tbaa !102
   %40 = add nuw i64 %.016464, 1
-  %exitcond.not = icmp eq i64 %40, %umax
+  %exitcond.not = icmp eq i64 %40, %23
   br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !588
 
 .critedge:                                        ; preds = %37, %2
@@ -7283,7 +7282,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit.preheader.i.i.i
   %879 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %880 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %881 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %umax505 = tail call i64 @llvm.umax.i64(i64 %44, i64 1)
   br label %884
 
 882:                                              ; preds = %.noexc368
@@ -7517,7 +7515,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25.i.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #34, !noalias !665
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #34, !noalias !665
   %982 = add nuw i64 %.063.i.i.i.i.i.i.i.i, 1
-  %exitcond506.not = icmp eq i64 %982, %umax505
+  %exitcond506.not = icmp eq i64 %982, %44
   br i1 %exitcond506.not, label %_ZNSt12__shared_ptrIN7rocksdb12experimental12_GLOBAL__N_133DynamicCappedKeySegmentsExtractorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %884, !llvm.loop !678
 
 .loopexit.i.i.i.i.i.i.i.i351:                     ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i.i.i.i.i.i.i.i.i350
@@ -19166,7 +19164,6 @@ define internal void @_ZNK7rocksdb12experimental12_GLOBAL__N_133DynamicCappedKey
   %18 = sub i64 %16, %17
   %19 = ashr exact i64 %18, 2
   %20 = load ptr, ptr %3, align 8, !tbaa !668
-  %umax = tail call i64 @llvm.umax.i64(i64 %19, i64 1)
   br label %21
 
 21:                                               ; preds = %.lr.ph, %21
@@ -19176,7 +19173,7 @@ define internal void @_ZNK7rocksdb12experimental12_GLOBAL__N_133DynamicCappedKey
   %.sroa.speculated = tail call i32 @llvm.umin.i32(i32 %23, i32 %9)
   store i32 %.sroa.speculated, ptr %22, align 4, !tbaa !102
   %24 = add nuw i64 %.09, 1
-  %exitcond.not = icmp eq i64 %24, %umax
+  %exitcond.not = icmp eq i64 %24, %19
   br i1 %exitcond.not, label %.loopexit, label %21, !llvm.loop !981
 
 .loopexit:                                        ; preds = %21, %.preheader, %4

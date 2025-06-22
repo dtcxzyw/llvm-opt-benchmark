@@ -32277,7 +32277,6 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE7reserveEm.exit46.i.i.i: ; preds = %_ZNSt12_V
   %113 = icmp slt i32 %.val.i, 1
   %114 = icmp slt i32 %.val5.i, 1
   %115 = select i1 %113, i1 true, i1 %114
-  %umax.i.i.i = tail call i64 @llvm.umax.i64(i64 %47, i64 1)
   br label %116
 
 116:                                              ; preds = %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE9push_backEOS2_.exit112.i.i.i, %.lr.ph.i.i.i
@@ -32631,7 +32630,7 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__no
 
 _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE9push_backEOS2_.exit112.i.i.i: ; preds = %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i111.i.i.i, %268
   %291 = add nuw i64 %.03226.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %291, %umax.i.i.i
+  %exitcond.not.i.i.i = icmp eq i64 %291, %47
   br i1 %exitcond.not.i.i.i, label %_ZN2cv6detail13OCVCallHelperIN6custom12_GLOBAL__N_112OCVParseEyesESt5tupleIJNS_6GArrayINS_4GMatEEENS6_INS_5Rect_IiEEEENS_7GOpaqueINS_5Size_IiEEEEEES5_IJSB_SB_EEE9call_implIJLi0ELi1ELi2EEJLi0ELi1EEEEvRNS_11GCPUContextENS0_3SeqIJXspT_EEEENSM_IJXspT0_EEEE.exit, label %116, !llvm.loop !883
 
 _ZN2cv6detail13OCVCallHelperIN6custom12_GLOBAL__N_112OCVParseEyesESt5tupleIJNS_6GArrayINS_4GMatEEENS6_INS_5Rect_IiEEEENS_7GOpaqueINS_5Size_IiEEEEEES5_IJSB_SB_EEE9call_implIJLi0ELi1ELi2EEJLi0ELi1EEEEvRNS_11GCPUContextENS0_3SeqIJXspT_EEEENSM_IJXspT0_EEEE.exit: ; preds = %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE9push_backEOS2_.exit112.i.i.i, %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE7reserveEm.exit46.i.i.i
@@ -33285,7 +33284,6 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE5clearEv.exit.i.i.i: ; preds = %_ZSt8_DestroyIPN2c
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE5clearEv.exit.i.i.i
   %95 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %96 = getelementptr inbounds nuw i8, ptr %54, i64 16
-  %umax.i.i.i = tail call i64 @llvm.umax.i64(i64 %61, i64 1)
   br label %97
 
 97:                                               ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit.i.i.i, %.lr.ph.i.i.i
@@ -33330,7 +33328,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit.i.i.i: ; preds = %118, %115
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #33
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #33
   %119 = add nuw i64 %.02028.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %119, %umax.i.i.i
+  %exitcond.not.i.i.i = icmp eq i64 %119, %61
   br i1 %exitcond.not.i.i.i, label %_ZN2cv6detail13OCVCallHelperIN6custom12_GLOBAL__N_115OCVProcessPosesESt5tupleIJNS_6GArrayINS_4GMatEEES8_S8_EES5_IJS8_EEE9call_implIJLi0ELi1ELi2EEJLi0EEEEvRNS_11GCPUContextENS0_3SeqIJXspT_EEEENSF_IJXspT0_EEEE.exit, label %97, !llvm.loop !884
 
 120:                                              ; preds = %118

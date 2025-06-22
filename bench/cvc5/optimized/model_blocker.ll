@@ -5640,14 +5640,10 @@ _ZNSt3mapIN4cvc58internal8TypeNodeESt6vectorINS1_12NodeTemplateILb1EEESaIS5_EESt
   %2429 = sub i64 %2427, %2428
   %2430 = ashr exact i64 %2429, 3
   %.not1687 = icmp eq ptr %2425, %2426
-  br i1 %.not1687, label %._crit_edge1642, label %.lr.ph1641.preheader
-
-.lr.ph1641.preheader:                             ; preds = %2422
-  %umax = call i64 @llvm.umax.i64(i64 %2430, i64 1)
-  br label %.lr.ph1641
+  br i1 %.not1687, label %._crit_edge1642, label %.lr.ph1641
 
 .loopexit1601:                                    ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1014, %2509
-  %exitcond1713.not = icmp eq i64 %2511, %umax
+  %exitcond1713.not = icmp eq i64 %2511, %2430
   br i1 %exitcond1713.not, label %._crit_edge1642, label %.lr.ph1641, !llvm.loop !140
 
 ._crit_edge1642:                                  ; preds = %.loopexit1601, %2422
@@ -5655,8 +5651,8 @@ _ZNSt3mapIN4cvc58internal8TypeNodeESt6vectorINS1_12NodeTemplateILb1EEESaIS5_EESt
   %.not1586 = icmp eq ptr %2431, %2206
   br i1 %.not1586, label %._crit_edge1647thread-pre-split, label %2422
 
-.lr.ph1641:                                       ; preds = %.lr.ph1641.preheader, %.loopexit1601
-  %.03021639 = phi i64 [ %2511, %.loopexit1601 ], [ 0, %.lr.ph1641.preheader ]
+.lr.ph1641:                                       ; preds = %2422, %.loopexit1601
+  %.03021639 = phi i64 [ %2511, %.loopexit1601 ], [ 0, %2422 ]
   %2432 = load ptr, ptr %2423, align 8, !tbaa !11
   %2433 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %2432, i64 %.03021639
   %2434 = load ptr, ptr %2212, align 8, !tbaa !125

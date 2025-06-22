@@ -28,7 +28,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev13EvalTransformEPKfPflRNS_10OpRcPtrV
   br i1 %6, label %.noexc, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
 
 .noexc:                                           ; preds = %4
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #10
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #9
   unreachable
 
 _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %4
@@ -37,7 +37,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %4
 
 _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
   %7 = shl nsw i64 %2, 4
-  %8 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %7) #11
+  %8 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %7) #10
   %9 = getelementptr float, ptr %8, i64 %5
   store float 0.000000e+00, ptr %8, align 4, !tbaa !3
   %10 = getelementptr i8, ptr %8, i64 4
@@ -97,7 +97,6 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZNSt6vectorIfSaIfE
   %30 = ptrtoint ptr %28 to i64
   %31 = sub i64 %29, %30
   %32 = ashr exact i64 %31, 4
-  %umax = tail call i64 @llvm.umax.i64(i64 %32, i64 1)
   br label %.lr.ph74
 
 .preheader:                                       ; preds = %40, %25
@@ -121,7 +120,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZNSt6vectorIfSaIfE
 
 40:                                               ; preds = %.lr.ph74
   %41 = add nuw i64 %.03672, 1
-  %exitcond83.not = icmp eq i64 %41, %umax
+  %exitcond83.not = icmp eq i64 %41, %32
   br i1 %exitcond83.not, label %.preheader, label %.lr.ph74, !llvm.loop !21
 
 ._crit_edge82:                                    ; preds = %.preheader
@@ -131,7 +130,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZNSt6vectorIfSaIfE
 ._crit_edge82.thread:                             ; preds = %.lr.ph81, %._crit_edge82
   %42 = ptrtoint ptr %.sroa.047.091 to i64
   %43 = sub i64 %.sroa.18.090, %42
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.047.091, i64 noundef %43) #12
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.047.091, i64 noundef %43) #11
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %._crit_edge82, %._crit_edge82.thread
@@ -167,7 +166,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %._crit_edge82, %._c
   %.pn64 = phi { ptr, i32 } [ %33, %.thread ], [ %54, %53 ]
   %56 = ptrtoint ptr %.sroa.047.091 to i64
   %57 = sub i64 %.sroa.18.090, %56
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.047.091, i64 noundef %57) #12
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.047.091, i64 noundef %57) #11
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit46
 
 _ZNSt6vectorIfSaIfEED2Ev.exit46:                  ; preds = %55, %53
@@ -193,15 +192,12 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #6
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_OpTools.cpp() #7 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #13
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #12
   ret void
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #9
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -212,11 +208,10 @@ attributes #5 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-siz
 attributes #6 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { noreturn }
-attributes #11 = { builtin allocsize(0) }
-attributes #12 = { builtin nounwind }
-attributes #13 = { nounwind }
+attributes #9 = { noreturn }
+attributes #10 = { builtin allocsize(0) }
+attributes #11 = { builtin nounwind }
+attributes #12 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

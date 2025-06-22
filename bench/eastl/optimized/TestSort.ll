@@ -5813,9 +5813,7 @@ invoke.cont628:                                   ; preds = %for.inc625, %for.co
   br i1 %cmp.i1892.not, label %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6resizeEm.exit, label %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.exit.i.i1904
 
 _ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.exit.i.i1904: ; preds = %invoke.cont628
-  %cond.i12.i.i1908 = call noundef i64 @llvm.umax.i64(i64 %sub.ptr.div.i1886, i64 range(i64 -576460752303423488, 576460752303423488) 1)
-  %mul.i13.i.i1909 = shl i64 %cond.i12.i.i1908, 4
-  %call.i.i.i.i.i1922 = invoke noundef ptr @_ZnamPKcijS0_i(i64 noundef %mul.i13.i.i1909, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
+  %call.i.i.i.i.i1922 = invoke noundef ptr @_ZnamPKcijS0_i(i64 noundef %sub.ptr.sub.i1885, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
           to label %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6resizeEm.exit unwind label %lpad630.thread
 
 lpad630.thread:                                   ; preds = %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.exit.i.i1904

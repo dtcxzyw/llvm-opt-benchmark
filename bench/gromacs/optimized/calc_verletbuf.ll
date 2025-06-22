@@ -3171,7 +3171,6 @@ _ZNSt6vectorI17VerletbufAtomtypeSaIS0_EE7reserveEm.exit: ; preds = %.thread, %_Z
   %738 = ptrtoint ptr %736 to i64
   %739 = sub i64 %737, %738
   %740 = ashr exact i64 %739, 5
-  %umax = call i64 @llvm.umax.i64(i64 %740, i64 1)
   br label %.lr.ph383
 
 .thread479:                                       ; preds = %199, %_ZNSt12_Vector_baseI17VerletbufAtomtypeSaIS0_EE11_M_allocateEm.exit.i
@@ -3322,7 +3321,7 @@ _ZNSt6vectorI17VerletbufAtomtypeSaIS0_EE9push_backEOS0_.exit: ; preds = %_ZNSt6v
   %810 = load i32, ptr %809, align 4, !tbaa !284
   %811 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %773, ptr noundef nonnull @.str.33, i64 noundef %.0382, double noundef %781, i32 noundef %783, double noundef %790, ptr noundef nonnull %800, double noundef %803, double noundef %808, i32 noundef %810) #27
   %812 = add nuw i64 %.0382, 1
-  %exitcond466.not = icmp eq i64 %812, %umax
+  %exitcond466.not = icmp eq i64 %812, %740
   br i1 %exitcond466.not, label %.loopexit, label %.lr.ph383, !llvm.loop !286
 
 .loopexit:                                        ; preds = %.lr.ph383, %.preheader, %._crit_edge380

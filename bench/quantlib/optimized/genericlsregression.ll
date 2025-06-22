@@ -464,7 +464,6 @@ invoke.cont49.lr.ph:                              ; preds = %cond.true.i121
   %43 = load i64, ptr %columns_.i.i, align 8, !tbaa !62
   %add.ptr.i127 = getelementptr inbounds nuw i8, ptr %means.sroa.0.1, i64 %sub.ptr.sub.i87
   %44 = load double, ptr %add.ptr.i127, align 8, !tbaa !26
-  %umax = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i88, i64 1)
   br label %invoke.cont49
 
 for.cond.cleanup46:                               ; preds = %for.cond.cleanup57, %_ZN8QuantLib5ArrayC2Em.exit.thread
@@ -523,7 +522,7 @@ invoke.cont49:                                    ; preds = %invoke.cont49.lr.ph
 for.cond.cleanup57:                               ; preds = %invoke.cont68
   %inc75 = add nuw i64 %k.0441, 1
   %indvars.iv.next = add i64 %indvars.iv, 1
-  %exitcond507.not = icmp eq i64 %inc75, %umax
+  %exitcond507.not = icmp eq i64 %inc75, %sub.ptr.div.i88
   br i1 %exitcond507.not, label %for.cond.cleanup46, label %invoke.cont49, !llvm.loop !65
 
 invoke.cont68:                                    ; preds = %invoke.cont49, %invoke.cont68
@@ -636,7 +635,6 @@ for.body105.lr.ph:                                ; preds = %_ZSt4copyIPdN9__gnu
   %sub.ptr.div.i171 = sdiv exact i64 %sub.ptr.sub.i170, 56
   %66 = load ptr, ptr %simulationData, align 8
   %add.ptr.i180 = getelementptr inbounds nuw %"class.std::vector.5", ptr %66, i64 %sub84
-  %umax508 = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i171, i64 1)
   br label %for.body105
 
 for.body105:                                      ; preds = %for.body105.lr.ph, %for.inc143
@@ -712,7 +710,7 @@ _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
 
 for.inc143:                                       ; preds = %for.body105, %_ZSt13inner_productIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES2_dET1_T_S8_T0_S7_.exit
   %inc144 = add nuw i64 %j.1443, 1
-  %exitcond509.not = icmp eq i64 %inc144, %umax508
+  %exitcond509.not = icmp eq i64 %inc144, %sub.ptr.div.i171
   br i1 %exitcond509.not, label %for.end145, label %for.body105, !llvm.loop !69
 
 for.end145:                                       ; preds = %for.inc143, %_ZSt4copyIPdN9__gnu_cxx17__normal_iteratorIS0_St6vectorIdSaIdEEEEET0_T_S8_S7_.exit

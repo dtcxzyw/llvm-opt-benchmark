@@ -4508,8 +4508,7 @@ H5HF__sect_indirect_is_first.exit:                ; preds = %tailrecurse.i, %31
   br label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %155, %165
-  %umax = tail call i32 @llvm.umax.i32(i32 %110, i32 1)
-  %wide.trip.count = zext i32 %umax to i64
+  %wide.trip.count = zext i32 %110 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph

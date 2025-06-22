@@ -23388,13 +23388,10 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm11PassManagerINS0_6Modu
 
 _ZNKSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE12_M_check_lenEmPKc.exit.i.i.i.i: ; preds = %17
   %23 = ashr exact i64 %20, 3
-  %.sroa.speculated.i.i.i.i.i = call i64 @llvm.umax.i64(i64 %23, i64 1)
-  %24 = add nsw i64 %.sroa.speculated.i.i.i.i.i, %23
+  %24 = ashr exact i64 %20, 2
   %25 = icmp ult i64 %24, %23
   %26 = call i64 @llvm.umin.i64(i64 %24, i64 1152921504606846975)
   %27 = select i1 %25, i64 1152921504606846975, i64 %26
-  %.not.i.i6.i.i.i = icmp ne i64 %27, 0
-  call void @llvm.assume(i1 %.not.i.i6.i.i.i)
   %28 = shl nuw nsw i64 %27, 3
   %29 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %28) #29
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 %20

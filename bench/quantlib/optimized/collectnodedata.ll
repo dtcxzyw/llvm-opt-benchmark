@@ -458,7 +458,6 @@ _ZNSt6vectorIN8QuantLib21MarketModelDiscounterESaIS1_EE7reserveEm.exit: ; preds 
 
 for.body.lr.ph:                                   ; preds = %_ZNSt6vectorIN8QuantLib21MarketModelDiscounterESaIS1_EE7reserveEm.exit
   %_M_finish.i180 = getelementptr inbounds nuw i8, ptr %productDiscounters, i64 8
-  %umax = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -487,7 +486,7 @@ if.else.i184:                                     ; preds = %for.body
 
 for.inc:                                          ; preds = %if.else.i184, %.noexc185
   %inc = add nuw i64 %i.0644, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !38
 
 lpad30:                                           ; preds = %do.end
@@ -579,7 +578,6 @@ _ZNSt6vectorIN8QuantLib21MarketModelDiscounterESaIS1_EE7reserveEm.exit222: ; pre
 
 for.body78.lr.ph:                                 ; preds = %_ZNSt6vectorIN8QuantLib21MarketModelDiscounterESaIS1_EE7reserveEm.exit222
   %_M_finish.i224 = getelementptr inbounds nuw i8, ptr %rebateDiscounters, i64 8
-  %umax667 = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i191, i64 1)
   br label %for.body78
 
 for.body78:                                       ; preds = %for.body78.lr.ph, %for.inc82
@@ -608,7 +606,7 @@ if.else.i231:                                     ; preds = %for.body78
 
 for.inc82:                                        ; preds = %if.else.i231, %.noexc233
   %inc83 = add nuw i64 %i.1646, 1
-  %exitcond668.not = icmp eq i64 %inc83, %umax667
+  %exitcond668.not = icmp eq i64 %inc83, %sub.ptr.div.i191
   br i1 %exitcond668.not, label %for.end84, label %for.body78, !llvm.loop !40
 
 lpad74.loopexit:                                  ; preds = %if.then.i227, %if.else.i231
@@ -665,7 +663,6 @@ _ZNSt6vectorIN8QuantLib21MarketModelDiscounterESaIS1_EE7reserveEm.exit271: ; pre
 
 for.body90.lr.ph:                                 ; preds = %_ZNSt6vectorIN8QuantLib21MarketModelDiscounterESaIS1_EE7reserveEm.exit271
   %_M_finish.i273 = getelementptr inbounds nuw i8, ptr %controlDiscounters, i64 8
-  %umax669 = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i240, i64 1)
   br label %for.body90
 
 for.body90:                                       ; preds = %for.body90.lr.ph, %for.inc94
@@ -694,7 +691,7 @@ if.else.i280:                                     ; preds = %for.body90
 
 for.inc94:                                        ; preds = %if.else.i280, %.noexc282
   %inc95 = add nuw i64 %i.2648, 1
-  %exitcond670.not = icmp eq i64 %inc95, %umax669
+  %exitcond670.not = icmp eq i64 %inc95, %sub.ptr.div.i240
   br i1 %exitcond670.not, label %for.end96, label %for.body90, !llvm.loop !41
 
 lpad86.loopexit:                                  ; preds = %if.then.i276, %if.else.i280
@@ -836,7 +833,6 @@ for.body155.lr.ph:                                ; preds = %for.cond152.prehead
   %74 = load ptr, ptr %_M_data.i297, align 8, !tbaa !44
   %_M_data.i298 = getelementptr inbounds nuw i8, ptr %v, i64 8
   %75 = load ptr, ptr %_M_data.i298, align 8
-  %umax671 = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i296, i64 1)
   br label %for.body155
 
 for.body155:                                      ; preds = %for.body155.lr.ph, %for.inc166
@@ -910,7 +906,7 @@ for.inc166:                                       ; preds = %for.body155, %if.th
   %idx.1 = phi i64 [ %inc158, %if.then161 ], [ %inc158, %if.then157 ], [ %idx.0650, %for.body155 ]
   %exercises.1 = phi i64 [ %inc163, %if.then161 ], [ %exercises.0651, %if.then157 ], [ %exercises.0651, %for.body155 ]
   %inc167 = add nuw i64 %i.3652, 1
-  %exitcond672.not = icmp eq i64 %inc167, %umax671
+  %exitcond672.not = icmp eq i64 %inc167, %sub.ptr.div.i296
   br i1 %exitcond672.not, label %for.end168, label %for.body155, !llvm.loop !48
 
 for.end168:                                       ; preds = %for.inc166, %for.cond152.preheader

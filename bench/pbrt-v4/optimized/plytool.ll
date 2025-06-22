@@ -24706,13 +24706,10 @@ _ZNSt6vectorIN4pbrt6Point3IfEESaIS2_EE9push_backEOS2_.exit: ; preds = %227, %_ZN
 
 _ZNKSt6vectorIN4pbrt7Normal3IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %280
   %286 = sdiv exact i64 %283, 12
-  %.sroa.speculated.i.i.i146 = call i64 @llvm.umax.i64(i64 %286, i64 1)
-  %287 = add nsw i64 %.sroa.speculated.i.i.i146, %286
-  %288 = icmp ult i64 %287, %286
+  %287 = shl nsw i64 %286, 1
+  %288 = icmp slt i64 %283, 0
   %289 = call i64 @llvm.umin.i64(i64 %287, i64 768614336404564650)
   %290 = select i1 %288, i64 768614336404564650, i64 %289
-  %.not.i.i.i147 = icmp ne i64 %290, 0
-  call void @llvm.assume(i1 %.not.i.i.i147)
   %291 = mul nuw nsw i64 %290, 12
   %292 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %291) #38
   %293 = getelementptr inbounds nuw i8, ptr %292, i64 %283
@@ -24787,13 +24784,10 @@ _ZNSt6vectorIN4pbrt7Normal3IfEESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6v
 
 _ZNKSt6vectorIN4pbrt6Point2IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %318
   %324 = ashr exact i64 %321, 3
-  %.sroa.speculated.i.i.i.i153 = call i64 @llvm.umax.i64(i64 %324, i64 1)
-  %325 = add nsw i64 %.sroa.speculated.i.i.i.i153, %324
+  %325 = ashr exact i64 %321, 2
   %326 = icmp ult i64 %325, %324
   %327 = call i64 @llvm.umin.i64(i64 %325, i64 1152921504606846975)
   %328 = select i1 %326, i64 1152921504606846975, i64 %327
-  %.not.i.i.i.i154 = icmp ne i64 %328, 0
-  call void @llvm.assume(i1 %.not.i.i.i.i154)
   %329 = shl nuw nsw i64 %328, 3
   %330 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %329) #38
   %331 = getelementptr inbounds nuw i8, ptr %330, i64 %321

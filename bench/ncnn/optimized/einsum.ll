@@ -692,7 +692,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit115: ; preds = %_Z
   %192 = ptrtoint ptr %190 to i64
   %193 = sub i64 %191, %192
   %194 = ashr exact i64 %193, 5
-  %umax = call i64 @llvm.umax.i64(i64 %194, i64 1)
   br label %.lr.ph146
 
 195:                                              ; preds = %.noexc.i109
@@ -746,7 +745,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit115: ; preds = %_Z
 
 .critedge77:                                      ; preds = %208, %.lr.ph146
   %217 = add nuw i64 %.046144, 1
-  %exitcond150.not = icmp eq i64 %217, %umax
+  %exitcond150.not = icmp eq i64 %217, %194
   br i1 %exitcond150.not, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit, label %.lr.ph146, !llvm.loop !42
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit.sink.split: ; preds = %73, %201, %214
@@ -1003,7 +1002,6 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.thread487: ; preds = %51
   %62 = sdiv exact i64 %61, 72
   %63 = load ptr, ptr %10, align 8, !tbaa !16
   %invariant.gep = getelementptr i8, ptr %48, i64 -420
-  %umax = tail call i64 @llvm.umax.i64(i64 %62, i64 1)
   br label %85
 
 ._crit_edge368:                                   ; preds = %._crit_edge
@@ -1108,7 +1106,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.thread484: ; preds = %81
 ._crit_edge:                                      ; preds = %.thread477, %._crit_edge.loopexit, %85
   %.1330.lcssa = phi i32 [ %.0364, %85 ], [ %.sroa.speculated.us, %._crit_edge.loopexit ], [ %.sroa.speculated, %.thread477 ]
   %104 = add nuw i64 %.0209365, 1
-  %exitcond415.not = icmp eq i64 %104, %umax
+  %exitcond415.not = icmp eq i64 %104, %62
   br i1 %exitcond415.not, label %._crit_edge368, label %85, !llvm.loop !63
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %.thread477
@@ -2017,7 +2015,6 @@ define internal fastcc noundef nofpclass(nan inf) float @_ZN4ncnnL7sum_dimERKSt6
   %27 = load ptr, ptr %3, align 8, !tbaa !16
   %.val31 = load ptr, ptr %4, align 8
   %invariant.gep = getelementptr i8, ptr %.val31, i64 -420
-  %umax = tail call i64 @llvm.umax.i64(i64 %26, i64 1)
   br label %28
 
 28:                                               ; preds = %.lr.ph38, %_ZN4ncnnL17get_indexed_valueERKNS_3MatERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIiSaIiEE.exit
@@ -2159,7 +2156,7 @@ _ZN4ncnnL17get_indexed_valueERKNS_3MatERKNSt7__cxx1112basic_stringIcSt11char_tra
   %.0.i = phi nsz float [ %40, %33 ], [ %61, %41 ], [ %91, %_ZN4ncnn3MatD2Ev.exit44.i ], [ %132, %_ZN4ncnn3MatD2Ev.exit42.i ], [ 0.000000e+00, %28 ]
   %133 = fmul fast float %.0.i, %.02836
   %134 = add nuw i64 %.02737, 1
-  %exitcond.not = icmp eq i64 %134, %umax
+  %exitcond.not = icmp eq i64 %134, %26
   br i1 %exitcond.not, label %.loopexit, label %28, !llvm.loop !110
 
 135:                                              ; preds = %.lr.ph, %135

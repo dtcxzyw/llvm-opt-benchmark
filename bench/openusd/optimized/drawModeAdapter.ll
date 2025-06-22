@@ -12271,7 +12271,6 @@ _ZNSt6vectorISt4pairIN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dEiESaIS3_EE9
   %470 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %471 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %472 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %umax = call i64 @llvm.umax.i64(i64 %444, i64 1)
   br label %473
 
 473:                                              ; preds = %.lr.ph, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit200
@@ -12576,7 +12575,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %605, %609
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit200: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit, %616
   %620 = add nuw i64 %.050366, 1
-  %exitcond377.not = icmp eq i64 %620, %umax
+  %exitcond377.not = icmp eq i64 %620, %444
   br i1 %exitcond377.not, label %._crit_edge, label %473, !llvm.loop !68
 
 621:                                              ; preds = %.body, %602, %596
@@ -12888,14 +12887,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit236: ; preds = %_ZN32pxrIn
   %739 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store double 0xC7EFFFFFE0000000, ptr %739, align 8
   store double 0xC7EFFFFFE0000000, ptr %737, align 8
-  br i1 %.not, label %._crit_edge369, label %.lr.ph368.preheader
+  br i1 %.not, label %._crit_edge369, label %.lr.ph368
 
-.lr.ph368.preheader:                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit236
-  %umax378 = call i64 @llvm.umax.i64(i64 %445, i64 1)
-  br label %.lr.ph368
-
-.lr.ph368:                                        ; preds = %.lr.ph368.preheader, %_ZN32pxrInternal_v0_24__pxrReserved__9GfRange3d9UnionWithERKNS_7GfVec3dE.exit
-  %.0367 = phi i64 [ %772, %_ZN32pxrInternal_v0_24__pxrReserved__9GfRange3d9UnionWithERKNS_7GfVec3dE.exit ], [ 0, %.lr.ph368.preheader ]
+.lr.ph368:                                        ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit236, %_ZN32pxrInternal_v0_24__pxrReserved__9GfRange3d9UnionWithERKNS_7GfVec3dE.exit
+  %.0367 = phi i64 [ %772, %_ZN32pxrInternal_v0_24__pxrReserved__9GfRange3d9UnionWithERKNS_7GfVec3dE.exit ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit236 ]
   %740 = invoke noundef nonnull align 4 dereferenceable(12) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEEixEm(ptr noundef nonnull align 8 dereferenceable(40) %17, i64 noundef %.0367)
           to label %741 unwind label %.loopexit
 
@@ -12963,7 +12958,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9GfRange3d8_FindMinERNS_7GfVec3dERKS1_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__9GfRange3d9UnionWithERKNS_7GfVec3dE.exit: ; preds = %771, %768
   %772 = add nuw i64 %.0367, 1
-  %exitcond379.not = icmp eq i64 %772, %umax378
+  %exitcond379.not = icmp eq i64 %772, %445
   br i1 %exitcond379.not, label %._crit_edge369, label %.lr.ph368, !llvm.loop !69
 
 ._crit_edge369:                                   ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__9GfRange3d9UnionWithERKNS_7GfVec3dE.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit236
@@ -13509,14 +13504,10 @@ _ZNSt6vectorIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2fESaIS3_EE9push_backEOS
 
 .preheader:                                       ; preds = %_ZNSt6vectorIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2fESaIS3_EE9push_backEOS3_.exit82
   %.not169 = icmp eq ptr %.sroa.18.2, %.sroa.0104.4
-  br i1 %.not169, label %._crit_edge, label %.lr.ph.preheader
+  br i1 %.not169, label %._crit_edge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %.preheader
-  %umax = call i64 @llvm.umax.i64(i64 %142, i64 1)
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %146
-  %.0168 = phi i64 [ %149, %146 ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %146
+  %.0168 = phi i64 [ %149, %146 ], [ 0, %.preheader ]
   %144 = shl i64 %.0168, 2
   %145 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEEixEm(ptr noundef nonnull align 8 dereferenceable(40) %4, i64 noundef %144)
           to label %146 unwind label %.loopexit
@@ -13526,7 +13517,7 @@ _ZNSt6vectorIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2fESaIS3_EE9push_backEOS
   %148 = load ptr, ptr %147, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %145, ptr noundef nonnull align 4 dereferenceable(32) %148, i64 32, i1 false)
   %149 = add nuw i64 %.0168, 1
-  %exitcond.not = icmp eq i64 %149, %umax
+  %exitcond.not = icmp eq i64 %149, %142
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !84
 
 .loopexit:                                        ; preds = %.lr.ph

@@ -746,7 +746,6 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc93.i
   store ptr %.0.i.i.i.i.i91.i, ptr %140, align 8, !tbaa !48
   %141 = load i64, ptr %4, align 8, !tbaa !50
   %142 = trunc i64 %141 to i32
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %1, i64 1)
   br label %154
 
 143:                                              ; preds = %._crit_edge182.i
@@ -887,7 +886,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit.i:         ; preds = %_ZNSt6vectorIiSaIiE
   %189 = add nsw i32 %188, 1
   store i32 %189, ptr %187, align 4, !tbaa !62
   %indvars.iv.next220.i = add nuw i64 %indvars.iv219.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next220.i, %umax.i
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next220.i, %1
   br i1 %exitcond.not.i, label %143, label %154, !llvm.loop !66
 
 _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i:          ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i94.i
@@ -952,7 +951,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i:                  ; preds = %208
   %218 = getelementptr inbounds nuw i32, ptr %126, i64 %217
   store i32 %210, ptr %218, align 4, !tbaa !62
   %indvars.iv.next227.i = add nuw nsw i64 %indvars.iv226.i, 1
-  %exitcond229.not.i = icmp eq i64 %indvars.iv.next227.i, %umax.i
+  %exitcond229.not.i = icmp eq i64 %indvars.iv.next227.i, %1
   br i1 %exitcond229.not.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit.i, label %208, !llvm.loop !69
 
 219:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit.i

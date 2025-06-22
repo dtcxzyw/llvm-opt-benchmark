@@ -1799,14 +1799,12 @@ free_buffers.exit2044:                            ; preds = %403
 
 .preheader2290:                                   ; preds = %650
   %651 = trunc i32 %.01814 to i16
-  %umax2600 = tail call i32 @llvm.umax.i32(i32 %634, i32 1)
   br label %661
 
 652:                                              ; preds = %650
   %653 = load i16, ptr %17, align 2, !tbaa !62
   %.01814.tr = trunc i32 %.01814 to i16
   %654 = shl i16 %.01814.tr, 8
-  %umax2602 = tail call i32 @llvm.umax.i32(i32 %634, i32 1)
   br label %655
 
 655:                                              ; preds = %652, %655
@@ -1818,7 +1816,7 @@ free_buffers.exit2044:                            ; preds = %403
   %659 = mul i16 %657, %653
   store i16 %659, ptr %.517952411, align 2, !tbaa !99
   %660 = add nuw nsw i32 %.018102410, 1
-  %exitcond2603.not = icmp eq i32 %660, %umax2602
+  %exitcond2603.not = icmp eq i32 %660, %634
   br i1 %exitcond2603.not, label %.preheader2296.backedge, label %655, !llvm.loop !106
 
 661:                                              ; preds = %.preheader2290, %661
@@ -1827,7 +1825,7 @@ free_buffers.exit2044:                            ; preds = %403
   %662 = getelementptr inbounds nuw i8, ptr %.717972409, i64 2
   store i16 %651, ptr %.717972409, align 2, !tbaa !99
   %663 = add nuw nsw i32 %.018092408, 1
-  %exitcond2601.not = icmp eq i32 %663, %umax2600
+  %exitcond2601.not = icmp eq i32 %663, %634
   br i1 %exitcond2601.not, label %.preheader2296.backedge, label %661, !llvm.loop !107
 
 .loopexit2292.backedge:                           ; preds = %751, %745
@@ -1949,14 +1947,12 @@ dequant_and_decompand.exit:                       ; preds = %730, %733
 
 .preheader2293:                                   ; preds = %740
   %741 = trunc i32 %.01806 to i16
-  %umax = tail call i32 @llvm.umax.i32(i32 %723, i32 1)
   br label %751
 
 742:                                              ; preds = %740
   %743 = load i16, ptr %17, align 2, !tbaa !62
   %.01806.tr = trunc i32 %.01806 to i16
   %744 = shl i16 %.01806.tr, 8
-  %umax2598 = tail call i32 @llvm.umax.i32(i32 %723, i32 1)
   br label %745
 
 745:                                              ; preds = %742, %745
@@ -1968,7 +1964,7 @@ dequant_and_decompand.exit:                       ; preds = %730, %733
   %749 = mul i16 %747, %743
   store i16 %749, ptr %.1118012406, align 2, !tbaa !99
   %750 = add nuw nsw i32 %.017892407, 1
-  %exitcond2599.not = icmp eq i32 %750, %umax2598
+  %exitcond2599.not = icmp eq i32 %750, %723
   br i1 %exitcond2599.not, label %.loopexit2292.backedge, label %745, !llvm.loop !108
 
 751:                                              ; preds = %.preheader2293, %751
@@ -1977,7 +1973,7 @@ dequant_and_decompand.exit:                       ; preds = %730, %733
   %752 = getelementptr inbounds nuw i8, ptr %.1318032404, i64 2
   store i16 %741, ptr %.1318032404, align 2, !tbaa !99
   %753 = add nuw nsw i32 %.017882405, 1
-  %exitcond2597.not = icmp eq i32 %753, %umax
+  %exitcond2597.not = icmp eq i32 %753, %723
   br i1 %exitcond2597.not, label %.loopexit2292.backedge, label %751, !llvm.loop !109
 
 .thread2168:                                      ; preds = %637, %632, %726, %721
@@ -4170,9 +4166,6 @@ declare i32 @llvm.smax.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #9
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #9
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

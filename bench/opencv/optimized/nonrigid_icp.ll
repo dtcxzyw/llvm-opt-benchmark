@@ -1377,7 +1377,6 @@ _ZNSolsEPFRSoS_E.exit771.preheader:               ; preds = %.noexc1265
   %452 = ptrtoint ptr %448 to i64
   %453 = sub i64 %451, %452
   %454 = sdiv exact i64 %453, 40
-  %umax = call i64 @llvm.umax.i64(i64 %454, i64 1)
   br label %_ZNSolsEPFRSoS_E.exit771.us
 
 _ZNSolsEPFRSoS_E.exit771.us:                      ; preds = %_ZNSolsEPFRSoS_E.exit771.us, %.lr.ph1748.split.us
@@ -1386,7 +1385,7 @@ _ZNSolsEPFRSoS_E.exit771.us:                      ; preds = %_ZNSolsEPFRSoS_E.ex
   call void @llvm.experimental.noalias.scope.decl(metadata !127)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %43) #26
   %455 = add nuw i64 %.05731745.us, 1
-  %exitcond.not = icmp eq i64 %455, %umax
+  %exitcond.not = icmp eq i64 %455, %454
   br i1 %exitcond.not, label %_ZNSolsEPFRSoS_E.exit, label %_ZNSolsEPFRSoS_E.exit771.us, !llvm.loop !130
 
 _ZNSolsEPFRSoS_E.exit:                            ; preds = %_ZNSolsEPFRSoS_E.exit771.us, %_ZNSolsEPFRSoS_E.exit771, %_ZNSolsEPFRSoS_E.exit771.preheader
@@ -2139,7 +2138,6 @@ _ZNSolsEPFRSoS_E.exit836.preheader:               ; preds = %.noexc1287
   %770 = ptrtoint ptr %765 to i64
   %771 = sub i64 %769, %770
   %772 = sdiv exact i64 %771, 40
-  %umax1865 = call i64 @llvm.umax.i64(i64 %772, i64 1)
   br label %773
 
 773:                                              ; preds = %773, %.lr.ph1792.split.us
@@ -2148,7 +2146,7 @@ _ZNSolsEPFRSoS_E.exit836.preheader:               ; preds = %.noexc1287
   call void @llvm.experimental.noalias.scope.decl(metadata !167)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %52) #26
   %774 = add nuw i64 %.05761790.us, 1
-  %exitcond1866.not = icmp eq i64 %774, %umax1865
+  %exitcond1866.not = icmp eq i64 %774, %772
   br i1 %exitcond1866.not, label %_ZNSolsEPFRSoS_E.exit836, label %773, !llvm.loop !170
 
 _ZNSolsEPFRSoS_E.exit836.loopexit:                ; preds = %._crit_edge1789

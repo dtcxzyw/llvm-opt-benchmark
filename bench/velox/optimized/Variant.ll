@@ -7125,7 +7125,6 @@ _ZN8facebook5velox7variant19verifyArrayElementsERKSt6vectorIS1_SaIS1_EE.exit.thr
 
 for.body.preheader.i:                             ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %.pre12, 4
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i
@@ -7142,11 +7141,11 @@ if.then5.i:                                       ; preds = %for.body.i
 
 for.inc.i:                                        ; preds = %for.body.i
   %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %umax.i
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %sub.ptr.div.i.i
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !101
 
 for.end.i:                                        ; preds = %for.inc.i, %if.then5.i
-  %i.027.in.i = phi i64 [ %indvars.iv.i, %if.then5.i ], [ %umax.i, %for.inc.i ]
+  %i.027.in.i = phi i64 [ %indvars.iv.i, %if.then5.i ], [ %sub.ptr.div.i.i, %for.inc.i ]
   %elementTypeKind.0.i = phi i8 [ %3, %if.then5.i ], [ 33, %for.inc.i ]
   %conv1032.i = and i64 %i.027.in.i, 4294967295
   %cmp1233.i = icmp ugt i64 %sub.ptr.div.i.i, %conv1032.i
@@ -8688,7 +8687,6 @@ for.body.preheader:                               ; preds = %entry
   %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
@@ -8705,11 +8703,11 @@ if.then5:                                         ; preds = %for.body
 
 for.inc:                                          ; preds = %for.body
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %sub.ptr.div.i
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !101
 
 for.end:                                          ; preds = %for.inc, %if.then5
-  %i.027.in = phi i64 [ %indvars.iv, %if.then5 ], [ %umax, %for.inc ]
+  %i.027.in = phi i64 [ %indvars.iv, %if.then5 ], [ %sub.ptr.div.i, %for.inc ]
   %elementTypeKind.0 = phi i8 [ %3, %if.then5 ], [ 33, %for.inc ]
   %conv1032 = and i64 %i.027.in, 4294967295
   %cmp1233 = icmp ugt i64 %sub.ptr.div.i, %conv1032

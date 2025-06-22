@@ -2415,7 +2415,6 @@ _ZNSt6vectorIN2cv11xfeatures2d17ABWLParamsFloatThESaIS2_EE6resizeEm.exit.i: ; pr
   %146 = ptrtoint ptr %144 to i64
   %147 = sub i64 %145, %146
   %148 = sdiv exact i64 %147, 24
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %148, i64 1)
   br label %149
 
 149:                                              ; preds = %149, %.lr.ph.i
@@ -2472,7 +2471,7 @@ _ZNSt6vectorIN2cv11xfeatures2d17ABWLParamsFloatThESaIS2_EE6resizeEm.exit.i: ; pr
   %195 = getelementptr inbounds nuw i8, ptr %161, i64 16
   store i32 %194, ptr %195, align 4, !tbaa !151
   %196 = add nuw i64 %.090.i, 1
-  %exitcond.not.i = icmp eq i64 %196, %umax.i
+  %exitcond.not.i = icmp eq i64 %196, %148
   br i1 %exitcond.not.i, label %_ZN2cv11xfeatures2dL11rectifyABWLINS0_17ABWLParamsFloatThEEEvRKSt6vectorIT_SaIS4_EERS6_RKNS_8KeyPointEfRKNS_5Size_IiEE.exit, label %149, !llvm.loop !152
 
 _ZN2cv11xfeatures2dL11rectifyABWLINS0_17ABWLParamsFloatThEEEvRKSt6vectorIT_SaIS4_EERS6_RKNS_8KeyPointEfRKNS_5Size_IiEE.exit: ; preds = %149, %142
@@ -3775,7 +3774,6 @@ _ZNSt6vectorIN2cv11xfeatures2d10ABWLParamsESaIS2_EE6resizeEm.exit.i: ; preds = %
   %146 = ptrtoint ptr %144 to i64
   %147 = sub i64 %145, %146
   %148 = sdiv exact i64 %147, 24
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %148, i64 1)
   br label %149
 
 149:                                              ; preds = %149, %.lr.ph.i
@@ -3832,7 +3830,7 @@ _ZNSt6vectorIN2cv11xfeatures2d10ABWLParamsESaIS2_EE6resizeEm.exit.i: ; preds = %
   %195 = getelementptr inbounds nuw i8, ptr %161, i64 16
   store i32 %194, ptr %195, align 4, !tbaa !186
   %196 = add nuw i64 %.090.i, 1
-  %exitcond.not.i = icmp eq i64 %196, %umax.i
+  %exitcond.not.i = icmp eq i64 %196, %148
   br i1 %exitcond.not.i, label %_ZN2cv11xfeatures2dL11rectifyABWLINS0_10ABWLParamsEEEvRKSt6vectorIT_SaIS4_EERS6_RKNS_8KeyPointEfRKNS_5Size_IiEE.exit, label %149, !llvm.loop !187
 
 _ZN2cv11xfeatures2dL11rectifyABWLINS0_10ABWLParamsEEEvRKSt6vectorIT_SaIS4_EERS6_RKNS_8KeyPointEfRKNS_5Size_IiEE.exit: ; preds = %149, %142

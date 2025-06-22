@@ -179,7 +179,6 @@ _ZN3gmx12_GLOBAL__N_124calcTargetUpdateIntervalERKNS_9AwhParamsERKNS_13AwhBiasPa
 
 .lr.ph.preheader.i:                               ; preds = %_ZN3gmx12_GLOBAL__N_124calcTargetUpdateIntervalERKNS_9AwhParamsERKNS_13AwhBiasParamsE.exit
   %45 = sdiv exact i64 %44, 48
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %45, i64 1)
   br label %.lr.ph.i
 
 ._crit_edge.i.loopexit:                           ; preds = %89
@@ -305,7 +304,7 @@ _ZNK3gmx9DimParams12fepDimParamsEv.exit.i:        ; preds = %81
   %storemerge.i = phi i32 [ %88, %_ZNK3gmx9DimParams12fepDimParamsEv.exit.i ], [ %80, %77 ]
   %.sroa.speculated27.i = tail call i32 @llvm.smax.i32(i32 %.03946.i, i32 %storemerge.i)
   %90 = add nuw i64 %.047.i, 1
-  %exitcond.not.i = icmp eq i64 %90, %umax.i
+  %exitcond.not.i = icmp eq i64 %90, %45
   br i1 %exitcond.not.i, label %._crit_edge.i.loopexit, label %.lr.ph.i, !llvm.loop !58
 
 91:                                               ; preds = %._crit_edge.i
@@ -378,26 +377,25 @@ _ZN3gmx12_GLOBAL__N_118getNumSharedUpdateERKNS_13AwhBiasParamsEi.exit: ; preds =
 
 .lr.ph.preheader.i54:                             ; preds = %_ZN3gmx12_GLOBAL__N_118getNumSharedUpdateERKNS_13AwhBiasParamsEi.exit
   %131 = sdiv exact i64 %44, 48
-  %umax.i55 = tail call i64 @llvm.umax.i64(i64 %131, i64 1)
-  br label %.lr.ph.i56
+  br label %.lr.ph.i55
 
-._crit_edge.i59:                                  ; preds = %144
-  %132 = fcmp ogt double %.sroa.speculated.i57, 0.000000e+00
+._crit_edge.i58:                                  ; preds = %144
+  %132 = fcmp ogt double %.sroa.speculated.i56, 0.000000e+00
   br i1 %132, label %_ZN3gmx12_GLOBAL__N_131getInitialHistogramSizeEstimateERKNS_13AwhBiasParamsENS_8ArrayRefIKNS_8GridAxisEEEdd.exit, label %.noexc18.i
 
-.lr.ph.i56:                                       ; preds = %144, %.lr.ph.preheader.i54
+.lr.ph.i55:                                       ; preds = %144, %.lr.ph.preheader.i54
   %.01635.i = phi i64 [ %150, %144 ], [ 0, %.lr.ph.preheader.i54 ]
-  %.034.i = phi double [ %.sroa.speculated.i57, %144 ], [ 0.000000e+00, %.lr.ph.preheader.i54 ]
+  %.034.i = phi double [ %.sroa.speculated.i56, %144 ], [ 0.000000e+00, %.lr.ph.preheader.i54 ]
   %133 = getelementptr inbounds %"class.gmx::AwhDimParams", ptr %130, i64 %.01635.i, i32 6
   %134 = load double, ptr %133, align 8, !tbaa !75
   %135 = fcmp ogt double %134, 0.000000e+00
   br i1 %135, label %136, label %.noexc.i
 
-.noexc.i:                                         ; preds = %.lr.ph.i56
+.noexc.i:                                         ; preds = %.lr.ph.i55
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx12_GLOBAL__N_131getInitialHistogramSizeEstimateERKNS_13AwhBiasParamsENS_8ArrayRefIKNS_8GridAxisEEEddENK3$_0clEv", ptr noundef nonnull @.str.1, i32 noundef 198) #19
   unreachable
 
-136:                                              ; preds = %.lr.ph.i56
+136:                                              ; preds = %.lr.ph.i55
   %137 = getelementptr inbounds %"class.gmx::GridAxis", ptr %39, i64 %.01635.i
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 40
   %139 = load i8, ptr %138, align 8, !tbaa !78, !range !40, !noundef !41
@@ -415,19 +413,19 @@ _ZN3gmx12_GLOBAL__N_118getNumSharedUpdateERKNS_13AwhBiasParamsEi.exit: ; preds =
   %147 = fmul double %134, 2.000000e+00
   %148 = fdiv double %146, %147
   %149 = fcmp olt double %.034.i, %148
-  %.sroa.speculated.i57 = select i1 %149, double %148, double %.034.i
+  %.sroa.speculated.i56 = select i1 %149, double %148, double %.034.i
   %150 = add nuw i64 %.01635.i, 1
-  %exitcond.not.i58 = icmp eq i64 %150, %umax.i55
-  br i1 %exitcond.not.i58, label %._crit_edge.i59, label %.lr.ph.i56, !llvm.loop !79
+  %exitcond.not.i57 = icmp eq i64 %150, %131
+  br i1 %exitcond.not.i57, label %._crit_edge.i58, label %.lr.ph.i55, !llvm.loop !79
 
-.noexc18.i:                                       ; preds = %._crit_edge.i59, %_ZN3gmx12_GLOBAL__N_118getNumSharedUpdateERKNS_13AwhBiasParamsEi.exit
+.noexc18.i:                                       ; preds = %._crit_edge.i58, %_ZN3gmx12_GLOBAL__N_118getNumSharedUpdateERKNS_13AwhBiasParamsEi.exit
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx12_GLOBAL__N_131getInitialHistogramSizeEstimateERKNS_13AwhBiasParamsENS_8ArrayRefIKNS_8GridAxisEEEddENK3$_0clEv", ptr noundef nonnull @.str.1, i32 noundef 204) #19
   unreachable
 
-_ZN3gmx12_GLOBAL__N_131getInitialHistogramSizeEstimateERKNS_13AwhBiasParamsENS_8ArrayRefIKNS_8GridAxisEEEdd.exit: ; preds = %._crit_edge.i59
+_ZN3gmx12_GLOBAL__N_131getInitialHistogramSizeEstimateERKNS_13AwhBiasParamsENS_8ArrayRefIKNS_8GridAxisEEEdd.exit: ; preds = %._crit_edge.i58
   %151 = fmul double %126, %126
   %152 = fmul double %129, %151
-  %153 = fdiv double %.sroa.speculated.i57, %152
+  %153 = fdiv double %.sroa.speculated.i56, %152
   store double %153, ptr %127, align 8, !tbaa !80
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %155 = getelementptr inbounds nuw i8, ptr %1, i64 44
@@ -452,7 +450,7 @@ _ZN3gmx12_GLOBAL__N_131getInitialHistogramSizeEstimateERKNS_13AwhBiasParamsENS_8
 
 166:                                              ; preds = %164
   invoke void @_ZN3gmx16GromacsExceptionC2ERKNS_20ExceptionInitializerE(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(56) %13)
-          to label %167 unwind label %.thread72
+          to label %167 unwind label %.thread71
 
 167:                                              ; preds = %166
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %12, align 8, !tbaa !45
@@ -462,8 +460,8 @@ _ZN3gmx12_GLOBAL__N_131getInitialHistogramSizeEstimateERKNS_13AwhBiasParamsENS_8
   store ptr @__PRETTY_FUNCTION__._ZN3gmx10BiasParamsC2ERKNS_9AwhParamsERKNS_13AwhBiasParamsENS_8ArrayRefIKNS_9DimParamsEEEddNS0_18DisableUpdateSkipsEiNS7_IKNS_8GridAxisEEEi, ptr %168, align 8, !tbaa !85
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr @.str.1, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !85
-  %.sroa.561.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store i32 267, ptr %.sroa.561.0..sroa_idx, align 8, !tbaa !53
+  %.sroa.560.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 24
+  store i32 267, ptr %.sroa.560.0..sroa_idx, align 8, !tbaa !53
   invoke void @_ZN3gmxlsINS_17InvalidInputErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3stdE12is_base_of_vINS_16GromacsExceptionET_EES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::InvalidInputError") align 8 %165, ptr noundef nonnull %12, ptr noundef nonnull align 8 dereferenceable(32) %14)
           to label %169 unwind label %172
 
@@ -476,7 +474,7 @@ _ZN3gmx12_GLOBAL__N_131getInitialHistogramSizeEstimateERKNS_13AwhBiasParamsENS_8
           cleanup
   br label %.sink.split
 
-.thread72:                                        ; preds = %166
+.thread71:                                        ; preds = %166
   %171 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %13) #20
@@ -493,13 +491,13 @@ _ZN3gmx12_GLOBAL__N_131getInitialHistogramSizeEstimateERKNS_13AwhBiasParamsENS_8
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %13) #20
   br i1 %.042, label %174, label %201
 
-.sink.split:                                      ; preds = %.thread, %.thread72
-  %.pn.pn71.ph = phi { ptr, i32 } [ %171, %.thread72 ], [ %170, %.thread ]
+.sink.split:                                      ; preds = %.thread, %.thread71
+  %.pn.pn70.ph = phi { ptr, i32 } [ %171, %.thread71 ], [ %170, %.thread ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %13) #20
   br label %174
 
 174:                                              ; preds = %.sink.split, %172
-  %.pn.pn71 = phi { ptr, i32 } [ %173, %172 ], [ %.pn.pn71.ph, %.sink.split ]
+  %.pn.pn70 = phi { ptr, i32 } [ %173, %172 ], [ %.pn.pn70.ph, %.sink.split ]
   call void @__cxa_free_exception(ptr %165) #20
   br label %201
 
@@ -548,8 +546,8 @@ _ZN3gmx12_GLOBAL__N_131getInitialHistogramSizeEstimateERKNS_13AwhBiasParamsENS_8
   br i1 %exitcond.not, label %._crit_edge, label %184, !llvm.loop !97
 
 201:                                              ; preds = %172, %174
-  %.pn.pn70 = phi { ptr, i32 } [ %173, %172 ], [ %.pn.pn71, %174 ]
-  resume { ptr, i32 } %.pn.pn70
+  %.pn.pn69 = phi { ptr, i32 } [ %173, %172 ], [ %.pn.pn70, %174 ]
+  resume { ptr, i32 } %.pn.pn69
 
 202:                                              ; preds = %169
   unreachable
@@ -916,9 +914,6 @@ declare void @llvm.assume(i1 noundef) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #17
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #17
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #18

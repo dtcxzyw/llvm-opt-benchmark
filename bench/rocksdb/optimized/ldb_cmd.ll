@@ -71869,7 +71869,6 @@ _ZN7rocksdb2DB8MultiGetERKNS_11ReadOptionsEPNS_18ColumnFamilyHandleEmPKNS_5Slice
   %274 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %275 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %276 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %umax = call i64 @llvm.umax.i64(i64 %210, i64 1)
   br label %.outer
 
 .outer:                                           ; preds = %_ZN7rocksdb2DB8MultiGetERKNS_11ReadOptionsEPNS_18ColumnFamilyHandleEmPKNS_5SliceEPNS_13PinnableSliceEPNS_6StatusEb.exit.thread, %.lr.ph217
@@ -72367,13 +72366,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit116: ; preds = %_Z
 
 _ZN7rocksdb2DB8MultiGetERKNS_11ReadOptionsEPNS_18ColumnFamilyHandleEmPKNS_5SliceEPNS_13PinnableSliceEPNS_6StatusEb.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit93, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit103
   %450 = add nuw i64 %.0215, 1
-  %exitcond.not = icmp eq i64 %450, %umax
+  %exitcond.not = icmp eq i64 %450, %210
   br i1 %exitcond.not, label %_ZN7rocksdb2DB8MultiGetERKNS_11ReadOptionsEPNS_18ColumnFamilyHandleEmPKNS_5SliceEPNS_13PinnableSliceEPNS_6StatusEb.exit._crit_edge, label %310, !llvm.loop !1569
 
 _ZN7rocksdb2DB8MultiGetERKNS_11ReadOptionsEPNS_18ColumnFamilyHandleEmPKNS_5SliceEPNS_13PinnableSliceEPNS_6StatusEb.exit.thread: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i111, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i112
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20) #35
   %451 = add nuw i64 %.0215, 1
-  %exitcond.not233 = icmp eq i64 %451, %umax
+  %exitcond.not233 = icmp eq i64 %451, %210
   br i1 %exitcond.not233, label %.noexc.i118, label %.outer, !llvm.loop !1569
 
 .noexc.i118:                                      ; preds = %_ZN7rocksdb2DB8MultiGetERKNS_11ReadOptionsEPNS_18ColumnFamilyHandleEmPKNS_5SliceEPNS_13PinnableSliceEPNS_6StatusEb.exit.thread, %_ZN7rocksdb2DB8MultiGetERKNS_11ReadOptionsEPNS_18ColumnFamilyHandleEmPKNS_5SliceEPNS_13PinnableSliceEPNS_6StatusEb.exit._crit_edge
@@ -77279,7 +77278,6 @@ _ZNSt12_Vector_baseIN7rocksdb6StatusESaIS1_EEC2EmRKS2_.exit.i: ; preds = %_ZNSt6
   %259 = getelementptr inbounds nuw i8, ptr %16, i64 112
   %260 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %261 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %umax = call i64 @llvm.umax.i64(i64 %207, i64 1)
   br label %295
 
 262:                                              ; preds = %_ZNSt16allocator_traitsISaIN7rocksdb19PinnableWideColumnsEEE8allocateERS2_m.exit.i.i.i.i, %209
@@ -77696,7 +77694,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i10
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit109: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i108, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i107
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #35
   %409 = add nuw i64 %.0206, 1
-  %exitcond.not = icmp eq i64 %409, %umax
+  %exitcond.not = icmp eq i64 %409, %207
   br i1 %exitcond.not, label %._crit_edge208, label %295, !llvm.loop !1653
 
 410:                                              ; preds = %400, %383

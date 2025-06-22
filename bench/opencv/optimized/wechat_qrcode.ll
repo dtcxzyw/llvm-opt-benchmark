@@ -1989,7 +1989,6 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit:    ; preds = %168, %_ZNSt6vectorI
   %199 = ptrtoint ptr %197 to i64
   %200 = sub i64 %198, %199
   %201 = ashr exact i64 %200, 3
-  %umax = call i64 @llvm.umax.i64(i64 %201, i64 1)
   br label %.lr.ph331
 
 ._crit_edge340:                                   ; preds = %._crit_edge332
@@ -1998,7 +1997,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit:    ; preds = %168, %_ZNSt6vectorI
 
 203:                                              ; preds = %212
   %204 = add nuw i64 %.0330, 1
-  %exitcond382.not = icmp eq i64 %204, %umax
+  %exitcond382.not = icmp eq i64 %204, %201
   br i1 %exitcond382.not, label %._crit_edge332.thread, label %.lr.ph331, !llvm.loop !123
 
 .lr.ph331:                                        ; preds = %.lr.ph331.preheader, %203

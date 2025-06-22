@@ -2658,7 +2658,6 @@ define hidden void @_ZN4cvc58internal22TConvSeqProofGenerator22mkTrustRewriteSeq
   %26 = ptrtoint ptr %24 to i64
   %27 = sub i64 %25, %26
   %28 = ashr exact i64 %27, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %28, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %39
@@ -2682,7 +2681,7 @@ define hidden void @_ZN4cvc58internal22TConvSeqProofGenerator22mkTrustRewriteSeq
 
 39:                                               ; preds = %.lr.ph, %36
   %.133 = phi ptr [ %.03250, %.lr.ph ], [ %38, %36 ]
-  %exitcond.not = icmp eq i64 %30, %umax
+  %exitcond.not = icmp eq i64 %30, %28
   br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !111
 
 .preheader:                                       ; preds = %34, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit42
@@ -2807,7 +2806,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %77, %81, %87
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit42: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, %93, %99
-  %exitcond54.not = icmp eq i64 %58, %umax
+  %exitcond54.not = icmp eq i64 %58, %28
   br i1 %exitcond54.not, label %.critedge.loopexit, label %.preheader, !llvm.loop !112
 
 103:                                              ; preds = %75

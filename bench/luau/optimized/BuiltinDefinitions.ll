@@ -19498,7 +19498,6 @@ select.unfold137:                                 ; preds = %37, %44
 .lr.ph:                                           ; preds = %68
   %79 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %80 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %umax = call i64 @llvm.umax.i64(i64 %78, i64 1)
   br label %81
 
 81:                                               ; preds = %.lr.ph, %115
@@ -19556,7 +19555,7 @@ select.unfold137:                                 ; preds = %37, %44
 
 115:                                              ; preds = %102
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #31
-  %exitcond.not = icmp eq i64 %82, %umax
+  %exitcond.not = icmp eq i64 %82, %78
   br i1 %exitcond.not, label %.critedge, label %81, !llvm.loop !333
 
 116:                                              ; preds = %102

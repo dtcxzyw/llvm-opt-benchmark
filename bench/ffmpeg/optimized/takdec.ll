@@ -3060,8 +3060,7 @@ bits_read_signed_nz_le.exit237:                   ; preds = %204, %207, %bits_pr
   br i1 %.0.i216358, label %.loopexit251, label %.preheader250.preheader
 
 .preheader250.preheader:                          ; preds = %231
-  %umax287 = tail call i32 @llvm.umax.i32(i32 %232, i32 1)
-  %wide.trip.count288 = zext nneg i32 %umax287 to i64
+  %wide.trip.count288 = zext nneg i32 %232 to i64
   br label %.preheader250
 
 .preheader250:                                    ; preds = %.preheader250.preheader, %.preheader250

@@ -162,7 +162,6 @@ define void @_ZN6open3d8geometry7LineSet35CreateFromPointCloudCorrespondencesERK
   br i1 %.not, label %.preheader39, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader40
-  %umax = tail call i64 @llvm.umax.i64(i64 %23, i64 1)
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 64
   br label %.lr.ph
 
@@ -171,7 +170,6 @@ define void @_ZN6open3d8geometry7LineSet35CreateFromPointCloudCorrespondencesERK
   br i1 %.not47, label %._crit_edge, label %.lr.ph43.preheader
 
 .lr.ph43.preheader:                               ; preds = %.preheader39
-  %umax49 = tail call i64 @llvm.umax.i64(i64 %31, i64 1)
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 64
   br label %.lr.ph43
 
@@ -193,7 +191,7 @@ define void @_ZN6open3d8geometry7LineSet35CreateFromPointCloudCorrespondencesERK
   %44 = load double, ptr %43, align 8, !tbaa !36
   store double %44, ptr %42, align 8, !tbaa !36
   %45 = add nuw i64 %.03141, 1
-  %exitcond.not = icmp eq i64 %45, %umax
+  %exitcond.not = icmp eq i64 %45, %23
   br i1 %exitcond.not, label %.preheader39, label %.lr.ph, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %.lr.ph43, %.preheader39
@@ -214,7 +212,6 @@ define void @_ZN6open3d8geometry7LineSet35CreateFromPointCloudCorrespondencesERK
 
 .lr.ph45:                                         ; preds = %.preheader
   %54 = trunc i64 %23 to i32
-  %umax51 = tail call i64 @llvm.umax.i64(i64 %52, i64 1)
   br label %67
 
 .lr.ph43:                                         ; preds = %.lr.ph43.preheader, %.lr.ph43
@@ -231,7 +228,7 @@ define void @_ZN6open3d8geometry7LineSet35CreateFromPointCloudCorrespondencesERK
   %63 = load double, ptr %62, align 8, !tbaa !36
   store double %63, ptr %61, align 8, !tbaa !36
   %64 = add nuw i64 %.03042, 1
-  %exitcond50.not = icmp eq i64 %64, %umax49
+  %exitcond50.not = icmp eq i64 %64, %31
   br i1 %exitcond50.not, label %._crit_edge, label %.lr.ph43, !llvm.loop !44
 
 65:                                               ; preds = %._crit_edge
@@ -255,7 +252,7 @@ define void @_ZN6open3d8geometry7LineSet35CreateFromPointCloudCorrespondencesERK
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.5.0.insert.shift, %.sroa.0.0.insert.ext
   store i64 %.sroa.0.0.insert.insert, ptr %75, align 4, !tbaa !26
   %76 = add nuw i64 %.044, 1
-  %exitcond52.not = icmp eq i64 %76, %umax51
+  %exitcond52.not = icmp eq i64 %76, %52
   br i1 %exitcond52.not, label %._crit_edge46, label %67, !llvm.loop !51
 
 77:                                               ; preds = %65, %35

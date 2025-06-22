@@ -1836,7 +1836,6 @@ define hidden void @_ZN4cvc58internal3smt18TimeoutCoreManager20initializeAsserti
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %44 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %45 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %umax = tail call i64 @llvm.umax.i64(i64 %32, i64 1)
   br label %48
 
 46:                                               ; preds = %365, %4
@@ -2528,7 +2527,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit166: ; preds = %_ZN4cvc58internal1
 
 361:                                              ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit166, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit166
   %362 = add nuw i64 %.0346, 1
-  %exitcond.not = icmp eq i64 %362, %umax
+  %exitcond.not = icmp eq i64 %362, %32
   br i1 %exitcond.not, label %._crit_edge, label %48, !llvm.loop !96
 
 363:                                              ; preds = %102, %101
@@ -5981,7 +5980,6 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE6resizeEm.exit: ; preds
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %92 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %umax = tail call i64 @llvm.umax.i64(i64 %31, i64 1)
   br label %93
 
 93:                                               ; preds = %.lr.ph, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit159
@@ -6467,7 +6465,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit156: ; preds = %_ZNSt6vectorImSaIm
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit159: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit156, %300, %306
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22
   %310 = add nuw i64 %.034258, 1
-  %exitcond.not = icmp eq i64 %310, %umax
+  %exitcond.not = icmp eq i64 %310, %31
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %93, !llvm.loop !405
 
 311:                                              ; preds = %.loopexit, %.loopexit.split-lp, %224, %223

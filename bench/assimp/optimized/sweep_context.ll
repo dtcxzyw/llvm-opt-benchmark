@@ -137,7 +137,6 @@ define hidden void @_ZN3p2t12SweepContext9InitEdgesERKSt6vectorIPNS_5PointESaIS3
   %10 = add nsw i64 %9, -1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %umax = tail call i64 @llvm.umax.i64(i64 %9, i64 1)
   br label %13
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIPN3p2t4EdgeESaIS2_EE9push_backEOS2_.exit, %2
@@ -219,7 +218,7 @@ _ZNSt6vectorIPN3p2t4EdgeESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__norm
   br label %_ZNSt6vectorIPN3p2t4EdgeESaIS2_EE9push_backEOS2_.exit
 
 _ZNSt6vectorIPN3p2t4EdgeESaIS2_EE9push_backEOS2_.exit: ; preds = %26, %_ZNSt6vectorIPN3p2t4EdgeESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
-  %exitcond.not = icmp eq i64 %15, %umax
+  %exitcond.not = icmp eq i64 %15, %9
   br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !5
 
 49:                                               ; preds = %13

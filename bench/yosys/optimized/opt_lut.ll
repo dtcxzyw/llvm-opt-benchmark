@@ -6607,11 +6607,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit733:              ; preds = %1725
   %1739 = sub i64 %1737, %1738
   %1740 = ashr exact i64 %1739, 4
   %.not7536 = icmp eq ptr %.sroa.16.1.lcssa, %.sroa.04142.1.lcssa
-  br i1 %.not7536, label %.lr.ph7481, label %.lr.ph7468.preheader
-
-.lr.ph7468.preheader:                             ; preds = %._crit_edge7462
-  %umax = call i64 @llvm.umax.i64(i64 %1740, i64 1)
-  br label %.lr.ph7468
+  br i1 %.not7536, label %.lr.ph7481, label %.lr.ph7468
 
 1741:                                             ; preds = %_ZN5Yosys7hashlib4poolIPNS_5RTLIL4CellENS0_8hash_opsIS4_EEE5eraseENS7_8iteratorE.exit.i
   %1742 = landingpad { ptr, i32 }
@@ -7138,8 +7134,8 @@ _ZNSt6vectorIN5Yosys5RTLIL6SigBitESaIS2_EE9push_backEOS2_.exit: ; preds = %1925,
   %umax8211 = call i64 @llvm.umax.i64(i64 %1740, i64 1)
   br label %1966
 
-.lr.ph7468:                                       ; preds = %.lr.ph7468.preheader, %_ZNSt6vectorIbSaIbEE9push_backEb.exit
-  %.04327466 = phi i64 [ %1961, %_ZNSt6vectorIbSaIbEE9push_backEb.exit ], [ 0, %.lr.ph7468.preheader ]
+.lr.ph7468:                                       ; preds = %._crit_edge7462, %_ZNSt6vectorIbSaIbEE9push_backEb.exit
+  %.04327466 = phi i64 [ %1961, %_ZNSt6vectorIbSaIbEE9push_backEb.exit ], [ 0, %._crit_edge7462 ]
   %1949 = load ptr, ptr %1639, align 8, !tbaa !356
   %1950 = load ptr, ptr %1641, align 8, !tbaa !360
   %.not.i763 = icmp eq ptr %1949, %1950
@@ -7172,7 +7168,7 @@ _ZNSt13_Bit_iteratorppEi.exit.i:                  ; preds = %1954, %1951
 
 _ZNSt6vectorIbSaIbEE9push_backEb.exit:            ; preds = %_ZNSt13_Bit_iteratorppEi.exit.i, %1960
   %1961 = add nuw i64 %.04327466, 1
-  %exitcond8210.not = icmp eq i64 %1961, %umax
+  %exitcond8210.not = icmp eq i64 %1961, %1740
   br i1 %exitcond8210.not, label %.preheader4581, label %.lr.ph7468, !llvm.loop !368
 
 1962:                                             ; preds = %1960
@@ -7191,7 +7187,6 @@ _ZNSt6vectorIbSaIbEE9push_backEb.exit:            ; preds = %_ZNSt13_Bit_iterato
 
 .lr.ph7486:                                       ; preds = %.preheader4580
   %1965 = load ptr, ptr %49, align 8, !tbaa !356
-  %umax8216 = call i64 @llvm.umax.i64(i64 %1740, i64 1)
   br label %2494
 
 1966:                                             ; preds = %.lr.ph7481, %_ZN5Yosys7hashlib4dictINS_5RTLIL6SigBitEbNS0_8hash_opsIS3_EEED2Ev.exit790
@@ -8487,7 +8482,7 @@ _ZN5Yosys7hashlib4dictINS_5RTLIL6SigBitEbNS0_8hash_opsIS3_EEED2Ev.exit826: ; pre
   %2503 = trunc i64 %.04387484 to i32
   %spec.select574 = select i1 %.not4342, i32 %.04367485, i32 %2503
   %2504 = add nuw i64 %.04387484, 1
-  %exitcond8217.not = icmp eq i64 %2504, %umax8216
+  %exitcond8217.not = icmp eq i64 %2504, %1740
   br i1 %exitcond8217.not, label %._crit_edge7487, label %2494, !llvm.loop !383
 
 2505:                                             ; preds = %._crit_edge7487

@@ -598,7 +598,6 @@ define hidden void @_ZN5uu_od11output_info10OutputInfo19calculate_alignment17hb7
   %.01731 = phi i64 [ %35, %33 ], [ %22, %.lr.ph.preheader ]
   %.01830 = phi i64 [ %34, %33 ], [ %.zext, %.lr.ph.preheader ]
   %32 = udiv i64 %.032, %.01830
-  %umax = tail call i64 @llvm.umax.i64(i64 %.01830, i64 1)
   br label %36
 
 33:                                               ; preds = %39
@@ -621,7 +620,7 @@ define hidden void @_ZN5uu_od11output_info10OutputInfo19calculate_alignment17hb7
   %43 = add i64 %42, %32
   store i64 %43, ptr %41, align 8
   %44 = sub i64 %.127, %32
-  %exitcond.not = icmp eq i64 %40, %umax
+  %exitcond.not = icmp eq i64 %40, %.01830
   br i1 %exitcond.not, label %33, label %36
 
 45:                                               ; preds = %36

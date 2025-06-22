@@ -4388,9 +4388,8 @@ _ZN6vectorI3mpzLb0EjE7reserveEj.exit:             ; preds = %.lr.ph.i.i44, %_ZNK
   %.062 = phi ptr [ %2, %62 ], [ %4, %._crit_edge ]
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %umax = tail call i32 @llvm.umax.i32(i32 %.063, i32 1)
   %66 = zext i32 %.065 to i64
-  %wide.trip.count77 = zext i32 %umax to i64
+  %wide.trip.count77 = zext i32 %.063 to i64
   br label %90
 
 67:                                               ; preds = %.loopexit

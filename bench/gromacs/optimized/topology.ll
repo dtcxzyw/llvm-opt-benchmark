@@ -3559,15 +3559,14 @@ _ZL16compareFfparamABP8_IO_FILERK14gmx_ffparams_tff.exit: ; preds = %_ZNSt7__cxx
 
 .lr.ph.preheader.i:                               ; preds = %_ZL16compareFfparamABP8_IO_FILERK14gmx_ffparams_tff.exit
   %83 = udiv exact i64 %80, 2408
-  %84 = call i64 @llvm.umax.i64(i64 %83, i64 1)
   br label %.lr.ph.i9
 
 .lr.ph.i9:                                        ; preds = %.lr.ph.i9, %.lr.ph.preheader.i
-  %.06.i = phi i64 [ %86, %.lr.ph.i9 ], [ 0, %.lr.ph.preheader.i ]
-  %85 = getelementptr inbounds nuw %struct.gmx_moltype_t, ptr %75, i64 %.06.i, i32 1
-  call void @_Z12compareAtomsP8_IO_FILEPK7t_atomsS3_ff(ptr noundef %0, ptr noundef nonnull %85, ptr noundef null, float noundef %2, float noundef %3)
-  %86 = add nuw nsw i64 %.06.i, 1
-  %exitcond.not.i = icmp eq i64 %86, %84
+  %.06.i = phi i64 [ %85, %.lr.ph.i9 ], [ 0, %.lr.ph.preheader.i ]
+  %84 = getelementptr inbounds nuw %struct.gmx_moltype_t, ptr %75, i64 %.06.i, i32 1
+  call void @_Z12compareAtomsP8_IO_FILEPK7t_atomsS3_ff(ptr noundef %0, ptr noundef nonnull %84, ptr noundef null, float noundef %2, float noundef %3)
+  %85 = add nuw nsw i64 %.06.i, 1
+  %exitcond.not.i = icmp eq i64 %85, %83
   br i1 %exitcond.not.i, label %_ZL17compareMoletypeABP8_IO_FILEN3gmx8ArrayRefIK13gmx_moltype_tEEff.exit, label %.lr.ph.i9, !llvm.loop !193
 
 _ZL17compareMoletypeABP8_IO_FILEN3gmx8ArrayRefIK13gmx_moltype_tEEff.exit: ; preds = %.lr.ph.i9, %_ZL16compareFfparamABP8_IO_FILERK14gmx_ffparams_tff.exit

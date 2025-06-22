@@ -299,7 +299,6 @@ _ZNK8LightGBM4Tree7GetLeafEPKd.exit51:            ; preds = %_ZNK8LightGBM4Tree1
   %151 = getelementptr inbounds nuw i8, ptr %30, i64 552
   %152 = load ptr, ptr %151, align 8
   %153 = getelementptr inbounds nuw %"class.std::vector.101", ptr %152, i64 %136
-  %umax.i = call i64 @llvm.umax.i64(i64 %150, i64 1)
   br label %154
 
 154:                                              ; preds = %161, %.lr.ph.i
@@ -319,7 +318,7 @@ _ZNK8LightGBM4Tree7GetLeafEPKd.exit51:            ; preds = %_ZNK8LightGBM4Tree1
   %164 = load double, ptr %163, align 8, !tbaa !155
   %165 = call double @llvm.fmuladd.f64(double %164, double %159, double %.02135.i)
   %166 = add nuw i64 %.02734.i, 1
-  %exitcond.not.i = icmp eq i64 %166, %umax.i
+  %exitcond.not.i = icmp eq i64 %166, %150
   br i1 %exitcond.not.i, label %_ZNK8LightGBM4Tree7PredictEPKd.exit, label %154, !llvm.loop !163
 
 .thread30.i:                                      ; preds = %154
@@ -825,14 +824,14 @@ define void @_ZNK8LightGBM4GBDT15PredictRawByMapERKSt13unordered_mapIidSt4hashIi
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = load ptr, ptr %56, align 8, !tbaa !162
   %58 = load ptr, ptr %55, align 8, !tbaa !152
-  %.not.i = icmp eq ptr %57, %58
-  br i1 %.not.i, label %_ZNK8LightGBM4Tree12PredictByMapERKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE.exit, label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %47
   %59 = ptrtoint ptr %57 to i64
   %60 = ptrtoint ptr %58 to i64
   %61 = sub i64 %59, %60
   %62 = ashr exact i64 %61, 2
+  %.not.i = icmp eq ptr %57, %58
+  br i1 %.not.i, label %_ZNK8LightGBM4Tree12PredictByMapERKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE.exit, label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %47
   %63 = load i64, ptr %18, align 8, !tbaa !169
   %.not.not.i.i.i = icmp eq i64 %63, 0
   %64 = load i64, ptr %19, align 8
@@ -840,7 +839,6 @@ define void @_ZNK8LightGBM4GBDT15PredictRawByMapERKSt13unordered_mapIidSt4hashIi
   %66 = getelementptr inbounds nuw i8, ptr %36, i64 552
   %67 = load ptr, ptr %66, align 8
   %68 = getelementptr inbounds nuw %"class.std::vector.101", ptr %67, i64 %48
-  %umax70.i = call i64 @llvm.umax.i64(i64 %62, i64 1)
   br i1 %.not.not.i.i.i, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %.thread.us.i
@@ -872,7 +870,7 @@ define void @_ZNK8LightGBM4GBDT15PredictRawByMapERKSt13unordered_mapIidSt4hashIi
 .thread.us.i:                                     ; preds = %71, %76
   %.442.us.i = phi double [ %80, %76 ], [ %.02364.us.i, %71 ]
   %81 = add nuw i64 %.02763.us.i, 1
-  %exitcond71.not.i = icmp eq i64 %81, %umax70.i
+  %exitcond71.not.i = icmp eq i64 %81, %62
   br i1 %exitcond71.not.i, label %_ZNK8LightGBM4Tree12PredictByMapERKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE.exit, label %.lr.ph.split.us.i, !llvm.loop !178
 
 _ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE4findERS5_.exit.loopexit.us.i: ; preds = %72
@@ -938,7 +936,7 @@ _ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE4findERS5_.exit
 .thread.i:                                        ; preds = %.lr.ph.i.i.i.i.i, %107, %..loopexit_crit_edge21.i.i.i.i.i, %.lr.ph.split.i
   %.442.i = phi double [ %111, %107 ], [ %.02364.i, %.lr.ph.split.i ], [ %.02364.i, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.02364.i, %.lr.ph.i.i.i.i.i ]
   %112 = add nuw i64 %.02763.i, 1
-  %exitcond.not.i = icmp eq i64 %112, %umax70.i
+  %exitcond.not.i = icmp eq i64 %112, %62
   br i1 %exitcond.not.i, label %_ZNK8LightGBM4Tree12PredictByMapERKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE.exit, label %.lr.ph.split.i, !llvm.loop !178
 
 .thread55.i:                                      ; preds = %_ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE4findERS5_.exit.i, %_ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE4findERS5_.exit.loopexit.us.i
@@ -1648,9 +1646,6 @@ define internal void @_GLOBAL__sub_I_gbdt_prediction.cpp() #10 section ".text.st
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #11
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #11
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

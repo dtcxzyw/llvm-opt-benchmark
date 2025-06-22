@@ -2632,7 +2632,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @find_group_orlov(ptr nounde
   %39 = trunc i64 %38 to i32
   %40 = and i16 %3, -4096
   %41 = icmp eq i16 %40, 16384
-  br i1 %41, label %42, label %137
+  br i1 %41, label %42, label %136
 
 42:                                               ; preds = %5
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -2647,7 +2647,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @find_group_orlov(ptr nounde
   %50 = load volatile i64, ptr %49, align 8
   %51 = and i64 %50, 131072
   %52 = icmp eq i64 %51, 0
-  br i1 %52, label %137, label %53
+  br i1 %52, label %136, label %53
 
 53:                                               ; preds = %48, %42
   %54 = icmp eq ptr %4, null
@@ -2674,255 +2674,252 @@ define internal fastcc noundef range(i32 -1, 1) i32 @find_group_orlov(ptr nounde
 
 68:                                               ; preds = %66, %55
   %69 = phi i32 [ %65, %55 ], [ %67, %66 ]
-  %70 = call i32 @llvm.umax.i32(i32 %24, i32 1)
-  %71 = icmp sgt i32 %19, 1
-  br i1 %71, label %.outer.us, label %.outer
+  %70 = icmp sgt i32 %19, 1
+  br i1 %70, label %.outer.us, label %.outer
 
 .outer.us:                                        ; preds = %68, %.thread.split.us.us
   %.ph.us = phi i32 [ 0, %.thread.split.us.us ], [ -1, %68 ]
-  %.ph34.us = phi i32 [ %85, %.thread.split.us.us ], [ %16, %68 ]
-  %.ph35.us = phi i32 [ %74, %.thread.split.us.us ], [ 0, %68 ]
-  %.ph36.us = phi i32 [ %95, %.thread.split.us.us ], [ 0, %68 ]
+  %.ph34.us = phi i32 [ %84, %.thread.split.us.us ], [ %16, %68 ]
+  %.ph35.us = phi i32 [ %73, %.thread.split.us.us ], [ 0, %68 ]
+  %.ph36.us = phi i32 [ %94, %.thread.split.us.us ], [ 0, %68 ]
   br label %get_orlov_stats.exit.us.us
 
 get_orlov_stats.exit.us.us:                       ; preds = %get_orlov_stats.exit.thread.us.us, %.outer.us
-  %72 = phi i32 [ %93, %get_orlov_stats.exit.thread.us.us ], [ %.ph36.us, %.outer.us ]
-  %73 = add i32 %72, %69
-  %74 = urem i32 %73, %24
+  %71 = phi i32 [ %92, %get_orlov_stats.exit.thread.us.us ], [ %.ph36.us, %.outer.us ]
+  %72 = add i32 %71, %69
+  %73 = urem i32 %72, %24
   call void @__rcu_read_lock() #10
-  %75 = load ptr, ptr %9, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 1184
-  %77 = load volatile ptr, ptr %76, align 32
-  %78 = zext i32 %74 to i64
-  %79 = getelementptr ptr, ptr %77, i64 %78
-  %80 = load ptr, ptr %79, align 8
+  %74 = load ptr, ptr %9, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 1184
+  %76 = load volatile ptr, ptr %75, align 32
+  %77 = zext i32 %73 to i64
+  %78 = getelementptr ptr, ptr %76, i64 %77
+  %79 = load ptr, ptr %78, align 8
   call void @__rcu_read_unlock() #10
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
-  %82 = load volatile i32, ptr %81, align 4
-  %83 = load volatile i64, ptr %80, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %80, i64 12
-  %85 = load volatile i32, ptr %84, align 4
-  %86 = icmp eq i32 %82, 0
-  br i1 %86, label %get_orlov_stats.exit.thread.us.us, label %87
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
+  %81 = load volatile i32, ptr %80, align 4
+  %82 = load volatile i64, ptr %79, align 8
+  %83 = getelementptr inbounds nuw i8, ptr %79, i64 12
+  %84 = load volatile i32, ptr %83, align 4
+  %85 = icmp eq i32 %81, 0
+  br i1 %85, label %get_orlov_stats.exit.thread.us.us, label %86
 
-87:                                               ; preds = %get_orlov_stats.exit.us.us
-  %88 = icmp uge i32 %85, %.ph34.us
-  %89 = icmp ult i32 %82, %30
-  %90 = select i1 %88, i1 true, i1 %89
-  %91 = icmp ult i64 %83, %35
-  %92 = select i1 %90, i1 true, i1 %91
-  br i1 %92, label %get_orlov_stats.exit.thread.us.us, label %.thread.split.us.us
+86:                                               ; preds = %get_orlov_stats.exit.us.us
+  %87 = icmp uge i32 %84, %.ph34.us
+  %88 = icmp ult i32 %81, %30
+  %89 = select i1 %87, i1 true, i1 %88
+  %90 = icmp ult i64 %82, %35
+  %91 = select i1 %89, i1 true, i1 %90
+  br i1 %91, label %get_orlov_stats.exit.thread.us.us, label %.thread.split.us.us
 
-get_orlov_stats.exit.thread.us.us:                ; preds = %87, %get_orlov_stats.exit.us.us
-  %93 = add nuw i32 %72, 1
-  %94 = icmp eq i32 %93, %70
-  br i1 %94, label %.split54.us, label %get_orlov_stats.exit.us.us, !llvm.loop !51
+get_orlov_stats.exit.thread.us.us:                ; preds = %86, %get_orlov_stats.exit.us.us
+  %92 = add nuw i32 %71, 1
+  %93 = icmp eq i32 %92, %24
+  br i1 %93, label %.split54.us, label %get_orlov_stats.exit.us.us, !llvm.loop !51
 
-.thread.split.us.us:                              ; preds = %87
-  %95 = add nuw i32 %72, 1
-  %96 = icmp eq i32 %95, %70
-  br i1 %96, label %.thread27, label %.outer.us, !llvm.loop !51
+.thread.split.us.us:                              ; preds = %86
+  %94 = add nuw i32 %71, 1
+  %95 = icmp eq i32 %94, %24
+  br i1 %95, label %.thread27, label %.outer.us, !llvm.loop !51
 
 .outer:                                           ; preds = %68, %.thread.split
   %.ph = phi i32 [ 0, %.thread.split ], [ -1, %68 ]
-  %.ph34 = phi i32 [ %105, %.thread.split ], [ %16, %68 ]
-  %.ph35 = phi i32 [ %100, %.thread.split ], [ 0, %68 ]
-  %.ph36 = phi i32 [ %116, %.thread.split ], [ 0, %68 ]
-  br label %97
+  %.ph34 = phi i32 [ %104, %.thread.split ], [ %16, %68 ]
+  %.ph35 = phi i32 [ %99, %.thread.split ], [ 0, %68 ]
+  %.ph36 = phi i32 [ %115, %.thread.split ], [ 0, %68 ]
+  br label %96
 
-97:                                               ; preds = %.outer, %get_orlov_stats.exit.thread
-  %98 = phi i32 [ %114, %get_orlov_stats.exit.thread ], [ %.ph36, %.outer ]
-  %99 = add i32 %98, %69
-  %100 = urem i32 %99, %24
-  %101 = call ptr @ext4_get_group_desc(ptr noundef %0, i32 noundef %100, ptr noundef null) #10
-  %102 = icmp eq ptr %101, null
-  br i1 %102, label %get_orlov_stats.exit.thread, label %get_orlov_stats.exit
+96:                                               ; preds = %.outer, %get_orlov_stats.exit.thread
+  %97 = phi i32 [ %113, %get_orlov_stats.exit.thread ], [ %.ph36, %.outer ]
+  %98 = add i32 %97, %69
+  %99 = urem i32 %98, %24
+  %100 = call ptr @ext4_get_group_desc(ptr noundef %0, i32 noundef %99, ptr noundef null) #10
+  %101 = icmp eq ptr %100, null
+  br i1 %101, label %get_orlov_stats.exit.thread, label %get_orlov_stats.exit
 
-get_orlov_stats.exit:                             ; preds = %97
-  %103 = call i32 @ext4_free_inodes_count(ptr noundef %0, ptr noundef nonnull %101) #10
-  %104 = call i32 @ext4_free_group_clusters(ptr noundef %0, ptr noundef nonnull %101) #10
-  %105 = call i32 @ext4_used_dirs_count(ptr noundef %0, ptr noundef nonnull %101) #10
-  %106 = icmp eq i32 %103, 0
-  br i1 %106, label %get_orlov_stats.exit.thread, label %107
+get_orlov_stats.exit:                             ; preds = %96
+  %102 = call i32 @ext4_free_inodes_count(ptr noundef %0, ptr noundef nonnull %100) #10
+  %103 = call i32 @ext4_free_group_clusters(ptr noundef %0, ptr noundef nonnull %100) #10
+  %104 = call i32 @ext4_used_dirs_count(ptr noundef %0, ptr noundef nonnull %100) #10
+  %105 = icmp eq i32 %102, 0
+  br i1 %105, label %get_orlov_stats.exit.thread, label %106
 
-107:                                              ; preds = %get_orlov_stats.exit
-  %108 = zext i32 %104 to i64
-  %109 = icmp uge i32 %105, %.ph34
-  %110 = icmp ult i32 %103, %30
-  %111 = select i1 %109, i1 true, i1 %110
-  %112 = icmp samesign ugt i64 %35, %108
-  %113 = select i1 %111, i1 true, i1 %112
-  br i1 %113, label %get_orlov_stats.exit.thread, label %.thread.split
+106:                                              ; preds = %get_orlov_stats.exit
+  %107 = zext i32 %103 to i64
+  %108 = icmp uge i32 %104, %.ph34
+  %109 = icmp ult i32 %102, %30
+  %110 = select i1 %108, i1 true, i1 %109
+  %111 = icmp samesign ugt i64 %35, %107
+  %112 = select i1 %110, i1 true, i1 %111
+  br i1 %112, label %get_orlov_stats.exit.thread, label %.thread.split
 
-get_orlov_stats.exit.thread:                      ; preds = %97, %107, %get_orlov_stats.exit
-  %114 = add nuw i32 %98, 1
-  %115 = icmp eq i32 %114, %70
-  br i1 %115, label %.split54.us, label %97, !llvm.loop !51
+get_orlov_stats.exit.thread:                      ; preds = %96, %106, %get_orlov_stats.exit
+  %113 = add nuw i32 %97, 1
+  %114 = icmp eq i32 %113, %24
+  br i1 %114, label %.split54.us, label %96, !llvm.loop !51
 
-.thread.split:                                    ; preds = %107
-  %116 = add nuw i32 %98, 1
-  %117 = icmp eq i32 %116, %70
-  br i1 %117, label %.thread27, label %.outer, !llvm.loop !51
+.thread.split:                                    ; preds = %106
+  %115 = add nuw i32 %97, 1
+  %116 = icmp eq i32 %115, %24
+  br i1 %116, label %.thread27, label %.outer, !llvm.loop !51
 
 .split54.us:                                      ; preds = %get_orlov_stats.exit.thread, %get_orlov_stats.exit.thread.us.us
   %.us-phi55 = phi i32 [ %.ph.us, %get_orlov_stats.exit.thread.us.us ], [ %.ph, %get_orlov_stats.exit.thread ]
   %.us-phi56 = phi i32 [ %.ph35.us, %get_orlov_stats.exit.thread.us.us ], [ %.ph35, %get_orlov_stats.exit.thread ]
-  %118 = icmp eq i32 %.us-phi55, 0
-  br i1 %118, label %.thread27, label %.loopexit32
+  %117 = icmp eq i32 %.us-phi55, 0
+  br i1 %117, label %.thread27, label %.loopexit32
 
 .thread27:                                        ; preds = %get_orlov_stats.exit12, %get_orlov_stats.exit12.us, %.thread.split, %.thread.split.us.us, %.split54.us
-  %119 = phi i32 [ %.us-phi56, %.split54.us ], [ %74, %.thread.split.us.us ], [ %100, %.thread.split ], [ %161, %get_orlov_stats.exit12.us ], [ %182, %get_orlov_stats.exit12 ]
-  %120 = icmp eq i32 %18, 0
-  br i1 %120, label %.loopexit, label %121
+  %118 = phi i32 [ %.us-phi56, %.split54.us ], [ %73, %.thread.split.us.us ], [ %99, %.thread.split ], [ %159, %get_orlov_stats.exit12.us ], [ %180, %get_orlov_stats.exit12 ]
+  %119 = icmp eq i32 %18, 0
+  br i1 %119, label %.loopexit, label %120
 
-121:                                              ; preds = %.thread27
-  %122 = shl i32 %119, %18
-  %123 = call i32 @llvm.usub.sat.i32(i32 %12, i32 %122)
-  br label %124
+120:                                              ; preds = %.thread27
+  %121 = shl i32 %118, %18
+  %122 = call i32 @llvm.usub.sat.i32(i32 %12, i32 %121)
+  br label %123
 
-124:                                              ; preds = %134, %121
-  %125 = phi i32 [ 0, %121 ], [ %135, %134 ]
-  %126 = add nuw i32 %125, %122
-  %127 = icmp eq i32 %125, %123
-  br i1 %127, label %.loopexit32, label %128
+123:                                              ; preds = %133, %120
+  %124 = phi i32 [ 0, %120 ], [ %134, %133 ]
+  %125 = add nuw i32 %124, %121
+  %126 = icmp eq i32 %124, %122
+  br i1 %126, label %.loopexit32, label %127
 
-128:                                              ; preds = %124
-  %129 = call ptr @ext4_get_group_desc(ptr noundef %0, i32 noundef %126, ptr noundef null) #10
-  %130 = icmp eq ptr %129, null
-  br i1 %130, label %134, label %131
+127:                                              ; preds = %123
+  %128 = call ptr @ext4_get_group_desc(ptr noundef %0, i32 noundef %125, ptr noundef null) #10
+  %129 = icmp eq ptr %128, null
+  br i1 %129, label %133, label %130
 
-131:                                              ; preds = %128
-  %132 = call i32 @ext4_free_inodes_count(ptr noundef %0, ptr noundef nonnull %129) #10
-  %133 = icmp eq i32 %132, 0
-  br i1 %133, label %134, label %.loopexit
+130:                                              ; preds = %127
+  %131 = call i32 @ext4_free_inodes_count(ptr noundef %0, ptr noundef nonnull %128) #10
+  %132 = icmp eq i32 %131, 0
+  br i1 %132, label %133, label %.loopexit
 
-134:                                              ; preds = %131, %128
-  %135 = add nuw i32 %125, 1
-  %136 = icmp eq i32 %135, %19
-  br i1 %136, label %.loopexit32, label %124, !llvm.loop !52
+133:                                              ; preds = %130, %127
+  %134 = add nuw i32 %124, 1
+  %135 = icmp eq i32 %134, %19
+  br i1 %135, label %.loopexit32, label %123, !llvm.loop !52
 
-137:                                              ; preds = %48, %5
-  %138 = udiv i32 %39, %24
-  %139 = shl i32 %16, %18
-  %140 = sdiv i32 %139, 16
-  %141 = add i32 %138, %140
-  %142 = sdiv i32 %139, -4
-  %143 = add i32 %30, %142
-  %144 = tail call i32 @llvm.smax.i32(i32 %143, i32 1)
-  %145 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %146 = load i64, ptr %145, align 8
-  %147 = sext i32 %19 to i64
-  %148 = mul i64 %146, %147
-  %149 = lshr i64 %148, 2
-  %150 = sub nsw i64 %35, %149
-  %151 = getelementptr i8, ptr %1, i64 708
-  %152 = load i32, ptr %151, align 4
-  %153 = icmp eq i32 %152, -1
-  %.v = select i1 %153, i32 %8, i32 %152
-  %154 = lshr i32 %.v, %25
-  %155 = shl i64 %150, 32
-  %156 = ashr exact i64 %155, 32
-  %157 = tail call i32 @llvm.umax.i32(i32 %24, i32 1)
-  %158 = icmp sgt i32 %19, 1
-  br i1 %158, label %get_orlov_stats.exit12.us, label %.split
+136:                                              ; preds = %48, %5
+  %137 = udiv i32 %39, %24
+  %138 = shl i32 %16, %18
+  %139 = sdiv i32 %138, 16
+  %140 = add i32 %137, %139
+  %141 = sdiv i32 %138, -4
+  %142 = add i32 %30, %141
+  %143 = tail call i32 @llvm.smax.i32(i32 %142, i32 1)
+  %144 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %145 = load i64, ptr %144, align 8
+  %146 = sext i32 %19 to i64
+  %147 = mul i64 %145, %146
+  %148 = lshr i64 %147, 2
+  %149 = sub nsw i64 %35, %148
+  %150 = getelementptr i8, ptr %1, i64 708
+  %151 = load i32, ptr %150, align 4
+  %152 = icmp eq i32 %151, -1
+  %.v = select i1 %152, i32 %8, i32 %151
+  %153 = lshr i32 %.v, %25
+  %154 = shl i64 %149, 32
+  %155 = ashr exact i64 %154, 32
+  %156 = icmp sgt i32 %19, 1
+  br i1 %156, label %get_orlov_stats.exit12.us, label %.split
 
-get_orlov_stats.exit12.us:                        ; preds = %137, %get_orlov_stats.exit12.thread.us
-  %159 = phi i32 [ %178, %get_orlov_stats.exit12.thread.us ], [ 0, %137 ]
-  %160 = add i32 %159, %154
-  %161 = urem i32 %160, %24
+get_orlov_stats.exit12.us:                        ; preds = %136, %get_orlov_stats.exit12.thread.us
+  %157 = phi i32 [ %176, %get_orlov_stats.exit12.thread.us ], [ 0, %136 ]
+  %158 = add i32 %157, %153
+  %159 = urem i32 %158, %24
   tail call void @__rcu_read_lock() #10
-  %162 = load ptr, ptr %9, align 8
-  %163 = getelementptr inbounds nuw i8, ptr %162, i64 1184
-  %164 = load volatile ptr, ptr %163, align 32
-  %165 = zext i32 %161 to i64
-  %166 = getelementptr ptr, ptr %164, i64 %165
-  %167 = load ptr, ptr %166, align 8
+  %160 = load ptr, ptr %9, align 8
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 1184
+  %162 = load volatile ptr, ptr %161, align 32
+  %163 = zext i32 %159 to i64
+  %164 = getelementptr ptr, ptr %162, i64 %163
+  %165 = load ptr, ptr %164, align 8
   tail call void @__rcu_read_unlock() #10
-  %168 = getelementptr inbounds nuw i8, ptr %167, i64 8
-  %169 = load volatile i32, ptr %168, align 4
-  %170 = load volatile i64, ptr %167, align 8
-  %171 = getelementptr inbounds nuw i8, ptr %167, i64 12
-  %172 = load volatile i32, ptr %171, align 4
-  %173 = icmp uge i32 %172, %141
-  %174 = icmp ult i32 %169, %144
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 8
+  %167 = load volatile i32, ptr %166, align 4
+  %168 = load volatile i64, ptr %165, align 8
+  %169 = getelementptr inbounds nuw i8, ptr %165, i64 12
+  %170 = load volatile i32, ptr %169, align 4
+  %171 = icmp uge i32 %170, %140
+  %172 = icmp ult i32 %167, %143
+  %173 = select i1 %171, i1 true, i1 %172
+  %174 = icmp ult i64 %168, %155
   %175 = select i1 %173, i1 true, i1 %174
-  %176 = icmp ult i64 %170, %156
-  %177 = select i1 %175, i1 true, i1 %176
-  br i1 %177, label %get_orlov_stats.exit12.thread.us, label %.thread27
+  br i1 %175, label %get_orlov_stats.exit12.thread.us, label %.thread27
 
 get_orlov_stats.exit12.thread.us:                 ; preds = %get_orlov_stats.exit12.us
-  %178 = add nuw i32 %159, 1
-  %179 = icmp eq i32 %178, %157
-  br i1 %179, label %.loopexit32, label %get_orlov_stats.exit12.us, !llvm.loop !53
+  %176 = add nuw i32 %157, 1
+  %177 = icmp eq i32 %176, %24
+  br i1 %177, label %.loopexit32, label %get_orlov_stats.exit12.us, !llvm.loop !53
 
-.split:                                           ; preds = %137, %get_orlov_stats.exit12.thread
-  %180 = phi i32 [ %194, %get_orlov_stats.exit12.thread ], [ 0, %137 ]
-  %181 = add i32 %180, %154
-  %182 = urem i32 %181, %24
-  %183 = tail call ptr @ext4_get_group_desc(ptr noundef %0, i32 noundef %182, ptr noundef null) #10
-  %184 = icmp eq ptr %183, null
-  br i1 %184, label %get_orlov_stats.exit12.thread, label %get_orlov_stats.exit12
+.split:                                           ; preds = %136, %get_orlov_stats.exit12.thread
+  %178 = phi i32 [ %192, %get_orlov_stats.exit12.thread ], [ 0, %136 ]
+  %179 = add i32 %178, %153
+  %180 = urem i32 %179, %24
+  %181 = tail call ptr @ext4_get_group_desc(ptr noundef %0, i32 noundef %180, ptr noundef null) #10
+  %182 = icmp eq ptr %181, null
+  br i1 %182, label %get_orlov_stats.exit12.thread, label %get_orlov_stats.exit12
 
 get_orlov_stats.exit12:                           ; preds = %.split
-  %185 = tail call i32 @ext4_free_inodes_count(ptr noundef %0, ptr noundef nonnull %183) #10
-  %186 = tail call i32 @ext4_free_group_clusters(ptr noundef %0, ptr noundef nonnull %183) #10
-  %187 = zext i32 %186 to i64
-  %188 = tail call i32 @ext4_used_dirs_count(ptr noundef %0, ptr noundef nonnull %183) #10
-  %189 = icmp uge i32 %188, %141
-  %190 = icmp ult i32 %185, %144
+  %183 = tail call i32 @ext4_free_inodes_count(ptr noundef %0, ptr noundef nonnull %181) #10
+  %184 = tail call i32 @ext4_free_group_clusters(ptr noundef %0, ptr noundef nonnull %181) #10
+  %185 = zext i32 %184 to i64
+  %186 = tail call i32 @ext4_used_dirs_count(ptr noundef %0, ptr noundef nonnull %181) #10
+  %187 = icmp uge i32 %186, %140
+  %188 = icmp ult i32 %183, %143
+  %189 = select i1 %187, i1 true, i1 %188
+  %190 = icmp ugt i64 %155, %185
   %191 = select i1 %189, i1 true, i1 %190
-  %192 = icmp ugt i64 %156, %187
-  %193 = select i1 %191, i1 true, i1 %192
-  br i1 %193, label %get_orlov_stats.exit12.thread, label %.thread27
+  br i1 %191, label %get_orlov_stats.exit12.thread, label %.thread27
 
 get_orlov_stats.exit12.thread:                    ; preds = %.split, %get_orlov_stats.exit12
-  %194 = add nuw i32 %180, 1
-  %195 = icmp eq i32 %194, %157
-  br i1 %195, label %.loopexit32, label %.split, !llvm.loop !53
+  %192 = add nuw i32 %178, 1
+  %193 = icmp eq i32 %192, %24
+  br i1 %193, label %.loopexit32, label %.split, !llvm.loop !53
 
-.loopexit32:                                      ; preds = %get_orlov_stats.exit12.thread, %get_orlov_stats.exit12.thread.us, %134, %124, %.split54.us
-  %196 = udiv i32 %29, %12
-  %197 = call i32 @llvm.umax.i32(i32 %12, i32 1)
+.loopexit32:                                      ; preds = %get_orlov_stats.exit12.thread, %get_orlov_stats.exit12.thread.us, %133, %123, %.split54.us
+  %194 = udiv i32 %29, %12
+  br label %195
+
+195:                                              ; preds = %212, %.loopexit32
+  %196 = phi i32 [ %194, %.loopexit32 ], [ 0, %212 ]
+  %197 = load i32, ptr %7, align 8
   br label %198
 
-198:                                              ; preds = %215, %.loopexit32
-  %199 = phi i32 [ %196, %.loopexit32 ], [ 0, %215 ]
-  %200 = load i32, ptr %7, align 8
-  br label %201
+198:                                              ; preds = %209, %195
+  %199 = phi i32 [ 0, %195 ], [ %210, %209 ]
+  %200 = add i32 %199, %197
+  %201 = urem i32 %200, %12
+  %202 = call ptr @ext4_get_group_desc(ptr noundef %0, i32 noundef %201, ptr noundef null) #10
+  %203 = icmp eq ptr %202, null
+  br i1 %203, label %209, label %204
 
-201:                                              ; preds = %212, %198
-  %202 = phi i32 [ 0, %198 ], [ %213, %212 ]
-  %203 = add i32 %202, %200
-  %204 = urem i32 %203, %12
-  %205 = call ptr @ext4_get_group_desc(ptr noundef %0, i32 noundef %204, ptr noundef null) #10
-  %206 = icmp eq ptr %205, null
-  br i1 %206, label %212, label %207
+204:                                              ; preds = %198
+  %205 = call i32 @ext4_free_inodes_count(ptr noundef %0, ptr noundef nonnull %202) #10
+  %206 = icmp eq i32 %205, 0
+  %207 = icmp ult i32 %205, %196
+  %208 = select i1 %206, i1 true, i1 %207
+  br i1 %208, label %209, label %.loopexit
 
-207:                                              ; preds = %201
-  %208 = call i32 @ext4_free_inodes_count(ptr noundef %0, ptr noundef nonnull %205) #10
-  %209 = icmp eq i32 %208, 0
-  %210 = icmp ult i32 %208, %199
-  %211 = select i1 %209, i1 true, i1 %210
-  br i1 %211, label %212, label %.loopexit
+209:                                              ; preds = %204, %198
+  %210 = add nuw i32 %199, 1
+  %211 = icmp eq i32 %210, %12
+  br i1 %211, label %212, label %198, !llvm.loop !54
 
-212:                                              ; preds = %207, %201
-  %213 = add nuw i32 %202, 1
-  %214 = icmp eq i32 %213, %197
-  br i1 %214, label %215, label %201, !llvm.loop !54
+212:                                              ; preds = %209
+  %213 = icmp eq i32 %196, 0
+  br i1 %213, label %.loopexit31, label %195
 
-215:                                              ; preds = %212
-  %216 = icmp eq i32 %199, 0
-  br i1 %216, label %.loopexit31, label %198
-
-.loopexit:                                        ; preds = %131, %207, %.thread27
-  %217 = phi i32 [ %119, %.thread27 ], [ %204, %207 ], [ %126, %131 ]
-  store i32 %217, ptr %2, align 4
+.loopexit:                                        ; preds = %130, %204, %.thread27
+  %214 = phi i32 [ %118, %.thread27 ], [ %201, %204 ], [ %125, %130 ]
+  store i32 %214, ptr %2, align 4
   br label %.loopexit31
 
-.loopexit31:                                      ; preds = %215, %.loopexit
-  %218 = phi i32 [ 0, %.loopexit ], [ -1, %215 ]
+.loopexit31:                                      ; preds = %212, %.loopexit
+  %215 = phi i32 [ 0, %.loopexit ], [ -1, %212 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #10
-  ret i32 %218
+  ret i32 %215
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -3778,9 +3775,6 @@ declare i32 @llvm.smax.i32(i32, i32) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #9
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #9

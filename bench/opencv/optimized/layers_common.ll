@@ -1791,7 +1791,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31: ; preds = %_ZN
   %35 = ptrtoint ptr %33 to i64
   %36 = sub i64 %34, %35
   %37 = ashr exact i64 %36, 3
-  %umax = call i64 @llvm.umax.i64(i64 %37, i64 1)
   br label %.lr.ph
 
 38:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31
@@ -1892,7 +1891,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit42: ; preds = %_ZN
 
 65:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %37
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %65, %.preheader
@@ -3796,12 +3795,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit603: ; preds = %_Z
   %608 = ptrtoint ptr %606 to i64
   %609 = sub i64 %607, %608
   %610 = ashr exact i64 %609, 3
-  %umax = call i64 @llvm.umax.i64(i64 %610, i64 1)
   br label %.lr.ph
 
 611:                                              ; preds = %.lr.ph
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %610
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %611, %603
@@ -5401,7 +5399,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit647: ; preds = %_Z
   %511 = load ptr, ptr %4, align 8
   %sext795 = shl i64 %510, 32
   %512 = ashr exact i64 %sext795, 32
-  %umax = call i64 @llvm.umax.i64(i64 %509, i64 1)
   br label %540
 
 ._crit_edge:                                      ; preds = %.critedge2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit647
@@ -5419,7 +5416,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit647: ; preds = %_Z
   %520 = sub i64 %502, %519
   %sext796 = shl i64 %520, 32
   %521 = ashr exact i64 %sext796, 32
-  %umax788 = call i64 @llvm.umax.i64(i64 %519, i64 1)
   br label %.lr.ph772
 
 522:                                              ; preds = %419
@@ -5561,7 +5557,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit661: ; preds = %_Z
 .critedge2:                                       ; preds = %543, %546
   %indvars.iv.next776 = add nuw i64 %indvars.iv775, 1
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %exitcond780.not = icmp eq i64 %indvars.iv.next776, %umax
+  %exitcond780.not = icmp eq i64 %indvars.iv.next776, %509
   br i1 %exitcond780.not, label %._crit_edge, label %540, !llvm.loop !61
 
 .lr.ph772:                                        ; preds = %.lr.ph772.preheader, %.critedge4
@@ -5634,7 +5630,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit668: ; preds = %_Z
 .critedge4:                                       ; preds = %.lr.ph772, %571
   %indvars.iv.next784 = add nuw i64 %indvars.iv783, 1
   %indvars.iv.next782 = add nsw i64 %indvars.iv781, 1
-  %exitcond789.not = icmp eq i64 %indvars.iv.next784, %umax788
+  %exitcond789.not = icmp eq i64 %indvars.iv.next784, %519
   br i1 %exitcond789.not, label %.loopexit, label %.lr.ph772, !llvm.loop !62
 
 594:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit346
@@ -6005,12 +6001,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit90: ; preds = %_ZN
   %126 = ptrtoint ptr %124 to i64
   %127 = sub i64 %125, %126
   %128 = ashr exact i64 %127, 3
-  %umax = call i64 @llvm.umax.i64(i64 %128, i64 1)
   br label %.lr.ph
 
 129:                                              ; preds = %.lr.ph
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %128
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !63
 
 ._crit_edge:                                      ; preds = %129, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit90
@@ -6588,7 +6583,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %77 = sub i64 %75, %76
   %78 = ashr exact i64 %77, 3
   %79 = load ptr, ptr %5, align 8
-  %umax = call i64 @llvm.umax.i64(i64 %78, i64 1)
   br label %93
 
 80:                                               ; preds = %62
@@ -6662,7 +6656,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43: ; preds = %_ZN
 
 111:                                              ; preds = %93, %98
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %78
   br i1 %exitcond.not, label %.loopexit, label %93, !llvm.loop !72
 
 .loopexit:                                        ; preds = %111, %.preheader, %32

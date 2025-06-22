@@ -167,6 +167,7 @@ define noundef i32 @_ZN9grpc_core19HierarchicalPathArg18ChannelArgsCompareEPKS0_
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
+  %10 = ashr exact i64 %9, 3
   %.not40 = icmp eq ptr %5, %6
   br i1 %.not40, label %.._crit_edge_crit_edge, label %.lr.ph
 
@@ -181,7 +182,6 @@ define noundef i32 @_ZN9grpc_core19HierarchicalPathArg18ChannelArgsCompareEPKS0_
   br label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %10 = ashr exact i64 %9, 3
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load ptr, ptr %12, align 8, !tbaa !3
@@ -190,12 +190,11 @@ define noundef i32 @_ZN9grpc_core19HierarchicalPathArg18ChannelArgsCompareEPKS0_
   %16 = ptrtoint ptr %14 to i64
   %17 = sub i64 %15, %16
   %18 = ashr exact i64 %17, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %21
 
 19:                                               ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE7compareES2_.exit
   %20 = add nuw i64 %.01539, 1
-  %exitcond.not = icmp eq i64 %20, %umax
+  %exitcond.not = icmp eq i64 %20, %10
   br i1 %exitcond.not, label %._crit_edge, label %21, !llvm.loop !10
 
 21:                                               ; preds = %.lr.ph, %19
@@ -2665,6 +2664,7 @@ define linkonce_odr noundef i32 @_ZZN9grpc_core20ChannelArgTypeTraitsINS_19Hiera
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
+  %10 = ashr exact i64 %9, 3
   %.not40.i.i = icmp eq ptr %5, %6
   br i1 %.not40.i.i, label %.._crit_edge_crit_edge.i.i, label %.lr.ph.i.i
 
@@ -2679,7 +2679,6 @@ define linkonce_odr noundef i32 @_ZZN9grpc_core20ChannelArgTypeTraitsINS_19Hiera
   br label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %2
-  %10 = ashr exact i64 %9, 3
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load ptr, ptr %12, align 8, !tbaa !3
@@ -2688,12 +2687,11 @@ define linkonce_odr noundef i32 @_ZZN9grpc_core20ChannelArgTypeTraitsINS_19Hiera
   %16 = ptrtoint ptr %14 to i64
   %17 = sub i64 %15, %16
   %18 = ashr exact i64 %17, 3
-  %umax.i.i = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %21
 
 19:                                               ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE7compareES2_.exit.i.i
   %20 = add nuw i64 %.01539.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %20, %umax.i.i
+  %exitcond.not.i.i = icmp eq i64 %20, %10
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %21, !llvm.loop !10
 
 21:                                               ; preds = %19, %.lr.ph.i.i
@@ -2785,9 +2783,6 @@ declare i64 @llvm.smin.i64(i64, i64) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #21
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #21
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #22

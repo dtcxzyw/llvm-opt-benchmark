@@ -1187,7 +1187,6 @@ _ZNSt6vectorIfSaIfEEC2ERKS1_.exit:                ; preds = %41, %61
 .lr.ph:                                           ; preds = %67
   %73 = lshr exact i64 %58, 2
   %74 = uitofp nneg i32 %69 to float
-  %umax = call i64 @llvm.umax.i64(i64 %73, i64 1)
   br label %75
 
 75:                                               ; preds = %.lr.ph, %75
@@ -1197,7 +1196,7 @@ _ZNSt6vectorIfSaIfEEC2ERKS1_.exit:                ; preds = %41, %61
   %78 = fdiv float %77, %74
   store float %78, ptr %76, align 4, !tbaa !68
   %79 = add nuw i64 %.038, 1
-  %exitcond.not = icmp eq i64 %79, %umax
+  %exitcond.not = icmp eq i64 %79, %73
   br i1 %exitcond.not, label %.loopexit, label %75, !llvm.loop !106
 
 .loopexit:                                        ; preds = %75, %67, %_ZNSt6vectorIfSaIfEEC2ERKS1_.exit
@@ -3971,9 +3970,6 @@ declare i64 @llvm.smin.i64(i64, i64) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #28
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #28
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

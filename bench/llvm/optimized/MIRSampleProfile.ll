@@ -20297,7 +20297,6 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockEmNS_12DenseMapInfo
   %348 = ptrtoint ptr %344 to i64
   %349 = sub i64 %347, %348
   %350 = sdiv exact i64 %349, 80
-  %umax = call i64 @llvm.umax.i64(i64 %350, i64 1)
   br label %.lr.ph171
 
 .lr.ph169:                                        ; preds = %._crit_edge165, %_ZNSt6vectorIPN4llvm8FlowJumpESaIS2_EE9push_backEOS2_.exit75
@@ -20463,7 +20462,7 @@ _ZNSt6vectorIPN4llvm8FlowJumpESaIS2_EE9push_backEOS2_.exit75: ; preds = %388, %_
 
 421:                                              ; preds = %.lr.ph171
   %422 = add nuw i64 %.0170, 1
-  %exitcond.not = icmp eq i64 %422, %umax
+  %exitcond.not = icmp eq i64 %422, %350
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph171, !llvm.loop !1019
 
 .loopexit:                                        ; preds = %421, %.preheader, %419

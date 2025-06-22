@@ -1751,7 +1751,6 @@ do.body113.preheader:                             ; preds = %for.cond108.prehead
   %sub.ptr.rhs.cast.i91 = ptrtoint ptr %24 to i64
   %sub.ptr.sub.i92 = sub i64 %sub.ptr.lhs.cast.i90, %sub.ptr.rhs.cast.i91
   %sub.ptr.div.i93 = sdiv exact i64 %sub.ptr.sub.i92, 24
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i93, i64 1)
   br label %do.body113
 
 do.body31:                                        ; preds = %do.body31.preheader, %for.inc
@@ -2204,7 +2203,7 @@ ehcleanup178:                                     ; preds = %_ZNKSt7__cxx1112bas
 
 for.inc183:                                       ; preds = %do.body113
   %inc184 = add nuw i64 %i107.0212, 1
-  %exitcond216.not = icmp eq i64 %inc184, %umax
+  %exitcond216.not = icmp eq i64 %inc184, %sub.ptr.div.i93
   br i1 %exitcond216.not, label %for.cond.cleanup111, label %do.body113, !llvm.loop !109
 
 ehcleanup187:                                     ; preds = %ehcleanup178, %ehcleanup101, %ehcleanup28
@@ -3377,7 +3376,6 @@ land.rhs.lr.ph:                                   ; preds = %entry
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %2 = load i64, ptr %d, align 8, !tbaa !125
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %while.body
@@ -3389,11 +3387,11 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %wh
 
 while.body:                                       ; preds = %land.rhs
   %inc = add nuw i64 %i.017, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i
   br i1 %exitcond.not, label %while.end, label %land.rhs, !llvm.loop !127
 
 while.end:                                        ; preds = %land.rhs, %while.body, %entry
-  %i.0.lcssa = phi i64 [ 0, %entry ], [ %umax, %while.body ], [ %i.017, %land.rhs ]
+  %i.0.lcssa = phi i64 [ 0, %entry ], [ %sub.ptr.div.i, %while.body ], [ %i.017, %land.rhs ]
   %4 = load double, ptr %newGuesses, align 8, !tbaa !67
   %sabrGuesses_ = getelementptr inbounds nuw i8, ptr %this, i64 232
   %5 = load ptr, ptr %sabrGuesses_, align 8, !tbaa !98
@@ -3512,7 +3510,6 @@ for.cond6.preheader.lr.ph:                        ; preds = %invoke.cont5
   %impl_.i = getelementptr inbounds nuw i8, ptr %interpolator, i64 16
   %pn.i.i = getelementptr inbounds nuw i8, ptr %interpolator, i64 24
   %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
-  %umax81 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i18, i64 1)
   br label %for.cond6.preheader
 
 for.cond6.preheader:                              ; preds = %for.cond6.preheader.lr.ph, %_ZN8QuantLib13InterpolationD2Ev.exit
@@ -3666,7 +3663,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i.i46
 _ZN8QuantLib13InterpolationD2Ev.exit:             ; preds = %invoke.cont35, %if.then.i.i.i45, %.noexc.i.i.i, %if.then.i.i.i.i.i46
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %interpolator) #28
   %inc39 = add nuw i64 %i.080, 1
-  %exitcond82.not = icmp eq i64 %inc39, %umax81
+  %exitcond82.not = icmp eq i64 %inc39, %sub.ptr.div.i18
   br i1 %exitcond82.not, label %for.cond.cleanup, label %for.cond6.preheader, !llvm.loop !133
 
 lpad30:                                           ; preds = %for.cond.cleanup8

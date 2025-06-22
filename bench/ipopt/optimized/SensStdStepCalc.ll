@@ -4632,7 +4632,6 @@ _ZN5Ipopt11DenseVector6ValuesEv.exit592:          ; preds = %_ZNK5Ipopt16DenseVe
   %1991 = ashr exact i64 %1990, 2
   %1992 = load ptr, ptr %32, align 8, !tbaa !153
   %1993 = load ptr, ptr %33, align 8, !tbaa !125
-  %umax = call i64 @llvm.umax.i64(i64 %1991, i64 1)
   br label %2131
 
 ._crit_edge:                                      ; preds = %2131, %.preheader
@@ -4970,7 +4969,7 @@ _ZN5Ipopt8SmartPtrIKNS_16DenseVectorSpaceEED2Ev.exit630: ; preds = %2122, %2127
   %2137 = getelementptr inbounds double, ptr %1960, i64 %2136
   store double %2133, ptr %2137, align 8, !tbaa !155
   %2138 = add nuw i64 %.01650, 1
-  %exitcond.not = icmp eq i64 %2138, %umax
+  %exitcond.not = icmp eq i64 %2138, %1991
   br i1 %exitcond.not, label %._crit_edge, label %2131, !llvm.loop !156
 
 ._crit_edge.i.i631:                               ; preds = %._crit_edge

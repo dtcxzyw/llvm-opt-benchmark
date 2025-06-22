@@ -52904,7 +52904,6 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %741
   %750 = sub i64 %748, %749
   %751 = ashr exact i64 %750, 5
   %752 = load ptr, ptr %15, align 8, !tbaa !29
-  %umax = call i64 @llvm.umax.i64(i64 %751, i64 1)
   br label %758
 
 753:                                              ; preds = %744
@@ -52932,7 +52931,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %741
 
 765:                                              ; preds = %758
   %766 = add nuw i64 %.032299, 1
-  %exitcond.not = icmp eq i64 %766, %umax
+  %exitcond.not = icmp eq i64 %766, %751
   br i1 %exitcond.not, label %.loopexit, label %758, !llvm.loop !665
 
 .loopexit:                                        ; preds = %765, %.preheader, %763
@@ -54226,7 +54225,6 @@ define noundef i32 @_ZNK19OpenColorIO_v2_5dev6Config19getDisplayAllByNameEPKc(pt
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
   %13 = sdiv exact i64 %12, 88
-  %umax = tail call i64 @llvm.umax.i64(i64 %13, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %20
@@ -54243,7 +54241,7 @@ define noundef i32 @_ZNK19OpenColorIO_v2_5dev6Config19getDisplayAllByNameEPKc(pt
 
 20:                                               ; preds = %.lr.ph
   %21 = add nuw i64 %.0916, 1
-  %exitcond.not = icmp eq i64 %21, %umax
+  %exitcond.not = icmp eq i64 %21, %13
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !666
 
 .loopexit:                                        ; preds = %20, %.preheader, %18, %2, %3
@@ -106346,7 +106344,6 @@ _ZNSt8__detail9_ExecutorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_st
   %42 = sub i64 %40, %41
   %43 = sdiv exact i64 %42, 24
   %44 = load ptr, ptr %0, align 8
-  %umax = call i64 @llvm.umax.i64(i64 %43, i64 1)
   br label %49
 
 45:                                               ; preds = %_ZNSt6vectorINSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNS0_12basic_stringIcSt11char_traitsIcESaIcEEEEEEESaISC_EEC2ERKSE_.exit
@@ -106382,7 +106379,7 @@ _ZNSt8__detail9_ExecutorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_st
 
 61:                                               ; preds = %54, %49
   %62 = add nuw i64 %.020, 1
-  %exitcond.not = icmp eq i64 %62, %umax
+  %exitcond.not = icmp eq i64 %62, %43
   br i1 %exitcond.not, label %.loopexit, label %49, !llvm.loop !1608
 
 .loopexit:                                        ; preds = %61, %.preheader, %_ZNSt8__detail9_ExecutorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS5_9sub_matchISB_EEENS5_12regex_traitsIcEELb0EE20_M_search_from_firstEv.exit
@@ -107781,7 +107778,6 @@ _ZNSt12_Vector_baseISt4pairIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic
   %77 = sub i64 %75, %76
   %78 = sdiv exact i64 %77, 24
   %79 = load ptr, ptr %0, align 8
-  %umax = call i64 @llvm.umax.i64(i64 %78, i64 1)
   br label %82
 
 80:                                               ; preds = %.noexc, %.loopexit.i
@@ -107812,7 +107808,7 @@ _ZNSt12_Vector_baseISt4pairIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic
 
 94:                                               ; preds = %87, %82
   %95 = add nuw i64 %.024, 1
-  %exitcond.not = icmp eq i64 %95, %umax
+  %exitcond.not = icmp eq i64 %95, %78
   br i1 %exitcond.not, label %.loopexit, label %82, !llvm.loop !1617
 
 .loopexit:                                        ; preds = %94, %.preheader, %70

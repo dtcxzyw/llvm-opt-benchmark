@@ -2922,7 +2922,6 @@ define noundef i64 @_ZNK17colvarproxy_atoms20get_num_active_atomsEv(ptr noundef 
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %9, i64 1)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
@@ -2938,7 +2937,7 @@ define noundef i64 @_ZNK17colvarproxy_atoms20get_num_active_atomsEv(ptr noundef 
   %12 = zext i1 %.not to i64
   %spec.select = add i64 %.056, %12
   %13 = add nuw i64 %.07, 1
-  %exitcond.not = icmp eq i64 %13, %umax
+  %exitcond.not = icmp eq i64 %13, %9
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !135
 }
 
@@ -3871,7 +3870,6 @@ define noundef i64 @_ZNK23colvarproxy_atom_groups26get_num_active_atom_groupsEv(
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %9, i64 1)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
@@ -3887,7 +3885,7 @@ define noundef i64 @_ZNK23colvarproxy_atom_groups26get_num_active_atom_groupsEv(
   %12 = zext i1 %.not to i64
   %spec.select = add i64 %.056, %12
   %13 = add nuw i64 %.07, 1
-  %exitcond.not = icmp eq i64 %13, %umax
+  %exitcond.not = icmp eq i64 %13, %9
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !157
 }
 

@@ -488,7 +488,6 @@ define void @_ZN5nblib8LeapFrog9integrateEfN3gmx8ArrayRefINS1_11BasicVectorIfEEE
   %12 = load i64, ptr %6, align 8
   %13 = inttoptr i64 %12 to ptr
   %14 = load ptr, ptr %0, align 8, !tbaa !12
-  %umax = tail call i64 @llvm.umax.i64(i64 %11, i64 1)
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %19
@@ -504,7 +503,7 @@ define void @_ZN5nblib8LeapFrog9integrateEfN3gmx8ArrayRefINS1_11BasicVectorIfEEE
 
 19:                                               ; preds = %21
   %20 = add nuw i64 %.01520, 1
-  %exitcond22.not = icmp eq i64 %20, %umax
+  %exitcond22.not = icmp eq i64 %20, %11
   br i1 %exitcond22.not, label %._crit_edge, label %.preheader, !llvm.loop !36
 
 21:                                               ; preds = %.preheader, %21

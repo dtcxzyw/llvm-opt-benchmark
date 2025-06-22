@@ -9569,7 +9569,6 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit35: ; preds = %_ZStl
   %25 = ptrtoint ptr %23 to i64
   %26 = sub i64 %24, %25
   %27 = ashr exact i64 %26, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %27, i64 1)
   br label %.lr.ph
 
 .preheader:                                       ; preds = %.lr.ph, %.critedge
@@ -9585,27 +9584,23 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit35: ; preds = %_ZStl
   store ptr %32, ptr %4, align 8, !tbaa !9
   call void @_ZN4cvc58internal6theory5arith13ArithIteUtils17collectAssertionsENS0_12NodeTemplateILb0EEE(ptr noundef nonnull align 8 dereferenceable(504) %0, ptr noundef nonnull %4)
   %33 = add nuw i64 %.02862, 1
-  %exitcond.not = icmp eq i64 %33, %umax
+  %exitcond.not = icmp eq i64 %33, %27
   br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !417
 
 .backedge:                                        ; preds = %.backedge.backedge, %.preheader
   %34 = load ptr, ptr %29, align 8, !tbaa !159
   %35 = load ptr, ptr %28, align 8, !tbaa !158
-  %.not68 = icmp eq ptr %34, %35
-  br i1 %.not68, label %._crit_edge.thread, label %.lr.ph66.preheader
-
-.lr.ph66.preheader:                               ; preds = %.backedge
   %36 = ptrtoint ptr %34 to i64
   %37 = ptrtoint ptr %35 to i64
   %38 = sub i64 %36, %37
   %39 = ashr exact i64 %38, 3
-  %umax71 = tail call i64 @llvm.umax.i64(i64 %39, i64 1)
-  br label %.lr.ph66
+  %.not68 = icmp eq ptr %34, %35
+  br i1 %.not68, label %._crit_edge.thread, label %.lr.ph66
 
-.lr.ph66:                                         ; preds = %.lr.ph66.preheader, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
-  %.02265 = phi i64 [ %.1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ 0, %.lr.ph66.preheader ]
-  %.02364 = phi i64 [ %107, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ 0, %.lr.ph66.preheader ]
-  %.02463 = phi i1 [ %.125, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ false, %.lr.ph66.preheader ]
+.lr.ph66:                                         ; preds = %.backedge, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
+  %.02265 = phi i64 [ %.1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ 0, %.backedge ]
+  %.02364 = phi i64 [ %107, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ 0, %.backedge ]
+  %.02463 = phi i1 [ %.125, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ false, %.backedge ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #24
   %40 = load ptr, ptr %28, align 8, !tbaa !158
   %41 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %40, i64 %.02364
@@ -9744,7 +9739,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %89, %83, %64, %91
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %94, %97, %103
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #24
   %107 = add nuw i64 %.02364, 1
-  %exitcond72.not = icmp eq i64 %107, %umax71
+  %exitcond72.not = icmp eq i64 %107, %39
   br i1 %exitcond72.not, label %._crit_edge, label %.lr.ph66, !llvm.loop !418
 
 108:                                              ; preds = %62, %60
@@ -10396,7 +10391,6 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit62: ; preds = %_ZNSt6vectorIN4cvc5
 
 .lr.ph.preheader:                                 ; preds = %250
   %258 = trunc nsw i64 %257 to i32
-  %umax = tail call i32 @llvm.umax.i32(i32 %258, i32 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -10420,7 +10414,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit62: ; preds = %_ZNSt6vectorIN4cvc5
   store ptr %272, ptr %10, align 8, !tbaa !9, !alias.scope !433
   call void @_ZN4cvc58internal6theory5arith13ArithIteUtils17collectAssertionsENS0_12NodeTemplateILb0EEE(ptr noundef nonnull align 8 dereferenceable(504) %0, ptr noundef nonnull %10)
   %273 = add nuw i32 %.01469, 1
-  %exitcond.not = icmp eq i32 %273, %umax
+  %exitcond.not = icmp eq i32 %273, %258
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !436
 
 .loopexit:                                        ; preds = %.lr.ph, %250, %2, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit46, %113, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit62, %_ZN4cvc58internal8TypeNodeD2Ev.exit55, %16
@@ -21266,9 +21260,6 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #22
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #22
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

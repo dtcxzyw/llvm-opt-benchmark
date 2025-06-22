@@ -684,7 +684,6 @@ _ZN6google12Check_NEImplIimEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
 
 .lr.ph.preheader:                                 ; preds = %79
   %91 = ashr exact i64 %85, 4
-  %umax = tail call i64 @llvm.umax.i64(i64 %91, i64 1)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %79
@@ -701,7 +700,7 @@ _ZN6google12Check_NEImplIimEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   %98 = getelementptr inbounds nuw i32, ptr %90, i64 %.02055
   store i32 %97, ptr %98, align 4, !tbaa !34
   %99 = add nuw i64 %.02055, 1
-  %exitcond.not = icmp eq i64 %99, %umax
+  %exitcond.not = icmp eq i64 %99, %91
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !55
 
 100:                                              ; preds = %._crit_edge

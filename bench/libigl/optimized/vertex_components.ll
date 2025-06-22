@@ -154,7 +154,6 @@ _ZN5Eigen5ArrayIbLin1ELi1ELi0ELin1ELi1EEC2INS_14CwiseNullaryOpINS_8internal18sca
 
 .lr.ph141:                                        ; preds = %.preheader
   %33 = load ptr, ptr %2, align 8, !tbaa !4
-  %umax = call i64 @llvm.umax.i64(i64 %32, i64 1)
   br label %264
 
 34:                                               ; preds = %_ZN5Eigen5ArrayIbLin1ELi1ELi0ELin1ELi1EEC2INS_14CwiseNullaryOpINS_8internal18scalar_constant_opIbEES1_EEEERKNS_9EigenBaseIT_EENS4_9enable_ifIXsr8internal14is_convertibleINS9_6ScalarEbEE5valueENS1_11PrivateTypeEE4typeE.exit
@@ -704,7 +703,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge142, %._
   %267 = getelementptr inbounds i32, ptr %33, i64 %.0140
   store i32 %266, ptr %267, align 4, !tbaa !20
   %268 = add nuw i64 %.0140, 1
-  %exitcond163.not = icmp eq i64 %268, %umax
+  %exitcond163.not = icmp eq i64 %268, %32
   br i1 %exitcond163.not, label %._crit_edge142.thread, label %264, !llvm.loop !55
 
 269:                                              ; preds = %262, %259
@@ -955,7 +954,6 @@ _ZN5Eigen5ArrayIbLin1ELi1ELi0ELin1ELi1EEC2INS_14CwiseNullaryOpINS_8internal18sca
 
 .lr.ph141:                                        ; preds = %.preheader
   %33 = load ptr, ptr %2, align 8, !tbaa !4
-  %umax = call i64 @llvm.umax.i64(i64 %32, i64 1)
   br label %263
 
 34:                                               ; preds = %_ZN5Eigen5ArrayIbLin1ELi1ELi0ELin1ELi1EEC2INS_14CwiseNullaryOpINS_8internal18scalar_constant_opIbEES1_EEEERKNS_9EigenBaseIT_EENS4_9enable_ifIXsr8internal14is_convertibleINS9_6ScalarEbEE5valueENS1_11PrivateTypeEE4typeE.exit
@@ -1505,7 +1503,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge142, %._
   %266 = getelementptr inbounds i32, ptr %33, i64 %.0140
   store i32 %265, ptr %266, align 4, !tbaa !20
   %267 = add nuw i64 %.0140, 1
-  %exitcond164.not = icmp eq i64 %267, %umax
+  %exitcond164.not = icmp eq i64 %267, %32
   br i1 %exitcond164.not, label %._crit_edge142.thread, label %263, !llvm.loop !70
 
 268:                                              ; preds = %261, %258
@@ -1618,7 +1616,6 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 
 .lr.ph152:                                        ; preds = %.preheader
   %32 = load ptr, ptr %2, align 8, !tbaa !4
-  %umax = call i64 @llvm.umax.i64(i64 %31, i64 1)
   br label %262
 
 33:                                               ; preds = %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i
@@ -2168,7 +2165,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge153, %._
   %265 = getelementptr inbounds i32, ptr %32, i64 %.0151
   store i32 %264, ptr %265, align 4, !tbaa !20
   %266 = add nuw i64 %.0151, 1
-  %exitcond175.not = icmp eq i64 %266, %umax
+  %exitcond175.not = icmp eq i64 %266, %31
   br i1 %exitcond175.not, label %._crit_edge153.thread, label %262, !llvm.loop !76
 
 267:                                              ; preds = %260, %257
@@ -2258,7 +2255,6 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 
 .lr.ph153:                                        ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit44.preheader
   %32 = load ptr, ptr %2, align 8, !tbaa !72
-  %umax = call i64 @llvm.umax.i64(i64 %31, i64 1)
   br label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit44
 
 33:                                               ; preds = %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i
@@ -2808,7 +2804,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %265 = getelementptr inbounds i32, ptr %32, i64 %.0152
   store i32 %264, ptr %265, align 4, !tbaa !20
   %266 = add nuw i64 %.0152, 1
-  %exitcond174.not = icmp eq i64 %266, %umax
+  %exitcond174.not = icmp eq i64 %266, %31
   br i1 %exitcond174.not, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit44._crit_edge.thread, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit44, !llvm.loop !93
 
 267:                                              ; preds = %261, %258

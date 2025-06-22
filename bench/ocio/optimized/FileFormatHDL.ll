@@ -7782,7 +7782,6 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev11Lut1DOpDataELN9__gnu_cxx12_Lock_poli
   %48 = load ptr, ptr %47, align 8, !tbaa !128
   %invariant.gep = getelementptr i8, ptr %48, i64 4
   %invariant.gep20 = getelementptr i8, ptr %48, i64 8
-  %umax = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %49
 
 ._crit_edge:                                      ; preds = %49, %43
@@ -7801,7 +7800,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev11Lut1DOpDataELN9__gnu_cxx12_Lock_poli
   %gep21 = getelementptr float, ptr %invariant.gep20, i64 %52
   store float %54, ptr %gep21, align 4, !tbaa !84
   %55 = add nuw i64 %.019, 1
-  %exitcond.not = icmp eq i64 %55, %umax
+  %exitcond.not = icmp eq i64 %55, %10
   br i1 %exitcond.not, label %._crit_edge, label %49, !llvm.loop !181
 }
 

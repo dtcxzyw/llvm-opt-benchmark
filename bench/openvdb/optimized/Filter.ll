@@ -33992,7 +33992,6 @@ for.body77.preheader:                             ; preds = %invoke.cont71
   %sub.ptr.rhs.cast.i77 = ptrtoint ptr %14 to i64
   %sub.ptr.sub.i78 = sub i64 %sub.ptr.lhs.cast.i76, %sub.ptr.rhs.cast.i77
   %sub.ptr.div.i79 = ashr exact i64 %sub.ptr.sub.i78, 2
-  %umax = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i79, i64 1)
   br label %for.body77
 
 for.body77:                                       ; preds = %for.body77.preheader, %for.body77
@@ -34003,7 +34002,7 @@ for.body77:                                       ; preds = %for.body77.preheade
   %conv = zext i32 %17 to i64
   %add = add i64 %totalNodeCount.0198, %conv
   %inc80 = add nuw i64 %i73.0197, 1
-  %exitcond.not = icmp eq i64 %inc80, %umax
+  %exitcond.not = icmp eq i64 %inc80, %sub.ptr.div.i79
   br i1 %exitcond.not, label %for.end81.loopexit, label %for.body77, !llvm.loop !313
 
 for.end81.loopexit:                               ; preds = %for.body77

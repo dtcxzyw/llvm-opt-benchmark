@@ -5939,7 +5939,6 @@ _ZNSt6vectorIN4pbrt7Normal3IfEESaIS2_EEaSESt16initializer_listIS2_E.exit: ; pred
   %264 = ptrtoint ptr %262 to i64
   %265 = sub i64 %263, %264
   %266 = sdiv exact i64 %265, 12
-  %umax = call i64 @llvm.umax.i64(i64 %260, i64 1)
   br label %267
 
 267:                                              ; preds = %.lr.ph267, %301
@@ -6040,7 +6039,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7.i125: ; preds = 
 
 301:                                              ; preds = %267
   %302 = add nuw i64 %.0266, 1
-  %exitcond.not = icmp eq i64 %302, %umax
+  %exitcond.not = icmp eq i64 %302, %260
   br i1 %exitcond.not, label %.critedge, label %267, !llvm.loop !198
 
 .critedge:                                        ; preds = %301, %_ZNSt6vectorIN4pbrt7Normal3IfEESaIS2_EEaSESt16initializer_listIS2_E.exit
@@ -11894,7 +11893,6 @@ _ZNSt6vectorIN4pbrt7Normal3IfEESaIS2_EEaSESt16initializer_listIS2_E.exit: ; pred
   %235 = ptrtoint ptr %233 to i64
   %236 = sub i64 %234, %235
   %237 = sdiv exact i64 %236, 12
-  %umax = call i64 @llvm.umax.i64(i64 %231, i64 1)
   br label %238
 
 238:                                              ; preds = %.lr.ph295, %272
@@ -11995,7 +11993,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7.i127: ; preds = 
 
 272:                                              ; preds = %238
   %273 = add nuw i64 %.026294, 1
-  %exitcond.not = icmp eq i64 %273, %umax
+  %exitcond.not = icmp eq i64 %273, %231
   br i1 %exitcond.not, label %.critedge, label %238, !llvm.loop !309
 
 .critedge:                                        ; preds = %272, %_ZNSt6vectorIN4pbrt7Normal3IfEESaIS2_EEaSESt16initializer_listIS2_E.exit
@@ -70805,13 +70803,10 @@ _ZNSt6vectorIN4pbrt6Point3IfEESaIS2_EE9push_backEOS2_.exit: ; preds = %340, %_ZN
 
 _ZNKSt6vectorIN4pbrt7Normal3IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %393
   %399 = sdiv exact i64 %396, 12
-  %.sroa.speculated.i.i.i160 = call i64 @llvm.umax.i64(i64 %399, i64 1)
-  %400 = add nsw i64 %.sroa.speculated.i.i.i160, %399
-  %401 = icmp ult i64 %400, %399
+  %400 = shl nsw i64 %399, 1
+  %401 = icmp slt i64 %396, 0
   %402 = call i64 @llvm.umin.i64(i64 %400, i64 768614336404564650)
   %403 = select i1 %401, i64 768614336404564650, i64 %402
-  %.not.i.i.i161 = icmp ne i64 %403, 0
-  call void @llvm.assume(i1 %.not.i.i.i161)
   %404 = mul nuw nsw i64 %403, 12
   %405 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %404) #35
   %406 = getelementptr inbounds nuw i8, ptr %405, i64 %396
@@ -70886,13 +70881,10 @@ _ZNSt6vectorIN4pbrt7Normal3IfEESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6v
 
 _ZNKSt6vectorIN4pbrt6Point2IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %431
   %437 = ashr exact i64 %434, 3
-  %.sroa.speculated.i.i.i.i167 = call i64 @llvm.umax.i64(i64 %437, i64 1)
-  %438 = add nsw i64 %.sroa.speculated.i.i.i.i167, %437
+  %438 = ashr exact i64 %434, 2
   %439 = icmp ult i64 %438, %437
   %440 = call i64 @llvm.umin.i64(i64 %438, i64 1152921504606846975)
   %441 = select i1 %439, i64 1152921504606846975, i64 %440
-  %.not.i.i.i.i168 = icmp ne i64 %441, 0
-  call void @llvm.assume(i1 %.not.i.i.i.i168)
   %442 = shl nuw nsw i64 %441, 3
   %443 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %442) #35
   %444 = getelementptr inbounds nuw i8, ptr %443, i64 %434

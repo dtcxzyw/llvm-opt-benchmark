@@ -7331,7 +7331,6 @@ for.body.lr.ph:                                   ; preds = %do.end
   %pool_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %_M_end_of_storage.i.i27 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %invoke.cont39, %do.end
@@ -7448,7 +7447,7 @@ invoke.cont39:                                    ; preds = %_ZNSt6vectorIdSaIdE
   %33 = phi ptr [ %incdec.ptr.i.i.i, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i ], [ %incdec.ptr.i.i, %if.then.i.i28 ]
   %call5.i.i.i.i.i.i3068 = phi ptr [ %call5.i.i.i.i.i.i30, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i ], [ %.pr, %if.then.i.i28 ]
   %inc = add nuw i64 %i.074, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !153
 
 lpad31.loopexit:                                  ; preds = %invoke.cont32, %invoke.cont34, %cond.false.i, %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i.i

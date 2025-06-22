@@ -2303,9 +2303,8 @@ _ZN2cv4Mat_INS_3VecIdLi2EEEEC2Eii.exit192.preheader: ; preds = %_ZN2cv4Mat_INS_3
   br i1 %.not, label %_ZN2cv4Mat_INS_3VecIdLi2EEEEC2Eii.exit192._crit_edge, label %.preheader243.us.preheader
 
 .preheader243.us.preheader:                       ; preds = %.preheader243.lr.ph
-  %umax = call i32 @llvm.umax.i32(i32 %48, i32 1)
   %wide.trip.count282 = and i64 %43, 2147483647
-  %wide.trip.count277 = zext nneg i32 %umax to i64
+  %wide.trip.count277 = zext nneg i32 %48 to i64
   br label %.preheader243.us
 
 .preheader243.us:                                 ; preds = %.preheader243.us.preheader, %._crit_edge251.us
@@ -4359,9 +4358,6 @@ declare i64 @llvm.umin.i64(i64, i64) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #22
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #22
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }

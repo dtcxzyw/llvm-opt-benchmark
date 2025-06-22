@@ -275,11 +275,11 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux16format_thread_idEPcmNS2_2idI
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i8 %7, ptr %5, align 1, !tbaa !19
   %9 = add i64 %1, -3
+  %10 = tail call i64 @llvm.umin.i64(i64 %9, i64 16)
   %.not.i = icmp eq i64 %9, 0
   br i1 %.not.i, label %_ZN5boost3log11v2_mt_posix3aux9format_idILm8EcmEEvPT0_mT1_b.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %3
-  %10 = tail call i64 @llvm.umin.i64(i64 %9, i64 16)
   %11 = shl nuw nsw i64 %10, 2
   br label %.lr.ph.i
 
