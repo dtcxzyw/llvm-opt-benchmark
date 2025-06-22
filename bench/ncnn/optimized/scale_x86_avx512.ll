@@ -962,7 +962,7 @@ define internal void @_ZNK4ncnn16Scale_x86_avx51215forward_inplaceERSt6vectorINS
   %53 = getelementptr inbounds float, ptr %35, i64 %52
   %54 = load <4 x float>, ptr %53, align 1, !tbaa !47
   %55 = shufflevector <4 x float> %54, <4 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
-  %56 = shufflevector <8 x float> %55, <8 x float> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %56 = shufflevector <4 x float> %54, <4 x float> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
   %57 = load i32, ptr %24, align 4, !tbaa !30
   %.not87109 = icmp eq i32 %57, 0
   br i1 %.not87109, label %.preheader113, label %.thread110
@@ -1292,7 +1292,7 @@ define internal void @_ZNK4ncnn16Scale_x86_avx51215forward_inplaceERSt6vectorINS
   %51 = getelementptr inbounds float, ptr %33, i64 %50
   %52 = load <4 x float>, ptr %51, align 1, !tbaa !47
   %53 = shufflevector <4 x float> %52, <4 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
-  %54 = shufflevector <8 x float> %53, <8 x float> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %54 = shufflevector <4 x float> %52, <4 x float> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
   %55 = load i32, ptr %24, align 4, !tbaa !30
   %.not87116 = icmp eq i32 %55, 0
   br i1 %.not87116, label %.preheader120, label %.thread117

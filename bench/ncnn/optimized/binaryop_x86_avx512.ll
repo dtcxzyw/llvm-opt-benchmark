@@ -3848,7 +3848,7 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
 340:                                              ; preds = %305
   %341 = load <4 x float>, ptr %0, align 1, !tbaa !52
   %342 = shufflevector <4 x float> %341, <4 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
-  %343 = shufflevector <8 x float> %342, <8 x float> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %343 = shufflevector <4 x float> %341, <4 x float> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
   %344 = icmp sgt i32 %.sroa.speculated95.i, 3
   br i1 %344, label %.lr.ph120.i.i, label %.preheader96.i.i
 
@@ -4657,7 +4657,7 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
 719:                                              ; preds = %684
   %720 = load <4 x float>, ptr %0, align 1, !tbaa !52
   %721 = shufflevector <4 x float> %720, <4 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
-  %722 = shufflevector <8 x float> %721, <8 x float> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %722 = shufflevector <4 x float> %720, <4 x float> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
   %723 = icmp sgt i32 %.sroa.speculated95.i95, 3
   br i1 %723, label %.lr.ph120.i.i114, label %.preheader96.i.i97
 
@@ -5466,7 +5466,7 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
 1098:                                             ; preds = %1063
   %1099 = load <4 x float>, ptr %0, align 1, !tbaa !52
   %1100 = shufflevector <4 x float> %1099, <4 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
-  %1101 = shufflevector <8 x float> %1100, <8 x float> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %1101 = shufflevector <4 x float> %1099, <4 x float> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
   %1102 = icmp sgt i32 %.sroa.speculated95.i317, 3
   br i1 %1102, label %.lr.ph120.i.i336, label %.preheader96.i.i319
 
@@ -6294,7 +6294,7 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
 1479:                                             ; preds = %1444
   %1480 = load <4 x float>, ptr %0, align 1, !tbaa !52
   %1481 = shufflevector <4 x float> %1480, <4 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
-  %1482 = shufflevector <8 x float> %1481, <8 x float> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %1482 = shufflevector <4 x float> %1480, <4 x float> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
   %1483 = icmp sgt i32 %.sroa.speculated95.i539, 3
   br i1 %1483, label %.lr.ph120.i.i558, label %.preheader96.i.i541
 
@@ -7106,7 +7106,7 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
 1859:                                             ; preds = %1824
   %1860 = load <4 x float>, ptr %0, align 1, !tbaa !52
   %1861 = shufflevector <4 x float> %1860, <4 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
-  %1862 = shufflevector <8 x float> %1861, <8 x float> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %1862 = shufflevector <4 x float> %1860, <4 x float> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
   %1863 = icmp sgt i32 %.sroa.speculated96.i, 3
   br i1 %1863, label %.lr.ph120.i.i774, label %.preheader96.i.i761
 
@@ -7918,7 +7918,7 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
 2239:                                             ; preds = %2204
   %2240 = load <4 x float>, ptr %0, align 1, !tbaa !52
   %2241 = shufflevector <4 x float> %2240, <4 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
-  %2242 = shufflevector <8 x float> %2241, <8 x float> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %2242 = shufflevector <4 x float> %2240, <4 x float> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
   %2243 = icmp sgt i32 %.sroa.speculated96.i952, 3
   br i1 %2243, label %.lr.ph120.i.i971, label %.preheader96.i.i954
 
@@ -10199,7 +10199,7 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   br i1 %4067, label %.lr.ph280.i.i, label %.preheader256.i.i
 
 .lr.ph280.i.i:                                    ; preds = %4064
-  %4068 = shufflevector <8 x float> %4066, <8 x float> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %4068 = shufflevector <4 x float> %4065, <4 x float> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
   %4069 = load <16 x float>, ptr @_ZL8_ps512_1, align 64, !tbaa !52
   %4070 = fcmp fast ole <16 x float> %4068, zeroinitializer
   %4071 = load <16 x float>, ptr @_ZL19_ps512_min_norm_pos, align 64, !tbaa !52
@@ -11210,7 +11210,7 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
 4643:                                             ; preds = %4608
   %4644 = load <4 x float>, ptr %0, align 1, !tbaa !52
   %4645 = shufflevector <4 x float> %4644, <4 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
-  %4646 = shufflevector <8 x float> %4645, <8 x float> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %4646 = shufflevector <4 x float> %4644, <4 x float> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
   %4647 = icmp sgt i32 %.sroa.speculated95.i1255, 3
   br i1 %4647, label %.lr.ph120.i.i1274, label %.preheader96.i.i1257
 
@@ -12048,7 +12048,7 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   br i1 %5031, label %.lr.ph120.preheader.i.i, label %.preheader96.i.i1479
 
 .lr.ph120.preheader.i.i:                          ; preds = %5028
-  %5032 = shufflevector <8 x float> %5030, <8 x float> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %5032 = shufflevector <4 x float> %5029, <4 x float> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
   %5033 = fdiv fast <16 x float> splat (float 1.000000e+00), %5032
   br label %.lr.ph120.i.i1496
 
@@ -14331,7 +14331,7 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
 6857:                                             ; preds = %6596
   %6858 = load <4 x float>, ptr %0, align 1, !tbaa !52
   %6859 = shufflevector <4 x float> %6858, <4 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
-  %6860 = shufflevector <8 x float> %6859, <8 x float> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %6860 = shufflevector <4 x float> %6858, <4 x float> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
   %6861 = icmp sgt i32 %.sroa.speculated95.i1699, 3
   br i1 %6861, label %.lr.ph280.i.i1718, label %.preheader256.i.i1701
 
@@ -16207,7 +16207,7 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
 8255:                                             ; preds = %8106
   %8256 = load <4 x float>, ptr %0, align 1, !tbaa !52
   %8257 = shufflevector <4 x float> %8256, <4 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
-  %8258 = shufflevector <8 x float> %8257, <8 x float> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %8258 = shufflevector <4 x float> %8256, <4 x float> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
   %8259 = icmp sgt i32 %.sroa.speculated107.i, 3
   br i1 %8259, label %.lr.ph196.i.i, label %.preheader172.i.i
 
@@ -18016,7 +18016,7 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   br i1 %9577, label %.lr.ph196.i.i1996, label %.preheader172.i.i1975
 
 .lr.ph196.i.i1996:                                ; preds = %9574
-  %9578 = shufflevector <8 x float> %9576, <8 x float> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %9578 = shufflevector <4 x float> %9575, <4 x float> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
   %9579 = fcmp fast one <16 x float> %9578, zeroinitializer
   %9580 = fcmp fast olt <16 x float> %9578, zeroinitializer
   %9581 = bitcast <16 x float> %9578 to <16 x i32>

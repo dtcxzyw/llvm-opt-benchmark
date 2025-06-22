@@ -1211,7 +1211,7 @@ _ZN4ncnn3Mat6addrefEv.exit:                       ; preds = %63, %58, %49
 81:                                               ; preds = %76
   %82 = load <4 x float>, ptr %.sroa.0.0, align 1, !tbaa !47
   %83 = shufflevector <4 x float> %82, <4 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
-  %84 = shufflevector <8 x float> %83, <8 x float> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %84 = shufflevector <4 x float> %82, <4 x float> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
   br label %.thread7.i
 
 .thread7.i:                                       ; preds = %81, %78, %.thread.i, %76, %_ZN4ncnn3Mat6addrefEv.exit
@@ -2013,7 +2013,7 @@ _ZN4ncnn3Mat6addrefEv.exit:                       ; preds = %61, %56, %47
 81:                                               ; preds = %76
   %82 = load <4 x float>, ptr %.sroa.0.0, align 1, !tbaa !47
   %83 = shufflevector <4 x float> %82, <4 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
-  %84 = shufflevector <8 x float> %83, <8 x float> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %84 = shufflevector <4 x float> %82, <4 x float> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
   br label %.thread7.i
 
 .thread7.i:                                       ; preds = %81, %78, %.thread.i, %76, %_ZN4ncnn3Mat6addrefEv.exit

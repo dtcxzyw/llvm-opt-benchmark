@@ -571,7 +571,7 @@ define internal fastcc void @_ZN4ncnnL10dequantizeEPKiPfRKNS_3MatES5_ii(ptr noun
 19:                                               ; preds = %14
   %20 = load <4 x float>, ptr %.0.val, align 1, !tbaa !44
   %21 = shufflevector <4 x float> %20, <4 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
-  %22 = shufflevector <8 x float> %21, <8 x float> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %22 = shufflevector <4 x float> %20, <4 x float> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
   br label %.thread19
 
 .thread19:                                        ; preds = %14, %16, %.thread, %19, %4
@@ -701,7 +701,7 @@ define internal fastcc void @_ZN4ncnnL10dequantizeEPKiPfRKNS_3MatES5_ii(ptr noun
 75:                                               ; preds = %70
   %76 = load <4 x float>, ptr %.0.val1, align 1, !tbaa !44
   %77 = shufflevector <4 x float> %76, <4 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
-  %78 = shufflevector <8 x float> %77, <8 x float> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %78 = shufflevector <4 x float> %76, <4 x float> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
   br label %.thread25
 
 .thread25:                                        ; preds = %70, %72, %.thread22, %75, %61

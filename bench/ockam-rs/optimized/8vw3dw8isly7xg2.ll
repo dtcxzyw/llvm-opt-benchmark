@@ -35915,7 +35915,7 @@ default.unreachable116:                           ; preds = %3
 
 58:                                               ; preds = %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h591a30090bc3f47aE.exit"
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 1
-  %.sroa.2.0.copyload = load <32 x i8>, ptr %.sroa.2.0..sroa_idx, align 1
+  %.sroa.7.8.vec.expand = load <32 x i8>, ptr %.sroa.2.0..sroa_idx, align 1
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %16)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4501)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4504)
@@ -35965,7 +35965,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr133dro
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.10)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
-  store <32 x i8> %.sroa.2.0.copyload, ptr %14, align 1
+  store <32 x i8> %.sroa.7.8.vec.expand, ptr %14, align 1
   invoke void @"_ZN14ockam_identity8identity21identity_verification62_$LT$impl$u20$ockam_identity..identity..identity..Identity$GT$29compute_change_hash_from_hash17h13a7e2d33755c86fE"(ptr noalias noundef nonnull sret({ i8, [39 x i8] }) align 8 captures(none) dereferenceable(40) %15, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(32) %14)
           to label %73 unwind label %71
 
@@ -36158,7 +36158,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr133dro
   br label %127
 
 "_ZN4core3ptr133drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_vault..traits..vault_for_verifying_signatures..VaultForVerifyingSignatures$GT$$GT$17hc04a8d5d5e6c8ccfE.exit": ; preds = %.noexc63, %146, %.noexc57, %110
-  %.sroa.894.0 = phi <32 x i8> [ %.sroa.2.0.copyload, %110 ], [ %.sroa.2.0.copyload, %.noexc57 ], [ undef, %146 ], [ undef, %.noexc63 ]
+  %.sroa.894.0 = phi <32 x i8> [ %.sroa.7.8.vec.expand, %110 ], [ %.sroa.7.8.vec.expand, %.noexc57 ], [ undef, %146 ], [ undef, %.noexc63 ]
   %.sroa.9.0 = phi ptr [ %95, %110 ], [ %95, %.noexc57 ], [ undef, %146 ], [ undef, %.noexc63 ]
   %.sroa.1196.0 = phi i8 [ %93, %110 ], [ %93, %.noexc57 ], [ 2, %146 ], [ 2, %.noexc63 ]
   %.sroa.16.0 = phi i32 [ %.sroa.1085.0.copyload87, %110 ], [ %.sroa.1085.0.copyload87, %.noexc57 ], [ undef, %146 ], [ undef, %.noexc63 ]
@@ -36288,8 +36288,6 @@ common.ret:                                       ; preds = %"_ZN4core3ptr133dro
   br label %146
 
 167:                                              ; preds = %"_ZN4core3ptr248drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$ockam_vault..types..hashes..Sha256Output$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h91e9edcf82baa055E.exit"
-  %.sroa.2.8.vec.extract = shufflevector <32 x i8> %.sroa.2.0.copyload, <32 x i8> poison, <8 x i32> <i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14>
-  %.sroa.7.8.vec.expand = shufflevector <8 x i8> %.sroa.2.8.vec.extract, <8 x i8> poison, <32 x i32> <i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
   %.sroa.7.8.vec.extract.extract = shufflevector <32 x i8> %.sroa.7.8.vec.expand, <32 x i8> poison, <32 x i32> <i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
   %.sroa.7.8.vec.extract.bc = bitcast <32 x i8> %.sroa.7.8.vec.extract.extract to <4 x i64>
   %.sroa.7.8.vec.extract.extract113 = extractelement <4 x i64> %.sroa.7.8.vec.extract.bc, i64 0
