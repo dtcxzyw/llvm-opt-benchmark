@@ -36254,7 +36254,7 @@ define hidden void @_ZN14polars_parquet5arrow4read11deserialize12nested_utils20c
   %42 = load i64, ptr %14, align 8, !alias.scope !2819, !noalias !2816, !noundef !6
   %43 = icmp ult i64 %42, 4611686018427387904
   call void @llvm.assume(i1 %43)
-  %.not14.i = icmp eq i64 %39, 0
+  %.not14.i = icmp eq i64 %34, 0
   br i1 %.not14.i, label %"_ZN14polars_parquet7parquet8encoding9bitpacked6decode16Decoder$LT$T$GT$12collect_into17h100b9982af42f8ffE.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %33
@@ -36321,7 +36321,7 @@ _ZN14polars_parquet7parquet8encoding9bitpacked6decode11decode_pack17hc429c7ce337
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %45
 
 "_ZN14polars_parquet7parquet8encoding9bitpacked6decode16Decoder$LT$T$GT$12collect_into17h100b9982af42f8ffE.exit": ; preds = %33, %._crit_edge.loopexit.i
-  %64 = phi i64 [ %.pre18.i, %._crit_edge.loopexit.i ], [ %34, %33 ]
+  %64 = phi i64 [ %.pre18.i, %._crit_edge.loopexit.i ], [ 0, %33 ]
   %65 = phi i64 [ %.pre.i, %._crit_edge.loopexit.i ], [ %42, %33 ]
   %66 = icmp ult i64 %65, 4611686018427387904
   call void @llvm.assume(i1 %66)

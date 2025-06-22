@@ -7735,25 +7735,25 @@ _ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i: ; preds = %47
 
 _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit.i: ; preds = %63, %.noexc34
   %.not.i8.i = icmp eq ptr %50, null
-  br i1 %.not.i8.i, label %_ZNSt6vectorImSaImEE7reserveEm.exit.thread, label %64
+  br i1 %.not.i8.i, label %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i, label %64
 
 64:                                               ; preds = %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit.i
   call void @_ZdlPv(ptr noundef nonnull %50) #29
-  br label %_ZNSt6vectorImSaImEE7reserveEm.exit.thread
+  br label %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i
 
-_ZNSt6vectorImSaImEE7reserveEm.exit.thread:       ; preds = %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit.i, %64
+_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i: ; preds = %64, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit.i
   store ptr %61, ptr %11, align 8, !tbaa !198
   %65 = getelementptr inbounds nuw i8, ptr %61, i64 %59
   store ptr %65, ptr %56, align 8, !tbaa !450
   %66 = getelementptr inbounds nuw i64, ptr %61, i64 %spec.select
   store ptr %66, ptr %48, align 8, !tbaa !449
-  br label %.lr.ph
+  br label %_ZNSt6vectorImSaImEE7reserveEm.exit
 
-_ZNSt6vectorImSaImEE7reserveEm.exit:              ; preds = %47
-  %.not79 = icmp eq i64 %spec.select, 0
+_ZNSt6vectorImSaImEE7reserveEm.exit:              ; preds = %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i, %47
+  %.not79 = icmp eq i64 %34, 0
   br i1 %.not79, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZNSt6vectorImSaImEE7reserveEm.exit.thread, %_ZNSt6vectorImSaImEE7reserveEm.exit
+.lr.ph:                                           ; preds = %_ZNSt6vectorImSaImEE7reserveEm.exit
   %67 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %68 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %69 = getelementptr inbounds nuw i8, ptr %4, i64 8

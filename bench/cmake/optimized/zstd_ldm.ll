@@ -387,7 +387,7 @@ define dso_local range(i64 -119, 1) i64 @ZSTD_ldm_generateSequences(ptr noundef 
   %14 = icmp ne i64 %13, 0
   %15 = zext i1 %14 to i64
   %16 = add nuw nsw i64 %12, %15
-  %.not = icmp eq i64 %16, 0
+  %.not = icmp eq i64 %4, 0
   br i1 %.not, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
