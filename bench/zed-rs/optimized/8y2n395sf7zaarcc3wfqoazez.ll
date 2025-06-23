@@ -2579,7 +2579,7 @@ define hidden void @"_ZN57_$LT$R$u20$as$u20$num_bigint_dig..bigrand..RandBigInt$
 
 32:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
-  %.not.i = icmp eq i64 %12, 0
+  %.not.i = icmp eq i64 %2, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %32

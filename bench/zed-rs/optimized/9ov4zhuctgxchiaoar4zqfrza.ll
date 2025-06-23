@@ -30932,7 +30932,7 @@ define hidden void @_ZN6base646engine6Engine6decode5inner17ha8bb64c23f6a6dd4E(pt
   %11 = zext i1 %10 to i64
   %12 = add nuw nsw i64 %9, %11
   %13 = mul nuw i64 %12, 3
-  %14 = icmp eq i64 %12, 0
+  %14 = icmp eq i64 %3, 0
   br i1 %14, label %"_ZN63_$LT$u8$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17haa0ce2e245c0165bE.llvm.13319355193731752039.exit", label %15
 
 15:                                               ; preds = %4

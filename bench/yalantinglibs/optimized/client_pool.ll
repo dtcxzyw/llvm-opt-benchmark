@@ -67381,7 +67381,7 @@ _ZN10moodycamel15ConcurrentQueueISt10unique_ptrIN8coro_rpc15coro_rpc_clientESt14
   %add.i = add nuw nsw i64 %div3.i, %conv.i
   %initialBlockPoolSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i64 %add.i, ptr %initialBlockPoolSize.i.i, align 8
-  %cmp.i.i = icmp eq i64 %add.i, 0
+  %cmp.i.i = icmp eq i64 %reserve_size, 0
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %_ZN10moodycamel15ConcurrentQueueISt10unique_ptrIN8coro_rpc15coro_rpc_clientESt14default_deleteIS3_EENS_28ConcurrentQueueDefaultTraitsEE39populate_initial_implicit_producer_hashEv.exit.i
@@ -67397,14 +67397,14 @@ if.end.i.i:                                       ; preds = %_ZN10moodycamel15Co
 
 for.body.i.i.i:                                   ; preds = %if.end.i.i, %for.body.i.i.i
   %i.07.i.i.i = phi i64 [ %inc.i.i.i, %for.body.i.i.i ], [ 0, %if.end.i.i ]
-  %add.ptr.i.i.i = getelementptr inbounds nuw %"struct.moodycamel::ConcurrentQueue<std::unique_ptr<coro_rpc::coro_rpc_client>>::Block", ptr %call.i.i.i.i.i, i64 %i.07.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<std::unique_ptr<coro_rpc::coro_rpc_client>>::Block", ptr %call.i.i.i.i.i, i64 %i.07.i.i.i
   %next.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 256
   %freeListNext.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 312
   store ptr null, ptr %freeListNext.i.i.i.i, align 8
   %dynamicallyAllocated.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 320
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %next.i.i.i.i, i8 0, i64 52, i1 false)
   store i8 1, ptr %dynamicallyAllocated.i.i.i.i, align 8
-  %inc.i.i.i = add nuw nsw i64 %i.07.i.i.i, 1
+  %inc.i.i.i = add nuw i64 %i.07.i.i.i, 1
   %cmp1.not.i.i.i = icmp eq i64 %inc.i.i.i, %add.i
   br i1 %cmp1.not.i.i.i, label %for.body.preheader.i.i, label %for.body.i.i.i, !llvm.loop !757
 
@@ -67484,14 +67484,14 @@ if.end.i.i27:                                     ; preds = %_ZN10moodycamel15Co
 
 for.body.i.i.i31:                                 ; preds = %if.end.i.i27, %for.body.i.i.i31
   %i.07.i.i.i32 = phi i64 [ %inc.i.i.i37, %for.body.i.i.i31 ], [ 0, %if.end.i.i27 ]
-  %add.ptr.i.i.i33 = getelementptr inbounds nuw %"struct.moodycamel::ConcurrentQueue<std::unique_ptr<coro_rpc::coro_rpc_client>>::Block", ptr %call.i.i.i.i.i29, i64 %i.07.i.i.i32
+  %add.ptr.i.i.i33 = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<std::unique_ptr<coro_rpc::coro_rpc_client>>::Block", ptr %call.i.i.i.i.i29, i64 %i.07.i.i.i32
   %next.i.i.i.i34 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i33, i64 256
   %freeListNext.i.i.i.i35 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i33, i64 312
   store ptr null, ptr %freeListNext.i.i.i.i35, align 8
   %dynamicallyAllocated.i.i.i.i36 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i33, i64 320
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %next.i.i.i.i34, i8 0, i64 52, i1 false)
   store i8 1, ptr %dynamicallyAllocated.i.i.i.i36, align 8
-  %inc.i.i.i37 = add nuw nsw i64 %i.07.i.i.i32, 1
+  %inc.i.i.i37 = add nuw i64 %i.07.i.i.i32, 1
   %cmp1.not.i.i.i38 = icmp eq i64 %inc.i.i.i37, %add.i
   br i1 %cmp1.not.i.i.i38, label %for.body.preheader.i.i39, label %for.body.i.i.i31, !llvm.loop !757
 

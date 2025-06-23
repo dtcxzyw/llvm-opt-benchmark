@@ -39146,7 +39146,7 @@ define internal fastcc void @"_ZN14polars_parquet7parquet8encoding9bitpacked6dec
   %15 = load i64, ptr %14, align 8, !noundef !3
   %16 = icmp ult i64 %15, 2305843009213693952
   tail call void @llvm.assume(i1 %16)
-  %.not = icmp eq i64 %10, 0
+  %.not = icmp eq i64 %5, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2

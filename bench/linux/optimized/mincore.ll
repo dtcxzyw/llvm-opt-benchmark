@@ -85,7 +85,7 @@ define internal fastcc range(i64 -2147483648, 1) i64 @__se_sys_mincore(i64 nound
   br i1 %25, label %106, label %26
 
 26:                                               ; preds = %22
-  %27 = icmp eq i64 %17, 0
+  %27 = icmp eq i64 %1, 0
   br i1 %27, label %.loopexit, label %28
 
 28:                                               ; preds = %26

@@ -998,20 +998,20 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %59 = load i64, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %61 = lshr i64 %59, 6
-  %62 = and i64 %59, 63
-  %63 = icmp ne i64 %62, 0
-  %64 = zext i1 %63 to i64
-  %65 = add nuw nsw i64 %61, %64
-  %.not.i = icmp eq i64 %65, 0
+  %.not.i = icmp eq i64 %59, 0
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %57, i8 0, i64 32, i1 false)
-  br i1 %.not.i, label %71, label %66
+  br i1 %.not.i, label %71, label %61
 
-66:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  invoke void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(32) %57, i64 noundef %65)
+61:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  %62 = lshr i64 %59, 6
+  %63 = and i64 %59, 63
+  %64 = icmp ne i64 %63, 0
+  %65 = zext i1 %64 to i64
+  %66 = add nuw nsw i64 %62, %65
+  invoke void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(32) %57, i64 noundef %66)
           to label %71 unwind label %67
 
-67:                                               ; preds = %66
+67:                                               ; preds = %61
   %68 = landingpad { ptr, i32 }
           cleanup
   %69 = load ptr, ptr %57, align 8
@@ -1022,7 +1022,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   call void @_ZdlPv(ptr noundef nonnull %69) #25
   br label %.body
 
-71:                                               ; preds = %66, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+71:                                               ; preds = %61, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   store i64 %59, ptr %60, align 8
   br i1 %2, label %.preheader, label %.loopexit
 

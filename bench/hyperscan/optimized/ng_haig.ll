@@ -1207,13 +1207,13 @@ _ZNK3ue212_GLOBAL__N_114Automaton_BaseINS0_12Graph_TraitsEE14shrinkStateSetERKN5
   %359 = load i32, ptr %62, align 8
   %360 = zext i32 %359 to i64
   %361 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  %362 = add nuw nsw i64 %360, 63
-  %363 = lshr i64 %362, 6
   %.not.i42.i.i.i = icmp eq i32 %359, 0
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %29, i8 0, i64 24, i1 false)
   br i1 %.not.i42.i.i.i, label %374, label %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i.i.i
 
 _ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i.i.i: ; preds = %358
+  %362 = add nuw nsw i64 %360, 63
+  %363 = lshr i64 %362, 6
   %364 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %365 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %366 = shl nuw nsw i64 %363, 3
@@ -3493,13 +3493,13 @@ _ZN5boost14dynamic_bitsetImSaImEED2Ev.exit.i.i.i79: ; preds = %1219, %1214
   %1229 = load i32, ptr %791, align 8
   %1230 = zext i32 %1229 to i64
   %1231 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  %1232 = add nuw nsw i64 %1230, 63
-  %1233 = lshr i64 %1232, 6
   %.not.i101.i.i.i = icmp eq i32 %1229, 0
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, i8 0, i64 24, i1 false)
   br i1 %.not.i101.i.i.i, label %1244, label %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i154.i.i.i
 
 _ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i154.i.i.i: ; preds = %1228
+  %1232 = add nuw nsw i64 %1230, 63
+  %1233 = lshr i64 %1232, 6
   %1234 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %1235 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %1236 = shl nuw nsw i64 %1233, 3
