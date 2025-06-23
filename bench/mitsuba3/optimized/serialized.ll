@@ -1179,9 +1179,9 @@ _ZN7mitsuba6Stream4readImEEvRT_.exit365:          ; preds = %.lr.ph.i.preheader.
   %367 = call contract noundef float @llvm.sqrt.f32(float %366)
   %368 = fdiv contract float 1.000000e+00, %367
   %369 = insertelement <4 x float> poison, float %368, i64 0
-  %370 = shufflevector <4 x float> %369, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 poison>
-  %371 = fmul contract <4 x float> %362, %370
-  %.sroa.0.0.vec.extract533 = shufflevector <4 x float> %371, <4 x float> poison, <3 x i32> <i32 0, i32 1, i32 2>
+  %370 = shufflevector <4 x float> %362, <4 x float> poison, <3 x i32> <i32 0, i32 1, i32 2>
+  %371 = shufflevector <4 x float> %369, <4 x float> poison, <3 x i32> zeroinitializer
+  %.sroa.0.0.vec.extract533 = fmul contract <3 x float> %370, %371
   store <3 x float> %.sroa.0.0.vec.extract533, ptr %.0240527, align 1
   %372 = getelementptr inbounds nuw i8, ptr %.0240527, i64 12
   %.pre538 = load i32, ptr %278, align 16

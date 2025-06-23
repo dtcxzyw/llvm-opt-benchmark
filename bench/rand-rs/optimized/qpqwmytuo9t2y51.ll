@@ -1265,19 +1265,17 @@ define hidden void @"_ZN133_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S3$C$ppv
 
 11:                                               ; preds = %4
   %12 = load <4 x i32>, ptr %1, align 16
-  %.12.vec.insert.i1 = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %2, i64 0
-  %13 = shufflevector <4 x i32> <i32 poison, i32 poison, i32 poison, i32 0>, <4 x i32> %12, <4 x i32> <i32 3, i32 4, i32 6, i32 7>
-  %14 = or <4 x i32> %.12.vec.insert.i1, %13
-  %15 = shufflevector <4 x i32> %14, <4 x i32> poison, <4 x i32> <i32 1, i32 0, i32 2, i32 3>
+  %13 = insertelement <4 x i32> <i32 0, i32 poison, i32 0, i32 0>, i32 %2, i64 1
+  %14 = insertelement <4 x i32> %12, i32 0, i64 1
+  %15 = or <4 x i32> %13, %14
   %16 = bitcast <4 x i32> %15 to <2 x i64>
   br label %30
 
 17:                                               ; preds = %4
   %18 = load <4 x i32>, ptr %1, align 16
-  %.12.vec.insert.i2 = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %2, i64 0
-  %19 = shufflevector <4 x i32> <i32 poison, i32 poison, i32 poison, i32 0>, <4 x i32> %18, <4 x i32> <i32 3, i32 4, i32 5, i32 7>
-  %20 = or <4 x i32> %.12.vec.insert.i2, %19
-  %21 = shufflevector <4 x i32> %20, <4 x i32> poison, <4 x i32> <i32 1, i32 2, i32 0, i32 3>
+  %19 = insertelement <4 x i32> <i32 0, i32 0, i32 poison, i32 0>, i32 %2, i64 2
+  %20 = insertelement <4 x i32> %18, i32 0, i64 2
+  %21 = or <4 x i32> %19, %20
   %22 = bitcast <4 x i32> %21 to <2 x i64>
   br label %30
 
@@ -12147,10 +12145,9 @@ _ZN10std_detect6detect5cache4test17h33e4ae1e0177e982E.llvm.17720110283109806325.
 
 16:                                               ; preds = %9
   %17 = bitcast <2 x i64> %.sroa.0.0.copyload.i to <4 x i32>
-  %.12.vec.insert.i1.i = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %12, i64 0
-  %18 = shufflevector <4 x i32> <i32 poison, i32 poison, i32 poison, i32 0>, <4 x i32> %17, <4 x i32> <i32 3, i32 4, i32 6, i32 7>
-  %19 = or <4 x i32> %.12.vec.insert.i1.i, %18
-  %20 = shufflevector <4 x i32> %19, <4 x i32> poison, <4 x i32> <i32 1, i32 0, i32 2, i32 3>
+  %18 = insertelement <4 x i32> <i32 0, i32 poison, i32 0, i32 0>, i32 %12, i64 1
+  %19 = insertelement <4 x i32> %17, i32 0, i64 1
+  %20 = or <4 x i32> %18, %19
   br label %"_ZN133_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S3$C$ppv_lite86..x86_64..NoS4$C$NI$GT$$u20$as$u20$ppv_lite86..types..Vec4$LT$u32$GT$$GT$6insert17hddbf33554d702aa3E.llvm.17720110283109806325.exit1.i.i"
 
 21:                                               ; preds = %9
@@ -12183,10 +12180,9 @@ _ZN10std_detect6detect5cache4test17h33e4ae1e0177e982E.llvm.17720110283109806325.
   br label %_ZN11rand_chacha4guts16set_stream_param9impl_sse217h91d2fed8308d1b5eE.llvm.17720110283109806325.exit
 
 33:                                               ; preds = %"_ZN133_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S3$C$ppv_lite86..x86_64..NoS4$C$NI$GT$$u20$as$u20$ppv_lite86..types..Vec4$LT$u32$GT$$GT$6insert17hddbf33554d702aa3E.llvm.17720110283109806325.exit1.i.i"
-  %.12.vec.insert.i6.i = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %27, i64 0
-  %34 = shufflevector <4 x i32> <i32 poison, i32 poison, i32 poison, i32 0>, <4 x i32> %.0.in.i, <4 x i32> <i32 3, i32 4, i32 5, i32 7>
-  %35 = or <4 x i32> %.12.vec.insert.i6.i, %34
-  %36 = shufflevector <4 x i32> %35, <4 x i32> poison, <4 x i32> <i32 1, i32 2, i32 0, i32 3>
+  %34 = insertelement <4 x i32> <i32 0, i32 0, i32 poison, i32 0>, i32 %27, i64 2
+  %35 = insertelement <4 x i32> %.0.in.i, i32 0, i64 2
+  %36 = or <4 x i32> %34, %35
   %37 = bitcast <4 x i32> %36 to <2 x i64>
   br label %_ZN11rand_chacha4guts16set_stream_param9impl_sse217h91d2fed8308d1b5eE.llvm.17720110283109806325.exit
 
@@ -12295,10 +12291,9 @@ define hidden void @_ZN11rand_chacha4guts16set_stream_param7fn_impl17hf57bc4482f
 
 10:                                               ; preds = %3
   %11 = bitcast <2 x i64> %.sroa.0.0.copyload to <4 x i32>
-  %.12.vec.insert.i2 = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %6, i64 0
-  %12 = shufflevector <4 x i32> <i32 poison, i32 poison, i32 poison, i32 0>, <4 x i32> %11, <4 x i32> <i32 3, i32 4, i32 6, i32 7>
-  %13 = or <4 x i32> %.12.vec.insert.i2, %12
-  %14 = shufflevector <4 x i32> %13, <4 x i32> poison, <4 x i32> <i32 1, i32 0, i32 2, i32 3>
+  %12 = insertelement <4 x i32> <i32 0, i32 poison, i32 0, i32 0>, i32 %6, i64 1
+  %13 = insertelement <4 x i32> %11, i32 0, i64 1
+  %14 = or <4 x i32> %12, %13
   br label %"_ZN133_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S3$C$ppv_lite86..x86_64..NoS4$C$NI$GT$$u20$as$u20$ppv_lite86..types..Vec4$LT$u32$GT$$GT$6insert17hddbf33554d702aa3E.llvm.17720110283109806325.exit1"
 
 15:                                               ; preds = %3
@@ -12331,10 +12326,9 @@ define hidden void @_ZN11rand_chacha4guts16set_stream_param7fn_impl17hf57bc4482f
   br label %"_ZN133_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S3$C$ppv_lite86..x86_64..NoS4$C$NI$GT$$u20$as$u20$ppv_lite86..types..Vec4$LT$u32$GT$$GT$6insert17hddbf33554d702aa3E.llvm.17720110283109806325.exit"
 
 27:                                               ; preds = %"_ZN133_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S3$C$ppv_lite86..x86_64..NoS4$C$NI$GT$$u20$as$u20$ppv_lite86..types..Vec4$LT$u32$GT$$GT$6insert17hddbf33554d702aa3E.llvm.17720110283109806325.exit1"
-  %.12.vec.insert.i7 = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %21, i64 0
-  %28 = shufflevector <4 x i32> <i32 poison, i32 poison, i32 poison, i32 0>, <4 x i32> %.0.in, <4 x i32> <i32 3, i32 4, i32 5, i32 7>
-  %29 = or <4 x i32> %.12.vec.insert.i7, %28
-  %30 = shufflevector <4 x i32> %29, <4 x i32> poison, <4 x i32> <i32 1, i32 2, i32 0, i32 3>
+  %28 = insertelement <4 x i32> <i32 0, i32 0, i32 poison, i32 0>, i32 %21, i64 2
+  %29 = insertelement <4 x i32> %.0.in, i32 0, i64 2
+  %30 = or <4 x i32> %28, %29
   %31 = bitcast <4 x i32> %30 to <2 x i64>
   br label %"_ZN133_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S3$C$ppv_lite86..x86_64..NoS4$C$NI$GT$$u20$as$u20$ppv_lite86..types..Vec4$LT$u32$GT$$GT$6insert17hddbf33554d702aa3E.llvm.17720110283109806325.exit"
 
@@ -12406,10 +12400,9 @@ define hidden void @_ZN11rand_chacha4guts16set_stream_param9impl_sse217h91d2fed8
 
 10:                                               ; preds = %3
   %11 = bitcast <2 x i64> %.sroa.0.0.copyload to <4 x i32>
-  %.12.vec.insert.i1 = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %6, i64 0
-  %12 = shufflevector <4 x i32> <i32 poison, i32 poison, i32 poison, i32 0>, <4 x i32> %11, <4 x i32> <i32 3, i32 4, i32 6, i32 7>
-  %13 = or <4 x i32> %.12.vec.insert.i1, %12
-  %14 = shufflevector <4 x i32> %13, <4 x i32> poison, <4 x i32> <i32 1, i32 0, i32 2, i32 3>
+  %12 = insertelement <4 x i32> <i32 0, i32 poison, i32 0, i32 0>, i32 %6, i64 1
+  %13 = insertelement <4 x i32> %11, i32 0, i64 1
+  %14 = or <4 x i32> %12, %13
   br label %"_ZN133_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S3$C$ppv_lite86..x86_64..NoS4$C$NI$GT$$u20$as$u20$ppv_lite86..types..Vec4$LT$u32$GT$$GT$6insert17hddbf33554d702aa3E.llvm.17720110283109806325.exit1.i"
 
 15:                                               ; preds = %3
@@ -12442,10 +12435,9 @@ define hidden void @_ZN11rand_chacha4guts16set_stream_param9impl_sse217h91d2fed8
   br label %_ZN11rand_chacha4guts16set_stream_param7fn_impl17hf57bc4482fdc5259E.llvm.17720110283109806325.exit
 
 27:                                               ; preds = %"_ZN133_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S3$C$ppv_lite86..x86_64..NoS4$C$NI$GT$$u20$as$u20$ppv_lite86..types..Vec4$LT$u32$GT$$GT$6insert17hddbf33554d702aa3E.llvm.17720110283109806325.exit1.i"
-  %.12.vec.insert.i6 = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %21, i64 0
-  %28 = shufflevector <4 x i32> <i32 poison, i32 poison, i32 poison, i32 0>, <4 x i32> %.0.in, <4 x i32> <i32 3, i32 4, i32 5, i32 7>
-  %29 = or <4 x i32> %.12.vec.insert.i6, %28
-  %30 = shufflevector <4 x i32> %29, <4 x i32> poison, <4 x i32> <i32 1, i32 2, i32 0, i32 3>
+  %28 = insertelement <4 x i32> <i32 0, i32 0, i32 poison, i32 0>, i32 %21, i64 2
+  %29 = insertelement <4 x i32> %.0.in, i32 0, i64 2
+  %30 = or <4 x i32> %28, %29
   %31 = bitcast <4 x i32> %30 to <2 x i64>
   br label %_ZN11rand_chacha4guts16set_stream_param7fn_impl17hf57bc4482fdc5259E.llvm.17720110283109806325.exit
 

@@ -1605,10 +1605,8 @@ _ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit.i: ; preds = %_ZN8LightGBM9Th
 .lver.check:                                      ; preds = %34
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %44 = load ptr, ptr %43, align 8, !tbaa !102
-  %scevgep = getelementptr i8, ptr %36, i64 8589934588
-  %scevgep19 = getelementptr i8, ptr %38, i64 8589934588
-  %bound0 = icmp ult ptr %36, %scevgep19
-  %bound1 = icmp ult ptr %38, %scevgep
+  %bound0 = icmp ne ptr %36, inttoptr (i64 -1 to ptr)
+  %bound1 = icmp ne ptr %38, inttoptr (i64 -1 to ptr)
   %found.conflict = and i1 %bound0, %bound1
   br i1 %found.conflict, label %.ph.lver.orig, label %.ph
 
@@ -1637,7 +1635,7 @@ _ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit.i: ; preds = %_ZN8LightGBM9Th
 
 .ph:                                              ; preds = %.lver.check
   %load_initial = load i32, ptr %36, align 4
-  %load_initial22 = load i32, ptr %38, align 4
+  %load_initial21 = load i32, ptr %38, align 4
   br label %78
 
 ._crit_edge:                                      ; preds = %78, %.ph.lver.orig, %34
@@ -1702,7 +1700,7 @@ _ZN21ThreadExceptionHelperD2Ev.exit:              ; preds = %._crit_edge
   resume { ptr, i32 } %31
 
 78:                                               ; preds = %.ph, %78
-  %store_forwarded23 = phi i32 [ %load_initial22, %.ph ], [ %86, %78 ]
+  %store_forwarded22 = phi i32 [ %load_initial21, %.ph ], [ %86, %78 ]
   %store_forwarded = phi i32 [ %load_initial, %.ph ], [ %82, %78 ]
   %indvars.iv = phi i64 [ 1, %.ph ], [ %indvars.iv.next, %78 ]
   %79 = add nsw i64 %indvars.iv, -1
@@ -1713,7 +1711,7 @@ _ZN21ThreadExceptionHelperD2Ev.exit:              ; preds = %._crit_edge
   store i32 %82, ptr %83, align 4, !tbaa !145
   %84 = getelementptr inbounds nuw i32, ptr %44, i64 %79
   %85 = load i32, ptr %84, align 4, !tbaa !145
-  %86 = add nsw i32 %85, %store_forwarded23
+  %86 = add nsw i32 %85, %store_forwarded22
   %87 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv
   store i32 %86, ptr %87, align 4, !tbaa !145
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

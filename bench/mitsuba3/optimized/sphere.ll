@@ -3865,20 +3865,19 @@ _ZNK5drjit9ArrayBaseINS_6PacketIdLm4EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4dot_ERKS5
   %217 = xor <8 x i1> %204, <i1 true, i1 true, i1 true, i1 true, i1 poison, i1 poison, i1 poison, i1 poison>
   %218 = and <8 x i1> %208, %217
   %219 = and <8 x i1> %218, %214
-  %220 = shufflevector <4 x i1> %.not1080, <4 x i1> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison>
-  %221 = and <8 x i1> %220, %219
-  %222 = tail call contract noundef <4 x float> @llvm.x86.avx.cvt.pd2.ps.256(<4 x double> %210)
-  %223 = tail call contract noundef <4 x float> @llvm.x86.avx.cvt.pd2.ps.256(<4 x double> %209)
-  %224 = select contract <4 x i1> %215, <4 x float> %223, <4 x float> %222
-  %225 = shufflevector <8 x i1> %221, <8 x i1> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %226 = select contract <4 x i1> %225, <4 x float> %224, <4 x float> splat (float 0x7FF0000000000000)
-  %227 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %227, i8 0, i64 32, i1 false)
-  store <4 x float> %226, ptr %0, align 16
-  %228 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store <4 x i32> splat (i32 -1), ptr %228, align 16
-  %229 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store <4 x i32> zeroinitializer, ptr %229, align 16
+  %220 = tail call contract noundef <4 x float> @llvm.x86.avx.cvt.pd2.ps.256(<4 x double> %210)
+  %221 = tail call contract noundef <4 x float> @llvm.x86.avx.cvt.pd2.ps.256(<4 x double> %209)
+  %222 = select contract <4 x i1> %215, <4 x float> %221, <4 x float> %220
+  %223 = shufflevector <8 x i1> %219, <8 x i1> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %224 = and <4 x i1> %.not1080, %223
+  %225 = select contract <4 x i1> %224, <4 x float> %222, <4 x float> splat (float 0x7FF0000000000000)
+  %226 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %226, i8 0, i64 32, i1 false)
+  store <4 x float> %225, ptr %0, align 16
+  %227 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store <4 x i32> splat (i32 -1), ptr %227, align 16
+  %228 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store <4 x i32> zeroinitializer, ptr %228, align 16
   ret void
 }
 

@@ -1954,10 +1954,8 @@ _ZNKSt13unordered_mapIijSt4hashIiESt8equal_toIiESaISt4pairIKijEEE4findERS5_.exit
   br i1 %378, label %.lr.ph280.lver.check, label %._crit_edge
 
 .lr.ph280.lver.check:                             ; preds = %.critedge110
-  %scevgep = getelementptr i8, ptr %376, i64 8589934588
-  %scevgep356 = getelementptr i8, ptr %367, i64 8589934588
-  %bound0 = icmp ult ptr %376, %scevgep356
-  %bound1 = icmp ult ptr %367, %scevgep
+  %bound0 = icmp ne ptr %376, inttoptr (i64 -1 to ptr)
+  %bound1 = icmp ne ptr %367, inttoptr (i64 -1 to ptr)
   %found.conflict = and i1 %bound0, %bound1
   br i1 %found.conflict, label %.lr.ph280.lver.orig, label %.lr.ph280.ph
 
@@ -1990,7 +1988,7 @@ _ZNKSt13unordered_mapIijSt4hashIiESt8equal_toIiESaISt4pairIKijEEE4findERS5_.exit
 
 .lr.ph280.ph:                                     ; preds = %.lr.ph280.lver.check
   %load_initial = load i32, ptr %376, align 4
-  %load_initial359 = load i32, ptr %367, align 4
+  %load_initial358 = load i32, ptr %367, align 4
   br label %.lr.ph280
 
 ._crit_edge:                                      ; preds = %.lr.ph280, %.lr.ph280.lver.orig, %.critedge110
@@ -2021,7 +2019,7 @@ _ZNSt6vectorIN5Eigen6MatrixIfLi2ELi1ELi0ELi2ELi1EEESaIS2_EE5clearEv.exit: ; pred
   br i1 %406, label %.lr.ph282, label %._crit_edge283
 
 .lr.ph280:                                        ; preds = %.lr.ph280.ph, %.lr.ph280
-  %store_forwarded360 = phi i32 [ %load_initial359, %.lr.ph280.ph ], [ %417, %.lr.ph280 ]
+  %store_forwarded359 = phi i32 [ %load_initial358, %.lr.ph280.ph ], [ %417, %.lr.ph280 ]
   %store_forwarded = phi i32 [ %load_initial, %.lr.ph280.ph ], [ %415, %.lr.ph280 ]
   %indvars.iv298 = phi i64 [ 1, %.lr.ph280.ph ], [ %indvars.iv.next299, %.lr.ph280 ]
   %407 = getelementptr inbounds nuw %"class.std::vector.24", ptr %.pr.i187318, i64 %indvars.iv298
@@ -2035,7 +2033,7 @@ _ZNSt6vectorIN5Eigen6MatrixIfLi2ELi1ELi0ELi2ELi1EEESaIS2_EE5clearEv.exit: ; pred
   %415 = trunc i64 %414 to i32
   %416 = getelementptr inbounds nuw i32, ptr %376, i64 %indvars.iv298
   store i32 %415, ptr %416, align 4, !tbaa !40
-  %417 = add nsw i32 %store_forwarded, %store_forwarded360
+  %417 = add nsw i32 %store_forwarded, %store_forwarded359
   %418 = getelementptr inbounds nuw i32, ptr %367, i64 %indvars.iv298
   store i32 %417, ptr %418, align 4, !tbaa !40
   %indvars.iv.next299 = add nuw nsw i64 %indvars.iv298, 1

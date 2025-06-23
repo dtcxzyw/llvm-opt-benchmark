@@ -5235,9 +5235,9 @@ _ZNK5drjit9ArrayBaseINS_6PacketIfLm3EEELb0ENS_5ArrayIS2_Lm3EEEE4sub_ERKS4_.exit.
   %238 = tail call contract noundef float @llvm.sqrt.f32(float %235)
   %239 = fdiv contract float 1.000000e+00, %238
   %240 = insertelement <4 x float> poison, float %239, i64 0
-  %241 = shufflevector <4 x float> %240, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 poison>
-  %242 = fmul contract <4 x float> %.sroa.0454.0.copyload, %241
-  %243 = shufflevector <4 x float> %242, <4 x float> poison, <3 x i32> <i32 0, i32 1, i32 2>
+  %241 = shufflevector <4 x float> %.sroa.0454.0.copyload, <4 x float> poison, <3 x i32> <i32 0, i32 1, i32 2>
+  %242 = shufflevector <4 x float> %240, <4 x float> poison, <3 x i32> zeroinitializer
+  %243 = fmul contract <3 x float> %241, %242
   br label %246
 
 244:                                              ; preds = %229

@@ -409,11 +409,11 @@ _ZNSt3__128__exception_guard_exceptionsINS_6vectorINS_5arrayIjLm3EEENS_9allocato
   %67 = tail call contract noundef float @llvm.sqrt.f32(float %66)
   %68 = fdiv contract float 1.000000e+00, %67
   %69 = insertelement <4 x float> poison, float %68, i64 0
-  %70 = shufflevector <4 x float> %69, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 poison>
-  %71 = fmul contract <4 x float> %55, %70
   %.sroa.0436.0.vec.extract438 = shufflevector <4 x float> %49, <4 x float> poison, <3 x i32> <i32 0, i32 1, i32 2>
   store <3 x float> %.sroa.0436.0.vec.extract438, ptr %58, align 1
-  %.sroa.0.0.vec.extract435 = shufflevector <4 x float> %71, <4 x float> poison, <3 x i32> <i32 0, i32 1, i32 2>
+  %70 = shufflevector <4 x float> %55, <4 x float> poison, <3 x i32> <i32 0, i32 1, i32 2>
+  %71 = shufflevector <4 x float> %69, <4 x float> poison, <3 x i32> zeroinitializer
+  %.sroa.0.0.vec.extract435 = fmul contract <3 x float> %70, %71
   store <3 x float> %.sroa.0.0.vec.extract435, ptr %59, align 1
   %72 = getelementptr inbounds nuw %"struct.mitsuba::Vector.102", ptr %13, i64 %40
   %73 = load i64, ptr %72, align 4

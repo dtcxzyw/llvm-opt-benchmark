@@ -3295,19 +3295,18 @@ _ZNK7mitsuba3RayINS_5PointIN5drjit6PacketIfLm4EEELm3EEENS2_6MatrixINS_8SpectrumI
   %179 = fmul contract <4 x float> %.sroa.3.0.copyload, %.sroa.3.0.copyload
   %180 = fadd contract <4 x float> %178, %179
   %181 = fcmp contract ole <4 x float> %180, splat (float 1.000000e+00)
-  %182 = shufflevector <4 x i1> %181, <4 x i1> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison>
-  %183 = and <8 x i1> %177, %182
-  %184 = shufflevector <8 x i1> %183, <8 x i1> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %185 = select contract <4 x i1> %184, <4 x float> %157, <4 x float> splat (float 0x7FF0000000000000)
-  store <4 x float> %185, ptr %0, align 16
-  %186 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store <4 x float> %.sroa.0296.0.copyload, ptr %186, align 16
+  %182 = shufflevector <8 x i1> %177, <8 x i1> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %183 = and <4 x i1> %182, %181
+  %184 = select contract <4 x i1> %183, <4 x float> %157, <4 x float> splat (float 0x7FF0000000000000)
+  store <4 x float> %184, ptr %0, align 16
+  %185 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store <4 x float> %.sroa.0296.0.copyload, ptr %185, align 16
   %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store <4 x float> %.sroa.3.0.copyload, ptr %.sroa.0.sroa.2.0..sroa_idx, align 16
-  %187 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store <4 x i32> splat (i32 -1), ptr %187, align 16
-  %188 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store <4 x i32> zeroinitializer, ptr %188, align 16
+  %186 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store <4 x i32> splat (i32 -1), ptr %186, align 16
+  %187 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store <4 x i32> zeroinitializer, ptr %187, align 16
   ret void
 }
 

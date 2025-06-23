@@ -2633,10 +2633,8 @@ _ZNKSt13unordered_mapIijSt4hashIiESt8equal_toIiESaISt4pairIKijEEE4findERS5_.exit
   br i1 %557, label %.lr.ph439.lver.check, label %._crit_edge
 
 .lr.ph439.lver.check:                             ; preds = %.critedge133
-  %scevgep = getelementptr i8, ptr %555, i64 8589934588
-  %scevgep521 = getelementptr i8, ptr %546, i64 8589934588
-  %bound0 = icmp ult ptr %555, %scevgep521
-  %bound1 = icmp ult ptr %546, %scevgep
+  %bound0 = icmp ne ptr %555, inttoptr (i64 -1 to ptr)
+  %bound1 = icmp ne ptr %546, inttoptr (i64 -1 to ptr)
   %found.conflict = and i1 %bound0, %bound1
   br i1 %found.conflict, label %.lr.ph439.lver.orig, label %.lr.ph439.ph
 
@@ -2669,7 +2667,7 @@ _ZNKSt13unordered_mapIijSt4hashIiESt8equal_toIiESaISt4pairIKijEEE4findERS5_.exit
 
 .lr.ph439.ph:                                     ; preds = %.lr.ph439.lver.check
   %load_initial = load i32, ptr %555, align 4
-  %load_initial524 = load i32, ptr %546, align 4
+  %load_initial523 = load i32, ptr %546, align 4
   br label %.lr.ph439
 
 ._crit_edge:                                      ; preds = %.lr.ph439, %.lr.ph439.lver.orig, %.critedge133
@@ -2711,7 +2709,7 @@ _ZNSt6vectorIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESaIS2_EE5clearEv.exit272: ; p
   br i1 %588, label %.lr.ph441, label %._crit_edge442
 
 .lr.ph439:                                        ; preds = %.lr.ph439.ph, %.lr.ph439
-  %store_forwarded525 = phi i32 [ %load_initial524, %.lr.ph439.ph ], [ %599, %.lr.ph439 ]
+  %store_forwarded524 = phi i32 [ %load_initial523, %.lr.ph439.ph ], [ %599, %.lr.ph439 ]
   %store_forwarded = phi i32 [ %load_initial, %.lr.ph439.ph ], [ %597, %.lr.ph439 ]
   %indvars.iv459 = phi i64 [ 1, %.lr.ph439.ph ], [ %indvars.iv.next460, %.lr.ph439 ]
   %589 = getelementptr inbounds nuw %"class.std::vector.36", ptr %275, i64 %indvars.iv459
@@ -2725,7 +2723,7 @@ _ZNSt6vectorIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESaIS2_EE5clearEv.exit272: ; p
   %597 = trunc i64 %596 to i32
   %598 = getelementptr inbounds nuw i32, ptr %555, i64 %indvars.iv459
   store i32 %597, ptr %598, align 4, !tbaa !57
-  %599 = add nsw i32 %store_forwarded, %store_forwarded525
+  %599 = add nsw i32 %store_forwarded, %store_forwarded524
   %600 = getelementptr inbounds nuw i32, ptr %546, i64 %indvars.iv459
   store i32 %599, ptr %600, align 4, !tbaa !57
   %indvars.iv.next460 = add nuw nsw i64 %indvars.iv459, 1
