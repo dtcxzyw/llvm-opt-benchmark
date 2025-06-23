@@ -35692,31 +35692,28 @@ define hidden { i64, ptr } @"_ZN97_$LT$async_tungstenite..stream..Stream$LT$S$C$
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %12 = load ptr, ptr %11, align 8, !invariant.load !4, !noalias !9290, !nonnull !4
   %13 = tail call { i64, ptr } %12(ptr noalias noundef nonnull align 1 %8, ptr noalias noundef nonnull align 8 dereferenceable(32) %1), !noalias !9285
-  br label %21
+  br label %20
 
 14:                                               ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9291)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3), !noalias !9294
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %16 = load i8, ptr %15, align 8, !range !1721, !alias.scope !9291, !noalias !9296, !noundef !4
-  %17 = add nsw i8 %16, -1
-  %switch.and.i = and i8 %17, -3
-  %switch.selectcmp.i = icmp eq i8 %switch.and.i, 0
-  %18 = zext i1 %switch.selectcmp.i to i8
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 512
+  %17 = and i8 %16, 1
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 512
   store i64 0, ptr %3, align 8, !noalias !9294
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %0, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !9294
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %19, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !9294
+  store ptr %18, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !9294
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i8 %18, ptr %.sroa.6.0..sroa_idx.i, align 8, !noalias !9294
-  %20 = call { i64, ptr } @"_ZN95_$LT$async_tls..rusttls..stream..Stream$LT$IO$GT$$u20$as$u20$futures_io..if_std..AsyncWrite$GT$10poll_flush17hdb43ce030fe0627dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
+  store i8 %17, ptr %.sroa.6.0..sroa_idx.i, align 8, !noalias !9294
+  %19 = call { i64, ptr } @"_ZN95_$LT$async_tls..rusttls..stream..Stream$LT$IO$GT$$u20$as$u20$futures_io..if_std..AsyncWrite$GT$10poll_flush17hdb43ce030fe0627dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !9294
-  br label %21
+  br label %20
 
-21:                                               ; preds = %14, %6
-  %.pn = phi { i64, ptr } [ %13, %6 ], [ %20, %14 ]
+20:                                               ; preds = %14, %6
+  %.pn = phi { i64, ptr } [ %13, %6 ], [ %19, %14 ]
   ret { i64, ptr } %.pn
 }
 
@@ -35736,31 +35733,28 @@ define hidden { i64, ptr } @"_ZN97_$LT$async_tungstenite..stream..Stream$LT$S$C$
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %14 = load ptr, ptr %13, align 8, !invariant.load !4, !noalias !9303, !nonnull !4
   %15 = tail call { i64, ptr } %14(ptr noalias noundef nonnull align 1 %10, ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3), !noalias !9297
-  br label %23
+  br label %22
 
 16:                                               ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9304)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !9307
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %18 = load i8, ptr %17, align 8, !range !1721, !alias.scope !9304, !noalias !9310, !noundef !4
-  %19 = add nsw i8 %18, -1
-  %switch.and.i = and i8 %19, -3
-  %switch.selectcmp.i = icmp eq i8 %switch.and.i, 0
-  %20 = zext i1 %switch.selectcmp.i to i8
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 512
+  %19 = and i8 %18, 1
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 512
   store i64 0, ptr %5, align 8, !noalias !9307
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !9307
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %21, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !9307
+  store ptr %20, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !9307
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i8 %20, ptr %.sroa.6.0..sroa_idx.i, align 8, !noalias !9307
-  %22 = call { i64, ptr } @"_ZN95_$LT$async_tls..rusttls..stream..Stream$LT$IO$GT$$u20$as$u20$futures_io..if_std..AsyncWrite$GT$10poll_write17h6a1e06eb172f9500E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5, ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
+  store i8 %19, ptr %.sroa.6.0..sroa_idx.i, align 8, !noalias !9307
+  %21 = call { i64, ptr } @"_ZN95_$LT$async_tls..rusttls..stream..Stream$LT$IO$GT$$u20$as$u20$futures_io..if_std..AsyncWrite$GT$10poll_write17h6a1e06eb172f9500E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5, ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !9307
-  br label %23
+  br label %22
 
-23:                                               ; preds = %16, %8
-  %.pn = phi { i64, ptr } [ %15, %8 ], [ %22, %16 ]
+22:                                               ; preds = %16, %8
+  %.pn = phi { i64, ptr } [ %15, %8 ], [ %21, %16 ]
   ret { i64, ptr } %.pn
 }
 
