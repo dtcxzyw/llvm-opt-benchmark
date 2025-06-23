@@ -35692,7 +35692,7 @@ define hidden { i64, ptr } @"_ZN97_$LT$async_tungstenite..stream..Stream$LT$S$C$
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %12 = load ptr, ptr %11, align 8, !invariant.load !4, !noalias !9290, !nonnull !4
   %13 = tail call { i64, ptr } %12(ptr noalias noundef nonnull align 1 %8, ptr noalias noundef nonnull align 8 dereferenceable(32) %1), !noalias !9285
-  br label %20
+  br label %21
 
 14:                                               ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9291)
@@ -35708,12 +35708,12 @@ define hidden { i64, ptr } @"_ZN97_$LT$async_tungstenite..stream..Stream$LT$S$C$
   store ptr %18, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !9294
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i8 %17, ptr %.sroa.6.0..sroa_idx.i, align 8, !noalias !9294
-  %19 = call { i64, ptr } @"_ZN95_$LT$async_tls..rusttls..stream..Stream$LT$IO$GT$$u20$as$u20$futures_io..if_std..AsyncWrite$GT$10poll_flush17hdb43ce030fe0627dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
+  %20 = call { i64, ptr } @"_ZN95_$LT$async_tls..rusttls..stream..Stream$LT$IO$GT$$u20$as$u20$futures_io..if_std..AsyncWrite$GT$10poll_flush17hdb43ce030fe0627dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !9294
-  br label %20
+  br label %21
 
-20:                                               ; preds = %14, %6
-  %.pn = phi { i64, ptr } [ %13, %6 ], [ %19, %14 ]
+21:                                               ; preds = %14, %6
+  %.pn = phi { i64, ptr } [ %13, %6 ], [ %20, %14 ]
   ret { i64, ptr } %.pn
 }
 
@@ -35733,7 +35733,7 @@ define hidden { i64, ptr } @"_ZN97_$LT$async_tungstenite..stream..Stream$LT$S$C$
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %14 = load ptr, ptr %13, align 8, !invariant.load !4, !noalias !9303, !nonnull !4
   %15 = tail call { i64, ptr } %14(ptr noalias noundef nonnull align 1 %10, ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3), !noalias !9297
-  br label %22
+  br label %23
 
 16:                                               ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9304)
@@ -35746,15 +35746,15 @@ define hidden { i64, ptr } @"_ZN97_$LT$async_tungstenite..stream..Stream$LT$S$C$
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !9307
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %20, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !9307
+  store ptr %21, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !9307
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i8 %19, ptr %.sroa.6.0..sroa_idx.i, align 8, !noalias !9307
-  %21 = call { i64, ptr } @"_ZN95_$LT$async_tls..rusttls..stream..Stream$LT$IO$GT$$u20$as$u20$futures_io..if_std..AsyncWrite$GT$10poll_write17h6a1e06eb172f9500E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5, ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
+  store i8 %20, ptr %.sroa.6.0..sroa_idx.i, align 8, !noalias !9307
+  %22 = call { i64, ptr } @"_ZN95_$LT$async_tls..rusttls..stream..Stream$LT$IO$GT$$u20$as$u20$futures_io..if_std..AsyncWrite$GT$10poll_write17h6a1e06eb172f9500E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5, ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !9307
-  br label %22
+  br label %23
 
-22:                                               ; preds = %16, %8
-  %.pn = phi { i64, ptr } [ %15, %8 ], [ %21, %16 ]
+23:                                               ; preds = %16, %8
+  %.pn = phi { i64, ptr } [ %15, %8 ], [ %22, %16 ]
   ret { i64, ptr } %.pn
 }
 
