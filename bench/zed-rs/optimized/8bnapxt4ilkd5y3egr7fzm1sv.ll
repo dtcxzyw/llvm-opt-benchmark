@@ -245,7 +245,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN2fs7watcher16INOTIFY_INSTANCE17h091453216459acdeE = external global <{ [72 x i8], [4 x i8], [4 x i8] }>, align 8
 @anon.4687e20d734e48ad2818d82418c4edf5.110.llvm.495310588694779438 = external hidden unnamed_addr constant <{ ptr, [16 x i8] }>, align 8
 @anon.4687e20d734e48ad2818d82418c4edf5.111.llvm.495310588694779438 = external hidden unnamed_addr constant <{ ptr, [16 x i8] }>, align 8
-@switch.table._ZN8zvariant19framing_offset_size17FramingOffsetSize12write_offset17h7af96b41ab784441E = private unnamed_addr constant [4 x i64] [i64 1, i64 2, i64 4, i64 8], align 8
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN101_$LT$std..os..unix..net..addr..SocketAddr$u20$as$u20$std..os..net..linux_ext..addr..SocketAddrExt$GT$18from_abstract_name17h8b88a0f67e6f49d4E"(ptr dead_on_unwind noalias noundef writable sret([120 x i8]) align 8 captures(none) dereferenceable(120) %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
@@ -14939,13 +14938,9 @@ _ZN3std2io5Write9write_all17hf3f7adf1dac055e3E.exit23: ; preds = %_ZN3std2io6cur
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN8zvariant19framing_offset_size17FramingOffsetSize12write_offset17h7af96b41ab784441E(ptr dead_on_unwind noalias noundef writable writeonly sret([64 x i8]) align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, ptr noalias noundef align 8 captures(none) dereferenceable(144) %2, i64 noundef %3) unnamed_addr #7 personality ptr @rust_eh_personality {
-switch.lookup:
-  %4 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1, i1 true)
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %.promoted.i = load i64, ptr %5, align 8
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN8zvariant19framing_offset_size17FramingOffsetSize12write_offset17h7af96b41ab784441E, i64 0, i64 %4
-  %switch.load = load i64, ptr %switch.gep, align 8
-  %6 = add i64 %.promoted.i, %switch.load
+  %6 = add i64 %.promoted.i, %1
   store i64 %6, ptr %5, align 8
   store i64 14, ptr %0, align 8
   ret void
@@ -28554,9 +28549,6 @@ declare hidden void @"_ZN10async_task4task17Task$LT$T$C$M$GT$9poll_task17ha1124c
 declare hidden void @"_ZN10async_task4task17Task$LT$T$C$M$GT$9poll_task17h8dd49703e2588d90E.llvm.495310588694779438"(ptr dead_on_unwind noalias noundef writable sret([72 x i8]) align 8 captures(none) dereferenceable(72), ptr noalias noundef align 8 dereferenceable(8), ptr noalias noundef align 8 dereferenceable(32)) unnamed_addr #0
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.cttz.i64(i64, i1 immarg) #33
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i8(i8, i8) #33
 
 ; Function Attrs: nocallback nofree nounwind nonlazybind willreturn memory(argmem: read)
@@ -28564,6 +28556,9 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #35
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #33
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

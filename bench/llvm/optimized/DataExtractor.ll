@@ -796,8 +796,8 @@ _ZNK4llvm13DataExtractor5getUsImEEPT_PmS3_jPNS_5ErrorE.exit: ; preds = %4, %._cr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef i64 @_ZNK4llvm13DataExtractor11getUnsignedEPmjPNS_5ErrorE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(18) %0, ptr noundef captures(none) %1, i32 noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 align 2 {
-  %5 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %2, i1 true)
   %.not.i.i.i = icmp eq ptr %3, null
+  %5 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %2, i1 true)
   switch i32 %5, label %57 [
     i32 0, label %6
     i32 1, label %17
@@ -921,9 +921,9 @@ _ZNK4llvm13DataExtractor6getU64EPmPNS_5ErrorE.exit: ; preds = %34, %_ZL7isErrorP
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef i64 @_ZNK4llvm13DataExtractor9getSignedEPmj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(18) %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
-  %4 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %2, i1 true)
-  %5 = load i64, ptr %1, align 8, !tbaa !62
-  switch i32 %4, label %60 [
+  %4 = load i64, ptr %1, align 8, !tbaa !62
+  %5 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %2, i1 true)
+  switch i32 %5, label %60 [
     i32 0, label %6
     i32 1, label %17
     i32 2, label %31
@@ -931,25 +931,25 @@ define dso_local noundef i64 @_ZNK4llvm13DataExtractor9getSignedEPmj(ptr noundef
   ]
 
 6:                                                ; preds = %3
-  %.not.i.i13 = icmp ne i64 %5, -1
+  %.not.i.i13 = icmp ne i64 %4, -1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
-  %9 = icmp ugt i64 %8, %5
+  %9 = icmp ugt i64 %8, %4
   %10 = select i1 %.not.i.i13, i1 %9, i1 false
   br i1 %10, label %11, label %_ZNK4llvm13DataExtractor6getU64EPmPNS_5ErrorE.exit
 
 11:                                               ; preds = %6
-  %12 = add nuw i64 %5, 1
+  %12 = add nuw i64 %4, 1
   %13 = load ptr, ptr %0, align 8, !tbaa !63
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 %5
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 %4
   %15 = load i8, ptr %14, align 1
   store i64 %12, ptr %1, align 8, !tbaa !62
   %16 = sext i8 %15 to i64
   br label %_ZNK4llvm13DataExtractor6getU64EPmPNS_5ErrorE.exit
 
 17:                                               ; preds = %3
-  %.not.i.i14 = icmp ult i64 %5, -2
-  %18 = add i64 %5, 1
+  %.not.i.i14 = icmp ult i64 %4, -2
+  %18 = add i64 %4, 1
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load i64, ptr %19, align 8
   %21 = icmp ugt i64 %20, %18
@@ -957,9 +957,9 @@ define dso_local noundef i64 @_ZNK4llvm13DataExtractor9getSignedEPmj(ptr noundef
   br i1 %22, label %23, label %_ZNK4llvm13DataExtractor6getU64EPmPNS_5ErrorE.exit
 
 23:                                               ; preds = %17
-  %24 = add nuw i64 %5, 2
+  %24 = add nuw i64 %4, 2
   %25 = load ptr, ptr %0, align 8, !tbaa !63
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 %5
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 %4
   %27 = load i16, ptr %26, align 1
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load i8, ptr %28, align 8, !tbaa !67
@@ -971,8 +971,8 @@ define dso_local noundef i64 @_ZNK4llvm13DataExtractor9getSignedEPmj(ptr noundef
   br label %_ZNK4llvm13DataExtractor6getU64EPmPNS_5ErrorE.exit
 
 31:                                               ; preds = %3
-  %.not.i.i15 = icmp ult i64 %5, -4
-  %32 = add i64 %5, 3
+  %.not.i.i15 = icmp ult i64 %4, -4
+  %32 = add i64 %4, 3
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load i64, ptr %33, align 8
   %35 = icmp ugt i64 %34, %32
@@ -980,9 +980,9 @@ define dso_local noundef i64 @_ZNK4llvm13DataExtractor9getSignedEPmj(ptr noundef
   br i1 %36, label %37, label %_ZNK4llvm13DataExtractor6getU64EPmPNS_5ErrorE.exit
 
 37:                                               ; preds = %31
-  %38 = add nuw i64 %5, 4
+  %38 = add nuw i64 %4, 4
   %39 = load ptr, ptr %0, align 8, !tbaa !63
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 %5
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 %4
   %41 = load i32, ptr %40, align 1
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %43 = load i8, ptr %42, align 8, !tbaa !67
@@ -994,8 +994,8 @@ define dso_local noundef i64 @_ZNK4llvm13DataExtractor9getSignedEPmj(ptr noundef
   br label %_ZNK4llvm13DataExtractor6getU64EPmPNS_5ErrorE.exit
 
 46:                                               ; preds = %3
-  %.not.i.i16 = icmp ult i64 %5, -8
-  %47 = add i64 %5, 7
+  %.not.i.i16 = icmp ult i64 %4, -8
+  %47 = add i64 %4, 7
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %49 = load i64, ptr %48, align 8
   %50 = icmp ugt i64 %49, %47
@@ -1003,9 +1003,9 @@ define dso_local noundef i64 @_ZNK4llvm13DataExtractor9getSignedEPmj(ptr noundef
   br i1 %51, label %52, label %_ZNK4llvm13DataExtractor6getU64EPmPNS_5ErrorE.exit
 
 52:                                               ; preds = %46
-  %53 = add nuw i64 %5, 8
+  %53 = add nuw i64 %4, 8
   %54 = load ptr, ptr %0, align 8, !tbaa !63
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 %5
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 %4
   %56 = load i64, ptr %55, align 1
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %58 = load i8, ptr %57, align 8, !tbaa !67
@@ -1629,23 +1629,23 @@ define linkonce_odr hidden noundef i32 @_ZNK4llvm13format_objectIJmPKcEE7snprint
   ret i32 %11
 }
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #13
-
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #14
+declare void @llvm.assume(i1 noundef) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.bswap.i16(i16) #13
+declare i16 @llvm.bswap.i16(i16) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #13
+declare i64 @llvm.umin.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.usub.sat.i64(i64, i64) #13
+declare i64 @llvm.usub.sat.i64(i64, i64) #14
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #14
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
@@ -1660,8 +1660,8 @@ attributes #9 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protec
 attributes #10 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #15 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #16 = { nounwind willreturn memory(none) }
 attributes #17 = { nounwind }

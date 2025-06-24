@@ -24682,9 +24682,9 @@ switch.lookup:
   %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @"switch.table._ZN58_$LT$png..common..BitDepth$u20$as$u20$core..fmt..Debug$GT$3fmt17hc3c0e2f245de2e0eE", i64 0, i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   %5 = zext nneg i8 %3 to i64
-  %switch.gep2 = getelementptr inbounds nuw [5 x ptr], ptr @"switch.table._ZN58_$LT$png..common..BitDepth$u20$as$u20$core..fmt..Debug$GT$3fmt17hc3c0e2f245de2e0eE.659", i64 0, i64 %5
-  %switch.load3 = load ptr, ptr %switch.gep2, align 8
-  %6 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h614ed3390cd2c9c4E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
+  %switch.gep1 = getelementptr inbounds nuw [5 x ptr], ptr @"switch.table._ZN58_$LT$png..common..BitDepth$u20$as$u20$core..fmt..Debug$GT$3fmt17hc3c0e2f245de2e0eE.659", i64 0, i64 %5
+  %switch.load2 = load ptr, ptr %switch.gep1, align 8
+  %6 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h614ed3390cd2c9c4E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %6
 }
 
@@ -25097,10 +25097,7 @@ common.resume:                                    ; preds = %178, %77, %111, %11
   invoke fastcc void @"_ZN3png7decoder16Decoder$LT$R$GT$16read_header_info17h8933f186b7484865E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %15, ptr noalias noundef align 8 dereferenceable(536) %16)
           to label %31 unwind label %178
 
-default.unreachable:                              ; preds = %138, %136, %132, %130
-  unreachable
-
-30:                                               ; preds = %127
+30:                                               ; preds = %138, %136, %132, %130, %127
   unreachable
 
 31:                                               ; preds = %"_ZN3png7decoder16Decoder$LT$R$GT$15new_with_limits17h833072576602718aE.exit"
@@ -25462,7 +25459,7 @@ switch.lookup:                                    ; preds = %"_ZN3png7decoder15R
 
 130:                                              ; preds = %127
   %131 = call range(i8 0, 9) i8 @llvm.cttz.i8(i8 %129, i1 true)
-  switch i8 %131, label %default.unreachable [
+  switch i8 %131, label %30 [
     i8 0, label %140
     i8 1, label %142
     i8 2, label %144
@@ -25472,7 +25469,7 @@ switch.lookup:                                    ; preds = %"_ZN3png7decoder15R
 
 132:                                              ; preds = %127
   %133 = call range(i8 0, 9) i8 @llvm.cttz.i8(i8 %129, i1 true)
-  switch i8 %133, label %default.unreachable [
+  switch i8 %133, label %30 [
     i8 0, label %149
     i8 1, label %151
     i8 2, label %153
@@ -25495,7 +25492,7 @@ switch.lookup:                                    ; preds = %"_ZN3png7decoder15R
 
 136:                                              ; preds = %127
   %137 = call range(i8 0, 9) i8 @llvm.cttz.i8(i8 %129, i1 true)
-  switch i8 %137, label %default.unreachable [
+  switch i8 %137, label %30 [
     i8 0, label %156
     i8 1, label %158
     i8 2, label %160
@@ -25505,7 +25502,7 @@ switch.lookup:                                    ; preds = %"_ZN3png7decoder15R
 
 138:                                              ; preds = %127
   %139 = call range(i8 0, 9) i8 @llvm.cttz.i8(i8 %129, i1 true)
-  switch i8 %139, label %default.unreachable [
+  switch i8 %139, label %30 [
     i8 0, label %163
     i8 1, label %165
     i8 2, label %167
@@ -174780,9 +174777,6 @@ declare hidden void @_ZN5typst4diag16SourceDiagnostic9with_hint17hdec3f3e8bb2d98
 declare void @"_ZN84_$LT$typst..text..raw..RawContent$u20$as$u20$typst..foundations..cast..FromValue$GT$10from_value17hd2b6fabe491faab1E"(ptr noalias noundef sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24), ptr noalias noundef align 8 captures(none) dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.cttz.i8(i8, i1 immarg) #55
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i1 @llvm.is.fpclass.f32(float, i32 immarg) #55
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -174808,6 +174802,9 @@ declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #55
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64, i64) #55
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.cttz.i8(i8, i1 immarg) #55
 
 attributes #0 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

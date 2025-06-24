@@ -750,35 +750,36 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit:              ; preds = %9, %11
   store i8 %.sroa.3.0.i, ptr %.sroa.2.0..sroa_idx, align 8
   %19 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %2) #6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #6
-  %20 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %19, i1 true)
-  switch i64 %20, label %29 [
-    i64 4, label %21
-    i64 5, label %23
-    i64 6, label %25
-    i64 7, label %27
+  %20 = add i64 %19, -16
+  %21 = call i64 @llvm.fshl.i64(i64 %20, i64 %20, i64 60)
+  switch i64 %21, label %30 [
+    i64 0, label %22
+    i64 1, label %24
+    i64 3, label %26
+    i64 7, label %28
   ]
 
-21:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit
-  %22 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase8IEEEhalfEv() #7
-  br label %30
+22:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit
+  %23 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase8IEEEhalfEv() #7
+  br label %31
 
-23:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit
-  %24 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase10IEEEsingleEv() #7
-  br label %30
+24:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit
+  %25 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase10IEEEsingleEv() #7
+  br label %31
 
-25:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit
-  %26 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase10IEEEdoubleEv() #7
-  br label %30
+26:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit
+  %27 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase10IEEEdoubleEv() #7
+  br label %31
 
-27:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit
-  %28 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase8IEEEquadEv() #7
-  br label %30
+28:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit
+  %29 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase8IEEEquadEv() #7
+  br label %31
 
-29:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit
+30:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit
   unreachable
 
-30:                                               ; preds = %27, %25, %23, %21
-  %.0 = phi ptr [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ]
+31:                                               ; preds = %28, %26, %24, %22
+  %.0 = phi ptr [ %23, %22 ], [ %25, %24 ], [ %27, %26 ], [ %29, %28 ]
   ret ptr %.0
 }
 
@@ -1567,7 +1568,7 @@ declare { i16, ptr } @_ZN4llvm3EVT19getExtendedVectorVTERNS_11LLVMContextES0_NS_
 declare { i16, ptr } @_ZN4llvm3EVT20getExtendedIntegerVTERNS_11LLVMContextEj(ptr noundef nonnull align 1, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.cttz.i64(i64, i1 immarg) #5
+declare i64 @llvm.fshl.i64(i64, i64, i64) #5
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

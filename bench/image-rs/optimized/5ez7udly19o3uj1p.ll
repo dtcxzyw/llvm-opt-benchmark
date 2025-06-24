@@ -25877,9 +25877,9 @@ switch.lookup:
   %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @"switch.table._ZN58_$LT$png..common..BitDepth$u20$as$u20$core..fmt..Debug$GT$3fmt17h217f5e47436bf9edE", i64 0, i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   %5 = zext nneg i8 %3 to i64
-  %switch.gep2 = getelementptr inbounds nuw [5 x ptr], ptr @"switch.table._ZN58_$LT$png..common..BitDepth$u20$as$u20$core..fmt..Debug$GT$3fmt17h217f5e47436bf9edE.90", i64 0, i64 %5
-  %switch.load3 = load ptr, ptr %switch.gep2, align 8
-  %6 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
+  %switch.gep1 = getelementptr inbounds nuw [5 x ptr], ptr @"switch.table._ZN58_$LT$png..common..BitDepth$u20$as$u20$core..fmt..Debug$GT$3fmt17h217f5e47436bf9edE.90", i64 0, i64 %5
+  %switch.load2 = load ptr, ptr %switch.gep1, align 8
+  %6 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %6
 }
 
@@ -35816,9 +35816,6 @@ declare hidden void @"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$
 declare hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h9478d6f47c96feedE.llvm.17224713629878502917"(ptr noalias noundef align 8 dereferenceable(24), i64 noundef, i8 noundef) unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.cttz.i8(i8, i1 immarg) #18
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -35838,6 +35835,9 @@ declare i16 @llvm.umin.i16(i16, i16) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.smax.i16(i16, i16) #18
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.cttz.i8(i8, i1 immarg) #18
 
 attributes #0 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

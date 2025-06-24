@@ -2693,9 +2693,9 @@ _ZN4llvm8dyn_castINS_17MCEncodedFragmentEKNS_10MCFragmentEEEDcPT0_.exit.thread.i
 181:                                              ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i, %.lr.ph227.i
   %.0226.i = phi i64 [ 0, %.lr.ph227.i ], [ %204, %_ZN4llvm11raw_ostreamlsEc.exit.i ]
   %182 = load i32, ptr %145, align 8, !tbaa !217
-  %183 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %182, i1 true)
-  %184 = load i64, ptr %165, align 8, !tbaa !219
-  switch i32 %183, label %185 [
+  %183 = load i64, ptr %165, align 8, !tbaa !219
+  %184 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %182, i1 true)
+  switch i32 %184, label %185 [
     i32 0, label %186
     i32 1, label %194
     i32 2, label %197
@@ -2706,7 +2706,7 @@ _ZN4llvm8dyn_castINS_17MCEncodedFragmentEKNS_10MCFragmentEEEDcPT0_.exit.thread.i
   unreachable
 
 186:                                              ; preds = %181
-  %187 = trunc i64 %184 to i8
+  %187 = trunc i64 %183 to i8
   %188 = load ptr, ptr %113, align 8, !tbaa !220
   %189 = load ptr, ptr %117, align 8, !tbaa !224
   %.not.i.i = icmp ult ptr %188, %189
@@ -2723,7 +2723,7 @@ _ZN4llvm8dyn_castINS_17MCEncodedFragmentEKNS_10MCFragmentEEEDcPT0_.exit.thread.i
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i
 
 194:                                              ; preds = %181
-  %195 = trunc i64 %184 to i16
+  %195 = trunc i64 %183 to i16
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7)
   %rev.i.i.i.i.i.i = call i16 @llvm.bswap.i16(i16 %195)
   %spec.select.i.i.i = select i1 %.not.i.i132.i, i16 %195, i16 %rev.i.i.i.i.i.i
@@ -2733,7 +2733,7 @@ _ZN4llvm8dyn_castINS_17MCEncodedFragmentEKNS_10MCFragmentEEEDcPT0_.exit.thread.i
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i
 
 197:                                              ; preds = %181
-  %198 = trunc i64 %184 to i32
+  %198 = trunc i64 %183 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   %199 = call i32 @llvm.bswap.i32(i32 %198)
   %spec.select.i.i131.i = select i1 %.not.i.i132.i, i32 %198, i32 %199
@@ -2744,8 +2744,8 @@ _ZN4llvm8dyn_castINS_17MCEncodedFragmentEKNS_10MCFragmentEEEDcPT0_.exit.thread.i
 
 201:                                              ; preds = %181
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %202 = call i64 @llvm.bswap.i64(i64 %184)
-  %spec.select.i.i133.i = select i1 %.not.i.i132.i, i64 %184, i64 %202
+  %202 = call i64 @llvm.bswap.i64(i64 %183)
+  %spec.select.i.i133.i = select i1 %.not.i.i132.i, i64 %183, i64 %202
   store i64 %spec.select.i.i133.i, ptr %5, align 8, !tbaa !96
   %203 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull %5, i64 noundef 8) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
@@ -5245,23 +5245,23 @@ declare { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr nound
 
 declare noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(21), ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #12
-
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #13
+declare void @llvm.assume(i1 noundef) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.bswap.i16(i16) #12
+declare i16 @llvm.bswap.i16(i16) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #12
+declare i64 @llvm.smin.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #12
+declare i32 @llvm.umax.i32(i32, i32) #13
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #13
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -5275,8 +5275,8 @@ attributes #8 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-siz
 attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #14 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #15 = { nounwind }
 attributes #16 = { noreturn nounwind }
