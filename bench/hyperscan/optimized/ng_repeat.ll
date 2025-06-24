@@ -12272,7 +12272,8 @@ _ZNSt5dequeIN3ue212_GLOBAL__N_113ReachSubgraphESaIS2_EE16_M_pop_front_auxEv.exit
 
 _ZN5boost20connected_componentsIN3ue216undirected_graphINS1_8NGHolderERKS3_EENS_24associative_property_mapISt13unordered_mapINS1_12graph_detail17vertex_descriptorINS1_9ue2_graphIS3_NS1_19NFAGraphVertexPropsENS1_17NFAGraphEdgePropsEEEEEjSt4hashISF_ESt8equal_toISF_ESaISt4pairIKSF_jEEEEEEENS_15property_traitsIT0_E10value_typeERKT_SR_NS_11enable_if_cIXsr19is_base_and_derivedINS_21vertex_list_graph_tagENS_12graph_traitsISU_E18traversal_categoryEEE5valueENS_5graph6detail12no_parameterEE4typeE.exit.thread.i: ; preds = %789
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #31
-  br label %_ZNSt12_Vector_baseIN3ue212_GLOBAL__N_113ReachSubgraphESaIS2_EEC2EmRKS3_.exit.thread.i.i
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
+  br label %.loopexit85.i
 
 792:                                              ; preds = %789
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #31
@@ -12295,12 +12296,9 @@ _ZN5boost20connected_componentsIN3ue216undirected_graphINS1_8NGHolderERKS3_EENS_
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #31
   %795 = zext i32 %794 to i64
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #31
-  %.not.i.i.i.i.i = icmp eq i32 %794, 0
-  br i1 %.not.i.i.i.i.i, label %_ZNSt12_Vector_baseIN3ue212_GLOBAL__N_113ReachSubgraphESaIS2_EEC2EmRKS3_.exit.thread.i.i, label %_ZNSt12_Vector_baseIN3ue212_GLOBAL__N_113ReachSubgraphESaIS2_EEC2EmRKS3_.exit.i.i
-
-_ZNSt12_Vector_baseIN3ue212_GLOBAL__N_113ReachSubgraphESaIS2_EEC2EmRKS3_.exit.thread.i.i: ; preds = %_ZN5boost20connected_componentsIN3ue216undirected_graphINS1_8NGHolderERKS3_EENS_24associative_property_mapISt13unordered_mapINS1_12graph_detail17vertex_descriptorINS1_9ue2_graphIS3_NS1_19NFAGraphVertexPropsENS1_17NFAGraphEdgePropsEEEEEjSt4hashISF_ESt8equal_toISF_ESaISt4pairIKSF_jEEEEEEENS_15property_traitsIT0_E10value_typeERKT_SR_NS_11enable_if_cIXsr19is_base_and_derivedINS_21vertex_list_graph_tagENS_12graph_traitsISU_E18traversal_categoryEEE5valueENS_5graph6detail12no_parameterEE4typeE.exit.i, %_ZN5boost20connected_componentsIN3ue216undirected_graphINS1_8NGHolderERKS3_EENS_24associative_property_mapISt13unordered_mapINS1_12graph_detail17vertex_descriptorINS1_9ue2_graphIS3_NS1_19NFAGraphVertexPropsENS1_17NFAGraphEdgePropsEEEEEjSt4hashISF_ESt8equal_toISF_ESaISt4pairIKSF_jEEEEEEENS_15property_traitsIT0_E10value_typeERKT_SR_NS_11enable_if_cIXsr19is_base_and_derivedINS_21vertex_list_graph_tagENS_12graph_traitsISU_E18traversal_categoryEEE5valueENS_5graph6detail12no_parameterEE4typeE.exit.thread.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
-  br label %.loopexit85.i
+  %.not.i.i.i.i.i = icmp eq i32 %794, 0
+  br i1 %.not.i.i.i.i.i, label %.loopexit85.i, label %_ZNSt12_Vector_baseIN3ue212_GLOBAL__N_113ReachSubgraphESaIS2_EEC2EmRKS3_.exit.i.i
 
 _ZNSt12_Vector_baseIN3ue212_GLOBAL__N_113ReachSubgraphESaIS2_EEC2EmRKS3_.exit.i.i: ; preds = %_ZN5boost20connected_componentsIN3ue216undirected_graphINS1_8NGHolderERKS3_EENS_24associative_property_mapISt13unordered_mapINS1_12graph_detail17vertex_descriptorINS1_9ue2_graphIS3_NS1_19NFAGraphVertexPropsENS1_17NFAGraphEdgePropsEEEEEjSt4hashISF_ESt8equal_toISF_ESaISt4pairIKSF_jEEEEEEENS_15property_traitsIT0_E10value_typeERKT_SR_NS_11enable_if_cIXsr19is_base_and_derivedINS_21vertex_list_graph_tagENS_12graph_traitsISU_E18traversal_categoryEEE5valueENS_5graph6detail12no_parameterEE4typeE.exit.i
   %796 = mul nuw nsw i64 %795, 48
@@ -12324,9 +12322,9 @@ _ZNSt12_Vector_baseIN3ue212_GLOBAL__N_113ReachSubgraphESaIS2_EEC2EmRKS3_.exit.i.
   %.not.i.i.i.i.i.i145 = icmp eq i64 %800, 0
   br i1 %.not.i.i.i.i.i.i145, label %.loopexit85.i, label %.lr.ph.i.i.i.i.i.i144, !llvm.loop !451
 
-.loopexit85.i:                                    ; preds = %.lr.ph.i.i.i.i.i.i144, %_ZNSt12_Vector_baseIN3ue212_GLOBAL__N_113ReachSubgraphESaIS2_EEC2EmRKS3_.exit.thread.i.i
-  %.val31.i = phi ptr [ null, %_ZNSt12_Vector_baseIN3ue212_GLOBAL__N_113ReachSubgraphESaIS2_EEC2EmRKS3_.exit.thread.i.i ], [ %797, %.lr.ph.i.i.i.i.i.i144 ]
-  %.0.lcssa.i.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIN3ue212_GLOBAL__N_113ReachSubgraphESaIS2_EEC2EmRKS3_.exit.thread.i.i ], [ %801, %.lr.ph.i.i.i.i.i.i144 ]
+.loopexit85.i:                                    ; preds = %.lr.ph.i.i.i.i.i.i144, %_ZN5boost20connected_componentsIN3ue216undirected_graphINS1_8NGHolderERKS3_EENS_24associative_property_mapISt13unordered_mapINS1_12graph_detail17vertex_descriptorINS1_9ue2_graphIS3_NS1_19NFAGraphVertexPropsENS1_17NFAGraphEdgePropsEEEEEjSt4hashISF_ESt8equal_toISF_ESaISt4pairIKSF_jEEEEEEENS_15property_traitsIT0_E10value_typeERKT_SR_NS_11enable_if_cIXsr19is_base_and_derivedINS_21vertex_list_graph_tagENS_12graph_traitsISU_E18traversal_categoryEEE5valueENS_5graph6detail12no_parameterEE4typeE.exit.i, %_ZN5boost20connected_componentsIN3ue216undirected_graphINS1_8NGHolderERKS3_EENS_24associative_property_mapISt13unordered_mapINS1_12graph_detail17vertex_descriptorINS1_9ue2_graphIS3_NS1_19NFAGraphVertexPropsENS1_17NFAGraphEdgePropsEEEEEjSt4hashISF_ESt8equal_toISF_ESaISt4pairIKSF_jEEEEEEENS_15property_traitsIT0_E10value_typeERKT_SR_NS_11enable_if_cIXsr19is_base_and_derivedINS_21vertex_list_graph_tagENS_12graph_traitsISU_E18traversal_categoryEEE5valueENS_5graph6detail12no_parameterEE4typeE.exit.thread.i
+  %.val31.i = phi ptr [ null, %_ZN5boost20connected_componentsIN3ue216undirected_graphINS1_8NGHolderERKS3_EENS_24associative_property_mapISt13unordered_mapINS1_12graph_detail17vertex_descriptorINS1_9ue2_graphIS3_NS1_19NFAGraphVertexPropsENS1_17NFAGraphEdgePropsEEEEEjSt4hashISF_ESt8equal_toISF_ESaISt4pairIKSF_jEEEEEEENS_15property_traitsIT0_E10value_typeERKT_SR_NS_11enable_if_cIXsr19is_base_and_derivedINS_21vertex_list_graph_tagENS_12graph_traitsISU_E18traversal_categoryEEE5valueENS_5graph6detail12no_parameterEE4typeE.exit.thread.i ], [ null, %_ZN5boost20connected_componentsIN3ue216undirected_graphINS1_8NGHolderERKS3_EENS_24associative_property_mapISt13unordered_mapINS1_12graph_detail17vertex_descriptorINS1_9ue2_graphIS3_NS1_19NFAGraphVertexPropsENS1_17NFAGraphEdgePropsEEEEEjSt4hashISF_ESt8equal_toISF_ESaISt4pairIKSF_jEEEEEEENS_15property_traitsIT0_E10value_typeERKT_SR_NS_11enable_if_cIXsr19is_base_and_derivedINS_21vertex_list_graph_tagENS_12graph_traitsISU_E18traversal_categoryEEE5valueENS_5graph6detail12no_parameterEE4typeE.exit.i ], [ %797, %.lr.ph.i.i.i.i.i.i144 ]
+  %.0.lcssa.i.i.i.i.i.i = phi ptr [ null, %_ZN5boost20connected_componentsIN3ue216undirected_graphINS1_8NGHolderERKS3_EENS_24associative_property_mapISt13unordered_mapINS1_12graph_detail17vertex_descriptorINS1_9ue2_graphIS3_NS1_19NFAGraphVertexPropsENS1_17NFAGraphEdgePropsEEEEEjSt4hashISF_ESt8equal_toISF_ESaISt4pairIKSF_jEEEEEEENS_15property_traitsIT0_E10value_typeERKT_SR_NS_11enable_if_cIXsr19is_base_and_derivedINS_21vertex_list_graph_tagENS_12graph_traitsISU_E18traversal_categoryEEE5valueENS_5graph6detail12no_parameterEE4typeE.exit.thread.i ], [ null, %_ZN5boost20connected_componentsIN3ue216undirected_graphINS1_8NGHolderERKS3_EENS_24associative_property_mapISt13unordered_mapINS1_12graph_detail17vertex_descriptorINS1_9ue2_graphIS3_NS1_19NFAGraphVertexPropsENS1_17NFAGraphEdgePropsEEEEEjSt4hashISF_ESt8equal_toISF_ESaISt4pairIKSF_jEEEEEEENS_15property_traitsIT0_E10value_typeERKT_SR_NS_11enable_if_cIXsr19is_base_and_derivedINS_21vertex_list_graph_tagENS_12graph_traitsISU_E18traversal_categoryEEE5valueENS_5graph6detail12no_parameterEE4typeE.exit.i ], [ %801, %.lr.ph.i.i.i.i.i.i144 ]
   store ptr %.0.lcssa.i.i.i.i.i.i, ptr %115, align 8
   %802 = load ptr, ptr %98, align 8, !noalias !532
   %803 = load ptr, ptr %94, align 8, !noalias !535
@@ -29595,8 +29593,8 @@ _ZNSt5dequeIS_IN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHold
 
 55:                                               ; preds = %46
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15) #31
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %59 = load ptr, ptr %58, align 8

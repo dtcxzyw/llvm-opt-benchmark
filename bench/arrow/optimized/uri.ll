@@ -1384,7 +1384,6 @@ define void @_ZNK5arrow4util3Uri11query_itemsB5cxx11Ev(ptr dead_on_unwind noalia
 
 14:                                               ; preds = %2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   br label %_ZNSt10unique_ptrI19UriQueryListStructAPFvPS0_EED2Ev.exit26
 
 15:                                               ; preds = %2

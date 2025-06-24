@@ -16781,8 +16781,8 @@ invoke.cont.i:                                    ; preds = %if.else.i.i.i.i.i.i
   store i64 0, ptr %10, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEE, i64 16), ptr %mAcc, align 8
   %mKeys.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %mNodes.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %mKeys.i, i8 0, i64 36, i1 false)
+  %mNodes.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mNodes.i, i8 0, i64 32, i1 false)
   br label %for.body.i.i.i.i.i.i.i
 
@@ -33936,8 +33936,8 @@ invoke.cont.i:                                    ; preds = %if.else.i.i.i.i.i.i
   store i64 0, ptr %10, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEE, i64 16), ptr %mAcc, align 8
   %mKeys.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %mNodes.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %mKeys.i, i8 0, i64 36, i1 false)
+  %mNodes.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mNodes.i, i8 0, i64 32, i1 false)
   br label %for.body.i.i.i.i.i.i.i
 
@@ -43581,8 +43581,8 @@ invoke.cont.i:                                    ; preds = %if.else.i.i.i.i.i.i
   store i64 0, ptr %10, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEE, i64 16), ptr %mAcc, align 8
   %mKeys.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %mNodes.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %mKeys.i, i8 0, i64 36, i1 false)
+  %mNodes.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mNodes.i, i8 0, i64 32, i1 false)
   br label %for.body.i.i.i.i.i.i.i
 
@@ -149979,8 +149979,8 @@ invoke.cont.i:                                    ; preds = %if.else.i.i.i.i.i.i
   store i64 0, ptr %10, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEE, i64 16), ptr %mAcc, align 8
   %mKeys.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %mNodes.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %mKeys.i, i8 0, i64 36, i1 false)
+  %mNodes.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mNodes.i, i8 0, i64 32, i1 false)
   br label %for.body.i.i.i.i.i.i.i
 
@@ -166394,8 +166394,8 @@ invoke.cont.i:                                    ; preds = %if.else.i.i.i.i.i.i
   store i64 0, ptr %10, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEE, i64 16), ptr %mAcc, align 8
   %mKeys.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %mNodes.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %mKeys.i, i8 0, i64 36, i1 false)
+  %mNodes.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mNodes.i, i8 0, i64 32, i1 false)
   br label %for.body.i.i.i.i.i.i.i
 
@@ -176281,8 +176281,8 @@ invoke.cont.i:                                    ; preds = %if.else.i.i.i.i.i.i
   store i64 0, ptr %10, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEE, i64 16), ptr %mAcc, align 8
   %mKeys.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %mNodes.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %mKeys.i, i8 0, i64 36, i1 false)
+  %mNodes.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mNodes.i, i8 0, i64 32, i1 false)
   br label %for.body.i.i.i.i.i.i.i
 

@@ -618,7 +618,7 @@ define dso_local range(i32 0, 2) i32 @geohashGetDistanceIfInRectangle(double nou
   %12 = fmul double %11, 0x41584F6F63E51090
   %13 = fmul double %1, 5.000000e-01
   %14 = fcmp ogt double %12, %13
-  br i1 %14, label %61, label %15
+  br i1 %14, label %60, label %15
 
 15:                                               ; preds = %7
   %16 = fmul double %4, 0x3F91DF46A2529D39
@@ -639,55 +639,54 @@ define dso_local range(i32 0, 2) i32 @geohashGetDistanceIfInRectangle(double nou
   %27 = fmul double %22, 5.000000e-01
   %28 = tail call double @sin(double noundef %27) #12, !tbaa !16
   %29 = tail call double @cos(double noundef %9) #12, !tbaa !16
-  %30 = tail call double @cos(double noundef %9) #12, !tbaa !16
-  %31 = fmul double %29, %30
+  %30 = fmul double %29, %29
+  %31 = fmul double %20, %30
   %32 = fmul double %20, %31
-  %33 = fmul double %20, %32
-  %34 = tail call double @llvm.fmuladd.f64(double %28, double %28, double %33)
-  %35 = tail call double @sqrt(double noundef %34) #12, !tbaa !16
-  %36 = tail call double @asin(double noundef %35) #12, !tbaa !16
-  %37 = fmul double %36, 0x41684F6F63E51090
+  %33 = tail call double @llvm.fmuladd.f64(double %28, double %28, double %32)
+  %34 = tail call double @sqrt(double noundef %33) #12, !tbaa !16
+  %35 = tail call double @asin(double noundef %34) #12, !tbaa !16
+  %36 = fmul double %35, 0x41684F6F63E51090
   br label %geohashGetDistance.exit
 
 geohashGetDistance.exit:                          ; preds = %23, %26
-  %.0.i = phi double [ %25, %23 ], [ %37, %26 ]
-  %38 = fmul double %0, 5.000000e-01
-  %39 = fcmp ogt double %.0.i, %38
-  br i1 %39, label %61, label %40
+  %.0.i = phi double [ %25, %23 ], [ %36, %26 ]
+  %37 = fmul double %0, 5.000000e-01
+  %38 = fcmp ogt double %.0.i, %37
+  br i1 %38, label %60, label %39
 
-40:                                               ; preds = %geohashGetDistance.exit
-  %41 = fsub double %16, %17
-  %42 = fmul double %41, 5.000000e-01
-  %43 = tail call double @sin(double noundef %42) #12, !tbaa !16
-  %44 = fcmp oeq double %43, 0.000000e+00
-  %45 = fsub double %9, %8
-  br i1 %44, label %46, label %49
+39:                                               ; preds = %geohashGetDistance.exit
+  %40 = fsub double %16, %17
+  %41 = fmul double %40, 5.000000e-01
+  %42 = tail call double @sin(double noundef %41) #12, !tbaa !16
+  %43 = fcmp oeq double %42, 0.000000e+00
+  %44 = fsub double %9, %8
+  br i1 %43, label %45, label %48
 
-46:                                               ; preds = %40
-  %47 = tail call double @llvm.fabs.f64(double %45)
-  %48 = fmul double %47, 0x41584F6F63E51090
+45:                                               ; preds = %39
+  %46 = tail call double @llvm.fabs.f64(double %44)
+  %47 = fmul double %46, 0x41584F6F63E51090
   br label %geohashGetDistance.exit16
 
-49:                                               ; preds = %40
-  %50 = fmul double %45, 5.000000e-01
-  %51 = tail call double @sin(double noundef %50) #12, !tbaa !16
-  %52 = tail call double @cos(double noundef %8) #12, !tbaa !16
-  %53 = tail call double @cos(double noundef %9) #12, !tbaa !16
-  %54 = fmul double %52, %53
-  %55 = fmul double %43, %54
-  %56 = fmul double %43, %55
-  %57 = tail call double @llvm.fmuladd.f64(double %51, double %51, double %56)
-  %58 = tail call double @sqrt(double noundef %57) #12, !tbaa !16
-  %59 = tail call double @asin(double noundef %58) #12, !tbaa !16
-  %60 = fmul double %59, 0x41684F6F63E51090
+48:                                               ; preds = %39
+  %49 = fmul double %44, 5.000000e-01
+  %50 = tail call double @sin(double noundef %49) #12, !tbaa !16
+  %51 = tail call double @cos(double noundef %8) #12, !tbaa !16
+  %52 = tail call double @cos(double noundef %9) #12, !tbaa !16
+  %53 = fmul double %51, %52
+  %54 = fmul double %42, %53
+  %55 = fmul double %42, %54
+  %56 = tail call double @llvm.fmuladd.f64(double %50, double %50, double %55)
+  %57 = tail call double @sqrt(double noundef %56) #12, !tbaa !16
+  %58 = tail call double @asin(double noundef %57) #12, !tbaa !16
+  %59 = fmul double %58, 0x41684F6F63E51090
   br label %geohashGetDistance.exit16
 
-geohashGetDistance.exit16:                        ; preds = %46, %49
-  %.0.i15 = phi double [ %48, %46 ], [ %60, %49 ]
+geohashGetDistance.exit16:                        ; preds = %45, %48
+  %.0.i15 = phi double [ %47, %45 ], [ %59, %48 ]
   store double %.0.i15, ptr %6, align 8, !tbaa !7
-  br label %61
+  br label %60
 
-61:                                               ; preds = %geohashGetDistance.exit16, %geohashGetDistance.exit, %7
+60:                                               ; preds = %geohashGetDistance.exit16, %geohashGetDistance.exit, %7
   %.0 = phi i32 [ 0, %7 ], [ 1, %geohashGetDistance.exit16 ], [ 0, %geohashGetDistance.exit ]
   ret i32 %.0
 }

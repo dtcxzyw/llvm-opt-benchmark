@@ -832,46 +832,45 @@ _ZL24qsc_fwd_equat_face_thetadddPN9pj_qsc_ns4AreaE.exit: ; preds = %_ZL26qsc_shi
   %177 = tail call double @cos(double noundef %.094) #8, !tbaa !46
   %178 = fsub double 1.000000e+00, %177
   %179 = tail call double @cos(double noundef %176) #8, !tbaa !46
-  %180 = tail call double @cos(double noundef %176) #8, !tbaa !46
-  %181 = fmul double %179, %180
-  %182 = fdiv double %178, %181
-  %183 = tail call double @cos(double noundef %.093) #8, !tbaa !46
-  %184 = fdiv double 1.000000e+00, %183
-  %185 = tail call double @atan(double noundef %184) #8, !tbaa !46
-  %186 = tail call double @cos(double noundef %185) #8, !tbaa !46
-  %187 = fsub double 1.000000e+00, %186
-  %188 = fdiv double %182, %187
-  %189 = tail call double @sqrt(double noundef %188) #8, !tbaa !46
+  %180 = fmul double %179, %179
+  %181 = fdiv double %178, %180
+  %182 = tail call double @cos(double noundef %.093) #8, !tbaa !46
+  %183 = fdiv double 1.000000e+00, %182
+  %184 = tail call double @atan(double noundef %183) #8, !tbaa !46
+  %185 = tail call double @cos(double noundef %184) #8, !tbaa !46
+  %186 = fsub double 1.000000e+00, %185
+  %187 = fdiv double %181, %186
+  %188 = tail call double @sqrt(double noundef %187) #8, !tbaa !46
   switch i32 %.0121, label %default.unreachable [
-    i32 1, label %190
-    i32 2, label %192
-    i32 3, label %194
-    i32 0, label %196
+    i32 1, label %189
+    i32 2, label %191
+    i32 3, label %193
+    i32 0, label %195
   ]
 
-190:                                              ; preds = %_ZL24qsc_fwd_equat_face_thetadddPN9pj_qsc_ns4AreaE.exit
-  %191 = fadd double %176, 0x3FF921FB54442D18
-  br label %196
+189:                                              ; preds = %_ZL24qsc_fwd_equat_face_thetadddPN9pj_qsc_ns4AreaE.exit
+  %190 = fadd double %176, 0x3FF921FB54442D18
+  br label %195
 
-192:                                              ; preds = %_ZL24qsc_fwd_equat_face_thetadddPN9pj_qsc_ns4AreaE.exit
-  %193 = fadd double %176, 0x400921FB54442D18
-  br label %196
+191:                                              ; preds = %_ZL24qsc_fwd_equat_face_thetadddPN9pj_qsc_ns4AreaE.exit
+  %192 = fadd double %176, 0x400921FB54442D18
+  br label %195
 
-194:                                              ; preds = %_ZL24qsc_fwd_equat_face_thetadddPN9pj_qsc_ns4AreaE.exit
-  %195 = fadd double %176, 0x4012D97C7F3321D2
-  br label %196
+193:                                              ; preds = %_ZL24qsc_fwd_equat_face_thetadddPN9pj_qsc_ns4AreaE.exit
+  %194 = fadd double %176, 0x4012D97C7F3321D2
+  br label %195
 
 default.unreachable:                              ; preds = %_ZL24qsc_fwd_equat_face_thetadddPN9pj_qsc_ns4AreaE.exit
   unreachable
 
-196:                                              ; preds = %_ZL24qsc_fwd_equat_face_thetadddPN9pj_qsc_ns4AreaE.exit, %192, %194, %190
-  %.096 = phi double [ %191, %190 ], [ %193, %192 ], [ %195, %194 ], [ %176, %_ZL24qsc_fwd_equat_face_thetadddPN9pj_qsc_ns4AreaE.exit ]
-  %197 = tail call double @cos(double noundef %.096) #8, !tbaa !46
-  %198 = fmul double %189, %197
-  %199 = tail call double @sin(double noundef %.096) #8, !tbaa !46
-  %200 = fmul double %189, %199
-  %.fca.0.insert = insertvalue { double, double } poison, double %198, 0
-  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %200, 1
+195:                                              ; preds = %_ZL24qsc_fwd_equat_face_thetadddPN9pj_qsc_ns4AreaE.exit, %191, %193, %189
+  %.096 = phi double [ %190, %189 ], [ %192, %191 ], [ %194, %193 ], [ %176, %_ZL24qsc_fwd_equat_face_thetadddPN9pj_qsc_ns4AreaE.exit ]
+  %196 = tail call double @cos(double noundef %.096) #8, !tbaa !46
+  %197 = fmul double %188, %196
+  %198 = tail call double @sin(double noundef %.096) #8, !tbaa !46
+  %199 = fmul double %188, %198
+  %.fca.0.insert = insertvalue { double, double } poison, double %197, 0
+  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %199, 1
   ret { double, double } %.fca.1.insert
 }
 

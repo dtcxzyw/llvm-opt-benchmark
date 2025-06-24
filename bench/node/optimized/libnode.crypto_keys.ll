@@ -1830,8 +1830,8 @@ if.then.i.i.i:                                    ; preds = %if.end
   %key_type_.i.i = getelementptr inbounds nuw i8, ptr %call5.i, i64 8
   store i32 1, ptr %key_type_.i.i, align 8, !noalias !17
   %symmetric_key_.i.i = getelementptr inbounds nuw i8, ptr %call5.i, i64 16
-  %asymmetric_key_.i.i = getelementptr inbounds nuw i8, ptr %call5.i, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %symmetric_key_.i.i, i8 0, i64 24, i1 false), !noalias !17
+  %asymmetric_key_.i.i = getelementptr inbounds nuw i8, ptr %call5.i, i64 40
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i64 16), ptr %asymmetric_key_.i.i, align 8, !noalias !17
   %pkey_.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %pkey_.i.i.i, i8 0, i64 24, i1 false), !noalias !17
@@ -2005,8 +2005,8 @@ if.then.i.i.i67:                                  ; preds = %if.else
   %key_type_.i.i52 = getelementptr inbounds nuw i8, ptr %call5.i51, i64 8
   store i32 1, ptr %key_type_.i.i52, align 8, !noalias !20
   %symmetric_key_.i.i53 = getelementptr inbounds nuw i8, ptr %call5.i51, i64 16
-  %asymmetric_key_.i.i54 = getelementptr inbounds nuw i8, ptr %call5.i51, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %symmetric_key_.i.i53, i8 0, i64 24, i1 false), !noalias !20
+  %asymmetric_key_.i.i54 = getelementptr inbounds nuw i8, ptr %call5.i51, i64 40
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i64 16), ptr %asymmetric_key_.i.i54, align 8, !noalias !20
   %pkey_.i.i.i55 = getelementptr inbounds nuw i8, ptr %call5.i51, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %pkey_.i.i.i55, i8 0, i64 24, i1 false), !noalias !20
@@ -2202,8 +2202,8 @@ do.end4:                                          ; preds = %entry
   %key_type_.i = getelementptr inbounds nuw i8, ptr %call5, i64 8
   store i32 %key_type, ptr %key_type_.i, align 8
   %symmetric_key_.i = getelementptr inbounds nuw i8, ptr %call5, i64 16
-  %asymmetric_key_.i = getelementptr inbounds nuw i8, ptr %call5, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %symmetric_key_.i, i8 0, i64 24, i1 false)
+  %asymmetric_key_.i = getelementptr inbounds nuw i8, ptr %call5, i64 40
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i64 16), ptr %asymmetric_key_.i, align 8
   %pkey_.i.i = getelementptr inbounds nuw i8, ptr %call5, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %pkey_.i.i, i8 0, i64 24, i1 false)
@@ -2593,8 +2593,8 @@ if.then.i.i.i:                                    ; preds = %if.end
   %key_type_.i.i = getelementptr inbounds nuw i8, ptr %call5.i, i64 8
   store i32 2, ptr %key_type_.i.i, align 8, !noalias !23
   %symmetric_key_.i.i = getelementptr inbounds nuw i8, ptr %call5.i, i64 16
-  %asymmetric_key_.i.i = getelementptr inbounds nuw i8, ptr %call5.i, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %symmetric_key_.i.i, i8 0, i64 24, i1 false), !noalias !23
+  %asymmetric_key_.i.i = getelementptr inbounds nuw i8, ptr %call5.i, i64 40
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i64 16), ptr %asymmetric_key_.i.i, align 8, !noalias !23
   %pkey_.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %pkey_.i.i.i, i8 0, i64 24, i1 false), !noalias !23
@@ -2768,8 +2768,8 @@ if.then.i.i.i67:                                  ; preds = %if.else
   %key_type_.i.i52 = getelementptr inbounds nuw i8, ptr %call5.i51, i64 8
   store i32 2, ptr %key_type_.i.i52, align 8, !noalias !26
   %symmetric_key_.i.i53 = getelementptr inbounds nuw i8, ptr %call5.i51, i64 16
-  %asymmetric_key_.i.i54 = getelementptr inbounds nuw i8, ptr %call5.i51, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %symmetric_key_.i.i53, i8 0, i64 24, i1 false), !noalias !26
+  %asymmetric_key_.i.i54 = getelementptr inbounds nuw i8, ptr %call5.i51, i64 40
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i64 16), ptr %asymmetric_key_.i.i54, align 8, !noalias !26
   %pkey_.i.i.i55 = getelementptr inbounds nuw i8, ptr %call5.i51, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %pkey_.i.i.i55, i8 0, i64 24, i1 false), !noalias !26
@@ -5658,8 +5658,8 @@ entry:
   %key_type_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %type, ptr %key_type_, align 8
   %symmetric_key_ = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %asymmetric_key_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %symmetric_key_, i8 0, i64 24, i1 false)
+  %asymmetric_key_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i64 16), ptr %asymmetric_key_, align 8
   %pkey_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %pkey_.i, i8 0, i64 24, i1 false)
@@ -6556,8 +6556,8 @@ _ZN4node6crypto13KeyObjectData16CreateAsymmetricENS0_7KeyTypeERKNS0_14ManagedEVP
   %key_type_.i.i = getelementptr inbounds nuw i8, ptr %call5.i, i64 8
   store i32 1, ptr %key_type_.i.i, align 8, !noalias !97
   %symmetric_key_.i.i = getelementptr inbounds nuw i8, ptr %call5.i, i64 16
-  %asymmetric_key_.i.i = getelementptr inbounds nuw i8, ptr %call5.i, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %symmetric_key_.i.i, i8 0, i64 24, i1 false), !noalias !97
+  %asymmetric_key_.i.i = getelementptr inbounds nuw i8, ptr %call5.i, i64 40
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i64 16), ptr %asymmetric_key_.i.i, align 8, !noalias !97
   %pkey_.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %pkey_.i.i.i, i8 0, i64 24, i1 false), !noalias !97
@@ -6756,8 +6756,8 @@ _ZN4node6crypto13KeyObjectData16CreateAsymmetricENS0_7KeyTypeERKNS0_14ManagedEVP
   %key_type_.i.i171 = getelementptr inbounds nuw i8, ptr %call5.i170, i64 8
   store i32 2, ptr %key_type_.i.i171, align 8, !noalias !100
   %symmetric_key_.i.i172 = getelementptr inbounds nuw i8, ptr %call5.i170, i64 16
-  %asymmetric_key_.i.i173 = getelementptr inbounds nuw i8, ptr %call5.i170, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %symmetric_key_.i.i172, i8 0, i64 24, i1 false), !noalias !100
+  %asymmetric_key_.i.i173 = getelementptr inbounds nuw i8, ptr %call5.i170, i64 40
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i64 16), ptr %asymmetric_key_.i.i173, align 8, !noalias !100
   %pkey_.i.i.i174 = getelementptr inbounds nuw i8, ptr %call5.i170, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %pkey_.i.i.i174, i8 0, i64 24, i1 false), !noalias !100
@@ -7837,8 +7837,8 @@ _ZN4node6crypto13KeyObjectData16CreateAsymmetricENS0_7KeyTypeERKNS0_14ManagedEVP
   %key_type_.i.i = getelementptr inbounds nuw i8, ptr %call5.i, i64 8
   store i32 1, ptr %key_type_.i.i, align 8, !noalias !109
   %symmetric_key_.i.i = getelementptr inbounds nuw i8, ptr %call5.i, i64 16
-  %asymmetric_key_.i.i = getelementptr inbounds nuw i8, ptr %call5.i, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %symmetric_key_.i.i, i8 0, i64 24, i1 false), !noalias !109
+  %asymmetric_key_.i.i = getelementptr inbounds nuw i8, ptr %call5.i, i64 40
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i64 16), ptr %asymmetric_key_.i.i, align 8, !noalias !109
   %pkey_.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %pkey_.i.i.i, i8 0, i64 24, i1 false), !noalias !109
@@ -8285,8 +8285,8 @@ _ZN4node6crypto13KeyObjectData16CreateAsymmetricENS0_7KeyTypeERKNS0_14ManagedEVP
   %key_type_.i.i = getelementptr inbounds nuw i8, ptr %call5.i, i64 8
   store i32 %call54, ptr %key_type_.i.i, align 8, !noalias !119
   %symmetric_key_.i.i = getelementptr inbounds nuw i8, ptr %call5.i, i64 16
-  %asymmetric_key_.i.i = getelementptr inbounds nuw i8, ptr %call5.i, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %symmetric_key_.i.i, i8 0, i64 24, i1 false), !noalias !119
+  %asymmetric_key_.i.i = getelementptr inbounds nuw i8, ptr %call5.i, i64 40
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i64 16), ptr %asymmetric_key_.i.i, align 8, !noalias !119
   %pkey_.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %pkey_.i.i.i, i8 0, i64 24, i1 false), !noalias !119

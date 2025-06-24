@@ -3107,7 +3107,7 @@ define internal fastcc range(i32 -1, 17) i32 @setipaddr(ptr noundef readonly cap
 53:                                               ; preds = %50
   %54 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(12) @.str.38) #15
   %55 = icmp eq i32 %54, 0
-  br i1 %55, label %56, label %63
+  br i1 %55, label %56, label %62
 
 56:                                               ; preds = %53, %50
   %57 = and i32 %4, 13
@@ -3120,120 +3120,118 @@ define internal fastcc range(i32 -1, 17) i32 @setipaddr(ptr noundef readonly cap
   br label %set_gaierror.exit
 
 60:                                               ; preds = %56
-  %61 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %61, i8 0, i64 14, i1 false)
   store i16 2, ptr %2, align 4, !tbaa !72
-  %62 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 -1, ptr %62, align 4, !tbaa !75
+  %61 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  store i32 -1, ptr %61, align 4, !tbaa !75
   br label %set_gaierror.exit
 
-63:                                               ; preds = %53
+62:                                               ; preds = %53
   switch i32 %4, label %.thread [
-    i32 2, label %64
-    i32 0, label %64
-    i32 10, label %69
+    i32 2, label %63
+    i32 0, label %63
+    i32 10, label %68
   ]
 
-64:                                               ; preds = %63, %63
-  %65 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %66 = tail call i32 @inet_pton(i32 noundef 2, ptr noundef nonnull %1, ptr noundef nonnull %65) #13
-  %67 = icmp slt i32 %66, 1
-  br i1 %67, label %.critedge, label %68
+63:                                               ; preds = %62, %62
+  %64 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %65 = tail call i32 @inet_pton(i32 noundef 2, ptr noundef nonnull %1, ptr noundef nonnull %64) #13
+  %66 = icmp slt i32 %65, 1
+  br i1 %66, label %.critedge, label %67
 
-68:                                               ; preds = %64
+67:                                               ; preds = %63
   store i16 2, ptr %2, align 4, !tbaa !72
   br label %set_gaierror.exit
 
-.critedge:                                        ; preds = %64
+.critedge:                                        ; preds = %63
   %cond = icmp eq i32 %4, 0
-  br i1 %cond, label %69, label %.thread
+  br i1 %cond, label %68, label %.thread
 
-69:                                               ; preds = %.critedge, %63
-  %70 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 37) #15
-  %.not = icmp eq ptr %70, null
-  br i1 %.not, label %71, label %.thread
+68:                                               ; preds = %.critedge, %62
+  %69 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 37) #15
+  %.not = icmp eq ptr %69, null
+  br i1 %.not, label %70, label %.thread
 
-71:                                               ; preds = %69
+70:                                               ; preds = %68
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %2, i8 0, i64 28, i1 false)
-  %72 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %73 = tail call i32 @inet_pton(i32 noundef 10, ptr noundef nonnull %1, ptr noundef nonnull %72) #13
-  %74 = icmp slt i32 %73, 1
-  br i1 %74, label %.thread, label %75
+  %71 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %72 = tail call i32 @inet_pton(i32 noundef 10, ptr noundef nonnull %1, ptr noundef nonnull %71) #13
+  %73 = icmp slt i32 %72, 1
+  br i1 %73, label %.thread, label %74
 
-75:                                               ; preds = %71
+74:                                               ; preds = %70
   store i16 10, ptr %2, align 4, !tbaa !76
   br label %set_gaierror.exit
 
-.thread:                                          ; preds = %.critedge, %71, %63, %69
+.thread:                                          ; preds = %.critedge, %70, %62, %68
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 0, i64 48, i1 false)
-  %76 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i32 %4, ptr %76, align 4, !tbaa !51
-  %77 = tail call ptr @PyEval_SaveThread() #13
-  %78 = call i32 @getaddrinfo(ptr noundef nonnull %1, ptr noundef null, ptr noundef nonnull %6, ptr noundef nonnull %7) #13
-  call void @PyEval_RestoreThread(ptr noundef %77) #13
-  %.not63 = icmp eq i32 %78, 0
-  br i1 %.not63, label %95, label %79
+  %75 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  store i32 %4, ptr %75, align 4, !tbaa !51
+  %76 = tail call ptr @PyEval_SaveThread() #13
+  %77 = call i32 @getaddrinfo(ptr noundef nonnull %1, ptr noundef null, ptr noundef nonnull %6, ptr noundef nonnull %7) #13
+  call void @PyEval_RestoreThread(ptr noundef %76) #13
+  %.not63 = icmp eq i32 %77, 0
+  br i1 %.not63, label %94, label %78
 
-79:                                               ; preds = %.thread
+78:                                               ; preds = %.thread
   store ptr null, ptr %7, align 8, !tbaa !49
-  %80 = icmp eq i32 %78, -11
-  br i1 %80, label %81, label %84
+  %79 = icmp eq i32 %77, -11
+  br i1 %79, label %80, label %83
 
-81:                                               ; preds = %79
-  %82 = load ptr, ptr @PyExc_OSError, align 8, !tbaa !19
-  %83 = call ptr @PyErr_SetFromErrno(ptr noundef %82) #13
+80:                                               ; preds = %78
+  %81 = load ptr, ptr @PyExc_OSError, align 8, !tbaa !19
+  %82 = call ptr @PyErr_SetFromErrno(ptr noundef %81) #13
   br label %set_gaierror.exit
 
-84:                                               ; preds = %79
-  %85 = call ptr @gai_strerror(i32 noundef range(i32 1, 0) %78) #13
-  %86 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.41, i32 noundef range(i32 1, 0) %78, ptr noundef %85) #13
-  %.not.i67 = icmp eq ptr %86, null
-  br i1 %.not.i67, label %set_gaierror.exit, label %87
+83:                                               ; preds = %78
+  %84 = call ptr @gai_strerror(i32 noundef range(i32 1, 0) %77) #13
+  %85 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.41, i32 noundef range(i32 1, 0) %77, ptr noundef %84) #13
+  %.not.i67 = icmp eq ptr %85, null
+  br i1 %.not.i67, label %set_gaierror.exit, label %86
 
-87:                                               ; preds = %84
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %89 = load ptr, ptr %88, align 8, !tbaa !16
-  call void @PyErr_SetObject(ptr noundef %89, ptr noundef nonnull %86) #13
-  %90 = load i32, ptr %86, align 8, !tbaa !18
-  %.not.i.i68 = icmp sgt i32 %90, -1
-  br i1 %.not.i.i68, label %91, label %set_gaierror.exit
+86:                                               ; preds = %83
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %88 = load ptr, ptr %87, align 8, !tbaa !16
+  call void @PyErr_SetObject(ptr noundef %88, ptr noundef nonnull %85) #13
+  %89 = load i32, ptr %85, align 8, !tbaa !18
+  %.not.i.i68 = icmp sgt i32 %89, -1
+  br i1 %.not.i.i68, label %90, label %set_gaierror.exit
 
-91:                                               ; preds = %87
-  %92 = add nsw i32 %90, -1
-  store i32 %92, ptr %86, align 8, !tbaa !18
-  %93 = icmp eq i32 %92, 0
-  br i1 %93, label %94, label %set_gaierror.exit
+90:                                               ; preds = %86
+  %91 = add nsw i32 %89, -1
+  store i32 %91, ptr %85, align 8, !tbaa !18
+  %92 = icmp eq i32 %91, 0
+  br i1 %92, label %93, label %set_gaierror.exit
 
-94:                                               ; preds = %91
-  call void @_Py_Dealloc(ptr noundef nonnull %86) #13
+93:                                               ; preds = %90
+  call void @_Py_Dealloc(ptr noundef nonnull %85) #13
   br label %set_gaierror.exit
 
-95:                                               ; preds = %.thread
-  %96 = load ptr, ptr %7, align 8, !tbaa !49
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 16
-  %98 = load i32, ptr %97, align 8, !tbaa !60
-  %99 = zext i32 %98 to i64
-  %spec.select66 = call i64 @llvm.umin.i64(i64 %3, i64 %99)
-  %100 = getelementptr inbounds nuw i8, ptr %96, i64 24
-  %101 = load ptr, ptr %100, align 8, !tbaa !59
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2, ptr align 2 %101, i64 %spec.select66, i1 false)
-  call void @freeaddrinfo(ptr noundef %96) #13
-  %102 = load i16, ptr %2, align 2, !tbaa !24
-  switch i16 %102, label %104 [
+94:                                               ; preds = %.thread
+  %95 = load ptr, ptr %7, align 8, !tbaa !49
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 16
+  %97 = load i32, ptr %96, align 8, !tbaa !60
+  %98 = zext i32 %97 to i64
+  %spec.select66 = call i64 @llvm.umin.i64(i64 %3, i64 %98)
+  %99 = getelementptr inbounds nuw i8, ptr %95, i64 24
+  %100 = load ptr, ptr %99, align 8, !tbaa !59
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2, ptr align 2 %100, i64 %spec.select66, i1 false)
+  call void @freeaddrinfo(ptr noundef %95) #13
+  %101 = load i16, ptr %2, align 2, !tbaa !24
+  switch i16 %101, label %103 [
     i16 2, label %set_gaierror.exit
-    i16 10, label %103
+    i16 10, label %102
   ]
 
-103:                                              ; preds = %95
+102:                                              ; preds = %94
   br label %set_gaierror.exit
 
-104:                                              ; preds = %95
-  %105 = load ptr, ptr @PyExc_OSError, align 8, !tbaa !19
-  call void @PyErr_SetString(ptr noundef %105, ptr noundef nonnull @.str.40) #13
+103:                                              ; preds = %94
+  %104 = load ptr, ptr @PyExc_OSError, align 8, !tbaa !19
+  call void @PyErr_SetString(ptr noundef %104, ptr noundef nonnull @.str.40) #13
   br label %set_gaierror.exit
 
-set_gaierror.exit:                                ; preds = %94, %91, %87, %84, %81, %75, %31, %28, %24, %21, %18, %68, %95, %58, %60, %37, %42, %44, %104, %103
-  %.1 = phi i32 [ -1, %104 ], [ 16, %103 ], [ 16, %75 ], [ 4, %68 ], [ -1, %37 ], [ -1, %42 ], [ %.054, %44 ], [ -1, %58 ], [ 4, %60 ], [ 4, %95 ], [ -1, %18 ], [ -1, %21 ], [ -1, %24 ], [ -1, %28 ], [ -1, %31 ], [ -1, %81 ], [ -1, %84 ], [ -1, %87 ], [ -1, %91 ], [ -1, %94 ]
+set_gaierror.exit:                                ; preds = %93, %90, %86, %83, %80, %74, %31, %28, %24, %21, %18, %67, %94, %58, %60, %37, %42, %44, %103, %102
+  %.1 = phi i32 [ -1, %103 ], [ 16, %102 ], [ 16, %74 ], [ 4, %67 ], [ -1, %37 ], [ -1, %42 ], [ %.054, %44 ], [ -1, %58 ], [ 4, %60 ], [ 4, %94 ], [ -1, %18 ], [ -1, %21 ], [ -1, %24 ], [ -1, %28 ], [ -1, %31 ], [ -1, %80 ], [ -1, %83 ], [ -1, %86 ], [ -1, %90 ], [ -1, %93 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #13
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #13
   ret i32 %.1

@@ -3022,6 +3022,7 @@ define internal i64 @pccard_show_cis(ptr readnone captures(none) %0, ptr noundef
 
 .thread:                                          ; preds = %20, %27
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #13
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 40, i1 false), !annotation !19
   %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 64), align 16
   %30 = call noalias align 8 dereferenceable_or_null(256) ptr @kmalloc_trace(ptr noundef %29, i32 noundef 3264, i64 noundef 256) #15
   %31 = icmp eq ptr %30, null
@@ -3034,11 +3035,11 @@ define internal i64 @pccard_show_cis(ptr readnone captures(none) %0, ptr noundef
   br i1 %35, label %112, label %36
 
 36:                                               ; preds = %32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 40, i1 false)
   store i32 3, ptr %7, align 8
   %37 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i8 -1, ptr %37, align 4
   %38 = getelementptr inbounds nuw i8, ptr %7, i64 22
+  store i8 0, ptr %38, align 2
   %39 = icmp eq ptr %15, null
   br i1 %39, label %.critedge, label %40
 
@@ -3052,9 +3053,11 @@ pccard_get_first_tuple.exit:                      ; preds = %40
   %44 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 272, ptr %44, align 8
   %45 = getelementptr inbounds nuw i8, ptr %7, i64 21
+  store i8 0, ptr %45, align 1
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 0, ptr %46, align 4
   %47 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store i32 0, ptr %47, align 8
   %48 = call i32 @pccard_get_next_tuple(ptr noundef nonnull %15, i32 noundef 255, ptr noundef nonnull %7), !range !18
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %50, label %.critedge

@@ -9075,6 +9075,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit244: ; preds = %_Z
   unreachable
 
 _ZNSt6vectorI18cmListFileArgumentSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i: ; preds = %355
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %45, i8 0, i64 24, i1 false)
   %.not.i.i.i.i = icmp ne i64 %362, 0
   call void @llvm.assume(i1 %.not.i.i.i.i)
   %365 = mul nuw nsw i64 %362, 48

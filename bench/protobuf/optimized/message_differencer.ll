@@ -5175,12 +5175,9 @@ if.then.i.i23:                                    ; preds = %invoke.cont3
   unreachable
 
 _ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE17_S_check_init_lenEmRKS5_.exit.i: ; preds = %invoke.cont3
-  %cmp.not.i.i.i.i = icmp eq i64 %add, 0
-  br i1 %cmp.not.i.i.i.i, label %_ZNSt12_Vector_baseIPKN6google8protobuf15FieldDescriptorESaIS4_EEC2EmRKS5_.exit.thread.i, label %if.then.i.i.i.i.i
-
-_ZNSt12_Vector_baseIPKN6google8protobuf15FieldDescriptorESaIS4_EEC2EmRKS5_.exit.thread.i: ; preds = %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE17_S_check_init_lenEmRKS5_.exit.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %message1_fields, i8 0, i64 24, i1 false)
-  br label %invoke.cont6
+  %cmp.not.i.i.i.i = icmp eq i64 %add, 0
+  br i1 %cmp.not.i.i.i.i, label %invoke.cont6, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE17_S_check_init_lenEmRKS5_.exit.i
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %add, 3
@@ -5202,9 +5199,9 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %call5.i.i.i.i2.i.i.
   tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i, i8 0, i64 %11, i1 false)
   br label %invoke.cont6
 
-invoke.cont6:                                     ; preds = %if.end.i.i.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc, %_ZNSt12_Vector_baseIPKN6google8protobuf15FieldDescriptorESaIS4_EEC2EmRKS5_.exit.thread.i
-  %12 = phi ptr [ %call5.i.i.i.i2.i.i25, %call5.i.i.i.i2.i.i.noexc ], [ %call5.i.i.i.i2.i.i25, %if.end.i.i.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIPKN6google8protobuf15FieldDescriptorESaIS4_EEC2EmRKS5_.exit.thread.i ]
-  %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc ], [ %add.ptr.i.i.i, %if.end.i.i.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIPKN6google8protobuf15FieldDescriptorESaIS4_EEC2EmRKS5_.exit.thread.i ]
+invoke.cont6:                                     ; preds = %if.end.i.i.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc, %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE17_S_check_init_lenEmRKS5_.exit.i
+  %12 = phi ptr [ %call5.i.i.i.i2.i.i25, %call5.i.i.i.i2.i.i.noexc ], [ %call5.i.i.i.i2.i.i25, %if.end.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE17_S_check_init_lenEmRKS5_.exit.i ]
+  %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc ], [ %add.ptr.i.i.i, %if.end.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE17_S_check_init_lenEmRKS5_.exit.i ]
   %_M_finish.i.i7.i = getelementptr inbounds nuw i8, ptr %message1_fields, i64 8
   store ptr %__first.addr.0.i.i.i.i.i, ptr %_M_finish.i.i7.i, align 8
   %_M_finish.i26 = getelementptr inbounds nuw i8, ptr %message2_fields_arg, i64 8
@@ -5226,12 +5223,9 @@ if.then.i.i44:                                    ; preds = %invoke.cont6
   unreachable
 
 _ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE17_S_check_init_lenEmRKS5_.exit.i32: ; preds = %invoke.cont6
-  %cmp.not.i.i.i.i33 = icmp eq i64 %add8, 0
-  br i1 %cmp.not.i.i.i.i33, label %_ZNSt12_Vector_baseIPKN6google8protobuf15FieldDescriptorESaIS4_EEC2EmRKS5_.exit.thread.i43, label %if.then.i.i.i.i.i34
-
-_ZNSt12_Vector_baseIPKN6google8protobuf15FieldDescriptorESaIS4_EEC2EmRKS5_.exit.thread.i43: ; preds = %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE17_S_check_init_lenEmRKS5_.exit.i32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %message2_fields, i8 0, i64 24, i1 false)
-  br label %invoke.cont11
+  %cmp.not.i.i.i.i33 = icmp eq i64 %add8, 0
+  br i1 %cmp.not.i.i.i.i33, label %invoke.cont11, label %if.then.i.i.i.i.i34
 
 if.then.i.i.i.i.i34:                              ; preds = %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE17_S_check_init_lenEmRKS5_.exit.i32
   %mul.i.i.i.i.i.i35 = shl nuw nsw i64 %add8, 3
@@ -5253,9 +5247,9 @@ if.end.i.i.i.i.i.i.i40:                           ; preds = %call5.i.i.i.i2.i.i.
   tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i38, i8 0, i64 %15, i1 false)
   br label %invoke.cont11
 
-invoke.cont11:                                    ; preds = %if.end.i.i.i.i.i.i.i40, %call5.i.i.i.i2.i.i.noexc46, %_ZNSt12_Vector_baseIPKN6google8protobuf15FieldDescriptorESaIS4_EEC2EmRKS5_.exit.thread.i43
-  %16 = phi ptr [ %call5.i.i.i.i2.i.i47, %call5.i.i.i.i2.i.i.noexc46 ], [ %call5.i.i.i.i2.i.i47, %if.end.i.i.i.i.i.i.i40 ], [ null, %_ZNSt12_Vector_baseIPKN6google8protobuf15FieldDescriptorESaIS4_EEC2EmRKS5_.exit.thread.i43 ]
-  %__first.addr.0.i.i.i.i.i41 = phi ptr [ %incdec.ptr.i.i.i.i.i38, %call5.i.i.i.i2.i.i.noexc46 ], [ %add.ptr.i.i.i36, %if.end.i.i.i.i.i.i.i40 ], [ null, %_ZNSt12_Vector_baseIPKN6google8protobuf15FieldDescriptorESaIS4_EEC2EmRKS5_.exit.thread.i43 ]
+invoke.cont11:                                    ; preds = %if.end.i.i.i.i.i.i.i40, %call5.i.i.i.i2.i.i.noexc46, %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE17_S_check_init_lenEmRKS5_.exit.i32
+  %16 = phi ptr [ %call5.i.i.i.i2.i.i47, %call5.i.i.i.i2.i.i.noexc46 ], [ %call5.i.i.i.i2.i.i47, %if.end.i.i.i.i.i.i.i40 ], [ null, %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE17_S_check_init_lenEmRKS5_.exit.i32 ]
+  %__first.addr.0.i.i.i.i.i41 = phi ptr [ %incdec.ptr.i.i.i.i.i38, %call5.i.i.i.i2.i.i.noexc46 ], [ %add.ptr.i.i.i36, %if.end.i.i.i.i.i.i.i40 ], [ null, %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE17_S_check_init_lenEmRKS5_.exit.i32 ]
   %_M_finish.i.i7.i42 = getelementptr inbounds nuw i8, ptr %message2_fields, i64 8
   store ptr %__first.addr.0.i.i.i.i.i41, ptr %_M_finish.i.i7.i42, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %9, %10

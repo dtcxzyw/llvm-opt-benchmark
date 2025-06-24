@@ -45748,8 +45748,8 @@ define internal fastcc void @_ZN5arrow3ipc12_GLOBAL__N_117DecompressBuffersENS_1
   %23 = alloca %class.anon.473, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18) #36
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19) #36
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !1281)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !1281)
   invoke fastcc void @_ZZN5arrow3ipc12_GLOBAL__N_117DecompressBuffersENS_11Compression4typeERKNS0_14IpcReadOptionsEPSt6vectorISt10shared_ptrINS_9ArrayDataEESaISA_EEEN17BufferAccumulator10AppendFromERKSC_(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull readonly align 8 dereferenceable(24) %3)
           to label %_ZZN5arrow3ipc12_GLOBAL__N_117DecompressBuffersENS_11Compression4typeERKNS0_14IpcReadOptionsEPSt6vectorISt10shared_ptrINS_9ArrayDataEESaISA_EEEN17BufferAccumulatorD2Ev.exit unwind label %36
 
@@ -98036,46 +98036,43 @@ define linkonce_odr void @_ZN5arrow3ipc25RecordBatchFileReaderImpl17PreBufferMet
   unreachable
 
 _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %9
-  %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.not.i.i.i.i.i = icmp eq i32 %13, 0
-  br i1 %.not.i.i.i.i.i, label %.thread.i, label %.noexc4.i
-
-.thread.i:                                        ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false), !alias.scope !3166
-  br label %_ZNK5arrow3ipc25RecordBatchFileReaderImpl10AllIndicesEv.exit
+  %.not.i.i.i.i.i = icmp eq i32 %13, 0
+  br i1 %.not.i.i.i.i.i, label %_ZNK5arrow3ipc25RecordBatchFileReaderImpl10AllIndicesEv.exit, label %.noexc4.i
 
 .noexc4.i:                                        ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i
-  %17 = shl nuw nsw i64 %14, 2
-  %18 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %17) #39, !noalias !3166
-  store ptr %18, ptr %4, align 8, !tbaa !99, !alias.scope !3166
-  %19 = getelementptr i32, ptr %18, i64 %14
-  %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %19, ptr %20, align 8, !tbaa !475, !alias.scope !3166
-  store i32 0, ptr %18, align 4, !tbaa !81, !noalias !3166
-  %21 = getelementptr i8, ptr %18, i64 4
-  %22 = icmp eq i32 %13, 1
-  br i1 %22, label %.lr.ph.i.preheader.i, label %23
+  %16 = shl nuw nsw i64 %14, 2
+  %17 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %16) #39, !noalias !3166
+  store ptr %17, ptr %4, align 8, !tbaa !99, !alias.scope !3166
+  %18 = getelementptr i32, ptr %17, i64 %14
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr %18, ptr %19, align 8, !tbaa !475, !alias.scope !3166
+  store i32 0, ptr %17, align 4, !tbaa !81, !noalias !3166
+  %20 = getelementptr i8, ptr %17, i64 4
+  %21 = icmp eq i32 %13, 1
+  br i1 %21, label %.lr.ph.i.preheader.i, label %22
 
-23:                                               ; preds = %.noexc4.i
-  %24 = add nsw i64 %17, -4
-  tail call void @llvm.memset.p0.i64(ptr align 4 %21, i8 0, i64 %24, i1 false), !tbaa !81, !noalias !3166
+22:                                               ; preds = %.noexc4.i
+  %23 = add nsw i64 %16, -4
+  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %23, i1 false), !tbaa !81, !noalias !3166
   br label %.lr.ph.i.preheader.i
 
-.lr.ph.i.preheader.i:                             ; preds = %.noexc4.i, %23
-  %storemerge = phi ptr [ %19, %23 ], [ %21, %.noexc4.i ]
-  store ptr %storemerge, ptr %16, align 8, !tbaa !97, !alias.scope !3166
+.lr.ph.i.preheader.i:                             ; preds = %.noexc4.i, %22
+  %.sink = phi ptr [ %18, %22 ], [ %20, %.noexc4.i ]
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr %.sink, ptr %24, align 8, !tbaa !97, !alias.scope !3166
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.i.preheader.i
   %.07.i.i = phi i32 [ %25, %.lr.ph.i.i ], [ 0, %.lr.ph.i.preheader.i ]
-  %.sroa.02.06.i.i = phi ptr [ %26, %.lr.ph.i.i ], [ %18, %.lr.ph.i.preheader.i ]
+  %.sroa.02.06.i.i = phi ptr [ %26, %.lr.ph.i.i ], [ %17, %.lr.ph.i.preheader.i ]
   store i32 %.07.i.i, ptr %.sroa.02.06.i.i, align 4, !tbaa !81, !noalias !3166
   %25 = add nuw nsw i32 %.07.i.i, 1
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i.i, i64 4
-  %.not.i.i = icmp eq ptr %26, %storemerge
+  %.not.i.i = icmp eq ptr %26, %.sink
   br i1 %.not.i.i, label %_ZNK5arrow3ipc25RecordBatchFileReaderImpl10AllIndicesEv.exit, label %.lr.ph.i.i, !llvm.loop !3169
 
-_ZNK5arrow3ipc25RecordBatchFileReaderImpl10AllIndicesEv.exit: ; preds = %.lr.ph.i.i, %.thread.i
+_ZNK5arrow3ipc25RecordBatchFileReaderImpl10AllIndicesEv.exit: ; preds = %.lr.ph.i.i, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i
   invoke void @_ZN5arrow3ipc25RecordBatchFileReaderImpl19DoPreBufferMetadataERKSt6vectorIiSaIiEE(ptr dead_on_unwind writable sret(%"class.arrow::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(505) %1, ptr noundef nonnull align 8 dereferenceable(24) %4)
           to label %27 unwind label %35
 

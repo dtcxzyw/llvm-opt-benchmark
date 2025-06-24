@@ -1749,7 +1749,6 @@ packet_dev_mc.exit:                               ; preds = %90, %83, %81, %79, 
   br i1 %98, label %101, label %99
 
 99:                                               ; preds = %95
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %2, i8 0, i64 28, i1 false)
   %100 = call fastcc i32 @packet_set_ring(ptr noundef %4, ptr noundef nonnull %2, i32 noundef 1, i32 noundef 0)
   br label %101
 
@@ -9716,6 +9715,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @virtio_net_hdr_to_skb(ptr 
 
 92:                                               ; preds = %88
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3) #19
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %3, i8 0, i64 12, i1 false), !annotation !48
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %94 = load i16, ptr %93, align 8
   %95 = icmp eq i16 %94, 0
@@ -9773,7 +9773,6 @@ define internal fastcc noundef range(i32 -22, 1) i32 @virtio_net_hdr_to_skb(ptr 
   br label %118
 
 118:                                              ; preds = %117, %.thread17, %92
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %3, i8 0, i64 12, i1 false)
   %119 = call zeroext i1 @__skb_flow_dissect(ptr noundef null, ptr noundef nonnull %0, ptr noundef nonnull @flow_keys_basic_dissector, ptr noundef nonnull %3, ptr noundef null, i16 noundef zeroext 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #19
   br i1 %119, label %.loopexit, label %120
 
@@ -10491,13 +10490,13 @@ define internal fastcc void @packet_parse_headers(ptr noundef nonnull %0, ptr no
 
 .thread8:                                         ; preds = %.thread, %50, %96, %94, %.loopexit, %100, %41, %34
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3) #19
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %3, i8 0, i64 12, i1 false), !annotation !48
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 178
   %113 = load i16, ptr %112, align 2
   %114 = icmp eq i16 %113, -1
   br i1 %114, label %115, label %128
 
 115:                                              ; preds = %.thread8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %3, i8 0, i64 12, i1 false)
   %116 = call zeroext i1 @__skb_flow_dissect(ptr noundef null, ptr noundef nonnull %0, ptr noundef nonnull @flow_keys_basic_dissector, ptr noundef nonnull %3, ptr noundef null, i16 noundef zeroext 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #19
   br i1 %116, label %117, label %128
 

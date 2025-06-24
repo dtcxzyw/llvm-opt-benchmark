@@ -2294,11 +2294,11 @@ KINPicardAA.exit:                                 ; preds = %372, %379, %381, %3
 .preheader519:                                    ; preds = %448, %455, %444
   br label %457
 
-457:                                              ; preds = %.preheader519, %923
-  %.1204 = phi double [ %.2205, %923 ], [ %.0203, %.preheader519 ]
-  %.1199 = phi double [ %.2200, %923 ], [ %.0198, %.preheader519 ]
-  %.1194 = phi i32 [ %.2195, %923 ], [ %.0193, %.preheader519 ]
-  %.1 = phi i32 [ -998, %923 ], [ %.0118, %.preheader519 ]
+457:                                              ; preds = %.preheader519, %921
+  %.1204 = phi double [ %.2205, %921 ], [ %.0203, %.preheader519 ]
+  %.1199 = phi double [ %.2200, %921 ], [ %.0198, %.preheader519 ]
+  %.1194 = phi i32 [ %.2195, %921 ], [ %.0193, %.preheader519 ]
+  %.1 = phi i32 [ -998, %921 ], [ %.0118, %.preheader519 ]
   %458 = load i32, ptr %17, align 8, !tbaa !100
   switch i32 %458, label %KINFullNewton.exit.thread [
     i32 0, label %459
@@ -2969,7 +2969,7 @@ KINLinSolDrv.exit167:                             ; preds = %556
 
 .thread:                                          ; preds = %819
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @KINPrintInfo(ptr nonnull poison, i32 noundef 1, ptr nonnull poison, ptr nonnull poison, ptr noundef nonnull @.str.14, i32 noundef -8)
-  br label %935
+  br label %933
 
 KINFullNewton.exit.thread:                        ; preds = %530, %543, %507, %457, %819
   %.2205 = phi double [ %.1204, %457 ], [ %.10213, %819 ], [ %.1204, %507 ], [ %533, %530 ], [ %533, %543 ]
@@ -3004,7 +3004,7 @@ KINFullNewton.exit.thread:                        ; preds = %530, %543, %507, %4
 832:                                              ; preds = %830
   %833 = load i32, ptr %269, align 4, !tbaa !128
   %.not87.i185 = icmp eq i32 %833, 0
-  br i1 %.not87.i185, label %923, label %834
+  br i1 %.not87.i185, label %921, label %834
 
 834:                                              ; preds = %832, %830
   %835 = load i32, ptr %17, align 8, !tbaa !100
@@ -3100,7 +3100,7 @@ KINFullNewton.exit.thread:                        ; preds = %530, %543, %507, %4
   %880 = sub nsw i64 %866, %879
   %881 = load i64, ptr %291, align 8, !tbaa !22
   %.not77.i = icmp slt i64 %880, %881
-  br i1 %.not77.i, label %915, label %882
+  br i1 %.not77.i, label %913, label %882
 
 882:                                              ; preds = %878
   store i64 %866, ptr %270, align 8, !tbaa !131
@@ -3111,7 +3111,7 @@ KINFullNewton.exit.thread:                        ; preds = %530, %543, %507, %4
 
 ._crit_edge.i182:                                 ; preds = %882
   %.pre89.i = load double, ptr %258, align 8, !tbaa !124
-  br label %904
+  br label %902
 
 884:                                              ; preds = %882
   %885 = load double, ptr %172, align 8, !tbaa !27
@@ -3124,7 +3124,7 @@ KINFullNewton.exit.thread:                        ; preds = %530, %543, %507, %4
 
 891:                                              ; preds = %884
   %892 = load double, ptr %293, align 8, !tbaa !34
-  br label %902
+  br label %900
 
 893:                                              ; preds = %884
   %894 = load double, ptr %292, align 8, !tbaa !33
@@ -3132,162 +3132,160 @@ KINFullNewton.exit.thread:                        ; preds = %530, %543, %507, %4
   %896 = fmul double %894, %895
   %897 = load double, ptr %293, align 8, !tbaa !34
   %898 = fcmp olt double %896, %897
-  br i1 %898, label %899, label %902
+  br i1 %898, label %899, label %900
 
 899:                                              ; preds = %893
-  %900 = tail call double @exp(double noundef %889) #15, !tbaa !138
-  %901 = fmul double %894, %900
+  br label %900
+
+900:                                              ; preds = %899, %893, %891
+  %901 = phi double [ %892, %891 ], [ %896, %899 ], [ %897, %893 ]
+  store double %901, ptr %258, align 8, !tbaa !124
   br label %902
 
-902:                                              ; preds = %899, %893, %891
-  %903 = phi double [ %892, %891 ], [ %901, %899 ], [ %897, %893 ]
-  store double %903, ptr %258, align 8, !tbaa !124
-  br label %904
+902:                                              ; preds = %900, %._crit_edge.i182
+  %903 = phi double [ %.pre89.i, %._crit_edge.i182 ], [ %901, %900 ]
+  %904 = load double, ptr %243, align 8, !tbaa !120
+  %905 = fmul double %903, %904
+  %906 = fcmp ogt double %.pre.i179, %905
+  br i1 %906, label %907, label %912
 
-904:                                              ; preds = %902, %._crit_edge.i182
-  %905 = phi double [ %.pre89.i, %._crit_edge.i182 ], [ %903, %902 ]
-  %906 = load double, ptr %243, align 8, !tbaa !120
-  %907 = fmul double %905, %906
-  %908 = fcmp ogt double %.pre.i179, %907
-  br i1 %908, label %909, label %914
+907:                                              ; preds = %902
+  %908 = load ptr, ptr %268, align 8, !tbaa !130
+  %.not82.i180 = icmp eq ptr %908, null
+  br i1 %.not82.i180, label %KINStop.exit.thread, label %909
 
-909:                                              ; preds = %904
-  %910 = load ptr, ptr %268, align 8, !tbaa !130
-  %.not82.i180 = icmp eq ptr %910, null
-  br i1 %.not82.i180, label %KINStop.exit.thread, label %911
+909:                                              ; preds = %907
+  %910 = load i32, ptr %269, align 4, !tbaa !128
+  %.not83.i181 = icmp eq i32 %910, 0
+  br i1 %.not83.i181, label %911, label %KINStop.exit.thread
 
 911:                                              ; preds = %909
-  %912 = load i32, ptr %269, align 4, !tbaa !128
-  %.not83.i181 = icmp eq i32 %912, 0
-  br i1 %.not83.i181, label %913, label %KINStop.exit.thread
-
-913:                                              ; preds = %911
   store double 2.000000e+00, ptr %249, align 8, !tbaa !24
   br label %KINStop.exit.thread
 
-914:                                              ; preds = %904
+912:                                              ; preds = %902
   store double %.pre.i179, ptr %243, align 8, !tbaa !120
   store double 1.000000e+00, ptr %249, align 8, !tbaa !24
   br label %KINStop.exit.thread
 
-915:                                              ; preds = %878
-  %916 = load i32, ptr %264, align 8, !tbaa !133
-  %.not78.i = icmp eq i32 %916, 0
-  %917 = load i32, ptr %267, align 4, !tbaa !129
-  %.not79.i = icmp eq i32 %917, 0
-  br i1 %.not78.i, label %918, label %920
+913:                                              ; preds = %878
+  %914 = load i32, ptr %264, align 8, !tbaa !133
+  %.not78.i = icmp eq i32 %914, 0
+  %915 = load i32, ptr %267, align 4, !tbaa !129
+  %.not79.i = icmp eq i32 %915, 0
+  br i1 %.not78.i, label %916, label %918
 
-918:                                              ; preds = %915
+916:                                              ; preds = %913
   br i1 %.not79.i, label %.thread94.i, label %.thread96.i
 
-.thread96.i:                                      ; preds = %918
+.thread96.i:                                      ; preds = %916
+  %917 = load double, ptr %239, align 8, !tbaa !108
+  store double %917, ptr %243, align 8, !tbaa !120
+  br label %920
+
+918:                                              ; preds = %913
   %919 = load double, ptr %239, align 8, !tbaa !108
   store double %919, ptr %243, align 8, !tbaa !120
-  br label %922
+  br i1 %.not79.i, label %.thread94.i, label %920
 
-920:                                              ; preds = %915
-  %921 = load double, ptr %239, align 8, !tbaa !108
-  store double %921, ptr %243, align 8, !tbaa !120
-  br i1 %.not79.i, label %.thread94.i, label %922
-
-922:                                              ; preds = %920, %.thread96.i
+920:                                              ; preds = %918, %.thread96.i
   store i32 0, ptr %267, align 4, !tbaa !129
   br label %.thread94.i
 
-.thread94.i:                                      ; preds = %922, %920, %918
+.thread94.i:                                      ; preds = %920, %918, %916
   store double 1.000000e+00, ptr %249, align 8, !tbaa !24
   br label %KINStop.exit.thread
 
-923:                                              ; preds = %832
+921:                                              ; preds = %832
   store double 2.000000e+00, ptr %249, align 8, !tbaa !24
   store i32 1, ptr %264, align 8, !tbaa !133
   br label %457
 
-KINStop.exit.thread:                              ; preds = %KINFullNewton.exit.thread, %875, %.thread94.i, %911, %909, %914, %876, %869, %865, %860, %862, %837, %834, %913, %864
-  %.4 = phi i32 [ -999, %875 ], [ -999, %.thread94.i ], [ -999, %911 ], [ -999, %909 ], [ -999, %914 ], [ -999, %876 ], [ -7, %869 ], [ -6, %865 ], [ 2, %860 ], [ 2, %862 ], [ 0, %837 ], [ %..i, %834 ], [ -999, %913 ], [ -999, %864 ], [ %.3, %KINFullNewton.exit.thread ]
-  %924 = load ptr, ptr %271, align 8, !tbaa !66
-  %925 = load ptr, ptr %14, align 8, !tbaa !97
-  tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %924, ptr noundef %925) #15
+KINStop.exit.thread:                              ; preds = %KINFullNewton.exit.thread, %875, %.thread94.i, %909, %907, %912, %876, %869, %865, %860, %862, %837, %834, %911, %864
+  %.4 = phi i32 [ -999, %875 ], [ -999, %.thread94.i ], [ -999, %909 ], [ -999, %907 ], [ -999, %912 ], [ -999, %876 ], [ -7, %869 ], [ -6, %865 ], [ 2, %860 ], [ 2, %862 ], [ 0, %837 ], [ %..i, %834 ], [ -999, %911 ], [ -999, %864 ], [ %.3, %KINFullNewton.exit.thread ]
+  %922 = load ptr, ptr %271, align 8, !tbaa !66
+  %923 = load ptr, ptr %14, align 8, !tbaa !97
+  tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %922, ptr noundef %923) #15
   store double %.2200, ptr %242, align 8, !tbaa !119
-  %926 = load i64, ptr %201, align 8, !tbaa !102
-  %927 = load i64, ptr %202, align 8, !tbaa !104
-  %928 = load double, ptr %239, align 8, !tbaa !108
-  tail call void (ptr, i32, ptr, ptr, ptr, ...) @KINPrintInfo(ptr nonnull poison, i32 noundef 2, ptr nonnull poison, ptr nonnull poison, ptr noundef nonnull @.str.13, i64 noundef %926, i64 noundef %927, double noundef %928)
+  %924 = load i64, ptr %201, align 8, !tbaa !102
+  %925 = load i64, ptr %202, align 8, !tbaa !104
+  %926 = load double, ptr %239, align 8, !tbaa !108
+  tail call void (ptr, i32, ptr, ptr, ptr, ...) @KINPrintInfo(ptr nonnull poison, i32 noundef 2, ptr nonnull poison, ptr nonnull poison, ptr noundef nonnull @.str.13, i64 noundef %924, i64 noundef %925, double noundef %926)
   %.not145 = icmp eq i32 %.4, -999
   br i1 %.not145, label %444, label %KINLinSolDrv.exit.thread
 
 KINLinSolDrv.exit.thread.thread246:               ; preds = %480, %483, %565, %568
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @KINPrintInfo(ptr nonnull poison, i32 noundef 1, ptr nonnull poison, ptr nonnull poison, ptr noundef nonnull @.str.14, i32 noundef -9)
-  br label %933
+  br label %931
 
 KINLinSolDrv.exit.thread.thread250:               ; preds = %468, %553
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @KINPrintInfo(ptr nonnull poison, i32 noundef 1, ptr nonnull poison, ptr nonnull poison, ptr noundef nonnull @.str.14, i32 noundef -11)
-  br label %931
+  br label %929
 
 KINLinSolDrv.exit.thread.thread254:               ; preds = %478, %563
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @KINPrintInfo(ptr poison, i32 noundef 1, ptr nonnull poison, ptr nonnull poison, ptr noundef nonnull @.str.14, i32 noundef -12)
-  br label %932
+  br label %930
 
 KINLinSolDrv.exit.thread:                         ; preds = %KINStop.exit.thread
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @KINPrintInfo(ptr nonnull poison, i32 noundef 1, ptr nonnull poison, ptr nonnull poison, ptr noundef nonnull @.str.14, i32 noundef %.4)
   switch i32 %.4, label %KINSolInit.exit.thread [
-    i32 -13, label %929
-    i32 -15, label %930
-    i32 -11, label %931
-    i32 -12, label %932
-    i32 -9, label %933
-    i32 -5, label %934
-    i32 -8, label %935
-    i32 -6, label %936
-    i32 -7, label %937
+    i32 -13, label %927
+    i32 -15, label %928
+    i32 -11, label %929
+    i32 -12, label %930
+    i32 -9, label %931
+    i32 -5, label %932
+    i32 -8, label %933
+    i32 -6, label %934
+    i32 -7, label %935
   ]
 
 .sink.split:                                      ; preds = %786, %608, %687, %.preheader.i, %523, %.critedge2.i
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @KINPrintInfo(ptr poison, i32 noundef 1, ptr nonnull poison, ptr nonnull poison, ptr noundef nonnull @.str.14, i32 noundef -13)
-  br label %929
+  br label %927
 
-929:                                              ; preds = %.sink.split, %KINLinSolDrv.exit.thread
+927:                                              ; preds = %.sink.split, %KINLinSolDrv.exit.thread
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef %0, i32 noundef -13, i32 noundef 727, ptr noundef nonnull @__func__.KINSol, ptr noundef nonnull @.str, ptr noundef nonnull @.str.11)
   br label %KINSolInit.exit.thread
 
 .sink.split444:                                   ; preds = %610, %525
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @KINPrintInfo(ptr nonnull poison, i32 noundef 1, ptr nonnull poison, ptr nonnull poison, ptr noundef nonnull @.str.14, i32 noundef -15)
-  br label %930
+  br label %928
 
-930:                                              ; preds = %.sink.split444, %KINLinSolDrv.exit.thread
+928:                                              ; preds = %.sink.split444, %KINLinSolDrv.exit.thread
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef nonnull %0, i32 noundef -15, i32 noundef 731, ptr noundef nonnull @__func__.KINSol, ptr noundef nonnull @.str, ptr noundef nonnull @.str.15)
   br label %KINSolInit.exit.thread
 
-931:                                              ; preds = %KINLinSolDrv.exit.thread.thread250, %KINLinSolDrv.exit.thread
+929:                                              ; preds = %KINLinSolDrv.exit.thread.thread250, %KINLinSolDrv.exit.thread
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef nonnull %0, i32 noundef -11, i32 noundef 735, ptr noundef nonnull @__func__.KINSol, ptr noundef nonnull @.str, ptr noundef nonnull @.str.16)
   br label %KINSolInit.exit.thread
 
-932:                                              ; preds = %KINLinSolDrv.exit.thread.thread254, %KINLinSolDrv.exit.thread
+930:                                              ; preds = %KINLinSolDrv.exit.thread.thread254, %KINLinSolDrv.exit.thread
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef %0, i32 noundef -12, i32 noundef 739, ptr noundef nonnull @__func__.KINSol, ptr noundef nonnull @.str, ptr noundef nonnull @.str.17)
   br label %KINSolInit.exit.thread
 
-933:                                              ; preds = %KINLinSolDrv.exit.thread.thread246, %KINLinSolDrv.exit.thread
+931:                                              ; preds = %KINLinSolDrv.exit.thread.thread246, %KINLinSolDrv.exit.thread
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef nonnull %0, i32 noundef -9, i32 noundef 743, ptr noundef nonnull @__func__.KINSol, ptr noundef nonnull @.str, ptr noundef nonnull @.str.18)
   br label %KINSolInit.exit.thread
 
-934:                                              ; preds = %KINLinSolDrv.exit.thread
+932:                                              ; preds = %KINLinSolDrv.exit.thread
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef nonnull %0, i32 noundef -5, i32 noundef 747, ptr noundef nonnull @__func__.KINSol, ptr noundef nonnull @.str, ptr noundef nonnull @.str.19)
   br label %KINSolInit.exit.thread
 
-935:                                              ; preds = %.thread, %KINLinSolDrv.exit.thread
+933:                                              ; preds = %.thread, %KINLinSolDrv.exit.thread
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef nonnull %0, i32 noundef -8, i32 noundef 751, ptr noundef nonnull @__func__.KINSol, ptr noundef nonnull @.str, ptr noundef nonnull @.str.20)
   br label %KINSolInit.exit.thread
 
-936:                                              ; preds = %KINLinSolDrv.exit.thread
+934:                                              ; preds = %KINLinSolDrv.exit.thread
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef nonnull %0, i32 noundef -6, i32 noundef 755, ptr noundef nonnull @__func__.KINSol, ptr noundef nonnull @.str, ptr noundef nonnull @.str.12)
   br label %KINSolInit.exit.thread
 
-937:                                              ; preds = %KINLinSolDrv.exit.thread
+935:                                              ; preds = %KINLinSolDrv.exit.thread
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef nonnull %0, i32 noundef -7, i32 noundef 759, ptr noundef nonnull @__func__.KINSol, ptr noundef nonnull @.str, ptr noundef nonnull @.str.21)
   br label %KINSolInit.exit.thread
 
-KINSolInit.exit.thread:                           ; preds = %162, %168, %234, %224, %216, %214, %149, %142, %138, %134, %130, %127, %125, %KINLinSolDrv.exit.thread, %929, %930, %931, %932, %933, %934, %935, %936, %937, %KINFP.exit, %122, %123, %KINPicardAA.exit, %303, %25, %21, %12, %7
-  %.0119 = phi i32 [ -1, %7 ], [ -3, %12 ], [ -2, %21 ], [ -2, %25 ], [ -4, %303 ], [ %.1.i149, %KINPicardAA.exit ], [ -6, %123 ], [ -13, %122 ], [ %.3.le.i, %KINFP.exit ], [ -7, %937 ], [ -6, %936 ], [ -8, %935 ], [ -5, %934 ], [ -9, %933 ], [ -12, %932 ], [ -11, %931 ], [ -15, %930 ], [ -13, %929 ], [ %.4, %KINLinSolDrv.exit.thread ], [ -2, %162 ], [ -2, %168 ], [ -10, %234 ], [ 1, %224 ], [ -14, %216 ], [ -13, %214 ], [ -2, %149 ], [ -2, %142 ], [ -2, %138 ], [ -2, %134 ], [ -2, %130 ], [ -2, %127 ], [ -2, %125 ]
+KINSolInit.exit.thread:                           ; preds = %162, %168, %234, %224, %216, %214, %149, %142, %138, %134, %130, %127, %125, %KINLinSolDrv.exit.thread, %927, %928, %929, %930, %931, %932, %933, %934, %935, %KINFP.exit, %122, %123, %KINPicardAA.exit, %303, %25, %21, %12, %7
+  %.0119 = phi i32 [ -1, %7 ], [ -3, %12 ], [ -2, %21 ], [ -2, %25 ], [ -4, %303 ], [ %.1.i149, %KINPicardAA.exit ], [ -6, %123 ], [ -13, %122 ], [ %.3.le.i, %KINFP.exit ], [ -7, %935 ], [ -6, %934 ], [ -8, %933 ], [ -5, %932 ], [ -9, %931 ], [ -12, %930 ], [ -11, %929 ], [ -15, %928 ], [ -13, %927 ], [ %.4, %KINLinSolDrv.exit.thread ], [ -2, %162 ], [ -2, %168 ], [ -10, %234 ], [ 1, %224 ], [ -14, %216 ], [ -13, %214 ], [ -2, %149 ], [ -2, %142 ], [ -2, %138 ], [ -2, %134 ], [ -2, %130 ], [ -2, %127 ], [ -2, %125 ]
   ret i32 %.0119
 }
 

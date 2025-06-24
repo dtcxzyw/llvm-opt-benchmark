@@ -94904,10 +94904,11 @@ define noundef zeroext i1 @ExportWave(ptr noundef readonly byval(%struct.Wave) a
   %7 = alloca i64, align 8
   %8 = alloca %struct.qoa_desc, align 4
   %9 = tail call zeroext i1 @IsFileExtension(ptr noundef %1, ptr noundef nonnull @.str.235) #71
-  br i1 %9, label %drwav_init_memory_write__internal.exit, label %85
+  br i1 %9, label %drwav_init_memory_write__internal.exit, label %86
 
 drwav_init_memory_write__internal.exit:           ; preds = %2
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %4) #71
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %4, i8 0, i64 400, i1 false)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5) #71
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %5, align 4
@@ -94930,7 +94931,6 @@ drwav_init_memory_write__internal.exit:           ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #71
   store ptr null, ptr %6, align 8
   store i64 0, ptr %7, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %4, i8 0, i64 400, i1 false)
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @drwav__on_write_memory, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -94963,199 +94963,201 @@ drwav_init_memory_write__internal.exit:           ; preds = %2
   %36 = trunc i32 %11 to i16
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 82
   store i16 %36, ptr %37, align 2
-  %38 = getelementptr inbounds nuw i8, ptr %4, i64 168
-  store i32 0, ptr %38, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %4, i64 216
-  store ptr %6, ptr %39, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %4, i64 224
-  store ptr %7, ptr %40, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %4, i64 232
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %41, i8 0, i64 24, i1 false)
-  %42 = call fastcc i32 @drwav_init_write__internal(ptr noundef nonnull %4, ptr noundef nonnull readonly %5, i64 noundef 0)
-  %.not = icmp eq i32 %42, 0
-  br i1 %.not, label %drwav_init_memory_write__internal.exit.thread, label %43
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 84
+  store i16 0, ptr %38, align 4
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 168
+  store i32 0, ptr %39, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 216
+  store ptr %6, ptr %40, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 224
+  store ptr %7, ptr %41, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 232
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, i8 0, i64 24, i1 false)
+  %43 = call fastcc i32 @drwav_init_write__internal(ptr noundef nonnull %4, ptr noundef nonnull readonly %5, i64 noundef 0)
+  %.not = icmp eq i32 %43, 0
+  br i1 %.not, label %drwav_init_memory_write__internal.exit.thread, label %44
 
-43:                                               ; preds = %drwav_init_memory_write__internal.exit
-  %44 = load i32, ptr %0, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %46 = load ptr, ptr %45, align 8
-  %47 = icmp eq i32 %44, 0
-  %48 = icmp eq ptr %46, null
-  %or.cond3.i.i = or i1 %47, %48
-  br i1 %or.cond3.i.i, label %drwav_init_memory_write__internal.exit.thread, label %49
+44:                                               ; preds = %drwav_init_memory_write__internal.exit
+  %45 = load i32, ptr %0, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %47 = load ptr, ptr %46, align 8
+  %48 = icmp eq i32 %45, 0
+  %49 = icmp eq ptr %47, null
+  %or.cond3.i.i = or i1 %48, %49
+  br i1 %or.cond3.i.i, label %drwav_init_memory_write__internal.exit.thread, label %50
 
-49:                                               ; preds = %43
-  %50 = zext i32 %44 to i64
-  %51 = getelementptr inbounds nuw i8, ptr %4, i64 112
-  %52 = getelementptr inbounds nuw i8, ptr %4, i64 114
-  %53 = load i16, ptr %51, align 8
-  %54 = zext i16 %53 to i64
-  %55 = mul nuw nsw i64 %54, %50
-  %56 = load i16, ptr %52, align 2
-  %57 = zext i16 %56 to i64
-  %58 = mul nuw i64 %55, %57
-  %.not44.i.i = icmp ult i64 %58, 8
+50:                                               ; preds = %44
+  %51 = zext i32 %45 to i64
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 112
+  %53 = getelementptr inbounds nuw i8, ptr %4, i64 114
+  %54 = load i16, ptr %52, align 8
+  %55 = zext i16 %54 to i64
+  %56 = mul nuw nsw i64 %55, %51
+  %57 = load i16, ptr %53, align 2
+  %58 = zext i16 %57 to i64
+  %59 = mul nuw i64 %56, %58
+  %.not44.i.i = icmp ult i64 %59, 8
   br i1 %.not44.i.i, label %.thread.i.i, label %drwav_write_raw.exit.lr.ph.i.i
 
-drwav_write_raw.exit.lr.ph.i.i:                   ; preds = %49
-  %59 = lshr i64 %58, 3
-  %60 = getelementptr inbounds nuw i8, ptr %4, i64 128
+drwav_write_raw.exit.lr.ph.i.i:                   ; preds = %50
+  %60 = lshr i64 %59, 3
+  %61 = getelementptr inbounds nuw i8, ptr %4, i64 128
   br label %drwav_write_raw.exit.i.i
 
-drwav_write_raw.exit.i.i:                         ; preds = %67, %drwav_write_raw.exit.lr.ph.i.i
-  %.02747.i.i = phi i64 [ %59, %drwav_write_raw.exit.lr.ph.i.i ], [ %68, %67 ]
-  %.02946.i.i = phi ptr [ %46, %drwav_write_raw.exit.lr.ph.i.i ], [ %70, %67 ]
-  %.03145.i.i = phi i64 [ 0, %drwav_write_raw.exit.lr.ph.i.i ], [ %69, %67 ]
-  %61 = load ptr, ptr %21, align 8
-  %62 = load ptr, ptr %23, align 8
-  %63 = call i64 %61(ptr noundef %62, ptr noundef nonnull %.02946.i.i, i64 noundef %.02747.i.i) #71
-  %64 = load i64, ptr %60, align 8
-  %65 = add i64 %64, %63
-  store i64 %65, ptr %60, align 8
-  %66 = icmp eq i64 %63, 0
-  br i1 %66, label %.thread.loopexit.i.i, label %67
+drwav_write_raw.exit.i.i:                         ; preds = %68, %drwav_write_raw.exit.lr.ph.i.i
+  %.02747.i.i = phi i64 [ %60, %drwav_write_raw.exit.lr.ph.i.i ], [ %69, %68 ]
+  %.02946.i.i = phi ptr [ %47, %drwav_write_raw.exit.lr.ph.i.i ], [ %71, %68 ]
+  %.03145.i.i = phi i64 [ 0, %drwav_write_raw.exit.lr.ph.i.i ], [ %70, %68 ]
+  %62 = load ptr, ptr %21, align 8
+  %63 = load ptr, ptr %23, align 8
+  %64 = call i64 %62(ptr noundef %63, ptr noundef nonnull %.02946.i.i, i64 noundef %.02747.i.i) #71
+  %65 = load i64, ptr %61, align 8
+  %66 = add i64 %65, %64
+  store i64 %66, ptr %61, align 8
+  %67 = icmp eq i64 %64, 0
+  br i1 %67, label %.thread.loopexit.i.i, label %68
 
-67:                                               ; preds = %drwav_write_raw.exit.i.i
-  %68 = sub i64 %.02747.i.i, %63
-  %69 = add i64 %63, %.03145.i.i
-  %70 = getelementptr inbounds nuw i8, ptr %.02946.i.i, i64 %63
-  %.not.i.i = icmp eq i64 %68, 0
+68:                                               ; preds = %drwav_write_raw.exit.i.i
+  %69 = sub i64 %.02747.i.i, %64
+  %70 = add i64 %64, %.03145.i.i
+  %71 = getelementptr inbounds nuw i8, ptr %.02946.i.i, i64 %64
+  %.not.i.i = icmp eq i64 %69, 0
   br i1 %.not.i.i, label %.thread.loopexit.i.i, label %drwav_write_raw.exit.i.i
 
-.thread.loopexit.i.i:                             ; preds = %67, %drwav_write_raw.exit.i.i
-  %.031.lcssa.ph.i.i = phi i64 [ %69, %67 ], [ %.03145.i.i, %drwav_write_raw.exit.i.i ]
-  %.pre.i.i = load i16, ptr %52, align 2
-  %.pre49.i.i = load i16, ptr %51, align 8
+.thread.loopexit.i.i:                             ; preds = %68, %drwav_write_raw.exit.i.i
+  %.031.lcssa.ph.i.i = phi i64 [ %70, %68 ], [ %.03145.i.i, %drwav_write_raw.exit.i.i ]
+  %.pre.i.i = load i16, ptr %53, align 2
+  %.pre49.i.i = load i16, ptr %52, align 8
   %.pre50.i.i = zext i16 %.pre.i.i to i64
   %.pre51.i.i = zext i16 %.pre49.i.i to i64
-  %71 = shl i64 %.031.lcssa.ph.i.i, 3
+  %72 = shl i64 %.031.lcssa.ph.i.i, 3
   br label %.thread.i.i
 
-.thread.i.i:                                      ; preds = %.thread.loopexit.i.i, %49
-  %.pre-phi52.i.i = phi i64 [ %.pre51.i.i, %.thread.loopexit.i.i ], [ %54, %49 ]
-  %.pre-phi.i.i = phi i64 [ %.pre50.i.i, %.thread.loopexit.i.i ], [ %57, %49 ]
-  %.031.lcssa.i.i = phi i64 [ %71, %.thread.loopexit.i.i ], [ 0, %49 ]
-  %72 = udiv i64 %.031.lcssa.i.i, %.pre-phi.i.i
-  %73 = udiv i64 %72, %.pre-phi52.i.i
-  %74 = and i64 %73, 4294967295
-  %75 = icmp ne i64 %74, 0
+.thread.i.i:                                      ; preds = %.thread.loopexit.i.i, %50
+  %.pre-phi52.i.i = phi i64 [ %.pre51.i.i, %.thread.loopexit.i.i ], [ %55, %50 ]
+  %.pre-phi.i.i = phi i64 [ %.pre50.i.i, %.thread.loopexit.i.i ], [ %58, %50 ]
+  %.031.lcssa.i.i = phi i64 [ %72, %.thread.loopexit.i.i ], [ 0, %50 ]
+  %73 = udiv i64 %.031.lcssa.i.i, %.pre-phi.i.i
+  %74 = udiv i64 %73, %.pre-phi52.i.i
+  %75 = and i64 %74, 4294967295
+  %76 = icmp ne i64 %75, 0
   br label %drwav_init_memory_write__internal.exit.thread
 
-drwav_init_memory_write__internal.exit.thread:    ; preds = %.thread.i.i, %43, %drwav_init_memory_write__internal.exit
-  %.0 = phi i1 [ false, %drwav_init_memory_write__internal.exit ], [ %75, %.thread.i.i ], [ false, %43 ]
-  %76 = call i32 @drwav_uninit(ptr noundef nonnull %4)
-  %77 = icmp eq i32 %76, 0
-  %78 = load ptr, ptr %6, align 8
-  br i1 %77, label %79, label %84
+drwav_init_memory_write__internal.exit.thread:    ; preds = %.thread.i.i, %44, %drwav_init_memory_write__internal.exit
+  %.0 = phi i1 [ false, %drwav_init_memory_write__internal.exit ], [ %76, %.thread.i.i ], [ false, %44 ]
+  %77 = call i32 @drwav_uninit(ptr noundef nonnull %4)
+  %78 = icmp eq i32 %77, 0
+  %79 = load ptr, ptr %6, align 8
+  br i1 %78, label %80, label %85
 
-79:                                               ; preds = %drwav_init_memory_write__internal.exit.thread
-  %80 = load i64, ptr %7, align 8
-  %81 = trunc i64 %80 to i32
-  %82 = call zeroext i1 @SaveFileData(ptr noundef %1, ptr noundef %78, i32 noundef %81) #71
-  %83 = load ptr, ptr %6, align 8
-  call void @free(ptr noundef %83) #71
+80:                                               ; preds = %drwav_init_memory_write__internal.exit.thread
+  %81 = load i64, ptr %7, align 8
+  %82 = trunc i64 %81 to i32
+  %83 = call zeroext i1 @SaveFileData(ptr noundef %1, ptr noundef %79, i32 noundef %82) #71
+  %84 = load ptr, ptr %6, align 8
+  call void @free(ptr noundef %84) #71
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #71
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #71
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #71
   call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %4) #71
-  br i1 %82, label %127, label %.thread
+  br i1 %83, label %128, label %.thread
 
-84:                                               ; preds = %drwav_init_memory_write__internal.exit.thread
-  call void @free(ptr noundef %78) #71
+85:                                               ; preds = %drwav_init_memory_write__internal.exit.thread
+  call void @free(ptr noundef %79) #71
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #71
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #71
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #71
   call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %4) #71
-  br i1 %.0, label %127, label %.thread
+  br i1 %.0, label %128, label %.thread
 
-85:                                               ; preds = %2
-  %86 = tail call zeroext i1 @IsFileExtension(ptr noundef %1, ptr noundef nonnull @.str.244) #71
-  br i1 %86, label %87, label %113
+86:                                               ; preds = %2
+  %87 = tail call zeroext i1 @IsFileExtension(ptr noundef %1, ptr noundef nonnull @.str.244) #71
+  br i1 %87, label %88, label %114
 
-87:                                               ; preds = %85
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %89 = load i32, ptr %88, align 8
-  %90 = icmp eq i32 %89, 16
-  br i1 %90, label %91, label %112
+88:                                               ; preds = %86
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %90 = load i32, ptr %89, align 8
+  %91 = icmp eq i32 %90, 16
+  br i1 %91, label %92, label %113
 
-91:                                               ; preds = %87
+92:                                               ; preds = %88
   call void @llvm.lifetime.start.p0(i64 268, ptr nonnull %8) #71
-  %92 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(256) %92, i8 0, i64 256, i1 false)
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %94 = load i32, ptr %93, align 4
-  store i32 %94, ptr %8, align 4
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %96 = load i32, ptr %95, align 4
-  %97 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store i32 %96, ptr %97, align 4
-  %98 = load i32, ptr %0, align 8
-  %99 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i32 %98, ptr %99, align 4
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %101 = load ptr, ptr %100, align 8
-  %102 = tail call noalias ptr @fopen(ptr noundef readonly %1, ptr noundef nonnull @.str.173)
+  %93 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(256) %93, i8 0, i64 256, i1 false)
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %95 = load i32, ptr %94, align 4
+  store i32 %95, ptr %8, align 4
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %97 = load i32, ptr %96, align 4
+  %98 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  store i32 %97, ptr %98, align 4
+  %99 = load i32, ptr %0, align 8
+  %100 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i32 %99, ptr %100, align 4
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %102 = load ptr, ptr %101, align 8
+  %103 = tail call noalias ptr @fopen(ptr noundef readonly %1, ptr noundef nonnull @.str.173)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #71
-  %.not.i = icmp eq ptr %102, null
-  br i1 %.not.i, label %qoa_write.exit.thread, label %103
+  %.not.i = icmp eq ptr %103, null
+  br i1 %.not.i, label %qoa_write.exit.thread, label %104
 
-103:                                              ; preds = %91
-  %104 = call ptr @qoa_encode(ptr noundef readonly %101, ptr noundef nonnull %8, ptr noundef nonnull %3)
-  %.not12.i = icmp eq ptr %104, null
-  br i1 %.not12.i, label %105, label %qoa_write.exit
+104:                                              ; preds = %92
+  %105 = call ptr @qoa_encode(ptr noundef readonly %102, ptr noundef nonnull %8, ptr noundef nonnull %3)
+  %.not12.i = icmp eq ptr %105, null
+  br i1 %.not12.i, label %106, label %qoa_write.exit
 
-105:                                              ; preds = %103
-  %106 = tail call i32 @fclose(ptr noundef nonnull %102)
+106:                                              ; preds = %104
+  %107 = tail call i32 @fclose(ptr noundef nonnull %103)
   br label %qoa_write.exit.thread
 
-qoa_write.exit.thread:                            ; preds = %105, %91
+qoa_write.exit.thread:                            ; preds = %106, %92
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #71
   call void @llvm.lifetime.end.p0(i64 268, ptr nonnull %8) #71
   br label %.thread
 
-qoa_write.exit:                                   ; preds = %103
-  %107 = load i32, ptr %3, align 4
-  %108 = zext i32 %107 to i64
-  %109 = tail call i64 @fwrite(ptr noundef nonnull %104, i64 noundef 1, i64 noundef %108, ptr noundef nonnull %102)
-  %110 = tail call i32 @fclose(ptr noundef nonnull %102)
-  tail call void @free(ptr noundef nonnull %104) #71
+qoa_write.exit:                                   ; preds = %104
+  %108 = load i32, ptr %3, align 4
+  %109 = zext i32 %108 to i64
+  %110 = tail call i64 @fwrite(ptr noundef nonnull %105, i64 noundef 1, i64 noundef %109, ptr noundef nonnull %103)
+  %111 = tail call i32 @fclose(ptr noundef nonnull %103)
+  tail call void @free(ptr noundef nonnull %105) #71
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #71
-  %111 = icmp sgt i32 %107, 0
+  %112 = icmp sgt i32 %108, 0
   call void @llvm.lifetime.end.p0(i64 268, ptr nonnull %8) #71
-  br i1 %111, label %127, label %.thread
+  br i1 %112, label %128, label %.thread
 
-112:                                              ; preds = %87
+113:                                              ; preds = %88
   tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.252) #71
   br label %.thread
 
-113:                                              ; preds = %85
-  %114 = tail call zeroext i1 @IsFileExtension(ptr noundef %1, ptr noundef nonnull @.str.253) #71
-  br i1 %114, label %115, label %.thread
+114:                                              ; preds = %86
+  %115 = tail call zeroext i1 @IsFileExtension(ptr noundef %1, ptr noundef nonnull @.str.253) #71
+  br i1 %115, label %116, label %.thread
 
-115:                                              ; preds = %113
-  %116 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %117 = load ptr, ptr %116, align 8
-  %118 = load i32, ptr %0, align 8
-  %119 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %120 = load i32, ptr %119, align 4
-  %121 = mul i32 %120, %118
-  %122 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %123 = load i32, ptr %122, align 8
-  %124 = mul i32 %121, %123
-  %125 = lshr i32 %124, 3
-  %126 = tail call zeroext i1 @SaveFileData(ptr noundef %1, ptr noundef %117, i32 noundef %125) #71
-  br i1 %126, label %127, label %.thread
+116:                                              ; preds = %114
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %118 = load ptr, ptr %117, align 8
+  %119 = load i32, ptr %0, align 8
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %121 = load i32, ptr %120, align 4
+  %122 = mul i32 %121, %119
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %124 = load i32, ptr %123, align 8
+  %125 = mul i32 %122, %124
+  %126 = lshr i32 %125, 3
+  %127 = tail call zeroext i1 @SaveFileData(ptr noundef %1, ptr noundef %118, i32 noundef %126) #71
+  br i1 %127, label %128, label %.thread
 
-127:                                              ; preds = %79, %qoa_write.exit, %84, %115
+128:                                              ; preds = %80, %qoa_write.exit, %85, %116
   call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.254, ptr noundef %1) #71
-  br label %128
+  br label %129
 
-.thread:                                          ; preds = %113, %112, %qoa_write.exit.thread, %79, %qoa_write.exit, %84, %115
+.thread:                                          ; preds = %114, %113, %qoa_write.exit.thread, %80, %qoa_write.exit, %85, %116
   call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.255, ptr noundef %1) #71
-  br label %128
+  br label %129
 
-128:                                              ; preds = %.thread, %127
-  %.217 = phi i1 [ false, %.thread ], [ true, %127 ]
+129:                                              ; preds = %.thread, %128
+  %.217 = phi i1 [ false, %.thread ], [ true, %128 ]
   ret i1 %.217
 }
 

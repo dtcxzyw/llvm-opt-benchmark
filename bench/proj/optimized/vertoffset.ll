@@ -53,7 +53,7 @@ define hidden noundef ptr @_Z39pj_projection_specific_setup_vertoffsetP8PJconsts
 
 4:                                                ; preds = %1
   %5 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef %0, i32 noundef 4096)
-  br label %47
+  br label %46
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -102,13 +102,12 @@ define hidden noundef ptr @_Z39pj_projection_specific_setup_vertoffsetP8PJconsts
   %42 = fdiv double %39, %41
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store double %42, ptr %43, align 8, !tbaa !53
-  %44 = tail call double @sqrt(double noundef %35) #7, !tbaa !50
-  %45 = fdiv double %37, %44
-  %46 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store double %45, ptr %46, align 8, !tbaa !54
-  br label %47
+  %44 = fdiv double %37, %40
+  %45 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  store double %44, ptr %45, align 8, !tbaa !54
+  br label %46
 
-47:                                               ; preds = %6, %4
+46:                                               ; preds = %6, %4
   %.0 = phi ptr [ %5, %4 ], [ %0, %6 ]
   ret ptr %.0
 }

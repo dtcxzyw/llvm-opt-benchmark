@@ -13584,6 +13584,7 @@ define linkonce_odr hidden void @_ZNK2OT17hb_kern_machine_tIN3AAT19KerxSubTableF
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 308
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, i8 0, i64 24, i1 false)
   %38 = load i32, ptr %37, align 4
   %39 = getelementptr inbounds nuw i8, ptr %6, i64 136
   %40 = load i32, ptr %39, align 8
@@ -13628,7 +13629,6 @@ define linkonce_odr hidden void @_ZNK2OT17hb_kern_machine_tIN3AAT19KerxSubTableF
   store ptr %6, ptr %29, align 8
   %69 = load i32, ptr %32, align 8
   store i32 %69, ptr %34, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, i8 0, i64 24, i1 false)
   store i32 8, ptr %35, align 8
   store i8 %42, ptr %43, align 8
   store i8 %46, ptr %47, align 1
@@ -13637,7 +13637,6 @@ define linkonce_odr hidden void @_ZNK2OT17hb_kern_machine_tIN3AAT19KerxSubTableF
   store i8 0, ptr %55, align 1
   store ptr %6, ptr %56, align 8
   store i32 %69, ptr %57, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %59, i8 0, i64 24, i1 false)
   store i32 8, ptr %58, align 8
   store i8 %.sink.i, ptr %64, align 8
   store i8 1, ptr %65, align 1
@@ -17697,6 +17696,7 @@ define linkonce_odr hidden void @_ZNK2OT17hb_kern_machine_tIN3AAT19KerxSubTableF
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 308
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, i8 0, i64 24, i1 false)
   %38 = load i32, ptr %37, align 4
   %39 = getelementptr inbounds nuw i8, ptr %6, i64 136
   %40 = load i32, ptr %39, align 8
@@ -17741,7 +17741,6 @@ define linkonce_odr hidden void @_ZNK2OT17hb_kern_machine_tIN3AAT19KerxSubTableF
   store ptr %6, ptr %29, align 8
   %69 = load i32, ptr %32, align 8
   store i32 %69, ptr %34, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, i8 0, i64 24, i1 false)
   store i32 8, ptr %35, align 8
   store i8 %42, ptr %43, align 8
   store i8 %46, ptr %47, align 1
@@ -17750,7 +17749,6 @@ define linkonce_odr hidden void @_ZNK2OT17hb_kern_machine_tIN3AAT19KerxSubTableF
   store i8 0, ptr %55, align 1
   store ptr %6, ptr %56, align 8
   store i32 %69, ptr %57, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %59, i8 0, i64 24, i1 false)
   store i32 8, ptr %58, align 8
   store i8 %.sink.i, ptr %64, align 8
   store i8 1, ptr %65, align 1
@@ -18925,6 +18923,7 @@ define linkonce_odr hidden void @_ZNK2OT17hb_kern_machine_tIN3AAT19KerxSubTableF
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 308
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, i8 0, i64 24, i1 false)
   %38 = load i32, ptr %37, align 4
   %39 = getelementptr inbounds nuw i8, ptr %6, i64 136
   %40 = load i32, ptr %39, align 8
@@ -18969,7 +18968,6 @@ define linkonce_odr hidden void @_ZNK2OT17hb_kern_machine_tIN3AAT19KerxSubTableF
   store ptr %6, ptr %29, align 8
   %69 = load i32, ptr %32, align 8
   store i32 %69, ptr %34, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, i8 0, i64 24, i1 false)
   store i32 8, ptr %35, align 8
   store i8 %42, ptr %43, align 8
   store i8 %46, ptr %47, align 1
@@ -18978,7 +18976,6 @@ define linkonce_odr hidden void @_ZNK2OT17hb_kern_machine_tIN3AAT19KerxSubTableF
   store i8 0, ptr %55, align 1
   store ptr %6, ptr %56, align 8
   store i32 %69, ptr %57, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %59, i8 0, i64 24, i1 false)
   store i32 8, ptr %58, align 8
   store i8 %.sink.i, ptr %64, align 8
   store i8 1, ptr %65, align 1
@@ -20425,6 +20422,7 @@ define linkonce_odr hidden void @_ZNK2OT17hb_kern_machine_tIN3AAT19KerxSubTableF
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 308
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, i8 0, i64 24, i1 false)
   %38 = load i32, ptr %37, align 4
   %39 = getelementptr inbounds nuw i8, ptr %6, i64 136
   %40 = load i32, ptr %39, align 8
@@ -20469,7 +20467,6 @@ define linkonce_odr hidden void @_ZNK2OT17hb_kern_machine_tIN3AAT19KerxSubTableF
   store ptr %6, ptr %29, align 8
   %69 = load i32, ptr %32, align 8
   store i32 %69, ptr %34, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, i8 0, i64 24, i1 false)
   store i32 8, ptr %35, align 8
   store i8 %42, ptr %43, align 8
   store i8 %46, ptr %47, align 1
@@ -20478,7 +20475,6 @@ define linkonce_odr hidden void @_ZNK2OT17hb_kern_machine_tIN3AAT19KerxSubTableF
   store i8 0, ptr %55, align 1
   store ptr %6, ptr %56, align 8
   store i32 %69, ptr %57, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %59, i8 0, i64 24, i1 false)
   store i32 8, ptr %58, align 8
   store i8 %.sink.i, ptr %64, align 8
   store i8 1, ptr %65, align 1
@@ -21062,6 +21058,7 @@ define linkonce_odr hidden void @_ZNK2OT17hb_kern_machine_tINS_19KernSubTableFor
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 308
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, i8 0, i64 24, i1 false)
   %38 = load i32, ptr %37, align 4
   %39 = getelementptr inbounds nuw i8, ptr %6, i64 136
   %40 = load i32, ptr %39, align 8
@@ -21106,7 +21103,6 @@ define linkonce_odr hidden void @_ZNK2OT17hb_kern_machine_tINS_19KernSubTableFor
   store ptr %6, ptr %29, align 8
   %69 = load i32, ptr %32, align 8
   store i32 %69, ptr %34, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, i8 0, i64 24, i1 false)
   store i32 8, ptr %35, align 8
   store i8 %42, ptr %43, align 8
   store i8 %46, ptr %47, align 1
@@ -21115,7 +21111,6 @@ define linkonce_odr hidden void @_ZNK2OT17hb_kern_machine_tINS_19KernSubTableFor
   store i8 0, ptr %55, align 1
   store ptr %6, ptr %56, align 8
   store i32 %69, ptr %57, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %59, i8 0, i64 24, i1 false)
   store i32 8, ptr %58, align 8
   store i8 %.sink.i, ptr %64, align 8
   store i8 1, ptr %65, align 1

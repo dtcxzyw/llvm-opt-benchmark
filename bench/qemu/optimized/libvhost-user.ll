@@ -336,7 +336,7 @@ define dso_local zeroext i1 @vu_set_queue_host_notifier(ptr noundef %0, ptr noun
   %13 = sdiv exact i64 %12, 168
   call void @llvm.lifetime.start.p0(i64 328, ptr nonnull %7) #21
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 36
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(292) %14, i8 0, i64 292, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(292) %14, i8 0, i64 292, i1 false), !annotation !4
   store i32 3, ptr %7, align 4
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 9, ptr %15, align 4
@@ -435,6 +435,7 @@ define internal fastcc noundef zeroext i1 @vu_message_write(ptr noundef %0, i32 
   %5 = alloca %struct.iovec, align 8
   %6 = alloca %struct.msghdr, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #21
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %4, i8 0, i64 48, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #21
   store ptr %2, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -448,11 +449,10 @@ define internal fastcc noundef zeroext i1 @vu_message_write(ptr noundef %0, i32 
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %4, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %12 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  store i64 0, ptr %12, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %4, i8 0, i64 48, i1 false)
-  %13 = getelementptr inbounds nuw i8, ptr %2, i64 316
-  %14 = load i32, ptr %13, align 1
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 316
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  store i64 0, ptr %13, align 8
+  %14 = load i32, ptr %12, align 1
   %15 = icmp slt i32 %14, 9
   br i1 %15, label %17, label %16
 
@@ -2412,7 +2412,7 @@ vring_notify.exit.thread:                         ; preds = %33, %36, %39, %28, 
 78:                                               ; preds = %75
   call void @llvm.lifetime.start.p0(i64 328, ptr nonnull %4) #21
   %79 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(312) %79, i8 0, i64 312, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(312) %79, i8 0, i64 312, i1 false), !annotation !4
   store i32 4, ptr %4, align 4
   %80 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 1, ptr %80, align 4

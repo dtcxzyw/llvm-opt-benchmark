@@ -26735,12 +26735,9 @@ _ZNSt12_Vector_baseIN4pstd8optionalIN4pbrt11ThreadLocalIdE5EntryEEESaIS6_EEC2EmR
   unreachable
 
 _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNSt12_Vector_baseIN4pstd8optionalIN4pbrt11ThreadLocalIdE5EntryEEESaIS6_EEC2EmRKS7_.exit.thread.i.i
-  %.not.i.i.i.i = icmp eq ptr %358, %359
-  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i, label %366
-
-_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %31, i8 0, i64 24, i1 false)
-  br label %374
+  %.not.i.i.i.i = icmp eq ptr %358, %359
+  br i1 %.not.i.i.i.i, label %374, label %366
 
 366:                                              ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
   %367 = ashr exact i64 %362, 3
@@ -26762,8 +26759,8 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc293
   call void @llvm.memset.p0.i64(ptr align 4 %371, i8 0, i64 %373, i1 false), !tbaa !37
   br label %374
 
-374:                                              ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc293, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i
-  %.0.i.i.i.i.i = phi ptr [ %371, %.noexc293 ], [ %369, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i ]
+374:                                              ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc293, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
+  %.0.i.i.i.i.i = phi ptr [ %371, %.noexc293 ], [ %369, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
   %375 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store ptr %.0.i.i.i.i.i, ptr %375, align 8, !tbaa !309
   %376 = getelementptr inbounds nuw i8, ptr %32, i64 16
@@ -61885,47 +61882,45 @@ _ZN4pbrt8GaussianEfff.exit:                       ; preds = %4, %28, %30
   %37 = fmul float %36, %.0.i.i
   store float %37, ptr %7, align 4, !tbaa !879
   %.sroa.05.4.vec.extract = extractelement <2 x float> %1, i64 1
-  %38 = tail call noundef float @sqrtf(float noundef %9) #38, !tbaa !37
-  %39 = fneg float %.sroa.05.4.vec.extract
-  %40 = fmul float %.sroa.05.4.vec.extract, %39
-  %41 = fdiv float %40, %14
-  %42 = fmul float %41, 0x3FF7154760000000
-  %43 = tail call noundef float @llvm.floor.f32(float %42)
-  %44 = fsub float %42, %43
-  %45 = fptosi float %43 to i32
-  %46 = tail call noundef float @llvm.fma.f32(float %44, float 0x3FB4015920000000, float 0x3FCCF34160000000)
-  %47 = tail call noundef float @llvm.fma.f32(float %44, float %46, float 0x3FE6420080000000)
-  %48 = tail call noundef float @llvm.fma.f32(float %44, float %47, float 1.000000e+00)
-  %49 = bitcast float %48 to i32
-  %50 = lshr i32 %49, 23
-  %51 = add i32 %45, -127
-  %52 = add i32 %51, %50
-  %53 = icmp slt i32 %52, -126
-  br i1 %53, label %_ZN4pbrt8GaussianEfff.exit7, label %54
+  %38 = fneg float %.sroa.05.4.vec.extract
+  %39 = fmul float %.sroa.05.4.vec.extract, %38
+  %40 = fdiv float %39, %14
+  %41 = fmul float %40, 0x3FF7154760000000
+  %42 = tail call noundef float @llvm.floor.f32(float %41)
+  %43 = fsub float %41, %42
+  %44 = fptosi float %42 to i32
+  %45 = tail call noundef float @llvm.fma.f32(float %43, float 0x3FB4015920000000, float 0x3FCCF34160000000)
+  %46 = tail call noundef float @llvm.fma.f32(float %43, float %45, float 0x3FE6420080000000)
+  %47 = tail call noundef float @llvm.fma.f32(float %43, float %46, float 1.000000e+00)
+  %48 = bitcast float %47 to i32
+  %49 = lshr i32 %48, 23
+  %50 = add i32 %44, -127
+  %51 = add i32 %50, %49
+  %52 = icmp slt i32 %51, -126
+  br i1 %52, label %_ZN4pbrt8GaussianEfff.exit7, label %53
 
-54:                                               ; preds = %_ZN4pbrt8GaussianEfff.exit
-  %55 = icmp sgt i32 %52, 127
-  br i1 %55, label %_ZN4pbrt8GaussianEfff.exit7, label %56
+53:                                               ; preds = %_ZN4pbrt8GaussianEfff.exit
+  %54 = icmp sgt i32 %51, 127
+  br i1 %54, label %_ZN4pbrt8GaussianEfff.exit7, label %55
 
-56:                                               ; preds = %54
-  %57 = and i32 %49, -2139095041
-  %58 = shl nsw i32 %52, 23
-  %59 = add nsw i32 %58, 1065353216
-  %60 = or i32 %59, %57
-  %61 = bitcast i32 %60 to float
+55:                                               ; preds = %53
+  %56 = and i32 %48, -2139095041
+  %57 = shl nsw i32 %51, 23
+  %58 = add nsw i32 %57, 1065353216
+  %59 = or i32 %58, %56
+  %60 = bitcast i32 %59 to float
   br label %_ZN4pbrt8GaussianEfff.exit7
 
-_ZN4pbrt8GaussianEfff.exit7:                      ; preds = %_ZN4pbrt8GaussianEfff.exit, %54, %56
-  %.0.i.i6 = phi float [ %61, %56 ], [ 0.000000e+00, %_ZN4pbrt8GaussianEfff.exit ], [ 0x7FF0000000000000, %54 ]
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %63 = fdiv float 1.000000e+00, %38
-  %64 = fmul float %63, %.0.i.i6
-  store float %64, ptr %62, align 8, !tbaa !880
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %66 = ptrtoint ptr %0 to i64
-  %67 = or i64 %66, 288230376151711744
-  store i64 %67, ptr %5, align 8, !tbaa !881
-  call void @_ZN4pbrt13FilterSamplerC1ENS_6FilterEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(176) %65, ptr noundef nonnull %5, ptr %3)
+_ZN4pbrt8GaussianEfff.exit7:                      ; preds = %_ZN4pbrt8GaussianEfff.exit, %53, %55
+  %.0.i.i6 = phi float [ %60, %55 ], [ 0.000000e+00, %_ZN4pbrt8GaussianEfff.exit ], [ 0x7FF0000000000000, %53 ]
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %62 = fmul float %36, %.0.i.i6
+  store float %62, ptr %61, align 8, !tbaa !880
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %64 = ptrtoint ptr %0 to i64
+  %65 = or i64 %64, 288230376151711744
+  store i64 %65, ptr %5, align 8, !tbaa !881
+  call void @_ZN4pbrt13FilterSamplerC1ENS_6FilterEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(176) %63, ptr noundef nonnull %5, ptr %3)
   ret void
 }
 

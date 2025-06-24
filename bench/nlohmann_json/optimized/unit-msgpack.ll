@@ -19788,12 +19788,9 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZN8nlohman
   unreachable
 
 _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %6097
-  %.not.i.i.i.i4853 = icmp eq i64 %6103, 0
-  br i1 %.not.i.i.i.i4853, label %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i, label %6106
-
-_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %707, i8 0, i64 24, i1 false)
-  br label %6109
+  %.not.i.i.i.i4853 = icmp eq i64 %6103, 0
+  br i1 %.not.i.i.i.i4853, label %6109, label %6106
 
 6106:                                             ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
   %6107 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %6103) #32
@@ -19806,9 +19803,9 @@ _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIhSaI
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %6107, i8 120, i64 %6103, i1 false)
   br label %6109
 
-6109:                                             ; preds = %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i, %.noexc4855
-  %6110 = phi ptr [ %6107, %.noexc4855 ], [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i ]
-  %6111 = phi ptr [ %6108, %.noexc4855 ], [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i ]
+6109:                                             ; preds = %.noexc4855, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
+  %6110 = phi ptr [ %6107, %.noexc4855 ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %6111 = phi ptr [ %6108, %.noexc4855 ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i ]
   store ptr %6111, ptr %6055, align 8, !tbaa !30
   %6112 = trunc i64 %6103 to i8
   %6113 = ptrtoint ptr %6110 to i64
@@ -20757,12 +20754,9 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZN8nlohman
   unreachable
 
 _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i4896: ; preds = %6382
-  %.not.i.i.i.i4897 = icmp eq i64 %6388, 0
-  br i1 %.not.i.i.i.i4897, label %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i4899, label %6391
-
-_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i4899: ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i4896
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %735, i8 0, i64 24, i1 false)
-  br label %6394
+  %.not.i.i.i.i4897 = icmp eq i64 %6388, 0
+  br i1 %.not.i.i.i.i4897, label %6394, label %6391
 
 6391:                                             ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i4896
   %6392 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %6388) #32
@@ -20775,9 +20769,9 @@ _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i4899: ; preds = %_ZNSt6vectorI
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %6392, i8 120, i64 %6388, i1 false)
   br label %6394
 
-6394:                                             ; preds = %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i4899, %.noexc4901
-  %6395 = phi ptr [ %6392, %.noexc4901 ], [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i4899 ]
-  %6396 = phi ptr [ %6393, %.noexc4901 ], [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i4899 ]
+6394:                                             ; preds = %.noexc4901, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i4896
+  %6395 = phi ptr [ %6392, %.noexc4901 ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i4896 ]
+  %6396 = phi ptr [ %6393, %.noexc4901 ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i4896 ]
   store ptr %6396, ptr %6339, align 8, !tbaa !30
   %6397 = trunc i64 %6388 to i8
   %6398 = ptrtoint ptr %6395 to i64
@@ -23596,6 +23590,7 @@ _ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_st
   unreachable
 
 _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i5050: ; preds = %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4sizeEv.exit
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %829, i8 0, i64 24, i1 false)
   %.not.i.i.i.i5051 = icmp ne i64 %7223, 0
   call void @llvm.assume(i1 %.not.i.i.i.i5051)
   br label %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i5050.thread
@@ -28752,12 +28747,9 @@ _ZNSt10unique_ptrIN8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6v
   unreachable
 
 _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i5412: ; preds = %8738
-  %.not.i.i.i.i5413 = icmp eq i64 %8741, 0
-  br i1 %.not.i.i.i.i5413, label %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i5415, label %8744
-
-_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i5415: ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i5412
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1022, i8 0, i64 24, i1 false)
-  br label %8747
+  %.not.i.i.i.i5413 = icmp eq i64 %8741, 0
+  br i1 %.not.i.i.i.i5413, label %8747, label %8744
 
 8744:                                             ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i5412
   %8745 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %8741) #32
@@ -28770,9 +28762,9 @@ _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i5415: ; preds = %_ZNSt6vectorI
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %8745, i8 120, i64 %8741, i1 false)
   br label %8747
 
-8747:                                             ; preds = %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i5415, %.noexc5417
-  %8748 = phi ptr [ %8745, %.noexc5417 ], [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i5415 ]
-  %8749 = phi ptr [ %8746, %.noexc5417 ], [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i5415 ]
+8747:                                             ; preds = %.noexc5417, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i5412
+  %8748 = phi ptr [ %8745, %.noexc5417 ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i5412 ]
+  %8749 = phi ptr [ %8746, %.noexc5417 ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i5412 ]
   store ptr %8749, ptr %8682, align 8, !tbaa !30
   %8750 = ptrtoint ptr %8748 to i64
   %8751 = ptrtoint ptr %8749 to i64
@@ -29857,12 +29849,9 @@ _ZNSt10unique_ptrIN8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6v
   unreachable
 
 _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i5484: ; preds = %9064
-  %.not.i.i.i.i5485 = icmp eq i64 %9067, 0
-  br i1 %.not.i.i.i.i5485, label %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i5487, label %9070
-
-_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i5487: ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i5484
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1049, i8 0, i64 24, i1 false)
-  br label %9073
+  %.not.i.i.i.i5485 = icmp eq i64 %9067, 0
+  br i1 %.not.i.i.i.i5485, label %9073, label %9070
 
 9070:                                             ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i5484
   %9071 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %9067) #32
@@ -29875,9 +29864,9 @@ _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i5487: ; preds = %_ZNSt6vectorI
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %9071, i8 120, i64 %9067, i1 false)
   br label %9073
 
-9073:                                             ; preds = %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i5487, %.noexc5489
-  %9074 = phi ptr [ %9071, %.noexc5489 ], [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i5487 ]
-  %9075 = phi ptr [ %9072, %.noexc5489 ], [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i5487 ]
+9073:                                             ; preds = %.noexc5489, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i5484
+  %9074 = phi ptr [ %9071, %.noexc5489 ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i5484 ]
+  %9075 = phi ptr [ %9072, %.noexc5489 ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i5484 ]
   store ptr %9075, ptr %9007, align 8, !tbaa !30
   %9076 = ptrtoint ptr %9074 to i64
   %9077 = ptrtoint ptr %9075 to i64
@@ -32024,11 +32013,8 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i5645: ; preds = %.noexc4.th
   %9709 = ptrtoint ptr %9689 to i64
   store i64 %9709, ptr %9655, align 8, !tbaa !23, !alias.scope !477
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1103) #29
-  br i1 %.not.i.i.i.i5627, label %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i5648, label %9710
-
-_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i5648: ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i5645
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1103, i8 0, i64 24, i1 false)
-  br label %9713
+  br i1 %.not.i.i.i.i5627, label %9713, label %9710
 
 9710:                                             ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i5645
   %9711 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %9683) #32
@@ -32041,9 +32027,9 @@ _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i5648: ; preds = %_ZNSt6vectorI
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %9711, i8 120, i64 %9683, i1 false)
   br label %9713
 
-9713:                                             ; preds = %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i5648, %.noexc5650
-  %9714 = phi ptr [ %9711, %.noexc5650 ], [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i5648 ]
-  %9715 = phi ptr [ %9712, %.noexc5650 ], [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i5648 ]
+9713:                                             ; preds = %.noexc5650, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i5645
+  %9714 = phi ptr [ %9711, %.noexc5650 ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i5645 ]
+  %9715 = phi ptr [ %9712, %.noexc5650 ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i5645 ]
   store ptr %9715, ptr %9656, align 8, !tbaa !30
   %9716 = trunc i64 %9683 to i8
   %9717 = ptrtoint ptr %9714 to i64
@@ -32988,11 +32974,8 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i5707: ; preds = %.noexc4.th
   %9987 = ptrtoint ptr %9967 to i64
   store i64 %9987, ptr %9932, align 8, !tbaa !23, !alias.scope !489
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1130) #29
-  br i1 %.not.i.i.i.i5689, label %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i5710, label %9988
-
-_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i5710: ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i5707
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1130, i8 0, i64 24, i1 false)
-  br label %9991
+  br i1 %.not.i.i.i.i5689, label %9991, label %9988
 
 9988:                                             ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i5707
   %9989 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %9961) #32
@@ -33005,9 +32988,9 @@ _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i5710: ; preds = %_ZNSt6vectorI
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %9989, i8 120, i64 %9961, i1 false)
   br label %9991
 
-9991:                                             ; preds = %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i5710, %.noexc5712
-  %9992 = phi ptr [ %9989, %.noexc5712 ], [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i5710 ]
-  %9993 = phi ptr [ %9990, %.noexc5712 ], [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i5710 ]
+9991:                                             ; preds = %.noexc5712, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i5707
+  %9992 = phi ptr [ %9989, %.noexc5712 ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i5707 ]
+  %9993 = phi ptr [ %9990, %.noexc5712 ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i5707 ]
   store ptr %9993, ptr %9933, align 8, !tbaa !30
   %9994 = trunc i64 %9961 to i8
   %9995 = ptrtoint ptr %9992 to i64

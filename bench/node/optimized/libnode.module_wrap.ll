@@ -1493,11 +1493,13 @@ if.end.i767:                                      ; preds = %lor.lhs.false.i764
 _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit775: ; preds = %if.end.i767, %if.then.i772
   %retval.i758.sroa.0.0 = phi ptr [ %120, %if.then.i772 ], [ %add.ptr.i770, %if.end.i767 ]
   %call261 = call noundef i32 @_ZNK2v85Array6LengthEv(ptr noundef nonnull align 1 dereferenceable(1) %retval.i758.sroa.0.0) #19
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %export_names, i8 0, i64 16, i1 false)
   %cmp.not.i.i.i.i = icmp eq i32 %call261, 0
   br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorIN2v85LocalINS0_6StringEEESaIS3_EEC2EmRKS4_.exit.thread, label %for.body.preheader
 
 _ZNSt6vectorIN2v85LocalINS0_6StringEEESaIS3_EEC2EmRKS4_.exit.thread: ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit775
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %export_names, i8 0, i64 24, i1 false)
+  %_M_finish.i.i7.i177 = getelementptr inbounds nuw i8, ptr %export_names, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_finish.i.i7.i177, i8 0, i64 16, i1 false)
   br label %for.end
 
 for.body.preheader:                               ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit775

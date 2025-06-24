@@ -483,10 +483,10 @@ define dso_local void @_ZNK4llvm7remarks11StringTable9serializeERNS_11raw_ostrea
   %9 = ptrtoint ptr %8 to i64
   br label %_ZNSt6vectorIN4llvm9StringRefESaIS1_EEC2EmRKS2_.exit.i
 
-_ZNSt6vectorIN4llvm9StringRefESaIS1_EEC2EmRKS2_.exit.i: ; preds = %2, %.lr.ph.preheader.i.i.i.i.i.i
-  %.sroa.010.0 = phi ptr [ %7, %.lr.ph.preheader.i.i.i.i.i.i ], [ null, %2 ]
-  %.sink.i.i = phi i64 [ %9, %.lr.ph.preheader.i.i.i.i.i.i ], [ 0, %2 ]
-  %.0.lcssa.i.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i, %.lr.ph.preheader.i.i.i.i.i.i ], [ null, %2 ]
+_ZNSt6vectorIN4llvm9StringRefESaIS1_EEC2EmRKS2_.exit.i: ; preds = %.lr.ph.preheader.i.i.i.i.i.i, %2
+  %.sroa.010.0 = phi ptr [ null, %2 ], [ %7, %.lr.ph.preheader.i.i.i.i.i.i ]
+  %.sink.i.i = phi i64 [ 0, %2 ], [ %9, %.lr.ph.preheader.i.i.i.i.i.i ]
+  %.0.lcssa.i.i.i.i.i.i = phi ptr [ null, %2 ], [ %scevgep.i.i.i.i.i.i, %.lr.ph.preheader.i.i.i.i.i.i ]
   %10 = load ptr, ptr %0, align 8, !tbaa !84, !noalias !81
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i32, ptr %11, align 8, !tbaa !85, !noalias !81
@@ -609,12 +609,9 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %39, %41, %42
 define dso_local void @_ZNK4llvm7remarks11StringTable9serializeEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector.26") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %4 = load i32, ptr %3, align 4, !tbaa !37
-  %.not.i.i.i.i = icmp eq i32 %4, 0
-  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIN4llvm9StringRefESaIS1_EEC2EmRKS2_.exit.thread.i, label %.lr.ph.preheader.i.i.i.i.i
-
-_ZNSt12_Vector_baseIN4llvm9StringRefESaIS1_EEC2EmRKS2_.exit.thread.i: ; preds = %2
   store i64 0, ptr %0, align 8
-  br label %_ZNSt6vectorIN4llvm9StringRefESaIS1_EEC2EmRKS2_.exit
+  %.not.i.i.i.i = icmp eq i32 %4, 0
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN4llvm9StringRefESaIS1_EEC2EmRKS2_.exit, label %.lr.ph.preheader.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i:                       ; preds = %2
   %5 = zext i32 %4 to i64
@@ -626,10 +623,10 @@ _ZNSt12_Vector_baseIN4llvm9StringRefESaIS1_EEC2EmRKS2_.exit.thread.i: ; preds = 
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %7, i64 %6
   br label %_ZNSt6vectorIN4llvm9StringRefESaIS1_EEC2EmRKS2_.exit
 
-_ZNSt6vectorIN4llvm9StringRefESaIS1_EEC2EmRKS2_.exit: ; preds = %_ZNSt12_Vector_baseIN4llvm9StringRefESaIS1_EEC2EmRKS2_.exit.thread.i, %.lr.ph.preheader.i.i.i.i.i
-  %9 = phi ptr [ null, %_ZNSt12_Vector_baseIN4llvm9StringRefESaIS1_EEC2EmRKS2_.exit.thread.i ], [ %7, %.lr.ph.preheader.i.i.i.i.i ]
-  %.sink.i = phi ptr [ null, %_ZNSt12_Vector_baseIN4llvm9StringRefESaIS1_EEC2EmRKS2_.exit.thread.i ], [ %8, %.lr.ph.preheader.i.i.i.i.i ]
-  %.0.lcssa.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIN4llvm9StringRefESaIS1_EEC2EmRKS2_.exit.thread.i ], [ %scevgep.i.i.i.i.i, %.lr.ph.preheader.i.i.i.i.i ]
+_ZNSt6vectorIN4llvm9StringRefESaIS1_EEC2EmRKS2_.exit: ; preds = %2, %.lr.ph.preheader.i.i.i.i.i
+  %9 = phi ptr [ %7, %.lr.ph.preheader.i.i.i.i.i ], [ null, %2 ]
+  %.sink.i = phi ptr [ %8, %.lr.ph.preheader.i.i.i.i.i ], [ null, %2 ]
+  %.0.lcssa.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i, %.lr.ph.preheader.i.i.i.i.i ], [ null, %2 ]
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.sink.i, ptr %11, align 8, !tbaa !97

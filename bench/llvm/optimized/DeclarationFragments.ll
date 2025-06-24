@@ -619,7 +619,6 @@ define dso_local void @_ZN5clang10extractapi20DeclarationFragments31getException
 
 28:                                               ; preds = %2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, i8 0, i64 24, i1 false)
   br label %156
 
 29:                                               ; preds = %2
@@ -696,7 +695,6 @@ _ZN5clang10extractapi20DeclarationFragmentsC2ERKS1_.exit: ; preds = %_ZN5clang10
 
 57:                                               ; preds = %2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, i8 0, i64 24, i1 false)
   br label %156
 
 58:                                               ; preds = %2
@@ -985,7 +983,6 @@ _ZN5clang10extractapi20DeclarationFragmentsC2ERKS1_.exit29: ; preds = %_ZN5clang
 
 155:                                              ; preds = %2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, i8 0, i64 24, i1 false)
   br label %156
 
 156:                                              ; preds = %155, %_ZN5clang10extractapi20DeclarationFragmentsC2ERKS1_.exit29, %_ZN5clang10extractapi20DeclarationFragmentsC2ERKS1_.exit18, %_ZN5clang10extractapi20DeclarationFragmentsC2ERKS1_.exit7, %57, %_ZN5clang10extractapi20DeclarationFragmentsC2ERKS1_.exit, %28

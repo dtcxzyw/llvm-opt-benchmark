@@ -224,21 +224,19 @@ $_ZSt19piecewise_construct = comdat any
 @_ZN6Assimp13ObjFileParserC1ERNS_14IOStreamBufferIcEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8IOSystemEPNS_15ProgressHandlerESB_ = unnamed_addr alias void (ptr, ptr, ptr, ptr, ptr, ptr), ptr @_ZN6Assimp13ObjFileParserC2ERNS_14IOStreamBufferIcEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8IOSystemEPNS_15ProgressHandlerESB_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6Assimp13ObjFileParserC2Ev(ptr noundef nonnull align 8 dereferenceable(4184) initializes((0, 32)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4128
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4124
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
-  store ptr %4, ptr %3, align 8
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4136
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4152
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4168
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  store ptr %7, ptr %6, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4160
-  store i64 0, ptr %8, align 8
-  store i8 0, ptr %7, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(4096) %2, i8 0, i64 4096, i1 false)
+define void @_ZN6Assimp13ObjFileParserC2Ev(ptr noundef nonnull align 8 dereferenceable(4184) initializes((0, 4124)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4128
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4124
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(4124) %0, i8 0, i64 4124, i1 false)
+  store ptr %3, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4136
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4152
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4168
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4160
+  store i64 0, ptr %7, align 8
+  store i8 0, ptr %6, align 8
   ret void
 }
 

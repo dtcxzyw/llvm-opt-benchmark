@@ -8545,8 +8545,8 @@ _ZNSt6vectorIN4toml2v314path_componentESaIS2_EE5eraseEN9__gnu_cxx17__normal_iter
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK4toml2v34path9truncatedEm(ptr dead_on_unwind noalias nonnull writable sret(%"class.toml::v3::path") align 8 initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, i64 noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !200
   %6 = load ptr, ptr %1, align 8, !tbaa !202
   %7 = ptrtoint ptr %5 to i64
@@ -8574,8 +8574,8 @@ define void @_ZNK4toml2v34path9truncatedEm(ptr dead_on_unwind noalias nonnull wr
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK4toml2v34path6parentEv(ptr dead_on_unwind noalias nonnull writable sret(%"class.toml::v3::path") align 8 initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !213)
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !213
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !200, !noalias !213
   %5 = load ptr, ptr %1, align 8, !tbaa !202, !noalias !213
   %.not = icmp ne ptr %4, %5
@@ -8596,8 +8596,8 @@ _ZNK4toml2v34path9truncatedEm.exit:               ; preds = %2
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK4toml2v34path4leafEm(ptr dead_on_unwind noalias writable sret(%"class.toml::v3::path") align 8 initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, i64 noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !200
   %6 = load ptr, ptr %1, align 8, !tbaa !202
   %7 = ptrtoint ptr %5 to i64
@@ -8629,56 +8629,48 @@ define void @_ZNK4toml2v34path4leafEm(ptr dead_on_unwind noalias writable sret(%
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK4toml2v34path7subpathEN9__gnu_cxx17__normal_iteratorIPKNS0_14path_componentESt6vectorIS4_SaIS4_EEEESA_(ptr dead_on_unwind noalias writable sret(%"class.toml::v3::path") align 8 initializes((0, 24)) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %1, ptr %2, ptr %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %.not = icmp ult ptr %2, %3
-  br i1 %.not, label %6, label %5
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  br i1 %.not, label %5, label %8
 
 5:                                                ; preds = %4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  br label %9
-
-6:                                                ; preds = %4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   invoke void @_ZNSt6vectorIN4toml2v314path_componentESaIS2_EE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPKS2_S4_EEEEvNS7_IPS2_S4_EET_SD_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr null, ptr %2, ptr nonnull %3)
-          to label %9 unwind label %7
+          to label %8 unwind label %6
 
-7:                                                ; preds = %6
-  %8 = landingpad { ptr, i32 }
+6:                                                ; preds = %5
+  %7 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN4toml2v34pathD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #51
-  resume { ptr, i32 } %8
+  resume { ptr, i32 } %7
 
-9:                                                ; preds = %6, %5
+8:                                                ; preds = %4, %5
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK4toml2v34path7subpathEmm(ptr dead_on_unwind noalias writable sret(%"class.toml::v3::path") align 8 initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  %5 = load ptr, ptr %1, align 8, !tbaa !182
   %sext = shl i64 %2, 32
-  %5 = ashr exact i64 %sext, 32
-  %6 = add i64 %3, %2
-  %sext4 = shl i64 %6, 32
-  %7 = ashr exact i64 %sext4, 32
-  %.not.i = icmp slt i64 %5, %7
-  br i1 %.not.i, label %9, label %8
-
-8:                                                ; preds = %4
+  %6 = ashr exact i64 %sext, 32
+  %7 = add i64 %3, %2
+  %sext4 = shl i64 %7, 32
+  %8 = ashr exact i64 %sext4, 32
+  %.not.i = icmp slt i64 %6, %8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !216
-  br label %_ZNK4toml2v34path7subpathEN9__gnu_cxx17__normal_iteratorIPKNS0_14path_componentESt6vectorIS4_SaIS4_EEEESA_.exit
+  br i1 %.not.i, label %9, label %_ZNK4toml2v34path7subpathEN9__gnu_cxx17__normal_iteratorIPKNS0_14path_componentESt6vectorIS4_SaIS4_EEEESA_.exit
 
 9:                                                ; preds = %4
-  %10 = load ptr, ptr %1, align 8, !tbaa !182
-  %11 = getelementptr inbounds %"class.toml::v3::path_component", ptr %10, i64 %7
-  %12 = getelementptr inbounds %"class.toml::v3::path_component", ptr %10, i64 %5
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !216
-  invoke void @_ZNSt6vectorIN4toml2v314path_componentESaIS2_EE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPKS2_S4_EEEEvNS7_IPS2_S4_EET_SD_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr null, ptr %12, ptr nonnull %11)
-          to label %_ZNK4toml2v34path7subpathEN9__gnu_cxx17__normal_iteratorIPKNS0_14path_componentESt6vectorIS4_SaIS4_EEEESA_.exit unwind label %13
+  %10 = getelementptr inbounds %"class.toml::v3::path_component", ptr %5, i64 %8
+  %11 = getelementptr inbounds %"class.toml::v3::path_component", ptr %5, i64 %6
+  invoke void @_ZNSt6vectorIN4toml2v314path_componentESaIS2_EE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPKS2_S4_EEEEvNS7_IPS2_S4_EET_SD_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr null, ptr %11, ptr nonnull %10)
+          to label %_ZNK4toml2v34path7subpathEN9__gnu_cxx17__normal_iteratorIPKNS0_14path_componentESt6vectorIS4_SaIS4_EEEESA_.exit unwind label %12
 
-13:                                               ; preds = %9
-  %14 = landingpad { ptr, i32 }
+12:                                               ; preds = %9
+  %13 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN4toml2v34pathD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #51
-  resume { ptr, i32 } %14
+  resume { ptr, i32 } %13
 
-_ZNK4toml2v34path7subpathEN9__gnu_cxx17__normal_iteratorIPKNS0_14path_componentESt6vectorIS4_SaIS4_EEEESA_.exit: ; preds = %8, %9
+_ZNK4toml2v34path7subpathEN9__gnu_cxx17__normal_iteratorIPKNS0_14path_componentESt6vectorIS4_SaIS4_EEEESA_.exit: ; preds = %4, %9
   ret void
 }
 

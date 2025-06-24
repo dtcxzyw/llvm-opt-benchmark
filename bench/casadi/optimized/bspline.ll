@@ -9047,11 +9047,7 @@ define linkonce_odr hidden void @_ZN6casadi6MatrixIdEC2IxEERKSt6vectorIT_SaIS4_E
 _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
   %.not.i.i.i.i = icmp eq ptr %12, %13
-  br i1 %.not.i.i.i.i, label %.thread, label %19
-
-.thread:                                          ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
-  br label %._crit_edge
+  br i1 %.not.i.i.i.i, label %._crit_edge, label %19
 
 19:                                               ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
   %20 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %16) #29
@@ -9079,7 +9075,7 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %2
   %28 = load ptr, ptr %1, align 8, !tbaa !55
   br label %.lr.ph
 
-._crit_edge:                                      ; preds = %.lr.ph, %.thread
+._crit_edge:                                      ; preds = %.lr.ph, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
   ret void
 
 29:                                               ; preds = %19, %18

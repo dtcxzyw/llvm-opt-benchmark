@@ -44055,14 +44055,14 @@ define void @EndTextureMode() local_unnamed_addr #0 {
   %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 72), align 8
   %14 = uitofp i32 %13 to double
   tail call void @rlOrtho(double noundef 0.000000e+00, double noundef %12, double noundef %14, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 1.000000e+00)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @RLGL, i64 84), i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @RLGL, i64 104), i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @RLGL, i64 124), i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 80), ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 72), align 8
   store i32 5888, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 68), align 4
   store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 80), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @RLGL, i64 84), i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 100), align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @RLGL, i64 104), i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 120), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @RLGL, i64 124), i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 140), align 4
   %.sroa.01.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 100), align 4
   %.sroa.42.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 104), align 8

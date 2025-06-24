@@ -1643,7 +1643,7 @@ define internal fastcc void @SetIC(ptr noundef %0, ptr noundef readonly captures
   br label %15
 
 15:                                               ; preds = %.lr.ph, %15
-  %.028 = phi i64 [ 0, %.lr.ph ], [ %28, %15 ]
+  %.028 = phi i64 [ 0, %.lr.ph ], [ %26, %15 ]
   %16 = uitofp nneg i64 %.028 to double
   %17 = fmul double %11, %16
   %18 = fmul double %9, %17
@@ -1652,16 +1652,14 @@ define internal fastcc void @SetIC(ptr noundef %0, ptr noundef readonly captures
   %.idx = mul nuw nsw i64 %.028, 24
   %21 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx
   store double %20, ptr %21, align 8, !tbaa !31
-  %22 = tail call double @sin(double noundef %18) #16, !tbaa !44
-  %23 = tail call double @llvm.fmuladd.f64(double %22, double 1.000000e-01, double %14)
-  %24 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  store double %23, ptr %24, align 8, !tbaa !31
-  %25 = tail call double @sin(double noundef %18) #16, !tbaa !44
-  %26 = tail call double @llvm.fmuladd.f64(double %25, double 1.000000e-01, double %7)
-  %27 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  store double %26, ptr %27, align 8, !tbaa !31
-  %28 = add nuw nsw i64 %.028, 1
-  %exitcond.not = icmp eq i64 %28, %3
+  %22 = tail call double @llvm.fmuladd.f64(double %19, double 1.000000e-01, double %14)
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  store double %22, ptr %23, align 8, !tbaa !31
+  %24 = tail call double @llvm.fmuladd.f64(double %19, double 1.000000e-01, double %7)
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  store double %24, ptr %25, align 8, !tbaa !31
+  %26 = add nuw nsw i64 %.028, 1
+  %exitcond.not = icmp eq i64 %26, %3
   br i1 %exitcond.not, label %._crit_edge, label %15
 
 ._crit_edge:                                      ; preds = %15, %2

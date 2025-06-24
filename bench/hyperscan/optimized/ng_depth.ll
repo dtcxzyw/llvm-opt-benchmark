@@ -413,12 +413,9 @@ define hidden void @_ZN3ue210calcDepthsERKNS_8NGHolderE(ptr dead_on_unwind noali
   unreachable
 
 _ZNSt6vectorIN3ue214NFAVertexDepthESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = %2
-  %.not.i.i.i.i = icmp eq i64 %7, 0
-  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIN3ue214NFAVertexDepthESaIS1_EEC2EmRKS2_.exit.thread.i, label %_ZNSt12_Vector_baseIN3ue214NFAVertexDepthESaIS1_EEC2EmRKS2_.exit.i
-
-_ZNSt12_Vector_baseIN3ue214NFAVertexDepthESaIS1_EEC2EmRKS2_.exit.thread.i: ; preds = %_ZNSt6vectorIN3ue214NFAVertexDepthESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  br label %.loopexit
+  %.not.i.i.i.i = icmp eq i64 %7, 0
+  br i1 %.not.i.i.i.i, label %.loopexit, label %_ZNSt12_Vector_baseIN3ue214NFAVertexDepthESaIS1_EEC2EmRKS2_.exit.i
 
 _ZNSt12_Vector_baseIN3ue214NFAVertexDepthESaIS1_EEC2EmRKS2_.exit.i: ; preds = %_ZNSt6vectorIN3ue214NFAVertexDepthESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
   %9 = shl nuw nsw i64 %7, 4
@@ -444,9 +441,9 @@ _ZNSt12_Vector_baseIN3ue214NFAVertexDepthESaIS1_EEC2EmRKS2_.exit.i: ; preds = %_
   %.not.i.i.i.i.i = icmp eq i64 %16, 0
   br i1 %.not.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i, !llvm.loop !5
 
-.loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt12_Vector_baseIN3ue214NFAVertexDepthESaIS1_EEC2EmRKS2_.exit.thread.i
-  %18 = phi ptr [ null, %_ZNSt12_Vector_baseIN3ue214NFAVertexDepthESaIS1_EEC2EmRKS2_.exit.thread.i ], [ %10, %.lr.ph.i.i.i.i.i ]
-  %.0.lcssa.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIN3ue214NFAVertexDepthESaIS1_EEC2EmRKS2_.exit.thread.i ], [ %17, %.lr.ph.i.i.i.i.i ]
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt6vectorIN3ue214NFAVertexDepthESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
+  %18 = phi ptr [ null, %_ZNSt6vectorIN3ue214NFAVertexDepthESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ], [ %10, %.lr.ph.i.i.i.i.i ]
+  %.0.lcssa.i.i.i.i.i = phi ptr [ null, %_ZNSt6vectorIN3ue214NFAVertexDepthESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ], [ %17, %.lr.ph.i.i.i.i.i ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.0.lcssa.i.i.i.i.i, ptr %19, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #26
@@ -1354,12 +1351,9 @@ define hidden void @_ZN3ue213calcRevDepthsERKNS_8NGHolderE(ptr dead_on_unwind no
   unreachable
 
 _ZNSt6vectorIN3ue217NFAVertexRevDepthESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = %2
-  %.not.i.i.i.i = icmp eq i64 %8, 0
-  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIN3ue217NFAVertexRevDepthESaIS1_EEC2EmRKS2_.exit.thread.i, label %_ZNSt12_Vector_baseIN3ue217NFAVertexRevDepthESaIS1_EEC2EmRKS2_.exit.i
-
-_ZNSt12_Vector_baseIN3ue217NFAVertexRevDepthESaIS1_EEC2EmRKS2_.exit.thread.i: ; preds = %_ZNSt6vectorIN3ue217NFAVertexRevDepthESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  br label %.loopexit
+  %.not.i.i.i.i = icmp eq i64 %8, 0
+  br i1 %.not.i.i.i.i, label %.loopexit, label %_ZNSt12_Vector_baseIN3ue217NFAVertexRevDepthESaIS1_EEC2EmRKS2_.exit.i
 
 _ZNSt12_Vector_baseIN3ue217NFAVertexRevDepthESaIS1_EEC2EmRKS2_.exit.i: ; preds = %_ZNSt6vectorIN3ue217NFAVertexRevDepthESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
   %10 = shl nuw nsw i64 %8, 4
@@ -1385,9 +1379,9 @@ _ZNSt12_Vector_baseIN3ue217NFAVertexRevDepthESaIS1_EEC2EmRKS2_.exit.i: ; preds =
   %.not.i.i.i.i.i = icmp eq i64 %17, 0
   br i1 %.not.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i, !llvm.loop !20
 
-.loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt12_Vector_baseIN3ue217NFAVertexRevDepthESaIS1_EEC2EmRKS2_.exit.thread.i
-  %19 = phi ptr [ null, %_ZNSt12_Vector_baseIN3ue217NFAVertexRevDepthESaIS1_EEC2EmRKS2_.exit.thread.i ], [ %11, %.lr.ph.i.i.i.i.i ]
-  %.0.lcssa.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIN3ue217NFAVertexRevDepthESaIS1_EEC2EmRKS2_.exit.thread.i ], [ %18, %.lr.ph.i.i.i.i.i ]
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt6vectorIN3ue217NFAVertexRevDepthESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
+  %19 = phi ptr [ null, %_ZNSt6vectorIN3ue217NFAVertexRevDepthESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ], [ %11, %.lr.ph.i.i.i.i.i ]
+  %.0.lcssa.i.i.i.i.i = phi ptr [ null, %_ZNSt6vectorIN3ue217NFAVertexRevDepthESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ], [ %18, %.lr.ph.i.i.i.i.i ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.0.lcssa.i.i.i.i.i, ptr %20, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #26
@@ -2265,12 +2259,9 @@ define hidden void @_ZN3ue214calcBidiDepthsERKNS_8NGHolderE(ptr dead_on_unwind n
   unreachable
 
 _ZNSt6vectorIN3ue218NFAVertexBidiDepthESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = %2
-  %.not.i.i.i.i = icmp eq i64 %9, 0
-  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIN3ue218NFAVertexBidiDepthESaIS1_EEC2EmRKS2_.exit.thread.i, label %_ZNSt12_Vector_baseIN3ue218NFAVertexBidiDepthESaIS1_EEC2EmRKS2_.exit.i
-
-_ZNSt12_Vector_baseIN3ue218NFAVertexBidiDepthESaIS1_EEC2EmRKS2_.exit.thread.i: ; preds = %_ZNSt6vectorIN3ue218NFAVertexBidiDepthESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  br label %.loopexit
+  %.not.i.i.i.i = icmp eq i64 %9, 0
+  br i1 %.not.i.i.i.i, label %.loopexit, label %_ZNSt12_Vector_baseIN3ue218NFAVertexBidiDepthESaIS1_EEC2EmRKS2_.exit.i
 
 _ZNSt12_Vector_baseIN3ue218NFAVertexBidiDepthESaIS1_EEC2EmRKS2_.exit.i: ; preds = %_ZNSt6vectorIN3ue218NFAVertexBidiDepthESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
   %11 = shl nuw nsw i64 %9, 5
@@ -2304,9 +2295,9 @@ _ZNSt12_Vector_baseIN3ue218NFAVertexBidiDepthESaIS1_EEC2EmRKS2_.exit.i: ; preds 
   %.not.i.i.i.i.i = icmp eq i64 %22, 0
   br i1 %.not.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i, !llvm.loop !38
 
-.loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt12_Vector_baseIN3ue218NFAVertexBidiDepthESaIS1_EEC2EmRKS2_.exit.thread.i
-  %24 = phi ptr [ null, %_ZNSt12_Vector_baseIN3ue218NFAVertexBidiDepthESaIS1_EEC2EmRKS2_.exit.thread.i ], [ %12, %.lr.ph.i.i.i.i.i ]
-  %.0.lcssa.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIN3ue218NFAVertexBidiDepthESaIS1_EEC2EmRKS2_.exit.thread.i ], [ %23, %.lr.ph.i.i.i.i.i ]
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt6vectorIN3ue218NFAVertexBidiDepthESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
+  %24 = phi ptr [ null, %_ZNSt6vectorIN3ue218NFAVertexBidiDepthESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ], [ %12, %.lr.ph.i.i.i.i.i ]
+  %.0.lcssa.i.i.i.i.i = phi ptr [ null, %_ZNSt6vectorIN3ue218NFAVertexBidiDepthESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ], [ %23, %.lr.ph.i.i.i.i.i ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.0.lcssa.i.i.i.i.i, ptr %25, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #26

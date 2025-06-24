@@ -27,12 +27,11 @@ define void @patchworkLayout(ptr noundef %0) local_unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = fadd double %6, 1.000000e-01
   %9 = tail call double @sqrt(double noundef %8) #14, !tbaa !13
-  %10 = tail call double @sqrt(double noundef %8) #14, !tbaa !13
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   store double %9, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store double %10, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !14
+  store double %9, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !14
   tail call fastcc void @layoutTree(ptr noundef nonnull %5)
   tail call fastcc void @walkTree(ptr noundef nonnull %5)
   tail call fastcc void @freeTree(ptr noundef nonnull %5)

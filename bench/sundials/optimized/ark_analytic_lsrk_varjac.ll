@@ -268,13 +268,11 @@ define internal noundef i32 @f(double noundef %0, ptr noundef %1, ptr noundef %2
   %16 = tail call double @llvm.fmuladd.f64(double %0, double %0, double 1.000000e+00)
   %17 = fdiv double 1.000000e+00, %16
   %18 = tail call double @llvm.fmuladd.f64(double %15, double %9, double %17)
-  %19 = tail call double @cos(double noundef %12) #8, !tbaa !14
-  %20 = tail call double @llvm.fmuladd.f64(double %14, double %19, double %5)
-  %21 = tail call double @atan(double noundef %0) #8, !tbaa !14
-  %22 = fneg double %20
-  %23 = tail call double @llvm.fmuladd.f64(double %22, double %21, double %18)
-  %24 = tail call ptr @N_VGetArrayPointer(ptr noundef %2) #8
-  store double %23, ptr %24, align 8, !tbaa !4
+  %19 = tail call double @atan(double noundef %0) #8, !tbaa !14
+  %20 = fneg double %15
+  %21 = tail call double @llvm.fmuladd.f64(double %20, double %19, double %18)
+  %22 = tail call ptr @N_VGetArrayPointer(ptr noundef %2) #8
+  store double %21, ptr %22, align 8, !tbaa !4
   ret i32 0
 }
 

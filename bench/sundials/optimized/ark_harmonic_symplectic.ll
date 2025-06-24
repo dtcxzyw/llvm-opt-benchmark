@@ -47,7 +47,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readonly 
   store double 0x7FF8000000000000, ptr %5, align 8, !tbaa !9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
   %7 = icmp sgt i32 %0, 1
-  br i1 %7, label %.lr.ph.i, label %.loopexit104
+  br i1 %7, label %.lr.ph.i, label %.loopexit105
 
 .lr.ph.i:                                         ; preds = %2, %53
   %.sroa.17.0 = phi double [ %.sroa.17.1, %53 ], [ 1.000000e-03, %2 ]
@@ -143,35 +143,35 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readonly 
   %.1.i = phi i32 [ %13, %12 ], [ %22, %21 ], [ %30, %29 ], [ %38, %37 ], [ %.050.i, %44 ], [ %.050.i, %46 ]
   %54 = add nsw i32 %.1.i, 1
   %55 = icmp slt i32 %54, %0
-  br i1 %55, label %.lr.ph.i, label %.loopexit104.loopexit
+  br i1 %55, label %.lr.ph.i, label %.loopexit105.loopexit
 
 ParseArgs.exit:                                   ; preds = %48, %50
   tail call fastcc void @PrintHelp()
-  br label %189
+  br label %185
 
-.loopexit104.loopexit:                            ; preds = %53
+.loopexit105.loopexit:                            ; preds = %53
   %56 = icmp eq i32 %.sroa.11.1, 0
-  br label %.loopexit104
+  br label %.loopexit105
 
-.loopexit104:                                     ; preds = %.loopexit104.loopexit, %2
-  %.sroa.17.2.ph = phi double [ 1.000000e-03, %2 ], [ %.sroa.17.1, %.loopexit104.loopexit ]
-  %.sroa.14.2.ph = phi double [ 0x401921FB54442D18, %2 ], [ %.sroa.14.1, %.loopexit104.loopexit ]
-  %.sroa.11.2.ph = phi i1 [ false, %2 ], [ %56, %.loopexit104.loopexit ]
-  %.sroa.8.2.ph = phi i32 [ 0, %2 ], [ %.sroa.8.1, %.loopexit104.loopexit ]
-  %.sroa.5.2.ph = phi i32 [ 8, %2 ], [ %.sroa.5.1, %.loopexit104.loopexit ]
-  %.sroa.0.2.ph = phi i32 [ 4, %2 ], [ %.sroa.0.1, %.loopexit104.loopexit ]
+.loopexit105:                                     ; preds = %.loopexit105.loopexit, %2
+  %.sroa.17.2.ph = phi double [ 1.000000e-03, %2 ], [ %.sroa.17.1, %.loopexit105.loopexit ]
+  %.sroa.14.2.ph = phi double [ 0x401921FB54442D18, %2 ], [ %.sroa.14.1, %.loopexit105.loopexit ]
+  %.sroa.11.2.ph = phi i1 [ false, %2 ], [ %56, %.loopexit105.loopexit ]
+  %.sroa.8.2.ph = phi i32 [ 0, %2 ], [ %.sroa.8.1, %.loopexit105.loopexit ]
+  %.sroa.5.2.ph = phi i32 [ 8, %2 ], [ %.sroa.5.1, %.loopexit105.loopexit ]
+  %.sroa.0.2.ph = phi i32 [ 4, %2 ], [ %.sroa.0.1, %.loopexit105.loopexit ]
   %57 = sitofp i32 %.sroa.5.2.ph to double
   %58 = fdiv double %.sroa.14.2.ph, %57
   %59 = call i32 @SUNContext_Create(i32 noundef 0, ptr noundef nonnull %4) #10
   %60 = icmp slt i32 %59, 0
   br i1 %60, label %check_retval.exit, label %63
 
-check_retval.exit:                                ; preds = %.loopexit104
+check_retval.exit:                                ; preds = %.loopexit105
   %61 = load ptr, ptr @stderr, align 8, !tbaa !13
   %62 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %61, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str, i32 noundef %59) #12
-  br label %189
+  br label %185
 
-63:                                               ; preds = %.loopexit104
+63:                                               ; preds = %.loopexit105
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
   store double 1.000000e+01, ptr %3, align 8, !tbaa !15
   %64 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -190,42 +190,42 @@ check_retval.exit:                                ; preds = %.loopexit104
   store ptr %72, ptr %6, align 8, !tbaa !19
   %73 = call i32 @ARKodeSetOrder(ptr noundef %72, i32 noundef %.sroa.0.2.ph) #10
   %74 = icmp slt i32 %73, 0
-  br i1 %74, label %check_retval.exit63, label %77
+  br i1 %74, label %check_retval.exit64, label %77
 
-check_retval.exit63:                              ; preds = %63
+check_retval.exit64:                              ; preds = %63
   %75 = load ptr, ptr @stderr, align 8, !tbaa !13
   %76 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %75, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.2, i32 noundef %73) #12
-  br label %189
+  br label %185
 
 77:                                               ; preds = %63
   %78 = call i32 @ARKodeSetUserData(ptr noundef %72, ptr noundef nonnull %3) #10
   %79 = icmp slt i32 %78, 0
-  br i1 %79, label %check_retval.exit65, label %82
+  br i1 %79, label %check_retval.exit66, label %82
 
-check_retval.exit65:                              ; preds = %77
+check_retval.exit66:                              ; preds = %77
   %80 = load ptr, ptr @stderr, align 8, !tbaa !13
   %81 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %80, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.3, i32 noundef %78) #12
-  br label %189
+  br label %185
 
 82:                                               ; preds = %77
   %83 = call i32 @SPRKStepSetUseCompensatedSums(ptr noundef %72, i32 noundef %.sroa.8.2.ph) #10
   %84 = icmp slt i32 %83, 0
-  br i1 %84, label %check_retval.exit67, label %87
+  br i1 %84, label %check_retval.exit68, label %87
 
-check_retval.exit67:                              ; preds = %82
+check_retval.exit68:                              ; preds = %82
   %85 = load ptr, ptr @stderr, align 8, !tbaa !13
   %86 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %85, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.4, i32 noundef %83) #12
-  br label %189
+  br label %185
 
 87:                                               ; preds = %82
   %88 = call i32 @ARKodeSetFixedStep(ptr noundef %72, double noundef %.sroa.17.2.ph) #10
   %89 = icmp slt i32 %88, 0
-  br i1 %89, label %check_retval.exit69, label %92
+  br i1 %89, label %check_retval.exit70, label %92
 
-check_retval.exit69:                              ; preds = %87
+check_retval.exit70:                              ; preds = %87
   %90 = load ptr, ptr @stderr, align 8, !tbaa !13
   %91 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %90, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.5, i32 noundef %88) #12
-  br label %189
+  br label %185
 
 92:                                               ; preds = %87
   %93 = fdiv double %.sroa.14.2.ph, %.sroa.17.2.ph
@@ -234,12 +234,12 @@ check_retval.exit69:                              ; preds = %87
   %96 = add nsw i64 %95, 2
   %97 = call i32 @ARKodeSetMaxNumSteps(ptr noundef %72, i64 noundef %96) #10
   %98 = icmp slt i32 %97, 0
-  br i1 %98, label %check_retval.exit71, label %101
+  br i1 %98, label %check_retval.exit72, label %101
 
-check_retval.exit71:                              ; preds = %92
+check_retval.exit72:                              ; preds = %92
   %99 = load ptr, ptr @stderr, align 8, !tbaa !13
   %100 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %99, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.6, i32 noundef %97) #12
-  br label %189
+  br label %185
 
 101:                                              ; preds = %92
   store double 0.000000e+00, ptr %5, align 8, !tbaa !9
@@ -267,17 +267,17 @@ check_retval.exit71:                              ; preds = %92
   %120 = sitofp i32 %119 to double
   br label %121
 
-121:                                              ; preds = %.lr.ph, %177
-  %.048107 = phi i32 [ 0, %.lr.ph ], [ %181, %177 ]
-  %.049106 = phi double [ %118, %.lr.ph ], [ %180, %177 ]
+121:                                              ; preds = %.lr.ph, %173
+  %.048108 = phi i32 [ 0, %.lr.ph ], [ %177, %173 ]
+  %.049107 = phi double [ %118, %.lr.ph ], [ %176, %173 ]
   br i1 %.sroa.11.2.ph, label %124, label %122
 
 122:                                              ; preds = %121
-  %123 = call i32 @ARKodeSetStopTime(ptr noundef %72, double noundef %.049106) #10
+  %123 = call i32 @ARKodeSetStopTime(ptr noundef %72, double noundef %.049107) #10
   br label %124
 
 124:                                              ; preds = %122, %121
-  %125 = call i32 @ARKodeEvolve(ptr noundef %72, double noundef %.049106, ptr noundef %67, ptr noundef nonnull %5, i32 noundef 1) #10
+  %125 = call i32 @ARKodeEvolve(ptr noundef %72, double noundef %.049107, ptr noundef %67, ptr noundef nonnull %5, i32 noundef 1) #10
   %126 = load double, ptr %5, align 8, !tbaa !9
   %127 = call ptr @N_VGetArrayPointer(ptr noundef %68) #10
   %128 = load double, ptr %3, align 8, !tbaa !15
@@ -321,53 +321,45 @@ check_retval.exit71:                              ; preds = %92
   %163 = call double @pow(double noundef 1.000000e+01, double noundef %120) #10, !tbaa !20
   %164 = fdiv double %.sroa.17.2.ph, %163
   %165 = fcmp ogt double %164, 0x3D4F400000000000
-  br i1 %165, label %166, label %169
+  %166 = select i1 %165, double %164, double 0x3D4F400000000000
+  %167 = fcmp ogt double %144, %166
+  br i1 %167, label %168, label %171
 
-166:                                              ; preds = %124
-  %167 = call double @pow(double noundef 1.000000e+01, double noundef %120) #10, !tbaa !20
-  %168 = fdiv double %.sroa.17.2.ph, %167
-  br label %169
+168:                                              ; preds = %124
+  %169 = load ptr, ptr @stderr, align 8, !tbaa !13
+  %170 = call i64 @fwrite(ptr nonnull @.str.9, i64 36, i64 1, ptr %169) #13
+  br label %185
 
-169:                                              ; preds = %124, %166
-  %170 = phi double [ %168, %166 ], [ 0x3D4F400000000000, %124 ]
-  %171 = fcmp ogt double %144, %170
-  br i1 %171, label %172, label %175
+171:                                              ; preds = %124
+  %172 = icmp sgt i32 %125, -1
+  br i1 %172, label %173, label %178
 
-172:                                              ; preds = %169
-  %173 = load ptr, ptr @stderr, align 8, !tbaa !13
-  %174 = call i64 @fwrite(ptr nonnull @.str.9, i64 36, i64 1, ptr %173) #13
-  br label %189
-
-175:                                              ; preds = %169
-  %176 = icmp sgt i32 %125, -1
-  br i1 %176, label %177, label %182
-
-177:                                              ; preds = %175
-  %178 = fadd double %58, %.049106
-  %179 = fcmp ogt double %178, %.sroa.14.2.ph
-  %180 = select i1 %179, double %.sroa.14.2.ph, double %178
-  %181 = add nuw nsw i32 %.048107, 1
-  %exitcond.not = icmp eq i32 %181, %.sroa.5.2.ph
+173:                                              ; preds = %171
+  %174 = fadd double %58, %.049107
+  %175 = fcmp ogt double %174, %.sroa.14.2.ph
+  %176 = select i1 %175, double %.sroa.14.2.ph, double %174
+  %177 = add nuw nsw i32 %.048108, 1
+  %exitcond.not = icmp eq i32 %177, %.sroa.5.2.ph
   br i1 %exitcond.not, label %.loopexit, label %121
 
-182:                                              ; preds = %175
-  %183 = load ptr, ptr @stderr, align 8, !tbaa !13
-  %184 = call i64 @fwrite(ptr nonnull @.str.10, i64 37, i64 1, ptr %183) #13
+178:                                              ; preds = %171
+  %179 = load ptr, ptr @stderr, align 8, !tbaa !13
+  %180 = call i64 @fwrite(ptr nonnull @.str.10, i64 37, i64 1, ptr %179) #13
   br label %.loopexit
 
-.loopexit:                                        ; preds = %177, %101, %182
-  %185 = load ptr, ptr @stdout, align 8, !tbaa !13
-  %fputc = call i32 @fputc(i32 10, ptr %185)
+.loopexit:                                        ; preds = %173, %101, %178
+  %181 = load ptr, ptr @stdout, align 8, !tbaa !13
+  %fputc = call i32 @fputc(i32 10, ptr %181)
   call void @N_VDestroy(ptr noundef %67) #10
   call void @N_VDestroy(ptr noundef %68) #10
-  %186 = load ptr, ptr @stdout, align 8, !tbaa !13
-  %187 = call i32 @ARKodePrintAllStats(ptr noundef %72, ptr noundef %186, i32 noundef 0) #10
+  %182 = load ptr, ptr @stdout, align 8, !tbaa !13
+  %183 = call i32 @ARKodePrintAllStats(ptr noundef %72, ptr noundef %182, i32 noundef 0) #10
   call void @ARKodeFree(ptr noundef nonnull %6) #10
-  %188 = call i32 @SUNContext_Free(ptr noundef nonnull %4) #10
-  br label %189
+  %184 = call i32 @SUNContext_Free(ptr noundef nonnull %4) #10
+  br label %185
 
-189:                                              ; preds = %check_retval.exit71, %check_retval.exit69, %check_retval.exit67, %check_retval.exit65, %check_retval.exit63, %check_retval.exit, %ParseArgs.exit, %.loopexit, %172
-  %.0 = phi i32 [ 1, %172 ], [ 0, %.loopexit ], [ 1, %ParseArgs.exit ], [ 1, %check_retval.exit ], [ 1, %check_retval.exit63 ], [ 1, %check_retval.exit65 ], [ 1, %check_retval.exit67 ], [ 1, %check_retval.exit69 ], [ 1, %check_retval.exit71 ]
+185:                                              ; preds = %check_retval.exit72, %check_retval.exit70, %check_retval.exit68, %check_retval.exit66, %check_retval.exit64, %check_retval.exit, %ParseArgs.exit, %.loopexit, %168
+  %.0 = phi i32 [ 1, %168 ], [ 0, %.loopexit ], [ 1, %ParseArgs.exit ], [ 1, %check_retval.exit ], [ 1, %check_retval.exit64 ], [ 1, %check_retval.exit66 ], [ 1, %check_retval.exit68 ], [ 1, %check_retval.exit70 ], [ 1, %check_retval.exit72 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10

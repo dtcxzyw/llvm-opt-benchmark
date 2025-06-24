@@ -1167,22 +1167,14 @@ celt_search_for_dual_stereo.exit:                 ; preds = %celt_search_for_int
   %127 = sext i32 %122 to i64
   %128 = shl nuw i32 1, %125
   %.not97.i = icmp eq i32 %125, 31
-  br i1 %.not97.i, label %.split94.preheader.i, label %.split94.us.i
-
-.split94.preheader.i:                             ; preds = %celt_search_for_dual_stereo.exit
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(168) %4, i8 0, i64 168, i1 false), !tbaa !104
-  br label %celt_search_for_tf.exit
+  br i1 %.not97.i, label %celt_search_for_tf.exit, label %.split94.us.i
 
 .split94.us.i:                                    ; preds = %celt_search_for_dual_stereo.exit
   %129 = load ptr, ptr %0, align 16, !tbaa !26
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 356
   %131 = load i32, ptr %130, align 4, !tbaa !27
   %132 = icmp sgt i32 %131, 0
-  br i1 %132, label %.split94.us.split.us.preheader.i, label %.split94.us.split.preheader.i
-
-.split94.us.split.preheader.i:                    ; preds = %.split94.us.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(168) %4, i8 0, i64 168, i1 false), !tbaa !104
-  br label %celt_search_for_tf.exit
+  br i1 %132, label %.split94.us.split.us.preheader.i, label %celt_search_for_tf.exit
 
 .split94.us.split.us.preheader.i:                 ; preds = %.split94.us.i
   %smax.i = tail call i32 @llvm.smax.i32(i32 %128, i32 1)
@@ -1276,9 +1268,9 @@ celt_search_for_tf.exit.loopexit48:               ; preds = %.split.us.us.split.
   %.sroa.5.0..sroa.5.0..sroa.5.0..sroa.5.4..pre = load float, ptr %.sroa.5, align 4, !tbaa !71
   br label %celt_search_for_tf.exit
 
-celt_search_for_tf.exit:                          ; preds = %.split94.us.split.preheader.i, %.split94.preheader.i, %celt_search_for_tf.exit.loopexit48
-  %.sroa.5.0..sroa.5.0..sroa.5.4. = phi float [ %.sroa.5.0..sroa.5.0..sroa.5.0..sroa.5.4..pre, %celt_search_for_tf.exit.loopexit48 ], [ 0.000000e+00, %.split94.preheader.i ], [ 0.000000e+00, %.split94.us.split.preheader.i ]
-  %.sroa.038.0..sroa.038.0..sroa.038.0. = phi float [ %.sroa.038.0..sroa.038.0..sroa.038.0..sroa.038.0..pre, %celt_search_for_tf.exit.loopexit48 ], [ 0.000000e+00, %.split94.preheader.i ], [ 0.000000e+00, %.split94.us.split.preheader.i ]
+celt_search_for_tf.exit:                          ; preds = %.split94.us.i, %celt_search_for_dual_stereo.exit, %celt_search_for_tf.exit.loopexit48
+  %.sroa.5.0..sroa.5.0..sroa.5.4. = phi float [ %.sroa.5.0..sroa.5.0..sroa.5.0..sroa.5.4..pre, %celt_search_for_tf.exit.loopexit48 ], [ 0.000000e+00, %celt_search_for_dual_stereo.exit ], [ 0.000000e+00, %.split94.us.i ]
+  %.sroa.038.0..sroa.038.0..sroa.038.0. = phi float [ %.sroa.038.0..sroa.038.0..sroa.038.0..sroa.038.0..pre, %celt_search_for_tf.exit.loopexit48 ], [ 0.000000e+00, %celt_search_for_dual_stereo.exit ], [ 0.000000e+00, %.split94.us.i ]
   %176 = fcmp nsz olt float %.sroa.038.0..sroa.038.0..sroa.038.0., %.sroa.5.0..sroa.5.0..sroa.5.4.
   %177 = zext i1 %176 to i32
   %178 = getelementptr inbounds nuw i8, ptr %1, i64 33936

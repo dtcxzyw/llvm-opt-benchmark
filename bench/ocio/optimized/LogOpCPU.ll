@@ -1188,74 +1188,72 @@ define hidden void @_ZN19OpenColorIO_v2_5dev15Log2LinRenderer10updateDataERSt10s
   %24 = fdiv float %20, %23
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store float %24, ptr %25, align 8, !tbaa !111
-  %26 = tail call float @log2f(float noundef %19) #26, !tbaa !112
-  %27 = load ptr, ptr %13, align 8, !tbaa !108
-  %28 = load double, ptr %27, align 8, !tbaa !119
-  %29 = fptrunc double %28 to float
-  %30 = fdiv float %26, %29
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  store float %30, ptr %31, align 4, !tbaa !111
-  %32 = tail call float @log2f(float noundef %19) #26, !tbaa !112
-  %33 = load ptr, ptr %17, align 8, !tbaa !108
-  %34 = load double, ptr %33, align 8, !tbaa !119
-  %35 = fptrunc double %34 to float
-  %36 = fdiv float %32, %35
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store float %36, ptr %37, align 8, !tbaa !111
-  %38 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %39 = load double, ptr %38, align 8, !tbaa !119
-  %40 = fptrunc double %39 to float
-  %41 = fneg float %40
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  store float %41, ptr %42, align 4, !tbaa !111
-  %43 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %44 = load double, ptr %43, align 8, !tbaa !119
-  %45 = fptrunc double %44 to float
-  %46 = fneg float %45
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store float %46, ptr %47, align 8, !tbaa !111
-  %48 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %49 = load double, ptr %48, align 8, !tbaa !119
-  %50 = fptrunc double %49 to float
-  %51 = fneg float %50
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  store float %51, ptr %52, align 4, !tbaa !111
-  %53 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  %54 = load double, ptr %53, align 8, !tbaa !119
-  %55 = fptrunc double %54 to float
-  %56 = fneg float %55
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store float %56, ptr %57, align 8, !tbaa !111
-  %58 = getelementptr inbounds nuw i8, ptr %27, i64 24
-  %59 = load double, ptr %58, align 8, !tbaa !119
-  %60 = fptrunc double %59 to float
-  %61 = fneg float %60
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  store float %61, ptr %62, align 4, !tbaa !111
-  %63 = getelementptr inbounds nuw i8, ptr %33, i64 24
-  %64 = load double, ptr %63, align 8, !tbaa !119
-  %65 = fptrunc double %64 to float
-  %66 = fneg float %65
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store float %66, ptr %67, align 8, !tbaa !111
-  %68 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %69 = load double, ptr %68, align 8, !tbaa !119
-  %70 = fptrunc double %69 to float
-  %71 = fdiv float 1.000000e+00, %70
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 124
-  store float %71, ptr %72, align 4, !tbaa !111
-  %73 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  %74 = load double, ptr %73, align 8, !tbaa !119
-  %75 = fptrunc double %74 to float
-  %76 = fdiv float 1.000000e+00, %75
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store float %76, ptr %77, align 8, !tbaa !111
-  %78 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  %79 = load double, ptr %78, align 8, !tbaa !119
-  %80 = fptrunc double %79 to float
-  %81 = fdiv float 1.000000e+00, %80
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  store float %81, ptr %82, align 4, !tbaa !111
+  %26 = load ptr, ptr %13, align 8, !tbaa !108
+  %27 = load double, ptr %26, align 8, !tbaa !119
+  %28 = fptrunc double %27 to float
+  %29 = fdiv float %20, %28
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  store float %29, ptr %30, align 4, !tbaa !111
+  %31 = load ptr, ptr %17, align 8, !tbaa !108
+  %32 = load double, ptr %31, align 8, !tbaa !119
+  %33 = fptrunc double %32 to float
+  %34 = fdiv float %20, %33
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  store float %34, ptr %35, align 8, !tbaa !111
+  %36 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %37 = load double, ptr %36, align 8, !tbaa !119
+  %38 = fptrunc double %37 to float
+  %39 = fneg float %38
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 100
+  store float %39, ptr %40, align 4, !tbaa !111
+  %41 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %42 = load double, ptr %41, align 8, !tbaa !119
+  %43 = fptrunc double %42 to float
+  %44 = fneg float %43
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  store float %44, ptr %45, align 8, !tbaa !111
+  %46 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %47 = load double, ptr %46, align 8, !tbaa !119
+  %48 = fptrunc double %47 to float
+  %49 = fneg float %48
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 108
+  store float %49, ptr %50, align 4, !tbaa !111
+  %51 = getelementptr inbounds nuw i8, ptr %21, i64 24
+  %52 = load double, ptr %51, align 8, !tbaa !119
+  %53 = fptrunc double %52 to float
+  %54 = fneg float %53
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  store float %54, ptr %55, align 8, !tbaa !111
+  %56 = getelementptr inbounds nuw i8, ptr %26, i64 24
+  %57 = load double, ptr %56, align 8, !tbaa !119
+  %58 = fptrunc double %57 to float
+  %59 = fneg float %58
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 116
+  store float %59, ptr %60, align 4, !tbaa !111
+  %61 = getelementptr inbounds nuw i8, ptr %31, i64 24
+  %62 = load double, ptr %61, align 8, !tbaa !119
+  %63 = fptrunc double %62 to float
+  %64 = fneg float %63
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  store float %64, ptr %65, align 8, !tbaa !111
+  %66 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %67 = load double, ptr %66, align 8, !tbaa !119
+  %68 = fptrunc double %67 to float
+  %69 = fdiv float 1.000000e+00, %68
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 124
+  store float %69, ptr %70, align 4, !tbaa !111
+  %71 = getelementptr inbounds nuw i8, ptr %26, i64 16
+  %72 = load double, ptr %71, align 8, !tbaa !119
+  %73 = fptrunc double %72 to float
+  %74 = fdiv float 1.000000e+00, %73
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  store float %74, ptr %75, align 8, !tbaa !111
+  %76 = getelementptr inbounds nuw i8, ptr %31, i64 16
+  %77 = load double, ptr %76, align 8, !tbaa !119
+  %78 = fptrunc double %77 to float
+  %79 = fdiv float 1.000000e+00, %78
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 132
+  store float %79, ptr %80, align 4, !tbaa !111
   ret void
 }
 
@@ -1543,34 +1541,30 @@ define hidden void @_ZN19OpenColorIO_v2_5dev15Lin2LogRenderer10updateDataERSt10s
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store float %51, ptr %52, align 8, !tbaa !111
   %53 = load double, ptr %24, align 8, !tbaa !119
-  %54 = tail call noundef float @log2f(float noundef %47) #26, !tbaa !112
-  %55 = fpext float %54 to double
-  %56 = fdiv double %53, %55
-  %57 = fptrunc double %56 to float
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  store float %57, ptr %58, align 4, !tbaa !111
-  %59 = load double, ptr %29, align 8, !tbaa !119
-  %60 = tail call noundef float @log2f(float noundef %47) #26, !tbaa !112
-  %61 = fpext float %60 to double
-  %62 = fdiv double %59, %61
+  %54 = fdiv double %53, %49
+  %55 = fptrunc double %54 to float
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 116
+  store float %55, ptr %56, align 4, !tbaa !111
+  %57 = load double, ptr %29, align 8, !tbaa !119
+  %58 = fdiv double %57, %49
+  %59 = fptrunc double %58 to float
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  store float %59, ptr %60, align 8, !tbaa !111
+  %61 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %62 = load double, ptr %61, align 8, !tbaa !119
   %63 = fptrunc double %62 to float
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store float %63, ptr %64, align 8, !tbaa !111
-  %65 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 124
+  store float %63, ptr %64, align 4, !tbaa !111
+  %65 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %66 = load double, ptr %65, align 8, !tbaa !119
   %67 = fptrunc double %66 to float
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 124
-  store float %67, ptr %68, align 4, !tbaa !111
-  %69 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  store float %67, ptr %68, align 8, !tbaa !111
+  %69 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %70 = load double, ptr %69, align 8, !tbaa !119
   %71 = fptrunc double %70 to float
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store float %71, ptr %72, align 8, !tbaa !111
-  %73 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %74 = load double, ptr %73, align 8, !tbaa !119
-  %75 = fptrunc double %74 to float
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  store float %75, ptr %76, align 4, !tbaa !111
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 132
+  store float %71, ptr %72, align 4, !tbaa !111
   ret void
 }
 

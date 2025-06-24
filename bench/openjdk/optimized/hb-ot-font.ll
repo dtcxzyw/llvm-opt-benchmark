@@ -11478,8 +11478,8 @@ define linkonce_odr hidden void @_ZNK2OT18glyf_accelerator_t13glyph_for_gidEjb(p
   br i1 %.not, label %12, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 16, i1 false)
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @_hb_NullPool, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 -1, ptr %10, align 8
@@ -11581,8 +11581,8 @@ define linkonce_odr hidden void @_ZNK2OT18glyf_accelerator_t13glyph_for_gidEjb(p
   br i1 %88, label %89, label %93
 
 89:                                               ; preds = %83, %81
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 16, i1 false)
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @_hb_NullPool, ptr %90, align 8
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 -1, ptr %91, align 8
@@ -20138,7 +20138,6 @@ define linkonce_odr hidden void @_ZN2OT4cff219accelerator_templ_tIN3CFF25cff2_pr
 26:                                               ; preds = %2
   store i32 0, ptr %15, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, i8 0, i64 32, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, i8 0, i64 32, i1 false)
   %27 = invoke i32 @hb_face_get_glyph_count(ptr noundef nonnull %1)
           to label %28 unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -20275,9 +20274,9 @@ _ZNK10hb_array_tIKhE8sanitizeI21hb_sanitize_context_tEEbPT_.exit: ; preds = %61
   %.sroa.368.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %.sroa.2.8.insert.ext.i, ptr %.sroa.368.0..sroa_idx, align 8
   store i32 0, ptr %.sroa.gep, align 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, i8 0, i64 32, i1 false)
   store i32 0, ptr %15, align 8
   %85 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, i8 0, i64 32, i1 false)
   br label %86
 
 86:                                               ; preds = %.noexc27, %82
@@ -24395,7 +24394,7 @@ define linkonce_odr hidden void @_ZN2OT4cff119accelerator_templ_tIN3CFF25cff1_pr
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 236
   store i32 8720, ptr %37, align 4
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %38, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %38, i8 0, i64 24, i1 false)
   %39 = invoke i32 @hb_face_get_glyph_count(ptr noundef nonnull %1)
           to label %40 unwind label %.loopexit.split-lp
 

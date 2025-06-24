@@ -3513,12 +3513,9 @@ define void @_Z15prevStepPullComPK6pull_t(ptr dead_on_unwind noalias writable wr
   unreachable
 
 _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %2
-  %.not.i.i.i.i = icmp eq ptr %5, %6
-  br i1 %.not.i.i.i.i, label %.loopexit.thread, label %.loopexit
-
-.loopexit.thread:                                 ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  br label %._crit_edge
+  %.not.i.i.i.i = icmp eq ptr %5, %6
+  br i1 %.not.i.i.i.i, label %._crit_edge, label %.loopexit
 
 .loopexit:                                        ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
   %13 = mul nsw i64 %10, 24
@@ -3559,7 +3556,7 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %2
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %21, label %23, !llvm.loop !255
 
-._crit_edge:                                      ; preds = %21, %.loopexit.thread, %.loopexit
+._crit_edge:                                      ; preds = %21, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i, %.loopexit
   ret void
 }
 

@@ -320,127 +320,107 @@ define void @LAB2RGB(ptr dead_on_unwind noalias writable writeonly sret(%struct.
   %14 = tail call double @pow(double noundef %9, double noundef 3.000000e+00) #19, !tbaa !18
   %15 = load double, ptr @XYZEpsilon, align 8, !tbaa !26
   %16 = fcmp ogt double %14, %15
-  br i1 %16, label %17, label %19
+  %17 = fadd double %9, 0xBFC1A7B9611A7B96
+  %18 = fdiv double %17, 0x401F25E353F7CED9
+  %.012 = select i1 %16, double %14, double %18
+  %19 = load double, ptr @XYZKappa, align 8, !tbaa !26
+  %20 = fmul double %15, %19
+  %21 = fcmp ogt double %3, %20
+  br i1 %21, label %22, label %24
 
-17:                                               ; preds = %2
-  %18 = tail call double @pow(double noundef %9, double noundef 3.000000e+00) #19, !tbaa !18
-  br label %22
+22:                                               ; preds = %2
+  %23 = tail call double @pow(double noundef %5, double noundef 3.000000e+00) #19, !tbaa !18
+  br label %26
 
-19:                                               ; preds = %2
-  %20 = fadd double %9, 0xBFC1A7B9611A7B96
-  %21 = fdiv double %20, 0x401F25E353F7CED9
-  br label %22
+24:                                               ; preds = %2
+  %25 = fdiv double %3, %19
+  br label %26
 
-22:                                               ; preds = %19, %17
-  %.012 = phi double [ %18, %17 ], [ %21, %19 ]
-  %23 = load double, ptr @XYZKappa, align 8, !tbaa !26
-  %24 = fmul double %15, %23
-  %25 = fcmp ogt double %3, %24
-  br i1 %25, label %26, label %28
-
-26:                                               ; preds = %22
-  %27 = tail call double @pow(double noundef %5, double noundef 3.000000e+00) #19, !tbaa !18
-  br label %30
-
-28:                                               ; preds = %22
-  %29 = fdiv double %3, %23
-  br label %30
-
-30:                                               ; preds = %28, %26
-  %.011 = phi double [ %27, %26 ], [ %29, %28 ]
-  %31 = tail call double @pow(double noundef %13, double noundef 3.000000e+00) #19, !tbaa !18
-  %32 = fcmp ogt double %31, %15
-  br i1 %32, label %33, label %35
-
-33:                                               ; preds = %30
-  %34 = tail call double @pow(double noundef %13, double noundef 3.000000e+00) #19, !tbaa !18
-  br label %38
-
-35:                                               ; preds = %30
-  %36 = fadd double %13, 0xBFC1A7B9611A7B96
-  %37 = fdiv double %36, 0x401F25E353F7CED9
-  br label %38
-
-38:                                               ; preds = %35, %33
-  %.0 = phi double [ %34, %33 ], [ %37, %35 ]
-  %39 = fmul double %.012, 0x4057C3020C49BA5E
-  %40 = fmul double %.011, 1.000000e+02
-  %41 = fmul double %.0, 1.088830e+02
+26:                                               ; preds = %24, %22
+  %.011 = phi double [ %23, %22 ], [ %25, %24 ]
+  %27 = tail call double @pow(double noundef %13, double noundef 3.000000e+00) #19, !tbaa !18
+  %28 = fcmp ogt double %27, %15
+  %29 = fadd double %13, 0xBFC1A7B9611A7B96
+  %30 = fdiv double %29, 0x401F25E353F7CED9
+  %.0 = select i1 %28, double %27, double %30
+  %31 = fmul double %.012, 0x4057C3020C49BA5E
+  %32 = fmul double %.011, 1.000000e+02
+  %33 = fmul double %.0, 1.088830e+02
   tail call void @llvm.experimental.noalias.scope.decl(metadata !30)
-  %42 = fdiv double %39, 1.000000e+02
-  %43 = fdiv double %40, 1.000000e+02
-  %44 = fdiv double %41, 1.000000e+02
-  %45 = fmul double %43, -1.537200e+00
-  %46 = tail call double @llvm.fmuladd.f64(double %42, double 3.240600e+00, double %45)
-  %47 = tail call double @llvm.fmuladd.f64(double %44, double -4.986000e-01, double %46)
-  %48 = fmul double %43, 1.875800e+00
-  %49 = tail call double @llvm.fmuladd.f64(double %42, double 0xBFEF013A92A30553, double %48)
-  %50 = tail call double @llvm.fmuladd.f64(double %44, double 4.150000e-02, double %49)
-  %51 = fmul double %43, -2.040000e-01
-  %52 = tail call double @llvm.fmuladd.f64(double %42, double 5.570000e-02, double %51)
-  %53 = tail call double @llvm.fmuladd.f64(double %44, double 1.057000e+00, double %52)
-  %54 = fcmp ogt double %47, 3.130800e-03
-  br i1 %54, label %55, label %58
+  %34 = fdiv double %31, 1.000000e+02
+  %35 = fdiv double %32, 1.000000e+02
+  %36 = fdiv double %33, 1.000000e+02
+  %37 = fmul double %35, -1.537200e+00
+  %38 = tail call double @llvm.fmuladd.f64(double %34, double 3.240600e+00, double %37)
+  %39 = tail call double @llvm.fmuladd.f64(double %36, double -4.986000e-01, double %38)
+  %40 = fmul double %35, 1.875800e+00
+  %41 = tail call double @llvm.fmuladd.f64(double %34, double 0xBFEF013A92A30553, double %40)
+  %42 = tail call double @llvm.fmuladd.f64(double %36, double 4.150000e-02, double %41)
+  %43 = fmul double %35, -2.040000e-01
+  %44 = tail call double @llvm.fmuladd.f64(double %34, double 5.570000e-02, double %43)
+  %45 = tail call double @llvm.fmuladd.f64(double %36, double 1.057000e+00, double %44)
+  %46 = fcmp ogt double %39, 3.130800e-03
+  br i1 %46, label %47, label %50
 
-55:                                               ; preds = %38
-  %56 = tail call double @pow(double noundef %47, double noundef 0x3FDAAAAAAAAAAAAB) #19, !tbaa !18, !noalias !30
-  %57 = tail call double @llvm.fmuladd.f64(double %56, double 1.055000e+00, double -5.500000e-02)
-  br label %60
+47:                                               ; preds = %26
+  %48 = tail call double @pow(double noundef %39, double noundef 0x3FDAAAAAAAAAAAAB) #19, !tbaa !18, !noalias !30
+  %49 = tail call double @llvm.fmuladd.f64(double %48, double 1.055000e+00, double -5.500000e-02)
+  br label %52
 
-58:                                               ; preds = %38
-  %59 = fmul double %47, 1.292000e+01
-  br label %60
+50:                                               ; preds = %26
+  %51 = fmul double %39, 1.292000e+01
+  br label %52
 
-60:                                               ; preds = %58, %55
-  %.034.i = phi double [ %57, %55 ], [ %59, %58 ]
-  %61 = fcmp ogt double %50, 3.130800e-03
-  br i1 %61, label %62, label %65
+52:                                               ; preds = %50, %47
+  %.034.i = phi double [ %49, %47 ], [ %51, %50 ]
+  %53 = fcmp ogt double %42, 3.130800e-03
+  br i1 %53, label %54, label %57
 
-62:                                               ; preds = %60
-  %63 = tail call double @pow(double noundef %50, double noundef 0x3FDAAAAAAAAAAAAB) #19, !tbaa !18, !noalias !30
-  %64 = tail call double @llvm.fmuladd.f64(double %63, double 1.055000e+00, double -5.500000e-02)
-  br label %67
+54:                                               ; preds = %52
+  %55 = tail call double @pow(double noundef %42, double noundef 0x3FDAAAAAAAAAAAAB) #19, !tbaa !18, !noalias !30
+  %56 = tail call double @llvm.fmuladd.f64(double %55, double 1.055000e+00, double -5.500000e-02)
+  br label %59
 
-65:                                               ; preds = %60
-  %66 = fmul double %50, 1.292000e+01
-  br label %67
+57:                                               ; preds = %52
+  %58 = fmul double %42, 1.292000e+01
+  br label %59
 
-67:                                               ; preds = %65, %62
-  %.033.i = phi double [ %64, %62 ], [ %66, %65 ]
-  %68 = fcmp ogt double %53, 3.130800e-03
-  br i1 %68, label %69, label %72
+59:                                               ; preds = %57, %54
+  %.033.i = phi double [ %56, %54 ], [ %58, %57 ]
+  %60 = fcmp ogt double %45, 3.130800e-03
+  br i1 %60, label %61, label %64
 
-69:                                               ; preds = %67
-  %70 = tail call double @pow(double noundef %53, double noundef 0x3FDAAAAAAAAAAAAB) #19, !tbaa !18, !noalias !30
-  %71 = tail call double @llvm.fmuladd.f64(double %70, double 1.055000e+00, double -5.500000e-02)
+61:                                               ; preds = %59
+  %62 = tail call double @pow(double noundef %45, double noundef 0x3FDAAAAAAAAAAAAB) #19, !tbaa !18, !noalias !30
+  %63 = tail call double @llvm.fmuladd.f64(double %62, double 1.055000e+00, double -5.500000e-02)
   br label %XYZ2RGB.exit
 
-72:                                               ; preds = %67
-  %73 = fmul double %53, 1.292000e+01
+64:                                               ; preds = %59
+  %65 = fmul double %45, 1.292000e+01
   br label %XYZ2RGB.exit
 
-XYZ2RGB.exit:                                     ; preds = %69, %72
-  %.0.i = phi double [ %71, %69 ], [ %73, %72 ]
-  %74 = fcmp olt double %.034.i, 0.000000e+00
-  %75 = select i1 %74, double 0.000000e+00, double %.034.i
-  %76 = fmul double %75, 2.550000e+02
-  %77 = fcmp ogt double %76, 2.550000e+02
-  %78 = select i1 %77, double 2.550000e+02, double %76
-  %79 = fcmp olt double %.033.i, 0.000000e+00
-  %80 = select i1 %79, double 0.000000e+00, double %.033.i
-  %81 = fmul double %80, 2.550000e+02
-  %82 = fcmp ogt double %81, 2.550000e+02
-  %83 = select i1 %82, double 2.550000e+02, double %81
-  %84 = fcmp olt double %.0.i, 0.000000e+00
-  %85 = select i1 %84, double 0.000000e+00, double %.0.i
-  %86 = fmul double %85, 2.550000e+02
-  %87 = fcmp ogt double %86, 2.550000e+02
-  %88 = select i1 %87, double 2.550000e+02, double %86
-  store double %78, ptr %0, align 8, !tbaa !3, !alias.scope !33
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %83, ptr %89, align 8, !tbaa !8, !alias.scope !33
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store double %88, ptr %90, align 8, !tbaa !9, !alias.scope !33
+XYZ2RGB.exit:                                     ; preds = %61, %64
+  %.0.i = phi double [ %63, %61 ], [ %65, %64 ]
+  %66 = fcmp olt double %.034.i, 0.000000e+00
+  %67 = select i1 %66, double 0.000000e+00, double %.034.i
+  %68 = fmul double %67, 2.550000e+02
+  %69 = fcmp ogt double %68, 2.550000e+02
+  %70 = select i1 %69, double 2.550000e+02, double %68
+  %71 = fcmp olt double %.033.i, 0.000000e+00
+  %72 = select i1 %71, double 0.000000e+00, double %.033.i
+  %73 = fmul double %72, 2.550000e+02
+  %74 = fcmp ogt double %73, 2.550000e+02
+  %75 = select i1 %74, double 2.550000e+02, double %73
+  %76 = fcmp olt double %.0.i, 0.000000e+00
+  %77 = select i1 %76, double 0.000000e+00, double %.0.i
+  %78 = fmul double %77, 2.550000e+02
+  %79 = fcmp ogt double %78, 2.550000e+02
+  %80 = select i1 %79, double 2.550000e+02, double %78
+  store double %70, ptr %0, align 8, !tbaa !3, !alias.scope !33
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store double %75, ptr %81, align 8, !tbaa !8, !alias.scope !33
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store double %80, ptr %82, align 8, !tbaa !9, !alias.scope !33
   ret void
 }
 

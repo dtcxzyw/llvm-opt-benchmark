@@ -951,7 +951,6 @@ H5FD__core_get_default_config.exit:               ; preds = %45, %43, %41, %36
   br label %.thread253
 
 82:                                               ; preds = %74
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %5, i8 0, i64 144, i1 false)
   %83 = call i32 @fstat64(i32 noundef %76, ptr noundef nonnull %5) #18
   %84 = icmp slt i32 %83, 0
   br i1 %84, label %85, label %113
@@ -984,7 +983,6 @@ H5FD__core_get_default_config.exit:               ; preds = %45, %43, %41, %36
   br label %.thread253
 
 103:                                              ; preds = %96
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %5, i8 0, i64 144, i1 false)
   %104 = call i32 @fstat64(i32 noundef %97, ptr noundef nonnull %5) #18
   %105 = icmp slt i32 %104, 0
   br i1 %105, label %106, label %113

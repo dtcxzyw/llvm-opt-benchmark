@@ -8272,6 +8272,7 @@ _ZNK3CFF8FDSelect6get_fdEj.exit:                  ; preds = %105, %116, %118, %_
   br i1 %173, label %_ZN3CFF12call_stack_tC2Ev.exit.i.i, label %172
 
 _ZN3CFF12call_stack_tC2Ev.exit.i.i:               ; preds = %172
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   %.sroa.2.12.insert.mask.i.i = and i64 %111, 4294967295
   store ptr %110, ptr %13, align 8
   store i64 %.sroa.2.12.insert.mask.i.i, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
@@ -8282,7 +8283,6 @@ _ZN3CFF12call_stack_tC2Ev.exit.i.i:               ; preds = %172
   store i32 0, ptr %21, align 4, !tbaa !447
   store i32 0, ptr %22, align 8, !tbaa !448
   store i32 0, ptr %23, align 4, !tbaa !449
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   store ptr %162, ptr %25, align 8, !tbaa !450
   %.not.i.i.i.i29 = icmp eq ptr %162, null
   br i1 %.not.i.i.i.i29, label %_ZN3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEE4initEPKS5_.exit.i.i, label %_ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEE9get_countEv.exit.i.i.i
@@ -8669,6 +8669,7 @@ _ZN11hb_vector_tIPKN3CFF15parsed_cs_str_tELb0EE12resize_exactEib.exit: ; preds =
   %63 = zext nneg i32 %61 to i64
   %64 = getelementptr inbounds nuw %"struct.CFF::parsed_cs_str_t", ptr %62, i64 %63
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %65, i8 0, i64 16, i1 false)
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 24
   %67 = load i8, ptr %66, align 8
   %68 = and i8 %67, -28
@@ -8676,7 +8677,6 @@ _ZN11hb_vector_tIPKN3CFF15parsed_cs_str_tELb0EE12resize_exactEib.exit: ; preds =
   %69 = getelementptr inbounds nuw i8, ptr %64, i64 32
   store double 0.000000e+00, ptr %69, align 8, !tbaa !452
   store i32 0, ptr %64, align 8, !tbaa !478
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %65, i8 0, i64 16, i1 false)
   %70 = load i32, ptr %55, align 4, !tbaa !335
   %71 = add i32 %70, 1
   store i32 %71, ptr %55, align 4, !tbaa !335
@@ -8749,6 +8749,7 @@ _ZN11hb_vector_tIN3CFF15parsed_cs_str_tELb0EE12resize_exactEib.exit: ; preds = %
   %104 = zext nneg i32 %102 to i64
   %105 = getelementptr inbounds nuw %"struct.CFF::parsed_cs_str_t", ptr %103, i64 %104
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %106, i8 0, i64 16, i1 false)
   %107 = getelementptr inbounds nuw i8, ptr %105, i64 24
   %108 = load i8, ptr %107, align 8
   %109 = and i8 %108, -28
@@ -8756,7 +8757,6 @@ _ZN11hb_vector_tIN3CFF15parsed_cs_str_tELb0EE12resize_exactEib.exit: ; preds = %
   %110 = getelementptr inbounds nuw i8, ptr %105, i64 32
   store double 0.000000e+00, ptr %110, align 8, !tbaa !452
   store i32 0, ptr %105, align 8, !tbaa !478
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %106, i8 0, i64 16, i1 false)
   %111 = load i32, ptr %96, align 4, !tbaa !335
   %112 = add i32 %111, 1
   store i32 %112, ptr %96, align 4, !tbaa !335
@@ -8878,6 +8878,7 @@ _ZN11hb_vector_tIN3CFF19parsed_cs_str_vec_tELb0EEixEi.exit: ; preds = %154, %155
   %168 = zext nneg i32 %166 to i64
   %169 = getelementptr inbounds nuw %"struct.CFF::parsed_cs_str_t", ptr %167, i64 %168
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %170, i8 0, i64 16, i1 false)
   %171 = getelementptr inbounds nuw i8, ptr %169, i64 24
   %172 = load i8, ptr %171, align 8
   %173 = and i8 %172, -28
@@ -8885,7 +8886,6 @@ _ZN11hb_vector_tIN3CFF19parsed_cs_str_vec_tELb0EEixEi.exit: ; preds = %154, %155
   %174 = getelementptr inbounds nuw i8, ptr %169, i64 32
   store double 0.000000e+00, ptr %174, align 8, !tbaa !452
   store i32 0, ptr %169, align 8, !tbaa !478
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %170, i8 0, i64 16, i1 false)
   %175 = load i32, ptr %160, align 4, !tbaa !335
   %176 = add i32 %175, 1
   store i32 %176, ptr %160, align 4, !tbaa !335
@@ -9364,6 +9364,7 @@ _ZN3CFF15parsed_cs_str_taSERKS0_.exit:            ; preds = %385, %_ZN11hb_vecto
   br i1 %406, label %_ZN3CFF12call_stack_tC2Ev.exit.i.i, label %405
 
 _ZN3CFF12call_stack_tC2Ev.exit.i.i:               ; preds = %405
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %242, i8 0, i64 16, i1 false)
   %.sroa.2.12.insert.mask.i.i = and i64 %287, 4294967295
   store ptr %286, ptr %239, align 8
   store i64 %.sroa.2.12.insert.mask.i.i, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
@@ -9374,7 +9375,6 @@ _ZN3CFF12call_stack_tC2Ev.exit.i.i:               ; preds = %405
   store i32 0, ptr %247, align 4, !tbaa !447
   store i32 0, ptr %248, align 8, !tbaa !448
   store i32 0, ptr %249, align 4, !tbaa !449
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %242, i8 0, i64 16, i1 false)
   store ptr %396, ptr %251, align 8, !tbaa !450
   %.not.i.i.i.i103 = icmp eq ptr %396, null
   br i1 %.not.i.i.i.i103, label %_ZN3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEE4initEPKS5_.exit.i.i, label %_ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEE9get_countEv.exit.i.i.i
@@ -21025,8 +21025,8 @@ _ZN11hb_vector_tIN3CFF15parsed_cs_str_tELb0EE5resetEv.exit: ; preds = %7, %_ZN11
   %41 = load i32, ptr %40, align 8, !tbaa !478
   store i32 %41, ptr %39, align 8, !tbaa !478
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %43 = getelementptr inbounds nuw i8, ptr %40, i64 12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, i8 0, i64 16, i1 false)
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 12
   %44 = load i32, ptr %43, align 4, !tbaa !484
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 12
   %.not19.i.i.not.i.i.i.i = icmp eq i32 %44, 0
@@ -21082,8 +21082,8 @@ _ZN11hb_vector_tIN3CFF15parsed_cs_str_tELb0EE10copy_arrayIS1_TnPN12hb_enable_ifI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN11hb_vector_tIN3CFF15parsed_cs_str_tELb0EEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #0 comdat align 2 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4, !tbaa !335
   %5 = tail call noundef zeroext i1 @_ZN11hb_vector_tIN3CFF15parsed_cs_str_tELb0EE5allocEjb(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %4, i1 noundef zeroext true)
   %6 = load i32, ptr %0, align 8, !tbaa !489
@@ -21114,8 +21114,8 @@ define linkonce_odr dso_local void @_ZN11hb_vector_tIN3CFF15parsed_cs_str_tELb0E
   %21 = load i32, ptr %20, align 8, !tbaa !478
   store i32 %21, ptr %19, align 8, !tbaa !478
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false)
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 12
   %24 = load i32, ptr %23, align 4, !tbaa !484
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 12
   %.not19.i.i.not.i.i.i.i = icmp eq i32 %24, 0

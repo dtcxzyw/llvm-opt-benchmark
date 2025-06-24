@@ -1264,10 +1264,10 @@ b2GetLengthAndNormalize.exit447:                  ; preds = %b2GetLengthAndNorma
   br label %.thread._crit_edge
 
 .thread._crit_edge:                               ; preds = %354, %266
-  %.sink702 = phi float [ %350, %354 ], [ %262, %266 ]
+  %.sink701 = phi float [ %350, %354 ], [ %262, %266 ]
   %.sink = phi i16 [ 256, %354 ], [ 1, %266 ]
   %372 = phi <2 x float> [ %.sroa.01.4.vec.insert.i571, %354 ], [ %.sroa.0127.0, %266 ]
-  %373 = fsub float %.sink702, %129
+  %373 = fsub float %.sink701, %129
   %374 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store float %373, ptr %374, align 4, !tbaa !10
   %375 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -1276,7 +1276,7 @@ b2GetLengthAndNormalize.exit447:                  ; preds = %b2GetLengthAndNorma
   store i32 2, ptr %376, align 4, !tbaa !14
   %377 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %.pre = extractelement <2 x float> %372, i64 0
-  %.pre698 = extractelement <2 x float> %372, i64 1
+  %.pre697 = extractelement <2 x float> %372, i64 1
   br label %.lr.ph
 
 378:                                              ; preds = %158, %254, %340, %169
@@ -1339,7 +1339,7 @@ b2Normalize.exit:                                 ; preds = %383, %381, %387
 
 .lr.ph:                                           ; preds = %b2Normalize.exit, %.thread._crit_edge
   %412 = phi ptr [ %377, %.thread._crit_edge ], [ %379, %b2Normalize.exit ]
-  %.sroa.0.4.vec.extract.i650.pre-phi = phi float [ %.pre698, %.thread._crit_edge ], [ %.sroa.0.4.vec.extract.i635, %b2Normalize.exit ]
+  %.sroa.0.4.vec.extract.i650.pre-phi = phi float [ %.pre697, %.thread._crit_edge ], [ %.sroa.0.4.vec.extract.i635, %b2Normalize.exit ]
   %.sroa.0.0.vec.extract.i648.pre-phi = phi float [ %.pre, %.thread._crit_edge ], [ %.sroa.0.0.vec.extract.i632, %b2Normalize.exit ]
   %413 = fmul float %.sroa.05.0.vec.extract.i, %.sroa.0.0.vec.extract.i648.pre-phi
   %414 = fmul float %.sroa.05.4.vec.extract.i, %.sroa.0.4.vec.extract.i650.pre-phi

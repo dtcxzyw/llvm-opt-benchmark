@@ -19762,12 +19762,12 @@ define linkonce_odr void @_ZNK7xgboost3gbm6GBTree12FeatureScoreERKNSt7__cxx1112b
   %17 = load ptr, ptr %16, align 8, !tbaa !129
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = load i32, ptr %18, align 8, !tbaa !257
-  %.not.i.i.i.i = icmp eq i32 %19, 0
-  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i, label %21
-
-_ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i: ; preds = %6
-  %20 = getelementptr inbounds nuw i8, ptr %8, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
+  %.not.i.i.i.i = icmp eq i32 %19, 0
+  br i1 %.not.i.i.i.i, label %.loopexit157.thread, label %21
+
+.loopexit157.thread:                              ; preds = %6
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   br label %.loopexit156
@@ -19796,9 +19796,9 @@ _ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i: ; preds = %6
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %29, i8 0, i64 %28, i1 false), !tbaa !513
   br label %.loopexit156
 
-.loopexit156:                                     ; preds = %.noexc56, %_ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i
-  %32 = phi ptr [ %20, %_ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i ], [ %27, %.noexc56 ]
-  %.0.i.i.i.i.i.i.i55 = phi ptr [ null, %_ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i ], [ %30, %.noexc56 ]
+.loopexit156:                                     ; preds = %.loopexit157.thread, %.noexc56
+  %32 = phi ptr [ %27, %.noexc56 ], [ %20, %.loopexit157.thread ]
+  %.0.i.i.i.i.i.i.i55 = phi ptr [ %30, %.noexc56 ], [ null, %.loopexit157.thread ]
   %33 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %.0.i.i.i.i.i.i.i55, ptr %33, align 8, !tbaa !228
   %34 = icmp eq i64 %2, 0
@@ -19809,10 +19809,10 @@ _ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i: ; preds = %6
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !137
   %.phi.trans.insert163 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %.pre164 = load ptr, ptr %.phi.trans.insert163, align 8, !tbaa !138
-  %.pre168 = ptrtoint ptr %.pre to i64
-  %.pre170 = ptrtoint ptr %.pre164 to i64
-  %.pre172 = sub i64 %.pre168, %.pre170
-  %.pre174 = ashr exact i64 %.pre172, 3
+  %.pre167 = ptrtoint ptr %.pre to i64
+  %.pre168 = ptrtoint ptr %.pre164 to i64
+  %.pre170 = sub i64 %.pre167, %.pre168
+  %.pre172 = ashr exact i64 %.pre170, 3
   br label %62
 
 35:                                               ; preds = %.loopexit156
@@ -19892,13 +19892,13 @@ _ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_T0_.exit: 
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit101
 
 62:                                               ; preds = %.loopexit156._crit_edge, %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_T0_.exit
-  %.pre-phi175 = phi i64 [ %.pre174, %.loopexit156._crit_edge ], [ %43, %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_T0_.exit ]
+  %.pre-phi173 = phi i64 [ %.pre172, %.loopexit156._crit_edge ], [ %43, %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_T0_.exit ]
   %.sroa.18.0 = phi i64 [ 0, %.loopexit156._crit_edge ], [ %.sroa.11.0130, %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_T0_.exit ]
   %.sroa.0110.0 = phi ptr [ null, %.loopexit156._crit_edge ], [ %.sroa.0110.2131, %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_T0_.exit ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #23
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  store i64 %.pre-phi175, ptr %10, align 8, !tbaa !108
+  store i64 %.pre-phi173, ptr %10, align 8, !tbaa !108
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #23
   store ptr %7, ptr %11, align 8, !tbaa !515
   %65 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -25100,12 +25100,9 @@ define linkonce_odr void @_ZNK7xgboost3gbm11GBTreeModel9DumpModelERKNS_10Feature
   unreachable
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i: ; preds = %6
-  %.not.i.i.i.i = icmp eq ptr %12, %13
-  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2EmRKS6_.exit.thread.i, label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2EmRKS6_.exit.i
-
-_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2EmRKS6_.exit.thread.i: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  br label %.loopexit
+  %.not.i.i.i.i = icmp eq ptr %12, %13
+  br i1 %.not.i.i.i.i, label %.loopexit, label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2EmRKS6_.exit.i
 
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2EmRKS6_.exit.i: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i
   %19 = shl nuw nsw i64 %16, 2
@@ -25129,8 +25126,8 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %.not.i.i.i.i.i = icmp eq i64 %25, 0
   br i1 %.not.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i, !llvm.loop !666
 
-.loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2EmRKS6_.exit.thread.i
-  %.0.lcssa.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2EmRKS6_.exit.thread.i ], [ %26, %.lr.ph.i.i.i.i.i ]
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i
+  %.0.lcssa.i.i.i.i.i = phi ptr [ null, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i ], [ %26, %.lr.ph.i.i.i.i.i ]
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.0.lcssa.i.i.i.i.i, ptr %27, align 8, !tbaa !115
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #23

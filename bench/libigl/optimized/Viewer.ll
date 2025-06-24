@@ -6537,6 +6537,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl11deserializeINS_6openg
   unreachable
 
 _ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %.not.i.i.i.i = icmp ne i64 %14, 0
   call void @llvm.assume(i1 %.not.i.i.i.i)
   %19 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %14) #38
@@ -6760,6 +6761,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl11deserializeINS_6openg
   unreachable
 
 _ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %.not.i.i.i.i = icmp ne i64 %14, 0
   call void @llvm.assume(i1 %.not.i.i.i.i)
   %19 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %14) #38

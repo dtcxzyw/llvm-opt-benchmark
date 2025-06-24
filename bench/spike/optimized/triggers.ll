@@ -2261,7 +2261,7 @@ define void @_ZN8triggers8module_tC2Ej(ptr noundef nonnull writeonly align 8 cap
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %.not.i.i.i.i = icmp eq i32 %1, 0
-  br i1 %.not.i.i.i.i, label %12, label %.noexc
+  br i1 %.not.i.i.i.i, label %._crit_edge, label %.noexc
 
 .noexc:                                           ; preds = %2
   %4 = zext i32 %1 to i64
@@ -2281,40 +2281,36 @@ _ZSt6fill_nIPPN8triggers9trigger_tEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i.i.i: ;
   tail call void @llvm.memset.p0.i64(ptr align 8 %9, i8 0, i64 %11, i1 false), !tbaa !206
   br label %.lr.ph
 
-12:                                               ; preds = %2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
-  br label %._crit_edge
-
 .lr.ph:                                           ; preds = %_ZSt6fill_nIPPN8triggers9trigger_tEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc
   %.0.i.i.i.i.i.ph = phi ptr [ %7, %_ZSt6fill_nIPPN8triggers9trigger_tEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %9, %.noexc ]
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.0.i.i.i.i.i.ph, ptr %13, align 8, !tbaa !208
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %.0.i.i.i.i.i.ph, ptr %12, align 8, !tbaa !208
   %wide.trip.count = zext i32 %1 to i64
-  br label %14
+  br label %13
 
-._crit_edge:                                      ; preds = %16, %12
+._crit_edge:                                      ; preds = %15, %2
   ret void
 
-14:                                               ; preds = %.lr.ph, %16
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
-  %15 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
-          to label %16 unwind label %_ZNSt6vectorIPN8triggers9trigger_tESaIS2_EED2Ev.exit
+13:                                               ; preds = %.lr.ph, %15
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
+  %14 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
+          to label %15 unwind label %_ZNSt6vectorIPN8triggers9trigger_tESaIS2_EED2Ev.exit
 
-16:                                               ; preds = %14
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %15, i8 0, i64 48, i1 false)
-  store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTVN8triggers18disabled_trigger_tE, i64 16), ptr %15, align 8, !tbaa !147
-  %17 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
-  store ptr %15, ptr %17, align 8, !tbaa !206
+15:                                               ; preds = %13
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %14, i8 0, i64 48, i1 false)
+  store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTVN8triggers18disabled_trigger_tE, i64 16), ptr %14, align 8, !tbaa !147
+  %16 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  store ptr %14, ptr %16, align 8, !tbaa !206
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !209
+  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !209
 
-_ZNSt6vectorIPN8triggers9trigger_tESaIS2_EED2Ev.exit: ; preds = %14
-  %18 = landingpad { ptr, i32 }
+_ZNSt6vectorIPN8triggers9trigger_tESaIS2_EED2Ev.exit: ; preds = %13
+  %17 = landingpad { ptr, i32 }
           cleanup
   %.idx = shl nuw nsw i64 %4, 3
   tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %.idx) #24
-  resume { ptr, i32 } %18
+  resume { ptr, i32 } %17
 }
 
 ; Function Attrs: nobuiltin allocsize(0)

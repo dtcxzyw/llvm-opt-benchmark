@@ -342,116 +342,112 @@ define void @_ZN5folly3ssl16OpenSSLCertUtils18getSubjectAltNamesB5cxx11ER7x509_s
   %6 = tail call ptr @X509_get_ext_d2i(ptr noundef nonnull %1, i32 noundef 85, ptr noundef null, ptr noundef null)
   store ptr %6, ptr %3, align 8, !tbaa !24
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %7, label %8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  br i1 %.not, label %"_ZN5folly6detail14ScopeGuardImplIZNS_3ssl16OpenSSLCertUtils18getSubjectAltNamesB5cxx11ER7x509_stE3$_0Lb1EED2Ev.exit", label %7
 
 7:                                                ; preds = %2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  br label %"_ZN5folly6detail14ScopeGuardImplIZNS_3ssl16OpenSSLCertUtils18getSubjectAltNamesB5cxx11ER7x509_stE3$_0Lb1EED2Ev.exit"
+  %8 = invoke i32 @OPENSSL_sk_num(ptr noundef nonnull %6)
+          to label %.preheader unwind label %10
 
-8:                                                ; preds = %2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  %9 = invoke i32 @OPENSSL_sk_num(ptr noundef nonnull %6)
-          to label %.preheader unwind label %11
+.preheader:                                       ; preds = %7
+  %9 = icmp sgt i32 %8, 0
+  br i1 %9, label %.lr.ph, label %._crit_edge
 
-.preheader:                                       ; preds = %8
-  %10 = icmp sgt i32 %9, 0
-  br i1 %10, label %.lr.ph, label %._crit_edge
-
-11:                                               ; preds = %8
-  %12 = landingpad { ptr, i32 }
-          cleanup
-  br label %40
-
-.lr.ph:                                           ; preds = %.preheader, %37
-  %.029 = phi i32 [ %38, %37 ], [ 0, %.preheader ]
-  %13 = invoke ptr @OPENSSL_sk_value(ptr noundef nonnull %6, i32 noundef %.029)
-          to label %14 unwind label %17
-
-14:                                               ; preds = %.lr.ph
-  %.not17 = icmp eq ptr %13, null
-  br i1 %.not17, label %37, label %15
-
-15:                                               ; preds = %14
-  %16 = load i32, ptr %13, align 8, !tbaa !26
-  %.not18 = icmp eq i32 %16, 2
-  br i1 %.not18, label %19, label %37
-
-17:                                               ; preds = %.lr.ph
-  %18 = landingpad { ptr, i32 }
-          cleanup
-  br label %40
-
-19:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #21
-  %20 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %21 = load ptr, ptr %20, align 8, !tbaa !20
-  %22 = invoke ptr @ASN1_STRING_get0_data(ptr noundef %21)
-          to label %23 unwind label %30
-
-23:                                               ; preds = %19
-  store ptr %22, ptr %4, align 8, !tbaa !29
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #21
-  %24 = load ptr, ptr %20, align 8, !tbaa !20
-  %25 = invoke i32 @ASN1_STRING_length(ptr noundef %24)
-          to label %26 unwind label %32
-
-26:                                               ; preds = %23
-  store i32 %25, ptr %5, align 4, !tbaa !30
-  %27 = load ptr, ptr %4, align 8, !tbaa !29
-  %28 = icmp eq ptr %27, null
-  %29 = icmp slt i32 %25, 1
-  %or.cond = select i1 %28, i1 true, i1 %29
-  br i1 %or.cond, label %36, label %34
-
-30:                                               ; preds = %19
-  %31 = landingpad { ptr, i32 }
+10:                                               ; preds = %7
+  %11 = landingpad { ptr, i32 }
           cleanup
   br label %39
 
-32:                                               ; preds = %34, %23
-  %33 = landingpad { ptr, i32 }
+.lr.ph:                                           ; preds = %.preheader, %36
+  %.029 = phi i32 [ %37, %36 ], [ 0, %.preheader ]
+  %12 = invoke ptr @OPENSSL_sk_value(ptr noundef nonnull %6, i32 noundef %.029)
+          to label %13 unwind label %16
+
+13:                                               ; preds = %.lr.ph
+  %.not17 = icmp eq ptr %12, null
+  br i1 %.not17, label %36, label %14
+
+14:                                               ; preds = %13
+  %15 = load i32, ptr %12, align 8, !tbaa !26
+  %.not18 = icmp eq i32 %15, 2
+  br i1 %.not18, label %18, label %36
+
+16:                                               ; preds = %.lr.ph
+  %17 = landingpad { ptr, i32 }
+          cleanup
+  br label %39
+
+18:                                               ; preds = %14
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #21
+  %19 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %20 = load ptr, ptr %19, align 8, !tbaa !20
+  %21 = invoke ptr @ASN1_STRING_get0_data(ptr noundef %20)
+          to label %22 unwind label %29
+
+22:                                               ; preds = %18
+  store ptr %21, ptr %4, align 8, !tbaa !29
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #21
+  %23 = load ptr, ptr %19, align 8, !tbaa !20
+  %24 = invoke i32 @ASN1_STRING_length(ptr noundef %23)
+          to label %25 unwind label %31
+
+25:                                               ; preds = %22
+  store i32 %24, ptr %5, align 4, !tbaa !30
+  %26 = load ptr, ptr %4, align 8, !tbaa !29
+  %27 = icmp eq ptr %26, null
+  %28 = icmp slt i32 %24, 1
+  %or.cond = select i1 %27, i1 true, i1 %28
+  br i1 %or.cond, label %35, label %33
+
+29:                                               ; preds = %18
+  %30 = landingpad { ptr, i32 }
+          cleanup
+  br label %38
+
+31:                                               ; preds = %33, %22
+  %32 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #21
-  br label %39
+  br label %38
 
-34:                                               ; preds = %26
-  %35 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJRPKcRiEEERS5_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
-          to label %36 unwind label %32
+33:                                               ; preds = %25
+  %34 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJRPKcRiEEERS5_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
+          to label %35 unwind label %31
 
-36:                                               ; preds = %34, %26
+35:                                               ; preds = %33, %25
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #21
-  br label %37
+  br label %36
 
-37:                                               ; preds = %14, %15, %36
-  %38 = add nuw nsw i32 %.029, 1
-  %exitcond.not = icmp eq i32 %38, %9
+36:                                               ; preds = %13, %14, %35
+  %37 = add nuw nsw i32 %.029, 1
+  %exitcond.not = icmp eq i32 %37, %8
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
 
-39:                                               ; preds = %32, %30
-  %.pn = phi { ptr, i32 } [ %33, %32 ], [ %31, %30 ]
+38:                                               ; preds = %31, %29
+  %.pn = phi { ptr, i32 } [ %32, %31 ], [ %30, %29 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #21
-  br label %40
+  br label %39
 
-40:                                               ; preds = %17, %39, %11
-  %.pn.pn.pn = phi { ptr, i32 } [ %12, %11 ], [ %.pn, %39 ], [ %18, %17 ]
+39:                                               ; preds = %16, %38, %10
+  %.pn.pn.pn = phi { ptr, i32 } [ %11, %10 ], [ %.pn, %38 ], [ %17, %16 ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #21
   call fastcc void @"_ZN5folly6detail14ScopeGuardImplIZNS_3ssl16OpenSSLCertUtils18getSubjectAltNamesB5cxx11ER7x509_stE3$_0Lb1EED2Ev"(i8 0, ptr nonnull %3) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #21
   resume { ptr, i32 } %.pn.pn.pn
 
-._crit_edge:                                      ; preds = %37, %.preheader
+._crit_edge:                                      ; preds = %36, %.preheader
   invoke void @OPENSSL_sk_pop_free(ptr noundef nonnull %6, ptr noundef nonnull @GENERAL_NAME_free)
-          to label %"_ZN5folly6detail14ScopeGuardImplIZNS_3ssl16OpenSSLCertUtils18getSubjectAltNamesB5cxx11ER7x509_stE3$_0Lb1EED2Ev.exit" unwind label %41
+          to label %"_ZN5folly6detail14ScopeGuardImplIZNS_3ssl16OpenSSLCertUtils18getSubjectAltNamesB5cxx11ER7x509_stE3$_0Lb1EED2Ev.exit" unwind label %40
 
-41:                                               ; preds = %._crit_edge
-  %42 = landingpad { ptr, i32 }
+40:                                               ; preds = %._crit_edge
+  %41 = landingpad { ptr, i32 }
           catch ptr null
-  %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #22
+  %42 = extractvalue { ptr, i32 } %41, 0
+  call void @__clang_call_terminate(ptr %42) #22
   unreachable
 
-"_ZN5folly6detail14ScopeGuardImplIZNS_3ssl16OpenSSLCertUtils18getSubjectAltNamesB5cxx11ER7x509_stE3$_0Lb1EED2Ev.exit": ; preds = %._crit_edge, %7
+"_ZN5folly6detail14ScopeGuardImplIZNS_3ssl16OpenSSLCertUtils18getSubjectAltNamesB5cxx11ER7x509_stE3$_0Lb1EED2Ev.exit": ; preds = %2, %._crit_edge
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #21
   ret void
 }

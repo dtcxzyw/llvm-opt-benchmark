@@ -12172,57 +12172,56 @@ _ZN4pbrt8HairBxDF2NpEfifff.exit:                  ; preds = %.lr.ph11.i, %.prehe
   %156 = fneg float %155
   %157 = fdiv float %156, %140
   %158 = call noundef float @expf(float noundef %157) #31, !tbaa !67
-  %159 = call noundef float @expf(float noundef %157) #31, !tbaa !67
-  %160 = fadd float %159, 1.000000e+00
-  %161 = fmul float %160, %160
-  %162 = fmul float %140, %161
-  %163 = fdiv float %158, %162
-  %164 = fdiv float 0xC00921FB60000000, %140
-  %165 = call noundef float @expf(float noundef %164) #31, !tbaa !67
-  %166 = fadd float %165, 1.000000e+00
-  %167 = fdiv float 1.000000e+00, %166
-  %168 = fdiv float 0x400921FB60000000, %140
-  %169 = call noundef float @expf(float noundef %168) #31, !tbaa !67
-  %170 = fadd float %169, 1.000000e+00
-  %171 = fdiv float 1.000000e+00, %170
-  %172 = fsub float %167, %171
-  %173 = fdiv float %163, %172
+  %159 = fadd float %158, 1.000000e+00
+  %160 = fmul float %159, %159
+  %161 = fmul float %140, %160
+  %162 = fdiv float %158, %161
+  %163 = fdiv float 0xC00921FB60000000, %140
+  %164 = call noundef float @expf(float noundef %163) #31, !tbaa !67
+  %165 = fadd float %164, 1.000000e+00
+  %166 = fdiv float 1.000000e+00, %165
+  %167 = fdiv float 0x400921FB60000000, %140
+  %168 = call noundef float @expf(float noundef %167) #31, !tbaa !67
+  %169 = fadd float %168, 1.000000e+00
+  %170 = fdiv float 1.000000e+00, %169
+  %171 = fsub float %166, %170
+  %172 = fdiv float %162, %171
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   store <2 x float> %.fca.0.load.i.i107, ptr %7, align 8
   store <2 x float> %.fca.1.load.i.i110, ptr %.sroa.4130.0..sroa_idx, align 8, !tbaa !8
-  br label %174
+  br label %173
 
-174:                                              ; preds = %174, %_ZN4pbrt8HairBxDF2NpEfifff.exit
-  %indvars.iv.i113 = phi i64 [ 0, %_ZN4pbrt8HairBxDF2NpEfifff.exit ], [ %indvars.iv.next.i114, %174 ]
-  %175 = getelementptr inbounds nuw [4 x float], ptr %7, i64 0, i64 %indvars.iv.i113
-  %176 = load float, ptr %175, align 4, !tbaa !4
-  %177 = fmul float %173, %176
-  store float %177, ptr %175, align 4, !tbaa !4
+173:                                              ; preds = %173, %_ZN4pbrt8HairBxDF2NpEfifff.exit
+  %indvars.iv.i113 = phi i64 [ 0, %_ZN4pbrt8HairBxDF2NpEfifff.exit ], [ %indvars.iv.next.i114, %173 ]
+  %174 = getelementptr inbounds nuw [4 x float], ptr %7, i64 0, i64 %indvars.iv.i113
+  %175 = load float, ptr %174, align 4, !tbaa !4
+  %176 = fmul float %172, %175
+  store float %176, ptr %174, align 4, !tbaa !4
   %indvars.iv.next.i114 = add nuw nsw i64 %indvars.iv.i113, 1
   %exitcond.not.i115 = icmp eq i64 %indvars.iv.next.i114, 4
-  br i1 %exitcond.not.i115, label %_ZNK4pbrt15SampledSpectrummlEf.exit121, label %174, !llvm.loop !41
+  br i1 %exitcond.not.i115, label %_ZNK4pbrt15SampledSpectrummlEf.exit121, label %173, !llvm.loop !41
 
-_ZNK4pbrt15SampledSpectrummlEf.exit121:           ; preds = %174
+_ZNK4pbrt15SampledSpectrummlEf.exit121:           ; preds = %173
   %.fca.0.load.i116 = load <2 x float>, ptr %7, align 8
   %.fca.1.load.i119 = load <2 x float>, ptr %.sroa.4130.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   store <2 x float> %.fca.0.load.i116, ptr %17, align 8
   store <2 x float> %.fca.1.load.i119, ptr %78, align 8
-  br label %178
+  br label %177
 
-178:                                              ; preds = %178, %_ZNK4pbrt15SampledSpectrummlEf.exit121
-  %indvars.iv.i122 = phi i64 [ 0, %_ZNK4pbrt15SampledSpectrummlEf.exit121 ], [ %indvars.iv.next.i123, %178 ]
-  %179 = getelementptr inbounds nuw [4 x float], ptr %17, i64 0, i64 %indvars.iv.i122
-  %180 = load float, ptr %179, align 4, !tbaa !4
-  %181 = getelementptr inbounds nuw [4 x float], ptr %14, i64 0, i64 %indvars.iv.i122
-  %182 = load float, ptr %181, align 4, !tbaa !4
-  %183 = fadd float %180, %182
-  store float %183, ptr %181, align 4, !tbaa !4
+177:                                              ; preds = %177, %_ZNK4pbrt15SampledSpectrummlEf.exit121
+  %indvars.iv.i122 = phi i64 [ 0, %_ZNK4pbrt15SampledSpectrummlEf.exit121 ], [ %indvars.iv.next.i123, %177 ]
+  %178 = getelementptr inbounds nuw [4 x float], ptr %17, i64 0, i64 %indvars.iv.i122
+  %179 = load float, ptr %178, align 4, !tbaa !4
+  %180 = getelementptr inbounds nuw [4 x float], ptr %14, i64 0, i64 %indvars.iv.i122
+  %181 = load float, ptr %180, align 4, !tbaa !4
+  %182 = fadd float %179, %181
+  store float %182, ptr %180, align 4, !tbaa !4
   %indvars.iv.next.i123 = add nuw nsw i64 %indvars.iv.i122, 1
   %exitcond.not.i124 = icmp eq i64 %indvars.iv.next.i123, 4
-  br i1 %exitcond.not.i124, label %_ZN4pbrt15SampledSpectrumpLERKS0_.exit125, label %178, !llvm.loop !71
+  br i1 %exitcond.not.i124, label %_ZN4pbrt15SampledSpectrumpLERKS0_.exit125, label %177, !llvm.loop !71
 
-_ZN4pbrt15SampledSpectrumpLERKS0_.exit125:        ; preds = %178
+_ZN4pbrt15SampledSpectrumpLERKS0_.exit125:        ; preds = %177
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -12230,10 +12229,10 @@ _ZN4pbrt15SampledSpectrumpLERKS0_.exit125:        ; preds = %178
 
 .preheader:                                       ; preds = %_ZN4pbrt15SampledSpectrumpLERKS0_.exit, %.preheader
   %indvars.iv.i126 = phi i64 [ %indvars.iv.next.i127, %.preheader ], [ 0, %_ZN4pbrt15SampledSpectrumpLERKS0_.exit ]
-  %184 = getelementptr inbounds nuw [4 x float], ptr %14, i64 0, i64 %indvars.iv.i126
-  %185 = load float, ptr %184, align 4, !tbaa !4
-  %186 = fdiv float %185, %99
-  store float %186, ptr %184, align 4, !tbaa !4
+  %183 = getelementptr inbounds nuw [4 x float], ptr %14, i64 0, i64 %indvars.iv.i126
+  %184 = load float, ptr %183, align 4, !tbaa !4
+  %185 = fdiv float %184, %99
+  store float %185, ptr %183, align 4, !tbaa !4
   %indvars.iv.next.i127 = add nuw nsw i64 %indvars.iv.i126, 1
   %exitcond.not.i128 = icmp eq i64 %indvars.iv.next.i127, 4
   br i1 %exitcond.not.i128, label %_ZN4pbrt15SampledSpectrumdVEf.exit, label %.preheader, !llvm.loop !49
@@ -13193,7 +13192,7 @@ _ZN4pbrt7FastExpEf.exit:                          ; preds = %74, %95, %97
   %182 = tail call noundef float @_ZN4pbrt8HairBxDF2MpEfffff(float noundef %sqrt.i113, float noundef %sqrt.i, float noundef %116, float noundef %.sroa.098.0.vec.extract, float noundef %181)
   %183 = fmul float %182, %177
   %184 = fmul float %183, 0x3FC45F3060000000
-  %185 = fadd float %262, %184
+  %185 = fadd float %261, %184
   %186 = tail call { <2 x float>, <2 x float> } @_ZNK4pbrt8HairBxDF1fENS_7Vector3IfEES2_NS_13TransportModeE(ptr noundef nonnull align 4 dereferenceable(76) %1, <2 x float> %2, float %3, <2 x float> %.sroa.0124.4.vec.insert, float %179, i32 poison)
   %187 = extractvalue { <2 x float>, <2 x float> } %186, 0
   %188 = extractvalue { <2 x float>, <2 x float> } %186, 1
@@ -13219,7 +13218,7 @@ _ZN4pbrt7FastExpEf.exit:                          ; preds = %74, %95, %97
 
 190:                                              ; preds = %165, %_ZN4pbrt8HairBxDF2NpEfifff.exit
   %indvars.iv = phi i64 [ 0, %165 ], [ %indvars.iv.next, %_ZN4pbrt8HairBxDF2NpEfifff.exit ]
-  %.0102142 = phi float [ 0.000000e+00, %165 ], [ %262, %_ZN4pbrt8HairBxDF2NpEfifff.exit ]
+  %.0102142 = phi float [ 0.000000e+00, %165 ], [ %261, %_ZN4pbrt8HairBxDF2NpEfifff.exit ]
   %191 = trunc nuw nsw i64 %indvars.iv to i32
   switch i32 %191, label %default.unreachable [
     i32 0, label %192
@@ -13309,23 +13308,22 @@ _ZN4pbrt8HairBxDF2NpEfifff.exit:                  ; preds = %.lr.ph11.i, %.prehe
   %243 = fneg float %242
   %244 = fdiv float %243, %227
   %245 = tail call noundef float @expf(float noundef %244) #31, !tbaa !67
-  %246 = tail call noundef float @expf(float noundef %244) #31, !tbaa !67
-  %247 = fadd float %246, 1.000000e+00
-  %248 = fmul float %247, %247
-  %249 = fmul float %227, %248
-  %250 = fdiv float %245, %249
-  %251 = fdiv float 0xC00921FB60000000, %227
-  %252 = tail call noundef float @expf(float noundef %251) #31, !tbaa !67
-  %253 = fadd float %252, 1.000000e+00
-  %254 = fdiv float 1.000000e+00, %253
-  %255 = fdiv float 0x400921FB60000000, %227
-  %256 = tail call noundef float @expf(float noundef %255) #31, !tbaa !67
-  %257 = fadd float %256, 1.000000e+00
-  %258 = fdiv float 1.000000e+00, %257
-  %259 = fsub float %254, %258
-  %260 = fdiv float %250, %259
-  %261 = fmul float %226, %260
-  %262 = fadd float %.0102142, %261
+  %246 = fadd float %245, 1.000000e+00
+  %247 = fmul float %246, %246
+  %248 = fmul float %227, %247
+  %249 = fdiv float %245, %248
+  %250 = fdiv float 0xC00921FB60000000, %227
+  %251 = tail call noundef float @expf(float noundef %250) #31, !tbaa !67
+  %252 = fadd float %251, 1.000000e+00
+  %253 = fdiv float 1.000000e+00, %252
+  %254 = fdiv float 0x400921FB60000000, %227
+  %255 = tail call noundef float @expf(float noundef %254) #31, !tbaa !67
+  %256 = fadd float %255, 1.000000e+00
+  %257 = fdiv float 1.000000e+00, %256
+  %258 = fsub float %253, %257
+  %259 = fdiv float %249, %258
+  %260 = fmul float %226, %259
+  %261 = fadd float %.0102142, %260
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %176, label %190, !llvm.loop !179
@@ -13398,13 +13396,13 @@ define dso_local noundef float @_ZNK4pbrt8HairBxDF3PDFENS_7Vector3IfEES2_NS_13Tr
   %51 = tail call noundef float @_ZN4pbrt8HairBxDF2MpEfffff(float noundef %sqrt.i55, float noundef %sqrt.i, float noundef %.sroa.046.0.vec.extract, float noundef %.sroa.049.0.vec.extract, float noundef %50)
   %52 = fmul float %51, %48
   %53 = fmul float %52, 0x3FC45F3060000000
-  %54 = fadd float %127, %53
+  %54 = fadd float %126, %53
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #31
   ret float %54
 
 55:                                               ; preds = %7, %_ZN4pbrt8HairBxDF2NpEfifff.exit
   %indvars.iv = phi i64 [ 0, %7 ], [ %indvars.iv.next, %_ZN4pbrt8HairBxDF2NpEfifff.exit ]
-  %.05362 = phi float [ 0.000000e+00, %7 ], [ %127, %_ZN4pbrt8HairBxDF2NpEfifff.exit ]
+  %.05362 = phi float [ 0.000000e+00, %7 ], [ %126, %_ZN4pbrt8HairBxDF2NpEfifff.exit ]
   %56 = trunc nuw nsw i64 %indvars.iv to i32
   switch i32 %56, label %default.unreachable [
     i32 0, label %57
@@ -13494,23 +13492,22 @@ _ZN4pbrt8HairBxDF2NpEfifff.exit:                  ; preds = %.lr.ph11.i, %.prehe
   %108 = fneg float %107
   %109 = fdiv float %108, %92
   %110 = tail call noundef float @expf(float noundef %109) #31, !tbaa !67
-  %111 = tail call noundef float @expf(float noundef %109) #31, !tbaa !67
-  %112 = fadd float %111, 1.000000e+00
-  %113 = fmul float %112, %112
-  %114 = fmul float %92, %113
-  %115 = fdiv float %110, %114
-  %116 = fdiv float 0xC00921FB60000000, %92
-  %117 = tail call noundef float @expf(float noundef %116) #31, !tbaa !67
-  %118 = fadd float %117, 1.000000e+00
-  %119 = fdiv float 1.000000e+00, %118
-  %120 = fdiv float 0x400921FB60000000, %92
-  %121 = tail call noundef float @expf(float noundef %120) #31, !tbaa !67
-  %122 = fadd float %121, 1.000000e+00
-  %123 = fdiv float 1.000000e+00, %122
-  %124 = fsub float %119, %123
-  %125 = fdiv float %115, %124
-  %126 = fmul float %91, %125
-  %127 = fadd float %.05362, %126
+  %111 = fadd float %110, 1.000000e+00
+  %112 = fmul float %111, %111
+  %113 = fmul float %92, %112
+  %114 = fdiv float %110, %113
+  %115 = fdiv float 0xC00921FB60000000, %92
+  %116 = tail call noundef float @expf(float noundef %115) #31, !tbaa !67
+  %117 = fadd float %116, 1.000000e+00
+  %118 = fdiv float 1.000000e+00, %117
+  %119 = fdiv float 0x400921FB60000000, %92
+  %120 = tail call noundef float @expf(float noundef %119) #31, !tbaa !67
+  %121 = fadd float %120, 1.000000e+00
+  %122 = fdiv float 1.000000e+00, %121
+  %123 = fsub float %118, %122
+  %124 = fdiv float %114, %123
+  %125 = fmul float %91, %124
+  %126 = fadd float %.05362, %125
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %47, label %55, !llvm.loop !180
