@@ -2107,7 +2107,7 @@ define void @_ZN16checked_buffer_tC2Esi(ptr noundef nonnull writeonly align 8 ca
 _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %.not.i.i.i.i = icmp eq i32 %5, 0
-  br i1 %.not.i.i.i.i, label %15, label %.noexc5
+  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i, label %.noexc5
 
 .noexc5:                                          ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
   %8 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %6) #34
@@ -2119,21 +2119,21 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %12 = add nsw i64 %6, -1
   %13 = icmp eq i64 %12, 0
-  br i1 %13, label %15, label %14
+  br i1 %13, label %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i, label %14
 
 14:                                               ; preds = %.noexc5
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %11, i8 0, i64 %12, i1 false)
-  br label %15
+  br label %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i
 
-15:                                               ; preds = %14, %.noexc5, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
-  %16 = phi ptr [ %8, %.noexc5 ], [ %8, %14 ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i ]
+_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i: ; preds = %14, %.noexc5, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
+  %15 = phi ptr [ %8, %.noexc5 ], [ %8, %14 ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i ]
   %.0.i.i.i.i.i = phi ptr [ %11, %.noexc5 ], [ %9, %14 ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %.0.i.i.i.i.i, ptr %17, align 8, !tbaa !168
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %16, ptr %18, align 8, !tbaa !169
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %2, ptr %19, align 8, !tbaa !170
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr %.0.i.i.i.i.i, ptr %16, align 8, !tbaa !168
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %15, ptr %17, align 8, !tbaa !169
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %2, ptr %18, align 8, !tbaa !170
   ret void
 }
 

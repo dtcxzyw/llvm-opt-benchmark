@@ -328,17 +328,17 @@ define void @LAB2RGB(ptr dead_on_unwind noalias writable writeonly sret(%struct.
   %21 = fcmp ogt double %3, %20
   br i1 %21, label %22, label %24
 
-22:                                               ; preds = %2
+22:; preds = %2
   %23 = tail call double @pow(double noundef %5, double noundef 3.000000e+00) #19, !tbaa !18
   br label %26
 
-24:                                               ; preds = %2
+67:                                               ; preds = %2
   %25 = fdiv double %3, %19
   br label %26
 
-26:                                               ; preds = %24, %22
+69:                                               ; preds = %67, %22
   %.011 = phi double [ %23, %22 ], [ %25, %24 ]
-  %27 = tail call double @pow(double noundef %13, double noundef 3.000000e+00) #19, !tbaa !18
+  %71 = tail call double @pow(double noundef %13, double noundef 3.000000e+00) #19, !tbaa !18
   %28 = fcmp ogt double %27, %15
   %29 = fadd double %13, 0xBFC1A7B9611A7B96
   %30 = fdiv double %29, 0x401F25E353F7CED9
@@ -395,32 +395,32 @@ define void @LAB2RGB(ptr dead_on_unwind noalias writable writeonly sret(%struct.
   %63 = tail call double @llvm.fmuladd.f64(double %62, double 1.055000e+00, double -5.500000e-02)
   br label %XYZ2RGB.exit
 
-64:                                               ; preds = %59
-  %65 = fmul double %45, 1.292000e+01
+72:                                               ; preds = %59
+  %73 = fmul double %45, 1.292000e+01
   br label %XYZ2RGB.exit
 
-XYZ2RGB.exit:                                     ; preds = %61, %64
-  %.0.i = phi double [ %63, %61 ], [ %65, %64 ]
-  %66 = fcmp olt double %.034.i, 0.000000e+00
-  %67 = select i1 %66, double 0.000000e+00, double %.034.i
-  %68 = fmul double %67, 2.550000e+02
-  %69 = fcmp ogt double %68, 2.550000e+02
-  %70 = select i1 %69, double 2.550000e+02, double %68
-  %71 = fcmp olt double %.033.i, 0.000000e+00
-  %72 = select i1 %71, double 0.000000e+00, double %.033.i
-  %73 = fmul double %72, 2.550000e+02
-  %74 = fcmp ogt double %73, 2.550000e+02
-  %75 = select i1 %74, double 2.550000e+02, double %73
-  %76 = fcmp olt double %.0.i, 0.000000e+00
-  %77 = select i1 %76, double 0.000000e+00, double %.0.i
-  %78 = fmul double %77, 2.550000e+02
-  %79 = fcmp ogt double %78, 2.550000e+02
-  %80 = select i1 %79, double 2.550000e+02, double %78
-  store double %70, ptr %0, align 8, !tbaa !3, !alias.scope !33
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %75, ptr %81, align 8, !tbaa !8, !alias.scope !33
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store double %80, ptr %82, align 8, !tbaa !9, !alias.scope !33
+XYZ2RGB.exit:                                     ; preds = %61, %72
+  %.0.i = phi double [ %63, %61 ], [ %73, %64 ]
+  %74 = fcmp olt double %.034.i, 0.000000e+00
+  %75 = select i1 %74, double 0.000000e+00, double %.034.i
+  %76 = fmul double %75, 2.550000e+02
+  %77 = fcmp ogt double %76, 2.550000e+02
+  %78 = select i1 %77, double 2.550000e+02, double %76
+  %79 = fcmp olt double %.033.i, 0.000000e+00
+  %80 = select i1 %79, double 0.000000e+00, double %.033.i
+  %81 = fmul double %80, 2.550000e+02
+  %82 = fcmp ogt double %81, 2.550000e+02
+  %83 = select i1 %82, double 2.550000e+02, double %81
+  %84 = fcmp olt double %.0.i, 0.000000e+00
+  %85 = select i1 %84, double 0.000000e+00, double %.0.i
+  %86 = fmul double %85, 2.550000e+02
+  %87 = fcmp ogt double %86, 2.550000e+02
+  %88 = select i1 %87, double 2.550000e+02, double %86
+  store double %78, ptr %0, align 8, !tbaa !3, !alias.scope !33
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store double %83, ptr %89, align 8, !tbaa !8, !alias.scope !33
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store double %88, ptr %90, align 8, !tbaa !9, !alias.scope !33
   ret void
 }
 

@@ -3763,21 +3763,21 @@ define dso_local zeroext i1 @i128_can_convert_from_double(double noundef %0) loc
 define dso_local zeroext i1 @i128_can_convert_from_double_signed(double noundef %0) local_unnamed_addr #10 {
   %2 = tail call double @llvm.fabs.f64(double %0)
   %3 = fcmp ueq double %2, 0x7FF0000000000000
-  br i1 %3, label %10, label %4
+  br i1 %3, label %11, label %4
 
 4:                                                ; preds = %1
   %5 = tail call double @ldexp(double noundef 1.000000e+00, i32 noundef 127) #20
   %6 = fneg double %5
   %7 = fcmp ult double %0, %6
-  br i1 %7, label %10, label %8
+  br i1 %7, label %11, label %8
 
 8:                                                ; preds = %4
   %9 = fcmp olt double %0, %5
-  br label %10
+  br label %11
 
-10:                                               ; preds = %8, %4, %1
-  %11 = phi i1 [ false, %4 ], [ false, %1 ], [ %9, %8 ]
-  ret i1 %11
+11:                                               ; preds = %8, %4, %1
+  %12 = phi i1 [ false, %4 ], [ false, %1 ], [ %9, %8 ]
+  ret i1 %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable

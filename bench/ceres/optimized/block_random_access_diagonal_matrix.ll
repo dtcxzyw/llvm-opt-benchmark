@@ -243,7 +243,7 @@ define hidden void @_ZN5ceres8internal31BlockRandomAccessDiagonalMatrixC2ERKSt6v
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #32
   invoke void @_ZN5ceres8internal25CompressedRowSparseMatrix25CreateBlockDiagonalMatrixEPKdRKSt6vectorINS0_5BlockESaIS5_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %5, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(24) %1)
-          to label %10 unwind label %42
+          to label %10 unwind label %43
 
 10:                                               ; preds = %4
   %11 = load ptr, ptr %5, align 8, !tbaa !28
@@ -286,27 +286,27 @@ _ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_delete
   %31 = extractvalue { i64, i1 } %29, 0
   %32 = select i1 %30, i64 -1, i64 %31
   %33 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %32) #33
-          to label %.noexc unwind label %44
+          to label %.noexc unwind label %45
 
 .noexc:                                           ; preds = %_ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EED2Ev.exit
   %34 = icmp eq ptr %23, %24
-  br i1 %34, label %_ZSt11make_uniqueIA_N5ceres8internal8CellInfoEENSt8__detail9_MakeUniqIT_E7__arrayEm.exit, label %.loopexit.loopexit.i
+  br i1 %34, label %_ZSt11make_uniqueIA_N5ceres8internal8CellInfoEENSt8__detail9_MakeUniqIT_E7__arrayEm.exit, label %_ZSt11make_uniqueIA_N5ceres8internal8CellInfoEENSt8__detail9_MakeUniqIT_E7__arrayEm.exit.loopexit
 
-.loopexit.loopexit.i:                             ; preds = %.noexc
+_ZSt11make_uniqueIA_N5ceres8internal8CellInfoEENSt8__detail9_MakeUniqIT_E7__arrayEm.exit.loopexit: ; preds = %.noexc
   %35 = add i64 %31, -48
   %36 = urem i64 %35, 48
   %37 = sub i64 %31, %36
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %33, i8 0, i64 %37, i1 false), !noalias !36
   br label %_ZSt11make_uniqueIA_N5ceres8internal8CellInfoEENSt8__detail9_MakeUniqIT_E7__arrayEm.exit
 
-_ZSt11make_uniqueIA_N5ceres8internal8CellInfoEENSt8__detail9_MakeUniqIT_E7__arrayEm.exit: ; preds = %.loopexit.loopexit.i, %.noexc
-  %38 = load ptr, ptr %9, align 8, !tbaa !39
+_ZSt11make_uniqueIA_N5ceres8internal8CellInfoEENSt8__detail9_MakeUniqIT_E7__arrayEm.exit: ; preds = %_ZSt11make_uniqueIA_N5ceres8internal8CellInfoEENSt8__detail9_MakeUniqIT_E7__arrayEm.exit.loopexit, %.noexc
+  %39 = load ptr, ptr %9, align 8, !tbaa !39
   store ptr %33, ptr %9, align 8, !tbaa !39
-  %.not.i.i.i.i21 = icmp eq ptr %38, null
+  %.not.i.i.i.i21 = icmp eq ptr %39, null
   br i1 %.not.i.i.i.i21, label %_ZNSt10unique_ptrIA_N5ceres8internal8CellInfoESt14default_deleteIS3_EED2Ev.exit, label %_ZNKSt14default_deleteIA_N5ceres8internal8CellInfoEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i.i.i
 
 _ZNKSt14default_deleteIA_N5ceres8internal8CellInfoEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i.i.i: ; preds = %_ZSt11make_uniqueIA_N5ceres8internal8CellInfoEENSt8__detail9_MakeUniqIT_E7__arrayEm.exit
-  call void @_ZdaPv(ptr noundef nonnull %38) #34
+  call void @_ZdaPv(ptr noundef nonnull %39) #34
   %.pre = load ptr, ptr %22, align 8, !tbaa !32
   %.pre34 = load ptr, ptr %1, align 8, !tbaa !35
   %.pre35 = ptrtoint ptr %.pre to i64
@@ -317,65 +317,65 @@ _ZNKSt14default_deleteIA_N5ceres8internal8CellInfoEEclIS2_EENSt9enable_ifIXsr14i
 
 _ZNSt10unique_ptrIA_N5ceres8internal8CellInfoESt14default_deleteIS3_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIA_N5ceres8internal8CellInfoEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i.i.i, %_ZSt11make_uniqueIA_N5ceres8internal8CellInfoEENSt8__detail9_MakeUniqIT_E7__arrayEm.exit
   %.pre-phi41 = phi i64 [ %.pre40, %_ZNKSt14default_deleteIA_N5ceres8internal8CellInfoEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i.i.i ], [ %28, %_ZSt11make_uniqueIA_N5ceres8internal8CellInfoEENSt8__detail9_MakeUniqIT_E7__arrayEm.exit ]
-  %39 = phi ptr [ %.pre34, %_ZNKSt14default_deleteIA_N5ceres8internal8CellInfoEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i.i.i ], [ %24, %_ZSt11make_uniqueIA_N5ceres8internal8CellInfoEENSt8__detail9_MakeUniqIT_E7__arrayEm.exit ]
-  %40 = phi ptr [ %.pre, %_ZNKSt14default_deleteIA_N5ceres8internal8CellInfoEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i.i.i ], [ %23, %_ZSt11make_uniqueIA_N5ceres8internal8CellInfoEENSt8__detail9_MakeUniqIT_E7__arrayEm.exit ]
-  %.not = icmp eq ptr %40, %39
+  %40 = phi ptr [ %.pre34, %_ZNKSt14default_deleteIA_N5ceres8internal8CellInfoEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i.i.i ], [ %24, %_ZSt11make_uniqueIA_N5ceres8internal8CellInfoEENSt8__detail9_MakeUniqIT_E7__arrayEm.exit ]
+  %41 = phi ptr [ %.pre, %_ZNKSt14default_deleteIA_N5ceres8internal8CellInfoEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i.i.i ], [ %23, %_ZSt11make_uniqueIA_N5ceres8internal8CellInfoEENSt8__detail9_MakeUniqIT_E7__arrayEm.exit ]
+  %.not = icmp eq ptr %41, %40
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt10unique_ptrIA_N5ceres8internal8CellInfoESt14default_deleteIS3_EED2Ev.exit
-  %41 = load ptr, ptr %9, align 8, !tbaa !39
+  %42 = load ptr, ptr %9, align 8, !tbaa !39
   %umax = call i64 @llvm.umax.i64(i64 %.pre-phi41, i64 1)
-  br label %46
+  br label %47
 
-._crit_edge:                                      ; preds = %46, %_ZNSt10unique_ptrIA_N5ceres8internal8CellInfoESt14default_deleteIS3_EED2Ev.exit
+._crit_edge:                                      ; preds = %47, %_ZNSt10unique_ptrIA_N5ceres8internal8CellInfoESt14default_deleteIS3_EED2Ev.exit
   ret void
 
-42:                                               ; preds = %4
-  %43 = landingpad { ptr, i32 }
+43:                                               ; preds = %4
+  %44 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #32
-  br label %53
+  br label %54
 
-44:                                               ; preds = %_ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EED2Ev.exit
-  %45 = landingpad { ptr, i32 }
+45:                                               ; preds = %_ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EED2Ev.exit
+  %46 = landingpad { ptr, i32 }
           cleanup
-  br label %53
+  br label %54
 
-46:                                               ; preds = %.lr.ph, %46
+47:                                               ; preds = %.lr.ph, %47
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %46 ]
-  %.01631 = phi ptr [ %21, %.lr.ph ], [ %52, %46 ]
-  %47 = getelementptr inbounds nuw %"struct.ceres::internal::CellInfo", ptr %41, i64 %indvars.iv
-  store ptr %.01631, ptr %47, align 8, !tbaa !40
-  %48 = getelementptr inbounds nuw %"struct.ceres::internal::Block", ptr %39, i64 %indvars.iv
-  %49 = load i32, ptr %48, align 4, !tbaa !44
-  %50 = mul nsw i32 %49, %49
-  %51 = zext nneg i32 %50 to i64
-  %52 = getelementptr inbounds nuw double, ptr %.01631, i64 %51
+  %.01631 = phi ptr [ %21, %.lr.ph ], [ %53, %46 ]
+  %48 = getelementptr inbounds nuw %"struct.ceres::internal::CellInfo", ptr %42, i64 %indvars.iv
+  store ptr %.01631, ptr %48, align 8, !tbaa !40
+  %49 = getelementptr inbounds nuw %"struct.ceres::internal::Block", ptr %40, i64 %indvars.iv
+  %50 = load i32, ptr %49, align 4, !tbaa !44
+  %51 = mul nsw i32 %50, %50
+  %52 = zext nneg i32 %51 to i64
+  %53 = getelementptr inbounds nuw double, ptr %.01631, i64 %52
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
-  br i1 %exitcond.not, label %._crit_edge, label %46, !llvm.loop !46
+  br i1 %exitcond.not, label %._crit_edge, label %47, !llvm.loop !46
 
-53:                                               ; preds = %44, %42
-  %.pn = phi { ptr, i32 } [ %45, %44 ], [ %43, %42 ]
-  %54 = load ptr, ptr %9, align 8, !tbaa !39
-  %.not.i23 = icmp eq ptr %54, null
+54:                                               ; preds = %45, %43
+  %.pn = phi { ptr, i32 } [ %46, %44 ], [ %44, %42 ]
+  %55 = load ptr, ptr %9, align 8, !tbaa !39
+  %.not.i23 = icmp eq ptr %55, null
   br i1 %.not.i23, label %_ZNSt10unique_ptrIA_N5ceres8internal8CellInfoESt14default_deleteIS3_EED2Ev.exit25, label %_ZNKSt14default_deleteIA_N5ceres8internal8CellInfoEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i24
 
-_ZNKSt14default_deleteIA_N5ceres8internal8CellInfoEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i24: ; preds = %53
-  call void @_ZdaPv(ptr noundef nonnull %54) #34
+_ZNKSt14default_deleteIA_N5ceres8internal8CellInfoEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i24: ; preds = %54
+  call void @_ZdaPv(ptr noundef nonnull %55) #34
   br label %_ZNSt10unique_ptrIA_N5ceres8internal8CellInfoESt14default_deleteIS3_EED2Ev.exit25
 
-_ZNSt10unique_ptrIA_N5ceres8internal8CellInfoESt14default_deleteIS3_EED2Ev.exit25: ; preds = %53, %_ZNKSt14default_deleteIA_N5ceres8internal8CellInfoEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i24
+_ZNSt10unique_ptrIA_N5ceres8internal8CellInfoESt14default_deleteIS3_EED2Ev.exit25: ; preds = %54, %_ZNKSt14default_deleteIA_N5ceres8internal8CellInfoEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i24
   store ptr null, ptr %9, align 8, !tbaa !39
-  %55 = load ptr, ptr %8, align 8, !tbaa !28
-  %.not.i26 = icmp eq ptr %55, null
+  %56 = load ptr, ptr %8, align 8, !tbaa !28
+  %.not.i26 = icmp eq ptr %56, null
   br i1 %.not.i26, label %_ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EED2Ev.exit28, label %_ZNKSt14default_deleteIN5ceres8internal25CompressedRowSparseMatrixEEclEPS2_.exit.i27
 
 _ZNKSt14default_deleteIN5ceres8internal25CompressedRowSparseMatrixEEclEPS2_.exit.i27: ; preds = %_ZNSt10unique_ptrIA_N5ceres8internal8CellInfoESt14default_deleteIS3_EED2Ev.exit25
-  %56 = load ptr, ptr %55, align 8, !tbaa !3
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  %58 = load ptr, ptr %57, align 8
-  call void %58(ptr noundef nonnull align 8 dereferenceable(144) %55) #32
+  %57 = load ptr, ptr %56, align 8, !tbaa !3
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
+  %59 = load ptr, ptr %58, align 8
+  call void %58(ptr noundef nonnull align 8 dereferenceable(144) %56) #32
   br label %_ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EED2Ev.exit28
 
 _ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EED2Ev.exit28: ; preds = %_ZNSt10unique_ptrIA_N5ceres8internal8CellInfoESt14default_deleteIS3_EED2Ev.exit25, %_ZNKSt14default_deleteIN5ceres8internal25CompressedRowSparseMatrixEEclEPS2_.exit.i27

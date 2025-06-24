@@ -47,7 +47,7 @@ define hidden noundef ptr @_Z36pj_projection_specific_setup_gstmercP8PJconsts(pt
 
 4:                                                ; preds = %1
   %5 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef %0, i32 noundef 4096)
-  br label %67
+  br label %68
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -122,7 +122,7 @@ define hidden noundef ptr @_Z36pj_projection_specific_setup_gstmercP8PJconsts(pt
   store ptr @_ZL17gstmerc_s_forward5PJ_LPP8PJconsts, ptr %66, align 8, !tbaa !57
   br label %67
 
-67:                                               ; preds = %6, %4
+68:                                               ; preds = %6, %4
   %.0 = phi ptr [ %5, %4 ], [ %0, %6 ]
   ret ptr %.0
 }

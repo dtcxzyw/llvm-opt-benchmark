@@ -12189,39 +12189,39 @@ _ZN4pbrt8HairBxDF2NpEfifff.exit:                  ; preds = %.lr.ph11.i, %.prehe
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   store <2 x float> %.fca.0.load.i.i107, ptr %7, align 8
   store <2 x float> %.fca.1.load.i.i110, ptr %.sroa.4130.0..sroa_idx, align 8, !tbaa !8
-  br label %173
+  br label %174
 
-173:                                              ; preds = %173, %_ZN4pbrt8HairBxDF2NpEfifff.exit
+174:                                              ; preds = %174, %_ZN4pbrt8HairBxDF2NpEfifff.exit
   %indvars.iv.i113 = phi i64 [ 0, %_ZN4pbrt8HairBxDF2NpEfifff.exit ], [ %indvars.iv.next.i114, %173 ]
-  %174 = getelementptr inbounds nuw [4 x float], ptr %7, i64 0, i64 %indvars.iv.i113
-  %175 = load float, ptr %174, align 4, !tbaa !4
-  %176 = fmul float %172, %175
-  store float %176, ptr %174, align 4, !tbaa !4
+  %175 = getelementptr inbounds nuw [4 x float], ptr %7, i64 0, i64 %indvars.iv.i113
+  %176 = load float, ptr %175, align 4, !tbaa !4
+  %177 = fmul float %172, %176
+  store float %177, ptr %175, align 4, !tbaa !4
   %indvars.iv.next.i114 = add nuw nsw i64 %indvars.iv.i113, 1
   %exitcond.not.i115 = icmp eq i64 %indvars.iv.next.i114, 4
-  br i1 %exitcond.not.i115, label %_ZNK4pbrt15SampledSpectrummlEf.exit121, label %173, !llvm.loop !41
+  br i1 %exitcond.not.i115, label %_ZNK4pbrt15SampledSpectrummlEf.exit121, label %174, !llvm.loop !41
 
-_ZNK4pbrt15SampledSpectrummlEf.exit121:           ; preds = %173
+_ZNK4pbrt15SampledSpectrummlEf.exit121:           ; preds = %174
   %.fca.0.load.i116 = load <2 x float>, ptr %7, align 8
   %.fca.1.load.i119 = load <2 x float>, ptr %.sroa.4130.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   store <2 x float> %.fca.0.load.i116, ptr %17, align 8
   store <2 x float> %.fca.1.load.i119, ptr %78, align 8
-  br label %177
+  br label %178
 
-177:                                              ; preds = %177, %_ZNK4pbrt15SampledSpectrummlEf.exit121
+178:                                              ; preds = %178, %_ZNK4pbrt15SampledSpectrummlEf.exit121
   %indvars.iv.i122 = phi i64 [ 0, %_ZNK4pbrt15SampledSpectrummlEf.exit121 ], [ %indvars.iv.next.i123, %177 ]
-  %178 = getelementptr inbounds nuw [4 x float], ptr %17, i64 0, i64 %indvars.iv.i122
-  %179 = load float, ptr %178, align 4, !tbaa !4
-  %180 = getelementptr inbounds nuw [4 x float], ptr %14, i64 0, i64 %indvars.iv.i122
-  %181 = load float, ptr %180, align 4, !tbaa !4
-  %182 = fadd float %179, %181
-  store float %182, ptr %180, align 4, !tbaa !4
+  %179 = getelementptr inbounds nuw [4 x float], ptr %17, i64 0, i64 %indvars.iv.i122
+  %180 = load float, ptr %179, align 4, !tbaa !4
+  %181 = getelementptr inbounds nuw [4 x float], ptr %14, i64 0, i64 %indvars.iv.i122
+  %182 = load float, ptr %181, align 4, !tbaa !4
+  %183 = fadd float %180, %182
+  store float %183, ptr %181, align 4, !tbaa !4
   %indvars.iv.next.i123 = add nuw nsw i64 %indvars.iv.i122, 1
   %exitcond.not.i124 = icmp eq i64 %indvars.iv.next.i123, 4
-  br i1 %exitcond.not.i124, label %_ZN4pbrt15SampledSpectrumpLERKS0_.exit125, label %177, !llvm.loop !71
+  br i1 %exitcond.not.i124, label %_ZN4pbrt15SampledSpectrumpLERKS0_.exit125, label %178, !llvm.loop !71
 
-_ZN4pbrt15SampledSpectrumpLERKS0_.exit125:        ; preds = %177
+_ZN4pbrt15SampledSpectrumpLERKS0_.exit125:        ; preds = %178
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -12229,10 +12229,10 @@ _ZN4pbrt15SampledSpectrumpLERKS0_.exit125:        ; preds = %177
 
 .preheader:                                       ; preds = %_ZN4pbrt15SampledSpectrumpLERKS0_.exit, %.preheader
   %indvars.iv.i126 = phi i64 [ %indvars.iv.next.i127, %.preheader ], [ 0, %_ZN4pbrt15SampledSpectrumpLERKS0_.exit ]
-  %183 = getelementptr inbounds nuw [4 x float], ptr %14, i64 0, i64 %indvars.iv.i126
-  %184 = load float, ptr %183, align 4, !tbaa !4
-  %185 = fdiv float %184, %99
-  store float %185, ptr %183, align 4, !tbaa !4
+  %184 = getelementptr inbounds nuw [4 x float], ptr %14, i64 0, i64 %indvars.iv.i126
+  %185 = load float, ptr %184, align 4, !tbaa !4
+  %186 = fdiv float %185, %99
+  store float %186, ptr %184, align 4, !tbaa !4
   %indvars.iv.next.i127 = add nuw nsw i64 %indvars.iv.i126, 1
   %exitcond.not.i128 = icmp eq i64 %indvars.iv.next.i127, 4
   br i1 %exitcond.not.i128, label %_ZN4pbrt15SampledSpectrumdVEf.exit, label %.preheader, !llvm.loop !49

@@ -1723,7 +1723,7 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.thread.i.i: ; preds = %_ZNSt6vec
 
 25:                                               ; preds = %19
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #26
-          to label %.noexc.i20 unwind label %32
+          to label %.noexc.i20 unwind label %28
 
 .noexc.i20:                                       ; preds = %25
   unreachable
@@ -1732,7 +1732,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i14: ; preds = %19
   %.not.i.i.i15 = icmp eq i32 %4, 0
   br i1 %.not.i.i.i15, label %_ZNSt6vectorISt3mapIiPN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEESt4lessIiESaISt4pairIKiS4_EEESaISB_EE17_S_check_init_lenEmRKSC_.exit.i.thread, label %30
 
-_ZNSt6vectorISt3mapIiPN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEESt4lessIiESaISt4pairIKiS4_EEESaISB_EE17_S_check_init_lenEmRKSC_.exit.i.thread: ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i14
+26:                                               ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i14
   %26 = getelementptr inbounds nuw i8, ptr null, i64 %.idx33
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %26, ptr %27, align 8, !tbaa !106
@@ -1746,40 +1746,40 @@ _ZNSt6vectorISt3mapIiPN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEESt4lessIiESaISt4
   %31 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx33) #25
           to label %35 unwind label %32
 
-32:                                               ; preds = %30, %25
-  %33 = landingpad { ptr, i32 }
+28:                                               ; preds = %30, %25
+  %29 = landingpad { ptr, i32 }
           cleanup
-  %34 = load ptr, ptr %22, align 8, !tbaa !51
-  %.not.i.i5.i16 = icmp eq ptr %34, null
+  %30 = load ptr, ptr %22, align 8, !tbaa !51
+  %.not.i.i5.i16 = icmp eq ptr %30, null
   br i1 %.not.i.i5.i16, label %.body21, label %.body21.sink.split
 
-35:                                               ; preds = %30
+31:                                               ; preds = %30
   store ptr %31, ptr %22, align 8, !tbaa !51
-  %36 = getelementptr inbounds nuw i8, ptr %31, i64 %.idx33
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %36, ptr %37, align 8, !tbaa !106
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 %.idx33
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store ptr %32, ptr %33, align 8, !tbaa !106
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %31, ptr align 4 %2, i64 %.idx33, i1 false)
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %36, ptr %38, align 8, !tbaa !49
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %40 = icmp slt i32 %4, 0
-  br i1 %40, label %41, label %_ZNSt12_Vector_baseISt3mapIiPN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEESt4lessIiESaISt4pairIKiS4_EEESaISB_EEC2EmRKSC_.exit.i
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr %32, ptr %34, align 8, !tbaa !49
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %36 = icmp slt i32 %4, 0
+  br i1 %36, label %37, label %_ZNSt12_Vector_baseISt3mapIiPN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEESt4lessIiESaISt4pairIKiS4_EEESaISB_EEC2EmRKSC_.exit.i
 
-41:                                               ; preds = %35
+37:                                               ; preds = %31
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #26
           to label %.noexc unwind label %55
 
-.noexc:                                           ; preds = %41
+.noexc:                                           ; preds = %37
   unreachable
 
-_ZNSt12_Vector_baseISt3mapIiPN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEESt4lessIiESaISt4pairIKiS4_EEESaISB_EEC2EmRKSC_.exit.i: ; preds = %35
+_ZNSt12_Vector_baseISt3mapIiPN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEESt4lessIiESaISt4pairIKiS4_EEESaISB_EEC2EmRKSC_.exit.thread.i: ; preds = %35
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %39, i8 0, i64 24, i1 false)
   %42 = mul nuw nsw i64 %23, 48
   %43 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %42) #25
           to label %.noexc24 unwind label %55
 
 .noexc24:                                         ; preds = %_ZNSt12_Vector_baseISt3mapIiPN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEESt4lessIiESaISt4pairIKiS4_EEESaISB_EEC2EmRKSC_.exit.i
-  store ptr %43, ptr %39, align 8, !tbaa !107
+  store ptr %43, ptr %35, align 8, !tbaa !107
   %44 = getelementptr inbounds nuw %"class.std::map", ptr %43, i64 %23
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %44, ptr %45, align 8, !tbaa !108
@@ -1810,16 +1810,16 @@ _ZNSt12_Vector_baseISt3mapIiPN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEESt4lessIi
   store i8 %53, ptr %54, align 8, !tbaa !70
   ret void
 
-55:                                               ; preds = %_ZNSt12_Vector_baseISt3mapIiPN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEESt4lessIiESaISt4pairIKiS4_EEESaISB_EEC2EmRKSC_.exit.i, %41
+55:                                               ; preds = %_ZNSt12_Vector_baseISt3mapIiPN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEESt4lessIiESaISt4pairIKiS4_EEESaISB_EEC2EmRKSC_.exit.i, %37
   %56 = landingpad { ptr, i32 }
           cleanup
   %57 = load ptr, ptr %22, align 8, !tbaa !51
   %.not.i.i.i25 = icmp eq ptr %57, null
   br i1 %.not.i.i.i25, label %.body21, label %.body21.sink.split
 
-.body21.sink.split:                               ; preds = %55, %32
-  %.sink38 = phi ptr [ %34, %32 ], [ %57, %55 ]
-  %.pn.ph = phi { ptr, i32 } [ %33, %32 ], [ %56, %55 ]
+.body21.sink.split:                               ; preds = %55, %28
+  %.sink38 = phi ptr [ %30, %32 ], [ %57, %55 ]
+  %.pn.ph = phi { ptr, i32 } [ %29, %32 ], [ %56, %55 ]
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %59 = load ptr, ptr %58, align 8, !tbaa !106
   %60 = ptrtoint ptr %59 to i64
@@ -1828,8 +1828,8 @@ _ZNSt12_Vector_baseISt3mapIiPN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEESt4lessIi
   tail call void @_ZdlPvm(ptr noundef nonnull %.sink38, i64 noundef %62) #24
   br label %.body21
 
-.body21:                                          ; preds = %.body21.sink.split, %55, %32
-  %.pn = phi { ptr, i32 } [ %33, %32 ], [ %56, %55 ], [ %.pn.ph, %.body21.sink.split ]
+.body21:                                          ; preds = %.body21.sink.split, %55, %28
+  %.pn = phi { ptr, i32 } [ %29, %32 ], [ %56, %55 ], [ %.pn.ph, %.body21.sink.split ]
   %63 = load ptr, ptr %0, align 8, !tbaa !51
   %.not.i.i.i27 = icmp eq ptr %63, null
   br i1 %.not.i.i.i27, label %.body, label %.body.sink.split

@@ -325,18 +325,18 @@ _ZSt6fill_nIPPKN5arrow5ArrayEmS3_ET_S5_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds
 
 .lr.ph.i.preheader:                               ; preds = %_ZSt6fill_nIPPKN5arrow5ArrayEmS3_ET_S5_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc10
   %.0.i.i.i.i.i.ph = phi ptr [ %13, %_ZSt6fill_nIPPKN5arrow5ArrayEmS3_ET_S5_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %15, %.noexc10 ]
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.0.i.i.i.i.i.ph, ptr %18, align 8, !tbaa !43
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.0.i.i.i.i.i.ph, ptr %19, align 8, !tbaa !43
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %.sroa.0.08.i = phi ptr [ %20, %.lr.ph.i ], [ %12, %.lr.ph.i.preheader ]
-  %.sroa.03.07.i = phi ptr [ %19, %.lr.ph.i ], [ %5, %.lr.ph.i.preheader ]
+  %.sroa.0.08.i = phi ptr [ %21, %.lr.ph.i ], [ %12, %.lr.ph.i.preheader ]
+  %.sroa.03.07.i = phi ptr [ %20, %.lr.ph.i ], [ %5, %.lr.ph.i.preheader ]
   %.val.i = load ptr, ptr %.sroa.03.07.i, align 8, !tbaa !44
   store ptr %.val.i, ptr %.sroa.0.08.i, align 8, !tbaa !41
-  %19 = getelementptr inbounds nuw i8, ptr %.sroa.03.07.i, i64 16
-  %20 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i, i64 8
-  %.not.i = icmp eq ptr %19, %4
+  %20 = getelementptr inbounds nuw i8, ptr %.sroa.03.07.i, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i, i64 8
+  %.not.i = icmp eq ptr %20, %4
   br i1 %.not.i, label %"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrIN5arrow5ArrayEESt6vectorIS5_SaIS5_EEEENS1_IPPKS4_S8_ISD_SaISD_EEEEZNS3_7compute8internal16GetArrayPointersERKSA_E3$_0ET0_T_SO_SN_T1_.exit", label %.lr.ph.i, !llvm.loop !48
 
 "_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrIN5arrow5ArrayEESt6vectorIS5_SaIS5_EEEENS1_IPPKS4_S8_ISD_SaISD_EEEEZNS3_7compute8internal16GetArrayPointersERKSA_E3$_0ET0_T_SO_SN_T1_.exit": ; preds = %.lr.ph.i, %_ZNSt6vectorIPKN5arrow5ArrayESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i
@@ -384,25 +384,25 @@ _ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc6
 
 .lr.ph:                                           ; preds = %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc6
   %.0.i.i.i.i.i.ph = phi ptr [ %7, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %9, %.noexc6 ]
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.0.i.i.i.i.i.ph, ptr %12, align 8, !tbaa !55
-  br label %13
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.0.i.i.i.i.i.ph, ptr %13, align 8, !tbaa !55
+  br label %14
 
-13:                                               ; preds = %.lr.ph, %13
-  %.09 = phi i64 [ 0, %.lr.ph ], [ %21, %13 ]
-  %14 = getelementptr inbounds nuw ptr, ptr %1, i64 %.09
-  %15 = load ptr, ptr %14, align 8, !tbaa !41
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !56
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %19 = load i64, ptr %18, align 8, !tbaa !59
-  %20 = getelementptr inbounds nuw i64, ptr %6, i64 %.09
-  store i64 %19, ptr %20, align 8, !tbaa !54
-  %21 = add nuw nsw i64 %.09, 1
-  %exitcond.not = icmp eq i64 %21, %2
-  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !80
+14:                                               ; preds = %.lr.ph, %14
+  %.09 = phi i64 [ 0, %.lr.ph ], [ %22, %13 ]
+  %15 = getelementptr inbounds nuw ptr, ptr %1, i64 %.09
+  %16 = load ptr, ptr %15, align 8, !tbaa !41
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %18 = load ptr, ptr %17, align 8, !tbaa !56
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %20 = load i64, ptr %19, align 8, !tbaa !59
+  %21 = getelementptr inbounds nuw i64, ptr %6, i64 %.09
+  store i64 %20, ptr %21, align 8, !tbaa !54
+  %22 = add nuw nsw i64 %.09, 1
+  %exitcond.not = icmp eq i64 %22, %2
+  br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !80
 
-._crit_edge:                                      ; preds = %13, %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i
+._crit_edge:                                      ; preds = %14, %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i
   ret void
 }
 
@@ -446,23 +446,23 @@ _ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc9
 
 .lr.ph:                                           ; preds = %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc9
   %.0.i.i.i.i.i.ph = phi ptr [ %13, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %15, %.noexc9 ]
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.0.i.i.i.i.i.ph, ptr %18, align 8, !tbaa !55
-  br label %19
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.0.i.i.i.i.i.ph, ptr %19, align 8, !tbaa !55
+  br label %20
 
-19:                                               ; preds = %.lr.ph, %19
-  %.010 = phi i64 [ 0, %.lr.ph ], [ %25, %19 ]
-  %20 = getelementptr inbounds nuw %"class.std::shared_ptr.23", ptr %5, i64 %.010
-  %21 = load ptr, ptr %20, align 8, !tbaa !85
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  %23 = load i64, ptr %22, align 8, !tbaa !88
-  %24 = getelementptr inbounds nuw i64, ptr %12, i64 %.010
-  store i64 %23, ptr %24, align 8, !tbaa !54
-  %25 = add nuw nsw i64 %.010, 1
-  %exitcond.not = icmp eq i64 %25, %9
-  br i1 %exitcond.not, label %._crit_edge, label %19, !llvm.loop !93
+20:                                               ; preds = %.lr.ph, %20
+  %.010 = phi i64 [ 0, %.lr.ph ], [ %26, %20 ]
+  %21 = getelementptr inbounds nuw %"class.std::shared_ptr.23", ptr %5, i64 %.010
+  %22 = load ptr, ptr %21, align 8, !tbaa !85
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
+  %24 = load i64, ptr %23, align 8, !tbaa !88
+  %25 = getelementptr inbounds nuw i64, ptr %12, i64 %.010
+  store i64 %24, ptr %25, align 8, !tbaa !54
+  %26 = add nuw nsw i64 %.010, 1
+  %exitcond.not = icmp eq i64 %26, %9
+  br i1 %exitcond.not, label %._crit_edge, label %20, !llvm.loop !93
 
-._crit_edge:                                      ; preds = %19, %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i
+._crit_edge:                                      ; preds = %20, %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i
   ret void
 }
 

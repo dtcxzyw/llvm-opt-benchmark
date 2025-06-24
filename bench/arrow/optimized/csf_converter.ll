@@ -3376,63 +3376,63 @@ _ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %3
   br i1 %.not.i.i.i.i, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN5arrow8internal7ArgSortIlSt4lessIlEEES5_RKS3_IT_SaISC_EEOT0_EUlllE_EvSC_SC_SH_.exit, label %.noexc11
 
 .noexc11:                                         ; preds = %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i
-  %11 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #22
-  store ptr %11, ptr %0, align 8, !tbaa !54
-  %12 = getelementptr i8, ptr %11, i64 %9
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %12, ptr %13, align 8, !tbaa !136
-  store i64 0, ptr %11, align 8, !tbaa !56
-  %14 = getelementptr i8, ptr %11, i64 8
-  %15 = icmp eq i64 %9, 8
-  br i1 %15, label %.lr.ph.i.preheader, label %thread-pre-split
+  %12 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #22
+  store ptr %12, ptr %0, align 8, !tbaa !54
+  %13 = getelementptr i8, ptr %12, i64 %9
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %13, ptr %14, align 8, !tbaa !136
+  store i64 0, ptr %12, align 8, !tbaa !56
+  %15 = getelementptr i8, ptr %12, i64 8
+  %16 = icmp eq i64 %9, 8
+  br i1 %16, label %.lr.ph.i.preheader, label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %.noexc11
-  %16 = add nsw i64 %9, -8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %14, i8 0, i64 %16, i1 false), !tbaa !56
+  %17 = add nsw i64 %9, -8
+  tail call void @llvm.memset.p0.i64(ptr align 8 %15, i8 0, i64 %17, i1 false), !tbaa !56
   br label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %.noexc11, %thread-pre-split
-  %.sink = phi ptr [ %12, %thread-pre-split ], [ %14, %.noexc11 ]
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink, ptr %17, align 8, !tbaa !51
+  %.sink = phi ptr [ %13, %thread-pre-split ], [ %15, %.noexc11 ]
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sink, ptr %18, align 8, !tbaa !51
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %.sroa.02.06.i = phi ptr [ %18, %.lr.ph.i ], [ %11, %.lr.ph.i.preheader ]
+  %.sroa.02.06.i = phi ptr [ %19, %.lr.ph.i ], [ %12, %.lr.ph.i.preheader ]
   store i64 %indvars.iv.i, ptr %.sroa.02.06.i, align 8, !tbaa !56
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %18 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i, i64 8
-  %.not.i = icmp eq ptr %18, %.sink
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i, i64 8
+  %.not.i = icmp eq ptr %19, %.sink
   br i1 %.not.i, label %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEiEvT_S7_T0_.exit, label %.lr.ph.i, !llvm.loop !237
 
 _ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEiEvT_S7_T0_.exit: ; preds = %.lr.ph.i
-  %19 = ptrtoint ptr %.sink to i64
-  %20 = ptrtoint ptr %11 to i64
-  %21 = sub i64 %19, %20
-  %22 = ashr exact i64 %21, 3
-  %23 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %22, i1 true)
-  %24 = shl nuw nsw i64 %23, 1
-  %25 = xor i64 %24, 126
-  invoke void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEElNS0_5__ops15_Iter_comp_iterIZN5arrow8internal7ArgSortIlSt4lessIlEEES5_RKS3_IT_SaISE_EEOT0_EUlllE_EEEvSE_SE_SJ_T1_(ptr nonnull %11, ptr %.sink, i64 noundef %25, ptr nonnull %2, ptr nonnull %1)
+  %20 = ptrtoint ptr %.sink to i64
+  %21 = ptrtoint ptr %12 to i64
+  %22 = sub i64 %20, %21
+  %23 = ashr exact i64 %22, 3
+  %24 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %23, i1 true)
+  %25 = shl nuw nsw i64 %24, 1
+  %26 = xor i64 %25, 126
+  invoke void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEElNS0_5__ops15_Iter_comp_iterIZN5arrow8internal7ArgSortIlSt4lessIlEEES5_RKS3_IT_SaISE_EEOT0_EUlllE_EEEvSE_SE_SJ_T1_(ptr nonnull %12, ptr %.sink, i64 noundef %26, ptr nonnull %2, ptr nonnull %1)
           to label %.noexc12 unwind label %_ZNSt6vectorIlSaIlEED2Ev.exit
 
 .noexc12:                                         ; preds = %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEiEvT_S7_T0_.exit
-  invoke void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal7ArgSortIlSt4lessIlEEES5_RKS3_IT_SaISE_EEOT0_EUlllE_EEEvSE_SE_SJ_(ptr nonnull %11, ptr %.sink, ptr nonnull %2, ptr nonnull %1)
+  invoke void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal7ArgSortIlSt4lessIlEEES5_RKS3_IT_SaISE_EEOT0_EUlllE_EEEvSE_SE_SJ_(ptr nonnull %12, ptr %.sink, ptr nonnull %2, ptr nonnull %1)
           to label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN5arrow8internal7ArgSortIlSt4lessIlEEES5_RKS3_IT_SaISC_EEOT0_EUlllE_EvSC_SC_SH_.exit unwind label %_ZNSt6vectorIlSaIlEED2Ev.exit
 
 _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN5arrow8internal7ArgSortIlSt4lessIlEEES5_RKS3_IT_SaISC_EEOT0_EUlllE_EvSC_SC_SH_.exit: ; preds = %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i, %.noexc12
   ret void
 
 _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %.noexc12, %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEiEvT_S7_T0_.exit
-  %26 = landingpad { ptr, i32 }
+  %27 = landingpad { ptr, i32 }
           cleanup
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %28 = load ptr, ptr %27, align 8, !tbaa !136
-  %29 = ptrtoint ptr %28 to i64
-  %30 = sub i64 %29, %20
-  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %30) #23
-  resume { ptr, i32 } %26
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %29 = load ptr, ptr %28, align 8, !tbaa !136
+  %30 = ptrtoint ptr %29 to i64
+  %31 = sub i64 %30, %21
+  tail call void @_ZdlPvm(ptr noundef nonnull %12, i64 noundef %31) #23
+  resume { ptr, i32 } %27
 }
 
 declare void @_ZNK5arrow6Tensor12CountNonZeroEv(ptr dead_on_unwind writable sret(%"class.arrow::Result.23") align 8, ptr noundef nonnull align 8 dereferenceable(112)) local_unnamed_addr #3

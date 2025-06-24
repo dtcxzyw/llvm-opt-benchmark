@@ -16498,13 +16498,13 @@ _ZN4pkpy2VM10ValueErrorERKNS_3StrE.exit.i:        ; preds = %.noexc.i
   %44 = fdiv double %43, %40
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store double %44, ptr %4, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %46 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewIdJRdEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %45, i16 3, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %47 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewIdJRdEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %46, i16 3, ptr noundef nonnull align 8 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br label %"_ZZN4pkpy15__init_builtinsEPNS_2VMEENK4$_23clES1_NS_8ArgsViewE.exit"
 
 "_ZZN4pkpy15__init_builtinsEPNS_2VMEENK4$_23clES1_NS_8ArgsViewE.exit": ; preds = %3, %_ZN4pkpy6is_intEPNS_8PyObjectE.exit.i, %_ZN4pkpy6py_varIlEEPNS_8PyObjectEPNS_2VMEOT_.exit.i, %38
-  %.0.i = phi ptr [ %.0.i.i, %_ZN4pkpy6py_varIlEEPNS_8PyObjectEPNS_2VMEOT_.exit.i ], [ %46, %38 ], [ %7, %_ZN4pkpy6is_intEPNS_8PyObjectE.exit.i ], [ %7, %3 ]
+  %.0.i = phi ptr [ %.0.i.i, %_ZN4pkpy6py_varIlEEPNS_8PyObjectEPNS_2VMEOT_.exit.i ], [ %47, %38 ], [ %7, %_ZN4pkpy6is_intEPNS_8PyObjectE.exit.i ], [ %7, %3 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   ret ptr %.0.i
 }

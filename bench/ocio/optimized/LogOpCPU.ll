@@ -1200,56 +1200,56 @@ define hidden void @_ZN19OpenColorIO_v2_5dev15Log2LinRenderer10updateDataERSt10s
   %34 = fdiv float %20, %33
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store float %34, ptr %35, align 8, !tbaa !111
-  %36 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %37 = load double, ptr %36, align 8, !tbaa !119
+  %37 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %37 = load double, ptr %37, align 8, !tbaa !119
   %38 = fptrunc double %37 to float
   %39 = fneg float %38
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 100
   store float %39, ptr %40, align 4, !tbaa !111
-  %41 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %42 = load double, ptr %41, align 8, !tbaa !119
+  %42 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %42 = load double, ptr %42, align 8, !tbaa !119
   %43 = fptrunc double %42 to float
   %44 = fneg float %43
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store float %44, ptr %45, align 8, !tbaa !111
-  %46 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %47 = load double, ptr %46, align 8, !tbaa !119
+  %47 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %47 = load double, ptr %47, align 8, !tbaa !119
   %48 = fptrunc double %47 to float
   %49 = fneg float %48
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store float %49, ptr %50, align 4, !tbaa !111
-  %51 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  %52 = load double, ptr %51, align 8, !tbaa !119
+  %52 = getelementptr inbounds nuw i8, ptr %21, i64 24
+  %52 = load double, ptr %52, align 8, !tbaa !119
   %53 = fptrunc double %52 to float
   %54 = fneg float %53
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store float %54, ptr %55, align 8, !tbaa !111
-  %56 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  %57 = load double, ptr %56, align 8, !tbaa !119
+  %57 = getelementptr inbounds nuw i8, ptr %26, i64 24
+  %57 = load double, ptr %57, align 8, !tbaa !119
   %58 = fptrunc double %57 to float
   %59 = fneg float %58
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 116
   store float %59, ptr %60, align 4, !tbaa !111
-  %61 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  %62 = load double, ptr %61, align 8, !tbaa !119
+  %62 = getelementptr inbounds nuw i8, ptr %31, i64 24
+  %62 = load double, ptr %62, align 8, !tbaa !119
   %63 = fptrunc double %62 to float
   %64 = fneg float %63
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store float %64, ptr %65, align 8, !tbaa !111
-  %66 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %67 = load double, ptr %66, align 8, !tbaa !119
+  %67 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %67 = load double, ptr %67, align 8, !tbaa !119
   %68 = fptrunc double %67 to float
   %69 = fdiv float 1.000000e+00, %68
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 124
   store float %69, ptr %70, align 4, !tbaa !111
-  %71 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %72 = load double, ptr %71, align 8, !tbaa !119
+  %72 = getelementptr inbounds nuw i8, ptr %26, i64 16
+  %72 = load double, ptr %72, align 8, !tbaa !119
   %73 = fptrunc double %72 to float
   %74 = fdiv float 1.000000e+00, %73
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store float %74, ptr %75, align 8, !tbaa !111
-  %76 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %77 = load double, ptr %76, align 8, !tbaa !119
+  %77 = getelementptr inbounds nuw i8, ptr %31, i64 16
+  %77 = load double, ptr %77, align 8, !tbaa !119
   %78 = fptrunc double %77 to float
   %79 = fdiv float 1.000000e+00, %78
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 132
@@ -1550,7 +1550,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev15Lin2LogRenderer10updateDataERSt10s
   %59 = fptrunc double %58 to float
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store float %59, ptr %60, align 8, !tbaa !111
-  %61 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %62 = load double, ptr %61, align 8, !tbaa !119
   %63 = fptrunc double %62 to float
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 124

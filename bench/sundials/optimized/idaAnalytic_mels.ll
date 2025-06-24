@@ -357,7 +357,7 @@ define dso_local noundef i32 @fres(double noundef %0, ptr noundef readonly captu
   %29 = load ptr, ptr %28, align 8, !tbaa !16
   store double %26, ptr %29, align 8, !tbaa !4
   %30 = fadd double %0, 2.000000e+00
-  %31 = fneg double %24
+  %31 = fneg double %30
   %32 = fmul double %30, %31
   %33 = tail call double @llvm.fmuladd.f64(double %30, double %10, double %32)
   %34 = getelementptr inbounds nuw i8, ptr %29, i64 8
@@ -413,36 +413,36 @@ define internal fastcc range(i32 -1, 2) i32 @check_ans(ptr noundef %0, double no
   tail call void @N_VConst(double noundef 1.000000e-09, ptr noundef nonnull %5) #9
   tail call void @N_VAbs(ptr noundef nonnull %3, ptr noundef %4) #9
   tail call void @N_VLinearSum(double noundef 1.000000e-04, ptr noundef %4, double noundef 1.000000e+01, ptr noundef nonnull %5, ptr noundef %4) #9
-  %15 = tail call double @N_VMin(ptr noundef %4) #9
-  %16 = fcmp ugt double %15, 0.000000e+00
-  br i1 %16, label %20, label %17
+  %21 = tail call double @N_VMin(ptr noundef %4) #9
+  %22 = fcmp ugt double %21, 0.000000e+00
+  br i1 %22, label %26, label %23
 
-17:                                               ; preds = %2
-  %18 = load ptr, ptr @stderr, align 8, !tbaa !8
-  %19 = tail call i64 @fwrite(ptr nonnull @.str.34, i64 46, i64 1, ptr %18) #11
-  br label %28
+23:                                               ; preds = %2
+  %24 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %25 = tail call i64 @fwrite(ptr nonnull @.str.34, i64 46, i64 1, ptr %24) #11
+  br label %34
 
-20:                                               ; preds = %2
+26:                                               ; preds = %2
   tail call void @N_VInv(ptr noundef %4, ptr noundef %4) #9
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %0, double noundef -1.000000e+00, ptr noundef nonnull %3, ptr noundef nonnull %3) #9
-  %21 = tail call double @N_VWrmsNorm(ptr noundef nonnull %3, ptr noundef %4) #9
-  %22 = fcmp uge double %21, 1.000000e+00
-  %23 = zext i1 %22 to i32
-  br i1 %22, label %24, label %27
+  %27 = tail call double @N_VWrmsNorm(ptr noundef nonnull %3, ptr noundef %4) #9
+  %28 = fcmp uge double %27, 1.000000e+00
+  %29 = zext i1 %28 to i32
+  br i1 %28, label %30, label %33
 
-24:                                               ; preds = %20
-  %25 = load ptr, ptr @stdout, align 8, !tbaa !8
-  %26 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.35, double noundef %21) #9
-  br label %27
+30:                                               ; preds = %26
+  %31 = load ptr, ptr @stdout, align 8, !tbaa !8
+  %32 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %31, ptr noundef nonnull @.str.35, double noundef %27) #9
+  br label %33
 
-27:                                               ; preds = %24, %20
+33:                                               ; preds = %30, %26
   tail call void @N_VDestroy(ptr noundef nonnull %3) #9
   tail call void @N_VDestroy(ptr noundef nonnull %5) #9
   tail call void @N_VDestroy(ptr noundef %4) #9
-  br label %28
+  br label %34
 
-28:                                               ; preds = %27, %17
-  %.0 = phi i32 [ -1, %17 ], [ %23, %27 ]
+34:                                               ; preds = %33, %23
+  %.0 = phi i32 [ -1, %17 ], [ %29, %27 ]
   ret i32 %.0
 }
 

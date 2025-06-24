@@ -19764,9 +19764,9 @@ define linkonce_odr void @_ZNK7xgboost3gbm6GBTree12FeatureScoreERKNSt7__cxx1112b
   %19 = load i32, ptr %18, align 8, !tbaa !257
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   %.not.i.i.i.i = icmp eq i32 %19, 0
-  br i1 %.not.i.i.i.i, label %.loopexit157.thread, label %21
+  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i, label %21
 
-.loopexit157.thread:                              ; preds = %6
+_ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i: ; preds = %6
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
@@ -19796,7 +19796,7 @@ define linkonce_odr void @_ZNK7xgboost3gbm6GBTree12FeatureScoreERKNSt7__cxx1112b
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %29, i8 0, i64 %28, i1 false), !tbaa !513
   br label %.loopexit156
 
-.loopexit156:                                     ; preds = %.loopexit157.thread, %.noexc56
+.loopexit156:                                     ; preds = %_ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i, %.noexc56
   %32 = phi ptr [ %27, %.noexc56 ], [ %20, %.loopexit157.thread ]
   %.0.i.i.i.i.i.i.i55 = phi ptr [ %30, %.noexc56 ], [ null, %.loopexit157.thread ]
   %33 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -19809,10 +19809,10 @@ define linkonce_odr void @_ZNK7xgboost3gbm6GBTree12FeatureScoreERKNSt7__cxx1112b
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !137
   %.phi.trans.insert163 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %.pre164 = load ptr, ptr %.phi.trans.insert163, align 8, !tbaa !138
-  %.pre167 = ptrtoint ptr %.pre to i64
-  %.pre168 = ptrtoint ptr %.pre164 to i64
-  %.pre170 = sub i64 %.pre167, %.pre168
-  %.pre172 = ashr exact i64 %.pre170, 3
+  %.pre168 = ptrtoint ptr %.pre to i64
+  %.pre170 = ptrtoint ptr %.pre164 to i64
+  %.pre172 = sub i64 %.pre168, %.pre170
+  %.pre174 = ashr exact i64 %.pre172, 3
   br label %62
 
 35:                                               ; preds = %.loopexit156
@@ -19892,13 +19892,13 @@ _ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_T0_.exit: 
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit101
 
 62:                                               ; preds = %.loopexit156._crit_edge, %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_T0_.exit
-  %.pre-phi173 = phi i64 [ %.pre172, %.loopexit156._crit_edge ], [ %43, %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_T0_.exit ]
+  %.pre-phi175 = phi i64 [ %.pre174, %.loopexit156._crit_edge ], [ %43, %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_T0_.exit ]
   %.sroa.18.0 = phi i64 [ 0, %.loopexit156._crit_edge ], [ %.sroa.11.0130, %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_T0_.exit ]
   %.sroa.0110.0 = phi ptr [ null, %.loopexit156._crit_edge ], [ %.sroa.0110.2131, %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_T0_.exit ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #23
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  store i64 %.pre-phi173, ptr %10, align 8, !tbaa !108
+  store i64 %.pre-phi175, ptr %10, align 8, !tbaa !108
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #23
   store ptr %7, ptr %11, align 8, !tbaa !515
   %65 = getelementptr inbounds nuw i8, ptr %11, i64 8

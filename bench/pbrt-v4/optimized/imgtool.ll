@@ -61913,7 +61913,7 @@ _ZN4pbrt8GaussianEfff.exit:                       ; preds = %4, %28, %30
 
 _ZN4pbrt8GaussianEfff.exit7:                      ; preds = %_ZN4pbrt8GaussianEfff.exit, %53, %55
   %.0.i.i6 = phi float [ %60, %55 ], [ 0.000000e+00, %_ZN4pbrt8GaussianEfff.exit ], [ 0x7FF0000000000000, %53 ]
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %62 = fmul float %36, %.0.i.i6
   store float %62, ptr %61, align 8, !tbaa !880
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 24

@@ -139,7 +139,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readonly 
 
 ParseArgs.exit:                                   ; preds = %47, %49
   tail call fastcc void @PrintHelp()
-  br label %148
+  br label %149
 
 .loopexit80.loopexit:                             ; preds = %52
   %55 = icmp eq i32 %.sroa.11.1, 0
@@ -161,7 +161,7 @@ ParseArgs.exit:                                   ; preds = %47, %49
 check_retval.exit:                                ; preds = %.loopexit80
   %60 = load ptr, ptr @stderr, align 8, !tbaa !11
   %61 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str, i32 noundef %58) #12
-  br label %148
+  br label %149
 
 62:                                               ; preds = %.loopexit80
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
@@ -181,7 +181,7 @@ check_retval.exit:                                ; preds = %.loopexit80
 check_retval.exit44:                              ; preds = %62
   %71 = load ptr, ptr @stderr, align 8, !tbaa !11
   %72 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %71, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.2, i32 noundef %69) #12
-  br label %148
+  br label %149
 
 73:                                               ; preds = %62
   %74 = call i32 @SPRKStepSetUseCompensatedSums(ptr noundef %68, i32 noundef %.sroa.8.2.ph) #10
@@ -191,7 +191,7 @@ check_retval.exit44:                              ; preds = %62
 check_retval.exit46:                              ; preds = %73
   %76 = load ptr, ptr @stderr, align 8, !tbaa !11
   %77 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %76, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.3, i32 noundef %74) #12
-  br label %148
+  br label %149
 
 78:                                               ; preds = %73
   %79 = call i32 @ARKodeSetFixedStep(ptr noundef %68, double noundef %.sroa.17.2.ph) #10
@@ -201,7 +201,7 @@ check_retval.exit46:                              ; preds = %73
 check_retval.exit48:                              ; preds = %78
   %81 = load ptr, ptr @stderr, align 8, !tbaa !11
   %82 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %81, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.4, i32 noundef %79) #12
-  br label %148
+  br label %149
 
 83:                                               ; preds = %78
   %84 = fdiv double %.sroa.14.2.ph, %.sroa.17.2.ph
@@ -215,7 +215,7 @@ check_retval.exit48:                              ; preds = %78
 check_retval.exit50:                              ; preds = %83
   %90 = load ptr, ptr @stderr, align 8, !tbaa !11
   %91 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %90, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.5, i32 noundef %88) #12
-  br label %148
+  br label %149
 
 92:                                               ; preds = %83
   store double 0.000000e+00, ptr %4, align 8, !tbaa !13
@@ -283,22 +283,22 @@ check_retval.exit50:                              ; preds = %83
   %exitcond.not = icmp eq i32 %140, %.sroa.5.2.ph
   br i1 %exitcond.not, label %.loopexit, label %101
 
-141:                                              ; preds = %104
-  %142 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %143 = call i64 @fwrite(ptr nonnull @.str.7, i64 37, i64 1, ptr %142) #13
+142:                                              ; preds = %104
+  %143 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %144 = call i64 @fwrite(ptr nonnull @.str.7, i64 37, i64 1, ptr %143) #13
   br label %.loopexit
 
-.loopexit:                                        ; preds = %136, %92, %141
+.loopexit:                                        ; preds = %136, %92, %142
   %144 = load ptr, ptr @stdout, align 8, !tbaa !11
   %fputc = call i32 @fputc(i32 10, ptr %144)
   %145 = load ptr, ptr @stdout, align 8, !tbaa !11
-  %146 = call i32 @ARKodePrintAllStats(ptr noundef %68, ptr noundef %145, i32 noundef 0) #10
+  %fputc = call i32 @ARKodePrintAllStats(ptr noundef %68, ptr noundef %145, i32 noundef 0) #10
   call void @N_VDestroy(ptr noundef %64) #10
   call void @ARKodeFree(ptr noundef nonnull %5) #10
-  %147 = call i32 @SUNContext_Free(ptr noundef nonnull %3) #10
-  br label %148
+  %148 = call i32 @SUNContext_Free(ptr noundef nonnull %3) #10
+  br label %149
 
-148:                                              ; preds = %check_retval.exit50, %check_retval.exit48, %check_retval.exit46, %check_retval.exit44, %check_retval.exit, %ParseArgs.exit, %.loopexit
+149:                                              ; preds = %check_retval.exit50, %check_retval.exit48, %check_retval.exit46, %check_retval.exit44, %check_retval.exit, %ParseArgs.exit, %.loopexit
   %.0 = phi i32 [ 0, %.loopexit ], [ 1, %ParseArgs.exit ], [ 1, %check_retval.exit ], [ 1, %check_retval.exit44 ], [ 1, %check_retval.exit46 ], [ 1, %check_retval.exit48 ], [ 1, %check_retval.exit50 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
