@@ -227,6 +227,7 @@ $_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE = comdat any
 @switch.table._ZN5clang8DeclSpec6FinishERNS_4SemaERKNS_14PrintingPolicyE.8 = private unnamed_addr constant [4 x ptr] [ptr @.str.4, ptr @.str.12, ptr @.str.13, ptr @.str.14], align 8
 @switch.table._ZN5clang8DeclSpec6FinishERNS_4SemaERKNS_14PrintingPolicyE.9 = private unnamed_addr constant [8 x ptr] [ptr @.str.4, ptr @.str.5, ptr @.str.6, ptr @.str.7, ptr @.str.8, ptr @.str.9, ptr @.str.10, ptr @.str.11], align 8
 @switch.table._ZN5clang8DeclSpec6FinishERNS_4SemaERKNS_14PrintingPolicyE.10 = private unnamed_addr constant [3 x ptr] [ptr @.str.12, ptr @.str.13, ptr @.str.14], align 8
+@switch.table._ZN5clang14VirtSpecifiers16getSpecifierNameENS0_9SpecifierE = private unnamed_addr constant [5 x ptr] [ptr @.str.110, ptr @.str.111, ptr @.str.113, ptr @.str.112, ptr @.str.114], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN5clang13UnqualifiedId13setTemplateIdEPNS_20TemplateIdAnnotationE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 4), (8, 16), (24, 32)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
@@ -2779,43 +2780,44 @@ _ZL12BadSpecifierIN5clang8DeclSpec2TQEEbT_S3_RPKcRjb.exit: ; preds = %12, %15, %
   %27 = and i64 %7, -2080374785
   %28 = or disjoint i64 %27, %26
   store i64 %28, ptr %0, align 8
-  switch i32 %1, label %39 [
-    i32 16, label %37
-    i32 1, label %29
-    i32 2, label %31
-    i32 4, label %33
-    i32 8, label %35
+  %29 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %1, i1 true)
+  switch i32 %29, label %40 [
+    i32 4, label %38
+    i32 0, label %30
+    i32 1, label %32
+    i32 2, label %34
+    i32 3, label %36
   ]
 
-29:                                               ; preds = %22
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 284
-  store i32 %2, ptr %30, align 4, !tbaa !11
+30:                                               ; preds = %22
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 284
+  store i32 %2, ptr %31, align 4, !tbaa !11
   br label %_ZN5clang8DeclSpec11SetTypeQualENS0_2TQENS_14SourceLocationE.exit
 
-31:                                               ; preds = %22
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  store i32 %2, ptr %32, align 8, !tbaa !11
+32:                                               ; preds = %22
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  store i32 %2, ptr %33, align 8, !tbaa !11
   br label %_ZN5clang8DeclSpec11SetTypeQualENS0_2TQENS_14SourceLocationE.exit
 
-33:                                               ; preds = %22
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 292
-  store i32 %2, ptr %34, align 4, !tbaa !11
+34:                                               ; preds = %22
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 292
+  store i32 %2, ptr %35, align 4, !tbaa !11
   br label %_ZN5clang8DeclSpec11SetTypeQualENS0_2TQENS_14SourceLocationE.exit
 
-35:                                               ; preds = %22
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 300
-  store i32 %2, ptr %36, align 4, !tbaa !11
+36:                                               ; preds = %22
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 300
+  store i32 %2, ptr %37, align 4, !tbaa !11
   br label %_ZN5clang8DeclSpec11SetTypeQualENS0_2TQENS_14SourceLocationE.exit
 
-37:                                               ; preds = %22
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  store i32 %2, ptr %38, align 8, !tbaa !11
+38:                                               ; preds = %22
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  store i32 %2, ptr %39, align 8, !tbaa !11
   br label %_ZN5clang8DeclSpec11SetTypeQualENS0_2TQENS_14SourceLocationE.exit
 
-39:                                               ; preds = %22
+40:                                               ; preds = %22
   unreachable
 
-_ZN5clang8DeclSpec11SetTypeQualENS0_2TQENS_14SourceLocationE.exit: ; preds = %37, %35, %33, %31, %29, %_ZL12BadSpecifierIN5clang8DeclSpec2TQEEbT_S3_RPKcRjb.exit
+_ZN5clang8DeclSpec11SetTypeQualENS0_2TQENS_14SourceLocationE.exit: ; preds = %38, %36, %34, %32, %30, %_ZL12BadSpecifierIN5clang8DeclSpec2TQEEbT_S3_RPKcRjb.exit
   ret i1 %.not
 }
 
@@ -2830,43 +2832,44 @@ define dso_local noundef zeroext i1 @_ZN5clang8DeclSpec11SetTypeQualENS0_2TQENS_
   %10 = and i64 %4, -2080374785
   %11 = or disjoint i64 %10, %9
   store i64 %11, ptr %0, align 8
-  switch i32 %1, label %22 [
-    i32 16, label %20
-    i32 1, label %12
-    i32 2, label %14
-    i32 4, label %16
-    i32 8, label %18
+  %12 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %1, i1 true)
+  switch i32 %12, label %23 [
+    i32 4, label %21
+    i32 0, label %13
+    i32 1, label %15
+    i32 2, label %17
+    i32 3, label %19
   ]
 
-12:                                               ; preds = %3
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 284
-  store i32 %2, ptr %13, align 4, !tbaa !11
-  br label %23
+13:                                               ; preds = %3
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 284
+  store i32 %2, ptr %14, align 4, !tbaa !11
+  br label %24
 
-14:                                               ; preds = %3
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  store i32 %2, ptr %15, align 8, !tbaa !11
-  br label %23
+15:                                               ; preds = %3
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  store i32 %2, ptr %16, align 8, !tbaa !11
+  br label %24
 
-16:                                               ; preds = %3
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 292
-  store i32 %2, ptr %17, align 4, !tbaa !11
-  br label %23
+17:                                               ; preds = %3
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 292
+  store i32 %2, ptr %18, align 4, !tbaa !11
+  br label %24
 
-18:                                               ; preds = %3
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 300
-  store i32 %2, ptr %19, align 4, !tbaa !11
-  br label %23
+19:                                               ; preds = %3
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 300
+  store i32 %2, ptr %20, align 4, !tbaa !11
+  br label %24
 
-20:                                               ; preds = %3
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  store i32 %2, ptr %21, align 8, !tbaa !11
-  br label %23
+21:                                               ; preds = %3
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  store i32 %2, ptr %22, align 8, !tbaa !11
+  br label %24
 
-22:                                               ; preds = %3
+23:                                               ; preds = %3
   unreachable
 
-23:                                               ; preds = %20, %18, %16, %14, %12
+24:                                               ; preds = %21, %19, %17, %15, %13
   ret i1 false
 }
 
@@ -8192,98 +8195,58 @@ define dso_local noundef zeroext i1 @_ZN5clang14VirtSpecifiers12SetSpecifierENS0
   %11 = load i32, ptr %0, align 4, !tbaa !1205
   %12 = and i32 %11, %1
   %.not = icmp ne i32 %12, 0
-  br i1 %.not, label %13, label %19
+  br i1 %.not, label %switch.lookup, label %15
 
-13:                                               ; preds = %8
-  switch i32 %1, label %14 [
-    i32 1, label %_ZN5clang14VirtSpecifiers16getSpecifierNameENS0_9SpecifierE.exit
-    i32 2, label %15
-    i32 8, label %16
-    i32 4, label %17
-    i32 16, label %18
+switch.lookup:                                    ; preds = %8
+  %13 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %1, i1 true)
+  %14 = zext nneg i32 %13 to i64
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN5clang14VirtSpecifiers16getSpecifierNameENS0_9SpecifierE, i64 0, i64 %14
+  %switch.load = load ptr, ptr %switch.gep, align 8
+  store ptr %switch.load, ptr %3, align 8, !tbaa !771
+  br label %25
+
+15:                                               ; preds = %8
+  %16 = or i32 %11, %1
+  store i32 %16, ptr %0, align 4, !tbaa !1205
+  %17 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %1, i1 true)
+  switch i32 %17, label %18 [
+    i32 0, label %19
+    i32 3, label %21
+    i32 2, label %21
+    i32 1, label %21
+    i32 4, label %23
   ]
 
-14:                                               ; preds = %13
+18:                                               ; preds = %15
   unreachable
 
-15:                                               ; preds = %13
-  br label %_ZN5clang14VirtSpecifiers16getSpecifierNameENS0_9SpecifierE.exit
+19:                                               ; preds = %15
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %2, ptr %20, align 4, !tbaa !11
+  br label %25
 
-16:                                               ; preds = %13
-  br label %_ZN5clang14VirtSpecifiers16getSpecifierNameENS0_9SpecifierE.exit
+21:                                               ; preds = %15, %15, %15
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 %2, ptr %22, align 4, !tbaa !11
+  br label %25
 
-17:                                               ; preds = %13
-  br label %_ZN5clang14VirtSpecifiers16getSpecifierNameENS0_9SpecifierE.exit
+23:                                               ; preds = %15
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %2, ptr %24, align 4, !tbaa !11
+  br label %25
 
-18:                                               ; preds = %13
-  br label %_ZN5clang14VirtSpecifiers16getSpecifierNameENS0_9SpecifierE.exit
-
-_ZN5clang14VirtSpecifiers16getSpecifierNameENS0_9SpecifierE.exit: ; preds = %13, %15, %16, %17, %18
-  %.0.i = phi ptr [ @.str.111, %15 ], [ @.str.112, %16 ], [ @.str.113, %17 ], [ @.str.114, %18 ], [ @.str.110, %13 ]
-  store ptr %.0.i, ptr %3, align 8, !tbaa !771
-  br label %28
-
-19:                                               ; preds = %8
-  %20 = or i32 %11, %1
-  store i32 %20, ptr %0, align 4, !tbaa !1205
-  switch i32 %1, label %21 [
-    i32 1, label %22
-    i32 8, label %24
-    i32 4, label %24
-    i32 2, label %24
-    i32 16, label %26
-  ]
-
-21:                                               ; preds = %19
-  unreachable
-
-22:                                               ; preds = %19
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %2, ptr %23, align 4, !tbaa !11
-  br label %28
-
-24:                                               ; preds = %19, %19, %19
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %2, ptr %25, align 4, !tbaa !11
-  br label %28
-
-26:                                               ; preds = %19
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %2, ptr %27, align 4, !tbaa !11
-  br label %28
-
-28:                                               ; preds = %22, %24, %26, %_ZN5clang14VirtSpecifiers16getSpecifierNameENS0_9SpecifierE.exit
+25:                                               ; preds = %19, %21, %23, %switch.lookup
   ret i1 %.not
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef nonnull ptr @_ZN5clang14VirtSpecifiers16getSpecifierNameENS0_9SpecifierE(i32 noundef %0) local_unnamed_addr #11 align 2 {
-  switch i32 %0, label %2 [
-    i32 1, label %7
-    i32 2, label %3
-    i32 8, label %4
-    i32 4, label %5
-    i32 16, label %6
-  ]
-
-2:                                                ; preds = %1
-  unreachable
-
-3:                                                ; preds = %1
-  br label %7
-
-4:                                                ; preds = %1
-  br label %7
-
-5:                                                ; preds = %1
-  br label %7
-
-6:                                                ; preds = %1
-  br label %7
-
-7:                                                ; preds = %1, %6, %5, %4, %3
-  %.0 = phi ptr [ @.str.111, %3 ], [ @.str.112, %4 ], [ @.str.113, %5 ], [ @.str.114, %6 ], [ @.str.110, %1 ]
-  ret ptr %.0
+switch.lookup:
+  %1 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %0, i1 true)
+  %2 = zext nneg i32 %1 to i64
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN5clang14VirtSpecifiers16getSpecifierNameENS0_9SpecifierE, i64 0, i64 %2
+  %switch.load = load ptr, ptr %switch.gep, align 8
+  ret ptr %switch.load
 }
 
 declare i64 @_ZNK5clang22NestedNameSpecifierLoc19getLocalSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #3
@@ -9820,11 +9783,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   ret void
 }
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #20
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #20
+declare void @llvm.assume(i1 noundef) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #21
+declare i32 @llvm.umax.i32(i32, i32) #20
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
@@ -9846,8 +9812,8 @@ attributes #16 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector
 attributes #17 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #21 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #20 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #21 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #22 = { nounwind }
 attributes #23 = { nounwind willreturn memory(read) }
 attributes #24 = { builtin nounwind allocsize(0) }

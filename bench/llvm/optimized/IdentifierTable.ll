@@ -25095,7 +25095,7 @@ define internal { ptr, i64 } @_ZN12_GLOBAL__N_119EmptyLookupIterator4NextEv(ptr 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal fastcc noundef range(i32 1, 5) i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(849) %0, i32 noundef range(i32 0, 469760000) %1) unnamed_addr #6 {
   %3 = icmp eq i32 %1, 469755903
-  br i1 %3, label %195, label %4
+  br i1 %3, label %191, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -25105,12 +25105,12 @@ define internal fastcc noundef range(i32 1, 5) i32 @_ZL16getKeywordStatusRKN5cla
   %8 = and i32 %1, 4096
   %.not18 = icmp eq i32 %8, 0
   %or.cond = or i1 %.not18, %.not
-  br i1 %or.cond, label %9, label %195
+  br i1 %or.cond, label %9, label %191
 
 9:                                                ; preds = %4
   %10 = load i64, ptr %0, align 8
-  %.fr71 = freeze i64 %10
-  %11 = and i64 %.fr71, 32
+  %.fr74 = freeze i64 %10
+  %11 = and i64 %.fr74, 32
   %.not19 = icmp eq i64 %11, 0
   %12 = and i32 %1, 2048
   %.not20 = icmp eq i32 %12, 0
@@ -25120,19 +25120,19 @@ define internal fastcc noundef range(i32 1, 5) i32 @_ZL16getKeywordStatusRKN5cla
   %15 = trunc i64 %14 to i32
   %16 = icmp ugt i32 %15, 189999999
   %or.cond35 = select i1 %or.cond24, i1 true, i1 %16
-  br i1 %or.cond35, label %17, label %195
+  br i1 %or.cond35, label %17, label %191
 
 17:                                               ; preds = %9
-  %18 = and i64 %.fr71, 256
+  %18 = and i64 %.fr74, 256
   %.not21 = icmp eq i64 %18, 0
   %19 = and i32 %1, 67108864
   %.not22 = icmp eq i32 %19, 0
   %or.cond25 = or i1 %.not22, %.not21
-  br i1 %or.cond25, label %.preheader, label %195
+  br i1 %or.cond25, label %.preheader, label %191
 
 .preheader:                                       ; preds = %17
-  %.not2337 = icmp eq i32 %1, 0
-  br i1 %.not2337, label %._crit_edge, label %.lr.ph
+  %.not2338 = icmp eq i32 %1, 0
+  br i1 %.not2338, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -25140,7 +25140,7 @@ define internal fastcc noundef range(i32 1, 5) i32 @_ZL16getKeywordStatusRKN5cla
   %22 = and i64 %21, 4294967296
   %.not.i = icmp eq i64 %22, 0
   %23 = select i1 %.not.i, i32 1, i32 4
-  %24 = and i64 %.fr71, 2048
+  %24 = and i64 %.fr74, 2048
   %.not34.i = icmp eq i64 %24, 0
   %25 = select i1 %.not34.i, i32 4, i32 0
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -25148,7 +25148,7 @@ define internal fastcc noundef range(i32 1, 5) i32 @_ZL16getKeywordStatusRKN5cla
   %28 = trunc i64 %27 to i32
   %29 = lshr i32 %28, 6
   %30 = and i32 %29, 4
-  %31 = trunc i64 %.fr71 to i32
+  %31 = trunc i64 %.fr74 to i32
   %32 = lshr i32 %31, 6
   %33 = and i32 %32, 4
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -25178,9 +25178,9 @@ define internal fastcc noundef range(i32 1, 5) i32 @_ZL16getKeywordStatusRKN5cla
   %57 = and i32 %56, 4
   %58 = lshr i32 %31, 16
   %59 = and i32 %58, 4
-  %60 = and i64 %.fr71, 536870912
+  %60 = and i64 %.fr74, 536870912
   %.not43.i = icmp eq i64 %60, 0
-  %61 = and i64 %.fr71, 32768
+  %61 = and i64 %.fr74, 32768
   %.not44.i = icmp eq i64 %61, 0
   %62 = lshr i32 %31, 10
   %..i = and i32 %62, 2
@@ -25192,77 +25192,80 @@ define internal fastcc noundef range(i32 1, 5) i32 @_ZL16getKeywordStatusRKN5cla
   %.not49.i = icmp eq i64 %67, 0
   %68 = select i1 %.not49.i, i32 4, i32 0
   %69 = select i1 %.not, i32 0, i32 %68
-  %70 = and i64 %.fr71, 1024
+  %70 = and i64 %.fr74, 1024
   %.not50.i = icmp eq i64 %70, 0
   %71 = select i1 %.not50.i, i32 0, i32 3
   %72 = lshr i64 %51, 39
   %73 = trunc nuw nsw i64 %72 to i32
   %74 = and i32 %73, 4
-  %75 = and i64 %.fr71, 67108864
+  %75 = and i64 %.fr74, 67108864
   %.not52.i = icmp eq i64 %75, 0
   %76 = select i1 %.not34.i, i32 2, i32 0
-  %77 = and i64 %.fr71, 128
+  %77 = and i64 %.fr74, 128
   %.not54.i = icmp eq i64 %77, 0
   %78 = select i1 %.not54.i, i32 0, i32 3
-  %79 = and i64 %.fr71, 34359738368
+  %79 = and i64 %.fr74, 34359738368
   %.not55.i = icmp eq i64 %79, 0
   %80 = select i1 %.not55.i, i32 0, i32 3
-  %81 = and i64 %.fr71, 4096
+  %81 = and i64 %.fr74, 4096
   %.not58.i = icmp eq i64 %81, 0
   %82 = lshr i32 %31, 9
   %83 = and i32 %82, 4
-  %84 = and i64 %.fr71, 8
+  %84 = and i64 %.fr74, 8
   %.not61.i = icmp eq i64 %84, 0
-  %85 = and i64 %.fr71, 1
+  %85 = and i64 %.fr74, 1
   %.not63.i = icmp eq i64 %85, 0
   br i1 %.not43.i, label %.lr.ph.split.us.preheader, label %.lr.ph.split
 
 .lr.ph.split.us.preheader:                        ; preds = %.lr.ph
   %spec.select = select i1 %.not44.i, i32 %..i, i32 0
-  %spec.select56 = select i1 %.not52.i, i32 %76, i32 4
-  %spec.select57 = select i1 %.not44.i, i32 %..i, i32 4
-  %spec.select58 = select i1 %.not58.i, i32 %..i, i32 4
-  %spec.select59 = select i1 %.not61.i, i32 %76, i32 4
-  %spec.select60 = select i1 %.not63.i, i32 %76, i32 4
+  %spec.select59 = select i1 %.not52.i, i32 %76, i32 4
+  %spec.select60 = select i1 %.not44.i, i32 %..i, i32 4
+  %spec.select61 = select i1 %.not58.i, i32 %..i, i32 4
+  %spec.select62 = select i1 %.not61.i, i32 %76, i32 4
+  %spec.select63 = select i1 %.not63.i, i32 %76, i32 4
   br label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us
-  %.01539.us = phi i32 [ %88, %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us ], [ %1, %.lr.ph.split.us.preheader ]
-  %.03138.us = phi i32 [ %.sroa.speculated.us, %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us ], [ 0, %.lr.ph.split.us.preheader ]
-  %86 = sub nsw i32 0, %.01539.us
-  %87 = and i32 %.01539.us, %86
-  %88 = xor i32 %87, %.01539.us
-  switch i32 %87, label %.split.us [
-    i32 1, label %113
-    i32 1024, label %112
-    i32 2, label %111
-    i32 4, label %110
-    i32 1048576, label %109
-    i32 8, label %108
-    i32 16, label %107
-    i32 32, label %106
-    i32 64, label %105
-    i32 256, label %104
-    i32 512, label %103
-    i32 8192, label %102
-    i32 16384, label %101
-    i32 32768, label %100
-    i32 65536, label %99
-    i32 131072, label %98
-    i32 262144, label %97
-    i32 524288, label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us
-    i32 2097152, label %96
-    i32 4194304, label %95
-    i32 8388608, label %94
-    i32 16777216, label %93
-    i32 33554432, label %92
-    i32 134217728, label %91
-    i32 128, label %90
-    i32 4096, label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us
-    i32 2048, label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us
-    i32 67108864, label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us
-    i32 268435456, label %89
+  %.01540.us = phi i32 [ %86, %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us ], [ %1, %.lr.ph.split.us.preheader ]
+  %.03139.us = phi i32 [ %.sroa.speculated.us, %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us ], [ 0, %.lr.ph.split.us.preheader ]
+  %.01536.us = add nsw i32 %.01540.us, -1
+  %86 = and i32 %.01536.us, %.01540.us
+  %87 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 range(i32 0, 469760000) %.01540.us, i1 true)
+  switch i32 %87, label %default.unreachable [
+    i32 0, label %112
+    i32 10, label %111
+    i32 1, label %110
+    i32 2, label %109
+    i32 20, label %108
+    i32 3, label %107
+    i32 4, label %106
+    i32 5, label %105
+    i32 6, label %104
+    i32 8, label %103
+    i32 9, label %102
+    i32 13, label %101
+    i32 14, label %100
+    i32 15, label %99
+    i32 16, label %98
+    i32 17, label %97
+    i32 18, label %96
+    i32 19, label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us
+    i32 21, label %95
+    i32 22, label %94
+    i32 23, label %93
+    i32 24, label %92
+    i32 25, label %91
+    i32 27, label %90
+    i32 7, label %89
+    i32 12, label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us
+    i32 11, label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us
+    i32 26, label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us
+    i32 28, label %88
   ]
+
+88:                                               ; preds = %.lr.ph.split.us
+  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us
 
 89:                                               ; preds = %.lr.ph.split.us
   br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us
@@ -25336,305 +25339,314 @@ define internal fastcc noundef range(i32 1, 5) i32 @_ZL16getKeywordStatusRKN5cla
 112:                                              ; preds = %.lr.ph.split.us
   br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us
 
-113:                                              ; preds = %.lr.ph.split.us
-  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us
-
-_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us: ; preds = %113, %112, %110, %109, %106, %100, %111, %108, %107, %105, %104, %103, %102, %101, %99, %98, %97, %96, %95, %94, %93, %92, %91, %90, %89, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us
-  %.0.i.us = phi i32 [ %83, %111 ], [ %80, %108 ], [ %78, %107 ], [ %74, %105 ], [ %71, %104 ], [ %69, %103 ], [ %66, %102 ], [ %64, %101 ], [ %59, %99 ], [ %57, %98 ], [ %54, %97 ], [ %49, %96 ], [ %44, %95 ], [ %42, %94 ], [ %38, %93 ], [ %33, %92 ], [ %30, %91 ], [ %25, %90 ], [ %23, %89 ], [ 0, %.lr.ph.split.us ], [ 0, %.lr.ph.split.us ], [ 0, %.lr.ph.split.us ], [ 0, %.lr.ph.split.us ], [ %spec.select, %100 ], [ %spec.select56, %106 ], [ %spec.select57, %109 ], [ %spec.select58, %110 ], [ %spec.select59, %112 ], [ %spec.select60, %113 ]
-  %.sroa.speculated.us = tail call i32 @llvm.smax.i32(i32 %.03138.us, i32 %.0.i.us)
-  %.not23.us = icmp eq i32 %87, %.01539.us
+_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us: ; preds = %112, %111, %109, %108, %105, %99, %110, %107, %106, %104, %103, %102, %101, %100, %98, %97, %96, %95, %94, %93, %92, %91, %90, %89, %88, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us
+  %.0.i.us = phi i32 [ %83, %110 ], [ %80, %107 ], [ %78, %106 ], [ %74, %104 ], [ %71, %103 ], [ %69, %102 ], [ %66, %101 ], [ %64, %100 ], [ %59, %98 ], [ %57, %97 ], [ %54, %96 ], [ %49, %95 ], [ %44, %94 ], [ %42, %93 ], [ %38, %92 ], [ %33, %91 ], [ %30, %90 ], [ %25, %89 ], [ %23, %88 ], [ 0, %.lr.ph.split.us ], [ 0, %.lr.ph.split.us ], [ 0, %.lr.ph.split.us ], [ 0, %.lr.ph.split.us ], [ %spec.select, %99 ], [ %spec.select59, %105 ], [ %spec.select60, %108 ], [ %spec.select61, %109 ], [ %spec.select62, %111 ], [ %spec.select63, %112 ]
+  %.sroa.speculated.us = tail call i32 @llvm.smax.i32(i32 %.03139.us, i32 %.0.i.us)
+  %.not23.us = icmp eq i32 %86, 0
   br i1 %.not23.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !178
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %.not52.i, label %.lr.ph.split.split.us.preheader, label %.lr.ph.split.split
 
 .lr.ph.split.split.us.preheader:                  ; preds = %.lr.ph.split
-  %spec.select61 = select i1 %.not44.i, i32 %..i, i32 4
-  %spec.select62 = select i1 %.not58.i, i32 %..i, i32 4
-  %spec.select63 = select i1 %.not61.i, i32 %76, i32 4
-  %spec.select64 = select i1 %.not63.i, i32 %76, i32 4
-  br label %.lr.ph.split.split.us
-
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split.split.us.preheader, %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us42
-  %.01539.us40 = phi i32 [ %116, %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us42 ], [ %1, %.lr.ph.split.split.us.preheader ]
-  %.03138.us41 = phi i32 [ %.sroa.speculated.us44, %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us42 ], [ 0, %.lr.ph.split.split.us.preheader ]
-  %114 = sub nsw i32 0, %.01539.us40
-  %115 = and i32 %.01539.us40, %114
-  %116 = xor i32 %115, %.01539.us40
-  switch i32 %115, label %.split.us [
-    i32 1, label %141
-    i32 1024, label %140
-    i32 2, label %139
-    i32 4, label %138
-    i32 1048576, label %137
-    i32 8, label %136
-    i32 16, label %135
-    i32 32, label %134
-    i32 64, label %133
-    i32 256, label %132
-    i32 512, label %131
-    i32 8192, label %130
-    i32 16384, label %129
-    i32 32768, label %128
-    i32 65536, label %127
-    i32 131072, label %126
-    i32 262144, label %125
-    i32 524288, label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us42
-    i32 2097152, label %124
-    i32 4194304, label %123
-    i32 8388608, label %122
-    i32 16777216, label %121
-    i32 33554432, label %120
-    i32 134217728, label %119
-    i32 128, label %118
-    i32 4096, label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us42
-    i32 2048, label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us42
-    i32 67108864, label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us42
-    i32 268435456, label %117
-  ]
-
-117:                                              ; preds = %.lr.ph.split.split.us
-  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us42
-
-118:                                              ; preds = %.lr.ph.split.split.us
-  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us42
-
-119:                                              ; preds = %.lr.ph.split.split.us
-  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us42
-
-120:                                              ; preds = %.lr.ph.split.split.us
-  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us42
-
-121:                                              ; preds = %.lr.ph.split.split.us
-  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us42
-
-122:                                              ; preds = %.lr.ph.split.split.us
-  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us42
-
-123:                                              ; preds = %.lr.ph.split.split.us
-  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us42
-
-124:                                              ; preds = %.lr.ph.split.split.us
-  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us42
-
-125:                                              ; preds = %.lr.ph.split.split.us
-  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us42
-
-126:                                              ; preds = %.lr.ph.split.split.us
-  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us42
-
-127:                                              ; preds = %.lr.ph.split.split.us
-  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us42
-
-128:                                              ; preds = %.lr.ph.split.split.us
-  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us42
-
-129:                                              ; preds = %.lr.ph.split.split.us
-  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us42
-
-130:                                              ; preds = %.lr.ph.split.split.us
-  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us42
-
-131:                                              ; preds = %.lr.ph.split.split.us
-  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us42
-
-132:                                              ; preds = %.lr.ph.split.split.us
-  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us42
-
-133:                                              ; preds = %.lr.ph.split.split.us
-  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us42
-
-134:                                              ; preds = %.lr.ph.split.split.us
-  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us42
-
-135:                                              ; preds = %.lr.ph.split.split.us
-  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us42
-
-136:                                              ; preds = %.lr.ph.split.split.us
-  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us42
-
-137:                                              ; preds = %.lr.ph.split.split.us
-  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us42
-
-138:                                              ; preds = %.lr.ph.split.split.us
-  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us42
-
-139:                                              ; preds = %.lr.ph.split.split.us
-  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us42
-
-140:                                              ; preds = %.lr.ph.split.split.us
-  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us42
-
-141:                                              ; preds = %.lr.ph.split.split.us
-  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us42
-
-_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us42: ; preds = %141, %140, %138, %137, %139, %136, %135, %134, %133, %132, %131, %130, %129, %128, %127, %126, %125, %124, %123, %122, %121, %120, %119, %118, %117, %.lr.ph.split.split.us, %.lr.ph.split.split.us, %.lr.ph.split.split.us, %.lr.ph.split.split.us
-  %.0.i.us43 = phi i32 [ %83, %139 ], [ %80, %136 ], [ %78, %135 ], [ %76, %134 ], [ %74, %133 ], [ %71, %132 ], [ %69, %131 ], [ %66, %130 ], [ %64, %129 ], [ %59, %127 ], [ %57, %126 ], [ %54, %125 ], [ %49, %124 ], [ %44, %123 ], [ %42, %122 ], [ %38, %121 ], [ %33, %120 ], [ %30, %119 ], [ %25, %118 ], [ %23, %117 ], [ 4, %128 ], [ 0, %.lr.ph.split.split.us ], [ 0, %.lr.ph.split.split.us ], [ 0, %.lr.ph.split.split.us ], [ 0, %.lr.ph.split.split.us ], [ %spec.select61, %137 ], [ %spec.select62, %138 ], [ %spec.select63, %140 ], [ %spec.select64, %141 ]
-  %.sroa.speculated.us44 = tail call i32 @llvm.smax.i32(i32 %.03138.us41, i32 %.0.i.us43)
-  %.not23.us45 = icmp eq i32 %115, %.01539.us40
-  br i1 %.not23.us45, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !178
-
-.lr.ph.split.split:                               ; preds = %.lr.ph.split
+  %spec.select64 = select i1 %.not44.i, i32 %..i, i32 4
   %spec.select65 = select i1 %.not58.i, i32 %..i, i32 4
   %spec.select66 = select i1 %.not61.i, i32 %76, i32 4
   %spec.select67 = select i1 %.not63.i, i32 %76, i32 4
+  br label %.lr.ph.split.split.us
+
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split.split.us.preheader, %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us44
+  %.01540.us41 = phi i32 [ %113, %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us44 ], [ %1, %.lr.ph.split.split.us.preheader ]
+  %.03139.us42 = phi i32 [ %.sroa.speculated.us46, %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us44 ], [ 0, %.lr.ph.split.split.us.preheader ]
+  %.01536.us43 = add nsw i32 %.01540.us41, -1
+  %113 = and i32 %.01536.us43, %.01540.us41
+  %114 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 range(i32 0, 469760000) %.01540.us41, i1 true)
+  switch i32 %114, label %default.unreachable [
+    i32 0, label %139
+    i32 10, label %138
+    i32 1, label %137
+    i32 2, label %136
+    i32 20, label %135
+    i32 3, label %134
+    i32 4, label %133
+    i32 5, label %132
+    i32 6, label %131
+    i32 8, label %130
+    i32 9, label %129
+    i32 13, label %128
+    i32 14, label %127
+    i32 15, label %126
+    i32 16, label %125
+    i32 17, label %124
+    i32 18, label %123
+    i32 19, label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us44
+    i32 21, label %122
+    i32 22, label %121
+    i32 23, label %120
+    i32 24, label %119
+    i32 25, label %118
+    i32 27, label %117
+    i32 7, label %116
+    i32 12, label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us44
+    i32 11, label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us44
+    i32 26, label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us44
+    i32 28, label %115
+  ]
+
+115:                                              ; preds = %.lr.ph.split.split.us
+  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us44
+
+116:                                              ; preds = %.lr.ph.split.split.us
+  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us44
+
+117:                                              ; preds = %.lr.ph.split.split.us
+  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us44
+
+118:                                              ; preds = %.lr.ph.split.split.us
+  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us44
+
+119:                                              ; preds = %.lr.ph.split.split.us
+  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us44
+
+120:                                              ; preds = %.lr.ph.split.split.us
+  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us44
+
+121:                                              ; preds = %.lr.ph.split.split.us
+  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us44
+
+122:                                              ; preds = %.lr.ph.split.split.us
+  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us44
+
+123:                                              ; preds = %.lr.ph.split.split.us
+  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us44
+
+124:                                              ; preds = %.lr.ph.split.split.us
+  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us44
+
+125:                                              ; preds = %.lr.ph.split.split.us
+  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us44
+
+126:                                              ; preds = %.lr.ph.split.split.us
+  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us44
+
+127:                                              ; preds = %.lr.ph.split.split.us
+  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us44
+
+128:                                              ; preds = %.lr.ph.split.split.us
+  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us44
+
+129:                                              ; preds = %.lr.ph.split.split.us
+  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us44
+
+130:                                              ; preds = %.lr.ph.split.split.us
+  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us44
+
+131:                                              ; preds = %.lr.ph.split.split.us
+  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us44
+
+132:                                              ; preds = %.lr.ph.split.split.us
+  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us44
+
+133:                                              ; preds = %.lr.ph.split.split.us
+  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us44
+
+134:                                              ; preds = %.lr.ph.split.split.us
+  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us44
+
+135:                                              ; preds = %.lr.ph.split.split.us
+  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us44
+
+136:                                              ; preds = %.lr.ph.split.split.us
+  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us44
+
+137:                                              ; preds = %.lr.ph.split.split.us
+  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us44
+
+138:                                              ; preds = %.lr.ph.split.split.us
+  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us44
+
+139:                                              ; preds = %.lr.ph.split.split.us
+  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us44
+
+_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us44: ; preds = %139, %138, %136, %135, %137, %134, %133, %132, %131, %130, %129, %128, %127, %126, %125, %124, %123, %122, %121, %120, %119, %118, %117, %116, %115, %.lr.ph.split.split.us, %.lr.ph.split.split.us, %.lr.ph.split.split.us, %.lr.ph.split.split.us
+  %.0.i.us45 = phi i32 [ %83, %137 ], [ %80, %134 ], [ %78, %133 ], [ %76, %132 ], [ %74, %131 ], [ %71, %130 ], [ %69, %129 ], [ %66, %128 ], [ %64, %127 ], [ %59, %125 ], [ %57, %124 ], [ %54, %123 ], [ %49, %122 ], [ %44, %121 ], [ %42, %120 ], [ %38, %119 ], [ %33, %118 ], [ %30, %117 ], [ %25, %116 ], [ %23, %115 ], [ 4, %126 ], [ 0, %.lr.ph.split.split.us ], [ 0, %.lr.ph.split.split.us ], [ 0, %.lr.ph.split.split.us ], [ 0, %.lr.ph.split.split.us ], [ %spec.select64, %135 ], [ %spec.select65, %136 ], [ %spec.select66, %138 ], [ %spec.select67, %139 ]
+  %.sroa.speculated.us46 = tail call i32 @llvm.smax.i32(i32 %.03139.us42, i32 %.0.i.us45)
+  %.not23.us47 = icmp eq i32 %113, 0
+  br i1 %.not23.us47, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !178
+
+.lr.ph.split.split:                               ; preds = %.lr.ph.split
+  %spec.select68 = select i1 %.not58.i, i32 %..i, i32 4
+  %spec.select69 = select i1 %.not61.i, i32 %76, i32 4
+  %spec.select70 = select i1 %.not63.i, i32 %76, i32 4
   br i1 %.not44.i, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
 
-.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us50
-  %.01539.us48 = phi i32 [ %144, %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us50 ], [ %1, %.lr.ph.split.split ]
-  %.03138.us49 = phi i32 [ %.sroa.speculated.us52, %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us50 ], [ 0, %.lr.ph.split.split ]
-  %142 = sub nsw i32 0, %.01539.us48
-  %143 = and i32 %.01539.us48, %142
-  %144 = xor i32 %143, %.01539.us48
-  switch i32 %143, label %.split.us [
-    i32 1, label %168
-    i32 1024, label %167
-    i32 2, label %166
-    i32 4, label %165
-    i32 1048576, label %164
-    i32 8, label %163
-    i32 16, label %162
-    i32 32, label %161
-    i32 64, label %160
-    i32 256, label %159
-    i32 512, label %158
-    i32 8192, label %157
-    i32 16384, label %156
-    i32 32768, label %161
-    i32 65536, label %155
-    i32 131072, label %154
-    i32 262144, label %153
-    i32 524288, label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us50
-    i32 2097152, label %152
-    i32 4194304, label %151
-    i32 8388608, label %150
-    i32 16777216, label %149
-    i32 33554432, label %148
-    i32 134217728, label %147
-    i32 128, label %146
-    i32 4096, label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us50
-    i32 2048, label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us50
-    i32 67108864, label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us50
-    i32 268435456, label %145
+.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us53
+  %.01540.us50 = phi i32 [ %140, %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us53 ], [ %1, %.lr.ph.split.split ]
+  %.03139.us51 = phi i32 [ %.sroa.speculated.us55, %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us53 ], [ 0, %.lr.ph.split.split ]
+  %.01536.us52 = add nsw i32 %.01540.us50, -1
+  %140 = and i32 %.01536.us52, %.01540.us50
+  %141 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 range(i32 0, 469760000) %.01540.us50, i1 true)
+  switch i32 %141, label %default.unreachable [
+    i32 0, label %165
+    i32 10, label %164
+    i32 1, label %163
+    i32 2, label %162
+    i32 20, label %161
+    i32 3, label %160
+    i32 4, label %159
+    i32 5, label %158
+    i32 6, label %157
+    i32 8, label %156
+    i32 9, label %155
+    i32 13, label %154
+    i32 14, label %153
+    i32 15, label %158
+    i32 16, label %152
+    i32 17, label %151
+    i32 18, label %150
+    i32 19, label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us53
+    i32 21, label %149
+    i32 22, label %148
+    i32 23, label %147
+    i32 24, label %146
+    i32 25, label %145
+    i32 27, label %144
+    i32 7, label %143
+    i32 12, label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us53
+    i32 11, label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us53
+    i32 26, label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us53
+    i32 28, label %142
   ]
+
+142:                                              ; preds = %.lr.ph.split.split.split.us
+  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us53
+
+143:                                              ; preds = %.lr.ph.split.split.split.us
+  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us53
+
+144:                                              ; preds = %.lr.ph.split.split.split.us
+  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us53
 
 145:                                              ; preds = %.lr.ph.split.split.split.us
-  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us50
+  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us53
 
 146:                                              ; preds = %.lr.ph.split.split.split.us
-  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us50
+  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us53
 
 147:                                              ; preds = %.lr.ph.split.split.split.us
-  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us50
+  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us53
 
 148:                                              ; preds = %.lr.ph.split.split.split.us
-  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us50
+  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us53
 
 149:                                              ; preds = %.lr.ph.split.split.split.us
-  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us50
+  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us53
 
 150:                                              ; preds = %.lr.ph.split.split.split.us
-  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us50
+  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us53
 
 151:                                              ; preds = %.lr.ph.split.split.split.us
-  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us50
+  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us53
 
 152:                                              ; preds = %.lr.ph.split.split.split.us
-  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us50
+  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us53
 
 153:                                              ; preds = %.lr.ph.split.split.split.us
-  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us50
+  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us53
 
 154:                                              ; preds = %.lr.ph.split.split.split.us
-  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us50
+  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us53
 
 155:                                              ; preds = %.lr.ph.split.split.split.us
-  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us50
+  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us53
 
 156:                                              ; preds = %.lr.ph.split.split.split.us
-  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us50
+  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us53
 
 157:                                              ; preds = %.lr.ph.split.split.split.us
-  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us50
+  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us53
 
-158:                                              ; preds = %.lr.ph.split.split.split.us
-  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us50
+158:                                              ; preds = %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us
+  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us53
 
 159:                                              ; preds = %.lr.ph.split.split.split.us
-  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us50
+  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us53
 
 160:                                              ; preds = %.lr.ph.split.split.split.us
-  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us50
+  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us53
 
-161:                                              ; preds = %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us
-  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us50
+161:                                              ; preds = %.lr.ph.split.split.split.us
+  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us53
 
 162:                                              ; preds = %.lr.ph.split.split.split.us
-  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us50
+  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us53
 
 163:                                              ; preds = %.lr.ph.split.split.split.us
-  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us50
+  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us53
 
 164:                                              ; preds = %.lr.ph.split.split.split.us
-  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us50
+  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us53
 
 165:                                              ; preds = %.lr.ph.split.split.split.us
-  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us50
+  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us53
 
-166:                                              ; preds = %.lr.ph.split.split.split.us
-  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us50
-
-167:                                              ; preds = %.lr.ph.split.split.split.us
-  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us50
-
-168:                                              ; preds = %.lr.ph.split.split.split.us
-  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us50
-
-_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us50: ; preds = %168, %167, %165, %166, %164, %163, %162, %161, %160, %159, %158, %157, %156, %155, %154, %153, %152, %151, %150, %149, %148, %147, %146, %145, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us
-  %.0.i.us51 = phi i32 [ %83, %166 ], [ %..i, %164 ], [ %80, %163 ], [ %78, %162 ], [ %74, %160 ], [ %71, %159 ], [ %69, %158 ], [ %66, %157 ], [ %64, %156 ], [ %59, %155 ], [ %57, %154 ], [ %54, %153 ], [ %49, %152 ], [ %44, %151 ], [ %42, %150 ], [ %38, %149 ], [ %33, %148 ], [ %30, %147 ], [ %25, %146 ], [ %23, %145 ], [ 4, %161 ], [ 0, %.lr.ph.split.split.split.us ], [ 0, %.lr.ph.split.split.split.us ], [ 0, %.lr.ph.split.split.split.us ], [ 0, %.lr.ph.split.split.split.us ], [ %spec.select65, %165 ], [ %spec.select66, %167 ], [ %spec.select67, %168 ]
-  %.sroa.speculated.us52 = tail call i32 @llvm.smax.i32(i32 %.03138.us49, i32 %.0.i.us51)
-  %.not23.us53 = icmp eq i32 %143, %.01539.us48
-  br i1 %.not23.us53, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !178
+_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us53: ; preds = %165, %164, %162, %163, %161, %160, %159, %158, %157, %156, %155, %154, %153, %152, %151, %150, %149, %148, %147, %146, %145, %144, %143, %142, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us
+  %.0.i.us54 = phi i32 [ %83, %163 ], [ %..i, %161 ], [ %80, %160 ], [ %78, %159 ], [ %74, %157 ], [ %71, %156 ], [ %69, %155 ], [ %66, %154 ], [ %64, %153 ], [ %59, %152 ], [ %57, %151 ], [ %54, %150 ], [ %49, %149 ], [ %44, %148 ], [ %42, %147 ], [ %38, %146 ], [ %33, %145 ], [ %30, %144 ], [ %25, %143 ], [ %23, %142 ], [ 4, %158 ], [ 0, %.lr.ph.split.split.split.us ], [ 0, %.lr.ph.split.split.split.us ], [ 0, %.lr.ph.split.split.split.us ], [ 0, %.lr.ph.split.split.split.us ], [ %spec.select68, %162 ], [ %spec.select69, %164 ], [ %spec.select70, %165 ]
+  %.sroa.speculated.us55 = tail call i32 @llvm.smax.i32(i32 %.03139.us51, i32 %.0.i.us54)
+  %.not23.us56 = icmp eq i32 %140, 0
+  br i1 %.not23.us56, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !178
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit
-  %.01539 = phi i32 [ %171, %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit ], [ %1, %.lr.ph.split.split ]
-  %.03138 = phi i32 [ %.sroa.speculated, %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit ], [ 0, %.lr.ph.split.split ]
-  %169 = sub nsw i32 0, %.01539
-  %170 = and i32 %.01539, %169
-  %171 = xor i32 %170, %.01539
-  switch i32 %170, label %.split.us [
-    i32 1, label %172
-    i32 1024, label %173
-    i32 2, label %174
-    i32 4, label %175
-    i32 1048576, label %176
-    i32 8, label %177
-    i32 16, label %178
-    i32 32, label %176
-    i32 64, label %179
-    i32 256, label %180
-    i32 512, label %181
-    i32 8192, label %182
-    i32 16384, label %183
-    i32 32768, label %176
-    i32 65536, label %184
-    i32 131072, label %185
-    i32 262144, label %186
-    i32 524288, label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit
-    i32 2097152, label %187
-    i32 4194304, label %188
-    i32 8388608, label %189
-    i32 16777216, label %190
-    i32 33554432, label %191
-    i32 134217728, label %192
-    i32 128, label %193
-    i32 4096, label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit
-    i32 2048, label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit
-    i32 67108864, label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit
-    i32 268435456, label %194
+  %.01540 = phi i32 [ %166, %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit ], [ %1, %.lr.ph.split.split ]
+  %.03139 = phi i32 [ %.sroa.speculated, %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit ], [ 0, %.lr.ph.split.split ]
+  %.01536 = add nsw i32 %.01540, -1
+  %166 = and i32 %.01536, %.01540
+  %167 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 range(i32 0, 469760000) %.01540, i1 true)
+  switch i32 %167, label %default.unreachable [
+    i32 0, label %168
+    i32 10, label %169
+    i32 1, label %170
+    i32 2, label %171
+    i32 20, label %172
+    i32 3, label %173
+    i32 4, label %174
+    i32 5, label %172
+    i32 6, label %175
+    i32 8, label %176
+    i32 9, label %177
+    i32 13, label %178
+    i32 14, label %179
+    i32 15, label %172
+    i32 16, label %180
+    i32 17, label %181
+    i32 18, label %182
+    i32 19, label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit
+    i32 21, label %183
+    i32 22, label %184
+    i32 23, label %185
+    i32 24, label %186
+    i32 25, label %187
+    i32 27, label %188
+    i32 7, label %189
+    i32 12, label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit
+    i32 11, label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit
+    i32 26, label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit
+    i32 28, label %190
   ]
 
-172:                                              ; preds = %.lr.ph.split.split.split
+168:                                              ; preds = %.lr.ph.split.split.split
+  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit
+
+169:                                              ; preds = %.lr.ph.split.split.split
+  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit
+
+170:                                              ; preds = %.lr.ph.split.split.split
+  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit
+
+171:                                              ; preds = %.lr.ph.split.split.split
+  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit
+
+172:                                              ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split, %.lr.ph.split.split.split
   br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit
 
 173:                                              ; preds = %.lr.ph.split.split.split
@@ -25646,7 +25658,7 @@ _ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit
 175:                                              ; preds = %.lr.ph.split.split.split
   br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit
 
-176:                                              ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split, %.lr.ph.split.split.split
+176:                                              ; preds = %.lr.ph.split.split.split
   br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit
 
 177:                                              ; preds = %.lr.ph.split.split.split
@@ -25691,33 +25703,21 @@ _ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit
 190:                                              ; preds = %.lr.ph.split.split.split
   br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit
 
-191:                                              ; preds = %.lr.ph.split.split.split
-  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit
-
-192:                                              ; preds = %.lr.ph.split.split.split
-  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit
-
-193:                                              ; preds = %.lr.ph.split.split.split
-  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit
-
-194:                                              ; preds = %.lr.ph.split.split.split
-  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit
-
-.split.us:                                        ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.us, %.lr.ph.split.split.us, %.lr.ph.split.us
+default.unreachable:                              ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.us, %.lr.ph.split.split.us, %.lr.ph.split.us
   unreachable
 
-_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit: ; preds = %175, %173, %172, %176, %.lr.ph.split.split.split, %.lr.ph.split.split.split, %.lr.ph.split.split.split, %.lr.ph.split.split.split, %174, %177, %178, %179, %180, %181, %182, %183, %184, %185, %186, %187, %188, %189, %190, %191, %192, %193, %194
-  %.0.i = phi i32 [ %83, %174 ], [ %80, %177 ], [ %78, %178 ], [ %74, %179 ], [ %71, %180 ], [ %69, %181 ], [ %66, %182 ], [ %64, %183 ], [ %59, %184 ], [ %57, %185 ], [ %54, %186 ], [ %49, %187 ], [ %44, %188 ], [ %42, %189 ], [ %38, %190 ], [ %33, %191 ], [ %30, %192 ], [ %25, %193 ], [ %23, %194 ], [ 4, %176 ], [ 0, %.lr.ph.split.split.split ], [ 0, %.lr.ph.split.split.split ], [ 0, %.lr.ph.split.split.split ], [ 0, %.lr.ph.split.split.split ], [ %spec.select67, %172 ], [ %spec.select66, %173 ], [ %spec.select65, %175 ]
-  %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %.03138, i32 %.0.i)
-  %.not23 = icmp eq i32 %170, %.01539
+_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit: ; preds = %171, %169, %168, %172, %.lr.ph.split.split.split, %.lr.ph.split.split.split, %.lr.ph.split.split.split, %.lr.ph.split.split.split, %170, %173, %174, %175, %176, %177, %178, %179, %180, %181, %182, %183, %184, %185, %186, %187, %188, %189, %190
+  %.0.i = phi i32 [ %83, %170 ], [ %80, %173 ], [ %78, %174 ], [ %74, %175 ], [ %71, %176 ], [ %69, %177 ], [ %66, %178 ], [ %64, %179 ], [ %59, %180 ], [ %57, %181 ], [ %54, %182 ], [ %49, %183 ], [ %44, %184 ], [ %42, %185 ], [ %38, %186 ], [ %33, %187 ], [ %30, %188 ], [ %25, %189 ], [ %23, %190 ], [ 4, %172 ], [ 0, %.lr.ph.split.split.split ], [ 0, %.lr.ph.split.split.split ], [ 0, %.lr.ph.split.split.split ], [ 0, %.lr.ph.split.split.split ], [ %spec.select70, %168 ], [ %spec.select69, %169 ], [ %spec.select68, %171 ]
+  %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %.03139, i32 %.0.i)
+  %.not23 = icmp eq i32 %166, 0
   br i1 %.not23, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !178
 
-._crit_edge:                                      ; preds = %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit, %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us50, %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us42, %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us, %.preheader
-  %.031.lcssa = phi i32 [ 0, %.preheader ], [ %.sroa.speculated.us, %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us ], [ %.sroa.speculated.us44, %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us42 ], [ %.sroa.speculated.us52, %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us50 ], [ %.sroa.speculated, %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit ]
+._crit_edge:                                      ; preds = %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit, %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us53, %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us44, %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us, %.preheader
+  %.031.lcssa = phi i32 [ 0, %.preheader ], [ %.sroa.speculated.us, %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us ], [ %.sroa.speculated.us46, %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us44 ], [ %.sroa.speculated.us55, %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us53 ], [ %.sroa.speculated, %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit ]
   %. = tail call i32 @llvm.umax.i32(i32 %.031.lcssa, i32 1)
-  br label %195
+  br label %191
 
-195:                                              ; preds = %9, %17, %4, %2, %._crit_edge
+191:                                              ; preds = %9, %17, %4, %2, %._crit_edge
   %.0 = phi i32 [ %., %._crit_edge ], [ 4, %2 ], [ 1, %4 ], [ 1, %17 ], [ 1, %9 ]
   ret i32 %.0
 }
@@ -26956,32 +26956,35 @@ declare void @_ZN4llvm14FoldingSetBase10InsertNodeEPNS0_4NodeEPvRKNS0_14FoldingS
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #21
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #22
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #22
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #23
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #23
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #24
+declare i32 @llvm.smax.i32(i32, i32) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #24
+declare i32 @llvm.umax.i32(i32, i32) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #24
+declare i64 @llvm.umin.i64(i64, i64) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #24
+declare i32 @llvm.umin.i32(i32, i32) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshr.i64(i64, i64, i64) #24
+declare i64 @llvm.fshr.i64(i64, i64, i64) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #24
+declare i64 @llvm.fshl.i64(i64, i64, i64) #22
 
 attributes #0 = { cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold noreturn nounwind memory(inaccessiblemem: write) }
@@ -27005,9 +27008,9 @@ attributes #18 = { mustprogress nofree norecurse nounwind willreturn memory(read
 attributes #19 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #20 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #21 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #22 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #23 = { nofree nounwind }
-attributes #24 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #22 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #23 = { nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #24 = { nofree nounwind }
 attributes #25 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #26 = { noreturn nounwind }
 attributes #27 = { builtin nounwind allocsize(0) }

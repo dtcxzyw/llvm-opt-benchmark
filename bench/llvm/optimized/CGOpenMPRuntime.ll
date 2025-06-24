@@ -64391,15 +64391,16 @@ _ZN4llvm11SmallVectorIcLj256EED2Ev.exit:          ; preds = %_ZN4llvm11raw_ostre
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZL25addAArch64AdvSIMDNDSNamesjN4llvm9StringRefES0_cS0_S0_bPNS_8FunctionE(i32 noundef %0, ptr %1, i64 %2, ptr %3, i64 %4, i8 noundef signext range(i8 110, 116) %5, ptr noundef readonly byval(%"class.llvm::StringRef") align 8 captures(none) %6, ptr noundef readonly byval(%"class.llvm::StringRef") align 8 captures(none) %7, i1 noundef zeroext %8, ptr noundef %9) unnamed_addr #0 {
-  switch i32 %0, label %15 [
-    i32 8, label %11
-    i32 16, label %12
-    i32 32, label %13
-    i32 64, label %14
-    i32 128, label %14
+  %11 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %0, i1 true)
+  switch i32 %11, label %16 [
+    i32 3, label %12
+    i32 4, label %13
+    i32 5, label %14
+    i32 6, label %15
+    i32 7, label %15
   ]
 
-11:                                               ; preds = %10
+12:                                               ; preds = %10
   %.sroa.0113.0.copyload = load ptr, ptr %6, align 8, !tbaa !2938
   %.sroa.2114.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.2114.0.copyload = load i64, ptr %.sroa.2114.0..sroa_idx, align 8, !tbaa !28
@@ -64408,9 +64409,9 @@ define internal fastcc void @_ZL25addAArch64AdvSIMDNDSNamesjN4llvm9StringRefES0_
   %.sroa.2112.0.copyload = load i64, ptr %.sroa.2112.0..sroa_idx, align 8, !tbaa !28
   tail call fastcc void @_ZL20addAArch64VectorNameIiEvT_N4llvm9StringRefES2_cS2_S2_bPNS1_8FunctionE(i32 noundef 8, ptr %1, i64 %2, ptr %3, i64 %4, i8 noundef signext %5, ptr %.sroa.0113.0.copyload, i64 %.sroa.2114.0.copyload, ptr %.sroa.0111.0.copyload, i64 %.sroa.2112.0.copyload, i1 noundef zeroext %8, ptr noundef %9)
   tail call fastcc void @_ZL20addAArch64VectorNameIiEvT_N4llvm9StringRefES2_cS2_S2_bPNS1_8FunctionE(i32 noundef 16, ptr %1, i64 %2, ptr %3, i64 %4, i8 noundef signext %5, ptr %.sroa.0113.0.copyload, i64 %.sroa.2114.0.copyload, ptr %.sroa.0111.0.copyload, i64 %.sroa.2112.0.copyload, i1 noundef zeroext %8, ptr noundef %9)
-  br label %16
+  br label %17
 
-12:                                               ; preds = %10
+13:                                               ; preds = %10
   %.sroa.0105.0.copyload = load ptr, ptr %6, align 8, !tbaa !2938
   %.sroa.2106.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.2106.0.copyload = load i64, ptr %.sroa.2106.0..sroa_idx, align 8, !tbaa !28
@@ -64419,9 +64420,9 @@ define internal fastcc void @_ZL25addAArch64AdvSIMDNDSNamesjN4llvm9StringRefES0_
   %.sroa.2104.0.copyload = load i64, ptr %.sroa.2104.0..sroa_idx, align 8, !tbaa !28
   tail call fastcc void @_ZL20addAArch64VectorNameIiEvT_N4llvm9StringRefES2_cS2_S2_bPNS1_8FunctionE(i32 noundef 4, ptr %1, i64 %2, ptr %3, i64 %4, i8 noundef signext %5, ptr %.sroa.0105.0.copyload, i64 %.sroa.2106.0.copyload, ptr %.sroa.0103.0.copyload, i64 %.sroa.2104.0.copyload, i1 noundef zeroext %8, ptr noundef %9)
   tail call fastcc void @_ZL20addAArch64VectorNameIiEvT_N4llvm9StringRefES2_cS2_S2_bPNS1_8FunctionE(i32 noundef 8, ptr %1, i64 %2, ptr %3, i64 %4, i8 noundef signext %5, ptr %.sroa.0105.0.copyload, i64 %.sroa.2106.0.copyload, ptr %.sroa.0103.0.copyload, i64 %.sroa.2104.0.copyload, i1 noundef zeroext %8, ptr noundef %9)
-  br label %16
+  br label %17
 
-13:                                               ; preds = %10
+14:                                               ; preds = %10
   %.sroa.097.0.copyload = load ptr, ptr %6, align 8, !tbaa !2938
   %.sroa.298.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.298.0.copyload = load i64, ptr %.sroa.298.0..sroa_idx, align 8, !tbaa !28
@@ -64430,9 +64431,9 @@ define internal fastcc void @_ZL25addAArch64AdvSIMDNDSNamesjN4llvm9StringRefES0_
   %.sroa.296.0.copyload = load i64, ptr %.sroa.296.0..sroa_idx, align 8, !tbaa !28
   tail call fastcc void @_ZL20addAArch64VectorNameIiEvT_N4llvm9StringRefES2_cS2_S2_bPNS1_8FunctionE(i32 noundef 2, ptr %1, i64 %2, ptr %3, i64 %4, i8 noundef signext %5, ptr %.sroa.097.0.copyload, i64 %.sroa.298.0.copyload, ptr %.sroa.095.0.copyload, i64 %.sroa.296.0.copyload, i1 noundef zeroext %8, ptr noundef %9)
   tail call fastcc void @_ZL20addAArch64VectorNameIiEvT_N4llvm9StringRefES2_cS2_S2_bPNS1_8FunctionE(i32 noundef 4, ptr %1, i64 %2, ptr %3, i64 %4, i8 noundef signext %5, ptr %.sroa.097.0.copyload, i64 %.sroa.298.0.copyload, ptr %.sroa.095.0.copyload, i64 %.sroa.296.0.copyload, i1 noundef zeroext %8, ptr noundef %9)
-  br label %16
+  br label %17
 
-14:                                               ; preds = %10, %10
+15:                                               ; preds = %10, %10
   %.sroa.089.0.copyload = load ptr, ptr %6, align 8, !tbaa !2938
   %.sroa.290.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.290.0.copyload = load i64, ptr %.sroa.290.0..sroa_idx, align 8, !tbaa !28
@@ -64440,12 +64441,12 @@ define internal fastcc void @_ZL25addAArch64AdvSIMDNDSNamesjN4llvm9StringRefES0_
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !28
   tail call fastcc void @_ZL20addAArch64VectorNameIiEvT_N4llvm9StringRefES2_cS2_S2_bPNS1_8FunctionE(i32 noundef 2, ptr %1, i64 %2, ptr %3, i64 %4, i8 noundef signext %5, ptr %.sroa.089.0.copyload, i64 %.sroa.290.0.copyload, ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload, i1 noundef zeroext %8, ptr noundef %9)
-  br label %16
+  br label %17
 
-15:                                               ; preds = %10
+16:                                               ; preds = %10
   unreachable
 
-16:                                               ; preds = %14, %13, %12, %11
+17:                                               ; preds = %15, %14, %13, %12
   ret void
 }
 
@@ -106444,6 +106445,9 @@ declare void @_ZN5clang7CodeGen15CodeGenFunction18EmitStoreOfComplexESt4pairIPN4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #26
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #27

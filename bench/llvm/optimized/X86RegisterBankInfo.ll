@@ -114,6 +114,7 @@ $_ZN4llvm19X86RegisterBankInfoD0Ev = comdat any
 @_ZN4llvm3X86L23VECRRegBankCoverageDataE = internal constant [5 x i32] [i32 25165824, i32 132, i32 16896, i32 -2147483648, i32 31], align 16
 @_ZN4llvm16RegisterBankInfo16InvalidMappingIDE = external local_unnamed_addr constant i32, align 4
 @_ZTVN4llvm16RegisterBankInfoE = external unnamed_addr constant { [11 x ptr] }, align 8
+@switch.table._ZN4llvm22X86GenRegisterBankInfo20getPartialMappingIdxERKNS_12MachineInstrERKNS_3LLTEb = private unnamed_addr constant [8 x i32] [i32 0, i32 poison, i32 poison, i32 0, i32 1, i32 2, i32 3, i32 6], align 4
 
 @_ZN4llvm22X86GenRegisterBankInfoC1Ej = unnamed_addr alias void (ptr, i32), ptr @_ZN4llvm22X86GenRegisterBankInfoC2Ej
 @_ZN4llvm19X86RegisterBankInfoC1ERKNS_18TargetRegisterInfoE = unnamed_addr alias void (ptr, ptr), ptr @_ZN4llvm19X86RegisterBankInfoC2ERKNS_18TargetRegisterInfoE
@@ -599,29 +600,10 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit43:            ; preds = %_ZNK4llvm3LLT13getS
   store i8 0, ptr %.sroa.29.0..sroa_idx, align 8
   %41 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %5) #13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #13
-  switch i64 %41, label %46 [
-    i64 1, label %67
-    i64 8, label %67
-    i64 16, label %42
-    i64 32, label %43
-    i64 64, label %44
-    i64 128, label %45
-  ]
-
-42:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit43
-  br label %67
-
-43:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit43
-  br label %67
-
-44:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit43
-  br label %67
-
-45:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit43
-  br label %67
-
-46:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit43
-  unreachable
+  %42 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %41, i1 true)
+  %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN4llvm22X86GenRegisterBankInfo20getPartialMappingIdxERKNS_12MachineInstrERKNS_3LLTEb, i64 0, i64 %42
+  %switch.load = load i32, ptr %switch.gep, align 4
+  br label %63
 
 _ZNK4llvm3LLT9isPointerEv.exit.thread:            ; preds = %36
   br i1 %.not80, label %_ZNK4llvm3LLT13getSizeInBitsEv.exit73, label %_ZNK4llvm3LLT13getSizeInBitsEv.exit58
@@ -634,66 +616,66 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit58:            ; preds = %_ZNK4llvm3LLT9isPoi
   store i64 %.0.in.i.i57, ptr %6, align 8
   %.sroa.25.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i8 0, ptr %.sroa.25.0..sroa_idx, align 8
-  %47 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %6) #13
+  %43 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %6) #13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #13
-  %48 = add i64 %47, -32
-  %49 = call i64 @llvm.fshl.i64(i64 %48, i64 %48, i64 60)
-  switch i64 %49, label %55 [
-    i64 0, label %50
-    i64 2, label %52
-    i64 6, label %67
-    i64 3, label %54
+  %44 = add i64 %43, -32
+  %45 = call i64 @llvm.fshl.i64(i64 %44, i64 %44, i64 60)
+  switch i64 %45, label %51 [
+    i64 0, label %46
+    i64 2, label %48
+    i64 6, label %63
+    i64 3, label %50
   ]
 
+46:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit58
+  %47 = select i1 %13, i32 4, i32 9
+  br label %63
+
+48:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit58
+  %49 = select i1 %14, i32 5, i32 10
+  br label %63
+
 50:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit58
-  %51 = select i1 %13, i32 4, i32 9
-  br label %67
+  br label %63
 
-52:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit58
-  %53 = select i1 %14, i32 5, i32 10
-  br label %67
-
-54:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit58
-  br label %67
-
-55:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit58
+51:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit58
   unreachable
 
 _ZNK4llvm3LLT13getSizeInBitsEv.exit73:            ; preds = %_ZNK4llvm3LLT9isPointerEv.exit.thread
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #13
-  %56 = trunc i64 %34 to i8
-  %57 = lshr i8 %56, 3
-  %58 = and i8 %57, 1
+  %52 = trunc i64 %34 to i8
+  %53 = lshr i8 %52, 3
+  %54 = and i8 %53, 1
   %.not.i.i1.i63 = icmp ne i64 %38, 0
-  %59 = and i1 %.not.i.i1.i63, %spec.select.i.i
-  %.0.in.v.i3.i64 = select i1 %59, i64 48, i64 32
+  %55 = and i1 %.not.i.i1.i63, %spec.select.i.i
+  %.0.in.v.i3.i64 = select i1 %55, i64 48, i64 32
   %.0.in.i4.i65 = lshr i64 %34, %.0.in.v.i3.i64
-  %60 = lshr i64 %34, 8
-  %.sroa.0.0.insert.ext.i.i.i62 = and i64 %60, 65535
-  %61 = mul nuw nsw i64 %.0.in.i4.i65, %.sroa.0.0.insert.ext.i.i.i62
-  %62 = and i64 %61, 4294967295
-  store i64 %62, ptr %7, align 8
+  %56 = lshr i64 %34, 8
+  %.sroa.0.0.insert.ext.i.i.i62 = and i64 %56, 65535
+  %57 = mul nuw nsw i64 %.0.in.i4.i65, %.sroa.0.0.insert.ext.i.i.i62
+  %58 = and i64 %57, 4294967295
+  store i64 %58, ptr %7, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i8 %58, ptr %.sroa.2.0..sroa_idx, align 8
-  %63 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %7) #13
+  store i8 %54, ptr %.sroa.2.0..sroa_idx, align 8
+  %59 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %7) #13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #13
-  switch i64 %63, label %66 [
-    i64 128, label %67
-    i64 256, label %64
-    i64 512, label %65
+  switch i64 %59, label %62 [
+    i64 128, label %63
+    i64 256, label %60
+    i64 512, label %61
   ]
 
-64:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit73
-  br label %67
+60:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit73
+  br label %63
 
-65:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit73
-  br label %67
+61:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit73
+  br label %63
 
-66:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit73
+62:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit73
   unreachable
 
-67:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit73, %_ZNK4llvm3LLT13getSizeInBitsEv.exit58, %_ZNK4llvm3LLT13getSizeInBitsEv.exit43, %_ZNK4llvm3LLT13getSizeInBitsEv.exit43, %65, %64, %54, %52, %50, %45, %44, %43, %42
-  %.0 = phi i32 [ 1, %42 ], [ 2, %43 ], [ 3, %44 ], [ 6, %45 ], [ %51, %50 ], [ %53, %52 ], [ 11, %54 ], [ 7, %64 ], [ 8, %65 ], [ 0, %_ZNK4llvm3LLT13getSizeInBitsEv.exit43 ], [ 0, %_ZNK4llvm3LLT13getSizeInBitsEv.exit43 ], [ 6, %_ZNK4llvm3LLT13getSizeInBitsEv.exit58 ], [ 6, %_ZNK4llvm3LLT13getSizeInBitsEv.exit73 ]
+63:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit43, %_ZNK4llvm3LLT13getSizeInBitsEv.exit73, %_ZNK4llvm3LLT13getSizeInBitsEv.exit58, %61, %60, %50, %48, %46
+  %.0 = phi i32 [ %47, %46 ], [ %49, %48 ], [ 11, %50 ], [ 7, %60 ], [ 8, %61 ], [ 6, %_ZNK4llvm3LLT13getSizeInBitsEv.exit58 ], [ 6, %_ZNK4llvm3LLT13getSizeInBitsEv.exit73 ], [ %switch.load, %_ZNK4llvm3LLT13getSizeInBitsEv.exit43 ]
   ret i32 %.0
 }
 
@@ -2523,6 +2505,9 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #10
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.fshl.i64(i64, i64, i64) #11
