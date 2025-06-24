@@ -6178,7 +6178,7 @@ _ZSt8_DestroyIPSt6vectorIN5ZXing6Pdf41712BarcodeValueESaIS3_EES5_EvT_S7_RSaIT0_E
   %.0175269 = phi i32 [ %7, %.lr.ph272 ], [ %.1176, %.loopexit ]
   %937 = sub nsw i32 %219, %.066271
   %938 = select i1 %240, i32 %.066271, i32 %937
-  %939 = sext i32 %938 to i64
+  %939 = zext nneg i32 %938 to i64
   %940 = load ptr, ptr %220, align 8, !tbaa !137
   %941 = getelementptr inbounds nuw %"class.ZXing::Nullable.13", ptr %940, i64 %939
   %942 = load i8, ptr %941, align 8, !tbaa !106, !range !121, !noundef !122

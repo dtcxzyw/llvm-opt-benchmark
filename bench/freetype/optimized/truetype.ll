@@ -3963,7 +3963,7 @@ Ins_SFVTPV.exit:                                  ; preds = %670, %.sink.split.i
 
 940:                                              ; preds = %933
   %941 = sub nsw i64 %301, %934
-  %942 = getelementptr inbounds i64, ptr %320, i64 %941
+  %942 = getelementptr inbounds nuw i64, ptr %320, i64 %941
   %943 = load i64, ptr %942, align 8, !tbaa !223
   br label %Ins_CINDEX.exit
 
@@ -3986,12 +3986,12 @@ Ins_CINDEX.exit:                                  ; preds = %937, %939, %940
 
 949:                                              ; preds = %944
   %950 = sub nsw i64 %301, %.val386
-  %951 = getelementptr inbounds i64, ptr %320, i64 %950
+  %951 = getelementptr inbounds nuw i64, ptr %320, i64 %950
   %952 = load i64, ptr %951, align 8, !tbaa !223
-  %953 = getelementptr i8, ptr %951, i64 8
+  %953 = getelementptr inbounds nuw i8, ptr %951, i64 8
   %954 = shl i64 %.val386, 3
   %955 = add i64 %954, -8
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %951, ptr align 8 %953, i64 %955, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %951, ptr nonnull align 8 %953, i64 %955, i1 false)
   %956 = load ptr, ptr %157, align 8, !tbaa !189
   %957 = load i64, ptr %155, align 8, !tbaa !315
   %958 = getelementptr i64, ptr %956, i64 %957

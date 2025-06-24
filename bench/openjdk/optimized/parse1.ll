@@ -8881,7 +8881,7 @@ _ZN10ciTypeFlow5Block10exceptionsEv.exit:         ; preds = %2, %9
 33:                                               ; preds = %28
   %34 = sub nsw i64 %indvars.iv, %27
   %35 = load ptr, ptr %24, align 8
-  %36 = getelementptr inbounds ptr, ptr %35, i64 %34
+  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %34
   br label %37
 
 37:                                               ; preds = %33, %30

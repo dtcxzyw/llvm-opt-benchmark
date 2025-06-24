@@ -168,7 +168,7 @@ if.then3.i:                                       ; preds = %land.lhs.true.i
   %idx.ext.i = sext i32 %2 to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %4, i64 %idx.ext.i
   %sub.i = sub nsw i32 %3, %2
-  %conv.i = sext i32 %sub.i to i64
+  %conv.i = zext nneg i32 %sub.i to i64
   %call.i4 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %add.ptr.i, i64 noundef %conv.i)
           to label %call.i.noexc unwind label %lpad.loopexit.split-lp
 
@@ -264,7 +264,7 @@ if.then3:                                         ; preds = %land.lhs.true
   %idx.ext = sext i32 %2 to i64
   %add.ptr = getelementptr inbounds i8, ptr %4, i64 %idx.ext
   %sub = sub nsw i32 %3, %2
-  %conv = sext i32 %sub to i64
+  %conv = zext nneg i32 %sub to i64
   %call = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %add.ptr, i64 noundef %conv)
   store i32 0, ptr %record_start_, align 8
   br label %if.end9
@@ -485,7 +485,7 @@ if.then3.i:                                       ; preds = %land.lhs.true.i
   %idx.ext.i = sext i32 %10 to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %11, i64 %idx.ext.i
   %sub.i = sub nsw i32 %5, %10
-  %conv.i = sext i32 %sub.i to i64
+  %conv.i = zext nneg i32 %sub.i to i64
   %call.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef %add.ptr.i, i64 noundef %conv.i)
   store i32 0, ptr %record_start_.i, align 8
   br label %if.end9.i
@@ -1404,7 +1404,7 @@ if.then3.i.i:                                     ; preds = %land.lhs.true.i.i
   %idx.ext.i.i = sext i32 %19 to i64
   %add.ptr.i.i = getelementptr inbounds i8, ptr %20, i64 %idx.ext.i.i
   %sub.i.i = sub nsw i32 %14, %19
-  %conv.i.i = sext i32 %sub.i.i to i64
+  %conv.i.i = zext nneg i32 %sub.i.i to i64
   %call.i.i119 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef %add.ptr.i.i, i64 noundef %conv.i.i)
   store i32 0, ptr %record_start_.i.i, align 8
   br label %if.end9.i.i
@@ -2041,7 +2041,7 @@ if.then3.i.i:                                     ; preds = %land.lhs.true.i.i
   %idx.ext.i.i = sext i32 %12 to i64
   %add.ptr.i.i = getelementptr inbounds i8, ptr %13, i64 %idx.ext.i.i
   %sub.i.i = sub nsw i32 %7, %12
-  %conv.i.i = sext i32 %sub.i.i to i64
+  %conv.i.i = zext nneg i32 %sub.i.i to i64
   %call.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef %add.ptr.i.i, i64 noundef %conv.i.i)
   store i32 0, ptr %record_start_.i.i, align 8
   br label %if.end9.i.i
@@ -2177,7 +2177,7 @@ if.then3.i.i130:                                  ; preds = %land.lhs.true.i.i11
   %idx.ext.i.i132 = sext i32 %32 to i64
   %add.ptr.i.i133 = getelementptr inbounds i8, ptr %33, i64 %idx.ext.i.i132
   %sub.i.i134 = sub nsw i32 %27, %32
-  %conv.i.i135 = sext i32 %sub.i.i134 to i64
+  %conv.i.i135 = zext nneg i32 %sub.i.i134 to i64
   %call.i.i136 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef %add.ptr.i.i133, i64 noundef %conv.i.i135)
   store i32 0, ptr %record_start_.i.i, align 8
   br label %if.end9.i.i117
@@ -2722,7 +2722,7 @@ if.then3.i.i135:                                  ; preds = %land.lhs.true.i.i11
   %idx.ext.i.i137 = sext i32 %17 to i64
   %add.ptr.i.i138 = getelementptr inbounds i8, ptr %18, i64 %idx.ext.i.i137
   %sub.i.i139 = sub nsw i32 %12, %17
-  %conv.i.i140 = sext i32 %sub.i.i139 to i64
+  %conv.i.i140 = zext nneg i32 %sub.i.i139 to i64
   %call.i.i141 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef %add.ptr.i.i138, i64 noundef %conv.i.i140)
   store i32 0, ptr %record_start_.i.i, align 8
   br label %if.end9.i.i122
@@ -2857,7 +2857,7 @@ if.then3.i.i:                                     ; preds = %land.lhs.true.i.i
   %idx.ext.i.i93 = sext i32 %35 to i64
   %add.ptr.i.i94 = getelementptr inbounds i8, ptr %36, i64 %idx.ext.i.i93
   %sub.i.i95 = sub nsw i32 %30, %35
-  %conv.i.i96 = sext i32 %sub.i.i95 to i64
+  %conv.i.i96 = zext nneg i32 %sub.i.i95 to i64
   %call.i.i97 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef %add.ptr.i.i94, i64 noundef %conv.i.i96)
   store i32 0, ptr %record_start_.i.i, align 8
   br label %if.end9.i.i
@@ -3603,7 +3603,7 @@ if.then3.i.i301:                                  ; preds = %land.lhs.true.i.i
   %idx.ext.i.i303 = sext i32 %25 to i64
   %add.ptr.i.i304 = getelementptr inbounds i8, ptr %26, i64 %idx.ext.i.i303
   %sub.i.i305 = sub nsw i32 %20, %25
-  %conv.i.i306 = sext i32 %sub.i.i305 to i64
+  %conv.i.i306 = zext nneg i32 %sub.i.i305 to i64
   %call.i.i307312 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef %add.ptr.i.i304, i64 noundef %conv.i.i306)
           to label %call.i.i307.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -4014,7 +4014,7 @@ if.then3.i.i347:                                  ; preds = %land.lhs.true.i.i33
   %idx.ext.i.i349 = sext i32 %75 to i64
   %add.ptr.i.i350 = getelementptr inbounds i8, ptr %76, i64 %idx.ext.i.i349
   %sub.i.i351 = sub nsw i32 %70, %75
-  %conv.i.i352 = sext i32 %sub.i.i351 to i64
+  %conv.i.i352 = zext nneg i32 %sub.i.i351 to i64
   %call.i.i353365 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %74, ptr noundef %add.ptr.i.i350, i64 noundef %conv.i.i352)
           to label %call.i.i353.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -4147,7 +4147,7 @@ if.then3.i.i402:                                  ; preds = %land.lhs.true.i.i38
   %idx.ext.i.i404 = sext i32 %92 to i64
   %add.ptr.i.i405 = getelementptr inbounds i8, ptr %93, i64 %idx.ext.i.i404
   %sub.i.i406 = sub nsw i32 %87, %92
-  %conv.i.i407 = sext i32 %sub.i.i406 to i64
+  %conv.i.i407 = zext nneg i32 %sub.i.i406 to i64
   %call.i.i408420 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %91, ptr noundef %add.ptr.i.i405, i64 noundef %conv.i.i407)
           to label %call.i.i408.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -4353,7 +4353,7 @@ if.then3.i.i457:                                  ; preds = %land.lhs.true.i.i44
   %idx.ext.i.i459 = sext i32 %120 to i64
   %add.ptr.i.i460 = getelementptr inbounds i8, ptr %121, i64 %idx.ext.i.i459
   %sub.i.i461 = sub nsw i32 %115, %120
-  %conv.i.i462 = sext i32 %sub.i.i461 to i64
+  %conv.i.i462 = zext nneg i32 %sub.i.i461 to i64
   %call.i.i463475 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %119, ptr noundef %add.ptr.i.i460, i64 noundef %conv.i.i462)
           to label %call.i.i463.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 

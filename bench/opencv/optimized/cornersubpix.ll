@@ -440,7 +440,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit263: ; preds = %_Z
   %173 = add i32 %172, %.sroa.0153.0.extract.trunc
   %174 = sub i32 %173, %.sroa.0146.0.extract.trunc
   %smax387 = call i32 @llvm.smax.i32(i32 %169, i32 %168)
-  %175 = add i32 %smax387, %.sroa.0146.0.extract.trunc
+  %175 = add nuw i32 %smax387, %.sroa.0146.0.extract.trunc
   %176 = sub i32 %175, %.sroa.0153.0.extract.trunc
   %177 = zext i32 %176 to i64
   %178 = shl nuw nsw i64 %177, 2
@@ -456,7 +456,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit263: ; preds = %_Z
   %183 = shl nsw i64 %182, 2
   %scevgep = getelementptr i8, ptr %137, i64 %183
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep, i8 0, i64 %179, i1 false), !tbaa !34
-  %184 = add nsw i32 %.1324, 1
+  %184 = add nuw nsw i32 %.1324, 1
   %.not228.not = icmp slt i32 %.1324, %167
   %indvar.next = add i32 %indvar, 1
   br i1 %.not228.not, label %.lr.ph321, label %.lr.ph370, !llvm.loop !39

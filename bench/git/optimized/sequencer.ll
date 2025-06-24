@@ -9261,7 +9261,7 @@ _.exit243.i:                                      ; preds = %681, %679
   %736 = sext i32 %.0172.i to i64
   %737 = getelementptr inbounds i8, ptr %147, i64 %736
   %738 = sub nsw i32 %599, %.0172.i
-  %739 = sext i32 %738 to i64
+  %739 = zext nneg i32 %738 to i64
   call void @strbuf_add(ptr noundef %602, ptr noundef %737, i64 noundef %739) #20
   br label %745
 

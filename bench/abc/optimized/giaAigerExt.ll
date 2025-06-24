@@ -694,9 +694,9 @@ Gia_AigerWriteUnsignedBuffer.exit:                ; preds = %28, %._crit_edge.lo
 
 47:                                               ; preds = %43
   %48 = sub nsw i32 %45, %.14486
-  %49 = shl nsw i32 %48, 1
+  %49 = shl nuw nsw i32 %48, 1
   %50 = or disjoint i32 %49, 1
-  %.not11.i.i = icmp ult i32 %49, 128
+  %.not11.i.i = icmp ult i32 %48, 64
   br i1 %.not11.i.i, label %Gia_AigerWriteDiffValue.exit, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %47
@@ -712,7 +712,7 @@ Gia_AigerWriteUnsignedBuffer.exit:                ; preds = %28, %._crit_edge.lo
   %54 = getelementptr inbounds i8, ptr %21, i64 %indvars.iv.i.i
   store i8 %53, ptr %54, align 1, !tbaa !8
   %55 = lshr i32 %.013.i.i, 7
-  %.not.i.i = icmp ult i32 %.013.i.i, 16384
+  %.not.i.i = icmp samesign ult i32 %.013.i.i, 16384
   br i1 %.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !40
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
@@ -721,8 +721,8 @@ Gia_AigerWriteUnsignedBuffer.exit:                ; preds = %28, %._crit_edge.lo
 
 57:                                               ; preds = %43
   %58 = sub nsw i32 %.14486, %45
-  %59 = shl nsw i32 %58, 1
-  %.not11.i13.i = icmp ult i32 %59, 128
+  %59 = shl nuw nsw i32 %58, 1
+  %.not11.i13.i = icmp ult i32 %58, 64
   br i1 %.not11.i13.i, label %Gia_AigerWriteDiffValue.exit, label %.lr.ph.preheader.i14.i
 
 .lr.ph.preheader.i14.i:                           ; preds = %57
@@ -738,7 +738,7 @@ Gia_AigerWriteUnsignedBuffer.exit:                ; preds = %28, %._crit_edge.lo
   %63 = getelementptr inbounds i8, ptr %21, i64 %indvars.iv.i16.i
   store i8 %62, ptr %63, align 1, !tbaa !8
   %64 = lshr i32 %.013.i17.i, 7
-  %.not.i19.i = icmp ult i32 %.013.i17.i, 16384
+  %.not.i19.i = icmp samesign ult i32 %.013.i17.i, 16384
   br i1 %.not.i19.i, label %._crit_edge.loopexit.i20.i, label %.lr.ph.i15.i, !llvm.loop !40
 
 ._crit_edge.loopexit.i20.i:                       ; preds = %.lr.ph.i15.i
@@ -767,9 +767,9 @@ Gia_AigerWriteDiffValue.exit:                     ; preds = %47, %._crit_edge.lo
 
 72:                                               ; preds = %.critedge
   %73 = sub nsw i32 %71, %.144.lcssa
-  %74 = shl nsw i32 %73, 1
+  %74 = shl nuw nsw i32 %73, 1
   %75 = or disjoint i32 %74, 1
-  %.not11.i.i66 = icmp ult i32 %74, 128
+  %.not11.i.i66 = icmp ult i32 %73, 64
   br i1 %.not11.i.i66, label %Gia_AigerWriteDiffValue.exit74, label %.lr.ph.preheader.i.i67
 
 .lr.ph.preheader.i.i67:                           ; preds = %72
@@ -785,7 +785,7 @@ Gia_AigerWriteDiffValue.exit:                     ; preds = %47, %._crit_edge.lo
   %79 = getelementptr inbounds i8, ptr %21, i64 %indvars.iv.i.i69
   store i8 %78, ptr %79, align 1, !tbaa !8
   %80 = lshr i32 %.013.i.i70, 7
-  %.not.i.i72 = icmp ult i32 %.013.i.i70, 16384
+  %.not.i.i72 = icmp samesign ult i32 %.013.i.i70, 16384
   br i1 %.not.i.i72, label %._crit_edge.loopexit.i.i73, label %.lr.ph.i.i68, !llvm.loop !40
 
 ._crit_edge.loopexit.i.i73:                       ; preds = %.lr.ph.i.i68
@@ -794,8 +794,8 @@ Gia_AigerWriteDiffValue.exit:                     ; preds = %47, %._crit_edge.lo
 
 82:                                               ; preds = %.critedge
   %83 = sub nsw i32 %.144.lcssa, %71
-  %84 = shl nsw i32 %83, 1
-  %.not11.i13.i55 = icmp ult i32 %84, 128
+  %84 = shl nuw nsw i32 %83, 1
+  %.not11.i13.i55 = icmp ult i32 %83, 64
   br i1 %.not11.i13.i55, label %Gia_AigerWriteDiffValue.exit74, label %.lr.ph.preheader.i14.i56
 
 .lr.ph.preheader.i14.i56:                         ; preds = %82
@@ -811,7 +811,7 @@ Gia_AigerWriteDiffValue.exit:                     ; preds = %47, %._crit_edge.lo
   %88 = getelementptr inbounds i8, ptr %21, i64 %indvars.iv.i16.i58
   store i8 %87, ptr %88, align 1, !tbaa !8
   %89 = lshr i32 %.013.i17.i59, 7
-  %.not.i19.i61 = icmp ult i32 %.013.i17.i59, 16384
+  %.not.i19.i61 = icmp samesign ult i32 %.013.i17.i59, 16384
   br i1 %.not.i19.i61, label %._crit_edge.loopexit.i20.i62, label %.lr.ph.i15.i57, !llvm.loop !40
 
 ._crit_edge.loopexit.i20.i62:                     ; preds = %.lr.ph.i15.i57

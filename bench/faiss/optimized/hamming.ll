@@ -29034,7 +29034,7 @@ define internal void @_ZN5faiss17unpack_bitstringsEmmiPKhmPi.omp_outlined(ptr no
   %44 = zext nneg i32 %29 to i64
   %45 = sub nsw i32 %29, %32
   %.02431.i.us = add nuw nsw i64 %33, 1
-  %46 = icmp sgt i32 %45, 8
+  %46 = icmp samesign ugt i32 %45, 8
   br i1 %46, label %.lr.ph.preheader.i.us, label %._crit_edge.i.us
 
 .lr.ph.preheader.i.us:                            ; preds = %42
@@ -29054,7 +29054,7 @@ define internal void @_ZN5faiss17unpack_bitstringsEmmiPKhmPi.omp_outlined(ptr no
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 8
   %53 = add nsw i32 %.02732.i.us, -8
   %.024.i.us = add nuw nsw i64 %.02435.i.us, 1
-  %54 = icmp samesign ugt i32 %.02732.i.us, 16
+  %54 = icmp samesign ugt i32 %53, 8
   br i1 %54, label %.lr.ph.i.us, label %._crit_edge.loopexit.i.us, !llvm.loop !997
 
 ._crit_edge.loopexit.i.us:                        ; preds = %.lr.ph.i.us
@@ -29297,7 +29297,7 @@ define internal void @_ZN5faiss17unpack_bitstringsEmmPKiPKhmPi.omp_outlined(ptr 
   %46 = zext nneg i32 %31 to i64
   %47 = sub nsw i32 %31, %34
   %.02431.i.us = add nuw nsw i64 %35, 1
-  %48 = icmp sgt i32 %47, 8
+  %48 = icmp samesign ugt i32 %47, 8
   br i1 %48, label %.lr.ph.preheader.i.us, label %._crit_edge.i.us
 
 .lr.ph.preheader.i.us:                            ; preds = %44
@@ -29317,7 +29317,7 @@ define internal void @_ZN5faiss17unpack_bitstringsEmmPKiPKhmPi.omp_outlined(ptr 
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 8
   %55 = add nsw i32 %.02732.i.us, -8
   %.024.i.us = add nuw nsw i64 %.02435.i.us, 1
-  %56 = icmp samesign ugt i32 %.02732.i.us, 16
+  %56 = icmp samesign ugt i32 %55, 8
   br i1 %56, label %.lr.ph.i.us, label %._crit_edge.loopexit.i.us, !llvm.loop !997
 
 ._crit_edge.loopexit.i.us:                        ; preds = %.lr.ph.i.us

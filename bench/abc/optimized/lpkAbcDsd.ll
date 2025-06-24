@@ -267,8 +267,8 @@ Kit_DsdNtkObj.exit:                               ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8, !tbaa !21
   %12 = sub nsw i32 %6, %8
-  %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds ptr, ptr %11, i64 %13
+  %13 = zext nneg i32 %12 to i64
+  %14 = getelementptr inbounds nuw ptr, ptr %11, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !22
   %16 = icmp eq ptr %15, null
   br i1 %16, label %Kit_DsdNtkObj.exit.thread, label %18

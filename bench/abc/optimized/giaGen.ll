@@ -2874,7 +2874,7 @@ define void @Gia_ManReadSimFile(ptr noundef %0, ptr noundef writeonly captures(n
 
 13:                                               ; preds = %6
   %14 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.34, ptr noundef %0)
-  br label %101
+  br label %112
 
 15:                                               ; preds = %.lr.ph, %17
   %16 = load i8, ptr %7, align 16, !tbaa !12
@@ -2952,7 +2952,7 @@ define void @Gia_ManReadSimFile(ptr noundef %0, ptr noundef writeonly captures(n
 .outer87._crit_edge.thread:                       ; preds = %.preheader86, %.outer87._crit_edge
   %puts80 = call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
   %40 = call i32 @fclose(ptr noundef nonnull %8)
-  br label %101
+  br label %112
 
 41:                                               ; preds = %.outer87._crit_edge
   %42 = add nsw i32 %.066.ph.lcssa, 63
@@ -3041,74 +3041,87 @@ Vec_WrdStart.exit85:                              ; preds = %Vec_WrdStart.exit, 
   %.not76 = icmp eq ptr %78, null
   br i1 %.not76, label %.outer._crit_edge.loopexit, label %71, !llvm.loop !91
 
-79:                                               ; preds = %.preheader, %93
-  %.069 = phi i32 [ %.170, %93 ], [ 0, %.preheader ]
-  %.3 = phi ptr [ %94, %93 ], [ %7, %.preheader ]
+79:                                               ; preds = %.preheader, %104
+  %.069 = phi i32 [ %.170, %104 ], [ 0, %.preheader ]
+  %.3 = phi ptr [ %105, %104 ], [ %7, %.preheader ]
   %80 = load i8, ptr %.3, align 1, !tbaa !12
-  switch i8 %80, label %93 [
+  switch i8 %80, label %104 [
     i8 10, label %.outer
-    i8 49, label %.sink.split
-    i8 48, label %91
+    i8 49, label %81
+    i8 48, label %102
   ]
 
-.sink.split:                                      ; preds = %79
-  %81 = icmp slt i32 %.069, %.066.ph.lcssa
-  %82 = select i1 %81, i32 0, i32 %.066.ph.lcssa
-  %.069.sink137 = sub nsw i32 %.069, %82
-  %.sink134 = select i1 %81, ptr %76, ptr %75
-  %83 = and i32 %.069.sink137, 63
-  %84 = zext nneg i32 %83 to i64
-  %85 = shl nuw i64 1, %84
-  %86 = ashr i32 %.069.sink137, 6
-  %87 = sext i32 %86 to i64
-  %88 = getelementptr inbounds i64, ptr %.sink134, i64 %87
-  %89 = load i64, ptr %88, align 8, !tbaa !16
-  %90 = or i64 %89, %85
-  store i64 %90, ptr %88, align 8, !tbaa !16
-  br label %91
+81:                                               ; preds = %79
+  %82 = icmp slt i32 %.069, %.066.ph.lcssa
+  br i1 %82, label %83, label %92
 
-91:                                               ; preds = %.sink.split, %79
-  %92 = add nsw i32 %.069, 1
-  br label %93
+83:                                               ; preds = %81
+  %84 = and i32 %.069, 63
+  %85 = zext nneg i32 %84 to i64
+  %86 = shl nuw i64 1, %85
+  %87 = ashr i32 %.069, 6
+  %88 = sext i32 %87 to i64
+  %89 = getelementptr inbounds i64, ptr %76, i64 %88
+  %90 = load i64, ptr %89, align 8, !tbaa !16
+  %91 = or i64 %90, %86
+  store i64 %91, ptr %89, align 8, !tbaa !16
+  br label %102
 
-93:                                               ; preds = %79, %91
-  %.170 = phi i32 [ %92, %91 ], [ %.069, %79 ]
-  %94 = getelementptr inbounds nuw i8, ptr %.3, i64 1
+92:                                               ; preds = %81
+  %93 = sub nsw i32 %.069, %.066.ph.lcssa
+  %94 = and i32 %93, 63
+  %95 = zext nneg i32 %94 to i64
+  %96 = shl nuw i64 1, %95
+  %97 = lshr i32 %93, 6
+  %98 = zext nneg i32 %97 to i64
+  %99 = getelementptr inbounds nuw i64, ptr %75, i64 %98
+  %100 = load i64, ptr %99, align 8, !tbaa !16
+  %101 = or i64 %100, %96
+  store i64 %101, ptr %99, align 8, !tbaa !16
+  br label %102
+
+102:                                              ; preds = %79, %83, %92
+  %103 = add nsw i32 %.069, 1
+  br label %104
+
+104:                                              ; preds = %79, %102
+  %.170 = phi i32 [ %103, %102 ], [ %.069, %79 ]
+  %105 = getelementptr inbounds nuw i8, ptr %.3, i64 1
   br label %79, !llvm.loop !92
 
 .outer:                                           ; preds = %79
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %95 = call ptr @fgets(ptr noundef nonnull %7, i32 noundef 1000, ptr noundef nonnull %8)
-  %.not76105 = icmp eq ptr %95, null
+  %106 = call ptr @fgets(ptr noundef nonnull %7, i32 noundef 1000, ptr noundef nonnull %8)
+  %.not76105 = icmp eq ptr %106, null
   br i1 %.not76105, label %.outer._crit_edge.loopexit114, label %.lr.ph106, !llvm.loop !91
 
 .outer._crit_edge.loopexit:                       ; preds = %77
-  %96 = trunc nuw nsw i64 %indvars.iv to i32
+  %107 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.outer._crit_edge
 
 .outer._crit_edge.loopexit114:                    ; preds = %.outer
-  %97 = trunc nsw i64 %indvars.iv.next to i32
+  %108 = trunc nsw i64 %indvars.iv.next to i32
   br label %.outer._crit_edge
 
 .outer._crit_edge:                                ; preds = %.outer._crit_edge.loopexit114, %.outer._crit_edge.loopexit, %Vec_WrdStart.exit85
-  %.068.ph.lcssa = phi i32 [ 0, %Vec_WrdStart.exit85 ], [ %96, %.outer._crit_edge.loopexit ], [ %97, %.outer._crit_edge.loopexit114 ]
+  %.068.ph.lcssa = phi i32 [ 0, %Vec_WrdStart.exit85 ], [ %107, %.outer._crit_edge.loopexit ], [ %108, %.outer._crit_edge.loopexit114 ]
   %.not77 = icmp eq i32 %.068.ph.lcssa, %.062.ph.lcssa
-  br i1 %.not77, label %99, label %98
+  br i1 %.not77, label %110, label %109
 
-98:                                               ; preds = %.outer._crit_edge
+109:                                              ; preds = %.outer._crit_edge
   %puts78 = call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
-  br label %99
+  br label %110
 
-99:                                               ; preds = %98, %.outer._crit_edge
-  %100 = call i32 @fclose(ptr noundef nonnull %8)
+110:                                              ; preds = %109, %.outer._crit_edge
+  %111 = call i32 @fclose(ptr noundef nonnull %8)
   store i32 %.066.ph.lcssa, ptr %1, align 4, !tbaa !19
   store i32 %.064.ph.lcssa, ptr %2, align 4, !tbaa !19
   store i32 %.062.ph.lcssa, ptr %3, align 4, !tbaa !19
   store ptr %47, ptr %4, align 8, !tbaa !47
   store ptr %58, ptr %5, align 8, !tbaa !47
-  br label %101
+  br label %112
 
-101:                                              ; preds = %99, %.outer87._crit_edge.thread, %13
+112:                                              ; preds = %110, %.outer87._crit_edge.thread, %13
   call void @llvm.lifetime.end.p0(i64 1000, ptr nonnull %7) #21
   ret void
 }

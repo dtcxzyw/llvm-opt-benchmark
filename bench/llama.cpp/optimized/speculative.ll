@@ -1018,7 +1018,7 @@ define void @_Z28common_speculative_gen_draftP18common_speculative25common_specu
   %36 = zext nneg i32 %.sroa.speculated282 to i64
   %37 = sub nsw i32 %24, %.sroa.speculated282
   %wide.trip.count419 = and i64 %32, 2147483647
-  %wide.trip.count414 = zext i32 %37 to i64
+  %wide.trip.count414 = zext nneg i32 %37 to i64
   %invariant.gep = getelementptr inbounds nuw i32, ptr %19, i64 %36
   br label %.preheader304.us
 

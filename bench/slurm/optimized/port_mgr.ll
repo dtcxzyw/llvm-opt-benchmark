@@ -271,8 +271,8 @@ define dso_local range(i32 -1, 1) i32 @reserve_port_config(ptr noundef %0, ptr n
 114:                                              ; preds = %.lr.ph.i.i.i
   %115 = sub nsw i32 %111, %108
   %116 = load ptr, ptr @port_resv_table, align 8
-  %117 = sext i32 %115 to i64
-  %118 = getelementptr inbounds ptr, ptr %116, i64 %117
+  %117 = zext nneg i32 %115 to i64
+  %118 = getelementptr inbounds nuw ptr, ptr %116, i64 %117
   %119 = load ptr, ptr %118, align 8
   call void @bit_or(ptr noundef %119, ptr noundef %88) #8
   %.pre33.i.i.i = load i32, ptr @port_resv_min, align 4
@@ -411,8 +411,8 @@ _make_job_resv.exit.i:                            ; preds = %120, %127, %104, %9
 186:                                              ; preds = %.lr.ph.i.i15.i
   %187 = sub nsw i32 %183, %180
   %188 = load ptr, ptr @port_resv_table, align 8
-  %189 = sext i32 %187 to i64
-  %190 = getelementptr inbounds ptr, ptr %188, i64 %189
+  %189 = zext nneg i32 %187 to i64
+  %190 = getelementptr inbounds nuw ptr, ptr %188, i64 %189
   %191 = load ptr, ptr %190, align 8
   call void @bit_or(ptr noundef %191, ptr noundef %140) #8
   %.pre33.i.i18.i = load i32, ptr @port_resv_min, align 4

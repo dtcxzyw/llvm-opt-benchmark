@@ -5046,23 +5046,23 @@ _ZNK6Switch6lengthEv.exit:                        ; preds = %2
   %.02333 = phi i32 [ 0, %.lr.ph ], [ %.1, %44 ]
   %.02432 = phi i32 [ %28, %.lr.ph ], [ %.125, %44 ]
   %34 = sub nsw i32 %.02432, %.02333
-  %35 = ashr i32 %34, 1
-  %36 = add nsw i32 %35, %.02333
-  %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds i32, ptr %32, i64 %37
+  %35 = lshr i32 %34, 1
+  %36 = add nuw nsw i32 %35, %.02333
+  %37 = zext nneg i32 %36 to i64
+  %38 = getelementptr inbounds nuw i32, ptr %32, i64 %37
   %39 = load i32, ptr %38, align 4
   %40 = icmp eq i32 %39, %19
   br i1 %40, label %41, label %44
 
 41:                                               ; preds = %33
-  %42 = getelementptr inbounds ptr, ptr %23, i64 %37
+  %42 = getelementptr inbounds nuw ptr, ptr %23, i64 %37
   %43 = load ptr, ptr %42, align 8
   br label %.loopexit
 
 44:                                               ; preds = %33
   %45 = icmp sgt i32 %39, %19
   %46 = add nsw i32 %36, -1
-  %47 = add nsw i32 %36, 1
+  %47 = add nuw nsw i32 %36, 1
   %.125 = select i1 %45, i32 %46, i32 %.02432
   %.1 = select i1 %45, i32 %.02333, i32 %47
   %.not = icmp sgt i32 %.1, %.125

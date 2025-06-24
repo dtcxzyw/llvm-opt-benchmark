@@ -6060,7 +6060,7 @@ _ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit190: ; preds = %_ZN5
   %120 = sub nsw i64 %.0142, %.0143300
   %.sroa.speculated205 = call i64 @llvm.smin.i64(i64 %120, i64 4)
   %121 = add nsw i64 %.0143300, %.0136309
-  %122 = add nsw i64 %.sroa.speculated205, %.0143300
+  %122 = add nuw nsw i64 %.sroa.speculated205, %.0143300
   %123 = mul nuw nsw i64 %.0143300, %.0142
   %124 = getelementptr inbounds nuw double, ptr %67, i64 %123
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19) #21
@@ -8840,12 +8840,12 @@ _ZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_.exit: ; preds = %4,
   %51 = add i64 %32, %50
   %52 = sdiv i64 %51, %3
   %53 = icmp slt i64 %49, %52
-  %54 = icmp sgt i64 %49, 3
-  %or.cond = and i1 %54, %53
+  %54 = icmp samesign ugt i64 %49, 3
+  %or.cond = select i1 %53, i1 %54, i1 false
   br i1 %or.cond, label %55, label %57
 
 55:                                               ; preds = %44
-  %56 = and i64 %49, 9223372036854775804
+  %56 = and i64 %49, -4
   store i64 %56, ptr %1, align 8, !tbaa !188
   br label %.critedge116
 

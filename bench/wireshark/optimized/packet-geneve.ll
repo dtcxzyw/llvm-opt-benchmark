@@ -256,8 +256,8 @@ define internal i32 @dissect_geneve(ptr noundef %0, ptr noundef %1, ptr noundef 
   %41 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 7)
   %.not79 = icmp ne i8 %41, 0
   %.not.i = icmp eq ptr %40, null
-  %or.cond81 = select i1 %.not79, i1 true, i1 %.not.i
-  br i1 %or.cond81, label %proto_item_set_hidden.exit, label %42
+  %or.cond82 = select i1 %.not79, i1 true, i1 %.not.i
+  br i1 %or.cond82, label %proto_item_set_hidden.exit, label %42
 
 42:                                               ; preds = %20
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 40
@@ -463,26 +463,26 @@ proto_item_set_hidden.exit106.i.i:                ; preds = %121, %118, %117, %1
 
 dissect_option.exit.i:                            ; preds = %174, %144, %140, %136, %128
   %178 = add i32 %.040.i, %65
-  %179 = sub nsw i32 %.03439.i, %65
-  %180 = icmp sgt i32 %179, 0
-  br i1 %180, label %57, label %dissect_geneve_options.exit, !llvm.loop !6
+  %179 = sub nuw nsw i32 %.03439.i, %65
+  %.not.i81 = icmp eq i32 %179, 0
+  br i1 %.not.i81, label %dissect_geneve_options.exit, label %57, !llvm.loop !6
 
 dissect_geneve_options.exit:                      ; preds = %dissect_option.exit.i, %68, %proto_item_set_hidden.exit
-  %181 = add nuw nsw i32 %22, 8
-  tail call void @proto_item_set_len(ptr noundef %9, i32 noundef %181)
-  %182 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %181)
-  %183 = load ptr, ptr @ethertype_dissector_table, align 8
-  %184 = tail call i32 @dissector_try_uint(ptr noundef %183, i32 noundef %33, ptr noundef %182, ptr noundef %1, ptr noundef %2)
-  %.not80 = icmp eq i32 %184, 0
-  br i1 %.not80, label %185, label %187
+  %180 = add nuw nsw i32 %22, 8
+  tail call void @proto_item_set_len(ptr noundef %9, i32 noundef %180)
+  %181 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %180)
+  %182 = load ptr, ptr @ethertype_dissector_table, align 8
+  %183 = tail call i32 @dissector_try_uint(ptr noundef %182, i32 noundef %33, ptr noundef %181, ptr noundef %1, ptr noundef %2)
+  %.not80 = icmp eq i32 %183, 0
+  br i1 %.not80, label %184, label %186
 
-185:                                              ; preds = %dissect_geneve_options.exit
-  %186 = tail call i32 @call_data_dissector(ptr noundef %182, ptr noundef %1, ptr noundef %2)
-  br label %187
+184:                                              ; preds = %dissect_geneve_options.exit
+  %185 = tail call i32 @call_data_dissector(ptr noundef %181, ptr noundef %1, ptr noundef %2)
+  br label %186
 
-187:                                              ; preds = %185, %dissect_geneve_options.exit
-  %188 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  ret i32 %188
+186:                                              ; preds = %184, %dissect_geneve_options.exit
+  %187 = tail call i32 @tvb_captured_length(ptr noundef %0)
+  ret i32 %187
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable

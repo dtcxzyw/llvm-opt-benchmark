@@ -745,8 +745,8 @@ compute_sampled_width.exit:                       ; preds = %97, %107
 
 124:                                              ; preds = %118
   %125 = sub nsw i32 %122, %.0.i118
-  %126 = sdiv i32 %125, %102
-  %127 = add nsw i32 %126, 1
+  %126 = udiv i32 %125, %102
+  %127 = add nuw nsw i32 %126, 1
   br label %compute_sampled_height.exit
 
 compute_sampled_height.exit:                      ; preds = %compute_sampled_width.exit, %116, %118, %124

@@ -3882,7 +3882,7 @@ define dso_local void @addReplyDouble(ptr noundef %0, double noundef %1) local_u
   unreachable
 
 28:                                               ; preds = %20
-  %29 = zext i32 %25 to i64
+  %29 = zext nneg i32 %25 to i64
   %30 = getelementptr inbounds nuw [5152 x i8], ptr %4, i64 0, i64 %29
   store i8 36, ptr %30, align 1, !tbaa !12
   %31 = icmp ne i32 %22, 0

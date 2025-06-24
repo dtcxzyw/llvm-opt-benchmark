@@ -293,8 +293,8 @@ define hidden noundef ptr @_ZN7OopFlow13build_oop_mapEP4NodeiP13PhaseRegAllocPi(
 
 53:                                               ; preds = %47
   %54 = sub i32 %33, %13
-  %55 = sext i32 %54 to i64
-  %56 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617), i64 %55
+  %55 = zext nneg i32 %54 to i64
+  %56 = getelementptr inbounds nuw %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617), i64 %55
   br label %_ZN7OptoReg8as_VMRegEiii.exit
 
 _ZN7OptoReg8as_VMRegEiii.exit:                    ; preds = %44, %49, %53
@@ -517,8 +517,8 @@ _ZN7OptoReg8as_VMRegEiii.exit:                    ; preds = %44, %49, %53
 
 175:                                              ; preds = %169
   %176 = sub i32 %159, %13
-  %177 = sext i32 %176 to i64
-  %178 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617), i64 %177
+  %177 = zext nneg i32 %176 to i64
+  %178 = getelementptr inbounds nuw %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617), i64 %177
   br label %_ZN7OptoReg8as_VMRegEiii.exit120
 
 _ZN7OptoReg8as_VMRegEiii.exit120:                 ; preds = %163, %167, %171, %175

@@ -5222,7 +5222,7 @@ put_bits.exit175.i:                               ; preds = %479, %put_bits.exit
 535:                                              ; preds = %533
   %536 = sub nsw i32 %523, %518
   %537 = icmp sgt i32 %536, %520
-  %538 = shl i32 %536, 1
+  %538 = shl nuw i32 %536, 1
   %spec.select.i210 = select i1 %537, i32 %523, i32 %538
   br label %547
 

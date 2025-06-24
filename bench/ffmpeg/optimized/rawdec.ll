@@ -961,7 +961,7 @@ define internal i32 @raw_decode(ptr noundef %0, ptr noundef %1, ptr noundef writ
   %418 = load ptr, ptr %390, align 8, !tbaa !32
   %419 = getelementptr inbounds nuw i8, ptr %418, i64 8
   %420 = load ptr, ptr %419, align 8, !tbaa !35
-  %421 = sext i32 %411 to i64
+  %421 = zext nneg i32 %411 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %420, ptr align 1 %417, i64 %421, i1 false)
   br label %.thread555
 

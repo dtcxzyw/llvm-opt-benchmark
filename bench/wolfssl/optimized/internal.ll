@@ -27671,14 +27671,14 @@ define internal fastcc range(i32 -376, 1) i32 @GetInputData(ptr noundef %0, i32 
 
 .loopexit:                                        ; preds = %48, %.preheader.i
   %.017.i.ph = phi i32 [ %46, %.preheader.i ], [ %52, %48 ]
-  %72 = icmp sgt i32 %.017.i.ph, %.043
+  %72 = icmp samesign ugt i32 %.017.i.ph, %.043
   br i1 %72, label %.thread61, label %73
 
 73:                                               ; preds = %.loopexit
   %74 = load i32, ptr %7, align 16, !tbaa !215
   %75 = add i32 %74, %.017.i.ph
   store i32 %75, ptr %7, align 16, !tbaa !215
-  %76 = sub nsw i32 %.043, %.017.i.ph
+  %76 = sub nuw nsw i32 %.043, %.017.i.ph
   %77 = icmp ult i32 %75, %1
   br i1 %77, label %38, label %.thread61, !llvm.loop !475
 

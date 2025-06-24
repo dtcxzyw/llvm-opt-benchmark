@@ -715,7 +715,7 @@ define internal range(i32 -2147483648, 1) i32 @asf_read_header(ptr noundef %0) #
 
 321:                                              ; preds = %316
   %322 = sub nsw i32 %spec.select.i181, %319
-  %323 = sext i32 %322 to i64
+  %323 = zext nneg i32 %322 to i64
   %324 = call i64 @avio_skip(ptr noundef %310, i64 noundef %323) #14
   br label %325
 
@@ -1028,7 +1028,7 @@ asf_read_ext_stream_properties.exit:              ; preds = %.lr.ph69.split.us.i
 
 472:                                              ; preds = %468
   %473 = sub nsw i32 %466, %470
-  %474 = sext i32 %473 to i64
+  %474 = zext nneg i32 %473 to i64
   %475 = call i64 @avio_skip(ptr noundef %438, i64 noundef %474) #14
   br label %.critedge.i
 
@@ -3385,7 +3385,7 @@ define internal fastcc void @asf_read_metadata(ptr noundef %0) unnamed_addr #1 {
 
 26:                                               ; preds = %23
   %27 = sub nsw i32 %14, %24
-  %28 = sext i32 %27 to i64
+  %28 = zext nneg i32 %27 to i64
   %29 = call i64 @avio_skip(ptr noundef %4, i64 noundef %28) #14
   br label %30
 

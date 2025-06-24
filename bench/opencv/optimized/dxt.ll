@@ -12213,39 +12213,39 @@ define linkonce_odr hidden void @_ZN2cv10OcvDftImpl6rowDftEPKhmPhmbb(ptr noundef
   %96 = lshr i32 %95, 1
   %97 = zext nneg i32 %.0 to i64
   %wide.trip.count56.i13.i = zext nneg i32 %.046 to i64
-  %wide.trip.count51.i30.i = zext nneg i32 %96 to i64
-  br label %.lr.ph.us.us.i31.i
+  %wide.trip.count51.i29.i = zext nneg i32 %96 to i64
+  br label %.lr.ph.us.us.i30.i
 
-.lr.ph.us.us.i31.i:                               ; preds = %._crit_edge.us.us.i38.i, %.lr.ph37.split.us.i11.i
-  %indvars.iv53.i32.i = phi i64 [ %indvars.iv.next54.i39.i, %._crit_edge.us.us.i38.i ], [ 0, %.lr.ph37.split.us.i11.i ]
-  %98 = mul i64 %indvars.iv53.i32.i, %94
+.lr.ph.us.us.i30.i:                               ; preds = %._crit_edge.us.us.i37.i, %.lr.ph37.split.us.i11.i
+  %indvars.iv53.i31.i = phi i64 [ %indvars.iv.next54.i38.i, %._crit_edge.us.us.i37.i ], [ 0, %.lr.ph37.split.us.i11.i ]
+  %98 = mul i64 %indvars.iv53.i31.i, %94
   %99 = getelementptr inbounds nuw double, ptr %3, i64 %98
   br label %100
 
-100:                                              ; preds = %100, %.lr.ph.us.us.i31.i
-  %indvars.iv47.i33.i = phi i64 [ 1, %.lr.ph.us.us.i31.i ], [ %indvars.iv.next48.i36.i, %100 ]
-  %.idx59.i34.i = shl nuw nsw i64 %indvars.iv47.i33.i, 4
-  %101 = getelementptr inbounds nuw i8, ptr %99, i64 %.idx59.i34.i
+100:                                              ; preds = %100, %.lr.ph.us.us.i30.i
+  %indvars.iv47.i32.i = phi i64 [ 1, %.lr.ph.us.us.i30.i ], [ %indvars.iv.next48.i35.i, %100 ]
+  %.idx59.i33.i = shl nuw nsw i64 %indvars.iv47.i32.i, 4
+  %101 = getelementptr inbounds nuw i8, ptr %99, i64 %.idx59.i33.i
   %102 = load double, ptr %101, align 8, !tbaa !144
-  %103 = sub nsw i64 %97, %indvars.iv47.i33.i
-  %.idx60.i35.i = shl nsw i64 %103, 4
-  %104 = getelementptr inbounds i8, ptr %99, i64 %.idx60.i35.i
+  %103 = sub nsw i64 %97, %indvars.iv47.i32.i
+  %.idx60.i34.i = shl nsw i64 %103, 4
+  %104 = getelementptr inbounds i8, ptr %99, i64 %.idx60.i34.i
   store double %102, ptr %104, align 8, !tbaa !144
   %105 = getelementptr inbounds nuw i8, ptr %101, i64 8
   %106 = load double, ptr %105, align 8, !tbaa !144
   %107 = fneg double %106
   %108 = getelementptr i8, ptr %104, i64 8
   store double %107, ptr %108, align 8, !tbaa !144
-  %indvars.iv.next48.i36.i = add nuw nsw i64 %indvars.iv47.i33.i, 1
-  %exitcond52.not.i37.i = icmp eq i64 %indvars.iv.next48.i36.i, %wide.trip.count51.i30.i
-  br i1 %exitcond52.not.i37.i, label %._crit_edge.us.us.i38.i, label %100, !llvm.loop !296
+  %indvars.iv.next48.i35.i = add nuw nsw i64 %indvars.iv47.i32.i, 1
+  %exitcond52.not.i36.i = icmp eq i64 %indvars.iv.next48.i35.i, %wide.trip.count51.i29.i
+  br i1 %exitcond52.not.i36.i, label %._crit_edge.us.us.i37.i, label %100, !llvm.loop !296
 
-._crit_edge.us.us.i38.i:                          ; preds = %100
-  %indvars.iv.next54.i39.i = add nuw nsw i64 %indvars.iv53.i32.i, 1
-  %exitcond57.not.i40.i = icmp eq i64 %indvars.iv.next54.i39.i, %wide.trip.count56.i13.i
-  br i1 %exitcond57.not.i40.i, label %_ZN2cvL23complementComplexOutputEiPhmiii.exit, label %.lr.ph.us.us.i31.i, !llvm.loop !297
+._crit_edge.us.us.i37.i:                          ; preds = %100
+  %indvars.iv.next54.i38.i = add nuw nsw i64 %indvars.iv53.i31.i, 1
+  %exitcond57.not.i39.i = icmp eq i64 %indvars.iv.next54.i38.i, %wide.trip.count56.i13.i
+  br i1 %exitcond57.not.i39.i, label %_ZN2cvL23complementComplexOutputEiPhmiii.exit, label %.lr.ph.us.us.i30.i, !llvm.loop !297
 
-_ZN2cvL23complementComplexOutputEiPhmiii.exit:    ; preds = %._crit_edge.us.us.i38.i, %._crit_edge.us.us.i.i, %93, %77, %._crit_edge
+_ZN2cvL23complementComplexOutputEiPhmiii.exit:    ; preds = %._crit_edge.us.us.i37.i, %._crit_edge.us.us.i.i, %93, %77, %._crit_edge
   ret void
 }
 
@@ -13829,47 +13829,47 @@ _ZN2cvL14CopyTo2ColumnsEPKhS1_Phmim.exit:         ; preds = %.lr.ph.i375, %.lr.p
   %725 = lshr i32 %724, 1
   %726 = zext nneg i32 %14 to i64
   %wide.trip.count56.i13.i = zext nneg i32 %12 to i64
-  %wide.trip.count51.i30.i = zext nneg i32 %725 to i64
-  br label %.lr.ph.us.i17.i
+  %wide.trip.count51.i29.i = zext nneg i32 %725 to i64
+  br label %.lr.ph.us.i16.i
 
-.lr.ph.us.i17.i:                                  ; preds = %._crit_edge.us.i26.i, %.lr.ph37.split.us.i11.i
-  %indvars.iv42.i18.i = phi i64 [ %indvars.iv.next43.i27.i, %._crit_edge.us.i26.i ], [ 0, %.lr.ph37.split.us.i11.i ]
-  %727 = mul i64 %indvars.iv42.i18.i, %723
+.lr.ph.us.i16.i:                                  ; preds = %._crit_edge.us.i25.i, %.lr.ph37.split.us.i11.i
+  %indvars.iv42.i17.i = phi i64 [ %indvars.iv.next43.i26.i, %._crit_edge.us.i25.i ], [ 0, %.lr.ph37.split.us.i11.i ]
+  %727 = mul i64 %indvars.iv42.i17.i, %723
   %728 = getelementptr inbounds nuw double, ptr %3, i64 %727
-  %729 = icmp eq i64 %indvars.iv42.i18.i, 0
-  %730 = shl nuw nsw i64 %indvars.iv42.i18.i, 1
+  %729 = icmp eq i64 %indvars.iv42.i17.i, 0
+  %730 = shl nuw nsw i64 %indvars.iv42.i17.i, 1
   %731 = icmp eq i64 %730, %wide.trip.count56.i13.i
-  %or.cond33.us.i19.i = select i1 %729, i1 true, i1 %731
-  %732 = sub nsw i64 %wide.trip.count56.i13.i, %indvars.iv42.i18.i
+  %or.cond33.us.i18.i = select i1 %729, i1 true, i1 %731
+  %732 = sub nsw i64 %wide.trip.count56.i13.i, %indvars.iv42.i17.i
   %733 = mul i64 %732, %723
   %734 = getelementptr inbounds nuw double, ptr %3, i64 %733
-  %spec.select.i20.i = select i1 %or.cond33.us.i19.i, ptr %728, ptr %734
+  %spec.select.i19.i = select i1 %or.cond33.us.i18.i, ptr %728, ptr %734
   br label %735
 
-735:                                              ; preds = %735, %.lr.ph.us.i17.i
-  %indvars.iv.i21.i = phi i64 [ 1, %.lr.ph.us.i17.i ], [ %indvars.iv.next.i24.i, %735 ]
-  %.idx.i22.i = shl nuw nsw i64 %indvars.iv.i21.i, 4
-  %736 = getelementptr inbounds nuw i8, ptr %spec.select.i20.i, i64 %.idx.i22.i
+735:                                              ; preds = %735, %.lr.ph.us.i16.i
+  %indvars.iv.i20.i = phi i64 [ 1, %.lr.ph.us.i16.i ], [ %indvars.iv.next.i23.i, %735 ]
+  %.idx.i21.i = shl nuw nsw i64 %indvars.iv.i20.i, 4
+  %736 = getelementptr inbounds nuw i8, ptr %spec.select.i19.i, i64 %.idx.i21.i
   %737 = load double, ptr %736, align 8, !tbaa !144
-  %738 = sub nsw i64 %726, %indvars.iv.i21.i
-  %.idx58.i23.i = shl nsw i64 %738, 4
-  %739 = getelementptr inbounds i8, ptr %728, i64 %.idx58.i23.i
+  %738 = sub nsw i64 %726, %indvars.iv.i20.i
+  %.idx58.i22.i = shl nsw i64 %738, 4
+  %739 = getelementptr inbounds i8, ptr %728, i64 %.idx58.i22.i
   store double %737, ptr %739, align 8, !tbaa !144
   %740 = getelementptr inbounds nuw i8, ptr %736, i64 8
   %741 = load double, ptr %740, align 8, !tbaa !144
   %742 = fneg double %741
   %743 = getelementptr i8, ptr %739, i64 8
   store double %742, ptr %743, align 8, !tbaa !144
-  %indvars.iv.next.i24.i = add nuw nsw i64 %indvars.iv.i21.i, 1
-  %exitcond.not.i25.i = icmp eq i64 %indvars.iv.next.i24.i, %wide.trip.count51.i30.i
-  br i1 %exitcond.not.i25.i, label %._crit_edge.us.i26.i, label %735, !llvm.loop !296
+  %indvars.iv.next.i23.i = add nuw nsw i64 %indvars.iv.i20.i, 1
+  %exitcond.not.i24.i = icmp eq i64 %indvars.iv.next.i23.i, %wide.trip.count51.i29.i
+  br i1 %exitcond.not.i24.i, label %._crit_edge.us.i25.i, label %735, !llvm.loop !296
 
-._crit_edge.us.i26.i:                             ; preds = %735
-  %indvars.iv.next43.i27.i = add nuw nsw i64 %indvars.iv42.i18.i, 1
-  %exitcond46.not.i28.i = icmp eq i64 %indvars.iv.next43.i27.i, %wide.trip.count56.i13.i
-  br i1 %exitcond46.not.i28.i, label %_ZN2cvL23complementComplexOutputEiPhmiii.exit, label %.lr.ph.us.i17.i, !llvm.loop !297
+._crit_edge.us.i25.i:                             ; preds = %735
+  %indvars.iv.next43.i26.i = add nuw nsw i64 %indvars.iv42.i17.i, 1
+  %exitcond46.not.i27.i = icmp eq i64 %indvars.iv.next43.i26.i, %wide.trip.count56.i13.i
+  br i1 %exitcond46.not.i27.i, label %_ZN2cvL23complementComplexOutputEiPhmiii.exit, label %.lr.ph.us.i16.i, !llvm.loop !297
 
-_ZN2cvL23complementComplexOutputEiPhmiii.exit:    ; preds = %._crit_edge.us.i26.i, %._crit_edge.us.i.i, %722, %700, %._crit_edge
+_ZN2cvL23complementComplexOutputEiPhmiii.exit:    ; preds = %._crit_edge.us.i25.i, %._crit_edge.us.i.i, %722, %700, %._crit_edge
   ret void
 }
 

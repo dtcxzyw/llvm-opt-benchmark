@@ -778,139 +778,138 @@ define linkonce_odr hidden void @_ZN20PermutohedralLatticeILi5ELi4EEC2Emmm(ptr n
   %12 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %11) #25
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %12, ptr %13, align 8, !tbaa !109
-  br label %.lr.ph
+  br label %.preheader
 
-.lr.ph:                                           ; preds = %._crit_edge49, %4
-  %indvars.iv65 = phi i64 [ 0, %4 ], [ %indvars.iv.next66, %._crit_edge49 ]
-  %indvars.iv60 = phi i64 [ 6, %4 ], [ %indvars.iv.next61, %._crit_edge49 ]
-  %.idx = mul nuw nsw i64 %indvars.iv65, 24
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
-  %14 = trunc nuw nsw i64 %indvars.iv65 to i32
-  br label %19
+.preheader:                                       ; preds = %4, %._crit_edge
+  %indvars.iv61 = phi i64 [ 0, %4 ], [ %indvars.iv.next62, %._crit_edge ]
+  %indvars.iv56 = phi i64 [ 6, %4 ], [ %indvars.iv.next57, %._crit_edge ]
+  %14 = mul nuw nsw i64 %indvars.iv61, 6
+  %invariant.gep = getelementptr inbounds nuw i32, ptr %7, i64 %14
+  %15 = trunc nuw nsw i64 %indvars.iv61 to i32
+  br label %21
 
-15:                                               ; preds = %._crit_edge49
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %7, ptr %16, align 8, !tbaa !125
-  br label %47
+16:                                               ; preds = %._crit_edge
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %7, ptr %17, align 8, !tbaa !125
+  br label %49
 
-._crit_edge:                                      ; preds = %19
-  %.not = icmp eq i64 %indvars.iv65, 0
-  br i1 %.not, label %._crit_edge49, label %.lr.ph48
+18:                                               ; preds = %21
+  %.not = icmp eq i64 %indvars.iv61, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
-.lr.ph48:                                         ; preds = %._crit_edge
-  %.idx75 = mul i64 %indvars.iv65, 24
-  %invariant.gep76 = getelementptr i8, ptr %7, i64 %.idx75
-  %17 = trunc i64 %indvars.iv65 to i32
-  %18 = add i32 %17, -6
-  br label %20
+.lr.ph:                                           ; preds = %18
+  %invariant.gep71 = getelementptr i32, ptr %7, i64 %14
+  %19 = trunc i64 %indvars.iv61 to i32
+  %20 = add i32 %19, -6
+  br label %22
 
-19:                                               ; preds = %.lr.ph, %19
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
+21:                                               ; preds = %.preheader, %21
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %21 ]
   %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv
-  store i32 %14, ptr %gep, align 4, !tbaa !115
+  store i32 %15, ptr %gep, align 4, !tbaa !115
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %indvars.iv60
-  br i1 %exitcond.not, label %._crit_edge, label %19, !llvm.loop !126
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %indvars.iv56
+  br i1 %exitcond.not, label %18, label %21, !llvm.loop !126
 
-._crit_edge49:                                    ; preds = %20, %._crit_edge
-  %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
-  %indvars.iv.next61 = add nsw i64 %indvars.iv60, -1
-  %exitcond70.not = icmp eq i64 %indvars.iv.next66, 6
-  br i1 %exitcond70.not, label %15, label %.lr.ph, !llvm.loop !127
+._crit_edge:                                      ; preds = %22, %18
+  %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
+  %indvars.iv.next57 = add nsw i64 %indvars.iv56, -1
+  %exitcond66.not = icmp eq i64 %indvars.iv.next62, 6
+  br i1 %exitcond66.not, label %16, label %.preheader, !llvm.loop !127
 
-20:                                               ; preds = %.lr.ph48, %20
-  %indvars.iv62 = phi i64 [ %indvars.iv60, %.lr.ph48 ], [ %indvars.iv.next63, %20 ]
-  %gep77 = getelementptr i32, ptr %invariant.gep76, i64 %indvars.iv62
-  store i32 %18, ptr %gep77, align 4, !tbaa !115
-  %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
-  %21 = icmp samesign ult i64 %indvars.iv62, 5
-  br i1 %21, label %20, label %._crit_edge49, !llvm.loop !128
+22:                                               ; preds = %.lr.ph, %22
+  %indvars.iv58 = phi i64 [ %indvars.iv56, %.lr.ph ], [ %indvars.iv.next59, %22 ]
+  %gep72 = getelementptr i32, ptr %invariant.gep71, i64 %indvars.iv58
+  store i32 %20, ptr %gep72, align 4, !tbaa !115
+  %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
+  %23 = icmp samesign ult i64 %indvars.iv58, 5
+  br i1 %23, label %22, label %._crit_edge, !llvm.loop !128
 
-22:                                               ; preds = %47
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %6, ptr %23, align 8, !tbaa !129
-  %24 = uitofp i64 %3 to float
-  %25 = uitofp i64 %1 to float
-  %26 = fdiv reassoc nsz arcp contract afn float %24, %25
-  %27 = fpext reassoc nsz arcp contract afn float %26 to double
-  %28 = fcmp reassoc nsz arcp contract afn olt double %27, 1.000000e-01
-  %29 = fmul reassoc nsz arcp contract afn double %27, 2.000000e-02
-  %30 = tail call reassoc nsz arcp contract afn double @llvm.log10.f64(double %29)
-  %31 = tail call reassoc nsz arcp contract afn double @llvm.pow.f64(double 1.800000e+00, double %30)
-  %32 = select i1 %28, double 0x3FCA323591D23FB1, double %31
-  %33 = uitofp i64 %1 to double
-  %34 = fmul reassoc nsz arcp contract afn double %32, %33
-  %35 = fptoui double %34 to i64
-  %36 = mul i64 %1, 6
-  %37 = tail call noundef i64 @llvm.umin.i64(i64 %36, i64 %35)
-  %38 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %2, i64 80)
-  %39 = extractvalue { i64, i1 } %38, 1
-  %40 = extractvalue { i64, i1 } %38, 0
-  %41 = or disjoint i64 %40, 8
-  %42 = select i1 %39, i64 -1, i64 %41
-  %43 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %42) #25
-  store i64 %2, ptr %43, align 16
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %45 = icmp eq i64 %2, 0
-  br i1 %45, label %.loopexit.thread, label %55
+24:                                               ; preds = %49
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %6, ptr %25, align 8, !tbaa !129
+  %26 = uitofp i64 %3 to float
+  %27 = uitofp i64 %1 to float
+  %28 = fdiv reassoc nsz arcp contract afn float %26, %27
+  %29 = fpext reassoc nsz arcp contract afn float %28 to double
+  %30 = fcmp reassoc nsz arcp contract afn olt double %29, 1.000000e-01
+  %31 = fmul reassoc nsz arcp contract afn double %29, 2.000000e-02
+  %32 = tail call reassoc nsz arcp contract afn double @llvm.log10.f64(double %31)
+  %33 = tail call reassoc nsz arcp contract afn double @llvm.pow.f64(double 1.800000e+00, double %32)
+  %34 = select i1 %30, double 0x3FCA323591D23FB1, double %33
+  %35 = uitofp i64 %1 to double
+  %36 = fmul reassoc nsz arcp contract afn double %34, %35
+  %37 = fptoui double %36 to i64
+  %38 = mul i64 %1, 6
+  %39 = tail call noundef i64 @llvm.umin.i64(i64 %38, i64 %37)
+  %40 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %2, i64 80)
+  %41 = extractvalue { i64, i1 } %40, 1
+  %42 = extractvalue { i64, i1 } %40, 0
+  %43 = or disjoint i64 %42, 8
+  %44 = select i1 %41, i64 -1, i64 %43
+  %45 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %44) #25
+  store i64 %2, ptr %45, align 16
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %47 = icmp eq i64 %2, 0
+  br i1 %47, label %.loopexit.thread, label %57
 
-.loopexit.thread:                                 ; preds = %22
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %44, ptr %46, align 8, !tbaa !105
-  br label %._crit_edge55
+.loopexit.thread:                                 ; preds = %24
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store ptr %46, ptr %48, align 8, !tbaa !105
+  br label %._crit_edge51
 
-47:                                               ; preds = %15, %47
-  %indvars.iv71 = phi i64 [ 0, %15 ], [ %indvars.iv.next72, %47 ]
-  %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
-  %48 = add nuw nsw i64 %indvars.iv71, 2
-  %49 = mul nuw nsw i64 %indvars.iv.next72, %48
-  %50 = trunc nuw i64 %49 to i32
-  %51 = uitofp nneg i32 %50 to float
-  %52 = tail call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %51)
-  %53 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv71
-  %54 = fdiv reassoc nsz arcp contract afn float 0x4013988E20000000, %52
-  store float %54, ptr %53, align 4, !tbaa !33
-  %exitcond74.not = icmp eq i64 %indvars.iv.next72, 5
-  br i1 %exitcond74.not, label %22, label %47, !llvm.loop !130
+49:                                               ; preds = %16, %49
+  %indvars.iv67 = phi i64 [ 0, %16 ], [ %indvars.iv.next68, %49 ]
+  %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
+  %50 = add nuw nsw i64 %indvars.iv67, 2
+  %51 = mul nuw nsw i64 %indvars.iv.next68, %50
+  %52 = trunc nuw i64 %51 to i32
+  %53 = uitofp nneg i32 %52 to float
+  %54 = tail call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %53)
+  %55 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv67
+  %56 = fdiv reassoc nsz arcp contract afn float 0x4013988E20000000, %54
+  store float %56, ptr %55, align 4, !tbaa !33
+  %exitcond70.not = icmp eq i64 %indvars.iv.next68, 5
+  br i1 %exitcond70.not, label %24, label %49, !llvm.loop !130
 
-55:                                               ; preds = %22
-  %56 = getelementptr inbounds %class.HashTablePermutohedral, ptr %44, i64 %2
-  br label %57
+57:                                               ; preds = %24
+  %58 = getelementptr inbounds %class.HashTablePermutohedral, ptr %46, i64 %2
+  br label %59
 
-57:                                               ; preds = %57, %55
-  %58 = phi ptr [ %44, %55 ], [ %63, %57 ]
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 56
-  %60 = getelementptr inbounds nuw i8, ptr %58, i64 24
-  store i64 0, ptr %60, align 8, !tbaa !131
-  %61 = getelementptr inbounds nuw i8, ptr %58, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %59, i8 0, i64 24, i1 false)
-  store i64 1, ptr %61, align 8, !tbaa !132
-  %62 = getelementptr inbounds nuw i8, ptr %58, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %58, i8 0, i64 24, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %62, i8 0, i64 16, i1 false)
-  %63 = getelementptr inbounds nuw i8, ptr %58, i64 80
-  %64 = icmp eq ptr %63, %56
-  br i1 %64, label %.lr.ph54.preheader, label %57
+59:                                               ; preds = %59, %57
+  %60 = phi ptr [ %46, %57 ], [ %65, %59 ]
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 56
+  %62 = getelementptr inbounds nuw i8, ptr %60, i64 24
+  store i64 0, ptr %62, align 8, !tbaa !131
+  %63 = getelementptr inbounds nuw i8, ptr %60, i64 48
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %61, i8 0, i64 24, i1 false)
+  store i64 1, ptr %63, align 8, !tbaa !132
+  %64 = getelementptr inbounds nuw i8, ptr %60, i64 32
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %60, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %64, i8 0, i64 16, i1 false)
+  %65 = getelementptr inbounds nuw i8, ptr %60, i64 80
+  %66 = icmp eq ptr %65, %58
+  br i1 %66, label %.lr.ph50.preheader, label %59
 
-.lr.ph54.preheader:                               ; preds = %57
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %44, ptr %65, align 8, !tbaa !105
-  br label %.lr.ph54
+.lr.ph50.preheader:                               ; preds = %59
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store ptr %46, ptr %67, align 8, !tbaa !105
+  br label %.lr.ph50
 
-._crit_edge55:                                    ; preds = %.lr.ph54, %.loopexit.thread
+._crit_edge51:                                    ; preds = %.lr.ph50, %.loopexit.thread
   ret void
 
-.lr.ph54:                                         ; preds = %.lr.ph54.preheader, %.lr.ph54
-  %66 = phi i64 [ %71, %.lr.ph54 ], [ %2, %.lr.ph54.preheader ]
-  %.052 = phi i64 [ %70, %.lr.ph54 ], [ 0, %.lr.ph54.preheader ]
-  %67 = load ptr, ptr %65, align 8, !tbaa !105
-  %68 = getelementptr inbounds nuw %class.HashTablePermutohedral, ptr %67, i64 %.052
-  %69 = udiv i64 %37, %66
-  tail call void @_ZN22HashTablePermutohedralILi5ELi4EE7setSizeEm(ptr noundef nonnull align 8 dereferenceable(80) %68, i64 noundef %69)
-  %70 = add nuw i64 %.052, 1
-  %71 = load i64, ptr %5, align 8, !tbaa !124
-  %72 = icmp ult i64 %70, %71
-  br i1 %72, label %.lr.ph54, label %._crit_edge55, !llvm.loop !133
+.lr.ph50:                                         ; preds = %.lr.ph50.preheader, %.lr.ph50
+  %68 = phi i64 [ %73, %.lr.ph50 ], [ %2, %.lr.ph50.preheader ]
+  %.048 = phi i64 [ %72, %.lr.ph50 ], [ 0, %.lr.ph50.preheader ]
+  %69 = load ptr, ptr %67, align 8, !tbaa !105
+  %70 = getelementptr inbounds nuw %class.HashTablePermutohedral, ptr %69, i64 %.048
+  %71 = udiv i64 %39, %68
+  tail call void @_ZN22HashTablePermutohedralILi5ELi4EE7setSizeEm(ptr noundef nonnull align 8 dereferenceable(80) %70, i64 noundef %71)
+  %72 = add nuw i64 %.048, 1
+  %73 = load i64, ptr %5, align 8, !tbaa !124
+  %74 = icmp ult i64 %72, %73
+  br i1 %74, label %.lr.ph50, label %._crit_edge51, !llvm.loop !133
 }
 
 declare i32 @__gxx_personality_v0(...)

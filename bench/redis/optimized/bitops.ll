@@ -2437,7 +2437,7 @@ getObjectReadOnlyString.exit88:                   ; preds = %125, %135, %.crited
 
 173:                                              ; preds = %169
   %reass.sub = sub nsw i64 %164, %165
-  %174 = add nsw i64 %reass.sub, 1
+  %174 = add nuw nsw i64 %reass.sub, 1
   %175 = getelementptr inbounds i8, ptr %.059, i64 %165
   %176 = call i64 @redisPopcount(ptr noundef %175, i64 noundef %174)
   %177 = and i32 %.257, 255
@@ -2737,7 +2737,7 @@ define dso_local void @bitposCommand(ptr noundef %0) local_unnamed_addr #4 {
 
 125:                                              ; preds = %122
   %126 = sub nsw i64 %116, %117
-  %127 = add nsw i64 %126, 1
+  %127 = add nuw nsw i64 %126, 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #18
   %.not125 = icmp eq i8 %.195, 0
   br i1 %.not125, label %155, label %128

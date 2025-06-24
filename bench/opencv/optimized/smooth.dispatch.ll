@@ -10724,8 +10724,8 @@ _ZN2cv10AutoBufferIPNS_12_GLOBAL__N_113ufixedpoint16ELm136EEC2Em.exit: ; preds =
 
 167:                                              ; preds = %140
   %168 = sub nsw i32 %139, %.sroa.speculated596
-  %169 = sext i32 %168 to i64
-  %170 = getelementptr inbounds ptr, ptr %.val319, i64 %169
+  %169 = zext nneg i32 %168 to i64
+  %170 = getelementptr inbounds nuw ptr, ptr %.val319, i64 %169
   %171 = load ptr, ptr %170, align 8, !tbaa !900
   %172 = getelementptr inbounds nuw ptr, ptr %.val319, i64 %indvars.iv793
   store ptr %171, ptr %172, align 8, !tbaa !900
@@ -11100,7 +11100,7 @@ _ZN2cv10AutoBufferIPNS_12_GLOBAL__N_113ufixedpoint16ELm136EEC2Em.exit: ; preds =
   %416 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %417 = zext nneg i32 %.sroa.speculated540 to i64
   %418 = sub nsw i32 %.sroa.speculated545, %.sroa.speculated540
-  %wide.trip.count = zext i32 %418 to i64
+  %wide.trip.count = zext nneg i32 %418 to i64
   br label %419
 
 419:                                              ; preds = %.lr.ph701, %441
@@ -17192,8 +17192,8 @@ _ZN2cv10AutoBufferIPNS_12_GLOBAL__N_113ufixedpoint32ELm136EEC2Em.exit: ; preds =
 
 168:                                              ; preds = %141
   %169 = sub nsw i32 %140, %.sroa.speculated596
-  %170 = sext i32 %169 to i64
-  %171 = getelementptr inbounds ptr, ptr %.val319, i64 %170
+  %170 = zext nneg i32 %169 to i64
+  %171 = getelementptr inbounds nuw ptr, ptr %.val319, i64 %170
   %172 = load ptr, ptr %171, align 8, !tbaa !1817
   %173 = getelementptr inbounds nuw ptr, ptr %.val319, i64 %indvars.iv794
   store ptr %172, ptr %173, align 8, !tbaa !1817
@@ -17568,7 +17568,7 @@ _ZN2cv10AutoBufferIPNS_12_GLOBAL__N_113ufixedpoint32ELm136EEC2Em.exit: ; preds =
   %417 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %418 = zext nneg i32 %.sroa.speculated540 to i64
   %419 = sub nsw i32 %.sroa.speculated545, %.sroa.speculated540
-  %wide.trip.count = zext i32 %419 to i64
+  %wide.trip.count = zext nneg i32 %419 to i64
   br label %420
 
 420:                                              ; preds = %.lr.ph702, %442

@@ -216,7 +216,7 @@ define internal i32 @tls_dump_read(ptr noundef %0, ptr noundef %1, i32 noundef %
   tail call void @BIO_clear_flags(ptr noundef %0, i32 noundef 15) #14
   tail call void @BIO_set_flags(ptr noundef %0, i32 noundef %7) #14
   %8 = icmp sgt i32 %5, 0
-  br i1 %8, label %9, label %125
+  br i1 %8, label %9, label %124
 
 9:                                                ; preds = %3
   %puts.i = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
@@ -374,8 +374,8 @@ define internal i32 @tls_dump_read(ptr noundef %0, ptr noundef %1, i32 noundef %
   %120 = getelementptr inbounds nuw i8, ptr %50, i64 %119
   %121 = sub nsw i32 %51, %48
   %puts67.i = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.9)
-  %122 = icmp sgt i32 %121, 0
-  br i1 %122, label %10, label %dump_data.exit, !llvm.loop !12
+  %.not74.i = icmp eq i32 %121, 0
+  br i1 %.not74.i, label %dump_data.exit, label %10, !llvm.loop !12
 
 .loopexit.sink.split.i:                           ; preds = %116, %12
   %str.10.sink.i = phi ptr [ @str.11, %12 ], [ @str.11, %116 ]
@@ -384,11 +384,11 @@ define internal i32 @tls_dump_read(ptr noundef %0, ptr noundef %1, i32 noundef %
 
 dump_data.exit:                                   ; preds = %118, %.loopexit.sink.split.i
   %puts70.i = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.12)
-  %123 = load ptr, ptr @stdout, align 8, !tbaa !13
-  %124 = tail call i32 @fflush(ptr noundef %123)
-  br label %125
+  %122 = load ptr, ptr @stdout, align 8, !tbaa !13
+  %123 = tail call i32 @fflush(ptr noundef %122)
+  br label %124
 
-125:                                              ; preds = %dump_data.exit, %3
+124:                                              ; preds = %dump_data.exit, %3
   ret i32 %5
 }
 

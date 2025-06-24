@@ -2833,13 +2833,13 @@ define dso_local range(i32 0, 2) i32 @linenoiseHistorySetMaxLen(i32 noundef %0) 
   %.028 = phi i32 [ %0, %.preheader ], [ %.pre, %15 ], [ %0, %.lr.ph ]
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %8, i8 0, i64 %7, i1 false)
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %12, i8 0, i64 %11, i1 false)
-  %21 = sext i32 %.pre-phi to i64
-  %22 = getelementptr inbounds ptr, ptr %4, i64 %21
+  %21 = zext nneg i32 %.pre-phi to i64
+  %22 = getelementptr inbounds nuw ptr, ptr %4, i64 %21
   %23 = sext i32 %.028 to i64
   %24 = shl nsw i64 %23, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %8, ptr nonnull align 8 %22, i64 %24, i1 false)
   %25 = load ptr, ptr @history_sensitive, align 8, !tbaa !64
-  %26 = getelementptr inbounds i32, ptr %25, i64 %21
+  %26 = getelementptr inbounds nuw i32, ptr %25, i64 %21
   %27 = shl nsw i64 %23, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %12, ptr align 4 %26, i64 %27, i1 false)
   tail call void @free(ptr noundef nonnull %4) #24

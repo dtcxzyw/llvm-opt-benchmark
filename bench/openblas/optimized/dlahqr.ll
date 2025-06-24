@@ -600,8 +600,8 @@ define void @dlahqr_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %indvars924 = trunc i64 %indvars.iv887 to i32
   %409 = trunc i64 %indvars.iv887 to i32
   %410 = sub i32 %.0751865, %409
-  %411 = call i32 @llvm.smin.i32(i32 %410, i32 2)
-  %412 = add nsw i32 %411, 1
+  %411 = call i32 @llvm.umin.i32(i32 %410, i32 2)
+  %412 = add nuw nsw i32 %411, 1
   store i32 %412, ptr %20, align 4, !tbaa !3
   %413 = icmp sgt i64 %indvars.iv887, %400
   br i1 %413, label %414, label %427
@@ -1065,6 +1065,9 @@ declare i32 @llvm.smax.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #5
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #5

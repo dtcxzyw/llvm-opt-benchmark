@@ -16523,12 +16523,12 @@ _ZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_.exit: ; preds = %4,
   %51 = add i64 %32, %50
   %52 = sdiv i64 %51, %3
   %53 = icmp slt i64 %49, %52
-  %54 = icmp sgt i64 %49, 3
-  %or.cond = and i1 %54, %53
+  %54 = icmp samesign ugt i64 %49, 3
+  %or.cond = select i1 %53, i1 %54, i1 false
   br i1 %or.cond, label %55, label %57
 
 55:                                               ; preds = %44
-  %56 = and i64 %49, 9223372036854775804
+  %56 = and i64 %49, -4
   store i64 %56, ptr %1, align 8, !tbaa !98
   br label %.critedge116
 
@@ -21135,7 +21135,7 @@ _ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit185: ; preds = %_ZN5
   %153 = add nsw i64 %.0137275, %96
   %154 = mul nsw i64 %153, %9
   %155 = getelementptr double, ptr %148, i64 %154
-  %156 = add nsw i64 %.sroa.speculated, %.0137275
+  %156 = add nuw nsw i64 %.sroa.speculated, %.0137275
   store ptr %155, ptr %22, align 8
   store i64 %9, ptr %79, align 8
   %157 = mul nuw nsw i64 %.0137275, %smin293

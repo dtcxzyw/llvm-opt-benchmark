@@ -3345,7 +3345,7 @@ define internal fastcc void @get_fcb_param(ptr noundef nonnull captures(none) %0
   %178 = load i16, ptr %177, align 2, !tbaa !40
   %179 = sext i16 %178 to i64
   %180 = sub nsw i64 %indvars.iv298, %indvars.iv289
-  %181 = getelementptr inbounds [60 x i16], ptr %7, i64 0, i64 %180
+  %181 = getelementptr inbounds nuw [60 x i16], ptr %7, i64 0, i64 %180
   %182 = load i16, ptr %181, align 2, !tbaa !40
   %183 = sext i16 %182 to i64
   %184 = mul nsw i64 %183, %179

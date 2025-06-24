@@ -638,7 +638,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mms_safe_send_recv(ptr nou
   %168 = sub nsw i32 %165, %163
   %169 = sext i32 %163 to i64
   %170 = getelementptr inbounds i8, ptr %8, i64 %169
-  %171 = sext i32 %168 to i64
+  %171 = zext nneg i32 %168 to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %170, i8 0, i64 %171, i1 false)
   %172 = load i32, ptr %14, align 8, !tbaa !29
   %173 = add nsw i32 %172, %168

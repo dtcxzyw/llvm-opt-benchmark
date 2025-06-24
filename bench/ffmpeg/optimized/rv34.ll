@@ -591,7 +591,7 @@ define i32 @ff_rv34_decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wri
   %43 = getelementptr inbounds nuw i8, ptr %31, i64 %42
   %44 = sub nsw i32 %32, %spec.select.i
   %45 = shl nsw i32 %44, 3
-  %or.cond.i = icmp ult i32 %45, 2147483135
+  %or.cond.i = icmp samesign ult i32 %45, 2147483135
   %.018.i = select i1 %or.cond.i, i32 %45, i32 0
   %.017.i = select i1 %or.cond.i, ptr %43, ptr null
   %46 = lshr exact i32 %.018.i, 3

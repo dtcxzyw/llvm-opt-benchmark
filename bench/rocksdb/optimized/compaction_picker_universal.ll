@@ -3731,7 +3731,7 @@ _ZN7rocksdb12_GLOBAL__N_126UniversalCompactionBuilder29PickCompactionToReduceSiz
 
 1496:                                             ; preds = %._crit_edge
   %1497 = sub nsw i32 %.047.lcssa, %.051
-  %1498 = add nsw i32 %1497, 1
+  %1498 = add nuw nsw i32 %1497, 1
   %1499 = call fastcc noundef ptr @_ZN7rocksdb12_GLOBAL__N_126UniversalCompactionBuilder32PickCompactionToReduceSortedRunsEjj(ptr noundef nonnull align 8 dereferenceable(176) %0, i32 noundef -1, i32 noundef %1498)
   %.not61 = icmp eq ptr %1499, null
   br i1 %.not61, label %1510, label %1500

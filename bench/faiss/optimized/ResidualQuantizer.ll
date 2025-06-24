@@ -3301,7 +3301,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit124:            ; preds = %_ZSt6fill_nIPfmfET_
   %141 = and i64 %124, 4294967295
   %142 = sub nsw i32 %125, %128
   %.02431.i.us = add nuw nsw i64 %129, 1
-  %143 = icmp sgt i32 %142, 8
+  %143 = icmp samesign ugt i32 %142, 8
   br i1 %143, label %.lr.ph.preheader.i.us, label %._crit_edge.i.us
 
 .lr.ph.preheader.i.us:                            ; preds = %139
@@ -3321,7 +3321,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit124:            ; preds = %_ZSt6fill_nIPfmfET_
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 8
   %150 = add nsw i32 %.02732.i.us, -8
   %.024.i.us = add nuw nsw i64 %.02435.i.us, 1
-  %151 = icmp samesign ugt i32 %.02732.i.us, 16
+  %151 = icmp samesign ugt i32 %150, 8
   br i1 %151, label %.lr.ph.i.us, label %._crit_edge.loopexit.i.us, !llvm.loop !104
 
 ._crit_edge.loopexit.i.us:                        ; preds = %.lr.ph.i.us

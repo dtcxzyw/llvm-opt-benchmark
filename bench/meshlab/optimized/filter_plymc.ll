@@ -28321,7 +28321,7 @@ define linkonce_odr void @_ZN3vcg6VolumeINS_7VoxelfcEfE9SlicedPPMEPKcS4_i(ptr no
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #40
   br label %196
 
-.loopexit:                                        ; preds = %97, %154
+.loopexit:                                        ; preds = %95, %154
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %42
@@ -28375,38 +28375,36 @@ define linkonce_odr void @_ZN3vcg6VolumeINS_7VoxelfcEfE9SlicedPPMEPKcS4_i(ptr no
   %62 = sub nsw i32 %storemerge2160, %57
   %63 = load i32, ptr %17, align 4
   %64 = sub nsw i32 %storemerge63, %63
-  %65 = sdiv i32 %61, 8
-  %66 = srem i32 %61, 8
-  %67 = sdiv i32 %62, 8
-  %68 = srem i32 %62, 8
-  %69 = sdiv i32 %64, 8
-  %70 = srem i32 %64, 8
-  %71 = load i32, ptr %25, align 8
-  %72 = load i32, ptr %26, align 4
-  %73 = mul i32 %72, %69
-  %reass.add.i.i = add i32 %73, %67
-  %reass.mul.i.i = mul i32 %reass.add.i.i, %71
-  %74 = add i32 %reass.mul.i.i, %65
-  %75 = sext i32 %74 to i64
-  %76 = load ptr, ptr %0, align 8
-  %77 = getelementptr inbounds %"class.std::vector.244", ptr %76, i64 %75
+  %65 = lshr i32 %61, 3
+  %66 = lshr i32 %62, 3
+  %67 = sdiv i32 %64, 8
+  %68 = srem i32 %64, 8
+  %69 = load i32, ptr %25, align 8
+  %70 = load i32, ptr %26, align 4
+  %71 = mul i32 %70, %67
+  %reass.add.i.i = add i32 %71, %66
+  %reass.mul.i.i = mul i32 %reass.add.i.i, %69
+  %72 = add i32 %reass.mul.i.i, %65
+  %73 = sext i32 %72 to i64
+  %74 = load ptr, ptr %0, align 8
+  %75 = getelementptr inbounds %"class.std::vector.244", ptr %74, i64 %73
+  %76 = load ptr, ptr %75, align 8
+  %77 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds nuw i8, ptr %77, i64 8
-  %80 = load ptr, ptr %79, align 8
-  %.not.i = icmp eq ptr %78, %80
-  br i1 %.not.i, label %81, label %103
+  %.not.i = icmp eq ptr %76, %78
+  br i1 %.not.i, label %79, label %101
 
-81:                                               ; preds = %60
-  %82 = load atomic i8, ptr @_ZGVZN3vcg7Voxelfc4ZeroEvE2tt acquire, align 8
-  %83 = icmp eq i8 %82, 0
-  br i1 %83, label %84, label %_ZN3vcg7Voxelfc4ZeroEv.exit.i, !prof !42
+79:                                               ; preds = %60
+  %80 = load atomic i8, ptr @_ZGVZN3vcg7Voxelfc4ZeroEvE2tt acquire, align 8
+  %81 = icmp eq i8 %80, 0
+  br i1 %81, label %82, label %_ZN3vcg7Voxelfc4ZeroEv.exit.i, !prof !42
 
-84:                                               ; preds = %81
-  %85 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN3vcg7Voxelfc4ZeroEvE2tt) #40
-  %.not.i.i = icmp eq i32 %85, 0
-  br i1 %.not.i.i, label %_ZN3vcg7Voxelfc4ZeroEv.exit.i, label %86
+82:                                               ; preds = %79
+  %83 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN3vcg7Voxelfc4ZeroEvE2tt) #40
+  %.not.i.i = icmp eq i32 %83, 0
+  br i1 %.not.i.i, label %_ZN3vcg7Voxelfc4ZeroEv.exit.i, label %84
 
-86:                                               ; preds = %84
+84:                                               ; preds = %82
   store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3vcg7Voxelfc4ZeroEvE2tt, i64 4), align 4
   store i8 0, ptr @_ZZN3vcg7Voxelfc4ZeroEvE2tt, align 4
   store <2 x float> zeroinitializer, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3vcg7Voxelfc4ZeroEvE2tt, i64 12), align 4
@@ -28415,44 +28413,46 @@ define linkonce_odr void @_ZN3vcg6VolumeINS_7VoxelfcEfE9SlicedPPMEPKcS4_i(ptr no
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN3vcg7Voxelfc4ZeroEvE2tt) #40
   br label %_ZN3vcg7Voxelfc4ZeroEv.exit.i
 
-_ZN3vcg7Voxelfc4ZeroEv.exit.i:                    ; preds = %86, %84, %81
-  %87 = load ptr, ptr %0, align 8
-  %88 = getelementptr inbounds %"class.std::vector.244", ptr %87, i64 %75
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
-  %90 = load ptr, ptr %89, align 8
-  %91 = load ptr, ptr %88, align 8
-  %92 = ptrtoint ptr %90 to i64
-  %93 = ptrtoint ptr %91 to i64
-  %94 = sub i64 %92, %93
-  %95 = sdiv exact i64 %94, 36
-  %96 = icmp ult i64 %95, 512
-  br i1 %96, label %97, label %99
+_ZN3vcg7Voxelfc4ZeroEv.exit.i:                    ; preds = %84, %82, %79
+  %85 = load ptr, ptr %0, align 8
+  %86 = getelementptr inbounds %"class.std::vector.244", ptr %85, i64 %73
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
+  %88 = load ptr, ptr %87, align 8
+  %89 = load ptr, ptr %86, align 8
+  %90 = ptrtoint ptr %88 to i64
+  %91 = ptrtoint ptr %89 to i64
+  %92 = sub i64 %90, %91
+  %93 = sdiv exact i64 %92, 36
+  %94 = icmp ult i64 %93, 512
+  br i1 %94, label %95, label %97
+
+95:                                               ; preds = %_ZN3vcg7Voxelfc4ZeroEv.exit.i
+  %96 = sub nuw nsw i64 512, %93
+  invoke void @_ZNSt6vectorIN3vcg7VoxelfcESaIS1_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS1_S3_EEmRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %86, ptr %88, i64 noundef %96, ptr noundef nonnull align 4 dereferenceable(36) @_ZZN3vcg7Voxelfc4ZeroEvE2tt)
+          to label %101 unwind label %.loopexit
 
 97:                                               ; preds = %_ZN3vcg7Voxelfc4ZeroEv.exit.i
-  %98 = sub nuw nsw i64 512, %95
-  invoke void @_ZNSt6vectorIN3vcg7VoxelfcESaIS1_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS1_S3_EEmRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %88, ptr %90, i64 noundef %98, ptr noundef nonnull align 4 dereferenceable(36) @_ZZN3vcg7Voxelfc4ZeroEvE2tt)
-          to label %103 unwind label %.loopexit
+  %.not.i4.i = icmp eq i64 %92, 18432
+  br i1 %.not.i4.i, label %101, label %98
 
-99:                                               ; preds = %_ZN3vcg7Voxelfc4ZeroEv.exit.i
-  %.not.i4.i = icmp eq i64 %94, 18432
-  br i1 %.not.i4.i, label %103, label %100
+98:                                               ; preds = %97
+  %99 = getelementptr inbounds nuw i8, ptr %89, i64 18432
+  %.not.i.i.i.i = icmp eq ptr %88, %99
+  br i1 %.not.i.i.i.i, label %101, label %100
 
-100:                                              ; preds = %99
-  %101 = getelementptr inbounds nuw i8, ptr %91, i64 18432
-  %.not.i.i.i.i = icmp eq ptr %90, %101
-  br i1 %.not.i.i.i.i, label %103, label %102
+100:                                              ; preds = %98
+  store ptr %99, ptr %87, align 8
+  br label %101
 
-102:                                              ; preds = %100
-  store ptr %101, ptr %89, align 8
-  br label %103
-
-103:                                              ; preds = %102, %100, %99, %60, %97
-  %104 = shl nsw i32 %68, 3
-  %105 = add nsw i32 %104, %66
-  %106 = shl nsw i32 %70, 6
+101:                                              ; preds = %100, %98, %97, %60, %95
+  %102 = srem i32 %62, 8
+  %103 = shl nsw i32 %102, 3
+  %104 = srem i32 %61, 8
+  %105 = add nsw i32 %103, %104
+  %106 = shl nsw i32 %68, 6
   %107 = add nsw i32 %105, %106
   %108 = load ptr, ptr %0, align 8
-  %109 = getelementptr inbounds %"class.std::vector.244", ptr %108, i64 %75
+  %109 = getelementptr inbounds %"class.std::vector.244", ptr %108, i64 %73
   %110 = sext i32 %107 to i64
   %111 = load ptr, ptr %109, align 8
   %112 = getelementptr inbounds %"class.vcg::Voxelfc", ptr %111, i64 %110
@@ -28460,13 +28460,13 @@ _ZN3vcg7Voxelfc4ZeroEv.exit.i:                    ; preds = %86, %84, %81
   %114 = trunc i8 %113 to i1
   br i1 %114, label %116, label %115
 
-115:                                              ; preds = %103
+115:                                              ; preds = %101
   store i8 64, ptr %23, align 1
   store i8 64, ptr %24, align 1
   store i8 64, ptr %8, align 1
   br label %182
 
-116:                                              ; preds = %103
+116:                                              ; preds = %101
   %117 = load i32, ptr %16, align 4
   %118 = sub nsw i32 %storemerge2061, %117
   %119 = load i32, ptr %21, align 8
@@ -28667,7 +28667,7 @@ define linkonce_odr void @_ZN3vcg6VolumeINS_7VoxelfcEfE10SlicedPPMQEPKcS4_i(ptr 
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #40
   br label %261
 
-.loopexit:                                        ; preds = %100, %157, %211
+.loopexit:                                        ; preds = %98, %157, %211
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -28767,38 +28767,36 @@ define linkonce_odr void @_ZN3vcg6VolumeINS_7VoxelfcEfE10SlicedPPMQEPKcS4_i(ptr 
   %65 = sub nsw i32 %storemerge2783, %60
   %66 = load i32, ptr %26, align 4
   %67 = sub nsw i32 %storemerge86, %66
-  %68 = sdiv i32 %64, 8
-  %69 = srem i32 %64, 8
-  %70 = sdiv i32 %65, 8
-  %71 = srem i32 %65, 8
-  %72 = sdiv i32 %67, 8
-  %73 = srem i32 %67, 8
-  %74 = load i32, ptr %34, align 8
-  %75 = load i32, ptr %35, align 4
-  %76 = mul i32 %75, %72
-  %reass.add.i.i = add i32 %76, %70
-  %reass.mul.i.i = mul i32 %reass.add.i.i, %74
-  %77 = add i32 %reass.mul.i.i, %68
-  %78 = sext i32 %77 to i64
-  %79 = load ptr, ptr %0, align 8
-  %80 = getelementptr inbounds %"class.std::vector.244", ptr %79, i64 %78
+  %68 = lshr i32 %64, 3
+  %69 = lshr i32 %65, 3
+  %70 = sdiv i32 %67, 8
+  %71 = srem i32 %67, 8
+  %72 = load i32, ptr %34, align 8
+  %73 = load i32, ptr %35, align 4
+  %74 = mul i32 %73, %70
+  %reass.add.i.i = add i32 %74, %69
+  %reass.mul.i.i = mul i32 %reass.add.i.i, %72
+  %75 = add i32 %reass.mul.i.i, %68
+  %76 = sext i32 %75 to i64
+  %77 = load ptr, ptr %0, align 8
+  %78 = getelementptr inbounds %"class.std::vector.244", ptr %77, i64 %76
+  %79 = load ptr, ptr %78, align 8
+  %80 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds nuw i8, ptr %80, i64 8
-  %83 = load ptr, ptr %82, align 8
-  %.not.i = icmp eq ptr %81, %83
-  br i1 %.not.i, label %84, label %106
+  %.not.i = icmp eq ptr %79, %81
+  br i1 %.not.i, label %82, label %104
 
-84:                                               ; preds = %63
-  %85 = load atomic i8, ptr @_ZGVZN3vcg7Voxelfc4ZeroEvE2tt acquire, align 8
-  %86 = icmp eq i8 %85, 0
-  br i1 %86, label %87, label %_ZN3vcg7Voxelfc4ZeroEv.exit.i, !prof !42
+82:                                               ; preds = %63
+  %83 = load atomic i8, ptr @_ZGVZN3vcg7Voxelfc4ZeroEvE2tt acquire, align 8
+  %84 = icmp eq i8 %83, 0
+  br i1 %84, label %85, label %_ZN3vcg7Voxelfc4ZeroEv.exit.i, !prof !42
 
-87:                                               ; preds = %84
-  %88 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN3vcg7Voxelfc4ZeroEvE2tt) #40
-  %.not.i.i = icmp eq i32 %88, 0
-  br i1 %.not.i.i, label %_ZN3vcg7Voxelfc4ZeroEv.exit.i, label %89
+85:                                               ; preds = %82
+  %86 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN3vcg7Voxelfc4ZeroEvE2tt) #40
+  %.not.i.i = icmp eq i32 %86, 0
+  br i1 %.not.i.i, label %_ZN3vcg7Voxelfc4ZeroEv.exit.i, label %87
 
-89:                                               ; preds = %87
+87:                                               ; preds = %85
   store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3vcg7Voxelfc4ZeroEvE2tt, i64 4), align 4
   store i8 0, ptr @_ZZN3vcg7Voxelfc4ZeroEvE2tt, align 4
   store <2 x float> zeroinitializer, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3vcg7Voxelfc4ZeroEvE2tt, i64 12), align 4
@@ -28807,44 +28805,46 @@ define linkonce_odr void @_ZN3vcg6VolumeINS_7VoxelfcEfE10SlicedPPMQEPKcS4_i(ptr 
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN3vcg7Voxelfc4ZeroEvE2tt) #40
   br label %_ZN3vcg7Voxelfc4ZeroEv.exit.i
 
-_ZN3vcg7Voxelfc4ZeroEv.exit.i:                    ; preds = %89, %87, %84
-  %90 = load ptr, ptr %0, align 8
-  %91 = getelementptr inbounds %"class.std::vector.244", ptr %90, i64 %78
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
-  %93 = load ptr, ptr %92, align 8
-  %94 = load ptr, ptr %91, align 8
-  %95 = ptrtoint ptr %93 to i64
-  %96 = ptrtoint ptr %94 to i64
-  %97 = sub i64 %95, %96
-  %98 = sdiv exact i64 %97, 36
-  %99 = icmp ult i64 %98, 512
-  br i1 %99, label %100, label %102
+_ZN3vcg7Voxelfc4ZeroEv.exit.i:                    ; preds = %87, %85, %82
+  %88 = load ptr, ptr %0, align 8
+  %89 = getelementptr inbounds %"class.std::vector.244", ptr %88, i64 %76
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
+  %91 = load ptr, ptr %90, align 8
+  %92 = load ptr, ptr %89, align 8
+  %93 = ptrtoint ptr %91 to i64
+  %94 = ptrtoint ptr %92 to i64
+  %95 = sub i64 %93, %94
+  %96 = sdiv exact i64 %95, 36
+  %97 = icmp ult i64 %96, 512
+  br i1 %97, label %98, label %100
+
+98:                                               ; preds = %_ZN3vcg7Voxelfc4ZeroEv.exit.i
+  %99 = sub nuw nsw i64 512, %96
+  invoke void @_ZNSt6vectorIN3vcg7VoxelfcESaIS1_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS1_S3_EEmRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %89, ptr %91, i64 noundef %99, ptr noundef nonnull align 4 dereferenceable(36) @_ZZN3vcg7Voxelfc4ZeroEvE2tt)
+          to label %104 unwind label %.loopexit
 
 100:                                              ; preds = %_ZN3vcg7Voxelfc4ZeroEv.exit.i
-  %101 = sub nuw nsw i64 512, %98
-  invoke void @_ZNSt6vectorIN3vcg7VoxelfcESaIS1_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS1_S3_EEmRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %91, ptr %93, i64 noundef %101, ptr noundef nonnull align 4 dereferenceable(36) @_ZZN3vcg7Voxelfc4ZeroEvE2tt)
-          to label %106 unwind label %.loopexit
+  %.not.i4.i = icmp eq i64 %95, 18432
+  br i1 %.not.i4.i, label %104, label %101
 
-102:                                              ; preds = %_ZN3vcg7Voxelfc4ZeroEv.exit.i
-  %.not.i4.i = icmp eq i64 %97, 18432
-  br i1 %.not.i4.i, label %106, label %103
+101:                                              ; preds = %100
+  %102 = getelementptr inbounds nuw i8, ptr %92, i64 18432
+  %.not.i.i.i.i = icmp eq ptr %91, %102
+  br i1 %.not.i.i.i.i, label %104, label %103
 
-103:                                              ; preds = %102
-  %104 = getelementptr inbounds nuw i8, ptr %94, i64 18432
-  %.not.i.i.i.i = icmp eq ptr %93, %104
-  br i1 %.not.i.i.i.i, label %106, label %105
+103:                                              ; preds = %101
+  store ptr %102, ptr %90, align 8
+  br label %104
 
-105:                                              ; preds = %103
-  store ptr %104, ptr %92, align 8
-  br label %106
-
-106:                                              ; preds = %105, %103, %102, %63, %100
-  %107 = shl nsw i32 %71, 3
-  %108 = add nsw i32 %107, %69
-  %109 = shl nsw i32 %73, 6
+104:                                              ; preds = %103, %101, %100, %63, %98
+  %105 = srem i32 %65, 8
+  %106 = shl nsw i32 %105, 3
+  %107 = srem i32 %64, 8
+  %108 = add nsw i32 %106, %107
+  %109 = shl nsw i32 %71, 6
   %110 = add nsw i32 %108, %109
   %111 = load ptr, ptr %0, align 8
-  %112 = getelementptr inbounds %"class.std::vector.244", ptr %111, i64 %78
+  %112 = getelementptr inbounds %"class.std::vector.244", ptr %111, i64 %76
   %113 = sext i32 %110 to i64
   %114 = load ptr, ptr %112, align 8
   %115 = getelementptr inbounds %"class.vcg::Voxelfc", ptr %114, i64 %113
@@ -28852,13 +28852,13 @@ _ZN3vcg7Voxelfc4ZeroEv.exit.i:                    ; preds = %89, %87, %84
   %117 = trunc i8 %116 to i1
   br i1 %117, label %119, label %118
 
-118:                                              ; preds = %106
+118:                                              ; preds = %104
   store i8 64, ptr %32, align 1
   store i8 64, ptr %33, align 1
   store i8 64, ptr %11, align 1
   br label %247
 
-119:                                              ; preds = %106
+119:                                              ; preds = %104
   %120 = load i32, ptr %25, align 4
   %121 = sub nsw i32 %storemerge2684, %120
   %122 = load i32, ptr %30, align 8
@@ -80486,34 +80486,33 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit:               ; preds = %76, %101
   %188 = srem i32 %183, 8
   %189 = sdiv i32 %185, 8
   %190 = srem i32 %185, 8
-  %191 = sdiv i32 %186, 8
-  %192 = srem i32 %186, 8
-  %193 = load i32, ptr %130, align 8
-  %194 = load i32, ptr %131, align 4
-  %195 = mul i32 %194, %191
-  %reass.add.i.i230 = add i32 %195, %189
-  %reass.mul.i.i231 = mul i32 %reass.add.i.i230, %193
-  %196 = add i32 %reass.mul.i.i231, %187
-  %197 = sext i32 %196 to i64
-  %198 = load ptr, ptr %0, align 8
-  %199 = getelementptr inbounds %"class.std::vector.244", ptr %198, i64 %197
-  %200 = load ptr, ptr %199, align 8
-  %201 = getelementptr inbounds nuw i8, ptr %199, i64 8
-  %202 = load ptr, ptr %201, align 8
-  %.not.i232 = icmp eq ptr %200, %202
-  br i1 %.not.i232, label %203, label %.noexc
+  %191 = lshr i32 %186, 3
+  %192 = load i32, ptr %130, align 8
+  %193 = load i32, ptr %131, align 4
+  %194 = mul i32 %193, %191
+  %reass.add.i.i230 = add i32 %194, %189
+  %reass.mul.i.i231 = mul i32 %reass.add.i.i230, %192
+  %195 = add i32 %reass.mul.i.i231, %187
+  %196 = sext i32 %195 to i64
+  %197 = load ptr, ptr %0, align 8
+  %198 = getelementptr inbounds %"class.std::vector.244", ptr %197, i64 %196
+  %199 = load ptr, ptr %198, align 8
+  %200 = getelementptr inbounds nuw i8, ptr %198, i64 8
+  %201 = load ptr, ptr %200, align 8
+  %.not.i232 = icmp eq ptr %199, %201
+  br i1 %.not.i232, label %202, label %.noexc
 
-203:                                              ; preds = %181
-  %204 = load atomic i8, ptr @_ZGVZN3vcg7Voxelfc4ZeroEvE2tt acquire, align 8
-  %205 = icmp eq i8 %204, 0
-  br i1 %205, label %206, label %_ZN3vcg7Voxelfc4ZeroEv.exit.i233, !prof !42
+202:                                              ; preds = %181
+  %203 = load atomic i8, ptr @_ZGVZN3vcg7Voxelfc4ZeroEvE2tt acquire, align 8
+  %204 = icmp eq i8 %203, 0
+  br i1 %204, label %205, label %_ZN3vcg7Voxelfc4ZeroEv.exit.i233, !prof !42
 
-206:                                              ; preds = %203
-  %207 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN3vcg7Voxelfc4ZeroEvE2tt) #40
-  %.not.i.i236 = icmp eq i32 %207, 0
-  br i1 %.not.i.i236, label %_ZN3vcg7Voxelfc4ZeroEv.exit.i233, label %208
+205:                                              ; preds = %202
+  %206 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN3vcg7Voxelfc4ZeroEvE2tt) #40
+  %.not.i.i236 = icmp eq i32 %206, 0
+  br i1 %.not.i.i236, label %_ZN3vcg7Voxelfc4ZeroEv.exit.i233, label %207
 
-208:                                              ; preds = %206
+207:                                              ; preds = %205
   store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3vcg7Voxelfc4ZeroEvE2tt, i64 4), align 4
   store i8 0, ptr @_ZZN3vcg7Voxelfc4ZeroEvE2tt, align 4
   store <2 x float> zeroinitializer, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3vcg7Voxelfc4ZeroEvE2tt, i64 12), align 4
@@ -80522,44 +80521,45 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit:               ; preds = %76, %101
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN3vcg7Voxelfc4ZeroEvE2tt) #40
   br label %_ZN3vcg7Voxelfc4ZeroEv.exit.i233
 
-_ZN3vcg7Voxelfc4ZeroEv.exit.i233:                 ; preds = %208, %206, %203
-  %209 = load ptr, ptr %0, align 8
-  %210 = getelementptr inbounds %"class.std::vector.244", ptr %209, i64 %197
-  %211 = getelementptr inbounds nuw i8, ptr %210, i64 8
-  %212 = load ptr, ptr %211, align 8
-  %213 = load ptr, ptr %210, align 8
+_ZN3vcg7Voxelfc4ZeroEv.exit.i233:                 ; preds = %207, %205, %202
+  %208 = load ptr, ptr %0, align 8
+  %209 = getelementptr inbounds %"class.std::vector.244", ptr %208, i64 %196
+  %210 = getelementptr inbounds nuw i8, ptr %209, i64 8
+  %211 = load ptr, ptr %210, align 8
+  %212 = load ptr, ptr %209, align 8
+  %213 = ptrtoint ptr %211 to i64
   %214 = ptrtoint ptr %212 to i64
-  %215 = ptrtoint ptr %213 to i64
-  %216 = sub i64 %214, %215
-  %217 = sdiv exact i64 %216, 36
-  %218 = icmp ult i64 %217, 512
-  br i1 %218, label %219, label %221
+  %215 = sub i64 %213, %214
+  %216 = sdiv exact i64 %215, 36
+  %217 = icmp ult i64 %216, 512
+  br i1 %217, label %218, label %220
 
-219:                                              ; preds = %_ZN3vcg7Voxelfc4ZeroEv.exit.i233
-  %220 = sub nuw nsw i64 512, %217
-  tail call void @_ZNSt6vectorIN3vcg7VoxelfcESaIS1_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS1_S3_EEmRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %210, ptr %212, i64 noundef %220, ptr noundef nonnull align 4 dereferenceable(36) @_ZZN3vcg7Voxelfc4ZeroEvE2tt)
+218:                                              ; preds = %_ZN3vcg7Voxelfc4ZeroEv.exit.i233
+  %219 = sub nuw nsw i64 512, %216
+  tail call void @_ZNSt6vectorIN3vcg7VoxelfcESaIS1_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS1_S3_EEmRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %209, ptr %211, i64 noundef %219, ptr noundef nonnull align 4 dereferenceable(36) @_ZZN3vcg7Voxelfc4ZeroEvE2tt)
   br label %.noexc
 
-221:                                              ; preds = %_ZN3vcg7Voxelfc4ZeroEv.exit.i233
-  %.not.i4.i234 = icmp eq i64 %216, 18432
-  br i1 %.not.i4.i234, label %.noexc, label %222
+220:                                              ; preds = %_ZN3vcg7Voxelfc4ZeroEv.exit.i233
+  %.not.i4.i234 = icmp eq i64 %215, 18432
+  br i1 %.not.i4.i234, label %.noexc, label %221
 
-222:                                              ; preds = %221
-  %223 = getelementptr inbounds nuw i8, ptr %213, i64 18432
-  %.not.i.i.i.i235 = icmp eq ptr %212, %223
-  br i1 %.not.i.i.i.i235, label %.noexc, label %224
+221:                                              ; preds = %220
+  %222 = getelementptr inbounds nuw i8, ptr %212, i64 18432
+  %.not.i.i.i.i235 = icmp eq ptr %211, %222
+  br i1 %.not.i.i.i.i235, label %.noexc, label %223
 
-224:                                              ; preds = %222
-  store ptr %223, ptr %211, align 8
+223:                                              ; preds = %221
+  store ptr %222, ptr %210, align 8
   br label %.noexc
 
-.noexc:                                           ; preds = %219, %224, %222, %221, %181
-  %225 = shl nsw i32 %190, 3
-  %226 = shl nsw i32 %192, 6
+.noexc:                                           ; preds = %218, %223, %221, %220, %181
+  %224 = shl nsw i32 %190, 3
+  %225 = srem i32 %186, 8
+  %226 = shl nsw i32 %225, 6
   %227 = add nsw i32 %188, %226
-  %228 = add nsw i32 %227, %225
+  %228 = add nsw i32 %227, %224
   %229 = load ptr, ptr %0, align 8
-  %230 = getelementptr inbounds %"class.std::vector.244", ptr %229, i64 %197
+  %230 = getelementptr inbounds %"class.std::vector.244", ptr %229, i64 %196
   %231 = sext i32 %228 to i64
   %232 = load ptr, ptr %230, align 8
   %233 = getelementptr inbounds %"class.vcg::Voxelfc", ptr %232, i64 %231
@@ -80622,34 +80622,33 @@ _ZN3vcg7Voxelfc4ZeroEv.exit.i233:                 ; preds = %208, %206, %203
   %262 = srem i32 %257, 8
   %263 = sdiv i32 %259, 8
   %264 = srem i32 %259, 8
-  %265 = sdiv i32 %260, 8
-  %266 = srem i32 %260, 8
-  %267 = load i32, ptr %130, align 8
-  %268 = load i32, ptr %131, align 4
-  %269 = mul i32 %268, %265
-  %reass.add.i.i = add i32 %269, %263
-  %reass.mul.i.i = mul i32 %reass.add.i.i, %267
-  %270 = add i32 %reass.mul.i.i, %261
-  %271 = sext i32 %270 to i64
-  %272 = load ptr, ptr %0, align 8
-  %273 = getelementptr inbounds %"class.std::vector.244", ptr %272, i64 %271
-  %274 = load ptr, ptr %273, align 8
-  %275 = getelementptr inbounds nuw i8, ptr %273, i64 8
-  %276 = load ptr, ptr %275, align 8
-  %.not.i = icmp eq ptr %274, %276
-  br i1 %.not.i, label %277, label %.noexc173
+  %265 = lshr i32 %260, 3
+  %266 = load i32, ptr %130, align 8
+  %267 = load i32, ptr %131, align 4
+  %268 = mul i32 %267, %265
+  %reass.add.i.i = add i32 %268, %263
+  %reass.mul.i.i = mul i32 %reass.add.i.i, %266
+  %269 = add i32 %reass.mul.i.i, %261
+  %270 = sext i32 %269 to i64
+  %271 = load ptr, ptr %0, align 8
+  %272 = getelementptr inbounds %"class.std::vector.244", ptr %271, i64 %270
+  %273 = load ptr, ptr %272, align 8
+  %274 = getelementptr inbounds nuw i8, ptr %272, i64 8
+  %275 = load ptr, ptr %274, align 8
+  %.not.i = icmp eq ptr %273, %275
+  br i1 %.not.i, label %276, label %.noexc173
 
-277:                                              ; preds = %255
-  %278 = load atomic i8, ptr @_ZGVZN3vcg7Voxelfc4ZeroEvE2tt acquire, align 8
-  %279 = icmp eq i8 %278, 0
-  br i1 %279, label %280, label %_ZN3vcg7Voxelfc4ZeroEv.exit.i, !prof !42
+276:                                              ; preds = %255
+  %277 = load atomic i8, ptr @_ZGVZN3vcg7Voxelfc4ZeroEvE2tt acquire, align 8
+  %278 = icmp eq i8 %277, 0
+  br i1 %278, label %279, label %_ZN3vcg7Voxelfc4ZeroEv.exit.i, !prof !42
 
-280:                                              ; preds = %277
-  %281 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN3vcg7Voxelfc4ZeroEvE2tt) #40
-  %.not.i.i = icmp eq i32 %281, 0
-  br i1 %.not.i.i, label %_ZN3vcg7Voxelfc4ZeroEv.exit.i, label %282
+279:                                              ; preds = %276
+  %280 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN3vcg7Voxelfc4ZeroEvE2tt) #40
+  %.not.i.i = icmp eq i32 %280, 0
+  br i1 %.not.i.i, label %_ZN3vcg7Voxelfc4ZeroEv.exit.i, label %281
 
-282:                                              ; preds = %280
+281:                                              ; preds = %279
   store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3vcg7Voxelfc4ZeroEvE2tt, i64 4), align 4
   store i8 0, ptr @_ZZN3vcg7Voxelfc4ZeroEvE2tt, align 4
   store <2 x float> zeroinitializer, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3vcg7Voxelfc4ZeroEvE2tt, i64 12), align 4
@@ -80658,44 +80657,45 @@ _ZN3vcg7Voxelfc4ZeroEv.exit.i233:                 ; preds = %208, %206, %203
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN3vcg7Voxelfc4ZeroEvE2tt) #40
   br label %_ZN3vcg7Voxelfc4ZeroEv.exit.i
 
-_ZN3vcg7Voxelfc4ZeroEv.exit.i:                    ; preds = %282, %280, %277
-  %283 = load ptr, ptr %0, align 8
-  %284 = getelementptr inbounds %"class.std::vector.244", ptr %283, i64 %271
-  %285 = getelementptr inbounds nuw i8, ptr %284, i64 8
-  %286 = load ptr, ptr %285, align 8
-  %287 = load ptr, ptr %284, align 8
+_ZN3vcg7Voxelfc4ZeroEv.exit.i:                    ; preds = %281, %279, %276
+  %282 = load ptr, ptr %0, align 8
+  %283 = getelementptr inbounds %"class.std::vector.244", ptr %282, i64 %270
+  %284 = getelementptr inbounds nuw i8, ptr %283, i64 8
+  %285 = load ptr, ptr %284, align 8
+  %286 = load ptr, ptr %283, align 8
+  %287 = ptrtoint ptr %285 to i64
   %288 = ptrtoint ptr %286 to i64
-  %289 = ptrtoint ptr %287 to i64
-  %290 = sub i64 %288, %289
-  %291 = sdiv exact i64 %290, 36
-  %292 = icmp ult i64 %291, 512
-  br i1 %292, label %293, label %295
+  %289 = sub i64 %287, %288
+  %290 = sdiv exact i64 %289, 36
+  %291 = icmp ult i64 %290, 512
+  br i1 %291, label %292, label %294
 
-293:                                              ; preds = %_ZN3vcg7Voxelfc4ZeroEv.exit.i
-  %294 = sub nuw nsw i64 512, %291
-  tail call void @_ZNSt6vectorIN3vcg7VoxelfcESaIS1_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS1_S3_EEmRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %284, ptr %286, i64 noundef %294, ptr noundef nonnull align 4 dereferenceable(36) @_ZZN3vcg7Voxelfc4ZeroEvE2tt)
+292:                                              ; preds = %_ZN3vcg7Voxelfc4ZeroEv.exit.i
+  %293 = sub nuw nsw i64 512, %290
+  tail call void @_ZNSt6vectorIN3vcg7VoxelfcESaIS1_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS1_S3_EEmRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %283, ptr %285, i64 noundef %293, ptr noundef nonnull align 4 dereferenceable(36) @_ZZN3vcg7Voxelfc4ZeroEvE2tt)
   br label %.noexc173
 
-295:                                              ; preds = %_ZN3vcg7Voxelfc4ZeroEv.exit.i
-  %.not.i4.i = icmp eq i64 %290, 18432
-  br i1 %.not.i4.i, label %.noexc173, label %296
+294:                                              ; preds = %_ZN3vcg7Voxelfc4ZeroEv.exit.i
+  %.not.i4.i = icmp eq i64 %289, 18432
+  br i1 %.not.i4.i, label %.noexc173, label %295
 
-296:                                              ; preds = %295
-  %297 = getelementptr inbounds nuw i8, ptr %287, i64 18432
-  %.not.i.i.i.i = icmp eq ptr %286, %297
-  br i1 %.not.i.i.i.i, label %.noexc173, label %298
+295:                                              ; preds = %294
+  %296 = getelementptr inbounds nuw i8, ptr %286, i64 18432
+  %.not.i.i.i.i = icmp eq ptr %285, %296
+  br i1 %.not.i.i.i.i, label %.noexc173, label %297
 
-298:                                              ; preds = %296
-  store ptr %297, ptr %285, align 8
+297:                                              ; preds = %295
+  store ptr %296, ptr %284, align 8
   br label %.noexc173
 
-.noexc173:                                        ; preds = %293, %298, %296, %295, %255
-  %299 = shl nsw i32 %264, 3
-  %300 = shl nsw i32 %266, 6
+.noexc173:                                        ; preds = %292, %297, %295, %294, %255
+  %298 = shl nsw i32 %264, 3
+  %299 = srem i32 %260, 8
+  %300 = shl nsw i32 %299, 6
   %301 = add nsw i32 %262, %300
-  %302 = add nsw i32 %301, %299
+  %302 = add nsw i32 %301, %298
   %303 = load ptr, ptr %0, align 8
-  %304 = getelementptr inbounds %"class.std::vector.244", ptr %303, i64 %271
+  %304 = getelementptr inbounds %"class.std::vector.244", ptr %303, i64 %270
   %305 = sext i32 %302 to i64
   %306 = load ptr, ptr %304, align 8
   %307 = getelementptr inbounds %"class.vcg::Voxelfc", ptr %306, i64 %305
@@ -80860,36 +80860,35 @@ _ZN3vcg6VolumeINS_7VoxelfcEfE8AddXYIntEiidddRKNS_6Point3IfEE.exit: ; preds = %32
   %402 = sub nsw i32 %.0144481, %401
   %403 = sdiv i32 %399, 8
   %404 = srem i32 %399, 8
-  %405 = sdiv i32 %400, 8
-  %406 = srem i32 %400, 8
-  %407 = sdiv i32 %402, 8
-  %408 = srem i32 %402, 8
-  %409 = load i32, ptr %344, align 8
-  %410 = load i32, ptr %345, align 4
-  %411 = mul i32 %410, %407
-  %reass.add.i.i248 = add i32 %411, %405
-  %reass.mul.i.i249 = mul i32 %reass.add.i.i248, %409
-  %412 = add i32 %reass.mul.i.i249, %403
-  %413 = sext i32 %412 to i64
-  %414 = load ptr, ptr %0, align 8
-  %415 = getelementptr inbounds %"class.std::vector.244", ptr %414, i64 %413
-  %416 = load ptr, ptr %415, align 8
-  %417 = getelementptr inbounds nuw i8, ptr %415, i64 8
-  %418 = load ptr, ptr %417, align 8
-  %.not.i250 = icmp eq ptr %416, %418
-  br i1 %.not.i250, label %419, label %.noexc201
+  %405 = lshr i32 %400, 3
+  %406 = sdiv i32 %402, 8
+  %407 = srem i32 %402, 8
+  %408 = load i32, ptr %344, align 8
+  %409 = load i32, ptr %345, align 4
+  %410 = mul i32 %409, %406
+  %reass.add.i.i248 = add i32 %410, %405
+  %reass.mul.i.i249 = mul i32 %reass.add.i.i248, %408
+  %411 = add i32 %reass.mul.i.i249, %403
+  %412 = sext i32 %411 to i64
+  %413 = load ptr, ptr %0, align 8
+  %414 = getelementptr inbounds %"class.std::vector.244", ptr %413, i64 %412
+  %415 = load ptr, ptr %414, align 8
+  %416 = getelementptr inbounds nuw i8, ptr %414, i64 8
+  %417 = load ptr, ptr %416, align 8
+  %.not.i250 = icmp eq ptr %415, %417
+  br i1 %.not.i250, label %418, label %.noexc201
 
-419:                                              ; preds = %397
-  %420 = load atomic i8, ptr @_ZGVZN3vcg7Voxelfc4ZeroEvE2tt acquire, align 8
-  %421 = icmp eq i8 %420, 0
-  br i1 %421, label %422, label %_ZN3vcg7Voxelfc4ZeroEv.exit.i251, !prof !42
+418:                                              ; preds = %397
+  %419 = load atomic i8, ptr @_ZGVZN3vcg7Voxelfc4ZeroEvE2tt acquire, align 8
+  %420 = icmp eq i8 %419, 0
+  br i1 %420, label %421, label %_ZN3vcg7Voxelfc4ZeroEv.exit.i251, !prof !42
 
-422:                                              ; preds = %419
-  %423 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN3vcg7Voxelfc4ZeroEvE2tt) #40
-  %.not.i.i254 = icmp eq i32 %423, 0
-  br i1 %.not.i.i254, label %_ZN3vcg7Voxelfc4ZeroEv.exit.i251, label %424
+421:                                              ; preds = %418
+  %422 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN3vcg7Voxelfc4ZeroEvE2tt) #40
+  %.not.i.i254 = icmp eq i32 %422, 0
+  br i1 %.not.i.i254, label %_ZN3vcg7Voxelfc4ZeroEv.exit.i251, label %423
 
-424:                                              ; preds = %422
+423:                                              ; preds = %421
   store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3vcg7Voxelfc4ZeroEvE2tt, i64 4), align 4
   store i8 0, ptr @_ZZN3vcg7Voxelfc4ZeroEvE2tt, align 4
   store <2 x float> zeroinitializer, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3vcg7Voxelfc4ZeroEvE2tt, i64 12), align 4
@@ -80898,44 +80897,45 @@ _ZN3vcg6VolumeINS_7VoxelfcEfE8AddXYIntEiidddRKNS_6Point3IfEE.exit: ; preds = %32
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN3vcg7Voxelfc4ZeroEvE2tt) #40
   br label %_ZN3vcg7Voxelfc4ZeroEv.exit.i251
 
-_ZN3vcg7Voxelfc4ZeroEv.exit.i251:                 ; preds = %424, %422, %419
-  %425 = load ptr, ptr %0, align 8
-  %426 = getelementptr inbounds %"class.std::vector.244", ptr %425, i64 %413
-  %427 = getelementptr inbounds nuw i8, ptr %426, i64 8
-  %428 = load ptr, ptr %427, align 8
-  %429 = load ptr, ptr %426, align 8
+_ZN3vcg7Voxelfc4ZeroEv.exit.i251:                 ; preds = %423, %421, %418
+  %424 = load ptr, ptr %0, align 8
+  %425 = getelementptr inbounds %"class.std::vector.244", ptr %424, i64 %412
+  %426 = getelementptr inbounds nuw i8, ptr %425, i64 8
+  %427 = load ptr, ptr %426, align 8
+  %428 = load ptr, ptr %425, align 8
+  %429 = ptrtoint ptr %427 to i64
   %430 = ptrtoint ptr %428 to i64
-  %431 = ptrtoint ptr %429 to i64
-  %432 = sub i64 %430, %431
-  %433 = sdiv exact i64 %432, 36
-  %434 = icmp ult i64 %433, 512
-  br i1 %434, label %435, label %437
+  %431 = sub i64 %429, %430
+  %432 = sdiv exact i64 %431, 36
+  %433 = icmp ult i64 %432, 512
+  br i1 %433, label %434, label %436
 
-435:                                              ; preds = %_ZN3vcg7Voxelfc4ZeroEv.exit.i251
-  %436 = sub nuw nsw i64 512, %433
-  tail call void @_ZNSt6vectorIN3vcg7VoxelfcESaIS1_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS1_S3_EEmRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %426, ptr %428, i64 noundef %436, ptr noundef nonnull align 4 dereferenceable(36) @_ZZN3vcg7Voxelfc4ZeroEvE2tt)
+434:                                              ; preds = %_ZN3vcg7Voxelfc4ZeroEv.exit.i251
+  %435 = sub nuw nsw i64 512, %432
+  tail call void @_ZNSt6vectorIN3vcg7VoxelfcESaIS1_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS1_S3_EEmRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %425, ptr %427, i64 noundef %435, ptr noundef nonnull align 4 dereferenceable(36) @_ZZN3vcg7Voxelfc4ZeroEvE2tt)
   br label %.noexc201
 
-437:                                              ; preds = %_ZN3vcg7Voxelfc4ZeroEv.exit.i251
-  %.not.i4.i252 = icmp eq i64 %432, 18432
-  br i1 %.not.i4.i252, label %.noexc201, label %438
+436:                                              ; preds = %_ZN3vcg7Voxelfc4ZeroEv.exit.i251
+  %.not.i4.i252 = icmp eq i64 %431, 18432
+  br i1 %.not.i4.i252, label %.noexc201, label %437
 
-438:                                              ; preds = %437
-  %439 = getelementptr inbounds nuw i8, ptr %429, i64 18432
-  %.not.i.i.i.i253 = icmp eq ptr %428, %439
-  br i1 %.not.i.i.i.i253, label %.noexc201, label %440
+437:                                              ; preds = %436
+  %438 = getelementptr inbounds nuw i8, ptr %428, i64 18432
+  %.not.i.i.i.i253 = icmp eq ptr %427, %438
+  br i1 %.not.i.i.i.i253, label %.noexc201, label %439
 
-440:                                              ; preds = %438
-  store ptr %439, ptr %427, align 8
+439:                                              ; preds = %437
+  store ptr %438, ptr %426, align 8
   br label %.noexc201
 
-.noexc201:                                        ; preds = %435, %440, %438, %437, %397
-  %441 = shl nsw i32 %406, 3
+.noexc201:                                        ; preds = %434, %439, %437, %436, %397
+  %440 = srem i32 %400, 8
+  %441 = shl nsw i32 %440, 3
   %442 = add nsw i32 %404, %441
-  %443 = shl nsw i32 %408, 6
+  %443 = shl nsw i32 %407, 6
   %444 = add nsw i32 %442, %443
   %445 = load ptr, ptr %0, align 8
-  %446 = getelementptr inbounds %"class.std::vector.244", ptr %445, i64 %413
+  %446 = getelementptr inbounds %"class.std::vector.244", ptr %445, i64 %412
   %447 = sext i32 %444 to i64
   %448 = load ptr, ptr %446, align 8
   %449 = getelementptr inbounds %"class.vcg::Voxelfc", ptr %448, i64 %447
@@ -80996,36 +80996,35 @@ _ZN3vcg7Voxelfc4ZeroEv.exit.i251:                 ; preds = %424, %422, %419
   %476 = sub nsw i32 %.0144481, %475
   %477 = sdiv i32 %473, 8
   %478 = srem i32 %473, 8
-  %479 = sdiv i32 %474, 8
-  %480 = srem i32 %474, 8
-  %481 = sdiv i32 %476, 8
-  %482 = srem i32 %476, 8
-  %483 = load i32, ptr %344, align 8
-  %484 = load i32, ptr %345, align 4
-  %485 = mul i32 %484, %481
-  %reass.add.i.i239 = add i32 %485, %479
-  %reass.mul.i.i240 = mul i32 %reass.add.i.i239, %483
-  %486 = add i32 %reass.mul.i.i240, %477
-  %487 = sext i32 %486 to i64
-  %488 = load ptr, ptr %0, align 8
-  %489 = getelementptr inbounds %"class.std::vector.244", ptr %488, i64 %487
-  %490 = load ptr, ptr %489, align 8
-  %491 = getelementptr inbounds nuw i8, ptr %489, i64 8
-  %492 = load ptr, ptr %491, align 8
-  %.not.i241 = icmp eq ptr %490, %492
-  br i1 %.not.i241, label %493, label %.noexc202
+  %479 = lshr i32 %474, 3
+  %480 = sdiv i32 %476, 8
+  %481 = srem i32 %476, 8
+  %482 = load i32, ptr %344, align 8
+  %483 = load i32, ptr %345, align 4
+  %484 = mul i32 %483, %480
+  %reass.add.i.i239 = add i32 %484, %479
+  %reass.mul.i.i240 = mul i32 %reass.add.i.i239, %482
+  %485 = add i32 %reass.mul.i.i240, %477
+  %486 = sext i32 %485 to i64
+  %487 = load ptr, ptr %0, align 8
+  %488 = getelementptr inbounds %"class.std::vector.244", ptr %487, i64 %486
+  %489 = load ptr, ptr %488, align 8
+  %490 = getelementptr inbounds nuw i8, ptr %488, i64 8
+  %491 = load ptr, ptr %490, align 8
+  %.not.i241 = icmp eq ptr %489, %491
+  br i1 %.not.i241, label %492, label %.noexc202
 
-493:                                              ; preds = %471
-  %494 = load atomic i8, ptr @_ZGVZN3vcg7Voxelfc4ZeroEvE2tt acquire, align 8
-  %495 = icmp eq i8 %494, 0
-  br i1 %495, label %496, label %_ZN3vcg7Voxelfc4ZeroEv.exit.i242, !prof !42
+492:                                              ; preds = %471
+  %493 = load atomic i8, ptr @_ZGVZN3vcg7Voxelfc4ZeroEvE2tt acquire, align 8
+  %494 = icmp eq i8 %493, 0
+  br i1 %494, label %495, label %_ZN3vcg7Voxelfc4ZeroEv.exit.i242, !prof !42
 
-496:                                              ; preds = %493
-  %497 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN3vcg7Voxelfc4ZeroEvE2tt) #40
-  %.not.i.i245 = icmp eq i32 %497, 0
-  br i1 %.not.i.i245, label %_ZN3vcg7Voxelfc4ZeroEv.exit.i242, label %498
+495:                                              ; preds = %492
+  %496 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN3vcg7Voxelfc4ZeroEvE2tt) #40
+  %.not.i.i245 = icmp eq i32 %496, 0
+  br i1 %.not.i.i245, label %_ZN3vcg7Voxelfc4ZeroEv.exit.i242, label %497
 
-498:                                              ; preds = %496
+497:                                              ; preds = %495
   store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3vcg7Voxelfc4ZeroEvE2tt, i64 4), align 4
   store i8 0, ptr @_ZZN3vcg7Voxelfc4ZeroEvE2tt, align 4
   store <2 x float> zeroinitializer, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3vcg7Voxelfc4ZeroEvE2tt, i64 12), align 4
@@ -81034,44 +81033,45 @@ _ZN3vcg7Voxelfc4ZeroEv.exit.i251:                 ; preds = %424, %422, %419
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN3vcg7Voxelfc4ZeroEvE2tt) #40
   br label %_ZN3vcg7Voxelfc4ZeroEv.exit.i242
 
-_ZN3vcg7Voxelfc4ZeroEv.exit.i242:                 ; preds = %498, %496, %493
-  %499 = load ptr, ptr %0, align 8
-  %500 = getelementptr inbounds %"class.std::vector.244", ptr %499, i64 %487
-  %501 = getelementptr inbounds nuw i8, ptr %500, i64 8
-  %502 = load ptr, ptr %501, align 8
-  %503 = load ptr, ptr %500, align 8
+_ZN3vcg7Voxelfc4ZeroEv.exit.i242:                 ; preds = %497, %495, %492
+  %498 = load ptr, ptr %0, align 8
+  %499 = getelementptr inbounds %"class.std::vector.244", ptr %498, i64 %486
+  %500 = getelementptr inbounds nuw i8, ptr %499, i64 8
+  %501 = load ptr, ptr %500, align 8
+  %502 = load ptr, ptr %499, align 8
+  %503 = ptrtoint ptr %501 to i64
   %504 = ptrtoint ptr %502 to i64
-  %505 = ptrtoint ptr %503 to i64
-  %506 = sub i64 %504, %505
-  %507 = sdiv exact i64 %506, 36
-  %508 = icmp ult i64 %507, 512
-  br i1 %508, label %509, label %511
+  %505 = sub i64 %503, %504
+  %506 = sdiv exact i64 %505, 36
+  %507 = icmp ult i64 %506, 512
+  br i1 %507, label %508, label %510
 
-509:                                              ; preds = %_ZN3vcg7Voxelfc4ZeroEv.exit.i242
-  %510 = sub nuw nsw i64 512, %507
-  tail call void @_ZNSt6vectorIN3vcg7VoxelfcESaIS1_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS1_S3_EEmRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %500, ptr %502, i64 noundef %510, ptr noundef nonnull align 4 dereferenceable(36) @_ZZN3vcg7Voxelfc4ZeroEvE2tt)
+508:                                              ; preds = %_ZN3vcg7Voxelfc4ZeroEv.exit.i242
+  %509 = sub nuw nsw i64 512, %506
+  tail call void @_ZNSt6vectorIN3vcg7VoxelfcESaIS1_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS1_S3_EEmRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %499, ptr %501, i64 noundef %509, ptr noundef nonnull align 4 dereferenceable(36) @_ZZN3vcg7Voxelfc4ZeroEvE2tt)
   br label %.noexc202
 
-511:                                              ; preds = %_ZN3vcg7Voxelfc4ZeroEv.exit.i242
-  %.not.i4.i243 = icmp eq i64 %506, 18432
-  br i1 %.not.i4.i243, label %.noexc202, label %512
+510:                                              ; preds = %_ZN3vcg7Voxelfc4ZeroEv.exit.i242
+  %.not.i4.i243 = icmp eq i64 %505, 18432
+  br i1 %.not.i4.i243, label %.noexc202, label %511
 
-512:                                              ; preds = %511
-  %513 = getelementptr inbounds nuw i8, ptr %503, i64 18432
-  %.not.i.i.i.i244 = icmp eq ptr %502, %513
-  br i1 %.not.i.i.i.i244, label %.noexc202, label %514
+511:                                              ; preds = %510
+  %512 = getelementptr inbounds nuw i8, ptr %502, i64 18432
+  %.not.i.i.i.i244 = icmp eq ptr %501, %512
+  br i1 %.not.i.i.i.i244, label %.noexc202, label %513
 
-514:                                              ; preds = %512
-  store ptr %513, ptr %501, align 8
+513:                                              ; preds = %511
+  store ptr %512, ptr %500, align 8
   br label %.noexc202
 
-.noexc202:                                        ; preds = %509, %514, %512, %511, %471
-  %515 = shl nsw i32 %480, 3
+.noexc202:                                        ; preds = %508, %513, %511, %510, %471
+  %514 = srem i32 %474, 8
+  %515 = shl nsw i32 %514, 3
   %516 = add nsw i32 %478, %515
-  %517 = shl nsw i32 %482, 6
+  %517 = shl nsw i32 %481, 6
   %518 = add nsw i32 %516, %517
   %519 = load ptr, ptr %0, align 8
-  %520 = getelementptr inbounds %"class.std::vector.244", ptr %519, i64 %487
+  %520 = getelementptr inbounds %"class.std::vector.244", ptr %519, i64 %486
   %521 = sext i32 %518 to i64
   %522 = load ptr, ptr %520, align 8
   %523 = getelementptr inbounds %"class.vcg::Voxelfc", ptr %522, i64 %521
@@ -81233,38 +81233,37 @@ _ZN3vcg6VolumeINS_7VoxelfcEfE8AddXZIntEiidddRKNS_6Point3IfEE.exit: ; preds = %53
   %614 = sub nsw i32 %.1143489, %613
   %615 = load i32, ptr %70, align 4
   %616 = sub nsw i32 %.1145486, %615
-  %617 = sdiv i32 %612, 8
-  %618 = srem i32 %612, 8
-  %619 = sdiv i32 %614, 8
-  %620 = srem i32 %614, 8
-  %621 = sdiv i32 %616, 8
-  %622 = srem i32 %616, 8
-  %623 = load i32, ptr %560, align 8
-  %624 = load i32, ptr %561, align 4
-  %625 = mul i32 %624, %621
-  %reass.add.i.i266 = add i32 %625, %619
-  %reass.mul.i.i267 = mul i32 %reass.add.i.i266, %623
-  %626 = add i32 %reass.mul.i.i267, %617
-  %627 = sext i32 %626 to i64
-  %628 = load ptr, ptr %0, align 8
-  %629 = getelementptr inbounds %"class.std::vector.244", ptr %628, i64 %627
-  %630 = load ptr, ptr %629, align 8
-  %631 = getelementptr inbounds nuw i8, ptr %629, i64 8
-  %632 = load ptr, ptr %631, align 8
-  %.not.i268 = icmp eq ptr %630, %632
-  br i1 %.not.i268, label %633, label %.noexc227
+  %617 = lshr i32 %612, 3
+  %618 = sdiv i32 %614, 8
+  %619 = srem i32 %614, 8
+  %620 = sdiv i32 %616, 8
+  %621 = srem i32 %616, 8
+  %622 = load i32, ptr %560, align 8
+  %623 = load i32, ptr %561, align 4
+  %624 = mul i32 %623, %620
+  %reass.add.i.i266 = add i32 %624, %618
+  %reass.mul.i.i267 = mul i32 %reass.add.i.i266, %622
+  %625 = add i32 %reass.mul.i.i267, %617
+  %626 = sext i32 %625 to i64
+  %627 = load ptr, ptr %0, align 8
+  %628 = getelementptr inbounds %"class.std::vector.244", ptr %627, i64 %626
+  %629 = load ptr, ptr %628, align 8
+  %630 = getelementptr inbounds nuw i8, ptr %628, i64 8
+  %631 = load ptr, ptr %630, align 8
+  %.not.i268 = icmp eq ptr %629, %631
+  br i1 %.not.i268, label %632, label %.noexc227
 
-633:                                              ; preds = %611
-  %634 = load atomic i8, ptr @_ZGVZN3vcg7Voxelfc4ZeroEvE2tt acquire, align 8
-  %635 = icmp eq i8 %634, 0
-  br i1 %635, label %636, label %_ZN3vcg7Voxelfc4ZeroEv.exit.i269, !prof !42
+632:                                              ; preds = %611
+  %633 = load atomic i8, ptr @_ZGVZN3vcg7Voxelfc4ZeroEvE2tt acquire, align 8
+  %634 = icmp eq i8 %633, 0
+  br i1 %634, label %635, label %_ZN3vcg7Voxelfc4ZeroEv.exit.i269, !prof !42
 
-636:                                              ; preds = %633
-  %637 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN3vcg7Voxelfc4ZeroEvE2tt) #40
-  %.not.i.i272 = icmp eq i32 %637, 0
-  br i1 %.not.i.i272, label %_ZN3vcg7Voxelfc4ZeroEv.exit.i269, label %638
+635:                                              ; preds = %632
+  %636 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN3vcg7Voxelfc4ZeroEvE2tt) #40
+  %.not.i.i272 = icmp eq i32 %636, 0
+  br i1 %.not.i.i272, label %_ZN3vcg7Voxelfc4ZeroEv.exit.i269, label %637
 
-638:                                              ; preds = %636
+637:                                              ; preds = %635
   store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3vcg7Voxelfc4ZeroEvE2tt, i64 4), align 4
   store i8 0, ptr @_ZZN3vcg7Voxelfc4ZeroEvE2tt, align 4
   store <2 x float> zeroinitializer, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3vcg7Voxelfc4ZeroEvE2tt, i64 12), align 4
@@ -81273,44 +81272,45 @@ _ZN3vcg6VolumeINS_7VoxelfcEfE8AddXZIntEiidddRKNS_6Point3IfEE.exit: ; preds = %53
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN3vcg7Voxelfc4ZeroEvE2tt) #40
   br label %_ZN3vcg7Voxelfc4ZeroEv.exit.i269
 
-_ZN3vcg7Voxelfc4ZeroEv.exit.i269:                 ; preds = %638, %636, %633
-  %639 = load ptr, ptr %0, align 8
-  %640 = getelementptr inbounds %"class.std::vector.244", ptr %639, i64 %627
-  %641 = getelementptr inbounds nuw i8, ptr %640, i64 8
-  %642 = load ptr, ptr %641, align 8
-  %643 = load ptr, ptr %640, align 8
+_ZN3vcg7Voxelfc4ZeroEv.exit.i269:                 ; preds = %637, %635, %632
+  %638 = load ptr, ptr %0, align 8
+  %639 = getelementptr inbounds %"class.std::vector.244", ptr %638, i64 %626
+  %640 = getelementptr inbounds nuw i8, ptr %639, i64 8
+  %641 = load ptr, ptr %640, align 8
+  %642 = load ptr, ptr %639, align 8
+  %643 = ptrtoint ptr %641 to i64
   %644 = ptrtoint ptr %642 to i64
-  %645 = ptrtoint ptr %643 to i64
-  %646 = sub i64 %644, %645
-  %647 = sdiv exact i64 %646, 36
-  %648 = icmp ult i64 %647, 512
-  br i1 %648, label %649, label %651
+  %645 = sub i64 %643, %644
+  %646 = sdiv exact i64 %645, 36
+  %647 = icmp ult i64 %646, 512
+  br i1 %647, label %648, label %650
 
-649:                                              ; preds = %_ZN3vcg7Voxelfc4ZeroEv.exit.i269
-  %650 = sub nuw nsw i64 512, %647
-  tail call void @_ZNSt6vectorIN3vcg7VoxelfcESaIS1_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS1_S3_EEmRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %640, ptr %642, i64 noundef %650, ptr noundef nonnull align 4 dereferenceable(36) @_ZZN3vcg7Voxelfc4ZeroEvE2tt)
+648:                                              ; preds = %_ZN3vcg7Voxelfc4ZeroEv.exit.i269
+  %649 = sub nuw nsw i64 512, %646
+  tail call void @_ZNSt6vectorIN3vcg7VoxelfcESaIS1_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS1_S3_EEmRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %639, ptr %641, i64 noundef %649, ptr noundef nonnull align 4 dereferenceable(36) @_ZZN3vcg7Voxelfc4ZeroEvE2tt)
   br label %.noexc227
 
-651:                                              ; preds = %_ZN3vcg7Voxelfc4ZeroEv.exit.i269
-  %.not.i4.i270 = icmp eq i64 %646, 18432
-  br i1 %.not.i4.i270, label %.noexc227, label %652
+650:                                              ; preds = %_ZN3vcg7Voxelfc4ZeroEv.exit.i269
+  %.not.i4.i270 = icmp eq i64 %645, 18432
+  br i1 %.not.i4.i270, label %.noexc227, label %651
 
-652:                                              ; preds = %651
-  %653 = getelementptr inbounds nuw i8, ptr %643, i64 18432
-  %.not.i.i.i.i271 = icmp eq ptr %642, %653
-  br i1 %.not.i.i.i.i271, label %.noexc227, label %654
+651:                                              ; preds = %650
+  %652 = getelementptr inbounds nuw i8, ptr %642, i64 18432
+  %.not.i.i.i.i271 = icmp eq ptr %641, %652
+  br i1 %.not.i.i.i.i271, label %.noexc227, label %653
 
-654:                                              ; preds = %652
-  store ptr %653, ptr %641, align 8
+653:                                              ; preds = %651
+  store ptr %652, ptr %640, align 8
   br label %.noexc227
 
-.noexc227:                                        ; preds = %649, %654, %652, %651, %611
-  %655 = shl nsw i32 %620, 3
-  %656 = add nsw i32 %655, %618
-  %657 = shl nsw i32 %622, 6
+.noexc227:                                        ; preds = %648, %653, %651, %650, %611
+  %654 = shl nsw i32 %619, 3
+  %655 = srem i32 %612, 8
+  %656 = add nsw i32 %654, %655
+  %657 = shl nsw i32 %621, 6
   %658 = add nsw i32 %656, %657
   %659 = load ptr, ptr %0, align 8
-  %660 = getelementptr inbounds %"class.std::vector.244", ptr %659, i64 %627
+  %660 = getelementptr inbounds %"class.std::vector.244", ptr %659, i64 %626
   %661 = sext i32 %658 to i64
   %662 = load ptr, ptr %660, align 8
   %663 = getelementptr inbounds %"class.vcg::Voxelfc", ptr %662, i64 %661
@@ -81369,38 +81369,37 @@ _ZN3vcg7Voxelfc4ZeroEv.exit.i269:                 ; preds = %638, %636, %633
   %688 = sub nsw i32 %.1143489, %687
   %689 = load i32, ptr %70, align 4
   %690 = sub nsw i32 %.1145486, %689
-  %691 = sdiv i32 %686, 8
-  %692 = srem i32 %686, 8
-  %693 = sdiv i32 %688, 8
-  %694 = srem i32 %688, 8
-  %695 = sdiv i32 %690, 8
-  %696 = srem i32 %690, 8
-  %697 = load i32, ptr %560, align 8
-  %698 = load i32, ptr %561, align 4
-  %699 = mul i32 %698, %695
-  %reass.add.i.i257 = add i32 %699, %693
-  %reass.mul.i.i258 = mul i32 %reass.add.i.i257, %697
-  %700 = add i32 %reass.mul.i.i258, %691
-  %701 = sext i32 %700 to i64
-  %702 = load ptr, ptr %0, align 8
-  %703 = getelementptr inbounds %"class.std::vector.244", ptr %702, i64 %701
-  %704 = load ptr, ptr %703, align 8
-  %705 = getelementptr inbounds nuw i8, ptr %703, i64 8
-  %706 = load ptr, ptr %705, align 8
-  %.not.i259 = icmp eq ptr %704, %706
-  br i1 %.not.i259, label %707, label %.noexc228
+  %691 = lshr i32 %686, 3
+  %692 = sdiv i32 %688, 8
+  %693 = srem i32 %688, 8
+  %694 = sdiv i32 %690, 8
+  %695 = srem i32 %690, 8
+  %696 = load i32, ptr %560, align 8
+  %697 = load i32, ptr %561, align 4
+  %698 = mul i32 %697, %694
+  %reass.add.i.i257 = add i32 %698, %692
+  %reass.mul.i.i258 = mul i32 %reass.add.i.i257, %696
+  %699 = add i32 %reass.mul.i.i258, %691
+  %700 = sext i32 %699 to i64
+  %701 = load ptr, ptr %0, align 8
+  %702 = getelementptr inbounds %"class.std::vector.244", ptr %701, i64 %700
+  %703 = load ptr, ptr %702, align 8
+  %704 = getelementptr inbounds nuw i8, ptr %702, i64 8
+  %705 = load ptr, ptr %704, align 8
+  %.not.i259 = icmp eq ptr %703, %705
+  br i1 %.not.i259, label %706, label %.noexc228
 
-707:                                              ; preds = %685
-  %708 = load atomic i8, ptr @_ZGVZN3vcg7Voxelfc4ZeroEvE2tt acquire, align 8
-  %709 = icmp eq i8 %708, 0
-  br i1 %709, label %710, label %_ZN3vcg7Voxelfc4ZeroEv.exit.i260, !prof !42
+706:                                              ; preds = %685
+  %707 = load atomic i8, ptr @_ZGVZN3vcg7Voxelfc4ZeroEvE2tt acquire, align 8
+  %708 = icmp eq i8 %707, 0
+  br i1 %708, label %709, label %_ZN3vcg7Voxelfc4ZeroEv.exit.i260, !prof !42
 
-710:                                              ; preds = %707
-  %711 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN3vcg7Voxelfc4ZeroEvE2tt) #40
-  %.not.i.i263 = icmp eq i32 %711, 0
-  br i1 %.not.i.i263, label %_ZN3vcg7Voxelfc4ZeroEv.exit.i260, label %712
+709:                                              ; preds = %706
+  %710 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN3vcg7Voxelfc4ZeroEvE2tt) #40
+  %.not.i.i263 = icmp eq i32 %710, 0
+  br i1 %.not.i.i263, label %_ZN3vcg7Voxelfc4ZeroEv.exit.i260, label %711
 
-712:                                              ; preds = %710
+711:                                              ; preds = %709
   store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3vcg7Voxelfc4ZeroEvE2tt, i64 4), align 4
   store i8 0, ptr @_ZZN3vcg7Voxelfc4ZeroEvE2tt, align 4
   store <2 x float> zeroinitializer, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3vcg7Voxelfc4ZeroEvE2tt, i64 12), align 4
@@ -81409,44 +81408,45 @@ _ZN3vcg7Voxelfc4ZeroEv.exit.i269:                 ; preds = %638, %636, %633
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN3vcg7Voxelfc4ZeroEvE2tt) #40
   br label %_ZN3vcg7Voxelfc4ZeroEv.exit.i260
 
-_ZN3vcg7Voxelfc4ZeroEv.exit.i260:                 ; preds = %712, %710, %707
-  %713 = load ptr, ptr %0, align 8
-  %714 = getelementptr inbounds %"class.std::vector.244", ptr %713, i64 %701
-  %715 = getelementptr inbounds nuw i8, ptr %714, i64 8
-  %716 = load ptr, ptr %715, align 8
-  %717 = load ptr, ptr %714, align 8
+_ZN3vcg7Voxelfc4ZeroEv.exit.i260:                 ; preds = %711, %709, %706
+  %712 = load ptr, ptr %0, align 8
+  %713 = getelementptr inbounds %"class.std::vector.244", ptr %712, i64 %700
+  %714 = getelementptr inbounds nuw i8, ptr %713, i64 8
+  %715 = load ptr, ptr %714, align 8
+  %716 = load ptr, ptr %713, align 8
+  %717 = ptrtoint ptr %715 to i64
   %718 = ptrtoint ptr %716 to i64
-  %719 = ptrtoint ptr %717 to i64
-  %720 = sub i64 %718, %719
-  %721 = sdiv exact i64 %720, 36
-  %722 = icmp ult i64 %721, 512
-  br i1 %722, label %723, label %725
+  %719 = sub i64 %717, %718
+  %720 = sdiv exact i64 %719, 36
+  %721 = icmp ult i64 %720, 512
+  br i1 %721, label %722, label %724
 
-723:                                              ; preds = %_ZN3vcg7Voxelfc4ZeroEv.exit.i260
-  %724 = sub nuw nsw i64 512, %721
-  tail call void @_ZNSt6vectorIN3vcg7VoxelfcESaIS1_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS1_S3_EEmRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %714, ptr %716, i64 noundef %724, ptr noundef nonnull align 4 dereferenceable(36) @_ZZN3vcg7Voxelfc4ZeroEvE2tt)
+722:                                              ; preds = %_ZN3vcg7Voxelfc4ZeroEv.exit.i260
+  %723 = sub nuw nsw i64 512, %720
+  tail call void @_ZNSt6vectorIN3vcg7VoxelfcESaIS1_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS1_S3_EEmRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %713, ptr %715, i64 noundef %723, ptr noundef nonnull align 4 dereferenceable(36) @_ZZN3vcg7Voxelfc4ZeroEvE2tt)
   br label %.noexc228
 
-725:                                              ; preds = %_ZN3vcg7Voxelfc4ZeroEv.exit.i260
-  %.not.i4.i261 = icmp eq i64 %720, 18432
-  br i1 %.not.i4.i261, label %.noexc228, label %726
+724:                                              ; preds = %_ZN3vcg7Voxelfc4ZeroEv.exit.i260
+  %.not.i4.i261 = icmp eq i64 %719, 18432
+  br i1 %.not.i4.i261, label %.noexc228, label %725
 
-726:                                              ; preds = %725
-  %727 = getelementptr inbounds nuw i8, ptr %717, i64 18432
-  %.not.i.i.i.i262 = icmp eq ptr %716, %727
-  br i1 %.not.i.i.i.i262, label %.noexc228, label %728
+725:                                              ; preds = %724
+  %726 = getelementptr inbounds nuw i8, ptr %716, i64 18432
+  %.not.i.i.i.i262 = icmp eq ptr %715, %726
+  br i1 %.not.i.i.i.i262, label %.noexc228, label %727
 
-728:                                              ; preds = %726
-  store ptr %727, ptr %715, align 8
+727:                                              ; preds = %725
+  store ptr %726, ptr %714, align 8
   br label %.noexc228
 
-.noexc228:                                        ; preds = %723, %728, %726, %725, %685
-  %729 = shl nsw i32 %694, 3
-  %730 = add nsw i32 %729, %692
-  %731 = shl nsw i32 %696, 6
+.noexc228:                                        ; preds = %722, %727, %725, %724, %685
+  %728 = shl nsw i32 %693, 3
+  %729 = srem i32 %686, 8
+  %730 = add nsw i32 %728, %729
+  %731 = shl nsw i32 %695, 6
   %732 = add nsw i32 %730, %731
   %733 = load ptr, ptr %0, align 8
-  %734 = getelementptr inbounds %"class.std::vector.244", ptr %733, i64 %701
+  %734 = getelementptr inbounds %"class.std::vector.244", ptr %733, i64 %700
   %735 = sext i32 %732 to i64
   %736 = load ptr, ptr %734, align 8
   %737 = getelementptr inbounds %"class.vcg::Voxelfc", ptr %736, i64 %735

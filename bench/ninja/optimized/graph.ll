@@ -8752,7 +8752,7 @@ _ZNSt15_Deque_iteratorIP4NodeRS1_PS1_EpLEl.exit.i.i.i: ; preds = %234, %228
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPP4NodeSt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit: ; preds = %_ZStplRKSt15_Deque_iteratorIP4NodeRS1_PS1_El.exit
   %248 = sub nsw i64 %4, %57
-  %249 = getelementptr inbounds ptr, ptr %2, i64 %248
+  %249 = getelementptr inbounds nuw ptr, ptr %2, i64 %248
   %250 = load ptr, ptr %30, align 8, !tbaa !42
   %251 = load ptr, ptr %79, align 8, !tbaa !46
   %252 = load ptr, ptr %50, align 8, !tbaa !47

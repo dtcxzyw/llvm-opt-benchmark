@@ -616,7 +616,7 @@ define hidden range(i32 0, 2) i32 @ASN1_INTEGER_set(ptr noundef captures(none) i
   %22 = lshr i64 %.137, 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %23 = icmp samesign ugt i64 %indvars.iv, 6
-  %24 = icmp ult i64 %.137, 256
+  %24 = icmp samesign ult i64 %.137, 256
   %or.cond = select i1 %23, i1 true, i1 %24
   br i1 %or.cond, label %.lr.ph40.preheader, label %.lr.ph, !llvm.loop !28
 

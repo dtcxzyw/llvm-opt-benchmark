@@ -393,7 +393,7 @@ stream_fill_input_buffer.exit:                    ; preds = %.lr.ph, %28
   %.0.lcssa = phi i64 [ %1, %.preheader ], [ %10, %stream_fill_input_buffer.exit ]
   %.lcssa = phi i64 [ %7, %.preheader ], [ %40, %stream_fill_input_buffer.exit ]
   %42 = load ptr, ptr %4, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 %.0.lcssa
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 %.0.lcssa
   store ptr %43, ptr %4, align 8
   %44 = sub i64 %.lcssa, %.0.lcssa
   store i64 %44, ptr %6, align 8

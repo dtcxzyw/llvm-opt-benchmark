@@ -5083,8 +5083,8 @@ get_vlc2.exit102.i.i:                             ; preds = %1425, %1405
   %1528 = sext i32 %.081.lcssa.i.i to i64
   %1529 = getelementptr inbounds float, ptr %1527, i64 %1528
   %1530 = sub nsw i32 %1524, %.081.lcssa.i.i
-  %1531 = sext i32 %1530 to i64
-  %1532 = shl nsw i64 %1531, 2
+  %1531 = zext nneg i32 %1530 to i64
+  %1532 = shl nuw nsw i64 %1531, 2
   call void @llvm.memset.p0.i64(ptr align 4 %1529, i8 0, i64 %1532, i1 false)
   %1533 = load ptr, ptr %0, align 16, !tbaa !90
   %1534 = load ptr, ptr %1270, align 8, !tbaa !170

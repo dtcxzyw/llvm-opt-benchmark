@@ -2389,7 +2389,7 @@ set_default_whitespace_mode.exit94:               ; preds = %._crit_edge, %47
   br label %Q_.exit
 
 70:                                               ; preds = %64
-  %71 = sext i32 %65 to i64
+  %71 = zext nneg i32 %65 to i64
   %72 = tail call ptr @dcngettext(ptr noundef null, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, i64 noundef range(i64 -2147483648, 2147483648) %71, i32 noundef 5) #21
   br label %Q_.exit
 

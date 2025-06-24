@@ -530,14 +530,14 @@ define internal i64 @read_istream_loose(ptr noundef %0, ptr noundef %1, i64 noun
 
 13:                                               ; preds = %7
   %14 = sub nsw i32 %11, %9
-  %15 = sext i32 %14 to i64
+  %15 = zext nneg i32 %14 to i64
   %spec.select = tail call i64 @llvm.umin.i64(i64 %2, i64 %15)
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %17 = sext i32 %9 to i64
   %18 = getelementptr inbounds i8, ptr %16, i64 %17
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr nonnull align 1 %18, i64 %spec.select, i1 false)
   %19 = load i32, ptr %8, align 4, !tbaa !56
-  %20 = trunc i64 %spec.select to i32
+  %20 = trunc nuw nsw i64 %spec.select to i32
   %21 = add i32 %19, %20
   store i32 %21, ptr %8, align 4, !tbaa !56
   br label %22
@@ -794,14 +794,14 @@ define internal i64 @read_istream_filtered(ptr noundef %0, ptr noundef writeonly
   %.lcssa125 = phi i32 [ %16, %.lr.ph ], [ %65, %.backedge ]
   %.lcssa = phi i32 [ %17, %.lr.ph ], [ %66, %.backedge ]
   %19 = sub nsw i32 %.lcssa, %.lcssa125
-  %20 = sext i32 %19 to i64
+  %20 = zext nneg i32 %19 to i64
   %spec.select = call i64 @llvm.umin.i64(i64 %.054.ph86, i64 %20)
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 %.051.ph87
   %22 = sext i32 %.lcssa125 to i64
   %23 = getelementptr inbounds i8, ptr %14, i64 %22
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %21, ptr nonnull align 1 %23, i64 %spec.select, i1 false)
   %24 = load i32, ptr %8, align 4, !tbaa !78
-  %25 = trunc i64 %spec.select to i32
+  %25 = trunc nuw nsw i64 %spec.select to i32
   %26 = add i32 %24, %25
   store i32 %26, ptr %8, align 4, !tbaa !78
   %27 = sub i64 %.054.ph86, %spec.select
@@ -820,7 +820,7 @@ define internal i64 @read_istream_filtered(ptr noundef %0, ptr noundef writeonly
 32:                                               ; preds = %.lr.ph135
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
   %33 = sub nsw i32 %30, %29
-  %34 = sext i32 %33 to i64
+  %34 = zext nneg i32 %33 to i64
   store i64 %34, ptr %4, align 8, !tbaa !57
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
   store i64 16384, ptr %5, align 8, !tbaa !57

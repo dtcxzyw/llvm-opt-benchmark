@@ -1503,7 +1503,7 @@ _ZN2cv13HOGDescriptorD2Ev.exit:                   ; preds = %_ZNSt6vectorIfSaIfE
   %101 = sub nsw i32 %96, %.sroa.0.0.extract.trunc
   %102 = sdiv i32 %101, 2
   %103 = sub nsw i32 %99, %.sroa.5.0.extract.trunc
-  %104 = sdiv i32 %103, 2
+  %104 = lshr i32 %103, 1
   store i32 %102, ptr %8, align 4, !tbaa !97
   store i32 %104, ptr %44, align 4, !tbaa !98
   store i32 %.sroa.0.0.extract.trunc, ptr %45, align 4, !tbaa !94

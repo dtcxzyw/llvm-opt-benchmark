@@ -147504,8 +147504,8 @@ define void @_ZN5Yosys5RTLIL7SigSpec9extend_u0Eib(ptr noundef nonnull align 8 de
   %14 = load ptr, ptr %13, align 8, !tbaa !424
   %15 = sext i32 %1 to i64
   %16 = getelementptr inbounds %"struct.Yosys::RTLIL::SigBit", ptr %14, i64 %15
-  %17 = sext i32 %10 to i64
-  %18 = getelementptr inbounds %"struct.Yosys::RTLIL::SigBit", ptr %16, i64 %17
+  %17 = zext nneg i32 %10 to i64
+  %18 = getelementptr inbounds nuw %"struct.Yosys::RTLIL::SigBit", ptr %16, i64 %17
   %19 = ptrtoint ptr %18 to i64
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !424

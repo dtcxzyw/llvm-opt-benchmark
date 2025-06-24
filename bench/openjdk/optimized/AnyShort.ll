@@ -595,8 +595,8 @@ define hidden void @AnyShortDrawGlyphList(ptr noundef readonly captures(none) %0
   %37 = icmp slt i32 %24, %5
   %38 = sub nsw i32 %5, %24
   %narrow = select i1 %37, i32 %38, i32 0
-  %.069.idx = sext i32 %narrow to i64
-  %.069 = getelementptr inbounds i8, ptr %21, i64 %.069.idx
+  %.069.idx = zext i32 %narrow to i64
+  %.069 = getelementptr inbounds nuw i8, ptr %21, i64 %.069.idx
   %39 = sub nsw i32 %6, %26
   %40 = mul nsw i32 %39, %35
   %narrow87 = select i1 %36, i32 %40, i32 0
@@ -713,8 +713,8 @@ define hidden void @AnyShortDrawGlyphListXor(ptr noundef readonly captures(none)
   %44 = icmp slt i32 %31, %5
   %45 = sub nsw i32 %5, %31
   %narrow = select i1 %44, i32 %45, i32 0
-  %.073.idx = sext i32 %narrow to i64
-  %.073 = getelementptr inbounds i8, ptr %28, i64 %.073.idx
+  %.073.idx = zext i32 %narrow to i64
+  %.073 = getelementptr inbounds nuw i8, ptr %28, i64 %.073.idx
   %46 = sub nsw i32 %6, %33
   %47 = mul nsw i32 %46, %42
   %narrow91 = select i1 %43, i32 %47, i32 0

@@ -2115,7 +2115,7 @@ gv_calloc.exit363:                                ; preds = %.thread.i362, %gv_c
 
 375:                                              ; preds = %370
   %376 = sub nsw i64 %indvars.iv481, %369
-  %377 = getelementptr inbounds ptr, ptr %367, i64 %376
+  %377 = getelementptr inbounds nuw ptr, ptr %367, i64 %376
   br label %378
 
 378:                                              ; preds = %372, %375

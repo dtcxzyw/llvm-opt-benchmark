@@ -8719,8 +8719,8 @@ _ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exi
   %.03661.i = phi i64 [ 0, %.lr.ph62.i ], [ %.238.i, %85 ]
   %.03960.i = phi i64 [ %41, %.lr.ph62.i ], [ %.241.i, %85 ]
   %45 = sub nsw i64 %.03960.i, %.03661.i
-  %46 = ashr i64 %45, 1
-  %47 = add nsw i64 %46, %.03661.i
+  %46 = lshr i64 %45, 1
+  %47 = add nuw nsw i64 %46, %.03661.i
   %48 = and i64 %47, 4294967295
   %49 = getelementptr inbounds nuw i32, ptr %33, i64 %48
   %50 = load i32, ptr %49, align 4, !tbaa !10
@@ -8793,7 +8793,7 @@ _ZN12duckdb_minizL23mz_zip_filename_compareEPKNS_12mz_zip_arrayES2_jPKcj.exit.i:
 
 85:                                               ; preds = %_ZN12duckdb_minizL23mz_zip_filename_compareEPKNS_12mz_zip_arrayES2_jPKcj.exit.i
   %86 = icmp slt i32 %82, 0
-  %87 = add nsw i64 %47, 1
+  %87 = add nuw nsw i64 %47, 1
   %88 = add nsw i64 %47, -1
   %.241.i = select i1 %86, i64 %.03960.i, i64 %88
   %.238.i = select i1 %86, i64 %87, i64 %.03661.i

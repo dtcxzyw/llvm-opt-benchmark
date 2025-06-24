@@ -1789,7 +1789,7 @@ define internal fastcc noundef ptr @bitsubstring(ptr noundef readonly captures(a
 
 30:                                               ; preds = %25
   %31 = sub nsw i32 %.058, %7
-  %32 = add i32 %31, 7
+  %32 = add nuw i32 %31, 7
   %33 = sdiv i32 %32, 8
   %narrow = add nsw i32 %33, 8
   %34 = sext i32 %narrow to i64

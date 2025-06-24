@@ -1840,7 +1840,7 @@ _ZN6Gluco23vecIcE4pushEv.exit:                    ; preds = %._ZN6Gluco23vecIcE4
   %246 = add nsw i32 %245, 2
   %247 = call noundef i32 @llvm.smax.i32(i32 %246, i32 %243)
   %248 = sub nsw i32 2147483647, %239
-  %249 = icmp sgt i32 %247, %248
+  %249 = icmp samesign ugt i32 %247, %248
   br i1 %249, label %261, label %250
 
 250:                                              ; preds = %240
@@ -2004,7 +2004,7 @@ _ZN6Gluco23vecIiE4pushERKi.exit23:                ; preds = %._ZN6Gluco23vecIiE4
   %339 = add nsw i32 %338, 2
   %340 = call noundef i32 @llvm.smax.i32(i32 %339, i32 %336)
   %341 = sub nsw i32 2147483647, %332
-  %342 = icmp sgt i32 %340, %341
+  %342 = icmp samesign ugt i32 %340, %341
   br i1 %342, label %354, label %343
 
 343:                                              ; preds = %333
@@ -2072,7 +2072,7 @@ _ZN6Gluco23vecINS_3LitEE6growToEiRKS1_.exit:      ; preds = %_ZN6Gluco23vecIiE4p
   %375 = add nsw i32 %374, 2
   %376 = call noundef i32 @llvm.smax.i32(i32 %375, i32 %372)
   %377 = sub nsw i32 2147483647, %368
-  %378 = icmp sgt i32 %376, %377
+  %378 = icmp samesign ugt i32 %376, %377
   br i1 %378, label %390, label %379
 
 379:                                              ; preds = %369
@@ -2140,7 +2140,7 @@ _ZN6Gluco23vecINS_3LitEE6growToEiRKS1_.exit36:    ; preds = %_ZN6Gluco23vecINS_3
   %411 = add nsw i32 %410, 2
   %412 = call noundef i32 @llvm.smax.i32(i32 %411, i32 %408)
   %413 = sub nsw i32 2147483647, %404
-  %414 = icmp sgt i32 %412, %413
+  %414 = icmp samesign ugt i32 %412, %413
   br i1 %414, label %426, label %415
 
 415:                                              ; preds = %405
@@ -2213,7 +2213,7 @@ _ZN6Gluco23vecINS_6Solver8NodeDataEE6growToEiRKS2_.exit: ; preds = %_ZN6Gluco23v
   %445 = add nsw i32 %444, 2
   %446 = call noundef i32 @llvm.smax.i32(i32 %445, i32 %442)
   %447 = sub nsw i32 2147483647, %438
-  %448 = icmp sgt i32 %446, %447
+  %448 = icmp samesign ugt i32 %446, %447
   br i1 %448, label %460, label %449
 
 449:                                              ; preds = %439
@@ -2371,7 +2371,7 @@ define linkonce_odr void @_ZN6Gluco28OccListsINS_3LitENS_3vecINS_6Solver7Watcher
   %17 = add nsw i32 %16, 2
   %18 = tail call noundef i32 @llvm.smax.i32(i32 %17, i32 %14)
   %19 = sub nsw i32 2147483647, %10
-  %20 = icmp sgt i32 %18, %19
+  %20 = icmp samesign ugt i32 %18, %19
   br i1 %20, label %31, label %21
 
 21:                                               ; preds = %11
@@ -11525,7 +11525,7 @@ _ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit75:       ; preds = %_ZNK6Gluco26Solver1
   %286 = add nsw i32 %285, 2
   %287 = call noundef i32 @llvm.smax.i32(i32 %286, i32 %283)
   %288 = sub nsw i32 2147483647, %279
-  %289 = icmp sgt i32 %287, %288
+  %289 = icmp samesign ugt i32 %287, %288
   br i1 %289, label %300, label %290
 
 290:                                              ; preds = %280
@@ -11881,7 +11881,7 @@ define internal fastcc noundef i32 @_ZL6mapVariRN6Gluco23vecIiEERi(i32 noundef %
   %22 = add nsw i32 %21, 2
   %23 = tail call noundef i32 @llvm.smax.i32(i32 %22, i32 %19)
   %24 = sub nsw i32 2147483647, %15
-  %25 = icmp sgt i32 %23, %24
+  %25 = icmp samesign ugt i32 %23, %24
   br i1 %25, label %37, label %26
 
 26:                                               ; preds = %16
@@ -12211,7 +12211,7 @@ _ZNK6Gluco26Solver9satisfiedERKNS_6ClauseE.exit46.thread68: ; preds = %_ZNK6Gluc
   %139 = add nsw i32 %138, 2
   %140 = tail call noundef i32 @llvm.smax.i32(i32 %139, i32 %136)
   %141 = sub nsw i32 2147483647, %132
-  %142 = icmp sgt i32 %140, %141
+  %142 = icmp samesign ugt i32 %140, %141
   br i1 %142, label %153, label %143
 
 143:                                              ; preds = %133
@@ -12356,7 +12356,7 @@ _ZNK6Gluco26Solver9satisfiedERKNS_6ClauseE.exit46.thread: ; preds = %94, %_ZNK6G
   %206 = add nsw i32 %205, 2
   %207 = tail call noundef i32 @llvm.smax.i32(i32 %206, i32 %203)
   %208 = sub nsw i32 2147483647, %199
-  %209 = icmp sgt i32 %207, %208
+  %209 = icmp samesign ugt i32 %207, %208
   br i1 %209, label %220, label %210
 
 210:                                              ; preds = %200
@@ -14287,7 +14287,7 @@ define linkonce_odr void @_ZN6Gluco24HeapINS_6Solver10VarOrderLtEE6insertEi(ptr 
   %16 = add nsw i32 %15, 2
   %17 = tail call noundef i32 @llvm.smax.i32(i32 %16, i32 %13)
   %18 = sub nsw i32 2147483647, %9
-  %19 = icmp sgt i32 %17, %18
+  %19 = icmp samesign ugt i32 %17, %18
   br i1 %19, label %31, label %20
 
 20:                                               ; preds = %10
@@ -15750,7 +15750,7 @@ define linkonce_odr void @_ZN6Gluco25Heap2INS_6Solver12JustOrderLt2ENS1_7JustKey
   %18 = add nsw i32 %17, 2
   %19 = tail call noundef i32 @llvm.smax.i32(i32 %18, i32 %15)
   %20 = sub nsw i32 2147483647, %11
-  %21 = icmp sgt i32 %19, %20
+  %21 = icmp samesign ugt i32 %19, %20
   br i1 %21, label %33, label %22
 
 22:                                               ; preds = %12
@@ -15962,7 +15962,7 @@ define linkonce_odr void @_ZN6Gluco23vecIjE6growToEi(ptr noundef nonnull align 8
   %14 = add nsw i32 %13, 2
   %15 = tail call noundef i32 @llvm.smax.i32(i32 %14, i32 %11)
   %16 = sub nsw i32 2147483647, %7
-  %17 = icmp sgt i32 %15, %16
+  %17 = icmp samesign ugt i32 %15, %16
   br i1 %17, label %29, label %18
 
 18:                                               ; preds = %8
@@ -16037,7 +16037,7 @@ define linkonce_odr void @_ZN6Gluco23vecINS0_INS_6Solver7WatcherEEEE6growToEi(pt
   %14 = add nsw i32 %13, 2
   %15 = tail call noundef i32 @llvm.smax.i32(i32 %14, i32 %11)
   %16 = sub nsw i32 2147483647, %7
-  %17 = icmp sgt i32 %15, %16
+  %17 = icmp samesign ugt i32 %15, %16
   br i1 %17, label %29, label %18
 
 18:                                               ; preds = %8

@@ -3937,7 +3937,7 @@ switch.lookup:                                    ; preds = %723, %729
   %903 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %902, ptr noundef %0, i32 noundef %.013001475, i32 noundef 2, i32 noundef 0)
   %904 = add nsw i32 %.201474, -2
   %905 = add i32 %.013001475, 2
-  %906 = icmp samesign ugt i32 %.201474, 3
+  %906 = icmp samesign ugt i32 %904, 1
   br i1 %906, label %.lr.ph1476, label %proto_item_set_url.exit, !llvm.loop !41
 
 907:                                              ; preds = %35

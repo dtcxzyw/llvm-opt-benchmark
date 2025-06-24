@@ -24249,7 +24249,7 @@ _ZN4llvm14ModuloSchedule8getStageEPNS_12MachineInstrE.exit: ; preds = %_ZN4llvm1
 
 101:                                              ; preds = %_ZN4llvm14ModuloSchedule8getStageEPNS_12MachineInstrE.exit
   %102 = sub nsw i32 %3, %100
-  %103 = sext i32 %102 to i64
+  %103 = zext nneg i32 %102 to i64
   %104 = load ptr, ptr %4, align 8, !tbaa !25
   %105 = getelementptr inbounds nuw %"class.llvm::DenseMap.225", ptr %104, i64 %103
   %106 = load ptr, ptr %105, align 8, !tbaa !259

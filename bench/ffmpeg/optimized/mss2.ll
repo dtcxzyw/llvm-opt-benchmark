@@ -1820,7 +1820,7 @@ define internal i32 @arith2_get_number(ptr noundef captures(none) %0, i32 nounde
   %31 = sub nsw i32 %30, %7
   %32 = icmp sgt i32 %29, %31
   %33 = sub nsw i32 %29, %31
-  %34 = ashr i32 %33, 1
+  %34 = lshr i32 %33, 1
   %35 = add nsw i32 %34, %31
   %.0.i = select i1 %32, i32 %35, i32 %29
   %36 = ashr i32 %.0.i, %spec.select
@@ -1829,7 +1829,7 @@ define internal i32 @arith2_get_number(ptr noundef captures(none) %0, i32 nounde
   %39 = shl i32 %38, %spec.select
   %40 = icmp sgt i32 %39, %31
   %41 = sub nsw i32 %39, %31
-  %42 = shl i32 %41, 1
+  %42 = shl nuw i32 %41, 1
   %43 = add nsw i32 %42, %31
   %.sink.i = select i1 %40, i32 %43, i32 %39
   %44 = add nsw i32 %5, -1
@@ -1837,7 +1837,7 @@ define internal i32 @arith2_get_number(ptr noundef captures(none) %0, i32 nounde
   store i32 %45, ptr %3, align 4, !tbaa !89
   %46 = icmp sgt i32 %37, %31
   %47 = sub nsw i32 %37, %31
-  %48 = shl i32 %47, 1
+  %48 = shl nuw i32 %47, 1
   %49 = add nsw i32 %48, %31
   %.pn.i = select i1 %46, i32 %49, i32 %37
   %storemerge.i = add nsw i32 %.pn.i, %5
@@ -3253,7 +3253,7 @@ define internal range(i32 0, 256) i32 @arith2_get_model_sym(ptr noundef captures
   %32 = sub nsw i32 %31, %7
   %33 = icmp sgt i32 %30, %32
   %34 = sub nsw i32 %30, %32
-  %35 = ashr i32 %34, 1
+  %35 = lshr i32 %34, 1
   %36 = add nsw i32 %35, %32
   %.0.i.i = select i1 %33, i32 %36, i32 %30
   %37 = ashr i32 %.0.i.i, %spec.select.i
@@ -3278,7 +3278,7 @@ arith2_get_prob.exit:                             ; preds = %38
   %49 = shl i32 %48, %spec.select.i
   %50 = icmp sgt i32 %49, %32
   %51 = sub nsw i32 %49, %32
-  %52 = shl i32 %51, 1
+  %52 = shl nuw i32 %51, 1
   %53 = add nsw i32 %52, %32
   %.sink.i.i = select i1 %50, i32 %53, i32 %49
   %54 = add nsw i32 %5, -1
@@ -3286,7 +3286,7 @@ arith2_get_prob.exit:                             ; preds = %38
   store i32 %55, ptr %3, align 4, !tbaa !89
   %56 = icmp sgt i32 %44, %32
   %57 = sub nsw i32 %44, %32
-  %58 = shl i32 %57, 1
+  %58 = shl nuw i32 %57, 1
   %59 = add nsw i32 %58, %32
   %.pn.i.i = select i1 %56, i32 %59, i32 %44
   %storemerge.i.i = add nsw i32 %.pn.i.i, %5

@@ -549,9 +549,8 @@ define range(i32 0, 2) i32 @cli_strbcasestr(ptr noundef readonly captures(none) 
 
 8:                                                ; preds = %2
   %9 = sub i64 %3, %5
-  %sext = shl i64 %9, 32
-  %10 = ashr exact i64 %sext, 32
-  %11 = getelementptr inbounds i8, ptr %0, i64 %10
+  %10 = and i64 %9, 4294967295
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 %10
   %12 = tail call i32 @strcasecmp(ptr noundef nonnull %11, ptr noundef nonnull %1) #23
   %.not = icmp eq i32 %12, 0
   %13 = zext i1 %.not to i32

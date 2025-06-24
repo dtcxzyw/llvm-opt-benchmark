@@ -1746,7 +1746,7 @@ has_bottom_left.exit:                             ; preds = %has_top_right.exit,
   %396 = load i16, ptr %395, align 2
   %397 = zext i16 %396 to i32
   %398 = sub nsw i32 %374, %.2.i
-  %399 = sext i32 %398 to i64
+  %399 = zext nneg i32 %398 to i64
   %400 = call ptr @aom_memset16(ptr noundef nonnull %394, i32 noundef %397, i64 noundef %399) #11
   br label %408
 
@@ -1807,7 +1807,7 @@ has_bottom_left.exit:                             ; preds = %has_top_right.exit,
   %437 = load i16, ptr %436, align 2
   %438 = zext i16 %437 to i32
   %439 = sub nsw i32 %418, %.4.i
-  %440 = sext i32 %439 to i64
+  %440 = zext nneg i32 %439 to i64
   %441 = call ptr @aom_memset16(ptr noundef nonnull %435, i32 noundef %438, i64 noundef %440) #11
   br label %449
 
@@ -2898,7 +2898,7 @@ build_intra_predictors_high.exit:                 ; preds = %.loopexit.us.i.i.i,
   %992 = getelementptr i8, ptr %991, i64 -1
   %993 = load i8, ptr %992, align 1
   %994 = sub nsw i32 %971, %.2.i328
-  %995 = sext i32 %994 to i64
+  %995 = zext nneg i32 %994 to i64
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %991, i8 %993, i64 %995, i1 false)
   br label %1001
 
@@ -2955,7 +2955,7 @@ build_intra_predictors_high.exit:                 ; preds = %.loopexit.us.i.i.i,
   %1027 = getelementptr i8, ptr %1026, i64 -1
   %1028 = load i8, ptr %1027, align 1
   %1029 = sub nsw i32 %1011, %.4.i321
-  %1030 = sext i32 %1029 to i64
+  %1030 = zext nneg i32 %1029 to i64
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %1026, i8 %1028, i64 %1030, i1 false)
   br label %1036
 

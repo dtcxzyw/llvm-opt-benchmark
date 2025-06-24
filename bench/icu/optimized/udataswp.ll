@@ -85,7 +85,7 @@ define range(i32 0, -2147483648) i32 @udata_swapInvStringBlock_77(ptr noundef %0
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 %28
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 %28
   %31 = sub nsw i32 %2, %.0.lcssa
-  %32 = sext i32 %31 to i64
+  %32 = zext nneg i32 %31 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %29, ptr nonnull align 1 %30, i64 %32, i1 false)
   br label %33
 

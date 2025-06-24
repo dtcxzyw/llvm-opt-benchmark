@@ -1285,7 +1285,7 @@ zval_get_double.exit483:                          ; preds = %493, %495
   %513 = sext i32 %.3376690 to i64
   %514 = getelementptr inbounds [1 x i8], ptr %216, i64 0, i64 %513
   %515 = sub nsw i32 %222, %.3376690
-  %516 = sext i32 %515 to i64
+  %516 = zext nneg i32 %515 to i64
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %514, i8 0, i64 %516, i1 false)
   br label %zend_tmp_string_release.exit
 

@@ -26,7 +26,7 @@ define internal i32 @mjpeg2jpeg_filter(ptr noundef %0, ptr noundef %1) #0 {
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
   %4 = call i32 @ff_bsf_get_packet(ptr noundef %0, ptr noundef nonnull %3) #4
   %5 = icmp slt i32 %4, 0
-  br i1 %5, label %64, label %6
+  br i1 %5, label %63, label %6
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %3, align 8, !tbaa !4
@@ -70,67 +70,67 @@ define internal i32 @mjpeg2jpeg_filter(ptr noundef %0, ptr noundef %1) #0 {
 .thread:                                          ; preds = %15, %19, %23
   %.02227 = phi i32 [ %32, %23 ], [ 2, %19 ], [ 2, %15 ]
   %34 = add nuw i32 %9, 440
-  %35 = sub i32 %34, %.02227
-  %36 = call i32 @av_new_packet(ptr noundef %1, i32 noundef %35) #4
-  %37 = icmp slt i32 %36, 0
-  br i1 %37, label %.thread29, label %38
+  %narrow = sub i32 %34, %.02227
+  %35 = call i32 @av_new_packet(ptr noundef %1, i32 noundef %narrow) #4
+  %36 = icmp slt i32 %35, 0
+  br i1 %36, label %.thread29, label %37
 
-38:                                               ; preds = %.thread
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %40 = load ptr, ptr %39, align 8, !tbaa !17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %40, ptr noundef nonnull align 16 dereferenceable(20) @jpeg_header, i64 20, i1 false)
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 20
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %41, ptr noundef nonnull align 1 dereferenceable(5) @dht_segment_head, i64 5, i1 false)
-  %42 = getelementptr inbounds nuw i8, ptr %40, i64 25
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %42, ptr noundef nonnull readonly align 1 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @ff_mjpeg_bits_dc_luminance, i64 1), i64 16, i1 false)
-  %43 = getelementptr inbounds nuw i8, ptr %40, i64 41
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(29) %43, ptr noundef nonnull align 16 dereferenceable(29) @dht_segment_frag, i64 29, i1 false)
-  %44 = getelementptr inbounds nuw i8, ptr %40, i64 70
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %44, ptr noundef nonnull align 1 dereferenceable(12) @ff_mjpeg_val_dc, i64 12, i1 false)
-  %45 = getelementptr inbounds nuw i8, ptr %40, i64 82
-  %46 = getelementptr inbounds nuw i8, ptr %40, i64 83
-  store i8 16, ptr %45, align 1, !tbaa !18
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %46, ptr noundef nonnull readonly align 1 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @ff_mjpeg_bits_ac_luminance, i64 1), i64 16, i1 false)
-  %47 = getelementptr inbounds nuw i8, ptr %40, i64 99
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(162) %47, ptr noundef nonnull align 1 dereferenceable(162) @ff_mjpeg_val_ac_luminance, i64 162, i1 false)
-  %48 = getelementptr inbounds nuw i8, ptr %40, i64 261
-  %49 = getelementptr inbounds nuw i8, ptr %40, i64 262
-  store i8 17, ptr %48, align 1, !tbaa !18
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %49, ptr noundef nonnull readonly align 1 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @ff_mjpeg_bits_ac_chrominance, i64 1), i64 16, i1 false)
-  %50 = getelementptr inbounds nuw i8, ptr %40, i64 278
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(162) %50, ptr noundef nonnull align 1 dereferenceable(162) @ff_mjpeg_val_ac_chrominance, i64 162, i1 false)
-  %51 = getelementptr inbounds nuw i8, ptr %40, i64 440
-  %52 = load ptr, ptr %3, align 8, !tbaa !4
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 24
-  %54 = load ptr, ptr %53, align 8, !tbaa !17
-  %55 = zext nneg i32 %.02227 to i64
-  %56 = getelementptr inbounds nuw i8, ptr %54, i64 %55
-  %57 = getelementptr inbounds nuw i8, ptr %52, i64 32
-  %58 = load i32, ptr %57, align 8, !tbaa !9
-  %59 = sub nsw i32 %58, %.02227
-  %60 = sext i32 %59 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %51, ptr nonnull readonly align 1 %56, i64 %60, i1 false)
-  %61 = call i32 @av_packet_copy_props(ptr noundef %1, ptr noundef %52) #4
-  %62 = icmp slt i32 %61, 0
-  br i1 %62, label %.thread29, label %63
+37:                                               ; preds = %.thread
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %39 = load ptr, ptr %38, align 8, !tbaa !17
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %39, ptr noundef nonnull align 16 dereferenceable(20) @jpeg_header, i64 20, i1 false)
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 20
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %40, ptr noundef nonnull align 1 dereferenceable(5) @dht_segment_head, i64 5, i1 false)
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 25
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %41, ptr noundef nonnull readonly align 1 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @ff_mjpeg_bits_dc_luminance, i64 1), i64 16, i1 false)
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 41
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(29) %42, ptr noundef nonnull align 16 dereferenceable(29) @dht_segment_frag, i64 29, i1 false)
+  %43 = getelementptr inbounds nuw i8, ptr %39, i64 70
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %43, ptr noundef nonnull align 1 dereferenceable(12) @ff_mjpeg_val_dc, i64 12, i1 false)
+  %44 = getelementptr inbounds nuw i8, ptr %39, i64 82
+  %45 = getelementptr inbounds nuw i8, ptr %39, i64 83
+  store i8 16, ptr %44, align 1, !tbaa !18
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %45, ptr noundef nonnull readonly align 1 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @ff_mjpeg_bits_ac_luminance, i64 1), i64 16, i1 false)
+  %46 = getelementptr inbounds nuw i8, ptr %39, i64 99
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(162) %46, ptr noundef nonnull align 1 dereferenceable(162) @ff_mjpeg_val_ac_luminance, i64 162, i1 false)
+  %47 = getelementptr inbounds nuw i8, ptr %39, i64 261
+  %48 = getelementptr inbounds nuw i8, ptr %39, i64 262
+  store i8 17, ptr %47, align 1, !tbaa !18
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %48, ptr noundef nonnull readonly align 1 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @ff_mjpeg_bits_ac_chrominance, i64 1), i64 16, i1 false)
+  %49 = getelementptr inbounds nuw i8, ptr %39, i64 278
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(162) %49, ptr noundef nonnull align 1 dereferenceable(162) @ff_mjpeg_val_ac_chrominance, i64 162, i1 false)
+  %50 = getelementptr inbounds nuw i8, ptr %39, i64 440
+  %51 = load ptr, ptr %3, align 8, !tbaa !4
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 24
+  %53 = load ptr, ptr %52, align 8, !tbaa !17
+  %54 = zext nneg i32 %.02227 to i64
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 %54
+  %56 = getelementptr inbounds nuw i8, ptr %51, i64 32
+  %57 = load i32, ptr %56, align 8, !tbaa !9
+  %58 = sub nsw i32 %57, %.02227
+  %59 = sext i32 %58 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %50, ptr nonnull readonly align 1 %55, i64 %59, i1 false)
+  %60 = call i32 @av_packet_copy_props(ptr noundef %1, ptr noundef %51) #4
+  %61 = icmp slt i32 %60, 0
+  br i1 %61, label %.thread29, label %62
 
 .thread29.sink.split:                             ; preds = %23, %11, %6
   %.str.1.sink = phi ptr [ @.str.1, %6 ], [ @.str.2, %11 ], [ @.str.1, %23 ]
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull %.str.1.sink) #4
   br label %.thread29
 
-.thread29:                                        ; preds = %.thread29.sink.split, %.thread, %38
-  %.02132 = phi i32 [ %61, %38 ], [ %36, %.thread ], [ -1094995529, %.thread29.sink.split ]
+.thread29:                                        ; preds = %.thread29.sink.split, %.thread, %37
+  %.02132 = phi i32 [ %60, %37 ], [ %35, %.thread ], [ -1094995529, %.thread29.sink.split ]
   call void @av_packet_unref(ptr noundef %1) #4
+  br label %62
+
+62:                                               ; preds = %.thread29, %37
+  %.02131 = phi i32 [ %.02132, %.thread29 ], [ %60, %37 ]
+  call void @av_packet_free(ptr noundef nonnull %3) #4
   br label %63
 
-63:                                               ; preds = %.thread29, %38
-  %.02131 = phi i32 [ %.02132, %.thread29 ], [ %61, %38 ]
-  call void @av_packet_free(ptr noundef nonnull %3) #4
-  br label %64
-
-64:                                               ; preds = %2, %63
-  %.0 = phi i32 [ %.02131, %63 ], [ %4, %2 ]
+63:                                               ; preds = %2, %62
+  %.0 = phi i32 [ %.02131, %62 ], [ %4, %2 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #4
   ret i32 %.0
 }

@@ -735,10 +735,10 @@ gv_calloc.exit:                                   ; preds = %.thread.i, %95
   %203 = load double, ptr %202, align 8, !tbaa !39
   %204 = fcmp olt double %184, %203
   %205 = icmp sgt i32 %114, 0
-  %or.cond38.i = and i1 %205, %204
+  %or.cond37.i = and i1 %205, %204
   %206 = add nsw i32 %114, -1
-  %spec.select219 = select i1 %or.cond38.i, i32 %113, i32 1
-  %spec.select220 = select i1 %or.cond38.i, i32 %206, i32 %200
+  %spec.select219 = select i1 %or.cond37.i, i32 %113, i32 1
+  %spec.select220 = select i1 %or.cond37.i, i32 %206, i32 %200
   br label %oned_optimizer_train.exit
 
 207:                                              ; preds = %._crit_edge212
@@ -1712,10 +1712,10 @@ gv_calloc.exit247:                                ; preds = %114
   %268 = load double, ptr %267, align 8, !tbaa !39
   %269 = fcmp olt double %249, %268
   %270 = icmp sgt i32 %137, 0
-  %or.cond38.i = and i1 %270, %269
+  %or.cond37.i = and i1 %270, %269
   %271 = add nsw i32 %137, -1
-  %spec.select311 = select i1 %or.cond38.i, i32 %136, i32 1
-  %spec.select312 = select i1 %or.cond38.i, i32 %271, i32 %265
+  %spec.select311 = select i1 %or.cond37.i, i32 %136, i32 1
+  %spec.select312 = select i1 %or.cond37.i, i32 %271, i32 %265
   br label %oned_optimizer_train.exit
 
 oned_optimizer_train.exit:                        ; preds = %264, %256, %252, %254, %._crit_edge303

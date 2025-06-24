@@ -112,11 +112,11 @@ thread-pre-split:                                 ; preds = %15, %.thread
 46:                                               ; preds = %42
   %47 = sub nsw i32 %37, %.pr188.pre205
   %48 = sub nsw i32 %38, %.pr188.pre205
-  %49 = srem i32 %47, %48
+  %49 = urem i32 %47, %48
   %50 = icmp ne i32 %49, 0
-  %51 = sdiv i32 %47, %48
+  %51 = udiv i32 %47, %48
   %52 = zext i1 %50 to i32
-  %spec.select217 = add nsw i32 %51, %52
+  %spec.select217 = add nuw nsw i32 %51, %52
   br label %53
 
 53:                                               ; preds = %46, %42

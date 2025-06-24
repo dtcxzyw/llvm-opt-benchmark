@@ -22097,8 +22097,8 @@ compute_sampled_height.exit.us:                   ; preds = %39, %35
 
 69:                                               ; preds = %61
   %70 = sub nsw i32 %67, %.0.i
-  %71 = sdiv i32 %70, %59
-  %72 = add nsw i32 %71, 1
+  %71 = udiv i32 %70, %59
+  %72 = add nuw nsw i32 %71, 1
   br label %compute_sampled_height.exit
 
 compute_sampled_height.exit:                      ; preds = %57, %61, %69
@@ -22199,8 +22199,8 @@ define internal fastcc i32 @internal_coding_fill_channel_info(ptr noundef nonnul
 
 52:                                               ; preds = %42
   %53 = sub nsw i32 %50, %.0.i
-  %54 = sdiv i32 %53, %33
-  %55 = add nsw i32 %54, 1
+  %54 = udiv i32 %53, %33
+  %55 = add nuw nsw i32 %54, 1
   br label %compute_sampled_height.exit
 
 compute_sampled_height.exit:                      ; preds = %25, %40, %42, %52
@@ -22332,8 +22332,8 @@ define internal fastcc i32 @internal_coding_update_channel_info(ptr noundef writ
 
 43:                                               ; preds = %33
   %44 = sub nsw i32 %41, %.0.i
-  %45 = sdiv i32 %44, %24
-  %46 = add nsw i32 %45, 1
+  %45 = udiv i32 %44, %24
+  %46 = add nuw nsw i32 %45, 1
   br label %compute_sampled_height.exit
 
 compute_sampled_height.exit:                      ; preds = %16, %31, %33, %43

@@ -3231,7 +3231,7 @@ define internal fastcc noundef zeroext i1 @Field_Grown(ptr noundef captures(addr
   %75 = sext i32 %18 to i64
   %76 = icmp sgt i32 %59, %18
   %77 = sub nsw i32 %59, %18
-  %78 = sext i32 %77 to i64
+  %78 = zext nneg i32 %77 to i64
   %79 = sext i32 %59 to i64
   %80 = sext i32 %74 to i64
   br i1 %76, label %.lr.ph.split.us, label %.lr.ph.split

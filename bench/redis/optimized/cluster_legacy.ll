@@ -13477,8 +13477,8 @@ define dso_local void @clusterHandleSlaveFailover() local_unnamed_addr #3 {
 
 122:                                              ; preds = %116
   %123 = sub nsw i32 %117, %120
-  %124 = mul nsw i32 %123, 1000
-  %125 = sext i32 %124 to i64
+  %124 = mul nuw nsw i32 %123, 1000
+  %125 = zext nneg i32 %124 to i64
   %126 = getelementptr inbounds nuw i8, ptr %118, i64 393304
   %127 = load i64, ptr %126, align 8, !tbaa !116
   %128 = add nsw i64 %127, %125

@@ -660,15 +660,15 @@ verify_notes_filepair.exit.thread.i.i:            ; preds = %verify_notes_filepa
   %spec.store.select49.i.i.i = call i32 @llvm.smax.i32(i32 %.140.ph.i.i.i, i32 0)
   %254 = icmp slt i32 %spec.store.select49.i.i.i, %.03363.i.i
   %255 = zext nneg i32 %spec.store.select49.i.i.i to i64
-  br i1 %254, label %st_mult.exit.i.i.i.i, label %278
+  br i1 %254, label %move_array.exit.i.i.i, label %278
 
-st_mult.exit.i.i.i.i:                             ; preds = %.loopexit.i.i.i
+move_array.exit.i.i.i:                            ; preds = %.loopexit.i.i.i
   %256 = getelementptr inbounds nuw %struct.notes_merge_pair, ptr %193, i64 %255
-  %257 = getelementptr inbounds nuw i8, ptr %256, i64 144
-  %258 = sub nsw i32 %.03363.i.i, %spec.store.select49.i.i.i
-  %259 = sext i32 %258 to i64
-  %260 = mul nuw nsw i64 %259, 144
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %257, ptr readonly align 1 %256, i64 %260, i1 false)
+  %257 = sub nsw i32 %.03363.i.i, %spec.store.select49.i.i.i
+  %258 = zext nneg i32 %257 to i64
+  %259 = getelementptr inbounds nuw i8, ptr %256, i64 144
+  %260 = mul nuw nsw i64 %258, 144
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %259, ptr readonly align 1 %256, i64 %260, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(144) %256, i8 0, i64 144, i1 false)
   br label %278
 
@@ -706,7 +706,7 @@ st_mult.exit.i.i.i.i:                             ; preds = %.loopexit.i.i.i
   store i32 %276, ptr %277, align 4, !tbaa !38
   br label %297
 
-278:                                              ; preds = %st_mult.exit.i.i.i.i, %.loopexit.i.i.i
+278:                                              ; preds = %move_array.exit.i.i.i, %.loopexit.i.i.i
   store i32 %spec.store.select49.i.i.i, ptr @find_notes_merge_pair_pos.last_index, align 4, !tbaa !81
   %279 = getelementptr inbounds nuw %struct.notes_merge_pair, ptr %193, i64 %255
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %279, ptr noundef nonnull readonly align 4 dereferenceable(32) %13, i64 32, i1 false)

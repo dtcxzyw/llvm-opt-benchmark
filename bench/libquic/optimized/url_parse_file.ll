@@ -300,8 +300,8 @@ _ZN3url13FindNextSlashIcEEiPKT_ii.exit.thread.i.i: ; preds = %72, %_ZN3url13Find
 93:                                               ; preds = %91
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #3
   %94 = sub nsw i32 %.168108.i, %.0.lcssa.i.i.i
-  %.sroa.2.0.insert.ext.i31.i.i = zext i32 %94 to i64
-  %.sroa.2.0.insert.shift.i32.i.i = shl nuw i64 %.sroa.2.0.insert.ext.i31.i.i, 32
+  %.sroa.2.0.insert.ext.i31.i.i = zext nneg i32 %94 to i64
+  %.sroa.2.0.insert.shift.i32.i.i = shl nuw nsw i64 %.sroa.2.0.insert.ext.i31.i.i, 32
   %.sroa.0.0.insert.ext.i33.i.i = zext i32 %.0.lcssa.i.i.i to i64
   %.sroa.0.0.insert.insert.i34.i.i = or disjoint i64 %.sroa.2.0.insert.shift.i32.i.i, %.sroa.0.0.insert.ext.i33.i.i
   store i64 %.sroa.0.0.insert.insert.i34.i.i, ptr %5, align 8
@@ -640,8 +640,8 @@ _ZN3url13FindNextSlashItEEiPKT_ii.exit.thread.i.i: ; preds = %72, %_ZN3url13Find
 93:                                               ; preds = %91
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #3
   %94 = sub nsw i32 %.168108.i, %.0.lcssa.i.i.i
-  %.sroa.2.0.insert.ext.i31.i.i = zext i32 %94 to i64
-  %.sroa.2.0.insert.shift.i32.i.i = shl nuw i64 %.sroa.2.0.insert.ext.i31.i.i, 32
+  %.sroa.2.0.insert.ext.i31.i.i = zext nneg i32 %94 to i64
+  %.sroa.2.0.insert.shift.i32.i.i = shl nuw nsw i64 %.sroa.2.0.insert.ext.i31.i.i, 32
   %.sroa.0.0.insert.ext.i33.i.i = zext i32 %.0.lcssa.i.i.i to i64
   %.sroa.0.0.insert.insert.i34.i.i = or disjoint i64 %.sroa.2.0.insert.shift.i32.i.i, %.sroa.0.0.insert.ext.i33.i.i
   store i64 %.sroa.0.0.insert.insert.i34.i.i, ptr %5, align 8

@@ -1216,7 +1216,7 @@ define internal fastcc void @_ZN2cv12_GLOBAL__N_110cat_stringERKNSt7__cxx1112bas
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i: ; preds = %20
   %23 = trunc nsw i64 %indvars.iv10 to i32
   %24 = sub nsw i32 %23, %.0.lcssa
-  %25 = sext i32 %24 to i64
+  %25 = zext nneg i32 %24 to i64
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %26, ptr %0, align 8, !tbaa !26, !alias.scope !48
   %27 = getelementptr inbounds nuw i8, ptr %.0.val, i64 %21
@@ -1224,7 +1224,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i: ;
   %spec.select.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %25, i64 %28)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #29, !noalias !48
   store i64 %spec.select.i.i.i, ptr %2, align 8, !tbaa !27, !noalias !48
-  %29 = icmp ugt i64 %spec.select.i.i.i, 15
+  %29 = icmp samesign ugt i64 %spec.select.i.i.i, 15
   br i1 %29, label %.noexc10.i.i, label %._crit_edge.i.i.i
 
 .noexc10.i.i:                                     ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i

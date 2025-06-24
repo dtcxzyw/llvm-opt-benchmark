@@ -155,22 +155,22 @@ _ZL9findindexP9lua_StateP8LuaTableP10lua_TValue.exit: ; preds = %._ZL9findindexP
 .lr.ph:                                           ; preds = %70
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %79 = load ptr, ptr %78, align 8, !tbaa !17
-  %80 = sext i32 %indvars.iv57 to i64
-  %81 = zext nneg i32 %76 to i64
+  %80 = zext i32 %indvars.iv57 to i64
   br label %84
 
-82:                                               ; preds = %84
-  %indvars.iv.next61 = add nsw i64 %indvars.iv60, 1
-  %83 = icmp slt i64 %indvars.iv.next61, %81
+81:                                               ; preds = %84
+  %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
+  %82 = trunc nuw i64 %indvars.iv.next61 to i32
+  %83 = icmp sgt i32 %76, %82
   br i1 %83, label %84, label %.loopexit, !llvm.loop !23
 
-84:                                               ; preds = %.lr.ph, %82
-  %indvars.iv60 = phi i64 [ %80, %.lr.ph ], [ %indvars.iv.next61, %82 ]
-  %85 = getelementptr inbounds %struct.LuaNode, ptr %79, i64 %indvars.iv60
+84:                                               ; preds = %.lr.ph, %81
+  %indvars.iv60 = phi i64 [ %80, %.lr.ph ], [ %indvars.iv.next61, %81 ]
+  %85 = getelementptr inbounds nuw %struct.LuaNode, ptr %79, i64 %indvars.iv60
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 12
   %87 = load i32, ptr %86, align 4, !tbaa !24
   %88 = icmp eq i32 %87, 0
-  br i1 %88, label %82, label %89
+  br i1 %88, label %81, label %89
 
 89:                                               ; preds = %84
   %90 = getelementptr inbounds nuw i8, ptr %85, i64 16
@@ -185,7 +185,7 @@ _ZL9findindexP9lua_StateP8LuaTableP10lua_TValue.exit: ; preds = %._ZL9findindexP
   %97 = and i32 %96, 15
   store i32 %97, ptr %4, align 4, !tbaa !4
   %98 = load ptr, ptr %78, align 8, !tbaa !17
-  %99 = getelementptr inbounds %struct.LuaNode, ptr %98, i64 %indvars.iv60
+  %99 = getelementptr inbounds nuw %struct.LuaNode, ptr %98, i64 %indvars.iv60
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %64, %89
@@ -194,8 +194,8 @@ _ZL9findindexP9lua_StateP8LuaTableP10lua_TValue.exit: ; preds = %._ZL9findindexP
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %100, ptr noundef nonnull align 8 dereferenceable(16) %.sink68, i64 16, i1 false)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %82, %.loopexit.sink.split, %70
-  %.0 = phi i32 [ 0, %70 ], [ 1, %.loopexit.sink.split ], [ 0, %82 ]
+.loopexit:                                        ; preds = %81, %.loopexit.sink.split, %70
+  %.0 = phi i32 [ 0, %70 ], [ 1, %.loopexit.sink.split ], [ 0, %81 ]
   ret i32 %.0
 }
 

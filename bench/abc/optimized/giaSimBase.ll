@@ -4157,12 +4157,12 @@ Abc_TtNot.exit:                                   ; preds = %.lr.ph.i159, %Abc_T
 
 294:                                              ; preds = %244
   %295 = sub nsw i32 %246, %.val126
-  %296 = shl nsw i32 %295, 1
+  %296 = shl nuw nsw i32 %295, 1
   %.val33.i182 = load ptr, ptr %156, align 8, !tbaa !40
   %.val34.i183 = load ptr, ptr %147, align 8, !tbaa !45
   %297 = getelementptr i8, ptr %.val34.i183, i64 8
   %.val34.val.i184 = load ptr, ptr %297, align 8, !tbaa !29
-  %298 = sext i32 %296 to i64
+  %298 = zext nneg i32 %296 to i64
   %299 = getelementptr i32, ptr %.val34.val.i184, i64 %298
   %300 = load i32, ptr %299, align 4, !tbaa !30
   %301 = sext i32 %300 to i64

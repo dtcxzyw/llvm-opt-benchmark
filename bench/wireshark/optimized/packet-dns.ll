@@ -9292,7 +9292,7 @@ define internal fastcc noundef zeroext i1 @compute_key_id(ptr noundef %0, ptr no
   %36 = add i32 %35, %33
   %37 = add nsw i32 %.03740, -2
   %38 = add i32 %.03542, 2
-  %39 = icmp samesign ugt i32 %.03740, 3
+  %39 = icmp samesign ugt i32 %37, 1
   br i1 %39, label %.lr.ph, label %._crit_edge, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %.lr.ph

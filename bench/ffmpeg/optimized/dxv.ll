@@ -1435,8 +1435,8 @@ bytestream2_get_le16.exit312:                     ; preds = %193, %194
 
 201:                                              ; preds = %bytestream2_get_le16.exit312
   %202 = sub nsw i32 %.0221434, %.0.i311
-  %203 = add nsw i32 %202, 2
-  %204 = zext i32 %203 to i64
+  %203 = add nuw nsw i32 %202, 2
+  %204 = zext nneg i32 %203 to i64
   %205 = icmp slt i64 %57, %204
   br i1 %205, label %.loopexit356, label %206
 
@@ -1656,8 +1656,8 @@ bytestream2_get_le16.exit314:                     ; preds = %291, %292
 
 319:                                              ; preds = %317
   %320 = sub nsw i32 %58, %.2231
-  %321 = add nsw i32 %320, 2
-  %322 = zext i32 %321 to i64
+  %321 = add nuw nsw i32 %320, 2
+  %322 = zext nneg i32 %321 to i64
   %323 = icmp slt i64 %304, %322
   br i1 %323, label %.loopexit356, label %324
 
@@ -1799,8 +1799,8 @@ bytestream2_get_le16.exit316:                     ; preds = %383, %384
 
 394:                                              ; preds = %392
   %395 = sub nsw i32 %58, %.4233.ph
-  %396 = add nsw i32 %395, 2
-  %397 = zext i32 %396 to i64
+  %396 = add nuw nsw i32 %395, 2
+  %397 = zext nneg i32 %396 to i64
   %398 = icmp slt i64 %341, %397
   br i1 %398, label %.loopexit356, label %399
 

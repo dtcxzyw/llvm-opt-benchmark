@@ -1824,7 +1824,7 @@ define internal range(i32 -107, 1) i32 @IDAApolynomialGetY(ptr noundef readonly 
   %184 = getelementptr inbounds [6 x double], ptr %178, i64 0, i64 %indvars.iv314
   %185 = load double, ptr %184, align 8, !tbaa !65
   %186 = sub nsw i64 %indvars.iv314, %indvars.iv317
-  %187 = getelementptr inbounds [6 x double], ptr %178, i64 0, i64 %186
+  %187 = getelementptr inbounds nuw [6 x double], ptr %178, i64 0, i64 %186
   %188 = load double, ptr %187, align 8, !tbaa !65
   %189 = fsub double %185, %188
   %190 = fdiv double %106, %189
@@ -1870,7 +1870,7 @@ define internal range(i32 -107, 1) i32 @IDAApolynomialGetY(ptr noundef readonly 
   %205 = getelementptr inbounds [6 x double], ptr %178, i64 0, i64 %indvars.iv301
   %206 = load double, ptr %205, align 8, !tbaa !65
   %207 = sub nsw i64 %indvars.iv301, %indvars.iv304
-  %208 = getelementptr inbounds [6 x double], ptr %178, i64 0, i64 %207
+  %208 = getelementptr inbounds nuw [6 x double], ptr %178, i64 0, i64 %207
   %209 = load double, ptr %208, align 8, !tbaa !65
   %210 = fsub double %206, %209
   %211 = fdiv double %106, %210

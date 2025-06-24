@@ -3000,7 +3000,7 @@ _ZN6casadi12casadi_clearIdEEvPT_x.exit:           ; preds = %._crit_edge, %.lr.p
 
 88:                                               ; preds = %.lr.ph127
   %89 = sub nsw i64 %84, %13
-  %90 = getelementptr inbounds i64, ptr %9, i64 %89
+  %90 = getelementptr inbounds nuw i64, ptr %9, i64 %89
   %91 = load i64, ptr %90, align 8, !tbaa !182
   %92 = add nsw i64 %91, 1
   store i64 %92, ptr %90, align 8, !tbaa !182

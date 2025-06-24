@@ -169,8 +169,8 @@ define i32 @u_file_write_flush_77(ptr noundef %0, i32 noundef %1, ptr noundef ca
   %30 = sext i32 %26 to i64
   %31 = getelementptr inbounds i16, ptr %29, i64 %30
   %32 = sub nsw i32 %24, %26
-  %33 = sext i32 %32 to i64
-  %34 = shl nsw i64 %33, 1
+  %33 = shl nuw i32 %32, 1
+  %34 = zext i32 %33 to i64
   call void @llvm.memmove.p0.p0.i64(ptr align 2 %29, ptr align 2 %31, i64 %34, i1 false)
   %.pre.i = load ptr, ptr %2, align 8, !tbaa !7
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre.i, i64 12

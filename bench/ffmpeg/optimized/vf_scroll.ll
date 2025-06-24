@@ -326,7 +326,7 @@ define internal noundef i32 @scroll_slice(ptr noundef readonly captures(none) %0
   %61 = sext i32 %58 to i64
   %62 = getelementptr inbounds i8, ptr %57, i64 %61
   %63 = sub nsw i32 %30, %58
-  %64 = sext i32 %63 to i64
+  %64 = zext nneg i32 %63 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.05963, ptr align 1 %62, i64 %64, i1 false)
   %.pr = load i32, ptr %45, align 4, !tbaa !51
   br label %65

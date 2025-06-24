@@ -7002,14 +7002,14 @@ entry:
   %call.i.i54 = tail call ptr %7(ptr noundef nonnull align 8 dereferenceable(32) %keyIsDown.i52, ptr noundef nonnull align 8 dereferenceable(40) %arrayidx20)
   %8 = insertelement <2 x ptr> poison, ptr %0, i64 0
   %9 = insertelement <2 x ptr> %8, ptr %4, i64 1
-  %10 = getelementptr i8, <2 x ptr> %9, <2 x i64> splat (i64 32)
+  %10 = getelementptr i8, <2 x ptr> %9, i64 32
   %11 = insertelement <2 x ptr> poison, ptr %call.i.i, i64 0
   %12 = insertelement <2 x ptr> %11, ptr %call.i.i49, i64 1
   %13 = icmp eq <2 x ptr> %12, %10
   %14 = select <2 x i1> %13, <2 x float> zeroinitializer, <2 x float> splat (float 1.000000e+00)
   %15 = insertelement <2 x ptr> poison, ptr %2, i64 0
   %16 = insertelement <2 x ptr> %15, ptr %6, i64 1
-  %17 = getelementptr i8, <2 x ptr> %16, <2 x i64> splat (i64 32)
+  %17 = getelementptr i8, <2 x ptr> %16, i64 32
   %18 = insertelement <2 x ptr> poison, ptr %call.i.i44, i64 0
   %19 = insertelement <2 x ptr> %18, ptr %call.i.i54, i64 1
   %20 = icmp eq <2 x ptr> %19, %17

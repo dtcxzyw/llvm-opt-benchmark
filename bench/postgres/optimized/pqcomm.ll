@@ -1359,7 +1359,7 @@ define internal fastcc range(i32 -1, 1) i32 @pq_recvbuf() unnamed_addr #0 {
   %7 = zext nneg i32 %1 to i64
   %8 = getelementptr inbounds nuw i8, ptr @PqRecvBuffer, i64 %7
   %9 = sub nsw i32 %4, %1
-  %10 = sext i32 %9 to i64
+  %10 = zext nneg i32 %9 to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 16 @PqRecvBuffer, ptr nonnull align 1 %8, i64 %10, i1 false)
   store i32 %9, ptr @PqRecvLength, align 4
   br label %.sink.split

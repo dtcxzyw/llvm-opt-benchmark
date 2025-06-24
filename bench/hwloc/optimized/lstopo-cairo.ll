@@ -1309,86 +1309,82 @@ define internal fastcc void @move_x11(ptr noundef nonnull %0) unnamed_addr #0 {
 
 condstore.split:                                  ; preds = %166
   %171 = load i32, ptr %170, align 8, !tbaa !70
-  %172 = icmp slt i32 %171, 0
-  %173 = tail call i32 @llvm.smax.i32(i32 %171, i32 0)
-  %174 = sub nsw i32 %168, %167
-  %.not98 = icmp sge i32 %171, %174
-  %simplifycfg.merge = tail call i32 @llvm.smin.i32(i32 %173, i32 %174)
-  %175 = or i1 %172, %.not98
-  br i1 %175, label %.sink.split, label %176
+  %172 = tail call i32 @llvm.smax.i32(i32 %171, i32 0)
+  %173 = sub nsw i32 %168, %167
+  %simplifycfg.merge = tail call i32 @llvm.smin.i32(i32 %172, i32 %173)
+  %.not114 = icmp ult i32 %171, %173
+  br i1 %.not114, label %174, label %.sink.split
 
 .sink.split:                                      ; preds = %condstore.split, %166
   %simplifycfg.merge.sink = phi i32 [ 0, %166 ], [ %simplifycfg.merge, %condstore.split ]
   store i32 %simplifycfg.merge.sink, ptr %170, align 8, !tbaa !70
-  br label %176
+  br label %174
 
-176:                                              ; preds = %.sink.split, %condstore.split
-  %177 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  %178 = load i32, ptr %177, align 4, !tbaa !67
-  %179 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %180 = load i32, ptr %179, align 4, !tbaa !65
-  %.not99 = icmp sgt i32 %178, %180
-  %181 = getelementptr inbounds nuw i8, ptr %0, i64 100
+174:                                              ; preds = %.sink.split, %condstore.split
+  %175 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %176 = load i32, ptr %175, align 4, !tbaa !67
+  %177 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  %178 = load i32, ptr %177, align 4, !tbaa !65
+  %.not99 = icmp sgt i32 %176, %178
+  %179 = getelementptr inbounds nuw i8, ptr %0, i64 100
   br i1 %.not99, label %condstore.split111, label %.sink.split113
 
-condstore.split111:                               ; preds = %176
-  %182 = load i32, ptr %181, align 4, !tbaa !71
-  %183 = icmp slt i32 %182, 0
-  %184 = tail call i32 @llvm.smax.i32(i32 %182, i32 0)
-  %185 = sub nsw i32 %178, %180
-  %.not100 = icmp sge i32 %182, %185
-  %simplifycfg.merge112 = tail call i32 @llvm.smin.i32(i32 %184, i32 %185)
-  %186 = or i1 %183, %.not100
-  br i1 %186, label %.sink.split113, label %187
+condstore.split111:                               ; preds = %174
+  %180 = load i32, ptr %179, align 4, !tbaa !71
+  %181 = tail call i32 @llvm.smax.i32(i32 %180, i32 0)
+  %182 = sub nsw i32 %176, %178
+  %simplifycfg.merge112 = tail call i32 @llvm.smin.i32(i32 %181, i32 %182)
+  %.not115 = icmp ult i32 %180, %182
+  br i1 %.not115, label %183, label %.sink.split113
 
-.sink.split113:                                   ; preds = %condstore.split111, %176
-  %simplifycfg.merge112.sink = phi i32 [ 0, %176 ], [ %simplifycfg.merge112, %condstore.split111 ]
-  store i32 %simplifycfg.merge112.sink, ptr %181, align 4, !tbaa !71
-  br label %187
+.sink.split113:                                   ; preds = %condstore.split111, %174
+  %simplifycfg.merge112.sink = phi i32 [ 0, %174 ], [ %simplifycfg.merge112, %condstore.split111 ]
+  store i32 %simplifycfg.merge112.sink, ptr %179, align 4, !tbaa !71
+  br label %183
 
-187:                                              ; preds = %.sink.split113, %condstore.split111
-  %188 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  %189 = load i32, ptr %188, align 4, !tbaa !75
-  %190 = icmp sgt i32 %189, 0
-  br i1 %190, label %191, label %208
+183:                                              ; preds = %.sink.split113, %condstore.split111
+  %184 = getelementptr inbounds nuw i8, ptr %0, i64 116
+  %185 = load i32, ptr %184, align 4, !tbaa !75
+  %186 = icmp sgt i32 %185, 0
+  br i1 %186, label %187, label %204
 
-191:                                              ; preds = %187
-  %192 = getelementptr inbounds nuw i8, ptr %0, i64 124
-  %193 = load i32, ptr %192, align 4, !tbaa !77
-  %.not101 = icmp eq i32 %193, 0
-  br i1 %.not101, label %194, label %208
+187:                                              ; preds = %183
+  %188 = getelementptr inbounds nuw i8, ptr %0, i64 124
+  %189 = load i32, ptr %188, align 4, !tbaa !77
+  %.not101 = icmp eq i32 %189, 0
+  br i1 %.not101, label %190, label %204
 
-194:                                              ; preds = %191
-  %195 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %196 = load i32, ptr %195, align 8, !tbaa !76
-  %.not102 = icmp eq i32 %196, 0
-  %.not103 = icmp eq i32 %189, 1
+190:                                              ; preds = %187
+  %191 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %192 = load i32, ptr %191, align 8, !tbaa !76
+  %.not102 = icmp eq i32 %192, 0
+  %.not103 = icmp eq i32 %185, 1
   %or.cond = and i1 %.not103, %.not102
-  br i1 %or.cond, label %207, label %197
+  br i1 %or.cond, label %203, label %193
 
-197:                                              ; preds = %194
+193:                                              ; preds = %190
   store i32 %168, ptr %169, align 8, !tbaa !64
-  %198 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i32 %168, ptr %198, align 8, !tbaa !62
-  store i32 %178, ptr %179, align 4, !tbaa !65
-  %199 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  store i32 %178, ptr %199, align 4, !tbaa !63
-  %200 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store i32 0, ptr %200, align 8, !tbaa !70
-  %201 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  store i32 0, ptr %201, align 4, !tbaa !71
-  %202 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %203 = load ptr, ptr %202, align 8, !tbaa !27
-  %204 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %205 = load i64, ptr %204, align 8, !tbaa !48
-  %206 = tail call i32 @XResizeWindow(ptr noundef %203, i64 noundef %205, i32 noundef %168, i32 noundef %178) #13
-  br label %207
+  %194 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store i32 %168, ptr %194, align 8, !tbaa !62
+  store i32 %176, ptr %177, align 4, !tbaa !65
+  %195 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  store i32 %176, ptr %195, align 4, !tbaa !63
+  %196 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  store i32 0, ptr %196, align 8, !tbaa !70
+  %197 = getelementptr inbounds nuw i8, ptr %0, i64 100
+  store i32 0, ptr %197, align 4, !tbaa !71
+  %198 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %199 = load ptr, ptr %198, align 8, !tbaa !27
+  %200 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %201 = load i64, ptr %200, align 8, !tbaa !48
+  %202 = tail call i32 @XResizeWindow(ptr noundef %199, i64 noundef %201, i32 noundef %168, i32 noundef %176) #13
+  br label %203
 
-207:                                              ; preds = %194, %197
-  store i32 0, ptr %188, align 4, !tbaa !75
-  br label %208
+203:                                              ; preds = %190, %193
+  store i32 0, ptr %184, align 4, !tbaa !75
+  br label %204
 
-208:                                              ; preds = %207, %191, %187
+204:                                              ; preds = %203, %187, %183
   ret void
 }
 

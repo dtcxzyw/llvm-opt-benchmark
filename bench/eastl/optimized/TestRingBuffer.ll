@@ -3479,7 +3479,7 @@ if.then3.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
 if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i.i
   %5 = load ptr, ptr %this, align 8
   %sub.i.i.i.i = sub nsw i64 %sub8, %sub.ptr.div.i.i.i.i
-  %add.ptr7.i.i.i.i = getelementptr inbounds i32, ptr %5, i64 %sub.i.i.i.i
+  %add.ptr7.i.i.i.i = getelementptr inbounds nuw i32, ptr %5, i64 %sub.i.i.i.i
   br label %invoke.cont9
 
 if.else9.i.i.i.i:                                 ; preds = %if.then6
@@ -3946,7 +3946,7 @@ if.then3.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
 if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i.i
   %2 = load ptr, ptr %this, align 8
   %sub.i.i.i.i = sub nsw i64 %n, %sub.ptr.div.i.i.i.i
-  %add.ptr7.i.i.i.i = getelementptr inbounds i32, ptr %2, i64 %sub.i.i.i.i
+  %add.ptr7.i.i.i.i = getelementptr inbounds nuw i32, ptr %2, i64 %sub.i.i.i.i
   br label %_ZN5eastl7advanceINS_20ring_buffer_iteratorIiPiRiNS_6vectorIiNS_9allocatorEEEEEmEEvRT_T0_.exit
 
 if.else9.i.i.i.i:                                 ; preds = %entry
@@ -3999,7 +3999,7 @@ if.then3.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
 if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i.i
   %2 = load ptr, ptr %this, align 8
   %sub.i.i.i.i = sub nsw i64 %n, %sub.ptr.div.i.i.i.i
-  %add.ptr7.i.i.i.i = getelementptr inbounds i32, ptr %2, i64 %sub.i.i.i.i
+  %add.ptr7.i.i.i.i = getelementptr inbounds nuw i32, ptr %2, i64 %sub.i.i.i.i
   br label %_ZN5eastl7advanceINS_20ring_buffer_iteratorIiPKiRS2_NS_6vectorIiNS_9allocatorEEEEEmEEvRT_T0_.exit
 
 if.else9.i.i.i.i:                                 ; preds = %entry
@@ -6229,7 +6229,7 @@ if.then3.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
 if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i.i
   %5 = load ptr, ptr %this, align 8
   %sub.i.i.i.i = sub nsw i64 %sub8, %sub.ptr.div.i.i.i.i
-  %add.ptr7.i.i.i.i = getelementptr inbounds %struct.Align64, ptr %5, i64 %sub.i.i.i.i
+  %add.ptr7.i.i.i.i = getelementptr inbounds nuw %struct.Align64, ptr %5, i64 %sub.i.i.i.i
   br label %invoke.cont9
 
 if.else9.i.i.i.i:                                 ; preds = %if.then6
@@ -6707,7 +6707,7 @@ if.then3.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
 if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i.i
   %2 = load ptr, ptr %this, align 8
   %sub.i.i.i.i = sub nsw i64 %n, %sub.ptr.div.i.i.i.i
-  %add.ptr7.i.i.i.i = getelementptr inbounds %struct.Align64, ptr %2, i64 %sub.i.i.i.i
+  %add.ptr7.i.i.i.i = getelementptr inbounds nuw %struct.Align64, ptr %2, i64 %sub.i.i.i.i
   br label %_ZN5eastl7advanceINS_20ring_buffer_iteratorI7Align64PS2_RS2_NS_6vectorIS2_NS_9allocatorEEEEEmEEvRT_T0_.exit
 
 if.else9.i.i.i.i:                                 ; preds = %entry
@@ -6760,7 +6760,7 @@ if.then3.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
 if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i.i
   %2 = load ptr, ptr %this, align 8
   %sub.i.i.i.i = sub nsw i64 %n, %sub.ptr.div.i.i.i.i
-  %add.ptr7.i.i.i.i = getelementptr inbounds %struct.Align64, ptr %2, i64 %sub.i.i.i.i
+  %add.ptr7.i.i.i.i = getelementptr inbounds nuw %struct.Align64, ptr %2, i64 %sub.i.i.i.i
   br label %_ZN5eastl7advanceINS_20ring_buffer_iteratorI7Align64PKS2_RS3_NS_6vectorIS2_NS_9allocatorEEEEEmEEvRT_T0_.exit
 
 if.else9.i.i.i.i:                                 ; preds = %entry
@@ -9131,7 +9131,7 @@ if.then3.i.i.i.i:                                 ; preds = %if.then.i.i.i.i10
 if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i.i10
   %5 = load ptr, ptr %this, align 8
   %sub.i.i.i.i = sub nsw i64 %sub8, %sub.ptr.div.i.i.i.i
-  %add.ptr7.i.i.i.i = getelementptr inbounds %struct.TestObject, ptr %5, i64 %sub.i.i.i.i
+  %add.ptr7.i.i.i.i = getelementptr inbounds nuw %struct.TestObject, ptr %5, i64 %sub.i.i.i.i
   br label %invoke.cont9
 
 if.else9.i.i.i.i:                                 ; preds = %if.then6
@@ -9808,7 +9808,7 @@ if.then3.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
 if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i.i
   %2 = load ptr, ptr %this, align 8
   %sub.i.i.i.i = sub nsw i64 %n, %sub.ptr.div.i.i.i.i
-  %add.ptr7.i.i.i.i = getelementptr inbounds %struct.TestObject, ptr %2, i64 %sub.i.i.i.i
+  %add.ptr7.i.i.i.i = getelementptr inbounds nuw %struct.TestObject, ptr %2, i64 %sub.i.i.i.i
   br label %_ZN5eastl7advanceINS_20ring_buffer_iteratorI10TestObjectPS2_RS2_NS_6vectorIS2_NS_9allocatorEEEEEmEEvRT_T0_.exit
 
 if.else9.i.i.i.i:                                 ; preds = %entry
@@ -9861,7 +9861,7 @@ if.then3.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
 if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i.i
   %2 = load ptr, ptr %this, align 8
   %sub.i.i.i.i = sub nsw i64 %n, %sub.ptr.div.i.i.i.i
-  %add.ptr7.i.i.i.i = getelementptr inbounds %struct.TestObject, ptr %2, i64 %sub.i.i.i.i
+  %add.ptr7.i.i.i.i = getelementptr inbounds nuw %struct.TestObject, ptr %2, i64 %sub.i.i.i.i
   br label %_ZN5eastl7advanceINS_20ring_buffer_iteratorI10TestObjectPKS2_RS3_NS_6vectorIS2_NS_9allocatorEEEEEmEEvRT_T0_.exit
 
 if.else9.i.i.i.i:                                 ; preds = %entry
@@ -39276,7 +39276,7 @@ if.then3.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
 if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i.i
   %2 = load ptr, ptr %this, align 8
   %sub.i.i.i.i = sub nsw i64 %n, %sub.ptr.div.i.i.i.i
-  %add.ptr7.i.i.i.i = getelementptr inbounds %"class.eastl::fixed_string", ptr %2, i64 %sub.i.i.i.i
+  %add.ptr7.i.i.i.i = getelementptr inbounds nuw %"class.eastl::fixed_string", ptr %2, i64 %sub.i.i.i.i
   br label %_ZN5eastl7advanceINS_20ring_buffer_iteratorINS_12fixed_stringIcLi256ELb0ENS_9allocatorEEEPS4_RS4_NS_12fixed_vectorIS4_Lm100ELb0ENS_15dummy_allocatorEEEEEmEEvRT_T0_.exit
 
 if.else9.i.i.i.i:                                 ; preds = %entry
@@ -39329,7 +39329,7 @@ if.then3.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
 if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i.i
   %2 = load ptr, ptr %this, align 8
   %sub.i.i.i.i = sub nsw i64 %n, %sub.ptr.div.i.i.i.i
-  %add.ptr7.i.i.i.i = getelementptr inbounds %"class.eastl::fixed_string", ptr %2, i64 %sub.i.i.i.i
+  %add.ptr7.i.i.i.i = getelementptr inbounds nuw %"class.eastl::fixed_string", ptr %2, i64 %sub.i.i.i.i
   br label %_ZN5eastl7advanceINS_20ring_buffer_iteratorINS_12fixed_stringIcLi256ELb0ENS_9allocatorEEEPKS4_RS5_NS_12fixed_vectorIS4_Lm100ELb0ENS_15dummy_allocatorEEEEEmEEvRT_T0_.exit
 
 if.else9.i.i.i.i:                                 ; preds = %entry
@@ -41261,7 +41261,7 @@ if.then3.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i.i
   %sub.i.i.i.i = sub nsw i64 %sub8, %sub.ptr.div.i.i.i.i
-  %add.ptr7.i.i.i.i = getelementptr inbounds i32, ptr %1, i64 %sub.i.i.i.i
+  %add.ptr7.i.i.i.i = getelementptr inbounds nuw i32, ptr %1, i64 %sub.i.i.i.i
   br label %invoke.cont9
 
 if.else9.i.i.i.i:                                 ; preds = %if.then6
@@ -41702,7 +41702,7 @@ if.then3.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
 if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i.i
   %2 = load ptr, ptr %this, align 8
   %sub.i.i.i.i = sub nsw i64 %n, %sub.ptr.div.i.i.i.i
-  %add.ptr7.i.i.i.i = getelementptr inbounds i32, ptr %2, i64 %sub.i.i.i.i
+  %add.ptr7.i.i.i.i = getelementptr inbounds nuw i32, ptr %2, i64 %sub.i.i.i.i
   br label %_ZN5eastl7advanceINS_20ring_buffer_iteratorIiPiRiNS_12fixed_vectorIiLm100ELb0ENS_15dummy_allocatorEEEEEmEEvRT_T0_.exit
 
 if.else9.i.i.i.i:                                 ; preds = %entry
@@ -41755,7 +41755,7 @@ if.then3.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
 if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i.i
   %2 = load ptr, ptr %this, align 8
   %sub.i.i.i.i = sub nsw i64 %n, %sub.ptr.div.i.i.i.i
-  %add.ptr7.i.i.i.i = getelementptr inbounds i32, ptr %2, i64 %sub.i.i.i.i
+  %add.ptr7.i.i.i.i = getelementptr inbounds nuw i32, ptr %2, i64 %sub.i.i.i.i
   br label %_ZN5eastl7advanceINS_20ring_buffer_iteratorIiPKiRS2_NS_12fixed_vectorIiLm100ELb0ENS_15dummy_allocatorEEEEEmEEvRT_T0_.exit
 
 if.else9.i.i.i.i:                                 ; preds = %entry
@@ -44314,7 +44314,7 @@ if.then3.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
 if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i.i
   %10 = load ptr, ptr %this, align 8
   %sub.i.i.i.i = sub nsw i64 %sub8, %sub.ptr.div.i.i.i.i
-  %add.ptr7.i.i.i.i = getelementptr inbounds i32, ptr %10, i64 %sub.i.i.i.i
+  %add.ptr7.i.i.i.i = getelementptr inbounds nuw i32, ptr %10, i64 %sub.i.i.i.i
   br label %invoke.cont9
 
 if.else9.i.i.i.i:                                 ; preds = %if.then6
@@ -44870,7 +44870,7 @@ if.then3.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
 if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i.i
   %2 = load ptr, ptr %this, align 8
   %sub.i.i.i.i = sub nsw i64 %n, %sub.ptr.div.i.i.i.i
-  %add.ptr7.i.i.i.i = getelementptr inbounds i32, ptr %2, i64 %sub.i.i.i.i
+  %add.ptr7.i.i.i.i = getelementptr inbounds nuw i32, ptr %2, i64 %sub.i.i.i.i
   br label %_ZN5eastl7advanceINS_20ring_buffer_iteratorIiPiRiNS_12fixed_vectorIiLm100ELb1ENS_9allocatorEEEEEmEEvRT_T0_.exit
 
 if.else9.i.i.i.i:                                 ; preds = %entry
@@ -44923,7 +44923,7 @@ if.then3.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
 if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i.i
   %2 = load ptr, ptr %this, align 8
   %sub.i.i.i.i = sub nsw i64 %n, %sub.ptr.div.i.i.i.i
-  %add.ptr7.i.i.i.i = getelementptr inbounds i32, ptr %2, i64 %sub.i.i.i.i
+  %add.ptr7.i.i.i.i = getelementptr inbounds nuw i32, ptr %2, i64 %sub.i.i.i.i
   br label %_ZN5eastl7advanceINS_20ring_buffer_iteratorIiPKiRS2_NS_12fixed_vectorIiLm100ELb1ENS_9allocatorEEEEEmEEvRT_T0_.exit
 
 if.else9.i.i.i.i:                                 ; preds = %entry
@@ -47029,7 +47029,7 @@ while.end203:                                     ; preds = %invoke.cont184.whil
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %sub.ptr.div.i.i.i.i.i.neg = sdiv exact i64 %sub.ptr.sub.i.i.i.i.i, -24
   %cmp2.i.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i, 0
-  %add.ptr7.i.i.i.i.i = getelementptr inbounds %"class.eastl::basic_string.128", ptr %148, i64 %sub.ptr.div.i.i.i.i.i.neg
+  %add.ptr7.i.i.i.i.i = getelementptr inbounds nuw %"class.eastl::basic_string.128", ptr %148, i64 %sub.ptr.div.i.i.i.i.i.neg
   %temp.sroa.2.0.i = select i1 %cmp2.i.i.i.i.i, ptr %150, ptr %add.ptr7.i.i.i.i.i
   %mRemainingSizeField.i.i.i.i678 = getelementptr inbounds nuw i8, ptr %temp.sroa.2.0.i, i64 23
   %151 = load i8, ptr %mRemainingSizeField.i.i.i.i678, align 1
@@ -48068,7 +48068,7 @@ invoke.cont440:                                   ; preds = %invoke.cont312
   %add.ptr.i.i.i.i = getelementptr inbounds nuw %"class.eastl::basic_string.128", ptr %325, i64 %shr.i1228
   %330 = load ptr, ptr %rbVectorString, align 8
   %sub.i.i.i.i1233 = sub nsw i64 %shr.i1228, %sub.ptr.div.i.i.i.i
-  %add.ptr7.i.i.i.i = getelementptr inbounds %"class.eastl::basic_string.128", ptr %330, i64 %sub.i.i.i.i1233
+  %add.ptr7.i.i.i.i = getelementptr inbounds nuw %"class.eastl::basic_string.128", ptr %330, i64 %sub.i.i.i.i1233
   %it.sroa.32.6 = select i1 %cmp2.i.i.i.i, ptr %add.ptr.i.i.i.i, ptr %add.ptr7.i.i.i.i
   %331 = load ptr, ptr %mEnd.i, align 8, !noalias !3381
   %cmp.i1238 = icmp eq ptr %it.sroa.32.6, %331
@@ -48318,7 +48318,7 @@ invoke.cont491:                                   ; preds = %invoke.cont312
   %add.ptr.i.i.i.i1378 = getelementptr inbounds nuw %"class.eastl::basic_string.128", ptr %360, i64 %shr.i1363
   %366 = load ptr, ptr %rbVectorString, align 8
   %sub.i.i.i.i1375 = sub nsw i64 %shr.i1363, %sub.ptr.div.i.i.i.i1372
-  %add.ptr7.i.i.i.i1376 = getelementptr inbounds %"class.eastl::basic_string.128", ptr %366, i64 %sub.i.i.i.i1375
+  %add.ptr7.i.i.i.i1376 = getelementptr inbounds nuw %"class.eastl::basic_string.128", ptr %366, i64 %sub.i.i.i.i1375
   %it.sroa.32.7 = select i1 %cmp2.i.i.i.i1373, ptr %add.ptr.i.i.i.i1378, ptr %add.ptr7.i.i.i.i1376
   %367 = load ptr, ptr %mEnd.i, align 8, !noalias !3404
   %cmp.i1384 = icmp eq ptr %it.sroa.32.7, %367
@@ -48489,7 +48489,7 @@ invoke.cont550:                                   ; preds = %invoke.cont540
   %add.ptr.i.i.i.i1509 = getelementptr inbounds nuw %"class.eastl::basic_string.128", ptr %387, i64 %shr.i1494
   %393 = load ptr, ptr %rbVectorString, align 8
   %sub.i.i.i.i1506 = sub nsw i64 %shr.i1494, %sub.ptr.div.i.i.i.i1503
-  %add.ptr7.i.i.i.i1507 = getelementptr inbounds %"class.eastl::basic_string.128", ptr %393, i64 %sub.i.i.i.i1506
+  %add.ptr7.i.i.i.i1507 = getelementptr inbounds nuw %"class.eastl::basic_string.128", ptr %393, i64 %sub.i.i.i.i1506
   %it.sroa.32.8 = select i1 %cmp2.i.i.i.i1504, ptr %add.ptr.i.i.i.i1509, ptr %add.ptr7.i.i.i.i1507
   %394 = load ptr, ptr %mEnd.i, align 8, !noalias !3410
   %cmp.i1515 = icmp eq ptr %it.sroa.32.8, %394
@@ -48636,7 +48636,7 @@ invoke.cont614:                                   ; preds = %if.then606
   %add.ptr.i.i.i.i1627 = getelementptr inbounds nuw %"class.eastl::basic_string.128", ptr %410, i64 %shr.i1612
   %416 = load ptr, ptr %rbVectorString, align 8
   %sub.i.i.i.i1624 = sub nsw i64 %shr.i1612, %sub.ptr.div.i.i.i.i1621
-  %add.ptr7.i.i.i.i1625 = getelementptr inbounds %"class.eastl::basic_string.128", ptr %416, i64 %sub.i.i.i.i1624
+  %add.ptr7.i.i.i.i1625 = getelementptr inbounds nuw %"class.eastl::basic_string.128", ptr %416, i64 %sub.i.i.i.i1624
   %it.sroa.32.9 = select i1 %cmp2.i.i.i.i1622, ptr %add.ptr.i.i.i.i1627, ptr %add.ptr7.i.i.i.i1625
   br label %for.body.i1636
 
@@ -48741,7 +48741,7 @@ invoke.cont641:                                   ; preds = %if.then637
   %add.ptr.i.i.i.i1712 = getelementptr inbounds nuw %"class.eastl::basic_string.128", ptr %427, i64 %shr.i1697
   %434 = load ptr, ptr %rbVectorString, align 8
   %sub.i.i.i.i1709 = sub nsw i64 %shr.i1697, %sub.ptr.div.i.i.i.i1706
-  %add.ptr7.i.i.i.i1710 = getelementptr inbounds %"class.eastl::basic_string.128", ptr %434, i64 %sub.i.i.i.i1709
+  %add.ptr7.i.i.i.i1710 = getelementptr inbounds nuw %"class.eastl::basic_string.128", ptr %434, i64 %sub.i.i.i.i1709
   %it1.sroa.5.0 = select i1 %cmp2.i.i.i.i1707, ptr %add.ptr.i.i.i.i1712, ptr %add.ptr7.i.i.i.i1710
   br label %for.body.i1721
 
@@ -48780,7 +48780,7 @@ invoke.cont656:                                   ; preds = %invoke.cont647
   %add.ptr.i.i.i.i1761 = getelementptr inbounds nuw %"class.eastl::basic_string.128", ptr %it1.sroa.5.0, i64 %shr.i1746
   %439 = load ptr, ptr %rbVectorString, align 8
   %sub.i.i.i.i1758 = sub nsw i64 %shr.i1746, %sub.ptr.div.i.i.i.i1755
-  %add.ptr7.i.i.i.i1759 = getelementptr inbounds %"class.eastl::basic_string.128", ptr %439, i64 %sub.i.i.i.i1758
+  %add.ptr7.i.i.i.i1759 = getelementptr inbounds nuw %"class.eastl::basic_string.128", ptr %439, i64 %sub.i.i.i.i1758
   %it2.sroa.4.0 = select i1 %cmp2.i.i.i.i1756, ptr %add.ptr.i.i.i.i1761, ptr %add.ptr7.i.i.i.i1759
   %440 = load ptr, ptr %mBegin.i, align 8
   %441 = load ptr, ptr %mEnd.i, align 8
@@ -51168,7 +51168,7 @@ _ZN5eastl11ring_bufferIiNS_6vectorIiNS_9allocatorEEES2_E9push_backERKi.exit3100:
   %sub.ptr.div.i.i.i.i.i3107 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i3106, 2
   %cmp2.i.i.i.i.i3108 = icmp sgt i64 %sub.ptr.div.i.i.i.i.i3107, 0
   %sub.i.i.i.i.i3110 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i3107
-  %add.ptr7.i.i.i.i.i3111 = getelementptr inbounds i32, ptr %796, i64 %sub.i.i.i.i.i3110
+  %add.ptr7.i.i.i.i.i3111 = getelementptr inbounds nuw i32, ptr %796, i64 %sub.i.i.i.i.i3110
   %temp.sroa.2.0.i3112 = select i1 %cmp2.i.i.i.i.i3108, ptr %797, ptr %add.ptr7.i.i.i.i.i3111
   %798 = load i32, ptr %temp.sroa.2.0.i3112, align 4
   %cmp1025 = icmp eq i32 %798, 0
@@ -51186,7 +51186,7 @@ invoke.cont1026:                                  ; preds = %_ZN5eastl11ring_buf
   %add.ptr.i.i.i.i.i3128 = getelementptr inbounds nuw i8, ptr %799, i64 20
   %801 = load ptr, ptr %rbVectorInt, align 8
   %sub.i.i.i.i.i3124 = sub nsw i64 5, %sub.ptr.div.i.i.i.i.i3121
-  %add.ptr7.i.i.i.i.i3125 = getelementptr inbounds i32, ptr %801, i64 %sub.i.i.i.i.i3124
+  %add.ptr7.i.i.i.i.i3125 = getelementptr inbounds nuw i32, ptr %801, i64 %sub.i.i.i.i.i3124
   %temp.sroa.2.0.i3126 = select i1 %cmp2.i.i.i.i.i3122, ptr %add.ptr.i.i.i.i.i3128, ptr %add.ptr7.i.i.i.i.i3125
   %802 = load i32, ptr %temp.sroa.2.0.i3126, align 4
   %cmp1030 = icmp eq i32 %802, 5
@@ -51291,7 +51291,7 @@ invoke.cont1038:                                  ; preds = %for.body.i.i.i.i.i3
   %cmp2.i.i.i.i.i3193 = icmp sgt i64 %sub.ptr.div.i.i.i.i.i3192, 0
   %817 = load ptr, ptr %rbVectorInt, align 8
   %sub.i.i.i.i.i3195 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i3192
-  %add.ptr7.i.i.i.i.i3196 = getelementptr inbounds i32, ptr %817, i64 %sub.i.i.i.i.i3195
+  %add.ptr7.i.i.i.i.i3196 = getelementptr inbounds nuw i32, ptr %817, i64 %sub.i.i.i.i.i3195
   %temp.sroa.2.0.i3197 = select i1 %cmp2.i.i.i.i.i3193, ptr %815, ptr %add.ptr7.i.i.i.i.i3196
   %818 = load i32, ptr %temp.sroa.2.0.i3197, align 4
   %cmp1041 = icmp eq i32 %818, 999
@@ -51309,7 +51309,7 @@ invoke.cont1042:                                  ; preds = %invoke.cont1038
   %add.ptr.i.i.i.i.i3214 = getelementptr inbounds nuw i8, ptr %819, i64 4
   %821 = load ptr, ptr %rbVectorInt, align 8
   %sub.i.i.i.i.i3210 = sub nsw i64 1, %sub.ptr.div.i.i.i.i.i3207
-  %add.ptr7.i.i.i.i.i3211 = getelementptr inbounds i32, ptr %821, i64 %sub.i.i.i.i.i3210
+  %add.ptr7.i.i.i.i.i3211 = getelementptr inbounds nuw i32, ptr %821, i64 %sub.i.i.i.i.i3210
   %temp.sroa.2.0.i3212 = select i1 %cmp2.i.i.i.i.i3208, ptr %add.ptr.i.i.i.i.i3214, ptr %add.ptr7.i.i.i.i.i3211
   %822 = load i32, ptr %temp.sroa.2.0.i3212, align 4
   %cmp1046 = icmp eq i32 %822, 0
@@ -51327,7 +51327,7 @@ invoke.cont1047:                                  ; preds = %invoke.cont1042
   %add.ptr.i.i.i.i.i3229 = getelementptr inbounds nuw i8, ptr %823, i64 20
   %825 = load ptr, ptr %rbVectorInt, align 8
   %sub.i.i.i.i.i3225 = sub nsw i64 5, %sub.ptr.div.i.i.i.i.i3222
-  %add.ptr7.i.i.i.i.i3226 = getelementptr inbounds i32, ptr %825, i64 %sub.i.i.i.i.i3225
+  %add.ptr7.i.i.i.i.i3226 = getelementptr inbounds nuw i32, ptr %825, i64 %sub.i.i.i.i.i3225
   %temp.sroa.2.0.i3227 = select i1 %cmp2.i.i.i.i.i3223, ptr %add.ptr.i.i.i.i.i3229, ptr %add.ptr7.i.i.i.i.i3226
   %826 = load i32, ptr %temp.sroa.2.0.i3227, align 4
   %cmp1051 = icmp eq i32 %826, 4
@@ -51619,7 +51619,7 @@ invoke.cont1064:                                  ; preds = %for.body.i.i.i.i.i3
   %cmp2.i.i.i.i.i3383 = icmp sgt i64 %sub.ptr.div.i.i.i.i.i3382, 0
   %875 = load ptr, ptr %rbVectorInt, align 8
   %sub.i.i.i.i.i3385 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i3382
-  %add.ptr7.i.i.i.i.i3386 = getelementptr inbounds i32, ptr %875, i64 %sub.i.i.i.i.i3385
+  %add.ptr7.i.i.i.i.i3386 = getelementptr inbounds nuw i32, ptr %875, i64 %sub.i.i.i.i.i3385
   %temp.sroa.2.0.i3387 = select i1 %cmp2.i.i.i.i.i3383, ptr %873, ptr %add.ptr7.i.i.i.i.i3386
   %876 = load i32, ptr %temp.sroa.2.0.i3387, align 4
   %cmp1067 = icmp eq i32 %876, 999
@@ -51637,7 +51637,7 @@ invoke.cont1068:                                  ; preds = %invoke.cont1064
   %add.ptr.i.i.i.i.i3404 = getelementptr inbounds nuw i8, ptr %877, i64 4
   %879 = load ptr, ptr %rbVectorInt, align 8
   %sub.i.i.i.i.i3400 = sub nsw i64 1, %sub.ptr.div.i.i.i.i.i3397
-  %add.ptr7.i.i.i.i.i3401 = getelementptr inbounds i32, ptr %879, i64 %sub.i.i.i.i.i3400
+  %add.ptr7.i.i.i.i.i3401 = getelementptr inbounds nuw i32, ptr %879, i64 %sub.i.i.i.i.i3400
   %temp.sroa.2.0.i3402 = select i1 %cmp2.i.i.i.i.i3398, ptr %add.ptr.i.i.i.i.i3404, ptr %add.ptr7.i.i.i.i.i3401
   %880 = load i32, ptr %temp.sroa.2.0.i3402, align 4
   %cmp1072 = icmp eq i32 %880, 0
@@ -51655,7 +51655,7 @@ invoke.cont1073:                                  ; preds = %invoke.cont1068
   %add.ptr.i.i.i.i.i3419 = getelementptr inbounds nuw i8, ptr %881, i64 20
   %883 = load ptr, ptr %rbVectorInt, align 8
   %sub.i.i.i.i.i3415 = sub nsw i64 5, %sub.ptr.div.i.i.i.i.i3412
-  %add.ptr7.i.i.i.i.i3416 = getelementptr inbounds i32, ptr %883, i64 %sub.i.i.i.i.i3415
+  %add.ptr7.i.i.i.i.i3416 = getelementptr inbounds nuw i32, ptr %883, i64 %sub.i.i.i.i.i3415
   %temp.sroa.2.0.i3417 = select i1 %cmp2.i.i.i.i.i3413, ptr %add.ptr.i.i.i.i.i3419, ptr %add.ptr7.i.i.i.i.i3416
   %884 = load i32, ptr %temp.sroa.2.0.i3417, align 4
   %cmp1077 = icmp eq i32 %884, 4
@@ -51934,7 +51934,7 @@ _ZN5eastl11ring_bufferIiNS_6vectorIiNS_9allocatorEEES2_E9push_backERKi.exit3535:
   %sub.ptr.div.i.i.i.i.i3542 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i3541, 2
   %cmp2.i.i.i.i.i3543 = icmp sgt i64 %sub.ptr.div.i.i.i.i.i3542, 0
   %sub.i.i.i.i.i3545 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i3542
-  %add.ptr7.i.i.i.i.i3546 = getelementptr inbounds i32, ptr %934, i64 %sub.i.i.i.i.i3545
+  %add.ptr7.i.i.i.i.i3546 = getelementptr inbounds nuw i32, ptr %934, i64 %sub.i.i.i.i.i3545
   %temp.sroa.2.0.i3547 = select i1 %cmp2.i.i.i.i.i3543, ptr %935, ptr %add.ptr7.i.i.i.i.i3546
   %936 = load i32, ptr %temp.sroa.2.0.i3547, align 4
   %cmp1089 = icmp eq i32 %936, 1
@@ -51952,7 +51952,7 @@ invoke.cont1090:                                  ; preds = %_ZN5eastl11ring_buf
   %add.ptr.i.i.i.i.i3564 = getelementptr inbounds nuw i8, ptr %937, i64 20
   %939 = load ptr, ptr %rbVectorInt, align 8
   %sub.i.i.i.i.i3560 = sub nsw i64 5, %sub.ptr.div.i.i.i.i.i3557
-  %add.ptr7.i.i.i.i.i3561 = getelementptr inbounds i32, ptr %939, i64 %sub.i.i.i.i.i3560
+  %add.ptr7.i.i.i.i.i3561 = getelementptr inbounds nuw i32, ptr %939, i64 %sub.i.i.i.i.i3560
   %temp.sroa.2.0.i3562 = select i1 %cmp2.i.i.i.i.i3558, ptr %add.ptr.i.i.i.i.i3564, ptr %add.ptr7.i.i.i.i.i3561
   %940 = load i32, ptr %temp.sroa.2.0.i3562, align 4
   %cmp1094 = icmp eq i32 %940, 6
@@ -52056,7 +52056,7 @@ invoke.cont1102:                                  ; preds = %for.body.i.i.i.i.i3
   %cmp2.i.i.i.i.i3635 = icmp sgt i64 %sub.ptr.div.i.i.i.i.i3634, 0
   %955 = load ptr, ptr %rbVectorInt, align 8
   %sub.i.i.i.i.i3637 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i3634
-  %add.ptr7.i.i.i.i.i3638 = getelementptr inbounds i32, ptr %955, i64 %sub.i.i.i.i.i3637
+  %add.ptr7.i.i.i.i.i3638 = getelementptr inbounds nuw i32, ptr %955, i64 %sub.i.i.i.i.i3637
   %temp.sroa.2.0.i3639 = select i1 %cmp2.i.i.i.i.i3635, ptr %953, ptr %add.ptr7.i.i.i.i.i3638
   %956 = load i32, ptr %temp.sroa.2.0.i3639, align 4
   %cmp1105 = icmp eq i32 %956, 999
@@ -52074,7 +52074,7 @@ invoke.cont1106:                                  ; preds = %invoke.cont1102
   %add.ptr.i.i.i.i.i3656 = getelementptr inbounds nuw i8, ptr %957, i64 4
   %959 = load ptr, ptr %rbVectorInt, align 8
   %sub.i.i.i.i.i3652 = sub nsw i64 1, %sub.ptr.div.i.i.i.i.i3649
-  %add.ptr7.i.i.i.i.i3653 = getelementptr inbounds i32, ptr %959, i64 %sub.i.i.i.i.i3652
+  %add.ptr7.i.i.i.i.i3653 = getelementptr inbounds nuw i32, ptr %959, i64 %sub.i.i.i.i.i3652
   %temp.sroa.2.0.i3654 = select i1 %cmp2.i.i.i.i.i3650, ptr %add.ptr.i.i.i.i.i3656, ptr %add.ptr7.i.i.i.i.i3653
   %960 = load i32, ptr %temp.sroa.2.0.i3654, align 4
   %cmp1110 = icmp eq i32 %960, 1
@@ -52092,7 +52092,7 @@ invoke.cont1111:                                  ; preds = %invoke.cont1106
   %add.ptr.i.i.i.i.i3671 = getelementptr inbounds nuw i8, ptr %961, i64 20
   %963 = load ptr, ptr %rbVectorInt, align 8
   %sub.i.i.i.i.i3667 = sub nsw i64 5, %sub.ptr.div.i.i.i.i.i3664
-  %add.ptr7.i.i.i.i.i3668 = getelementptr inbounds i32, ptr %963, i64 %sub.i.i.i.i.i3667
+  %add.ptr7.i.i.i.i.i3668 = getelementptr inbounds nuw i32, ptr %963, i64 %sub.i.i.i.i.i3667
   %temp.sroa.2.0.i3669 = select i1 %cmp2.i.i.i.i.i3665, ptr %add.ptr.i.i.i.i.i3671, ptr %add.ptr7.i.i.i.i.i3668
   %964 = load i32, ptr %temp.sroa.2.0.i3669, align 4
   %cmp1115 = icmp eq i32 %964, 5
@@ -52110,7 +52110,7 @@ invoke.cont1116:                                  ; preds = %invoke.cont1111
   %add.ptr.i.i.i.i3687 = getelementptr inbounds nuw i8, ptr %965, i64 12
   %967 = load ptr, ptr %rbVectorInt, align 8
   %sub.i.i.i.i3684 = sub nsw i64 3, %sub.ptr.div.i.i.i.i3681
-  %add.ptr7.i.i.i.i3685 = getelementptr inbounds i32, ptr %967, i64 %sub.i.i.i.i3684
+  %add.ptr7.i.i.i.i3685 = getelementptr inbounds nuw i32, ptr %967, i64 %sub.i.i.i.i3684
   %it1118.sroa.3.0 = select i1 %cmp2.i.i.i.i3682, ptr %add.ptr.i.i.i.i3687, ptr %add.ptr7.i.i.i.i3685
   %968 = load ptr, ptr %mEnd.i3009, align 8, !noalias !3545
   %incdec.ptr.i.i3691 = getelementptr inbounds nuw i8, ptr %968, i64 4
@@ -52196,7 +52196,7 @@ invoke.cont1124:                                  ; preds = %for.body.i.i.i.i.i3
   %cmp2.i.i.i.i.i3755 = icmp sgt i64 %sub.ptr.div.i.i.i.i.i3754, 0
   %978 = load ptr, ptr %rbVectorInt, align 8
   %sub.i.i.i.i.i3757 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i3754
-  %add.ptr7.i.i.i.i.i3758 = getelementptr inbounds i32, ptr %978, i64 %sub.i.i.i.i.i3757
+  %add.ptr7.i.i.i.i.i3758 = getelementptr inbounds nuw i32, ptr %978, i64 %sub.i.i.i.i.i3757
   %temp.sroa.2.0.i3759 = select i1 %cmp2.i.i.i.i.i3755, ptr %976, ptr %add.ptr7.i.i.i.i.i3758
   %979 = load i32, ptr %temp.sroa.2.0.i3759, align 4
   %cmp1127 = icmp eq i32 %979, 999
@@ -52214,7 +52214,7 @@ invoke.cont1128:                                  ; preds = %invoke.cont1124
   %add.ptr.i.i.i.i.i3776 = getelementptr inbounds nuw i8, ptr %980, i64 4
   %982 = load ptr, ptr %rbVectorInt, align 8
   %sub.i.i.i.i.i3772 = sub nsw i64 1, %sub.ptr.div.i.i.i.i.i3769
-  %add.ptr7.i.i.i.i.i3773 = getelementptr inbounds i32, ptr %982, i64 %sub.i.i.i.i.i3772
+  %add.ptr7.i.i.i.i.i3773 = getelementptr inbounds nuw i32, ptr %982, i64 %sub.i.i.i.i.i3772
   %temp.sroa.2.0.i3774 = select i1 %cmp2.i.i.i.i.i3770, ptr %add.ptr.i.i.i.i.i3776, ptr %add.ptr7.i.i.i.i.i3773
   %983 = load i32, ptr %temp.sroa.2.0.i3774, align 4
   %cmp1132 = icmp eq i32 %983, 1
@@ -52232,7 +52232,7 @@ invoke.cont1133:                                  ; preds = %invoke.cont1128
   %add.ptr.i.i.i.i.i3791 = getelementptr inbounds nuw i8, ptr %984, i64 8
   %986 = load ptr, ptr %rbVectorInt, align 8
   %sub.i.i.i.i.i3787 = sub nsw i64 2, %sub.ptr.div.i.i.i.i.i3784
-  %add.ptr7.i.i.i.i.i3788 = getelementptr inbounds i32, ptr %986, i64 %sub.i.i.i.i.i3787
+  %add.ptr7.i.i.i.i.i3788 = getelementptr inbounds nuw i32, ptr %986, i64 %sub.i.i.i.i.i3787
   %temp.sroa.2.0.i3789 = select i1 %cmp2.i.i.i.i.i3785, ptr %add.ptr.i.i.i.i.i3791, ptr %add.ptr7.i.i.i.i.i3788
   %987 = load i32, ptr %temp.sroa.2.0.i3789, align 4
   %cmp1137 = icmp eq i32 %987, 2
@@ -52250,7 +52250,7 @@ invoke.cont1138:                                  ; preds = %invoke.cont1133
   %add.ptr.i.i.i.i.i3806 = getelementptr inbounds nuw i8, ptr %988, i64 12
   %990 = load ptr, ptr %rbVectorInt, align 8
   %sub.i.i.i.i.i3802 = sub nsw i64 3, %sub.ptr.div.i.i.i.i.i3799
-  %add.ptr7.i.i.i.i.i3803 = getelementptr inbounds i32, ptr %990, i64 %sub.i.i.i.i.i3802
+  %add.ptr7.i.i.i.i.i3803 = getelementptr inbounds nuw i32, ptr %990, i64 %sub.i.i.i.i.i3802
   %temp.sroa.2.0.i3804 = select i1 %cmp2.i.i.i.i.i3800, ptr %add.ptr.i.i.i.i.i3806, ptr %add.ptr7.i.i.i.i.i3803
   %991 = load i32, ptr %temp.sroa.2.0.i3804, align 4
   %cmp1142 = icmp eq i32 %991, 888
@@ -52268,7 +52268,7 @@ invoke.cont1143:                                  ; preds = %invoke.cont1138
   %add.ptr.i.i.i.i.i3821 = getelementptr inbounds nuw i8, ptr %992, i64 16
   %994 = load ptr, ptr %rbVectorInt, align 8
   %sub.i.i.i.i.i3817 = sub nsw i64 4, %sub.ptr.div.i.i.i.i.i3814
-  %add.ptr7.i.i.i.i.i3818 = getelementptr inbounds i32, ptr %994, i64 %sub.i.i.i.i.i3817
+  %add.ptr7.i.i.i.i.i3818 = getelementptr inbounds nuw i32, ptr %994, i64 %sub.i.i.i.i.i3817
   %temp.sroa.2.0.i3819 = select i1 %cmp2.i.i.i.i.i3815, ptr %add.ptr.i.i.i.i.i3821, ptr %add.ptr7.i.i.i.i.i3818
   %995 = load i32, ptr %temp.sroa.2.0.i3819, align 4
   %cmp1147 = icmp eq i32 %995, 3
@@ -52286,7 +52286,7 @@ invoke.cont1148:                                  ; preds = %invoke.cont1143
   %add.ptr.i.i.i.i.i3836 = getelementptr inbounds nuw i8, ptr %996, i64 20
   %998 = load ptr, ptr %rbVectorInt, align 8
   %sub.i.i.i.i.i3832 = sub nsw i64 5, %sub.ptr.div.i.i.i.i.i3829
-  %add.ptr7.i.i.i.i.i3833 = getelementptr inbounds i32, ptr %998, i64 %sub.i.i.i.i.i3832
+  %add.ptr7.i.i.i.i.i3833 = getelementptr inbounds nuw i32, ptr %998, i64 %sub.i.i.i.i.i3832
   %temp.sroa.2.0.i3834 = select i1 %cmp2.i.i.i.i.i3830, ptr %add.ptr.i.i.i.i.i3836, ptr %add.ptr7.i.i.i.i.i3833
   %999 = load i32, ptr %temp.sroa.2.0.i3834, align 4
   %cmp1152 = icmp eq i32 %999, 4
@@ -52506,7 +52506,7 @@ _ZN5eastl11ring_bufferIiNS_6vectorIiNS_9allocatorEEES2_E9push_backERKi.exit3920:
   %sub.ptr.div.i.i.i.i.i3927 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i3926, 2
   %cmp2.i.i.i.i.i3928 = icmp sgt i64 %sub.ptr.div.i.i.i.i.i3927, 0
   %sub.i.i.i.i.i3930 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i3927
-  %add.ptr7.i.i.i.i.i3931 = getelementptr inbounds i32, ptr %1036, i64 %sub.i.i.i.i.i3930
+  %add.ptr7.i.i.i.i.i3931 = getelementptr inbounds nuw i32, ptr %1036, i64 %sub.i.i.i.i.i3930
   %temp.sroa.2.0.i3932 = select i1 %cmp2.i.i.i.i.i3928, ptr %1037, ptr %add.ptr7.i.i.i.i.i3931
   %1038 = load i32, ptr %temp.sroa.2.0.i3932, align 4
   %cmp1165 = icmp eq i32 %1038, 2
@@ -52524,7 +52524,7 @@ invoke.cont1166:                                  ; preds = %_ZN5eastl11ring_buf
   %add.ptr.i.i.i.i.i3949 = getelementptr inbounds nuw i8, ptr %1039, i64 4
   %1041 = load ptr, ptr %rbVectorInt1156, align 8
   %sub.i.i.i.i.i3945 = sub nsw i64 1, %sub.ptr.div.i.i.i.i.i3942
-  %add.ptr7.i.i.i.i.i3946 = getelementptr inbounds i32, ptr %1041, i64 %sub.i.i.i.i.i3945
+  %add.ptr7.i.i.i.i.i3946 = getelementptr inbounds nuw i32, ptr %1041, i64 %sub.i.i.i.i.i3945
   %temp.sroa.2.0.i3947 = select i1 %cmp2.i.i.i.i.i3943, ptr %add.ptr.i.i.i.i.i3949, ptr %add.ptr7.i.i.i.i.i3946
   %1042 = load i32, ptr %temp.sroa.2.0.i3947, align 4
   %cmp1170 = icmp eq i32 %1042, 3
@@ -52542,7 +52542,7 @@ invoke.cont1171:                                  ; preds = %invoke.cont1166
   %add.ptr.i.i.i.i.i3964 = getelementptr inbounds nuw i8, ptr %1043, i64 8
   %1045 = load ptr, ptr %rbVectorInt1156, align 8
   %sub.i.i.i.i.i3960 = sub nsw i64 2, %sub.ptr.div.i.i.i.i.i3957
-  %add.ptr7.i.i.i.i.i3961 = getelementptr inbounds i32, ptr %1045, i64 %sub.i.i.i.i.i3960
+  %add.ptr7.i.i.i.i.i3961 = getelementptr inbounds nuw i32, ptr %1045, i64 %sub.i.i.i.i.i3960
   %temp.sroa.2.0.i3962 = select i1 %cmp2.i.i.i.i.i3958, ptr %add.ptr.i.i.i.i.i3964, ptr %add.ptr7.i.i.i.i.i3961
   %1046 = load i32, ptr %temp.sroa.2.0.i3962, align 4
   %cmp1175 = icmp eq i32 %1046, 4
@@ -59609,7 +59609,7 @@ invoke.cont2561:                                  ; preds = %_ZN5eastl12fixed_ve
   %add.ptr.i.i7534 = getelementptr inbounds nuw i8, ptr %2135, i64 16
   %2138 = load ptr, ptr %intBuffer2548, align 8
   %sub.i.i7533 = sub nsw i64 4, %sub.ptr.div.i.i7531
-  %add.ptr7.i.i = getelementptr inbounds i32, ptr %2138, i64 %sub.i.i7533
+  %add.ptr7.i.i = getelementptr inbounds nuw i32, ptr %2138, i64 %sub.i.i7533
   %it2556.sroa.7.0 = select i1 %cmp2.i.i, ptr %add.ptr.i.i7534, ptr %add.ptr7.i.i
   %2139 = load i32, ptr %it2556.sroa.7.0, align 4
   %cmp2567 = icmp eq i32 %2139, 4
@@ -61728,7 +61728,7 @@ if.then3.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
 if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i.i
   %5 = load ptr, ptr %this, align 8
   %sub.i.i.i.i = sub nsw i64 %sub7, %sub.ptr.div.i.i.i.i
-  %add.ptr7.i.i.i.i = getelementptr inbounds %"class.eastl::basic_string.128", ptr %5, i64 %sub.i.i.i.i
+  %add.ptr7.i.i.i.i = getelementptr inbounds nuw %"class.eastl::basic_string.128", ptr %5, i64 %sub.i.i.i.i
   br label %invoke.cont8
 
 if.else9.i.i.i.i:                                 ; preds = %if.then5

@@ -169,7 +169,7 @@ define dso_local noundef zeroext i1 @_ZN4absl18debugging_internal14ForEachSectio
   %.sroa.37.5 = phi i64 [ %.sroa.37.2, %.lr.ph.split.us.preheader.i.i ], [ %.sroa.37.4, %.lr.ph.split.us.i.i ]
   %.sroa.21.5 = phi i64 [ %.sroa.21.2, %.lr.ph.split.us.preheader.i.i ], [ %.sroa.21.4, %.lr.ph.split.us.i.i ]
   %21 = sub nsw i64 %.028.ph72.i.i, %.sroa.21.5
-  %22 = getelementptr inbounds i8, ptr %4, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 %21
   %23 = sub nuw nsw i64 64, %.030.ph70.i.i
   %24 = sub nsw i64 %.sroa.37.5, %.028.ph72.i.i
   %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %24, i64 %23)
@@ -246,7 +246,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
   %.sroa.37.10 = phi i64 [ %.sroa.37.7, %.lr.ph.split.us.preheader.i.i20 ], [ %.sroa.37.9, %.lr.ph.split.us.i.i27 ]
   %.sroa.21.10 = phi i64 [ %.sroa.21.7, %.lr.ph.split.us.preheader.i.i20 ], [ %.sroa.21.9, %.lr.ph.split.us.i.i27 ]
   %51 = sub nsw i64 %.028.ph72.i.i21, %.sroa.21.10
-  %52 = getelementptr inbounds i8, ptr %4, i64 %51
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 %51
   %53 = sub nuw nsw i64 64, %.030.ph70.i.i23
   %54 = sub nsw i64 %.sroa.37.10, %.028.ph72.i.i21
   %.sroa.speculated.i.i33 = tail call i64 @llvm.umin.i64(i64 %54, i64 %53)
@@ -330,7 +330,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
   %.sroa.37.15 = phi i64 [ %.sroa.37.12, %.lr.ph.split.us.preheader.i.i40 ], [ %.sroa.37.14, %.lr.ph.split.us.i.i47 ]
   %.sroa.21.15 = phi i64 [ %.sroa.21.12, %.lr.ph.split.us.preheader.i.i40 ], [ %.sroa.21.14, %.lr.ph.split.us.i.i47 ]
   %81 = sub nsw i64 %.028.ph72.i.i41, %.sroa.21.15
-  %82 = getelementptr inbounds i8, ptr %4, i64 %81
+  %82 = getelementptr inbounds nuw i8, ptr %4, i64 %81
   %83 = sub nuw nsw i64 64, %.030.ph70.i.i43
   %84 = sub nsw i64 %.sroa.37.15, %.028.ph72.i.i41
   %.sroa.speculated.i.i53 = call i64 @llvm.umin.i64(i64 %84, i64 %83)
@@ -394,7 +394,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
   %.sroa.37.18.lcssa = phi i64 [ %.sroa.37.17, %.lr.ph.split.us.preheader.i ], [ %.sroa.37.19, %.lr.ph.split.us.i ]
   %.sroa.21.18.lcssa = phi i64 [ %.sroa.21.17, %.lr.ph.split.us.preheader.i ], [ %.sroa.21.19, %.lr.ph.split.us.i ]
   %104 = sub nsw i64 %.028.ph72.i, %.sroa.21.18.lcssa
-  %105 = getelementptr inbounds i8, ptr %4, i64 %104
+  %105 = getelementptr inbounds nuw i8, ptr %4, i64 %104
   %106 = sub nuw nsw i64 64, %.030.ph70.i
   %107 = sub nsw i64 %.sroa.37.18.lcssa, %.028.ph72.i
   %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %107, i64 %106)
@@ -540,7 +540,7 @@ define dso_local noundef zeroext i1 @_ZN4absl18debugging_internal22GetSectionHea
   %.sroa.37.5 = phi i64 [ %.sroa.37.2, %.lr.ph.split.us.preheader.i.i ], [ %.sroa.37.4, %.lr.ph.split.us.i.i ]
   %.sroa.21.5 = phi i64 [ %.sroa.21.2, %.lr.ph.split.us.preheader.i.i ], [ %.sroa.21.4, %.lr.ph.split.us.i.i ]
   %24 = sub nsw i64 %.028.ph72.i.i, %.sroa.21.5
-  %25 = getelementptr inbounds i8, ptr %6, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 %24
   %26 = sub nuw nsw i64 64, %.030.ph70.i.i
   %27 = sub nsw i64 %.sroa.37.5, %.028.ph72.i.i
   %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %27, i64 %26)
@@ -617,7 +617,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
   %.sroa.37.10 = phi i64 [ %.sroa.37.7, %.lr.ph.split.us.preheader.i.i29 ], [ %.sroa.37.9, %.lr.ph.split.us.i.i36 ]
   %.sroa.21.10 = phi i64 [ %.sroa.21.7, %.lr.ph.split.us.preheader.i.i29 ], [ %.sroa.21.9, %.lr.ph.split.us.i.i36 ]
   %54 = sub nsw i64 %.028.ph72.i.i30, %.sroa.21.10
-  %55 = getelementptr inbounds i8, ptr %6, i64 %54
+  %55 = getelementptr inbounds nuw i8, ptr %6, i64 %54
   %56 = sub nuw nsw i64 64, %.030.ph70.i.i32
   %57 = sub nsw i64 %.sroa.37.10, %.028.ph72.i.i30
   %.sroa.speculated.i.i42 = tail call i64 @llvm.umin.i64(i64 %57, i64 %56)
@@ -698,7 +698,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
   %.sroa.37.15 = phi i64 [ %.sroa.37.12, %.lr.ph.split.us.preheader.i.i49 ], [ %.sroa.37.14, %.lr.ph.split.us.i.i56 ]
   %.sroa.21.15 = phi i64 [ %.sroa.21.12, %.lr.ph.split.us.preheader.i.i49 ], [ %.sroa.21.14, %.lr.ph.split.us.i.i56 ]
   %81 = sub nsw i64 %.028.ph72.i.i50, %.sroa.21.15
-  %82 = getelementptr inbounds i8, ptr %6, i64 %81
+  %82 = getelementptr inbounds nuw i8, ptr %6, i64 %81
   %83 = sub nuw nsw i64 64, %.030.ph70.i.i52
   %84 = sub nsw i64 %.sroa.37.15, %.028.ph72.i.i50
   %.sroa.speculated.i.i62 = tail call i64 @llvm.umin.i64(i64 %84, i64 %83)
@@ -760,7 +760,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
   %.sroa.37.18.lcssa = phi i64 [ %.sroa.37.17, %.lr.ph.split.us.preheader.i ], [ %.sroa.37.19, %.lr.ph.split.us.i ]
   %.sroa.21.18.lcssa = phi i64 [ %.sroa.21.17, %.lr.ph.split.us.preheader.i ], [ %.sroa.21.19, %.lr.ph.split.us.i ]
   %104 = sub nsw i64 %.028.ph72.i, %.sroa.21.18.lcssa
-  %105 = getelementptr inbounds i8, ptr %6, i64 %104
+  %105 = getelementptr inbounds nuw i8, ptr %6, i64 %104
   %106 = sub i64 %2, %.030.ph70.i
   %107 = sub nsw i64 %.sroa.37.18.lcssa, %.028.ph72.i
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %107, i64 %106)
@@ -1443,7 +1443,7 @@ _ZN4absl18debugging_internalL22MaybeOpenFdFromSelfExeEPNS0_12_GLOBAL__N_17ObjFil
   %.sroa.30.14.i.i.i = phi i64 [ %.sroa.30.11.i.i.i, %.lr.ph.split.us.preheader.i.i77.i.i.i ], [ %.sroa.30.13.i.i.i, %.lr.ph.split.us.i.i84.i.i.i ]
   %.sroa.17.14.i.i.i = phi i64 [ %.sroa.17.11.i.i.i, %.lr.ph.split.us.preheader.i.i77.i.i.i ], [ %.sroa.17.13.i.i.i, %.lr.ph.split.us.i.i84.i.i.i ]
   %124 = sub nsw i64 %.028.ph72.i.i78.i.i.i, %.sroa.17.14.i.i.i
-  %125 = getelementptr inbounds i8, ptr %10, i64 %124
+  %125 = getelementptr inbounds nuw i8, ptr %10, i64 %124
   %126 = sub nuw nsw i64 64, %.030.ph70.i.i80.i.i.i
   %127 = sub nsw i64 %.sroa.30.14.i.i.i, %.028.ph72.i.i78.i.i.i
   %.sroa.speculated.i.i90.i.i.i = tail call i64 @llvm.umin.i64(i64 %127, i64 %126)
@@ -1529,7 +1529,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
   %.sroa.30.4.i.i.i = phi i64 [ %.sroa.30.1.i.i.i, %.lr.ph.split.us.preheader.i.i.i.i.i ], [ %.sroa.30.3.i.i.i, %.lr.ph.split.us.i.i.i.i.i ]
   %.sroa.17.4.i.i.i = phi i64 [ %.sroa.17.1.i.i.i, %.lr.ph.split.us.preheader.i.i.i.i.i ], [ %.sroa.17.3.i.i.i, %.lr.ph.split.us.i.i.i.i.i ]
   %153 = sub nsw i64 %.028.ph72.i.i.i.i.i, %.sroa.17.4.i.i.i
-  %154 = getelementptr inbounds i8, ptr %10, i64 %153
+  %154 = getelementptr inbounds nuw i8, ptr %10, i64 %153
   %155 = sub nuw nsw i64 64, %.030.ph70.i.i.i.i.i
   %156 = sub nsw i64 %.sroa.30.4.i.i.i, %.028.ph72.i.i.i.i.i
   %.sroa.speculated.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %156, i64 %155)
@@ -1620,7 +1620,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
   %.sroa.30.9.i.i.i = phi i64 [ %.sroa.30.6.i.i.i, %.lr.ph.split.us.preheader.i.i57.i.i.i ], [ %.sroa.30.8.i.i.i, %.lr.ph.split.us.i.i64.i.i.i ]
   %.sroa.17.9.i.i.i = phi i64 [ %.sroa.17.6.i.i.i, %.lr.ph.split.us.preheader.i.i57.i.i.i ], [ %.sroa.17.8.i.i.i, %.lr.ph.split.us.i.i64.i.i.i ]
   %185 = sub nsw i64 %.028.ph72.i.i58.i.i.i, %.sroa.17.9.i.i.i
-  %186 = getelementptr inbounds i8, ptr %10, i64 %185
+  %186 = getelementptr inbounds nuw i8, ptr %10, i64 %185
   %187 = sub nsw i64 56, %.030.ph70.i.i60.i.i.i
   %188 = sub nsw i64 %.sroa.30.9.i.i.i, %.028.ph72.i.i58.i.i.i
   %.sroa.speculated.i.i70.i.i.i = tail call i64 @llvm.umin.i64(i64 %188, i64 %187)
@@ -1857,7 +1857,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
   %287 = phi i64 [ %271, %.lr.ph.split.us.preheader.i.i.i62.i.i ], [ %284, %.lr.ph.split.us.i.i.i69.i.i ]
   %288 = phi i64 [ %272, %.lr.ph.split.us.preheader.i.i.i62.i.i ], [ %285, %.lr.ph.split.us.i.i.i69.i.i ]
   %289 = sub nsw i64 %.028.ph72.i.i.i63.i.i, %288
-  %290 = getelementptr inbounds i8, ptr %269, i64 %289
+  %290 = getelementptr inbounds nuw i8, ptr %269, i64 %289
   %291 = sub nuw nsw i64 64, %.030.ph70.i.i.i65.i.i
   %292 = sub nsw i64 %287, %.028.ph72.i.i.i63.i.i
   %.sroa.speculated.i.i.i73.i.i = tail call i64 @llvm.umin.i64(i64 %292, i64 %291)
@@ -3478,7 +3478,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL22GetSec
   %.lcssa = phi i64 [ %20, %.lr.ph.split.us.preheader.i ], [ %35, %.lr.ph.split.us.i ]
   %38 = load ptr, ptr %11, align 8, !tbaa !73
   %39 = sub nsw i64 %.028.ph72.i, %.lcssa69
-  %40 = getelementptr inbounds i8, ptr %38, i64 %39
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 %39
   %41 = sub i64 %16, %.030.ph70.i
   %42 = sub nsw i64 %.lcssa, %.028.ph72.i
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %42, i64 %41)
@@ -3641,7 +3641,7 @@ define internal fastcc noundef range(i32 1, 4) i32 @_ZN4absl18debugging_internal
   %.lcssa24 = phi i64 [ %25, %.lr.ph.split.us.preheader.i ], [ %40, %.lr.ph.split.us.i ]
   %43 = load ptr, ptr %15, align 8, !tbaa !73
   %44 = sub nsw i64 %.028.ph72.i, %.lcssa27
-  %45 = getelementptr inbounds i8, ptr %43, i64 %44
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 %44
   %46 = sub i64 %19, %.030.ph70.i
   %47 = sub nsw i64 %.lcssa24, %.028.ph72.i
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %47, i64 %46)
@@ -3822,13 +3822,13 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exi
   %.lcssa = phi i64 [ %97, %.lr.ph.split.us.preheader.i86 ], [ %112, %.lr.ph.split.us.i90 ]
   %115 = load ptr, ptr %94, align 8, !tbaa !73
   %116 = sub nsw i64 %.028.ph72.i87, %.lcssa17
-  %117 = getelementptr inbounds i8, ptr %115, i64 %116
+  %117 = getelementptr inbounds nuw i8, ptr %115, i64 %116
   %118 = sub nsw i64 3072, %.030.ph70.i89
   %119 = sub nsw i64 %.lcssa, %.028.ph72.i87
   %.sroa.speculated.i96 = tail call i64 @llvm.umin.i64(i64 %119, i64 %118)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.029.ph71.i88, ptr align 1 %117, i64 %.sroa.speculated.i96, i1 false)
   %120 = getelementptr inbounds nuw i8, ptr %.029.ph71.i88, i64 %.sroa.speculated.i96
-  %121 = add i64 %.sroa.speculated.i96, %.030.ph70.i89
+  %121 = add nuw i64 %.sroa.speculated.i96, %.030.ph70.i89
   %122 = add nsw i64 %.sroa.speculated.i96, %.028.ph72.i87
   %123 = icmp ult i64 %121, 3072
   br i1 %123, label %.lr.ph.split.us.preheader.i86, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit97

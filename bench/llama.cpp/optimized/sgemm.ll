@@ -959,7 +959,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit72:            ; preds = %76, %78
 
 86:                                               ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit72
   %87 = sub nsw i64 %73, %15
-  %88 = mul nsw i64 %87, 5
+  %88 = mul nuw nsw i64 %87, 5
   %89 = add nsw i64 %88, %54
   br label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit73
 
@@ -974,7 +974,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %84, %86
 
 94:                                               ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit73
   %95 = sub nsw i64 %82, %15
-  %96 = mul nsw i64 %95, 5
+  %96 = mul nuw nsw i64 %95, 5
   %97 = add nsw i64 %96, %54
   br label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit74
 
@@ -1767,7 +1767,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit71:            ; preds = %77, %79
 
 87:                                               ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit71
   %88 = sub nsw i64 %74, %16
-  %89 = mul nsw i64 %88, 3
+  %89 = mul nuw nsw i64 %88, 3
   %90 = add nsw i64 %89, %55
   br label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit72
 
@@ -1782,7 +1782,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit72:            ; preds = %85, %87
 
 95:                                               ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit72
   %96 = sub nsw i64 %83, %16
-  %97 = mul nsw i64 %96, 3
+  %97 = mul nuw nsw i64 %96, 3
   %98 = add nsw i64 %97, %55
   br label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit73
 
@@ -2162,7 +2162,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit72:            ; preds = %75, %77
 
 85:                                               ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit72
   %86 = sub nsw i64 %72, %14
-  %87 = shl nsw i64 %86, 1
+  %87 = shl nuw nsw i64 %86, 1
   %88 = add nsw i64 %87, %53
   br label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit73
 
@@ -2177,7 +2177,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %83, %85
 
 93:                                               ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit73
   %94 = sub nsw i64 %81, %14
-  %95 = shl nsw i64 %94, 1
+  %95 = shl nuw nsw i64 %94, 1
   %96 = add nsw i64 %95, %53
   br label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit74
 
@@ -3182,7 +3182,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit72:            ; preds = %76, %78
 
 86:                                               ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit72
   %87 = sub nsw i64 %73, %15
-  %88 = mul nsw i64 %87, 5
+  %88 = mul nuw nsw i64 %87, 5
   %89 = add nsw i64 %88, %54
   br label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit73
 
@@ -3197,7 +3197,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %84, %86
 
 94:                                               ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit73
   %95 = sub nsw i64 %82, %15
-  %96 = mul nsw i64 %95, 5
+  %96 = mul nuw nsw i64 %95, 5
   %97 = add nsw i64 %96, %54
   br label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit74
 
@@ -3972,7 +3972,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit71:            ; preds = %77, %79
 
 87:                                               ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit71
   %88 = sub nsw i64 %74, %16
-  %89 = mul nsw i64 %88, 3
+  %89 = mul nuw nsw i64 %88, 3
   %90 = add nsw i64 %89, %55
   br label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit72
 
@@ -3987,7 +3987,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit72:            ; preds = %85, %87
 
 95:                                               ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit72
   %96 = sub nsw i64 %83, %16
-  %97 = mul nsw i64 %96, 3
+  %97 = mul nuw nsw i64 %96, 3
   %98 = add nsw i64 %97, %55
   br label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit73
 
@@ -4366,7 +4366,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit72:            ; preds = %75, %77
 
 85:                                               ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit72
   %86 = sub nsw i64 %72, %14
-  %87 = shl nsw i64 %86, 1
+  %87 = shl nuw nsw i64 %86, 1
   %88 = add nsw i64 %87, %53
   br label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit73
 
@@ -4381,7 +4381,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %83, %85
 
 93:                                               ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit73
   %94 = sub nsw i64 %81, %14
-  %95 = shl nsw i64 %94, 1
+  %95 = shl nuw nsw i64 %94, 1
   %96 = add nsw i64 %95, %53
   br label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit74
 
@@ -5384,7 +5384,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit72:            ; preds = %79, %81
 
 89:                                               ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit72
   %90 = sub nsw i64 %76, %15
-  %91 = mul nsw i64 %90, 5
+  %91 = mul nuw nsw i64 %90, 5
   %92 = add nsw i64 %91, %54
   br label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit73
 
@@ -5399,7 +5399,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %87, %89
 
 97:                                               ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit73
   %98 = sub nsw i64 %85, %15
-  %99 = mul nsw i64 %98, 5
+  %99 = mul nuw nsw i64 %98, 5
   %100 = add nsw i64 %99, %54
   br label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit74
 
@@ -6154,7 +6154,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit71:            ; preds = %80, %82
 
 90:                                               ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit71
   %91 = sub nsw i64 %77, %16
-  %92 = mul nsw i64 %91, 3
+  %92 = mul nuw nsw i64 %91, 3
   %93 = add nsw i64 %92, %55
   br label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit72
 
@@ -6169,7 +6169,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit72:            ; preds = %88, %90
 
 98:                                               ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit72
   %99 = sub nsw i64 %86, %16
-  %100 = mul nsw i64 %99, 3
+  %100 = mul nuw nsw i64 %99, 3
   %101 = add nsw i64 %100, %55
   br label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit73
 
@@ -6538,7 +6538,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit72:            ; preds = %78, %80
 
 88:                                               ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit72
   %89 = sub nsw i64 %75, %14
-  %90 = shl nsw i64 %89, 1
+  %90 = shl nuw nsw i64 %89, 1
   %91 = add nsw i64 %90, %53
   br label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit73
 
@@ -6553,7 +6553,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %86, %88
 
 96:                                               ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit73
   %97 = sub nsw i64 %84, %14
-  %98 = shl nsw i64 %97, 1
+  %98 = shl nuw nsw i64 %97, 1
   %99 = add nsw i64 %98, %53
   br label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit74
 
@@ -7561,7 +7561,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit72:            ; preds = %76, %78
 
 86:                                               ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit72
   %87 = sub nsw i64 %73, %15
-  %88 = mul nsw i64 %87, 5
+  %88 = mul nuw nsw i64 %87, 5
   %89 = add nsw i64 %88, %54
   br label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit73
 
@@ -7576,7 +7576,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %84, %86
 
 94:                                               ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit73
   %95 = sub nsw i64 %82, %15
-  %96 = mul nsw i64 %95, 5
+  %96 = mul nuw nsw i64 %95, 5
   %97 = add nsw i64 %96, %54
   br label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit74
 
@@ -8373,7 +8373,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit71:            ; preds = %77, %79
 
 87:                                               ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit71
   %88 = sub nsw i64 %74, %16
-  %89 = mul nsw i64 %88, 3
+  %89 = mul nuw nsw i64 %88, 3
   %90 = add nsw i64 %89, %55
   br label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit72
 
@@ -8388,7 +8388,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit72:            ; preds = %85, %87
 
 95:                                               ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit72
   %96 = sub nsw i64 %83, %16
-  %97 = mul nsw i64 %96, 3
+  %97 = mul nuw nsw i64 %96, 3
   %98 = add nsw i64 %97, %55
   br label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit73
 
@@ -8778,7 +8778,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit72:            ; preds = %75, %77
 
 85:                                               ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit72
   %86 = sub nsw i64 %72, %14
-  %87 = shl nsw i64 %86, 1
+  %87 = shl nuw nsw i64 %86, 1
   %88 = add nsw i64 %87, %53
   br label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit73
 
@@ -8793,7 +8793,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %83, %85
 
 93:                                               ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit73
   %94 = sub nsw i64 %81, %14
-  %95 = shl nsw i64 %94, 1
+  %95 = shl nuw nsw i64 %94, 1
   %96 = add nsw i64 %95, %53
   br label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit74
 
@@ -9831,7 +9831,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit72:            ; preds = %76, %78
 
 86:                                               ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit72
   %87 = sub nsw i64 %73, %15
-  %88 = mul nsw i64 %87, 5
+  %88 = mul nuw nsw i64 %87, 5
   %89 = add nsw i64 %88, %54
   br label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit73
 
@@ -9846,7 +9846,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %84, %86
 
 94:                                               ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit73
   %95 = sub nsw i64 %82, %15
-  %96 = mul nsw i64 %95, 5
+  %96 = mul nuw nsw i64 %95, 5
   %97 = add nsw i64 %96, %54
   br label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit74
 
@@ -10641,7 +10641,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit71:            ; preds = %77, %79
 
 87:                                               ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit71
   %88 = sub nsw i64 %74, %16
-  %89 = mul nsw i64 %88, 3
+  %89 = mul nuw nsw i64 %88, 3
   %90 = add nsw i64 %89, %55
   br label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit72
 
@@ -10656,7 +10656,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit72:            ; preds = %85, %87
 
 95:                                               ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit72
   %96 = sub nsw i64 %83, %16
-  %97 = mul nsw i64 %96, 3
+  %97 = mul nuw nsw i64 %96, 3
   %98 = add nsw i64 %97, %55
   br label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit73
 
@@ -11045,7 +11045,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit72:            ; preds = %75, %77
 
 85:                                               ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit72
   %86 = sub nsw i64 %72, %14
-  %87 = shl nsw i64 %86, 1
+  %87 = shl nuw nsw i64 %86, 1
   %88 = add nsw i64 %87, %53
   br label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit73
 
@@ -11060,7 +11060,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %83, %85
 
 93:                                               ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit73
   %94 = sub nsw i64 %81, %14
-  %95 = shl nsw i64 %94, 1
+  %95 = shl nuw nsw i64 %94, 1
   %96 = add nsw i64 %95, %53
   br label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit74
 
@@ -12098,7 +12098,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit72:            ; preds = %79, %81
 
 89:                                               ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit72
   %90 = sub nsw i64 %76, %15
-  %91 = mul nsw i64 %90, 5
+  %91 = mul nuw nsw i64 %90, 5
   %92 = add nsw i64 %91, %54
   br label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit73
 
@@ -12113,7 +12113,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %87, %89
 
 97:                                               ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit73
   %98 = sub nsw i64 %85, %15
-  %99 = mul nsw i64 %98, 5
+  %99 = mul nuw nsw i64 %98, 5
   %100 = add nsw i64 %99, %54
   br label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit74
 
@@ -12888,7 +12888,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit71:            ; preds = %80, %82
 
 90:                                               ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit71
   %91 = sub nsw i64 %77, %16
-  %92 = mul nsw i64 %91, 3
+  %92 = mul nuw nsw i64 %91, 3
   %93 = add nsw i64 %92, %55
   br label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit72
 
@@ -12903,7 +12903,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit72:            ; preds = %88, %90
 
 98:                                               ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit72
   %99 = sub nsw i64 %86, %16
-  %100 = mul nsw i64 %99, 3
+  %100 = mul nuw nsw i64 %99, 3
   %101 = add nsw i64 %100, %55
   br label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit73
 
@@ -13282,7 +13282,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit72:            ; preds = %78, %80
 
 88:                                               ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit72
   %89 = sub nsw i64 %75, %14
-  %90 = shl nsw i64 %89, 1
+  %90 = shl nuw nsw i64 %89, 1
   %91 = add nsw i64 %90, %53
   br label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit73
 
@@ -13297,7 +13297,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %86, %88
 
 96:                                               ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit73
   %97 = sub nsw i64 %84, %14
-  %98 = shl nsw i64 %97, 1
+  %98 = shl nuw nsw i64 %97, 1
   %99 = add nsw i64 %98, %53
   br label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit74
 
@@ -14340,7 +14340,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit72:            ; preds = %76, %78
 
 86:                                               ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit72
   %87 = sub nsw i64 %73, %15
-  %88 = mul nsw i64 %87, 5
+  %88 = mul nuw nsw i64 %87, 5
   %89 = add nsw i64 %88, %54
   br label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit73
 
@@ -14355,7 +14355,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %84, %86
 
 94:                                               ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit73
   %95 = sub nsw i64 %82, %15
-  %96 = mul nsw i64 %95, 5
+  %96 = mul nuw nsw i64 %95, 5
   %97 = add nsw i64 %96, %54
   br label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit74
 
@@ -15140,7 +15140,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit71:            ; preds = %77, %79
 
 87:                                               ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit71
   %88 = sub nsw i64 %74, %16
-  %89 = mul nsw i64 %88, 3
+  %89 = mul nuw nsw i64 %88, 3
   %90 = add nsw i64 %89, %55
   br label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit72
 
@@ -15155,7 +15155,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit72:            ; preds = %85, %87
 
 95:                                               ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit72
   %96 = sub nsw i64 %83, %16
-  %97 = mul nsw i64 %96, 3
+  %97 = mul nuw nsw i64 %96, 3
   %98 = add nsw i64 %97, %55
   br label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit73
 
@@ -15539,7 +15539,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit72:            ; preds = %75, %77
 
 85:                                               ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit72
   %86 = sub nsw i64 %72, %14
-  %87 = shl nsw i64 %86, 1
+  %87 = shl nuw nsw i64 %86, 1
   %88 = add nsw i64 %87, %53
   br label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit73
 
@@ -15554,7 +15554,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %83, %85
 
 93:                                               ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit73
   %94 = sub nsw i64 %81, %14
-  %95 = shl nsw i64 %94, 1
+  %95 = shl nuw nsw i64 %94, 1
   %96 = add nsw i64 %95, %53
   br label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit74
 
@@ -16569,7 +16569,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit72:            ; preds = %76, %78
 
 86:                                               ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit72
   %87 = sub nsw i64 %73, %15
-  %88 = mul nsw i64 %87, 5
+  %88 = mul nuw nsw i64 %87, 5
   %89 = add nsw i64 %88, %54
   br label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit73
 
@@ -16584,7 +16584,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %84, %86
 
 94:                                               ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit73
   %95 = sub nsw i64 %82, %15
-  %96 = mul nsw i64 %95, 5
+  %96 = mul nuw nsw i64 %95, 5
   %97 = add nsw i64 %96, %54
   br label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit74
 
@@ -17367,7 +17367,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit71:            ; preds = %77, %79
 
 87:                                               ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit71
   %88 = sub nsw i64 %74, %16
-  %89 = mul nsw i64 %88, 3
+  %89 = mul nuw nsw i64 %88, 3
   %90 = add nsw i64 %89, %55
   br label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit72
 
@@ -17382,7 +17382,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit72:            ; preds = %85, %87
 
 95:                                               ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit72
   %96 = sub nsw i64 %83, %16
-  %97 = mul nsw i64 %96, 3
+  %97 = mul nuw nsw i64 %96, 3
   %98 = add nsw i64 %97, %55
   br label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit73
 
@@ -17765,7 +17765,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit72:            ; preds = %75, %77
 
 85:                                               ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit72
   %86 = sub nsw i64 %72, %14
-  %87 = shl nsw i64 %86, 1
+  %87 = shl nuw nsw i64 %86, 1
   %88 = add nsw i64 %87, %53
   br label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit73
 
@@ -17780,7 +17780,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %83, %85
 
 93:                                               ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit73
   %94 = sub nsw i64 %81, %14
-  %95 = shl nsw i64 %94, 1
+  %95 = shl nuw nsw i64 %94, 1
   %96 = add nsw i64 %95, %53
   br label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit74
 
@@ -18795,7 +18795,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit72:            ; preds = %79, %81
 
 89:                                               ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit72
   %90 = sub nsw i64 %76, %15
-  %91 = mul nsw i64 %90, 5
+  %91 = mul nuw nsw i64 %90, 5
   %92 = add nsw i64 %91, %54
   br label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit73
 
@@ -18810,7 +18810,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %87, %89
 
 97:                                               ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit73
   %98 = sub nsw i64 %85, %15
-  %99 = mul nsw i64 %98, 5
+  %99 = mul nuw nsw i64 %98, 5
   %100 = add nsw i64 %99, %54
   br label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit74
 
@@ -19573,7 +19573,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit71:            ; preds = %80, %82
 
 90:                                               ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit71
   %91 = sub nsw i64 %77, %16
-  %92 = mul nsw i64 %91, 3
+  %92 = mul nuw nsw i64 %91, 3
   %93 = add nsw i64 %92, %55
   br label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit72
 
@@ -19588,7 +19588,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit72:            ; preds = %88, %90
 
 98:                                               ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit72
   %99 = sub nsw i64 %86, %16
-  %100 = mul nsw i64 %99, 3
+  %100 = mul nuw nsw i64 %99, 3
   %101 = add nsw i64 %100, %55
   br label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit73
 
@@ -19961,7 +19961,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit72:            ; preds = %78, %80
 
 88:                                               ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit72
   %89 = sub nsw i64 %75, %14
-  %90 = shl nsw i64 %89, 1
+  %90 = shl nuw nsw i64 %89, 1
   %91 = add nsw i64 %90, %53
   br label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit73
 
@@ -19976,7 +19976,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %86, %88
 
 96:                                               ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit73
   %97 = sub nsw i64 %84, %14
-  %98 = shl nsw i64 %97, 1
+  %98 = shl nuw nsw i64 %97, 1
   %99 = add nsw i64 %98, %53
   br label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit74
 

@@ -1573,7 +1573,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %sub = sub nsw i64 %tvb.sroa.8.0.copyload, %tva.sroa.4.0.copyload
-  %div = sdiv i64 %sub, 1000000
+  %div = udiv i64 %sub, 1000000
   %0 = trunc i64 %div to i32
   %conv = add i32 %0, 1
   %mul = mul nsw i32 %conv, 1000000

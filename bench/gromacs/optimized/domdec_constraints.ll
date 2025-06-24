@@ -1554,7 +1554,7 @@ define internal void @_Z25dd_make_local_constraintsP12gmx_domdec_tiRK10gmx_mtop_
   %59 = load i32, ptr %58, align 8, !tbaa !179
   %60 = sub nsw i32 %59, %48
   %61 = sdiv i32 %56, %60
-  %62 = add nsw i32 %55, 1
+  %62 = add nuw nsw i32 %55, 1
   %63 = mul nsw i32 %53, %62
   %64 = sdiv i32 %63, %60
   %65 = icmp eq i32 %48, %54

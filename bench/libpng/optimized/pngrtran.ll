@@ -1366,7 +1366,7 @@ define void @png_set_quantize(ptr noalias noundef %0, ptr noundef %1, i32 nounde
   %426 = trunc nuw nsw i64 %425 to i32
   %427 = select i1 %423, i32 %424, i32 %426
   %428 = add nuw nsw i32 %427, %420
-  %429 = tail call i32 @llvm.smax.i32(i32 %420, i32 %427)
+  %429 = tail call i32 @llvm.umax.i32(i32 %420, i32 %427)
   %430 = shl nuw nsw i64 %indvars.iv635, 5
   %431 = add nuw nsw i64 %430, %421
   br label %432
@@ -1380,7 +1380,7 @@ define void @png_set_quantize(ptr noalias noundef %0, ptr noundef %1, i32 nounde
   %436 = sub nuw nsw i64 %412, %indvars.iv631
   %437 = trunc nuw nsw i64 %436 to i32
   %438 = select i1 %434, i32 %435, i32 %437
-  %439 = tail call i32 @llvm.smax.i32(i32 %429, i32 %438)
+  %439 = tail call i32 @llvm.umax.i32(i32 %429, i32 %438)
   %440 = add nuw nsw i32 %428, %438
   %441 = add nuw nsw i32 %440, %439
   %442 = getelementptr inbounds nuw i8, ptr %397, i64 %433
@@ -8911,13 +8911,16 @@ declare i32 @llvm.fshl.i32(i32, i32, i32) #9
 declare double @llvm.fabs.f64(double) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #9
+declare i32 @llvm.umax.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #9
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #9
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

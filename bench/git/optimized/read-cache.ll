@@ -1725,11 +1725,11 @@ tailrecurse:                                      ; preds = %55, %5
   %.04273 = phi i32 [ %.143, %.thread56 ], [ 0, %tailrecurse ]
   %.04472 = phi i32 [ %.145, %.thread56 ], [ %10, %tailrecurse ]
   %12 = sub nsw i32 %.04472, %.04273
-  %13 = ashr i32 %12, 1
-  %14 = add nsw i32 %13, %.04273
+  %13 = lshr i32 %12, 1
+  %14 = add nuw nsw i32 %13, %.04273
   %15 = load ptr, ptr %0, align 8, !tbaa !4
-  %16 = sext i32 %14 to i64
-  %17 = getelementptr inbounds ptr, ptr %15, i64 %16
+  %16 = zext nneg i32 %14 to i64
+  %17 = getelementptr inbounds nuw ptr, ptr %15, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !25
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 108
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 64
@@ -1756,7 +1756,7 @@ cache_name_stage_compare.exit:                    ; preds = %28
   br i1 %31, label %.thread56, label %.thread, !llvm.loop !76
 
 .thread:                                          ; preds = %cache_name_stage_compare.exit, %30
-  %32 = add nsw i32 %14, 1
+  %32 = add nuw nsw i32 %14, 1
   br label %.thread56
 
 .thread56:                                        ; preds = %28, %30, %.thread

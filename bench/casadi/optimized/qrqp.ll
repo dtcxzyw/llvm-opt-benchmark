@@ -17799,7 +17799,7 @@ define linkonce_odr hidden void @_ZN6casadi16casadi_qrqp_flipIdEEvPNS_16casadi_q
 
 36:                                               ; preds = %13
   %37 = sub nsw i64 %8, %23
-  %38 = getelementptr inbounds i64, ptr %16, i64 %37
+  %38 = getelementptr inbounds nuw i64, ptr %16, i64 %37
   %39 = load i64, ptr %38, align 8, !tbaa !142
   %40 = getelementptr i8, ptr %38, i64 8
   %41 = load i64, ptr %40, align 8, !tbaa !142
@@ -18185,7 +18185,7 @@ define linkonce_odr hidden void @_ZN6casadi20casadi_qrqp_du_indexIdEEvPNS_16casa
 
 57:                                               ; preds = %43
   %58 = sub nsw i64 %.055, %49
-  %59 = getelementptr inbounds i64, ptr %45, i64 %58
+  %59 = getelementptr inbounds nuw i64, ptr %45, i64 %58
   %60 = load i64, ptr %59, align 8, !tbaa !142
   %61 = getelementptr i8, ptr %59, i64 8
   %62 = load i64, ptr %61, align 8, !tbaa !142
@@ -18388,7 +18388,7 @@ _ZN6casadi12casadi_clearIdEEvPT_x.exit.i:         ; preds = %.lr.ph.preheader.i.
 
 66:                                               ; preds = %_ZN6casadi12casadi_clearIdEEvPT_x.exit.i
   %67 = sub nsw i64 %6, %11
-  %68 = getelementptr inbounds i64, ptr %16, i64 %67
+  %68 = getelementptr inbounds nuw i64, ptr %16, i64 %67
   %69 = load i64, ptr %68, align 8, !tbaa !142
   %70 = getelementptr i8, ptr %68, i64 8
   %71 = load i64, ptr %70, align 8, !tbaa !142
@@ -19899,7 +19899,7 @@ _ZN6casadi18casadi_qr_singularIdEExPT_PxPKS1_PKxS7_S1_.exit: ; preds = %.lr.ph.s
 
 245:                                              ; preds = %181
   %246 = sub nsw i64 %.2195317, %188
-  %247 = getelementptr inbounds i64, ptr %193, i64 %246
+  %247 = getelementptr inbounds nuw i64, ptr %193, i64 %246
   %248 = load i64, ptr %247, align 8, !tbaa !142
   %249 = getelementptr i8, ptr %247, i64 8
   %250 = load i64, ptr %249, align 8, !tbaa !142
@@ -20208,7 +20208,7 @@ _ZN6casadi24casadi_qrqp_du_directionIdEEiPNS_16casadi_qrqp_dataIT_EE.exit: ; pre
 
 419:                                              ; preds = %412
   %420 = sub nsw i64 %.3196324, %341
-  %421 = getelementptr inbounds i64, ptr %414, i64 %420
+  %421 = getelementptr inbounds nuw i64, ptr %414, i64 %420
   %422 = load i64, ptr %421, align 8, !tbaa !142
   %423 = getelementptr i8, ptr %421, i64 8
   %424 = load i64, ptr %423, align 8, !tbaa !142
@@ -20303,7 +20303,7 @@ _ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit: ; pr
 
 477:                                              ; preds = %470
   %478 = sub nsw i64 %.3196324, %341
-  %479 = getelementptr inbounds i64, ptr %472, i64 %478
+  %479 = getelementptr inbounds nuw i64, ptr %472, i64 %478
   %480 = load i64, ptr %479, align 8, !tbaa !142
   %481 = getelementptr i8, ptr %479, i64 8
   %482 = load i64, ptr %481, align 8, !tbaa !142
@@ -21538,7 +21538,7 @@ _ZN6casadi11casadi_axpyIdEEvxT_PKS1_PS1_.exit.thread: ; preds = %73, %_ZN6casadi
 
 127:                                              ; preds = %118
   %128 = sub nsw i64 %112, %61
-  %129 = getelementptr inbounds i64, ptr %5, i64 %128
+  %129 = getelementptr inbounds nuw i64, ptr %5, i64 %128
   %130 = load i64, ptr %129, align 8, !tbaa !142
   %131 = getelementptr i8, ptr %129, i64 8
   %132 = load i64, ptr %131, align 8, !tbaa !142

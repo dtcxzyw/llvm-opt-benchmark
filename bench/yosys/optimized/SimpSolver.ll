@@ -7463,7 +7463,7 @@ define linkonce_odr void @_ZN7Minisat3vecIiiE6growToEiRKi(ptr noundef nonnull al
   %15 = add nsw i32 %14, 2
   %16 = tail call noundef i32 @llvm.smax.i32(i32 %12, i32 %15)
   %17 = sub nsw i32 2147483647, %8
-  %18 = icmp sgt i32 %16, %17
+  %18 = icmp samesign ugt i32 %16, %17
   br i1 %18, label %29, label %19
 
 19:                                               ; preds = %9
@@ -7625,7 +7625,7 @@ define linkonce_odr void @_ZN7Minisat3vecIjiE6growToEi(ptr noundef nonnull align
   %14 = add nsw i32 %13, 2
   %15 = tail call noundef i32 @llvm.smax.i32(i32 %11, i32 %14)
   %16 = sub nsw i32 2147483647, %7
-  %17 = icmp sgt i32 %15, %16
+  %17 = icmp samesign ugt i32 %15, %16
   br i1 %17, label %28, label %18
 
 18:                                               ; preds = %8
@@ -7697,7 +7697,7 @@ define linkonce_odr void @_ZN7Minisat3vecIciE6growToEi(ptr noundef nonnull align
   %14 = add nsw i32 %13, 2
   %15 = tail call noundef i32 @llvm.smax.i32(i32 %11, i32 %14)
   %16 = sub nsw i32 2147483647, %7
-  %17 = icmp sgt i32 %15, %16
+  %17 = icmp samesign ugt i32 %15, %16
   br i1 %17, label %28, label %18
 
 18:                                               ; preds = %8
@@ -7770,7 +7770,7 @@ define linkonce_odr void @_ZN7Minisat3vecIiiE6growToEi(ptr noundef nonnull align
   %14 = add nsw i32 %13, 2
   %15 = tail call noundef i32 @llvm.smax.i32(i32 %11, i32 %14)
   %16 = sub nsw i32 2147483647, %7
-  %17 = icmp sgt i32 %15, %16
+  %17 = icmp samesign ugt i32 %15, %16
   br i1 %17, label %28, label %18
 
 18:                                               ; preds = %8
@@ -7842,7 +7842,7 @@ define linkonce_odr void @_ZN7Minisat3vecINS0_IjiEEiE6growToEi(ptr noundef nonnu
   %14 = add nsw i32 %13, 2
   %15 = tail call noundef i32 @llvm.smax.i32(i32 %11, i32 %14)
   %16 = sub nsw i32 2147483647, %7
-  %17 = icmp sgt i32 %15, %16
+  %17 = icmp samesign ugt i32 %15, %16
   br i1 %17, label %28, label %18
 
 18:                                               ; preds = %8
@@ -7915,7 +7915,7 @@ define linkonce_odr void @_ZN7Minisat3vecIciE6growToEiRKc(ptr noundef nonnull al
   %15 = add nsw i32 %14, 2
   %16 = tail call noundef i32 @llvm.smax.i32(i32 %12, i32 %15)
   %17 = sub nsw i32 2147483647, %8
-  %18 = icmp sgt i32 %16, %17
+  %18 = icmp samesign ugt i32 %16, %17
   br i1 %18, label %29, label %19
 
 19:                                               ; preds = %9

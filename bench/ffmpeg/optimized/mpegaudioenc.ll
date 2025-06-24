@@ -533,7 +533,7 @@ define internal range(i32 -2147483648, 1) i32 @mpa_encode_frame(ptr noundef %0, 
   %144 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv.i.i
   %145 = add nsw i32 %143, %141
   store i32 %145, ptr %144, align 4, !tbaa !44
-  %146 = icmp samesign ugt i64 %indvars.iv.i.i, 4
+  %146 = icmp samesign ugt i64 %indvars.iv.next.i.i, 2
   br i1 %146, label %140, label %147, !llvm.loop !58
 
 147:                                              ; preds = %140

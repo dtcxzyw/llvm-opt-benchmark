@@ -890,8 +890,8 @@ _ZL12transformEUCP8MBCSData.exit.thread.i:        ; preds = %272, %239, %.prehea
   %336 = zext nneg i32 %282 to i64
   %337 = zext i16 %.0.lcssa.i.i to i64
   %338 = sub nuw nsw i32 %282, %.pre.i.i
-  %339 = zext nneg i32 %338 to i64
-  %340 = shl nuw nsw i64 %339, 1
+  %339 = shl nuw nsw i32 %338, 1
+  %340 = zext nneg i32 %339 to i64
   %341 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.32, i64 noundef %336, i64 noundef %337, i64 noundef %340)
   br label %._crit_edge._crit_edge.i.i
 
@@ -1055,8 +1055,8 @@ _ZL19singleCompactStage3P8MBCSData.exit.i:        ; preds = %344
   %410 = zext nneg i32 %342 to i64
   %411 = zext i16 %.0.lcssa.i26.i to i64
   %412 = sub nuw nsw i32 %342, %.pre.i28.i
-  %413 = zext nneg i32 %412 to i64
-  %414 = shl nuw nsw i64 %413, 1
+  %413 = shl nuw nsw i32 %412, 1
+  %414 = zext nneg i32 %413 to i64
   %415 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.33, i64 noundef %410, i64 noundef %411, i64 noundef %414)
   br label %._crit_edge._crit_edge.i30.i
 

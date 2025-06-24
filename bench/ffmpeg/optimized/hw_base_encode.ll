@@ -135,7 +135,7 @@ define noundef i32 @ff_hw_base_encode_set_output_property(ptr noundef readonly c
   %61 = sext i32 %60 to i64
   %62 = add nsw i64 %58, %61
   %63 = srem i64 %57, %62
-  %64 = getelementptr inbounds [112 x i64], ptr %47, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw [112 x i64], ptr %47, i64 0, i64 %63
   %65 = load i64, ptr %64, align 8, !tbaa !56
   br label %66
 

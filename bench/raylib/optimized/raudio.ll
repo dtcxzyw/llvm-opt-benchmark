@@ -77321,14 +77321,14 @@ drmp3_bs_get_bits.exit335.i:                      ; preds = %._crit_edge.i324.i,
   %844 = getelementptr inbounds nuw i8, ptr %843, i64 %842
   %845 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %846 = sub nsw i32 %379, %811
-  %847 = sdiv i32 %846, 8
+  %847 = lshr i32 %846, 3
   %848 = sext i32 %..i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %845, ptr nonnull readonly align 1 %844, i64 %848, i1 false)
   %849 = getelementptr inbounds i8, ptr %845, i64 %848
   %850 = sdiv i32 %811, 8
   %851 = sext i32 %850 to i64
   %852 = getelementptr inbounds i8, ptr %377, i64 %851
-  %853 = sext i32 %847 to i64
+  %853 = zext nneg i32 %847 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %849, ptr nonnull align 1 %852, i64 %853, i1 false)
   %854 = add nsw i32 %..i, %847
   store ptr %845, ptr %15, align 8

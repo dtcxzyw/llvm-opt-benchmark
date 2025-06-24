@@ -9330,9 +9330,9 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110StencilRowIdE5ClearEv.exit.preheader: 
 
 .lr.ph.preheader.i.us.us:                         ; preds = %.lr.ph.us
   %48 = sub nsw i32 %46, %.fr85
-  %49 = mul nsw i32 %48, %.fr85
-  %50 = sext i32 %49 to i64
-  %51 = getelementptr inbounds double, ptr %10, i64 %50
+  %49 = mul nuw nsw i32 %48, %.fr85
+  %50 = zext nneg i32 %49 to i64
+  %51 = getelementptr inbounds nuw double, ptr %10, i64 %50
   br label %.lr.ph.i65.us.us
 
 .lr.ph.i65.us.us:                                 ; preds = %.lr.ph.i65.us.us, %.lr.ph.preheader.i.us.us
@@ -11475,9 +11475,9 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110StencilRowIfE5ClearEv.exit.preheader: 
 
 .lr.ph.preheader.i.us.us:                         ; preds = %.lr.ph.us
   %48 = sub nsw i32 %46, %.fr85
-  %49 = mul nsw i32 %48, %.fr85
-  %50 = sext i32 %49 to i64
-  %51 = getelementptr inbounds float, ptr %10, i64 %50
+  %49 = mul nuw nsw i32 %48, %.fr85
+  %50 = zext nneg i32 %49 to i64
+  %51 = getelementptr inbounds nuw float, ptr %10, i64 %50
   br label %.lr.ph.i65.us.us
 
 .lr.ph.i65.us.us:                                 ; preds = %.lr.ph.i65.us.us, %.lr.ph.preheader.i.us.us

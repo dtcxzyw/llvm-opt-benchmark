@@ -158867,7 +158867,7 @@ _ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i.i.i:     ; preds = %226, %220
 
 _ZSt7advanceIPKclEvRT_T0_.exit:                   ; preds = %_ZStplRKSt15_Deque_iteratorIcRcPcEl.exit
   %240 = sub nsw i64 %4, %56
-  %241 = getelementptr inbounds i8, ptr %2, i64 %240
+  %241 = getelementptr inbounds nuw i8, ptr %2, i64 %240
   %242 = load ptr, ptr %31, align 8, !tbaa !2922
   %243 = load ptr, ptr %78, align 8, !tbaa !2935
   %244 = load ptr, ptr %48, align 8, !tbaa !2936
@@ -189129,7 +189129,7 @@ define linkonce_odr dso_local noundef i64 @_ZN5boost4asio10io_context13run_one_u
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #61
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %13 = load ptr, ptr %7, align 8, !tbaa !1567
-  %14 = sdiv i64 %spec.select, 1000
+  %14 = udiv i64 %spec.select, 1000
   %15 = call noundef i64 @_ZN5boost4asio6detail9scheduler8wait_oneElRNS_6system10error_codeE(ptr noundef nonnull align 8 dereferenceable(256) %13, i64 noundef %14, ptr noundef nonnull align 8 dereferenceable(24) %3)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #61
   store ptr @.str.872, ptr %4, align 8, !tbaa !1488

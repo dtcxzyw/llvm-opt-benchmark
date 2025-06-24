@@ -3278,7 +3278,7 @@ if.then.i:                                        ; preds = %_ZNK4absl12lts_2023
 
 if.else.i:                                        ; preds = %_ZNK4absl12lts_2023080210CordBuffer6lengthEv.exit
   %sub = sub nsw i32 %conv, %count
-  %conv5 = sext i32 %sub to i64
+  %conv5 = zext nneg i32 %sub to i64
   store i64 %conv5, ptr %2, align 8
   br label %if.end10.sink.split
 

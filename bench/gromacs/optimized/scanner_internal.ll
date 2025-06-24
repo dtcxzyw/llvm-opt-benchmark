@@ -2369,7 +2369,7 @@ define void @_Z23_gmx_sel_lexer_get_textB5cxx11PvRKN3gmx17SelectionLocationE(ptr
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i: ; preds = %12
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %19 = sub nsw i32 %8, %6
-  %20 = sext i32 %19 to i64
+  %20 = zext nneg i32 %19 to i64
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %21, ptr %0, align 8, !tbaa !71, !alias.scope !118
   %22 = load ptr, ptr %18, align 8, !tbaa !38, !noalias !118
@@ -2378,7 +2378,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i: ;
   %spec.select.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %20, i64 %24)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #21, !noalias !118
   store i64 %spec.select.i.i.i, ptr %4, align 8, !tbaa !72, !noalias !118
-  %25 = icmp ugt i64 %spec.select.i.i.i, 15
+  %25 = icmp samesign ugt i64 %spec.select.i.i.i, 15
   br i1 %25, label %.noexc10.i.i, label %._crit_edge.i.i.i
 
 .noexc10.i.i:                                     ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i

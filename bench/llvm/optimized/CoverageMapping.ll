@@ -869,34 +869,34 @@ define dso_local range(i64 0, -4294967292) i64 @_ZN4llvm8coverage24CounterExpres
   call void @_ZN4llvm8coverage24CounterExpressionBuilder12extractTermsENS0_7CounterEiRNS_15SmallVectorImplINS1_4TermEEE(ptr noundef nonnull align 8 dereferenceable(48) %0, i64 %1, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(16) %7)
   %13 = load i32, ptr %11, align 8, !tbaa !47
   %14 = icmp eq i32 %13, 0
-  %.pre229 = load ptr, ptr %7, align 8, !tbaa !50
+  %.pre226 = load ptr, ptr %7, align 8, !tbaa !50
   br i1 %14, label %.loopexit164, label %15
 
 15:                                               ; preds = %2
   %16 = zext i32 %13 to i64
   %.idx.i = shl nuw nsw i64 %16, 3
-  %17 = getelementptr inbounds nuw i8, ptr %.pre229, i64 %.idx.i
-  %18 = ptrtoint ptr %.pre229 to i64
+  %17 = getelementptr inbounds nuw i8, ptr %.pre226, i64 %.idx.i
+  %18 = ptrtoint ptr %.pre226 to i64
   %19 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %16, i1 true)
   %20 = shl nuw nsw i64 %19, 1
   %21 = xor i64 %20, 126
-  call fastcc void @"_ZSt16__introsort_loopIPN4llvm8coverage24CounterExpressionBuilder4TermElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_SB_T0_T1_"(ptr noundef %.pre229, ptr noundef nonnull %17, i64 noundef %21)
+  call fastcc void @"_ZSt16__introsort_loopIPN4llvm8coverage24CounterExpressionBuilder4TermElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_SB_T0_T1_"(ptr noundef %.pre226, ptr noundef nonnull %17, i64 noundef %21)
   %22 = icmp ugt i32 %13, 16
-  %scevgep.i.i.i.i.i = getelementptr i8, ptr %.pre229, i64 8
+  %scevgep.i.i.i.i.i = getelementptr i8, ptr %.pre226, i64 8
   br i1 %22, label %.preheader.i.i.i, label %36
 
 .preheader.i.i.i:                                 ; preds = %15, %"_ZSt25__unguarded_linear_insertIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops14_Val_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_T0_.exit.i.i.i.i.i.i"
   %.019.i.idx.i.i.i.i.i = phi i64 [ %.019.i.add.i.i.i.i.i, %"_ZSt25__unguarded_linear_insertIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops14_Val_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_T0_.exit.i.i.i.i.i.i" ], [ 8, %15 ]
-  %.pn18.i.i.i.i.i.i = phi ptr [ %.019.i.ptr.i.i.i.i.i, %"_ZSt25__unguarded_linear_insertIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops14_Val_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_T0_.exit.i.i.i.i.i.i" ], [ %.pre229, %15 ]
-  %.019.i.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pre229, i64 %.019.i.idx.i.i.i.i.i
+  %.pn18.i.i.i.i.i.i = phi ptr [ %.019.i.ptr.i.i.i.i.i, %"_ZSt25__unguarded_linear_insertIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops14_Val_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_T0_.exit.i.i.i.i.i.i" ], [ %.pre226, %15 ]
+  %.019.i.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pre226, i64 %.019.i.idx.i.i.i.i.i
   %.0.val.i.i.i.i.i.i = load i32, ptr %.019.i.ptr.i.i.i.i.i, align 4, !tbaa !51
-  %.val.i.i.i.i.i.i = load i32, ptr %.pre229, align 4, !tbaa !51
+  %.val.i.i.i.i.i.i = load i32, ptr %.pre226, align 4, !tbaa !51
   %23 = icmp ult i32 %.0.val.i.i.i.i.i.i, %.val.i.i.i.i.i.i
   %24 = load i64, ptr %.019.i.ptr.i.i.i.i.i, align 4
   br i1 %23, label %25, label %26
 
 25:                                               ; preds = %.preheader.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(1) %.pre229, i64 %.019.i.idx.i.i.i.i.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(1) %.pre226, i64 %.019.i.idx.i.i.i.i.i, i1 false)
   br label %"_ZSt25__unguarded_linear_insertIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops14_Val_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_T0_.exit.i.i.i.i.i.i"
 
 26:                                               ; preds = %.preheader.i.i.i
@@ -916,14 +916,14 @@ define dso_local range(i64 0, -4294967292) i64 @_ZN4llvm8coverage24CounterExpres
   br i1 %29, label %.lr.ph.i.i.i.i.i.i.i, label %"_ZSt25__unguarded_linear_insertIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops14_Val_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_T0_.exit.i.i.i.i.i.i", !llvm.loop !54
 
 "_ZSt25__unguarded_linear_insertIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops14_Val_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_T0_.exit.i.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i.i, %26, %25
-  %.sink.i.i.i.i.i.i = phi ptr [ %.pre229, %25 ], [ %.019.i.ptr.i.i.i.i.i, %26 ], [ %.013.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ]
+  %.sink.i.i.i.i.i.i = phi ptr [ %.pre226, %25 ], [ %.019.i.ptr.i.i.i.i.i, %26 ], [ %.013.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ]
   store i64 %24, ptr %.sink.i.i.i.i.i.i, align 4
   %.019.i.add.i.i.i.i.i = add nuw nsw i64 %.019.i.idx.i.i.i.i.i, 8
   %.not.i.i.i.i.i.i = icmp eq i64 %.019.i.add.i.i.i.i.i, 128
   br i1 %.not.i.i.i.i.i.i, label %"_ZSt16__insertion_sortIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_SB_T0_.exit.i.i.i.i.i", label %.preheader.i.i.i, !llvm.loop !55
 
 "_ZSt16__insertion_sortIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_SB_T0_.exit.i.i.i.i.i": ; preds = %"_ZSt25__unguarded_linear_insertIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops14_Val_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_T0_.exit.i.i.i.i.i.i"
-  %30 = getelementptr inbounds nuw i8, ptr %.pre229, i64 128
+  %30 = getelementptr inbounds nuw i8, ptr %.pre226, i64 128
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %"_ZSt25__unguarded_linear_insertIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops14_Val_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_T0_.exit.i15.i.i.i.i.i", %"_ZSt16__insertion_sortIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_SB_T0_.exit.i.i.i.i.i"
@@ -958,9 +958,9 @@ define dso_local range(i64 0, -4294967292) i64 @_ZN4llvm8coverage24CounterExpres
 
 .lr.ph.i23.i.i.i.i.i:                             ; preds = %36, %"_ZSt25__unguarded_linear_insertIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops14_Val_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_T0_.exit.i30.i.i.i.i.i"
   %.019.i24.i.i.i.i.i = phi ptr [ %.0.i32.i.i.i.i.i, %"_ZSt25__unguarded_linear_insertIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops14_Val_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_T0_.exit.i30.i.i.i.i.i" ], [ %scevgep.i.i.i.i.i, %36 ]
-  %.pn18.i25.i.i.i.i.i = phi ptr [ %.019.i24.i.i.i.i.i, %"_ZSt25__unguarded_linear_insertIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops14_Val_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_T0_.exit.i30.i.i.i.i.i" ], [ %.pre229, %36 ]
+  %.pn18.i25.i.i.i.i.i = phi ptr [ %.019.i24.i.i.i.i.i, %"_ZSt25__unguarded_linear_insertIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops14_Val_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_T0_.exit.i30.i.i.i.i.i" ], [ %.pre226, %36 ]
   %.0.val.i26.i.i.i.i.i = load i32, ptr %.019.i24.i.i.i.i.i, align 4, !tbaa !51
-  %.val.i27.i.i.i.i.i = load i32, ptr %.pre229, align 4, !tbaa !51
+  %.val.i27.i.i.i.i.i = load i32, ptr %.pre226, align 4, !tbaa !51
   %37 = icmp ult i32 %.0.val.i26.i.i.i.i.i, %.val.i27.i.i.i.i.i
   %38 = load i64, ptr %.019.i24.i.i.i.i.i, align 4
   br i1 %37, label %39, label %46
@@ -972,7 +972,7 @@ define dso_local range(i64 0, -4294967292) i64 @_ZN4llvm8coverage24CounterExpres
   %43 = ashr exact i64 %42, 3
   %44 = sub nsw i64 0, %43
   %45 = getelementptr inbounds %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %40, i64 %44
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %45, ptr noundef nonnull align 4 dereferenceable(1) %.pre229, i64 %42, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %45, ptr noundef nonnull align 4 dereferenceable(1) %.pre226, i64 %42, i1 false)
   br label %"_ZSt25__unguarded_linear_insertIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops14_Val_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_T0_.exit.i30.i.i.i.i.i"
 
 46:                                               ; preds = %.lr.ph.i23.i.i.i.i.i
@@ -992,7 +992,7 @@ define dso_local range(i64 0, -4294967292) i64 @_ZN4llvm8coverage24CounterExpres
   br i1 %49, label %.lr.ph.i.i34.i.i.i.i.i, label %"_ZSt25__unguarded_linear_insertIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops14_Val_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_T0_.exit.i30.i.i.i.i.i", !llvm.loop !54
 
 "_ZSt25__unguarded_linear_insertIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops14_Val_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_T0_.exit.i30.i.i.i.i.i": ; preds = %.lr.ph.i.i34.i.i.i.i.i, %46, %39
-  %.sink.i31.i.i.i.i.i = phi ptr [ %.pre229, %39 ], [ %.019.i24.i.i.i.i.i, %46 ], [ %.013.i.i35.i.i.i.i.i, %.lr.ph.i.i34.i.i.i.i.i ]
+  %.sink.i31.i.i.i.i.i = phi ptr [ %.pre226, %39 ], [ %.019.i24.i.i.i.i.i, %46 ], [ %.013.i.i35.i.i.i.i.i, %.lr.ph.i.i34.i.i.i.i.i ]
   store i64 %38, ptr %.sink.i31.i.i.i.i.i, align 4
   %.0.i32.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.019.i24.i.i.i.i.i, i64 8
   %.not.i33.i.i.i.i.i = icmp eq ptr %.0.i32.i.i.i.i.i, %17
@@ -1079,21 +1079,21 @@ _ZN4llvm15SmallVectorImplINS_8coverage24CounterExpressionBuilder4TermEE5eraseEPK
   br i1 %.not, label %_ZN4llvm15SmallVectorImplINS_8coverage24CounterExpressionBuilder4TermEE5eraseEPKS3_S6_.exit, label %.lr.ph, !llvm.loop !57
 
 ._crit_edge.loopexit:                             ; preds = %.loopexit166
-  %.pre225 = load ptr, ptr %7, align 8, !tbaa !50
-  %.pre226 = load i32, ptr %11, align 8, !tbaa !47
+  %.pre222 = load ptr, ptr %7, align 8, !tbaa !50
+  %.pre223 = load i32, ptr %11, align 8, !tbaa !47
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZN4llvm15SmallVectorImplINS_8coverage24CounterExpressionBuilder4TermEE5eraseEPKS3_S6_.exit
-  %94 = phi i32 [ %59, %_ZN4llvm15SmallVectorImplINS_8coverage24CounterExpressionBuilder4TermEE5eraseEPKS3_S6_.exit ], [ %.pre226, %._crit_edge.loopexit ]
-  %95 = phi ptr [ %50, %_ZN4llvm15SmallVectorImplINS_8coverage24CounterExpressionBuilder4TermEE5eraseEPKS3_S6_.exit ], [ %.pre225, %._crit_edge.loopexit ]
+  %94 = phi i32 [ %59, %_ZN4llvm15SmallVectorImplINS_8coverage24CounterExpressionBuilder4TermEE5eraseEPKS3_S6_.exit ], [ %.pre223, %._crit_edge.loopexit ]
+  %95 = phi ptr [ %50, %_ZN4llvm15SmallVectorImplINS_8coverage24CounterExpressionBuilder4TermEE5eraseEPKS3_S6_.exit ], [ %.pre222, %._crit_edge.loopexit ]
   %.sroa.9.1.lcssa = phi i32 [ 0, %_ZN4llvm15SmallVectorImplINS_8coverage24CounterExpressionBuilder4TermEE5eraseEPKS3_S6_.exit ], [ %.sroa.9.2, %._crit_edge.loopexit ]
   %.sroa.0.1.lcssa = phi i32 [ 0, %_ZN4llvm15SmallVectorImplINS_8coverage24CounterExpressionBuilder4TermEE5eraseEPKS3_S6_.exit ], [ %.sroa.0.2, %._crit_edge.loopexit ]
   %96 = zext i32 %94 to i64
   %97 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %95, i64 %96
-  %.not47204 = icmp eq i32 %94, 0
-  br i1 %.not47204, label %.loopexit164, label %.lr.ph209
+  %.not47201 = icmp eq i32 %94, 0
+  br i1 %.not47201, label %.loopexit164, label %.lr.ph206
 
-.lr.ph209:                                        ; preds = %._crit_edge
+.lr.ph206:                                        ; preds = %._crit_edge
   %98 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %99 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1236,7 +1236,7 @@ _ZN4llvm12DenseMapInfoINS_8coverage17CounterExpressionEvE7isEqualERKS2_S5_.exit3
 174:                                              ; preds = %_ZN4llvm12DenseMapInfoINS_8coverage17CounterExpressionEvE7isEqualERKS2_S5_.exit35.i
   %.not.i = icmp eq ptr %.029.i, null
   %175 = select i1 %.not.i, ptr %141, ptr %.029.i
-  %.pre224 = load i32, ptr %66, align 8, !tbaa !38, !noalias !58
+  %.pre221 = load i32, ptr %66, align 8, !tbaa !38, !noalias !58
   br label %197
 
 176:                                              ; preds = %_ZN4llvm12DenseMapInfoINS_8coverage17CounterExpressionEvE7isEqualERKS2_S5_.exit.thread.i
@@ -1270,7 +1270,7 @@ _ZN4llvm12DenseMapInfoINS_8coverage17CounterExpressionEvE7isEqualERKS2_S5_.exit3
   br label %139, !llvm.loop !67
 
 197:                                              ; preds = %174, %119
-  %198 = phi i32 [ 0, %119 ], [ %.pre224, %174 ]
+  %198 = phi i32 [ 0, %119 ], [ %.pre221, %174 ]
   %.sink.i93.ph = phi ptr [ null, %119 ], [ %175, %174 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6), !noalias !58
   store ptr %.sink.i93.ph, ptr %6, align 8, !tbaa !34, !noalias !58
@@ -1430,29 +1430,29 @@ _ZN4llvm8coverage24CounterExpressionBuilder3getERKNS0_17CounterExpressionE.exit:
   %.not46 = icmp eq ptr %265, %61
   br i1 %.not46, label %._crit_edge.loopexit, label %115
 
-266:                                              ; preds = %.lr.ph209, %.loopexit
-  %.045207 = phi ptr [ %95, %.lr.ph209 ], [ %416, %.loopexit ]
-  %.sroa.0.5206 = phi i32 [ %.sroa.0.1.lcssa, %.lr.ph209 ], [ %.sroa.0.6, %.loopexit ]
-  %.sroa.9.5205 = phi i32 [ %.sroa.9.1.lcssa, %.lr.ph209 ], [ %.sroa.9.6, %.loopexit ]
-  %.sroa.04.0.copyload = load i32, ptr %.045207, align 4, !tbaa !22
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.045207, i64 4
+266:                                              ; preds = %.lr.ph206, %.loopexit
+  %.045204 = phi ptr [ %95, %.lr.ph206 ], [ %416, %.loopexit ]
+  %.sroa.0.5203 = phi i32 [ %.sroa.0.1.lcssa, %.lr.ph206 ], [ %.sroa.0.6, %.loopexit ]
+  %.sroa.9.5202 = phi i32 [ %.sroa.9.1.lcssa, %.lr.ph206 ], [ %.sroa.9.6, %.loopexit ]
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.045204, i64 4
   %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !22
   %267 = icmp sgt i32 %.sroa.4.0.copyload, -1
-  br i1 %267, label %.loopexit, label %.lr.ph201
+  br i1 %267, label %.loopexit, label %.preheader
 
-.lr.ph201:                                        ; preds = %266
+.preheader:                                       ; preds = %266
+  %.sroa.04.0.copyload = load i32, ptr %.045204, align 4, !tbaa !22
   %268 = sub i32 0, %.sroa.4.0.copyload
   %.sroa.2.0.insert.ext.i56 = zext i32 %.sroa.04.0.copyload to i64
   %.sroa.2.0.insert.shift.i57 = shl nuw i64 %.sroa.2.0.insert.ext.i56, 32
   %.sroa.0.0.insert.insert.i58 = or disjoint i64 %.sroa.2.0.insert.shift.i57, 1
-  %269 = zext nneg i32 %.sroa.0.5206 to i64
+  %269 = zext nneg i32 %.sroa.0.5203 to i64
   %smax = call i32 @llvm.smax.i32(i32 %268, i32 1)
   br label %270
 
-270:                                              ; preds = %.lr.ph201, %_ZN4llvm8coverage24CounterExpressionBuilder3getERKNS0_17CounterExpressionE.exit75
-  %.042200 = phi i32 [ 0, %.lr.ph201 ], [ %415, %_ZN4llvm8coverage24CounterExpressionBuilder3getERKNS0_17CounterExpressionE.exit75 ]
-  %.sroa.0.7199 = phi i64 [ %269, %.lr.ph201 ], [ 2, %_ZN4llvm8coverage24CounterExpressionBuilder3getERKNS0_17CounterExpressionE.exit75 ]
-  %.sroa.9.7198 = phi i32 [ %.sroa.9.5205, %.lr.ph201 ], [ %414, %_ZN4llvm8coverage24CounterExpressionBuilder3getERKNS0_17CounterExpressionE.exit75 ]
+270:                                              ; preds = %.preheader, %_ZN4llvm8coverage24CounterExpressionBuilder3getERKNS0_17CounterExpressionE.exit75
+  %.042200 = phi i32 [ 0, %.preheader ], [ %415, %_ZN4llvm8coverage24CounterExpressionBuilder3getERKNS0_17CounterExpressionE.exit75 ]
+  %.sroa.0.7199 = phi i64 [ %269, %.preheader ], [ 2, %_ZN4llvm8coverage24CounterExpressionBuilder3getERKNS0_17CounterExpressionE.exit75 ]
+  %.sroa.9.7198 = phi i32 [ %.sroa.9.5202, %.preheader ], [ %414, %_ZN4llvm8coverage24CounterExpressionBuilder3getERKNS0_17CounterExpressionE.exit75 ]
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %9) #27
   %.sroa.9.0.insert.ext122 = zext i32 %.sroa.9.7198 to i64
   %.sroa.9.0.insert.shift123 = shl nuw i64 %.sroa.9.0.insert.ext122, 32
@@ -1552,7 +1552,7 @@ _ZN4llvm12DenseMapInfoINS_8coverage17CounterExpressionEvE7isEqualERKS2_S5_.exit3
 326:                                              ; preds = %_ZN4llvm12DenseMapInfoINS_8coverage17CounterExpressionEvE7isEqualERKS2_S5_.exit35.i101
   %.not.i102 = icmp eq ptr %.029.i94, null
   %327 = select i1 %.not.i102, ptr %293, ptr %.029.i94
-  %.pre227 = load i32, ptr %102, align 8, !tbaa !38, !noalias !73
+  %.pre224 = load i32, ptr %102, align 8, !tbaa !38, !noalias !73
   br label %349
 
 328:                                              ; preds = %_ZN4llvm12DenseMapInfoINS_8coverage17CounterExpressionEvE7isEqualERKS2_S5_.exit.thread.i97
@@ -1586,7 +1586,7 @@ _ZN4llvm12DenseMapInfoINS_8coverage17CounterExpressionEvE7isEqualERKS2_S5_.exit3
   br label %291, !llvm.loop !67
 
 349:                                              ; preds = %326, %270
-  %350 = phi i32 [ 0, %270 ], [ %.pre227, %326 ]
+  %350 = phi i32 [ 0, %270 ], [ %.pre224, %326 ]
   %.sink.i103.ph = phi ptr [ null, %270 ], [ %327, %326 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !73
   store ptr %.sink.i103.ph, ptr %5, align 8, !tbaa !34, !noalias !73
@@ -1731,22 +1731,22 @@ _ZN4llvm8coverage24CounterExpressionBuilder3getERKNS0_17CounterExpressionE.exit7
   %414 = load i32, ptr %413, align 4, !tbaa !30
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %9) #27
   %415 = add nuw nsw i32 %.042200, 1
-  %exitcond223.not = icmp eq i32 %415, %smax
-  br i1 %exitcond223.not, label %.loopexit, label %270, !llvm.loop !80
+  %exitcond220.not = icmp eq i32 %415, %smax
+  br i1 %exitcond220.not, label %.loopexit, label %270, !llvm.loop !80
 
 .loopexit:                                        ; preds = %_ZN4llvm8coverage24CounterExpressionBuilder3getERKNS0_17CounterExpressionE.exit75, %266
-  %.sroa.9.6 = phi i32 [ %.sroa.9.5205, %266 ], [ %414, %_ZN4llvm8coverage24CounterExpressionBuilder3getERKNS0_17CounterExpressionE.exit75 ]
-  %.sroa.0.6 = phi i32 [ %.sroa.0.5206, %266 ], [ 2, %_ZN4llvm8coverage24CounterExpressionBuilder3getERKNS0_17CounterExpressionE.exit75 ]
-  %416 = getelementptr inbounds nuw i8, ptr %.045207, i64 8
+  %.sroa.9.6 = phi i32 [ %.sroa.9.5202, %266 ], [ %414, %_ZN4llvm8coverage24CounterExpressionBuilder3getERKNS0_17CounterExpressionE.exit75 ]
+  %.sroa.0.6 = phi i32 [ %.sroa.0.5203, %266 ], [ 2, %_ZN4llvm8coverage24CounterExpressionBuilder3getERKNS0_17CounterExpressionE.exit75 ]
+  %416 = getelementptr inbounds nuw i8, ptr %.045204, i64 8
   %.not47 = icmp eq ptr %416, %97
   br i1 %.not47, label %.loopexit164.loopexit, label %266
 
 .loopexit164.loopexit:                            ; preds = %.loopexit
-  %.pre228 = load ptr, ptr %7, align 8, !tbaa !50
+  %.pre225 = load ptr, ptr %7, align 8, !tbaa !50
   br label %.loopexit164
 
 .loopexit164:                                     ; preds = %.loopexit164.loopexit, %._crit_edge, %2
-  %417 = phi ptr [ %.pre229, %2 ], [ %95, %._crit_edge ], [ %.pre228, %.loopexit164.loopexit ]
+  %417 = phi ptr [ %.pre226, %2 ], [ %95, %._crit_edge ], [ %.pre225, %.loopexit164.loopexit ]
   %.sroa.9.0 = phi i32 [ 0, %2 ], [ %.sroa.9.1.lcssa, %._crit_edge ], [ %.sroa.9.6, %.loopexit164.loopexit ]
   %.sroa.0.0 = phi i32 [ 0, %2 ], [ %.sroa.0.1.lcssa, %._crit_edge ], [ %.sroa.0.6, %.loopexit164.loopexit ]
   %418 = icmp eq ptr %417, %10

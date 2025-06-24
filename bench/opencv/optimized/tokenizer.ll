@@ -240,7 +240,7 @@ define hidden void @_ZN6google8protobuf2io9Tokenizer7RefreshEv(ptr noundef nonnu
 
 17:                                               ; preds = %11
   %18 = sub nsw i32 %15, %13
-  %19 = sext i32 %18 to i64
+  %19 = zext nneg i32 %18 to i64
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %21 = load i64, ptr %20, align 8, !tbaa !9
   %22 = sub i64 4611686018427387903, %21
@@ -506,7 +506,7 @@ define hidden void @_ZN6google8protobuf2io9Tokenizer8NextCharEv(ptr noundef nonn
 
 44:                                               ; preds = %40
   %45 = sub nsw i32 %24, %42
-  %46 = sext i32 %45 to i64
+  %46 = zext nneg i32 %45 to i64
   %47 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %48 = load i64, ptr %47, align 8, !tbaa !9
   %49 = sub i64 4611686018427387903, %48
@@ -1557,7 +1557,7 @@ switch.early.test4.i.thread:                      ; preds = %65
 
 73:                                               ; preds = %70
   %74 = sub nsw i32 %58, %71
-  %75 = sext i32 %74 to i64
+  %75 = zext nneg i32 %74 to i64
   %76 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %77 = load i64, ptr %76, align 8, !tbaa !9
   %78 = sub i64 4611686018427387903, %77
@@ -2359,7 +2359,7 @@ _ZN6google8protobuf2io9Tokenizer8NextCharEv.exit.backedge: ; preds = %47, %55, %
 
 61:                                               ; preds = %58
   %62 = sub nsw i32 %45, %59
-  %63 = sext i32 %62 to i64
+  %63 = zext nneg i32 %62 to i64
   %64 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %65 = load i64, ptr %64, align 8, !tbaa !9
   %66 = sub i64 4611686018427387903, %65
@@ -2521,7 +2521,7 @@ _ZN6google8protobuf2io9Tokenizer8NextCharEv.exit73.backedge: ; preds = %119, %12
 
 133:                                              ; preds = %130
   %134 = sub nsw i32 %117, %131
-  %135 = sext i32 %134 to i64
+  %135 = zext nneg i32 %134 to i64
   %136 = getelementptr inbounds nuw i8, ptr %129, i64 8
   %137 = load i64, ptr %136, align 8, !tbaa !9
   %138 = sub i64 4611686018427387903, %137
@@ -3225,7 +3225,7 @@ _ZN6google8protobuf2io9Tokenizer8NextCharEv.exit54.thread: ; preds = %66
 
 74:                                               ; preds = %71
   %75 = sub nsw i32 %59, %72
-  %76 = sext i32 %75 to i64
+  %76 = zext nneg i32 %75 to i64
   %77 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %78 = load i64, ptr %77, align 8, !tbaa !9
   %79 = sub i64 4611686018427387903, %78
@@ -3375,7 +3375,7 @@ _ZN6google8protobuf2io9Tokenizer8NextCharEv.exit.thread: ; preds = %125
 
 133:                                              ; preds = %130
   %134 = sub nsw i32 %118, %131
-  %135 = sext i32 %134 to i64
+  %135 = zext nneg i32 %134 to i64
   %136 = getelementptr inbounds nuw i8, ptr %129, i64 8
   %137 = load i64, ptr %136, align 8, !tbaa !9
   %138 = sub i64 4611686018427387903, %137
@@ -4309,7 +4309,7 @@ _ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit: ; preds = %52, %41
 
 115:                                              ; preds = %112
   %116 = sub nsw i32 %99, %113
-  %117 = sext i32 %116 to i64
+  %117 = zext nneg i32 %116 to i64
   %118 = getelementptr inbounds nuw i8, ptr %111, i64 8
   %119 = load i64, ptr %118, align 8, !tbaa !9
   %120 = sub i64 4611686018427387903, %119
@@ -4592,7 +4592,7 @@ _ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit58: ; preds = %_ZN6google8pro
 
 219:                                              ; preds = %216
   %220 = sub nsw i32 %203, %217
-  %221 = sext i32 %220 to i64
+  %221 = zext nneg i32 %220 to i64
   %222 = getelementptr inbounds nuw i8, ptr %215, i64 8
   %223 = load i64, ptr %222, align 8, !tbaa !9
   %224 = sub i64 4611686018427387903, %223
@@ -4747,7 +4747,7 @@ _ZN6google8protobuf2io9Tokenizer17ConsumeZeroOrMoreINS1_12_GLOBAL__N_119Whitespa
 
 282:                                              ; preds = %279
   %283 = sub nsw i32 %266, %280
-  %284 = sext i32 %283 to i64
+  %284 = zext nneg i32 %283 to i64
   %285 = getelementptr inbounds nuw i8, ptr %278, i64 8
   %286 = load i64, ptr %285, align 8, !tbaa !9
   %287 = sub i64 4611686018427387903, %286
@@ -4922,7 +4922,7 @@ _ZN6google8protobuf2io9Tokenizer18ConsumeLineCommentEPNSt7__cxx1112basic_stringI
 
 355:                                              ; preds = %352
   %356 = sub nsw i32 %339, %353
-  %357 = sext i32 %356 to i64
+  %357 = zext nneg i32 %356 to i64
   %358 = getelementptr inbounds nuw i8, ptr %351, i64 8
   %359 = load i64, ptr %358, align 8, !tbaa !9
   %360 = sub i64 4611686018427387903, %359

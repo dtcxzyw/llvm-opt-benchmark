@@ -788,7 +788,7 @@ define internal range(i32 -1094995529, 1) i32 @parse_global_var(ptr noundef %0, 
 
 18:                                               ; preds = %15
   %19 = sub nsw i32 %3, %16
-  %20 = sext i32 %19 to i64
+  %20 = zext nneg i32 %19 to i64
   %21 = tail call i64 @avio_skip(ptr noundef %8, i64 noundef %20) #8
   br label %var_read_string.exit.i
 
@@ -826,7 +826,7 @@ var_read_int.exit:                                ; preds = %10, %11, %var_read_
 
 34:                                               ; preds = %31
   %35 = sub nsw i32 %3, %32
-  %36 = sext i32 %35 to i64
+  %36 = zext nneg i32 %35 to i64
   %37 = tail call i64 @avio_skip(ptr noundef %8, i64 noundef %36) #8
   br label %var_read_string.exit.i28
 
@@ -870,7 +870,7 @@ var_read_int.exit30:                              ; preds = %26, %27, %var_read_
 
 53:                                               ; preds = %50
   %54 = sub nsw i32 %3, %51
-  %55 = sext i32 %54 to i64
+  %55 = zext nneg i32 %54 to i64
   %56 = tail call i64 @avio_skip(ptr noundef %8, i64 noundef %55) #8
   br label %var_read_string.exit.i33
 
@@ -932,7 +932,7 @@ define internal range(i32 -1094995529, 1) i32 @parse_audio_var(ptr noundef %0, p
 
 18:                                               ; preds = %15
   %19 = sub nsw i32 %3, %16
-  %20 = sext i32 %19 to i64
+  %20 = zext nneg i32 %19 to i64
   %21 = tail call i64 @avio_skip(ptr noundef %8, i64 noundef %20) #8
   br label %var_read_string.exit.i
 
@@ -972,7 +972,7 @@ var_read_int.exit:                                ; preds = %10, %11, %var_read_
 
 35:                                               ; preds = %32
   %36 = sub nsw i32 %3, %33
-  %37 = sext i32 %36 to i64
+  %37 = zext nneg i32 %36 to i64
   %38 = tail call i64 @avio_skip(ptr noundef %8, i64 noundef %37) #8
   br label %var_read_string.exit.i54
 
@@ -1011,7 +1011,7 @@ var_read_int.exit56:                              ; preds = %27, %28, %var_read_
 
 52:                                               ; preds = %49
   %53 = sub nsw i32 %3, %50
-  %54 = sext i32 %53 to i64
+  %54 = zext nneg i32 %53 to i64
   %55 = tail call i64 @avio_skip(ptr noundef %8, i64 noundef %54) #8
   br label %var_read_string.exit.i59
 
@@ -1050,7 +1050,7 @@ var_read_int.exit61:                              ; preds = %44, %45, %var_read_
 
 69:                                               ; preds = %66
   %70 = sub nsw i32 %3, %67
-  %71 = sext i32 %70 to i64
+  %71 = zext nneg i32 %70 to i64
   %72 = tail call i64 @avio_skip(ptr noundef %8, i64 noundef %71) #8
   br label %var_read_string.exit.i64
 
@@ -1082,7 +1082,7 @@ var_read_string.exit.i64:                         ; preds = %69, %66
 
 85:                                               ; preds = %82
   %86 = sub nsw i32 %3, %83
-  %87 = sext i32 %86 to i64
+  %87 = zext nneg i32 %86 to i64
   %88 = tail call i64 @avio_skip(ptr noundef %8, i64 noundef %87) #8
   br label %var_read_int.exit69
 
@@ -1128,7 +1128,7 @@ var_read_int.exit69.thread:                       ; preds = %78, %77, %var_read_
 
 106:                                              ; preds = %103
   %107 = sub nsw i32 %3, %104
-  %108 = sext i32 %107 to i64
+  %108 = zext nneg i32 %107 to i64
   %109 = tail call i64 @avio_skip(ptr noundef %8, i64 noundef %108) #8
   br label %var_read_int.exit75
 
@@ -1170,7 +1170,7 @@ var_read_int.exit75:                              ; preds = %103, %106
 
 127:                                              ; preds = %124
   %128 = sub nsw i32 %3, %125
-  %129 = sext i32 %128 to i64
+  %129 = zext nneg i32 %128 to i64
   %130 = tail call i64 @avio_skip(ptr noundef %8, i64 noundef %129) #8
   br label %var_read_int.exit80
 
@@ -1222,7 +1222,7 @@ define internal range(i32 -1094995529, 1) i32 @parse_video_var(ptr noundef %0, p
 
 16:                                               ; preds = %13
   %17 = sub nsw i32 %3, %14
-  %18 = sext i32 %17 to i64
+  %18 = zext nneg i32 %17 to i64
   %19 = tail call i64 @avio_skip(ptr noundef %6, i64 noundef %18) #8
   br label %var_read_string.exit.i
 
@@ -1264,7 +1264,7 @@ var_read_int.exit:                                ; preds = %8, %9, %var_read_st
 
 34:                                               ; preds = %31
   %35 = sub nsw i32 %3, %32
-  %36 = sext i32 %35 to i64
+  %36 = zext nneg i32 %35 to i64
   %37 = tail call i64 @avio_skip(ptr noundef %6, i64 noundef %36) #8
   br label %sub_0
 
@@ -1379,7 +1379,7 @@ sub_1121:                                         ; preds = %var_read_string.exi
 
 87:                                               ; preds = %84
   %88 = sub nsw i32 %3, %85
-  %89 = sext i32 %88 to i64
+  %89 = zext nneg i32 %88 to i64
   %90 = tail call i64 @avio_skip(ptr noundef %6, i64 noundef %89) #8
   br label %var_read_string.exit.i85
 
@@ -1424,7 +1424,7 @@ var_read_float.exit:                              ; preds = %79, %80, %var_read_
 
 104:                                              ; preds = %101
   %105 = sub nsw i32 %3, %102
-  %106 = sext i32 %105 to i64
+  %106 = zext nneg i32 %105 to i64
   %107 = tail call i64 @avio_skip(ptr noundef %6, i64 noundef %106) #8
   br label %var_read_string.exit.i88
 
@@ -1466,7 +1466,7 @@ var_read_int.exit90:                              ; preds = %96, %97, %var_read_
 
 124:                                              ; preds = %121
   %125 = sub nsw i32 %3, %122
-  %126 = sext i32 %125 to i64
+  %126 = zext nneg i32 %125 to i64
   %127 = tail call i64 @avio_skip(ptr noundef %6, i64 noundef %126) #8
   br label %var_read_string.exit.i93
 
@@ -1509,7 +1509,7 @@ var_read_float.exit95:                            ; preds = %115, %117, %var_rea
 
 144:                                              ; preds = %141
   %145 = sub nsw i32 %3, %142
-  %146 = sext i32 %145 to i64
+  %146 = zext nneg i32 %145 to i64
   %147 = tail call i64 @avio_skip(ptr noundef %6, i64 noundef %146) #8
   br label %var_read_string.exit.i98
 
@@ -1550,7 +1550,7 @@ var_read_int.exit100:                             ; preds = %136, %137, %var_rea
 
 163:                                              ; preds = %160
   %164 = sub nsw i32 %3, %161
-  %165 = sext i32 %164 to i64
+  %165 = zext nneg i32 %164 to i64
   %166 = tail call i64 @avio_skip(ptr noundef %6, i64 noundef %165) #8
   br label %var_read_int.exit105
 
@@ -1610,7 +1610,7 @@ var_read_int.exit105:                             ; preds = %160, %163
 
 193:                                              ; preds = %190
   %194 = sub nsw i32 %3, %191
-  %195 = sext i32 %194 to i64
+  %195 = zext nneg i32 %194 to i64
   %196 = tail call i64 @avio_skip(ptr noundef %6, i64 noundef %195) #8
   br label %var_read_string.exit.i108
 

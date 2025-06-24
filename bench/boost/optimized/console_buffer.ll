@@ -112,7 +112,6 @@ _ZN5boost6nowide6detail26console_output_buffer_base5writeEPKci.exit: ; preds = %
 
 ._crit_edge:                                      ; preds = %39
   %.pre = sub nsw i32 %12, %.0
-  %.pre18 = sext i32 %.pre to i64
   br label %47
 
 41:                                               ; preds = %39
@@ -120,46 +119,46 @@ _ZN5boost6nowide6detail26console_output_buffer_base5writeEPKci.exit: ; preds = %
   %43 = zext nneg i32 %.0 to i64
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 %43
   %45 = sub nsw i32 %12, %.0
-  %46 = sext i32 %45 to i64
+  %46 = zext nneg i32 %45 to i64
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %42, ptr align 1 %44, i64 %46, i1 false)
   br label %47
 
 47:                                               ; preds = %._crit_edge, %41
-  %.pre-phi19 = phi i64 [ %.pre18, %._crit_edge ], [ %46, %41 ]
   %.pre-phi = phi i32 [ %.pre, %._crit_edge ], [ %45, %41 ]
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 64
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 1088
   store ptr %.ptr, ptr %7, align 8, !tbaa !11
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %48, ptr %49, align 8, !tbaa !19
-  %50 = getelementptr i8, ptr %0, i64 %.pre-phi19
-  %.ptr15 = getelementptr i8, ptr %50, i64 64
+  %50 = sext i32 %.pre-phi to i64
+  %51 = getelementptr i8, ptr %0, i64 %50
+  %.ptr15 = getelementptr i8, ptr %51, i64 64
   store ptr %.ptr15, ptr %5, align 8, !tbaa !6
   %.not = icmp eq i32 %1, -1
-  br i1 %.not, label %_ZNSt15basic_streambufIcSt11char_traitsIcEE5sputcEc.exit, label %51
+  br i1 %.not, label %_ZNSt15basic_streambufIcSt11char_traitsIcEE5sputcEc.exit, label %52
 
-51:                                               ; preds = %47
-  %52 = icmp slt i32 %.pre-phi, 1024
-  br i1 %52, label %53, label %57, !prof !20
+52:                                               ; preds = %47
+  %53 = icmp slt i32 %.pre-phi, 1024
+  br i1 %53, label %54, label %58, !prof !20
 
-53:                                               ; preds = %51
-  %54 = trunc i32 %1 to i8
-  store i8 %54, ptr %.ptr15, align 1, !tbaa !21
-  %55 = load ptr, ptr %5, align 8, !tbaa !6
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 1
-  store ptr %56, ptr %5, align 8, !tbaa !6
+54:                                               ; preds = %52
+  %55 = trunc i32 %1 to i8
+  store i8 %55, ptr %.ptr15, align 1, !tbaa !21
+  %56 = load ptr, ptr %5, align 8, !tbaa !6
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 1
+  store ptr %57, ptr %5, align 8, !tbaa !6
   br label %_ZNSt15basic_streambufIcSt11char_traitsIcEE5sputcEc.exit
 
-57:                                               ; preds = %51
-  %58 = and i32 %1, 255
-  %59 = load ptr, ptr %0, align 8, !tbaa !3
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 104
-  %61 = load ptr, ptr %60, align 8
-  %62 = call noundef i32 %61(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %58)
+58:                                               ; preds = %52
+  %59 = and i32 %1, 255
+  %60 = load ptr, ptr %0, align 8, !tbaa !3
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 104
+  %62 = load ptr, ptr %61, align 8
+  %63 = call noundef i32 %62(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %59)
   br label %_ZNSt15basic_streambufIcSt11char_traitsIcEE5sputcEc.exit
 
-_ZNSt15basic_streambufIcSt11char_traitsIcEE5sputcEc.exit: ; preds = %57, %53, %_ZN5boost6nowide6detail26console_output_buffer_base5writeEPKci.exit.thread, %47, %_ZN5boost6nowide6detail26console_output_buffer_base5writeEPKci.exit
-  %.010 = phi i32 [ -1, %_ZN5boost6nowide6detail26console_output_buffer_base5writeEPKci.exit ], [ 0, %47 ], [ -1, %_ZN5boost6nowide6detail26console_output_buffer_base5writeEPKci.exit.thread ], [ 0, %53 ], [ 0, %57 ]
+_ZNSt15basic_streambufIcSt11char_traitsIcEE5sputcEc.exit: ; preds = %58, %54, %_ZN5boost6nowide6detail26console_output_buffer_base5writeEPKci.exit.thread, %47, %_ZN5boost6nowide6detail26console_output_buffer_base5writeEPKci.exit
+  %.010 = phi i32 [ -1, %_ZN5boost6nowide6detail26console_output_buffer_base5writeEPKci.exit ], [ 0, %47 ], [ -1, %_ZN5boost6nowide6detail26console_output_buffer_base5writeEPKci.exit.thread ], [ 0, %54 ], [ 0, %58 ]
   ret i32 %.010
 }
 

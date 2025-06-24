@@ -2875,7 +2875,7 @@ define zeroext range(i8 0, 2) i8 @ZIP_ReadEntry(ptr noundef captures(address_is_
   %.03643 = phi i64 [ 0, %.lr.ph ], [ %47, %44 ]
   %24 = sub nsw i64 %19, %.03643
   %25 = tail call i64 @llvm.smin.i64(i64 %24, i64 2147483647)
-  %26 = trunc i64 %25 to i32
+  %26 = trunc nuw i64 %25 to i32
   %27 = load ptr, ptr %21, align 8
   %28 = tail call i32 @JVM_RawMonitorEnter(ptr noundef %27) #21
   %29 = tail call i32 @ZIP_Read(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %.03643, ptr noundef %.03544, i32 noundef %26)

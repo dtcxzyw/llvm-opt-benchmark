@@ -31256,7 +31256,7 @@ define noundef range(i32 -2147483645, 6) i32 @_ZNK7rocksdb18VersionStorageInfo21
 
 12:                                               ; preds = %7
   %13 = icmp slt i32 %1, %9
-  %14 = add nsw i32 %10, 3
+  %14 = add nuw nsw i32 %10, 3
   %spec.select = select i1 %13, i32 3, i32 %14
   br label %15
 

@@ -3812,7 +3812,7 @@ _ZN6icu_7713UnicodeString6appendEDs.exit225:      ; preds = %357
 
 361:                                              ; preds = %359
   %362 = sub nsw i32 %.0125296, %spec.store.select
-  %363 = srem i32 %362, %48
+  %363 = urem i32 %362, %48
   %364 = icmp eq i32 %363, 0
   br i1 %364, label %365, label %367
 

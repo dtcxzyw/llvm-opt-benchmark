@@ -5498,7 +5498,7 @@ define internal fastcc range(i32 0, 2) i32 @Ver_ParseSignal(ptr noundef %0, ptr 
 Ver_ParseInsertsSuffix.exit:                      ; preds = %56, %59
   %67 = icmp sgt i32 %36, %38
   %68 = sub i32 %36, %38
-  %.not63 = icmp eq i32 %36, %38
+  %.not59 = icmp eq i32 %36, %38
   %.v = select i1 %67, i32 1, i32 -1
   br i1 %or.cond9, label %Ver_ParseInsertsSuffix.exit.split.us.preheader, label %Ver_ParseInsertsSuffix.exit.split
 
@@ -5509,7 +5509,7 @@ Ver_ParseInsertsSuffix.exit.split.us.preheader:   ; preds = %Ver_ParseInsertsSuf
 Ver_ParseInsertsSuffix.exit.split.us:             ; preds = %Ver_ParseInsertsSuffix.exit.split.us.preheader, %79
   %.065.us = phi i32 [ %80, %79 ], [ 0, %Ver_ParseInsertsSuffix.exit.split.us.preheader ]
   %.05064.us = phi i32 [ %81, %79 ], [ %38, %Ver_ParseInsertsSuffix.exit.split.us.preheader ]
-  br i1 %.not63, label %71, label %69
+  br i1 %.not59, label %71, label %69
 
 69:                                               ; preds = %Ver_ParseInsertsSuffix.exit.split.us
   %70 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.15, ptr noundef nonnull %35, i32 noundef %.05064.us) #20
@@ -5524,7 +5524,7 @@ Ver_ParseInsertsSuffix.exit.split.us:             ; preds = %Ver_ParseInsertsSuf
   %74 = call ptr @Abc_NtkCreateObj(ptr noundef %1, i32 noundef 2) #20
   call void @Abc_ObjAddFanin(ptr noundef %73, ptr noundef %74) #20
   switch i32 %15, label %79 [
-    i32 2, label %.thread61.us
+    i32 2, label %.thread62.us
     i32 4, label %75
   ]
 
@@ -5532,26 +5532,26 @@ Ver_ParseInsertsSuffix.exit.split.us:             ; preds = %Ver_ParseInsertsSuf
   %76 = call ptr @Abc_NtkFindOrCreateNet(ptr noundef %1, ptr noundef nonnull %4) #20
   br label %79
 
-.thread61.us:                                     ; preds = %72
+.thread62.us:                                     ; preds = %72
   %77 = call ptr @Abc_NtkFindOrCreateNet(ptr noundef %1, ptr noundef nonnull %4) #20
   %78 = call ptr @Abc_NtkCreateObj(ptr noundef %1, i32 noundef 3) #20
   call void @Abc_ObjAddFanin(ptr noundef %78, ptr noundef %77) #20
   br label %79
 
-79:                                               ; preds = %.thread61.us, %75, %72
+79:                                               ; preds = %.thread62.us, %75, %72
   %80 = add nuw i32 %.065.us, 1
   %81 = add nsw i32 %.05064.us, %.v
   %exitcond94.not = icmp eq i32 %.065.us, %smax93
   br i1 %exitcond94.not, label %.loopexit, label %Ver_ParseInsertsSuffix.exit.split.us, !llvm.loop !164
 
 Ver_ParseInsertsSuffix.exit.split:                ; preds = %Ver_ParseInsertsSuffix.exit
-  br i1 %.not63, label %Ver_ParseInsertsSuffix.exit.split.split.us, label %Ver_ParseInsertsSuffix.exit.split.split
+  br i1 %.not59, label %Ver_ParseInsertsSuffix.exit.split.split.us, label %Ver_ParseInsertsSuffix.exit.split.split
 
 Ver_ParseInsertsSuffix.exit.split.split.us:       ; preds = %Ver_ParseInsertsSuffix.exit.split, %86
   %.065.us66 = phi i32 [ %87, %86 ], [ 0, %Ver_ParseInsertsSuffix.exit.split ]
   %strcpy.us68 = call ptr @strcpy(ptr nonnull dereferenceable(1) %4, ptr nonnull dereferenceable(1) %35)
   switch i32 %15, label %86 [
-    i32 2, label %.thread61.us69
+    i32 2, label %.thread62.us69
     i32 4, label %82
   ]
 
@@ -5559,13 +5559,13 @@ Ver_ParseInsertsSuffix.exit.split.split.us:       ; preds = %Ver_ParseInsertsSuf
   %83 = call ptr @Abc_NtkFindOrCreateNet(ptr noundef %1, ptr noundef nonnull %4) #20
   br label %86
 
-.thread61.us69:                                   ; preds = %Ver_ParseInsertsSuffix.exit.split.split.us
+.thread62.us69:                                   ; preds = %Ver_ParseInsertsSuffix.exit.split.split.us
   %84 = call ptr @Abc_NtkFindOrCreateNet(ptr noundef %1, ptr noundef nonnull %4) #20
   %85 = call ptr @Abc_NtkCreateObj(ptr noundef %1, i32 noundef 3) #20
   call void @Abc_ObjAddFanin(ptr noundef %85, ptr noundef %84) #20
   br label %86
 
-86:                                               ; preds = %.thread61.us69, %82, %Ver_ParseInsertsSuffix.exit.split.split.us
+86:                                               ; preds = %.thread62.us69, %82, %Ver_ParseInsertsSuffix.exit.split.split.us
   %87 = add nuw i32 %.065.us66, 1
   %exitcond92.not = icmp eq i32 %.065.us66, %68
   br i1 %exitcond92.not, label %.loopexit, label %Ver_ParseInsertsSuffix.exit.split.split.us, !llvm.loop !164
@@ -5573,13 +5573,13 @@ Ver_ParseInsertsSuffix.exit.split.split.us:       ; preds = %Ver_ParseInsertsSuf
 Ver_ParseInsertsSuffix.exit.split.split:          ; preds = %Ver_ParseInsertsSuffix.exit.split
   %smax89 = call i32 @llvm.abs.i32(i32 %68, i1 false)
   switch i32 %15, label %Ver_ParseInsertsSuffix.exit.split.split.split [
-    i32 2, label %.thread61.us73
+    i32 2, label %.thread62.us73
     i32 4, label %Ver_ParseInsertsSuffix.exit.split.split.split.us75
   ]
 
-.thread61.us73:                                   ; preds = %Ver_ParseInsertsSuffix.exit.split.split, %.thread61.us73
-  %.065.us71 = phi i32 [ %91, %.thread61.us73 ], [ 0, %Ver_ParseInsertsSuffix.exit.split.split ]
-  %.05064.us72 = phi i32 [ %92, %.thread61.us73 ], [ %38, %Ver_ParseInsertsSuffix.exit.split.split ]
+.thread62.us73:                                   ; preds = %Ver_ParseInsertsSuffix.exit.split.split, %.thread62.us73
+  %.065.us71 = phi i32 [ %91, %.thread62.us73 ], [ 0, %Ver_ParseInsertsSuffix.exit.split.split ]
+  %.05064.us72 = phi i32 [ %92, %.thread62.us73 ], [ %38, %Ver_ParseInsertsSuffix.exit.split.split ]
   %88 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.15, ptr noundef nonnull %35, i32 noundef %.05064.us72) #20
   %89 = call ptr @Abc_NtkFindOrCreateNet(ptr noundef %1, ptr noundef nonnull %4) #20
   %90 = call ptr @Abc_NtkCreateObj(ptr noundef %1, i32 noundef 3) #20
@@ -5587,7 +5587,7 @@ Ver_ParseInsertsSuffix.exit.split.split:          ; preds = %Ver_ParseInsertsSuf
   %91 = add nuw i32 %.065.us71, 1
   %92 = add nsw i32 %.05064.us72, %.v
   %exitcond88.not = icmp eq i32 %.065.us71, %smax89
-  br i1 %exitcond88.not, label %.loopexit, label %.thread61.us73, !llvm.loop !164
+  br i1 %exitcond88.not, label %.loopexit, label %.thread62.us73, !llvm.loop !164
 
 Ver_ParseInsertsSuffix.exit.split.split.split.us75: ; preds = %Ver_ParseInsertsSuffix.exit.split.split, %Ver_ParseInsertsSuffix.exit.split.split.split.us75
   %.065.us76 = phi i32 [ %95, %Ver_ParseInsertsSuffix.exit.split.split.split.us75 ], [ 0, %Ver_ParseInsertsSuffix.exit.split.split ]
@@ -5608,7 +5608,7 @@ Ver_ParseInsertsSuffix.exit.split.split.split:    ; preds = %Ver_ParseInsertsSuf
   %exitcond90.not = icmp eq i32 %.065, %smax89
   br i1 %exitcond90.not, label %.loopexit, label %Ver_ParseInsertsSuffix.exit.split.split.split, !llvm.loop !164
 
-.loopexit:                                        ; preds = %Ver_ParseInsertsSuffix.exit.split.split.split.us75, %.thread61.us73, %Ver_ParseInsertsSuffix.exit.split.split.split, %86, %79, %44, %.thread, %48
+.loopexit:                                        ; preds = %Ver_ParseInsertsSuffix.exit.split.split.split.us75, %.thread62.us73, %Ver_ParseInsertsSuffix.exit.split.split.split, %86, %79, %44, %.thread, %48
   %100 = call signext i8 @Ver_StreamPopChar(ptr noundef %9) #20
   switch i8 %100, label %101 [
     i8 44, label %.backedge
@@ -5622,12 +5622,12 @@ Ver_ParseInsertsSuffix.exit.split.split.split:    ; preds = %Ver_ParseInsertsSuf
   store i32 1, ptr %103, align 4, !tbaa !43
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %105 = load i32, ptr %104, align 8, !tbaa !44
-  %.not.i59 = icmp eq i32 %105, 0
+  %.not.i60 = icmp eq i32 %105, 0
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %107 = load ptr, ptr %106, align 8, !tbaa !19
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %109 = load ptr, ptr %108, align 8, !tbaa !3
-  br i1 %.not.i59, label %112, label %110
+  br i1 %.not.i60, label %112, label %110
 
 110:                                              ; preds = %101
   %111 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %107, ptr noundef nonnull @.str, ptr noundef %109, ptr noundef nonnull %102) #20

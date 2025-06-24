@@ -1507,7 +1507,7 @@ define internal range(i32 -107, 1) i32 @CVApolynomialGetY(ptr noundef readonly c
   %184 = getelementptr inbounds [13 x double], ptr %177, i64 0, i64 %indvars.iv264
   %185 = load double, ptr %184, align 8, !tbaa !67
   %186 = sub nsw i64 %indvars.iv264, %indvars.iv267
-  %187 = getelementptr inbounds [13 x double], ptr %177, i64 0, i64 %186
+  %187 = getelementptr inbounds nuw [13 x double], ptr %177, i64 0, i64 %186
   %188 = load double, ptr %187, align 8, !tbaa !67
   %189 = fsub double %185, %188
   %190 = fdiv double %97, %189
@@ -1544,7 +1544,7 @@ define internal range(i32 -107, 1) i32 @CVApolynomialGetY(ptr noundef readonly c
   %203 = getelementptr inbounds [13 x double], ptr %177, i64 0, i64 %indvars.iv256
   %204 = load double, ptr %203, align 8, !tbaa !67
   %205 = sub nsw i64 %indvars.iv256, %indvars.iv259
-  %206 = getelementptr inbounds [13 x double], ptr %177, i64 0, i64 %205
+  %206 = getelementptr inbounds nuw [13 x double], ptr %177, i64 0, i64 %205
   %207 = load double, ptr %206, align 8, !tbaa !67
   %208 = fsub double %204, %207
   %209 = fdiv double %97, %208

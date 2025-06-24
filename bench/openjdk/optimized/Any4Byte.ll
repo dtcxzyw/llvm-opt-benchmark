@@ -767,8 +767,8 @@ define hidden void @Any4ByteDrawGlyphList(ptr noundef readonly captures(none) %0
   %43 = icmp slt i32 %30, %5
   %44 = sub nsw i32 %5, %30
   %narrow = select i1 %43, i32 %44, i32 0
-  %.082.idx = sext i32 %narrow to i64
-  %.082 = getelementptr inbounds i8, ptr %27, i64 %.082.idx
+  %.082.idx = zext i32 %narrow to i64
+  %.082 = getelementptr inbounds nuw i8, ptr %27, i64 %.082.idx
   %45 = sub nsw i32 %6, %32
   %46 = mul nsw i32 %45, %41
   %narrow100 = select i1 %42, i32 %46, i32 0
@@ -898,8 +898,8 @@ define hidden void @Any4ByteDrawGlyphListXor(ptr noundef readonly captures(none)
   %50 = icmp slt i32 %37, %5
   %51 = sub nsw i32 %5, %37
   %narrow = select i1 %50, i32 %51, i32 0
-  %.0100.idx = sext i32 %narrow to i64
-  %.0100 = getelementptr inbounds i8, ptr %34, i64 %.0100.idx
+  %.0100.idx = zext i32 %narrow to i64
+  %.0100 = getelementptr inbounds nuw i8, ptr %34, i64 %.0100.idx
   %52 = sub nsw i32 %6, %39
   %53 = mul nsw i32 %52, %48
   %narrow118 = select i1 %49, i32 %53, i32 0

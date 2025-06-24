@@ -555,7 +555,7 @@ define noundef i32 @_ZN6icu_7719CollationDataWriter5writeEaPKhRKNS_13CollationDa
   %192 = sext i32 %184 to i64
   %193 = getelementptr inbounds i8, ptr %.0206, i64 %192
   %194 = sub nsw i32 %.0208, %184
-  %195 = sdiv i32 %194, 2
+  %195 = lshr i32 %194, 1
   %196 = invoke noundef i32 @_ZNK6icu_7710UnicodeSet9serializeEPtiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(200) %12, ptr noundef %193, i32 noundef %195, ptr noundef nonnull align 4 dereferenceable(4) %15)
           to label %205 unwind label %199
 
@@ -705,7 +705,7 @@ _ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit: ; preds = %225
   %267 = sext i32 %263 to i64
   %268 = getelementptr inbounds i8, ptr %.0206, i64 %267
   %269 = sub nsw i32 %264, %263
-  %270 = sext i32 %269 to i64
+  %270 = zext nneg i32 %269 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %268, ptr readonly align 1 %.0220, i64 %270, i1 false)
   %.pre301 = load i32, ptr %139, align 4, !tbaa !35
   br label %_ZN6icu_7719CollationDataWriter8copyDataEPKiiPKvPh.exit
@@ -721,7 +721,7 @@ _ZN6icu_7719CollationDataWriter8copyDataEPKiiPKvPh.exit: ; preds = %261, %266
   %276 = sext i32 %271 to i64
   %277 = getelementptr inbounds i8, ptr %.0206, i64 %276
   %278 = sub nsw i32 %272, %271
-  %279 = sext i32 %278 to i64
+  %279 = zext nneg i32 %278 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %277, ptr readonly align 1 %275, i64 %279, i1 false)
   br label %_ZN6icu_7719CollationDataWriter8copyDataEPKiiPKvPh.exit279
 
@@ -737,7 +737,7 @@ _ZN6icu_7719CollationDataWriter8copyDataEPKiiPKvPh.exit279: ; preds = %_ZN6icu_7
   %286 = sext i32 %280 to i64
   %287 = getelementptr inbounds i8, ptr %.0206, i64 %286
   %288 = sub nsw i32 %281, %280
-  %289 = sext i32 %288 to i64
+  %289 = zext nneg i32 %288 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %287, ptr readonly align 1 %285, i64 %289, i1 false)
   br label %_ZN6icu_7719CollationDataWriter8copyDataEPKiiPKvPh.exit280
 
@@ -753,7 +753,7 @@ _ZN6icu_7719CollationDataWriter8copyDataEPKiiPKvPh.exit280: ; preds = %_ZN6icu_7
   %296 = sext i32 %290 to i64
   %297 = getelementptr inbounds i8, ptr %.0206, i64 %296
   %298 = sub nsw i32 %291, %290
-  %299 = sext i32 %298 to i64
+  %299 = zext nneg i32 %298 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %297, ptr readonly align 1 %295, i64 %299, i1 false)
   %.pre302 = load i32, ptr %177, align 4, !tbaa !35
   br label %_ZN6icu_7719CollationDataWriter8copyDataEPKiiPKvPh.exit281
@@ -768,7 +768,7 @@ _ZN6icu_7719CollationDataWriter8copyDataEPKiiPKvPh.exit281: ; preds = %_ZN6icu_7
   %304 = sext i32 %300 to i64
   %305 = getelementptr inbounds i8, ptr %.0206, i64 %304
   %306 = sub nsw i32 %301, %300
-  %307 = sext i32 %306 to i64
+  %307 = zext nneg i32 %306 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %305, ptr readonly align 1 %4, i64 %307, i1 false)
   %.pre303 = load i32, ptr %180, align 4, !tbaa !35
   br label %_ZN6icu_7719CollationDataWriter8copyDataEPKiiPKvPh.exit282
@@ -785,7 +785,7 @@ _ZN6icu_7719CollationDataWriter8copyDataEPKiiPKvPh.exit282: ; preds = %_ZN6icu_7
   %314 = sext i32 %308 to i64
   %315 = getelementptr inbounds i8, ptr %.0206, i64 %314
   %316 = sub nsw i32 %309, %308
-  %317 = sext i32 %316 to i64
+  %317 = zext nneg i32 %316 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %315, ptr readonly align 1 %313, i64 %317, i1 false)
   br label %_ZN6icu_7719CollationDataWriter8copyDataEPKiiPKvPh.exit283
 
@@ -800,7 +800,7 @@ _ZN6icu_7719CollationDataWriter8copyDataEPKiiPKvPh.exit283: ; preds = %_ZN6icu_7
   %323 = sext i32 %318 to i64
   %324 = getelementptr inbounds i8, ptr %.0206, i64 %323
   %325 = sub nsw i32 %319, %318
-  %326 = sext i32 %325 to i64
+  %326 = zext nneg i32 %325 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %324, ptr readonly align 1 %322, i64 %326, i1 false)
   br label %_ZN6icu_7719CollationDataWriter8copyDataEPKiiPKvPh.exit284
 
@@ -834,7 +834,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %_ZN6icu_7719Collati
   %339 = sext i32 %335 to i64
   %340 = getelementptr inbounds i8, ptr %.0206, i64 %339
   %341 = sub nsw i32 %336, %335
-  %342 = sext i32 %341 to i64
+  %342 = zext nneg i32 %341 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %340, ptr readonly align 1 %.0.i, i64 %342, i1 false)
   %.pre304 = load i32, ptr %255, align 4, !tbaa !35
   br label %_ZN6icu_7719CollationDataWriter8copyDataEPKiiPKvPh.exit285
@@ -851,7 +851,7 @@ _ZN6icu_7719CollationDataWriter8copyDataEPKiiPKvPh.exit285: ; preds = %_ZNK6icu_
   %349 = sext i32 %343 to i64
   %350 = getelementptr inbounds i8, ptr %.0206, i64 %349
   %351 = sub nsw i32 %344, %343
-  %352 = sext i32 %351 to i64
+  %352 = zext nneg i32 %351 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %350, ptr readonly align 1 %348, i64 %352, i1 false)
   br label %_ZN6icu_7719CollationDataWriter8copyDataEPKiiPKvPh.exit286
 
@@ -938,7 +938,7 @@ define void @_ZN6icu_7719CollationDataWriter8copyDataEPKiiPKvPh(ptr noundef read
   %12 = sext i32 %7 to i64
   %13 = getelementptr inbounds i8, ptr %3, i64 %12
   %14 = sub nsw i32 %9, %7
-  %15 = sext i32 %14 to i64
+  %15 = zext nneg i32 %14 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %13, ptr align 1 %2, i64 %15, i1 false)
   br label %16
 

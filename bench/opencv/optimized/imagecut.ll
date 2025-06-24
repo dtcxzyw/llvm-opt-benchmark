@@ -60,7 +60,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN5zxing8ImageCut3CutEPhiiiiiiRNS_1
   %15 = sub nsw i32 %5, %3
   %16 = add nsw i32 %15, 1
   %17 = sub nsw i32 %6, %4
-  %18 = add nsw i32 %17, 1
+  %18 = add nuw nsw i32 %17, 1
   %19 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #7
   %20 = mul nsw i32 %18, %16
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -80,7 +80,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN5zxing8ImageCut3CutEPhiiiiiiRNS_1
 
 _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
-  %.not.i.i.i.i.i = icmp eq i32 %20, 0
+  %.not.i.i.i.i.i = icmp eq i32 %16, 0
   br i1 %.not.i.i.i.i.i, label %28, label %.noexc3.i
 
 .noexc3.i:                                        ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i
@@ -247,7 +247,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN5zxing8ImageCut3CutENS_3RefINS_10
   %33 = sub nsw i32 %26, %17
   %34 = add nsw i32 %33, 1
   %35 = sub nsw i32 %22, %13
-  %36 = add nsw i32 %35, 1
+  %36 = add nuw nsw i32 %35, 1
   %37 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #7
   %38 = mul nsw i32 %34, %36
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 8
@@ -267,7 +267,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN5zxing8ImageCut3CutENS_3RefINS_10
 
 _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %40, i8 0, i64 24, i1 false)
-  %.not.i.i.i.i.i = icmp eq i32 %38, 0
+  %.not.i.i.i.i.i = icmp eq i32 %34, 0
   br i1 %.not.i.i.i.i.i, label %46, label %.noexc3.i
 
 .noexc3.i:                                        ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i

@@ -447,9 +447,9 @@ _ZN4cvc58internal7Minisat3vecINS1_3LitEED2Ev.exit: ; preds = %._crit_edge, %.pre
   %128 = call ptr @realloc(ptr noundef %125, i64 noundef %127) #30
   store ptr %128, ptr %72, align 8, !tbaa !289
   %129 = icmp eq ptr %128, null
-  br i1 %129, label %130, label %._crit_edge74
+  br i1 %129, label %130, label %._crit_edge75
 
-._crit_edge74:                                    ; preds = %124
+._crit_edge75:                                    ; preds = %124
   %.pre = load i32, ptr %89, align 8, !tbaa !286
   br label %135
 
@@ -468,9 +468,9 @@ _ZN4cvc58internal7Minisat3vecINS1_3LitEED2Ev.exit: ; preds = %._crit_edge, %.pre
 .noexc:                                           ; preds = %.loopexit
   unreachable
 
-135:                                              ; preds = %._crit_edge74, %._ZN4cvc58internal7Minisat3vecIcE8capacityEi.exit_crit_edge.i
-  %136 = phi i32 [ %114, %._ZN4cvc58internal7Minisat3vecIcE8capacityEi.exit_crit_edge.i ], [ %.pre, %._crit_edge74 ]
-  %137 = phi ptr [ %.pre.i, %._ZN4cvc58internal7Minisat3vecIcE8capacityEi.exit_crit_edge.i ], [ %128, %._crit_edge74 ]
+135:                                              ; preds = %._crit_edge75, %._ZN4cvc58internal7Minisat3vecIcE8capacityEi.exit_crit_edge.i
+  %136 = phi i32 [ %114, %._ZN4cvc58internal7Minisat3vecIcE8capacityEi.exit_crit_edge.i ], [ %.pre, %._crit_edge75 ]
+  %137 = phi ptr [ %.pre.i, %._ZN4cvc58internal7Minisat3vecIcE8capacityEi.exit_crit_edge.i ], [ %128, %._crit_edge75 ]
   %138 = add nsw i32 %136, 1
   store i32 %138, ptr %89, align 8, !tbaa !286
   %139 = sext i32 %136 to i64
@@ -502,10 +502,10 @@ _ZN4cvc58internal7Minisat3vecINS1_3LitEED2Ev.exit: ; preds = %._crit_edge, %.pre
   %155 = call ptr @realloc(ptr noundef %152, i64 noundef %154) #30
   store ptr %155, ptr %73, align 8, !tbaa !289
   %156 = icmp eq ptr %155, null
-  br i1 %156, label %157, label %._crit_edge75
+  br i1 %156, label %157, label %._crit_edge76
 
-._crit_edge75:                                    ; preds = %151
-  %.pre76 = load i32, ptr %95, align 8, !tbaa !286
+._crit_edge76:                                    ; preds = %151
+  %.pre77 = load i32, ptr %95, align 8, !tbaa !286
   br label %162
 
 157:                                              ; preds = %151
@@ -523,9 +523,9 @@ _ZN4cvc58internal7Minisat3vecINS1_3LitEED2Ev.exit: ; preds = %._crit_edge, %.pre
 .noexc29:                                         ; preds = %.loopexit69
   unreachable
 
-162:                                              ; preds = %._crit_edge75, %._ZN4cvc58internal7Minisat3vecIcE8capacityEi.exit_crit_edge.i27
-  %163 = phi i32 [ %141, %._ZN4cvc58internal7Minisat3vecIcE8capacityEi.exit_crit_edge.i27 ], [ %.pre76, %._crit_edge75 ]
-  %164 = phi ptr [ %.pre.i28, %._ZN4cvc58internal7Minisat3vecIcE8capacityEi.exit_crit_edge.i27 ], [ %155, %._crit_edge75 ]
+162:                                              ; preds = %._crit_edge76, %._ZN4cvc58internal7Minisat3vecIcE8capacityEi.exit_crit_edge.i27
+  %163 = phi i32 [ %141, %._ZN4cvc58internal7Minisat3vecIcE8capacityEi.exit_crit_edge.i27 ], [ %.pre77, %._crit_edge76 ]
+  %164 = phi ptr [ %.pre.i28, %._ZN4cvc58internal7Minisat3vecIcE8capacityEi.exit_crit_edge.i27 ], [ %155, %._crit_edge76 ]
   %165 = add nsw i32 %163, 1
   store i32 %165, ptr %95, align 8, !tbaa !286
   %166 = sext i32 %163 to i64
@@ -533,10 +533,10 @@ _ZN4cvc58internal7Minisat3vecINS1_3LitEED2Ev.exit: ; preds = %._crit_edge, %.pre
   store i8 0, ptr %167, align 1, !tbaa !290
   %168 = load i8, ptr %39, align 4, !tbaa !277, !range !67, !noundef !68
   %169 = trunc nuw i8 %168 to i1
-  br i1 %169, label %170, label %._crit_edge83
+  br i1 %169, label %170, label %._crit_edge84
 
-._crit_edge83:                                    ; preds = %162
-  %.pre84 = add nsw i32 %storemerge73, 1
+._crit_edge84:                                    ; preds = %162
+  %.pre85 = add nsw i32 %storemerge73, 1
   br label %264
 
 170:                                              ; preds = %162
@@ -567,10 +567,10 @@ _ZN4cvc58internal7Minisat3vecINS1_3LitEED2Ev.exit: ; preds = %._crit_edge, %.pre
   %186 = call ptr @realloc(ptr noundef %182, i64 noundef %185) #30
   store ptr %186, ptr %65, align 8, !tbaa !293
   %187 = icmp eq ptr %186, null
-  br i1 %187, label %188, label %._crit_edge77
+  br i1 %187, label %188, label %._crit_edge78
 
-._crit_edge77:                                    ; preds = %181
-  %.pre78 = load i32, ptr %97, align 8, !tbaa !291
+._crit_edge78:                                    ; preds = %181
+  %.pre79 = load i32, ptr %97, align 8, !tbaa !291
   br label %193
 
 188:                                              ; preds = %181
@@ -588,9 +588,9 @@ _ZN4cvc58internal7Minisat3vecINS1_3LitEED2Ev.exit: ; preds = %._crit_edge, %.pre
 .noexc32:                                         ; preds = %.loopexit70
   unreachable
 
-193:                                              ; preds = %._crit_edge77, %._ZN4cvc58internal7Minisat3vecIiE8capacityEi.exit_crit_edge.i
-  %194 = phi i32 [ %171, %._ZN4cvc58internal7Minisat3vecIiE8capacityEi.exit_crit_edge.i ], [ %.pre78, %._crit_edge77 ]
-  %195 = phi ptr [ %.pre.i31, %._ZN4cvc58internal7Minisat3vecIiE8capacityEi.exit_crit_edge.i ], [ %186, %._crit_edge77 ]
+193:                                              ; preds = %._crit_edge78, %._ZN4cvc58internal7Minisat3vecIiE8capacityEi.exit_crit_edge.i
+  %194 = phi i32 [ %171, %._ZN4cvc58internal7Minisat3vecIiE8capacityEi.exit_crit_edge.i ], [ %.pre79, %._crit_edge78 ]
+  %195 = phi ptr [ %.pre.i31, %._ZN4cvc58internal7Minisat3vecIiE8capacityEi.exit_crit_edge.i ], [ %186, %._crit_edge78 ]
   %196 = add nsw i32 %194, 1
   store i32 %196, ptr %97, align 8, !tbaa !291
   %197 = sext i32 %194 to i64
@@ -618,10 +618,10 @@ _ZN4cvc58internal7Minisat3vecINS1_3LitEED2Ev.exit: ; preds = %._crit_edge, %.pre
   %213 = call ptr @realloc(ptr noundef nonnull %195, i64 noundef %212) #30
   store ptr %213, ptr %65, align 8, !tbaa !293
   %214 = icmp eq ptr %213, null
-  br i1 %214, label %215, label %._crit_edge79
+  br i1 %214, label %215, label %._crit_edge80
 
-._crit_edge79:                                    ; preds = %209
-  %.pre80 = load i32, ptr %97, align 8, !tbaa !291
+._crit_edge80:                                    ; preds = %209
+  %.pre81 = load i32, ptr %97, align 8, !tbaa !291
   br label %._ZN4cvc58internal7Minisat3vecIiE8capacityEi.exit_crit_edge.i33
 
 215:                                              ; preds = %209
@@ -639,9 +639,9 @@ _ZN4cvc58internal7Minisat3vecINS1_3LitEED2Ev.exit: ; preds = %._crit_edge, %.pre
 .noexc35:                                         ; preds = %.loopexit71
   unreachable
 
-._ZN4cvc58internal7Minisat3vecIiE8capacityEi.exit_crit_edge.i33: ; preds = %193, %._crit_edge79
-  %220 = phi i32 [ %.pre80, %._crit_edge79 ], [ %199, %193 ]
-  %221 = phi ptr [ %213, %._crit_edge79 ], [ %195, %193 ]
+._ZN4cvc58internal7Minisat3vecIiE8capacityEi.exit_crit_edge.i33: ; preds = %193, %._crit_edge80
+  %220 = phi i32 [ %.pre81, %._crit_edge80 ], [ %199, %193 ]
+  %221 = phi ptr [ %213, %._crit_edge80 ], [ %195, %193 ]
   %222 = add nsw i32 %220, 1
   store i32 %222, ptr %97, align 8, !tbaa !291
   %223 = sext i32 %220 to i64
@@ -685,10 +685,10 @@ _ZN4cvc58internal7Minisat3vecINS1_3LitEED2Ev.exit: ; preds = %._crit_edge, %.pre
   %241 = call ptr @realloc(ptr noundef %238, i64 noundef %240) #30
   store ptr %241, ptr %60, align 8, !tbaa !289
   %242 = icmp eq ptr %241, null
-  br i1 %242, label %243, label %._crit_edge81
+  br i1 %242, label %243, label %._crit_edge82
 
-._crit_edge81:                                    ; preds = %237
-  %.pre82 = load i32, ptr %100, align 8, !tbaa !286
+._crit_edge82:                                    ; preds = %237
+  %.pre83 = load i32, ptr %100, align 8, !tbaa !286
   br label %248
 
 243:                                              ; preds = %237
@@ -706,9 +706,9 @@ _ZN4cvc58internal7Minisat3vecINS1_3LitEED2Ev.exit: ; preds = %._crit_edge, %.pre
 .noexc41:                                         ; preds = %.loopexit72
   unreachable
 
-248:                                              ; preds = %._crit_edge81, %._ZN4cvc58internal7Minisat3vecIcE8capacityEi.exit_crit_edge.i39
-  %249 = phi i32 [ %227, %._ZN4cvc58internal7Minisat3vecIcE8capacityEi.exit_crit_edge.i39 ], [ %.pre82, %._crit_edge81 ]
-  %250 = phi ptr [ %.pre.i40, %._ZN4cvc58internal7Minisat3vecIcE8capacityEi.exit_crit_edge.i39 ], [ %241, %._crit_edge81 ]
+248:                                              ; preds = %._crit_edge82, %._ZN4cvc58internal7Minisat3vecIcE8capacityEi.exit_crit_edge.i39
+  %249 = phi i32 [ %227, %._ZN4cvc58internal7Minisat3vecIcE8capacityEi.exit_crit_edge.i39 ], [ %.pre83, %._crit_edge82 ]
+  %250 = phi ptr [ %.pre.i40, %._ZN4cvc58internal7Minisat3vecIcE8capacityEi.exit_crit_edge.i39 ], [ %241, %._crit_edge82 ]
   %251 = add nsw i32 %249, 1
   store i32 %251, ptr %100, align 8, !tbaa !286
   %252 = sext i32 %249 to i64
@@ -742,8 +742,8 @@ _ZN4cvc58internal7Minisat3vecINS1_3LitEED2Ev.exit: ; preds = %._crit_edge, %.pre
           cleanup
   br label %267
 
-264:                                              ; preds = %._crit_edge83, %248
-  %.pre-phi = phi i32 [ %.pre84, %._crit_edge83 ], [ %225, %248 ]
+264:                                              ; preds = %._crit_edge84, %248
+  %.pre-phi = phi i32 [ %.pre85, %._crit_edge84 ], [ %225, %248 ]
   %265 = load i32, ptr %91, align 8, !tbaa !287
   %266 = icmp slt i32 %.pre-phi, %265
   br i1 %266, label %113, label %._crit_edge, !llvm.loop !294
@@ -7752,7 +7752,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal7Minisat3vecIiE6growToEiRKi(pt
   %15 = add nsw i32 %14, 2
   %16 = tail call noundef i32 @llvm.smax.i32(i32 %15, i32 %12)
   %17 = sub nsw i32 2147483647, %8
-  %18 = icmp sgt i32 %16, %17
+  %18 = icmp samesign ugt i32 %16, %17
   br i1 %18, label %30, label %19
 
 19:                                               ; preds = %9
@@ -7889,7 +7889,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal7Minisat3vecIjE6growToEi(ptr n
   %14 = add nsw i32 %13, 2
   %15 = tail call noundef i32 @llvm.smax.i32(i32 %14, i32 %11)
   %16 = sub nsw i32 2147483647, %7
-  %17 = icmp sgt i32 %15, %16
+  %17 = icmp samesign ugt i32 %15, %16
   br i1 %17, label %29, label %18
 
 18:                                               ; preds = %8
@@ -7962,7 +7962,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal7Minisat3vecINS2_IjEEE6growToE
   %14 = add nsw i32 %13, 2
   %15 = tail call noundef i32 @llvm.smax.i32(i32 %14, i32 %11)
   %16 = sub nsw i32 2147483647, %7
-  %17 = icmp sgt i32 %15, %16
+  %17 = icmp samesign ugt i32 %15, %16
   br i1 %17, label %29, label %18
 
 18:                                               ; preds = %8
@@ -8036,7 +8036,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal7Minisat3vecIcE6growToEiRKc(pt
   %15 = add nsw i32 %14, 2
   %16 = tail call noundef i32 @llvm.smax.i32(i32 %15, i32 %12)
   %17 = sub nsw i32 2147483647, %8
-  %18 = icmp sgt i32 %16, %17
+  %18 = icmp samesign ugt i32 %16, %17
   br i1 %18, label %29, label %19
 
 19:                                               ; preds = %9

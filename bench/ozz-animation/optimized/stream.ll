@@ -283,7 +283,7 @@ define dso_local noundef zeroext i1 @_ZNK3ozz2io12MemoryStream6openedEv(ptr nonn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef range(i64 -2147483648, 2147483648) i64 @_ZN3ozz2io12MemoryStream4ReadEPvm(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) unnamed_addr #11 align 2 {
+define dso_local noundef range(i64 0, 2147483648) i64 @_ZN3ozz2io12MemoryStream4ReadEPvm(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) unnamed_addr #11 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %5 = load i32, ptr %4, align 4, !tbaa !18
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -301,7 +301,7 @@ define dso_local noundef range(i64 -2147483648, 2147483648) i64 @_ZN3ozz2io12Mem
   %15 = load ptr, ptr %14, align 8, !tbaa !14
   %16 = sext i32 %5 to i64
   %17 = getelementptr inbounds i8, ptr %15, i64 %16
-  %18 = sext i32 %13 to i64
+  %18 = zext nneg i32 %13 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 1 %17, i64 %18, i1 false)
   %19 = load i32, ptr %4, align 4, !tbaa !18
   %20 = add nsw i32 %19, %13

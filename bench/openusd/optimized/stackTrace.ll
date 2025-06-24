@@ -886,7 +886,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.i: ; pre
   %57 = getelementptr inbounds i8, ptr %.117.i, i64 -1
   store i8 %56, ptr %57, align 1
   %58 = udiv i64 %.11316.i, 10
-  %.not.i = icmp ult i64 %.11316.i, 10
+  %.not.i = icmp samesign ult i64 %.11316.i, 10
   br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit, label %.preheader.i13, !llvm.loop !17
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit: ; preds = %.preheader.i13, %53
@@ -959,7 +959,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.i17: ; p
   %83 = getelementptr inbounds i8, ptr %.117.i20, i64 -1
   store i8 %82, ptr %83, align 1
   %84 = udiv i64 %.11316.i21, 10
-  %.not.i22 = icmp ult i64 %.11316.i21, 10
+  %.not.i22 = icmp samesign ult i64 %.11316.i21, 10
   br i1 %.not.i22, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit27, label %.preheader.i19, !llvm.loop !17
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit27: ; preds = %.preheader.i19, %79
@@ -1339,7 +1339,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.i.i: ; p
   %64 = getelementptr inbounds i8, ptr %.117.i.i, i64 -1
   store i8 %63, ptr %64, align 1
   %65 = udiv i64 %.11316.i.i, 10
-  %.not.i66.i = icmp ult i64 %.11316.i.i, 10
+  %.not.i66.i = icmp samesign ult i64 %.11316.i.i, 10
   br i1 %.not.i66.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit.i, label %.preheader.i65.i, !llvm.loop !17
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit.i: ; preds = %.preheader.i65.i, %60
@@ -3551,7 +3551,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.i: ; pre
   %39 = getelementptr inbounds i8, ptr %.117.i, i64 -1
   store i8 %38, ptr %39, align 1
   %40 = udiv i64 %.11316.i, 10
-  %.not.i36 = icmp ult i64 %.11316.i, 10
+  %.not.i36 = icmp samesign ult i64 %.11316.i, 10
   br i1 %.not.i36, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit.loopexit, label %.preheader.i, !llvm.loop !17
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit.loopexit: ; preds = %.preheader.i
@@ -3690,7 +3690,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.i43: ; p
   %87 = getelementptr inbounds i8, ptr %.117.i46, i64 -1
   store i8 %86, ptr %87, align 1
   %88 = udiv i64 %.11316.i47, 10
-  %.not.i48 = icmp ult i64 %.11316.i47, 10
+  %.not.i48 = icmp samesign ult i64 %.11316.i47, 10
   br i1 %.not.i48, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit53.loopexit, label %.preheader.i45, !llvm.loop !17
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit53.loopexit: ; preds = %.preheader.i45
@@ -3867,7 +3867,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.i96: ; p
   %149 = getelementptr inbounds i8, ptr %.117.i99, i64 -1
   store i8 %148, ptr %149, align 1
   %150 = udiv i64 %.11316.i100, 10
-  %.not.i101 = icmp ult i64 %.11316.i100, 10
+  %.not.i101 = icmp samesign ult i64 %.11316.i100, 10
   br i1 %.not.i101, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit106.loopexit, label %.preheader.i98, !llvm.loop !17
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit106.loopexit: ; preds = %.preheader.i98
@@ -3985,7 +3985,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit: ; preds
   %19 = getelementptr inbounds i8, ptr %.117, i64 -1
   store i8 %18, ptr %19, align 1
   %20 = udiv i64 %.11316, 10
-  %.not = icmp ult i64 %.11316, 10
+  %.not = icmp samesign ult i64 %.11316, 10
   br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.preheader, %15
@@ -5772,7 +5772,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.i: ; pre
   %58 = getelementptr inbounds i8, ptr %.117.i, i64 -1
   store i8 %57, ptr %58, align 1
   %59 = udiv i64 %.11316.i, 10
-  %.not.i = icmp ult i64 %.11316.i, 10
+  %.not.i = icmp samesign ult i64 %.11316.i, 10
   br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit, label %.preheader.i13, !llvm.loop !17
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit: ; preds = %.preheader.i13, %54
@@ -5845,7 +5845,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.i17: ; p
   %84 = getelementptr inbounds i8, ptr %.117.i20, i64 -1
   store i8 %83, ptr %84, align 1
   %85 = udiv i64 %.11316.i21, 10
-  %.not.i22 = icmp ult i64 %.11316.i21, 10
+  %.not.i22 = icmp samesign ult i64 %.11316.i21, 10
   br i1 %.not.i22, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit27, label %.preheader.i19, !llvm.loop !17
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit27: ; preds = %.preheader.i19, %80

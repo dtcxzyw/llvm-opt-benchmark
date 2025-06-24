@@ -41,9 +41,9 @@ define void @ff_copy_and_dup(ptr noundef writeonly captures(none) %0, ptr nounde
 11:                                               ; preds = %3
   %12 = sext i32 %2 to i64
   %13 = getelementptr inbounds i16, ptr %0, i64 %12
-  %14 = sub nsw i32 40, %2
-  %15 = zext nneg i32 %14 to i64
-  %16 = shl nuw nsw i64 %15, 1
+  %14 = shl i32 %2, 1
+  %15 = sub i32 80, %14
+  %16 = zext i32 %15 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %13, ptr nonnull align 2 %6, i64 %16, i1 false)
   br label %17
 
@@ -109,7 +109,7 @@ define range(i32 0, 2) i32 @ff_eval_refl(ptr noundef captures(none) %0, ptr noun
   %28 = load i32, ptr %27, align 4, !tbaa !8
   %29 = load i32, ptr %25, align 4, !tbaa !8
   %30 = sub nsw i64 %indvars.iv58, %indvars.iv50
-  %31 = getelementptr inbounds i32, ptr %.03948, i64 %30
+  %31 = getelementptr inbounds nuw i32, ptr %.03948, i64 %30
   %32 = load i32, ptr %31, align 4, !tbaa !8
   %33 = mul i32 %32, %29
   %34 = ashr i32 %33, 12
@@ -486,7 +486,7 @@ define range(i32 0, 4194304) i32 @ff_interp(ptr noundef readonly captures(none) 
   %49 = load i32, ptr %48, align 4, !tbaa !8
   %50 = load i32, ptr %46, align 4, !tbaa !8
   %51 = sub nsw i64 %indvars.iv58.i, %indvars.iv50.i
-  %52 = getelementptr inbounds i32, ptr %.03948.i, i64 %51
+  %52 = getelementptr inbounds nuw i32, ptr %.03948.i, i64 %51
   %53 = load i32, ptr %52, align 4, !tbaa !8
   %54 = mul i32 %53, %50
   %55 = ashr i32 %54, 12
@@ -761,9 +761,9 @@ define void @ff_subblock_synthesis(ptr noundef %0, ptr noundef %1, i32 noundef %
 21:                                               ; preds = %10
   %22 = sext i32 %11 to i64
   %23 = getelementptr inbounds i16, ptr %12, i64 %22
-  %24 = sub nsw i32 21, %2
-  %25 = zext nneg i32 %24 to i64
-  %26 = shl nuw nsw i64 %25, 1
+  %24 = shl i32 %11, 1
+  %25 = sub i32 80, %24
+  %26 = zext i32 %25 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %23, ptr nonnull readonly align 2 %16, i64 %26, i1 false)
   br label %ff_copy_and_dup.exit
 

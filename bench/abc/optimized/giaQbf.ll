@@ -4452,7 +4452,7 @@ Abc_UtilStrsav.exit:                              ; preds = %4, %8
 36:                                               ; preds = %29
   %37 = sub nsw i64 %indvars.iv, %22
   %.val55 = load ptr, ptr %20, align 8, !tbaa !10
-  %38 = getelementptr inbounds i32, ptr %.val55, i64 %37
+  %38 = getelementptr inbounds nuw i32, ptr %.val55, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !12
   %40 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i32 %39, ptr %40, align 4, !tbaa !37
@@ -6626,7 +6626,7 @@ define void @Gia_ManGenWriteRel(ptr noundef readonly captures(none) %0, i32 noun
 
 27:                                               ; preds = %26
   %28 = sub nsw i32 %.03749.us, %1
-  %29 = shl nsw i32 %28, 1
+  %29 = shl nuw nsw i32 %28, 1
   %30 = or disjoint i32 %29, 1
   %.val45.us = load i32, ptr %11, align 4, !tbaa !148
   %.val46.us = load ptr, ptr %12, align 8, !tbaa !150
@@ -6646,7 +6646,7 @@ define void @Gia_ManGenWriteRel(ptr noundef readonly captures(none) %0, i32 noun
 
 37:                                               ; preds = %36
   %38 = sub nsw i32 %.03749.us, %1
-  %39 = shl nsw i32 %38, 1
+  %39 = shl nuw nsw i32 %38, 1
   %.val47.us = load i32, ptr %11, align 4, !tbaa !148
   %.val48.us = load ptr, ptr %12, align 8, !tbaa !150
   %40 = getelementptr i8, ptr %.val48.us, i64 8
@@ -8383,7 +8383,7 @@ Vec_IntPush.exit179:                              ; preds = %.Vec_IntGrow.exit10
 
 173:                                              ; preds = %141
   %174 = sub nsw i64 %indvars.iv234, %5
-  %175 = getelementptr inbounds i32, ptr %54, i64 %174
+  %175 = getelementptr inbounds nuw i32, ptr %54, i64 %174
   %176 = load i32, ptr %175, align 4, !tbaa !12
   %177 = getelementptr inbounds nuw i8, ptr %140, i64 8
   store i32 %176, ptr %177, align 4, !tbaa !37

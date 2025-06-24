@@ -1277,7 +1277,7 @@ switch.lookup:
   %12 = sub nsw i32 %0, %switch.load
   %.sroa.2.0.insert.ext = zext nneg i32 %5 to i64
   %.sroa.2.0.insert.shift = shl nuw nsw i64 %.sroa.2.0.insert.ext, 32
-  %.sroa.0.0.insert.ext = zext i32 %12 to i64
+  %.sroa.0.0.insert.ext = zext nneg i32 %12 to i64
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, %.sroa.0.0.insert.ext
   ret i64 %.sroa.0.0.insert.insert
 }

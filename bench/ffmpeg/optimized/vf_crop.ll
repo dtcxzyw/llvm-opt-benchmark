@@ -766,7 +766,7 @@ normalize_double.exit139:                         ; preds = %.sink.split.i134
   %175 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %174, ptr %175, align 8, !tbaa !25
   %176 = sub nsw i32 %169, %.pre146
-  %177 = sdiv i32 %176, 2
+  %177 = lshr i32 %176, 1
   %178 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 %177, ptr %178, align 4, !tbaa !26
   %179 = load i32, ptr %108, align 4, !tbaa !58

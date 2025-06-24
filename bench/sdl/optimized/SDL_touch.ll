@@ -697,8 +697,8 @@ SDL_GetFingerIndex.exit.i123:                     ; preds = %157
   %169 = load ptr, ptr %168, align 8
   %170 = getelementptr inbounds nuw i8, ptr %168, i64 8
   %171 = sub nsw i32 %164, %163
-  %172 = sext i32 %171 to i64
-  %173 = shl nsw i64 %172, 3
+  %172 = zext nneg i32 %171 to i64
+  %173 = shl nuw nsw i64 %172, 3
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %168, ptr nonnull align 8 %170, i64 %173, i1 false)
   %174 = load ptr, ptr %155, align 8
   %175 = load i32, ptr %62, align 4

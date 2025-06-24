@@ -18930,8 +18930,8 @@ Abc_Clock.exit:                                   ; preds = %1, %7
 
 17:                                               ; preds = %.lr.ph
   %18 = sub nsw i32 %.049, %16
-  %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds [4 x ptr], ptr %4, i64 0, i64 %19
+  %19 = zext nneg i32 %18 to i64
+  %20 = getelementptr inbounds nuw [4 x ptr], ptr %4, i64 0, i64 %19
   store ptr %14, ptr %20, align 8, !tbaa !255
   br label %Vec_WrdFreeP.exit
 

@@ -308,7 +308,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE11_M_allocateEm.exit.i: ; preds 
   %.promoted = phi ptr [ %108, %.lr.ph163 ], [ %145, %118 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph163 ], [ %indvars.iv.next, %118 ]
   %115 = sub nsw i64 %111, %indvars.iv
-  %116 = getelementptr inbounds i8, ptr %93, i64 %115
+  %116 = getelementptr inbounds nuw i8, ptr %93, i64 %115
   %117 = load i8, ptr %116, align 1, !tbaa !17
   br label %119
 

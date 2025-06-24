@@ -11395,7 +11395,7 @@ do.body.i22.i.i.i:                                ; preds = %do.body.i22.i.i.i, 
   %cmp12.i.i.i.i = icmp sgt i64 %sub.ptr.div11.i.i.i.i, 4999
   %add.ptr13.i.i.i.i = getelementptr inbounds nuw i8, ptr %p2.0.i.i.i.i, i64 159968
   %sub.i.i.i.i = sub nsw i64 4999, %sub.ptr.div11.i.i.i.i
-  %add.ptr14.i.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::SizedPOD", ptr %call.i.i.i.i.i260, i64 %sub.i.i.i.i
+  %add.ptr14.i.i.i.i = getelementptr inbounds nuw %"struct.(anonymous namespace)::SizedPOD", ptr %call.i.i.i.i.i260, i64 %sub.i.i.i.i
   %p2.1.i.i.i.i = select i1 %cmp12.i.i.i.i, ptr %add.ptr13.i.i.i.i, ptr %add.ptr14.i.i.i.i
   %cmp15.not.i.i.i.i = icmp eq ptr %p2.1.i.i.i.i, %incdec.ptr.i21.i.i.i
   br i1 %cmp15.not.i.i.i.i, label %do.end.i.i.i.i764, label %do.body.i22.i.i.i, !llvm.loop !201
@@ -18926,7 +18926,7 @@ do.body.i20:                                      ; preds = %do.body.i20, %for.b
   %cmp12.i = icmp slt i64 %sub.ptr.div.i, %sub.ptr.div11.i
   %add.ptr13.i = getelementptr inbounds i8, ptr %p2.0.i, i64 %sub.ptr.sub.i
   %sub.i = sub nsw i64 %sub.ptr.div.i, %sub.ptr.div11.i
-  %add.ptr14.i = getelementptr inbounds i32, ptr %first, i64 %sub.i
+  %add.ptr14.i = getelementptr inbounds nuw i32, ptr %first, i64 %sub.i
   %p2.1.i = select i1 %cmp12.i, ptr %add.ptr13.i, ptr %add.ptr14.i
   %cmp15.not.i = icmp eq ptr %p2.1.i, %incdec.ptr.i19
   br i1 %cmp15.not.i, label %do.end.i, label %do.body.i20, !llvm.loop !380
@@ -19894,7 +19894,7 @@ _ZN10TestObjectaSEOS_.exit34:                     ; preds = %do.body, %if.then.i
   %cmp14 = icmp slt i64 %sub.ptr.div, %sub.ptr.div13
   %add.ptr15 = getelementptr inbounds i8, ptr %p2.0, i64 %sub.ptr.sub
   %sub = sub nsw i64 %sub.ptr.div, %sub.ptr.div13
-  %add.ptr16 = getelementptr inbounds %struct.TestObject, ptr %first, i64 %sub
+  %add.ptr16 = getelementptr inbounds nuw %struct.TestObject, ptr %first, i64 %sub
   %p2.1 = select i1 %cmp14, ptr %add.ptr15, ptr %add.ptr16
   %cmp17.not = icmp eq ptr %p2.1, %incdec.ptr
   br i1 %cmp17.not, label %do.end, label %do.body, !llvm.loop !401

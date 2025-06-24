@@ -5526,9 +5526,9 @@ _ZNK10open_spiel6euchre5Trick5CardsEv.exit86:     ; preds = %.thread.i85, %188
 _ZNSt6vectorIiSaIiEED2Ev.exit92:                  ; preds = %212, %._crit_edge166
   %216 = icmp slt i32 %.1.lcssa, 4
   %217 = sub nsw i32 4, %.1.lcssa
-  %218 = mul nsw i32 %217, 24
+  %218 = mul nuw nsw i32 %217, 24
   %narrow = select i1 %216, i32 %218, i32 0
-  %spec.select.idx = zext i32 %narrow to i64
+  %spec.select.idx = zext nneg i32 %narrow to i64
   %spec.select = getelementptr inbounds nuw float, ptr %.6.lcssa, i64 %spec.select.idx
   br label %219
 

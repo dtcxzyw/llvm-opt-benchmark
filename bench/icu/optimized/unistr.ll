@@ -6269,8 +6269,8 @@ define void @_ZN6icu_7713UnicodeString4copyEiii(ptr noundef nonnull align 8 dere
 
 5:                                                ; preds = %4
   %6 = sub nsw i32 %2, %1
-  %7 = sext i32 %6 to i64
-  %8 = shl nsw i64 %7, 1
+  %7 = shl nuw i32 %6, 1
+  %8 = zext i32 %7 to i64
   %9 = tail call noalias ptr @uprv_malloc_77(i64 noundef %8) #26
   %.not15 = icmp eq ptr %9, null
   br i1 %.not15, label %46, label %10

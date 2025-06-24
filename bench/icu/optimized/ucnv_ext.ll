@@ -453,8 +453,8 @@ define void @ucnv_extContinueMatchToU_77(ptr noundef %0, ptr noundef %1, i32 nou
 
 40:                                               ; preds = %39
   %41 = sub nsw i32 %37, %26
-  %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds i8, ptr %28, i64 %42
+  %42 = zext nneg i32 %41 to i64
+  %43 = getelementptr inbounds nuw i8, ptr %28, i64 %42
   store ptr %43, ptr %27, align 8, !tbaa !32
   br label %51
 
@@ -462,7 +462,7 @@ define void @ucnv_extContinueMatchToU_77(ptr noundef %0, ptr noundef %1, i32 nou
   %45 = sub nsw i32 %26, %37
   %46 = zext nneg i32 %37 to i64
   %47 = getelementptr inbounds nuw i8, ptr %23, i64 %46
-  %48 = sext i32 %45 to i64
+  %48 = zext nneg i32 %45 to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 2 %23, ptr nonnull align 1 %47, i64 %48, i1 false)
   %49 = trunc nsw i32 %45 to i8
   %50 = sub nsw i8 0, %49
@@ -710,7 +710,7 @@ _ZL18ucnv_extWriteFromUP10UConverterPKijPPcPKcPPiiP10UErrorCode.exit: ; preds = 
 
 .lr.ph:                                           ; preds = %78
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 212
-  %wide.trip.count = zext i32 %80 to i64
+  %wide.trip.count = zext nneg i32 %80 to i64
   br label %83
 
 83:                                               ; preds = %.lr.ph, %83
@@ -1082,8 +1082,8 @@ define void @ucnv_extContinueMatchFromU_77(ptr noundef %0, ptr noundef %1, i32 n
 
 34:                                               ; preds = %32
   %35 = sub nsw i32 %33, %16
-  %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds i16, ptr %18, i64 %36
+  %36 = zext nneg i32 %35 to i64
+  %37 = getelementptr inbounds nuw i16, ptr %18, i64 %36
   store ptr %37, ptr %17, align 8, !tbaa !55
   br label %45
 

@@ -1031,7 +1031,7 @@ define dso_local noundef i32 @xdl_num_out(ptr noundef %0, i64 noundef %1) local_
   %12 = getelementptr inbounds i8, ptr %.12028, i64 -1
   store i8 %11, ptr %12, align 1, !tbaa !14
   %13 = udiv i64 %.12227, 10
-  %14 = icmp ugt i64 %.12227, 9
+  %14 = icmp samesign ugt i64 %.12227, 9
   %15 = icmp ugt ptr %12, %3
   %16 = and i1 %14, %15
   br i1 %16, label %.lr.ph, label %.preheader, !llvm.loop !50
@@ -1114,7 +1114,7 @@ define dso_local range(i32 -1, 1) i32 @xdl_emit_hunk_hdr(i64 noundef %0, i64 nou
   %28 = getelementptr inbounds i8, ptr %.12028.i.i, i64 -1
   store i8 %27, ptr %28, align 1, !tbaa !14
   %29 = udiv i64 %.12227.i.i, 10
-  %30 = icmp ugt i64 %.12227.i.i, 9
+  %30 = icmp samesign ugt i64 %.12227.i.i, 9
   %31 = icmp ugt ptr %28, %11
   %32 = and i1 %30, %31
   br i1 %32, label %.lr.ph.i.i, label %.preheader.i.i, !llvm.loop !50
@@ -1183,7 +1183,7 @@ xdl_num_out.exit.i:                               ; preds = %.preheader.i.i, %._
   %56 = getelementptr inbounds i8, ptr %.12028.i58.i, i64 -1
   store i8 %55, ptr %56, align 1, !tbaa !14
   %57 = udiv i64 %.12227.i59.i, 10
-  %58 = icmp ugt i64 %.12227.i59.i, 9
+  %58 = icmp samesign ugt i64 %.12227.i59.i, 9
   %59 = icmp ugt ptr %56, %10
   %60 = and i1 %58, %59
   br i1 %60, label %.lr.ph.i57.i, label %.preheader.i61.i, !llvm.loop !50
@@ -1256,7 +1256,7 @@ xdl_num_out.exit69.i:                             ; preds = %.preheader.i61.i, %
   %86 = getelementptr inbounds i8, ptr %.12028.i75.i, i64 -1
   store i8 %85, ptr %86, align 1, !tbaa !14
   %87 = udiv i64 %.12227.i76.i, 10
-  %88 = icmp ugt i64 %.12227.i76.i, 9
+  %88 = icmp samesign ugt i64 %.12227.i76.i, 9
   %89 = icmp ugt ptr %86, %9
   %90 = and i1 %88, %89
   br i1 %90, label %.lr.ph.i74.i, label %.preheader.i78.i, !llvm.loop !50
@@ -1325,7 +1325,7 @@ xdl_num_out.exit86.i:                             ; preds = %.preheader.i78.i, %
   %114 = getelementptr inbounds i8, ptr %.12028.i92.i, i64 -1
   store i8 %113, ptr %114, align 1, !tbaa !14
   %115 = udiv i64 %.12227.i93.i, 10
-  %116 = icmp ugt i64 %.12227.i93.i, 9
+  %116 = icmp samesign ugt i64 %.12227.i93.i, 9
   %117 = icmp ugt ptr %114, %8
   %118 = and i1 %116, %117
   br i1 %118, label %.lr.ph.i91.i, label %.preheader.i95.i, !llvm.loop !50

@@ -10098,19 +10098,19 @@ Ses_ManSelectVar.exit.loopexit:                   ; preds = %.lr.ph.i
 
 .lr.ph249.split.us256.preheader:                  ; preds = %.lr.ph249.us
   %162 = sub nsw i32 %153, %142
-  %163 = mul nsw i32 %162, %142
-  %164 = sext i32 %163 to i64
+  %163 = mul nuw nsw i32 %162, %142
+  %164 = zext nneg i32 %163 to i64
   %165 = sext i32 %160 to i64
   %166 = sext i8 %152 to i64
   %167 = sext i8 %155 to i64
-  %invariant.gep = getelementptr i32, ptr %145, i64 %164
+  %invariant.gep = getelementptr inbounds nuw i32, ptr %145, i64 %164
   %invariant.gep337 = getelementptr i32, ptr %145, i64 %165
   %invariant.gep341.sink = getelementptr inbounds nuw i32, ptr %145, i64 %161
   br label %.lr.ph249.split.us256
 
 .lr.ph249.split.us256:                            ; preds = %.lr.ph249.split.us256.preheader, %183
   %indvars.iv = phi i64 [ 0, %.lr.ph249.split.us256.preheader ], [ %indvars.iv.next, %183 ]
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv
   %168 = load i32, ptr %gep, align 4, !tbaa !7
   br i1 %158, label %171, label %169
 
@@ -10155,10 +10155,10 @@ Ses_ManSelectVar.exit.loopexit:                   ; preds = %.lr.ph.i
   br i1 %158, label %.lr.ph249.split.us.split.us.us.preheader, label %.lr.ph249.split.us.split.us259.preheader
 
 .lr.ph249.split.us.split.us259.preheader:         ; preds = %.lr.ph249.split.us.us
-  %184 = sext i32 %160 to i64
+  %184 = zext nneg i32 %160 to i64
   %185 = sext i8 %152 to i64
   %186 = sext i8 %155 to i64
-  %invariant.gep343 = getelementptr i32, ptr %145, i64 %184
+  %invariant.gep343 = getelementptr inbounds nuw i32, ptr %145, i64 %184
   %invariant.gep347.sink = getelementptr inbounds nuw i32, ptr %145, i64 %161
   br label %.lr.ph249.split.us.split.us259
 
@@ -10171,7 +10171,7 @@ Ses_ManSelectVar.exit.loopexit:                   ; preds = %.lr.ph.i
 
 .lr.ph249.split.us.split.us259:                   ; preds = %.lr.ph249.split.us.split.us259.preheader, %200
   %indvars.iv296 = phi i64 [ 0, %.lr.ph249.split.us.split.us259.preheader ], [ %indvars.iv.next297, %200 ]
-  %gep344 = getelementptr i32, ptr %invariant.gep343, i64 %indvars.iv296
+  %gep344 = getelementptr inbounds nuw i32, ptr %invariant.gep343, i64 %indvars.iv296
   %190 = load i32, ptr %gep344, align 4, !tbaa !7
   %191 = icmp eq i32 %190, 0
   br i1 %191, label %195, label %192

@@ -4521,7 +4521,7 @@ percentBinarySearch.exit:                         ; preds = %38
   %45 = getelementptr inbounds nuw double, ptr %28, i64 %32
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = sub nsw i32 %26, %31
-  %48 = zext i32 %47 to i64
+  %48 = zext nneg i32 %47 to i64
   %49 = shl nuw nsw i64 %48, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %45, ptr nonnull align 8 %46, i64 %49, i1 false)
   br label %percentBinarySearch.exit.thread
@@ -5403,8 +5403,8 @@ define internal void @ieee754func(ptr noundef %0, i32 noundef %1, ptr noundef re
 
 17:                                               ; preds = %14, %17
   %indvars.iv = phi i64 [ 0, %14 ], [ %indvars.iv.next, %17 ]
-  %.079109 = phi i64 [ 0, %14 ], [ %22, %17 ]
-  %18 = shl i64 %.079109, 8
+  %.079108 = phi i64 [ 0, %14 ], [ %22, %17 ]
+  %18 = shl i64 %.079108, 8
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 %indvars.iv
   %20 = load i8, ptr %19, align 1, !tbaa !25
   %21 = zext i8 %20 to i64
@@ -5442,23 +5442,23 @@ define internal void @ieee754func(ptr noundef %0, i32 noundef %1, ptr noundef re
   %40 = icmp slt i64 %34, 1075
   %41 = and i64 %.1, 1
   %42 = icmp eq i64 %41, 0
-  %or.cond98110 = select i1 %40, i1 %42, i1 false
-  br i1 %or.cond98110, label %.lr.ph114, label %.critedge
+  %or.cond97109 = select i1 %40, i1 %42, i1 false
+  br i1 %or.cond97109, label %.lr.ph113, label %.critedge
 
-.lr.ph114:                                        ; preds = %33, %.lr.ph114
-  %.2112 = phi i64 [ %43, %.lr.ph114 ], [ %.1, %33 ]
-  %.185111 = phi i32 [ %44, %.lr.ph114 ], [ %35, %33 ]
-  %43 = lshr exact i64 %.2112, 1
-  %44 = add nsw i32 %.185111, 1
-  %45 = icmp slt i32 %.185111, 1074
-  %46 = and i64 %.2112, 2
+.lr.ph113:                                        ; preds = %33, %.lr.ph113
+  %.2111 = phi i64 [ %43, %.lr.ph113 ], [ %.1, %33 ]
+  %.185110 = phi i32 [ %44, %.lr.ph113 ], [ %35, %33 ]
+  %43 = lshr exact i64 %.2111, 1
+  %44 = add nsw i32 %.185110, 1
+  %45 = icmp slt i32 %.185110, 1074
+  %46 = and i64 %.2111, 2
   %47 = icmp eq i64 %46, 0
-  %or.cond98 = select i1 %45, i1 %47, i1 false
-  br i1 %or.cond98, label %.lr.ph114, label %.critedge, !llvm.loop !94
+  %or.cond97 = select i1 %45, i1 %47, i1 false
+  br i1 %or.cond97, label %.lr.ph113, label %.critedge, !llvm.loop !94
 
-.critedge:                                        ; preds = %.lr.ph114, %33
-  %.185.lcssa = phi i32 [ %35, %33 ], [ %44, %.lr.ph114 ]
-  %.2.lcssa = phi i64 [ %.1, %33 ], [ %43, %.lr.ph114 ]
+.critedge:                                        ; preds = %.lr.ph113, %33
+  %.185.lcssa = phi i32 [ %35, %33 ], [ %44, %.lr.ph113 ]
+  %.2.lcssa = phi i64 [ %.1, %33 ], [ %43, %.lr.ph113 ]
   br i1 %29, label %50, label %48
 
 48:                                               ; preds = %.critedge
@@ -5523,36 +5523,36 @@ define internal void @ieee754func(ptr noundef %0, i32 noundef %1, ptr noundef re
 
 74:                                               ; preds = %67, %69
   %.075 = phi i64 [ %68, %67 ], [ %62, %69 ]
-  %.not99 = icmp samesign ult i64 %.075, 9007199254740992
-  br i1 %.not99, label %.preheader, label %.lr.ph
+  %.not98 = icmp samesign ult i64 %.075, 9007199254740992
+  br i1 %.not98, label %.preheader, label %.lr.ph
 
 .preheader:                                       ; preds = %.lr.ph, %74
   %.176.lcssa = phi i64 [ %.075, %74 ], [ %77, %.lr.ph ]
   %.173.lcssa = phi i64 [ %.072, %74 ], [ %78, %.lr.ph ]
   %75 = add nsw i64 %.176.lcssa, -1
   %76 = icmp ult i64 %75, 4503599627370495
-  br i1 %76, label %.lr.ph105, label %._crit_edge
+  br i1 %76, label %.lr.ph104, label %._crit_edge
 
 .lr.ph:                                           ; preds = %74, %.lr.ph
-  %.173101 = phi i64 [ %78, %.lr.ph ], [ %.072, %74 ]
-  %.176100 = phi i64 [ %77, %.lr.ph ], [ %.075, %74 ]
-  %77 = lshr i64 %.176100, 1
-  %78 = add nsw i64 %.173101, 1
-  %.not = icmp ult i64 %.176100, 18014398509481984
+  %.173100 = phi i64 [ %78, %.lr.ph ], [ %.072, %74 ]
+  %.17699 = phi i64 [ %77, %.lr.ph ], [ %.075, %74 ]
+  %77 = lshr i64 %.17699, 1
+  %78 = add nsw i64 %.173100, 1
+  %.not = icmp ult i64 %.17699, 18014398509481984
   br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !95
 
-.lr.ph105:                                        ; preds = %.preheader, %.lr.ph105
-  %.274104 = phi i64 [ %80, %.lr.ph105 ], [ %.173.lcssa, %.preheader ]
-  %.277103 = phi i64 [ %79, %.lr.ph105 ], [ %.176.lcssa, %.preheader ]
-  %79 = shl nuw nsw i64 %.277103, 1
-  %80 = add nsw i64 %.274104, -1
+.lr.ph104:                                        ; preds = %.preheader, %.lr.ph104
+  %.274103 = phi i64 [ %80, %.lr.ph104 ], [ %.173.lcssa, %.preheader ]
+  %.277102 = phi i64 [ %79, %.lr.ph104 ], [ %.176.lcssa, %.preheader ]
+  %79 = shl nuw nsw i64 %.277102, 1
+  %80 = add nsw i64 %.274103, -1
   %81 = add nsw i64 %79, -1
   %82 = icmp samesign ult i64 %81, 4503599627370495
-  br i1 %82, label %.lr.ph105, label %._crit_edge, !llvm.loop !96
+  br i1 %82, label %.lr.ph104, label %._crit_edge, !llvm.loop !96
 
-._crit_edge:                                      ; preds = %.lr.ph105, %.preheader
-  %.277.lcssa = phi i64 [ %.176.lcssa, %.preheader ], [ %79, %.lr.ph105 ]
-  %.274.lcssa = phi i64 [ %.173.lcssa, %.preheader ], [ %80, %.lr.ph105 ]
+._crit_edge:                                      ; preds = %.lr.ph104, %.preheader
+  %.277.lcssa = phi i64 [ %.176.lcssa, %.preheader ], [ %79, %.lr.ph104 ]
+  %.274.lcssa = phi i64 [ %.173.lcssa, %.preheader ], [ %80, %.lr.ph104 ]
   %83 = icmp slt i64 %.274.lcssa, -1074
   br i1 %83, label %84, label %88
 
@@ -33602,7 +33602,7 @@ define internal fastcc void @decimal_result(ptr noundef %0, ptr noundef captures
 define internal fastcc ptr @decimalNewFromText(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #2 {
   %3 = tail call ptr @sqlite3_malloc(i32 noundef 24) #43
   %cond = icmp eq ptr %3, null
-  br i1 %cond, label %.thread185, label %4
+  br i1 %cond, label %.thread188, label %4
 
 4:                                                ; preds = %2
   store i8 0, ptr %3, align 8, !tbaa !60
@@ -33667,40 +33667,40 @@ define internal fastcc ptr @decimalNewFromText(ptr noundef readonly captures(non
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %36
-  %indvars.iv201 = phi i64 [ %32, %.lr.ph.preheader ], [ %indvars.iv.next202, %36 ]
-  %33 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv201
+  %indvars.iv204 = phi i64 [ %32, %.lr.ph.preheader ], [ %indvars.iv.next205, %36 ]
+  %33 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv204
   %34 = load i8, ptr %33, align 1, !tbaa !25
   %35 = icmp eq i8 %34, 48
   br i1 %35, label %36, label %.critedge.loopexit
 
 36:                                               ; preds = %.lr.ph
-  %indvars.iv.next202 = add nsw i64 %indvars.iv201, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next202 to i32
+  %indvars.iv.next205 = add nsw i64 %indvars.iv204, 1
+  %lftr.wideiv = trunc i64 %indvars.iv.next205 to i32
   %exitcond.not = icmp eq i32 %1, %lftr.wideiv
   br i1 %exitcond.not, label %.thread, label %.lr.ph, !llvm.loop !704
 
 .critedge.loopexit:                               ; preds = %.lr.ph
-  %37 = trunc nsw i64 %indvars.iv201 to i32
+  %37 = trunc nsw i64 %indvars.iv204 to i32
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %30
   %.2136.lcssa = phi i32 [ %.1135, %30 ], [ %37, %.critedge.loopexit ]
   %38 = icmp slt i32 %.2136.lcssa, %1
-  br i1 %38, label %.lr.ph194.preheader, label %.thread
+  br i1 %38, label %.lr.ph197.preheader, label %.thread
 
-.lr.ph194.preheader:                              ; preds = %.critedge
+.lr.ph197.preheader:                              ; preds = %.critedge
   %39 = sext i32 %.2136.lcssa to i64
-  br label %.lr.ph194
+  br label %.lr.ph197
 
-.lr.ph194:                                        ; preds = %.lr.ph194.preheader, %80
-  %indvars.iv204 = phi i64 [ %39, %.lr.ph194.preheader ], [ %indvars.iv.next205, %80 ]
-  %40 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv204
+.lr.ph197:                                        ; preds = %.lr.ph197.preheader, %80
+  %indvars.iv207 = phi i64 [ %39, %.lr.ph197.preheader ], [ %indvars.iv.next208, %80 ]
+  %40 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv207
   %41 = load i8, ptr %40, align 1, !tbaa !25
   %42 = add i8 %41, -48
   %or.cond = icmp ult i8 %42, 10
   br i1 %or.cond, label %43, label %49
 
-43:                                               ; preds = %.lr.ph194
+43:                                               ; preds = %.lr.ph197
   %44 = load ptr, ptr %13, align 8, !tbaa !57
   %45 = load i32, ptr %8, align 4, !tbaa !61
   %46 = add nsw i32 %45, 1
@@ -33710,7 +33710,7 @@ define internal fastcc ptr @decimalNewFromText(ptr noundef readonly captures(non
   store i8 %42, ptr %48, align 1, !tbaa !25
   br label %80
 
-49:                                               ; preds = %.lr.ph194
+49:                                               ; preds = %.lr.ph197
   %50 = icmp eq i8 %41, 46
   br i1 %50, label %51, label %54
 
@@ -33726,7 +33726,7 @@ define internal fastcc ptr @decimalNewFromText(ptr noundef readonly captures(non
   br i1 %or.cond5, label %56, label %80
 
 56:                                               ; preds = %54
-  %57 = trunc nsw i64 %indvars.iv204 to i32
+  %57 = trunc nsw i64 %indvars.iv207 to i32
   %58 = add nsw i32 %57, 1
   %.not156 = icmp slt i32 %58, %1
   br i1 %.not156, label %59, label %.thread
@@ -33741,48 +33741,48 @@ define internal fastcc ptr @decimalNewFromText(ptr noundef readonly captures(non
   %65 = or i1 %.not158, %64
   %.0129 = select i1 %65, i32 %63, i32 %58
   %66 = icmp slt i32 %.0129, %1
-  br i1 %66, label %.lr.ph197.preheader, label %._crit_edge
+  br i1 %66, label %.lr.ph200.preheader, label %._crit_edge
 
-.lr.ph197.preheader:                              ; preds = %59
+.lr.ph200.preheader:                              ; preds = %59
   %67 = sext i32 %.0129 to i64
   %68 = sext i32 %1 to i64
-  br label %.lr.ph197
+  br label %.lr.ph200
 
-.lr.ph197:                                        ; preds = %.lr.ph197.preheader, %.lr.ph197
-  %indvars.iv209 = phi i64 [ %67, %.lr.ph197.preheader ], [ %indvars.iv.next210, %.lr.ph197 ]
-  %.3195 = phi i32 [ 0, %.lr.ph197.preheader ], [ %.4, %.lr.ph197 ]
-  %69 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv209
+.lr.ph200:                                        ; preds = %.lr.ph200.preheader, %.lr.ph200
+  %indvars.iv212 = phi i64 [ %67, %.lr.ph200.preheader ], [ %indvars.iv.next213, %.lr.ph200 ]
+  %.3198 = phi i32 [ 0, %.lr.ph200.preheader ], [ %.4, %.lr.ph200 ]
+  %69 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv212
   %70 = load i8, ptr %69, align 1, !tbaa !25
   %71 = sext i8 %70 to i32
   %72 = add i8 %70, -48
-  %or.cond165 = icmp ult i8 %72, 10
-  %73 = mul nsw i32 %.3195, 10
+  %or.cond166 = icmp ult i8 %72, 10
+  %73 = mul nsw i32 %.3198, 10
   %74 = add i32 %73, -48
   %75 = add i32 %74, %71
-  %.4 = select i1 %or.cond165, i32 %75, i32 %.3195
-  %indvars.iv.next210 = add nsw i64 %indvars.iv209, 1
-  %76 = icmp slt i64 %indvars.iv.next210, %68
+  %.4 = select i1 %or.cond166, i32 %75, i32 %.3198
+  %indvars.iv.next213 = add nsw i64 %indvars.iv212, 1
+  %76 = icmp slt i64 %indvars.iv.next213, %68
   %77 = icmp slt i32 %.4, 1000000
   %78 = select i1 %76, i1 %77, i1 false
-  br i1 %78, label %.lr.ph197, label %._crit_edge, !llvm.loop !705
+  br i1 %78, label %.lr.ph200, label %._crit_edge, !llvm.loop !705
 
-._crit_edge:                                      ; preds = %.lr.ph197, %59
-  %.3.lcssa = phi i32 [ 0, %59 ], [ %.4, %.lr.ph197 ]
+._crit_edge:                                      ; preds = %.lr.ph200, %59
+  %.3.lcssa = phi i32 [ 0, %59 ], [ %.4, %.lr.ph200 ]
   %79 = sub nsw i32 0, %.3.lcssa
-  %spec.select166 = select i1 %.not158, i32 %79, i32 %.3.lcssa
+  %spec.select167 = select i1 %.not158, i32 %79, i32 %.3.lcssa
   br label %.thread
 
 80:                                               ; preds = %43, %54, %51
-  %indvars.iv.next205 = add nsw i64 %indvars.iv204, 1
-  %lftr.wideiv207 = trunc i64 %indvars.iv.next205 to i32
-  %exitcond208.not = icmp eq i32 %1, %lftr.wideiv207
-  br i1 %exitcond208.not, label %.thread, label %.lr.ph194
+  %indvars.iv.next208 = add nsw i64 %indvars.iv207, 1
+  %lftr.wideiv210 = trunc i64 %indvars.iv.next208 to i32
+  %exitcond211.not = icmp eq i32 %1, %lftr.wideiv210
+  br i1 %exitcond211.not, label %.thread, label %.lr.ph197
 
 .thread:                                          ; preds = %36, %80, %.critedge, %._crit_edge, %56
-  %.1132 = phi i32 [ 0, %56 ], [ %spec.select166, %._crit_edge ], [ 0, %.critedge ], [ 0, %80 ], [ 0, %36 ]
+  %.1132 = phi i32 [ 0, %56 ], [ %spec.select167, %._crit_edge ], [ 0, %.critedge ], [ 0, %80 ], [ 0, %36 ]
   %81 = load i32, ptr %9, align 8, !tbaa !62
   %.not159 = icmp eq i32 %81, 0
-  br i1 %.not159, label %.thread213, label %82
+  br i1 %.not159, label %.thread216, label %82
 
 82:                                               ; preds = %.thread
   %83 = load i32, ptr %8, align 4, !tbaa !61
@@ -33792,33 +33792,33 @@ define internal fastcc ptr @decimalNewFromText(ptr noundef readonly captures(non
   %85 = icmp sgt i32 %.1132, 0
   br i1 %85, label %87, label %107
 
-.thread213:                                       ; preds = %.thread
+.thread216:                                       ; preds = %.thread
   %86 = icmp sgt i32 %.1132, 0
-  br i1 %86, label %.thread174, label %107
+  br i1 %86, label %.thread175, label %107
 
 87:                                               ; preds = %82
   %88 = icmp ult i32 %reass.sub, 2147483647
-  br i1 %88, label %89, label %.thread174
+  br i1 %88, label %89, label %.thread175
 
 89:                                               ; preds = %87
-  %.not162 = icmp samesign ugt i32 %.1132, %84
-  br i1 %.not162, label %91, label %.thread177
+  %.not163 = icmp samesign ugt i32 %.1132, %84
+  br i1 %.not163, label %91, label %.thread178
 
-.thread177:                                       ; preds = %89
+.thread178:                                       ; preds = %89
   %90 = sub nuw nsw i32 %84, %.1132
   store i32 %90, ptr %9, align 8, !tbaa !62
-  br label %.thread185
+  br label %.thread188
 
 91:                                               ; preds = %89
   %92 = sub nuw nsw i32 %.1132, %84
   store i32 0, ptr %9, align 8, !tbaa !62
-  br label %.thread174
+  br label %.thread175
 
-.thread174:                                       ; preds = %.thread213, %91, %87
-  %.7176 = phi i32 [ %92, %91 ], [ %.1132, %87 ], [ %.1132, %.thread213 ]
+.thread175:                                       ; preds = %.thread216, %91, %87
+  %.7177 = phi i32 [ %92, %91 ], [ %.1132, %87 ], [ %.1132, %.thread216 ]
   %93 = load ptr, ptr %13, align 8, !tbaa !57
   %94 = load i32, ptr %8, align 4, !tbaa !61
-  %95 = add nuw i32 %.7176, 1
+  %95 = add nuw i32 %.7177, 1
   %96 = add i32 %95, %94
   %97 = sext i32 %96 to i64
   %98 = tail call ptr @sqlite3_realloc64(ptr noundef %93, i64 noundef %97) #43
@@ -33826,21 +33826,21 @@ define internal fastcc ptr @decimalNewFromText(ptr noundef readonly captures(non
   %99 = icmp eq ptr %98, null
   br i1 %99, label %136, label %100
 
-100:                                              ; preds = %.thread174
+100:                                              ; preds = %.thread175
   %101 = load i32, ptr %8, align 4, !tbaa !61
   %102 = sext i32 %101 to i64
   %103 = getelementptr inbounds i8, ptr %98, i64 %102
-  %104 = zext nneg i32 %.7176 to i64
+  %104 = zext nneg i32 %.7177 to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %103, i8 0, i64 %104, i1 false)
   %105 = load i32, ptr %8, align 4, !tbaa !61
-  %106 = add nsw i32 %105, %.7176
+  %106 = add nsw i32 %105, %.7177
   store i32 %106, ptr %8, align 4, !tbaa !61
-  br label %.thread185
+  br label %.thread188
 
-107:                                              ; preds = %.thread213, %82
-  %108 = phi i32 [ 0, %.thread213 ], [ %84, %82 ]
+107:                                              ; preds = %.thread216, %82
+  %108 = phi i32 [ 0, %.thread216 ], [ %84, %82 ]
   %109 = icmp slt i32 %.1132, 0
-  br i1 %109, label %110, label %.thread185
+  br i1 %109, label %110, label %.thread188
 
 110:                                              ; preds = %107
   %111 = sub nsw i32 0, %.1132
@@ -33848,36 +33848,37 @@ define internal fastcc ptr @decimalNewFromText(ptr noundef readonly captures(non
   %113 = xor i32 %108, -1
   %114 = add i32 %112, %113
   %.not160 = icmp eq i32 %114, 0
-  br i1 %.not160, label %.thread179, label %115
+  br i1 %.not160, label %.thread183, label %115
 
 115:                                              ; preds = %110
   %.not161 = icmp slt i32 %114, %111
-  br i1 %.not161, label %117, label %.thread182
+  br i1 %.not161, label %117, label %.thread180
 
-.thread182:                                       ; preds = %115
+.thread180:                                       ; preds = %115
   %116 = sub nsw i32 %108, %.1132
   store i32 %116, ptr %9, align 8, !tbaa !62
-  br label %.thread185
+  br label %.thread188
 
 117:                                              ; preds = %115
   %118 = sub nsw i32 %111, %114
   %119 = add nsw i32 %112, -1
   store i32 %119, ptr %9, align 8, !tbaa !62
-  br label %.thread179
+  %.not162 = icmp eq i32 %118, 0
+  br i1 %.not162, label %.thread188, label %.thread183
 
-.thread179:                                       ; preds = %117, %110
-  %.8181 = phi i32 [ %118, %117 ], [ %111, %110 ]
+.thread183:                                       ; preds = %110, %117
+  %.8186 = phi i32 [ %118, %117 ], [ %111, %110 ]
   %120 = load ptr, ptr %13, align 8, !tbaa !57
   %121 = add i32 %112, 1
-  %122 = add i32 %121, %.8181
+  %122 = add i32 %121, %.8186
   %123 = sext i32 %122 to i64
   %124 = tail call ptr @sqlite3_realloc64(ptr noundef %120, i64 noundef %123) #43
   store ptr %124, ptr %13, align 8, !tbaa !57
   %125 = icmp eq ptr %124, null
   br i1 %125, label %136, label %126
 
-126:                                              ; preds = %.thread179
-  %127 = zext nneg i32 %.8181 to i64
+126:                                              ; preds = %.thread183
+  %127 = zext nneg i32 %.8186 to i64
   %128 = getelementptr inbounds nuw i8, ptr %124, i64 %127
   %129 = load i32, ptr %8, align 4, !tbaa !61
   %130 = sext i32 %129 to i64
@@ -33885,19 +33886,19 @@ define internal fastcc ptr @decimalNewFromText(ptr noundef readonly captures(non
   %131 = load ptr, ptr %13, align 8, !tbaa !57
   tail call void @llvm.memset.p0.i64(ptr align 1 %131, i8 0, i64 %127, i1 false)
   %132 = load i32, ptr %8, align 4, !tbaa !61
-  %133 = add nsw i32 %132, %.8181
+  %133 = add nsw i32 %132, %.8186
   store i32 %133, ptr %8, align 4, !tbaa !61
   %134 = load i32, ptr %9, align 8, !tbaa !62
-  %135 = add nsw i32 %134, %.8181
+  %135 = add nsw i32 %134, %.8186
   store i32 %135, ptr %9, align 8, !tbaa !62
-  br label %.thread185
+  br label %.thread188
 
-136:                                              ; preds = %.thread179, %.thread174, %4
+136:                                              ; preds = %.thread183, %.thread175, %4
   tail call void @sqlite3_free(ptr noundef nonnull %3) #43
-  br label %.thread185
+  br label %.thread188
 
-.thread185:                                       ; preds = %.thread182, %126, %.thread177, %2, %136, %100, %107
-  %.0 = phi ptr [ %3, %107 ], [ %3, %100 ], [ null, %2 ], [ null, %136 ], [ %3, %.thread177 ], [ %3, %126 ], [ %3, %.thread182 ]
+.thread188:                                       ; preds = %.thread180, %117, %126, %.thread178, %2, %136, %100, %107
+  %.0 = phi ptr [ %3, %107 ], [ %3, %100 ], [ null, %2 ], [ null, %136 ], [ %3, %.thread178 ], [ %3, %126 ], [ %3, %117 ], [ %3, %.thread180 ]
   ret ptr %.0
 }
 

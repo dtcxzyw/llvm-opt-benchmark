@@ -3124,7 +3124,7 @@ _ZN6icu_7712_GLOBAL__N_111MixedBlocks4initEii.exit333.i.i.i: ; preds = %.noexc33
 .lr.ph402.i.i.i:                                  ; preds = %691
   %692 = zext nneg i32 %596 to i64
   %693 = zext nneg i32 %598 to i64
-  %.pre258.i.i = sext i32 %610 to i64
+  %.pre258.i.i = zext nneg i32 %610 to i64
   br label %697
 
 ._crit_edge403.loopexit.i.i.i:                    ; preds = %846

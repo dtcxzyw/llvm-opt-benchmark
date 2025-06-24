@@ -6594,7 +6594,7 @@ define internal fastcc range(i32 -1, 1) i32 @cvtCustomToDefault(ptr noundef %0, 
   %26 = add nsw i32 %.06576, %.06874
   %27 = icmp sgt i32 %26, %7
   %28 = sub nsw i32 %7, %.06874
-  %29 = mul nsw i32 %28, %9
+  %29 = mul nuw nsw i32 %28, %9
   %.166 = select i1 %27, i32 %28, i32 %.06576
   %.1 = select i1 %27, i32 %29, i32 %.077
   %30 = load ptr, ptr %0, align 8
@@ -7215,7 +7215,7 @@ define internal fastcc range(i32 -1, 1) i32 @cvtDefaultToCustom(ptr noundef %0, 
   %26 = add nsw i32 %.06576, %.06874
   %27 = icmp sgt i32 %26, %7
   %28 = sub nsw i32 %7, %.06874
-  %29 = mul nsw i32 %28, %9
+  %29 = mul nuw nsw i32 %28, %9
   %.166 = select i1 %27, i32 %28, i32 %.06576
   %.1 = select i1 %27, i32 %29, i32 %.077
   %30 = load ptr, ptr %0, align 8

@@ -823,7 +823,7 @@ _ZL11decodeDigiti.exit.thread216:                 ; preds = %69, %_ZL11decodeDig
 
 88:                                               ; preds = %82
   %89 = sub nsw i32 36, %.0167
-  %90 = sdiv i32 2147483647, %89
+  %90 = udiv i32 2147483647, %89
   %91 = icmp sgt i32 %.0170241, %90
   br i1 %91, label %92, label %93
 
@@ -982,8 +982,8 @@ _ZL9adaptBiasiia.exit:                            ; preds = %.lr.ph.i, %105
   %163 = zext nneg i32 %129 to i64
   %164 = getelementptr inbounds nuw i16, ptr %162, i64 %163
   %165 = sub nsw i32 %.0171254, %.0160
-  %166 = shl nsw i32 %165, 1
-  %167 = sext i32 %166 to i64
+  %166 = shl nuw nsw i32 %165, 1
+  %167 = zext nneg i32 %166 to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 2 %164, ptr nonnull align 2 %162, i64 %167, i1 false)
   br i1 %.not204, label %.thread296, label %.thread295
 

@@ -494,7 +494,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7712ByteSinkUtil12appendChange
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #13
   %12 = sub nsw i32 %2, %.071110
   %13 = icmp slt i32 %12, 715827882
-  %14 = mul nsw i32 %12, 3
+  %14 = mul nuw nsw i32 %12, 3
   %15 = icmp slt i32 %12, 1073741823
   %16 = shl nuw nsw i32 %12, 1
   %spec.select = select i1 %15, i32 %16, i32 2147483647

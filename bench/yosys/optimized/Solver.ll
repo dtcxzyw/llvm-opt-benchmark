@@ -1289,7 +1289,7 @@ _ZN7Minisat8OccListsINS_3LitENS_3vecINS_6Solver7WatcherEiEENS3_14WatcherDeletedE
   %83 = add nsw i32 %82, 2
   %84 = call noundef i32 @llvm.smax.i32(i32 %80, i32 %83)
   %85 = sub nsw i32 2147483647, %76
-  %86 = icmp sgt i32 %84, %85
+  %86 = icmp samesign ugt i32 %84, %85
   br i1 %86, label %97, label %87
 
 87:                                               ; preds = %77
@@ -6792,7 +6792,7 @@ define linkonce_odr void @_ZN7Minisat3vecINS_5lboolEiE6growToEi(ptr noundef nonn
   %14 = add nsw i32 %13, 2
   %15 = tail call noundef i32 @llvm.smax.i32(i32 %11, i32 %14)
   %16 = sub nsw i32 2147483647, %7
-  %17 = icmp sgt i32 %15, %16
+  %17 = icmp samesign ugt i32 %15, %16
   br i1 %17, label %28, label %18
 
 18:                                               ; preds = %8
@@ -7446,7 +7446,7 @@ _ZNK7Minisat6Solver9satisfiedERKNS_6ClauseE.exit.thread: ; preds = %37, %29
   %125 = add nsw i32 %124, 2
   %126 = tail call noundef i32 @llvm.smax.i32(i32 %122, i32 %125)
   %127 = sub nsw i32 2147483647, %118
-  %128 = icmp sgt i32 %126, %127
+  %128 = icmp samesign ugt i32 %126, %127
   br i1 %128, label %138, label %129
 
 129:                                              ; preds = %119
@@ -9109,7 +9109,7 @@ define linkonce_odr void @_ZN7Minisat3vecIiiE6growToEiRKi(ptr noundef nonnull al
   %15 = add nsw i32 %14, 2
   %16 = tail call noundef i32 @llvm.smax.i32(i32 %12, i32 %15)
   %17 = sub nsw i32 2147483647, %8
-  %18 = icmp sgt i32 %16, %17
+  %18 = icmp samesign ugt i32 %16, %17
   br i1 %18, label %29, label %19
 
 19:                                               ; preds = %9
@@ -9277,7 +9277,7 @@ define linkonce_odr void @_ZN7Minisat3vecINS_3LitEiE6growToEi(ptr noundef nonnul
   %14 = add nsw i32 %13, 2
   %15 = tail call noundef i32 @llvm.smax.i32(i32 %11, i32 %14)
   %16 = sub nsw i32 2147483647, %7
-  %17 = icmp sgt i32 %15, %16
+  %17 = icmp samesign ugt i32 %15, %16
   br i1 %17, label %28, label %18
 
 18:                                               ; preds = %8
@@ -9353,7 +9353,7 @@ define linkonce_odr void @_ZN7Minisat3vecINS0_INS_6Solver7WatcherEiEEiE6growToEi
   %14 = add nsw i32 %13, 2
   %15 = tail call noundef i32 @llvm.smax.i32(i32 %11, i32 %14)
   %16 = sub nsw i32 2147483647, %7
-  %17 = icmp sgt i32 %15, %16
+  %17 = icmp samesign ugt i32 %15, %16
   br i1 %17, label %28, label %18
 
 18:                                               ; preds = %8
@@ -9426,7 +9426,7 @@ define linkonce_odr void @_ZN7Minisat3vecIciE6growToEiRKc(ptr noundef nonnull al
   %15 = add nsw i32 %14, 2
   %16 = tail call noundef i32 @llvm.smax.i32(i32 %12, i32 %15)
   %17 = sub nsw i32 2147483647, %8
-  %18 = icmp sgt i32 %16, %17
+  %18 = icmp samesign ugt i32 %16, %17
   br i1 %18, label %29, label %19
 
 19:                                               ; preds = %9
@@ -9500,7 +9500,7 @@ define linkonce_odr void @_ZN7Minisat3vecINS_6Solver7VarDataEiE6growToEi(ptr nou
   %14 = add nsw i32 %13, 2
   %15 = tail call noundef i32 @llvm.smax.i32(i32 %11, i32 %14)
   %16 = sub nsw i32 2147483647, %7
-  %17 = icmp sgt i32 %15, %16
+  %17 = icmp samesign ugt i32 %15, %16
   br i1 %17, label %28, label %18
 
 18:                                               ; preds = %8
@@ -9573,7 +9573,7 @@ define linkonce_odr void @_ZN7Minisat3vecIdiE6growToEi(ptr noundef nonnull align
   %14 = add nsw i32 %13, 2
   %15 = tail call noundef i32 @llvm.smax.i32(i32 %11, i32 %14)
   %16 = sub nsw i32 2147483647, %7
-  %17 = icmp sgt i32 %15, %16
+  %17 = icmp samesign ugt i32 %15, %16
   br i1 %17, label %28, label %18
 
 18:                                               ; preds = %8
@@ -9645,7 +9645,7 @@ define linkonce_odr void @_ZN7Minisat3vecIciE6growToEi(ptr noundef nonnull align
   %14 = add nsw i32 %13, 2
   %15 = tail call noundef i32 @llvm.smax.i32(i32 %11, i32 %14)
   %16 = sub nsw i32 2147483647, %7
-  %17 = icmp sgt i32 %15, %16
+  %17 = icmp samesign ugt i32 %15, %16
   br i1 %17, label %28, label %18
 
 18:                                               ; preds = %8

@@ -2534,7 +2534,7 @@ redirection_ok.exit:                              ; preds = %49, %57
 64:                                               ; preds = %62
   %65 = sub nsw i64 %25, %61
   %66 = call i64 @llvm.smin.i64(i64 %65, i64 2147483647)
-  %67 = trunc i64 %66 to i32
+  %67 = trunc nuw i64 %66 to i32
   br label %68
 
 may_still_retry.exit:                             ; preds = %62

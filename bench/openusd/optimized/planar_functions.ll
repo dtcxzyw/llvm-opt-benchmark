@@ -33,7 +33,7 @@ define hidden void @CopyPlane(ptr noundef %0, i32 noundef %1, ptr noundef %2, i3
   br i1 %or.cond41, label %21, label %23
 
 21:                                               ; preds = %18
-  %22 = mul nsw i32 %.030, %4
+  %22 = mul nuw nsw i32 %.030, %4
   br label %23
 
 23:                                               ; preds = %21, %18
@@ -101,7 +101,7 @@ define hidden void @CopyPlane_16(ptr noundef %0, i32 noundef %1, ptr noundef %2,
   br i1 %or.cond41.i, label %24, label %26
 
 24:                                               ; preds = %21
-  %25 = mul nsw i32 %.030.i, %7
+  %25 = mul nuw nsw i32 %.030.i, %7
   br label %26
 
 26:                                               ; preds = %24, %21

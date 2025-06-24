@@ -1519,9 +1519,9 @@ _ZN12_GLOBAL__N_112uprv_memcpy2EPvPKvm.exit87:    ; preds = %_ZN12_GLOBAL__N_112
 
 67:                                               ; preds = %23
   %68 = sub nsw i32 %10, %24
-  %69 = sdiv i32 %68, 2
-  %70 = sext i32 %69 to i64
-  %71 = getelementptr inbounds i16, ptr %15, i64 %70
+  %69 = lshr i32 %68, 1
+  %70 = zext nneg i32 %69 to i64
+  %71 = getelementptr inbounds nuw i16, ptr %15, i64 %70
   %72 = sext i32 %12 to i64
   %73 = load i32, ptr %19, align 4, !tbaa !10
   %.not.i88 = icmp eq i32 %73, 0
@@ -1554,7 +1554,7 @@ _ZN12_GLOBAL__N_113uprv_memmove2EPvPKvm.exit:     ; preds = %67, %74
 
 _ZN12_GLOBAL__N_113uprv_memmove2EPvPKvm.exit90:   ; preds = %_ZN12_GLOBAL__N_113uprv_memmove2EPvPKvm.exit, %81
   %87 = phi i32 [ %1, %_ZN12_GLOBAL__N_113uprv_memmove2EPvPKvm.exit ], [ %.pre95, %81 ]
-  %88 = getelementptr inbounds %"struct.icu_77::FormattedStringBuilder::Field", ptr %18, i64 %70
+  %88 = getelementptr inbounds nuw %"struct.icu_77::FormattedStringBuilder::Field", ptr %18, i64 %70
   %.not.i91 = icmp eq i32 %87, 0
   br i1 %.not.i91, label %_ZN12_GLOBAL__N_113uprv_memmove2EPvPKvm.exit92, label %89
 

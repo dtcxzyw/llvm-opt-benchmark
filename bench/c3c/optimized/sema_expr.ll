@@ -23413,7 +23413,7 @@ define internal fastcc noundef zeroext i1 @sema_slice_len_is_in_range(ptr nounde
 
 35:                                               ; preds = %31
   %36 = sub nsw i32 %28, %24
-  %37 = sext i32 %36 to i64
+  %37 = zext nneg i32 %36 to i64
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i64 %37, ptr %38, align 8
   store i8 1, ptr %3, align 1

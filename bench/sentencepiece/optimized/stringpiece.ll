@@ -190,7 +190,7 @@ define noundef zeroext i1 @_ZN6google8protobuf11StringPiece14ConsumeFromEndES1_(
 _ZNK6google8protobuf11StringPiece9ends_withES1_.exit: ; preds = %3
   %6 = load ptr, ptr %0, align 8, !tbaa !3
   %7 = sub nsw i64 %5, %2
-  %8 = getelementptr inbounds i8, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 %7
   %bcmp.i = tail call i32 @bcmp(ptr %8, ptr %1, i64 %2)
   %9 = icmp eq i32 %bcmp.i, 0
   br i1 %9, label %10, label %_ZNK6google8protobuf11StringPiece9ends_withES1_.exit.thread

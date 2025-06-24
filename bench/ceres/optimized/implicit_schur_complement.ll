@@ -1537,8 +1537,8 @@ _ZN5Eigen9DenseBaseINS_5BlockINS_9TransposeINS_6MatrixIdLin1ELin1ELi1ELin1ELin1E
   %347 = getelementptr inbounds nuw double, ptr %248, i64 %.03966.i.i.i.i
   %348 = mul nuw nsw i64 %.03966.i.i.i.i, %225
   %349 = getelementptr inbounds nuw double, ptr %347, i64 %348
-  %350 = add nsw i64 %.sroa.speculated.i.i.i.i, %.03966.i.i.i.i
-  %351 = getelementptr inbounds double, ptr %248, i64 %350
+  %350 = add nuw nsw i64 %.sroa.speculated.i.i.i.i, %.03966.i.i.i.i
+  %351 = getelementptr inbounds nuw double, ptr %248, i64 %350
   %352 = getelementptr inbounds nuw double, ptr %351, i64 %348
   %353 = mul nsw i64 %350, %225
   %354 = getelementptr inbounds double, ptr %351, i64 %353
@@ -6790,9 +6790,9 @@ define linkonce_odr hidden noundef i64 @_ZN5Eigen8internal11llt_inplaceIdLi1EE7b
   %42 = load i64, ptr %37, align 8, !tbaa !108
   store i64 %42, ptr %23, align 8, !tbaa !290
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #31
-  %43 = add nsw i64 %.sroa.speculated, %.03966
+  %43 = add nuw nsw i64 %.sroa.speculated, %.03966
   %44 = load ptr, ptr %34, align 8, !tbaa !109
-  %45 = getelementptr inbounds double, ptr %44, i64 %43
+  %45 = getelementptr inbounds nuw double, ptr %44, i64 %43
   %46 = mul nsw i64 %42, %.03966
   %47 = getelementptr inbounds double, ptr %45, i64 %46
   store ptr %47, ptr %3, align 8, !tbaa !288
@@ -6804,7 +6804,7 @@ define linkonce_odr hidden noundef i64 @_ZN5Eigen8internal11llt_inplaceIdLi1EE7b
   %48 = load i64, ptr %37, align 8, !tbaa !108
   store i64 %48, ptr %29, align 8, !tbaa !290
   %49 = load ptr, ptr %34, align 8, !tbaa !109
-  %50 = getelementptr inbounds double, ptr %49, i64 %43
+  %50 = getelementptr inbounds nuw double, ptr %49, i64 %43
   %51 = mul nsw i64 %48, %43
   %52 = getelementptr inbounds double, ptr %50, i64 %51
   %53 = call noundef i64 @_ZN5Eigen8internal11llt_inplaceIdLi1EE9unblockedINS_5BlockINS_9TransposeINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEEELin1ELin1ELb0EEEEElRT_(ptr noundef nonnull align 8 dereferenceable(56) %2)
@@ -8270,12 +8270,12 @@ _ZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_.exit: ; preds = %4,
   %51 = add i64 %32, %50
   %52 = sdiv i64 %51, %3
   %53 = icmp slt i64 %49, %52
-  %54 = icmp sgt i64 %49, 3
-  %or.cond = and i1 %54, %53
+  %54 = icmp samesign ugt i64 %49, 3
+  %or.cond = select i1 %53, i1 %54, i1 false
   br i1 %or.cond, label %55, label %57
 
 55:                                               ; preds = %44
-  %56 = and i64 %49, 9223372036854775804
+  %56 = and i64 %49, -4
   store i64 %56, ptr %1, align 8, !tbaa !172
   br label %.critedge116
 
@@ -11519,12 +11519,12 @@ _ZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_.exit: ; preds = %4,
   %51 = add i64 %32, %50
   %52 = sdiv i64 %51, %3
   %53 = icmp slt i64 %49, %52
-  %54 = icmp sgt i64 %49, 3
-  %or.cond = and i1 %54, %53
+  %54 = icmp samesign ugt i64 %49, 3
+  %or.cond = select i1 %53, i1 %54, i1 false
   br i1 %or.cond, label %55, label %57
 
 55:                                               ; preds = %44
-  %56 = and i64 %49, 9223372036854775804
+  %56 = and i64 %49, -4
   store i64 %56, ptr %1, align 8, !tbaa !172
   br label %.critedge116
 
@@ -13384,8 +13384,8 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEaSINS_3MapIS1_Li0ENS_6StrideILi0ELi0E
   %250 = load i64, ptr %249, align 8, !tbaa !108
   %251 = mul nsw i64 %250, %.03966.i
   %252 = getelementptr inbounds double, ptr %248, i64 %251
-  %253 = add nsw i64 %.sroa.speculated.i, %.03966.i
-  %254 = getelementptr inbounds double, ptr %247, i64 %253
+  %253 = add nuw nsw i64 %.sroa.speculated.i, %.03966.i
+  %254 = getelementptr inbounds nuw double, ptr %247, i64 %253
   %255 = getelementptr inbounds double, ptr %254, i64 %251
   %256 = mul nsw i64 %250, %253
   %257 = getelementptr inbounds double, ptr %254, i64 %256

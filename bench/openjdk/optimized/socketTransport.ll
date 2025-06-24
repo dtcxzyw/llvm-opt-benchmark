@@ -1614,7 +1614,7 @@ setLastError.exit31:                              ; preds = %29, %33
   %64 = zext nneg i32 %.01316.i to i64
   %65 = getelementptr inbounds nuw i8, ptr %3, i64 %64
   %66 = sub nsw i32 %19, %.01316.i
-  %67 = sext i32 %66 to i64
+  %67 = zext nneg i32 %66 to i64
   %68 = call i32 @dbgsysSend(i32 noundef %63, ptr noundef nonnull %65, i64 noundef %67, i32 noundef 0) #13
   %69 = icmp slt i32 %68, 0
   br i1 %69, label %send_fully.exit, label %70
@@ -1676,7 +1676,7 @@ send_fully.exit36.thread:                         ; preds = %.lr.ph.i33, %send_f
   %89 = zext nneg i32 %.01316.i39 to i64
   %90 = getelementptr inbounds nuw i8, ptr %87, i64 %89
   %91 = sub nsw i32 %88, %.01316.i39
-  %92 = sext i32 %91 to i64
+  %92 = zext nneg i32 %91 to i64
   %93 = call i32 @dbgsysSend(i32 noundef %86, ptr noundef nonnull %90, i64 noundef %92, i32 noundef 0) #13
   %94 = icmp slt i32 %93, 0
   br i1 %94, label %send_fully.exit40, label %95
@@ -2529,7 +2529,7 @@ define internal fastcc range(i32 0, 203) i32 @handshake(i32 noundef %0, i64 noun
   %14 = zext nneg i32 %.01316.i.us to i64
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 %14
   %16 = sub nsw i32 %13, %.01316.i.us
-  %17 = sext i32 %16 to i64
+  %17 = zext nneg i32 %16 to i64
   %18 = call i32 @dbgsysRecv(i32 noundef %0, ptr noundef nonnull %15, i64 noundef %17, i32 noundef 0) #13
   %19 = icmp slt i32 %18, 0
   br i1 %19, label %recv_fully.exit.thread.thread, label %20
@@ -2594,7 +2594,7 @@ setLastError.exit:                                ; preds = %37, %41
   %43 = zext nneg i32 %.01316.i to i64
   %44 = getelementptr inbounds nuw i8, ptr %29, i64 %43
   %45 = sub nsw i32 %30, %.01316.i
-  %46 = sext i32 %45 to i64
+  %46 = zext nneg i32 %45 to i64
   %47 = call i32 @dbgsysRecv(i32 noundef %0, ptr noundef nonnull %44, i64 noundef %46, i32 noundef 0) #13
   %48 = icmp slt i32 %47, 0
   br i1 %48, label %recv_fully.exit.thread.thread, label %49
@@ -2780,7 +2780,7 @@ define internal fastcc i32 @recv_fully(i32 noundef %0, ptr noundef nonnull %1, i
   %5 = zext nneg i32 %.01316 to i64
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 %5
   %7 = sub nsw i32 %2, %.01316
-  %8 = sext i32 %7 to i64
+  %8 = zext nneg i32 %7 to i64
   %9 = tail call i32 @dbgsysRecv(i32 noundef %0, ptr noundef nonnull %6, i64 noundef %8, i32 noundef 0) #13
   %10 = icmp slt i32 %9, 0
   br i1 %10, label %._crit_edge, label %11

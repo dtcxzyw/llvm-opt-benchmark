@@ -3863,7 +3863,7 @@ _ZL22stbi__jpeg_huff_decodeP10stbi__jpegP13stbi__huffman.exit173.i.us.i.i.i.i: ;
   ]
 
 636:                                              ; preds = %_ZL22stbi__jpeg_huff_decodeP10stbi__jpegP13stbi__huffman.exit173.i.us.i.i.i.i
-  %637 = icmp slt i32 %633, 1
+  %637 = icmp eq i32 %633, 0
   br i1 %637, label %638, label %_ZL18stbi__jpeg_get_bitP10stbi__jpeg.exit177.i.us.i.i.i.i
 
 638:                                              ; preds = %636
@@ -3897,7 +3897,7 @@ _ZL18stbi__jpeg_get_bitP10stbi__jpeg.exit177.i.us.i.i.i.i: ; preds = %638, %636
   br i1 %.not153.i.us.i.i.i.i, label %663, label %648
 
 648:                                              ; preds = %646
-  %649 = icmp slt i32 %633, %635
+  %649 = icmp samesign ult i32 %633, %635
   br i1 %649, label %650, label %_ZL19stbi__jpeg_get_bitsP10stbi__jpegi.exit175.i.us.i.i.i.i
 
 650:                                              ; preds = %648
@@ -4172,7 +4172,7 @@ _ZL22stbi__jpeg_huff_decodeP10stbi__jpegP13stbi__huffman.exit.i.us.i.i.i.i: ; pr
   %790 = sext i32 %788 to i64
   %791 = getelementptr inbounds [79 x i8], ptr @_ZL19stbi__jpeg_dezigzag, i64 0, i64 %790
   %792 = load i8, ptr %791, align 1, !tbaa !20
-  %793 = icmp slt i32 %783, %784
+  %793 = icmp samesign ult i32 %783, %784
   br i1 %793, label %794, label %_ZL20stbi__extend_receiveP10stbi__jpegi.exit.i.us.i.i.i.i
 
 794:                                              ; preds = %787
@@ -4228,7 +4228,7 @@ _ZL20stbi__extend_receiveP10stbi__jpegi.exit.i.us.i.i.i.i: ; preds = %794, %787
   br i1 %.not165.i.us.i.i.i.i, label %_ZL31stbi__jpeg_decode_block_prog_acP10stbi__jpegPsP13stbi__huffmanS1_.exit.thread.us.sink.split.i.i.i.i, label %822
 
 822:                                              ; preds = %820
-  %823 = icmp slt i32 %783, %785
+  %823 = icmp samesign ult i32 %783, %785
   br i1 %823, label %824, label %_ZL19stbi__jpeg_get_bitsP10stbi__jpegi.exit.i.us.i.i.i.i
 
 824:                                              ; preds = %822
@@ -20170,7 +20170,7 @@ _ZL22stbi__jpeg_huff_decodeP10stbi__jpegP13stbi__huffman.exit74: ; preds = %154,
   %177 = sext i32 %175 to i64
   %178 = getelementptr inbounds [79 x i8], ptr @_ZL19stbi__jpeg_dezigzag, i64 0, i64 %177
   %179 = load i8, ptr %178, align 1, !tbaa !20
-  %180 = icmp slt i32 %167, %168
+  %180 = icmp samesign ult i32 %167, %168
   br i1 %180, label %181, label %_ZL20stbi__extend_receiveP10stbi__jpegi.exit77
 
 181:                                              ; preds = %173
@@ -37356,7 +37356,7 @@ _ZL21stbiw__linear_to_rgbePhPf.exit119.i:         ; preds = %133, %.preheader131
   %164 = sext i32 %.3143.i to i64
   %165 = getelementptr inbounds i8, ptr %147, i64 %164
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #60
-  %166 = trunc i32 %spec.store.select.i to i8
+  %166 = trunc nuw i32 %spec.store.select.i to i8
   store i8 %166, ptr %7, align 1, !tbaa !20
   call void %.0.val(ptr noundef %.8.val, ptr noundef nonnull %7, i32 noundef 1)
   call void %.0.val(ptr noundef %.8.val, ptr noundef %165, i32 noundef %spec.store.select.i)
@@ -37408,8 +37408,8 @@ _ZL21stbiw__linear_to_rgbePhPf.exit119.i:         ; preds = %133, %.preheader131
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
   store i8 %184, ptr %5, align 1, !tbaa !20
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #60
-  %185 = trunc i32 %spec.store.select2.i to i8
-  %186 = xor i8 %185, -128
+  %185 = trunc nuw i32 %spec.store.select2.i to i8
+  %186 = or disjoint i8 %185, -128
   store i8 %186, ptr %6, align 1, !tbaa !20
   call void %.0.val(ptr noundef %.8.val, ptr noundef nonnull %6, i32 noundef 1)
   call void %.0.val(ptr noundef %.8.val, ptr noundef nonnull %5, i32 noundef 1)
@@ -174794,7 +174794,7 @@ _ZZN3fmt3v106detail9write_intIcNS0_8appenderEjEET0_S4_NS1_13write_int_argIT1_EER
   %90 = add i32 %28, %75
   %91 = zext i32 %90 to i64
   %92 = sub nsw i32 %28, %25
-  %93 = zext i32 %92 to i64
+  %93 = zext nneg i32 %92 to i64
   br label %_ZN3fmt3v106detail14write_int_dataIcEC2EijRKNS0_12format_specsIcEE.exit
 
 _ZN3fmt3v106detail14write_int_dataIcEC2EijRKNS0_12format_specsIcEE.exit: ; preds = %82, %84, %87, %89
@@ -174975,7 +174975,7 @@ _ZN3fmt3v106detail11format_uintILj4EcjEEPT0_S4_T1_ib.exit19.i.i: ; preds = %158
   %180 = add nuw i32 %116, %167
   %181 = zext i32 %180 to i64
   %182 = sub nsw i32 %116, %113
-  %183 = zext i32 %182 to i64
+  %183 = zext nneg i32 %182 to i64
   br label %_ZN3fmt3v106detail14write_int_dataIcEC2EijRKNS0_12format_specsIcEE.exit34
 
 _ZN3fmt3v106detail14write_int_dataIcEC2EijRKNS0_12format_specsIcEE.exit34: ; preds = %172, %174, %177, %179
@@ -175181,7 +175181,7 @@ _ZN3fmt3v106detail11format_uintILj1EcjEEPT0_S4_T1_ib.exit18.i.i: ; preds = %260
   %281 = add nuw i32 %219, %268
   %282 = zext i32 %281 to i64
   %283 = sub nsw i32 %219, %216
-  %284 = zext i32 %283 to i64
+  %284 = zext nneg i32 %283 to i64
   br label %_ZN3fmt3v106detail14write_int_dataIcEC2EijRKNS0_12format_specsIcEE.exit47
 
 _ZN3fmt3v106detail14write_int_dataIcEC2EijRKNS0_12format_specsIcEE.exit47: ; preds = %273, %275, %278, %280
@@ -175392,7 +175392,7 @@ _ZN3fmt3v106detail11format_uintILj3EcjEEPT0_S4_T1_ib.exit18.i.i: ; preds = %360
   %381 = add nuw i32 %.pre, %368
   %382 = zext i32 %381 to i64
   %383 = sub nsw i32 %.pre, %308
-  %384 = zext i32 %383 to i64
+  %384 = zext nneg i32 %383 to i64
   br label %_ZN3fmt3v106detail14write_int_dataIcEC2EijRKNS0_12format_specsIcEE.exit68
 
 _ZN3fmt3v106detail14write_int_dataIcEC2EijRKNS0_12format_specsIcEE.exit68: ; preds = %373, %375, %378, %380
@@ -196122,7 +196122,7 @@ _ZZN3fmt3v106detail9write_intIcNS0_8appenderEmEET0_S4_NS1_13write_int_argIT1_EER
   %90 = add nuw i32 %30, %75
   %91 = zext i32 %90 to i64
   %92 = sub nsw i32 %30, %27
-  %93 = zext i32 %92 to i64
+  %93 = zext nneg i32 %92 to i64
   br label %_ZN3fmt3v106detail14write_int_dataIcEC2EijRKNS0_12format_specsIcEE.exit
 
 _ZN3fmt3v106detail14write_int_dataIcEC2EijRKNS0_12format_specsIcEE.exit: ; preds = %82, %84, %87, %89
@@ -196309,7 +196309,7 @@ _ZN3fmt3v106detail11format_uintILj4EcmEEPT0_S4_T1_ib.exit19.i.i: ; preds = %155
   %176 = add i32 %114, %163
   %177 = zext i32 %176 to i64
   %178 = sub nsw i32 %114, %110
-  %179 = zext i32 %178 to i64
+  %179 = zext nneg i32 %178 to i64
   br label %_ZN3fmt3v106detail14write_int_dataIcEC2EijRKNS0_12format_specsIcEE.exit37
 
 _ZN3fmt3v106detail14write_int_dataIcEC2EijRKNS0_12format_specsIcEE.exit37: ; preds = %168, %170, %173, %175
@@ -196521,7 +196521,7 @@ _ZN3fmt3v106detail11format_uintILj1EcmEEPT0_S4_T1_ib.exit18.i.i: ; preds = %257
   %278 = add i32 %215, %265
   %279 = zext i32 %278 to i64
   %280 = sub nsw i32 %215, %211
-  %281 = zext i32 %280 to i64
+  %281 = zext nneg i32 %280 to i64
   br label %_ZN3fmt3v106detail14write_int_dataIcEC2EijRKNS0_12format_specsIcEE.exit54
 
 _ZN3fmt3v106detail14write_int_dataIcEC2EijRKNS0_12format_specsIcEE.exit54: ; preds = %270, %272, %275, %277
@@ -196732,7 +196732,7 @@ _ZN3fmt3v106detail11format_uintILj3EcmEEPT0_S4_T1_ib.exit18.i.i: ; preds = %354
   %375 = add i32 %.pre, %362
   %376 = zext i32 %375 to i64
   %377 = sub nsw i32 %.pre, %300
-  %378 = zext i32 %377 to i64
+  %378 = zext nneg i32 %377 to i64
   br label %_ZN3fmt3v106detail14write_int_dataIcEC2EijRKNS0_12format_specsIcEE.exit78
 
 _ZN3fmt3v106detail14write_int_dataIcEC2EijRKNS0_12format_specsIcEE.exit78: ; preds = %367, %369, %372, %374
@@ -197655,7 +197655,7 @@ _ZZN3fmt3v106detail9write_intIcNS0_8appenderEoEET0_S4_NS1_13write_int_argIT1_EER
   %96 = add i32 %34, %81
   %97 = zext i32 %96 to i64
   %98 = sub nsw i32 %34, %.012.i.i
-  %99 = zext i32 %98 to i64
+  %99 = zext nneg i32 %98 to i64
   br label %_ZN3fmt3v106detail14write_int_dataIcEC2EijRKNS0_12format_specsIcEE.exit
 
 _ZN3fmt3v106detail14write_int_dataIcEC2EijRKNS0_12format_specsIcEE.exit: ; preds = %88, %90, %93, %95
@@ -197843,7 +197843,7 @@ _ZN3fmt3v106detail11format_uintILj4EcoEEPT0_S4_T1_ib.exit28.i.i: ; preds = %164
   %186 = add i32 %121, %173
   %187 = zext i32 %186 to i64
   %188 = sub nsw i32 %121, %117
-  %189 = zext i32 %188 to i64
+  %189 = zext nneg i32 %188 to i64
   br label %_ZN3fmt3v106detail14write_int_dataIcEC2EijRKNS0_12format_specsIcEE.exit38
 
 _ZN3fmt3v106detail14write_int_dataIcEC2EijRKNS0_12format_specsIcEE.exit38: ; preds = %178, %180, %183, %185
@@ -198056,7 +198056,7 @@ _ZN3fmt3v106detail11format_uintILj1EcoEEPT0_S4_T1_ib.exit27.i.i: ; preds = %267
   %288 = add i32 %225, %275
   %289 = zext i32 %288 to i64
   %290 = sub nsw i32 %225, %221
-  %291 = zext i32 %290 to i64
+  %291 = zext nneg i32 %290 to i64
   br label %_ZN3fmt3v106detail14write_int_dataIcEC2EijRKNS0_12format_specsIcEE.exit59
 
 _ZN3fmt3v106detail14write_int_dataIcEC2EijRKNS0_12format_specsIcEE.exit59: ; preds = %280, %282, %285, %287
@@ -198267,7 +198267,7 @@ _ZN3fmt3v106detail11format_uintILj3EcoEEPT0_S4_T1_ib.exit27.i.i: ; preds = %364
   %385 = add i32 %.pre, %372
   %386 = zext i32 %385 to i64
   %387 = sub nsw i32 %.pre, %310
-  %388 = zext i32 %387 to i64
+  %388 = zext nneg i32 %387 to i64
   br label %_ZN3fmt3v106detail14write_int_dataIcEC2EijRKNS0_12format_specsIcEE.exit87
 
 _ZN3fmt3v106detail14write_int_dataIcEC2EijRKNS0_12format_specsIcEE.exit87: ; preds = %377, %379, %382, %384

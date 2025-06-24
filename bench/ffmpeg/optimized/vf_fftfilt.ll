@@ -984,7 +984,7 @@ define internal noundef i32 @copy_vertical(ptr noundef readonly captures(none) %
 .lr.ph21.i.us:                                    ; preds = %.lr.ph21.i.us, %.lr.ph21.preheader.i.us
   %indvars.iv23.i.us = phi i64 [ %63, %.lr.ph21.preheader.i.us ], [ %indvars.iv.next24.i.us, %.lr.ph21.i.us ]
   %64 = sub nsw i64 %48, %indvars.iv23.i.us
-  %65 = getelementptr inbounds float, ptr %71, i64 %64
+  %65 = getelementptr inbounds nuw float, ptr %71, i64 %64
   %66 = load float, ptr %65, align 4, !tbaa !65
   %67 = getelementptr inbounds float, ptr %71, i64 %indvars.iv23.i.us
   store float %66, ptr %67, align 4, !tbaa !65
@@ -1055,7 +1055,7 @@ copy_rev.exit.us:                                 ; preds = %.lr.ph21.i.us, %.pr
 .lr.ph21.i.us59:                                  ; preds = %.lr.ph21.i.us59, %.lr.ph21.preheader.i.us58
   %indvars.iv23.i.us60 = phi i64 [ %87, %.lr.ph21.preheader.i.us58 ], [ %indvars.iv.next24.i.us61, %.lr.ph21.i.us59 ]
   %88 = sub nsw i64 %48, %indvars.iv23.i.us60
-  %89 = getelementptr inbounds float, ptr %75, i64 %88
+  %89 = getelementptr inbounds nuw float, ptr %75, i64 %88
   %90 = load float, ptr %89, align 4, !tbaa !65
   %91 = getelementptr inbounds float, ptr %75, i64 %indvars.iv23.i.us60
   store float %90, ptr %91, align 4, !tbaa !65
@@ -1088,7 +1088,7 @@ copy_rev.exit.us63:                               ; preds = %.lr.ph21.i.us59, %.
 .lr.ph21.i.us68:                                  ; preds = %.lr.ph21.i.us68, %.preheader.us65
   %indvars.iv23.i.us69 = phi i64 [ %46, %.preheader.us65 ], [ %indvars.iv.next24.i.us70, %.lr.ph21.i.us68 ]
   %97 = sub nsw i64 %48, %indvars.iv23.i.us69
-  %98 = getelementptr inbounds float, ptr %96, i64 %97
+  %98 = getelementptr inbounds nuw float, ptr %96, i64 %97
   %99 = load float, ptr %98, align 4, !tbaa !65
   %100 = getelementptr inbounds float, ptr %96, i64 %indvars.iv23.i.us69
   store float %99, ptr %100, align 4, !tbaa !65
@@ -1558,7 +1558,7 @@ define internal noundef i32 @rdft_horizontal8(ptr noundef readonly captures(none
 .lr.ph21.i:                                       ; preds = %.lr.ph21.i, %.lr.ph21.preheader.i
   %indvars.iv23.i = phi i64 [ %66, %.lr.ph21.preheader.i ], [ %indvars.iv.next24.i, %.lr.ph21.i ]
   %75 = sub nsw i64 %51, %indvars.iv23.i
-  %76 = getelementptr inbounds float, ptr %63, i64 %75
+  %76 = getelementptr inbounds nuw float, ptr %63, i64 %75
   %77 = load float, ptr %76, align 4, !tbaa !65
   %78 = getelementptr inbounds float, ptr %63, i64 %indvars.iv23.i
   store float %77, ptr %78, align 4, !tbaa !65
@@ -1856,7 +1856,7 @@ define internal noundef i32 @rdft_horizontal16(ptr noundef readonly captures(non
 .lr.ph21.i:                                       ; preds = %.lr.ph21.i, %.lr.ph21.preheader.i
   %indvars.iv23.i = phi i64 [ %66, %.lr.ph21.preheader.i ], [ %indvars.iv.next24.i, %.lr.ph21.i ]
   %75 = sub nsw i64 %51, %indvars.iv23.i
-  %76 = getelementptr inbounds float, ptr %63, i64 %75
+  %76 = getelementptr inbounds nuw float, ptr %63, i64 %75
   %77 = load float, ptr %76, align 4, !tbaa !65
   %78 = getelementptr inbounds float, ptr %63, i64 %indvars.iv23.i
   store float %77, ptr %78, align 4, !tbaa !65

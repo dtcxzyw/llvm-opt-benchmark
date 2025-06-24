@@ -60,7 +60,7 @@ define noundef i32 @RSA_padding_check_none(ptr noundef writeonly captures(none) 
 
 8:                                                ; preds = %5
   %9 = sub nsw i32 %1, %3
-  %10 = sext i32 %9 to i64
+  %10 = zext nneg i32 %9 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %0, i8 0, i64 %10, i1 false)
   %11 = sext i32 %1 to i64
   %12 = getelementptr inbounds i8, ptr %0, i64 %11

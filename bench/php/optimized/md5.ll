@@ -667,7 +667,7 @@ zend_parse_arg_bool_ex.exit:                      ; preds = %29
   br i1 %72, label %73, label %77
 
 73:                                               ; preds = %71
-  %74 = and i64 %.034.i, -64
+  %74 = and i64 %.034.i, 9223372036854775744
   %75 = call fastcc ptr @body(ptr noundef nonnull %7, ptr noundef nonnull %.0.i74, i64 noundef %74)
   %76 = and i64 %.034.i, 63
   br label %77

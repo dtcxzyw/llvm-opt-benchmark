@@ -213209,7 +213209,7 @@ JS_ToInt32Clamp.exit76.thread:                    ; preds = %130, %128, %89, %11
   %164 = load i64, ptr %8, align 8, !tbaa !45
   %165 = trunc i64 %164 to i8
   %166 = sub nuw nsw i32 %132, %131
-  %167 = sext i32 %166 to i64
+  %167 = zext nneg i32 %166 to i64
   call void @llvm.memset.p0.i64(ptr align 1 %163, i8 %165, i64 %167, i1 false)
   br label %JS_DupValue.exit79
 

@@ -11004,7 +11004,7 @@ define internal fastcc i32 @_transmit_pre(ptr noundef readonly captures(none) %0
   store ptr %64, ptr %66, align 8, !tbaa !122
   %67 = sub nsw i32 %57, %.081112
   %68 = tail call i32 @llvm.smin.i32(i32 %67, i32 %.080113)
-  %69 = sext i32 %68 to i64
+  %69 = zext nneg i32 %68 to i64
   %70 = getelementptr inbounds nuw i8, ptr %66, i64 8
   store i64 %69, ptr %70, align 8, !tbaa !124
   %71 = add nsw i32 %.5110, 1

@@ -1049,7 +1049,7 @@ assign_dv.exit.i.i:                               ; preds = %372
   %392 = icmp sgt i32 %375, 64
   %393 = select i1 %392, i32 6, i32 5
   %394 = sub nsw i32 %373, %378
-  %395 = mul nsw i32 %394, %393
+  %395 = mul nuw nsw i32 %394, %393
   %396 = add nsw i32 %395, %389
   %.not76.i.i.i.i = icmp slt i32 %381, %396
   br i1 %.not76.i.i.i.i, label %read_intrabc_info.exit.i, label %.critedge.i.i

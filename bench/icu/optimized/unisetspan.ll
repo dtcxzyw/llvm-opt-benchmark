@@ -2878,8 +2878,8 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit.us:   ; preds = %50, %48, %39
 
 59:                                               ; preds = %_ZNK6icu_7713UnicodeString9getBufferEv.exit.us
   %60 = sub nsw i32 %13, %58
-  %61 = sext i32 %60 to i64
-  %62 = getelementptr inbounds i16, ptr %1, i64 %61
+  %61 = zext nneg i32 %60 to i64
+  %62 = getelementptr inbounds nuw i16, ptr %1, i64 %61
   %63 = sub nsw i32 %2, %60
   br label %64
 
@@ -4024,7 +4024,7 @@ _ZN6icu_7710OffsetList12setMaxLengthEi.exit:      ; preds = %25, %._crit_edge.i,
   %indvars.iv317 = phi i64 [ %124, %.lr.ph301.preheader ], [ %indvars.iv.next318, %158 ]
   %.2178298 = phi i32 [ %spec.select226, %.lr.ph301.preheader ], [ %159, %158 ]
   %128 = sub nsw i64 %54, %indvars.iv317
-  %129 = getelementptr inbounds i8, ptr %1, i64 %128
+  %129 = getelementptr inbounds nuw i8, ptr %1, i64 %128
   %130 = load i8, ptr %129, align 1, !tbaa !27
   %131 = icmp slt i8 %130, -64
   br i1 %131, label %_ZN6icu_77L8matches8EPKhS1_i.exit.thread, label %132
@@ -4130,7 +4130,7 @@ _ZN6icu_77L8matches8EPKhS1_i.exit.thread._crit_edge: ; preds = %158, %_ZN6icu_77
   %indvars.iv = phi i64 [ %174, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN6icu_77L8matches8EPKhS1_i.exit242.thread ]
   %.2157289 = phi i32 [ %.1156, %.lr.ph.preheader ], [ %194, %_ZN6icu_77L8matches8EPKhS1_i.exit242.thread ]
   %176 = sub nsw i64 %52, %indvars.iv
-  %177 = getelementptr inbounds i8, ptr %1, i64 %176
+  %177 = getelementptr inbounds nuw i8, ptr %1, i64 %176
   %178 = load i8, ptr %177, align 1, !tbaa !27
   %179 = icmp slt i8 %178, -64
   br i1 %179, label %_ZN6icu_77L8matches8EPKhS1_i.exit242.thread, label %180

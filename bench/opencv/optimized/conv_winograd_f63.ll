@@ -1637,8 +1637,8 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3dnn13runWi
   %175 = sext i32 %174 to i64
   %invariant.gep.i.i.i = getelementptr float, ptr %173, i64 %175
   %176 = sub nsw i32 %.088.i.i.i, %.089.i.i.i
-  %177 = sext i32 %176 to i64
-  %178 = shl nsw i64 %177, 2
+  %177 = zext nneg i32 %176 to i64
+  %178 = shl nuw nsw i64 %177, 2
   %179 = zext nneg i32 %.087.i.i.i to i64
   %180 = zext nneg i32 %.089.i.i.i to i64
   %wide.trip.count.i.i.i = zext nneg i32 %.086.i.i.i to i64

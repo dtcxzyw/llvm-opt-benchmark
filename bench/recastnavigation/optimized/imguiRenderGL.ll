@@ -1192,11 +1192,11 @@ define dso_local i32 @stbtt_FindGlyphIndex(ptr noundef readonly captures(none) %
   %.0117166 = phi i32 [ %189, %.lr.ph168 ], [ %.1118, %261 ]
   %.0119165 = phi i32 [ 0, %.lr.ph168 ], [ %.1120, %261 ]
   %193 = sub nsw i32 %.0117166, %.0119165
-  %194 = ashr i32 %193, 1
-  %195 = add nsw i32 %194, %.0119165
+  %194 = lshr i32 %193, 1
+  %195 = add nuw nsw i32 %194, %.0119165
   %196 = mul nsw i32 %195, 12
-  %197 = sext i32 %196 to i64
-  %198 = getelementptr inbounds i8, ptr %191, i64 %197
+  %197 = zext nneg i32 %196 to i64
+  %198 = getelementptr inbounds nuw i8, ptr %191, i64 %197
   %199 = load i8, ptr %198, align 1
   %200 = zext i8 %199 to i32
   %201 = shl nuw i32 %200, 24
@@ -1240,7 +1240,7 @@ define dso_local i32 @stbtt_FindGlyphIndex(ptr noundef readonly captures(none) %
   br i1 %236, label %237, label %239
 
 237:                                              ; preds = %217
-  %238 = add nsw i32 %195, 1
+  %238 = add nuw nsw i32 %195, 1
   br label %261
 
 239:                                              ; preds = %217

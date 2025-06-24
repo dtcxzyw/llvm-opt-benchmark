@@ -4147,7 +4147,7 @@ define internal fastcc void @clean_index(ptr noundef readonly captures(none) %0)
   %34 = add nsw i64 %.03135, %29
   %35 = sub nsw i64 %27, %.03135
   %36 = tail call i64 @llvm.smin.i64(i64 %35, i64 %31)
-  %37 = trunc nsw i64 %36 to i32
+  %37 = trunc nuw nsw i64 %36 to i32
   %38 = tail call i32 @av_add_index_entry(ptr noundef nonnull %9, i64 noundef %33, i64 noundef %34, i32 noundef %37, i32 noundef 0, i32 noundef 1) #14
   %39 = add nuw nsw i64 %.03135, %31
   %40 = icmp slt i64 %39, %27

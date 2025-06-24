@@ -1939,7 +1939,7 @@ _ZNSt15_Deque_iteratorIjRjPjEpLEl.exit.i.i.i:     ; preds = %234, %228
 
 _ZSt7advanceIPKjlEvRT_T0_.exit:                   ; preds = %_ZStplRKSt15_Deque_iteratorIjRjPjEl.exit
   %248 = sub nsw i64 %4, %57
-  %249 = getelementptr inbounds i32, ptr %2, i64 %248
+  %249 = getelementptr inbounds nuw i32, ptr %2, i64 %248
   %250 = load ptr, ptr %30, align 8, !tbaa !106
   %251 = load ptr, ptr %79, align 8, !tbaa !111
   %252 = load ptr, ptr %50, align 8, !tbaa !112

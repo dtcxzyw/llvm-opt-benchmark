@@ -7352,12 +7352,12 @@ IDAQuadSensWrmsNormUpdate.exit.i.i:               ; preds = %.lr.ph.i.i333.i.i, 
 .lr.ph356.i.i:                                    ; preds = %.lr.ph356.i.i, %.lr.ph356.preheader.i.i
   %indvars.iv392.i.i = phi i64 [ 1, %.lr.ph356.preheader.i.i ], [ %indvars.iv.next393.i.i, %.lr.ph356.i.i ]
   %1616 = sub nsw i64 %1612, %indvars.iv392.i.i
-  %1617 = add nsw i64 %1616, 1
-  %1618 = getelementptr inbounds [6 x ptr], ptr %304, i64 0, i64 %1617
+  %1617 = add nuw nsw i64 %1616, 1
+  %1618 = getelementptr inbounds nuw [6 x ptr], ptr %304, i64 0, i64 %1617
   %1619 = load ptr, ptr %1618, align 8, !tbaa !83
   %1620 = getelementptr inbounds nuw ptr, ptr %1611, i64 %indvars.iv392.i.i
   store ptr %1619, ptr %1620, align 8, !tbaa !83
-  %1621 = getelementptr inbounds [6 x ptr], ptr %304, i64 0, i64 %1616
+  %1621 = getelementptr inbounds nuw [6 x ptr], ptr %304, i64 0, i64 %1616
   %1622 = load ptr, ptr %1621, align 8, !tbaa !83
   %1623 = getelementptr inbounds nuw ptr, ptr %1615, i64 %indvars.iv392.i.i
   store ptr %1622, ptr %1623, align 8, !tbaa !83
@@ -7392,12 +7392,12 @@ IDAQuadSensWrmsNormUpdate.exit.i.i:               ; preds = %.lr.ph.i.i333.i.i, 
 .lr.ph361.i.i:                                    ; preds = %.lr.ph361.i.i, %.lr.ph361.preheader.i.i
   %indvars.iv397.i.i = phi i64 [ 1, %.lr.ph361.preheader.i.i ], [ %indvars.iv.next398.i.i, %.lr.ph361.i.i ]
   %1634 = sub nsw i64 %1630, %indvars.iv397.i.i
-  %1635 = add nsw i64 %1634, 1
-  %1636 = getelementptr inbounds [6 x ptr], ptr %309, i64 0, i64 %1635
+  %1635 = add nuw nsw i64 %1634, 1
+  %1636 = getelementptr inbounds nuw [6 x ptr], ptr %309, i64 0, i64 %1635
   %1637 = load ptr, ptr %1636, align 8, !tbaa !83
   %1638 = getelementptr inbounds nuw ptr, ptr %1628, i64 %indvars.iv397.i.i
   store ptr %1637, ptr %1638, align 8, !tbaa !83
-  %1639 = getelementptr inbounds [6 x ptr], ptr %309, i64 0, i64 %1634
+  %1639 = getelementptr inbounds nuw [6 x ptr], ptr %309, i64 0, i64 %1634
   %1640 = load ptr, ptr %1639, align 8, !tbaa !83
   %1641 = getelementptr inbounds nuw ptr, ptr %1633, i64 %indvars.iv397.i.i
   store ptr %1640, ptr %1641, align 8, !tbaa !83
@@ -7474,14 +7474,14 @@ IDAQuadSensWrmsNormUpdate.exit.i.i:               ; preds = %.lr.ph.i.i333.i.i, 
   %indvars.iv404.i.i = phi i64 [ 1, %.lr.ph368.i.i ], [ %indvars.iv.next405.i.i, %1666 ]
   %indvars.iv402.i.i = phi i64 [ %1665, %.lr.ph368.i.i ], [ %indvars.iv.next403.i.i, %1666 ]
   %1667 = sub nsw i64 %1648, %indvars.iv404.i.i
-  %1668 = add nsw i64 %1667, 1
-  %1669 = getelementptr inbounds [6 x ptr], ptr %311, i64 0, i64 %1668
+  %1668 = add nuw nsw i64 %1667, 1
+  %1669 = getelementptr inbounds nuw [6 x ptr], ptr %311, i64 0, i64 %1668
   %1670 = load ptr, ptr %1669, align 8, !tbaa !178
   %1671 = getelementptr inbounds nuw ptr, ptr %1670, i64 %indvars.iv411.i.i
   %1672 = load ptr, ptr %1671, align 8, !tbaa !83
   %1673 = getelementptr inbounds ptr, ptr %.pre452.i.i, i64 %indvars.iv402.i.i
   store ptr %1672, ptr %1673, align 8, !tbaa !83
-  %1674 = getelementptr inbounds [6 x ptr], ptr %311, i64 0, i64 %1667
+  %1674 = getelementptr inbounds nuw [6 x ptr], ptr %311, i64 0, i64 %1667
   %1675 = load ptr, ptr %1674, align 8, !tbaa !178
   %1676 = getelementptr inbounds nuw ptr, ptr %1675, i64 %indvars.iv411.i.i
   %1677 = load ptr, ptr %1676, align 8, !tbaa !83
@@ -7569,14 +7569,14 @@ IDAQuadSensWrmsNormUpdate.exit.i.i:               ; preds = %.lr.ph.i.i333.i.i, 
   %indvars.iv425.i.i = phi i64 [ 1, %.lr.ph380.i.i ], [ %indvars.iv.next426.i.i, %1706 ]
   %indvars.iv423.i.i = phi i64 [ %1705, %.lr.ph380.i.i ], [ %indvars.iv.next424.i.i, %1706 ]
   %1707 = sub nsw i64 %1688, %indvars.iv425.i.i
-  %1708 = add nsw i64 %1707, 1
-  %1709 = getelementptr inbounds [6 x ptr], ptr %314, i64 0, i64 %1708
+  %1708 = add nuw nsw i64 %1707, 1
+  %1709 = getelementptr inbounds nuw [6 x ptr], ptr %314, i64 0, i64 %1708
   %1710 = load ptr, ptr %1709, align 8, !tbaa !178
   %1711 = getelementptr inbounds nuw ptr, ptr %1710, i64 %indvars.iv432.i.i
   %1712 = load ptr, ptr %1711, align 8, !tbaa !83
   %1713 = getelementptr inbounds ptr, ptr %.pre455.i.i, i64 %indvars.iv423.i.i
   store ptr %1712, ptr %1713, align 8, !tbaa !83
-  %1714 = getelementptr inbounds [6 x ptr], ptr %314, i64 0, i64 %1707
+  %1714 = getelementptr inbounds nuw [6 x ptr], ptr %314, i64 0, i64 %1707
   %1715 = load ptr, ptr %1714, align 8, !tbaa !178
   %1716 = getelementptr inbounds nuw ptr, ptr %1715, i64 %indvars.iv432.i.i
   %1717 = load ptr, ptr %1716, align 8, !tbaa !83

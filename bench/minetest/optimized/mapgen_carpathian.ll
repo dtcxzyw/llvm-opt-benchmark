@@ -6689,7 +6689,7 @@ if.end218:                                        ; preds = %for.body210
 cond.true:                                        ; preds = %if.end218
   %127 = load i32, ptr %grad_wl, align 8, !tbaa !52
   %sub238 = sub nsw i32 %126, %conv203400
-  %mul239 = mul nsw i32 %sub238, 3
+  %mul239 = mul nuw nsw i32 %sub238, 3
   %add240 = add nsw i32 %127, %mul239
   br label %cond.end
 

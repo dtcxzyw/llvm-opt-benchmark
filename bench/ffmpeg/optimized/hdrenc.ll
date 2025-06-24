@@ -392,7 +392,7 @@ float2rgbe.exit86:                                ; preds = %.lr.ph, %134
   %.272.i = phi i32 [ %205, %._crit_edge.i ], [ %.05277.i, %197 ]
   %199 = sub nsw i32 %166, %.272.i
   %200 = tail call i32 @llvm.smin.i32(i32 %199, i32 128)
-  %201 = trunc i32 %200 to i8
+  %201 = trunc nuw i32 %200 to i8
   store i8 %201, ptr %.9, align 1, !tbaa !37
   %202 = getelementptr inbounds nuw i8, ptr %.9, i64 1
   %203 = icmp sgt i32 %199, 0

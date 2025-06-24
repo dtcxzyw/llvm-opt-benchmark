@@ -10334,7 +10334,7 @@ if.then69:                                        ; preds = %while.cond
   br label %if.end71
 
 if.end71:                                         ; preds = %if.then69, %while.cond
-  %tobool72.not = icmp ult i32 %texp.0, 2
+  %tobool72.not = icmp samesign ult i32 %texp.0, 2
   br i1 %tobool72.not, label %while.end, label %if.end74
 
 if.end74:                                         ; preds = %if.end71

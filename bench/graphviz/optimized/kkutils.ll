@@ -564,31 +564,24 @@ declare double @sqrt(double noundef) local_unnamed_addr #5
 ; Function Attrs: nofree nounwind uwtable
 define void @quicksort_placef(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #6 {
   %5 = icmp slt i32 %2, %3
-  br i1 %5, label %6, label %16
+  br i1 %5, label %gv_sort.exit, label %12
 
-6:                                                ; preds = %4
-  %7 = sub nsw i32 %3, %2
-  %8 = add nsw i32 %7, 1
-  %9 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @gv_sort_compar)
-  store ptr @fcmpf, ptr %9, align 8, !tbaa !37
-  %10 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @gv_sort_arg)
-  store ptr %0, ptr %10, align 8, !tbaa !37
-  %11 = icmp ugt i32 %8, 1
-  br i1 %11, label %12, label %gv_sort.exit
+gv_sort.exit:                                     ; preds = %4
+  %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @gv_sort_compar)
+  store ptr @fcmpf, ptr %6, align 8, !tbaa !37
+  %7 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @gv_sort_arg)
+  store ptr %0, ptr %7, align 8, !tbaa !37
+  %reass.sub = sub i32 %3, %2
+  %8 = add i32 %reass.sub, 1
+  %9 = zext nneg i32 %8 to i64
+  %10 = sext i32 %2 to i64
+  %11 = getelementptr inbounds i32, ptr %1, i64 %10
+  tail call void @qsort(ptr noundef %11, i64 noundef range(i64 -2147483648, 2147483648) %9, i64 noundef 4, ptr noundef nonnull @gv_sort_compar_wrapper) #20
+  store ptr null, ptr %6, align 8, !tbaa !37
+  store ptr null, ptr %7, align 8, !tbaa !37
+  br label %12
 
-12:                                               ; preds = %6
-  %13 = sext i32 %8 to i64
-  %14 = sext i32 %2 to i64
-  %15 = getelementptr inbounds i32, ptr %1, i64 %14
-  tail call void @qsort(ptr noundef %15, i64 noundef range(i64 -2147483648, 2147483648) %13, i64 noundef 4, ptr noundef nonnull @gv_sort_compar_wrapper) #20
-  br label %gv_sort.exit
-
-gv_sort.exit:                                     ; preds = %6, %12
-  store ptr null, ptr %9, align 8, !tbaa !37
-  store ptr null, ptr %10, align 8, !tbaa !37
-  br label %16
-
-16:                                               ; preds = %gv_sort.exit, %4
+12:                                               ; preds = %gv_sort.exit, %4
   ret void
 }
 

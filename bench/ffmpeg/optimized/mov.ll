@@ -14048,8 +14048,8 @@ get_current_frag_stream_info.exit.thread:         ; preds = %89, %97, %84, %87, 
   %211 = zext i32 %.0356 to i64
   %212 = getelementptr inbounds nuw %struct.AVIndexEntry, ptr %210, i64 %211
   %213 = sub nsw i32 %205, %.0344419
-  %214 = sext i32 %213 to i64
-  %215 = mul nsw i64 %214, 24
+  %214 = zext nneg i32 %213 to i64
+  %215 = mul nuw nsw i64 %214, 24
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %212, ptr align 8 %210, i64 %215, i1 false)
   %216 = load ptr, ptr %196, align 8, !tbaa !539
   %217 = getelementptr inbounds %struct.MOVTimeToSample, ptr %216, i64 %209
@@ -18612,8 +18612,8 @@ define internal i32 @mov_read_iloc(ptr noundef captures(none) %0, ptr noundef %1
   %42 = sext i32 %39 to i64
   %43 = getelementptr inbounds ptr, ptr %37, i64 %42
   %44 = sub nsw i32 %31, %39
-  %45 = sext i32 %44 to i64
-  %46 = shl nsw i64 %45, 3
+  %45 = zext nneg i32 %44 to i64
+  %46 = shl nuw nsw i64 %45, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %43, i8 0, i64 %46, i1 false)
   %.pre = load i32, ptr %34, align 8, !tbaa !154
   br label %47
@@ -19775,8 +19775,8 @@ define internal i32 @mov_read_iinf(ptr noundef captures(none) %0, ptr noundef %1
   %31 = sext i32 %28 to i64
   %32 = getelementptr inbounds ptr, ptr %26, i64 %31
   %33 = sub nsw i32 %20, %28
-  %34 = sext i32 %33 to i64
-  %35 = shl nsw i64 %34, 3
+  %34 = zext nneg i32 %33 to i64
+  %35 = shl nuw nsw i64 %34, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %32, i8 0, i64 %35, i1 false)
   %.pre = load i32, ptr %23, align 8, !tbaa !154
   br label %36
@@ -21106,8 +21106,8 @@ search_frag_moof_offset.exit._crit_edge:          ; preds = %6, %search_frag_moo
   %73 = getelementptr inbounds %struct.MOVFragmentIndexItem, ptr %71, i64 %72
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 32
   %75 = sub nsw i32 %68, %.0.i81
-  %76 = sext i32 %75 to i64
-  %77 = shl nsw i64 %76, 5
+  %76 = zext nneg i32 %75 to i64
+  %77 = shl nuw nsw i64 %76, 5
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %74, ptr align 8 %73, i64 %77, i1 false)
   %.pre75 = load ptr, ptr %38, align 8, !tbaa !4
   %.phi.trans.insert76 = getelementptr inbounds nuw i8, ptr %.pre75, i64 44

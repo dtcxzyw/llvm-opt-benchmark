@@ -1193,7 +1193,7 @@ _valid_agent_arg.exit.thread:                     ; preds = %._valid_agent_arg.e
 464:                                              ; preds = %462, %460
   %storemerge151 = phi i32 [ 0, %462 ], [ %461, %460 ]
   store i32 %storemerge151, ptr @agent_thread_cnt, align 4
-  %465 = icmp slt i32 %storemerge151, 244
+  %465 = icmp samesign ult i32 %storemerge151, 244
   %466 = call i32 @pthread_cond_broadcast(ptr noundef nonnull @agent_cnt_cond) #14
   %.not152 = icmp eq i32 %466, 0
   br i1 %.not152, label %470, label %467

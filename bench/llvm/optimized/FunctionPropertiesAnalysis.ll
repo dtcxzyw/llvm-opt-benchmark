@@ -7059,7 +7059,7 @@ _ZNSt15_Deque_iteratorIPKN4llvm4LoopERS3_PS3_EpLEl.exit.i.i.i: ; preds = %239, %
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKPN4llvm4LoopESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit: ; preds = %_ZStplRKSt15_Deque_iteratorIPKN4llvm4LoopERS3_PS3_El.exit
   %251 = sub nsw i64 %4, %57
-  %252 = getelementptr inbounds ptr, ptr %2, i64 %251
+  %252 = getelementptr inbounds nuw ptr, ptr %2, i64 %251
   %253 = load ptr, ptr %30, align 8, !tbaa !184
   %254 = load ptr, ptr %79, align 8, !tbaa !180
   %255 = load ptr, ptr %50, align 8, !tbaa !181

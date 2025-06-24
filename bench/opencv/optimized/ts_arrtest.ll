@@ -1044,8 +1044,8 @@ _ZN6cvtest2TS7get_rngEv.exit._crit_edge:          ; preds = %_ZN6cvtest2TS7get_r
   %171 = trunc i64 %170 to i32
   %172 = sub nsw i32 %.sroa.10.0, %.val146
   %173 = urem i32 %171, %172
-  %174 = zext i32 %173 to i64
-  %175 = shl nuw i64 %174, 32
+  %174 = zext nneg i32 %173 to i64
+  %175 = shl nuw nsw i64 %174, 32
   br label %176
 
 176:                                              ; preds = %163, %165, %151

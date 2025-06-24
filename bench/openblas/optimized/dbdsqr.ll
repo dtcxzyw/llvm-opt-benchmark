@@ -471,12 +471,12 @@ define void @dbdsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %indvars.iv1424 = phi i64 [ 1, %.lr.ph1115 ], [ %indvars.iv.next1425, %239 ]
   %.28601112 = phi double [ %222, %.lr.ph1115 ], [ %243, %239 ]
   %224 = sub nsw i64 %208, %indvars.iv1424
-  %225 = getelementptr inbounds double, ptr %33, i64 %224
+  %225 = getelementptr inbounds nuw double, ptr %33, i64 %224
   %226 = load double, ptr %225, align 8, !tbaa !7
   %227 = fcmp oge double %226, 0.000000e+00
   %228 = fneg double %226
   %229 = select i1 %227, double %226, double %228
-  %230 = getelementptr inbounds double, ptr %34, i64 %224
+  %230 = getelementptr inbounds nuw double, ptr %34, i64 %224
   %231 = load double, ptr %230, align 8, !tbaa !7
   %232 = fcmp oge double %231, 0.000000e+00
   %233 = fneg double %231
@@ -503,7 +503,7 @@ define void @dbdsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %exitcond1428.not, label %..loopexit975_crit_edge, label %223, !llvm.loop !14
 
 244:                                              ; preds = %237
-  %245 = getelementptr inbounds double, ptr %34, i64 %224
+  %245 = getelementptr inbounds nuw double, ptr %34, i64 %224
   %246 = trunc nsw i64 %224 to i32
   store double %231, ptr %17, align 8, !tbaa !7
   store double 0.000000e+00, ptr %245, align 8, !tbaa !7

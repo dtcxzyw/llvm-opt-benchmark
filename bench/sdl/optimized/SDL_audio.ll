@@ -1583,7 +1583,7 @@ define hidden noundef zeroext i1 @SDL_PlaybackAudioThreadIterate(ptr noundef %0)
   %62 = load i32, ptr %61, align 8
   %63 = trunc i32 %62 to i8
   %64 = sub nsw i32 %56, %.0126154
-  %65 = sext i32 %64 to i64
+  %65 = zext nneg i32 %64 to i64
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %60, i8 %63, i64 %65, i1 false)
   br label %66
 

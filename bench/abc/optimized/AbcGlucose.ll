@@ -2480,7 +2480,7 @@ _ZN5Gluco3vecINS_3LitEE5clearEb.exit.i:           ; preds = %.preheader.i.i, %._
   %56 = add nsw i32 %55, 2
   %57 = tail call noundef i32 @llvm.smax.i32(i32 %56, i32 %53)
   %58 = sub nsw i32 2147483647, %49
-  %59 = icmp sgt i32 %57, %58
+  %59 = icmp samesign ugt i32 %57, %58
   br i1 %59, label %70, label %60
 
 60:                                               ; preds = %50
@@ -5424,7 +5424,7 @@ _ZN5Gluco3vecINS_3LitEE5clearEb.exit:             ; preds = %._ZN5Gluco3vecINS_3
   %17 = add nsw i32 %16, 2
   %18 = tail call noundef i32 @llvm.smax.i32(i32 %17, i32 %14)
   %19 = sub nsw i32 2147483647, %10
-  %20 = icmp sgt i32 %18, %19
+  %20 = icmp samesign ugt i32 %18, %19
   br i1 %20, label %31, label %21
 
 21:                                               ; preds = %11
@@ -5749,7 +5749,7 @@ define linkonce_odr void @_ZN5Gluco4HeapINS_10SimpSolver6ElimLtEE6insertEi(ptr n
   %16 = add nsw i32 %15, 2
   %17 = tail call noundef i32 @llvm.smax.i32(i32 %16, i32 %13)
   %18 = sub nsw i32 2147483647, %9
-  %19 = icmp sgt i32 %17, %18
+  %19 = icmp samesign ugt i32 %17, %18
   br i1 %19, label %31, label %20
 
 20:                                               ; preds = %10

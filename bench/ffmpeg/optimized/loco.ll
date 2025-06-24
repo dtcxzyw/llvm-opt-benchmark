@@ -125,21 +125,21 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   %10 = load i32, ptr %9, align 8, !tbaa !39
   %11 = tail call i32 @ff_get_buffer(ptr noundef %0, ptr noundef %1, i32 noundef 0) #10
   %12 = icmp slt i32 %11, 0
-  br i1 %12, label %238, label %13
+  br i1 %12, label %234, label %13
 
 13:                                               ; preds = %4
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %15 = load i32, ptr %14, align 4, !tbaa !34
-  switch i32 %15, label %230 [
+  switch i32 %15, label %226 [
     i32 -1, label %16
     i32 1, label %16
     i32 2, label %16
-    i32 -4, label %51
-    i32 5, label %51
-    i32 -2, label %88
-    i32 3, label %88
-    i32 -3, label %165
-    i32 4, label %165
+    i32 -4, label %50
+    i32 5, label %50
+    i32 -2, label %86
+    i32 3, label %86
+    i32 -3, label %162
+    i32 4, label %162
   ]
 
 16:                                               ; preds = %13, %13, %13
@@ -154,7 +154,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   %25 = icmp sgt i32 %24, -1
   %.not228 = icmp slt i32 %24, %10
   %or.cond = select i1 %25, i1 %.not228, i1 false
-  br i1 %or.cond, label %26, label %237
+  br i1 %or.cond, label %26, label %233
 
 26:                                               ; preds = %16
   %27 = zext nneg i32 %24 to i64
@@ -168,270 +168,262 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %36 = load i32, ptr %35, align 4, !tbaa !43
   %37 = tail call fastcc i32 @loco_decode_plane(ptr noundef nonnull %6, ptr noundef %31, i32 noundef %33, i32 noundef %34, i32 noundef %36, ptr noundef %28, i32 noundef %29)
-  %38 = icmp sgt i32 %37, -1
-  %.not229 = icmp slt i32 %37, %29
-  %or.cond230 = and i1 %38, %.not229
-  br i1 %or.cond230, label %39, label %237
+  %or.cond230 = icmp ult i32 %37, %29
+  br i1 %or.cond230, label %38, label %233
 
-39:                                               ; preds = %26
-  %40 = zext nneg i32 %37 to i64
-  %41 = getelementptr inbounds nuw i8, ptr %28, i64 %40
-  %42 = sub nsw i32 %29, %37
-  %43 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %44 = load ptr, ptr %43, align 8, !tbaa !40
-  %45 = load i32, ptr %18, align 8, !tbaa !41
-  %46 = sdiv i32 %45, 2
-  %47 = load i32, ptr %20, align 4, !tbaa !42
-  %48 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %49 = load i32, ptr %48, align 8, !tbaa !43
-  %50 = tail call fastcc i32 @loco_decode_plane(ptr noundef nonnull %6, ptr noundef %44, i32 noundef %46, i32 noundef %47, i32 noundef %49, ptr noundef %41, i32 noundef %42)
-  br label %231
+38:                                               ; preds = %26
+  %39 = zext nneg i32 %37 to i64
+  %40 = getelementptr inbounds nuw i8, ptr %28, i64 %39
+  %41 = sub nuw nsw i32 %29, %37
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %43 = load ptr, ptr %42, align 8, !tbaa !40
+  %44 = load i32, ptr %18, align 8, !tbaa !41
+  %45 = sdiv i32 %44, 2
+  %46 = load i32, ptr %20, align 4, !tbaa !42
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %48 = load i32, ptr %47, align 8, !tbaa !43
+  %49 = tail call fastcc i32 @loco_decode_plane(ptr noundef nonnull %6, ptr noundef %43, i32 noundef %45, i32 noundef %46, i32 noundef %48, ptr noundef %40, i32 noundef %41)
+  br label %227
 
-51:                                               ; preds = %13, %13
-  %52 = load ptr, ptr %1, align 8, !tbaa !40
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %54 = load i32, ptr %53, align 8, !tbaa !41
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  %56 = load i32, ptr %55, align 4, !tbaa !42
-  %57 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %58 = load i32, ptr %57, align 8, !tbaa !43
-  %59 = tail call fastcc i32 @loco_decode_plane(ptr noundef nonnull %6, ptr noundef %52, i32 noundef %54, i32 noundef %56, i32 noundef %58, ptr noundef %8, i32 noundef %10)
-  %60 = icmp sgt i32 %59, -1
-  %.not226 = icmp slt i32 %59, %10
-  %or.cond231 = select i1 %60, i1 %.not226, i1 false
-  br i1 %or.cond231, label %61, label %237
+50:                                               ; preds = %13, %13
+  %51 = load ptr, ptr %1, align 8, !tbaa !40
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %53 = load i32, ptr %52, align 8, !tbaa !41
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 116
+  %55 = load i32, ptr %54, align 4, !tbaa !42
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %57 = load i32, ptr %56, align 8, !tbaa !43
+  %58 = tail call fastcc i32 @loco_decode_plane(ptr noundef nonnull %6, ptr noundef %51, i32 noundef %53, i32 noundef %55, i32 noundef %57, ptr noundef %8, i32 noundef %10)
+  %59 = icmp sgt i32 %58, -1
+  %.not226 = icmp slt i32 %58, %10
+  %or.cond231 = select i1 %59, i1 %.not226, i1 false
+  br i1 %or.cond231, label %60, label %233
 
-61:                                               ; preds = %51
-  %62 = zext nneg i32 %59 to i64
-  %63 = getelementptr inbounds nuw i8, ptr %8, i64 %62
-  %64 = sub nsw i32 %10, %59
-  %65 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %66 = load ptr, ptr %65, align 8, !tbaa !40
-  %67 = load i32, ptr %53, align 8, !tbaa !41
-  %68 = sdiv i32 %67, 2
-  %69 = load i32, ptr %55, align 4, !tbaa !42
-  %70 = sdiv i32 %69, 2
-  %71 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %72 = load i32, ptr %71, align 8, !tbaa !43
-  %73 = tail call fastcc i32 @loco_decode_plane(ptr noundef nonnull %6, ptr noundef %66, i32 noundef %68, i32 noundef %70, i32 noundef %72, ptr noundef %63, i32 noundef %64)
-  %74 = icmp sgt i32 %73, -1
-  %.not227 = icmp slt i32 %73, %64
-  %or.cond232 = and i1 %74, %.not227
-  br i1 %or.cond232, label %75, label %237
+60:                                               ; preds = %50
+  %61 = zext nneg i32 %58 to i64
+  %62 = getelementptr inbounds nuw i8, ptr %8, i64 %61
+  %63 = sub nsw i32 %10, %58
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %65 = load ptr, ptr %64, align 8, !tbaa !40
+  %66 = load i32, ptr %52, align 8, !tbaa !41
+  %67 = sdiv i32 %66, 2
+  %68 = load i32, ptr %54, align 4, !tbaa !42
+  %69 = sdiv i32 %68, 2
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %71 = load i32, ptr %70, align 8, !tbaa !43
+  %72 = tail call fastcc i32 @loco_decode_plane(ptr noundef nonnull %6, ptr noundef %65, i32 noundef %67, i32 noundef %69, i32 noundef %71, ptr noundef %62, i32 noundef %63)
+  %or.cond232 = icmp ult i32 %72, %63
+  br i1 %or.cond232, label %73, label %233
 
-75:                                               ; preds = %61
-  %76 = zext nneg i32 %73 to i64
-  %77 = getelementptr inbounds nuw i8, ptr %63, i64 %76
-  %78 = sub nsw i32 %64, %73
-  %79 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %80 = load ptr, ptr %79, align 8, !tbaa !40
-  %81 = load i32, ptr %53, align 8, !tbaa !41
+73:                                               ; preds = %60
+  %74 = zext nneg i32 %72 to i64
+  %75 = getelementptr inbounds nuw i8, ptr %62, i64 %74
+  %76 = sub nuw nsw i32 %63, %72
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %78 = load ptr, ptr %77, align 8, !tbaa !40
+  %79 = load i32, ptr %52, align 8, !tbaa !41
+  %80 = sdiv i32 %79, 2
+  %81 = load i32, ptr %54, align 4, !tbaa !42
   %82 = sdiv i32 %81, 2
-  %83 = load i32, ptr %55, align 4, !tbaa !42
-  %84 = sdiv i32 %83, 2
-  %85 = getelementptr inbounds nuw i8, ptr %1, i64 68
-  %86 = load i32, ptr %85, align 4, !tbaa !43
-  %87 = tail call fastcc i32 @loco_decode_plane(ptr noundef nonnull %6, ptr noundef %80, i32 noundef %82, i32 noundef %84, i32 noundef %86, ptr noundef %77, i32 noundef %78)
-  br label %231
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 68
+  %84 = load i32, ptr %83, align 4, !tbaa !43
+  %85 = tail call fastcc i32 @loco_decode_plane(ptr noundef nonnull %6, ptr noundef %78, i32 noundef %80, i32 noundef %82, i32 noundef %84, ptr noundef %75, i32 noundef %76)
+  br label %227
 
-88:                                               ; preds = %13, %13
-  %89 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %90 = load ptr, ptr %89, align 8, !tbaa !40
-  %91 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %92 = getelementptr inbounds nuw i8, ptr %1, i64 68
-  %93 = load i32, ptr %92, align 4, !tbaa !43
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  %95 = load i32, ptr %94, align 4, !tbaa !42
-  %96 = add nsw i32 %95, -1
-  %97 = mul nsw i32 %96, %93
-  %98 = sext i32 %97 to i64
-  %99 = getelementptr inbounds i8, ptr %90, i64 %98
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %101 = load i32, ptr %100, align 8, !tbaa !41
-  %102 = sub nsw i32 0, %93
-  %103 = tail call fastcc i32 @loco_decode_plane(ptr noundef nonnull %6, ptr noundef %99, i32 noundef %101, i32 noundef %95, i32 noundef %102, ptr noundef %8, i32 noundef %10)
-  %104 = icmp sgt i32 %103, -1
-  %.not223 = icmp slt i32 %103, %10
-  %or.cond233 = select i1 %104, i1 %.not223, i1 false
-  br i1 %or.cond233, label %105, label %237
+86:                                               ; preds = %13, %13
+  %87 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %88 = load ptr, ptr %87, align 8, !tbaa !40
+  %89 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %90 = getelementptr inbounds nuw i8, ptr %1, i64 68
+  %91 = load i32, ptr %90, align 4, !tbaa !43
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 116
+  %93 = load i32, ptr %92, align 4, !tbaa !42
+  %94 = add nsw i32 %93, -1
+  %95 = mul nsw i32 %94, %91
+  %96 = sext i32 %95 to i64
+  %97 = getelementptr inbounds i8, ptr %88, i64 %96
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %99 = load i32, ptr %98, align 8, !tbaa !41
+  %100 = sub nsw i32 0, %91
+  %101 = tail call fastcc i32 @loco_decode_plane(ptr noundef nonnull %6, ptr noundef %97, i32 noundef %99, i32 noundef %93, i32 noundef %100, ptr noundef %8, i32 noundef %10)
+  %102 = icmp sgt i32 %101, -1
+  %.not223 = icmp slt i32 %101, %10
+  %or.cond233 = select i1 %102, i1 %.not223, i1 false
+  br i1 %or.cond233, label %103, label %233
 
-105:                                              ; preds = %88
-  %106 = zext nneg i32 %103 to i64
-  %107 = getelementptr inbounds nuw i8, ptr %8, i64 %106
-  %108 = sub nsw i32 %10, %103
-  %109 = load ptr, ptr %1, align 8, !tbaa !40
-  %110 = load i32, ptr %91, align 8, !tbaa !43
-  %111 = load i32, ptr %94, align 4, !tbaa !42
-  %112 = add nsw i32 %111, -1
-  %113 = mul nsw i32 %112, %110
-  %114 = sext i32 %113 to i64
-  %115 = getelementptr inbounds i8, ptr %109, i64 %114
-  %116 = load i32, ptr %100, align 8, !tbaa !41
-  %117 = sub nsw i32 0, %110
-  %118 = tail call fastcc i32 @loco_decode_plane(ptr noundef nonnull %6, ptr noundef %115, i32 noundef %116, i32 noundef %111, i32 noundef %117, ptr noundef %107, i32 noundef %108)
-  %119 = icmp sgt i32 %118, -1
-  %.not224 = icmp slt i32 %118, %108
-  %or.cond234 = and i1 %119, %.not224
-  br i1 %or.cond234, label %120, label %237
+103:                                              ; preds = %86
+  %104 = zext nneg i32 %101 to i64
+  %105 = getelementptr inbounds nuw i8, ptr %8, i64 %104
+  %106 = sub nsw i32 %10, %101
+  %107 = load ptr, ptr %1, align 8, !tbaa !40
+  %108 = load i32, ptr %89, align 8, !tbaa !43
+  %109 = load i32, ptr %92, align 4, !tbaa !42
+  %110 = add nsw i32 %109, -1
+  %111 = mul nsw i32 %110, %108
+  %112 = sext i32 %111 to i64
+  %113 = getelementptr inbounds i8, ptr %107, i64 %112
+  %114 = load i32, ptr %98, align 8, !tbaa !41
+  %115 = sub nsw i32 0, %108
+  %116 = tail call fastcc i32 @loco_decode_plane(ptr noundef nonnull %6, ptr noundef %113, i32 noundef %114, i32 noundef %109, i32 noundef %115, ptr noundef %105, i32 noundef %106)
+  %or.cond234 = icmp ult i32 %116, %106
+  br i1 %or.cond234, label %117, label %233
 
-120:                                              ; preds = %105
-  %121 = zext nneg i32 %118 to i64
-  %122 = getelementptr inbounds nuw i8, ptr %107, i64 %121
-  %123 = sub nsw i32 %108, %118
-  %124 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %125 = load ptr, ptr %124, align 8, !tbaa !40
-  %126 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %127 = load i32, ptr %126, align 8, !tbaa !43
-  %128 = load i32, ptr %94, align 4, !tbaa !42
-  %129 = add nsw i32 %128, -1
-  %130 = mul nsw i32 %129, %127
-  %131 = sext i32 %130 to i64
-  %132 = getelementptr inbounds i8, ptr %125, i64 %131
-  %133 = load i32, ptr %100, align 8, !tbaa !41
-  %134 = sub nsw i32 0, %127
-  %135 = tail call fastcc i32 @loco_decode_plane(ptr noundef nonnull %6, ptr noundef %132, i32 noundef %133, i32 noundef %128, i32 noundef %134, ptr noundef %122, i32 noundef %123)
-  %136 = load i32, ptr %100, align 8, !tbaa !41
-  %137 = and i32 %136, 1
-  %.not225 = icmp eq i32 %137, 0
-  br i1 %.not225, label %231, label %138
+117:                                              ; preds = %103
+  %118 = zext nneg i32 %116 to i64
+  %119 = getelementptr inbounds nuw i8, ptr %105, i64 %118
+  %120 = sub nuw nsw i32 %106, %116
+  %121 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %122 = load ptr, ptr %121, align 8, !tbaa !40
+  %123 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %124 = load i32, ptr %123, align 8, !tbaa !43
+  %125 = load i32, ptr %92, align 4, !tbaa !42
+  %126 = add nsw i32 %125, -1
+  %127 = mul nsw i32 %126, %124
+  %128 = sext i32 %127 to i64
+  %129 = getelementptr inbounds i8, ptr %122, i64 %128
+  %130 = load i32, ptr %98, align 8, !tbaa !41
+  %131 = sub nsw i32 0, %124
+  %132 = tail call fastcc i32 @loco_decode_plane(ptr noundef nonnull %6, ptr noundef %129, i32 noundef %130, i32 noundef %125, i32 noundef %131, ptr noundef %119, i32 noundef %120)
+  %133 = load i32, ptr %98, align 8, !tbaa !41
+  %134 = and i32 %133, 1
+  %.not225 = icmp eq i32 %134, 0
+  br i1 %.not225, label %227, label %135
 
-138:                                              ; preds = %120
-  %139 = load ptr, ptr %1, align 8, !tbaa !40
-  %140 = load i32, ptr %91, align 8, !tbaa !43
-  %141 = load i32, ptr %94, align 4, !tbaa !42
-  %142 = add nsw i32 %141, -1
-  %143 = mul nsw i32 %142, %140
-  %144 = sext i32 %143 to i64
-  %145 = getelementptr inbounds i8, ptr %139, i64 %144
-  %146 = sub nsw i32 0, %140
-  tail call fastcc void @rotate_faulty_loco(ptr noundef %145, i32 noundef %136, i32 noundef %141, i32 noundef %146)
-  %147 = load ptr, ptr %89, align 8, !tbaa !40
-  %148 = load i32, ptr %92, align 4, !tbaa !43
-  %149 = load i32, ptr %94, align 4, !tbaa !42
-  %150 = add nsw i32 %149, -1
-  %151 = mul nsw i32 %150, %148
-  %152 = sext i32 %151 to i64
-  %153 = getelementptr inbounds i8, ptr %147, i64 %152
-  %154 = load i32, ptr %100, align 8, !tbaa !41
-  %155 = sub nsw i32 0, %148
-  tail call fastcc void @rotate_faulty_loco(ptr noundef %153, i32 noundef %154, i32 noundef %149, i32 noundef %155)
-  %156 = load ptr, ptr %124, align 8, !tbaa !40
-  %157 = load i32, ptr %126, align 8, !tbaa !43
-  %158 = load i32, ptr %94, align 4, !tbaa !42
-  %159 = add nsw i32 %158, -1
-  %160 = mul nsw i32 %159, %157
-  %161 = sext i32 %160 to i64
-  %162 = getelementptr inbounds i8, ptr %156, i64 %161
-  %163 = load i32, ptr %100, align 8, !tbaa !41
-  %164 = sub nsw i32 0, %157
-  tail call fastcc void @rotate_faulty_loco(ptr noundef %162, i32 noundef %163, i32 noundef %158, i32 noundef %164)
-  br label %231
+135:                                              ; preds = %117
+  %136 = load ptr, ptr %1, align 8, !tbaa !40
+  %137 = load i32, ptr %89, align 8, !tbaa !43
+  %138 = load i32, ptr %92, align 4, !tbaa !42
+  %139 = add nsw i32 %138, -1
+  %140 = mul nsw i32 %139, %137
+  %141 = sext i32 %140 to i64
+  %142 = getelementptr inbounds i8, ptr %136, i64 %141
+  %143 = sub nsw i32 0, %137
+  tail call fastcc void @rotate_faulty_loco(ptr noundef %142, i32 noundef %133, i32 noundef %138, i32 noundef %143)
+  %144 = load ptr, ptr %87, align 8, !tbaa !40
+  %145 = load i32, ptr %90, align 4, !tbaa !43
+  %146 = load i32, ptr %92, align 4, !tbaa !42
+  %147 = add nsw i32 %146, -1
+  %148 = mul nsw i32 %147, %145
+  %149 = sext i32 %148 to i64
+  %150 = getelementptr inbounds i8, ptr %144, i64 %149
+  %151 = load i32, ptr %98, align 8, !tbaa !41
+  %152 = sub nsw i32 0, %145
+  tail call fastcc void @rotate_faulty_loco(ptr noundef %150, i32 noundef %151, i32 noundef %146, i32 noundef %152)
+  %153 = load ptr, ptr %121, align 8, !tbaa !40
+  %154 = load i32, ptr %123, align 8, !tbaa !43
+  %155 = load i32, ptr %92, align 4, !tbaa !42
+  %156 = add nsw i32 %155, -1
+  %157 = mul nsw i32 %156, %154
+  %158 = sext i32 %157 to i64
+  %159 = getelementptr inbounds i8, ptr %153, i64 %158
+  %160 = load i32, ptr %98, align 8, !tbaa !41
+  %161 = sub nsw i32 0, %154
+  tail call fastcc void @rotate_faulty_loco(ptr noundef %159, i32 noundef %160, i32 noundef %155, i32 noundef %161)
+  br label %227
 
-165:                                              ; preds = %13, %13
-  %166 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %167 = load ptr, ptr %166, align 8, !tbaa !40
-  %168 = getelementptr inbounds nuw i8, ptr %1, i64 68
-  %169 = load i32, ptr %168, align 4, !tbaa !43
-  %170 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  %171 = load i32, ptr %170, align 4, !tbaa !42
-  %172 = add nsw i32 %171, -1
-  %173 = mul nsw i32 %172, %169
-  %174 = sext i32 %173 to i64
-  %175 = getelementptr inbounds i8, ptr %167, i64 %174
-  %176 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %177 = load i32, ptr %176, align 8, !tbaa !41
-  %178 = sub nsw i32 0, %169
-  %179 = tail call fastcc i32 @loco_decode_plane(ptr noundef nonnull %6, ptr noundef %175, i32 noundef %177, i32 noundef %171, i32 noundef %178, ptr noundef %8, i32 noundef %10)
-  %180 = icmp sgt i32 %179, -1
-  %.not = icmp slt i32 %179, %10
-  %or.cond235 = select i1 %180, i1 %.not, i1 false
-  br i1 %or.cond235, label %181, label %237
+162:                                              ; preds = %13, %13
+  %163 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %164 = load ptr, ptr %163, align 8, !tbaa !40
+  %165 = getelementptr inbounds nuw i8, ptr %1, i64 68
+  %166 = load i32, ptr %165, align 4, !tbaa !43
+  %167 = getelementptr inbounds nuw i8, ptr %0, i64 116
+  %168 = load i32, ptr %167, align 4, !tbaa !42
+  %169 = add nsw i32 %168, -1
+  %170 = mul nsw i32 %169, %166
+  %171 = sext i32 %170 to i64
+  %172 = getelementptr inbounds i8, ptr %164, i64 %171
+  %173 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %174 = load i32, ptr %173, align 8, !tbaa !41
+  %175 = sub nsw i32 0, %166
+  %176 = tail call fastcc i32 @loco_decode_plane(ptr noundef nonnull %6, ptr noundef %172, i32 noundef %174, i32 noundef %168, i32 noundef %175, ptr noundef %8, i32 noundef %10)
+  %177 = icmp sgt i32 %176, -1
+  %.not = icmp slt i32 %176, %10
+  %or.cond235 = select i1 %177, i1 %.not, i1 false
+  br i1 %or.cond235, label %178, label %233
 
-181:                                              ; preds = %165
-  %182 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %183 = zext nneg i32 %179 to i64
-  %184 = getelementptr inbounds nuw i8, ptr %8, i64 %183
-  %185 = sub nsw i32 %10, %179
-  %186 = load ptr, ptr %1, align 8, !tbaa !40
-  %187 = load i32, ptr %182, align 8, !tbaa !43
-  %188 = load i32, ptr %170, align 4, !tbaa !42
-  %189 = add nsw i32 %188, -1
-  %190 = mul nsw i32 %189, %187
-  %191 = sext i32 %190 to i64
-  %192 = getelementptr inbounds i8, ptr %186, i64 %191
-  %193 = load i32, ptr %176, align 8, !tbaa !41
-  %194 = sub nsw i32 0, %187
-  %195 = tail call fastcc i32 @loco_decode_plane(ptr noundef nonnull %6, ptr noundef %192, i32 noundef %193, i32 noundef %188, i32 noundef %194, ptr noundef %184, i32 noundef %185)
-  %196 = icmp sgt i32 %195, -1
-  %.not221 = icmp slt i32 %195, %185
-  %or.cond236 = and i1 %196, %.not221
-  br i1 %or.cond236, label %197, label %237
+178:                                              ; preds = %162
+  %179 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %180 = zext nneg i32 %176 to i64
+  %181 = getelementptr inbounds nuw i8, ptr %8, i64 %180
+  %182 = sub nsw i32 %10, %176
+  %183 = load ptr, ptr %1, align 8, !tbaa !40
+  %184 = load i32, ptr %179, align 8, !tbaa !43
+  %185 = load i32, ptr %167, align 4, !tbaa !42
+  %186 = add nsw i32 %185, -1
+  %187 = mul nsw i32 %186, %184
+  %188 = sext i32 %187 to i64
+  %189 = getelementptr inbounds i8, ptr %183, i64 %188
+  %190 = load i32, ptr %173, align 8, !tbaa !41
+  %191 = sub nsw i32 0, %184
+  %192 = tail call fastcc i32 @loco_decode_plane(ptr noundef nonnull %6, ptr noundef %189, i32 noundef %190, i32 noundef %185, i32 noundef %191, ptr noundef %181, i32 noundef %182)
+  %or.cond236 = icmp ult i32 %192, %182
+  br i1 %or.cond236, label %193, label %233
 
-197:                                              ; preds = %181
-  %198 = zext nneg i32 %195 to i64
-  %199 = getelementptr inbounds nuw i8, ptr %184, i64 %198
-  %200 = sub nsw i32 %185, %195
-  %201 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %202 = load ptr, ptr %201, align 8, !tbaa !40
-  %203 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %204 = load i32, ptr %203, align 8, !tbaa !43
-  %205 = load i32, ptr %170, align 4, !tbaa !42
-  %206 = add nsw i32 %205, -1
-  %207 = mul nsw i32 %206, %204
-  %208 = sext i32 %207 to i64
-  %209 = getelementptr inbounds i8, ptr %202, i64 %208
-  %210 = load i32, ptr %176, align 8, !tbaa !41
-  %211 = sub nsw i32 0, %204
-  %212 = tail call fastcc i32 @loco_decode_plane(ptr noundef nonnull %6, ptr noundef %209, i32 noundef %210, i32 noundef %205, i32 noundef %211, ptr noundef %199, i32 noundef %200)
-  %213 = icmp sgt i32 %212, -1
-  %.not222 = icmp slt i32 %212, %200
-  %or.cond237 = and i1 %213, %.not222
-  br i1 %or.cond237, label %214, label %237
+193:                                              ; preds = %178
+  %194 = zext nneg i32 %192 to i64
+  %195 = getelementptr inbounds nuw i8, ptr %181, i64 %194
+  %196 = sub nuw nsw i32 %182, %192
+  %197 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %198 = load ptr, ptr %197, align 8, !tbaa !40
+  %199 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %200 = load i32, ptr %199, align 8, !tbaa !43
+  %201 = load i32, ptr %167, align 4, !tbaa !42
+  %202 = add nsw i32 %201, -1
+  %203 = mul nsw i32 %202, %200
+  %204 = sext i32 %203 to i64
+  %205 = getelementptr inbounds i8, ptr %198, i64 %204
+  %206 = load i32, ptr %173, align 8, !tbaa !41
+  %207 = sub nsw i32 0, %200
+  %208 = tail call fastcc i32 @loco_decode_plane(ptr noundef nonnull %6, ptr noundef %205, i32 noundef %206, i32 noundef %201, i32 noundef %207, ptr noundef %195, i32 noundef %196)
+  %209 = icmp sgt i32 %208, -1
+  %.not222 = icmp slt i32 %208, %196
+  %or.cond237 = and i1 %209, %.not222
+  br i1 %or.cond237, label %210, label %233
 
-214:                                              ; preds = %197
-  %215 = zext nneg i32 %212 to i64
-  %216 = getelementptr inbounds nuw i8, ptr %199, i64 %215
-  %217 = sub nsw i32 %200, %212
-  %218 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %219 = load ptr, ptr %218, align 8, !tbaa !40
-  %220 = getelementptr inbounds nuw i8, ptr %1, i64 76
-  %221 = load i32, ptr %220, align 4, !tbaa !43
-  %222 = load i32, ptr %170, align 4, !tbaa !42
-  %223 = add nsw i32 %222, -1
-  %224 = mul nsw i32 %223, %221
-  %225 = sext i32 %224 to i64
-  %226 = getelementptr inbounds i8, ptr %219, i64 %225
-  %227 = load i32, ptr %176, align 8, !tbaa !41
-  %228 = sub nsw i32 0, %221
-  %229 = tail call fastcc i32 @loco_decode_plane(ptr noundef nonnull %6, ptr noundef %226, i32 noundef %227, i32 noundef %222, i32 noundef %228, ptr noundef %216, i32 noundef %217)
-  br label %231
+210:                                              ; preds = %193
+  %211 = zext nneg i32 %208 to i64
+  %212 = getelementptr inbounds nuw i8, ptr %195, i64 %211
+  %213 = sub nsw i32 %196, %208
+  %214 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %215 = load ptr, ptr %214, align 8, !tbaa !40
+  %216 = getelementptr inbounds nuw i8, ptr %1, i64 76
+  %217 = load i32, ptr %216, align 4, !tbaa !43
+  %218 = load i32, ptr %167, align 4, !tbaa !42
+  %219 = add nsw i32 %218, -1
+  %220 = mul nsw i32 %219, %217
+  %221 = sext i32 %220 to i64
+  %222 = getelementptr inbounds i8, ptr %215, i64 %221
+  %223 = load i32, ptr %173, align 8, !tbaa !41
+  %224 = sub nsw i32 0, %217
+  %225 = tail call fastcc i32 @loco_decode_plane(ptr noundef nonnull %6, ptr noundef %222, i32 noundef %223, i32 noundef %218, i32 noundef %224, ptr noundef %212, i32 noundef %213)
+  br label %227
 
-230:                                              ; preds = %13
+226:                                              ; preds = %13
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 272) #10
   tail call void @abort() #11
   unreachable
 
-231:                                              ; preds = %120, %138, %214, %75, %39
-  %.0204 = phi i32 [ %42, %39 ], [ %78, %75 ], [ %123, %138 ], [ %123, %120 ], [ %217, %214 ]
-  %.0203 = phi i32 [ %50, %39 ], [ %87, %75 ], [ %135, %138 ], [ %135, %120 ], [ %229, %214 ]
-  %232 = icmp slt i32 %.0203, 0
-  %233 = icmp sgt i32 %.0203, %.0204
-  %or.cond238 = or i1 %232, %233
-  br i1 %or.cond238, label %237, label %234
+227:                                              ; preds = %117, %135, %210, %73, %38
+  %.0204 = phi i32 [ %41, %38 ], [ %76, %73 ], [ %120, %135 ], [ %120, %117 ], [ %213, %210 ]
+  %.0203 = phi i32 [ %49, %38 ], [ %85, %73 ], [ %132, %135 ], [ %132, %117 ], [ %225, %210 ]
+  %228 = icmp slt i32 %.0203, 0
+  %229 = icmp sgt i32 %.0203, %.0204
+  %or.cond238 = or i1 %228, %229
+  br i1 %or.cond238, label %233, label %230
 
-234:                                              ; preds = %231
+230:                                              ; preds = %227
   %.neg = sub nsw i32 %.0203, %.0204
   store i32 1, ptr %2, align 4, !tbaa !43
-  %235 = load i32, ptr %9, align 8, !tbaa !39
-  %236 = add i32 %.neg, %235
-  br label %238
+  %231 = load i32, ptr %9, align 8, !tbaa !39
+  %232 = add i32 %.neg, %231
+  br label %234
 
-237:                                              ; preds = %231, %197, %181, %165, %105, %88, %61, %51, %26, %16
+233:                                              ; preds = %227, %193, %178, %162, %103, %86, %60, %50, %26, %16
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.10) #10
-  br label %238
+  br label %234
 
-238:                                              ; preds = %4, %237, %234
-  %.0 = phi i32 [ -22, %237 ], [ %236, %234 ], [ %11, %4 ]
+234:                                              ; preds = %4, %233, %230
+  %.0 = phi i32 [ -22, %233 ], [ %232, %230 ], [ %11, %4 ]
   ret i32 %.0
 }
 
@@ -681,7 +673,7 @@ define internal fastcc void @rotate_faulty_loco(ptr noundef captures(none) %0, i
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %12
-  %21 = getelementptr inbounds i8, ptr %14, i64 %17
+  %21 = getelementptr inbounds nuw i8, ptr %14, i64 %17
   %22 = mul nsw i64 %18, %7
   %23 = getelementptr inbounds i8, ptr %0, i64 %22
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %21, ptr noundef nonnull align 1 dereferenceable(1) %23, i64 %indvars.iv, i1 false)

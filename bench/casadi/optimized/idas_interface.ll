@@ -6828,7 +6828,7 @@ _ZN6casadi12casadi_clearIdEEvPT_x.exit.i103:      ; preds = %.lr.ph.preheader.i.
 
 169:                                              ; preds = %.lr.ph62.i116
   %170 = sub nsw i64 %167, %76
-  %171 = getelementptr inbounds double, ptr %135, i64 %170
+  %171 = getelementptr inbounds nuw double, ptr %135, i64 %170
   %172 = load double, ptr %171, align 8, !tbaa !144
   %173 = getelementptr inbounds double, ptr %132, i64 %.160.i117
   store double %172, ptr %173, align 8, !tbaa !144
@@ -7048,7 +7048,7 @@ _ZN6casadi12casadi_clearIdEEvPT_x.exit.i153:      ; preds = %.lr.ph.preheader.i.
 
 269:                                              ; preds = %.lr.ph62.i167
   %270 = sub nsw i64 %267, %76
-  %271 = getelementptr inbounds double, ptr %235, i64 %270
+  %271 = getelementptr inbounds nuw double, ptr %235, i64 %270
   %272 = load double, ptr %271, align 8, !tbaa !144
   %273 = getelementptr inbounds double, ptr %232, i64 %.160.i168
   store double %272, ptr %273, align 8, !tbaa !144

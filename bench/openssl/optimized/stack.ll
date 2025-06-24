@@ -468,8 +468,8 @@ define range(i32 -2147483647, -2147483648) i32 @OPENSSL_sk_insert(ptr noundef ca
   %23 = getelementptr inbounds nuw ptr, ptr %17, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = sub nsw i32 %13, %2
-  %26 = sext i32 %25 to i64
-  %27 = shl nsw i64 %26, 3
+  %26 = zext nneg i32 %25 to i64
+  %27 = shl nuw nsw i64 %26, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %24, ptr align 8 %23, i64 %27, i1 false)
   %28 = load ptr, ptr %16, align 8, !tbaa !14
   %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %22
@@ -1038,8 +1038,8 @@ define range(i32 -2147483647, -2147483648) i32 @OPENSSL_sk_push(ptr noundef capt
   %21 = getelementptr inbounds nuw ptr, ptr %15, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = sub nsw i32 %11, %5
-  %24 = sext i32 %23 to i64
-  %25 = shl nsw i64 %24, 3
+  %24 = zext nneg i32 %23 to i64
+  %25 = shl nuw nsw i64 %24, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %22, ptr align 8 %21, i64 %25, i1 false)
   %26 = load ptr, ptr %14, align 8, !tbaa !14
   %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %20

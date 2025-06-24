@@ -1574,8 +1574,8 @@ define internal fastcc void @Exp_Truth8(i32 noundef range(i32 0, 16) %0, i32 %.4
 54:                                               ; preds = %.lr.ph
   %55 = sub nsw i32 %44, %0
   %56 = shl nsw i32 %55, 2
-  %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds i64, ptr %35, i64 %57
+  %57 = zext nneg i32 %56 to i64
+  %58 = getelementptr inbounds nuw i64, ptr %35, i64 %57
   br label %59
 
 59:                                               ; preds = %54, %50
@@ -1592,8 +1592,8 @@ define internal fastcc void @Exp_Truth8(i32 noundef range(i32 0, 16) %0, i32 %.4
 66:                                               ; preds = %59
   %67 = sub nsw i32 %46, %0
   %68 = shl nsw i32 %67, 2
-  %69 = sext i32 %68 to i64
-  %70 = getelementptr inbounds i64, ptr %35, i64 %69
+  %69 = zext nneg i32 %68 to i64
+  %70 = getelementptr inbounds nuw i64, ptr %35, i64 %69
   br label %71
 
 71:                                               ; preds = %66, %62

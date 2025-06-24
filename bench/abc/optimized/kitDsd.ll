@@ -769,8 +769,8 @@ Kit_DsdNtkObj.exit:                               ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !40
   %9 = sub nsw i32 %2, %5
-  %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds ptr, ptr %8, i64 %10
+  %10 = zext nneg i32 %9 to i64
+  %11 = getelementptr inbounds nuw ptr, ptr %8, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !41
   %13 = icmp eq ptr %12, null
   br i1 %13, label %Kit_DsdNtkObj.exit.thread, label %15
@@ -901,8 +901,8 @@ Kit_DsdNtkObj.exit:                               ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !40
   %9 = sub nsw i32 %2, %5
-  %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds ptr, ptr %8, i64 %10
+  %10 = zext nneg i32 %9 to i64
+  %11 = getelementptr inbounds nuw ptr, ptr %8, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !41
   %13 = icmp eq ptr %12, null
   br i1 %13, label %Kit_DsdNtkObj.exit.thread, label %15
@@ -1067,8 +1067,8 @@ Kit_DsdNtkObj.exit:                               ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !40
   %9 = sub nsw i32 %2, %5
-  %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds ptr, ptr %8, i64 %10
+  %10 = zext nneg i32 %9 to i64
+  %11 = getelementptr inbounds nuw ptr, ptr %8, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !41
   %13 = icmp eq ptr %12, null
   br i1 %13, label %Kit_DsdNtkObj.exit.thread, label %17
@@ -1629,8 +1629,8 @@ Kit_DsdNtkObj.exit:                               ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load ptr, ptr %14, align 8, !tbaa !40
   %16 = sub nsw i32 %2, %6
-  %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds ptr, ptr %15, i64 %17
+  %17 = zext nneg i32 %16 to i64
+  %18 = getelementptr inbounds nuw ptr, ptr %15, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !41
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load ptr, ptr %20, align 8, !tbaa !25
@@ -2147,8 +2147,8 @@ Kit_DsdNtkObj.exit:                               ; preds = %4
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %16 = load ptr, ptr %15, align 8, !tbaa !40
   %17 = sub nsw i32 %2, %7
-  %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds ptr, ptr %16, i64 %18
+  %18 = zext nneg i32 %17 to i64
+  %19 = getelementptr inbounds nuw ptr, ptr %16, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !41
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8, !tbaa !25
@@ -2928,8 +2928,8 @@ Kit_DsdNtkObj.exit:                               ; preds = %6
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %19 = load ptr, ptr %18, align 8, !tbaa !40
   %20 = sub nsw i32 %2, %10
-  %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds ptr, ptr %19, i64 %21
+  %21 = zext nneg i32 %20 to i64
+  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !41
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %25 = load ptr, ptr %24, align 8, !tbaa !25
@@ -2975,8 +2975,8 @@ Kit_DsdNtkObj.exit:                               ; preds = %6
 
 45:                                               ; preds = %41
   %46 = sub nsw i32 %40, %10
-  %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds i32, ptr %35, i64 %47
+  %47 = zext nneg i32 %46 to i64
+  %48 = getelementptr inbounds nuw i32, ptr %35, i64 %47
   %49 = load i32, ptr %48, align 4, !tbaa !20
   br label %Kit_DsdLitSupport.exit
 
@@ -4388,8 +4388,8 @@ Kit_DsdNtkObj.exit:                               ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8, !tbaa !40
   %10 = sub nsw i32 %2, %6
-  %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds ptr, ptr %9, i64 %11
+  %11 = zext nneg i32 %10 to i64
+  %12 = getelementptr inbounds nuw ptr, ptr %9, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !41
   %14 = icmp eq ptr %13, null
   br i1 %14, label %Kit_DsdNtkObj.exit.thread, label %15
@@ -4754,8 +4754,8 @@ Kit_DsdNtkObj.exit.thread:                        ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8, !tbaa !40
   %11 = sub nsw i32 %5, %7
-  %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds ptr, ptr %10, i64 %12
+  %12 = zext nneg i32 %11 to i64
+  %13 = getelementptr inbounds nuw ptr, ptr %10, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !41
   %15 = and i32 %1, 1
   %.not18 = icmp eq i32 %15, 0
@@ -4813,8 +4813,8 @@ define void @Kit_DsdExpandCollectXor_rec(ptr noundef readonly captures(none) %0,
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8, !tbaa !40
   %12 = sub nsw i32 %5, %7
-  %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds ptr, ptr %11, i64 %13
+  %13 = zext nneg i32 %12 to i64
+  %14 = getelementptr inbounds nuw ptr, ptr %11, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !41
   %16 = load i32, ptr %15, align 4
   %17 = and i32 %16, 448
@@ -4883,8 +4883,8 @@ Kit_DsdNtkObj.exit:                               ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load ptr, ptr %10, align 8, !tbaa !40
   %12 = sub nsw i32 %6, %8
-  %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds ptr, ptr %11, i64 %13
+  %13 = zext nneg i32 %12 to i64
+  %14 = getelementptr inbounds nuw ptr, ptr %11, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !41
   %16 = icmp eq ptr %15, null
   br i1 %16, label %Kit_DsdNtkObj.exit.thread, label %17
@@ -5372,8 +5372,8 @@ Kit_DsdNtkObj.exit:                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = load ptr, ptr %11, align 8, !tbaa !40
   %13 = sub nsw i32 %7, %9
-  %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds ptr, ptr %12, i64 %14
+  %14 = zext nneg i32 %13 to i64
+  %15 = getelementptr inbounds nuw ptr, ptr %12, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !41
   %17 = icmp eq ptr %16, null
   br i1 %17, label %Kit_DsdNtkObj.exit.thread, label %18
@@ -5449,8 +5449,8 @@ Kit_DsdLitSupport.exit.us.preheader:              ; preds = %.lr.ph134
 
 44:                                               ; preds = %.lr.ph134.split
   %45 = sub nsw i32 %40, %9
-  %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds i32, ptr %32, i64 %46
+  %46 = zext nneg i32 %45 to i64
+  %47 = getelementptr inbounds nuw i32, ptr %32, i64 %46
   %48 = load i32, ptr %47, align 4, !tbaa !20
   br label %Kit_DsdLitSupport.exit
 
@@ -5566,8 +5566,8 @@ Kit_DsdObjAlloc.exit:                             ; preds = %._crit_edge.i, %77
 
 107:                                              ; preds = %.lr.ph.split
   %108 = sub nsw i32 %103, %9
-  %109 = sext i32 %108 to i64
-  %110 = getelementptr inbounds i32, ptr %25, i64 %109
+  %109 = zext nneg i32 %108 to i64
+  %110 = getelementptr inbounds nuw i32, ptr %25, i64 %109
   %111 = load i32, ptr %110, align 4, !tbaa !20
   br label %Kit_DsdLitSupport.exit110
 
@@ -6140,8 +6140,8 @@ Kit_DsdNtkObj.exit:                               ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !40
   %9 = sub nsw i32 %3, %5
-  %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds ptr, ptr %8, i64 %10
+  %10 = zext nneg i32 %9 to i64
+  %11 = getelementptr inbounds nuw ptr, ptr %8, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !41
   %13 = icmp eq ptr %12, null
   br i1 %13, label %.thread, label %.preheader
@@ -6170,7 +6170,7 @@ Kit_DsdNtkObj.exit.thread:                        ; preds = %2
   br i1 %.not.i21, label %Kit_DsdLitSupport.exit, label %.thread22
 
 .thread22:                                        ; preds = %.thread
-  %21 = getelementptr inbounds i32, ptr %20, i64 %10
+  %21 = getelementptr inbounds nuw i32, ptr %20, i64 %10
   %22 = load i32, ptr %21, align 4, !tbaa !20
   br label %Kit_DsdLitSupport.exit
 
@@ -6223,8 +6223,8 @@ Kit_DsdNtkObj.exit:                               ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !40
   %9 = sub nsw i32 %1, %5
-  %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds ptr, ptr %8, i64 %10
+  %10 = zext nneg i32 %9 to i64
+  %11 = getelementptr inbounds nuw ptr, ptr %8, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !41
   %13 = icmp eq ptr %12, null
   br i1 %13, label %.critedge, label %14
@@ -6286,8 +6286,8 @@ Kit_DsdNtkObj.exit:                               ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8, !tbaa !40
   %8 = sub nsw i32 %1, %4
-  %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds ptr, ptr %7, i64 %9
+  %9 = zext nneg i32 %8 to i64
+  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !41
   %12 = icmp eq ptr %11, null
   br i1 %12, label %.critedge, label %13

@@ -2970,8 +2970,8 @@ define hidden void @UshortGrayDrawGlyphListAA(ptr noundef readonly captures(none
   %48 = icmp slt i32 %35, %5
   %49 = sub nsw i32 %5, %35
   %narrow = select i1 %48, i32 %49, i32 0
-  %.093.idx = sext i32 %narrow to i64
-  %.093 = getelementptr inbounds i8, ptr %32, i64 %.093.idx
+  %.093.idx = zext i32 %narrow to i64
+  %.093 = getelementptr inbounds nuw i8, ptr %32, i64 %.093.idx
   %50 = sub nsw i32 %6, %37
   %51 = mul nsw i32 %50, %46
   %narrow112 = select i1 %47, i32 %51, i32 0

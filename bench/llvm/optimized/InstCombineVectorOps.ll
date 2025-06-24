@@ -14146,7 +14146,7 @@ _ZN4llvm11SmallVectorIiLj16EED2Ev.exit:           ; preds = %._crit_edge, %70
 
 83:                                               ; preds = %75
   %84 = sub nsw i32 %73, %52
-  %85 = zext i32 %84 to i64
+  %85 = zext nneg i32 %84 to i64
   %86 = load ptr, ptr %58, align 8, !tbaa !3
   %87 = getelementptr inbounds nuw i32, ptr %86, i64 %85
   %88 = load i32, ptr %87, align 4, !tbaa !201

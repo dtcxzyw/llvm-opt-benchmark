@@ -441,8 +441,8 @@ define internal fastcc range(i32 0, 2) i32 @BN_from_montgomery_word(ptr noundef 
   %27 = sext i32 %24 to i64
   %28 = getelementptr inbounds i64, ptr %22, i64 %27
   %29 = sub nsw i32 %11, %24
-  %30 = sext i32 %29 to i64
-  %31 = shl nsw i64 %30, 3
+  %30 = zext nneg i32 %29 to i64
+  %31 = shl nuw nsw i64 %30, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %28, i8 0, i64 %31, i1 false)
   br label %32
 

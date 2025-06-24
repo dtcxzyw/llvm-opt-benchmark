@@ -1244,8 +1244,8 @@ define internal noundef i32 @_ZL7str_subP9lua_State(ptr noundef %0) #0 {
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 %19
   %21 = getelementptr inbounds i8, ptr %20, i64 -1
   %reass.sub = sub nsw i32 %spec.select, %17
-  %22 = add nsw i32 %reass.sub, 1
-  %23 = sext i32 %22 to i64
+  %22 = add nuw nsw i32 %reass.sub, 1
+  %23 = zext nneg i32 %22 to i64
   call void @_Z15lua_pushlstringP9lua_StatePKcm(ptr noundef %0, ptr noundef nonnull %21, i64 noundef %23)
   br label %25
 

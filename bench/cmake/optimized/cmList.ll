@@ -16803,7 +16803,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %17
 
 28:                                               ; preds = %2
   %29 = sub nsw i64 %9, %10
-  %30 = add nsw i64 %29, 1
+  %30 = add nuw nsw i64 %29, 1
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %32 = load i64, ptr %31, align 8, !tbaa !133
   %33 = sdiv i64 %30, %32

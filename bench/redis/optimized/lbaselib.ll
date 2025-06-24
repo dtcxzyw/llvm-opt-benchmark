@@ -781,7 +781,7 @@ define internal i32 @luaB_unpack(ptr noundef %0) #0 {
 
 13:                                               ; preds = %10
   %14 = sub nsw i32 %11, %3
-  %15 = add nsw i32 %14, 1
+  %15 = add nuw nsw i32 %14, 1
   %16 = tail call i32 @lua_checkstack(ptr noundef %0, i32 noundef %15) #8
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %17, label %19
@@ -796,8 +796,8 @@ define internal i32 @luaB_unpack(ptr noundef %0) #0 {
   br i1 %20, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %19, %.lr.ph
-  %.02024 = phi i32 [ %21, %.lr.ph ], [ %3, %19 ]
-  %21 = add nsw i32 %.02024, 1
+  %.02023 = phi i32 [ %21, %.lr.ph ], [ %3, %19 ]
+  %21 = add nsw i32 %.02023, 1
   tail call void @lua_rawgeti(ptr noundef %0, i32 noundef 1, i32 noundef %21) #8
   %exitcond.not = icmp eq i32 %21, %11
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !23

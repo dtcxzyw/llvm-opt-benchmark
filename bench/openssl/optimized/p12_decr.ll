@@ -87,8 +87,8 @@ define ptr @PKCS12_pbe_crypt_ex(ptr noundef readonly captures(none) %0, ptr noun
 
 42:                                               ; preds = %39
   %43 = sub nsw i32 %4, %36
-  %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds i8, ptr %3, i64 %44
+  %44 = zext nneg i32 %43 to i64
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 %44
   %46 = call i32 @EVP_CIPHER_CTX_ctrl(ptr noundef nonnull %13, i32 noundef 17, i32 noundef %36, ptr noundef %45) #3
   %47 = icmp slt i32 %46, 0
   br i1 %47, label %48, label %49

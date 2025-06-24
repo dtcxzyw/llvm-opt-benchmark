@@ -2315,8 +2315,8 @@ cbuf_grow.exit:                                   ; preds = %39, %74
 95:                                               ; preds = %92
   %96 = sub nsw i32 %.053, %93
   %97 = sub nsw i32 %15, %96
-  %98 = sext i32 %96 to i64
-  %99 = getelementptr inbounds i8, ptr %1, i64 %98
+  %98 = zext nneg i32 %96 to i64
+  %99 = getelementptr inbounds nuw i8, ptr %1, i64 %98
   store ptr %99, ptr %6, align 8
   br label %100
 

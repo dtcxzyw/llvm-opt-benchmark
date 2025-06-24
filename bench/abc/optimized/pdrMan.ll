@@ -2600,8 +2600,8 @@ define noundef ptr @Pdr_ManDeriveCexAbs(ptr noundef captures(none) %0) local_unn
   %45 = load ptr, ptr %27, align 8, !tbaa !170
   %46 = getelementptr i8, ptr %45, i64 8
   %.val145 = load ptr, ptr %46, align 8, !tbaa !30
-  %47 = sext i32 %44 to i64
-  %48 = getelementptr inbounds i32, ptr %.val145, i64 %47
+  %47 = zext nneg i32 %44 to i64
+  %48 = getelementptr inbounds nuw i32, ptr %.val145, i64 %47
   %49 = load i32, ptr %48, align 4, !tbaa !33
   %50 = icmp sgt i32 %49, -1
   br i1 %50, label %83, label %51
@@ -2807,8 +2807,8 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %149 = sub nsw i32 %139, %.val153
   %150 = getelementptr i8, ptr %148, i64 8
   %.val143 = load ptr, ptr %150, align 8, !tbaa !30
-  %151 = sext i32 %149 to i64
-  %152 = getelementptr inbounds i32, ptr %.val143, i64 %151
+  %151 = zext nneg i32 %149 to i64
+  %152 = getelementptr inbounds nuw i32, ptr %.val143, i64 %151
   %153 = load i32, ptr %152, align 4, !tbaa !33
   %154 = load i32, ptr %122, align 4, !tbaa !166
   %155 = load i32, ptr %123, align 4, !tbaa !165

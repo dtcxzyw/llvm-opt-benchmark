@@ -241,22 +241,22 @@ findindex.exit:                                   ; preds = %3, %15, %98, %112
 .lr.ph:                                           ; preds = %135
   %143 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %144 = load ptr, ptr %143, align 8, !tbaa !17
-  %145 = sext i32 %indvars.iv61 to i64
-  %146 = zext nneg i32 %141 to i64
+  %145 = zext i32 %indvars.iv61 to i64
   br label %149
 
-147:                                              ; preds = %149
-  %indvars.iv.next65 = add nsw i64 %indvars.iv64, 1
-  %148 = icmp slt i64 %indvars.iv.next65, %146
+146:                                              ; preds = %149
+  %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
+  %147 = trunc nuw i64 %indvars.iv.next65 to i32
+  %148 = icmp sgt i32 %141, %147
   br i1 %148, label %149, label %.loopexit, !llvm.loop !23
 
-149:                                              ; preds = %.lr.ph, %147
-  %indvars.iv64 = phi i64 [ %145, %.lr.ph ], [ %indvars.iv.next65, %147 ]
-  %150 = getelementptr inbounds %struct.Node, ptr %144, i64 %indvars.iv64
+149:                                              ; preds = %.lr.ph, %146
+  %indvars.iv64 = phi i64 [ %145, %.lr.ph ], [ %indvars.iv.next65, %146 ]
+  %150 = getelementptr inbounds nuw %struct.Node, ptr %144, i64 %indvars.iv64
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 8
   %152 = load i32, ptr %151, align 8, !tbaa !24
   %153 = icmp eq i32 %152, 0
-  br i1 %153, label %147, label %154
+  br i1 %153, label %146, label %154
 
 154:                                              ; preds = %149
   %155 = getelementptr inbounds nuw i8, ptr %150, i64 16
@@ -266,7 +266,7 @@ findindex.exit:                                   ; preds = %3, %15, %98, %112
   %158 = load i32, ptr %157, align 8, !tbaa !4
   store i32 %158, ptr %4, align 8, !tbaa !4
   %159 = load ptr, ptr %143, align 8, !tbaa !17
-  %160 = getelementptr inbounds %struct.Node, ptr %159, i64 %indvars.iv64
+  %160 = getelementptr inbounds nuw %struct.Node, ptr %159, i64 %indvars.iv64
   %161 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %162 = load i64, ptr %160, align 8, !tbaa !9
   store i64 %162, ptr %161, align 8, !tbaa !9
@@ -280,8 +280,8 @@ findindex.exit:                                   ; preds = %3, %15, %98, %112
   store i32 %164, ptr %165, align 8, !tbaa !4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %147, %.loopexit.sink.split, %135
-  %.0 = phi i32 [ 0, %135 ], [ 1, %.loopexit.sink.split ], [ 0, %147 ]
+.loopexit:                                        ; preds = %146, %.loopexit.sink.split, %135
+  %.0 = phi i32 [ 0, %135 ], [ 1, %.loopexit.sink.split ], [ 0, %146 ]
   ret i32 %.0
 }
 

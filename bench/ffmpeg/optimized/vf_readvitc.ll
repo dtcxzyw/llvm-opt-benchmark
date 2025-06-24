@@ -53,18 +53,18 @@ define internal range(i32 -22, 1) i32 @init(ptr noundef %0) #0 {
 
 15:                                               ; preds = %1
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.17, double noundef %5, double noundef %10) #6
-  br label %20
+  br label %21
 
 16:                                               ; preds = %1
   %17 = sub nsw i32 %12, %7
-  %.neg = sdiv i32 %17, -2
-  %18 = add i32 %.neg, %12
-  %19 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store i32 %18, ptr %19, align 8, !tbaa !26
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.18, i32 noundef %7, i32 noundef %12, i32 noundef %18) #6
-  br label %20
+  %18 = lshr i32 %17, 1
+  %19 = sub nsw i32 %12, %18
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  store i32 %19, ptr %20, align 8, !tbaa !26
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.18, i32 noundef %7, i32 noundef %12, i32 noundef %19) #6
+  br label %21
 
-20:                                               ; preds = %16, %15
+21:                                               ; preds = %16, %15
   %.0 = phi i32 [ -22, %15 ], [ 0, %16 ]
   ret i32 %.0
 }

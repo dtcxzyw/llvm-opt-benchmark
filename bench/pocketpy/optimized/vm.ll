@@ -12890,7 +12890,7 @@ define internal fastcc void @"_ZZN4pkpy2VM11disassembleESt10shared_ptrINS_10Code
 
 9:                                                ; preds = %3
   %10 = sub nsw i32 %2, %7
-  %11 = sext i32 %10 to i64
+  %11 = zext nneg i32 %10 to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #29
   %12 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %.noexc unwind label %17

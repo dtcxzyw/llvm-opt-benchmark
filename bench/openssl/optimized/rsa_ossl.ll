@@ -1943,7 +1943,7 @@ define internal fastcc range(i32 0, 2) i32 @derive_kdk(i32 noundef range(i32 1, 
 
 42:                                               ; preds = %40
   %43 = sub nsw i32 %4, %0
-  %44 = sext i32 %43 to i64
+  %44 = zext nneg i32 %43 to i64
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %3, i8 0, i64 %44, i1 false)
   %45 = call i32 @HMAC_Update(ptr noundef nonnull %33, ptr noundef nonnull %3, i64 noundef %44) #9
   %46 = icmp slt i32 %45, 1

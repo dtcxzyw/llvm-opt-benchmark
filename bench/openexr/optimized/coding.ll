@@ -216,8 +216,8 @@ compute_sampled_width.exit.us:                    ; preds = %85, %compute_sample
 
 119:                                              ; preds = %111
   %120 = sub nsw i32 %117, %.0.i
-  %121 = sdiv i32 %120, %109
-  %122 = add nsw i32 %121, 1
+  %121 = udiv i32 %120, %109
+  %122 = add nuw nsw i32 %121, 1
   br label %compute_sampled_height.exit
 
 compute_sampled_height.exit:                      ; preds = %.lr.ph.split, %111, %119
@@ -443,8 +443,8 @@ compute_sampled_width.exit.us:                    ; preds = %69, %compute_sample
 
 99:                                               ; preds = %91
   %100 = sub nsw i32 %97, %.0.i.us
-  %101 = sdiv i32 %100, %89
-  %102 = add nsw i32 %101, 1
+  %101 = udiv i32 %100, %89
+  %102 = add nuw nsw i32 %101, 1
   br label %compute_sampled_height.exit.us41
 
 compute_sampled_height.exit.us41:                 ; preds = %99, %91, %.lr.ph.split.split.us
@@ -507,8 +507,8 @@ compute_sampled_height.exit.us41:                 ; preds = %99, %91, %.lr.ph.sp
 
 138:                                              ; preds = %130
   %139 = sub nsw i32 %136, %.0.i
-  %140 = sdiv i32 %139, %128
-  %141 = add nsw i32 %140, 1
+  %140 = udiv i32 %139, %128
+  %141 = add nuw nsw i32 %140, 1
   br label %compute_sampled_height.exit
 
 compute_sampled_height.exit:                      ; preds = %.lr.ph.split.split, %130, %138

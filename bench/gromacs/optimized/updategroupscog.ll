@@ -298,7 +298,7 @@ _ZN3gmx15UpdateGroupsCog12IndexToGroupD2Ev.exit40: ; preds = %98, %101
 
 114:                                              ; preds = %106
   %115 = sub nsw i32 %112, %110
-  %116 = sext i32 %115 to i64
+  %116 = zext nneg i32 %115 to i64
   %117 = load ptr, ptr %62, align 8, !tbaa !35
   %118 = ptrtoint ptr %108 to i64
   %119 = ptrtoint ptr %117 to i64
@@ -333,7 +333,7 @@ _ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit.i: ; preds = %.l
 130:                                              ; preds = %121
   %131 = ashr exact i64 %120, 2
   %132 = sub nsw i64 2305843009213693951, %131
-  %133 = icmp ult i64 %132, %116
+  %133 = icmp samesign ult i64 %132, %116
   br i1 %133, label %134, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i
 
 134:                                              ; preds = %130

@@ -479,7 +479,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_init(ptr noundef %0) #0 {
   %indvars276 = trunc i64 %indvars.iv274 to i32
   %199 = sub nsw i32 %172, %indvars276
   %..2183 = tail call i32 @llvm.smin.i32(i32 %indvars276, i32 %199)
-  %200 = mul nsw i32 %..2183, %..2183
+  %200 = mul nuw nsw i32 %..2183, %..2183
   %201 = add nuw nsw i32 %200, 1
   %202 = udiv i32 100000000, %201
   %203 = zext nneg i32 %202 to i64
@@ -547,7 +547,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_init(ptr noundef %0) #0 {
   %indvars285 = trunc i64 %indvars.iv283 to i32
   %230 = sub nsw i32 %220, %indvars285
   %..3184 = tail call i32 @llvm.smin.i32(i32 %indvars285, i32 %230)
-  %231 = mul nsw i32 %..3184, %..3184
+  %231 = mul nuw nsw i32 %..3184, %..3184
   %232 = add nuw nsw i32 %231, 1
   %233 = sdiv i32 %229, %232
   %234 = sext i32 %233 to i64

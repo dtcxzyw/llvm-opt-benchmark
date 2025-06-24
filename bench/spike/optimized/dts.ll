@@ -921,7 +921,7 @@ define internal fastcc void @_ZL11dtc_compileRKNSt7__cxx1112basic_stringIcSt11ch
   %40 = sext i32 %.02338 to i64
   %41 = getelementptr inbounds i8, ptr %29, i64 %40
   %42 = sub nsw i32 %28, %.02338
-  %43 = sext i32 %42 to i64
+  %43 = zext nneg i32 %42 to i64
   %44 = call i64 @write(i32 noundef %39, ptr noundef %41, i64 noundef %43)
   %45 = trunc i64 %44 to i32
   %46 = icmp eq i32 %45, -1

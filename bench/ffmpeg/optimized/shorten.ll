@@ -989,8 +989,8 @@ init_offset.exit.i:                               ; preds = %445
   %479 = sext i32 %476 to i64
   %480 = getelementptr inbounds i8, ptr %474, i64 %479
   %481 = sub i32 %472, %476
-  %482 = sext i32 %481 to i64
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %480, i8 0, i64 %482, i1 false)
+  %482 = zext nneg i32 %481 to i64
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %480, i8 0, i64 %482, i1 false)
   %.pre901 = load i32, ptr %11, align 4, !tbaa !35
   br label %483
 

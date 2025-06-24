@@ -675,8 +675,8 @@ define hidden void @ByteBinary1BitDrawGlyphList(ptr noundef readonly captures(no
   %37 = icmp slt i32 %24, %5
   %38 = sub nsw i32 %5, %24
   %narrow = select i1 %37, i32 %38, i32 0
-  %.093.idx = sext i32 %narrow to i64
-  %.093 = getelementptr inbounds i8, ptr %21, i64 %.093.idx
+  %.093.idx = zext i32 %narrow to i64
+  %.093 = getelementptr inbounds nuw i8, ptr %21, i64 %.093.idx
   %39 = sub nsw i32 %6, %26
   %40 = mul nsw i32 %39, %35
   %narrow112 = select i1 %36, i32 %40, i32 0
@@ -835,8 +835,8 @@ define hidden void @ByteBinary1BitDrawGlyphListAA(ptr noundef readonly captures(
   %49 = icmp slt i32 %36, %5
   %50 = sub nsw i32 %5, %36
   %narrow = select i1 %49, i32 %50, i32 0
-  %.0117.idx = sext i32 %narrow to i64
-  %.0117 = getelementptr inbounds i8, ptr %33, i64 %.0117.idx
+  %.0117.idx = zext i32 %narrow to i64
+  %.0117 = getelementptr inbounds nuw i8, ptr %33, i64 %.0117.idx
   %51 = sub nsw i32 %6, %38
   %52 = mul nsw i32 %51, %47
   %narrow149 = select i1 %48, i32 %52, i32 0
@@ -1041,8 +1041,8 @@ define hidden void @ByteBinary1BitDrawGlyphListXor(ptr noundef readonly captures
   %41 = icmp slt i32 %28, %5
   %42 = sub nsw i32 %5, %28
   %narrow = select i1 %41, i32 %42, i32 0
-  %.094.idx = sext i32 %narrow to i64
-  %.094 = getelementptr inbounds i8, ptr %25, i64 %.094.idx
+  %.094.idx = zext i32 %narrow to i64
+  %.094 = getelementptr inbounds nuw i8, ptr %25, i64 %.094.idx
   %43 = sub nsw i32 %6, %30
   %44 = mul nsw i32 %43, %39
   %narrow113 = select i1 %40, i32 %44, i32 0

@@ -76,10 +76,10 @@ define internal i32 @srt_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
 
 32:                                               ; preds = %31
   %33 = sub nsw i32 %.027, %.024
-  %34 = sdiv i32 %33, 2
+  %34 = lshr i32 %33, 1
   %35 = add nsw i32 %34, %.024
   %36 = sub nsw i32 %.026, %.028
-  %37 = sdiv i32 %36, 2
+  %37 = lshr i32 %36, 1
   %38 = add nsw i32 %37, %.028
   %39 = sext i32 %35 to i64
   %40 = mul nsw i64 %39, 384

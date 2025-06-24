@@ -268,7 +268,7 @@ _ZL10u_posrelatim.exit36:                         ; preds = %_ZL10u_posrelatim.e
 
 33:                                               ; preds = %31
   %reass.sub = sub nsw i32 %.0.i35, %.0.i
-  %34 = add nsw i32 %reass.sub, 1
+  %34 = add nuw nsw i32 %reass.sub, 1
   call void @_Z15luaL_checkstackP9lua_StateiPKc(ptr noundef %0, i32 noundef %34, ptr noundef nonnull @.str.11)
   %35 = zext nneg i32 %.0.i35 to i64
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 %35

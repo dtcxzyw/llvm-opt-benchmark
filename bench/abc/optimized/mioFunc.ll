@@ -792,8 +792,8 @@ Exp_Truth6.exit:                                  ; preds = %Exp_Truth6Lit.exit3
 295:                                              ; preds = %.lr.ph.i116
   %296 = sub nsw i32 %285, %57
   %297 = shl nsw i32 %296, 2
-  %298 = sext i32 %297 to i64
-  %299 = getelementptr inbounds i64, ptr %276, i64 %298
+  %298 = zext nneg i32 %297 to i64
+  %299 = getelementptr inbounds nuw i64, ptr %276, i64 %298
   br label %300
 
 300:                                              ; preds = %295, %291
@@ -810,8 +810,8 @@ Exp_Truth6.exit:                                  ; preds = %Exp_Truth6Lit.exit3
 307:                                              ; preds = %300
   %308 = sub nsw i32 %287, %57
   %309 = shl nsw i32 %308, 2
-  %310 = sext i32 %309 to i64
-  %311 = getelementptr inbounds i64, ptr %276, i64 %310
+  %310 = zext nneg i32 %309 to i64
+  %311 = getelementptr inbounds nuw i64, ptr %276, i64 %310
   br label %312
 
 312:                                              ; preds = %307, %303

@@ -2092,7 +2092,7 @@ eq_interp.exit:                                   ; preds = %.loopexit.i, %.loop
   %318 = load float, ptr %gep313, align 4, !tbaa !68
   %319 = fdiv nsz float %318, %70
   %320 = sub nsw i64 %315, %indvars.iv294
-  %321 = getelementptr inbounds float, ptr %314, i64 %320
+  %321 = getelementptr inbounds nuw float, ptr %314, i64 %320
   store float %319, ptr %321, align 4, !tbaa !49
   %322 = load float, ptr %gep313, align 4, !tbaa !68
   %323 = fdiv nsz float %322, %70

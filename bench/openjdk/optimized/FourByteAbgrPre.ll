@@ -4331,8 +4331,8 @@ define hidden void @FourByteAbgrPreDrawGlyphListAA(ptr noundef readonly captures
   %52 = icmp slt i32 %39, %5
   %53 = sub nsw i32 %5, %39
   %narrow = select i1 %52, i32 %53, i32 0
-  %.0132.idx = sext i32 %narrow to i64
-  %.0132 = getelementptr inbounds i8, ptr %36, i64 %.0132.idx
+  %.0132.idx = zext i32 %narrow to i64
+  %.0132 = getelementptr inbounds nuw i8, ptr %36, i64 %.0132.idx
   %54 = sub nsw i32 %6, %41
   %55 = mul nsw i32 %54, %50
   %narrow169 = select i1 %51, i32 %55, i32 0
@@ -4541,11 +4541,11 @@ define hidden void @FourByteAbgrPreDrawGlyphListLCD(ptr noundef readonly capture
   %64 = add nsw i32 %62, %60
   %65 = icmp slt i32 %58, %5
   %66 = sub nsw i32 %5, %58
-  %67 = mul nsw i32 %66, %56
+  %67 = mul nuw nsw i32 %66, %56
   %.0204 = tail call i32 @llvm.smax.i32(i32 %58, i32 %5)
   %narrow = select i1 %65, i32 %67, i32 0
-  %.0194.idx = sext i32 %narrow to i64
-  %.0194 = getelementptr inbounds i8, ptr %54, i64 %.0194.idx
+  %.0194.idx = zext i32 %narrow to i64
+  %.0194 = getelementptr inbounds nuw i8, ptr %54, i64 %.0194.idx
   %68 = icmp slt i32 %60, %6
   %69 = sub nsw i32 %6, %60
   %70 = mul nsw i32 %69, %49

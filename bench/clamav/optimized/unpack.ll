@@ -591,7 +591,7 @@ define linkonce_odr void @_ZN12SubAllocator14GlueFreeBlocksEv(ptr noundef nonnul
   store ptr %.152, ptr %37, align 8, !tbaa !34
   %78 = add nsw i32 %.053, -128
   %79 = getelementptr inbounds nuw i8, ptr %.152, i64 2560
-  %80 = icmp samesign ugt i32 %.053, 256
+  %80 = icmp samesign ugt i32 %78, 128
   br i1 %80, label %.lr.ph55, label %._crit_edge56, !llvm.loop !49
 
 ._crit_edge56:                                    ; preds = %.lr.ph55, %64

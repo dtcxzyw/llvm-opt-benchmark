@@ -52,10 +52,10 @@ define dso_local i64 @tool_read_cb(ptr noundef captures(none) %0, i64 noundef %1
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #6
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #6
   %30 = sub nsw i64 %27, %26
-  %31 = sdiv i64 %30, 1000
+  %31 = udiv i64 %30, 1000
   store i64 %31, ptr %6, align 8, !tbaa !35
-  %32 = srem i64 %30, 1000
-  %33 = mul nsw i64 %32, 1000
+  %32 = urem i64 %30, 1000
+  %33 = mul nuw nsw i64 %32, 1000
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %33, ptr %34, align 8, !tbaa !36
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %5, i8 0, i64 128, i1 false), !tbaa !37

@@ -1182,7 +1182,7 @@ s2b.exit.i:                                       ; preds = %for.body14.i.i, %if
   %bd5.0.i = select i1 %cmp499.i, i32 %e.21047.i, i32 0
   %bb2.0.i = select i1 %cmp499.i, i32 0, i32 %sub503.i
   %bd2.1.i = add i32 %bd5.0.i, %bc.sroa.42.0.i
-  %cmp557.i = icmp sgt i32 %bb2.0.i, 0
+  %cmp557.not.i = icmp eq i32 %bb2.0.i, 0
   %freelist.i398.i = getelementptr inbounds nuw i8, ptr %dalloc, i64 16
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %private_mem.i to i64
   %used_heap.i.i = getelementptr inbounds nuw i8, ptr %dalloc, i64 4
@@ -1361,7 +1361,7 @@ if.end535.i:                                      ; preds = %if.then529.i, %if.e
   %bd2.2.i = sub nsw i32 %add539.i, %sub554.i
   %bs2.0.i = sub nsw i32 %bb2.1.i, %sub554.i
   %bb2.2.i = sub nsw i32 %add536.i, %sub554.i
-  br i1 %cmp557.i, label %if.then559.i, label %if.end562.i
+  br i1 %cmp557.not.i, label %if.end562.i, label %if.then559.i
 
 if.then559.i:                                     ; preds = %if.end535.i
   %call560.i = call fastcc ptr @pow5mult(ptr noundef nonnull %dalloc, ptr noundef nonnull %rv.0.i.i408.i, i32 noundef %bb2.0.i)
@@ -2331,8 +2331,8 @@ if.then34.i.i:                                    ; preds = %if.end25.i.i
 if.end36.i.i:                                     ; preds = %if.then34.i.i, %if.end25.i.i
   %b.2.i.i = phi ptr [ %call35.i.i, %if.then34.i.i ], [ %b.1.i610.i, %if.end25.i.i ]
   %add37.i.i = add nuw nsw i32 %and.i.i615.i, %d2.0.i.i
-  %cmp38.i.i = icmp sgt i32 %add37.i.i, 0
-  br i1 %cmp38.i.i, label %if.then39.i.i, label %if.end41.i.i
+  %cmp38.not.i.i = icmp eq i32 %add37.i.i, 0
+  br i1 %cmp38.not.i.i, label %if.end41.i.i, label %if.then39.i.i
 
 if.then39.i.i:                                    ; preds = %if.end36.i.i
   %call40.i.i = call fastcc ptr @lshift(ptr noundef nonnull %dalloc, ptr noundef nonnull %d.0.i.i, i32 noundef %add37.i.i)
@@ -3770,8 +3770,8 @@ if.end400:                                        ; preds = %if.then390, %if.end
   %m2.0 = phi i32 [ %sub398, %if.then390 ], [ %b2.1, %if.end384 ]
   %s2.3 = phi i32 [ %sub399, %if.then390 ], [ %s2.2, %if.end384 ]
   %b2.3 = phi i32 [ %sub397, %if.then390 ], [ %b2.2, %if.end384 ]
-  %cmp401 = icmp sgt i32 %b5.0, 0
-  br i1 %cmp401, label %if.then403, label %if.end420
+  %cmp401.not = icmp eq i32 %b5.0, 0
+  br i1 %cmp401.not, label %if.end420, label %if.then403
 
 if.then403:                                       ; preds = %if.end400
   br i1 %tobool372, label %if.else417, label %if.then408
@@ -7082,8 +7082,8 @@ if.end394:                                        ; preds = %if.then384, %if.end
   %m2.0 = phi i32 [ %sub392, %if.then384 ], [ %b2.1, %if.end378 ]
   %s2.3 = phi i32 [ %sub393, %if.then384 ], [ %s2.2, %if.end378 ]
   %b2.3 = phi i32 [ %sub391, %if.then384 ], [ %b2.2, %if.end378 ]
-  %cmp395 = icmp sgt i32 %b5.0, 0
-  br i1 %cmp395, label %if.then397, label %if.end414
+  %cmp395.not = icmp eq i32 %b5.0, 0
+  br i1 %cmp395.not, label %if.end414, label %if.then397
 
 if.then397:                                       ; preds = %if.end394
   br i1 %tobool366, label %if.else411, label %if.then402

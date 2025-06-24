@@ -1783,7 +1783,7 @@ smart_str_alloc.exit313:                          ; preds = %92, %103
   %119 = getelementptr inbounds i8, ptr %.05.i, i64 -1
   store i8 %118, ptr %119, align 1, !tbaa !4
   %120 = udiv i64 %.0.i321, 10
-  %.not.i322 = icmp ult i64 %.0.i321, 10
+  %.not.i322 = icmp samesign ult i64 %.0.i321, 10
   br i1 %.not.i322, label %zend_print_ulong_to_buf.exit, label %115
 
 zend_print_ulong_to_buf.exit:                     ; preds = %115

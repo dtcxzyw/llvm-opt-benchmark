@@ -337,8 +337,8 @@ define i32 @u_shapeArabic_77(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32
   %135 = sext i32 %.1299 to i64
   %136 = getelementptr inbounds i16, ptr %.0308, i64 %135
   %137 = sub nsw i32 %.2306, %.1299
-  %138 = shl nsw i32 %137, 1
-  %139 = sext i32 %138 to i64
+  %138 = shl nuw nsw i32 %137, 1
+  %139 = zext nneg i32 %138 to i64
   call void @llvm.memset.p0.i64(ptr nonnull align 2 %136, i8 0, i64 %139, i1 false)
   br label %140
 

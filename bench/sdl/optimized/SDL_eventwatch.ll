@@ -284,8 +284,8 @@ define hidden void @SDL_RemoveEventWatchList(ptr noundef captures(none) %0, ptr 
 29:                                               ; preds = %26
   %30 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %31 = sub nsw i32 %27, %19
-  %32 = sext i32 %31 to i64
-  %33 = mul nsw i64 %32, 24
+  %32 = zext nneg i32 %31 to i64
+  %33 = mul nuw nsw i64 %32, 24
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %11, ptr nonnull align 8 %30, i64 %33, i1 false)
   br label %.loopexit
 

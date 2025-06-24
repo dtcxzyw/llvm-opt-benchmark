@@ -736,17 +736,17 @@ define internal i64 @b64_ctrl(ptr noundef %0, i32 noundef %1, i64 noundef %2, pt
   %7 = icmp eq ptr %5, null
   %8 = icmp eq ptr %6, null
   %or.cond = select i1 %7, i1 true, i1 %8
-  br i1 %or.cond, label %84, label %9
+  br i1 %or.cond, label %83, label %9
 
 9:                                                ; preds = %4
-  switch i32 %1, label %82 [
+  switch i32 %1, label %81 [
     i32 1, label %16
     i32 2, label %21
     i32 13, label %27
-    i32 10, label %46
+    i32 10, label %45
     i32 11, label %.preheader
-    i32 101, label %80
-    i32 12, label %84
+    i32 101, label %79
+    i32 12, label %83
   ]
 
 .preheader:                                       ; preds = %9
@@ -766,17 +766,17 @@ define internal i64 @b64_ctrl(ptr noundef %0, i32 noundef %1, i64 noundef %2, pt
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 0, ptr %19, align 8, !tbaa !3
   %20 = tail call i64 @BIO_ctrl(ptr noundef nonnull %6, i32 noundef 1, i64 noundef %2, ptr noundef %3) #8
-  br label %84
+  br label %83
 
 21:                                               ; preds = %9
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %23 = load i32, ptr %22, align 8, !tbaa !18
   %24 = icmp slt i32 %23, 1
-  br i1 %24, label %84, label %25
+  br i1 %24, label %83, label %25
 
 25:                                               ; preds = %21
   %26 = tail call i64 @BIO_ctrl(ptr noundef nonnull %6, i32 noundef 2, i64 noundef %2, ptr noundef %3) #8
-  br label %84
+  br label %83
 
 27:                                               ; preds = %9
   %28 = load i32, ptr %5, align 8, !tbaa !10
@@ -790,123 +790,119 @@ define internal i64 @b64_ctrl(ptr noundef %0, i32 noundef %1, i64 noundef %2, pt
   unreachable
 
 32:                                               ; preds = %27
-  %33 = icmp eq i32 %28, %30
-  br i1 %33, label %34, label %41
+  %33 = sub nsw i32 %28, %30
+  %34 = zext nneg i32 %33 to i64
+  %35 = icmp eq i32 %28, %30
+  br i1 %35, label %36, label %83
 
-34:                                               ; preds = %32
-  %35 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %36 = load i32, ptr %35, align 8, !tbaa !3
-  %.not92 = icmp eq i32 %36, 0
-  br i1 %.not92, label %.thread, label %37
+36:                                               ; preds = %32
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %38 = load i32, ptr %37, align 8, !tbaa !3
+  %.not92 = icmp eq i32 %38, 0
+  br i1 %.not92, label %43, label %39
 
-37:                                               ; preds = %34
-  %38 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %39 = load ptr, ptr %38, align 8, !tbaa !13
-  %40 = tail call i32 @EVP_ENCODE_CTX_num(ptr noundef %39) #8
-  %.not93 = icmp eq i32 %40, 0
-  br i1 %.not93, label %.thread, label %84
+39:                                               ; preds = %36
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %41 = load ptr, ptr %40, align 8, !tbaa !13
+  %42 = tail call i32 @EVP_ENCODE_CTX_num(ptr noundef %41) #8
+  %.not93 = icmp eq i32 %42, 0
+  br i1 %.not93, label %43, label %83
 
-41:                                               ; preds = %32
-  %42 = sub nsw i32 %28, %30
-  %43 = zext nneg i32 %42 to i64
-  %44 = icmp slt i32 %42, 1
-  br i1 %44, label %.thread, label %84
+43:                                               ; preds = %39, %36
+  %44 = tail call i64 @BIO_ctrl(ptr noundef nonnull %6, i32 noundef 13, i64 noundef %2, ptr noundef %3) #8
+  br label %83
 
-.thread:                                          ; preds = %34, %37, %41
-  %45 = tail call i64 @BIO_ctrl(ptr noundef nonnull %6, i32 noundef 13, i64 noundef %2, ptr noundef %3) #8
-  br label %84
+45:                                               ; preds = %9
+  %46 = load i32, ptr %5, align 8, !tbaa !10
+  %47 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %48 = load i32, ptr %47, align 4, !tbaa !11
+  %.not90 = icmp slt i32 %46, %48
+  br i1 %.not90, label %49, label %50
 
-46:                                               ; preds = %9
-  %47 = load i32, ptr %5, align 8, !tbaa !10
-  %48 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %49 = load i32, ptr %48, align 4, !tbaa !11
-  %.not90 = icmp slt i32 %47, %49
-  br i1 %.not90, label %50, label %51
-
-50:                                               ; preds = %46
+49:                                               ; preds = %45
   tail call void @OPENSSL_die(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.3, i32 noundef 469) #9
   unreachable
 
-51:                                               ; preds = %46
-  %52 = sub nsw i32 %47, %49
-  %53 = zext nneg i32 %52 to i64
-  %54 = icmp slt i32 %52, 1
-  br i1 %54, label %55, label %84
+50:                                               ; preds = %45
+  %51 = sub nsw i32 %46, %48
+  %52 = zext nneg i32 %51 to i64
+  %53 = icmp eq i32 %46, %48
+  br i1 %53, label %54, label %83
 
-55:                                               ; preds = %51
-  %56 = tail call i64 @BIO_ctrl(ptr noundef nonnull %6, i32 noundef 10, i64 noundef %2, ptr noundef %3) #8
-  br label %84
+54:                                               ; preds = %50
+  %55 = tail call i64 @BIO_ctrl(ptr noundef nonnull %6, i32 noundef 10, i64 noundef %2, ptr noundef %3) #8
+  br label %83
 
 .backedge:                                        ; preds = %.backedge.backedge, %.preheader
-  %57 = load i32, ptr %5, align 8, !tbaa !10
-  %58 = load i32, ptr %10, align 4, !tbaa !11
-  %.not = icmp eq i32 %57, %58
-  br i1 %.not, label %64, label %59
+  %56 = load i32, ptr %5, align 8, !tbaa !10
+  %57 = load i32, ptr %10, align 4, !tbaa !11
+  %.not = icmp eq i32 %56, %57
+  br i1 %.not, label %63, label %58
 
-59:                                               ; preds = %.backedge
-  %60 = tail call i32 @b64_write(ptr noundef %0, ptr noundef null, i32 noundef 0)
-  %61 = icmp slt i32 %60, 0
-  br i1 %61, label %62, label %.backedge.backedge
+58:                                               ; preds = %.backedge
+  %59 = tail call i32 @b64_write(ptr noundef %0, ptr noundef null, i32 noundef 0)
+  %60 = icmp slt i32 %59, 0
+  br i1 %60, label %61, label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %59, %69, %76
+.backedge.backedge:                               ; preds = %58, %68, %75
   br label %.backedge, !llvm.loop !27
 
-62:                                               ; preds = %59
-  %63 = sext i32 %60 to i64
-  br label %84
+61:                                               ; preds = %58
+  %62 = sext i32 %59 to i64
+  br label %83
 
-64:                                               ; preds = %.backedge
-  %65 = tail call i32 @BIO_test_flags(ptr noundef %0, i32 noundef -1) #8
-  %66 = and i32 %65, 256
-  %.not86 = icmp eq i32 %66, 0
-  br i1 %.not86, label %71, label %67
+63:                                               ; preds = %.backedge
+  %64 = tail call i32 @BIO_test_flags(ptr noundef %0, i32 noundef -1) #8
+  %65 = and i32 %64, 256
+  %.not86 = icmp eq i32 %65, 0
+  br i1 %.not86, label %70, label %66
 
-67:                                               ; preds = %64
-  %68 = load i32, ptr %11, align 8, !tbaa !12
-  %.not89 = icmp eq i32 %68, 0
-  br i1 %.not89, label %78, label %69
+66:                                               ; preds = %63
+  %67 = load i32, ptr %11, align 8, !tbaa !12
+  %.not89 = icmp eq i32 %67, 0
+  br i1 %.not89, label %77, label %68
 
-69:                                               ; preds = %67
-  %70 = tail call i32 @EVP_EncodeBlock(ptr noundef nonnull %12, ptr noundef nonnull %13, i32 noundef %68) #8
-  store i32 %70, ptr %5, align 8, !tbaa !10
+68:                                               ; preds = %66
+  %69 = tail call i32 @EVP_EncodeBlock(ptr noundef nonnull %12, ptr noundef nonnull %13, i32 noundef %67) #8
+  store i32 %69, ptr %5, align 8, !tbaa !10
   store i32 0, ptr %10, align 4, !tbaa !11
   store i32 0, ptr %11, align 8, !tbaa !12
   br label %.backedge.backedge
 
-71:                                               ; preds = %64
-  %72 = load i32, ptr %14, align 8, !tbaa !3
-  %.not87 = icmp eq i32 %72, 0
-  br i1 %.not87, label %78, label %73
+70:                                               ; preds = %63
+  %71 = load i32, ptr %14, align 8, !tbaa !3
+  %.not87 = icmp eq i32 %71, 0
+  br i1 %.not87, label %77, label %72
 
-73:                                               ; preds = %71
-  %74 = load ptr, ptr %15, align 8, !tbaa !13
-  %75 = tail call i32 @EVP_ENCODE_CTX_num(ptr noundef %74) #8
-  %.not88 = icmp eq i32 %75, 0
-  br i1 %.not88, label %78, label %76
+72:                                               ; preds = %70
+  %73 = load ptr, ptr %15, align 8, !tbaa !13
+  %74 = tail call i32 @EVP_ENCODE_CTX_num(ptr noundef %73) #8
+  %.not88 = icmp eq i32 %74, 0
+  br i1 %.not88, label %77, label %75
 
-76:                                               ; preds = %73
+75:                                               ; preds = %72
   store i32 0, ptr %10, align 4, !tbaa !11
-  %77 = load ptr, ptr %15, align 8, !tbaa !13
-  tail call void @EVP_EncodeFinal(ptr noundef %77, ptr noundef nonnull %12, ptr noundef nonnull %5) #8
+  %76 = load ptr, ptr %15, align 8, !tbaa !13
+  tail call void @EVP_EncodeFinal(ptr noundef %76, ptr noundef nonnull %12, ptr noundef nonnull %5) #8
   br label %.backedge.backedge
 
-78:                                               ; preds = %71, %73, %67
-  %79 = tail call i64 @BIO_ctrl(ptr noundef %6, i32 noundef 11, i64 noundef %2, ptr noundef %3) #8
+77:                                               ; preds = %70, %72, %66
+  %78 = tail call i64 @BIO_ctrl(ptr noundef %6, i32 noundef 11, i64 noundef %2, ptr noundef %3) #8
   tail call void @BIO_copy_next_retry(ptr noundef %0) #8
-  br label %84
+  br label %83
 
-80:                                               ; preds = %9
+79:                                               ; preds = %9
   tail call void @BIO_clear_flags(ptr noundef %0, i32 noundef 15) #8
-  %81 = tail call i64 @BIO_ctrl(ptr noundef nonnull %6, i32 noundef 101, i64 noundef %2, ptr noundef %3) #8
+  %80 = tail call i64 @BIO_ctrl(ptr noundef nonnull %6, i32 noundef 101, i64 noundef %2, ptr noundef %3) #8
   tail call void @BIO_copy_next_retry(ptr noundef %0) #8
-  br label %84
+  br label %83
 
-82:                                               ; preds = %9
-  %83 = tail call i64 @BIO_ctrl(ptr noundef nonnull %6, i32 noundef %1, i64 noundef %2, ptr noundef %3) #8
-  br label %84
+81:                                               ; preds = %9
+  %82 = tail call i64 @BIO_ctrl(ptr noundef nonnull %6, i32 noundef %1, i64 noundef %2, ptr noundef %3) #8
+  br label %83
 
-84:                                               ; preds = %9, %16, %78, %80, %82, %25, %41, %.thread, %55, %51, %21, %37, %4, %62
-  %.0 = phi i64 [ %63, %62 ], [ 0, %4 ], [ %83, %82 ], [ %20, %16 ], [ %26, %25 ], [ %45, %.thread ], [ %43, %41 ], [ %56, %55 ], [ %53, %51 ], [ %79, %78 ], [ %81, %80 ], [ 1, %9 ], [ 1, %21 ], [ 1, %37 ]
+83:                                               ; preds = %32, %9, %16, %77, %79, %81, %25, %43, %54, %50, %21, %39, %4, %61
+  %.0 = phi i64 [ %62, %61 ], [ 0, %4 ], [ %82, %81 ], [ %20, %16 ], [ %26, %25 ], [ %44, %43 ], [ %55, %54 ], [ %52, %50 ], [ %78, %77 ], [ %80, %79 ], [ 1, %9 ], [ 1, %21 ], [ 1, %39 ], [ %34, %32 ]
   ret i64 %.0
 }
 

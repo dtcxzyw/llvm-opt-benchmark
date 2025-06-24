@@ -4000,7 +4000,7 @@ pmix_obj_run_destructors.exit112:                 ; preds = %.lr.ph.i109, %192
   %212 = and i64 %113, 2147483647
   %213 = getelementptr inbounds nuw [16384 x i8], ptr %111, i64 0, i64 %212
   %214 = sub nsw i32 %207, %114
-  %215 = sext i32 %214 to i64
+  %215 = zext nneg i32 %214 to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %111, ptr nonnull align 1 %213, i64 %215, i1 false)
   %216 = getelementptr inbounds nuw i8, ptr %2, i64 448
   %217 = load ptr, ptr %21, align 8, !tbaa !37

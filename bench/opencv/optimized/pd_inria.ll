@@ -1220,7 +1220,7 @@ _ZNSolsEPFRSoS_E.exit256:                         ; preds = %.noexc386
 452:                                              ; preds = %_ZNSolsEPFRSoS_E.exit256
   %453 = add i32 %447, 1
   %454 = sub i32 %453, %449
-  %455 = sdiv i32 %454, 2
+  %455 = lshr i32 %454, 1
   %456 = add nsw i32 %455, %446
   store i32 %456, ptr %19, align 8, !tbaa !76
   store i32 %449, ptr %225, align 8, !tbaa !73

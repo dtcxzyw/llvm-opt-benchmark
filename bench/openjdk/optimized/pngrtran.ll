@@ -1368,7 +1368,7 @@ define hidden void @png_set_quantize(ptr noalias noundef %0, ptr noundef %1, i32
   %424 = trunc nuw nsw i64 %423 to i32
   %425 = select i1 %421, i32 %422, i32 %424
   %426 = add nuw nsw i32 %425, %418
-  %427 = tail call i32 @llvm.smax.i32(i32 %418, i32 %425)
+  %427 = tail call i32 @llvm.umax.i32(i32 %418, i32 %425)
   %428 = shl nuw nsw i64 %indvars.iv619, 5
   %429 = add nuw nsw i64 %428, %419
   br label %430
@@ -1382,7 +1382,7 @@ define hidden void @png_set_quantize(ptr noalias noundef %0, ptr noundef %1, i32
   %434 = sub nuw nsw i64 %410, %indvars.iv615
   %435 = trunc nuw nsw i64 %434 to i32
   %436 = select i1 %432, i32 %433, i32 %435
-  %437 = tail call i32 @llvm.smax.i32(i32 %427, i32 %436)
+  %437 = tail call i32 @llvm.umax.i32(i32 %427, i32 %436)
   %438 = add nuw nsw i32 %426, %436
   %439 = add nuw nsw i32 %438, %437
   %440 = getelementptr inbounds nuw i8, ptr %395, i64 %431
@@ -8894,13 +8894,16 @@ declare i32 @llvm.fshl.i32(i32, i32, i32) #8
 declare double @llvm.fabs.f64(double) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #8
+declare i32 @llvm.umax.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #8
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10

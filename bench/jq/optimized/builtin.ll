@@ -4808,8 +4808,8 @@ define internal { i64, ptr } @f_bsearch(ptr readnone captures(none) %0, i64 %1, 
   %.04057 = phi i32 [ %.3, %39 ], [ 0, %16 ]
   %.04156 = phi i32 [ %.243, %39 ], [ %20, %16 ]
   %23 = sub nsw i32 %.04156, %.04057
-  %24 = sdiv i32 %23, 2
-  %25 = add nsw i32 %24, %.04057
+  %24 = lshr i32 %23, 1
+  %25 = add nuw nsw i32 %24, %.04057
   %26 = tail call { i64, ptr } @jv_copy(i64 %3, ptr %4) #14
   %27 = extractvalue { i64, ptr } %26, 0
   %28 = extractvalue { i64, ptr } %26, 1
@@ -4824,13 +4824,13 @@ define internal { i64, ptr } @f_bsearch(ptr readnone captures(none) %0, i64 %1, 
   br i1 %36, label %.thread, label %39
 
 .thread:                                          ; preds = %.lr.ph
-  %37 = sitofp i32 %25 to double
+  %37 = uitofp nneg i32 %25 to double
   %38 = tail call { i64, ptr } @jv_number(double noundef %37) #14
   br label %.loopexit
 
 39:                                               ; preds = %.lr.ph
   %40 = icmp slt i32 %35, 0
-  %41 = add nsw i32 %25, 1
+  %41 = add nuw nsw i32 %25, 1
   %.243 = select i1 %40, i32 %25, i32 %.04156
   %.3 = select i1 %40, i32 %.04057, i32 %41
   %42 = icmp slt i32 %.3, %.243

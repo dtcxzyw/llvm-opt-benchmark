@@ -217,12 +217,12 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit:            ; preds = %.noexc, %38
   %83 = load i32, ptr %82, align 8, !tbaa !12
   %84 = lshr i32 %83, 3
   %85 = and i32 %84, 511
-  %.not252 = icmp sgt i32 %.0175272, %85
+  %.not252 = icmp ugt i32 %.0175272, %85
   br i1 %.not252, label %86, label %89
 
 86:                                               ; preds = %.preheader260
   %.neg = xor i32 %85, -1
-  %87 = add nsw i32 %.0175272, %.neg
+  %87 = add i32 %.0175272, %.neg
   %88 = add nuw i64 %.0190271, 1
   %exitcond297.not = icmp eq i64 %88, %1
   br i1 %exitcond297.not, label %.critedge, label %.preheader260, !llvm.loop !31

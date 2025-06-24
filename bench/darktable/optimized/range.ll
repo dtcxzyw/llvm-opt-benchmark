@@ -1240,7 +1240,7 @@ define internal noundef i32 @_event_band_draw(ptr noundef %0, ptr noundef %1, pt
 60:                                               ; preds = %27
   %61 = sub nsw i32 %41, %57
   store i32 %57, ptr %43, align 8, !tbaa !140
-  %62 = sdiv i32 %61, 2
+  %62 = lshr i32 %61, 1
   %63 = add nsw i32 %62, %36
   store i32 %63, ptr %42, align 8, !tbaa !141
   br label %64

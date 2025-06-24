@@ -3469,8 +3469,8 @@ define hidden void @ByteGrayDrawGlyphListAA(ptr noundef readonly captures(none) 
   %50 = icmp slt i32 %37, %5
   %51 = sub nsw i32 %5, %37
   %narrow = select i1 %50, i32 %51, i32 0
-  %.083.idx = sext i32 %narrow to i64
-  %.083 = getelementptr inbounds i8, ptr %34, i64 %.083.idx
+  %.083.idx = zext i32 %narrow to i64
+  %.083 = getelementptr inbounds nuw i8, ptr %34, i64 %.083.idx
   %52 = sub nsw i32 %6, %39
   %53 = mul nsw i32 %52, %48
   %narrow108 = select i1 %49, i32 %53, i32 0

@@ -2773,8 +2773,8 @@ _ZN2cv10AutoBufferINS_5aruco2ptELm1024EED2Ev.exit115: ; preds = %165, %161
   %259 = sext i32 %.9164.i.lcssa224 to i64
   %260 = getelementptr inbounds %"struct.cv::aruco::pt", ptr %135, i64 %259
   %261 = sub nsw i32 %136, %.9164.i.lcssa224
-  %262 = sext i32 %261 to i64
-  %263 = mul nsw i64 %262, 12
+  %262 = zext nneg i32 %261 to i64
+  %263 = mul nuw nsw i64 %262, 12
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %258, ptr nonnull align 4 %260, i64 %263, i1 false)
   br i1 %.lcssa230, label %265, label %_ZN2cv5arucoL7ptsort_EPNS0_2ptEi.exit
 
@@ -2792,8 +2792,8 @@ _ZN2cv10AutoBufferINS_5aruco2ptELm1024EED2Ev.exit115: ; preds = %165, %161
   %268 = sext i32 %.9153.i.lcssa225232 to i64
   %269 = getelementptr inbounds %"struct.cv::aruco::pt", ptr %139, i64 %268
   %270 = sub nsw i32 %137, %.9153.i.lcssa225232
-  %271 = sext i32 %270 to i64
-  %272 = mul nsw i64 %271, 12
+  %271 = zext nneg i32 %270 to i64
+  %272 = mul nuw nsw i64 %271, 12
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %267, ptr nonnull align 4 %269, i64 %272, i1 false)
   br label %_ZN2cv5arucoL7ptsort_EPNS0_2ptEi.exit
 

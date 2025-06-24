@@ -6533,8 +6533,8 @@ backup_mb_border.exit:                            ; preds = %305, %326, %351, %3
 
 477:                                              ; preds = %474
   %478 = sub nsw i32 %.0148.i, %475
-  %479 = sext i32 %478 to i64
-  %480 = getelementptr inbounds i8, ptr %438, i64 %479
+  %479 = zext nneg i32 %478 to i64
+  %480 = getelementptr inbounds nuw i8, ptr %438, i64 %479
   %481 = load i8, ptr %480, align 1, !tbaa !136
   %482 = sext i8 %481 to i32
   %483 = add nsw i32 %442, 1

@@ -931,8 +931,8 @@ define i32 @Raig_ManSimulateRound(ptr noundef captures(none) %0, i32 noundef %1,
   %39 = sub nsw i32 %34, %35
   %40 = getelementptr i8, ptr %38, i64 8
   %.val189 = load ptr, ptr %40, align 8, !tbaa !35
-  %41 = sext i32 %39 to i64
-  %42 = getelementptr inbounds i32, ptr %.val189, i64 %41
+  %41 = zext nneg i32 %39 to i64
+  %42 = getelementptr inbounds nuw i32, ptr %.val189, i64 %41
   %43 = load i32, ptr %42, align 4, !tbaa !36
   %44 = tail call ptr @Raig_ManSimRef(ptr noundef nonnull %0, i32 noundef %43)
   br i1 %.not186, label %50, label %45

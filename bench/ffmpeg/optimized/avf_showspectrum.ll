@@ -6428,7 +6428,7 @@ define internal noundef i32 @run_channel_fft(ptr noundef readonly captures(none)
   %indvars.iv287 = phi i64 [ %124, %.lr.ph257.preheader ], [ %indvars.iv.next288, %.lr.ph257 ]
   %134 = trunc i64 %indvars.iv287 to i32
   %135 = sub i32 %75, %134
-  %136 = mul nsw i32 %135, %135
+  %136 = mul nuw nsw i32 %135, %135
   %137 = uitofp nneg i32 %136 to float
   %138 = fmul nsz float %137, 5.000000e-01
   %139 = fmul nsz float %138, %100

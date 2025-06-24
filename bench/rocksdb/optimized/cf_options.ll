@@ -39205,7 +39205,7 @@ define noundef i64 @_ZN7rocksdb19MaxFileSizeForLevelERKNS_16MutableCFOptionsEiNS
 14:                                               ; preds = %6
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %16 = sub nsw i32 %1, %3
-  %17 = sext i32 %16 to i64
+  %17 = zext nneg i32 %16 to i64
   %18 = load ptr, ptr %15, align 8, !tbaa !446
   %19 = getelementptr inbounds nuw i64, ptr %18, i64 %17
   br label %20

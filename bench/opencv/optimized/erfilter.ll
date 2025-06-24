@@ -5496,7 +5496,7 @@ define void @_ZN2cv4text10ERFilterNM8er_mergeEPNS0_6ERStatES3_(ptr noundef nonnu
 43:                                               ; preds = %38
   %44 = load ptr, ptr %28, align 8, !tbaa !34
   %45 = sub nsw i32 %.0135345, %40
-  %46 = sext i32 %45 to i64
+  %46 = zext nneg i32 %45 to i64
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 48
   %48 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %49 = getelementptr inbounds nuw i8, ptr %44, i64 72
@@ -5550,7 +5550,7 @@ _ZNKSt5dequeIiSaIiEE14_M_range_checkEm.exit.i:    ; preds = %43
   br i1 %86, label %87, label %89
 
 87:                                               ; preds = %85
-  %88 = getelementptr inbounds i32, ptr %70, i64 %46
+  %88 = getelementptr inbounds nuw i32, ptr %70, i64 %46
   br label %_ZNSt5dequeIiSaIiEE2atEm.exit
 
 89:                                               ; preds = %85
@@ -13027,7 +13027,7 @@ _ZSt11stable_sortIPN2cv4text4nodeEEvT_S4_.exit.i.i: ; preds = %262, %_ZNK2cv4tex
 
 .noexc55.i:                                       ; preds = %_ZSt11stable_sortIPN2cv4text4nodeEEvT_S4_.exit.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %265, i8 0, i64 %264, i1 false), !tbaa !110
-  %invariant.gep.i.i = getelementptr i8, ptr %30, i64 24
+  %invariant.gep.i.i = getelementptr inbounds nuw i8, ptr %30, i64 24
   %.not.i = icmp eq i32 %2, 1
   br i1 %.not.i, label %.loopexit.i, label %.lr.ph.i50.i
 
@@ -13115,8 +13115,8 @@ _ZNK2cv4text10union_find4FindEl.exit42.i.i:       ; preds = %.preheader.i38.i.i,
 
 302:                                              ; preds = %_ZNK2cv4text10union_find4FindEl.exit42.i.i
   %303 = sub nsw i64 %.0.i.i.i, %101
-  %.idx.i.i = shl i64 %303, 5
-  %gep.i.i = getelementptr i8, ptr %invariant.gep.i.i, i64 %.idx.i.i
+  %.idx.i.i = shl nsw i64 %303, 5
+  %gep.i.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i, i64 %.idx.i.i
   %304 = load double, ptr %gep.i.i, align 8, !tbaa !107
   br label %305
 
@@ -13127,8 +13127,8 @@ _ZNK2cv4text10union_find4FindEl.exit42.i.i:       ; preds = %.preheader.i38.i.i,
 
 308:                                              ; preds = %305
   %309 = sub nsw i64 %.0.i41.i.i, %101
-  %.idx32.i.i = shl i64 %309, 5
-  %gep55.i.i = getelementptr i8, ptr %invariant.gep.i.i, i64 %.idx32.i.i
+  %.idx32.i.i = shl nsw i64 %309, 5
+  %gep55.i.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i, i64 %.idx32.i.i
   %310 = load double, ptr %gep55.i.i, align 8, !tbaa !107
   br label %311
 
@@ -13531,7 +13531,7 @@ define hidden void @_ZN2cv4text23MaxMeaningfulClustering16build_merge_infoEPdS2_
 
 .preheader809:                                    ; preds = %41
   %55 = sub nsw i32 %47, %3
-  %56 = sext i32 %55 to i64
+  %56 = zext nneg i32 %55 to i64
   %57 = load ptr, ptr %21, align 8, !tbaa !394
   %58 = load ptr, ptr %6, align 8, !tbaa !391
   %59 = ptrtoint ptr %57 to i64
@@ -14022,7 +14022,7 @@ _ZNSt6vectorIN2cv4text8HClusterESaIS2_EE2atEm.exit355: ; preds = %.lr.ph
 
 .preheader798:                                    ; preds = %224
   %226 = sub nsw i32 %50, %3
-  %227 = sext i32 %226 to i64
+  %227 = zext nneg i32 %226 to i64
   %228 = load ptr, ptr %21, align 8, !tbaa !394
   %229 = load ptr, ptr %6, align 8, !tbaa !391
   %230 = ptrtoint ptr %228 to i64
@@ -14644,7 +14644,7 @@ _ZN2cv4text7Minibox6volumeEv.exit:                ; preds = %_ZNSt6vectorIfSaIfE
 
 448:                                              ; preds = %_ZN2cv4text7Minibox6volumeEv.exit
   %449 = sub nsw i32 %47, %3
-  %450 = sext i32 %449 to i64
+  %450 = zext nneg i32 %449 to i64
   %451 = load ptr, ptr %6, align 8, !tbaa !391
   %452 = ptrtoint ptr %.pre1095.pre to i64
   %453 = ptrtoint ptr %451 to i64
@@ -14663,7 +14663,7 @@ _ZN2cv4text7Minibox6volumeEv.exit:                ; preds = %_ZNSt6vectorIfSaIfE
 
 459:                                              ; preds = %458
   %460 = sub nsw i32 %50, %3
-  %461 = sext i32 %460 to i64
+  %461 = zext nneg i32 %460 to i64
   %462 = load ptr, ptr %6, align 8, !tbaa !391
   %463 = ptrtoint ptr %.pre1095.pre to i64
   %464 = ptrtoint ptr %462 to i64

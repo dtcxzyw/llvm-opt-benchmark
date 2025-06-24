@@ -1441,7 +1441,7 @@ define dso_local i64 @_php_stream_read(ptr noundef %0, ptr noundef %1, i64 nound
   %20 = add nsw i64 %19, %spec.select
   store i64 %20, ptr %5, align 8, !tbaa !105
   %21 = sub i64 %.066112, %spec.select
-  %22 = getelementptr inbounds i8, ptr %.068111, i64 %spec.select
+  %22 = getelementptr inbounds nuw i8, ptr %.068111, i64 %spec.select
   %23 = add nsw i64 %spec.select, %.0113
   %24 = load i16, ptr %7, align 8
   %25 = or i16 %24, 128

@@ -930,8 +930,8 @@ Kit_DsdNtkObj.exit:                               ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load ptr, ptr %8, align 8, !tbaa !45
   %10 = sub nsw i32 %4, %6
-  %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds ptr, ptr %9, i64 %11
+  %11 = zext nneg i32 %10 to i64
+  %12 = getelementptr inbounds nuw ptr, ptr %9, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !46
   %14 = icmp eq ptr %13, null
   br i1 %14, label %Kit_DsdNtkObj.exit.thread, label %19
@@ -1219,8 +1219,8 @@ define range(i32 0, 2) i32 @Amap_CreateCheckEqual_rec(ptr noundef readonly captu
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8, !tbaa !45
   %11 = sub nsw i32 %4, %6
-  %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds ptr, ptr %10, i64 %12
+  %12 = zext nneg i32 %11 to i64
+  %13 = getelementptr inbounds nuw ptr, ptr %10, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !46
   br label %Kit_DsdNtkObj.exit
 
@@ -1234,8 +1234,8 @@ Kit_DsdNtkObj.exit:                               ; preds = %3, %8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %20 = load ptr, ptr %19, align 8, !tbaa !45
   %21 = sub nsw i32 %16, %6
-  %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds ptr, ptr %20, i64 %22
+  %22 = zext nneg i32 %21 to i64
+  %23 = getelementptr inbounds nuw ptr, ptr %20, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !46
   br label %Kit_DsdNtkObj.exit37
 
@@ -1318,8 +1318,8 @@ Kit_DsdNtkObj.exit:                               ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8, !tbaa !45
   %10 = sub nsw i32 %4, %6
-  %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds ptr, ptr %9, i64 %11
+  %11 = zext nneg i32 %10 to i64
+  %12 = getelementptr inbounds nuw ptr, ptr %9, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !46
   %14 = icmp eq ptr %13, null
   br i1 %14, label %Kit_DsdNtkObj.exit.thread, label %.preheader39

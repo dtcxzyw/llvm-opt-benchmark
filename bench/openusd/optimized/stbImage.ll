@@ -6674,7 +6674,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL14stbi_write_hdrPKciiiPKf
   %8 = alloca [128 x i8], align 16
   %9 = tail call noalias noundef ptr @fopen(ptr noundef readonly %0, ptr noundef nonnull @.str.141)
   %.not8 = icmp eq ptr %9, null
-  br i1 %.not8, label %198, label %10
+  br i1 %.not8, label %197, label %10
 
 10:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %8)
@@ -6844,7 +6844,7 @@ _ZL25stbiw__write_hdr_scanlineP19stbi__write_contextiiPhPf.exit.loopexit.us.spli
   br i1 %exitcond15.not.i, label %.split8.us.i, label %.preheader.i.us.i, !llvm.loop !60
 
 .preheader131.i.i:                                ; preds = %14, %_ZL25stbiw__write_hdr_scanlineP19stbi__write_contextiiPhPf.exit.loopexit1.i
-  %.0286.i = phi i32 [ %196, %_ZL25stbiw__write_hdr_scanlineP19stbi__write_contextiiPhPf.exit.loopexit1.i ], [ 0, %14 ]
+  %.0286.i = phi i32 [ %195, %_ZL25stbiw__write_hdr_scanlineP19stbi__write_contextiiPhPf.exit.loopexit1.i ], [ 0, %14 ]
   %98 = load i32, ptr @_ZL30stbi__flip_vertically_on_write, align 4
   %.not.i = icmp eq i32 %98, 0
   %99 = xor i32 %.0286.i, -1
@@ -6948,8 +6948,8 @@ _ZL21stbiw__linear_to_rgbePhPf.exit119.i.i:       ; preds = %137, %.preheader131
   %149 = call i64 @fwrite(ptr noundef nonnull readonly %6, i64 noundef 1, i64 noundef 4, ptr noundef nonnull %9)
   br label %150
 
-150:                                              ; preds = %195, %.split.us.i.i
-  %indvars.iv179.i.i = phi i64 [ 0, %.split.us.i.i ], [ %indvars.iv.next180.i.i, %195 ]
+150:                                              ; preds = %194, %.split.us.i.i
+  %indvars.iv179.i.i = phi i64 [ 0, %.split.us.i.i ], [ %indvars.iv.next180.i.i, %194 ]
   %151 = mul nuw nsw i64 %indvars.iv179.i.i, %31
   %152 = getelementptr inbounds nuw i8, ptr %17, i64 %151
   br label %.preheader129.i.i
@@ -7045,37 +7045,35 @@ _ZL21stbiw__linear_to_rgbePhPf.exit119.i.i:       ; preds = %137, %.preheader131
   br i1 %186, label %.lr.ph150.i.i, label %.loopexit127.i.i
 
 .lr.ph150.i.i:                                    ; preds = %.critedge.i.i, %.lr.ph150.i.i
-  %.5149.i.i = phi i32 [ %192, %.lr.ph150.i.i ], [ %.3.lcssa.i.i, %.critedge.i.i ]
+  %.5149.i.i = phi i32 [ %191, %.lr.ph150.i.i ], [ %.3.lcssa.i.i, %.critedge.i.i ]
   %187 = sub nsw i32 %.2109.lcssa.i.i, %.5149.i.i
   %spec.store.select2.i.i = tail call i32 @llvm.smin.i32(i32 %187, i32 127)
   %188 = sext i32 %.5149.i.i to i64
   %189 = getelementptr inbounds i8, ptr %152, i64 %188
   %190 = load i8, ptr %189, align 1
-  %191 = shl i32 %spec.store.select2.i.i, 24
-  %sext29 = ashr exact i32 %191, 24
-  %chari27 = xor i32 %sext29, -128
+  %chari27 = or i32 %spec.store.select2.i.i, -128
   %fputc28 = tail call i32 @fputc(i32 %chari27, ptr nonnull %9)
-  %chari30 = sext i8 %190 to i32
-  %fputc31 = tail call i32 @fputc(i32 %chari30, ptr nonnull %9)
-  %192 = add nsw i32 %spec.store.select2.i.i, %.5149.i.i
-  %193 = icmp slt i32 %192, %.2109.lcssa.i.i
-  br i1 %193, label %.lr.ph150.i.i, label %.loopexit127.i.i, !llvm.loop !65
+  %chari29 = sext i8 %190 to i32
+  %fputc30 = tail call i32 @fputc(i32 %chari29, ptr nonnull %9)
+  %191 = add nsw i32 %spec.store.select2.i.i, %.5149.i.i
+  %192 = icmp slt i32 %191, %.2109.lcssa.i.i
+  br i1 %192, label %.lr.ph150.i.i, label %.loopexit127.i.i, !llvm.loop !65
 
 .loopexit127.i.i:                                 ; preds = %.lr.ph150.i.i, %.critedge.i.i, %._crit_edge146.i.i
-  %.4.i.i = phi i32 [ %.3.lcssa.i.i, %._crit_edge146.i.i ], [ %.3.lcssa.i.i, %.critedge.i.i ], [ %192, %.lr.ph150.i.i ]
-  %194 = icmp slt i32 %.4.i.i, %1
-  br i1 %194, label %.preheader129.i.i, label %195, !llvm.loop !66
+  %.4.i.i = phi i32 [ %.3.lcssa.i.i, %._crit_edge146.i.i ], [ %.3.lcssa.i.i, %.critedge.i.i ], [ %191, %.lr.ph150.i.i ]
+  %193 = icmp slt i32 %.4.i.i, %1
+  br i1 %193, label %.preheader129.i.i, label %194, !llvm.loop !66
 
-195:                                              ; preds = %.loopexit127.i.i
+194:                                              ; preds = %.loopexit127.i.i
   %indvars.iv.next180.i.i = add nuw nsw i64 %indvars.iv179.i.i, 1
   %exitcond182.not.i.i = icmp eq i64 %indvars.iv.next180.i.i, 4
   br i1 %exitcond182.not.i.i, label %_ZL25stbiw__write_hdr_scanlineP19stbi__write_contextiiPhPf.exit.loopexit1.i, label %150, !llvm.loop !67
 
-_ZL25stbiw__write_hdr_scanlineP19stbi__write_contextiiPhPf.exit.loopexit1.i: ; preds = %195
+_ZL25stbiw__write_hdr_scanlineP19stbi__write_contextiiPhPf.exit.loopexit1.i: ; preds = %194
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  %196 = add nuw nsw i32 %.0286.i, 1
-  %exitcond.not.i = icmp eq i32 %196, %2
+  %195 = add nuw nsw i32 %.0286.i, 1
+  %exitcond.not.i = icmp eq i32 %195, %2
   br i1 %exitcond.not.i, label %.split8.us.i, label %.preheader131.i.i, !llvm.loop !60
 
 .split8.us.i:                                     ; preds = %_ZL25stbiw__write_hdr_scanlineP19stbi__write_contextiiPhPf.exit.loopexit1.i, %_ZL25stbiw__write_hdr_scanlineP19stbi__write_contextiiPhPf.exit.loopexit.us.split.i, %_ZL25stbiw__write_hdr_scanlineP19stbi__write_contextiiPhPf.exit.loopexit.us.split.us.us.i
@@ -7085,10 +7083,10 @@ _ZL25stbiw__write_hdr_scanlineP19stbi__write_contextiiPhPf.exit.loopexit1.i: ; p
 _ZL19stbi_write_hdr_coreP19stbi__write_contextiiiPf.exit: ; preds = %10, %.split8.us.i
   %.0.i = phi i32 [ 1, %.split8.us.i ], [ 0, %10 ]
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %8)
-  %197 = tail call i32 @fclose(ptr noundef nonnull %9)
-  br label %198
+  %196 = tail call i32 @fclose(ptr noundef nonnull %9)
+  br label %197
 
-198:                                              ; preds = %5, %_ZL19stbi_write_hdr_coreP19stbi__write_contextiiiPf.exit
+197:                                              ; preds = %5, %_ZL19stbi_write_hdr_coreP19stbi__write_contextiiiPf.exit
   %.0 = phi i32 [ %.0.i, %_ZL19stbi_write_hdr_coreP19stbi__write_contextiiiPf.exit ], [ 0, %5 ]
   ret i32 %.0
 }
@@ -10341,8 +10339,8 @@ _ZL31stbir__resample_vertical_gatherPK11stbir__infoP21stbir__per_split_infoiiiPK
   %1714 = sub nsw i32 %1419, %1702
   %.0116.i.i = call i32 @llvm.smax.i32(i32 %1702, i32 %1419)
   %narrow.i.i = select i1 %1713, i32 %1714, i32 0
-  %.0.idx.i.i = sext i32 %narrow.i.i to i64
-  %.0.i.i39 = getelementptr inbounds float, ptr %.0123148.i.i, i64 %.0.idx.i.i
+  %.0.idx.i.i = zext i32 %narrow.i.i to i64
+  %.0.i.i39 = getelementptr inbounds nuw float, ptr %.0123148.i.i, i64 %.0.idx.i.i
   %.0115.i.i = call i32 @llvm.smin.i32(i32 %1704, i32 %1688)
   %1715 = load i32, ptr %1681, align 8
   %1716 = icmp slt i32 %1715, 0
@@ -11674,8 +11672,8 @@ _ZL49stbir__calculate_coefficients_for_gather_upsamplefPFfffPvEP17stbir__scale_i
   %190 = fsub float %138, %155
   %191 = zext nneg i32 %spec.store.select.i.i to i64
   %reass.sub = sub nsw i32 %.071.i, %spec.store.select.i.i
-  %192 = add i32 %reass.sub, 1
-  %wide.trip.count.i = zext i32 %192 to i64
+  %192 = add nuw i32 %reass.sub, 1
+  %wide.trip.count.i = zext nneg i32 %192 to i64
   br label %193
 
 193:                                              ; preds = %219, %.lr.ph.i156
@@ -11887,8 +11885,8 @@ _ZL51stbir__calculate_coefficients_for_gather_downsampleiifPFfffPvEP17stbir__sca
 
 277:                                              ; preds = %265
   %278 = sub nsw i32 %.0191, %251
-  %279 = sext i32 %278 to i64
-  %280 = getelementptr inbounds float, ptr %.0136183, i64 %279
+  %279 = zext nneg i32 %278 to i64
+  %280 = getelementptr inbounds nuw float, ptr %.0136183, i64 %279
   %281 = load float, ptr %280, align 4
   %282 = fadd float %246, %281
   store float %282, ptr %280, align 4
@@ -12257,8 +12255,8 @@ _ZL24stbir_overlapping_memcpyPvPKvm.exit:         ; preds = %76, %74, %._crit_ed
 
 132:                                              ; preds = %120
   %133 = sub nsw i32 %114, %119
-  %134 = sext i32 %133 to i64
-  %135 = getelementptr inbounds float, ptr %.1200360, i64 %134
+  %134 = zext nneg i32 %133 to i64
+  %135 = getelementptr inbounds nuw float, ptr %.1200360, i64 %134
   %136 = load float, ptr %135, align 4
   %137 = fadd float %117, %136
   store float %137, ptr %135, align 4
@@ -12374,8 +12372,8 @@ _ZL19stbir__insert_coeffP19stbir__contributorsPfif.exit: ; preds = %._crit_edge.
 
 175:                                              ; preds = %163
   %176 = sub nsw i32 %158, %162
-  %177 = sext i32 %176 to i64
-  %178 = getelementptr inbounds float, ptr %.1200360, i64 %177
+  %177 = zext nneg i32 %176 to i64
+  %178 = getelementptr inbounds nuw float, ptr %.1200360, i64 %177
   %179 = load float, ptr %178, align 4
   %180 = fadd float %160, %179
   store float %180, ptr %178, align 4
@@ -12494,8 +12492,8 @@ _ZL19stbir__insert_coeffP19stbir__contributorsPfif.exit251: ; preds = %._crit_ed
 
 222:                                              ; preds = %210
   %223 = sub nsw i32 %207, %209
-  %224 = sext i32 %223 to i64
-  %225 = getelementptr inbounds float, ptr %.1200360, i64 %224
+  %224 = zext nneg i32 %223 to i64
+  %225 = getelementptr inbounds nuw float, ptr %.1200360, i64 %224
   %226 = load float, ptr %225, align 4
   %227 = fadd float %197, %226
   store float %227, ptr %225, align 4

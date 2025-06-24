@@ -9031,10 +9031,10 @@ define internal fastcc ptr @lookup_untracked(ptr noundef captures(none) %0, ptr 
   %.05688 = phi i32 [ %16, %.lr.ph ], [ %.157, %.thread76 ]
   %.05887 = phi i32 [ 0, %.lr.ph ], [ %.159, %.thread76 ]
   %20 = sub nsw i32 %.05688, %.05887
-  %21 = ashr i32 %20, 1
-  %22 = add nsw i32 %21, %.05887
-  %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds ptr, ptr %18, i64 %23
+  %21 = lshr i32 %20, 1
+  %22 = add nuw nsw i32 %21, %.05887
+  %23 = zext nneg i32 %22 to i64
+  %24 = getelementptr inbounds nuw ptr, ptr %18, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !158
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 108
   %27 = tail call i32 @strncmp(ptr noundef %2, ptr noundef nonnull %26, i64 noundef %.053) #28
@@ -9048,7 +9048,7 @@ define internal fastcc ptr @lookup_untracked(ptr noundef captures(none) %0, ptr 
 
 31:                                               ; preds = %19
   %32 = icmp slt i32 %27, 0
-  %33 = add nsw i32 %22, 1
+  %33 = add nuw nsw i32 %22, 1
   %spec.select84 = select i1 %32, i32 %.05887, i32 %33
   %spec.select85 = select i1 %32, i32 %22, i32 %.05688
   br label %.thread76, !llvm.loop !256
@@ -9109,14 +9109,14 @@ st_mult.exit:                                     ; preds = %st_add.exit72
 56:                                               ; preds = %st_mult.exit, %st_add.exit72
   %.pre92 = phi ptr [ %55, %st_mult.exit ], [ %.pre92.pre, %st_add.exit72 ]
   %57 = phi i32 [ %.pre, %st_mult.exit ], [ %45, %st_add.exit72 ]
-  %58 = sext i32 %.058.lcssa to i64
+  %58 = zext nneg i32 %.058.lcssa to i64
   %.not.i = icmp eq i32 %57, %.058.lcssa
   br i1 %.not.i, label %move_array.exit, label %st_mult.exit.i
 
 st_mult.exit.i:                                   ; preds = %56
   %59 = sub i32 %57, %.058.lcssa
   %60 = zext i32 %59 to i64
-  %61 = getelementptr inbounds ptr, ptr %.pre92, i64 %58
+  %61 = getelementptr inbounds nuw ptr, ptr %.pre92, i64 %58
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %63 = shl nuw nsw i64 %60, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %62, ptr readonly align 1 %61, i64 %63, i1 false)
@@ -9129,7 +9129,7 @@ move_array.exit:                                  ; preds = %56, %st_mult.exit.i
   %65 = phi i32 [ %.058.lcssa, %56 ], [ %.pre90, %st_mult.exit.i ]
   %66 = add i32 %65, 1
   store i32 %66, ptr %15, align 8, !tbaa !10
-  %67 = getelementptr inbounds ptr, ptr %64, i64 %58
+  %67 = getelementptr inbounds nuw ptr, ptr %64, i64 %58
   store ptr %43, ptr %67, align 8, !tbaa !158
   br label %.thread78
 

@@ -1182,8 +1182,8 @@ define noundef ptr @Llb_ManComputeImage(ptr noundef readonly captures(none) %0, 
   %.082 = select i1 %.not, i32 %.083101, i32 %14
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %16 = load ptr, ptr %15, align 8, !tbaa !87
-  %17 = sext i32 %.082 to i64
-  %18 = getelementptr inbounds ptr, ptr %16, i64 %17
+  %17 = zext nneg i32 %.082 to i64
+  %18 = getelementptr inbounds nuw ptr, ptr %16, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !88
   %20 = tail call ptr @Llb_ManConstructGroupBdd(ptr noundef nonnull %0, ptr noundef %19)
   %21 = icmp eq ptr %20, null

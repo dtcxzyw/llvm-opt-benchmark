@@ -924,7 +924,7 @@ next_cache_entry.exit:                            ; preds = %225
   %255 = load i32, ptr %254, align 4, !tbaa !4
   %256 = icmp eq i32 %255, 16384
   %257 = select i1 %256, i32 16384, i32 32768
-  %258 = sext i32 %251 to i64
+  %258 = zext nneg i32 %251 to i64
   %259 = call i32 @df_name_compare(ptr noundef nonnull %253, i64 noundef %258, i32 noundef %257, ptr noundef %234, i64 noundef %235, i32 noundef %236) #17
   br label %do_compare_entry.exit.i
 
@@ -1775,7 +1775,7 @@ next_cache_entry.exit.thread148:                  ; preds = %50, %sparse_dir_mat
   %149 = load i32, ptr %148, align 4, !tbaa !4
   %150 = icmp eq i32 %149, 16384
   %151 = select i1 %150, i32 16384, i32 32768
-  %152 = sext i32 %145 to i64
+  %152 = zext nneg i32 %145 to i64
   %153 = tail call i32 @df_name_compare(ptr noundef nonnull %147, i64 noundef %152, i32 noundef %151, ptr noundef %128, i64 noundef %130, i32 noundef %131) #17
   br label %do_compare_entry.exit.i
 
@@ -2916,7 +2916,7 @@ define internal fastcc range(i32 0, 2) i32 @ce_in_traverse_path(ptr noundef %0, 
   %30 = load i32, ptr %29, align 4, !tbaa !4
   %31 = icmp eq i32 %30, 16384
   %32 = select i1 %31, i32 16384, i32 32768
-  %33 = sext i32 %26 to i64
+  %33 = zext nneg i32 %26 to i64
   %34 = tail call i32 @df_name_compare(ptr noundef nonnull %28, i64 noundef %33, i32 noundef %32, ptr noundef %7, i64 noundef %9, i32 noundef %11) #17
   br label %do_compare_entry.exit
 
@@ -6922,7 +6922,7 @@ define internal fastcc i32 @do_compare_entry_piecewise(ptr noundef %0, ptr nound
   %sext = shl i64 %18, 32
   %26 = ashr exact i64 %sext, 32
   %27 = getelementptr inbounds i8, ptr %25, i64 %26
-  %28 = sext i32 %24 to i64
+  %28 = zext nneg i32 %24 to i64
   %29 = tail call i32 @df_name_compare(ptr noundef nonnull %27, i64 noundef %28, i32 noundef 32768, ptr noundef %2, i64 noundef %3, i32 noundef %4) #17
   br label %30
 

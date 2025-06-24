@@ -1419,8 +1419,8 @@ ff_vc1_pred_dc.exit:                              ; preds = %689, %.thread131.i,
 
 728:                                              ; preds = %727
   %729 = sub nsw i32 %488, %486
-  %730 = sext i32 %729 to i64
-  %731 = getelementptr inbounds i8, ptr %597, i64 %730
+  %730 = zext nneg i32 %729 to i64
+  %731 = getelementptr inbounds nuw i8, ptr %597, i64 %730
   %732 = load i8, ptr %731, align 1, !tbaa !101
   %733 = sext i8 %732 to i32
   br label %734
@@ -17536,8 +17536,8 @@ ff_vc1_pred_dc.exit:                              ; preds = %256, %.thread131.i,
 
 297:                                              ; preds = %289
   %298 = sub nsw i32 %18, %154
-  %299 = sext i32 %298 to i64
-  %300 = getelementptr inbounds i8, ptr %158, i64 %299
+  %299 = zext nneg i32 %298 to i64
+  %300 = getelementptr inbounds nuw i8, ptr %158, i64 %299
   %301 = load i8, ptr %300, align 1, !tbaa !101
   %302 = sext i8 %301 to i32
   br label %.thread390

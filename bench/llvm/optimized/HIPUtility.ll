@@ -9920,7 +9920,7 @@ _ZNSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_EpLEl.exit.i.i.i: ; preds
 
 _ZSt7advanceIPKPN5clang6driver6ActionElEvRT_T0_.exit: ; preds = %_ZStplRKSt15_Deque_iteratorIPKN5clang6driver6ActionERS4_PS4_El.exit
   %251 = sub nsw i64 %4, %57
-  %252 = getelementptr inbounds ptr, ptr %2, i64 %251
+  %252 = getelementptr inbounds nuw ptr, ptr %2, i64 %251
   %253 = load ptr, ptr %30, align 8, !tbaa !361
   %254 = load ptr, ptr %79, align 8, !tbaa !356
   %255 = load ptr, ptr %50, align 8, !tbaa !357

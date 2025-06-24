@@ -398,16 +398,16 @@ parse_timecode.exit136:                           ; preds = %75
   %194 = lshr i32 %193, 30
   %195 = add nuw i32 %186, 2
   %196 = tail call i32 @llvm.umin.i32(i32 %161, i32 %195)
-  %197 = sub nsw i32 %91, %.0101180.us
+  %197 = sub nuw nsw i32 %91, %.0101180.us
   %198 = tail call i32 @llvm.smin.i32(i32 %184, i32 %197)
   %.not124.us = icmp eq i32 %198, 0
   %spec.select.us = select i1 %.not124.us, i32 %197, i32 %198
   %199 = trunc nuw nsw i32 %194 to i8
-  %200 = sext i32 %spec.select.us to i64
+  %200 = zext nneg i32 %spec.select.us to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %.2181.us, i8 %199, i64 %200, i1 false)
-  %201 = getelementptr inbounds i8, ptr %.2181.us, i64 %200
-  %202 = add nsw i32 %spec.select.us, %.0101180.us
-  %203 = icmp slt i32 %202, %91
+  %201 = getelementptr inbounds nuw i8, ptr %.2181.us, i64 %200
+  %202 = add nuw nsw i32 %spec.select.us, %.0101180.us
+  %203 = icmp samesign ult i32 %202, %91
   br i1 %203, label %.lr.ph183.us, label %.align_get_bits.exit_crit_edge.us, !llvm.loop !56
 
 .align_get_bits.exit_crit_edge.us:                ; preds = %.lr.ph183.us

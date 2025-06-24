@@ -1983,7 +1983,7 @@ pg_ultoa_n.exit:                                  ; preds = %14, %67, %78
   %89 = getelementptr inbounds i8, ptr %86, i64 %88
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %89, ptr nonnull align 1 %0, i64 %87, i1 false)
   %90 = sub nsw i32 %2, %.0.i
-  %91 = sext i32 %90 to i64
+  %91 = zext nneg i32 %90 to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %0, i8 48, i64 %91, i1 false)
   br label %92
 

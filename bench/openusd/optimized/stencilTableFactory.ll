@@ -18230,9 +18230,9 @@ _ZNK10OpenSubdiv6v3_6_03Far13TopologyLevel16GetNumFVarValuesEi.exit: ; preds = %
 
 211:                                              ; preds = %196
   %212 = sub nsw i32 %204, %207
-  %213 = sext i32 %212 to i64
+  %213 = zext nneg i32 %212 to i64
   %214 = load ptr, ptr %172, align 8
-  %215 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchMap::QuadNode", ptr %214, i64 %213
+  %215 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::PatchMap::QuadNode", ptr %214, i64 %213
   %216 = load i32, ptr %215, align 4
   %217 = and i32 %216, 1
   %.not.i = icmp eq i32 %217, 0
@@ -18308,7 +18308,7 @@ _ZN10OpenSubdiv6v3_6_03Far8PatchMap24transformUVToTriQuadrantIdEEiRKT_RS4_S7_Rb.
   %.135.us.i = phi double [ %245, %244 ], [ %.03443.us.i, %236 ], [ %240, %243 ], [ %240, %239 ], [ %.03443.us.i, %230 ], [ %.03443.us.i, %233 ], [ %229, %228 ], [ %.03443.us.i, %224 ]
   %.1.us.i = phi i1 [ true, %244 ], [ true, %236 ], [ false, %243 ], [ true, %239 ], [ false, %230 ], [ true, %233 ], [ false, %228 ], [ false, %224 ]
   %246 = phi i64 [ 1, %244 ], [ 2, %236 ], [ 3, %243 ], [ 0, %239 ], [ 0, %230 ], [ 3, %233 ], [ 2, %228 ], [ 1, %224 ]
-  %247 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchMap::QuadNode", ptr %214, i64 %221
+  %247 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::PatchMap::QuadNode", ptr %214, i64 %221
   %248 = getelementptr inbounds nuw [4 x %"struct.OpenSubdiv::v3_6_0::Far::PatchMap::QuadNode::Child"], ptr %247, i64 0, i64 %246
   %249 = load i32, ptr %248, align 4
   %250 = and i32 %249, 2
@@ -18334,7 +18334,7 @@ _ZN10OpenSubdiv6v3_6_03Far8PatchMap25transformUVToQuadQuadrantIdEEiRKT_RS4_S7_.e
   %259 = select i1 %258, i64 0, i64 2
   %260 = zext i1 %257 to i64
   %261 = or disjoint i64 %259, %260
-  %262 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchMap::QuadNode", ptr %214, i64 %256
+  %262 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::PatchMap::QuadNode", ptr %214, i64 %256
   %263 = getelementptr inbounds nuw [4 x %"struct.OpenSubdiv::v3_6_0::Far::PatchMap::QuadNode::Child"], ptr %262, i64 0, i64 %261
   %264 = load i32, ptr %263, align 4
   %265 = and i32 %264, 2
@@ -19201,9 +19201,9 @@ _ZNK10OpenSubdiv6v3_6_03Far13TopologyLevel16GetNumFVarValuesEi.exit: ; preds = %
 
 209:                                              ; preds = %196
   %210 = sub nsw i32 %204, %205
-  %211 = sext i32 %210 to i64
+  %211 = zext nneg i32 %210 to i64
   %212 = load ptr, ptr %172, align 8
-  %213 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchMap::QuadNode", ptr %212, i64 %211
+  %213 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::PatchMap::QuadNode", ptr %212, i64 %211
   %214 = load i32, ptr %213, align 4
   %215 = and i32 %214, 1
   %.not.i = icmp eq i32 %215, 0
@@ -19279,7 +19279,7 @@ _ZN10OpenSubdiv6v3_6_03Far8PatchMap24transformUVToTriQuadrantIdEEiRKT_RS4_S7_Rb.
   %.135.us.i = phi double [ %243, %242 ], [ %.03443.us.i, %234 ], [ %238, %241 ], [ %238, %237 ], [ %.03443.us.i, %228 ], [ %.03443.us.i, %231 ], [ %227, %226 ], [ %.03443.us.i, %222 ]
   %.1.us.i = phi i1 [ true, %242 ], [ true, %234 ], [ false, %241 ], [ true, %237 ], [ false, %228 ], [ true, %231 ], [ false, %226 ], [ false, %222 ]
   %244 = phi i64 [ 1, %242 ], [ 2, %234 ], [ 3, %241 ], [ 0, %237 ], [ 0, %228 ], [ 3, %231 ], [ 2, %226 ], [ 1, %222 ]
-  %245 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchMap::QuadNode", ptr %212, i64 %219
+  %245 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::PatchMap::QuadNode", ptr %212, i64 %219
   %246 = getelementptr inbounds nuw [4 x %"struct.OpenSubdiv::v3_6_0::Far::PatchMap::QuadNode::Child"], ptr %245, i64 0, i64 %244
   %247 = load i32, ptr %246, align 4
   %248 = and i32 %247, 2
@@ -19305,7 +19305,7 @@ _ZN10OpenSubdiv6v3_6_03Far8PatchMap25transformUVToQuadQuadrantIdEEiRKT_RS4_S7_.e
   %257 = select i1 %256, i64 0, i64 2
   %258 = zext i1 %255 to i64
   %259 = or disjoint i64 %257, %258
-  %260 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchMap::QuadNode", ptr %212, i64 %254
+  %260 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::PatchMap::QuadNode", ptr %212, i64 %254
   %261 = getelementptr inbounds nuw [4 x %"struct.OpenSubdiv::v3_6_0::Far::PatchMap::QuadNode::Child"], ptr %260, i64 0, i64 %259
   %262 = load i32, ptr %261, align 4
   %263 = and i32 %262, 2

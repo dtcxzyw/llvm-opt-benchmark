@@ -35463,7 +35463,7 @@ _ZNSt13unordered_mapIlSt6vectorIlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS2_E
   %1009 = zext nneg i32 %1004 to i64
   %1010 = sub nsw i32 %760, %999
   %.02431.i.i = add nuw nsw i64 %1000, 1
-  %1011 = icmp sgt i32 %1010, 8
+  %1011 = icmp samesign ugt i32 %1010, 8
   br i1 %1011, label %.lr.ph.preheader.i.i, label %._crit_edge.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %1008
@@ -35483,7 +35483,7 @@ _ZNSt13unordered_mapIlSt6vectorIlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS2_E
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 8
   %1018 = add nsw i32 %.02732.i.i, -8
   %.024.i.i = add nuw nsw i64 %.02435.i.i, 1
-  %1019 = icmp samesign ugt i32 %.02732.i.i, 16
+  %1019 = icmp samesign ugt i32 %1018, 8
   br i1 %1019, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !370
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
@@ -35536,7 +35536,7 @@ _ZN5faiss15BitstringReader4readEi.exit.i:         ; preds = %._crit_edge.i.i, %1
   %1046 = zext nneg i32 %1030 to i64
   %1047 = sub nsw i32 %1030, %1033
   %.02431.i113.i = add nuw nsw i64 %1034, 1
-  %1048 = icmp sgt i32 %1047, 8
+  %1048 = icmp samesign ugt i32 %1047, 8
   br i1 %1048, label %.lr.ph.preheader.i120.i, label %._crit_edge.i114.i
 
 .lr.ph.preheader.i120.i:                          ; preds = %1044
@@ -35556,7 +35556,7 @@ _ZN5faiss15BitstringReader4readEi.exit.i:         ; preds = %._crit_edge.i.i, %1
   %indvars.iv.next.i126.i = add nuw nsw i64 %indvars.iv.i122.i, 8
   %1055 = add nsw i32 %.02732.i125.i, -8
   %.024.i127.i = add nuw nsw i64 %.02435.i123.i, 1
-  %1056 = icmp samesign ugt i32 %.02732.i125.i, 16
+  %1056 = icmp samesign ugt i32 %1055, 8
   br i1 %1056, label %.lr.ph.i121.i, label %._crit_edge.loopexit.i128.i, !llvm.loop !370
 
 ._crit_edge.loopexit.i128.i:                      ; preds = %.lr.ph.i121.i
@@ -35697,7 +35697,7 @@ _ZNSt13unordered_mapIlSt6vectorIlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS2_E
   %1114 = zext nneg i32 %1098 to i64
   %1115 = sub nsw i32 %1098, %1101
   %.02431.i134.i = add nuw nsw i64 %1102, 1
-  %1116 = icmp sgt i32 %1115, 8
+  %1116 = icmp samesign ugt i32 %1115, 8
   br i1 %1116, label %.lr.ph.preheader.i141.i, label %._crit_edge.i135.i
 
 .lr.ph.preheader.i141.i:                          ; preds = %1112
@@ -35717,7 +35717,7 @@ _ZNSt13unordered_mapIlSt6vectorIlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS2_E
   %indvars.iv.next.i147.i = add nuw nsw i64 %indvars.iv.i143.i, 8
   %1123 = add nsw i32 %.02732.i146.i, -8
   %.024.i148.i = add nuw nsw i64 %.02435.i144.i, 1
-  %1124 = icmp samesign ugt i32 %.02732.i146.i, 16
+  %1124 = icmp samesign ugt i32 %1123, 8
   br i1 %1124, label %.lr.ph.i142.i, label %._crit_edge.loopexit.i149.i, !llvm.loop !370
 
 ._crit_edge.loopexit.i149.i:                      ; preds = %.lr.ph.i142.i
@@ -36995,7 +36995,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %_ZNSt13unordered_ma
   %274 = zext nneg i32 %269 to i64
   %275 = sub nsw i32 %1, %264
   %.02431.i = add nuw nsw i64 %265, 1
-  %276 = icmp sgt i32 %275, 8
+  %276 = icmp samesign ugt i32 %275, 8
   br i1 %276, label %.lr.ph.preheader.i, label %._crit_edge.i
 
 .lr.ph.preheader.i:                               ; preds = %273
@@ -37015,7 +37015,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %_ZNSt13unordered_ma
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 8
   %283 = add nsw i32 %.02732.i, -8
   %.024.i = add nuw nsw i64 %.02435.i, 1
-  %284 = icmp samesign ugt i32 %.02732.i, 16
+  %284 = icmp samesign ugt i32 %283, 8
   br i1 %284, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !370
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
@@ -37068,7 +37068,7 @@ _ZN5faiss15BitstringReader4readEi.exit:           ; preds = %270, %._crit_edge.i
   %311 = zext nneg i32 %295 to i64
   %312 = sub nsw i32 %295, %298
   %.02431.i183 = add nuw nsw i64 %299, 1
-  %313 = icmp sgt i32 %312, 8
+  %313 = icmp samesign ugt i32 %312, 8
   br i1 %313, label %.lr.ph.preheader.i190, label %._crit_edge.i184
 
 .lr.ph.preheader.i190:                            ; preds = %309
@@ -37088,7 +37088,7 @@ _ZN5faiss15BitstringReader4readEi.exit:           ; preds = %270, %._crit_edge.i
   %indvars.iv.next.i196 = add nuw nsw i64 %indvars.iv.i192, 8
   %320 = add nsw i32 %.02732.i195, -8
   %.024.i197 = add nuw nsw i64 %.02435.i193, 1
-  %321 = icmp samesign ugt i32 %.02732.i195, 16
+  %321 = icmp samesign ugt i32 %320, 8
   br i1 %321, label %.lr.ph.i191, label %._crit_edge.loopexit.i198, !llvm.loop !370
 
 ._crit_edge.loopexit.i198:                        ; preds = %.lr.ph.i191

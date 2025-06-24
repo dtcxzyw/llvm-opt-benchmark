@@ -1180,18 +1180,18 @@ define dso_local range(i32 -1, 1) i32 @parse_date_basic(ptr noundef %0, ptr noun
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 -1, i64 24, i1 false)
-  br i1 %.not62, label %.cont112, label %.else114
+  br i1 %.not62, label %.cont111, label %.else113
 
-.else114:                                         ; preds = %3
+.else113:                                         ; preds = %3
   store i32 -1, ptr %2, align 4, !tbaa !17
-  br label %.cont112
+  br label %.cont111
 
-.cont112:                                         ; preds = %3, %.else114
+.cont111:                                         ; preds = %3, %.else113
   %17 = load i8, ptr %0, align 1, !tbaa !23
   %18 = icmp eq i8 %17, 64
   br i1 %18, label %19, label %48
 
-19:                                               ; preds = %.cont112
+19:                                               ; preds = %.cont111
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #20
   %21 = load i8, ptr %20, align 1, !tbaa !23
@@ -1241,16 +1241,16 @@ define dso_local range(i32 -1, 1) i32 @parse_date_basic(ptr noundef %0, ptr noun
   %46 = icmp eq i8 %45, 45
   %47 = sub nsw i32 0, %44
   %spec.select.i = select i1 %46, i32 %47, i32 %44
-  br i1 %.not, label %.cont120, label %.else122
+  br i1 %.not, label %.cont119, label %.else121
 
-.else122:                                         ; preds = %40
+.else121:                                         ; preds = %40
   store i64 %24, ptr %1, align 8, !tbaa !24
-  br label %.cont120
+  br label %.cont119
 
-.cont120:                                         ; preds = %40, %.else122
-  br i1 %.not62, label %match_object_header_date.exit, label %.else92
+.cont119:                                         ; preds = %40, %.else121
+  br i1 %.not62, label %match_object_header_date.exit, label %.else91
 
-.else92:                                          ; preds = %.cont120
+.else91:                                          ; preds = %.cont119
   store i32 %spec.select.i, ptr %2, align 4, !tbaa !17
   br label %match_object_header_date.exit
 
@@ -1258,17 +1258,17 @@ match_object_header_date.exit.thread:             ; preds = %19, %29, %23, %32, 
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #20
   br label %48
 
-match_object_header_date.exit:                    ; preds = %.else92, %.cont120
+match_object_header_date.exit:                    ; preds = %.else91, %.cont119
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #20
-  br label %.cont96.cont
+  br label %.cont95.cont
 
-48:                                               ; preds = %match_object_header_date.exit.thread, %.cont112
+48:                                               ; preds = %match_object_header_date.exit.thread, %.cont111
   %49 = getelementptr inbounds nuw i8, ptr %9, i64 24
   br label %50
 
 50:                                               ; preds = %435, %48
-  %.0149 = phi i32 [ 0, %48 ], [ %.2151, %435 ]
-  %.1144 = phi i32 [ -1, %48 ], [ %.3, %435 ]
+  %.0148 = phi i32 [ 0, %48 ], [ %.2150, %435 ]
+  %.1143 = phi i32 [ -1, %48 ], [ %.3, %435 ]
   %.051 = phi ptr [ %0, %48 ], [ %437, %435 ]
   %51 = load i8, ptr %.051, align 1, !tbaa !23
   switch i8 %51, label %52 [
@@ -1481,15 +1481,15 @@ match_string.exit84.thread.i:                     ; preds = %match_string.exit84
   br i1 %.not62, label %.split161.us.i.cont, label %.split161.us.i.cont.thread
 
 .split161.us.i.cont:                              ; preds = %.split161.us.i
-  %147 = icmp eq i32 %.1144, -1
-  br i1 %147, label %.then86, label %435
+  %147 = icmp eq i32 %.1143, -1
+  br i1 %147, label %.then85, label %435
 
 .split161.us.i.cont.thread:                       ; preds = %.split161.us.i
-  %.else.val89 = load i32, ptr %2, align 4, !tbaa !17
-  %148 = icmp eq i32 %.else.val89, -1
-  br i1 %148, label %.else87, label %435
+  %.else.val88 = load i32, ptr %2, align 4, !tbaa !17
+  %148 = icmp eq i32 %.else.val88, -1
+  br i1 %148, label %.else86, label %435
 
-.then86:                                          ; preds = %.split161.us.i.cont
+.then85:                                          ; preds = %.split161.us.i.cont
   %149 = getelementptr inbounds nuw i8, ptr %117, i64 8
   %150 = load i32, ptr %149, align 8, !tbaa !36
   %151 = getelementptr inbounds nuw i8, ptr %117, i64 12
@@ -1498,7 +1498,7 @@ match_string.exit84.thread.i:                     ; preds = %match_string.exit84
   %154 = mul nsw i32 %153, 60
   br label %435
 
-.else87:                                          ; preds = %.split161.us.i.cont.thread
+.else86:                                          ; preds = %.split161.us.i.cont.thread
   %155 = getelementptr inbounds nuw i8, ptr %117, i64 8
   %156 = load i32, ptr %155, align 8, !tbaa !36
   %157 = getelementptr inbounds nuw i8, ptr %117, i64 12
@@ -1682,8 +1682,8 @@ skip_alpha.exit.i:                                ; preds = %match_string.exit11
   %250 = and i32 %248, %249
   %251 = load i32, ptr %9, align 8, !tbaa !16
   %252 = and i32 %250, %251
-  %.not.i73 = icmp sgt i32 %252, -1
-  br i1 %.not.i73, label %261, label %253
+  %.not.i72 = icmp sgt i32 %252, -1
+  br i1 %.not.i72, label %261, label %253
 
 253:                                              ; preds = %241
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #20
@@ -1734,9 +1734,9 @@ skip_alpha.exit.i:                                ; preds = %match_string.exit11
   br label %273
 
 273:                                              ; preds = %.preheader, %273
-  %indvars.iv.i71 = phi i64 [ %indvars.iv.next.i72, %273 ], [ 0, %.preheader ]
-  %indvars.iv.next.i72 = add nuw nsw i64 %indvars.iv.i71, 1
-  %274 = getelementptr inbounds nuw i8, ptr %.051, i64 %indvars.iv.next.i72
+  %indvars.iv.i70 = phi i64 [ %indvars.iv.next.i71, %273 ], [ 0, %.preheader ]
+  %indvars.iv.next.i71 = add nuw nsw i64 %indvars.iv.i70, 1
+  %274 = getelementptr inbounds nuw i8, ptr %.051, i64 %indvars.iv.next.i71
   %275 = load i8, ptr %274, align 1, !tbaa !23
   %276 = zext i8 %275 to i64
   %277 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %276
@@ -1746,8 +1746,8 @@ skip_alpha.exit.i:                                ; preds = %match_string.exit11
   br i1 %.not112.i, label %280, label %273, !llvm.loop !39
 
 280:                                              ; preds = %273
-  %281 = trunc nuw nsw i64 %indvars.iv.i71 to i32
-  %282 = trunc nuw nsw i64 %indvars.iv.next.i72 to i32
+  %281 = trunc nuw nsw i64 %indvars.iv.i70 to i32
+  %282 = trunc nuw nsw i64 %indvars.iv.next.i71 to i32
   switch i32 %281, label %331 [
     i32 7, label %283
     i32 5, label %283
@@ -1859,11 +1859,11 @@ set_date.exit.i:                                  ; preds = %324, %317, %310, %3
   %333 = icmp eq i32 %332, -1
   %334 = load i32, ptr %16, align 4
   %335 = icmp eq i32 %334, 0
-  %or.cond183 = select i1 %333, i1 %335, i1 false
+  %or.cond182 = select i1 %333, i1 %335, i1 false
   %336 = load i32, ptr %9, align 8
   %.not144.i = icmp eq i32 %336, 0
-  %or.cond184 = select i1 %or.cond183, i1 %.not144.i, i1 false
-  br i1 %or.cond184, label %337, label %maybeiso8601.exit.thread.i
+  %or.cond183 = select i1 %or.cond182, i1 %.not144.i, i1 false
+  br i1 %or.cond183, label %337, label %maybeiso8601.exit.thread.i
 
 337:                                              ; preds = %331
   switch i32 %281, label %.thread134.i [
@@ -1899,7 +1899,7 @@ set_date.exit.i:                                  ; preds = %324, %317, %310, %3
   br label %match_digit.exit
 
 maybeiso8601.exit.thread.i:                       ; preds = %.thread134.i, %331
-  %346 = icmp eq i64 %indvars.iv.next.i72, 4
+  %346 = icmp eq i64 %indvars.iv.next.i71, 4
   br i1 %346, label %347, label %363
 
 347:                                              ; preds = %maybeiso8601.exit.thread.i
@@ -1907,18 +1907,18 @@ maybeiso8601.exit.thread.i:                       ; preds = %.thread134.i, %331
   br i1 %348, label %349, label %358
 
 349:                                              ; preds = %347
-  br i1 %.not62, label %.cont83, label %.cont83.thread
+  br i1 %.not62, label %.cont82, label %.cont82.thread
 
-.cont83:                                          ; preds = %349
-  %350 = icmp eq i32 %.1144, -1
-  br i1 %350, label %.then81, label %match_digit.exit
+.cont82:                                          ; preds = %349
+  %350 = icmp eq i32 %.1143, -1
+  br i1 %350, label %.then80, label %match_digit.exit
 
-.cont83.thread:                                   ; preds = %349
+.cont82.thread:                                   ; preds = %349
   %.else.val = load i32, ptr %2, align 4, !tbaa !17
   %351 = icmp eq i32 %.else.val, -1
-  br i1 %351, label %.else82, label %match_digit.exit
+  br i1 %351, label %.else81, label %match_digit.exit
 
-.then81:                                          ; preds = %.cont83
+.then80:                                          ; preds = %.cont82
   %.lhs.trunc.i = trunc nuw nsw i64 %239 to i16
   %352 = urem i16 %.lhs.trunc.i, 100
   %353 = udiv i16 %.lhs.trunc.i, 100
@@ -1927,13 +1927,13 @@ maybeiso8601.exit.thread.i:                       ; preds = %.thread134.i, %331
   %354 = zext nneg i16 %narrow145.i to i32
   br label %match_digit.exit
 
-.else82:                                          ; preds = %.cont83.thread
-  %.lhs.trunc.i158 = trunc nuw nsw i64 %239 to i16
-  %355 = urem i16 %.lhs.trunc.i158, 100
-  %356 = udiv i16 %.lhs.trunc.i158, 100
-  %narrow.i159 = mul nuw nsw i16 %356, 60
-  %narrow145.i160 = add nuw nsw i16 %narrow.i159, %355
-  %357 = zext nneg i16 %narrow145.i160 to i32
+.else81:                                          ; preds = %.cont82.thread
+  %.lhs.trunc.i157 = trunc nuw nsw i64 %239 to i16
+  %355 = urem i16 %.lhs.trunc.i157, 100
+  %356 = udiv i16 %.lhs.trunc.i157, 100
+  %narrow.i158 = mul nuw nsw i16 %356, 60
+  %narrow145.i159 = add nuw nsw i16 %narrow.i158, %355
+  %357 = zext nneg i16 %narrow145.i159 to i32
   store i32 %357, ptr %2, align 4, !tbaa !17
   br label %match_digit.exit
 
@@ -1949,7 +1949,7 @@ maybeiso8601.exit.thread.i:                       ; preds = %.thread134.i, %331
   br label %match_digit.exit
 
 363:                                              ; preds = %maybeiso8601.exit.thread.i
-  %364 = icmp samesign ugt i64 %indvars.iv.i71, 1
+  %364 = icmp samesign ugt i64 %indvars.iv.i70, 1
   br i1 %364, label %match_digit.exit, label %365
 
 365:                                              ; preds = %363
@@ -1957,8 +1957,8 @@ maybeiso8601.exit.thread.i:                       ; preds = %.thread134.i, %331
   %or.cond9.i = icmp ult i64 %366, 31
   %367 = load i32, ptr %13, align 4
   %368 = icmp slt i32 %367, 0
-  %or.cond186 = select i1 %or.cond9.i, i1 %368, i1 false
-  br i1 %or.cond186, label %369, label %371
+  %or.cond185 = select i1 %or.cond9.i, i1 %368, i1 false
+  br i1 %or.cond185, label %369, label %371
 
 369:                                              ; preds = %365
   %370 = trunc nuw nsw i64 %239 to i32
@@ -1966,11 +1966,11 @@ maybeiso8601.exit.thread.i:                       ; preds = %.thread134.i, %331
   br label %match_digit.exit
 
 371:                                              ; preds = %365
-  %372 = icmp eq i64 %indvars.iv.next.i72, 2
+  %372 = icmp eq i64 %indvars.iv.next.i71, 2
   %373 = load i32, ptr %11, align 4
   %374 = icmp slt i32 %373, 0
-  %or.cond188 = select i1 %372, i1 %374, i1 false
-  br i1 %or.cond188, label %375, label %.thread139.i
+  %or.cond187 = select i1 %372, i1 %374, i1 false
+  br i1 %or.cond187, label %375, label %.thread139.i
 
 375:                                              ; preds = %371
   %376 = icmp ult i64 %239, 10
@@ -1999,8 +1999,8 @@ maybeiso8601.exit.thread.i:                       ; preds = %.thread134.i, %331
   %or.cond11.i = icmp ult i64 %366, 12
   %386 = load i32, ptr %12, align 8
   %387 = icmp slt i32 %386, 0
-  %or.cond190 = select i1 %or.cond11.i, i1 %387, i1 false
-  br i1 %or.cond190, label %388, label %match_digit.exit
+  %or.cond189 = select i1 %or.cond11.i, i1 %387, i1 false
+  br i1 %or.cond189, label %388, label %match_digit.exit
 
 388:                                              ; preds = %.thread139.i
   %389 = trunc nuw nsw i64 %239 to i32
@@ -2008,10 +2008,10 @@ maybeiso8601.exit.thread.i:                       ; preds = %.thread134.i, %331
   store i32 %390, ptr %12, align 8, !tbaa !12
   br label %match_digit.exit
 
-match_digit.exit:                                 ; preds = %.then81, %.else82, %.cont83.thread, %255, %271, %set_date.exit.i, %343, %.cont83, %358, %360, %363, %369, %379, %384, %.thread139.i, %388
-  %.3152 = phi i32 [ %.0149, %.cont83 ], [ %.0149, %360 ], [ %.0149, %358 ], [ %.0149, %363 ], [ %.0149, %369 ], [ %.0149, %379 ], [ %.0149, %388 ], [ %.0149, %.thread139.i ], [ %.0149, %384 ], [ %.0149, %343 ], [ %.0149, %set_date.exit.i ], [ %.0149, %271 ], [ 1, %255 ], [ %.0149, %.cont83.thread ], [ %.0149, %.else82 ], [ %.0149, %.then81 ]
-  %.7 = phi i32 [ %.1144, %.cont83 ], [ %.1144, %360 ], [ %.1144, %358 ], [ %.1144, %363 ], [ %.1144, %369 ], [ %.1144, %379 ], [ %.1144, %388 ], [ %.1144, %.thread139.i ], [ %.1144, %384 ], [ %.1144, %343 ], [ %.1144, %set_date.exit.i ], [ %.1144, %271 ], [ %.1144, %255 ], [ %.1144, %.cont83.thread ], [ %.1144, %.else82 ], [ %354, %.then81 ]
-  %.2.i70 = phi i32 [ 4, %.cont83 ], [ 4, %360 ], [ 4, %358 ], [ %282, %363 ], [ %282, %369 ], [ 2, %379 ], [ %282, %388 ], [ %282, %.thread139.i ], [ 2, %384 ], [ %282, %343 ], [ %330, %set_date.exit.i ], [ %272, %271 ], [ %260, %255 ], [ 4, %.cont83.thread ], [ 4, %.else82 ], [ 4, %.then81 ]
+match_digit.exit:                                 ; preds = %.then80, %.else81, %.cont82.thread, %255, %271, %set_date.exit.i, %343, %.cont82, %358, %360, %363, %369, %379, %384, %.thread139.i, %388
+  %.3151 = phi i32 [ %.0148, %.cont82 ], [ %.0148, %360 ], [ %.0148, %358 ], [ %.0148, %363 ], [ %.0148, %369 ], [ %.0148, %379 ], [ %.0148, %388 ], [ %.0148, %.thread139.i ], [ %.0148, %384 ], [ %.0148, %343 ], [ %.0148, %set_date.exit.i ], [ %.0148, %271 ], [ 1, %255 ], [ %.0148, %.cont82.thread ], [ %.0148, %.else81 ], [ %.0148, %.then80 ]
+  %.7 = phi i32 [ %.1143, %.cont82 ], [ %.1143, %360 ], [ %.1143, %358 ], [ %.1143, %363 ], [ %.1143, %369 ], [ %.1143, %379 ], [ %.1143, %388 ], [ %.1143, %.thread139.i ], [ %.1143, %384 ], [ %.1143, %343 ], [ %.1143, %set_date.exit.i ], [ %.1143, %271 ], [ %.1143, %255 ], [ %.1143, %.cont82.thread ], [ %.1143, %.else81 ], [ %354, %.then80 ]
+  %.2.i69 = phi i32 [ 4, %.cont82 ], [ 4, %360 ], [ 4, %358 ], [ %282, %363 ], [ %282, %369 ], [ 2, %379 ], [ %282, %388 ], [ %282, %.thread139.i ], [ 2, %384 ], [ %282, %343 ], [ %330, %set_date.exit.i ], [ %272, %271 ], [ %260, %255 ], [ 4, %.cont82.thread ], [ 4, %.else81 ], [ 4, %.then80 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #20
   br label %435
 
@@ -2072,8 +2072,8 @@ match_digit.exit:                                 ; preds = %.then81, %.else82, 
   %.016.i = phi i32 [ %408, %407 ], [ %spec.store.select.i, %413 ], [ 0, %410 ]
   %422 = icmp slt i32 %.016.i, 60
   %423 = icmp slt i32 %.017.i, 24
-  %or.cond.i74 = select i1 %422, i1 %423, i1 false
-  br i1 %or.cond.i74, label %424, label %match_tz.exit
+  %or.cond.i73 = select i1 %422, i1 %423, i1 false
+  br i1 %or.cond.i73, label %424, label %match_tz.exit
 
 424:                                              ; preds = %420
   %425 = mul nsw i32 %.017.i, 60
@@ -2081,15 +2081,15 @@ match_digit.exit:                                 ; preds = %.then81, %.else82, 
   %427 = load i8, ptr %.051, align 1, !tbaa !23
   %428 = icmp eq i8 %427, 45
   %429 = sub nsw i32 0, %426
-  %spec.select.i76 = select i1 %428, i32 %429, i32 %426
+  %spec.select.i75 = select i1 %428, i32 %429, i32 %426
   br i1 %.not62, label %match_tz.exit, label %.else
 
 .else:                                            ; preds = %424
-  store i32 %spec.select.i76, ptr %2, align 4, !tbaa !17
+  store i32 %spec.select.i75, ptr %2, align 4, !tbaa !17
   br label %match_tz.exit
 
 match_tz.exit:                                    ; preds = %.else, %424, %399, %420
-  %.8 = phi i32 [ %.1144, %399 ], [ %.1144, %420 ], [ %.1144, %.else ], [ %spec.select.i76, %424 ]
+  %.8 = phi i32 [ %.1143, %399 ], [ %.1143, %420 ], [ %.1143, %.else ], [ %spec.select.i75, %424 ]
   %430 = phi ptr [ %402, %399 ], [ %421, %420 ], [ %421, %.else ], [ %421, %424 ]
   %431 = ptrtoint ptr %430 to i64
   %432 = ptrtoint ptr %.051 to i64
@@ -2098,10 +2098,10 @@ match_tz.exit:                                    ; preds = %.else, %424, %399, 
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #20
   br label %435
 
-435:                                              ; preds = %392, %match_tz.exit, %match_digit.exit, %391, %.then86, %.else87, %.split161.us.i.cont.thread, %85, %114, %.split161.us.i.cont, %186, %215, %228, %skip_alpha.exit.i
-  %.2151 = phi i32 [ %.0149, %391 ], [ %.0149, %392 ], [ %.0149, %match_tz.exit ], [ %.3152, %match_digit.exit ], [ %.0149, %.then86 ], [ %.0149, %.else87 ], [ %.0149, %.split161.us.i.cont.thread ], [ %.0149, %85 ], [ %.0149, %114 ], [ %.0149, %.split161.us.i.cont ], [ %.0149, %186 ], [ %.0149, %215 ], [ %.0149, %228 ], [ %.0149, %skip_alpha.exit.i ]
-  %.3 = phi i32 [ %.1144, %391 ], [ %.1144, %392 ], [ %.8, %match_tz.exit ], [ %.7, %match_digit.exit ], [ %154, %.then86 ], [ %.1144, %.else87 ], [ %.1144, %.split161.us.i.cont.thread ], [ %.1144, %85 ], [ %.1144, %114 ], [ %.1144, %.split161.us.i.cont ], [ %.1144, %186 ], [ %.1144, %215 ], [ %.1144, %228 ], [ %.1144, %skip_alpha.exit.i ]
-  %.052 = phi i32 [ 0, %391 ], [ 0, %392 ], [ %434, %match_tz.exit ], [ %.2.i70, %match_digit.exit ], [ %.us-phi162.i, %.then86 ], [ %.us-phi162.i, %.else87 ], [ %.us-phi162.i, %.split161.us.i.cont.thread ], [ %.012.i.i, %85 ], [ %.012.i68.i, %114 ], [ %.us-phi162.i, %.split161.us.i.cont ], [ 2, %186 ], [ 2, %215 ], [ 1, %228 ], [ %235, %skip_alpha.exit.i ]
+435:                                              ; preds = %392, %match_tz.exit, %match_digit.exit, %391, %.then85, %.else86, %.split161.us.i.cont.thread, %85, %114, %.split161.us.i.cont, %186, %215, %228, %skip_alpha.exit.i
+  %.2150 = phi i32 [ %.0148, %391 ], [ %.0148, %392 ], [ %.0148, %match_tz.exit ], [ %.3151, %match_digit.exit ], [ %.0148, %.then85 ], [ %.0148, %.else86 ], [ %.0148, %.split161.us.i.cont.thread ], [ %.0148, %85 ], [ %.0148, %114 ], [ %.0148, %.split161.us.i.cont ], [ %.0148, %186 ], [ %.0148, %215 ], [ %.0148, %228 ], [ %.0148, %skip_alpha.exit.i ]
+  %.3 = phi i32 [ %.1143, %391 ], [ %.1143, %392 ], [ %.8, %match_tz.exit ], [ %.7, %match_digit.exit ], [ %154, %.then85 ], [ %.1143, %.else86 ], [ %.1143, %.split161.us.i.cont.thread ], [ %.1143, %85 ], [ %.1143, %114 ], [ %.1143, %.split161.us.i.cont ], [ %.1143, %186 ], [ %.1143, %215 ], [ %.1143, %228 ], [ %.1143, %skip_alpha.exit.i ]
+  %.052 = phi i32 [ 0, %391 ], [ 0, %392 ], [ %434, %match_tz.exit ], [ %.2.i69, %match_digit.exit ], [ %.us-phi162.i, %.then85 ], [ %.us-phi162.i, %.else86 ], [ %.us-phi162.i, %.split161.us.i.cont.thread ], [ %.012.i.i, %85 ], [ %.012.i68.i, %114 ], [ %.us-phi162.i, %.split161.us.i.cont ], [ 2, %186 ], [ 2, %215 ], [ 1, %228 ], [ %235, %skip_alpha.exit.i ]
   %spec.store.select6 = call i32 @llvm.umax.i32(i32 %.052, i32 1)
   %436 = sext i32 %spec.store.select6 to i64
   %437 = getelementptr inbounds i8, ptr %.051, i64 %436
@@ -2111,17 +2111,17 @@ match_tz.exit:                                    ; preds = %.else, %424, %399, 
   %439 = load i32, ptr %11, align 4, !tbaa !4
   %440 = load i32, ptr %12, align 8, !tbaa !12
   %441 = add i32 %439, -200
-  %or.cond.i77 = icmp ult i32 %441, -130
+  %or.cond.i76 = icmp ult i32 %441, -130
   %or.cond3.i = icmp ugt i32 %440, 11
-  %or.cond30.i = select i1 %or.cond.i77, i1 true, i1 %or.cond3.i
+  %or.cond30.i = select i1 %or.cond.i76, i1 true, i1 %or.cond3.i
   br i1 %or.cond30.i, label %tm_to_time_t.exit, label %442
 
 442:                                              ; preds = %438
   %443 = load i32, ptr %13, align 4, !tbaa !13
   %444 = icmp samesign ult i32 %440, 2
   %445 = and i32 %439, 3
-  %.not.i78 = icmp ne i32 %445, 0
-  %or.cond29.not.i = or i1 %444, %.not.i78
+  %.not.i77 = icmp ne i32 %445, 0
+  %or.cond29.not.i = or i1 %444, %.not.i77
   %446 = sext i1 %or.cond29.not.i to i32
   %447 = load i32, ptr %15, align 8, !tbaa !14
   %448 = icmp slt i32 %447, 0
@@ -2155,8 +2155,8 @@ match_tz.exit:                                    ; preds = %.else, %424, %399, 
   %469 = mul nuw nsw i32 %447, 3600
   %470 = mul nuw nsw i32 %450, 60
   %471 = zext nneg i32 %453 to i64
-  %narrow.i79 = add nuw i32 %470, %469
-  %472 = zext i32 %narrow.i79 to i64
+  %narrow.i78 = add nuw i32 %470, %469
+  %472 = zext i32 %narrow.i78 to i64
   %473 = add nuw nsw i64 %471, %472
   %474 = add nsw i64 %473, %468
   br label %tm_to_time_t.exit
@@ -2170,139 +2170,141 @@ tm_to_time_t.exit.else:                           ; preds = %tm_to_time_t.exit
   br label %tm_to_time_t.exit.cont
 
 tm_to_time_t.exit.cont:                           ; preds = %tm_to_time_t.exit, %tm_to_time_t.exit.else
-  %.3148 = phi i64 [ undef, %tm_to_time_t.exit.else ], [ %.023.i, %tm_to_time_t.exit ]
+  %.3147 = phi i64 [ undef, %tm_to_time_t.exit.else ], [ %.023.i, %tm_to_time_t.exit ]
   %475 = icmp eq i64 %.023.i, -1
-  br i1 %475, label %.cont96.cont, label %476
+  br i1 %475, label %.cont95.cont, label %476
 
 476:                                              ; preds = %tm_to_time_t.exit.cont
-  br i1 %.not62, label %.cont108, label %.else110
+  br i1 %.not62, label %.cont107, label %.else109
 
-.else110:                                         ; preds = %476
-  %.else.val111 = load i32, ptr %2, align 4, !tbaa !17
-  br label %.cont108
+.else109:                                         ; preds = %476
+  %.else.val110 = load i32, ptr %2, align 4, !tbaa !17
+  br label %.cont107
 
-.cont108:                                         ; preds = %476, %.else110
-  %477 = phi i32 [ %.1144, %476 ], [ %.else.val111, %.else110 ]
+.cont107:                                         ; preds = %476, %.else109
+  %477 = phi i32 [ %.1143, %476 ], [ %.else.val110, %.else109 ]
   %478 = icmp eq i32 %477, -1
-  br i1 %478, label %479, label %.cont93
+  br i1 %478, label %479, label %.cont92
 
-479:                                              ; preds = %.cont108
+479:                                              ; preds = %.cont107
   store i32 -1, ptr %14, align 8, !tbaa !28
   %480 = call i64 @mktime(ptr noundef nonnull %9) #20
-  br i1 %.not, label %.cont134, label %.else136
+  br i1 %.not, label %.cont133, label %.else135
 
-.else136:                                         ; preds = %479
-  %.else.val137 = load i64, ptr %1, align 8, !tbaa !24
-  br label %.cont134
+.else135:                                         ; preds = %479
+  %.else.val136 = load i64, ptr %1, align 8, !tbaa !24
+  br label %.cont133
 
-.cont134:                                         ; preds = %479, %.else136
-  %481 = phi i64 [ %.3148, %479 ], [ %.else.val137, %.else136 ]
+.cont133:                                         ; preds = %479, %.else135
+  %481 = phi i64 [ %.3147, %479 ], [ %.else.val136, %.else135 ]
   %482 = icmp sgt i64 %481, %480
-  br i1 %482, label %483, label %486
+  br i1 %482, label %483, label %487
 
-483:                                              ; preds = %.cont134
+483:                                              ; preds = %.cont133
   %484 = sub nsw i64 %481, %480
-  %485 = sdiv i64 %484, 60
-  br label %488
+  %485 = udiv i64 %484, 60
+  %486 = trunc i64 %485 to i32
+  br label %492
 
-486:                                              ; preds = %.cont134
-  %487 = sub nsw i64 %480, %481
-  %.neg = sdiv i64 %487, -60
-  br label %488
+487:                                              ; preds = %.cont133
+  %488 = sub nsw i64 %480, %481
+  %489 = udiv i64 %488, 60
+  %490 = trunc i64 %489 to i32
+  %491 = sub nsw i32 0, %490
+  br label %492
 
-488:                                              ; preds = %486, %483
-  %storemerge.in = phi i64 [ %.neg, %486 ], [ %485, %483 ]
-  %storemerge = trunc i64 %storemerge.in to i32
-  br i1 %.not62, label %.cont93.thread176, label %.cont93.thread
+492:                                              ; preds = %487, %483
+  %storemerge = phi i32 [ %491, %487 ], [ %486, %483 ]
+  br i1 %.not62, label %.cont92.thread175, label %.cont92.thread
 
-.cont93:                                          ; preds = %.cont108
-  %.not69 = icmp eq i32 %.0149, 0
-  br i1 %.not69, label %489, label %.cont96.cont
+.cont92:                                          ; preds = %.cont107
+  %.not68 = icmp eq i32 %.0148, 0
+  br i1 %.not68, label %493, label %.cont95.cont
 
-.cont93.thread176:                                ; preds = %488
-  %.not69178 = icmp eq i32 %.0149, 0
-  br i1 %.not69178, label %.cont104, label %.cont96.cont
+.cont92.thread175:                                ; preds = %492
+  %.not68177 = icmp eq i32 %.0148, 0
+  br i1 %.not68177, label %.cont103, label %.cont95.cont
 
-.cont93.thread:                                   ; preds = %488
+.cont92.thread:                                   ; preds = %492
   store i32 %storemerge, ptr %2, align 4, !tbaa !17
-  %.not69170 = icmp eq i32 %.0149, 0
-  br i1 %.not69170, label %.cont104, label %.cont96.cont
+  %.not68169 = icmp eq i32 %.0148, 0
+  br i1 %.not68169, label %.cont103, label %.cont95.cont
 
-489:                                              ; preds = %.cont93
-  br i1 %.not62, label %.cont104, label %..else106_crit_edge
+493:                                              ; preds = %.cont92
+  br i1 %.not62, label %.cont103, label %..else105_crit_edge
 
-..else106_crit_edge:                              ; preds = %489
-  %.else.val107.pre = load i32, ptr %2, align 4, !tbaa !17
-  br label %.cont104
+..else105_crit_edge:                              ; preds = %493
+  %.else.val106.pre = load i32, ptr %2, align 4, !tbaa !17
+  br label %.cont103
 
-.cont104:                                         ; preds = %.cont93.thread, %..else106_crit_edge, %.cont93.thread176, %489
-  %.4171175 = phi i32 [ %.1144, %489 ], [ %storemerge, %.cont93.thread176 ], [ %.1144, %..else106_crit_edge ], [ %.1144, %.cont93.thread ]
-  %490 = phi i32 [ %.1144, %489 ], [ %storemerge, %.cont93.thread176 ], [ %.else.val107.pre, %..else106_crit_edge ], [ %storemerge, %.cont93.thread ]
-  %491 = icmp sgt i32 %490, 0
-  br i1 %491, label %492, label %497
+.cont103:                                         ; preds = %.cont92.thread, %..else105_crit_edge, %.cont92.thread175, %493
+  %.4170174 = phi i32 [ %.1143, %493 ], [ %storemerge, %.cont92.thread175 ], [ %.1143, %..else105_crit_edge ], [ %.1143, %.cont92.thread ]
+  %494 = phi i32 [ %.1143, %493 ], [ %storemerge, %.cont92.thread175 ], [ %.else.val106.pre, %..else105_crit_edge ], [ %storemerge, %.cont92.thread ]
+  %495 = icmp sgt i32 %494, 0
+  br i1 %495, label %496, label %501
 
-492:                                              ; preds = %.cont104
-  %493 = mul nuw nsw i32 %490, 60
-  %494 = zext nneg i32 %493 to i64
-  br i1 %.not, label %.cont130, label %.else132
+496:                                              ; preds = %.cont103
+  %497 = mul nuw nsw i32 %494, 60
+  %498 = zext nneg i32 %497 to i64
+  br i1 %.not, label %.cont129, label %.else131
 
-.else132:                                         ; preds = %492
-  %.else.val133 = load i64, ptr %1, align 8, !tbaa !24
-  br label %.cont130
+.else131:                                         ; preds = %496
+  %.else.val132 = load i64, ptr %1, align 8, !tbaa !24
+  br label %.cont129
 
-.cont130:                                         ; preds = %492, %.else132
-  %495 = phi i64 [ %.3148, %492 ], [ %.else.val133, %.else132 ]
-  %496 = icmp ult i64 %495, %494
-  br i1 %496, label %.cont96.cont, label %497
+.cont129:                                         ; preds = %496, %.else131
+  %499 = phi i64 [ %.3147, %496 ], [ %.else.val132, %.else131 ]
+  %500 = icmp ult i64 %499, %498
+  br i1 %500, label %.cont95.cont, label %501
 
-497:                                              ; preds = %.cont130, %.cont104
-  br i1 %.not62, label %.cont100, label %.else102
+501:                                              ; preds = %.cont129, %.cont103
+  br i1 %.not62, label %.cont99, label %.else101
 
-.else102:                                         ; preds = %497
-  %.else.val103 = load i32, ptr %2, align 4, !tbaa !17
-  br label %.cont100
+.else101:                                         ; preds = %501
+  %.else.val102 = load i32, ptr %2, align 4, !tbaa !17
+  br label %.cont99
 
-.cont100:                                         ; preds = %497, %.else102
-  %498 = phi i32 [ %.4171175, %497 ], [ %.else.val103, %.else102 ]
-  %499 = icmp slt i32 %498, 0
-  br i1 %499, label %500, label %506
+.cont99:                                          ; preds = %501, %.else101
+  %502 = phi i32 [ %.4170174, %501 ], [ %.else.val102, %.else101 ]
+  %503 = icmp slt i32 %502, 0
+  br i1 %503, label %504, label %510
 
-500:                                              ; preds = %.cont100
-  %501 = mul i32 %498, -60
-  %502 = zext nneg i32 %501 to i64
-  br i1 %.not, label %.cont126, label %.else128
+504:                                              ; preds = %.cont99
+  %505 = mul i32 %502, -60
+  %506 = zext nneg i32 %505 to i64
+  br i1 %.not, label %.cont125, label %.else127
 
-.else128:                                         ; preds = %500
-  %.else.val129 = load i64, ptr %1, align 8, !tbaa !24
-  br label %.cont126
+.else127:                                         ; preds = %504
+  %.else.val128 = load i64, ptr %1, align 8, !tbaa !24
+  br label %.cont125
 
-.cont126:                                         ; preds = %500, %.else128
-  %503 = phi i64 [ %.3148, %500 ], [ %.else.val129, %.else128 ]
-  %504 = sub i64 4102444799, %503
-  %505 = icmp ult i64 %504, %502
-  br i1 %505, label %.cont96.cont, label %506
+.cont125:                                         ; preds = %504, %.else127
+  %507 = phi i64 [ %.3147, %504 ], [ %.else.val128, %.else127 ]
+  %508 = sub i64 4102444799, %507
+  %509 = icmp ult i64 %508, %506
+  br i1 %509, label %.cont95.cont, label %510
 
-506:                                              ; preds = %.cont126, %.cont100
-  br i1 %.not62, label %.cont96, label %.else98
+510:                                              ; preds = %.cont125, %.cont99
+  br i1 %.not62, label %.cont95, label %.else97
 
-.else98:                                          ; preds = %506
-  %.else.val99 = load i32, ptr %2, align 4, !tbaa !17
-  br label %.cont96
+.else97:                                          ; preds = %510
+  %.else.val98 = load i32, ptr %2, align 4, !tbaa !17
+  br label %.cont95
 
-.cont96:                                          ; preds = %506, %.else98
-  %507 = phi i32 [ %.4171175, %506 ], [ %.else.val99, %.else98 ]
-  br i1 %.not, label %.cont96.cont, label %.cont96.else
+.cont95:                                          ; preds = %510, %.else97
+  %511 = phi i32 [ %.4170174, %510 ], [ %.else.val98, %.else97 ]
+  br i1 %.not, label %.cont95.cont, label %.cont95.else
 
-.cont96.else:                                     ; preds = %.cont96
-  %508 = mul nsw i32 %507, 60
-  %509 = sext i32 %508 to i64
-  %.else.val125 = load i64, ptr %1, align 8, !tbaa !24
-  %510 = sub i64 %.else.val125, %509
-  store i64 %510, ptr %1, align 8, !tbaa !24
-  br label %.cont96.cont
+.cont95.else:                                     ; preds = %.cont95
+  %512 = mul nsw i32 %511, 60
+  %513 = sext i32 %512 to i64
+  %.else.val124 = load i64, ptr %1, align 8, !tbaa !24
+  %514 = sub i64 %.else.val124, %513
+  store i64 %514, ptr %1, align 8, !tbaa !24
+  br label %.cont95.cont
 
-.cont96.cont:                                     ; preds = %.cont96.else, %.cont96, %.cont93.thread176, %.cont93.thread, %match_object_header_date.exit, %.cont93, %.cont126, %.cont130, %tm_to_time_t.exit.cont
-  %.0 = phi i32 [ 0, %match_object_header_date.exit ], [ -1, %tm_to_time_t.exit.cont ], [ -1, %.cont130 ], [ -1, %.cont126 ], [ 0, %.cont93 ], [ 0, %.cont93.thread ], [ 0, %.cont93.thread176 ], [ 0, %.cont96 ], [ 0, %.cont96.else ]
+.cont95.cont:                                     ; preds = %.cont95.else, %.cont95, %.cont92.thread175, %.cont92.thread, %match_object_header_date.exit, %.cont92, %.cont125, %.cont129, %tm_to_time_t.exit.cont
+  %.0 = phi i32 [ 0, %match_object_header_date.exit ], [ -1, %tm_to_time_t.exit.cont ], [ -1, %.cont129 ], [ -1, %.cont125 ], [ 0, %.cont92 ], [ 0, %.cont92.thread ], [ 0, %.cont92.thread175 ], [ 0, %.cont95 ], [ 0, %.cont95.else ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9) #20
   ret i32 %.0
 }

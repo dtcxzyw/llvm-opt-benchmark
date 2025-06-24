@@ -10919,13 +10919,13 @@ define internal fastcc i64 @af_latin_compute_stem_width(i32 %.5148.val, ptr read
   %.not7 = icmp eq i32 %0, 0
   %9 = and i32 %.5148.val, 4
   %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %124, label %10
+  br i1 %.not, label %123, label %10
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 424
   %12 = load i8, ptr %11, align 8, !tbaa !153
   %.not111 = icmp eq i8 %12, 0
-  br i1 %.not111, label %13, label %124
+  br i1 %.not111, label %13, label %123
 
 13:                                               ; preds = %10
   %spec.select = tail call i64 @llvm.abs.i64(i64 %1, i1 true)
@@ -10934,19 +10934,19 @@ define internal fastcc i64 @af_latin_compute_stem_width(i32 %.5148.val, ptr read
 14:                                               ; preds = %13
   %15 = and i32 %.5148.val, 2
   %.not112 = icmp eq i32 %15, 0
-  br i1 %.not112, label %17, label %70
+  br i1 %.not112, label %17, label %69
 
 .critedge:                                        ; preds = %13
   %16 = and i32 %.5148.val, 1
   %.not113 = icmp eq i32 %16, 0
-  br i1 %.not113, label %.thread, label %70
+  br i1 %.not113, label %.thread, label %69
 
 17:                                               ; preds = %14
   %18 = and i32 %4, 2
   %19 = icmp ne i32 %18, 0
   %20 = icmp samesign ult i64 %spec.select, 192
   %or.cond3 = select i1 %19, i1 %20, i1 false
-  br i1 %or.cond3, label %121, label %.thread
+  br i1 %or.cond3, label %120, label %.thread
 
 .thread:                                          ; preds = %.critedge, %17
   %21 = and i32 %3, 1
@@ -10956,112 +10956,112 @@ define internal fastcc i64 @af_latin_compute_stem_width(i32 %.5148.val, ptr read
 22:                                               ; preds = %.thread
   %23 = icmp samesign ult i64 %spec.select, 80
   %spec.store.select = select i1 %23, i64 64, i64 %spec.select
-  br label %26
+  br label %25
 
 24:                                               ; preds = %.thread
-  %25 = tail call i64 @llvm.umax.i64(i64 %spec.select, i64 56)
-  br label %26
+  %spec.store.select4 = tail call i64 @llvm.umax.i64(i64 %spec.select, i64 56)
+  br label %25
 
-26:                                               ; preds = %22, %24
-  %.2 = phi i64 [ %spec.store.select, %22 ], [ %25, %24 ]
-  %27 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %28 = load i32, ptr %27, align 8, !tbaa !122
-  %.not115 = icmp eq i32 %28, 0
-  br i1 %.not115, label %121, label %29
+25:                                               ; preds = %22, %24
+  %.2 = phi i64 [ %spec.store.select, %22 ], [ %spec.store.select4, %24 ]
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %27 = load i32, ptr %26, align 8, !tbaa !122
+  %.not115 = icmp eq i32 %27, 0
+  br i1 %.not115, label %120, label %28
 
-29:                                               ; preds = %26
-  %30 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %31 = load i64, ptr %30, align 8, !tbaa !430
-  %32 = sub nsw i64 %.2, %31
-  %spec.select118 = tail call i64 @llvm.abs.i64(i64 %32, i1 true)
-  %33 = icmp samesign ult i64 %spec.select118, 40
-  br i1 %33, label %34, label %35
+28:                                               ; preds = %25
+  %29 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %30 = load i64, ptr %29, align 8, !tbaa !430
+  %31 = sub nsw i64 %.2, %30
+  %spec.select118 = tail call i64 @llvm.abs.i64(i64 %31, i1 true)
+  %32 = icmp samesign ult i64 %spec.select118, 40
+  br i1 %32, label %33, label %34
 
-34:                                               ; preds = %29
-  %spec.store.select5 = tail call i64 @llvm.smax.i64(i64 %31, i64 48)
-  br label %121
+33:                                               ; preds = %28
+  %spec.store.select5 = tail call i64 @llvm.smax.i64(i64 %30, i64 48)
+  br label %120
 
-35:                                               ; preds = %29
-  %36 = icmp samesign ult i64 %.2, 192
-  br i1 %36, label %37, label %48
+34:                                               ; preds = %28
+  %35 = icmp samesign ult i64 %.2, 192
+  br i1 %35, label %36, label %47
 
-37:                                               ; preds = %35
-  %38 = and i64 %.2, 63
-  %39 = and i64 %.2, 192
-  %40 = icmp samesign ult i64 %38, 10
-  br i1 %40, label %121, label %41
+36:                                               ; preds = %34
+  %37 = and i64 %.2, 63
+  %38 = and i64 %.2, 192
+  %39 = icmp samesign ult i64 %37, 10
+  br i1 %39, label %120, label %40
 
-41:                                               ; preds = %37
-  %42 = icmp samesign ult i64 %38, 32
-  br i1 %42, label %43, label %45
+40:                                               ; preds = %36
+  %41 = icmp samesign ult i64 %37, 32
+  br i1 %41, label %42, label %44
 
-43:                                               ; preds = %41
-  %44 = or disjoint i64 %39, 10
-  br label %121
+42:                                               ; preds = %40
+  %43 = or disjoint i64 %38, 10
+  br label %120
 
-45:                                               ; preds = %41
-  %46 = icmp samesign ult i64 %38, 54
-  %47 = or disjoint i64 %39, 54
-  %spec.select123 = select i1 %46, i64 %47, i64 %.2
-  br label %121
+44:                                               ; preds = %40
+  %45 = icmp samesign ult i64 %37, 54
+  %46 = or disjoint i64 %38, 54
+  %spec.select123 = select i1 %45, i64 %46, i64 %.2
+  br label %120
 
-48:                                               ; preds = %35
-  %49 = icmp slt i64 %1, 1
-  %50 = icmp slt i64 %2, 1
-  %or.cond7.not10 = or i1 %49, %50
-  %51 = and i64 %2, %1
-  %or.cond9.not = icmp sgt i64 %51, -1
+47:                                               ; preds = %34
+  %48 = icmp slt i64 %1, 1
+  %49 = icmp slt i64 %2, 1
+  %or.cond7.not10 = or i1 %48, %49
+  %50 = and i64 %2, %1
+  %or.cond9.not = icmp sgt i64 %50, -1
   %or.cond119 = and i1 %or.cond7.not10, %or.cond9.not
-  br i1 %or.cond119, label %.thread3, label %52
+  br i1 %or.cond119, label %.thread3, label %51
 
-52:                                               ; preds = %48
-  %53 = getelementptr inbounds nuw i8, ptr %.5152.val, i64 8
-  %54 = load ptr, ptr %53, align 8, !tbaa !195
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 160
-  %56 = load ptr, ptr %55, align 8, !tbaa !223
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 24
-  %58 = load i16, ptr %57, align 8, !tbaa !436
-  %.fr = freeze i16 %58
-  %59 = icmp ult i16 %.fr, 10
-  br i1 %59, label %66, label %60
+51:                                               ; preds = %47
+  %52 = getelementptr inbounds nuw i8, ptr %.5152.val, i64 8
+  %53 = load ptr, ptr %52, align 8, !tbaa !195
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 160
+  %55 = load ptr, ptr %54, align 8, !tbaa !223
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 24
+  %57 = load i16, ptr %56, align 8, !tbaa !436
+  %.fr = freeze i16 %57
+  %58 = icmp ult i16 %.fr, 10
+  br i1 %58, label %65, label %59
 
-60:                                               ; preds = %52
-  %61 = icmp ult i16 %.fr, 30
-  br i1 %61, label %62, label %.thread3
+59:                                               ; preds = %51
+  %60 = icmp ult i16 %.fr, 30
+  br i1 %60, label %61, label %.thread3
 
-62:                                               ; preds = %60
+61:                                               ; preds = %59
   %narrow = sub nuw nsw i16 30, %.fr
-  %63 = zext nneg i16 %narrow to i64
-  %64 = mul i64 %2, %63
-  %65 = sdiv i64 %64, 20
-  br label %66
+  %62 = zext nneg i16 %narrow to i64
+  %63 = mul i64 %2, %62
+  %64 = sdiv i64 %63, 20
+  br label %65
 
-66:                                               ; preds = %52, %62
-  %.193 = phi i64 [ %65, %62 ], [ %2, %52 ]
+65:                                               ; preds = %51, %61
+  %.193 = phi i64 [ %64, %61 ], [ %2, %51 ]
   %spec.select6 = tail call i64 @llvm.abs.i64(i64 %.193, i1 true)
   br label %.thread3
 
-.thread3:                                         ; preds = %66, %60, %48
-  %.092 = phi i64 [ 0, %48 ], [ 0, %60 ], [ %spec.select6, %66 ]
-  %67 = add nuw i64 %.2, 32
-  %68 = sub i64 %67, %.092
-  %69 = and i64 %68, -64
-  br label %121
+.thread3:                                         ; preds = %65, %59, %47
+  %.092 = phi i64 [ 0, %47 ], [ 0, %59 ], [ %spec.select6, %65 ]
+  %66 = add nuw i64 %.2, 32
+  %67 = sub i64 %66, %.092
+  %68 = and i64 %67, -64
+  br label %120
 
-70:                                               ; preds = %14, %.critedge
-  %71 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %72 = load i32, ptr %71, align 8, !tbaa !122
-  %.not36.i = icmp eq i32 %72, 0
+69:                                               ; preds = %14, %.critedge
+  %70 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %71 = load i32, ptr %70, align 8, !tbaa !122
+  %.not36.i = icmp eq i32 %71, 0
   br i1 %.not36.i, label %._crit_edge.thread.i, label %.lr.ph.preheader.i
 
-._crit_edge.thread.i:                             ; preds = %70
-  %73 = add nuw nsw i64 %spec.select, 32
-  %74 = and i64 %73, 9223372036854775744
-  br label %82
+._crit_edge.thread.i:                             ; preds = %69
+  %72 = add nuw nsw i64 %spec.select, 32
+  %73 = and i64 %72, 9223372036854775744
+  br label %81
 
-.lr.ph.preheader.i:                               ; preds = %70
-  %wide.trip.count.i = zext i32 %72 to i64
-  %75 = getelementptr i8, ptr %8, i64 32
+.lr.ph.preheader.i:                               ; preds = %69
+  %wide.trip.count.i = zext i32 %71 to i64
+  %74 = getelementptr i8, ptr %8, i64 32
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -11069,108 +11069,108 @@ define internal fastcc i64 @af_latin_compute_stem_width(i32 %.5148.val, ptr read
   %.02534.i = phi i64 [ %spec.select, %.lr.ph.preheader.i ], [ %.1.i, %.lr.ph.i ]
   %.02633.i = phi i64 [ 98, %.lr.ph.preheader.i ], [ %.127.i, %.lr.ph.i ]
   %.idx = mul nuw nsw i64 %indvars.iv.i, 24
-  %76 = getelementptr i8, ptr %75, i64 %.idx
-  %77 = load i64, ptr %76, align 8, !tbaa !430
-  %78 = sub nsw i64 %spec.select, %77
-  %spec.select.i = tail call i64 @llvm.abs.i64(i64 %78, i1 true)
-  %79 = icmp samesign ult i64 %spec.select.i, %.02633.i
+  %75 = getelementptr i8, ptr %74, i64 %.idx
+  %76 = load i64, ptr %75, align 8, !tbaa !430
+  %77 = sub nsw i64 %spec.select, %76
+  %spec.select.i = tail call i64 @llvm.abs.i64(i64 %77, i1 true)
+  %78 = icmp samesign ult i64 %spec.select.i, %.02633.i
   %.127.i = tail call i64 @llvm.umin.i64(i64 %spec.select.i, i64 %.02633.i)
-  %.1.i = select i1 %79, i64 %77, i64 %.02534.i
+  %.1.i = select i1 %78, i64 %76, i64 %.02534.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !460
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
-  %80 = add nsw i64 %.1.i, 32
-  %81 = and i64 %80, -64
+  %79 = add nsw i64 %.1.i, 32
+  %80 = and i64 %79, -64
   %.not.i = icmp slt i64 %spec.select, %.1.i
-  br i1 %.not.i, label %86, label %82
+  br i1 %.not.i, label %85, label %81
 
-82:                                               ; preds = %._crit_edge.i, %._crit_edge.thread.i
-  %83 = phi i64 [ %74, %._crit_edge.thread.i ], [ %81, %._crit_edge.i ]
+81:                                               ; preds = %._crit_edge.i, %._crit_edge.thread.i
+  %82 = phi i64 [ %73, %._crit_edge.thread.i ], [ %80, %._crit_edge.i ]
   %.025.lcssa40.i = phi i64 [ %spec.select, %._crit_edge.thread.i ], [ %.1.i, %._crit_edge.i ]
-  %84 = or disjoint i64 %83, 48
-  %85 = icmp slt i64 %spec.select, %84
-  %spec.select31.i = select i1 %85, i64 %.025.lcssa40.i, i64 %spec.select
+  %83 = or disjoint i64 %82, 48
+  %84 = icmp slt i64 %spec.select, %83
+  %spec.select31.i = select i1 %84, i64 %.025.lcssa40.i, i64 %spec.select
   br label %af_latin_snap_width.exit
 
-86:                                               ; preds = %._crit_edge.i
-  %87 = add nsw i64 %81, -48
-  %88 = icmp sgt i64 %spec.select, %87
-  %spec.select32.i = select i1 %88, i64 %.1.i, i64 %spec.select
+85:                                               ; preds = %._crit_edge.i
+  %86 = add nsw i64 %80, -48
+  %87 = icmp sgt i64 %spec.select, %86
+  %spec.select32.i = select i1 %87, i64 %.1.i, i64 %spec.select
   br label %af_latin_snap_width.exit
 
-af_latin_snap_width.exit:                         ; preds = %82, %86
-  %.023.i = phi i64 [ %spec.select31.i, %82 ], [ %spec.select32.i, %86 ]
-  br i1 %.not7, label %94, label %89
+af_latin_snap_width.exit:                         ; preds = %81, %85
+  %.023.i = phi i64 [ %spec.select31.i, %81 ], [ %spec.select32.i, %85 ]
+  br i1 %.not7, label %93, label %88
 
-89:                                               ; preds = %af_latin_snap_width.exit
-  %90 = icmp sgt i64 %.023.i, 63
-  br i1 %90, label %91, label %121
+88:                                               ; preds = %af_latin_snap_width.exit
+  %89 = icmp sgt i64 %.023.i, 63
+  br i1 %89, label %90, label %120
 
-91:                                               ; preds = %89
-  %92 = add nuw nsw i64 %.023.i, 16
-  %93 = and i64 %92, 9223372036854775744
-  br label %121
+90:                                               ; preds = %88
+  %91 = add nuw nsw i64 %.023.i, 16
+  %92 = and i64 %91, 9223372036854775744
+  br label %120
 
-94:                                               ; preds = %af_latin_snap_width.exit
-  %95 = and i32 %.5148.val, 8
-  %.not116 = icmp eq i32 %95, 0
-  br i1 %.not116, label %101, label %96
+93:                                               ; preds = %af_latin_snap_width.exit
+  %94 = and i32 %.5148.val, 8
+  %.not116 = icmp eq i32 %94, 0
+  br i1 %.not116, label %100, label %95
 
-96:                                               ; preds = %94
-  %97 = icmp slt i64 %.023.i, 64
-  br i1 %97, label %121, label %98
+95:                                               ; preds = %93
+  %96 = icmp slt i64 %.023.i, 64
+  br i1 %96, label %120, label %97
 
-98:                                               ; preds = %96
-  %99 = add nuw nsw i64 %.023.i, 32
-  %100 = and i64 %99, 9223372036854775744
-  br label %121
+97:                                               ; preds = %95
+  %98 = add nuw nsw i64 %.023.i, 32
+  %99 = and i64 %98, 9223372036854775744
+  br label %120
 
-101:                                              ; preds = %94
-  %102 = icmp slt i64 %.023.i, 48
-  br i1 %102, label %103, label %106
+100:                                              ; preds = %93
+  %101 = icmp slt i64 %.023.i, 48
+  br i1 %101, label %102, label %105
 
-103:                                              ; preds = %101
-  %104 = add nsw i64 %.023.i, 64
-  %105 = ashr i64 %104, 1
-  br label %121
+102:                                              ; preds = %100
+  %103 = add nsw i64 %.023.i, 64
+  %104 = ashr i64 %103, 1
+  br label %120
 
-106:                                              ; preds = %101
-  %107 = icmp samesign ult i64 %.023.i, 128
-  br i1 %107, label %108, label %118
+105:                                              ; preds = %100
+  %106 = icmp samesign ult i64 %.023.i, 128
+  br i1 %106, label %107, label %117
 
-108:                                              ; preds = %106
-  %109 = add nuw nsw i64 %.023.i, 22
-  %110 = and i64 %109, 192
-  %111 = sub nsw i64 %110, %spec.select
-  %spec.select121 = tail call i64 @llvm.abs.i64(i64 %111, i1 true)
-  %112 = icmp samesign ugt i64 %spec.select121, 15
-  br i1 %112, label %113, label %121
+107:                                              ; preds = %105
+  %108 = add nuw nsw i64 %.023.i, 22
+  %109 = and i64 %108, 192
+  %110 = sub nsw i64 %109, %spec.select
+  %spec.select121 = tail call i64 @llvm.abs.i64(i64 %110, i1 true)
+  %111 = icmp samesign ugt i64 %spec.select121, 15
+  br i1 %111, label %112, label %120
 
-113:                                              ; preds = %108
-  %114 = icmp samesign ult i64 %spec.select, 48
-  br i1 %114, label %115, label %121
+112:                                              ; preds = %107
+  %113 = icmp samesign ult i64 %spec.select, 48
+  br i1 %113, label %114, label %120
 
-115:                                              ; preds = %113
-  %116 = lshr i64 %spec.select, 1
-  %117 = or disjoint i64 %116, 32
-  br label %121
+114:                                              ; preds = %112
+  %115 = lshr i64 %spec.select, 1
+  %116 = or disjoint i64 %115, 32
+  br label %120
 
-118:                                              ; preds = %106
-  %119 = add nuw nsw i64 %.023.i, 32
-  %120 = and i64 %119, 9223372036854775744
-  br label %121
+117:                                              ; preds = %105
+  %118 = add nuw nsw i64 %.023.i, 32
+  %119 = and i64 %118, 9223372036854775744
+  br label %120
 
-121:                                              ; preds = %45, %91, %103, %118, %98, %89, %96, %113, %115, %108, %34, %37, %43, %.thread3, %26, %17
-  %.1 = phi i64 [ %spec.select, %17 ], [ %.2, %26 ], [ %spec.store.select5, %34 ], [ %44, %43 ], [ %69, %.thread3 ], [ %.2, %37 ], [ %93, %91 ], [ %100, %98 ], [ %105, %103 ], [ %120, %118 ], [ 64, %89 ], [ 64, %96 ], [ %117, %115 ], [ %spec.select, %113 ], [ %110, %108 ], [ %spec.select123, %45 ]
-  %122 = sub nsw i64 0, %.1
-  %123 = icmp slt i64 %1, 0
-  %spec.select122 = select i1 %123, i64 %122, i64 %.1
-  br label %124
+120:                                              ; preds = %44, %90, %102, %117, %97, %88, %95, %112, %114, %107, %33, %36, %42, %.thread3, %25, %17
+  %.1 = phi i64 [ %spec.select, %17 ], [ %.2, %25 ], [ %spec.store.select5, %33 ], [ %43, %42 ], [ %68, %.thread3 ], [ %.2, %36 ], [ %92, %90 ], [ %99, %97 ], [ %104, %102 ], [ %119, %117 ], [ 64, %88 ], [ 64, %95 ], [ %116, %114 ], [ %spec.select, %112 ], [ %109, %107 ], [ %spec.select123, %44 ]
+  %121 = sub nsw i64 0, %.1
+  %122 = icmp slt i64 %1, 0
+  %spec.select122 = select i1 %122, i64 %121, i64 %.1
+  br label %123
 
-124:                                              ; preds = %5, %10, %121
-  %.090 = phi i64 [ %spec.select122, %121 ], [ %1, %10 ], [ %1, %5 ]
+123:                                              ; preds = %5, %10, %120
+  %.090 = phi i64 [ %spec.select122, %120 ], [ %1, %10 ], [ %1, %5 ]
   ret i64 %.090
 }
 
@@ -12538,6 +12538,9 @@ declare i32 @llvm.smin.i32(i32, i32) #19
 declare i64 @llvm.smax.i64(i64, i64) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #19
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -12554,9 +12557,6 @@ declare i16 @llvm.smin.i16(i16, i16) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #19
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #19
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

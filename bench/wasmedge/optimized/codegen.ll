@@ -5125,7 +5125,7 @@ _ZZN3fmt2v86detail9write_intIcNS0_8appenderEjEET0_S4_NS1_13write_int_argIT1_EERK
   %127 = add i32 %45, %114
   %128 = zext i32 %127 to i64
   %129 = sub nsw i32 %45, %42
-  %130 = zext i32 %129 to i64
+  %130 = zext nneg i32 %129 to i64
   br label %_ZN3fmt2v86detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit
 
 _ZN3fmt2v86detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit: ; preds = %119, %121, %124, %126
@@ -5349,7 +5349,7 @@ _ZZN3fmt2v86detail9write_intIcNS0_8appenderEjEET0_S4_NS1_13write_int_argIT1_EERK
   %237 = add nuw i32 %153, %224
   %238 = zext i32 %237 to i64
   %239 = sub nsw i32 %153, %150
-  %240 = zext i32 %239 to i64
+  %240 = zext nneg i32 %239 to i64
   br label %_ZN3fmt2v86detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit180
 
 _ZN3fmt2v86detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit180: ; preds = %229, %231, %234, %236
@@ -5570,7 +5570,7 @@ _ZZN3fmt2v86detail9write_intIcNS0_8appenderEjEET0_S4_NS1_13write_int_argIT1_EERK
   %343 = add nuw i32 %261, %330
   %344 = zext i32 %343 to i64
   %345 = sub nsw i32 %261, %258
-  %346 = zext i32 %345 to i64
+  %346 = zext nneg i32 %345 to i64
   br label %_ZN3fmt2v86detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit204
 
 _ZN3fmt2v86detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit204: ; preds = %335, %337, %340, %342
@@ -5796,7 +5796,7 @@ _ZZN3fmt2v86detail9write_intIcNS0_8appenderEjEET0_S4_NS1_13write_int_argIT1_EERK
   %448 = add nuw i32 %.pre, %435
   %449 = zext i32 %448 to i64
   %450 = sub nsw i32 %.pre, %355
-  %451 = zext i32 %450 to i64
+  %451 = zext nneg i32 %450 to i64
   br label %_ZN3fmt2v86detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit232
 
 _ZN3fmt2v86detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit232: ; preds = %440, %442, %445, %447
@@ -21545,7 +21545,7 @@ _ZZN3fmt2v86detail9write_intIcNS0_8appenderEmEET0_S4_NS1_13write_int_argIT1_EERK
   %126 = add nuw i32 %46, %113
   %127 = zext i32 %126 to i64
   %128 = sub nsw i32 %46, %43
-  %129 = zext i32 %128 to i64
+  %129 = zext nneg i32 %128 to i64
   br label %_ZN3fmt2v86detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit
 
 _ZN3fmt2v86detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit: ; preds = %118, %120, %123, %125
@@ -21775,7 +21775,7 @@ _ZZN3fmt2v86detail9write_intIcNS0_8appenderEmEET0_S4_NS1_13write_int_argIT1_EERK
   %232 = add i32 %150, %219
   %233 = zext i32 %232 to i64
   %234 = sub nsw i32 %150, %146
-  %235 = zext i32 %234 to i64
+  %235 = zext nneg i32 %234 to i64
   br label %_ZN3fmt2v86detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit178
 
 _ZN3fmt2v86detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit178: ; preds = %224, %226, %229, %231
@@ -22002,7 +22002,7 @@ _ZZN3fmt2v86detail9write_intIcNS0_8appenderEmEET0_S4_NS1_13write_int_argIT1_EERK
   %339 = add i32 %256, %326
   %340 = zext i32 %339 to i64
   %341 = sub nsw i32 %256, %252
-  %342 = zext i32 %341 to i64
+  %342 = zext nneg i32 %341 to i64
   br label %_ZN3fmt2v86detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit205
 
 _ZN3fmt2v86detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit205: ; preds = %331, %333, %336, %338
@@ -22228,7 +22228,7 @@ _ZZN3fmt2v86detail9write_intIcNS0_8appenderEmEET0_S4_NS1_13write_int_argIT1_EERK
   %441 = add i32 %.pre, %428
   %442 = zext i32 %441 to i64
   %443 = sub nsw i32 %.pre, %346
-  %444 = zext i32 %443 to i64
+  %444 = zext nneg i32 %443 to i64
   br label %_ZN3fmt2v86detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit236
 
 _ZN3fmt2v86detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit236: ; preds = %433, %435, %438, %440
@@ -24259,7 +24259,7 @@ _ZZN3fmt2v86detail9write_intIcNS0_8appenderEoEET0_S4_NS1_13write_int_argIT1_EERK
   %132 = add i32 %50, %119
   %133 = zext i32 %132 to i64
   %134 = sub nsw i32 %50, %.012.i.i
-  %135 = zext i32 %134 to i64
+  %135 = zext nneg i32 %134 to i64
   br label %_ZN3fmt2v86detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit
 
 _ZN3fmt2v86detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit: ; preds = %124, %126, %129, %131
@@ -24490,7 +24490,7 @@ _ZZN3fmt2v86detail9write_intIcNS0_8appenderEoEET0_S4_NS1_13write_int_argIT1_EERK
   %242 = add i32 %157, %229
   %243 = zext i32 %242 to i64
   %244 = sub nsw i32 %157, %153
-  %245 = zext i32 %244 to i64
+  %245 = zext nneg i32 %244 to i64
   br label %_ZN3fmt2v86detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit193
 
 _ZN3fmt2v86detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit193: ; preds = %234, %236, %239, %241
@@ -24718,7 +24718,7 @@ _ZZN3fmt2v86detail9write_intIcNS0_8appenderEoEET0_S4_NS1_13write_int_argIT1_EERK
   %349 = add i32 %266, %336
   %350 = zext i32 %349 to i64
   %351 = sub nsw i32 %266, %262
-  %352 = zext i32 %351 to i64
+  %352 = zext nneg i32 %351 to i64
   br label %_ZN3fmt2v86detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit224
 
 _ZN3fmt2v86detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit224: ; preds = %341, %343, %346, %348
@@ -24944,7 +24944,7 @@ _ZZN3fmt2v86detail9write_intIcNS0_8appenderEoEET0_S4_NS1_13write_int_argIT1_EERK
   %451 = add i32 %.pre, %438
   %452 = zext i32 %451 to i64
   %453 = sub nsw i32 %.pre, %356
-  %454 = zext i32 %453 to i64
+  %454 = zext nneg i32 %453 to i64
   br label %_ZN3fmt2v86detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit259
 
 _ZN3fmt2v86detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit259: ; preds = %443, %445, %448, %450

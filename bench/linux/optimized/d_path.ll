@@ -222,7 +222,7 @@ define internal fastcc range(i32 0, 4) i32 @prepend_path(ptr noundef readonly ca
 
 87:                                               ; preds = %85
   %88 = sub nsw i32 %83, %44
-  %89 = sext i32 %88 to i64
+  %89 = zext nneg i32 %88 to i64
   %90 = getelementptr i8, ptr %81, i64 %89
   %91 = zext nneg i32 %44 to i64
   %92 = sub nsw i64 0, %91
@@ -637,7 +637,7 @@ define dso_local noundef ptr @simple_dname(ptr noundef readonly captures(none) %
 
 31:                                               ; preds = %25
   %32 = sub nsw i32 %29, %20
-  %33 = sext i32 %32 to i64
+  %33 = zext nneg i32 %32 to i64
   %34 = getelementptr i8, ptr %27, i64 %33
   %35 = zext nneg i32 %20 to i64
   %36 = sub nsw i64 0, %35
@@ -756,7 +756,7 @@ define internal fastcc ptr @__dentry_path(ptr noundef %0, ptr %.0.val, i32 %.8.v
 
 30:                                               ; preds = %28
   %31 = sub nsw i32 %26, %21
-  %32 = sext i32 %31 to i64
+  %32 = zext nneg i32 %31 to i64
   %33 = getelementptr i8, ptr %24, i64 %32
   %34 = zext nneg i32 %21 to i64
   %35 = sub nsw i64 0, %34

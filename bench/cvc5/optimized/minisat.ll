@@ -3561,7 +3561,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal7Minisat3vecINS1_3LitEE6growTo
   %14 = add nsw i32 %13, 2
   %15 = tail call noundef i32 @llvm.smax.i32(i32 %14, i32 %11)
   %16 = sub nsw i32 2147483647, %7
-  %17 = icmp sgt i32 %15, %16
+  %17 = icmp samesign ugt i32 %15, %16
   br i1 %17, label %29, label %18
 
 18:                                               ; preds = %8

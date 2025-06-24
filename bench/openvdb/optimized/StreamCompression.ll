@@ -950,7 +950,7 @@ lpad21:                                           ; preds = %if.else, %_ZNSt10un
 
 if.else:                                          ; preds = %invoke.cont30
   %mData.i19 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %conv.i = sext i32 %sub to i64
+  %conv.i = zext nneg i32 %sub to i64
   %call.i24 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %conv.i) #21
           to label %call.i.noexc unwind label %lpad21
 

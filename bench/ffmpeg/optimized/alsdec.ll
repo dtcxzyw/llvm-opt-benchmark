@@ -6082,10 +6082,10 @@ define internal fastcc noundef range(i32 -1094995529, 1) i32 @revert_channel_cor
   br label %split
 
 126:                                              ; preds = %116
-  %127 = add nsw i64 %.0197, 1
+  %127 = add nuw nsw i64 %.0197, 1
   %128 = tail call i32 @llvm.smax.i32(i32 %.0, i32 0)
   %129 = zext nneg i32 %128 to i64
-  %130 = add nsw i64 %127, %129
+  %130 = add nuw nsw i64 %127, %129
   %131 = getelementptr inbounds nuw i32, ptr %120, i64 %80
   %132 = ptrtoint ptr %131 to i64
   %133 = sub i64 %132, %122
@@ -6111,11 +6111,11 @@ split:                                            ; preds = %126, %._crit_edge
   %.pre-phi274 = phi i64 [ %.pre273, %._crit_edge ], [ %129, %126 ]
   %143 = load ptr, ptr %0, align 8, !tbaa !27
   %144 = getelementptr inbounds i32, ptr %91, i64 %.
-  %145 = getelementptr i32, ptr %91, i64 %.0197
-  %146 = getelementptr i8, ptr %145, i64 4
-  %147 = getelementptr i32, ptr %146, i64 %.pre-phi274
+  %145 = getelementptr inbounds nuw i32, ptr %91, i64 %.0197
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 4
+  %147 = getelementptr inbounds nuw i32, ptr %146, i64 %.pre-phi274
   %148 = getelementptr inbounds nuw i32, ptr %120, i64 %80
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %143, i32 noundef 16, ptr noundef nonnull @.str.30, ptr noundef %144, ptr noundef %147, ptr noundef %120, ptr noundef %148) #16
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %143, i32 noundef 16, ptr noundef nonnull @.str.30, ptr noundef %144, ptr noundef nonnull %147, ptr noundef %120, ptr noundef %148) #16
   br label %.critedge225.thread
 
 149:                                              ; preds = %.lr.ph246, %149

@@ -2452,8 +2452,8 @@ define internal range(i32 0, 4) i32 @generic_unpack(ptr noundef readonly capture
   br label %283
 
 49:                                               ; preds = %43
-  %50 = sdiv i32 %25, %39
-  %51 = sext i32 %50 to i64
+  %50 = udiv i32 %25, %39
+  %51 = zext nneg i32 %50 to i64
   %52 = getelementptr inbounds nuw i8, ptr %28, i64 36
   %53 = load i32, ptr %52, align 4, !tbaa !32
   %54 = sext i32 %53 to i64

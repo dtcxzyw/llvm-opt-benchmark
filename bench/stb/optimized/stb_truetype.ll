@@ -3656,11 +3656,11 @@ define i32 @stbtt_FindGlyphIndex(ptr noundef readonly captures(none) %0, i32 nou
   %.0124157 = phi i32 [ %228, %.lr.ph159 ], [ %.2126, %298 ]
   %.0127156 = phi i32 [ 0, %.lr.ph159 ], [ %.2129, %298 ]
   %232 = sub nsw i32 %.0124157, %.0127156
-  %233 = ashr i32 %232, 1
-  %234 = add nsw i32 %233, %.0127156
+  %233 = lshr i32 %232, 1
+  %234 = add nuw nsw i32 %233, %.0127156
   %235 = mul nsw i32 %234, 12
-  %236 = sext i32 %235 to i64
-  %237 = getelementptr inbounds i8, ptr %230, i64 %236
+  %236 = zext nneg i32 %235 to i64
+  %237 = getelementptr inbounds nuw i8, ptr %230, i64 %236
   %238 = load i8, ptr %237, align 1, !tbaa !12
   %239 = zext i8 %238 to i32
   %240 = shl nuw i32 %239, 24
@@ -3704,7 +3704,7 @@ define i32 @stbtt_FindGlyphIndex(ptr noundef readonly captures(none) %0, i32 nou
   br i1 %275, label %276, label %.thread
 
 276:                                              ; preds = %256
-  %277 = add nsw i32 %234, 1
+  %277 = add nuw nsw i32 %234, 1
   br label %298
 
 .thread:                                          ; preds = %256

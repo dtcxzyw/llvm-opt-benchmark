@@ -4505,7 +4505,7 @@ _float_to_fract.exit:                             ; preds = %41, %._crit_edge.lo
   br i1 %82, label %83, label %85
 
 83:                                               ; preds = %.lr.ph211
-  %84 = ashr exact i32 %.1135209, 1
+  %84 = lshr exact i32 %.1135209, 1
   br label %.critedge9
 
 85:                                               ; preds = %.lr.ph211
@@ -4514,7 +4514,7 @@ _float_to_fract.exit:                             ; preds = %41, %._crit_edge.lo
   br i1 %87, label %88, label %90
 
 88:                                               ; preds = %85
-  %89 = ashr exact i32 %.1132210, 1
+  %89 = lshr exact i32 %.1132210, 1
   br label %.critedge9
 
 90:                                               ; preds = %85
@@ -4523,12 +4523,12 @@ _float_to_fract.exit:                             ; preds = %41, %._crit_edge.lo
 
 92:                                               ; preds = %90
   %93 = sub nsw i32 %.1135209, %.1132210
-  %94 = ashr exact i32 %93, 1
+  %94 = lshr exact i32 %93, 1
   br label %.critedge9
 
 95:                                               ; preds = %90
   %96 = sub nsw i32 %.1132210, %.1135209
-  %97 = ashr exact i32 %96, 1
+  %97 = lshr exact i32 %96, 1
   br label %.critedge9
 
 .critedge9:                                       ; preds = %88, %95, %92, %83

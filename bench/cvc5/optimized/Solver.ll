@@ -1323,7 +1323,7 @@ _ZN4cvc58internal7Minisat3vecIcE4pushEv.exit:     ; preds = %._ZN4cvc58internal7
   %226 = add nsw i32 %225, 2
   %227 = call noundef i32 @llvm.smax.i32(i32 %226, i32 %223)
   %228 = sub nsw i32 2147483647, %219
-  %229 = icmp sgt i32 %227, %228
+  %229 = icmp samesign ugt i32 %227, %228
   br i1 %229, label %241, label %230
 
 230:                                              ; preds = %220
@@ -10669,7 +10669,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal7Minisat3vecINS1_5lboolEE6grow
   %14 = add nsw i32 %13, 2
   %15 = tail call noundef i32 @llvm.smax.i32(i32 %14, i32 %11)
   %16 = sub nsw i32 2147483647, %7
-  %17 = icmp sgt i32 %15, %16
+  %17 = icmp samesign ugt i32 %15, %16
   br i1 %17, label %28, label %18
 
 18:                                               ; preds = %8
@@ -11047,7 +11047,7 @@ _ZNK4cvc58internal7Minisat6Solver9satisfiedERKNS1_6ClauseE.exit.thread: ; preds 
   %108 = add nsw i32 %107, 2
   %109 = tail call noundef i32 @llvm.smax.i32(i32 %108, i32 %105)
   %110 = sub nsw i32 2147483647, %101
-  %111 = icmp sgt i32 %109, %110
+  %111 = icmp samesign ugt i32 %109, %110
   br i1 %111, label %122, label %112
 
 112:                                              ; preds = %102
@@ -13515,7 +13515,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal7Minisat3vecIiE6growToEiRKi(pt
   %15 = add nsw i32 %14, 2
   %16 = tail call noundef i32 @llvm.smax.i32(i32 %15, i32 %12)
   %17 = sub nsw i32 2147483647, %8
-  %18 = icmp sgt i32 %16, %17
+  %18 = icmp samesign ugt i32 %16, %17
   br i1 %18, label %30, label %19
 
 19:                                               ; preds = %9
@@ -13597,7 +13597,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal7Minisat3vecINS1_3LitEE6growTo
   %14 = add nsw i32 %13, 2
   %15 = tail call noundef i32 @llvm.smax.i32(i32 %14, i32 %11)
   %16 = sub nsw i32 2147483647, %7
-  %17 = icmp sgt i32 %15, %16
+  %17 = icmp samesign ugt i32 %15, %16
   br i1 %17, label %29, label %18
 
 18:                                               ; preds = %8
@@ -13755,7 +13755,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal7Minisat3vecINS2_INS1_6Solver7
   %14 = add nsw i32 %13, 2
   %15 = tail call noundef i32 @llvm.smax.i32(i32 %14, i32 %11)
   %16 = sub nsw i32 2147483647, %7
-  %17 = icmp sgt i32 %15, %16
+  %17 = icmp samesign ugt i32 %15, %16
   br i1 %17, label %29, label %18
 
 18:                                               ; preds = %8
@@ -13829,7 +13829,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal7Minisat3vecIcE6growToEiRKc(pt
   %15 = add nsw i32 %14, 2
   %16 = tail call noundef i32 @llvm.smax.i32(i32 %15, i32 %12)
   %17 = sub nsw i32 2147483647, %8
-  %18 = icmp sgt i32 %16, %17
+  %18 = icmp samesign ugt i32 %16, %17
   br i1 %18, label %29, label %19
 
 19:                                               ; preds = %9

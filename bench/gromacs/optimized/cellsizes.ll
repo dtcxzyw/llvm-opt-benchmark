@@ -791,7 +791,7 @@ define internal fastcc void @_ZL16set_pme_maxshiftP12gmx_domdec_tP9gmx_ddpmebPK1
 
 85:                                               ; preds = %.lr.ph95
   %86 = sub nsw i64 %75, %42
-  %87 = getelementptr inbounds i32, ptr %25, i64 %86
+  %87 = getelementptr inbounds nuw i32, ptr %25, i64 %86
   %88 = load i32, ptr %87, align 4, !tbaa !119
   %89 = sext i32 %88 to i64
   %90 = getelementptr inbounds float, ptr %4, i64 %89

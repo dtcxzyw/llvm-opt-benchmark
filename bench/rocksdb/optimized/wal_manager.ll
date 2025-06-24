@@ -2869,8 +2869,8 @@ define void @_ZN7rocksdb10WalManager22RetainProbableWalFilesERSt6vectorISt10uniq
   %.039 = phi i64 [ %.1, %30 ], [ 0, %.lr.ph.preheader ]
   %.03038 = phi i64 [ %.2, %30 ], [ %12, %.lr.ph.preheader ]
   %13 = sub nsw i64 %.03038, %.039
-  %14 = sdiv i64 %13, 2
-  %15 = add nsw i64 %14, %.039
+  %14 = lshr i64 %13, 1
+  %15 = add nuw nsw i64 %14, %.039
   %16 = load ptr, ptr %5, align 8, !tbaa !98
   %17 = load ptr, ptr %2, align 8, !tbaa !95
   %18 = ptrtoint ptr %16 to i64

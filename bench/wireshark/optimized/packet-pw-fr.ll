@@ -265,8 +265,7 @@ define internal i32 @dissect_pw_fr(ptr noundef %0, ptr noundef %1, ptr noundef %
 87:                                               ; preds = %84, %82
   %88 = load i32, ptr @hf_cw_seq, align 4
   %89 = tail call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %88, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0)
-  %.not113 = icmp eq i32 %.194, 0
-  br i1 %.not113, label %94, label %90
+  br i1 %.not104, label %94, label %90
 
 90:                                               ; preds = %87
   %91 = load i32, ptr @hf_cw_padding, align 4

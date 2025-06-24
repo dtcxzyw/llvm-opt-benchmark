@@ -66,13 +66,13 @@ common.ret31:                                     ; preds = %8, %common.ret
 
 8:                                                ; preds = %3
   %9 = sub nsw i32 %1, %2
-  %10 = shl nsw i32 %9, 1
+  %10 = shl nuw nsw i32 %9, 1
   %11 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %11, align 8, !tbaa !10
-  %12 = sext i32 %10 to i64
-  %13 = getelementptr i32, ptr %.val, i64 %12
+  %12 = zext nneg i32 %10 to i64
+  %13 = getelementptr inbounds nuw i32, ptr %.val, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !11
-  %15 = getelementptr i8, ptr %13, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %16 = load i32, ptr %15, align 4, !tbaa !11
   %17 = ashr i32 %14, 1
   %18 = add nsw i32 %17, -2

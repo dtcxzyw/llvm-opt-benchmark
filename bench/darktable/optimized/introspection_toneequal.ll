@@ -7003,7 +7003,7 @@ define internal fastcc void @display_luminance_mask(ptr noalias noundef readonly
   %8 = icmp slt i32 %6, %7
   %9 = sub nsw i32 %7, %6
   %narrow = select i1 %8, i32 %9, i32 0
-  %10 = sext i32 %narrow to i64
+  %10 = zext i32 %narrow to i64
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %12 = load i32, ptr %11, align 4, !tbaa !493
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -7011,7 +7011,7 @@ define internal fastcc void @display_luminance_mask(ptr noalias noundef readonly
   %15 = icmp slt i32 %12, %14
   %16 = sub nsw i32 %14, %12
   %narrow58 = select i1 %15, i32 %16, i32 0
-  %17 = sext i32 %narrow58 to i64
+  %17 = zext i32 %narrow58 to i64
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %19 = load i32, ptr %18, align 4, !tbaa !107
   %20 = sext i32 %19 to i64

@@ -33061,9 +33061,9 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1945: ; preds = %2892,
 
 2896:                                             ; preds = %2849
   %2897 = sub nsw i32 %2848, %2872
-  %2898 = sdiv i32 %2897, 7
-  %2899 = add nsw i32 %2898, 1
-  %2900 = icmp slt i32 %2897, 63
+  %2898 = udiv i32 %2897, 7
+  %2899 = add nuw nsw i32 %2898, 1
+  %2900 = icmp ult i32 %2897, 63
   br i1 %2900, label %2901, label %2912
 
 2901:                                             ; preds = %2896
@@ -34186,9 +34186,9 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit2219: ; preds = %3428,
 
 3432:                                             ; preds = %3383
   %3433 = sub nsw i32 %3382, %3408
-  %3434 = sdiv i32 %3433, 7
-  %3435 = add nsw i32 %3434, 1
-  %3436 = icmp slt i32 %3433, 63
+  %3434 = udiv i32 %3433, 7
+  %3435 = add nuw nsw i32 %3434, 1
+  %3436 = icmp ult i32 %3433, 63
   br i1 %3436, label %3437, label %3448
 
 3437:                                             ; preds = %3432
@@ -43434,9 +43434,9 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1945: ; preds = %2895,
 
 2899:                                             ; preds = %2852
   %2900 = sub nsw i32 %2851, %2875
-  %2901 = sdiv i32 %2900, 7
-  %2902 = add nsw i32 %2901, 1
-  %2903 = icmp slt i32 %2900, 63
+  %2901 = udiv i32 %2900, 7
+  %2902 = add nuw nsw i32 %2901, 1
+  %2903 = icmp ult i32 %2900, 63
   br i1 %2903, label %2904, label %2915
 
 2904:                                             ; preds = %2899
@@ -44559,9 +44559,9 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit2219: ; preds = %3431,
 
 3435:                                             ; preds = %3386
   %3436 = sub nsw i32 %3385, %3411
-  %3437 = sdiv i32 %3436, 7
-  %3438 = add nsw i32 %3437, 1
-  %3439 = icmp slt i32 %3436, 63
+  %3437 = udiv i32 %3436, 7
+  %3438 = add nuw nsw i32 %3437, 1
+  %3439 = icmp ult i32 %3436, 63
   br i1 %3439, label %3440, label %3451
 
 3440:                                             ; preds = %3435
@@ -54207,9 +54207,9 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1945: ; preds = %2895,
 
 2899:                                             ; preds = %2852
   %2900 = sub nsw i32 %2851, %2875
-  %2901 = sdiv i32 %2900, 7
-  %2902 = add nsw i32 %2901, 1
-  %2903 = icmp slt i32 %2900, 63
+  %2901 = udiv i32 %2900, 7
+  %2902 = add nuw nsw i32 %2901, 1
+  %2903 = icmp ult i32 %2900, 63
   br i1 %2903, label %2904, label %2915
 
 2904:                                             ; preds = %2899
@@ -55332,9 +55332,9 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit2219: ; preds = %3431,
 
 3435:                                             ; preds = %3386
   %3436 = sub nsw i32 %3385, %3411
-  %3437 = sdiv i32 %3436, 7
-  %3438 = add nsw i32 %3437, 1
-  %3439 = icmp slt i32 %3436, 63
+  %3437 = udiv i32 %3436, 7
+  %3438 = add nuw nsw i32 %3437, 1
+  %3439 = icmp ult i32 %3436, 63
   br i1 %3439, label %3440, label %3451
 
 3440:                                             ; preds = %3435
@@ -64122,9 +64122,9 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1945: ; preds = %2895,
 
 2899:                                             ; preds = %2852
   %2900 = sub nsw i32 %2851, %2875
-  %2901 = sdiv i32 %2900, 7
-  %2902 = add nsw i32 %2901, 1
-  %2903 = icmp slt i32 %2900, 63
+  %2901 = udiv i32 %2900, 7
+  %2902 = add nuw nsw i32 %2901, 1
+  %2903 = icmp ult i32 %2900, 63
   br i1 %2903, label %2904, label %2915
 
 2904:                                             ; preds = %2899
@@ -65247,9 +65247,9 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit2219: ; preds = %3431,
 
 3435:                                             ; preds = %3386
   %3436 = sub nsw i32 %3385, %3411
-  %3437 = sdiv i32 %3436, 7
-  %3438 = add nsw i32 %3437, 1
-  %3439 = icmp slt i32 %3436, 63
+  %3437 = udiv i32 %3436, 7
+  %3438 = add nuw nsw i32 %3437, 1
+  %3439 = icmp ult i32 %3436, 63
   br i1 %3439, label %3440, label %3451
 
 3440:                                             ; preds = %3435

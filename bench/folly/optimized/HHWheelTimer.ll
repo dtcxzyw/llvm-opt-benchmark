@@ -1247,7 +1247,7 @@ define weak_odr i64 @_ZNK5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioI
 
 4:                                                ; preds = %1
   %5 = sub nsw i64 %.sroa.0.0.copyload.i2.i.i.i, %2
-  %6 = sdiv i64 %5, 1000000
+  %6 = udiv i64 %5, 1000000
   br label %_ZNK5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8Callback16getTimeRemainingENS1_10time_pointINS1_3_V212steady_clockENS2_IlS3_ILl1ELl1000000000EEEEEE.exit
 
 _ZNK5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8Callback16getTimeRemainingENS1_10time_pointINS1_3_V212steady_clockENS2_IlS3_ILl1ELl1000000000EEEEEE.exit: ; preds = %1, %4
@@ -1264,7 +1264,7 @@ define weak_odr i64 @_ZNK5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioI
 
 4:                                                ; preds = %2
   %5 = sub nsw i64 %.sroa.0.0.copyload.i2.i.i, %1
-  %6 = sdiv i64 %5, 1000000
+  %6 = udiv i64 %5, 1000000
   br label %7
 
 7:                                                ; preds = %2, %4
@@ -3119,7 +3119,7 @@ _ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly16HHWheelTimerBaseINSt6chrono
 
 55:                                               ; preds = %48
   %56 = sub nsw i64 %.sroa.0.0.copyload.i2.i.i.i, %3
-  %57 = sdiv i64 %56, 1000000
+  %57 = udiv i64 %56, 1000000
   br label %58
 
 58:                                               ; preds = %48, %55
@@ -3821,7 +3821,7 @@ define weak_odr i64 @_ZNK5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioI
 
 4:                                                ; preds = %1
   %5 = sub nsw i64 %.sroa.0.0.copyload.i2.i.i.i, %2
-  %6 = sdiv i64 %5, 1000
+  %6 = udiv i64 %5, 1000
   br label %_ZNK5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE8Callback16getTimeRemainingENS1_10time_pointINS1_3_V212steady_clockENS2_IlS3_ILl1ELl1000000000EEEEEE.exit
 
 _ZNK5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE8Callback16getTimeRemainingENS1_10time_pointINS1_3_V212steady_clockENS2_IlS3_ILl1ELl1000000000EEEEEE.exit: ; preds = %1, %4
@@ -3838,7 +3838,7 @@ define weak_odr i64 @_ZNK5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioI
 
 4:                                                ; preds = %2
   %5 = sub nsw i64 %.sroa.0.0.copyload.i2.i.i, %1
-  %6 = sdiv i64 %5, 1000
+  %6 = udiv i64 %5, 1000
   br label %7
 
 7:                                                ; preds = %2, %4
@@ -5600,7 +5600,7 @@ _ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly16HHWheelTimerBaseINSt6chrono
 
 55:                                               ; preds = %48
   %56 = sub nsw i64 %.sroa.0.0.copyload.i2.i.i.i, %3
-  %57 = sdiv i64 %56, 1000
+  %57 = udiv i64 %56, 1000
   br label %58
 
 58:                                               ; preds = %48, %55

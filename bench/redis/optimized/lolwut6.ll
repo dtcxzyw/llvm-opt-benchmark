@@ -42,13 +42,13 @@ define dso_local void @generateSkyscraper(ptr noundef %0, ptr noundef readonly c
   ret void
 
 15:                                               ; preds = %.lr.ph69, %._crit_edge
-  %16 = phi i32 [ %.pre79, %.lr.ph69 ], [ %53, %._crit_edge ]
-  %17 = phi i32 [ %.pre, %.lr.ph69 ], [ %54, %._crit_edge ]
-  %18 = phi i32 [ %.pre79, %.lr.ph69 ], [ %55, %._crit_edge ]
-  %19 = phi i32 [ %.pre, %.lr.ph69 ], [ %56, %._crit_edge ]
-  %20 = phi i32 [ %.pre79, %.lr.ph69 ], [ %57, %._crit_edge ]
-  %21 = phi i32 [ %.pre, %.lr.ph69 ], [ %58, %._crit_edge ]
-  %.065 = phi i32 [ %5, %.lr.ph69 ], [ %59, %._crit_edge ]
+  %16 = phi i32 [ %.pre79, %.lr.ph69 ], [ %54, %._crit_edge ]
+  %17 = phi i32 [ %.pre, %.lr.ph69 ], [ %55, %._crit_edge ]
+  %18 = phi i32 [ %.pre79, %.lr.ph69 ], [ %56, %._crit_edge ]
+  %19 = phi i32 [ %.pre, %.lr.ph69 ], [ %57, %._crit_edge ]
+  %20 = phi i32 [ %.pre79, %.lr.ph69 ], [ %58, %._crit_edge ]
+  %21 = phi i32 [ %.pre, %.lr.ph69 ], [ %59, %._crit_edge ]
+  %.065 = phi i32 [ %5, %.lr.ph69 ], [ %60, %._crit_edge ]
   %22 = add nsw i32 %20, %21
   %23 = icmp sgt i32 %20, 0
   br i1 %23, label %.lr.ph, label %._crit_edge
@@ -57,142 +57,140 @@ define dso_local void @generateSkyscraper(ptr noundef %0, ptr noundef readonly c
   %24 = icmp eq i32 %.065, %9
   %25 = icmp sgt i32 %.065, %13
   %26 = icmp slt i32 %.065, %14
+  %27 = sub i32 %.065, %8
+  %28 = and i32 %27, 1
+  %.not55 = icmp eq i32 %28, 0
   %.fr = freeze i1 %26
   %.fr63 = freeze i1 %25
-  %27 = and i1 %.fr, %.fr63
-  br i1 %27, label %.lr.ph.split.preheader, label %.lr.ph.split.us
-
-.lr.ph.split.preheader:                           ; preds = %.lr.ph
-  %28 = sub i32 %.065, %8
-  %invariant.op = and i32 %28, 1
-  br label %.lr.ph.split
+  %29 = and i1 %.fr, %.fr63
+  br i1 %29, label %.lr.ph.split, label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   br i1 %24, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
 
-.lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %39
-  %29 = phi i32 [ %40, %39 ], [ %16, %.lr.ph.split.us ]
-  %30 = phi i32 [ %41, %39 ], [ %17, %.lr.ph.split.us ]
-  %31 = phi i32 [ %42, %39 ], [ %18, %.lr.ph.split.us ]
-  %32 = phi i32 [ %43, %39 ], [ %19, %.lr.ph.split.us ]
-  %33 = phi i32 [ %45, %39 ], [ %22, %.lr.ph.split.us ]
-  %34 = phi i32 [ %43, %39 ], [ %21, %.lr.ph.split.us ]
-  %.04661.us.us = phi i32 [ %44, %39 ], [ %21, %.lr.ph.split.us ]
-  %35 = add nsw i32 %34, 1
-  %.not.us.us = icmp sgt i32 %.04661.us.us, %35
-  %36 = add nsw i32 %33, -2
-  %.not52.us.us = icmp slt i32 %.04661.us.us, %36
+.lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %40
+  %30 = phi i32 [ %41, %40 ], [ %16, %.lr.ph.split.us ]
+  %31 = phi i32 [ %42, %40 ], [ %17, %.lr.ph.split.us ]
+  %32 = phi i32 [ %43, %40 ], [ %18, %.lr.ph.split.us ]
+  %33 = phi i32 [ %44, %40 ], [ %19, %.lr.ph.split.us ]
+  %34 = phi i32 [ %46, %40 ], [ %22, %.lr.ph.split.us ]
+  %35 = phi i32 [ %44, %40 ], [ %21, %.lr.ph.split.us ]
+  %.04661.us.us = phi i32 [ %45, %40 ], [ %21, %.lr.ph.split.us ]
+  %36 = add nsw i32 %35, 1
+  %.not.us.us = icmp sgt i32 %.04661.us.us, %36
+  %37 = add nsw i32 %34, -2
+  %.not52.us.us = icmp slt i32 %.04661.us.us, %37
   %or.cond.us.us = select i1 %.not.us.us, i1 %.not52.us.us, i1 false
-  br i1 %or.cond.us.us, label %37, label %39
+  br i1 %or.cond.us.us, label %38, label %40
 
-37:                                               ; preds = %.lr.ph.split.us.split.us
-  %38 = load i32, ptr %11, align 4, !tbaa !16
-  tail call void @lwDrawPixel(ptr noundef %0, i32 noundef %.04661.us.us, i32 noundef %9, i32 noundef %38) #4
+38:                                               ; preds = %.lr.ph.split.us.split.us
+  %39 = load i32, ptr %11, align 4, !tbaa !16
+  tail call void @lwDrawPixel(ptr noundef %0, i32 noundef %.04661.us.us, i32 noundef %9, i32 noundef %39) #4
   %.pre80 = load i32, ptr %1, align 4, !tbaa !14
   %.pre81 = load i32, ptr %10, align 4, !tbaa !15
-  br label %39
+  br label %40
 
-39:                                               ; preds = %37, %.lr.ph.split.us.split.us
-  %40 = phi i32 [ %.pre81, %37 ], [ %29, %.lr.ph.split.us.split.us ]
-  %41 = phi i32 [ %.pre80, %37 ], [ %30, %.lr.ph.split.us.split.us ]
-  %42 = phi i32 [ %.pre81, %37 ], [ %31, %.lr.ph.split.us.split.us ]
-  %43 = phi i32 [ %.pre80, %37 ], [ %32, %.lr.ph.split.us.split.us ]
-  %44 = add nsw i32 %.04661.us.us, 1
-  %45 = add nsw i32 %42, %43
-  %46 = icmp slt i32 %44, %45
-  br i1 %46, label %.lr.ph.split.us.split.us, label %._crit_edge, !llvm.loop !17
+40:                                               ; preds = %38, %.lr.ph.split.us.split.us
+  %41 = phi i32 [ %.pre81, %38 ], [ %30, %.lr.ph.split.us.split.us ]
+  %42 = phi i32 [ %.pre80, %38 ], [ %31, %.lr.ph.split.us.split.us ]
+  %43 = phi i32 [ %.pre81, %38 ], [ %32, %.lr.ph.split.us.split.us ]
+  %44 = phi i32 [ %.pre80, %38 ], [ %33, %.lr.ph.split.us.split.us ]
+  %45 = add nsw i32 %.04661.us.us, 1
+  %46 = add nsw i32 %43, %44
+  %47 = icmp slt i32 %45, %46
+  br i1 %47, label %.lr.ph.split.us.split.us, label %._crit_edge, !llvm.loop !17
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %.lr.ph.split.us.split
-  %.04661.us = phi i32 [ %48, %.lr.ph.split.us.split ], [ %21, %.lr.ph.split.us ]
-  %47 = load i32, ptr %11, align 4, !tbaa !16
-  tail call void @lwDrawPixel(ptr noundef %0, i32 noundef %.04661.us, i32 noundef %.065, i32 noundef %47) #4
-  %48 = add nsw i32 %.04661.us, 1
-  %49 = load i32, ptr %1, align 4, !tbaa !14
-  %50 = load i32, ptr %10, align 4, !tbaa !15
-  %51 = add nsw i32 %50, %49
-  %52 = icmp slt i32 %48, %51
-  br i1 %52, label %.lr.ph.split.us.split, label %._crit_edge, !llvm.loop !17
+  %.04661.us = phi i32 [ %49, %.lr.ph.split.us.split ], [ %21, %.lr.ph.split.us ]
+  %48 = load i32, ptr %11, align 4, !tbaa !16
+  tail call void @lwDrawPixel(ptr noundef %0, i32 noundef %.04661.us, i32 noundef %.065, i32 noundef %48) #4
+  %49 = add nsw i32 %.04661.us, 1
+  %50 = load i32, ptr %1, align 4, !tbaa !14
+  %51 = load i32, ptr %10, align 4, !tbaa !15
+  %52 = add nsw i32 %51, %50
+  %53 = icmp slt i32 %49, %52
+  br i1 %53, label %.lr.ph.split.us.split, label %._crit_edge, !llvm.loop !17
 
-._crit_edge:                                      ; preds = %.lr.ph.split.us.split, %39, %89, %15
-  %53 = phi i32 [ %16, %15 ], [ %90, %89 ], [ %40, %39 ], [ %50, %.lr.ph.split.us.split ]
-  %54 = phi i32 [ %17, %15 ], [ %91, %89 ], [ %41, %39 ], [ %49, %.lr.ph.split.us.split ]
-  %55 = phi i32 [ %18, %15 ], [ %90, %89 ], [ %42, %39 ], [ %50, %.lr.ph.split.us.split ]
-  %56 = phi i32 [ %19, %15 ], [ %91, %89 ], [ %43, %39 ], [ %49, %.lr.ph.split.us.split ]
-  %57 = phi i32 [ %20, %15 ], [ %90, %89 ], [ %42, %39 ], [ %50, %.lr.ph.split.us.split ]
-  %58 = phi i32 [ %21, %15 ], [ %91, %89 ], [ %43, %39 ], [ %49, %.lr.ph.split.us.split ]
-  %59 = add nsw i32 %.065, -1
-  %.not.not = icmp sgt i32 %59, %8
+._crit_edge:                                      ; preds = %.lr.ph.split.us.split, %40, %90, %15
+  %54 = phi i32 [ %16, %15 ], [ %91, %90 ], [ %41, %40 ], [ %51, %.lr.ph.split.us.split ]
+  %55 = phi i32 [ %17, %15 ], [ %92, %90 ], [ %42, %40 ], [ %50, %.lr.ph.split.us.split ]
+  %56 = phi i32 [ %18, %15 ], [ %91, %90 ], [ %43, %40 ], [ %51, %.lr.ph.split.us.split ]
+  %57 = phi i32 [ %19, %15 ], [ %92, %90 ], [ %44, %40 ], [ %50, %.lr.ph.split.us.split ]
+  %58 = phi i32 [ %20, %15 ], [ %91, %90 ], [ %43, %40 ], [ %51, %.lr.ph.split.us.split ]
+  %59 = phi i32 [ %21, %15 ], [ %92, %90 ], [ %44, %40 ], [ %50, %.lr.ph.split.us.split ]
+  %60 = add nsw i32 %.065, -1
+  %.not.not = icmp sgt i32 %60, %8
   br i1 %.not.not, label %15, label %._crit_edge70, !llvm.loop !19
 
-.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %89
-  %60 = phi i32 [ %90, %89 ], [ %16, %.lr.ph.split.preheader ]
-  %61 = phi i32 [ %91, %89 ], [ %17, %.lr.ph.split.preheader ]
-  %62 = phi i32 [ %93, %89 ], [ %22, %.lr.ph.split.preheader ]
-  %63 = phi i32 [ %91, %89 ], [ %21, %.lr.ph.split.preheader ]
-  %.04661 = phi i32 [ %92, %89 ], [ %21, %.lr.ph.split.preheader ]
-  br i1 %24, label %64, label %67
+.lr.ph.split:                                     ; preds = %.lr.ph, %90
+  %61 = phi i32 [ %91, %90 ], [ %16, %.lr.ph ]
+  %62 = phi i32 [ %92, %90 ], [ %17, %.lr.ph ]
+  %63 = phi i32 [ %94, %90 ], [ %22, %.lr.ph ]
+  %64 = phi i32 [ %92, %90 ], [ %21, %.lr.ph ]
+  %.04661 = phi i32 [ %93, %90 ], [ %21, %.lr.ph ]
+  br i1 %24, label %65, label %68
 
-64:                                               ; preds = %.lr.ph.split
-  %65 = add nsw i32 %63, 1
-  %.not = icmp sgt i32 %.04661, %65
-  %66 = add nsw i32 %62, -2
-  %.not52 = icmp slt i32 %.04661, %66
+65:                                               ; preds = %.lr.ph.split
+  %66 = add nsw i32 %64, 1
+  %.not = icmp sgt i32 %.04661, %66
+  %67 = add nsw i32 %63, -2
+  %.not52 = icmp slt i32 %.04661, %67
   %or.cond = select i1 %.not, i1 %.not52, i1 false
-  br i1 %or.cond, label %67, label %89
+  br i1 %or.cond, label %68, label %90
 
-67:                                               ; preds = %64, %.lr.ph.split
-  %68 = load i32, ptr %11, align 4, !tbaa !16
-  %69 = load i32, ptr %12, align 4, !tbaa !20
-  %.not53 = icmp eq i32 %69, 0
-  br i1 %.not53, label %88, label %70
+68:                                               ; preds = %65, %.lr.ph.split
+  %69 = load i32, ptr %11, align 4, !tbaa !16
+  %70 = load i32, ptr %12, align 4, !tbaa !20
+  %.not53 = icmp eq i32 %70, 0
+  br i1 %.not53, label %89, label %71
 
-70:                                               ; preds = %67
-  %71 = add nsw i32 %63, 1
-  %72 = icmp sgt i32 %.04661, %71
-  %73 = add nsw i32 %62, -2
-  %74 = icmp slt i32 %.04661, %73
-  %or.cond76 = select i1 %72, i1 %74, i1 false
-  br i1 %or.cond76, label %75, label %88
+71:                                               ; preds = %68
+  %72 = add nsw i32 %64, 1
+  %73 = icmp sgt i32 %.04661, %72
+  %74 = add nsw i32 %63, -2
+  %75 = icmp slt i32 %.04661, %74
+  %or.cond76 = select i1 %73, i1 %75, i1 false
+  br i1 %or.cond76, label %76, label %89
 
-75:                                               ; preds = %70
-  %76 = sub nsw i32 %.04661, %71
-  %77 = sdiv i32 %76, 2
-  %.reass = and i32 %77, %invariant.op
-  %brmerge.not.not = icmp eq i32 %.reass, 0
-  br i1 %brmerge.not.not, label %88, label %.preheader
+76:                                               ; preds = %71
+  %77 = sub nsw i32 %.04661, %72
+  %78 = and i32 %77, 2
+  %.not54 = icmp eq i32 %78, 0
+  %brmerge = or i1 %.not54, %.not55
+  br i1 %brmerge, label %89, label %.preheader
 
-.preheader:                                       ; preds = %75, %.preheader
-  %78 = tail call i32 @rand() #4
-  %79 = srem i32 %78, 2
-  %80 = add nsw i32 %79, 1
-  %81 = load i32, ptr %11, align 4, !tbaa !16
-  %82 = icmp eq i32 %80, %81
-  br i1 %82, label %.preheader, label %83, !llvm.loop !21
+.preheader:                                       ; preds = %76, %.preheader
+  %79 = tail call i32 @rand() #4
+  %80 = srem i32 %79, 2
+  %81 = add nsw i32 %80, 1
+  %82 = load i32, ptr %11, align 4, !tbaa !16
+  %83 = icmp eq i32 %81, %82
+  br i1 %83, label %.preheader, label %84, !llvm.loop !21
 
-83:                                               ; preds = %.preheader
-  %84 = and i32 %76, 1
-  %.not56 = icmp eq i32 %84, 0
-  br i1 %.not56, label %88, label %85
+84:                                               ; preds = %.preheader
+  %85 = and i32 %77, 1
+  %.not56 = icmp eq i32 %85, 0
+  br i1 %.not56, label %89, label %86
 
-85:                                               ; preds = %83
-  %86 = add nsw i32 %.04661, -1
-  %87 = tail call i32 @lwGetPixel(ptr noundef %0, i32 noundef %86, i32 noundef %.065) #4
-  br label %88
+86:                                               ; preds = %84
+  %87 = add nsw i32 %.04661, -1
+  %88 = tail call i32 @lwGetPixel(ptr noundef %0, i32 noundef %87, i32 noundef %.065) #4
+  br label %89
 
-88:                                               ; preds = %75, %85, %83, %70, %67
-  %.045 = phi i32 [ %68, %70 ], [ %68, %67 ], [ %87, %85 ], [ %80, %83 ], [ %68, %75 ]
+89:                                               ; preds = %76, %86, %84, %71, %68
+  %.045 = phi i32 [ %69, %71 ], [ %69, %68 ], [ %88, %86 ], [ %81, %84 ], [ %69, %76 ]
   tail call void @lwDrawPixel(ptr noundef %0, i32 noundef %.04661, i32 noundef %.065, i32 noundef %.045) #4
   %.pre82 = load i32, ptr %1, align 4, !tbaa !14
   %.pre83 = load i32, ptr %10, align 4, !tbaa !15
-  br label %89
+  br label %90
 
-89:                                               ; preds = %64, %88
-  %90 = phi i32 [ %60, %64 ], [ %.pre83, %88 ]
-  %91 = phi i32 [ %61, %64 ], [ %.pre82, %88 ]
-  %92 = add nsw i32 %.04661, 1
-  %93 = add nsw i32 %90, %91
-  %94 = icmp slt i32 %92, %93
-  br i1 %94, label %.lr.ph.split, label %._crit_edge, !llvm.loop !17
+90:                                               ; preds = %65, %89
+  %91 = phi i32 [ %61, %65 ], [ %.pre83, %89 ]
+  %92 = phi i32 [ %62, %65 ], [ %.pre82, %89 ]
+  %93 = add nsw i32 %.04661, 1
+  %94 = add nsw i32 %91, %92
+  %95 = icmp slt i32 %93, %94
+  br i1 %95, label %.lr.ph.split, label %._crit_edge, !llvm.loop !17
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

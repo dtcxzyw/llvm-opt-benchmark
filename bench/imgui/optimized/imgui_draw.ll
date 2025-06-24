@@ -28134,11 +28134,11 @@ define internal fastcc noundef i32 @_ZL20stbtt_FindGlyphIndexPK14stbtt_fontinfoi
   %.012412 = phi i32 [ %191, %.lr.ph14 ], [ %.2126, %261 ]
   %.012711 = phi i32 [ 0, %.lr.ph14 ], [ %.2129, %261 ]
   %195 = sub nsw i32 %.012412, %.012711
-  %196 = ashr i32 %195, 1
-  %197 = add nsw i32 %196, %.012711
+  %196 = lshr i32 %195, 1
+  %197 = add nuw nsw i32 %196, %.012711
   %198 = mul nsw i32 %197, 12
-  %199 = sext i32 %198 to i64
-  %200 = getelementptr inbounds i8, ptr %193, i64 %199
+  %199 = zext nneg i32 %198 to i64
+  %200 = getelementptr inbounds nuw i8, ptr %193, i64 %199
   %201 = load i8, ptr %200, align 1, !tbaa !23
   %202 = zext i8 %201 to i32
   %203 = shl nuw i32 %202, 24
@@ -28182,7 +28182,7 @@ define internal fastcc noundef i32 @_ZL20stbtt_FindGlyphIndexPK14stbtt_fontinfoi
   br i1 %238, label %239, label %.thread
 
 239:                                              ; preds = %219
-  %240 = add nsw i32 %197, 1
+  %240 = add nuw nsw i32 %197, 1
   br label %261
 
 .thread:                                          ; preds = %219

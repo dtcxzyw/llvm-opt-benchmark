@@ -1142,8 +1142,8 @@ define internal fastcc void @run_permutation(i32 noundef %0, ptr noundef readonl
   %120 = zext nneg i32 %114 to i64
   %121 = getelementptr inbounds nuw ptr, ptr %12, i64 %120
   %122 = sub nsw i32 %.212431, %114
-  %123 = sext i32 %122 to i64
-  %124 = shl nsw i64 %123, 3
+  %123 = zext nneg i32 %122 to i64
+  %124 = shl nuw nsw i64 %123, 3
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %119, ptr nonnull align 8 %121, i64 %124, i1 false)
   br label %125
 

@@ -14789,7 +14789,7 @@ _ZN4llvm5APIntC2Ejmbb.exit.i:                     ; preds = %_ZN4llvm5APIntC2Ejm
   br label %228
 
 228:                                              ; preds = %226, %_ZN4llvm5APIntC2Ejmbb.exit.i
-  %.not122.i = icmp ult i32 %.096.i, 2
+  %.not122.i = icmp samesign ult i32 %.096.i, 2
   br i1 %.not122.i, label %232, label %229
 
 229:                                              ; preds = %228

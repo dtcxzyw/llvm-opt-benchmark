@@ -993,8 +993,8 @@ define internal fastcc noundef ptr @_ZL17ures_toUTF8StringPKDsiPcPiaP10UErrorCod
   %32 = icmp sgt i32 %.039495356, %31
   %33 = sub nsw i32 %.039495356, %31
   %narrow = select i1 %32, i32 %33, i32 0
-  %.141.idx = sext i32 %narrow to i64
-  %.141 = getelementptr inbounds i8, ptr %2, i64 %.141.idx
+  %.141.idx = zext i32 %narrow to i64
+  %.141 = getelementptr inbounds nuw i8, ptr %2, i64 %.141.idx
   %.2 = tail call i32 @llvm.smin.i32(i32 %.039495356, i32 %31)
   br label %34
 

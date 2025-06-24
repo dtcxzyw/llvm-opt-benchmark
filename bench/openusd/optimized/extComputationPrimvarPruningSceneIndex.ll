@@ -19538,7 +19538,7 @@ _ZNSt11_Deque_baseIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE16_M_dest
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit: ; preds = %_ZStplRKSt15_Deque_iteratorIN32pxrInternal_v0_24__pxrReserved__7SdfPathERS1_PS1_El.exit
   %226 = sub nsw i64 %4, %49
-  %227 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", ptr %2, i64 %226
+  %227 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", ptr %2, i64 %226
   %228 = load ptr, ptr %22, align 8
   %.not8.i.i.i.i.i.i = icmp eq ptr %228, %storemerge.i.i
   br i1 %.not8.i.i.i.i.i.i, label %_ZSt22__uninitialized_move_aISt15_Deque_iteratorIN32pxrInternal_v0_24__pxrReserved__7SdfPathERS2_PS2_ES5_SaIS2_EET0_T_S8_S7_RT1_.exit.i, label %.lr.ph.i.i.i.i.i.i.preheader

@@ -1832,8 +1832,8 @@ list_length.exit:                                 ; preds = %4
   %14 = zext nneg i32 %1 to i64
   %15 = getelementptr inbounds nuw %union.ListCell, ptr %8, i64 %14
   %16 = sub nsw i32 %6, %1
-  %17 = sext i32 %16 to i64
-  %18 = shl nsw i64 %17, 3
+  %17 = zext nneg i32 %16 to i64
+  %18 = shl nuw nsw i64 %17, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %8, ptr nonnull align 8 %15, i64 %18, i1 false)
   %19 = load i32, ptr %5, align 4
   %20 = sub i32 %19, %1
@@ -3353,7 +3353,7 @@ define dso_local noundef ptr @list_copy_tail(ptr noundef readonly captures(addre
 7:                                                ; preds = %4
   %8 = load i32, ptr %0, align 8
   %9 = sub nsw i32 %6, %spec.store.select
-  %10 = add i32 %9, 3
+  %10 = add nuw i32 %9, 3
   %11 = tail call i32 @llvm.smax.i32(i32 %10, i32 8)
   %12 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %11)
   %13 = icmp samesign ult i32 %12, 2
@@ -3378,8 +3378,8 @@ define dso_local noundef ptr @list_copy_tail(ptr noundef readonly captures(addre
   %27 = load ptr, ptr %26, align 8
   %28 = zext nneg i32 %spec.store.select to i64
   %29 = getelementptr inbounds nuw %union.ListCell, ptr %27, i64 %28
-  %30 = sext i32 %9 to i64
-  %31 = shl nsw i64 %30, 3
+  %30 = zext nneg i32 %9 to i64
+  %31 = shl nuw nsw i64 %30, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %24, ptr align 8 %29, i64 %31, i1 false)
   br label %32
 

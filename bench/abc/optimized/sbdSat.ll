@@ -1132,8 +1132,8 @@ define void @Sbd_ProblemLoad1(ptr noundef readonly captures(none) %0, ptr nounde
 
 45:                                               ; preds = %44
   %46 = sub nsw i32 %39, %18
-  %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds i32, ptr %3, i64 %47
+  %47 = zext nneg i32 %46 to i64
+  %48 = getelementptr inbounds nuw i32, ptr %3, i64 %47
   %49 = load i32, ptr %48, align 4, !tbaa !18
   %50 = and i32 %38, 1
   %51 = shl nsw i32 %49, 1
@@ -1236,8 +1236,8 @@ define void @Sbd_ProblemLoad2(ptr noundef readonly captures(none) %0, ptr nounde
 37:                                               ; preds = %36
   %38 = and i32 %30, 1
   %39 = sub nsw i32 %31, %18
-  %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds i32, ptr %3, i64 %40
+  %40 = zext nneg i32 %39 to i64
+  %41 = getelementptr inbounds nuw i32, ptr %3, i64 %40
   %42 = load i32, ptr %41, align 4, !tbaa !18
   %43 = icmp eq i32 %38, %42
   br i1 %43, label %.critedge2.thread, label %48

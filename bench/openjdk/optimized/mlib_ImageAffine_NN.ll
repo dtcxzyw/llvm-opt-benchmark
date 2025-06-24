@@ -75,7 +75,7 @@ define hidden noundef i32 @mlib_ImageAffine_s32_1ch_nn(ptr noundef readonly capt
   %47 = sext i32 %32 to i64
   %48 = getelementptr inbounds i32, ptr %30, i64 %47
   %49 = sub nsw i32 %34, %32
-  %50 = add nsw i32 %49, 1
+  %50 = add nuw nsw i32 %49, 1
   %51 = ptrtoint ptr %48 to i64
   %52 = and i64 %51, 7
   %.not89 = icmp eq i64 %52, 0

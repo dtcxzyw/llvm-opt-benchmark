@@ -51,11 +51,11 @@ define internal noundef i32 @init(ptr noundef readonly captures(none) %0) #0 {
 .lr.ph:                                           ; preds = %8
   %15 = shl nsw i32 %.04452, 16
   %16 = add nsw i32 %15, %.04353
-  %17 = mul nsw i32 %spec.select, 65793
+  %17 = mul nuw nsw i32 %spec.select, 65793
   %18 = add nsw i32 %16, %17
   %19 = mul nsw i32 %.04452, 299
   %20 = add nsw i32 %19, %7
-  %21 = mul nsw i32 %spec.select, 1000
+  %21 = mul nuw nsw i32 %spec.select, 1000
   %22 = add i32 %20, %21
   %23 = sdiv i32 %22, 1000
   %24 = mul nsw i32 %.04452, 500
@@ -80,7 +80,7 @@ define internal noundef i32 @init(ptr noundef readonly captures(none) %0) #0 {
   %38 = getelementptr inbounds nuw [16777216 x i32], ptr %4, i64 0, i64 %37
   store i32 %36, ptr %38, align 4, !tbaa !20
   %39 = add nsw i32 %.04250, 65793
-  %40 = add nsw i32 %.04549, 1
+  %40 = add nuw nsw i32 %.04549, 1
   %.not.not = icmp slt i32 %.04549, %14
   br i1 %.not.not, label %33, label %._crit_edge, !llvm.loop !21
 

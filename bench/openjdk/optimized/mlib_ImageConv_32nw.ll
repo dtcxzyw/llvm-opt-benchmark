@@ -830,8 +830,8 @@ mlib_ImageConv1xN.exit:                           ; preds = %._crit_edge.i, %298
   %416 = load double, ptr %415, align 8
   %417 = getelementptr inbounds nuw i8, ptr %.17731123.us, i64 48
   %418 = load double, ptr %417, align 8
-  %419 = sext i32 %.0819.us to i64
-  %420 = getelementptr inbounds double, ptr %.17731123.us, i64 %419
+  %419 = zext nneg i32 %.0819.us to i64
+  %420 = getelementptr inbounds nuw double, ptr %.17731123.us, i64 %419
   switch i32 %.0819.us, label %724 [
     i32 7, label %653
     i32 6, label %588

@@ -2006,8 +2006,8 @@ CheckAudioStreamIsFullySetup.exit.thread._crit_edge: ; preds = %CheckAudioStream
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr nonnull readonly align 8 %1, i64 %60, i1 false)
   %61 = getelementptr inbounds nuw ptr, ptr %5, i64 %59
   %62 = sub nsw i32 %.pre, %2
-  %63 = sext i32 %62 to i64
-  %64 = shl nsw i64 %63, 3
+  %63 = zext nneg i32 %62 to i64
+  %64 = shl nuw nsw i64 %63, 3
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %61, i8 0, i64 %64, i1 false)
   br label %.thread122.i
 

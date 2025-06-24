@@ -4447,7 +4447,7 @@ define internal range(i32 -1, 1) i32 @cascade_filter_fn(ptr noundef %0, ptr noun
   %.us-phi96 = phi i32 [ %16, %.lr.ph.split.us ], [ %28, %34 ]
   %.us-phi97 = phi ptr [ %.046.ph124, %.lr.ph.split.us ], [ %.161.us, %34 ]
   %36 = sub nsw i32 %.us-phi96, %.us-phi94
-  %37 = sext i32 %36 to i64
+  %37 = zext nneg i32 %36 to i64
   store i64 %37, ptr %6, align 8, !tbaa !4
   %38 = load ptr, ptr %13, align 8, !tbaa !120
   %39 = sext i32 %.us-phi94 to i64

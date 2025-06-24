@@ -847,7 +847,7 @@ define internal void @dissect_hello_mt_port_cap_clv(ptr noundef %0, ptr noundef 
   %74 = tail call ptr @proto_tree_add_item(ptr noundef %65, i32 noundef %72, ptr noundef %0, i32 noundef %73, i32 noundef 2, i32 noundef 0)
   %75 = add i32 %.02.i, 6
   %76 = add nsw i32 %.0171.i, -6
-  %77 = icmp samesign ugt i32 %.0171.i, 11
+  %77 = icmp samesign ugt i32 %76, 5
   br i1 %77, label %.lr.ph.i, label %.loopexit, !llvm.loop !6
 
 78:                                               ; preds = %23

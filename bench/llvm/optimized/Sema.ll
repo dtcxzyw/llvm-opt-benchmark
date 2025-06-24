@@ -50745,7 +50745,7 @@ _ZNSt15_Deque_iteratorISt4pairIPN5clang9ValueDeclENS1_14SourceLocationEERS5_PS5_
 
 _ZSt7advanceIPSt4pairIPN5clang9ValueDeclENS1_14SourceLocationEElEvRT_T0_.exit: ; preds = %_ZStplRKSt15_Deque_iteratorISt4pairIPN5clang9ValueDeclENS1_14SourceLocationEERS5_PS5_El.exit
   %247 = sub nsw i64 %4, %41
-  %248 = getelementptr inbounds %"struct.std::pair.1809", ptr %2, i64 %247
+  %248 = getelementptr inbounds nuw %"struct.std::pair.1809", ptr %2, i64 %247
   %249 = load ptr, ptr %14, align 8, !tbaa !1911
   %.not7.i.i.i.i.i.i = icmp eq ptr %249, %storemerge.i.i
   br i1 %.not7.i.i.i.i.i.i, label %_ZSt22__uninitialized_move_aISt15_Deque_iteratorISt4pairIPN5clang9ValueDeclENS2_14SourceLocationEERS6_PS6_ES9_SaIS6_EET0_T_SC_SB_RT1_.exit.i, label %.lr.ph.i.i.i.i.i.i34.preheader

@@ -2349,7 +2349,7 @@ define weak_odr dso_local noundef i64 @_ZNKSt3__112basic_stringIcNS_11char_trait
   %.02529.i.i = phi ptr [ %23, %.lr.ph.i.i ], [ %34, %33 ]
   %reass.sub = sub i64 %27, %3
   %28 = add i64 %reass.sub, 1
-  %29 = tail call noundef ptr @memchr(ptr noundef %.02529.i.i, i32 noundef %25, i64 noundef %28) #28
+  %29 = tail call noundef ptr @memchr(ptr noundef nonnull dereferenceable(1) %.02529.i.i, i32 noundef %25, i64 noundef %28) #28
   %30 = icmp eq ptr %29, null
   br i1 %30, label %_ZNSt3__118__search_substringB8ne210000IcNS_11char_traitsIcEEEEPKT_S5_S5_S5_S5_.exit.i, label %31
 

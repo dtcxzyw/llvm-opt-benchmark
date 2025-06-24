@@ -1114,7 +1114,7 @@ _ZN3gmx11ListOfListsIiE5clearEv.exit:             ; preds = %_ZNSt6vectorIiSaIiE
 
 69:                                               ; preds = %65
   %70 = sub nsw i32 %66, %67
-  %71 = sext i32 %70 to i64
+  %71 = zext nneg i32 %70 to i64
   %72 = load ptr, ptr %52, align 8, !tbaa !34
   %73 = load ptr, ptr %5, align 8, !tbaa !34
   %74 = getelementptr i32, ptr %73, i64 %71

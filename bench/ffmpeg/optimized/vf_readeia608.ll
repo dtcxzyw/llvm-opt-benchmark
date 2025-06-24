@@ -1185,7 +1185,7 @@ define internal fastcc range(i32 -22, 1) i32 @config_filter(ptr noundef %0, i32 
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 36
   %22 = load i32, ptr %21, align 4, !tbaa !20
   %23 = sub nsw i32 %.054, %1
-  %24 = add nsw i32 %23, 1
+  %24 = add nuw nsw i32 %23, 1
   %.not63 = icmp sgt i32 %22, %23
   br i1 %.not63, label %37, label %25
 

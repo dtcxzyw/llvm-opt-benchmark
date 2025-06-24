@@ -68472,7 +68472,7 @@ _ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i.i.i195: ; preds = %if.then.i.i
 if.else37:                                        ; preds = %_ZNK5eastl13DequeIteratorIiPiRiLj64EEplEl.exit
   %51 = load ptr, ptr %first, align 8
   %sub = sub nsw i64 %sub.ptr.div.i.i, %add11.i
-  %add.ptr.i.i203 = getelementptr inbounds i32, ptr %51, i64 %sub
+  %add.ptr.i.i203 = getelementptr inbounds nuw i32, ptr %51, i64 %sub
   %52 = load ptr, ptr %itNewBegin21, align 8
   %mpEnd4.i219 = getelementptr inbounds nuw i8, ptr %itNewBegin21, i64 16
   %53 = load ptr, ptr %mpEnd4.i219, align 8
@@ -71421,7 +71421,7 @@ _ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit.i.i.i.i212: ; preds 
 if.else37:                                        ; preds = %_ZNK5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEplEl.exit
   %92 = load ptr, ptr %first, align 8
   %sub = sub nsw i64 %sub.ptr.div.i.i, %add11.i
-  %add.ptr.i.i219 = getelementptr inbounds %struct.TestObject, ptr %92, i64 %sub
+  %add.ptr.i.i219 = getelementptr inbounds nuw %struct.TestObject, ptr %92, i64 %sub
   %93 = load ptr, ptr %itNewBegin21, align 8
   %mpEnd4.i235 = getelementptr inbounds nuw i8, ptr %itNewBegin21, i64 16
   %94 = load ptr, ptr %mpEnd4.i235, align 8
@@ -92525,7 +92525,7 @@ _ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i.i.i195: ; preds = %if.then.i.i
 if.else37:                                        ; preds = %_ZNK5eastl13DequeIteratorIiPiRiLj64EEplEl.exit
   %51 = load ptr, ptr %first, align 8
   %sub = sub nsw i64 %sub.ptr.div.i.i, %add11.i
-  %add.ptr.i.i203 = getelementptr inbounds i32, ptr %51, i64 %sub
+  %add.ptr.i.i203 = getelementptr inbounds nuw i32, ptr %51, i64 %sub
   %52 = load ptr, ptr %itNewBegin21, align 8
   %mpEnd4.i219 = getelementptr inbounds nuw i8, ptr %itNewBegin21, i64 16
   %53 = load ptr, ptr %mpEnd4.i219, align 8
@@ -96358,7 +96358,7 @@ _ZN5eastl13DequeIteratorIiPiRiLj1EEppEv.exit.i.i.i.i260: ; preds = %if.then.i.i.
 if.else37:                                        ; preds = %_ZNK5eastl13DequeIteratorIiPiRiLj1EEplEl.exit
   %68 = load ptr, ptr %first, align 8
   %sub = sub nsw i64 %sub.ptr.div.i.i, %add11.i
-  %add.ptr.i.i268 = getelementptr inbounds i32, ptr %68, i64 %sub
+  %add.ptr.i.i268 = getelementptr inbounds nuw i32, ptr %68, i64 %sub
   %cmp.i.not14.i.i.i = icmp eq ptr %48, %storemerge.i.i
   br i1 %cmp.i.not14.i.i.i, label %_ZN5eastl18uninitialized_copyINS_13DequeIteratorIiPiRiLj1EEES4_EET0_T_S6_S5_.exit.i, label %for.body.i.i.i
 
@@ -99865,7 +99865,7 @@ _ZN5eastl13DequeIteratorIiPiRiLj32768EEppEv.exit.i.i.i.i195: ; preds = %if.then.
 if.else37:                                        ; preds = %_ZNK5eastl13DequeIteratorIiPiRiLj32768EEplEl.exit
   %51 = load ptr, ptr %first, align 8
   %sub = sub nsw i64 %sub.ptr.div.i.i, %add11.i
-  %add.ptr.i.i203 = getelementptr inbounds i32, ptr %51, i64 %sub
+  %add.ptr.i.i203 = getelementptr inbounds nuw i32, ptr %51, i64 %sub
   %52 = load ptr, ptr %itNewBegin21, align 8
   %mpEnd4.i219 = getelementptr inbounds nuw i8, ptr %itNewBegin21, i64 16
   %53 = load ptr, ptr %mpEnd4.i219, align 8
@@ -102772,7 +102772,7 @@ _ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit.i.i.i.i212: ; preds 
 if.else37:                                        ; preds = %_ZNK5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEplEl.exit
   %92 = load ptr, ptr %first, align 8
   %sub = sub nsw i64 %sub.ptr.div.i.i, %add11.i
-  %add.ptr.i.i219 = getelementptr inbounds %struct.TestObject, ptr %92, i64 %sub
+  %add.ptr.i.i219 = getelementptr inbounds nuw %struct.TestObject, ptr %92, i64 %sub
   %93 = load ptr, ptr %itNewBegin21, align 8
   %mpEnd4.i235 = getelementptr inbounds nuw i8, ptr %itNewBegin21, i64 16
   %94 = load ptr, ptr %mpEnd4.i235, align 8
@@ -107702,7 +107702,7 @@ _ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit.i.i.i.i278: ; preds 
 if.else37:                                        ; preds = %_ZNK5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEplEl.exit
   %109 = load ptr, ptr %first, align 8
   %sub = sub nsw i64 %sub.ptr.div.i.i, %add11.i
-  %add.ptr.i.i285 = getelementptr inbounds %struct.TestObject, ptr %109, i64 %sub
+  %add.ptr.i.i285 = getelementptr inbounds nuw %struct.TestObject, ptr %109, i64 %sub
   %cmp.i.not14.i.i.i = icmp eq ptr %70, %storemerge.i.i
   br i1 %cmp.i.not14.i.i.i, label %_ZN5eastl18uninitialized_copyINS_13DequeIteratorI10TestObjectPS2_RS2_Lj1EEES5_EET0_T_S7_S6_.exit.i, label %for.body.i.i.i
 
@@ -112295,7 +112295,7 @@ _ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit.i.i.i.i213: ; pr
 if.else37:                                        ; preds = %_ZNK5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEplEl.exit
   %92 = load ptr, ptr %first, align 8
   %sub = sub nsw i64 %sub.ptr.div.i.i, %add11.i
-  %add.ptr.i.i220 = getelementptr inbounds %struct.TestObject, ptr %92, i64 %sub
+  %add.ptr.i.i220 = getelementptr inbounds nuw %struct.TestObject, ptr %92, i64 %sub
   %93 = load ptr, ptr %itNewBegin21, align 8
   %mpEnd4.i236 = getelementptr inbounds nuw i8, ptr %itNewBegin21, i64 16
   %94 = load ptr, ptr %mpEnd4.i236, align 8

@@ -24747,8 +24747,8 @@ _ZN5ImGui22FindWindowDisplayIndexEP11ImGuiWindow.exit30.i: ; preds = %_ZN5ImGui2
 
 123:                                              ; preds = %_ZN5ImGui22FindWindowDisplayIndexEP11ImGuiWindow.exit30.i
   %124 = sub nsw i32 %105, %109
-  %125 = sext i32 %124 to i64
-  %126 = shl nsw i64 %125, 3
+  %125 = zext nneg i32 %124 to i64
+  %126 = shl nuw nsw i64 %125, 3
   %sext.i = shl i64 %107, 29
   %127 = ashr i64 %sext.i, 32
   %128 = getelementptr ptr, ptr %84, i64 %127
@@ -64338,8 +64338,8 @@ _ZN5ImGui22FindWindowDisplayIndexEP11ImGuiWindow.exit30: ; preds = %_ZN5ImGui22F
 
 49:                                               ; preds = %_ZN5ImGui22FindWindowDisplayIndexEP11ImGuiWindow.exit30
   %50 = sub nsw i32 %31, %35
-  %51 = sext i32 %50 to i64
-  %52 = shl nsw i64 %51, 3
+  %51 = zext nneg i32 %50 to i64
+  %52 = shl nuw nsw i64 %51, 3
   %sext = shl i64 %33, 29
   %53 = ashr i64 %sext, 32
   %54 = getelementptr ptr, ptr %10, i64 %53

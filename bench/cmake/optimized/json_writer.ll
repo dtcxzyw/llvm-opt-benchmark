@@ -209,7 +209,7 @@ define dso_local void @_ZN4Json13valueToStringB5cxx11El(ptr dead_on_unwind noali
   %23 = getelementptr inbounds i8, ptr %.2, i64 -1
   store i8 %22, ptr %23, align 1, !tbaa !4
   %24 = udiv i64 %.0.i5, 10
-  %.not.i6 = icmp ult i64 %.0.i5, 10
+  %.not.i6 = icmp samesign ult i64 %.0.i5, 10
   br i1 %.not.i6, label %.loopexit.sink.split, label %19, !llvm.loop !7
 
 25:                                               ; preds = %14

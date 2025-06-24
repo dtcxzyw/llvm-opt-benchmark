@@ -693,7 +693,7 @@ async_check_interrupt.exit:                       ; preds = %20
 43:                                               ; preds = %38
   %44 = load ptr, ptr %6, align 8, !tbaa !18
   %45 = sub nsw i32 %40, %41
-  %46 = sext i32 %45 to i64
+  %46 = zext nneg i32 %45 to i64
   tail call void @av_fifo_drain2(ptr noundef %44, i64 noundef %46) #7
   %47 = load i32, ptr %12, align 8, !tbaa !21
   store i32 %47, ptr %10, align 4, !tbaa !32

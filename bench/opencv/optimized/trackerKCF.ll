@@ -7917,69 +7917,69 @@ define hidden void @_ZNK2cv8tracking4impl14TrackerKCFImpl9shiftRowsERNS_3MatEi(p
   %6 = alloca %"class.cv::_InputArray", align 8
   %7 = alloca %"class.cv::_OutputArray", align 8
   %8 = icmp slt i32 %2, 0
-  br i1 %8, label %.lr.ph29.preheader, label %.preheader
+  br i1 %8, label %9, label %.preheader
 
 .preheader:                                       ; preds = %3
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
 
-.lr.ph29.preheader:                               ; preds = %3
+9:                                                ; preds = %3
+  %10 = sub i32 0, %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #28
-  %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i32 0, ptr %9, align 8, !tbaa !88
-  %10 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  store i32 0, ptr %10, align 4, !tbaa !89
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i32 0, ptr %11, align 8, !tbaa !88
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 20
+  store i32 0, ptr %12, align 4, !tbaa !89
   store i32 16842752, ptr %4, align 8, !tbaa !73
-  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %1, ptr %11, align 8, !tbaa !76
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr %1, ptr %13, align 8, !tbaa !76
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #28
-  %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 0, ptr %13, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store i64 0, ptr %15, align 8
   store i32 33619968, ptr %5, align 8, !tbaa !73
-  store ptr %1, ptr %12, align 8, !tbaa !76
+  store ptr %1, ptr %14, align 8, !tbaa !76
   call void @_ZN2cv4flipERKNS_11_InputArrayERKNS_12_OutputArrayEi(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #28
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #28
-  %14 = sub i32 0, %2
-  %smax = call i32 @llvm.smax.i32(i32 %14, i32 1)
-  br label %.lr.ph29
+  %smax = call i32 @llvm.smax.i32(i32 %10, i32 1)
+  br label %16
 
-.lr.ph29:                                         ; preds = %.lr.ph29.preheader, %.lr.ph29
-  %.01628 = phi i32 [ %15, %.lr.ph29 ], [ 0, %.lr.ph29.preheader ]
+16:                                               ; preds = %9, %16
+  %.01628 = phi i32 [ 0, %9 ], [ %17, %16 ]
   call void @_ZNK2cv8tracking4impl14TrackerKCFImpl9shiftRowsERNS_3MatE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(96) %1)
-  %15 = add nuw nsw i32 %.01628, 1
-  %exitcond30.not = icmp eq i32 %15, %smax
-  br i1 %exitcond30.not, label %._crit_edge, label %.lr.ph29, !llvm.loop !191
+  %17 = add nuw nsw i32 %.01628, 1
+  %exitcond29.not = icmp eq i32 %17, %smax
+  br i1 %exitcond29.not, label %18, label %16, !llvm.loop !191
 
-._crit_edge:                                      ; preds = %.lr.ph29
+18:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #28
-  %16 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i32 0, ptr %16, align 8, !tbaa !88
-  %17 = getelementptr inbounds nuw i8, ptr %6, i64 20
-  store i32 0, ptr %17, align 4, !tbaa !89
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i32 0, ptr %19, align 8, !tbaa !88
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 20
+  store i32 0, ptr %20, align 4, !tbaa !89
   store i32 16842752, ptr %6, align 8, !tbaa !73
-  %18 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %1, ptr %18, align 8, !tbaa !76
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr %1, ptr %21, align 8, !tbaa !76
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #28
-  %19 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %20 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i64 0, ptr %20, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store i64 0, ptr %23, align 8
   store i32 33619968, ptr %7, align 8, !tbaa !73
-  store ptr %1, ptr %19, align 8, !tbaa !76
+  store ptr %1, ptr %22, align 8, !tbaa !76
   call void @_ZN2cv4flipERKNS_11_InputArrayERKNS_12_OutputArrayEi(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #28
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #28
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.027 = phi i32 [ %21, %.lr.ph ], [ 0, %.preheader ]
+  %.027 = phi i32 [ %24, %.lr.ph ], [ 0, %.preheader ]
   tail call void @_ZNK2cv8tracking4impl14TrackerKCFImpl9shiftRowsERNS_3MatE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(96) %1)
-  %21 = add nuw nsw i32 %.027, 1
-  %exitcond.not = icmp eq i32 %21, %2
+  %24 = add nuw nsw i32 %.027, 1
+  %exitcond.not = icmp eq i32 %24, %2
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !192
 
-.loopexit:                                        ; preds = %.lr.ph, %.preheader, %._crit_edge
+.loopexit:                                        ; preds = %.lr.ph, %.preheader, %18
   ret void
 }
 

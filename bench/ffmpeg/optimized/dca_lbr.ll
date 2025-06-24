@@ -3524,8 +3524,8 @@ define internal fastcc void @transform_channel(ptr noundef %0, i32 noundef range
 13:                                               ; preds = %3
   %14 = getelementptr inbounds [4 x float], ptr %4, i64 %12
   %15 = sub nsw i32 %10, %7
-  %16 = sext i32 %15 to i64
-  %17 = shl nsw i64 %16, 4
+  %16 = zext nneg i32 %15 to i64
+  %17 = shl nuw nsw i64 %16, 4
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %14, i8 0, i64 %17, i1 false)
   br label %._crit_edge59
 
@@ -4864,7 +4864,7 @@ parse_vlc.exit114:                                ; preds = %get_vlc2.exit.i109,
 219:                                              ; preds = %216
   %220 = sub nsw i32 %.1, %.081145
   %221 = lshr i32 %220, 1
-  %222 = add i32 %221, %.081145
+  %222 = add nsw i32 %221, %.081145
   %223 = trunc i32 %222 to i8
   store i8 %223, ptr %218, align 1, !tbaa !14
   br label %.loopexit
@@ -4872,7 +4872,7 @@ parse_vlc.exit114:                                ; preds = %get_vlc2.exit.i109,
 224:                                              ; preds = %216
   %225 = sub nsw i32 %.081145, %.1
   %226 = lshr i32 %225, 1
-  %227 = sub i32 %.081145, %226
+  %227 = sub nsw i32 %.081145, %226
   %228 = trunc i32 %227 to i8
   store i8 %228, ptr %218, align 1, !tbaa !14
   br label %.loopexit
@@ -4887,16 +4887,16 @@ parse_vlc.exit114:                                ; preds = %get_vlc2.exit.i109,
 234:                                              ; preds = %229
   %235 = sub nsw i32 %.1, %.081145
   %236 = lshr i32 %235, 2
-  %237 = add i32 %236, %.081145
+  %237 = add nsw i32 %236, %.081145
   %238 = trunc i32 %237 to i8
   store i8 %238, ptr %231, align 1, !tbaa !14
   %239 = lshr i32 %235, 1
-  %240 = add i32 %239, %.081145
+  %240 = add nsw i32 %239, %.081145
   %241 = trunc i32 %240 to i8
   store i8 %241, ptr %232, align 1, !tbaa !14
-  %242 = mul nsw i32 %235, 3
+  %242 = mul nuw nsw i32 %235, 3
   %243 = lshr i32 %242, 2
-  %244 = add i32 %243, %.081145
+  %244 = add nsw i32 %243, %.081145
   %245 = trunc i32 %244 to i8
   store i8 %245, ptr %233, align 1, !tbaa !14
   br label %.loopexit
@@ -4904,16 +4904,16 @@ parse_vlc.exit114:                                ; preds = %get_vlc2.exit.i109,
 246:                                              ; preds = %229
   %247 = sub nsw i32 %.081145, %.1
   %248 = lshr i32 %247, 2
-  %249 = sub i32 %.081145, %248
+  %249 = sub nsw i32 %.081145, %248
   %250 = trunc i32 %249 to i8
   store i8 %250, ptr %231, align 1, !tbaa !14
   %251 = lshr i32 %247, 1
-  %252 = sub i32 %.081145, %251
+  %252 = sub nsw i32 %.081145, %251
   %253 = trunc i32 %252 to i8
   store i8 %253, ptr %232, align 1, !tbaa !14
-  %254 = mul nsw i32 %247, 3
+  %254 = mul nuw nsw i32 %247, 3
   %255 = lshr i32 %254, 2
-  %256 = sub i32 %.081145, %255
+  %256 = sub nsw i32 %.081145, %255
   %257 = trunc i32 %256 to i8
   store i8 %257, ptr %233, align 1, !tbaa !14
   br label %.loopexit

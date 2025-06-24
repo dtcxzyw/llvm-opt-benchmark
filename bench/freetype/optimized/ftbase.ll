@@ -6316,15 +6316,15 @@ FT_Stream_Seek.exit.thread216:                    ; preds = %FT_Stream_Seek.exit
   br i1 %.not146, label %267, label %.thread282
 
 .thread282:                                       ; preds = %116
-  %.pre330 = load ptr, ptr %10, align 8, !tbaa !240
+  %.pre332 = load ptr, ptr %10, align 8, !tbaa !240
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #34
-  %.not.i188 = icmp eq ptr %.pre330, null
+  %.not.i188 = icmp eq ptr %.pre332, null
   br i1 %.not.i188, label %.thread238, label %117
 
 117:                                              ; preds = %.thread282.thread, %.thread282
-  %.0101281288345 = phi ptr [ %72, %.thread282.thread ], [ %.0101, %.thread282 ]
-  %.0108280291341 = phi ptr [ %34, %.thread282.thread ], [ %.0108, %.thread282 ]
-  %118 = phi ptr [ %95, %.thread282.thread ], [ %.pre330, %.thread282 ]
+  %.0101281288347 = phi ptr [ %72, %.thread282.thread ], [ %.0101, %.thread282 ]
+  %.0108280291343 = phi ptr [ %34, %.thread282.thread ], [ %.0108, %.thread282 ]
+  %118 = phi ptr [ %95, %.thread282.thread ], [ %.pre332, %.thread282 ]
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 40
   %120 = load ptr, ptr %119, align 8, !tbaa !302
   %.not.i.i189 = icmp eq ptr %120, null
@@ -6399,9 +6399,9 @@ FT_Stream_Read.exit.i:                            ; preds = %133
   br i1 %or.cond23.i, label %IsMacBinary.exit.thread236, label %IsMacBinary.exit
 
 .thread238:                                       ; preds = %133, %123, %121, %.thread282
-  %.not.i188347 = phi i1 [ false, %133 ], [ false, %123 ], [ false, %121 ], [ true, %.thread282 ]
-  %.0101281288344 = phi ptr [ %.0101281288345, %133 ], [ %.0101281288345, %123 ], [ %.0101281288345, %121 ], [ %.0101, %.thread282 ]
-  %.0108280291340 = phi ptr [ %.0108280291341, %133 ], [ %.0108280291341, %123 ], [ %.0108280291341, %121 ], [ %.0108, %.thread282 ]
+  %.not.i188349 = phi i1 [ false, %133 ], [ false, %123 ], [ false, %121 ], [ true, %.thread282 ]
+  %.0101281288346 = phi ptr [ %.0101281288347, %133 ], [ %.0101281288347, %123 ], [ %.0101281288347, %121 ], [ %.0101, %.thread282 ]
+  %.0108280291342 = phi ptr [ %.0108280291343, %133 ], [ %.0108280291343, %123 ], [ %.0108280291343, %121 ], [ %.0108, %.thread282 ]
   %158 = phi ptr [ %118, %133 ], [ %118, %123 ], [ %118, %121 ], [ null, %.thread282 ]
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #34
   br label %184
@@ -6449,9 +6449,9 @@ IsMacBinary.exit:                                 ; preds = %150
   ]
 
 184:                                              ; preds = %.thread238, %183, %183
-  %.not.i188346 = phi i1 [ %.not.i188347, %.thread238 ], [ false, %183 ], [ false, %183 ]
-  %.0101281288343 = phi ptr [ %.0101281288344, %.thread238 ], [ %.0101281288345, %183 ], [ %.0101281288345, %183 ]
-  %.0108280291339 = phi ptr [ %.0108280291340, %.thread238 ], [ %.0108280291341, %183 ], [ %.0108280291341, %183 ]
+  %.not.i188348 = phi i1 [ %.not.i188349, %.thread238 ], [ false, %183 ], [ false, %183 ]
+  %.0101281288345 = phi ptr [ %.0101281288346, %.thread238 ], [ %.0101281288347, %183 ], [ %.0101281288347, %183 ]
+  %.0108280291341 = phi ptr [ %.0108280291342, %.thread238 ], [ %.0108280291343, %183 ], [ %.0108280291343, %183 ]
   %185 = phi ptr [ %158, %.thread238 ], [ %118, %183 ], [ %118, %183 ]
   %.0.i240 = phi i32 [ 85, %.thread238 ], [ %.0.i, %183 ], [ %.0.i, %183 ]
   %186 = load i32, ptr %1, align 8, !tbaa !242
@@ -6468,7 +6468,7 @@ IsMacBinary.exit:                                 ; preds = %150
   %191 = load ptr, ptr %190, align 8, !tbaa !252
   %192 = getelementptr inbounds nuw i8, ptr %185, i64 40
   %193 = getelementptr inbounds nuw i8, ptr %185, i64 16
-  br i1 %.not.i188346, label %.split.us.preheader.i.i, label %.split.i.i
+  br i1 %.not.i188348, label %.split.us.preheader.i.i, label %.split.i.i
 
 .split.us.preheader.i.i:                          ; preds = %188, %.split.us.preheader.i.i
   %indvars.iv28.i.i = phi i64 [ %indvars.iv.next29.i.i, %.split.us.preheader.i.i ], [ 0, %188 ]
@@ -6643,19 +6643,19 @@ load_face_in_embedded_rfork.exit:                 ; preds = %255
   br i1 %.not46.i, label %load_mac_face.exit.thread, label %.thread
 
 load_mac_face.exit:                               ; preds = %183, %184
-  %.not.i188350 = phi i1 [ %.not.i188346, %184 ], [ false, %183 ]
-  %.0101281288342 = phi ptr [ %.0101281288343, %184 ], [ %.0101281288345, %183 ]
-  %.0108280291338 = phi ptr [ %.0108280291339, %184 ], [ %.0108280291341, %183 ]
+  %.not.i188352 = phi i1 [ %.not.i188348, %184 ], [ false, %183 ]
+  %.0101281288344 = phi ptr [ %.0101281288345, %184 ], [ %.0101281288347, %183 ]
+  %.0108280291340 = phi ptr [ %.0108280291341, %184 ], [ %.0108280291343, %183 ]
   %256 = phi ptr [ %185, %184 ], [ %118, %183 ]
   %.1.i = phi i32 [ %.0.i240, %184 ], [ %.0.i, %183 ]
   %.not147 = icmp eq i32 %.1.i, 0
   br i1 %.not147, label %load_mac_face.exit.thread, label %267
 
 load_mac_face.exit.thread:                        ; preds = %load_face_in_embedded_rfork.exit, %load_mac_face.exit
-  %.not.i188349 = phi i1 [ %.not.i188346, %load_face_in_embedded_rfork.exit ], [ %.not.i188350, %load_mac_face.exit ]
+  %.not.i188351 = phi i1 [ %.not.i188348, %load_face_in_embedded_rfork.exit ], [ %.not.i188352, %load_mac_face.exit ]
   %257 = phi ptr [ %185, %load_face_in_embedded_rfork.exit ], [ %256, %load_mac_face.exit ]
   %258 = load i8, ptr %12, align 1, !tbaa !222
-  br i1 %.not.i188349, label %FT_Stream_Free.exit168, label %259
+  br i1 %.not.i188351, label %FT_Stream_Free.exit168, label %259
 
 259:                                              ; preds = %load_mac_face.exit.thread
   %260 = getelementptr inbounds nuw i8, ptr %257, i64 56
@@ -6680,8 +6680,8 @@ ft_mem_free.exit.i167:                            ; preds = %FT_Stream_Close.exi
   br label %FT_Stream_Free.exit168
 
 267:                                              ; preds = %load_mac_face.exit, %116
-  %.0108280292 = phi ptr [ %.0108, %116 ], [ %.0108280291338, %load_mac_face.exit ]
-  %.0101281289 = phi ptr [ %.0101, %116 ], [ %.0101281288342, %load_mac_face.exit ]
+  %.0108280292 = phi ptr [ %.0108, %116 ], [ %.0108280291340, %load_mac_face.exit ]
+  %.0101281289 = phi ptr [ %.0101, %116 ], [ %.0101281288344, %load_mac_face.exit ]
   %.8 = phi i32 [ %.0203, %116 ], [ %.1.i, %load_mac_face.exit ]
   %268 = and i32 %.8, 255
   %.not148 = icmp eq i32 %268, 2
@@ -6689,8 +6689,8 @@ ft_mem_free.exit.i167:                            ; preds = %FT_Stream_Close.exi
   br label %.thread
 
 .thread:                                          ; preds = %64, %267, %load_face_in_embedded_rfork.exit, %30, %FT_Stream_Seek.exit.thread216
-  %.0101228 = phi ptr [ %.0101, %FT_Stream_Seek.exit.thread216 ], [ null, %30 ], [ %.0101281288343, %load_face_in_embedded_rfork.exit ], [ %.0101281289, %267 ], [ null, %64 ]
-  %.0108227 = phi ptr [ %.0108, %FT_Stream_Seek.exit.thread216 ], [ null, %30 ], [ %.0108280291339, %load_face_in_embedded_rfork.exit ], [ %.0108280292, %267 ], [ %34, %64 ]
+  %.0101228 = phi ptr [ %.0101, %FT_Stream_Seek.exit.thread216 ], [ null, %30 ], [ %.0101281288345, %load_face_in_embedded_rfork.exit ], [ %.0101281289, %267 ], [ null, %64 ]
+  %.0108227 = phi ptr [ %.0108, %FT_Stream_Seek.exit.thread216 ], [ null, %30 ], [ %.0108280291341, %load_face_in_embedded_rfork.exit ], [ %.0108280292, %267 ], [ %34, %64 ]
   %.7 = phi i32 [ %.0203, %FT_Stream_Seek.exit.thread216 ], [ 6, %30 ], [ 2, %load_face_in_embedded_rfork.exit ], [ %spec.select, %267 ], [ 11, %64 ]
   %269 = load ptr, ptr %10, align 8, !tbaa !240
   %270 = load i8, ptr %12, align 1, !tbaa !222

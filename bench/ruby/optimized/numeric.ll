@@ -12674,7 +12674,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %38, %46
   %54 = getelementptr i8, ptr %2, i64 %53
   %55 = getelementptr i8, ptr %54, i64 1
   %56 = sub nsw i32 %spec.store.select, %48
-  %57 = sext i32 %56 to i64
+  %57 = zext nneg i32 %56 to i64
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 %55, ptr noundef nonnull align 1 %54, i64 noundef range(i64 -2147483645, 2147483647) %57, i1 noundef false) #26
   %58 = load i32, ptr %5, align 4, !tbaa !18
   %59 = sext i32 %58 to i64

@@ -1222,8 +1222,8 @@ discard_left_ext.exit200.i:                       ; preds = %.lr.ph.split.i.preh
 390:                                              ; preds = %377
   %391 = getelementptr inbounds double, ptr %382, i64 %66
   %392 = sub nsw i32 %379, %53
-  %393 = sext i32 %392 to i64
-  %394 = shl nsw i64 %393, 3
+  %393 = zext nneg i32 %392 to i64
+  %394 = shl nuw nsw i64 %393, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %382, ptr align 8 %391, i64 %394, i1 false)
   %395 = load ptr, ptr %381, align 8, !tbaa !82
   %396 = load i32, ptr %378, align 4, !tbaa !71

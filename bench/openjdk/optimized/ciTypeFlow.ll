@@ -6182,7 +6182,7 @@ define hidden void @_ZN10ciTypeFlow8SuccIter4nextEv(ptr noundef nonnull align 8 
 
 17:                                               ; preds = %1
   %18 = sub i32 %8, %5
-  %19 = sext i32 %18 to i64
+  %19 = zext i32 %18 to i64
   br label %20
 
 20:                                               ; preds = %57, %17
@@ -6202,8 +6202,8 @@ define hidden void @_ZN10ciTypeFlow8SuccIter4nextEv(ptr noundef nonnull align 8 
 _ZN10ciTypeFlow5Block10exceptionsEv.exit:         ; preds = %20, %25
   %26 = phi ptr [ %.pre.i, %25 ], [ %23, %20 ]
   %27 = load i32, ptr %26, align 4
-  %28 = sext i32 %27 to i64
-  %29 = icmp slt i64 %indvars.iv, %28
+  %28 = trunc nuw i64 %indvars.iv to i32
+  %29 = icmp sgt i32 %27, %28
   br i1 %29, label %30, label %59
 
 30:                                               ; preds = %_ZN10ciTypeFlow5Block10exceptionsEv.exit
@@ -6222,7 +6222,7 @@ _ZN10ciTypeFlow5Block11exc_klassesEv.exit:        ; preds = %30, %35
   %36 = phi ptr [ %.pre.i16, %35 ], [ %33, %30 ]
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds ptr, ptr %38, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load ptr, ptr %41, align 8
@@ -6258,13 +6258,13 @@ _ZN10ciTypeFlow5Block10exceptionsEv.exit18:       ; preds = %_ZNK10ciMetadata9is
   %52 = phi ptr [ %.pre.i17, %51 ], [ %49, %_ZNK10ciMetadata9is_loadedEv.exit.thread ]
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds ptr, ptr %54, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv
   %56 = load ptr, ptr %55, align 8
   br label %60
 
 57:                                               ; preds = %_ZNK10ciMetadata9is_loadedEv.exit
   %58 = add nsw i32 %.0, 1
-  %indvars.iv.next = add nsw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br label %20, !llvm.loop !25
 
 59:                                               ; preds = %_ZN10ciTypeFlow5Block10exceptionsEv.exit
@@ -8998,7 +8998,7 @@ define hidden noundef ptr @_ZN10ciTypeFlow15clone_loop_headEPNS_4LoopEPNS_11Stat
 
 83:                                               ; preds = %67
   %84 = sub i32 0, %78
-  %85 = sext i32 %84 to i64
+  %85 = zext i32 %84 to i64
   %86 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %87 = getelementptr inbounds nuw i8, ptr %70, i64 16
   br label %88
@@ -9018,8 +9018,8 @@ define hidden noundef ptr @_ZN10ciTypeFlow15clone_loop_headEPNS_4LoopEPNS_11Stat
 _ZN10ciTypeFlow5Block10exceptionsEv.exit.i121:    ; preds = %91, %88
   %92 = phi ptr [ %.pre.i.i134, %91 ], [ %89, %88 ]
   %93 = load i32, ptr %92, align 4
-  %94 = sext i32 %93 to i64
-  %95 = icmp slt i64 %indvars.iv.i119, %94
+  %94 = trunc nuw i64 %indvars.iv.i119 to i32
+  %95 = icmp sgt i32 %93, %94
   br i1 %95, label %96, label %._crit_edge
 
 96:                                               ; preds = %_ZN10ciTypeFlow5Block10exceptionsEv.exit.i121
@@ -9036,7 +9036,7 @@ _ZN10ciTypeFlow5Block11exc_klassesEv.exit.i123:   ; preds = %99, %96
   %100 = phi ptr [ %.pre.i16.i133, %99 ], [ %97, %96 ]
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
   %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds ptr, ptr %102, i64 %indvars.iv.i119
+  %103 = getelementptr inbounds nuw ptr, ptr %102, i64 %indvars.iv.i119
   %104 = load ptr, ptr %103, align 8
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 16
   %106 = load ptr, ptr %105, align 8
@@ -9064,12 +9064,12 @@ _ZN10ciTypeFlow5Block10exceptionsEv.exit18.i128:  ; preds = %113, %_ZNK10ciMetad
   %114 = phi ptr [ %.pre.i17.i129, %113 ], [ %111, %_ZNK10ciMetadata9is_loadedEv.exit.thread.i127 ]
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 8
   %116 = load ptr, ptr %115, align 8
-  %117 = getelementptr inbounds ptr, ptr %116, i64 %indvars.iv.i119
+  %117 = getelementptr inbounds nuw ptr, ptr %116, i64 %indvars.iv.i119
   br label %.lr.ph
 
 118:                                              ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.i130
   %119 = add nuw nsw i32 %.0.i120, 1
-  %indvars.iv.next.i132 = add nsw i64 %indvars.iv.i119, 1
+  %indvars.iv.next.i132 = add nuw nsw i64 %indvars.iv.i119, 1
   br label %88, !llvm.loop !25
 
 .lr.ph:                                           ; preds = %80, %_ZN10ciTypeFlow5Block10exceptionsEv.exit18.i128
@@ -9304,7 +9304,7 @@ _ZN26GrowableArrayWithAllocatorIPN10ciTypeFlow5BlockE13GrowableArrayIS2_EE6appen
 
 222:                                              ; preds = %212
   %223 = sub i32 %215, %214
-  %224 = sext i32 %223 to i64
+  %224 = zext i32 %223 to i64
   br label %225
 
 225:                                              ; preds = %255, %222
@@ -9322,8 +9322,8 @@ _ZN26GrowableArrayWithAllocatorIPN10ciTypeFlow5BlockE13GrowableArrayIS2_EE6appen
 _ZN10ciTypeFlow5Block10exceptionsEv.exit.i:       ; preds = %228, %225
   %229 = phi ptr [ %.pre.i.i78, %228 ], [ %226, %225 ]
   %230 = load i32, ptr %229, align 4
-  %231 = sext i32 %230 to i64
-  %232 = icmp slt i64 %indvars.iv.i, %231
+  %231 = trunc nuw i64 %indvars.iv.i to i32
+  %232 = icmp sgt i32 %230, %231
   br i1 %232, label %233, label %._crit_edge
 
 233:                                              ; preds = %_ZN10ciTypeFlow5Block10exceptionsEv.exit.i
@@ -9340,7 +9340,7 @@ _ZN10ciTypeFlow5Block11exc_klassesEv.exit.i:      ; preds = %236, %233
   %237 = phi ptr [ %.pre.i16.i, %236 ], [ %234, %233 ]
   %238 = getelementptr inbounds nuw i8, ptr %237, i64 8
   %239 = load ptr, ptr %238, align 8
-  %240 = getelementptr inbounds ptr, ptr %239, i64 %indvars.iv.i
+  %240 = getelementptr inbounds nuw ptr, ptr %239, i64 %indvars.iv.i
   %241 = load ptr, ptr %240, align 8
   %242 = getelementptr inbounds nuw i8, ptr %241, i64 16
   %243 = load ptr, ptr %242, align 8
@@ -9368,12 +9368,12 @@ _ZN10ciTypeFlow5Block10exceptionsEv.exit18.i:     ; preds = %250, %_ZNK10ciMetad
   %251 = phi ptr [ %.pre.i17.i, %250 ], [ %248, %_ZNK10ciMetadata9is_loadedEv.exit.thread.i ]
   %252 = getelementptr inbounds nuw i8, ptr %251, i64 8
   %253 = load ptr, ptr %252, align 8
-  %254 = getelementptr inbounds ptr, ptr %253, i64 %indvars.iv.i
+  %254 = getelementptr inbounds nuw ptr, ptr %253, i64 %indvars.iv.i
   br label %_ZN10ciTypeFlow8SuccIter4nextEv.exit
 
 255:                                              ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.i
   %256 = add nuw nsw i32 %.0.i, 1
-  %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   br label %225, !llvm.loop !25
 
 _ZN10ciTypeFlow8SuccIter4nextEv.exit:             ; preds = %217, %_ZN10ciTypeFlow5Block10exceptionsEv.exit18.i
@@ -9404,7 +9404,7 @@ _ZN10ciTypeFlow8SuccIter4nextEv.exit:             ; preds = %217, %_ZN10ciTypeFl
 
 269:                                              ; preds = %262
   %270 = sub i32 0, %264
-  %271 = sext i32 %270 to i64
+  %271 = zext i32 %270 to i64
   br label %272
 
 272:                                              ; preds = %302, %269
@@ -9422,8 +9422,8 @@ _ZN10ciTypeFlow8SuccIter4nextEv.exit:             ; preds = %217, %_ZN10ciTypeFl
 _ZN10ciTypeFlow5Block10exceptionsEv.exit.i141:    ; preds = %275, %272
   %276 = phi ptr [ %.pre.i.i154, %275 ], [ %273, %272 ]
   %277 = load i32, ptr %276, align 4
-  %278 = sext i32 %277 to i64
-  %279 = icmp slt i64 %indvars.iv.i139, %278
+  %278 = trunc nuw i64 %indvars.iv.i139 to i32
+  %279 = icmp sgt i32 %277, %278
   br i1 %279, label %280, label %.loopexit
 
 280:                                              ; preds = %_ZN10ciTypeFlow5Block10exceptionsEv.exit.i141
@@ -9440,7 +9440,7 @@ _ZN10ciTypeFlow5Block11exc_klassesEv.exit.i143:   ; preds = %283, %280
   %284 = phi ptr [ %.pre.i16.i153, %283 ], [ %281, %280 ]
   %285 = getelementptr inbounds nuw i8, ptr %284, i64 8
   %286 = load ptr, ptr %285, align 8
-  %287 = getelementptr inbounds ptr, ptr %286, i64 %indvars.iv.i139
+  %287 = getelementptr inbounds nuw ptr, ptr %286, i64 %indvars.iv.i139
   %288 = load ptr, ptr %287, align 8
   %289 = getelementptr inbounds nuw i8, ptr %288, i64 16
   %290 = load ptr, ptr %289, align 8
@@ -9468,7 +9468,7 @@ _ZN10ciTypeFlow5Block10exceptionsEv.exit18.i148:  ; preds = %297, %_ZNK10ciMetad
   %298 = phi ptr [ %.pre.i17.i149, %297 ], [ %295, %_ZNK10ciMetadata9is_loadedEv.exit.thread.i147 ]
   %299 = getelementptr inbounds nuw i8, ptr %298, i64 8
   %300 = load ptr, ptr %299, align 8
-  %301 = getelementptr inbounds ptr, ptr %300, i64 %indvars.iv.i139
+  %301 = getelementptr inbounds nuw ptr, ptr %300, i64 %indvars.iv.i139
   br label %.lr.ph240.preheader
 
 .lr.ph240.preheader:                              ; preds = %266, %_ZN10ciTypeFlow5Block10exceptionsEv.exit18.i148
@@ -9478,7 +9478,7 @@ _ZN10ciTypeFlow5Block10exceptionsEv.exit18.i148:  ; preds = %297, %_ZNK10ciMetad
 
 302:                                              ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.i150
   %303 = add nuw nsw i32 %.0.i140, 1
-  %indvars.iv.next.i152 = add nsw i64 %indvars.iv.i139, 1
+  %indvars.iv.next.i152 = add nuw nsw i64 %indvars.iv.i139, 1
   br label %272, !llvm.loop !25
 
 .lr.ph240:                                        ; preds = %_ZN10ciTypeFlow8SuccIter4nextEv.exit118, %.lr.ph240.preheader
@@ -9617,7 +9617,7 @@ _ZN26GrowableArrayWithAllocatorIPN10ciTypeFlow5BlockE13GrowableArrayIS2_EE6appen
 
 369:                                              ; preds = %361
   %370 = sub i32 %362, %307
-  %371 = sext i32 %370 to i64
+  %371 = zext i32 %370 to i64
   br label %372
 
 372:                                              ; preds = %402, %369
@@ -9635,8 +9635,8 @@ _ZN26GrowableArrayWithAllocatorIPN10ciTypeFlow5BlockE13GrowableArrayIS2_EE6appen
 _ZN10ciTypeFlow5Block10exceptionsEv.exit.i104:    ; preds = %375, %372
   %376 = phi ptr [ %.pre.i.i117, %375 ], [ %373, %372 ]
   %377 = load i32, ptr %376, align 4
-  %378 = sext i32 %377 to i64
-  %379 = icmp slt i64 %indvars.iv.i102, %378
+  %378 = trunc nuw i64 %indvars.iv.i102 to i32
+  %379 = icmp sgt i32 %377, %378
   br i1 %379, label %380, label %.loopexit
 
 380:                                              ; preds = %_ZN10ciTypeFlow5Block10exceptionsEv.exit.i104
@@ -9653,7 +9653,7 @@ _ZN10ciTypeFlow5Block11exc_klassesEv.exit.i106:   ; preds = %383, %380
   %384 = phi ptr [ %.pre.i16.i116, %383 ], [ %381, %380 ]
   %385 = getelementptr inbounds nuw i8, ptr %384, i64 8
   %386 = load ptr, ptr %385, align 8
-  %387 = getelementptr inbounds ptr, ptr %386, i64 %indvars.iv.i102
+  %387 = getelementptr inbounds nuw ptr, ptr %386, i64 %indvars.iv.i102
   %388 = load ptr, ptr %387, align 8
   %389 = getelementptr inbounds nuw i8, ptr %388, i64 16
   %390 = load ptr, ptr %389, align 8
@@ -9681,12 +9681,12 @@ _ZN10ciTypeFlow5Block10exceptionsEv.exit18.i111:  ; preds = %397, %_ZNK10ciMetad
   %398 = phi ptr [ %.pre.i17.i112, %397 ], [ %395, %_ZNK10ciMetadata9is_loadedEv.exit.thread.i110 ]
   %399 = getelementptr inbounds nuw i8, ptr %398, i64 8
   %400 = load ptr, ptr %399, align 8
-  %401 = getelementptr inbounds ptr, ptr %400, i64 %indvars.iv.i102
+  %401 = getelementptr inbounds nuw ptr, ptr %400, i64 %indvars.iv.i102
   br label %_ZN10ciTypeFlow8SuccIter4nextEv.exit118
 
 402:                                              ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.i113
   %403 = add nuw nsw i32 %.0.i103, 1
-  %indvars.iv.next.i115 = add nsw i64 %indvars.iv.i102, 1
+  %indvars.iv.next.i115 = add nuw nsw i64 %indvars.iv.i102, 1
   br label %372, !llvm.loop !25
 
 _ZN10ciTypeFlow8SuccIter4nextEv.exit118:          ; preds = %364, %_ZN10ciTypeFlow5Block10exceptionsEv.exit18.i111
@@ -10796,7 +10796,7 @@ _ZN26GrowableArrayWithAllocatorIPN10ciTypeFlow5BlockE13GrowableArrayIS2_EE4pushE
 
 146:                                              ; preds = %133
   %147 = sub i32 %139, %138
-  %148 = sext i32 %147 to i64
+  %148 = zext i32 %147 to i64
   %149 = getelementptr inbounds nuw i8, ptr %135, i64 8
   %150 = getelementptr inbounds nuw i8, ptr %135, i64 16
   br label %151
@@ -10816,8 +10816,8 @@ _ZN26GrowableArrayWithAllocatorIPN10ciTypeFlow5BlockE13GrowableArrayIS2_EE4pushE
 _ZN10ciTypeFlow5Block10exceptionsEv.exit.i:       ; preds = %154, %151
   %155 = phi ptr [ %.pre.i.i35, %154 ], [ %152, %151 ]
   %156 = load i32, ptr %155, align 4
-  %157 = sext i32 %156 to i64
-  %158 = icmp slt i64 %indvars.iv.i, %157
+  %157 = trunc nuw i64 %indvars.iv.i to i32
+  %158 = icmp sgt i32 %156, %157
   br i1 %158, label %159, label %_ZN10ciTypeFlow8SuccIter4nextEv.exit.thread
 
 159:                                              ; preds = %_ZN10ciTypeFlow5Block10exceptionsEv.exit.i
@@ -10834,7 +10834,7 @@ _ZN10ciTypeFlow5Block11exc_klassesEv.exit.i:      ; preds = %162, %159
   %163 = phi ptr [ %.pre.i16.i, %162 ], [ %160, %159 ]
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 8
   %165 = load ptr, ptr %164, align 8
-  %166 = getelementptr inbounds ptr, ptr %165, i64 %indvars.iv.i
+  %166 = getelementptr inbounds nuw ptr, ptr %165, i64 %indvars.iv.i
   %167 = load ptr, ptr %166, align 8
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 16
   %169 = load ptr, ptr %168, align 8
@@ -10863,12 +10863,12 @@ _ZN10ciTypeFlow5Block10exceptionsEv.exit18.i:     ; preds = %176, %_ZNK10ciMetad
   %177 = phi ptr [ %.pre.i17.i, %176 ], [ %174, %_ZNK10ciMetadata9is_loadedEv.exit.thread.i ]
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 8
   %179 = load ptr, ptr %178, align 8
-  %180 = getelementptr inbounds ptr, ptr %179, i64 %indvars.iv.i
+  %180 = getelementptr inbounds nuw ptr, ptr %179, i64 %indvars.iv.i
   br label %_ZN10ciTypeFlow8SuccIter4nextEv.exit
 
 181:                                              ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.i
   %182 = add nsw i32 %.0.i, 1
-  %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   br label %151, !llvm.loop !25
 
 _ZN10ciTypeFlow8SuccIter4nextEv.exit.thread:      ; preds = %_ZN10ciTypeFlow5Block10exceptionsEv.exit.i

@@ -4357,7 +4357,7 @@ extract_extradata_check.exit.thread803:           ; preds = %extract_extradata_c
   %396 = load i64, ptr %395, align 8, !tbaa !236
   %397 = sub i64 %379, %396
   %398 = sub nsw i32 %387, %389
-  %399 = sext i32 %398 to i64
+  %399 = zext nneg i32 %398 to i64
   %400 = udiv i64 %397, %399
   %401 = icmp ugt i64 %394, %400
   br i1 %401, label %402, label %409

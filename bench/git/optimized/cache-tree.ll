@@ -141,10 +141,10 @@ define dso_local i32 @cache_tree_subtree_pos(ptr noundef readonly captures(none)
 
 11:                                               ; preds = %9
   %12 = sub nsw i32 %.024, %.021
-  %13 = sdiv i32 %12, 2
-  %14 = add nsw i32 %13, %.021
-  %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds ptr, ptr %5, i64 %15
+  %13 = lshr i32 %12, 1
+  %14 = add nuw nsw i32 %13, %.021
+  %15 = zext nneg i32 %14 to i64
+  %16 = getelementptr inbounds nuw ptr, ptr %5, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 20
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 12
@@ -164,7 +164,7 @@ subtree_name_cmp.exit:                            ; preds = %11, %22, %24
   %.0.i = phi i32 [ %25, %24 ], [ -1, %11 ], [ 1, %22 ]
   %.not.not = icmp eq i32 %.0.i, 0
   %26 = icmp slt i32 %.0.i, 0
-  %27 = add nsw i32 %14, 1
+  %27 = add nuw nsw i32 %14, 1
   %.226 = select i1 %26, i32 %14, i32 %.024
   %.223 = select i1 %26, i32 %.021, i32 %27
   br i1 %.not.not, label %.loopexit, label %9, !llvm.loop !21
@@ -206,10 +206,10 @@ define internal fastcc ptr @find_subtree(ptr noundef captures(none) %0, ptr noun
 
 12:                                               ; preds = %10
   %13 = sub nsw i32 %.024.i, %.021.i
-  %14 = sdiv i32 %13, 2
-  %15 = add nsw i32 %14, %.021.i
-  %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds ptr, ptr %6, i64 %16
+  %14 = lshr i32 %13, 1
+  %15 = add nuw nsw i32 %14, %.021.i
+  %16 = zext nneg i32 %15 to i64
+  %17 = getelementptr inbounds nuw ptr, ptr %6, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !16
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 20
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 12
@@ -229,7 +229,7 @@ subtree_name_cmp.exit.i:                          ; preds = %25, %23, %12
   %.0.i.i = phi i32 [ %26, %25 ], [ -1, %12 ], [ 1, %23 ]
   %.not.not.i = icmp eq i32 %.0.i.i, 0
   %27 = icmp slt i32 %.0.i.i, 0
-  %28 = add nsw i32 %15, 1
+  %28 = add nuw nsw i32 %15, 1
   %.226.i = select i1 %27, i32 %15, i32 %.024.i
   %.223.i = select i1 %27, i32 %.021.i, i32 %28
   br i1 %.not.not.i, label %cache_tree_subtree_pos.exit, label %10, !llvm.loop !21
@@ -387,10 +387,10 @@ define dso_local void @cache_tree_invalidate_path(ptr noundef captures(none) %0,
 
 20:                                               ; preds = %18
   %21 = sub nsw i32 %.024.i.i, %.021.i.i
-  %22 = sdiv i32 %21, 2
-  %23 = add nsw i32 %22, %.021.i.i
-  %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds ptr, ptr %12, i64 %24
+  %22 = lshr i32 %21, 1
+  %23 = add nuw nsw i32 %22, %.021.i.i
+  %24 = zext nneg i32 %23 to i64
+  %25 = getelementptr inbounds nuw ptr, ptr %12, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !16
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 12
@@ -410,7 +410,7 @@ subtree_name_cmp.exit.i.i:                        ; preds = %33, %31, %20
   %.0.i.i.i = phi i32 [ %34, %33 ], [ -1, %20 ], [ 1, %31 ]
   %.not.not.i.i = icmp eq i32 %.0.i.i.i, 0
   %35 = icmp slt i32 %.0.i.i.i, 0
-  %36 = add nsw i32 %23, 1
+  %36 = add nuw nsw i32 %23, 1
   %.226.i.i = select i1 %35, i32 %23, i32 %.024.i.i
   %.223.i.i = select i1 %35, i32 %.021.i.i, i32 %36
   br i1 %.not.not.i.i, label %cache_tree_subtree_pos.exit.i, label %18, !llvm.loop !21
@@ -471,10 +471,10 @@ move_array.exit.i:                                ; preds = %st_mult.exit.i.i, %
 
 61:                                               ; preds = %.preheader42
   %62 = sub nsw i32 %.024.i.i.i, %.021.i.i.i
-  %63 = sdiv i32 %62, 2
-  %64 = add nsw i32 %63, %.021.i.i.i
-  %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds ptr, ptr %12, i64 %65
+  %63 = lshr i32 %62, 1
+  %64 = add nuw nsw i32 %63, %.021.i.i.i
+  %65 = zext nneg i32 %64 to i64
+  %66 = getelementptr inbounds nuw ptr, ptr %12, i64 %65
   %67 = load ptr, ptr %66, align 8, !tbaa !16
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 20
   %69 = getelementptr inbounds nuw i8, ptr %67, i64 12
@@ -494,7 +494,7 @@ subtree_name_cmp.exit.i.i.i:                      ; preds = %74, %72, %61
   %.0.i.i.i.i = phi i32 [ %75, %74 ], [ -1, %61 ], [ 1, %72 ]
   %.not.not.i.i.i = icmp eq i32 %.0.i.i.i.i, 0
   %76 = icmp slt i32 %.0.i.i.i.i, 0
-  %77 = add nsw i32 %64, 1
+  %77 = add nuw nsw i32 %64, 1
   %.226.i.i.i = select i1 %76, i32 %64, i32 %.024.i.i.i
   %.223.i.i.i = select i1 %76, i32 %.021.i.i.i, i32 %77
   br i1 %.not.not.i.i.i, label %cache_tree_subtree_pos.exit.i.i, label %.preheader42, !llvm.loop !21
@@ -1085,10 +1085,10 @@ discard_unused_subtrees.exit:                     ; preds = %108, %.loopexit
 
 132:                                              ; preds = %130
   %133 = sub nsw i32 %.024.i.i, %.021.i.i
-  %134 = sdiv i32 %133, 2
-  %135 = add nsw i32 %134, %.021.i.i
-  %136 = sext i32 %135 to i64
-  %137 = getelementptr inbounds ptr, ptr %127, i64 %136
+  %134 = lshr i32 %133, 1
+  %135 = add nuw nsw i32 %134, %.021.i.i
+  %136 = zext nneg i32 %135 to i64
+  %137 = getelementptr inbounds nuw ptr, ptr %127, i64 %136
   %138 = load ptr, ptr %137, align 8, !tbaa !16
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 20
   %140 = getelementptr inbounds nuw i8, ptr %138, i64 12
@@ -1108,7 +1108,7 @@ subtree_name_cmp.exit.i.i:                        ; preds = %145, %143, %132
   %.0.i.i.i = phi i32 [ %146, %145 ], [ -1, %132 ], [ 1, %143 ]
   %.not.not.i.i = icmp eq i32 %.0.i.i.i, 0
   %147 = icmp slt i32 %.0.i.i.i, 0
-  %148 = add nsw i32 %135, 1
+  %148 = add nuw nsw i32 %135, 1
   %.226.i.i = select i1 %147, i32 %135, i32 %.024.i.i
   %.223.i.i = select i1 %147, i32 %.021.i.i, i32 %148
   br i1 %.not.not.i.i, label %cache_tree_subtree_pos.exit.i, label %130, !llvm.loop !21
@@ -1818,10 +1818,10 @@ define dso_local range(i32 -3, 1) i32 @write_index_as_tree(ptr noundef writeonly
 
 41:                                               ; preds = %39
   %42 = sub nsw i32 %.024.i.i.i.i, %.021.i.i.i.i
-  %43 = sdiv i32 %42, 2
-  %44 = add nsw i32 %43, %.021.i.i.i.i
-  %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds ptr, ptr %35, i64 %45
+  %43 = lshr i32 %42, 1
+  %44 = add nuw nsw i32 %43, %.021.i.i.i.i
+  %45 = zext nneg i32 %44 to i64
+  %46 = getelementptr inbounds nuw ptr, ptr %35, i64 %45
   %47 = load ptr, ptr %46, align 8, !tbaa !16
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 20
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 12
@@ -1841,7 +1841,7 @@ subtree_name_cmp.exit.i.i.i.i:                    ; preds = %54, %52, %41
   %.0.i.i.i.i.i = phi i32 [ %55, %54 ], [ -1, %41 ], [ 1, %52 ]
   %.not.not.i.i.i.i = icmp eq i32 %.0.i.i.i.i.i, 0
   %56 = icmp slt i32 %.0.i.i.i.i.i, 0
-  %57 = add nsw i32 %44, 1
+  %57 = add nuw nsw i32 %44, 1
   %.226.i.i.i.i = select i1 %56, i32 %44, i32 %.024.i.i.i.i
   %.223.i.i.i.i = select i1 %56, i32 %.021.i.i.i.i, i32 %57
   br i1 %.not.not.i.i.i.i, label %cache_tree_subtree_pos.exit.i.i.i, label %39, !llvm.loop !21
@@ -2145,10 +2145,10 @@ define dso_local range(i32 0, -2147483648) i32 @cache_tree_matches_traversal(ptr
 
 20:                                               ; preds = %18
   %21 = sub nsw i32 %.024.i.i.i, %.021.i.i.i
-  %22 = sdiv i32 %21, 2
-  %23 = add nsw i32 %22, %.021.i.i.i
-  %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds ptr, ptr %14, i64 %24
+  %22 = lshr i32 %21, 1
+  %23 = add nuw nsw i32 %22, %.021.i.i.i
+  %24 = zext nneg i32 %23 to i64
+  %25 = getelementptr inbounds nuw ptr, ptr %14, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !16
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 12
@@ -2168,7 +2168,7 @@ subtree_name_cmp.exit.i.i.i:                      ; preds = %33, %31, %20
   %.0.i.i.i.i = phi i32 [ %34, %33 ], [ -1, %20 ], [ 1, %31 ]
   %.not.not.i.i.i = icmp eq i32 %.0.i.i.i.i, 0
   %35 = icmp slt i32 %.0.i.i.i.i, 0
-  %36 = add nsw i32 %23, 1
+  %36 = add nuw nsw i32 %23, 1
   %.226.i.i.i = select i1 %35, i32 %23, i32 %.024.i.i.i
   %.223.i.i.i = select i1 %35, i32 %.021.i.i.i, i32 %36
   br i1 %.not.not.i.i.i, label %cache_tree_subtree_pos.exit.i.i, label %18, !llvm.loop !21
@@ -2267,10 +2267,10 @@ define internal fastcc ptr @find_cache_tree_from_traversal(ptr noundef readonly 
 
 22:                                               ; preds = %20
   %23 = sub nsw i32 %.024.i.i.i, %.021.i.i.i
-  %24 = sdiv i32 %23, 2
-  %25 = add nsw i32 %24, %.021.i.i.i
-  %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds ptr, ptr %16, i64 %26
+  %24 = lshr i32 %23, 1
+  %25 = add nuw nsw i32 %24, %.021.i.i.i
+  %26 = zext nneg i32 %25 to i64
+  %27 = getelementptr inbounds nuw ptr, ptr %16, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !16
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 20
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 12
@@ -2290,7 +2290,7 @@ subtree_name_cmp.exit.i.i.i:                      ; preds = %35, %33, %22
   %.0.i.i.i.i = phi i32 [ %36, %35 ], [ -1, %22 ], [ 1, %33 ]
   %.not.not.i.i.i = icmp eq i32 %.0.i.i.i.i, 0
   %37 = icmp slt i32 %.0.i.i.i.i, 0
-  %38 = add nsw i32 %25, 1
+  %38 = add nuw nsw i32 %25, 1
   %.226.i.i.i = select i1 %37, i32 %25, i32 %.024.i.i.i
   %.223.i.i.i = select i1 %37, i32 %.021.i.i.i, i32 %38
   br i1 %.not.not.i.i.i, label %cache_tree_subtree_pos.exit.i.i, label %20, !llvm.loop !21
@@ -2622,10 +2622,10 @@ _.exit113:                                        ; preds = %104, %106
 
 127:                                              ; preds = %125
   %128 = sub nsw i32 %.024.i.i, %.021.i.i
-  %129 = sdiv i32 %128, 2
-  %130 = add nsw i32 %129, %.021.i.i
-  %131 = sext i32 %130 to i64
-  %132 = getelementptr inbounds ptr, ptr %122, i64 %131
+  %129 = lshr i32 %128, 1
+  %130 = add nuw nsw i32 %129, %.021.i.i
+  %131 = zext nneg i32 %130 to i64
+  %132 = getelementptr inbounds nuw ptr, ptr %122, i64 %131
   %133 = load ptr, ptr %132, align 8, !tbaa !16
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 20
   %135 = getelementptr inbounds nuw i8, ptr %133, i64 12
@@ -2645,7 +2645,7 @@ subtree_name_cmp.exit.i.i:                        ; preds = %140, %138, %127
   %.0.i.i.i = phi i32 [ %141, %140 ], [ -1, %127 ], [ 1, %138 ]
   %.not.not.i.i = icmp eq i32 %.0.i.i.i, 0
   %142 = icmp slt i32 %.0.i.i.i, 0
-  %143 = add nsw i32 %130, 1
+  %143 = add nuw nsw i32 %130, 1
   %.226.i.i = select i1 %142, i32 %130, i32 %.024.i.i
   %.223.i.i = select i1 %142, i32 %.021.i.i, i32 %143
   br i1 %.not.not.i.i, label %cache_tree_subtree_pos.exit.i, label %125, !llvm.loop !21

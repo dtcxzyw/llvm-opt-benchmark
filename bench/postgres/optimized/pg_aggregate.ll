@@ -172,8 +172,8 @@ switch.early.test:                                ; preds = %77
 
 89:                                               ; preds = %86
   %90 = sub nsw i32 %5, %87
-  %91 = sext i32 %90 to i64
-  %92 = getelementptr inbounds i32, ptr %42, i64 %91
+  %91 = zext nneg i32 %90 to i64
+  %92 = getelementptr inbounds nuw i32, ptr %42, i64 %91
   %93 = zext nneg i32 %5 to i64
   %94 = getelementptr inbounds nuw i32, ptr %42, i64 %93
   %95 = sext i32 %87 to i64

@@ -1731,8 +1731,8 @@ _ZN29jvmtiDeferredLocalVariableSet7matchesEPK6vframe.exit: ; preds = %181
 212:                                              ; preds = %.lr.ph.i
   %213 = sub nsw i32 %200, %211
   %214 = load ptr, ptr %55, align 8
-  %215 = sext i32 %213 to i64
-  %216 = getelementptr inbounds ptr, ptr %214, i64 %215
+  %215 = zext nneg i32 %213 to i64
+  %216 = getelementptr inbounds nuw ptr, ptr %214, i64 %215
   %217 = load ptr, ptr %216, align 8
   %218 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i32 noundef 0) #12
   %219 = getelementptr inbounds nuw i8, ptr %198, i64 8
@@ -1745,7 +1745,7 @@ _ZN29jvmtiDeferredLocalVariableSet7matchesEPK6vframe.exit: ; preds = %181
   %225 = trunc i8 %224 to i1
   tail call void @_ZN11MonitorInfoC1EP7oopDescP9BasicLockbb(ptr noundef nonnull align 8 dereferenceable(26) %218, ptr noundef %220, ptr noundef %222, i1 noundef zeroext %225, i1 noundef zeroext false) #12
   %226 = load ptr, ptr %55, align 8
-  %227 = getelementptr inbounds ptr, ptr %226, i64 %215
+  %227 = getelementptr inbounds nuw ptr, ptr %226, i64 %215
   store ptr %218, ptr %227, align 8
   %.pre.i = load ptr, ptr %189, align 8
   %.pre14.i = load i32, ptr %.pre.i, align 4
@@ -1826,8 +1826,8 @@ define hidden void @_ZN29jvmtiDeferredLocalVariableSet15update_monitorsEP13Growa
 28:                                               ; preds = %8
   %29 = sub nsw i32 %16, %27
   %30 = load ptr, ptr %7, align 8
-  %31 = sext i32 %29 to i64
-  %32 = getelementptr inbounds ptr, ptr %30, i64 %31
+  %31 = zext nneg i32 %29 to i64
+  %32 = getelementptr inbounds nuw ptr, ptr %30, i64 %31
   %33 = load ptr, ptr %32, align 8
   %34 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i32 noundef 0) #12
   %35 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -1840,7 +1840,7 @@ define hidden void @_ZN29jvmtiDeferredLocalVariableSet15update_monitorsEP13Growa
   %41 = trunc i8 %40 to i1
   tail call void @_ZN11MonitorInfoC1EP7oopDescP9BasicLockbb(ptr noundef nonnull align 8 dereferenceable(26) %34, ptr noundef %36, ptr noundef %38, i1 noundef zeroext %41, i1 noundef zeroext false) #12
   %42 = load ptr, ptr %7, align 8
-  %43 = getelementptr inbounds ptr, ptr %42, i64 %31
+  %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %31
   store ptr %34, ptr %43, align 8
   %.pre = load ptr, ptr %3, align 8
   %.pre14 = load i32, ptr %.pre, align 4

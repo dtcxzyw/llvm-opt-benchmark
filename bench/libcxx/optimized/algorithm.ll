@@ -9078,7 +9078,7 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   %117 = select i1 %116, i64 %.053.i, i64 0
   %.6165 = getelementptr inbounds i32, ptr %.4.lcssa154, i64 %117
   %118 = sub nsw i64 0, %.04350.i
-  %119 = getelementptr inbounds i32, ptr %.092.lcssa145, i64 %118
+  %119 = getelementptr inbounds nuw i32, ptr %.092.lcssa145, i64 %118
   %.not.i15166 = icmp eq i64 %.388, 0
   br i1 %.not.i15166, label %_ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPwEEvRT0_S4_RmS5_.exit, label %.preheader30.i.preheader
 
@@ -11630,7 +11630,7 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   %117 = select i1 %116, i64 %.053.i, i64 0
   %.6165 = getelementptr inbounds i16, ptr %.4.lcssa154, i64 %117
   %118 = sub nsw i64 0, %.04350.i
-  %119 = getelementptr inbounds i16, ptr %.092.lcssa145, i64 %118
+  %119 = getelementptr inbounds nuw i16, ptr %.092.lcssa145, i64 %118
   %.not.i15166 = icmp eq i64 %.388, 0
   br i1 %.not.i15166, label %_ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPsEEvRT0_S4_RmS5_.exit, label %.preheader30.i.preheader
 
@@ -12500,7 +12500,7 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   %117 = select i1 %116, i64 %.053.i, i64 0
   %.6165 = getelementptr inbounds i16, ptr %.4.lcssa154, i64 %117
   %118 = sub nsw i64 0, %.04350.i
-  %119 = getelementptr inbounds i16, ptr %.092.lcssa145, i64 %118
+  %119 = getelementptr inbounds nuw i16, ptr %.092.lcssa145, i64 %118
   %.not.i15166 = icmp eq i64 %.388, 0
   br i1 %.not.i15166, label %_ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPtEEvRT0_S4_RmS5_.exit, label %.preheader30.i.preheader
 
@@ -13370,7 +13370,7 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   %117 = select i1 %116, i64 %.053.i, i64 0
   %.6165 = getelementptr inbounds i32, ptr %.4.lcssa154, i64 %117
   %118 = sub nsw i64 0, %.04350.i
-  %119 = getelementptr inbounds i32, ptr %.092.lcssa145, i64 %118
+  %119 = getelementptr inbounds nuw i32, ptr %.092.lcssa145, i64 %118
   %.not.i15166 = icmp eq i64 %.388, 0
   br i1 %.not.i15166, label %_ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPiEEvRT0_S4_RmS5_.exit, label %.preheader30.i.preheader
 
@@ -14240,7 +14240,7 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   %117 = select i1 %116, i64 %.053.i, i64 0
   %.6165 = getelementptr inbounds i32, ptr %.4.lcssa154, i64 %117
   %118 = sub nsw i64 0, %.04350.i
-  %119 = getelementptr inbounds i32, ptr %.092.lcssa145, i64 %118
+  %119 = getelementptr inbounds nuw i32, ptr %.092.lcssa145, i64 %118
   %.not.i15166 = icmp eq i64 %.388, 0
   br i1 %.not.i15166, label %_ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPjEEvRT0_S4_RmS5_.exit, label %.preheader30.i.preheader
 
@@ -16808,7 +16808,7 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   %117 = select i1 %116, i64 %.053.i, i64 0
   %.6165 = getelementptr inbounds i64, ptr %.4.lcssa154, i64 %117
   %118 = sub nsw i64 0, %.04350.i
-  %119 = getelementptr inbounds i64, ptr %.092.lcssa145, i64 %118
+  %119 = getelementptr inbounds nuw i64, ptr %.092.lcssa145, i64 %118
   %.not.i15166 = icmp eq i64 %.388, 0
   br i1 %.not.i15166, label %_ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPxEEvRT0_S4_RmS5_.exit, label %.preheader30.i.preheader
 
@@ -17678,7 +17678,7 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   %117 = select i1 %116, i64 %.053.i, i64 0
   %.6165 = getelementptr inbounds i64, ptr %.4.lcssa154, i64 %117
   %118 = sub nsw i64 0, %.04350.i
-  %119 = getelementptr inbounds i64, ptr %.092.lcssa145, i64 %118
+  %119 = getelementptr inbounds nuw i64, ptr %.092.lcssa145, i64 %118
   %.not.i15166 = icmp eq i64 %.388, 0
   br i1 %.not.i15166, label %_ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPyEEvRT0_S4_RmS5_.exit, label %.preheader30.i.preheader
 
@@ -18548,7 +18548,7 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   %117 = select i1 %116, i64 %.053.i, i64 0
   %.6165 = getelementptr inbounds float, ptr %.4.lcssa154, i64 %117
   %118 = sub nsw i64 0, %.04350.i
-  %119 = getelementptr inbounds float, ptr %.092.lcssa145, i64 %118
+  %119 = getelementptr inbounds nuw float, ptr %.092.lcssa145, i64 %118
   %.not.i15166 = icmp eq i64 %.388, 0
   br i1 %.not.i15166, label %_ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPfEEvRT0_S4_RmS5_.exit, label %.preheader30.i.preheader
 
@@ -19417,7 +19417,7 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   %117 = select i1 %116, i64 %.053.i, i64 0
   %.6165 = getelementptr inbounds double, ptr %.4.lcssa154, i64 %117
   %118 = sub nsw i64 0, %.04350.i
-  %119 = getelementptr inbounds double, ptr %.092.lcssa145, i64 %118
+  %119 = getelementptr inbounds nuw double, ptr %.092.lcssa145, i64 %118
   %.not.i15166 = icmp eq i64 %.388, 0
   br i1 %.not.i15166, label %_ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPdEEvRT0_S4_RmS5_.exit, label %.preheader30.i.preheader
 

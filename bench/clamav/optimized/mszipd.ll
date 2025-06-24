@@ -1796,7 +1796,7 @@ zip_read_lens.exit.thread:                        ; preds = %._crit_edge458.i, %
   %640 = load i16, ptr %639, align 2, !tbaa !36
   %641 = zext i16 %640 to i32
   %642 = add nuw nsw i32 %636, %641
-  %643 = icmp slt i32 %638, 16
+  %643 = icmp samesign ult i32 %638, 16
   br i1 %643, label %.lr.ph717, label %._crit_edge718
 
 .lr.ph717:                                        ; preds = %._crit_edge704, %669
@@ -1863,8 +1863,8 @@ zip_read_lens.exit.thread:                        ; preds = %._crit_edge458.i, %
   %672 = zext i8 %671 to i32
   %673 = shl nuw nsw i32 %672, %.10360713
   %674 = or i32 %673, %.10373712
-  %675 = add nsw i32 %.10360713, 8
-  %676 = icmp slt i32 %.10360713, 8
+  %675 = add nuw nsw i32 %.10360713, 8
+  %676 = icmp ult i32 %.10360713, 8
   br i1 %676, label %.lr.ph717, label %._crit_edge718
 
 ._crit_edge718:                                   ; preds = %669, %._crit_edge704

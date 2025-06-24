@@ -5979,7 +5979,7 @@ stbiw__linear_to_rgbe.exit119.i:                  ; preds = %138, %.preheader131
   %170 = sext i32 %.3143.i to i64
   %171 = getelementptr inbounds i8, ptr %153, i64 %170
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #54
-  %172 = trunc i32 %spec.store.select.i to i8
+  %172 = trunc nuw i32 %spec.store.select.i to i8
   store i8 %172, ptr %7, align 1
   call void %.0.val(ptr noundef %.8.val, ptr noundef nonnull %7, i32 noundef 1) #54
   call void %.0.val(ptr noundef %.8.val, ptr noundef %171, i32 noundef %spec.store.select.i) #54
@@ -6031,8 +6031,8 @@ stbiw__linear_to_rgbe.exit119.i:                  ; preds = %138, %.preheader131
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
   store i8 %190, ptr %5, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #54
-  %191 = trunc i32 %spec.store.select2.i to i8
-  %192 = xor i8 %191, -128
+  %191 = trunc nuw i32 %spec.store.select2.i to i8
+  %192 = or disjoint i8 %191, -128
   store i8 %192, ptr %6, align 1
   call void %.0.val(ptr noundef %.8.val, ptr noundef nonnull %6, i32 noundef 1) #54
   call void %.0.val(ptr noundef %.8.val, ptr noundef nonnull %5, i32 noundef 1) #54
@@ -11201,8 +11201,8 @@ stbir__resample_vertical_gather.exit.i:           ; preds = %237, %233
   %311 = sub nsw i32 %17, %299
   %.0116.i = call i32 @llvm.smax.i32(i32 %299, i32 %17)
   %narrow.i = select i1 %310, i32 %311, i32 0
-  %.0.idx.i = sext i32 %narrow.i to i64
-  %.0.i = getelementptr inbounds float, ptr %.0123151.i, i64 %.0.idx.i
+  %.0.idx.i = zext i32 %narrow.i to i64
+  %.0.i = getelementptr inbounds nuw float, ptr %.0123151.i, i64 %.0.idx.i
   %.0115.i = call i32 @llvm.smin.i32(i32 %301, i32 %285)
   %312 = load i32, ptr %278, align 8
   %313 = icmp slt i32 %312, 0
@@ -58606,8 +58606,8 @@ stbir__calculate_coefficients_for_gather_upsample.exit: ; preds = %._crit_edge.i
   %193 = fsub float %141, %158
   %194 = zext nneg i32 %spec.store.select.i.i to i64
   %reass.sub = sub nsw i32 %.073.i, %spec.store.select.i.i
-  %195 = add i32 %reass.sub, 1
-  %wide.trip.count.i = zext i32 %195 to i64
+  %195 = add nuw i32 %reass.sub, 1
+  %wide.trip.count.i = zext nneg i32 %195 to i64
   br label %196
 
 196:                                              ; preds = %222, %.lr.ph.i157
@@ -58824,8 +58824,8 @@ stbir__calculate_coefficients_for_gather_downsample.exit: ; preds = %189, %.loop
 
 282:                                              ; preds = %268
   %283 = sub nsw i32 %.0191, %254
-  %284 = sext i32 %283 to i64
-  %285 = getelementptr inbounds float, ptr %.0137183, i64 %284
+  %284 = zext nneg i32 %283 to i64
+  %285 = getelementptr inbounds nuw float, ptr %.0137183, i64 %284
   %286 = load float, ptr %285, align 4
   %287 = fadd float %249, %286
   store float %287, ptr %285, align 4
@@ -59203,8 +59203,8 @@ stbir_overlapping_memcpy.exit:                    ; preds = %75, %74, %._crit_ed
 
 133:                                              ; preds = %119
   %134 = sub nsw i32 %113, %118
-  %135 = sext i32 %134 to i64
-  %136 = getelementptr inbounds float, ptr %.1203368, i64 %135
+  %135 = zext nneg i32 %134 to i64
+  %136 = getelementptr inbounds nuw float, ptr %.1203368, i64 %135
   %137 = load float, ptr %136, align 4
   %138 = fadd float %116, %137
   store float %138, ptr %136, align 4
@@ -59329,8 +59329,8 @@ stbir__insert_coeff.exit:                         ; preds = %121, %._crit_edge.i
 
 179:                                              ; preds = %165
   %180 = sub nsw i32 %160, %164
-  %181 = sext i32 %180 to i64
-  %182 = getelementptr inbounds float, ptr %.1203368, i64 %181
+  %181 = zext nneg i32 %180 to i64
+  %182 = getelementptr inbounds nuw float, ptr %.1203368, i64 %181
   %183 = load float, ptr %182, align 4
   %184 = fadd float %162, %183
   store float %184, ptr %182, align 4
@@ -59458,8 +59458,8 @@ stbir__insert_coeff.exit257:                      ; preds = %167, %._crit_edge.i
 
 229:                                              ; preds = %215
   %230 = sub nsw i32 %212, %214
-  %231 = sext i32 %230 to i64
-  %232 = getelementptr inbounds float, ptr %.1203368, i64 %231
+  %231 = zext nneg i32 %230 to i64
+  %232 = getelementptr inbounds nuw float, ptr %.1203368, i64 %231
   %233 = load float, ptr %232, align 4
   %234 = fadd float %202, %233
   store float %234, ptr %232, align 4

@@ -1998,7 +1998,7 @@ define dso_local range(i32 0, 2) i32 @pathspec_needs_expanded_index(ptr noundef 
   %18 = getelementptr inbounds i8, ptr %.sroa.3.0.copyload, i64 %17
   %19 = tail call i64 @strspn(ptr noundef %18, ptr noundef nonnull @.str.13) #19
   %20 = sub nsw i32 %.sroa.911.0.copyload, %.sroa.1113.0.copyload
-  %21 = sext i32 %20 to i64
+  %21 = zext nneg i32 %20 to i64
   %22 = icmp eq i64 %19, %21
   br i1 %22, label %23, label %25
 

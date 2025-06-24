@@ -4843,8 +4843,8 @@ decode_cj_chapter_m.exit.i:                       ; preds = %1510, %1417
 
 .loopexit2.i.i:                                   ; preds = %1568, %1547
   %.090.i.i = phi i32 [ %1564, %1547 ], [ %1587, %1568 ]
-  %.not11.i.i = icmp eq i32 %.092.i.i, 0
-  br i1 %.not11.i.i, label %decode_cj_chapter_n.exit.i, label %1589
+  %.not8.i.i = icmp eq i32 %.092.i.i, 0
+  br i1 %.not8.i.i, label %decode_cj_chapter_n.exit.i, label %1589
 
 1589:                                             ; preds = %.loopexit2.i.i
   %1590 = load i32, ptr @ett_rtp_midi_cj_chapter_n_octets, align 4
@@ -4858,8 +4858,8 @@ decode_cj_chapter_m.exit.i:                       ; preds = %1510, %1417
   %1594 = tail call ptr @proto_tree_add_item(ptr noundef %1591, i32 noundef %1593, ptr noundef %0, i32 noundef %.36.i.i, i32 noundef 1, i32 noundef 0)
   %1595 = add i32 %.36.i.i, 1
   %1596 = add nuw nsw i32 %.17.i.i, 1
-  %exitcond9.not.i.i = icmp eq i32 %1596, %.092.i.i
-  br i1 %exitcond9.not.i.i, label %decode_cj_chapter_n.exit.i, label %1592, !llvm.loop !15
+  %exitcond10.not.i.i = icmp eq i32 %1596, %.092.i.i
+  br i1 %exitcond10.not.i.i, label %decode_cj_chapter_n.exit.i, label %1592, !llvm.loop !15
 
 decode_cj_chapter_n.exit.i:                       ; preds = %1592, %.loopexit2.i.i
   %.2.i186.i = phi i32 [ %.090.i.i, %.loopexit2.i.i ], [ %1595, %1592 ]

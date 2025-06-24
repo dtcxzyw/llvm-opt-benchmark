@@ -1352,11 +1352,11 @@ define dso_local i32 @stbtt_FindGlyphIndex(ptr noundef readonly captures(none) %
   %.0117166 = phi i32 [ %189, %.lr.ph168 ], [ %.1118, %261 ]
   %.0119165 = phi i32 [ 0, %.lr.ph168 ], [ %.1120, %261 ]
   %193 = sub nsw i32 %.0117166, %.0119165
-  %194 = ashr i32 %193, 1
-  %195 = add nsw i32 %194, %.0119165
+  %194 = lshr i32 %193, 1
+  %195 = add nuw nsw i32 %194, %.0119165
   %196 = mul nsw i32 %195, 12
-  %197 = sext i32 %196 to i64
-  %198 = getelementptr inbounds i8, ptr %191, i64 %197
+  %197 = zext nneg i32 %196 to i64
+  %198 = getelementptr inbounds nuw i8, ptr %191, i64 %197
   %199 = load i8, ptr %198, align 1
   %200 = zext i8 %199 to i32
   %201 = shl nuw i32 %200, 24
@@ -1400,7 +1400,7 @@ define dso_local i32 @stbtt_FindGlyphIndex(ptr noundef readonly captures(none) %
   br i1 %236, label %237, label %239
 
 237:                                              ; preds = %217
-  %238 = add nsw i32 %195, 1
+  %238 = add nuw nsw i32 %195, 1
   br label %261
 
 239:                                              ; preds = %217
@@ -13762,7 +13762,7 @@ fons__flush.exit:                                 ; preds = %36, %49
   %67 = sext i32 %66 to i64
   %68 = icmp sgt i32 %7, %66
   %69 = sub nsw i32 %7, %66
-  %70 = sext i32 %69 to i64
+  %70 = zext nneg i32 %69 to i64
   %71 = sext i32 %7 to i64
   %wide.trip.count90 = zext nneg i32 %62 to i64
   br i1 %68, label %.lr.ph.split.us, label %.lr.ph.split
@@ -28695,7 +28695,7 @@ stbi__jpeg_huff_decode.exit147.i.us.i.i.i.i:      ; preds = %627, %612
   ]
 
 643:                                              ; preds = %stbi__jpeg_huff_decode.exit147.i.us.i.i.i.i
-  %644 = icmp slt i32 %640, 1
+  %644 = icmp eq i32 %640, 0
   br i1 %644, label %645, label %stbi__jpeg_get_bit.exit150.i.us.i.i.i.i
 
 645:                                              ; preds = %643
@@ -28729,7 +28729,7 @@ stbi__jpeg_get_bit.exit150.i.us.i.i.i.i:          ; preds = %645, %643
   br i1 %.not128.i.us.i.i.i.i, label %670, label %655
 
 655:                                              ; preds = %653
-  %656 = icmp slt i32 %640, %642
+  %656 = icmp samesign ult i32 %640, %642
   br i1 %656, label %657, label %stbi__jpeg_get_bits.exit.i.us.i.i.i.i
 
 657:                                              ; preds = %655
@@ -28996,7 +28996,7 @@ stbi__jpeg_huff_decode.exit.i.us.i.i.i.i:         ; preds = %771, %756
   %791 = sext i32 %789 to i64
   %792 = getelementptr inbounds [79 x i8], ptr @stbi__jpeg_dezigzag, i64 0, i64 %791
   %793 = load i8, ptr %792, align 1
-  %794 = icmp slt i32 %784, %785
+  %794 = icmp samesign ult i32 %784, %785
   br i1 %794, label %795, label %stbi__extend_receive.exit.i.us.i.i.i.i
 
 795:                                              ; preds = %788
@@ -44523,7 +44523,7 @@ stbi__jpeg_huff_decode.exit66:                    ; preds = %155, %140
   %178 = sext i32 %176 to i64
   %179 = getelementptr inbounds [79 x i8], ptr @stbi__jpeg_dezigzag, i64 0, i64 %178
   %180 = load i8, ptr %179, align 1
-  %181 = icmp slt i32 %168, %169
+  %181 = icmp samesign ult i32 %168, %169
   br i1 %181, label %182, label %stbi__extend_receive.exit69
 
 182:                                              ; preds = %174

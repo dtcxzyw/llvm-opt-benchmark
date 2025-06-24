@@ -9165,7 +9165,7 @@ get_dc.exit.us.us.us.i:                           ; preds = %._crit_edge198.i.us
   %1567 = getelementptr inbounds i8, ptr %136, i64 %1566
   %1568 = getelementptr inbounds i8, ptr %134, i64 %1566
   %1569 = sub nsw i32 %149, %145
-  %1570 = sext i32 %1569 to i64
+  %1570 = zext nneg i32 %1569 to i64
   %1571 = sext i32 %143 to i64
   %1572 = sub nsw i32 0, %141
   %1573 = sext i32 %1572 to i64
@@ -15394,7 +15394,7 @@ add_yblock.exit:                                  ; preds = %._crit_edge.us, %10
 
 .lr.ph227:                                        ; preds = %.loopexit215
   %496 = sub nsw i32 %494, %23
-  %497 = sext i32 %496 to i64
+  %497 = zext nneg i32 %496 to i64
   %498 = sext i32 %469 to i64
   br label %499
 

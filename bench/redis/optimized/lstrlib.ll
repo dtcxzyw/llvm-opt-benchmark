@@ -1139,7 +1139,7 @@ define internal noundef i32 @str_sub(ptr noundef %0) #0 {
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 %15
   %18 = getelementptr inbounds i8, ptr %17, i64 -1
   %reass.sub = sub nsw i64 %spec.select, %15
-  %19 = add nsw i64 %reass.sub, 1
+  %19 = add nuw nsw i64 %reass.sub, 1
   call void @lua_pushlstring(ptr noundef %0, ptr noundef nonnull %18, i64 noundef %19) #10
   br label %21
 

@@ -4020,10 +4020,10 @@ _ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELi1ELb0
   %846 = load i64, ptr %607, align 8, !tbaa !223
   %847 = mul nsw i64 %846, %.03964.i.i.i.i
   %848 = getelementptr inbounds double, ptr %845, i64 %847
-  %849 = add nsw i64 %.sroa.speculated.i.i.i.i, %.03964.i.i.i.i
+  %849 = add nuw nsw i64 %.sroa.speculated.i.i.i.i, %.03964.i.i.i.i
   %850 = mul nsw i64 %849, %846
   %851 = getelementptr inbounds double, ptr %845, i64 %850
-  %852 = getelementptr inbounds double, ptr %844, i64 %849
+  %852 = getelementptr inbounds nuw double, ptr %844, i64 %849
   %853 = getelementptr inbounds double, ptr %852, i64 %850
   %.not73.i.i.i.i = icmp sgt i64 %.sroa.speculated.i.i.i.i, 0
   br i1 %.not73.i.i.i.i, label %.lr.ph.i62.i.i.i, label %.noexc40.thread.i.i.i
@@ -8819,12 +8819,12 @@ _ZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_.exit: ; preds = %4,
   %51 = add i64 %32, %50
   %52 = sdiv i64 %51, %3
   %53 = icmp slt i64 %49, %52
-  %54 = icmp sgt i64 %49, 3
-  %or.cond = and i1 %54, %53
+  %54 = icmp samesign ugt i64 %49, 3
+  %or.cond = select i1 %53, i1 %54, i1 false
   br i1 %or.cond, label %55, label %57
 
 55:                                               ; preds = %44
-  %56 = and i64 %49, 9223372036854775804
+  %56 = and i64 %49, -4
   store i64 %56, ptr %1, align 8, !tbaa !282
   br label %.critedge116
 
@@ -13110,7 +13110,7 @@ define linkonce_odr hidden noundef i64 @_ZN5Eigen8internal11llt_inplaceIdLi1EE7b
   store i64 %.03964, ptr %22, align 8, !tbaa !200
   store i64 %36, ptr %23, align 8, !tbaa !513
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #33
-  %39 = add nsw i64 %.sroa.speculated, %.03964
+  %39 = add nuw nsw i64 %.sroa.speculated, %.03964
   %40 = mul nsw i64 %36, %39
   %41 = getelementptr inbounds double, ptr %35, i64 %40
   store ptr %41, ptr %3, align 8, !tbaa !512
@@ -13120,7 +13120,7 @@ define linkonce_odr hidden noundef i64 @_ZN5Eigen8internal11llt_inplaceIdLi1EE7b
   store i64 %39, ptr %27, align 8, !tbaa !200
   store i64 %.03964, ptr %28, align 8, !tbaa !200
   store i64 %36, ptr %29, align 8, !tbaa !513
-  %42 = getelementptr inbounds double, ptr %34, i64 %39
+  %42 = getelementptr inbounds nuw double, ptr %34, i64 %39
   %43 = getelementptr inbounds double, ptr %42, i64 %40
   %44 = call noundef i64 @_ZN5Eigen8internal11llt_inplaceIdLi1EE9unblockedINS_5BlockINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0EEEEElRT_(ptr noundef nonnull align 8 dereferenceable(56) %2)
   %45 = icmp slt i64 %44, 0
@@ -14767,12 +14767,12 @@ _ZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_.exit: ; preds = %4,
   %51 = add i64 %32, %50
   %52 = sdiv i64 %51, %3
   %53 = icmp slt i64 %49, %52
-  %54 = icmp sgt i64 %49, 3
-  %or.cond = and i1 %54, %53
+  %54 = icmp samesign ugt i64 %49, 3
+  %or.cond = select i1 %53, i1 %54, i1 false
   br i1 %or.cond, label %55, label %57
 
 55:                                               ; preds = %44
-  %56 = and i64 %49, 9223372036854775804
+  %56 = and i64 %49, -4
   store i64 %56, ptr %1, align 8, !tbaa !282
   br label %.critedge116
 
@@ -18497,10 +18497,10 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEaSINS_3MapIS1_Li0ENS_6StrideILi0ELi0E
   %244 = load i64, ptr %113, align 8, !tbaa !223
   %245 = mul nsw i64 %244, %.03964.i
   %246 = getelementptr inbounds double, ptr %243, i64 %245
-  %247 = add nsw i64 %.sroa.speculated.i, %.03964.i
+  %247 = add nuw nsw i64 %.sroa.speculated.i, %.03964.i
   %248 = mul nsw i64 %247, %244
   %249 = getelementptr inbounds double, ptr %243, i64 %248
-  %250 = getelementptr inbounds double, ptr %242, i64 %247
+  %250 = getelementptr inbounds nuw double, ptr %242, i64 %247
   %251 = getelementptr inbounds double, ptr %250, i64 %248
   %.not73.i = icmp sgt i64 %.sroa.speculated.i, 0
   br i1 %.not73.i, label %.lr.ph.i64, label %.noexc42.thread

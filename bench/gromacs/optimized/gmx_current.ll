@@ -2779,8 +2779,8 @@ _ZL9calc_cacfP8_IO_FILEfPfS1_iPKiii.exit359.i:    ; preds = %1154, %1166
 
 1168:                                             ; preds = %_ZL9calc_cacfP8_IO_FILEfPfS1_iPKiii.exit359.i
   %1169 = sub nsw i32 %.1288.i, %.1.i
-  %1170 = add nsw i32 %1169, 1
-  %1171 = sext i32 %1170 to i64
+  %1170 = add nuw nsw i32 %1169, 1
+  %1171 = zext nneg i32 %1170 to i64
   %1172 = invoke noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.103, ptr noundef nonnull @.str.59, i32 noundef 699, i64 noundef range(i64 -2147483648, 2147483648) %1171, i64 noundef 4)
           to label %.noexc237 unwind label %.loopexit.split-lp.loopexit.split-lp
 

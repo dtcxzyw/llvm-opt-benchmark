@@ -2886,12 +2886,12 @@ IDAWrmsNorm.exit.i70.i:                           ; preds = %735, %732
 .lr.ph.i75.i:                                     ; preds = %.lr.ph.i75.i, %.lr.ph.preheader.i.i
   %indvars.iv.i76.i = phi i64 [ 1, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i77.i, %.lr.ph.i75.i ]
   %813 = sub nsw i64 %810, %indvars.iv.i76.i
-  %814 = add nsw i64 %813, 1
-  %815 = getelementptr inbounds [6 x ptr], ptr %215, i64 0, i64 %814
+  %814 = add nuw nsw i64 %813, 1
+  %815 = getelementptr inbounds nuw [6 x ptr], ptr %215, i64 0, i64 %814
   %816 = load ptr, ptr %815, align 8, !tbaa !78
   %817 = getelementptr inbounds nuw [6 x ptr], ptr %273, i64 0, i64 %indvars.iv.i76.i
   store ptr %816, ptr %817, align 8, !tbaa !78
-  %818 = getelementptr inbounds [6 x ptr], ptr %215, i64 0, i64 %813
+  %818 = getelementptr inbounds nuw [6 x ptr], ptr %215, i64 0, i64 %813
   %819 = load ptr, ptr %818, align 8, !tbaa !78
   %820 = getelementptr inbounds nuw [6 x ptr], ptr %274, i64 0, i64 %indvars.iv.i76.i
   store ptr %819, ptr %820, align 8, !tbaa !78

@@ -1944,7 +1944,7 @@ define hidden range(i32 -1, 2) i32 @awt_getPixels(ptr noundef %0, ptr noundef re
   %55 = add nsw i32 %.094126, %.1100124
   %56 = icmp sgt i32 %55, %7
   %57 = sub nsw i32 %7, %.094126
-  %58 = mul nsw i32 %57, %21
+  %58 = mul nuw nsw i32 %57, %21
   %.2101 = select i1 %56, i32 %57, i32 %.1100124
   %.1 = select i1 %56, i32 %58, i32 %.093127
   %59 = load ptr, ptr %0, align 8
@@ -2160,7 +2160,7 @@ define hidden range(i32 -1, 2) i32 @awt_setPixels(ptr noundef %0, ptr noundef re
   %58 = add nsw i32 %.094126, %.1100124
   %59 = icmp sgt i32 %58, %7
   %60 = sub nsw i32 %7, %.094126
-  %61 = mul nsw i32 %60, %21
+  %61 = mul nuw nsw i32 %60, %21
   %.2101 = select i1 %59, i32 %60, i32 %.1100124
   %.1 = select i1 %59, i32 %61, i32 %.093127
   %62 = load ptr, ptr %0, align 8

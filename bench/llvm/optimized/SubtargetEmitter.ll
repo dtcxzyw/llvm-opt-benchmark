@@ -19531,7 +19531,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_
   %914 = getelementptr inbounds i8, ptr %.111.i.i493, i64 -1
   store i8 %913, ptr %914, align 1, !tbaa !17, !noalias !474
   %915 = udiv i64 %.0810.i.i494, 10
-  %.not.i.i495 = icmp ult i64 %.0810.i.i494, 10
+  %.not.i.i495 = icmp samesign ult i64 %.0810.i.i494, 10
   br i1 %.not.i.i495, label %._crit_edge.i.i496, label %.lr.ph.i.i492, !llvm.loop !475
 
 ._crit_edge.i.i496:                               ; preds = %.lr.ph.i.i492
@@ -19828,7 +19828,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40.i: ; preds = %_
   %1019 = getelementptr inbounds i8, ptr %.111.i.i476, i64 -1
   store i8 %1018, ptr %1019, align 1, !tbaa !17, !noalias !492
   %1020 = udiv i64 %.0810.i.i477, 10
-  %.not.i.i478 = icmp ult i64 %.0810.i.i477, 10
+  %.not.i.i478 = icmp samesign ult i64 %.0810.i.i477, 10
   br i1 %.not.i.i478, label %._crit_edge.i.i479, label %.lr.ph.i.i475, !llvm.loop !475
 
 ._crit_edge.i.i479:                               ; preds = %.lr.ph.i.i475
@@ -20048,7 +20048,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit51.i: ; preds = %_
   %1094 = getelementptr inbounds i8, ptr %.111.i.i, i64 -1
   store i8 %1093, ptr %1094, align 1, !tbaa !17, !noalias !506
   %1095 = udiv i64 %.0810.i.i, 10
-  %.not.i.i462 = icmp ult i64 %.0810.i.i, 10
+  %.not.i.i462 = icmp samesign ult i64 %.0810.i.i, 10
   br i1 %.not.i.i462, label %._crit_edge.i.i463, label %.lr.ph.i.i461, !llvm.loop !475
 
 ._crit_edge.i.i463:                               ; preds = %.lr.ph.i.i461
@@ -20703,7 +20703,7 @@ _ZN4llvmpLERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9StringRefE.e
   %1327 = getelementptr inbounds i8, ptr %.111.i.i510, i64 -1
   store i8 %1326, ptr %1327, align 1, !tbaa !17, !noalias !536
   %1328 = udiv i64 %.0810.i.i511, 10
-  %.not.i.i512 = icmp ult i64 %.0810.i.i511, 10
+  %.not.i.i512 = icmp samesign ult i64 %.0810.i.i511, 10
   br i1 %.not.i.i512, label %._crit_edge.i.i513, label %.lr.ph.i.i509, !llvm.loop !475
 
 ._crit_edge.i.i513:                               ; preds = %.lr.ph.i.i509

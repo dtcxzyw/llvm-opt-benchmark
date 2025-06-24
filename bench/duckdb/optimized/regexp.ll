@@ -3406,315 +3406,315 @@ define hidden noundef zeroext i1 @_ZN10duckdb_re216CharClassBuilder8AddRangeEii(
   %6 = icmp slt i32 %1, 123
   %7 = icmp sgt i32 %2, 64
   %or.cond = and i1 %6, %7
-  br i1 %or.cond, label %8, label %25
+  br i1 %or.cond, label %8, label %27
 
 8:                                                ; preds = %5
-  %.sroa.speculated119 = tail call i32 @llvm.smax.i32(i32 %1, i32 65)
-  %.sroa.speculated115 = tail call i32 @llvm.umin.i32(i32 %2, i32 90)
-  %.not = icmp samesign ugt i32 %.sroa.speculated119, %.sroa.speculated115
-  br i1 %.not, label %16, label %9
+  %.sroa.speculated118 = tail call i32 @llvm.smax.i32(i32 %1, i32 65)
+  %.sroa.speculated114 = tail call i32 @llvm.umin.i32(i32 %2, i32 90)
+  %.not = icmp samesign ugt i32 %.sroa.speculated118, %.sroa.speculated114
+  br i1 %.not, label %17, label %9
 
 9:                                                ; preds = %8
-  %10 = sub nuw nsw i32 %.sroa.speculated115, %.sroa.speculated119
-  %notmask = shl nsw i32 -2, %10
-  %11 = xor i32 %notmask, -1
-  %12 = add nsw i32 %.sroa.speculated119, -65
-  %13 = shl i32 %11, %12
-  %14 = load i32, ptr %0, align 8, !tbaa !124
-  %15 = or i32 %14, %13
-  store i32 %15, ptr %0, align 8, !tbaa !124
-  br label %16
+  %10 = sub nuw nsw i32 %.sroa.speculated114, %.sroa.speculated118
+  %11 = shl nuw nsw i32 2, %10
+  %12 = add nsw i32 %11, -1
+  %13 = add nsw i32 %.sroa.speculated118, -65
+  %14 = shl i32 %12, %13
+  %15 = load i32, ptr %0, align 8, !tbaa !124
+  %16 = or i32 %15, %14
+  store i32 %16, ptr %0, align 8, !tbaa !124
+  br label %17
 
-16:                                               ; preds = %9, %8
-  %.sroa.speculated111 = tail call i32 @llvm.smax.i32(i32 %1, i32 97)
+17:                                               ; preds = %9, %8
+  %.sroa.speculated110 = tail call i32 @llvm.smax.i32(i32 %1, i32 97)
   %.sroa.speculated = tail call i32 @llvm.umin.i32(i32 %2, i32 122)
-  %.not28 = icmp samesign ugt i32 %.sroa.speculated111, %.sroa.speculated
-  br i1 %.not28, label %25, label %17
+  %.not28 = icmp samesign ugt i32 %.sroa.speculated110, %.sroa.speculated
+  br i1 %.not28, label %27, label %18
 
-17:                                               ; preds = %16
-  %18 = sub nuw nsw i32 %.sroa.speculated, %.sroa.speculated111
-  %notmask29 = shl nsw i32 -2, %18
-  %19 = xor i32 %notmask29, -1
-  %20 = add nsw i32 %.sroa.speculated111, -97
-  %21 = shl i32 %19, %20
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %23 = load i32, ptr %22, align 4, !tbaa !125
-  %24 = or i32 %23, %21
-  store i32 %24, ptr %22, align 4, !tbaa !125
-  br label %25
+18:                                               ; preds = %17
+  %19 = sub nuw nsw i32 %.sroa.speculated, %.sroa.speculated110
+  %20 = shl nuw nsw i32 2, %19
+  %21 = add nsw i32 %20, -1
+  %22 = add nsw i32 %.sroa.speculated110, -97
+  %23 = shl i32 %21, %22
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %25 = load i32, ptr %24, align 4, !tbaa !125
+  %26 = or i32 %25, %23
+  store i32 %26, ptr %24, align 4, !tbaa !125
+  br label %27
 
-25:                                               ; preds = %16, %17, %5
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %27 = load ptr, ptr %26, align 8, !tbaa !33
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.not10.i.i.i = icmp eq ptr %27, null
-  br i1 %.not10.i.i.i, label %_ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE4findERKS1_.exit51.thread, label %.lr.ph.i.i.i
+27:                                               ; preds = %17, %18, %5
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %29 = load ptr, ptr %28, align 8, !tbaa !33
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.not10.i.i.i = icmp eq ptr %29, null
+  br i1 %.not10.i.i.i, label %_ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE4findERKS1_.exit50.thread, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %25, %.lr.ph.i.i.i
-  %.012.i.i.i = phi ptr [ %.1.i.i.i, %.lr.ph.i.i.i ], [ %27, %25 ]
-  %.0811.i.i.i = phi ptr [ %.19.i.i.i, %.lr.ph.i.i.i ], [ %28, %25 ]
-  %29 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 36
-  %30 = load i32, ptr %29, align 4, !tbaa !126
-  %31 = icmp slt i32 %30, %1
-  %.19.i.i.i = select i1 %31, ptr %.0811.i.i.i, ptr %.012.i.i.i
-  %.1.in.v.i.i.i = select i1 %31, i64 24, i64 16
+.lr.ph.i.i.i:                                     ; preds = %27, %.lr.ph.i.i.i
+  %.012.i.i.i = phi ptr [ %.1.i.i.i, %.lr.ph.i.i.i ], [ %29, %27 ]
+  %.0811.i.i.i = phi ptr [ %.19.i.i.i, %.lr.ph.i.i.i ], [ %30, %27 ]
+  %31 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 36
+  %32 = load i32, ptr %31, align 4, !tbaa !126
+  %33 = icmp slt i32 %32, %1
+  %.19.i.i.i = select i1 %33, ptr %.0811.i.i.i, ptr %.012.i.i.i
+  %.1.in.v.i.i.i = select i1 %33, i64 24, i64 16
   %.1.in.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 %.1.in.v.i.i.i
   %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8, !tbaa !44
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
   br i1 %.not.i.i.i, label %_ZNSt8_Rb_treeIN10duckdb_re29RuneRangeES1_St9_IdentityIS1_ENS0_13RuneRangeLessESaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !128
 
 _ZNSt8_Rb_treeIN10duckdb_re29RuneRangeES1_St9_IdentityIS1_ENS0_13RuneRangeLessESaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit.i.i: ; preds = %.lr.ph.i.i.i
-  %32 = icmp eq ptr %.19.i.i.i, %28
-  br i1 %32, label %.critedge, label %_ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE4findERKS1_.exit
+  %34 = icmp eq ptr %.19.i.i.i, %30
+  br i1 %34, label %.critedge, label %_ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE4findERKS1_.exit
 
 _ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE4findERKS1_.exit: ; preds = %_ZNSt8_Rb_treeIN10duckdb_re29RuneRangeES1_St9_IdentityIS1_ENS0_13RuneRangeLessESaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit.i.i
-  %33 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 32
-  %34 = load i32, ptr %33, align 4, !tbaa !129
-  %35 = icmp slt i32 %1, %34
-  br i1 %35, label %.critedge, label %36
+  %35 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 32
+  %36 = load i32, ptr %35, align 4, !tbaa !129
+  %37 = icmp slt i32 %1, %36
+  br i1 %37, label %.critedge, label %38
 
-36:                                               ; preds = %_ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE4findERKS1_.exit
-  %37 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 36
-  %38 = load i32, ptr %37, align 4, !tbaa !126
-  %.not31 = icmp sgt i32 %2, %38
-  br i1 %.not31, label %.critedge, label %_ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE6insertEOS1_.exit
+38:                                               ; preds = %_ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE4findERKS1_.exit
+  %39 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 36
+  %40 = load i32, ptr %39, align 4, !tbaa !126
+  %.not30 = icmp sgt i32 %2, %40
+  br i1 %.not30, label %.critedge, label %_ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE6insertEOS1_.exit
 
-.critedge:                                        ; preds = %_ZNSt8_Rb_treeIN10duckdb_re29RuneRangeES1_St9_IdentityIS1_ENS0_13RuneRangeLessESaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit.i.i, %36, %_ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE4findERKS1_.exit
-  %39 = icmp sgt i32 %1, 0
-  br i1 %39, label %40, label %_ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE4findERKS1_.exit51.thread
+.critedge:                                        ; preds = %_ZNSt8_Rb_treeIN10duckdb_re29RuneRangeES1_St9_IdentityIS1_ENS0_13RuneRangeLessESaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit.i.i, %38, %_ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE4findERKS1_.exit
+  %41 = icmp sgt i32 %1, 0
+  br i1 %41, label %42, label %_ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE4findERKS1_.exit50.thread
 
-40:                                               ; preds = %.critedge
-  %41 = add nsw i32 %1, -1
-  br label %.lr.ph.i.i.i40
+42:                                               ; preds = %.critedge
+  %43 = add nsw i32 %1, -1
+  br label %.lr.ph.i.i.i39
 
-.lr.ph.i.i.i40:                                   ; preds = %40, %.lr.ph.i.i.i40
-  %.012.i.i.i41 = phi ptr [ %.1.i.i.i46, %.lr.ph.i.i.i40 ], [ %27, %40 ]
-  %.0811.i.i.i42 = phi ptr [ %.19.i.i.i43, %.lr.ph.i.i.i40 ], [ %28, %40 ]
-  %42 = getelementptr inbounds nuw i8, ptr %.012.i.i.i41, i64 36
-  %43 = load i32, ptr %42, align 4, !tbaa !126
-  %44 = icmp slt i32 %43, %41
-  %.19.i.i.i43 = select i1 %44, ptr %.0811.i.i.i42, ptr %.012.i.i.i41
-  %.1.in.v.i.i.i44 = select i1 %44, i64 24, i64 16
-  %.1.in.i.i.i45 = getelementptr inbounds nuw i8, ptr %.012.i.i.i41, i64 %.1.in.v.i.i.i44
-  %.1.i.i.i46 = load ptr, ptr %.1.in.i.i.i45, align 8, !tbaa !44
-  %.not.i.i.i47 = icmp eq ptr %.1.i.i.i46, null
-  br i1 %.not.i.i.i47, label %_ZNSt8_Rb_treeIN10duckdb_re29RuneRangeES1_St9_IdentityIS1_ENS0_13RuneRangeLessESaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit.i.i48, label %.lr.ph.i.i.i40, !llvm.loop !128
+.lr.ph.i.i.i39:                                   ; preds = %42, %.lr.ph.i.i.i39
+  %.012.i.i.i40 = phi ptr [ %.1.i.i.i45, %.lr.ph.i.i.i39 ], [ %29, %42 ]
+  %.0811.i.i.i41 = phi ptr [ %.19.i.i.i42, %.lr.ph.i.i.i39 ], [ %30, %42 ]
+  %44 = getelementptr inbounds nuw i8, ptr %.012.i.i.i40, i64 36
+  %45 = load i32, ptr %44, align 4, !tbaa !126
+  %46 = icmp slt i32 %45, %43
+  %.19.i.i.i42 = select i1 %46, ptr %.0811.i.i.i41, ptr %.012.i.i.i40
+  %.1.in.v.i.i.i43 = select i1 %46, i64 24, i64 16
+  %.1.in.i.i.i44 = getelementptr inbounds nuw i8, ptr %.012.i.i.i40, i64 %.1.in.v.i.i.i43
+  %.1.i.i.i45 = load ptr, ptr %.1.in.i.i.i44, align 8, !tbaa !44
+  %.not.i.i.i46 = icmp eq ptr %.1.i.i.i45, null
+  br i1 %.not.i.i.i46, label %_ZNSt8_Rb_treeIN10duckdb_re29RuneRangeES1_St9_IdentityIS1_ENS0_13RuneRangeLessESaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit.i.i47, label %.lr.ph.i.i.i39, !llvm.loop !128
 
-_ZNSt8_Rb_treeIN10duckdb_re29RuneRangeES1_St9_IdentityIS1_ENS0_13RuneRangeLessESaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit.i.i48: ; preds = %.lr.ph.i.i.i40
-  %45 = icmp eq ptr %.19.i.i.i43, %28
-  br i1 %45, label %_ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE4findERKS1_.exit51.thread, label %_ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE4findERKS1_.exit51
+_ZNSt8_Rb_treeIN10duckdb_re29RuneRangeES1_St9_IdentityIS1_ENS0_13RuneRangeLessESaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit.i.i47: ; preds = %.lr.ph.i.i.i39
+  %47 = icmp eq ptr %.19.i.i.i42, %30
+  br i1 %47, label %_ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE4findERKS1_.exit50.thread, label %_ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE4findERKS1_.exit50
 
-_ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE4findERKS1_.exit51: ; preds = %_ZNSt8_Rb_treeIN10duckdb_re29RuneRangeES1_St9_IdentityIS1_ENS0_13RuneRangeLessESaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit.i.i48
-  %46 = getelementptr inbounds nuw i8, ptr %.19.i.i.i43, i64 32
-  %47 = load i32, ptr %46, align 4, !tbaa !129
-  %.not155.not = icmp sgt i32 %1, %47
-  br i1 %.not155.not, label %48, label %_ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE4findERKS1_.exit51.thread
+_ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE4findERKS1_.exit50: ; preds = %_ZNSt8_Rb_treeIN10duckdb_re29RuneRangeES1_St9_IdentityIS1_ENS0_13RuneRangeLessESaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit.i.i47
+  %48 = getelementptr inbounds nuw i8, ptr %.19.i.i.i42, i64 32
+  %49 = load i32, ptr %48, align 4, !tbaa !129
+  %.not154.not = icmp sgt i32 %1, %49
+  br i1 %.not154.not, label %50, label %_ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE4findERKS1_.exit50.thread
 
-48:                                               ; preds = %_ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE4findERKS1_.exit51
-  %49 = getelementptr inbounds nuw i8, ptr %.19.i.i.i43, i64 32
-  %50 = load i32, ptr %49, align 4, !tbaa !129
-  %51 = getelementptr inbounds nuw i8, ptr %.19.i.i.i43, i64 36
-  %52 = load i32, ptr %51, align 4, !tbaa !126
-  %spec.select = tail call i32 @llvm.smax.i32(i32 %52, i32 %2)
-  %53 = xor i32 %52, -1
-  %.neg = add i32 %50, %53
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %55 = load i32, ptr %54, align 8, !tbaa !117
-  %56 = add i32 %.neg, %55
-  store i32 %56, ptr %54, align 8, !tbaa !117
-  %57 = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef nonnull %.19.i.i.i43, ptr noundef nonnull align 8 dereferenceable(32) %28) #27
-  tail call void @_ZdlPv(ptr noundef nonnull %57) #28
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %59 = load i64, ptr %58, align 8, !tbaa !50
-  %60 = add i64 %59, -1
-  store i64 %60, ptr %58, align 8, !tbaa !50
-  br label %_ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE4findERKS1_.exit51.thread
+50:                                               ; preds = %_ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE4findERKS1_.exit50
+  %51 = getelementptr inbounds nuw i8, ptr %.19.i.i.i42, i64 32
+  %52 = load i32, ptr %51, align 4, !tbaa !129
+  %53 = getelementptr inbounds nuw i8, ptr %.19.i.i.i42, i64 36
+  %54 = load i32, ptr %53, align 4, !tbaa !126
+  %spec.select = tail call i32 @llvm.smax.i32(i32 %54, i32 %2)
+  %55 = xor i32 %54, -1
+  %.neg = add i32 %52, %55
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %57 = load i32, ptr %56, align 8, !tbaa !117
+  %58 = add i32 %.neg, %57
+  store i32 %58, ptr %56, align 8, !tbaa !117
+  %59 = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef nonnull %.19.i.i.i42, ptr noundef nonnull align 8 dereferenceable(32) %30) #27
+  tail call void @_ZdlPv(ptr noundef nonnull %59) #28
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %61 = load i64, ptr %60, align 8, !tbaa !50
+  %62 = add i64 %61, -1
+  store i64 %62, ptr %60, align 8, !tbaa !50
+  br label %_ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE4findERKS1_.exit50.thread
 
-_ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE4findERKS1_.exit51.thread: ; preds = %25, %_ZNSt8_Rb_treeIN10duckdb_re29RuneRangeES1_St9_IdentityIS1_ENS0_13RuneRangeLessESaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit.i.i48, %_ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE4findERKS1_.exit51, %48, %.critedge
-  %.0145 = phi i32 [ %2, %.critedge ], [ %spec.select, %48 ], [ %2, %_ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE4findERKS1_.exit51 ], [ %2, %_ZNSt8_Rb_treeIN10duckdb_re29RuneRangeES1_St9_IdentityIS1_ENS0_13RuneRangeLessESaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit.i.i48 ], [ %2, %25 ]
-  %.0144 = phi i32 [ %1, %.critedge ], [ %50, %48 ], [ %1, %_ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE4findERKS1_.exit51 ], [ %1, %_ZNSt8_Rb_treeIN10duckdb_re29RuneRangeES1_St9_IdentityIS1_ENS0_13RuneRangeLessESaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit.i.i48 ], [ %1, %25 ]
-  %61 = icmp slt i32 %.0145, 1114111
-  br i1 %61, label %62, label %_ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE4findERKS1_.exit64.thread
+_ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE4findERKS1_.exit50.thread: ; preds = %27, %_ZNSt8_Rb_treeIN10duckdb_re29RuneRangeES1_St9_IdentityIS1_ENS0_13RuneRangeLessESaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit.i.i47, %_ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE4findERKS1_.exit50, %50, %.critedge
+  %.0144 = phi i32 [ %2, %.critedge ], [ %spec.select, %50 ], [ %2, %_ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE4findERKS1_.exit50 ], [ %2, %_ZNSt8_Rb_treeIN10duckdb_re29RuneRangeES1_St9_IdentityIS1_ENS0_13RuneRangeLessESaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit.i.i47 ], [ %2, %27 ]
+  %.0143 = phi i32 [ %1, %.critedge ], [ %52, %50 ], [ %1, %_ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE4findERKS1_.exit50 ], [ %1, %_ZNSt8_Rb_treeIN10duckdb_re29RuneRangeES1_St9_IdentityIS1_ENS0_13RuneRangeLessESaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit.i.i47 ], [ %1, %27 ]
+  %63 = icmp slt i32 %.0144, 1114111
+  br i1 %63, label %64, label %_ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE4findERKS1_.exit63.thread
 
-62:                                               ; preds = %_ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE4findERKS1_.exit51.thread
-  %63 = add nsw i32 %.0145, 1
-  %64 = load ptr, ptr %26, align 8, !tbaa !33
-  %.not10.i.i.i52 = icmp eq ptr %64, null
-  br i1 %.not10.i.i.i52, label %_ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE4findERKS1_.exit64.thread, label %.lr.ph.i.i.i53
+64:                                               ; preds = %_ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE4findERKS1_.exit50.thread
+  %65 = add nsw i32 %.0144, 1
+  %66 = load ptr, ptr %28, align 8, !tbaa !33
+  %.not10.i.i.i51 = icmp eq ptr %66, null
+  br i1 %.not10.i.i.i51, label %_ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE4findERKS1_.exit63.thread, label %.lr.ph.i.i.i52
 
-.lr.ph.i.i.i53:                                   ; preds = %62, %.lr.ph.i.i.i53
-  %.012.i.i.i54 = phi ptr [ %.1.i.i.i59, %.lr.ph.i.i.i53 ], [ %64, %62 ]
-  %.0811.i.i.i55 = phi ptr [ %.19.i.i.i56, %.lr.ph.i.i.i53 ], [ %28, %62 ]
-  %65 = getelementptr inbounds nuw i8, ptr %.012.i.i.i54, i64 36
-  %66 = load i32, ptr %65, align 4, !tbaa !126
-  %.not157 = icmp sgt i32 %66, %.0145
-  %.19.i.i.i56 = select i1 %.not157, ptr %.012.i.i.i54, ptr %.0811.i.i.i55
-  %.1.in.v.i.i.i57 = select i1 %.not157, i64 16, i64 24
-  %.1.in.i.i.i58 = getelementptr inbounds nuw i8, ptr %.012.i.i.i54, i64 %.1.in.v.i.i.i57
-  %.1.i.i.i59 = load ptr, ptr %.1.in.i.i.i58, align 8, !tbaa !44
-  %.not.i.i.i60 = icmp eq ptr %.1.i.i.i59, null
-  br i1 %.not.i.i.i60, label %_ZNSt8_Rb_treeIN10duckdb_re29RuneRangeES1_St9_IdentityIS1_ENS0_13RuneRangeLessESaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit.i.i61, label %.lr.ph.i.i.i53, !llvm.loop !128
+.lr.ph.i.i.i52:                                   ; preds = %64, %.lr.ph.i.i.i52
+  %.012.i.i.i53 = phi ptr [ %.1.i.i.i58, %.lr.ph.i.i.i52 ], [ %66, %64 ]
+  %.0811.i.i.i54 = phi ptr [ %.19.i.i.i55, %.lr.ph.i.i.i52 ], [ %30, %64 ]
+  %67 = getelementptr inbounds nuw i8, ptr %.012.i.i.i53, i64 36
+  %68 = load i32, ptr %67, align 4, !tbaa !126
+  %.not156 = icmp sgt i32 %68, %.0144
+  %.19.i.i.i55 = select i1 %.not156, ptr %.012.i.i.i53, ptr %.0811.i.i.i54
+  %.1.in.v.i.i.i56 = select i1 %.not156, i64 16, i64 24
+  %.1.in.i.i.i57 = getelementptr inbounds nuw i8, ptr %.012.i.i.i53, i64 %.1.in.v.i.i.i56
+  %.1.i.i.i58 = load ptr, ptr %.1.in.i.i.i57, align 8, !tbaa !44
+  %.not.i.i.i59 = icmp eq ptr %.1.i.i.i58, null
+  br i1 %.not.i.i.i59, label %_ZNSt8_Rb_treeIN10duckdb_re29RuneRangeES1_St9_IdentityIS1_ENS0_13RuneRangeLessESaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit.i.i60, label %.lr.ph.i.i.i52, !llvm.loop !128
 
-_ZNSt8_Rb_treeIN10duckdb_re29RuneRangeES1_St9_IdentityIS1_ENS0_13RuneRangeLessESaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit.i.i61: ; preds = %.lr.ph.i.i.i53
-  %67 = icmp eq ptr %.19.i.i.i56, %28
-  br i1 %67, label %_ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE4findERKS1_.exit64.thread, label %_ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE4findERKS1_.exit64
+_ZNSt8_Rb_treeIN10duckdb_re29RuneRangeES1_St9_IdentityIS1_ENS0_13RuneRangeLessESaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit.i.i60: ; preds = %.lr.ph.i.i.i52
+  %69 = icmp eq ptr %.19.i.i.i55, %30
+  br i1 %69, label %_ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE4findERKS1_.exit63.thread, label %_ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE4findERKS1_.exit63
 
-_ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE4findERKS1_.exit64: ; preds = %_ZNSt8_Rb_treeIN10duckdb_re29RuneRangeES1_St9_IdentityIS1_ENS0_13RuneRangeLessESaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit.i.i61
-  %68 = getelementptr inbounds nuw i8, ptr %.19.i.i.i56, i64 32
-  %69 = load i32, ptr %68, align 4, !tbaa !129
-  %70 = icmp slt i32 %63, %69
-  br i1 %70, label %_ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE4findERKS1_.exit64.thread, label %71
+_ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE4findERKS1_.exit63: ; preds = %_ZNSt8_Rb_treeIN10duckdb_re29RuneRangeES1_St9_IdentityIS1_ENS0_13RuneRangeLessESaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit.i.i60
+  %70 = getelementptr inbounds nuw i8, ptr %.19.i.i.i55, i64 32
+  %71 = load i32, ptr %70, align 4, !tbaa !129
+  %72 = icmp slt i32 %65, %71
+  br i1 %72, label %_ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE4findERKS1_.exit63.thread, label %73
 
-71:                                               ; preds = %_ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE4findERKS1_.exit64
-  %72 = getelementptr inbounds nuw i8, ptr %.19.i.i.i56, i64 32
-  %73 = getelementptr inbounds nuw i8, ptr %.19.i.i.i56, i64 36
-  %74 = load i32, ptr %73, align 4, !tbaa !126
-  %75 = load i32, ptr %72, align 4, !tbaa !129
-  %76 = xor i32 %74, -1
-  %.neg32 = add i32 %75, %76
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %78 = load i32, ptr %77, align 8, !tbaa !117
-  %79 = add i32 %.neg32, %78
-  store i32 %79, ptr %77, align 8, !tbaa !117
-  %80 = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %.19.i.i.i56, ptr noundef nonnull align 8 dereferenceable(32) %28) #27
-  tail call void @_ZdlPv(ptr noundef nonnull %80) #28
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %82 = load i64, ptr %81, align 8, !tbaa !50
-  %83 = add i64 %82, -1
-  store i64 %83, ptr %81, align 8, !tbaa !50
-  br label %_ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE4findERKS1_.exit64.thread
+73:                                               ; preds = %_ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE4findERKS1_.exit63
+  %74 = getelementptr inbounds nuw i8, ptr %.19.i.i.i55, i64 32
+  %75 = getelementptr inbounds nuw i8, ptr %.19.i.i.i55, i64 36
+  %76 = load i32, ptr %75, align 4, !tbaa !126
+  %77 = load i32, ptr %74, align 4, !tbaa !129
+  %78 = xor i32 %76, -1
+  %.neg31 = add i32 %77, %78
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %80 = load i32, ptr %79, align 8, !tbaa !117
+  %81 = add i32 %.neg31, %80
+  store i32 %81, ptr %79, align 8, !tbaa !117
+  %82 = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %.19.i.i.i55, ptr noundef nonnull align 8 dereferenceable(32) %30) #27
+  tail call void @_ZdlPv(ptr noundef nonnull %82) #28
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %84 = load i64, ptr %83, align 8, !tbaa !50
+  %85 = add i64 %84, -1
+  store i64 %85, ptr %83, align 8, !tbaa !50
+  br label %_ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE4findERKS1_.exit63.thread
 
-_ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE4findERKS1_.exit64.thread: ; preds = %62, %_ZNSt8_Rb_treeIN10duckdb_re29RuneRangeES1_St9_IdentityIS1_ENS0_13RuneRangeLessESaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit.i.i61, %_ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE4findERKS1_.exit64, %71, %_ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE4findERKS1_.exit51.thread
-  %.3 = phi i32 [ %.0145, %_ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE4findERKS1_.exit51.thread ], [ %74, %71 ], [ %.0145, %_ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE4findERKS1_.exit64 ], [ %.0145, %_ZNSt8_Rb_treeIN10duckdb_re29RuneRangeES1_St9_IdentityIS1_ENS0_13RuneRangeLessESaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit.i.i61 ], [ %.0145, %62 ]
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %86 = load ptr, ptr %26, align 8, !tbaa !33
-  %.not10.i.i.i65176 = icmp eq ptr %86, null
-  br i1 %.not10.i.i.i65176, label %.thread166, label %.lr.ph.i.i.i66.preheader
+_ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE4findERKS1_.exit63.thread: ; preds = %64, %_ZNSt8_Rb_treeIN10duckdb_re29RuneRangeES1_St9_IdentityIS1_ENS0_13RuneRangeLessESaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit.i.i60, %_ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE4findERKS1_.exit63, %73, %_ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE4findERKS1_.exit50.thread
+  %.3 = phi i32 [ %.0144, %_ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE4findERKS1_.exit50.thread ], [ %76, %73 ], [ %.0144, %_ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE4findERKS1_.exit63 ], [ %.0144, %_ZNSt8_Rb_treeIN10duckdb_re29RuneRangeES1_St9_IdentityIS1_ENS0_13RuneRangeLessESaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit.i.i60 ], [ %.0144, %64 ]
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %88 = load ptr, ptr %28, align 8, !tbaa !33
+  %.not10.i.i.i64175 = icmp eq ptr %88, null
+  br i1 %.not10.i.i.i64175, label %.thread165, label %.lr.ph.i.i.i65.preheader
 
-.lr.ph.i.i.i66.preheader:                         ; preds = %_ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE4findERKS1_.exit64.thread, %98
-  %87 = phi ptr [ %109, %98 ], [ %86, %_ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE4findERKS1_.exit64.thread ]
-  br label %.lr.ph.i.i.i66
+.lr.ph.i.i.i65.preheader:                         ; preds = %_ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE4findERKS1_.exit63.thread, %100
+  %89 = phi ptr [ %111, %100 ], [ %88, %_ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE4findERKS1_.exit63.thread ]
+  br label %.lr.ph.i.i.i65
 
-.thread166:                                       ; preds = %98, %_ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE4findERKS1_.exit64.thread
-  %88 = load i32, ptr %84, align 8, !tbaa !117
-  %reass.sub167 = sub i32 %.3, %.0144
-  %89 = add i32 %reass.sub167, 1
-  %90 = add nsw i32 %89, %88
-  store i32 %90, ptr %84, align 8, !tbaa !117
+.thread165:                                       ; preds = %100, %_ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE4findERKS1_.exit63.thread
+  %90 = load i32, ptr %86, align 8, !tbaa !117
+  %reass.sub166 = sub i32 %.3, %.0143
+  %91 = add i32 %reass.sub166, 1
+  %92 = add nsw i32 %91, %90
+  store i32 %92, ptr %86, align 8, !tbaa !117
   br label %._crit_edge.thread.i.i.i
 
-.lr.ph.i.i.i66:                                   ; preds = %.lr.ph.i.i.i66.preheader, %.lr.ph.i.i.i66
-  %.012.i.i.i67 = phi ptr [ %.1.i.i.i72, %.lr.ph.i.i.i66 ], [ %87, %.lr.ph.i.i.i66.preheader ]
-  %.0811.i.i.i68 = phi ptr [ %.19.i.i.i69, %.lr.ph.i.i.i66 ], [ %28, %.lr.ph.i.i.i66.preheader ]
-  %91 = getelementptr inbounds nuw i8, ptr %.012.i.i.i67, i64 36
-  %92 = load i32, ptr %91, align 4, !tbaa !126
-  %93 = icmp slt i32 %92, %.0144
-  %.19.i.i.i69 = select i1 %93, ptr %.0811.i.i.i68, ptr %.012.i.i.i67
-  %.1.in.v.i.i.i70 = select i1 %93, i64 24, i64 16
-  %.1.in.i.i.i71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i67, i64 %.1.in.v.i.i.i70
-  %.1.i.i.i72 = load ptr, ptr %.1.in.i.i.i71, align 8, !tbaa !44
-  %.not.i.i.i73 = icmp eq ptr %.1.i.i.i72, null
-  br i1 %.not.i.i.i73, label %_ZNSt8_Rb_treeIN10duckdb_re29RuneRangeES1_St9_IdentityIS1_ENS0_13RuneRangeLessESaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit.i.i74, label %.lr.ph.i.i.i66, !llvm.loop !128
+.lr.ph.i.i.i65:                                   ; preds = %.lr.ph.i.i.i65.preheader, %.lr.ph.i.i.i65
+  %.012.i.i.i66 = phi ptr [ %.1.i.i.i71, %.lr.ph.i.i.i65 ], [ %89, %.lr.ph.i.i.i65.preheader ]
+  %.0811.i.i.i67 = phi ptr [ %.19.i.i.i68, %.lr.ph.i.i.i65 ], [ %30, %.lr.ph.i.i.i65.preheader ]
+  %93 = getelementptr inbounds nuw i8, ptr %.012.i.i.i66, i64 36
+  %94 = load i32, ptr %93, align 4, !tbaa !126
+  %95 = icmp slt i32 %94, %.0143
+  %.19.i.i.i68 = select i1 %95, ptr %.0811.i.i.i67, ptr %.012.i.i.i66
+  %.1.in.v.i.i.i69 = select i1 %95, i64 24, i64 16
+  %.1.in.i.i.i70 = getelementptr inbounds nuw i8, ptr %.012.i.i.i66, i64 %.1.in.v.i.i.i69
+  %.1.i.i.i71 = load ptr, ptr %.1.in.i.i.i70, align 8, !tbaa !44
+  %.not.i.i.i72 = icmp eq ptr %.1.i.i.i71, null
+  br i1 %.not.i.i.i72, label %_ZNSt8_Rb_treeIN10duckdb_re29RuneRangeES1_St9_IdentityIS1_ENS0_13RuneRangeLessESaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit.i.i73, label %.lr.ph.i.i.i65, !llvm.loop !128
 
-_ZNSt8_Rb_treeIN10duckdb_re29RuneRangeES1_St9_IdentityIS1_ENS0_13RuneRangeLessESaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit.i.i74: ; preds = %.lr.ph.i.i.i66
-  %94 = icmp eq ptr %.19.i.i.i69, %28
-  br i1 %94, label %.lr.ph.i.i.i78.preheader, label %_ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE4findERKS1_.exit77
+_ZNSt8_Rb_treeIN10duckdb_re29RuneRangeES1_St9_IdentityIS1_ENS0_13RuneRangeLessESaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit.i.i73: ; preds = %.lr.ph.i.i.i65
+  %96 = icmp eq ptr %.19.i.i.i68, %30
+  br i1 %96, label %.lr.ph.i.i.i77.preheader, label %_ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE4findERKS1_.exit76
 
-_ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE4findERKS1_.exit77: ; preds = %_ZNSt8_Rb_treeIN10duckdb_re29RuneRangeES1_St9_IdentityIS1_ENS0_13RuneRangeLessESaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit.i.i74
-  %95 = getelementptr inbounds nuw i8, ptr %.19.i.i.i69, i64 32
-  %96 = load i32, ptr %95, align 4, !tbaa !129
-  %97 = icmp slt i32 %.3, %96
-  br i1 %97, label %.lr.ph.i.i.i78.preheader, label %98
+_ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE4findERKS1_.exit76: ; preds = %_ZNSt8_Rb_treeIN10duckdb_re29RuneRangeES1_St9_IdentityIS1_ENS0_13RuneRangeLessESaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit.i.i73
+  %97 = getelementptr inbounds nuw i8, ptr %.19.i.i.i68, i64 32
+  %98 = load i32, ptr %97, align 4, !tbaa !129
+  %99 = icmp slt i32 %.3, %98
+  br i1 %99, label %.lr.ph.i.i.i77.preheader, label %100
 
-98:                                               ; preds = %_ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE4findERKS1_.exit77
-  %99 = getelementptr inbounds nuw i8, ptr %.19.i.i.i69, i64 32
-  %100 = getelementptr inbounds nuw i8, ptr %.19.i.i.i69, i64 36
-  %101 = load i32, ptr %100, align 4, !tbaa !126
-  %102 = load i32, ptr %99, align 4, !tbaa !129
-  %103 = xor i32 %101, -1
-  %.neg33 = add i32 %102, %103
-  %104 = load i32, ptr %84, align 8, !tbaa !117
-  %105 = add i32 %.neg33, %104
-  store i32 %105, ptr %84, align 8, !tbaa !117
-  %106 = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %.19.i.i.i69, ptr noundef nonnull align 8 dereferenceable(32) %28) #27
-  tail call void @_ZdlPv(ptr noundef nonnull %106) #28
-  %107 = load i64, ptr %85, align 8, !tbaa !50
-  %108 = add i64 %107, -1
-  store i64 %108, ptr %85, align 8, !tbaa !50
-  %109 = load ptr, ptr %26, align 8, !tbaa !33
-  %.not10.i.i.i65 = icmp eq ptr %109, null
-  br i1 %.not10.i.i.i65, label %.thread166, label %.lr.ph.i.i.i66.preheader
+100:                                              ; preds = %_ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE4findERKS1_.exit76
+  %101 = getelementptr inbounds nuw i8, ptr %.19.i.i.i68, i64 32
+  %102 = getelementptr inbounds nuw i8, ptr %.19.i.i.i68, i64 36
+  %103 = load i32, ptr %102, align 4, !tbaa !126
+  %104 = load i32, ptr %101, align 4, !tbaa !129
+  %105 = xor i32 %103, -1
+  %.neg32 = add i32 %104, %105
+  %106 = load i32, ptr %86, align 8, !tbaa !117
+  %107 = add i32 %.neg32, %106
+  store i32 %107, ptr %86, align 8, !tbaa !117
+  %108 = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %.19.i.i.i68, ptr noundef nonnull align 8 dereferenceable(32) %30) #27
+  tail call void @_ZdlPv(ptr noundef nonnull %108) #28
+  %109 = load i64, ptr %87, align 8, !tbaa !50
+  %110 = add i64 %109, -1
+  store i64 %110, ptr %87, align 8, !tbaa !50
+  %111 = load ptr, ptr %28, align 8, !tbaa !33
+  %.not10.i.i.i64 = icmp eq ptr %111, null
+  br i1 %.not10.i.i.i64, label %.thread165, label %.lr.ph.i.i.i65.preheader
 
-.lr.ph.i.i.i78.preheader:                         ; preds = %_ZNSt8_Rb_treeIN10duckdb_re29RuneRangeES1_St9_IdentityIS1_ENS0_13RuneRangeLessESaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit.i.i74, %_ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE4findERKS1_.exit77
-  %110 = load i32, ptr %84, align 8, !tbaa !117
-  %reass.sub = sub i32 %.3, %.0144
-  %111 = add i32 %reass.sub, 1
-  %112 = add nsw i32 %111, %110
-  store i32 %112, ptr %84, align 8, !tbaa !117
-  br label %.lr.ph.i.i.i78
+.lr.ph.i.i.i77.preheader:                         ; preds = %_ZNSt8_Rb_treeIN10duckdb_re29RuneRangeES1_St9_IdentityIS1_ENS0_13RuneRangeLessESaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit.i.i73, %_ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE4findERKS1_.exit76
+  %112 = load i32, ptr %86, align 8, !tbaa !117
+  %reass.sub = sub i32 %.3, %.0143
+  %113 = add i32 %reass.sub, 1
+  %114 = add nsw i32 %113, %112
+  store i32 %114, ptr %86, align 8, !tbaa !117
+  br label %.lr.ph.i.i.i77
 
-.lr.ph.i.i.i78:                                   ; preds = %.lr.ph.i.i.i78.preheader, %.lr.ph.i.i.i78
-  %.02024.i.i.i = phi ptr [ %.020.i.i.i, %.lr.ph.i.i.i78 ], [ %87, %.lr.ph.i.i.i78.preheader ]
-  %113 = getelementptr inbounds nuw i8, ptr %.02024.i.i.i, i64 32
-  %114 = load i32, ptr %113, align 4, !tbaa !129
-  %115 = icmp slt i32 %.3, %114
-  %.in.v.i.i.i = select i1 %115, i64 16, i64 24
+.lr.ph.i.i.i77:                                   ; preds = %.lr.ph.i.i.i77.preheader, %.lr.ph.i.i.i77
+  %.02024.i.i.i = phi ptr [ %.020.i.i.i, %.lr.ph.i.i.i77 ], [ %89, %.lr.ph.i.i.i77.preheader ]
+  %115 = getelementptr inbounds nuw i8, ptr %.02024.i.i.i, i64 32
+  %116 = load i32, ptr %115, align 4, !tbaa !129
+  %117 = icmp slt i32 %.3, %116
+  %.in.v.i.i.i = select i1 %117, i64 16, i64 24
   %.in.i.i.i = getelementptr inbounds nuw i8, ptr %.02024.i.i.i, i64 %.in.v.i.i.i
   %.020.i.i.i = load ptr, ptr %.in.i.i.i, align 8, !tbaa !44
-  %.not.i.i.i79 = icmp eq ptr %.020.i.i.i, null
-  br i1 %.not.i.i.i79, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i78, !llvm.loop !130
+  %.not.i.i.i78 = icmp eq ptr %.020.i.i.i, null
+  br i1 %.not.i.i.i78, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i77, !llvm.loop !130
 
-._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i78
-  br i1 %115, label %._crit_edge.thread.i.i.i, label %121
+._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i77
+  br i1 %117, label %._crit_edge.thread.i.i.i, label %123
 
-._crit_edge.thread.i.i.i:                         ; preds = %.thread166, %._crit_edge.i.i.i
-  %.019.lcssa28.i.i.i = phi ptr [ %.02024.i.i.i, %._crit_edge.i.i.i ], [ %28, %.thread166 ]
-  %116 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %117 = load ptr, ptr %116, align 8, !tbaa !115
-  %118 = icmp eq ptr %.019.lcssa28.i.i.i, %117
-  br i1 %118, label %select.unfold.i.i, label %119
+._crit_edge.thread.i.i.i:                         ; preds = %.thread165, %._crit_edge.i.i.i
+  %.019.lcssa28.i.i.i = phi ptr [ %.02024.i.i.i, %._crit_edge.i.i.i ], [ %30, %.thread165 ]
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %119 = load ptr, ptr %118, align 8, !tbaa !115
+  %120 = icmp eq ptr %.019.lcssa28.i.i.i, %119
+  br i1 %120, label %select.unfold.i.i, label %121
 
-119:                                              ; preds = %._crit_edge.thread.i.i.i
-  %120 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i.i) #32
-  br label %121
+121:                                              ; preds = %._crit_edge.thread.i.i.i
+  %122 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i.i) #32
+  br label %123
 
-121:                                              ; preds = %119, %._crit_edge.i.i.i
-  %.019.lcssa29.i.i.i = phi ptr [ %.019.lcssa28.i.i.i, %119 ], [ %.02024.i.i.i, %._crit_edge.i.i.i ]
-  %.sroa.05.0.i.i.i = phi ptr [ %120, %119 ], [ %.02024.i.i.i, %._crit_edge.i.i.i ]
-  %122 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.i.i.i, i64 36
-  %123 = load i32, ptr %122, align 4, !tbaa !126
-  %124 = icmp slt i32 %123, %.0144
-  br i1 %124, label %select.unfold.i.i, label %_ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE6insertEOS1_.exit
+123:                                              ; preds = %121, %._crit_edge.i.i.i
+  %.019.lcssa29.i.i.i = phi ptr [ %.019.lcssa28.i.i.i, %121 ], [ %.02024.i.i.i, %._crit_edge.i.i.i ]
+  %.sroa.05.0.i.i.i = phi ptr [ %122, %121 ], [ %.02024.i.i.i, %._crit_edge.i.i.i ]
+  %124 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.i.i.i, i64 36
+  %125 = load i32, ptr %124, align 4, !tbaa !126
+  %126 = icmp slt i32 %125, %.0143
+  br i1 %126, label %select.unfold.i.i, label %_ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE6insertEOS1_.exit
 
-select.unfold.i.i:                                ; preds = %121, %._crit_edge.thread.i.i.i
-  %.sroa.4.0.i.ph.i.i = phi ptr [ %.019.lcssa28.i.i.i, %._crit_edge.thread.i.i.i ], [ %.019.lcssa29.i.i.i, %121 ]
-  %125 = icmp eq ptr %.sroa.4.0.i.ph.i.i, %28
-  br i1 %125, label %_ZNSt8_Rb_treeIN10duckdb_re29RuneRangeES1_St9_IdentityIS1_ENS0_13RuneRangeLessESaIS1_EE10_M_insert_IS1_NS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSC_OT_RT0_.exit.i.i, label %126
+select.unfold.i.i:                                ; preds = %123, %._crit_edge.thread.i.i.i
+  %.sroa.4.0.i.ph.i.i = phi ptr [ %.019.lcssa28.i.i.i, %._crit_edge.thread.i.i.i ], [ %.019.lcssa29.i.i.i, %123 ]
+  %127 = icmp eq ptr %.sroa.4.0.i.ph.i.i, %30
+  br i1 %127, label %_ZNSt8_Rb_treeIN10duckdb_re29RuneRangeES1_St9_IdentityIS1_ENS0_13RuneRangeLessESaIS1_EE10_M_insert_IS1_NS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSC_OT_RT0_.exit.i.i, label %128
 
-126:                                              ; preds = %select.unfold.i.i
-  %127 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.i.ph.i.i, i64 32
-  %128 = load i32, ptr %127, align 4, !tbaa !129
-  %129 = icmp slt i32 %.3, %128
+128:                                              ; preds = %select.unfold.i.i
+  %129 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.i.ph.i.i, i64 32
+  %130 = load i32, ptr %129, align 4, !tbaa !129
+  %131 = icmp slt i32 %.3, %130
   br label %_ZNSt8_Rb_treeIN10duckdb_re29RuneRangeES1_St9_IdentityIS1_ENS0_13RuneRangeLessESaIS1_EE10_M_insert_IS1_NS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSC_OT_RT0_.exit.i.i
 
-_ZNSt8_Rb_treeIN10duckdb_re29RuneRangeES1_St9_IdentityIS1_ENS0_13RuneRangeLessESaIS1_EE10_M_insert_IS1_NS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSC_OT_RT0_.exit.i.i: ; preds = %126, %select.unfold.i.i
-  %130 = phi i1 [ true, %select.unfold.i.i ], [ %129, %126 ]
-  %131 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
-  %132 = getelementptr inbounds nuw i8, ptr %131, i64 32
+_ZNSt8_Rb_treeIN10duckdb_re29RuneRangeES1_St9_IdentityIS1_ENS0_13RuneRangeLessESaIS1_EE10_M_insert_IS1_NS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSC_OT_RT0_.exit.i.i: ; preds = %128, %select.unfold.i.i
+  %132 = phi i1 [ true, %select.unfold.i.i ], [ %131, %128 ]
+  %133 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 32
   %.sroa.5.0.insert.ext = zext i32 %.3 to i64
   %.sroa.5.0.insert.shift = shl nuw i64 %.sroa.5.0.insert.ext, 32
-  %.sroa.0.0.insert.ext = zext i32 %.0144 to i64
+  %.sroa.0.0.insert.ext = zext i32 %.0143 to i64
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.5.0.insert.shift, %.sroa.0.0.insert.ext
-  store i64 %.sroa.0.0.insert.insert, ptr %132, align 4
-  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %130, ptr noundef nonnull %131, ptr noundef nonnull %.sroa.4.0.i.ph.i.i, ptr noundef nonnull align 8 dereferenceable(32) %28) #27
-  %133 = load i64, ptr %85, align 8, !tbaa !50
-  %134 = add i64 %133, 1
-  store i64 %134, ptr %85, align 8, !tbaa !50
+  store i64 %.sroa.0.0.insert.insert, ptr %134, align 4
+  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %132, ptr noundef nonnull %133, ptr noundef nonnull %.sroa.4.0.i.ph.i.i, ptr noundef nonnull align 8 dereferenceable(32) %30) #27
+  %135 = load i64, ptr %87, align 8, !tbaa !50
+  %136 = add i64 %135, 1
+  store i64 %136, ptr %87, align 8, !tbaa !50
   br label %_ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE6insertEOS1_.exit
 
-_ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE6insertEOS1_.exit: ; preds = %_ZNSt8_Rb_treeIN10duckdb_re29RuneRangeES1_St9_IdentityIS1_ENS0_13RuneRangeLessESaIS1_EE10_M_insert_IS1_NS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSC_OT_RT0_.exit.i.i, %121, %36, %3
-  %.0 = phi i1 [ false, %3 ], [ false, %36 ], [ true, %121 ], [ true, %_ZNSt8_Rb_treeIN10duckdb_re29RuneRangeES1_St9_IdentityIS1_ENS0_13RuneRangeLessESaIS1_EE10_M_insert_IS1_NS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSC_OT_RT0_.exit.i.i ]
+_ZNSt3setIN10duckdb_re29RuneRangeENS0_13RuneRangeLessESaIS1_EE6insertEOS1_.exit: ; preds = %_ZNSt8_Rb_treeIN10duckdb_re29RuneRangeES1_St9_IdentityIS1_ENS0_13RuneRangeLessESaIS1_EE10_M_insert_IS1_NS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSC_OT_RT0_.exit.i.i, %123, %38, %3
+  %.0 = phi i1 [ false, %3 ], [ false, %38 ], [ true, %123 ], [ true, %_ZNSt8_Rb_treeIN10duckdb_re29RuneRangeES1_St9_IdentityIS1_ENS0_13RuneRangeLessESaIS1_EE10_M_insert_IS1_NS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSC_OT_RT0_.exit.i.i ]
   ret i1 %.0
 }
 

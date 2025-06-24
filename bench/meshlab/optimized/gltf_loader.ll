@@ -4483,7 +4483,7 @@ _ZL22stbi__jpeg_huff_decodeP10stbi__jpegP13stbi__huffman.exit147.i.us.i.i.i.i: ;
   ]
 
 643:                                              ; preds = %_ZL22stbi__jpeg_huff_decodeP10stbi__jpegP13stbi__huffman.exit147.i.us.i.i.i.i
-  %644 = icmp slt i32 %640, 1
+  %644 = icmp eq i32 %640, 0
   br i1 %644, label %645, label %_ZL18stbi__jpeg_get_bitP10stbi__jpeg.exit150.i.us.i.i.i.i
 
 645:                                              ; preds = %643
@@ -4517,7 +4517,7 @@ _ZL18stbi__jpeg_get_bitP10stbi__jpeg.exit150.i.us.i.i.i.i: ; preds = %645, %643
   br i1 %.not128.i.us.i.i.i.i, label %670, label %655
 
 655:                                              ; preds = %653
-  %656 = icmp slt i32 %640, %642
+  %656 = icmp samesign ult i32 %640, %642
   br i1 %656, label %657, label %_ZL19stbi__jpeg_get_bitsP10stbi__jpegi.exit.i.us.i.i.i.i
 
 657:                                              ; preds = %655
@@ -4784,7 +4784,7 @@ _ZL22stbi__jpeg_huff_decodeP10stbi__jpegP13stbi__huffman.exit.i.us.i.i.i.i: ; pr
   %791 = sext i32 %789 to i64
   %792 = getelementptr inbounds [79 x i8], ptr @_ZL19stbi__jpeg_dezigzag, i64 0, i64 %791
   %793 = load i8, ptr %792, align 1
-  %794 = icmp slt i32 %784, %785
+  %794 = icmp samesign ult i32 %784, %785
   br i1 %794, label %795, label %_ZL20stbi__extend_receiveP10stbi__jpegi.exit.i.us.i.i.i.i
 
 795:                                              ; preds = %788
@@ -20464,7 +20464,7 @@ _ZL22stbi__jpeg_huff_decodeP10stbi__jpegP13stbi__huffman.exit66: ; preds = %155,
   %178 = sext i32 %176 to i64
   %179 = getelementptr inbounds [79 x i8], ptr @_ZL19stbi__jpeg_dezigzag, i64 0, i64 %178
   %180 = load i8, ptr %179, align 1
-  %181 = icmp slt i32 %168, %169
+  %181 = icmp samesign ult i32 %168, %169
   br i1 %181, label %182, label %_ZL20stbi__extend_receiveP10stbi__jpegi.exit69
 
 182:                                              ; preds = %174
@@ -37635,7 +37635,7 @@ _ZL21stbiw__linear_to_rgbePhPf.exit119.i:         ; preds = %133, %.preheader131
   %164 = sext i32 %.3143.i to i64
   %165 = getelementptr inbounds i8, ptr %147, i64 %164
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
-  %166 = trunc i32 %spec.store.select.i to i8
+  %166 = trunc nuw i32 %spec.store.select.i to i8
   store i8 %166, ptr %7, align 1
   call void %.0.val(ptr noundef %.8.val, ptr noundef nonnull %7, i32 noundef 1)
   call void %.0.val(ptr noundef %.8.val, ptr noundef %165, i32 noundef %spec.store.select.i)
@@ -37687,8 +37687,8 @@ _ZL21stbiw__linear_to_rgbePhPf.exit119.i:         ; preds = %133, %.preheader131
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
   store i8 %184, ptr %5, align 1
-  %185 = trunc i32 %spec.store.select2.i to i8
-  %186 = xor i8 %185, -128
+  %185 = trunc nuw i32 %spec.store.select2.i to i8
+  %186 = or disjoint i8 %185, -128
   store i8 %186, ptr %6, align 1
   call void %.0.val(ptr noundef %.8.val, ptr noundef nonnull %6, i32 noundef 1)
   call void %.0.val(ptr noundef %.8.val, ptr noundef nonnull %5, i32 noundef 1)

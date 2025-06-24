@@ -9067,9 +9067,9 @@ if.then43:                                        ; preds = %if.end35
 
 if.then53:                                        ; preds = %if.then43
   %sub = sub nsw i32 %sub.i, %32
-  %div = sdiv i32 %sub, 2
+  %div6 = lshr i32 %sub, 1
   %Y54 = getelementptr inbounds nuw i8, ptr %dest_pos, i64 4
-  %add55 = add nsw i32 %div, %35
+  %add55 = add nsw i32 %div6, %35
   store i32 %add55, ptr %Y54, align 4, !tbaa !312
   br label %if.end59
 

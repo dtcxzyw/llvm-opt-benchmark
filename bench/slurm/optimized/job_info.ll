@@ -6089,7 +6089,7 @@ define internal fastcc ptr @_read_file(ptr noundef readonly captures(none) %0) u
   %18 = sext i32 %.016.ph26 to i64
   %19 = getelementptr inbounds i8, ptr %16, i64 %18
   %20 = sub nsw i32 %13, %.016.ph26
-  %21 = sext i32 %20 to i64
+  %21 = zext nneg i32 %20 to i64
   %22 = tail call i64 @read(i32 noundef %4, ptr noundef %19, i64 noundef %21) #17
   %23 = icmp slt i64 %22, 0
   br i1 %23, label %.lr.ph25, label %.outer

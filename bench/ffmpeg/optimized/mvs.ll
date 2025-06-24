@@ -4627,7 +4627,7 @@ check_available.exit53.i:                         ; preds = %.thread.i51.i
   %indvars.iv37 = phi i64 [ %141, %.lr.ph19.split.i.us.preheader ], [ %indvars.iv.next38, %._crit_edge..thread4_crit_edge.i.us ]
   %indvars.iv35 = phi i64 [ 1, %.lr.ph19.split.i.us.preheader ], [ %indvars.iv.next36, %._crit_edge..thread4_crit_edge.i.us ]
   %144 = sub nsw i64 %140, %indvars.iv35
-  %145 = getelementptr inbounds [5 x %struct.MvField], ptr %138, i64 0, i64 %144
+  %145 = getelementptr inbounds nuw [5 x %struct.MvField], ptr %138, i64 0, i64 %144
   %146 = getelementptr inbounds %struct.Mv, ptr %4, i64 %indvars.iv37
   %147 = load i64, ptr %145, align 8
   store i64 %147, ptr %146, align 8
@@ -4645,7 +4645,7 @@ check_available.exit53.i:                         ; preds = %.thread.i51.i
   %indvars.iv = phi i64 [ %indvars.iv.next, %.thread4.us.i ], [ 1, %.lr.ph19.i.thread ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.thread4.us.i ], [ 0, %.lr.ph19.i.thread ]
   %148 = sub nsw i64 %136, %indvars.iv
-  %149 = getelementptr inbounds [5 x %struct.MvField], ptr %135, i64 0, i64 %148
+  %149 = getelementptr inbounds nuw [5 x %struct.MvField], ptr %135, i64 0, i64 %148
   %150 = getelementptr inbounds nuw %struct.Mv, ptr %4, i64 %indvars.iv.i
   %151 = load i64, ptr %149, align 8
   store i64 %151, ptr %150, align 8
@@ -4662,7 +4662,7 @@ check_available.exit53.i:                         ; preds = %.thread.i51.i
   %indvars.iv45 = phi i64 [ 1, %.lr.ph19.split.i.preheader29 ], [ %indvars.iv.next46, %.thread4.i ]
   %.03814.i = phi i32 [ %.0.ph.fr, %.lr.ph19.split.i.preheader29 ], [ %.3417.i, %.thread4.i ]
   %152 = sub nsw i64 %140, %indvars.iv45
-  %153 = getelementptr inbounds [5 x %struct.MvField], ptr %138, i64 0, i64 %152
+  %153 = getelementptr inbounds nuw [5 x %struct.MvField], ptr %138, i64 0, i64 %152
   %154 = icmp eq i64 %indvars.iv45, 1
   %.pre = load i64, ptr %153, align 8
   br i1 %154, label %.lr.ph.split.us.i, label %._crit_edge.i

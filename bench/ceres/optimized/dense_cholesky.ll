@@ -2446,8 +2446,8 @@ define linkonce_odr hidden noundef i64 @_ZN5Eigen8internal11llt_inplaceIdLi1EE7b
   store i64 %.03964, ptr %22, align 8, !tbaa !93
   store i64 %36, ptr %23, align 8, !tbaa !185
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #33
-  %39 = add nsw i64 %.sroa.speculated, %.03964
-  %40 = getelementptr inbounds double, ptr %34, i64 %39
+  %39 = add nuw nsw i64 %.sroa.speculated, %.03964
+  %40 = getelementptr inbounds nuw double, ptr %34, i64 %39
   %41 = getelementptr inbounds double, ptr %40, i64 %37
   store ptr %41, ptr %3, align 8, !tbaa !183
   store i64 %33, ptr %24, align 8, !tbaa !93
@@ -3919,12 +3919,12 @@ _ZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_.exit: ; preds = %4,
   %51 = add i64 %32, %50
   %52 = sdiv i64 %51, %3
   %53 = icmp slt i64 %49, %52
-  %54 = icmp sgt i64 %49, 3
-  %or.cond = and i1 %54, %53
+  %54 = icmp samesign ugt i64 %49, 3
+  %or.cond = select i1 %53, i1 %54, i1 false
   br i1 %or.cond, label %55, label %57
 
 55:                                               ; preds = %44
-  %56 = and i64 %49, 9223372036854775804
+  %56 = and i64 %49, -4
   store i64 %56, ptr %1, align 8, !tbaa !217
   br label %.critedge116
 
@@ -7179,12 +7179,12 @@ _ZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_.exit: ; preds = %4,
   %51 = add i64 %32, %50
   %52 = sdiv i64 %51, %3
   %53 = icmp slt i64 %49, %52
-  %54 = icmp sgt i64 %49, 3
-  %or.cond = and i1 %54, %53
+  %54 = icmp samesign ugt i64 %49, 3
+  %or.cond = select i1 %53, i1 %54, i1 false
   br i1 %or.cond, label %55, label %57
 
 55:                                               ; preds = %44
-  %56 = and i64 %49, 9223372036854775804
+  %56 = and i64 %49, -4
   store i64 %56, ptr %1, align 8, !tbaa !217
   br label %.critedge116
 
@@ -7589,7 +7589,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal23triangular_solve_vectorIddl
   %14 = call i64 @llvm.umin.i64(i64 %13, i64 8)
   %15 = sub nsw i64 %0, %.095
   %.sroa.speculated = call i64 @llvm.smin.i64(i64 %15, i64 8)
-  %16 = add nsw i64 %.sroa.speculated, %.095
+  %16 = add nuw nsw i64 %.sroa.speculated, %.095
   %17 = icmp sgt i64 %15, 0
   br i1 %17, label %.lr.ph, label %._crit_edge
 
@@ -9353,8 +9353,8 @@ define linkonce_odr hidden noundef i64 @_ZN5Eigen8internal11llt_inplaceIfLi1EE7b
   store i64 %.03964, ptr %21, align 8, !tbaa !93
   store i64 %35, ptr %22, align 8, !tbaa !427
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #33
-  %38 = add nsw i64 %.sroa.speculated, %.03964
-  %39 = getelementptr inbounds float, ptr %33, i64 %38
+  %38 = add nuw nsw i64 %.sroa.speculated, %.03964
+  %39 = getelementptr inbounds nuw float, ptr %33, i64 %38
   %40 = getelementptr inbounds float, ptr %39, i64 %36
   store ptr %40, ptr %3, align 8, !tbaa !423
   store i64 %32, ptr %23, align 8, !tbaa !93
@@ -10850,12 +10850,12 @@ _ZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_.exit: ; preds = %4,
   %51 = add i64 %32, %50
   %52 = sdiv i64 %51, %3
   %53 = icmp slt i64 %49, %52
-  %54 = icmp sgt i64 %49, 7
-  %or.cond = and i1 %54, %53
+  %54 = icmp samesign ugt i64 %49, 7
+  %or.cond = select i1 %53, i1 %54, i1 false
   br i1 %or.cond, label %55, label %57
 
 55:                                               ; preds = %44
-  %56 = and i64 %49, 9223372036854775800
+  %56 = and i64 %49, -8
   store i64 %56, ptr %1, align 8, !tbaa !217
   br label %.critedge116
 
@@ -13420,12 +13420,12 @@ _ZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_.exit: ; preds = %4,
   %51 = add i64 %32, %50
   %52 = sdiv i64 %51, %3
   %53 = icmp slt i64 %49, %52
-  %54 = icmp sgt i64 %49, 7
-  %or.cond = and i1 %54, %53
+  %54 = icmp samesign ugt i64 %49, 7
+  %or.cond = select i1 %53, i1 %54, i1 false
   br i1 %or.cond, label %55, label %57
 
 55:                                               ; preds = %44
-  %56 = and i64 %49, 9223372036854775800
+  %56 = and i64 %49, -8
   store i64 %56, ptr %1, align 8, !tbaa !217
   br label %.critedge116
 
@@ -13985,7 +13985,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal23triangular_solve_vectorIffl
   %14 = call i64 @llvm.umin.i64(i64 %13, i64 8)
   %15 = sub nsw i64 %0, %.095
   %.sroa.speculated = call i64 @llvm.smin.i64(i64 %15, i64 8)
-  %16 = add nsw i64 %.sroa.speculated, %.095
+  %16 = add nuw nsw i64 %.sroa.speculated, %.095
   %17 = icmp sgt i64 %15, 0
   br i1 %17, label %.lr.ph, label %._crit_edge
 

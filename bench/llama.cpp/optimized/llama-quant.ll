@@ -3091,7 +3091,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 "_ZZL21llama_tensor_get_typeR19quantize_state_impl9ggml_typePK11ggml_tensor11llama_ftypeENK3$_0clEii.exit.i": ; preds = %1034
   %1036 = sub nsw i32 %.sroa.33.02290, %681
-  %1037 = srem i32 %1036, 3
+  %1037 = urem i32 %1036, 3
   %1038 = icmp eq i32 %1037, 2
   %spec.select382.i = select i1 %1038, i32 14, i32 %switch.load4543
   br label %"_ZZL21llama_tensor_get_typeR19quantize_state_impl9ggml_typePK11ggml_tensor11llama_ftypeENK3$_0clEii.exit.thread.i"

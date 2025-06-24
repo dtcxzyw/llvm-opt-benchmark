@@ -1998,7 +1998,7 @@ sub_0:                                            ; preds = %435
 468:                                              ; preds = %465
   %469 = add i32 %1, 1
   %470 = sub i32 %469, %466
-  %471 = sext i32 %470 to i64
+  %471 = zext nneg i32 %470 to i64
   %472 = call noalias ptr @calloc(i64 noundef %471, i64 noundef 8) #22
   %473 = getelementptr inbounds nuw i8, ptr %160, i64 64
   store ptr %472, ptr %473, align 8, !tbaa !15

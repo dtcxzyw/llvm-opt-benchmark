@@ -1668,8 +1668,8 @@ stbiw__linear_to_rgbe.exit119:                    ; preds = %.lr.ph.split, %99
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
   store i8 %143, ptr %6, align 1, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #26
-  %144 = trunc i32 %spec.store.select2.us to i8
-  %145 = xor i8 %144, -128
+  %144 = trunc nuw i32 %spec.store.select2.us to i8
+  %145 = or disjoint i8 %144, -128
   store i8 %145, ptr %7, align 1, !tbaa !11
   %146 = load ptr, ptr %0, align 8, !tbaa !7
   %147 = load ptr, ptr %113, align 8, !tbaa !10
@@ -1695,7 +1695,7 @@ stbiw__linear_to_rgbe.exit119:                    ; preds = %.lr.ph.split, %99
   %155 = sext i32 %.3144.us to i64
   %156 = getelementptr inbounds i8, ptr %118, i64 %155
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #26
-  %157 = trunc i32 %spec.store.select.us to i8
+  %157 = trunc nuw i32 %spec.store.select.us to i8
   store i8 %157, ptr %8, align 1, !tbaa !11
   %158 = load ptr, ptr %0, align 8, !tbaa !7
   %159 = load ptr, ptr %113, align 8, !tbaa !10

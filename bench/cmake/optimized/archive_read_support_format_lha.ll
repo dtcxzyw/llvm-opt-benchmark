@@ -5096,8 +5096,8 @@ define internal fastcc range(i32 0, 2) i32 @lzh_make_huffman_table(ptr noundef c
 
 166:                                              ; preds = %153
   %167 = sub nsw i32 %155, %58
-  %168 = sext i32 %167 to i64
-  %169 = getelementptr inbounds %struct.htree_t, ptr %150, i64 %168
+  %168 = zext nneg i32 %167 to i64
+  %169 = getelementptr inbounds nuw %struct.htree_t, ptr %150, i64 %168
   br label %188
 
 170:                                              ; preds = %.lr.ph241
@@ -5127,8 +5127,8 @@ define internal fastcc range(i32 0, 2) i32 @lzh_make_huffman_table(ptr noundef c
 
 184:                                              ; preds = %170
   %185 = sub nsw i32 %173, %58
-  %186 = sext i32 %185 to i64
-  %187 = getelementptr inbounds %struct.htree_t, ptr %150, i64 %186
+  %186 = zext nneg i32 %185 to i64
+  %187 = getelementptr inbounds nuw %struct.htree_t, ptr %150, i64 %186
   br label %188
 
 188:                                              ; preds = %180, %184, %162, %166

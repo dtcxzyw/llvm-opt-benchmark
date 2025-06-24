@@ -1204,9 +1204,9 @@ define dso_local void @_ZN2EA4StdC8int128_tC2El(ptr noundef nonnull writeonly al
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
   %cmp = icmp slt i64 %value, 0
-  br i1 %cmp, label %if.then, label %if.else
+  br i1 %cmp, label %_ZN2EA4StdC8int128_tC2El.exit, label %if.else
 
-if.then:                                          ; preds = %entry
+_ZN2EA4StdC8int128_tC2El.exit:                    ; preds = %entry
   %mPart12.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 %value, ptr %this, align 8
   store i64 -1, ptr %mPart12.i.i, align 8
@@ -1216,7 +1216,7 @@ if.else:                                          ; preds = %entry
   store i64 %value, ptr %this, align 8
   br label %if.end
 
-if.end:                                           ; preds = %if.else, %if.then
+if.end:                                           ; preds = %if.else, %_ZN2EA4StdC8int128_tC2El.exit
   ret void
 }
 

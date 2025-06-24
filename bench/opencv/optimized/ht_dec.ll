@@ -728,7 +728,7 @@ define hidden range(i32 0, 2) i32 @opj_t1_ht_decode_cblk(ptr noundef captures(no
   %370 = add nuw nsw i32 %.014401866, 4
   %371 = icmp sgt i32 %370, %135
   %372 = sub nsw i32 %370, %135
-  %373 = shl i32 %372, 1
+  %373 = shl nuw i32 %372, 1
   %374 = lshr i32 255, %373
   %.01473 = select i1 %371, i32 %374, i32 255
   %375 = and i32 %.01473, 85
@@ -1432,7 +1432,7 @@ decode_noninit_uvlc.exit:                         ; preds = %718, %737, %756
   %825 = add nuw nsw i32 %.015041877, 4
   %826 = icmp sgt i32 %825, %135
   %827 = sub nsw i32 %825, %135
-  %828 = shl i32 %827, 1
+  %828 = shl nuw i32 %827, 1
   %829 = lshr i32 255, %828
   %.01532 = select i1 %826, i32 %829, i32 255
   %830 = and i32 %.01532, 85

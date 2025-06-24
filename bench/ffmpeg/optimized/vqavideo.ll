@@ -2221,7 +2221,7 @@ bytestream2_get_byte.exit192._crit_edge:          ; preds = %.loopexit, %bytestr
   %209 = sext i32 %.0167.lcssa to i64
   %210 = getelementptr inbounds i8, ptr %2, i64 %209
   %211 = sub nsw i32 %3, %.0167.lcssa
-  %212 = sext i32 %211 to i64
+  %212 = zext nneg i32 %211 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %210, i8 0, i64 %212, i1 false)
   br label %213
 

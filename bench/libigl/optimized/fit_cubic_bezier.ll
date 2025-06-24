@@ -1058,8 +1058,8 @@ common.resume:                                    ; preds = %56, %552, %68
   br i1 %exitcond274.not, label %.lr.ph253, label %.lr.ph.split.us, !llvm.loop !79
 
 .lr.ph253:                                        ; preds = %.loopexit237, %.lr.ph.split.us
-  %84 = sext i32 %23 to i64
-  %85 = getelementptr inbounds double, ptr %.sink.i.i.i.i, i64 %84
+  %84 = zext nneg i32 %23 to i64
+  %85 = getelementptr inbounds nuw double, ptr %.sink.i.i.i.i, i64 %84
   %86 = sext i32 %1 to i64
   %87 = add nsw i64 %86, 1
   %88 = add i32 %2, 1

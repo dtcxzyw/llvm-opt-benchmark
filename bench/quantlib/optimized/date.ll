@@ -12657,7 +12657,7 @@ lpad23:                                           ; preds = %invoke.cont
 
 if.else:                                          ; preds = %_ZStplRKSt15_Deque_iteratorIcRcPcEl.exit
   %sub = sub nsw i64 %__n, %add10.i
-  %add.ptr.i.i.i151 = getelementptr inbounds i8, ptr %__first.coerce, i64 %sub
+  %add.ptr.i.i.i151 = getelementptr inbounds nuw i8, ptr %__first.coerce, i64 %sub
   %36 = load ptr, ptr %_M_start, align 8, !tbaa !104
   %37 = load ptr, ptr %_M_first.i23, align 8, !tbaa !117
   %38 = load ptr, ptr %_M_last.i, align 8, !tbaa !118

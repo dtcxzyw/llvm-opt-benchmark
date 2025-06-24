@@ -19305,7 +19305,7 @@ do.body.i20.i:                                    ; preds = %do.body.i20.i, %for
   %cmp12.i.i = icmp slt i64 %i5434.013808, %sub.ptr.div11.i.i
   %add.ptr13.i.i = getelementptr inbounds nuw i8, ptr %p2.0.i.i, i64 %add.ptr.i.i.i10860.idx
   %sub.i.i11837 = sub nsw i64 %i5434.013808, %sub.ptr.div11.i.i
-  %add.ptr14.i.i = getelementptr inbounds i32, ptr %call.i.i.i.i.i10831, i64 %sub.i.i11837
+  %add.ptr14.i.i = getelementptr inbounds nuw i32, ptr %call.i.i.i.i.i10831, i64 %sub.i.i11837
   %p2.1.i.i = select i1 %cmp12.i.i, ptr %add.ptr13.i.i, ptr %add.ptr14.i.i
   %cmp15.not.i.i = icmp eq ptr %p2.1.i.i, %incdec.ptr.i19.i
   br i1 %cmp15.not.i.i, label %do.end.i.i, label %do.body.i20.i, !llvm.loop !649

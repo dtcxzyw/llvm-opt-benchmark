@@ -3689,7 +3689,7 @@ define linkonce_odr void @_ZN13sentencepiece11string_util10SimpleItoaIiEENSt7__c
   %12 = getelementptr inbounds nuw i8, ptr %.024.i, i64 1
   store i8 %11, ptr %.024.i, align 1, !tbaa !23
   %13 = udiv i32 %.11823.i, 10
-  %.not.i = icmp ult i32 %.11823.i, 10
+  %.not.i = icmp samesign ult i32 %.11823.i, 10
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !144
 
 14:                                               ; preds = %8
@@ -5898,7 +5898,7 @@ define linkonce_odr void @_ZN4absl7StrJoinB5cxx11ERKSt6vectorIiSaIiEESt17basic_s
   %21 = getelementptr inbounds nuw i8, ptr %.024.i, i64 1
   store i8 %20, ptr %.024.i, align 1, !tbaa !23
   %22 = udiv i32 %.11823.i, 10
-  %.not.i = icmp ult i32 %.11823.i, 10
+  %.not.i = icmp samesign ult i32 %.11823.i, 10
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !223
 
 23:                                               ; preds = %17
@@ -6028,7 +6028,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit20: ; pred
   %64 = getelementptr inbounds nuw i8, ptr %.024.i26, i64 1
   store i8 %63, ptr %.024.i26, align 1, !tbaa !23
   %65 = udiv i32 %.11823.i27, 10
-  %.not.i28 = icmp ult i32 %.11823.i27, 10
+  %.not.i28 = icmp samesign ult i32 %.11823.i27, 10
   br i1 %.not.i28, label %._crit_edge.i29, label %.lr.ph.i25, !llvm.loop !223
 
 66:                                               ; preds = %60

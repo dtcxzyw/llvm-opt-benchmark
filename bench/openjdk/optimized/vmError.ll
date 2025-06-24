@@ -531,7 +531,7 @@ define hidden noundef ptr @_ZN7VMError12error_stringEPci(ptr noundef returned %0
   %37 = zext nneg i32 %30 to i64
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 %37
   %39 = sub nsw i32 %1, %30
-  %40 = sext i32 %39 to i64
+  %40 = zext nneg i32 %39 to i64
   %41 = call noundef ptr @_ZN2os14line_separatorEv() #21
   %42 = load ptr, ptr @_ZN7VMError8_messageE, align 8
   br i1 %.not24, label %45, label %43

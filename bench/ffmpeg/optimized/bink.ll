@@ -3631,7 +3631,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @read_dcs(ptr noundef %0, p
   %80 = ptrtoint ptr %.066108 to i64
   %81 = sub i64 %66, %80
   %82 = ashr exact i64 %81, 1
-  %83 = sext i32 %79 to i64
+  %83 = zext nneg i32 %79 to i64
   %84 = icmp slt i64 %82, %83
   br i1 %84, label %.loopexit91, label %85
 

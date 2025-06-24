@@ -323,8 +323,8 @@ uprv_stableBinarySearch_77.exit.i.i:              ; preds = %69, %.thread.loopex
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %43, ptr noundef nonnull align 1 dereferenceable(1) %47, i64 %44, i1 false)
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 %44
   %84 = sub nsw i32 %49, %.031.i.i
-  %85 = sext i32 %84 to i64
-  %86 = mul nsw i64 %85, %44
+  %85 = zext nneg i32 %84 to i64
+  %86 = mul nuw nsw i64 %85, %44
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %83, ptr align 1 %82, i64 %86, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %82, ptr noundef nonnull align 1 dereferenceable(1) %43, i64 %44, i1 false)
   br label %87
@@ -596,8 +596,8 @@ uprv_stableBinarySearch_77.exit.i:                ; preds = %43, %.thread.loopex
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %21, i64 %9, i1 false)
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 %9
   %58 = sub nsw i32 %23, %.031.i
-  %59 = sext i32 %58 to i64
-  %60 = mul nsw i64 %59, %9
+  %59 = zext nneg i32 %58 to i64
+  %60 = mul nuw nsw i64 %59, %9
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %57, ptr align 1 %56, i64 %60, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %56, ptr noundef nonnull align 1 dereferenceable(1) %6, i64 %9, i1 false)
   br label %61

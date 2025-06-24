@@ -797,8 +797,8 @@ conv_ascii2bin.exit:                              ; preds = %.lr.ph
 59:                                               ; preds = %55
   %60 = sub nsw i32 %56, %.27895
   %61 = add nsw i32 %60, %.172102
-  %62 = sext i32 %60 to i64
-  %63 = getelementptr inbounds i8, ptr %.065106, i64 %62
+  %62 = zext nneg i32 %60 to i64
+  %63 = getelementptr inbounds nuw i8, ptr %.065106, i64 %62
   br label %64
 
 64:                                               ; preds = %53, %59

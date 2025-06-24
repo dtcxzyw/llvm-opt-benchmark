@@ -68,8 +68,8 @@ define internal range(i32 -2147483648, 1) i32 @vp9_superframe_split_filter(ptr n
 
 33:                                               ; preds = %25
   %34 = sub nsw i32 %14, %32
-  %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds i8, ptr %17, i64 %35
+  %35 = zext nneg i32 %34 to i64
+  %36 = getelementptr inbounds nuw i8, ptr %17, i64 %35
   %37 = load i8, ptr %36, align 1, !tbaa !24
   %38 = icmp eq i8 %37, %21
   br i1 %38, label %39, label %.thread153

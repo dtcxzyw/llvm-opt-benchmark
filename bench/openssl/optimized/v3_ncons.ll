@@ -1120,8 +1120,8 @@ nc_email_eai.exit:                                ; preds = %18, %._crit_edge.i,
 
 118:                                              ; preds = %116
   %119 = sub nsw i32 %114, %.val
-  %120 = sext i32 %119 to i64
-  %121 = getelementptr inbounds i8, ptr %111, i64 %120
+  %120 = zext nneg i32 %119 to i64
+  %121 = getelementptr inbounds nuw i8, ptr %111, i64 %120
   %122 = load i8, ptr %.val14, align 1, !tbaa !11
   %.not.i28 = icmp eq i8 %122, 46
   br i1 %.not.i28, label %126, label %123
@@ -1259,8 +1259,8 @@ ia5memrchr.exit76.i:                              ; preds = %161, %.critedge.i64
 
 178:                                              ; preds = %176
   %179 = sub nsw i32 %159, %.val15
-  %180 = sext i32 %179 to i64
-  %181 = getelementptr inbounds i8, ptr %147, i64 %180
+  %180 = zext nneg i32 %179 to i64
+  %181 = getelementptr inbounds nuw i8, ptr %147, i64 %180
   %182 = zext nneg i32 %.val15 to i64
   br label %.lr.ph.i77.i
 

@@ -382,7 +382,7 @@ if.then:                                          ; preds = %while.end
   %output_position_.i = getelementptr inbounds nuw i8, ptr %this, i64 152
   %5 = load ptr, ptr %output_position_.i, align 8
   %6 = ptrtoint ptr %5 to i64
-  %conv.i = sext i32 %sub5 to i64
+  %conv.i = zext nneg i32 %sub5 to i64
   %sub.i = sub i64 %6, %conv.i
   %7 = inttoptr i64 %sub.i to ptr
   store ptr %7, ptr %output_position_.i, align 8

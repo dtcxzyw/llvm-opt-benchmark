@@ -1195,7 +1195,7 @@ _ZN6icu_776number4impl15DecimalQuantity12setBcdToZeroEv.exit: ; preds = %9, %13
 
 24:                                               ; preds = %21
   %25 = sub nsw i32 %23, %1
-  %26 = add nsw i32 %25, 1
+  %26 = add nuw nsw i32 %25, 1
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %28 = load i8, ptr %27, align 8, !tbaa !22, !range !24, !noundef !25
   %29 = trunc nuw i8 %28 to i1
@@ -3591,7 +3591,7 @@ define void @_ZN6icu_776number4impl15DecimalQuantity18readDecNumberToBcdERKNS1_6
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %23, ptr align 1 %25, i64 %26, i1 false)
   %27 = getelementptr inbounds i8, ptr %23, i64 %26
   %28 = sub nsw i32 %4, %13
-  %29 = sext i32 %28 to i64
+  %29 = zext nneg i32 %28 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %27, i8 0, i64 %29, i1 false)
   tail call void @uprv_free_77(ptr noundef %25)
   store ptr %23, ptr %24, align 8, !tbaa !26
@@ -3973,7 +3973,7 @@ define void @_ZN6icu_776number4impl15DecimalQuantity25readDoubleConversionToBcdE
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %24, ptr align 1 %26, i64 %27, i1 false)
   %28 = getelementptr inbounds i8, ptr %24, i64 %27
   %29 = sub nsw i32 %2, %14
-  %30 = sext i32 %29 to i64
+  %30 = zext nneg i32 %29 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %28, i8 0, i64 %30, i1 false)
   tail call void @uprv_free_77(ptr noundef %26)
   store ptr %24, ptr %25, align 8, !tbaa !26
@@ -6258,7 +6258,7 @@ define void @_ZN6icu_776number4impl15DecimalQuantity11setDigitPosEia(ptr noundef
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %16, ptr align 1 %18, i64 %19, i1 false)
   %20 = getelementptr inbounds i8, ptr %16, i64 %19
   %21 = sub nsw i32 %8, %12
-  %22 = sext i32 %21 to i64
+  %22 = zext nneg i32 %21 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %20, i8 0, i64 %22, i1 false)
   tail call void @uprv_free_77(ptr noundef %18)
   store ptr %16, ptr %17, align 8, !tbaa !26
@@ -6348,7 +6348,7 @@ _ZN6icu_776number4impl15DecimalQuantity13switchStorageEv.exit: ; preds = %.lr.ph
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %57, ptr align 1 %58, i64 %59, i1 false)
   %60 = getelementptr inbounds i8, ptr %57, i64 %59
   %61 = sub nsw i32 %52, %53
-  %62 = sext i32 %61 to i64
+  %62 = zext nneg i32 %61 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %60, i8 0, i64 %62, i1 false)
   tail call void @uprv_free_77(ptr noundef %58)
   store ptr %57, ptr %30, align 8, !tbaa !26
@@ -6611,7 +6611,7 @@ _ZN6icu_776number4impl15DecimalQuantity13switchStorageEv.exit.thread: ; preds = 
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %37, ptr align 1 %39, i64 %40, i1 false)
   %41 = getelementptr inbounds i8, ptr %37, i64 %40
   %42 = sub nsw i32 %28, %32
-  %43 = sext i32 %42 to i64
+  %43 = zext nneg i32 %42 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %41, i8 0, i64 %43, i1 false)
   tail call void @uprv_free_77(ptr noundef %39)
   store ptr %37, ptr %38, align 8, !tbaa !26
@@ -7131,7 +7131,7 @@ define void @_ZN6icu_776number4impl15DecimalQuantity14ensureCapacityEi(ptr nound
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %19, ptr align 1 %21, i64 %22, i1 false)
   %23 = getelementptr inbounds i8, ptr %19, i64 %22
   %24 = sub nsw i32 %1, %9
-  %25 = sext i32 %24 to i64
+  %25 = zext nneg i32 %24 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %23, i8 0, i64 %25, i1 false)
   tail call void @uprv_free_77(ptr noundef %21)
   store ptr %19, ptr %20, align 8, !tbaa !26

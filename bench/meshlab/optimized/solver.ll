@@ -1514,13 +1514,13 @@ define linkonce_odr noundef double @_Z10min_newuoaId6SolverET_iPS1_RT0_S1_S1_i(i
   %237 = mul nsw i32 %185, %13
   %238 = sext i32 %237 to i64
   %gep673.i.i = getelementptr double, ptr %invariant.gep672.i.i, i64 %238
-  %239 = add nsw i32 %185, 1
-  %240 = mul nsw i32 %239, %185
-  %241 = sdiv i32 %240, 2
-  %242 = sext i32 %185 to i64
-  %243 = getelementptr inbounds double, ptr %84, i64 %242
-  %244 = sext i32 %241 to i64
-  %245 = getelementptr inbounds double, ptr %85, i64 %244
+  %239 = add nuw nsw i32 %185, 1
+  %240 = mul nuw nsw i32 %239, %185
+  %241 = lshr i32 %240, 1
+  %242 = zext nneg i32 %185 to i64
+  %243 = getelementptr inbounds nuw double, ptr %84, i64 %242
+  %244 = zext nneg i32 %241 to i64
+  %245 = getelementptr inbounds nuw double, ptr %85, i64 %244
   %246 = fcmp olt double %.11089.i.i, 0.000000e+00
   %247 = select i1 %246, i32 %0, i32 0
   %248 = fcmp olt double %.11086.i.i, 0.000000e+00
@@ -4324,7 +4324,7 @@ _ZL7bigden_IdEiiiPT_S1_S1_S1_PiS2_S2_S2_S1_S1_S1_S1_S1_S1_S1_.exit.i.i: ; preds 
 
 1449:                                             ; preds = %.lr.ph38.i.i.i
   %1450 = sub nsw i64 %indvars.iv76.i.i.i, %131
-  %1451 = mul nsw i64 %1450, %133
+  %1451 = mul nuw nsw i64 %1450, %133
   %gep118.i.i.i = getelementptr double, ptr %invariant.gep117.i.i.i, i64 %1451
   store double %1447, ptr %gep118.i.i.i, align 8
   br label %1452

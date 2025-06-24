@@ -142059,7 +142059,7 @@ _ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i.i.i:     ; preds = %226, %220
 
 _ZSt7advanceIPKclEvRT_T0_.exit:                   ; preds = %_ZStplRKSt15_Deque_iteratorIcRcPcEl.exit
   %240 = sub nsw i64 %4, %56
-  %241 = getelementptr inbounds i8, ptr %2, i64 %240
+  %241 = getelementptr inbounds nuw i8, ptr %2, i64 %240
   %242 = load ptr, ptr %31, align 8, !tbaa !2438
   %243 = load ptr, ptr %78, align 8, !tbaa !2451
   %244 = load ptr, ptr %48, align 8, !tbaa !2452

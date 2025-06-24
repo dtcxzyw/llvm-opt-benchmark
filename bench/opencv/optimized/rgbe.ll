@@ -1857,7 +1857,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31.i.i: ; preds = 
   %.277.i = phi i32 [ %139, %138 ], [ %.05180.i, %136 ]
   %141 = sub nsw i32 %91, %.277.i
   %spec.store.select.i = tail call i32 @llvm.smin.i32(i32 %141, i32 128)
-  %142 = trunc i32 %spec.store.select.i to i8
+  %142 = trunc nuw i32 %spec.store.select.i to i8
   store i8 %142, ptr %11, align 1, !tbaa !17
   %143 = call i64 @fwrite(ptr noundef nonnull %11, i64 noundef 1, i64 noundef 1, ptr noundef %0)
   %144 = icmp eq i64 %143, 0

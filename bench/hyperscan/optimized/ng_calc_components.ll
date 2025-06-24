@@ -9570,7 +9570,7 @@ _ZNSt15_Deque_iteratorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0
 _ZSt7advanceIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPNS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEELb0EEEKSD_EElEvRT_T0_.exit: ; preds = %_ZStplRKSt15_Deque_iteratorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEERS8_PS8_El.exit
   %251 = load ptr, ptr %2, align 8
   %252 = sub nsw i64 %4, %41
-  %253 = getelementptr inbounds %"class.ue2::graph_detail::vertex_descriptor", ptr %251, i64 %252
+  %253 = getelementptr inbounds nuw %"class.ue2::graph_detail::vertex_descriptor", ptr %251, i64 %252
   %254 = load ptr, ptr %14, align 8
   %.not12.i.i.i.i.i.i = icmp eq ptr %254, %storemerge.i.i
   br i1 %.not12.i.i.i.i.i.i, label %_ZSt22__uninitialized_move_aISt15_Deque_iteratorIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_8NGHolderENS1_19NFAGraphVertexPropsENS1_17NFAGraphEdgePropsEEEEERS9_PS9_ESC_SaIS9_EET0_T_SF_SE_RT1_.exit.i, label %.lr.ph.i.i.i.i.i.i37.preheader

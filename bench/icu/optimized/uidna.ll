@@ -767,12 +767,12 @@ uidna_toASCII_77.exit159.thread:                  ; preds = %85, %84, %uidna_toA
 ; Function Attrs: mustprogress uwtable
 define i32 @uidna_IDNToASCII_77(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = icmp eq ptr %6, null
-  br i1 %8, label %78, label %9
+  br i1 %8, label %77, label %9
 
 9:                                                ; preds = %7
   %10 = load i32, ptr %6, align 4, !tbaa !3
   %11 = icmp slt i32 %10, 1
-  br i1 %11, label %12, label %78
+  br i1 %11, label %12, label %77
 
 12:                                               ; preds = %9
   %13 = icmp eq ptr %0, null
@@ -790,25 +790,25 @@ define i32 @uidna_IDNToASCII_77(ptr noundef %0, i32 noundef %1, ptr noundef %2, 
 
 19:                                               ; preds = %16, %12
   store i32 1, ptr %6, align 4, !tbaa !3
-  br label %78
+  br label %77
 
 20:                                               ; preds = %16
   %21 = tail call ptr @usprep_openByType_77(i32 noundef 0, ptr noundef nonnull %6)
   %22 = load i32, ptr %6, align 4, !tbaa !3
   %23 = icmp slt i32 %22, 1
-  br i1 %23, label %.preheader, label %78
+  br i1 %23, label %.preheader, label %77
 
 .preheader:                                       ; preds = %20
   %24 = ptrtoint ptr %0 to i64
   br label %25
 
-25:                                               ; preds = %.preheader, %65
-  %26 = phi i32 [ %60, %65 ], [ %22, %.preheader ]
-  %.067 = phi i32 [ %66, %65 ], [ 0, %.preheader ]
-  %.064 = phi ptr [ %.07995104111, %65 ], [ %0, %.preheader ]
-  %.061 = phi ptr [ %.263, %65 ], [ %2, %.preheader ]
-  %.059 = phi i32 [ %.160, %65 ], [ %1, %.preheader ]
-  %.058 = phi i32 [ %.3, %65 ], [ %3, %.preheader ]
+25:                                               ; preds = %.preheader, %64
+  %26 = phi i32 [ %60, %64 ], [ %22, %.preheader ]
+  %.067 = phi i32 [ %65, %64 ], [ 0, %.preheader ]
+  %.064 = phi ptr [ %.08096105112, %64 ], [ %0, %.preheader ]
+  %.061 = phi ptr [ %.263, %64 ], [ %2, %.preheader ]
+  %.059 = phi i32 [ %.160, %64 ], [ %1, %.preheader ]
+  %.058 = phi i32 [ %.3, %64 ], [ %3, %.preheader ]
   %27 = icmp eq i32 %.059, -1
   br i1 %27, label %.preheader.i, label %.preheader39.i
 
@@ -876,15 +876,15 @@ _ZL16isLabelSeparatorDs.exit34.i:                 ; preds = %.lr.ph.i, %.lr.ph.i
 _ZL16getNextSeparatorPDsiPS_Pa.exit:              ; preds = %31, %._crit_edge.i
   %indvars.iv55.i.pn = phi i64 [ %indvars.iv55.i, %31 ], [ %43, %._crit_edge.i ]
   %.1.i = phi i32 [ %32, %31 ], [ %.0.lcssa.i, %._crit_edge.i ]
-  %.079 = getelementptr inbounds i16, ptr %.064, i64 %indvars.iv55.i.pn
+  %.080 = getelementptr inbounds i16, ptr %.064, i64 %indvars.iv55.i.pn
   %44 = icmp eq i32 %.1.i, 0
   br i1 %44, label %51, label %_ZL16getNextSeparatorPDsiPS_Pa.exit.thread
 
 _ZL16getNextSeparatorPDsiPS_Pa.exit.thread:       ; preds = %_ZL16isLabelSeparatorDs.exit34.i, %_ZL16isLabelSeparatorDs.exit.i, %_ZL16getNextSeparatorPDsiPS_Pa.exit
-  %.1.i98 = phi i32 [ %.1.i, %_ZL16getNextSeparatorPDsiPS_Pa.exit ], [ %40, %_ZL16isLabelSeparatorDs.exit34.i ], [ %34, %_ZL16isLabelSeparatorDs.exit.i ]
-  %.not7596 = phi i1 [ false, %_ZL16getNextSeparatorPDsiPS_Pa.exit ], [ true, %_ZL16isLabelSeparatorDs.exit34.i ], [ true, %_ZL16isLabelSeparatorDs.exit.i ]
-  %.07994 = phi ptr [ %.079, %_ZL16getNextSeparatorPDsiPS_Pa.exit ], [ %41, %_ZL16isLabelSeparatorDs.exit34.i ], [ %35, %_ZL16isLabelSeparatorDs.exit.i ]
-  %45 = tail call fastcc noundef i32 @_ZL17_internal_toASCIIPKDsiPDsiiP18UStringPrepProfileP11UParseErrorP10UErrorCode(ptr noundef %.064, i32 noundef %.1.i98, ptr noundef %.061, i32 noundef %.058, i32 noundef %4, ptr noundef %21, ptr noundef %5, ptr noundef %6)
+  %.1.i99 = phi i32 [ %.1.i, %_ZL16getNextSeparatorPDsiPS_Pa.exit ], [ %40, %_ZL16isLabelSeparatorDs.exit34.i ], [ %34, %_ZL16isLabelSeparatorDs.exit.i ]
+  %.not7597 = phi i1 [ false, %_ZL16getNextSeparatorPDsiPS_Pa.exit ], [ true, %_ZL16isLabelSeparatorDs.exit34.i ], [ true, %_ZL16isLabelSeparatorDs.exit.i ]
+  %.08095 = phi ptr [ %.080, %_ZL16getNextSeparatorPDsiPS_Pa.exit ], [ %41, %_ZL16isLabelSeparatorDs.exit34.i ], [ %35, %_ZL16isLabelSeparatorDs.exit.i ]
+  %45 = tail call fastcc noundef i32 @_ZL17_internal_toASCIIPKDsiPDsiiP18UStringPrepProfileP11UParseErrorP10UErrorCode(ptr noundef %.064, i32 noundef %.1.i99, ptr noundef %.061, i32 noundef %.058, i32 noundef %4, ptr noundef %21, ptr noundef %5, ptr noundef %6)
   %46 = load i32, ptr %6, align 4, !tbaa !3
   %47 = icmp eq i32 %46, 15
   br i1 %47, label %.thread, label %51
@@ -894,17 +894,17 @@ _ZL16getNextSeparatorPDsiPS_Pa.exit.thread:       ; preds = %_ZL16isLabelSeparat
   %48 = add nsw i32 %45, %.067
   %49 = icmp slt i32 %45, 0
   %50 = sub nsw i32 0, %45
-  %narrow107 = tail call i32 @llvm.smin.i32(i32 %45, i32 0)
-  %.2110 = select i1 %49, i32 %50, i32 0
-  br i1 %.not7596, label %58, label %73
+  %narrow108 = tail call i32 @llvm.smin.i32(i32 %45, i32 0)
+  %.2111 = select i1 %49, i32 %50, i32 0
+  br i1 %.not7597, label %58, label %72
 
 51:                                               ; preds = %_ZL16getNextSeparatorPDsiPS_Pa.exit.thread, %_ZL16getNextSeparatorPDsiPS_Pa.exit
-  %.not7597 = phi i1 [ false, %_ZL16getNextSeparatorPDsiPS_Pa.exit ], [ %.not7596, %_ZL16getNextSeparatorPDsiPS_Pa.exit.thread ]
-  %.07995 = phi ptr [ %.079, %_ZL16getNextSeparatorPDsiPS_Pa.exit ], [ %.07994, %_ZL16getNextSeparatorPDsiPS_Pa.exit.thread ]
+  %.not7598 = phi i1 [ false, %_ZL16getNextSeparatorPDsiPS_Pa.exit ], [ %.not7597, %_ZL16getNextSeparatorPDsiPS_Pa.exit.thread ]
+  %.08096 = phi ptr [ %.080, %_ZL16getNextSeparatorPDsiPS_Pa.exit ], [ %.08095, %_ZL16getNextSeparatorPDsiPS_Pa.exit.thread ]
   %52 = phi i32 [ %26, %_ZL16getNextSeparatorPDsiPS_Pa.exit ], [ %46, %_ZL16getNextSeparatorPDsiPS_Pa.exit.thread ]
   %.0 = phi i32 [ 0, %_ZL16getNextSeparatorPDsiPS_Pa.exit ], [ %45, %_ZL16getNextSeparatorPDsiPS_Pa.exit.thread ]
   %53 = icmp slt i32 %52, 1
-  br i1 %53, label %54, label %73
+  br i1 %53, label %54, label %72
 
 54:                                               ; preds = %51
   %55 = add nsw i32 %.0, %.067
@@ -912,54 +912,54 @@ _ZL16getNextSeparatorPDsiPS_Pa.exit.thread:       ; preds = %_ZL16isLabelSeparat
   %57 = sub nsw i32 %.058, %.0
   %narrow = select i1 %56, i32 %.0, i32 0
   %.2 = select i1 %56, i32 %57, i32 0
-  br i1 %.not7597, label %58, label %73
+  br i1 %.not7598, label %58, label %72
 
 58:                                               ; preds = %.thread, %54
-  %.2113 = phi i32 [ %.2110, %.thread ], [ %.2, %54 ]
-  %.162.idx108.pn.in = phi i32 [ %narrow107, %.thread ], [ %narrow, %54 ]
+  %.2114 = phi i32 [ %.2111, %.thread ], [ %.2, %54 ]
+  %.162.idx109.pn.in = phi i32 [ %narrow108, %.thread ], [ %narrow, %54 ]
   %59 = phi i32 [ %48, %.thread ], [ %55, %54 ]
-  %.07995104111 = phi ptr [ %.07994, %.thread ], [ %.07995, %54 ]
+  %.08096105112 = phi ptr [ %.08095, %.thread ], [ %.08096, %54 ]
   %60 = phi i32 [ 0, %.thread ], [ %52, %54 ]
-  %.162.idx108.pn = sext i32 %.162.idx108.pn.in to i64
-  %.162112 = getelementptr inbounds i16, ptr %.061, i64 %.162.idx108.pn
-  %61 = icmp sgt i32 %.2113, 0
-  br i1 %61, label %62, label %65
+  %.162.idx109.pn = sext i32 %.162.idx109.pn.in to i64
+  %.162113 = getelementptr inbounds i16, ptr %.061, i64 %.162.idx109.pn
+  %.not76 = icmp eq i32 %.2114, 0
+  br i1 %.not76, label %64, label %61
 
-62:                                               ; preds = %58
-  %63 = getelementptr inbounds nuw i8, ptr %.162112, i64 2
-  store i16 46, ptr %.162112, align 2, !tbaa !7
-  %64 = add nsw i32 %.2113, -1
-  br label %65
+61:                                               ; preds = %58
+  %62 = getelementptr inbounds nuw i8, ptr %.162113, i64 2
+  store i16 46, ptr %.162113, align 2, !tbaa !7
+  %63 = add nsw i32 %.2114, -1
+  br label %64
 
-65:                                               ; preds = %62, %58
-  %.263 = phi ptr [ %63, %62 ], [ %.162112, %58 ]
-  %.3 = phi i32 [ %64, %62 ], [ %.2113, %58 ]
-  %66 = add nsw i32 %59, 1
-  %67 = icmp sgt i32 %.059, 0
-  %68 = ptrtoint ptr %.07995104111 to i64
-  %69 = sub i64 %68, %24
-  %70 = lshr exact i64 %69, 1
-  %71 = trunc i64 %70 to i32
-  %72 = sub i32 %1, %71
-  %.160 = select i1 %67, i32 %72, i32 %.059
+64:                                               ; preds = %61, %58
+  %.263 = phi ptr [ %62, %61 ], [ %.162113, %58 ]
+  %.3 = phi i32 [ %63, %61 ], [ 0, %58 ]
+  %65 = add nsw i32 %59, 1
+  %66 = icmp sgt i32 %.059, 0
+  %67 = ptrtoint ptr %.08096105112 to i64
+  %68 = sub i64 %67, %24
+  %69 = lshr exact i64 %68, 1
+  %70 = trunc i64 %69 to i32
+  %71 = sub i32 %1, %70
+  %.160 = select i1 %66, i32 %71, i32 %.059
   br label %25, !llvm.loop !18
 
-73:                                               ; preds = %.thread, %54, %51
+72:                                               ; preds = %.thread, %54, %51
   %.168 = phi i32 [ %.067, %51 ], [ %55, %54 ], [ %48, %.thread ]
-  %74 = icmp sgt i32 %.168, 255
-  br i1 %74, label %75, label %76
+  %73 = icmp sgt i32 %.168, 255
+  br i1 %73, label %74, label %75
 
-75:                                               ; preds = %73
+74:                                               ; preds = %72
   store i32 66568, ptr %6, align 4, !tbaa !3
-  br label %76
+  br label %75
 
-76:                                               ; preds = %75, %73
+75:                                               ; preds = %74, %72
   tail call void @usprep_close_77(ptr noundef %21)
-  %77 = tail call i32 @u_terminateUChars_77(ptr noundef %2, i32 noundef %3, i32 noundef %.168, ptr noundef nonnull %6)
-  br label %78
+  %76 = tail call i32 @u_terminateUChars_77(ptr noundef %2, i32 noundef %3, i32 noundef %.168, ptr noundef nonnull %6)
+  br label %77
 
-78:                                               ; preds = %76, %20, %7, %9, %19
-  %.065 = phi i32 [ 0, %19 ], [ 0, %9 ], [ 0, %7 ], [ %77, %76 ], [ 0, %20 ]
+77:                                               ; preds = %75, %20, %7, %9, %19
+  %.065 = phi i32 [ 0, %19 ], [ 0, %9 ], [ 0, %7 ], [ %76, %75 ], [ 0, %20 ]
   ret i32 %.065
 }
 
@@ -968,12 +968,12 @@ declare i32 @u_terminateUChars_77(ptr noundef, i32 noundef, i32 noundef, ptr nou
 ; Function Attrs: mustprogress uwtable
 define i32 @uidna_IDNToUnicode_77(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = icmp eq ptr %6, null
-  br i1 %8, label %75, label %9
+  br i1 %8, label %74, label %9
 
 9:                                                ; preds = %7
   %10 = load i32, ptr %6, align 4, !tbaa !3
   %11 = icmp slt i32 %10, 1
-  br i1 %11, label %12, label %75
+  br i1 %11, label %12, label %74
 
 12:                                               ; preds = %9
   %13 = icmp eq ptr %0, null
@@ -991,24 +991,24 @@ define i32 @uidna_IDNToUnicode_77(ptr noundef %0, i32 noundef %1, ptr noundef %2
 
 19:                                               ; preds = %16, %12
   store i32 1, ptr %6, align 4, !tbaa !3
-  br label %75
+  br label %74
 
 20:                                               ; preds = %16
   %21 = tail call ptr @usprep_openByType_77(i32 noundef 0, ptr noundef nonnull %6)
   %22 = load i32, ptr %6, align 4, !tbaa !3
   %23 = icmp slt i32 %22, 1
-  br i1 %23, label %.preheader, label %75
+  br i1 %23, label %.preheader, label %74
 
 .preheader:                                       ; preds = %20
   %24 = ptrtoint ptr %0 to i64
   br label %25
 
-25:                                               ; preds = %.preheader, %62
-  %.065 = phi i32 [ %63, %62 ], [ 0, %.preheader ]
-  %.062 = phi ptr [ %.077, %62 ], [ %0, %.preheader ]
-  %.059 = phi ptr [ %.261, %62 ], [ %2, %.preheader ]
-  %.057 = phi i32 [ %.158, %62 ], [ %1, %.preheader ]
-  %.0 = phi i32 [ %.3, %62 ], [ %3, %.preheader ]
+25:                                               ; preds = %.preheader, %61
+  %.065 = phi i32 [ %62, %61 ], [ 0, %.preheader ]
+  %.062 = phi ptr [ %.078, %61 ], [ %0, %.preheader ]
+  %.059 = phi ptr [ %.261, %61 ], [ %2, %.preheader ]
+  %.057 = phi i32 [ %.158, %61 ], [ %1, %.preheader ]
+  %.0 = phi i32 [ %.3, %61 ], [ %3, %.preheader ]
   %26 = icmp eq i32 %.057, -1
   br i1 %26, label %.preheader.i, label %.preheader39.i
 
@@ -1076,7 +1076,7 @@ _ZL16isLabelSeparatorDs.exit34.i:                 ; preds = %.lr.ph.i, %.lr.ph.i
   br label %_ZL16getNextSeparatorPDsiPS_Pa.exit
 
 _ZL16getNextSeparatorPDsiPS_Pa.exit:              ; preds = %30, %_ZL16isLabelSeparatorDs.exit.i, %_ZL16isLabelSeparatorDs.exit34.i, %._crit_edge.i
-  %.077 = phi ptr [ %31, %30 ], [ %35, %_ZL16isLabelSeparatorDs.exit.i ], [ %44, %._crit_edge.i ], [ %41, %_ZL16isLabelSeparatorDs.exit34.i ]
+  %.078 = phi ptr [ %31, %30 ], [ %35, %_ZL16isLabelSeparatorDs.exit.i ], [ %44, %._crit_edge.i ], [ %41, %_ZL16isLabelSeparatorDs.exit34.i ]
   %.not74 = phi i1 [ false, %30 ], [ true, %_ZL16isLabelSeparatorDs.exit.i ], [ false, %._crit_edge.i ], [ true, %_ZL16isLabelSeparatorDs.exit34.i ]
   %.1.i = phi i32 [ %32, %30 ], [ %34, %_ZL16isLabelSeparatorDs.exit.i ], [ %.0.lcssa.i, %._crit_edge.i ], [ %40, %_ZL16isLabelSeparatorDs.exit34.i ]
   %45 = tail call fastcc noundef i32 @_ZL19_internal_toUnicodePKDsiPDsiiP18UStringPrepProfileP11UParseErrorP10UErrorCode(ptr noundef %.062, i32 noundef %.1.i, ptr noundef %.059, i32 noundef %.0, i32 noundef %4, ptr noundef %21, ptr noundef %5, ptr noundef %6)
@@ -1090,61 +1090,61 @@ _ZL16getNextSeparatorPDsiPS_Pa.exit:              ; preds = %30, %_ZL16isLabelSe
 
 48:                                               ; preds = %_ZL16getNextSeparatorPDsiPS_Pa.exit
   %49 = icmp slt i32 %46, 1
-  br i1 %49, label %50, label %70
+  br i1 %49, label %50, label %69
 
 50:                                               ; preds = %.thread, %48
-  %.189 = phi i32 [ 0, %.thread ], [ %.0, %48 ]
+  %.190 = phi i32 [ 0, %.thread ], [ %.0, %48 ]
   %51 = add nsw i32 %45, %.065
-  %52 = icmp slt i32 %45, %.189
-  %53 = sub nsw i32 %.189, %45
+  %52 = icmp slt i32 %45, %.190
+  %53 = sub nsw i32 %.190, %45
   %narrow = select i1 %52, i32 %45, i32 0
   %.160.idx = sext i32 %narrow to i64
   %.160 = getelementptr inbounds i16, ptr %.059, i64 %.160.idx
   %.2 = select i1 %52, i32 %53, i32 0
-  br i1 %.not74, label %54, label %70
+  br i1 %.not74, label %54, label %69
 
 54:                                               ; preds = %50
-  %55 = icmp sgt i32 %.2, 0
-  br i1 %55, label %56, label %62
+  %.not75 = icmp eq i32 %.2, 0
+  br i1 %.not75, label %61, label %55
 
-56:                                               ; preds = %54
-  %57 = sext i32 %.1.i to i64
-  %58 = getelementptr inbounds i16, ptr %.062, i64 %57
-  %59 = load i16, ptr %58, align 2, !tbaa !7
-  %60 = getelementptr inbounds nuw i8, ptr %.160, i64 2
-  store i16 %59, ptr %.160, align 2, !tbaa !7
-  %61 = add nsw i32 %.2, -1
-  br label %62
+55:                                               ; preds = %54
+  %56 = sext i32 %.1.i to i64
+  %57 = getelementptr inbounds i16, ptr %.062, i64 %56
+  %58 = load i16, ptr %57, align 2, !tbaa !7
+  %59 = getelementptr inbounds nuw i8, ptr %.160, i64 2
+  store i16 %58, ptr %.160, align 2, !tbaa !7
+  %60 = add nsw i32 %.2, -1
+  br label %61
 
-62:                                               ; preds = %56, %54
-  %.261 = phi ptr [ %60, %56 ], [ %.160, %54 ]
-  %.3 = phi i32 [ %61, %56 ], [ %.2, %54 ]
-  %63 = add nsw i32 %51, 1
-  %64 = icmp sgt i32 %.057, 0
-  %65 = ptrtoint ptr %.077 to i64
-  %66 = sub i64 %65, %24
-  %67 = lshr exact i64 %66, 1
-  %68 = trunc i64 %67 to i32
-  %69 = sub i32 %1, %68
-  %.158 = select i1 %64, i32 %69, i32 %.057
+61:                                               ; preds = %55, %54
+  %.261 = phi ptr [ %59, %55 ], [ %.160, %54 ]
+  %.3 = phi i32 [ %60, %55 ], [ 0, %54 ]
+  %62 = add nsw i32 %51, 1
+  %63 = icmp sgt i32 %.057, 0
+  %64 = ptrtoint ptr %.078 to i64
+  %65 = sub i64 %64, %24
+  %66 = lshr exact i64 %65, 1
+  %67 = trunc i64 %66 to i32
+  %68 = sub i32 %1, %67
+  %.158 = select i1 %63, i32 %68, i32 %.057
   br label %25, !llvm.loop !19
 
-70:                                               ; preds = %50, %48
+69:                                               ; preds = %50, %48
   %.166 = phi i32 [ %.065, %48 ], [ %51, %50 ]
-  %71 = icmp sgt i32 %.166, 255
-  br i1 %71, label %72, label %73
+  %70 = icmp sgt i32 %.166, 255
+  br i1 %70, label %71, label %72
 
-72:                                               ; preds = %70
+71:                                               ; preds = %69
   store i32 66568, ptr %6, align 4, !tbaa !3
-  br label %73
+  br label %72
 
-73:                                               ; preds = %72, %70
+72:                                               ; preds = %71, %69
   tail call void @usprep_close_77(ptr noundef %21)
-  %74 = tail call i32 @u_terminateUChars_77(ptr noundef %2, i32 noundef %3, i32 noundef %.166, ptr noundef nonnull %6)
-  br label %75
+  %73 = tail call i32 @u_terminateUChars_77(ptr noundef %2, i32 noundef %3, i32 noundef %.166, ptr noundef nonnull %6)
+  br label %74
 
-75:                                               ; preds = %73, %20, %7, %9, %19
-  %.063 = phi i32 [ 0, %19 ], [ 0, %9 ], [ 0, %7 ], [ %74, %73 ], [ 0, %20 ]
+74:                                               ; preds = %72, %20, %7, %9, %19
+  %.063 = phi i32 [ 0, %19 ], [ 0, %9 ], [ 0, %7 ], [ %73, %72 ], [ 0, %20 ]
   ret i32 %.063
 }
 

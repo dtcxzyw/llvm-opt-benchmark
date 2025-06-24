@@ -4169,7 +4169,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit794: ; preds = %_Z
 
 1674:                                             ; preds = %1672
   %1675 = sub nsw i32 %1666, %1670
-  %1676 = sext i32 %1675 to i64
+  %1676 = zext nneg i32 %1675 to i64
   %1677 = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %71, ptr noundef nonnull @.str.272, i64 noundef %1676) #22
   br label %_ZL9mk_filenmPcPKciiS_.exit
 

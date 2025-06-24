@@ -1076,8 +1076,8 @@ define void @stbir__insert_coeff(ptr noundef captures(none) %0, ptr noundef capt
 
 23:                                               ; preds = %9
   %24 = sub nsw i32 %2, %8
-  %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds float, ptr %1, i64 %25
+  %25 = zext nneg i32 %24 to i64
+  %26 = getelementptr inbounds nuw float, ptr %1, i64 %25
   %27 = load float, ptr %26, align 4, !tbaa !50
   %28 = fadd float %3, %27
   store float %28, ptr %26, align 4, !tbaa !50
@@ -1239,7 +1239,7 @@ define void @stbir__calculate_coefficients_for_gather_downsample(i32 noundef %0,
   %67 = zext nneg i32 %spec.store.select.i to i64
   %68 = add nuw nsw i32 %.073, 1
   %69 = sub nsw i32 %68, %spec.store.select.i
-  %wide.trip.count = zext i32 %69 to i64
+  %wide.trip.count = zext nneg i32 %69 to i64
   br label %70
 
 70:                                               ; preds = %.lr.ph, %96
@@ -1608,8 +1608,8 @@ stbir_overlapping_memcpy.exit:                    ; preds = %75, %74, %._crit_ed
 
 133:                                              ; preds = %119
   %134 = sub nsw i32 %113, %118
-  %135 = sext i32 %134 to i64
-  %136 = getelementptr inbounds float, ptr %.1203368, i64 %135
+  %135 = zext nneg i32 %134 to i64
+  %136 = getelementptr inbounds nuw float, ptr %.1203368, i64 %135
   %137 = load float, ptr %136, align 4, !tbaa !50
   %138 = fadd float %116, %137
   store float %138, ptr %136, align 4, !tbaa !50
@@ -1730,8 +1730,8 @@ stbir__insert_coeff.exit:                         ; preds = %121, %._crit_edge.i
 
 181:                                              ; preds = %167
   %182 = sub nsw i32 %162, %166
-  %183 = sext i32 %182 to i64
-  %184 = getelementptr inbounds float, ptr %.1203368, i64 %183
+  %183 = zext nneg i32 %182 to i64
+  %184 = getelementptr inbounds nuw float, ptr %.1203368, i64 %183
   %185 = load float, ptr %184, align 4, !tbaa !50
   %186 = fadd float %164, %185
   store float %186, ptr %184, align 4, !tbaa !50
@@ -1860,8 +1860,8 @@ stbir__insert_coeff.exit257:                      ; preds = %169, %._crit_edge.i
 
 231:                                              ; preds = %217
   %232 = sub nsw i32 %214, %216
-  %233 = sext i32 %232 to i64
-  %234 = getelementptr inbounds float, ptr %.1203368, i64 %233
+  %233 = zext nneg i32 %232 to i64
+  %234 = getelementptr inbounds nuw float, ptr %.1203368, i64 %233
   %235 = load float, ptr %234, align 4, !tbaa !50
   %236 = fadd float %206, %235
   store float %236, ptr %234, align 4, !tbaa !50
@@ -2677,8 +2677,8 @@ stbir__calculate_coefficients_for_gather_upsample.exit: ; preds = %stbir__calcul
   %192 = fsub float %140, %157
   %193 = zext nneg i32 %spec.store.select.i.i to i64
   %reass.sub = sub nsw i32 %.073.i, %spec.store.select.i.i
-  %194 = add i32 %reass.sub, 1
-  %wide.trip.count.i = zext i32 %194 to i64
+  %194 = add nuw i32 %reass.sub, 1
+  %wide.trip.count.i = zext nneg i32 %194 to i64
   br label %195
 
 195:                                              ; preds = %221, %.lr.ph.i157
@@ -2894,8 +2894,8 @@ stbir__calculate_coefficients_for_gather_downsample.exit: ; preds = %188, %.loop
 
 279:                                              ; preds = %265
   %280 = sub nsw i32 %.0191, %252
-  %281 = sext i32 %280 to i64
-  %282 = getelementptr inbounds float, ptr %.0137183, i64 %281
+  %281 = zext nneg i32 %280 to i64
+  %282 = getelementptr inbounds nuw float, ptr %.0137183, i64 %281
   %283 = load float, ptr %282, align 4, !tbaa !50
   %284 = fadd float %247, %283
   store float %284, ptr %282, align 4, !tbaa !50
@@ -28287,8 +28287,8 @@ define void @stbir__vertical_scatter_loop(ptr noundef %0, ptr noundef %1, i32 no
   %80 = sub nsw i32 %10, %68
   %.0116 = call i32 @llvm.smax.i32(i32 %68, i32 %10)
   %narrow = select i1 %79, i32 %80, i32 0
-  %.0.idx = sext i32 %narrow to i64
-  %.0 = getelementptr inbounds float, ptr %.0123150, i64 %.0.idx
+  %.0.idx = zext i32 %narrow to i64
+  %.0 = getelementptr inbounds nuw float, ptr %.0123150, i64 %.0.idx
   %.0115 = call i32 @llvm.smin.i32(i32 %70, i32 %58)
   %81 = load i32, ptr %48, align 8, !tbaa !907
   %82 = icmp slt i32 %81, 0

@@ -2831,9 +2831,9 @@ close_packet.exit:                                ; preds = %13, %39
   store ptr %87, ptr %47, align 8, !tbaa !42
   %88 = sext i32 %.094 to i64
   %89 = getelementptr inbounds i8, ptr %2, i64 %88
-  %90 = sext i32 %66 to i64
+  %90 = zext nneg i32 %66 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %87, ptr noundef align 1 %89, i64 noundef range(i64 -2147483646, 4294967296) %90, i1 false) #32
-  %91 = getelementptr inbounds i8, ptr %87, i64 %90
+  %91 = getelementptr inbounds nuw i8, ptr %87, i64 %90
   store ptr %91, ptr %47, align 8, !tbaa !42
   br label %.critedge
 

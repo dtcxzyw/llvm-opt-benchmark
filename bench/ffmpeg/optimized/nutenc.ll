@@ -2454,7 +2454,7 @@ put_v.exit86.i:                                   ; preds = %.lr.ph.i83.i, %70
   %.036.i.i100.i = phi i64 [ %162, %.lr.ph.i.i98.i ], [ %161, %160 ]
   %162 = lshr i64 %.036.i.i100.i, 7
   %163 = add nuw nsw i32 %.07.i.i99.i, 1
-  %.not.i.i101.i = icmp ult i64 %.036.i.i100.i, 16384
+  %.not.i.i101.i = icmp samesign ult i64 %.036.i.i100.i, 16384
   br i1 %.not.i.i101.i, label %.lr.ph.preheader.i102.i, label %.lr.ph.i.i98.i, !llvm.loop !129
 
 .lr.ph.preheader.i102.i:                          ; preds = %.lr.ph.i.i98.i

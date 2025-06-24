@@ -903,7 +903,7 @@ define void @av_memcpy_backptr(ptr noundef captures(none) %0, i32 noundef %1, i3
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.057.lcssa = phi ptr [ %0, %.preheader ], [ %78, %.lr.ph ]
   %.054.lcssa = phi i32 [ %2, %.preheader ], [ %79, %.lr.ph ]
-  %82 = sext i32 %.054.lcssa to i64
+  %82 = zext nneg i32 %.054.lcssa to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.057.lcssa, ptr nonnull align 1 %6, i64 %82, i1 false)
   br label %fill16.exit
 

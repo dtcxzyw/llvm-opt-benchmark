@@ -6189,10 +6189,10 @@ copy_pack_data.exit.i66.i.i:                      ; preds = %2520, %2502
   %.01629.i.i.i.i = phi i32 [ %.218.i.i.i.i, %2536 ], [ %2527, %2526 ]
   %.01928.i.i.i.i = phi i32 [ %.221.i.i.i.i, %2536 ], [ 0, %2526 ]
   %2529 = sub nsw i32 %.01629.i.i.i.i, %.01928.i.i.i.i
-  %2530 = sdiv i32 %2529, 2
-  %2531 = add nsw i32 %2530, %.01928.i.i.i.i
-  %2532 = sext i32 %2531 to i64
-  %2533 = getelementptr inbounds %struct.reused_chunk, ptr %.pre.i67.i.i.i, i64 %2532
+  %2530 = lshr i32 %2529, 1
+  %2531 = add nuw nsw i32 %2530, %.01928.i.i.i.i
+  %2532 = zext nneg i32 %2531 to i64
+  %2533 = getelementptr inbounds nuw %struct.reused_chunk, ptr %.pre.i67.i.i.i, i64 %2532
   %2534 = load i64, ptr %2533, align 8, !tbaa !250
   %.not.i70.i.i.i = icmp eq i64 %2458, %2534
   br i1 %.not.i70.i.i.i, label %.thread.i.i.i.i, label %2536
@@ -6203,14 +6203,14 @@ copy_pack_data.exit.i66.i.i:                      ; preds = %2520, %2502
 
 2536:                                             ; preds = %.lr.ph.i69.i.i.i
   %2537 = icmp slt i64 %2458, %2534
-  %2538 = add nsw i32 %2531, 1
+  %2538 = add nuw nsw i32 %2531, 1
   %.221.i.i.i.i = select i1 %2537, i32 %.01928.i.i.i.i, i32 %2538
   %.218.i.i.i.i = select i1 %2537, i32 %2531, i32 %.01629.i.i.i.i
   %2539 = icmp slt i32 %.221.i.i.i.i, %.218.i.i.i.i
   br i1 %2539, label %.lr.ph.i69.i.i.i, label %._crit_edge.loopexit.i.i.i.i207
 
 ._crit_edge.loopexit.i.i.i.i207:                  ; preds = %2536
-  %2540 = sext i32 %.221.i.i.i.i to i64
+  %2540 = zext nneg i32 %.221.i.i.i.i to i64
   br label %._crit_edge.i68.i.i.i
 
 ._crit_edge.i68.i.i.i:                            ; preds = %._crit_edge.loopexit.i.i.i.i207, %2526
@@ -6228,10 +6228,10 @@ find_reused_offset.exit.i.i.i:                    ; preds = %._crit_edge.i68.i.i
   %.01629.i77.i.i.i = phi i32 [ %.218.i81.i.i.i, %2550 ], [ %2527, %find_reused_offset.exit.i.i.i ]
   %.01928.i78.i.i.i = phi i32 [ %.221.i80.i.i.i, %2550 ], [ 0, %find_reused_offset.exit.i.i.i ]
   %2543 = sub nsw i32 %.01629.i77.i.i.i, %.01928.i78.i.i.i
-  %2544 = sdiv i32 %2543, 2
-  %2545 = add nsw i32 %2544, %.01928.i78.i.i.i
-  %2546 = sext i32 %2545 to i64
-  %2547 = getelementptr inbounds %struct.reused_chunk, ptr %.pre.i67.i.i.i, i64 %2546
+  %2544 = lshr i32 %2543, 1
+  %2545 = add nuw nsw i32 %2544, %.01928.i78.i.i.i
+  %2546 = zext nneg i32 %2545 to i64
+  %2547 = getelementptr inbounds nuw %struct.reused_chunk, ptr %.pre.i67.i.i.i, i64 %2546
   %2548 = load i64, ptr %2547, align 8, !tbaa !250
   %.not.i79.i.i.i = icmp eq i64 %2494, %2548
   br i1 %.not.i79.i.i.i, label %.thread.i83.i.i.i, label %2550
@@ -6242,14 +6242,14 @@ find_reused_offset.exit.i.i.i:                    ; preds = %._crit_edge.i68.i.i
 
 2550:                                             ; preds = %.lr.ph.i76.i.i.i
   %2551 = icmp slt i64 %2494, %2548
-  %2552 = add nsw i32 %2545, 1
+  %2552 = add nuw nsw i32 %2545, 1
   %.221.i80.i.i.i = select i1 %2551, i32 %.01928.i78.i.i.i, i32 %2552
   %.218.i81.i.i.i = select i1 %2551, i32 %2545, i32 %.01629.i77.i.i.i
   %2553 = icmp slt i32 %.221.i80.i.i.i, %.218.i81.i.i.i
   br i1 %2553, label %.lr.ph.i76.i.i.i, label %._crit_edge.loopexit.i82.i.i.i
 
 ._crit_edge.loopexit.i82.i.i.i:                   ; preds = %2550
-  %2554 = sext i32 %.221.i80.i.i.i to i64
+  %2554 = zext nneg i32 %.221.i80.i.i.i to i64
   br label %._crit_edge.i72.i.i.i
 
 ._crit_edge.i72.i.i.i:                            ; preds = %._crit_edge.loopexit.i82.i.i.i, %find_reused_offset.exit.i.i.i
@@ -7724,14 +7724,14 @@ pack_name_hash.exit:                              ; preds = %3, %1
 
 22:                                               ; preds = %20
   %23 = sub nsw i32 %.016.i.i, %.019.i.i
-  %24 = sdiv i32 %23, 2
-  %25 = add nsw i32 %24, %.019.i.i
-  %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds i32, ptr %19, i64 %26
+  %24 = lshr i32 %23, 1
+  %25 = add nuw nsw i32 %24, %.019.i.i
+  %26 = zext nneg i32 %25 to i64
+  %27 = getelementptr inbounds nuw i32, ptr %19, i64 %26
   %28 = load i32, ptr %27, align 4, !tbaa !30
   %.not.i.i = icmp eq i32 %28, %.06.i
   %29 = icmp ult i32 %28, %.06.i
-  %30 = add nsw i32 %25, 1
+  %30 = add nuw nsw i32 %25, 1
   %.221.i.i = select i1 %29, i32 %.019.i.i, i32 %30
   %.218.i.i = select i1 %29, i32 %25, i32 %.016.i.i
   br i1 %.not.i.i, label %done_pbase_path_pos.exit.i, label %20, !llvm.loop !288

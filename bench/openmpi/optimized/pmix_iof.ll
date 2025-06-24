@@ -11343,7 +11343,7 @@ pmix_obj_run_destructors.exit84:                  ; preds = %.lr.ph.i81, %102
   %124 = and i64 %70, 2147483647
   %125 = getelementptr inbounds nuw i8, ptr %123, i64 %124
   %126 = sub nsw i32 %117, %71
-  %127 = sext i32 %126 to i64
+  %127 = zext nneg i32 %126 to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %123, ptr align 1 %125, i64 %127, i1 false)
   %128 = load i32, ptr %33, align 8, !tbaa !237
   %129 = sub nsw i32 %128, %71

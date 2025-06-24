@@ -1141,7 +1141,7 @@ define internal fastcc noalias noundef ptr @_ZL8readFilePKcS0_RiRc(ptr noundef %
 45:                                               ; preds = %42
   %46 = getelementptr inbounds nuw i8, ptr %27, i64 %35
   %47 = sub nsw i32 %43, %14
-  %48 = sext i32 %47 to i64
+  %48 = zext nneg i32 %47 to i64
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %46, i8 -86, i64 %48, i1 false)
   br label %49
 
@@ -2551,8 +2551,8 @@ _ZN6icu_777Package18ensureItemCapacityEv.exit._crit_edge: ; preds = %_ZN6icu_777
   %51 = getelementptr inbounds nuw %"struct.icu_77::Item", ptr %49, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 24
   %53 = sub nsw i32 %45, %23
-  %54 = sext i32 %53 to i64
-  %55 = mul nsw i64 %54, 24
+  %54 = zext nneg i32 %53 to i64
+  %55 = mul nuw nsw i64 %54, 24
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %52, ptr align 8 %51, i64 %55, i1 false)
   %.pre31 = load i32, ptr %7, align 4, !tbaa !29
   br label %56
@@ -2754,8 +2754,8 @@ define void @_ZN6icu_777Package10removeItemEi(ptr noundef nonnull align 8 captur
   %21 = getelementptr inbounds nuw %"struct.icu_77::Item", ptr %20, i64 %7
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = sub nsw i32 %17, %15
-  %24 = sext i32 %23 to i64
-  %25 = mul nsw i64 %24, 24
+  %24 = zext nneg i32 %23 to i64
+  %25 = mul nuw nsw i64 %24, 24
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %21, ptr nonnull align 8 %22, i64 %25, i1 false)
   %.pre = load i32, ptr %16, align 4, !tbaa !29
   br label %26
@@ -2818,8 +2818,8 @@ define void @_ZN6icu_777Package11removeItemsEPKc(ptr noundef nonnull align 8 cap
   %24 = getelementptr inbounds nuw %"struct.icu_77::Item", ptr %23, i64 %11
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %26 = sub nsw i32 %20, %19
-  %27 = sext i32 %26 to i64
-  %28 = mul nsw i64 %27, 24
+  %27 = zext nneg i32 %26 to i64
+  %28 = mul nuw nsw i64 %27, 24
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %24, ptr nonnull align 8 %25, i64 %28, i1 false)
   %.pre.i = load i32, ptr %6, align 4, !tbaa !29
   br label %29
@@ -2897,8 +2897,8 @@ define void @_ZN6icu_777Package11removeItemsERKS0_(ptr noundef nonnull align 8 c
   %30 = getelementptr inbounds nuw %"struct.icu_77::Item", ptr %29, i64 %17
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %32 = sub nsw i32 %26, %25
-  %33 = sext i32 %32 to i64
-  %34 = mul nsw i64 %33, 24
+  %33 = zext nneg i32 %32 to i64
+  %34 = mul nuw nsw i64 %33, 24
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %30, ptr nonnull align 8 %31, i64 %34, i1 false)
   %.pre.i.i = load i32, ptr %9, align 4, !tbaa !29
   br label %35

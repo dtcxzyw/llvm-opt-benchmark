@@ -707,8 +707,8 @@ define void @Aig_CManAddPo(ptr noundef captures(none) %0, i32 noundef %1) local_
 
 18:                                               ; preds = %17
   %19 = sub nsw i32 %1, %4
-  %20 = shl i32 %19, 1
-  %.not5.i15 = icmp ult i32 %20, 128
+  %20 = shl nuw i32 %19, 1
+  %.not5.i15 = icmp ult i32 %19, 64
   br i1 %.not5.i15, label %Aig_CManStoreNum.exit, label %.lr.ph.i16
 
 .lr.ph.i16:                                       ; preds = %18
@@ -729,9 +729,9 @@ define void @Aig_CManAddPo(ptr noundef captures(none) %0, i32 noundef %1) local_
 
 28:                                               ; preds = %17
   %29 = sub nsw i32 %4, %1
-  %30 = shl i32 %29, 1
+  %30 = shl nuw i32 %29, 1
   %31 = or disjoint i32 %30, 1
-  %.not5.i21 = icmp ult i32 %30, 128
+  %.not5.i21 = icmp ult i32 %29, 64
   br i1 %.not5.i21, label %Aig_CManStoreNum.exit, label %.lr.ph.i22
 
 .lr.ph.i22:                                       ; preds = %28
@@ -1132,8 +1132,8 @@ Aig_ObjFaninId0.exit49:                           ; preds = %.lr.ph66, %94
 
 115:                                              ; preds = %114
   %116 = sub nsw i32 %103, %104
-  %117 = shl i32 %116, 1
-  %.not5.i15.i = icmp ult i32 %117, 128
+  %117 = shl nuw i32 %116, 1
+  %.not5.i15.i = icmp ult i32 %116, 64
   br i1 %.not5.i15.i, label %Aig_CManAddPo.exit, label %.lr.ph.i16.i
 
 .lr.ph.i16.i:                                     ; preds = %115, %.lr.ph.i16.i
@@ -1150,9 +1150,9 @@ Aig_ObjFaninId0.exit49:                           ; preds = %.lr.ph66, %94
 
 123:                                              ; preds = %114
   %124 = sub nsw i32 %104, %103
-  %125 = shl i32 %124, 1
+  %125 = shl nuw i32 %124, 1
   %126 = or disjoint i32 %125, 1
-  %.not5.i21.i = icmp ult i32 %125, 128
+  %.not5.i21.i = icmp ult i32 %124, 64
   br i1 %.not5.i21.i, label %Aig_CManAddPo.exit, label %.lr.ph.i22.i
 
 .lr.ph.i22.i:                                     ; preds = %123, %.lr.ph.i22.i

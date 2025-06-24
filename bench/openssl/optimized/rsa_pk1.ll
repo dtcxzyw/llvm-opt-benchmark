@@ -34,9 +34,9 @@ define range(i32 0, 2) i32 @RSA_padding_add_PKCS1_type_1(ptr noundef writeonly c
   store i8 1, ptr %9, align 1, !tbaa !3
   %11 = add nsw i32 %1, -3
   %12 = sub i32 %11, %3
-  %13 = sext i32 %12 to i64
+  %13 = zext nneg i32 %12 to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %10, i8 -1, i64 %13, i1 false)
-  %14 = getelementptr inbounds i8, ptr %10, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 1
   store i8 0, ptr %14, align 1, !tbaa !3
   %16 = zext i32 %3 to i64

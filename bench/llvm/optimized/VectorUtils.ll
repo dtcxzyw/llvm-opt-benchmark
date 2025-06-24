@@ -3021,7 +3021,7 @@ _ZN4llvm5APIntD2Ev.exit32:                        ; preds = %34, %31, %_ZN4llvm5
 
 70:                                               ; preds = %48
   %71 = sub nsw i32 %49, %11
-  %72 = shl nsw i32 %71, 1
+  %72 = shl nuw nsw i32 %71, 1
   %73 = add nsw i32 %72, %50
   %74 = and i32 %73, 63
   %75 = zext nneg i32 %74 to i64

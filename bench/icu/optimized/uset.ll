@@ -1346,7 +1346,7 @@ define signext range(i8 0, 2) i8 @uset_getSerializedRange_77(ptr noundef readonl
 
 43:                                               ; preds = %9
   %44 = sub nsw i32 %15, %14
-  %45 = shl nsw i32 %44, 1
+  %45 = shl nuw nsw i32 %44, 1
   %46 = sub nsw i32 %12, %14
   %47 = icmp slt i32 %45, %46
   br i1 %47, label %48, label %73
@@ -1354,27 +1354,27 @@ define signext range(i8 0, 2) i8 @uset_getSerializedRange_77(ptr noundef readonl
 48:                                               ; preds = %43
   %49 = sext i32 %14 to i64
   %50 = getelementptr inbounds i16, ptr %10, i64 %49
-  %51 = sext i32 %45 to i64
-  %52 = getelementptr inbounds i16, ptr %50, i64 %51
+  %51 = zext nneg i32 %45 to i64
+  %52 = getelementptr inbounds nuw i16, ptr %50, i64 %51
   %53 = load i16, ptr %52, align 2, !tbaa !32
   %54 = zext i16 %53 to i32
   %55 = shl nuw i32 %54, 16
-  %56 = getelementptr i8, ptr %52, i64 2
+  %56 = getelementptr inbounds nuw i8, ptr %52, i64 2
   %57 = load i16, ptr %56, align 2, !tbaa !32
   %58 = zext i16 %57 to i32
   %59 = or disjoint i32 %55, %58
   store i32 %59, ptr %2, align 4, !tbaa !21
-  %60 = add nsw i32 %45, 2
+  %60 = add nuw nsw i32 %45, 2
   %61 = icmp slt i32 %60, %46
   br i1 %61, label %62, label %.sink.split
 
 62:                                               ; preds = %48
-  %63 = sext i32 %60 to i64
-  %64 = getelementptr inbounds i16, ptr %50, i64 %63
+  %63 = zext nneg i32 %60 to i64
+  %64 = getelementptr inbounds nuw i16, ptr %50, i64 %63
   %65 = load i16, ptr %64, align 2, !tbaa !32
   %66 = zext i16 %65 to i32
   %67 = shl nuw i32 %66, 16
-  %68 = getelementptr i8, ptr %52, i64 6
+  %68 = getelementptr inbounds nuw i8, ptr %52, i64 6
   %69 = load i16, ptr %68, align 2, !tbaa !32
   %70 = zext i16 %69 to i32
   %71 = or disjoint i32 %67, %70

@@ -12145,8 +12145,8 @@ LZ4HC_FindLongerMatch.exit692.i:                  ; preds = %LZ4HC_InsertAndGetW
   %4649 = icmp eq i32 %.pre2231.i, 1
   %4650 = icmp sgt i64 %indvars.iv2214.i, %4646
   %4651 = sub nsw i32 %.pre-phi, %4640
-  %4652 = sext i32 %4651 to i64
-  %4653 = getelementptr inbounds %struct.LZ4HC_optimal_t, ptr %2891, i64 %4652
+  %4652 = zext nneg i32 %4651 to i64
+  %4653 = getelementptr inbounds nuw %struct.LZ4HC_optimal_t, ptr %2891, i64 %4652
   %4654 = add nsw i32 %spec.select2058.i, 3
   %.reass = add i32 %spec.select2058.i, 4
   br label %4673

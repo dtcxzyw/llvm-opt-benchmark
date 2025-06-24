@@ -699,7 +699,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @read_data_packet(ptr nound
 16:                                               ; preds = %11
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 %3
   %18 = sub nsw i32 %13, %1
-  %19 = sext i32 %18 to i64
+  %19 = zext nneg i32 %18 to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %17, i8 0, i64 %19, i1 false)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 66072
   store ptr %8, ptr %20, align 8, !tbaa !42

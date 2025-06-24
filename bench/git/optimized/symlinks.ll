@@ -263,7 +263,7 @@ do_remove_scheduled_dirs.exit:                    ; preds = %53, %55, %61
 68:                                               ; preds = %44, %do_remove_scheduled_dirs.exit
   %69 = getelementptr inbounds i8, ptr %0, i64 %45
   %70 = sub nsw i32 %.018.lcssa, %.234.i
-  %71 = sext i32 %70 to i64
+  %71 = zext nneg i32 %70 to i64
   tail call void @strbuf_add(ptr noundef nonnull @removal, ptr noundef %69, i64 noundef %71) #11
   br label %.critedge
 

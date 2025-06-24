@@ -421,7 +421,7 @@ define hidden void @ff_imdct36_blocks_float(ptr noundef writeonly captures(none)
   %23 = getelementptr inbounds nuw float, ptr %.01820, i64 %indvars.iv171.i
   %24 = fadd nsz float %20, %22
   store float %24, ptr %23, align 4, !tbaa !8
-  %25 = icmp samesign ugt i64 %indvars.iv171.i, 4
+  %25 = icmp samesign ugt i64 %indvars.iv.next172.i, 2
   br i1 %25, label %.preheader164.i, label %.preheader163.i, !llvm.loop !17
 
 .preheader163.i:                                  ; preds = %.preheader164.i, %.preheader163.i

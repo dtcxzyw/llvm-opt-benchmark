@@ -621,7 +621,7 @@ define internal fastcc range(i32 0, 2) i32 @generate_q_fips186_4(ptr noundef non
   %.037 = select i1 %16, ptr %21, ptr %11
   %22 = icmp slt i32 %.fr64, %3
   %23 = sub nsw i32 %3, %.fr64
-  %24 = sext i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %25 = getelementptr i8, ptr %.037, i64 %19
   %26 = getelementptr i8, ptr %25, i64 -1
   br i1 %.not44, label %.preheader.split.us, label %.preheader.split.split

@@ -1707,8 +1707,8 @@ define ptr @Abc_NodeBuildFromMiniInt(ptr noundef %0, ptr noundef captures(none) 
 
 33:                                               ; preds = %23
   %34 = sub nsw i32 %28, %2
-  %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds ptr, ptr %.val56, i64 %35
+  %35 = zext nneg i32 %34 to i64
+  %36 = getelementptr inbounds nuw ptr, ptr %.val56, i64 %35
   %37 = load ptr, ptr %36, align 8, !tbaa !54
   br label %38
 
@@ -1729,8 +1729,8 @@ define ptr @Abc_NodeBuildFromMiniInt(ptr noundef %0, ptr noundef captures(none) 
 48:                                               ; preds = %38
   %49 = sub nsw i32 %29, %2
   %.val = load ptr, ptr %6, align 8, !tbaa !53
-  %50 = sext i32 %49 to i64
-  %51 = getelementptr inbounds ptr, ptr %.val, i64 %50
+  %50 = zext nneg i32 %49 to i64
+  %51 = getelementptr inbounds nuw ptr, ptr %.val, i64 %50
   %52 = load ptr, ptr %51, align 8, !tbaa !54
   br label %53
 

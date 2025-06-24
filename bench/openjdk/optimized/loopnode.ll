@@ -13134,7 +13134,7 @@ define hidden noundef ptr @_ZN13LoopLimitNode5IdealEP8PhaseGVNb(ptr noundef nonn
 
 116:                                              ; preds = %61
   %.not96 = icmp ne i32 %.064, 0
-  %117 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.064)
+  %117 = tail call range(i32 0, 32) i32 @llvm.ctpop.i32(i32 %.064)
   %or.cond = icmp eq i32 %117, 1
   br i1 %or.cond, label %119, label %_Z13is_power_of_2IiTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit.thread
 

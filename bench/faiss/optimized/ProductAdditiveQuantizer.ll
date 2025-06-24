@@ -2345,7 +2345,7 @@ define internal void @_ZNK5faiss24ProductAdditiveQuantizer22compute_unpacked_cod
   %53 = and i64 %37, 4294967295
   %54 = sub nsw i32 %38, %41
   %.02431.i.us = add nuw nsw i64 %42, 1
-  %55 = icmp sgt i32 %54, 8
+  %55 = icmp samesign ugt i32 %54, 8
   br i1 %55, label %.lr.ph.preheader.i.us, label %._crit_edge.i.us
 
 .lr.ph.preheader.i.us:                            ; preds = %51
@@ -2365,7 +2365,7 @@ define internal void @_ZNK5faiss24ProductAdditiveQuantizer22compute_unpacked_cod
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 8
   %62 = add nsw i32 %.02732.i.us, -8
   %.024.i.us = add nuw nsw i64 %.02435.i.us, 1
-  %63 = icmp samesign ugt i32 %.02732.i.us, 16
+  %63 = icmp samesign ugt i32 %62, 8
   br i1 %63, label %.lr.ph.i.us, label %._crit_edge.loopexit.i.us, !llvm.loop !92
 
 ._crit_edge.loopexit.i.us:                        ; preds = %.lr.ph.i.us
@@ -2708,7 +2708,7 @@ define internal void @_ZNK5faiss24ProductAdditiveQuantizer6decodeEPKhPfm.omp_out
   %78 = and i64 %61, 4294967295
   %79 = sub nsw i32 %62, %65
   %.02431.i = add nuw nsw i64 %66, 1
-  %80 = icmp sgt i32 %79, 8
+  %80 = icmp samesign ugt i32 %79, 8
   br i1 %80, label %.lr.ph.preheader.i, label %._crit_edge.i
 
 .lr.ph.preheader.i:                               ; preds = %76
@@ -2728,7 +2728,7 @@ define internal void @_ZNK5faiss24ProductAdditiveQuantizer6decodeEPKhPfm.omp_out
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 8
   %87 = add nsw i32 %.02732.i, -8
   %.024.i = add nuw nsw i64 %.02435.i, 1
-  %88 = icmp samesign ugt i32 %.02732.i, 16
+  %88 = icmp samesign ugt i32 %87, 8
   br i1 %88, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !92
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i

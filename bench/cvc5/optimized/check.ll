@@ -226,7 +226,7 @@ define hidden void @_ZN4cvc58internal23AssertArgumentException9constructEPKcS3_S
   %18 = sext i32 %15 to i64
   %19 = getelementptr inbounds i8, ptr %.041.us.ph, i64 %18
   %20 = sub nsw i32 %.043.us.ph, %15
-  %21 = sext i32 %20 to i64
+  %21 = zext nneg i32 %20 to i64
   %22 = call i32 @vsnprintf(ptr noundef nonnull %19, i64 noundef %21, ptr noundef %6, ptr noundef nonnull %10) #22
   %23 = add nsw i32 %22, %15
   call void @llvm.va_end.p0(ptr nonnull %10)
@@ -257,7 +257,7 @@ define hidden void @_ZN4cvc58internal23AssertArgumentException9constructEPKcS3_S
   %32 = sext i32 %29 to i64
   %33 = getelementptr inbounds i8, ptr %.041.ph, i64 %32
   %34 = sub nsw i32 %.043.ph, %29
-  %35 = sext i32 %34 to i64
+  %35 = zext nneg i32 %34 to i64
   %36 = call i32 @vsnprintf(ptr noundef nonnull %33, i64 noundef %35, ptr noundef %6, ptr noundef nonnull %10) #22
   %37 = add nsw i32 %36, %29
   call void @llvm.va_end.p0(ptr nonnull %10)

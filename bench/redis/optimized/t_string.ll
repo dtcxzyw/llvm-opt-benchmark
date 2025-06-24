@@ -1697,7 +1697,7 @@ define dso_local void @getrangeCommand(ptr noundef %0) local_unnamed_addr #0 {
 69:                                               ; preds = %64
   %70 = getelementptr inbounds nuw i8, ptr %.023, i64 %57
   %reass.sub = sub nsw i64 %61, %57
-  %71 = add i64 %reass.sub, 1
+  %71 = add nuw i64 %reass.sub, 1
   call void @addReplyBulkCBuffer(ptr noundef nonnull %0, ptr noundef %70, i64 noundef %71) #11
   br label %72
 

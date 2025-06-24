@@ -358,8 +358,8 @@ define void @dsytrd_sb2st_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   %.2354 = phi i32 [ %.3, %.critedge ], [ %.1358, %.preheader ]
   %storemerge353 = phi i32 [ %180, %.critedge ], [ %.1358, %.preheader ]
   %152 = sub nsw i32 %.5360, %storemerge353
-  %153 = mul nsw i32 %152, 3
-  %154 = add i32 %153, %.0277357
+  %153 = mul nuw nsw i32 %152, 3
+  %154 = add nuw i32 %153, %.0277357
   %155 = icmp eq i32 %154, 1
   br i1 %155, label %.thread323, label %156
 

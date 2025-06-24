@@ -2688,7 +2688,7 @@ _init_gres_device.exit.thread:                    ; preds = %58, %87
   %96 = add nuw nsw i64 %91, 1
   %wide.trip.count.i = and i64 %96, 4294967295
   %97 = add nsw i64 %95, -1
-  %98 = getelementptr inbounds i8, ptr %34, i64 %97
+  %98 = getelementptr inbounds nuw i8, ptr %34, i64 %97
   %99 = load i8, ptr %98, align 1
   %100 = sext i8 %99 to i64
   %101 = getelementptr inbounds i16, ptr %94, i64 %100
@@ -2706,7 +2706,7 @@ _init_gres_device.exit.thread:                    ; preds = %58, %87
 
 105:                                              ; preds = %.lr.ph
   %106 = sub nsw i64 %95, %indvars.iv.next.i
-  %107 = getelementptr inbounds i8, ptr %34, i64 %106
+  %107 = getelementptr inbounds nuw i8, ptr %34, i64 %106
   %108 = load i8, ptr %107, align 1
   %109 = sext i8 %108 to i64
   %110 = getelementptr inbounds i16, ptr %94, i64 %109

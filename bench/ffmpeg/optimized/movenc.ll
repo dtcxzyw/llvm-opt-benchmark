@@ -19809,8 +19809,8 @@ mov_write_tfrf_tags.exit.i.i:                     ; preds = %mov_write_tfrf_tag.
   %473 = getelementptr inbounds nuw i8, ptr %465, i64 328
   %474 = load ptr, ptr %473, align 8, !tbaa !247
   %475 = sub nsw i32 %470, %457
-  %476 = sext i32 %475 to i64
-  %477 = getelementptr inbounds %struct.MOVFragmentInfo, ptr %474, i64 %476
+  %476 = zext nneg i32 %475 to i64
+  %477 = getelementptr inbounds nuw %struct.MOVFragmentInfo, ptr %474, i64 %476
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %474, ptr align 8 %477, i64 %461, i1 false)
   store i32 %457, ptr %469, align 8, !tbaa !246
   %.pre27.i.i = load i32, ptr %20, align 4, !tbaa !102
@@ -19847,8 +19847,8 @@ mov_write_tfrf_tags.exit.i.i:                     ; preds = %mov_write_tfrf_tag.
   %493 = getelementptr inbounds nuw i8, ptr %484, i64 328
   %494 = load ptr, ptr %493, align 8, !tbaa !247
   %495 = sub nsw i32 %490, %457
-  %496 = sext i32 %495 to i64
-  %497 = getelementptr inbounds %struct.MOVFragmentInfo, ptr %494, i64 %496
+  %496 = zext nneg i32 %495 to i64
+  %497 = getelementptr inbounds nuw %struct.MOVFragmentInfo, ptr %494, i64 %496
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %494, ptr align 8 %497, i64 %461, i1 false)
   store i32 %457, ptr %489, align 8, !tbaa !246
   %.pre.i51.i = load i32, ptr %20, align 4, !tbaa !102

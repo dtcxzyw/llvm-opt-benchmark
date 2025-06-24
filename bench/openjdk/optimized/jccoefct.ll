@@ -322,8 +322,8 @@ define internal range(i32 0, 2) i32 @compress_data(ptr noundef %0, ptr noundef r
   %69 = getelementptr inbounds [10 x ptr], ptr %20, i64 0, i64 %68
   %70 = load ptr, ptr %69, align 8
   %71 = sub nsw i32 %64, %36
-  %72 = sext i32 %71 to i64
-  %73 = shl nsw i64 %72, 7
+  %72 = zext nneg i32 %71 to i64
+  %73 = shl nuw nsw i64 %72, 7
   tail call void @jZeroFar(ptr noundef %70, i64 noundef %73) #2
   %invariant.op = add i32 %.1101, -1
   %74 = load i32, ptr %34, align 4

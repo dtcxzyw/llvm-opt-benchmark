@@ -9594,8 +9594,8 @@ define range(i32 0, 2) i32 @mz_zip_reader_locate_file_v2(ptr noundef captures(ad
   %.069100.i = phi i64 [ %42, %.lr.ph102.i ], [ %.170.i, %81 ]
   %.07199.i = phi i64 [ 0, %.lr.ph102.i ], [ %.172.i, %81 ]
   %46 = sub nsw i64 %.069100.i, %.07199.i
-  %47 = ashr i64 %46, 1
-  %48 = add nsw i64 %47, %.07199.i
+  %47 = lshr i64 %46, 1
+  %48 = add nuw nsw i64 %47, %.07199.i
   %49 = and i64 %48, 4294967295
   %50 = getelementptr inbounds nuw i32, ptr %34, i64 %49
   %51 = load i32, ptr %50, align 4
@@ -9663,7 +9663,7 @@ define range(i32 0, 2) i32 @mz_zip_reader_locate_file_v2(ptr noundef captures(ad
 
 81:                                               ; preds = %._crit_edge.i
   %82 = icmp slt i32 %78, 0
-  %83 = add nsw i64 %48, 1
+  %83 = add nuw nsw i64 %48, 1
   %84 = add nsw i64 %48, -1
   %.172.i = select i1 %82, i64 %83, i64 %.07199.i
   %.170.i = select i1 %82, i64 %.069100.i, i64 %84

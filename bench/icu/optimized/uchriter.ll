@@ -1089,20 +1089,20 @@ define noundef i32 @_ZN6icu_7722UCharCharacterIterator6move32EiNS_17CharacterIte
   br i1 %12, label %.preheader.split.us, label %.preheader.split
 
 .preheader.split.us:                              ; preds = %.preheader, %27
-  %.02863.us = phi i32 [ %29, %27 ], [ %1, %.preheader ]
+  %.02861.us = phi i32 [ %29, %27 ], [ %1, %.preheader ]
   %14 = phi i32 [ %28, %27 ], [ %6, %.preheader ]
   %15 = icmp sge i32 %14, %.fr
-  %.phi.trans.insert72 = sext i32 %14 to i64
-  %.phi.trans.insert73 = getelementptr inbounds i16, ptr %13, i64 %.phi.trans.insert72
-  %.pre74 = load i16, ptr %.phi.trans.insert73, align 2, !tbaa !25
-  %.not41.us = icmp eq i16 %.pre74, 0
-  %or.cond81 = select i1 %15, i1 %.not41.us, i1 false
-  br i1 %or.cond81, label %.critedge, label %.critedge2.us
+  %.phi.trans.insert70 = sext i32 %14 to i64
+  %.phi.trans.insert71 = getelementptr inbounds i16, ptr %13, i64 %.phi.trans.insert70
+  %.pre72 = load i16, ptr %.phi.trans.insert71, align 2, !tbaa !25
+  %.not41.us = icmp eq i16 %.pre72, 0
+  %or.cond79 = select i1 %15, i1 %.not41.us, i1 false
+  br i1 %or.cond79, label %.critedge, label %.critedge2.us
 
 .critedge2.us:                                    ; preds = %.preheader.split.us
   %16 = add nsw i32 %14, 1
   store i32 %16, ptr %7, align 4, !tbaa !22
-  %17 = and i16 %.pre74, -1024
+  %17 = and i16 %.pre72, -1024
   %18 = icmp ne i16 %17, -10240
   %.not42.us = icmp eq i32 %16, %.fr
   %or.cond.us = select i1 %18, i1 true, i1 %.not42.us
@@ -1123,12 +1123,12 @@ define noundef i32 @_ZN6icu_7722UCharCharacterIterator6move32EiNS_17CharacterIte
 
 27:                                               ; preds = %25, %19, %.critedge2.us
   %28 = phi i32 [ %26, %25 ], [ %16, %19 ], [ %16, %.critedge2.us ]
-  %29 = add nsw i32 %.02863.us, -1
-  %30 = icmp sgt i32 %.02863.us, 1
+  %29 = add nsw i32 %.02861.us, -1
+  %30 = icmp sgt i32 %.02861.us, 1
   br i1 %30, label %.preheader.split.us, label %.critedge, !llvm.loop !27
 
 .preheader.split:                                 ; preds = %.preheader, %47
-  %.02863 = phi i32 [ %49, %47 ], [ %1, %.preheader ]
+  %.02861 = phi i32 [ %49, %47 ], [ %1, %.preheader ]
   %31 = phi i32 [ %48, %47 ], [ %6, %.preheader ]
   %32 = icmp slt i32 %31, %.fr
   br i1 %32, label %.critedge2, label %.critedge
@@ -1160,8 +1160,8 @@ define noundef i32 @_ZN6icu_7722UCharCharacterIterator6move32EiNS_17CharacterIte
 
 47:                                               ; preds = %45, %39, %.critedge2
   %48 = phi i32 [ %46, %45 ], [ %33, %39 ], [ %33, %.critedge2 ]
-  %49 = add nsw i32 %.02863, -1
-  %50 = icmp sgt i32 %.02863, 1
+  %49 = add nsw i32 %.02861, -1
+  %50 = icmp sgt i32 %.02861, 1
   br i1 %50, label %.preheader.split, label %.critedge, !llvm.loop !27
 
 51:                                               ; preds = %3
@@ -1173,29 +1173,29 @@ define noundef i32 @_ZN6icu_7722UCharCharacterIterator6move32EiNS_17CharacterIte
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %56 = load i32, ptr %55, align 4, !tbaa !24
-  %.fr65 = freeze i32 %56
-  %57 = icmp slt i32 %.fr65, 0
+  %.fr63 = freeze i32 %56
+  %57 = icmp slt i32 %.fr63, 0
   %58 = load ptr, ptr %53, align 8
-  %.promoted61 = load i32, ptr %54, align 4, !tbaa !22
+  %.promoted59 = load i32, ptr %54, align 4, !tbaa !22
   br i1 %57, label %.preheader48.split.us, label %.preheader48.split
 
 .preheader48.split.us:                            ; preds = %.preheader48, %72
-  %59 = phi i32 [ %73, %72 ], [ %.promoted61, %.preheader48 ]
-  %.02760.us = phi i32 [ %74, %72 ], [ %1, %.preheader48 ]
-  %60 = icmp sge i32 %59, %.fr65
+  %59 = phi i32 [ %73, %72 ], [ %.promoted59, %.preheader48 ]
+  %.02758.us = phi i32 [ %74, %72 ], [ %1, %.preheader48 ]
+  %60 = icmp sge i32 %59, %.fr63
   %.phi.trans.insert = sext i32 %59 to i64
-  %.phi.trans.insert71 = getelementptr inbounds i16, ptr %58, i64 %.phi.trans.insert
-  %.pre = load i16, ptr %.phi.trans.insert71, align 2, !tbaa !25
+  %.phi.trans.insert69 = getelementptr inbounds i16, ptr %58, i64 %.phi.trans.insert
+  %.pre = load i16, ptr %.phi.trans.insert69, align 2, !tbaa !25
   %.not.us = icmp eq i16 %.pre, 0
-  %or.cond82 = select i1 %60, i1 %.not.us, i1 false
-  br i1 %or.cond82, label %.critedge, label %.critedge6.us
+  %or.cond80 = select i1 %60, i1 %.not.us, i1 false
+  br i1 %or.cond80, label %.critedge, label %.critedge6.us
 
 .critedge6.us:                                    ; preds = %.preheader48.split.us
   %61 = add nsw i32 %59, 1
   store i32 %61, ptr %54, align 4, !tbaa !22
   %62 = and i16 %.pre, -1024
   %63 = icmp ne i16 %62, -10240
-  %.not40.us = icmp eq i32 %61, %.fr65
+  %.not40.us = icmp eq i32 %61, %.fr63
   %or.cond43.us = select i1 %63, i1 true, i1 %.not40.us
   br i1 %or.cond43.us, label %72, label %64
 
@@ -1214,14 +1214,14 @@ define noundef i32 @_ZN6icu_7722UCharCharacterIterator6move32EiNS_17CharacterIte
 
 72:                                               ; preds = %70, %64, %.critedge6.us
   %73 = phi i32 [ %71, %70 ], [ %61, %64 ], [ %61, %.critedge6.us ]
-  %74 = add nsw i32 %.02760.us, -1
-  %75 = icmp sgt i32 %.02760.us, 1
+  %74 = add nsw i32 %.02758.us, -1
+  %75 = icmp sgt i32 %.02758.us, 1
   br i1 %75, label %.preheader48.split.us, label %.critedge, !llvm.loop !29
 
 .preheader48.split:                               ; preds = %.preheader48, %92
-  %76 = phi i32 [ %93, %92 ], [ %.promoted61, %.preheader48 ]
-  %.02760 = phi i32 [ %94, %92 ], [ %1, %.preheader48 ]
-  %77 = icmp slt i32 %76, %.fr65
+  %76 = phi i32 [ %93, %92 ], [ %.promoted59, %.preheader48 ]
+  %.02758 = phi i32 [ %94, %92 ], [ %1, %.preheader48 ]
+  %77 = icmp slt i32 %76, %.fr63
   br i1 %77, label %.critedge6, label %.critedge
 
 .critedge6:                                       ; preds = %.preheader48.split
@@ -1232,7 +1232,7 @@ define noundef i32 @_ZN6icu_7722UCharCharacterIterator6move32EiNS_17CharacterIte
   %81 = load i16, ptr %80, align 2, !tbaa !25
   %82 = and i16 %81, -1024
   %83 = icmp ne i16 %82, -10240
-  %.not40 = icmp eq i32 %78, %.fr65
+  %.not40 = icmp eq i32 %78, %.fr63
   %or.cond43 = select i1 %83, i1 true, i1 %.not40
   br i1 %or.cond43, label %92, label %84
 
@@ -1251,28 +1251,28 @@ define noundef i32 @_ZN6icu_7722UCharCharacterIterator6move32EiNS_17CharacterIte
 
 92:                                               ; preds = %90, %84, %.critedge6
   %93 = phi i32 [ %91, %90 ], [ %78, %84 ], [ %78, %.critedge6 ]
-  %94 = add nsw i32 %.02760, -1
-  %95 = icmp sgt i32 %.02760, 1
+  %94 = add nsw i32 %.02758, -1
+  %95 = icmp sgt i32 %.02758, 1
   br i1 %95, label %.preheader48.split, label %.critedge, !llvm.loop !29
 
 96:                                               ; preds = %51
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %98 = icmp slt i32 %1, 0
-  br i1 %98, label %.lr.ph56, label %.critedge
+  br i1 %98, label %.lr.ph, label %.critedge
 
-.lr.ph56:                                         ; preds = %96
+.lr.ph:                                           ; preds = %96
   %99 = sub nsw i32 0, %1
-  %.promoted54 = load i32, ptr %97, align 4
+  %.promoted53 = load i32, ptr %97, align 4
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %101 = load i32, ptr %100, align 8, !tbaa !23
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %103 = load ptr, ptr %102, align 8
-  %invariant.gep58 = getelementptr i8, ptr %103, i64 -4
+  %invariant.gep56 = getelementptr i8, ptr %103, i64 -4
   br label %104
 
-104:                                              ; preds = %.lr.ph56, %122
-  %.02655 = phi i32 [ %99, %.lr.ph56 ], [ %124, %122 ]
-  %105 = phi i32 [ %.promoted54, %.lr.ph56 ], [ %123, %122 ]
+104:                                              ; preds = %.lr.ph, %122
+  %.02654 = phi i32 [ %99, %.lr.ph ], [ %124, %122 ]
+  %105 = phi i32 [ %.promoted53, %.lr.ph ], [ %123, %122 ]
   %106 = icmp sgt i32 %105, %101
   br i1 %106, label %107, label %.critedge
 
@@ -1290,8 +1290,8 @@ define noundef i32 @_ZN6icu_7722UCharCharacterIterator6move32EiNS_17CharacterIte
 
 115:                                              ; preds = %107
   %116 = sext i32 %105 to i64
-  %gep59 = getelementptr i16, ptr %invariant.gep58, i64 %116
-  %117 = load i16, ptr %gep59, align 2, !tbaa !25
+  %gep57 = getelementptr i16, ptr %invariant.gep56, i64 %116
+  %117 = load i16, ptr %gep57, align 2, !tbaa !25
   %118 = and i16 %117, -1024
   %119 = icmp eq i16 %118, -10240
   br i1 %119, label %120, label %122
@@ -1303,8 +1303,8 @@ define noundef i32 @_ZN6icu_7722UCharCharacterIterator6move32EiNS_17CharacterIte
 
 122:                                              ; preds = %120, %115, %107
   %123 = phi i32 [ %121, %120 ], [ %108, %115 ], [ %108, %107 ]
-  %124 = add nsw i32 %.02655, -1
-  %125 = icmp sgt i32 %.02655, 1
+  %124 = add nsw i32 %.02654, -1
+  %125 = icmp sgt i32 %.02654, 1
   br i1 %125, label %104, label %.critedge, !llvm.loop !30
 
 126:                                              ; preds = %3
@@ -1313,58 +1313,58 @@ define noundef i32 @_ZN6icu_7722UCharCharacterIterator6move32EiNS_17CharacterIte
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %128, ptr %129, align 4, !tbaa !22
   %130 = icmp slt i32 %1, 0
-  br i1 %130, label %.lr.ph, label %.critedge
+  br i1 %130, label %131, label %.critedge
 
-.lr.ph:                                           ; preds = %126
-  %131 = sub nsw i32 0, %1
-  %132 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %133 = load i32, ptr %132, align 8, !tbaa !23
-  %134 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %135 = load ptr, ptr %134, align 8
-  %invariant.gep = getelementptr i8, ptr %135, i64 -4
-  br label %136
+131:                                              ; preds = %126
+  %132 = sub nsw i32 0, %1
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %134 = load i32, ptr %133, align 8, !tbaa !23
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %136 = load ptr, ptr %135, align 8
+  %invariant.gep = getelementptr i8, ptr %136, i64 -4
+  br label %137
 
-136:                                              ; preds = %.lr.ph, %154
-  %.052 = phi i32 [ %131, %.lr.ph ], [ %156, %154 ]
-  %137 = phi i32 [ %128, %.lr.ph ], [ %155, %154 ]
-  %138 = icmp sgt i32 %137, %133
-  br i1 %138, label %139, label %.critedge
+137:                                              ; preds = %131, %155
+  %.052 = phi i32 [ %132, %131 ], [ %157, %155 ]
+  %138 = phi i32 [ %128, %131 ], [ %156, %155 ]
+  %139 = icmp sgt i32 %138, %134
+  br i1 %139, label %140, label %.critedge
 
-139:                                              ; preds = %136
-  %140 = add nsw i32 %137, -1
-  store i32 %140, ptr %129, align 4, !tbaa !22
-  %141 = sext i32 %140 to i64
-  %142 = getelementptr inbounds i16, ptr %135, i64 %141
-  %143 = load i16, ptr %142, align 2, !tbaa !25
-  %144 = and i16 %143, -1024
-  %145 = icmp eq i16 %144, -9216
-  %146 = icmp sgt i32 %140, %133
-  %or.cond47 = and i1 %146, %145
-  br i1 %or.cond47, label %147, label %154
+140:                                              ; preds = %137
+  %141 = add nsw i32 %138, -1
+  store i32 %141, ptr %129, align 4, !tbaa !22
+  %142 = sext i32 %141 to i64
+  %143 = getelementptr inbounds i16, ptr %136, i64 %142
+  %144 = load i16, ptr %143, align 2, !tbaa !25
+  %145 = and i16 %144, -1024
+  %146 = icmp eq i16 %145, -9216
+  %147 = icmp sgt i32 %141, %134
+  %or.cond47 = and i1 %147, %146
+  br i1 %or.cond47, label %148, label %155
 
-147:                                              ; preds = %139
-  %148 = sext i32 %137 to i64
-  %gep = getelementptr i16, ptr %invariant.gep, i64 %148
-  %149 = load i16, ptr %gep, align 2, !tbaa !25
-  %150 = and i16 %149, -1024
-  %151 = icmp eq i16 %150, -10240
-  br i1 %151, label %152, label %154
+148:                                              ; preds = %140
+  %149 = sext i32 %138 to i64
+  %gep = getelementptr i16, ptr %invariant.gep, i64 %149
+  %150 = load i16, ptr %gep, align 2, !tbaa !25
+  %151 = and i16 %150, -1024
+  %152 = icmp eq i16 %151, -10240
+  br i1 %152, label %153, label %155
 
-152:                                              ; preds = %147
-  %153 = add nsw i32 %137, -2
-  store i32 %153, ptr %129, align 4, !tbaa !22
-  br label %154
+153:                                              ; preds = %148
+  %154 = add nsw i32 %138, -2
+  store i32 %154, ptr %129, align 4, !tbaa !22
+  br label %155
 
-154:                                              ; preds = %152, %147, %139
-  %155 = phi i32 [ %153, %152 ], [ %140, %147 ], [ %140, %139 ]
-  %156 = add nsw i32 %.052, -1
-  %157 = icmp sgt i32 %.052, 1
-  br i1 %157, label %136, label %.critedge, !llvm.loop !31
+155:                                              ; preds = %153, %148, %140
+  %156 = phi i32 [ %154, %153 ], [ %141, %148 ], [ %141, %140 ]
+  %157 = add nsw i32 %.052, -1
+  %158 = icmp sgt i32 %.052, 1
+  br i1 %158, label %137, label %.critedge, !llvm.loop !31
 
-.critedge:                                        ; preds = %154, %136, %122, %104, %92, %.preheader48.split, %72, %.preheader48.split.us, %47, %.preheader.split, %27, %.preheader.split.us, %96, %3, %126, %4
-  %158 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %159 = load i32, ptr %158, align 4, !tbaa !22
-  ret i32 %159
+.critedge:                                        ; preds = %137, %155, %122, %104, %92, %.preheader48.split, %72, %.preheader48.split.us, %47, %.preheader.split, %27, %.preheader.split.us, %96, %3, %126, %4
+  %159 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %160 = load i32, ptr %159, align 4, !tbaa !22
+  ret i32 %160
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable

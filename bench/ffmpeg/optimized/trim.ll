@@ -429,13 +429,13 @@ define internal i32 @atrim_filter_frame(ptr noundef %0, ptr noundef %1) #1 {
 
 10:                                               ; preds = %2
   call void @av_frame_free(ptr noundef nonnull %3) #7
-  br label %142
+  br label %141
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %13 = load i64, ptr %12, align 8, !tbaa !51
-  %.not135 = icmp eq i64 %13, -9223372036854775808
-  br i1 %.not135, label %20, label %14
+  %.not134 = icmp eq i64 %13, -9223372036854775808
+  br i1 %.not134, label %20, label %14
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -485,27 +485,27 @@ define internal i32 @atrim_filter_frame(ptr noundef %0, ptr noundef %1) #1 {
   %43 = icmp ne i64 %.0111, -9223372036854775808
   %or.cond = select i1 %42, i1 %43, i1 false
   %44 = icmp sgt i64 %27, %.pre
-  %or.cond159 = select i1 %or.cond, i1 %44, i1 false
-  br i1 %or.cond159, label %.thread149, label %49
+  %or.cond158 = select i1 %or.cond, i1 %44, i1 false
+  br i1 %or.cond158, label %.thread148, label %49
 
 .thread:                                          ; preds = %32
   %45 = icmp ne i64 %.0111, -9223372036854775808
   %46 = icmp sgt i64 %27, %34
-  %or.cond159171 = select i1 %45, i1 %46, i1 false
-  br i1 %or.cond159171, label %.thread149, label %.thread178
+  %or.cond158169 = select i1 %45, i1 %46, i1 false
+  br i1 %or.cond158169, label %.thread148, label %.thread176
 
-.thread149:                                       ; preds = %.thread, %36
-  %.1107174 = phi i64 [ %26, %.thread ], [ %spec.select162, %36 ]
+.thread148:                                       ; preds = %.thread, %36
+  %.1107172 = phi i64 [ %26, %.thread ], [ %spec.select162, %36 ]
   %47 = phi i64 [ %34, %.thread ], [ %.pre, %36 ]
   %48 = sub nsw i64 %47, %.0111
-  %..1107 = tail call i64 @llvm.smin.i64(i64 %.1107174, i64 %48)
+  %..1107 = tail call i64 @llvm.smin.i64(i64 %.1107172, i64 %48)
   br label %50
 
 49:                                               ; preds = %36
-  br i1 %40, label %50, label %.thread178
+  br i1 %40, label %50, label %.thread176
 
-50:                                               ; preds = %.thread149, %32, %49
-  %.0106 = phi i64 [ %spec.select162, %49 ], [ 0, %32 ], [ %..1107, %.thread149 ]
+50:                                               ; preds = %.thread148, %32, %49
+  %.0106 = phi i64 [ %spec.select162, %49 ], [ 0, %32 ], [ %..1107, %.thread148 ]
   %51 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %52 = load i64, ptr %51, align 8, !tbaa !20
   %53 = icmp eq i64 %52, -9223372036854775808
@@ -527,163 +527,163 @@ define internal i32 @atrim_filter_frame(ptr noundef %0, ptr noundef %1) #1 {
   %62 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %63 = load i64, ptr %62, align 8, !tbaa !46
   %64 = icmp eq i64 %63, -9223372036854775808
-  br i1 %64, label %65, label %.thread153
+  br i1 %64, label %65, label %.thread152
 
 65:                                               ; preds = %61
   %66 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %67 = load i64, ptr %66, align 8, !tbaa !48
-  %.not137 = icmp eq i64 %67, 0
-  br i1 %.not137, label %85, label %.thread153
+  %.not136 = icmp eq i64 %67, 0
+  br i1 %.not136, label %84, label %.thread152
 
 68:                                               ; preds = %56
   %69 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %70 = load i64, ptr %69, align 8, !tbaa !61
-  %71 = icmp slt i64 %70, %59
-  %72 = sub nsw i64 %59, %70
-  %spec.select164 = select i1 %71, i64 %72, i64 0
-  %.phi.trans.insert165 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  %.pre166 = load i64, ptr %.phi.trans.insert165, align 8, !tbaa !46
-  br label %.thread153
+  %.not161 = icmp slt i64 %70, %59
+  %71 = sub nsw i64 %59, %70
+  %spec.select147 = select i1 %.not161, i64 %71, i64 0
+  %.phi.trans.insert163 = getelementptr inbounds nuw i8, ptr %7, i64 56
+  %.pre164 = load i64, ptr %.phi.trans.insert163, align 8, !tbaa !46
+  br label %.thread152
 
-.thread153:                                       ; preds = %68, %61, %65
-  %73 = phi i64 [ -9223372036854775808, %65 ], [ %63, %61 ], [ %.pre166, %68 ]
-  %.not140161 = phi i1 [ false, %65 ], [ false, %61 ], [ %71, %68 ]
-  %.1109 = phi i64 [ 0, %65 ], [ 0, %61 ], [ %spec.select164, %68 ]
-  %74 = icmp ne i64 %73, -9223372036854775808
-  %75 = icmp ne i64 %.0111, -9223372036854775808
-  %or.cond3 = select i1 %74, i1 %75, i1 false
-  %76 = icmp slt i64 %.0111, %73
-  %or.cond148 = select i1 %or.cond3, i1 %76, i1 false
-  %77 = sub nsw i64 %73, %.0111
-  %.1109. = tail call i64 @llvm.smax.i64(i64 %.1109, i64 %77)
-  %.2110 = select i1 %or.cond148, i64 %.1109., i64 %.1109
-  %78 = getelementptr inbounds nuw i8, ptr %7, i64 104
-  %79 = load i64, ptr %78, align 8, !tbaa !48
-  %.not139 = icmp ne i64 %79, 0
-  %80 = sub nsw i64 %.0111, %57
-  %81 = icmp slt i64 %80, %79
-  %or.cond181 = select i1 %.not139, i1 %81, i1 false
-  br i1 %or.cond181, label %.thread154, label %84
+.thread152:                                       ; preds = %61, %65, %68
+  %72 = phi i64 [ %.pre164, %68 ], [ -9223372036854775808, %65 ], [ %63, %61 ]
+  %.2114 = phi i1 [ %.not161, %68 ], [ false, %65 ], [ false, %61 ]
+  %.1109 = phi i64 [ %spec.select147, %68 ], [ 0, %65 ], [ 0, %61 ]
+  %73 = icmp ne i64 %72, -9223372036854775808
+  %74 = icmp ne i64 %.0111, -9223372036854775808
+  %or.cond3 = select i1 %73, i1 %74, i1 false
+  %75 = icmp slt i64 %.0111, %72
+  %or.cond146 = select i1 %or.cond3, i1 %75, i1 false
+  %76 = sub nsw i64 %72, %.0111
+  %.1109. = tail call i64 @llvm.smax.i64(i64 %.1109, i64 %76)
+  %.2110 = select i1 %or.cond146, i64 %.1109., i64 %.1109
+  %77 = getelementptr inbounds nuw i8, ptr %7, i64 104
+  %78 = load i64, ptr %77, align 8, !tbaa !48
+  %.not138 = icmp ne i64 %78, 0
+  %79 = sub nsw i64 %.0111, %57
+  %80 = icmp slt i64 %79, %78
+  %or.cond179 = select i1 %.not138, i1 %80, i1 false
+  br i1 %or.cond179, label %.thread153, label %83
 
-.thread154:                                       ; preds = %.thread153
-  %82 = sub i64 %79, %.0111
-  %83 = add i64 %82, %57
-  %.2110. = tail call i64 @llvm.smax.i64(i64 %.2110, i64 %83)
-  br label %85
+.thread153:                                       ; preds = %.thread152
+  %81 = sub i64 %78, %.0111
+  %82 = add i64 %81, %57
+  %.2110. = tail call i64 @llvm.smax.i64(i64 %.2110, i64 %82)
+  br label %84
 
-84:                                               ; preds = %.thread153
-  %.not140 = or i1 %.not140161, %or.cond148
-  br i1 %.not140, label %85, label %130
+83:                                               ; preds = %.thread152
+  %.not139 = select i1 %or.cond146, i1 true, i1 %.2114
+  br i1 %.not139, label %84, label %129
 
-85:                                               ; preds = %.thread154, %65, %84
-  %.0108 = phi i64 [ %.2110, %84 ], [ %26, %65 ], [ %.2110., %.thread154 ]
-  %86 = getelementptr inbounds nuw i8, ptr %7, i64 88
-  %87 = load i64, ptr %86, align 8, !tbaa !61
-  %88 = add nsw i64 %87, %26
-  store i64 %88, ptr %86, align 8, !tbaa !61
-  %89 = tail call i64 @llvm.smax.i64(i64 %.0106, i64 0)
+84:                                               ; preds = %.thread153, %65, %83
+  %.0108 = phi i64 [ %.2110, %83 ], [ %26, %65 ], [ %.2110., %.thread153 ]
+  %85 = getelementptr inbounds nuw i8, ptr %7, i64 88
+  %86 = load i64, ptr %85, align 8, !tbaa !61
+  %87 = add nsw i64 %86, %26
+  store i64 %87, ptr %85, align 8, !tbaa !61
+  %88 = tail call i64 @llvm.smax.i64(i64 %.0106, i64 0)
   %.0108. = tail call i64 @llvm.smin.i64(i64 %.0108, i64 %26)
-  %.not141 = icmp sge i64 %89, %.0108.
-  %.not142 = icmp eq i32 %25, 0
-  %or.cond160 = select i1 %.not141, i1 true, i1 %.not142
-  br i1 %or.cond160, label %.thread178, label %90
+  %.not140 = icmp sge i64 %88, %.0108.
+  %.not141 = icmp eq i32 %25, 0
+  %or.cond159 = select i1 %.not140, i1 true, i1 %.not141
+  br i1 %or.cond159, label %.thread176, label %89
 
-90:                                               ; preds = %85
-  %.not143 = icmp slt i64 %.0106, 1
-  br i1 %.not143, label %122, label %91
+89:                                               ; preds = %84
+  %.not142 = icmp slt i64 %.0106, 1
+  br i1 %.not142, label %121, label %90
 
-91:                                               ; preds = %90
-  %92 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  %93 = load ptr, ptr %92, align 8, !tbaa !26
-  %94 = load ptr, ptr %93, align 8, !tbaa !24
-  %95 = sub nsw i64 %.0108., %89
-  %96 = trunc nsw i64 %95 to i32
-  %97 = tail call ptr @ff_get_audio_buffer(ptr noundef %94, i32 noundef %96) #7
-  %.not144.not = icmp eq ptr %97, null
-  br i1 %.not144.not, label %.thread158, label %98
+90:                                               ; preds = %89
+  %91 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  %92 = load ptr, ptr %91, align 8, !tbaa !26
+  %93 = load ptr, ptr %92, align 8, !tbaa !24
+  %94 = sub nsw i64 %.0108., %88
+  %95 = trunc nsw i64 %94 to i32
+  %96 = tail call ptr @ff_get_audio_buffer(ptr noundef %93, i32 noundef %95) #7
+  %.not143.not = icmp eq ptr %96, null
+  br i1 %.not143.not, label %.thread157, label %97
 
-.thread158:                                       ; preds = %91
+.thread157:                                       ; preds = %90
   call void @av_frame_free(ptr noundef nonnull %3) #7
-  br label %142
+  br label %141
 
-98:                                               ; preds = %91
-  %99 = tail call i32 @av_frame_copy_props(ptr noundef nonnull %97, ptr noundef nonnull %1) #7
-  %100 = getelementptr inbounds nuw i8, ptr %97, i64 96
-  %101 = load ptr, ptr %100, align 8, !tbaa !63
-  %102 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %103 = load ptr, ptr %102, align 8, !tbaa !63
-  %104 = trunc nuw nsw i64 %89 to i32
-  %105 = getelementptr inbounds nuw i8, ptr %97, i64 112
-  %106 = load i32, ptr %105, align 8, !tbaa !59
-  %107 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %108 = load i32, ptr %107, align 4, !tbaa !64
-  %109 = getelementptr inbounds nuw i8, ptr %1, i64 116
-  %110 = load i32, ptr %109, align 4, !tbaa !65
-  %111 = tail call i32 @av_samples_copy(ptr noundef %101, ptr noundef %103, i32 noundef 0, i32 noundef %104, i32 noundef %106, i32 noundef %108, i32 noundef %110) #7
-  %112 = getelementptr inbounds nuw i8, ptr %97, i64 136
-  %113 = load i64, ptr %112, align 8, !tbaa !51
-  %.not145 = icmp eq i64 %113, -9223372036854775808
-  br i1 %.not145, label %121, label %114
+97:                                               ; preds = %90
+  %98 = tail call i32 @av_frame_copy_props(ptr noundef nonnull %96, ptr noundef nonnull %1) #7
+  %99 = getelementptr inbounds nuw i8, ptr %96, i64 96
+  %100 = load ptr, ptr %99, align 8, !tbaa !63
+  %101 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %102 = load ptr, ptr %101, align 8, !tbaa !63
+  %103 = trunc nuw nsw i64 %88 to i32
+  %104 = getelementptr inbounds nuw i8, ptr %96, i64 112
+  %105 = load i32, ptr %104, align 8, !tbaa !59
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  %107 = load i32, ptr %106, align 4, !tbaa !64
+  %108 = getelementptr inbounds nuw i8, ptr %1, i64 116
+  %109 = load i32, ptr %108, align 4, !tbaa !65
+  %110 = tail call i32 @av_samples_copy(ptr noundef %100, ptr noundef %102, i32 noundef 0, i32 noundef %103, i32 noundef %105, i32 noundef %107, i32 noundef %109) #7
+  %111 = getelementptr inbounds nuw i8, ptr %96, i64 136
+  %112 = load i64, ptr %111, align 8, !tbaa !51
+  %.not144 = icmp eq i64 %112, -9223372036854775808
+  br i1 %.not144, label %120, label %113
 
-114:                                              ; preds = %98
-  %115 = getelementptr inbounds nuw i8, ptr %97, i64 180
-  %116 = load i32, ptr %115, align 4, !tbaa !66
-  %117 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %.sroa.2.0.insert.ext = zext i32 %116 to i64
+113:                                              ; preds = %97
+  %114 = getelementptr inbounds nuw i8, ptr %96, i64 180
+  %115 = load i32, ptr %114, align 4, !tbaa !66
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %.sroa.2.0.insert.ext = zext i32 %115 to i64
   %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, 1
-  %118 = load i64, ptr %117, align 8
-  %119 = tail call i64 @av_rescale_q(i64 noundef %89, i64 %.sroa.0.0.insert.insert, i64 %118) #8
-  %120 = add nsw i64 %119, %113
-  store i64 %120, ptr %112, align 8, !tbaa !51
-  br label %121
+  %117 = load i64, ptr %116, align 8
+  %118 = tail call i64 @av_rescale_q(i64 noundef %88, i64 %.sroa.0.0.insert.insert, i64 %117) #8
+  %119 = add nsw i64 %118, %112
+  store i64 %119, ptr %111, align 8, !tbaa !51
+  br label %120
 
-121:                                              ; preds = %98, %114
+120:                                              ; preds = %97, %113
   call void @av_frame_free(ptr noundef nonnull %3) #7
-  store ptr %97, ptr %3, align 8, !tbaa !28
-  br label %124
+  store ptr %96, ptr %3, align 8, !tbaa !28
+  br label %123
 
-122:                                              ; preds = %90
-  %123 = trunc nuw nsw i64 %.0108. to i32
-  store i32 %123, ptr %24, align 8, !tbaa !59
-  br label %124
+121:                                              ; preds = %89
+  %122 = trunc nuw nsw i64 %.0108. to i32
+  store i32 %122, ptr %24, align 8, !tbaa !59
+  br label %123
 
-124:                                              ; preds = %121, %122
-  %125 = phi ptr [ %97, %121 ], [ %1, %122 ]
-  %126 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  %127 = load ptr, ptr %126, align 8, !tbaa !26
-  %128 = load ptr, ptr %127, align 8, !tbaa !24
-  %129 = call i32 @ff_filter_frame(ptr noundef %128, ptr noundef nonnull %125) #7
-  br label %142
+123:                                              ; preds = %120, %121
+  %124 = phi ptr [ %96, %120 ], [ %1, %121 ]
+  %125 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  %126 = load ptr, ptr %125, align 8, !tbaa !26
+  %127 = load ptr, ptr %126, align 8, !tbaa !24
+  %128 = call i32 @ff_filter_frame(ptr noundef %127, ptr noundef nonnull %124) #7
+  br label %141
 
-130:                                              ; preds = %84
+129:                                              ; preds = %83
   store i32 1, ptr %8, align 8, !tbaa !27
   tail call void @ff_inlink_set_status(ptr noundef nonnull %0, i32 noundef -541478725) #7
-  %131 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  %132 = load ptr, ptr %131, align 8, !tbaa !26
-  %133 = load ptr, ptr %132, align 8, !tbaa !24
-  %134 = load i64, ptr %12, align 8, !tbaa !51
-  tail call void @ff_avfilter_link_set_in_status(ptr noundef %133, i32 noundef -541478725, i64 noundef %134) #7
-  %.pre167 = load i32, ptr %8, align 8, !tbaa !27
-  %135 = icmp eq i32 %.pre167, 0
-  br i1 %135, label %.thread178, label %136
+  %130 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  %131 = load ptr, ptr %130, align 8, !tbaa !26
+  %132 = load ptr, ptr %131, align 8, !tbaa !24
+  %133 = load i64, ptr %12, align 8, !tbaa !51
+  tail call void @ff_avfilter_link_set_in_status(ptr noundef %132, i32 noundef -541478725, i64 noundef %133) #7
+  %.pre165 = load i32, ptr %8, align 8, !tbaa !27
+  %134 = icmp eq i32 %.pre165, 0
+  br i1 %134, label %.thread176, label %135
 
-.thread178:                                       ; preds = %.thread, %49, %85, %130
+.thread176:                                       ; preds = %.thread, %49, %84, %129
   tail call void @ff_filter_set_ready(ptr noundef nonnull %5, i32 noundef 100) #7
-  br label %136
+  br label %135
 
-136:                                              ; preds = %.thread178, %130
-  %137 = load i32, ptr %24, align 8, !tbaa !59
-  %138 = sext i32 %137 to i64
-  %139 = getelementptr inbounds nuw i8, ptr %7, i64 88
-  %140 = load i64, ptr %139, align 8, !tbaa !61
-  %141 = add nsw i64 %140, %138
-  store i64 %141, ptr %139, align 8, !tbaa !61
+135:                                              ; preds = %.thread176, %129
+  %136 = load i32, ptr %24, align 8, !tbaa !59
+  %137 = sext i32 %136 to i64
+  %138 = getelementptr inbounds nuw i8, ptr %7, i64 88
+  %139 = load i64, ptr %138, align 8, !tbaa !61
+  %140 = add nsw i64 %139, %137
+  store i64 %140, ptr %138, align 8, !tbaa !61
   call void @av_frame_free(ptr noundef nonnull %3) #7
-  br label %142
+  br label %141
 
-142:                                              ; preds = %.thread158, %136, %124, %10
-  %.0 = phi i32 [ 0, %10 ], [ 0, %136 ], [ %129, %124 ], [ -12, %.thread158 ]
+141:                                              ; preds = %.thread157, %135, %123, %10
+  %.0 = phi i32 [ 0, %10 ], [ 0, %135 ], [ %128, %123 ], [ -12, %.thread157 ]
   ret i32 %.0
 }
 

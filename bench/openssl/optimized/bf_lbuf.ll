@@ -157,7 +157,7 @@ define internal i32 @linebuffer_write(ptr noundef %0, ptr noundef %1, i32 nounde
   %72 = zext nneg i32 %60 to i64
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 %72
   %74 = sub nsw i32 %68, %60
-  %75 = sext i32 %74 to i64
+  %75 = zext nneg i32 %74 to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %71, ptr nonnull align 1 %73, i64 %75, i1 false)
   %.pre216 = load i32, ptr %16, align 4, !tbaa !23
   br label %76
@@ -450,7 +450,7 @@ define internal i64 @linebuffer_ctrl(ptr noundef %0, i32 noundef %1, i64 noundef
   %83 = zext nneg i32 %74 to i64
   %84 = getelementptr inbounds nuw i8, ptr %82, i64 %83
   %85 = sub nsw i32 %79, %74
-  %86 = sext i32 %85 to i64
+  %86 = zext nneg i32 %85 to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %82, ptr nonnull align 1 %84, i64 %86, i1 false)
   %.pre = load i32, ptr %64, align 4, !tbaa !23
   br label %87

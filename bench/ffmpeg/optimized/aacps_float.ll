@@ -73,8 +73,8 @@ define noundef i32 @ff_ps_apply(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 36016
   %36 = getelementptr inbounds [3 x [37 x [2 x float]]], ptr %35, i64 %26
   %37 = sub nsw i32 %32, %24
-  %38 = sext i32 %37 to i64
-  %39 = mul nsw i64 %38, 888
+  %38 = zext nneg i32 %37 to i64
+  %39 = mul nuw nsw i64 %38, 888
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %36, i8 0, i64 %39, i1 false)
   br label %40
 

@@ -61,7 +61,7 @@ define range(i32 -9, 1) i32 @node_distinct_coloring(ptr noundef %0, ptr noundef 
 26:                                               ; preds = %24
   %27 = load ptr, ptr @stderr, align 8, !tbaa !11
   %28 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 14, i64 1, ptr %27) #17
-  br label %122
+  br label %124
 
 29:                                               ; preds = %8
   %30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select, ptr noundef nonnull dereferenceable(4) @.str.3) #16
@@ -90,7 +90,7 @@ define range(i32 -9, 1) i32 @node_distinct_coloring(ptr noundef %0, ptr noundef 
 41:                                               ; preds = %37
   %42 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.6, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15) #15
   %43 = icmp eq i32 %42, 3
-  br i1 %43, label %44, label %122
+  br i1 %43, label %44, label %124
 
 44:                                               ; preds = %41
   %45 = call ptr @color_blend_rgb2lab(ptr noundef nonnull %spec.select, i32 noundef 10000) #15
@@ -112,7 +112,7 @@ define range(i32 -9, 1) i32 @node_distinct_coloring(ptr noundef %0, ptr noundef 
 
 52:                                               ; preds = %47
   call void @QuadTree_delete(ptr noundef %.082) #15
-  br label %122
+  br label %124
 
 53:                                               ; preds = %47
   %54 = mul nsw i32 %49, %.081
@@ -183,87 +183,87 @@ gv_calloc.exit96:                                 ; preds = %67
   %91 = call ptr @SparseMatrix_get_submatrix(ptr noundef %74, i32 noundef %87, i32 noundef %87, ptr noundef %90, ptr noundef %90) #15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #15
-  br i1 %78, label %.lr.ph.preheader.i, label %node_distinct_coloring_internal.exit
+  br i1 %78, label %92, label %node_distinct_coloring_internal.exit
 
-.lr.ph.preheader.i:                               ; preds = %82
+92:                                               ; preds = %82
   call void @srand(i32 noundef 123) #15
-  br label %.lr.ph.i
+  br label %93
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.032.i = phi double [ %.1.i, %.lr.ph.i ], [ -1.000000e+00, %.lr.ph.preheader.i ]
-  %.02331.i = phi i32 [ %.124.i, %.lr.ph.i ], [ -1, %.lr.ph.preheader.i ]
-  %.02630.i = phi i32 [ %95, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
-  %92 = call i32 @irand(i32 noundef 100000) #15
-  call fastcc void @node_distinct_coloring_internal2(i32 noundef range(i32 0, 3) %.080, ptr noundef %.082, i1 noundef zeroext %2, ptr noundef readonly %91, i32 noundef range(i32 1, 4) %.081, double noundef %.078, i32 noundef %92, ptr noundef %68, ptr noundef %9, ptr noundef %10)
-  %93 = load double, ptr %9, align 8, !tbaa !20
-  %94 = fcmp olt double %.032.i, %93
-  %.124.i = select i1 %94, i32 %92, i32 %.02331.i
-  %.1.i = select i1 %94, double %93, double %.032.i
-  %95 = add nuw nsw i32 %.02630.i, 1
-  %exitcond.not.i = icmp eq i32 %95, %smax.i
-  br i1 %exitcond.not.i, label %node_distinct_coloring_internal.exit, label %.lr.ph.i, !llvm.loop !22
+93:                                               ; preds = %93, %92
+  %.032.i = phi double [ -1.000000e+00, %92 ], [ %.1.i, %93 ]
+  %.02331.i = phi i32 [ -1, %92 ], [ %.124.i, %93 ]
+  %.02630.i = phi i32 [ 0, %92 ], [ %97, %93 ]
+  %94 = call i32 @irand(i32 noundef 100000) #15
+  call fastcc void @node_distinct_coloring_internal2(i32 noundef range(i32 0, 3) %.080, ptr noundef %.082, i1 noundef zeroext %2, ptr noundef readonly %91, i32 noundef range(i32 1, 4) %.081, double noundef %.078, i32 noundef %94, ptr noundef %68, ptr noundef %9, ptr noundef %10)
+  %95 = load double, ptr %9, align 8, !tbaa !20
+  %96 = fcmp olt double %.032.i, %95
+  %.124.i = select i1 %96, i32 %94, i32 %.02331.i
+  %.1.i = select i1 %96, double %95, double %.032.i
+  %97 = add nuw nsw i32 %.02630.i, 1
+  %exitcond.not.i = icmp eq i32 %97, %smax.i
+  br i1 %exitcond.not.i, label %node_distinct_coloring_internal.exit, label %93, !llvm.loop !22
 
-node_distinct_coloring_internal.exit:             ; preds = %.lr.ph.i, %82
-  %.025.i = phi i32 [ %5, %82 ], [ %.124.i, %.lr.ph.i ]
+node_distinct_coloring_internal.exit:             ; preds = %93, %82
+  %.025.i = phi i32 [ %5, %82 ], [ %.124.i, %93 ]
   call fastcc void @node_distinct_coloring_internal2(i32 noundef range(i32 0, 3) %.080, ptr noundef %.082, i1 noundef zeroext %2, ptr noundef readonly %91, i32 noundef range(i32 1, 4) %.081, double noundef %.078, i32 noundef %.025.i, ptr noundef %68, ptr noundef %9, ptr noundef %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #15
-  %96 = load i32, ptr %85, align 4, !tbaa !8
-  %97 = load i32, ptr %83, align 4, !tbaa !8
-  %98 = icmp slt i32 %96, %97
-  br i1 %98, label %.lr.ph.preheader, label %._crit_edge
+  %98 = load i32, ptr %85, align 4, !tbaa !8
+  %99 = load i32, ptr %83, align 4, !tbaa !8
+  %100 = icmp slt i32 %98, %99
+  br i1 %100, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %node_distinct_coloring_internal.exit
-  %99 = sext i32 %96 to i64
+  %101 = sext i32 %98 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv = phi i64 [ %99, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %100 = load i32, ptr %85, align 4, !tbaa !8
-  %101 = trunc nsw i64 %indvars.iv to i32
-  %102 = sub nsw i32 %101, %100
-  %103 = load ptr, ptr %7, align 8, !tbaa !18
-  %104 = load ptr, ptr %12, align 8, !tbaa !3
-  %105 = getelementptr inbounds i32, ptr %104, i64 %indvars.iv
-  %106 = load i32, ptr %105, align 4, !tbaa !8
-  %107 = mul nsw i32 %106, %.081
-  %108 = sext i32 %107 to i64
-  %109 = getelementptr inbounds double, ptr %103, i64 %108
-  %110 = mul nsw i32 %102, %.081
-  %111 = sext i32 %110 to i64
-  %112 = getelementptr inbounds double, ptr %68, i64 %111
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %109, ptr noundef nonnull align 8 dereferenceable(1) %112, i64 %81, i1 false)
+  %indvars.iv = phi i64 [ %101, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+  %102 = load i32, ptr %85, align 4, !tbaa !8
+  %103 = trunc nsw i64 %indvars.iv to i32
+  %104 = sub nsw i32 %103, %102
+  %105 = load ptr, ptr %7, align 8, !tbaa !18
+  %106 = load ptr, ptr %12, align 8, !tbaa !3
+  %107 = getelementptr inbounds i32, ptr %106, i64 %indvars.iv
+  %108 = load i32, ptr %107, align 4, !tbaa !8
+  %109 = mul nsw i32 %108, %.081
+  %110 = sext i32 %109 to i64
+  %111 = getelementptr inbounds double, ptr %105, i64 %110
+  %112 = mul nsw i32 %104, %.081
+  %113 = sext i32 %112 to i64
+  %114 = getelementptr inbounds double, ptr %68, i64 %113
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %111, ptr noundef nonnull align 8 dereferenceable(1) %114, i64 %81, i1 false)
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %113 = load i32, ptr %83, align 4, !tbaa !8
-  %114 = sext i32 %113 to i64
-  %115 = icmp slt i64 %indvars.iv.next, %114
-  br i1 %115, label %.lr.ph, label %._crit_edge, !llvm.loop !24
+  %115 = load i32, ptr %83, align 4, !tbaa !8
+  %116 = sext i32 %115 to i64
+  %117 = icmp slt i64 %indvars.iv.next, %116
+  br i1 %117, label %.lr.ph, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph, %node_distinct_coloring_internal.exit
   call void @SparseMatrix_delete(ptr noundef %91) #15
-  %116 = load i32, ptr %11, align 4, !tbaa !8
-  %117 = sext i32 %116 to i64
-  %118 = icmp slt i64 %indvars.iv.next103, %117
-  br i1 %118, label %82, label %._crit_edge100, !llvm.loop !25
+  %118 = load i32, ptr %11, align 4, !tbaa !8
+  %119 = sext i32 %118 to i64
+  %120 = icmp slt i64 %indvars.iv.next103, %119
+  br i1 %120, label %82, label %._crit_edge100, !llvm.loop !25
 
 ._crit_edge100:                                   ; preds = %._crit_edge, %gv_calloc.exit96
   call void @free(ptr noundef %75) #15
   call void @free(ptr noundef %68) #15
   call void @QuadTree_delete(ptr noundef %.082) #15
   %.not93 = icmp eq ptr %74, %3
-  br i1 %.not93, label %120, label %119
+  br i1 %.not93, label %122, label %121
 
-119:                                              ; preds = %._crit_edge100
+121:                                              ; preds = %._crit_edge100
   call void @SparseMatrix_delete(ptr noundef %74) #15
-  br label %120
-
-120:                                              ; preds = %119, %._crit_edge100
-  %121 = load ptr, ptr %12, align 8, !tbaa !3
-  call void @free(ptr noundef %121) #15
   br label %122
 
-122:                                              ; preds = %41, %120, %52, %26
-  %.0 = phi i32 [ -1, %52 ], [ 0, %120 ], [ -1, %26 ], [ -9, %41 ]
+122:                                              ; preds = %121, %._crit_edge100
+  %123 = load ptr, ptr %12, align 8, !tbaa !3
+  call void @free(ptr noundef %123) #15
+  br label %124
+
+124:                                              ; preds = %41, %122, %52, %26
+  %.0 = phi i32 [ -1, %52 ], [ 0, %122 ], [ -1, %26 ], [ -9, %41 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #15
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #15
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #15

@@ -1336,7 +1336,7 @@ define range(i32 -1, -2147483648) i32 @cli_bcapi_fill_buffer(ptr noundef capture
   br i1 %or.cond107.not, label %43, label %54
 
 43:                                               ; preds = %41
-  %44 = sext i32 %42 to i64
+  %44 = zext nneg i32 %42 to i64
   %45 = zext nneg i32 %2 to i64
   %46 = zext nneg i32 %24 to i64
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 %46

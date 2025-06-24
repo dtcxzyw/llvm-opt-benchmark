@@ -14543,12 +14543,12 @@ _ZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_.exit: ; preds = %4,
   %51 = add i64 %32, %50
   %52 = sdiv i64 %51, %3
   %53 = icmp slt i64 %49, %52
-  %54 = icmp sgt i64 %49, 3
-  %or.cond = and i1 %54, %53
+  %54 = icmp samesign ugt i64 %49, 3
+  %or.cond = select i1 %53, i1 %54, i1 false
   br i1 %or.cond, label %55, label %57
 
 55:                                               ; preds = %44
-  %56 = and i64 %49, 9223372036854775804
+  %56 = and i64 %49, -4
   store i64 %56, ptr %1, align 8
   br label %149
 
@@ -45574,13 +45574,13 @@ define linkonce_odr noundef double @_Z10min_newuoaIdFdiPdEET_iPS2_RT0_S2_S2_i(i3
   %237 = mul nsw i32 %185, %13
   %238 = sext i32 %237 to i64
   %gep673.i.i = getelementptr double, ptr %invariant.gep672.i.i, i64 %238
-  %239 = add nsw i32 %185, 1
-  %240 = mul nsw i32 %239, %185
-  %241 = sdiv i32 %240, 2
-  %242 = sext i32 %185 to i64
-  %243 = getelementptr inbounds double, ptr %84, i64 %242
-  %244 = sext i32 %241 to i64
-  %245 = getelementptr inbounds double, ptr %85, i64 %244
+  %239 = add nuw nsw i32 %185, 1
+  %240 = mul nuw nsw i32 %239, %185
+  %241 = lshr i32 %240, 1
+  %242 = zext nneg i32 %185 to i64
+  %243 = getelementptr inbounds nuw double, ptr %84, i64 %242
+  %244 = zext nneg i32 %241 to i64
+  %245 = getelementptr inbounds nuw double, ptr %85, i64 %244
   %246 = fcmp olt double %.11089.i.i, 0.000000e+00
   %247 = select i1 %246, i32 %0, i32 0
   %248 = fcmp olt double %.11086.i.i, 0.000000e+00
@@ -48384,7 +48384,7 @@ _ZL7bigden_IdEiiiPT_S1_S1_S1_PiS2_S2_S2_S1_S1_S1_S1_S1_S1_S1_.exit.i.i: ; preds 
 
 1449:                                             ; preds = %.lr.ph38.i.i.i
   %1450 = sub nsw i64 %indvars.iv76.i.i.i, %131
-  %1451 = mul nsw i64 %1450, %133
+  %1451 = mul nuw nsw i64 %1450, %133
   %gep118.i.i.i = getelementptr double, ptr %invariant.gep117.i.i.i, i64 %1451
   store double %1447, ptr %gep118.i.i.i, align 8
   br label %1452

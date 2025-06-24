@@ -1704,7 +1704,7 @@ Saig_ObjIsLo.exit:                                ; preds = %17
 
 25:                                               ; preds = %Saig_ObjIsLo.exit
   %26 = sub nsw i32 %.val3.i, %.val4.i
-  %27 = shl nsw i32 %26, 1
+  %27 = shl nuw nsw i32 %26, 1
   %28 = add nsw i32 %27, %.tr128147
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 16

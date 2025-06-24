@@ -118,7 +118,7 @@ define internal fastcc void @kbd_window_init(ptr noundef writeonly captures(addr
   %indvars.iv84 = phi i64 [ %33, %.lr.ph74 ], [ %indvars.iv.next85, %65 ]
   %.15072 = phi double [ %.049.lcssa, %.lr.ph74 ], [ %54, %65 ]
   %51 = sub nsw i64 %34, %indvars.iv84
-  %52 = getelementptr inbounds [513 x double], ptr %5, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw [513 x double], ptr %5, i64 0, i64 %51
   %53 = load double, ptr %52, align 8, !tbaa !4
   %54 = fadd nsz double %.15072, %53
   %55 = fmul nsz double %31, %54

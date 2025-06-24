@@ -3420,7 +3420,7 @@ _ZN2cv10AutoBufferIfLm1026EEC2Em.exit.split.us:   ; preds = %_ZN2cv10AutoBufferI
   %.0146332.us = phi i32 [ %388, %387 ], [ 0, %.preheader327.us.preheader ]
   %374 = sub nsw i32 %358, %.0146332.us
   %.sroa.speculated.us = call i32 @llvm.smin.i32(i32 %.sroa.speculated286, i32 %374)
-  %375 = mul nsw i32 %.sroa.speculated.us, %75
+  %375 = mul nuw nsw i32 %.sroa.speculated.us, %75
   invoke void @_ZN2cv3hal9cvt16f32fEPKNS_6hfloatEPfi(ptr noundef %373, ptr noundef nonnull %368, i32 noundef %375)
           to label %376 unwind label %.split336.us
 
@@ -4740,7 +4740,7 @@ _ZN2cv10AutoBufferIfLm1026EEC2Em.exit.split.us:   ; preds = %_ZN2cv10AutoBufferI
   %.0159383.us = phi i32 [ %468, %467 ], [ 0, %.preheader374.us.preheader ]
   %450 = sub nsw i32 %430, %.0159383.us
   %.sroa.speculated.us = call i32 @llvm.smin.i32(i32 %.sroa.speculated326, i32 %450)
-  %451 = mul nsw i32 %.sroa.speculated.us, %86
+  %451 = mul nuw nsw i32 %.sroa.speculated.us, %86
   invoke void @_ZN2cv3hal9cvt16f32fEPKNS_6hfloatEPfi(ptr noundef %449, ptr noundef nonnull %441, i32 noundef %451)
           to label %452 unwind label %.split387.us
 

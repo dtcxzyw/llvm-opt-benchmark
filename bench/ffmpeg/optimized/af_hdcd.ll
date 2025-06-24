@@ -1897,7 +1897,7 @@ define internal fastcc i32 @hdcd_analyze(ptr noundef captures(address) %0, i32 n
 
 70:                                               ; preds = %._crit_edge
   %71 = sub nsw i32 %3, %4
-  %72 = ashr i32 %71, 3
+  %72 = lshr i32 %71, 3
   %. = tail call i32 @llvm.smin.i32(i32 %1, i32 %72)
   %73 = icmp sgt i32 %., 0
   br i1 %73, label %.lr.ph130, label %._crit_edge131
@@ -1908,7 +1908,7 @@ define internal fastcc i32 @hdcd_analyze(ptr noundef captures(address) %0, i32 n
   br i1 %74, label %.lr.ph130.split.us, label %.lr.ph130.split.preheader
 
 .lr.ph130.split.preheader:                        ; preds = %.lr.ph130
-  %76 = shl nuw nsw i32 %., 3
+  %76 = shl nuw i32 %., 3
   %77 = sub i32 %3, %76
   %78 = add nsw i32 %., -1
   %79 = zext nneg i32 %78 to i64
@@ -2130,7 +2130,7 @@ define internal fastcc i32 @hdcd_envelope(ptr noundef captures(address) %0, i32 
 
 55:                                               ; preds = %.loopexit120
   %56 = sub nsw i32 %4, %5
-  %57 = ashr i32 %56, 3
+  %57 = lshr i32 %56, 3
   %. = tail call i32 @llvm.smin.i32(i32 %1, i32 %57)
   %58 = icmp sgt i32 %., 0
   br i1 %58, label %.lr.ph134, label %._crit_edge

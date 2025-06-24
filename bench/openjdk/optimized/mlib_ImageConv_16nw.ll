@@ -953,8 +953,8 @@ mlib_ImageConv1xN.exit:                           ; preds = %._crit_edge.i, %374
   %497 = load double, ptr %496, align 8
   %498 = getelementptr inbounds nuw i8, ptr %.110241347.us, i64 48
   %499 = load double, ptr %498, align 8
-  %500 = sext i32 %.01029.us to i64
-  %501 = getelementptr inbounds double, ptr %.110241347.us, i64 %500
+  %500 = zext nneg i32 %.01029.us to i64
+  %501 = getelementptr inbounds nuw double, ptr %.110241347.us, i64 %500
   switch i32 %.01029.us, label %871 [
     i32 7, label %782
     i32 6, label %705
@@ -2118,8 +2118,8 @@ define hidden range(i32 0, 2) i32 @mlib_i_convMxNnw_s16(ptr noundef readonly cap
   %120 = load i32, ptr %119, align 4
   %121 = getelementptr inbounds nuw i8, ptr %.17921111.us.us, i64 24
   %122 = load i32, ptr %121, align 4
-  %123 = sext i32 %.0802.us.us to i64
-  %124 = getelementptr inbounds i32, ptr %.17921111.us.us, i64 %123
+  %123 = zext nneg i32 %.0802.us.us to i64
+  %124 = getelementptr inbounds nuw i32, ptr %.17921111.us.us, i64 %123
   %125 = add nsw i32 %.0802.us.us, -1
   %126 = mul nsw i32 %125, %.val929
   %127 = sext i32 %126 to i64

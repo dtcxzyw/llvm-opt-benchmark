@@ -212,7 +212,7 @@ _ZN4i18n12phonenumbers11UnicodeText4Repr7reserveEi.exit: ; preds = %28, %12
   %34 = sext i32 %30 to i64
   %35 = getelementptr inbounds i8, ptr %33, i64 %34
   %36 = sub nsw i32 %1, %30
-  %37 = sext i32 %36 to i64
+  %37 = zext nneg i32 %36 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %35, i8 0, i64 %37, i1 false)
   br label %38
 
@@ -323,7 +323,7 @@ _ZN4i18n12phonenumbers11UnicodeText4Repr7reserveEi.exit.i: ; preds = %._ZN4i18n1
   %34 = sext i32 %31 to i64
   %35 = getelementptr inbounds i8, ptr %.pre.pre3, i64 %34
   %36 = sub nsw i32 %2, %31
-  %37 = sext i32 %36 to i64
+  %37 = zext nneg i32 %36 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %35, i8 0, i64 %37, i1 false)
   %.pre.pre = load ptr, ptr %0, align 8, !tbaa !18
   br label %38
@@ -769,7 +769,7 @@ _ZN4i18n12phonenumbers11UnicodeText4Repr7reserveEi.exit.i.i: ; preds = %31, %._Z
   %36 = sext i32 %33 to i64
   %37 = getelementptr inbounds i8, ptr %.pre.pre3.i, i64 %36
   %38 = sub nsw i32 %5, %33
-  %39 = sext i32 %38 to i64
+  %39 = zext nneg i32 %38 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %37, i8 0, i64 %39, i1 false)
   %.pre.pre.i = load ptr, ptr %0, align 8, !tbaa !18
   br label %40
@@ -972,7 +972,7 @@ _ZN4i18n12phonenumbers11UnicodeText4Repr7reserveEi.exit.i.i: ; preds = %33, %._Z
   %38 = sext i32 %35 to i64
   %39 = getelementptr inbounds i8, ptr %.pre.pre3.i, i64 %38
   %40 = sub nsw i32 %2, %35
-  %41 = sext i32 %40 to i64
+  %41 = zext nneg i32 %40 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %39, i8 0, i64 %41, i1 false)
   %.pre.pre.i = load ptr, ptr %0, align 8, !tbaa !18
   br label %42
@@ -1377,7 +1377,7 @@ _ZN4i18n12phonenumbers11UnicodeText4Repr7reserveEi.exit.i.i: ; preds = %29, %._Z
   %34 = sext i32 %31 to i64
   %35 = getelementptr inbounds i8, ptr %.pre.pre3.i, i64 %34
   %36 = sub nsw i32 %2, %31
-  %37 = sext i32 %36 to i64
+  %37 = zext nneg i32 %36 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %35, i8 0, i64 %37, i1 false)
   %.pre.pre.i = load ptr, ptr %0, align 8, !tbaa !18
   br label %38
@@ -1799,7 +1799,7 @@ _ZN4i18n12phonenumbers11UnicodeText4Repr7reserveEi.exit.i.i: ; preds = %74, %._Z
   %79 = sext i32 %76 to i64
   %80 = getelementptr inbounds i8, ptr %.pre.pre3.i, i64 %79
   %81 = sub nsw i32 %2, %76
-  %82 = sext i32 %81 to i64
+  %82 = zext nneg i32 %81 to i64
   call void @llvm.memset.p0.i64(ptr align 1 %80, i8 0, i64 %82, i1 false)
   %.pre.pre.i = load ptr, ptr %0, align 8, !tbaa !18
   br label %_ZN4i18n12phonenumbers11UnicodeText4Repr4CopyEPKci.exit

@@ -297,7 +297,7 @@ define void @ff_vp9_intra_recon_8bpp(ptr noundef readonly captures(none) %0, i64
   %187 = getelementptr i8, ptr %186, i64 -1
   %188 = load i8, ptr %187, align 1, !tbaa !23
   %189 = sub nsw i32 %144, %151
-  %190 = sext i32 %189 to i64
+  %190 = zext nneg i32 %189 to i64
   call void @llvm.memset.p0.i64(ptr align 4 %186, i8 %188, i64 %190, i1 false)
   br label %191
 
@@ -769,7 +769,7 @@ check_intra_mode.exit.us:                         ; preds = %.lr.ph.us, %.lr.ph1
   %428 = getelementptr i8, ptr %427, i64 -1
   %429 = load i8, ptr %428, align 1, !tbaa !23
   %430 = sub nsw i32 %381, %388
-  %431 = sext i32 %430 to i64
+  %431 = zext nneg i32 %430 to i64
   call void @llvm.memset.p0.i64(ptr align 4 %427, i8 %429, i64 %431, i1 false)
   br label %432
 

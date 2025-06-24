@@ -1342,7 +1342,7 @@ while.body.i:                                     ; preds = %if.then, %while.bod
   %incdec.ptr3.i = getelementptr inbounds i8, ptr %BufPtr.110.i, i64 -1
   store i8 %add.i, ptr %incdec.ptr3.i, align 1, !noalias !39
   %div.i = udiv i64 %X.addr.09.i, 10
-  %tobool.not.i = icmp ult i64 %X.addr.09.i, 10
+  %tobool.not.i = icmp samesign ult i64 %X.addr.09.i, 10
   br i1 %tobool.not.i, label %_ZN4llvh6utostrB5cxx11Emb.exit, label %while.body.i, !llvm.loop !42
 
 _ZN4llvh6utostrB5cxx11Emb.exit:                   ; preds = %while.body.i

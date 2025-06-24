@@ -2914,8 +2914,8 @@ define hidden void @IntArgbDrawGlyphListAA(ptr noundef readonly captures(none) %
   %46 = icmp slt i32 %33, %5
   %47 = sub nsw i32 %5, %33
   %narrow = select i1 %46, i32 %47, i32 0
-  %.0127.idx = sext i32 %narrow to i64
-  %.0127 = getelementptr inbounds i8, ptr %30, i64 %.0127.idx
+  %.0127.idx = zext i32 %narrow to i64
+  %.0127 = getelementptr inbounds nuw i8, ptr %30, i64 %.0127.idx
   %48 = sub nsw i32 %6, %35
   %49 = mul nsw i32 %48, %44
   %narrow166 = select i1 %45, i32 %49, i32 0
@@ -3145,11 +3145,11 @@ define hidden void @IntArgbDrawGlyphListLCD(ptr noundef readonly captures(none) 
   %57 = add nsw i32 %55, %53
   %58 = icmp slt i32 %51, %5
   %59 = sub nsw i32 %5, %51
-  %60 = mul nsw i32 %59, %49
+  %60 = mul nuw nsw i32 %59, %49
   %.0165 = tail call i32 @llvm.smax.i32(i32 %51, i32 %5)
   %narrow = select i1 %58, i32 %60, i32 0
-  %.0162.idx = sext i32 %narrow to i64
-  %.0162 = getelementptr inbounds i8, ptr %47, i64 %.0162.idx
+  %.0162.idx = zext i32 %narrow to i64
+  %.0162 = getelementptr inbounds nuw i8, ptr %47, i64 %.0162.idx
   %61 = icmp slt i32 %53, %6
   %62 = sub nsw i32 %6, %53
   %63 = mul nsw i32 %62, %42

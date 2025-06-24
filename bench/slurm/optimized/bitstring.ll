@@ -481,7 +481,7 @@ define dso_local void @bit_nclear(ptr noundef captures(none) %0, i64 noundef %1,
   %28 = getelementptr inbounds i8, ptr %invariant.gep, i64 %27
   %reass.sub = sub i64 %.0.lcssa, %.017.lcssa
   %29 = add i64 %reass.sub, 1
-  %30 = sdiv i64 %29, 8
+  %30 = lshr i64 %29, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %28, i8 0, i64 %30, i1 false)
   br label %31
 
@@ -548,7 +548,7 @@ define dso_local void @bit_nset(ptr noundef captures(none) %0, i64 noundef %1, i
   %26 = getelementptr inbounds i8, ptr %invariant.gep, i64 %25
   %reass.sub = sub i64 %.0.lcssa, %.017.lcssa
   %27 = add i64 %reass.sub, 1
-  %28 = sdiv i64 %27, 8
+  %28 = lshr i64 %27, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %26, i8 -1, i64 %28, i1 false)
   br label %29
 
@@ -1548,8 +1548,8 @@ define dso_local ptr @bitfmt2int(ptr noundef %0) #0 {
 
 53:                                               ; preds = %50
   %54 = sub nsw i32 %41, %35
-  %55 = sdiv i32 %54, %47
-  %56 = shl i32 %55, 1
+  %55 = udiv i32 %54, %47
+  %56 = shl nuw i32 %55, 1
   %57 = add i32 %56, 3
   %58 = sext i32 %57 to i64
   %59 = shl nsw i64 %58, 2
@@ -2046,7 +2046,7 @@ bit_fls.exit:                                     ; preds = %16, %21, %.outer.i.
   %55 = getelementptr inbounds i8, ptr %invariant.gep.i, i64 %54
   %reass.sub = sub i64 %.0.lcssa.i, %.017.lcssa.i
   %56 = add i64 %reass.sub, 1
-  %57 = sdiv i64 %56, 8
+  %57 = lshr i64 %56, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %55, i8 -1, i64 %57, i1 false)
   br label %bit_nset.exit
 
@@ -3301,7 +3301,7 @@ bit_nth_set.exit:                                 ; preds = %52
   %83 = getelementptr inbounds i8, ptr %invariant.gep.i, i64 %82
   %reass.sub = sub i64 %.0.lcssa.i, %.017.lcssa.i
   %84 = add i64 %reass.sub, 1
-  %85 = sdiv i64 %84, 8
+  %85 = lshr i64 %84, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %83, i8 0, i64 %85, i1 false)
   br label %bit_nclear.exit
 
@@ -3541,7 +3541,7 @@ bit_nclear.exit:                                  ; preds = %.critedge.i, %19, %
   %54 = getelementptr inbounds i8, ptr %invariant.gep.i23, i64 %53
   %reass.sub = sub i64 %.0.lcssa.i28, %.017.lcssa.i
   %55 = add i64 %reass.sub, 1
-  %56 = sdiv i64 %55, 8
+  %56 = lshr i64 %55, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %54, i8 -1, i64 %56, i1 false)
   br label %bit_nset.exit
 
@@ -3976,7 +3976,7 @@ bit_set_count.exit:                               ; preds = %._crit_edge.i, %12
   %52 = getelementptr inbounds i8, ptr %invariant.gep.i, i64 %51
   %reass.sub = sub i64 %.0.lcssa.i10, %.017.lcssa.i
   %53 = add i64 %reass.sub, 1
-  %54 = sdiv i64 %53, 8
+  %54 = lshr i64 %53, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %52, i8 0, i64 %54, i1 false)
   br label %bit_nclear.exit
 

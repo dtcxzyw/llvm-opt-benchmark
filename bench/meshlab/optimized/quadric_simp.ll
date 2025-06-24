@@ -1684,7 +1684,7 @@ define void @_Z21QuadricSimplificationR6CMeshOibRN3vcg3tri31TriEdgeCollapseQuadr
 
 64:                                               ; preds = %61
   %65 = sub nsw i32 %62, %.0
-  %66 = mul nsw i32 %65, 100
+  %66 = mul nuw nsw i32 %65, 100
   %67 = sdiv i32 %66, %57
   %68 = sub nsw i32 100, %67
   %69 = invoke noundef zeroext i1 %4(i32 noundef %68, ptr noundef nonnull @.str.7)
@@ -25599,12 +25599,12 @@ _ZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_.exit: ; preds = %4,
   %51 = add i64 %32, %50
   %52 = sdiv i64 %51, %3
   %53 = icmp slt i64 %49, %52
-  %54 = icmp sgt i64 %49, 3
-  %or.cond = and i1 %54, %53
+  %54 = icmp samesign ugt i64 %49, 3
+  %or.cond = select i1 %53, i1 %54, i1 false
   br i1 %or.cond, label %55, label %57
 
 55:                                               ; preds = %44
-  %56 = and i64 %49, 9223372036854775804
+  %56 = and i64 %49, -4
   store i64 %56, ptr %1, align 8
   br label %149
 
@@ -32836,12 +32836,12 @@ _ZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_.exit: ; preds = %4,
   %51 = add i64 %32, %50
   %52 = sdiv i64 %51, %3
   %53 = icmp slt i64 %49, %52
-  %54 = icmp sgt i64 %49, 3
-  %or.cond = and i1 %54, %53
+  %54 = icmp samesign ugt i64 %49, 3
+  %or.cond = select i1 %53, i1 %54, i1 false
   br i1 %or.cond, label %55, label %57
 
 55:                                               ; preds = %44
-  %56 = and i64 %49, 9223372036854775804
+  %56 = and i64 %49, -4
   store i64 %56, ptr %1, align 8
   br label %149
 
@@ -34902,7 +34902,7 @@ define linkonce_odr void @_ZN5Eigen8internal23triangular_solve_vectorIddlLi1ELi5
   %14 = call i64 @llvm.umin.i64(i64 %13, i64 8)
   %15 = sub nsw i64 %0, %.091
   %.sroa.speculated = call i64 @llvm.smin.i64(i64 %15, i64 8)
-  %16 = add nsw i64 %.sroa.speculated, %.091
+  %16 = add nuw nsw i64 %.sroa.speculated, %.091
   %17 = icmp sgt i64 %15, 0
   br i1 %17, label %.lr.ph, label %._crit_edge
 

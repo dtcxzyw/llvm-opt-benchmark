@@ -600,8 +600,8 @@ define internal fastcc range(i32 0, 54) i32 @nc_match_single(ptr noundef readonl
 
 46:                                               ; preds = %42
   %47 = sub nsw i32 %43, %44
-  %48 = sext i32 %47 to i64
-  %49 = getelementptr inbounds i8, ptr %40, i64 %48
+  %48 = zext nneg i32 %47 to i64
+  %49 = getelementptr inbounds nuw i8, ptr %40, i64 %48
   %.not16.i = icmp eq i8 %41, 46
   br i1 %.not16.i, label %53, label %50
 
@@ -649,8 +649,8 @@ define internal fastcc range(i32 0, 54) i32 @nc_match_single(ptr noundef readonl
 
 74:                                               ; preds = %70
   %75 = sub nsw i32 %71, %72
-  %76 = sext i32 %75 to i64
-  %77 = getelementptr inbounds i8, ptr %63, i64 %76
+  %76 = zext nneg i32 %75 to i64
+  %77 = getelementptr inbounds nuw i8, ptr %63, i64 %76
   %78 = tail call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %61, ptr noundef nonnull %77) #6
   %.not37.i = icmp eq i32 %78, 0
   br i1 %.not37.i, label %nc_dn.exit, label %79

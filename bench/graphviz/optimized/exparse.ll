@@ -6522,15 +6522,15 @@ extypename.exit.i:                                ; preds = %12
 .thread.i:                                        ; preds = %10
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %24 = load i64, ptr %23, align 8, !tbaa !22
-  %.not4754.i = icmp eq i64 %24, 270
-  br i1 %.not4754.i, label %.thread56.i, label %.thread55.i
+  %.not4752.i = icmp eq i64 %24, 270
+  br i1 %.not4752.i, label %.thread54.i, label %.thread53.i
 
 25:                                               ; preds = %19
   %26 = tail call i32 %20(ptr noundef nonnull %0, ptr noundef nonnull %8, i32 noundef 1) #24
   %27 = icmp slt i32 %26, 0
-  br i1 %27, label %extypename.exit51.i, label %38
+  br i1 %27, label %extypename.exit49.i, label %38
 
-extypename.exit51.i:                              ; preds = %25
+extypename.exit49.i:                              ; preds = %25
   %28 = load ptr, ptr %4, align 8, !tbaa !43
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 56
   %30 = load ptr, ptr %29, align 8, !tbaa !44
@@ -6538,19 +6538,19 @@ extypename.exit51.i:                              ; preds = %25
   tail call void (ptr, ...) @exerror(ptr noundef nonnull @.str.95, ptr noundef %31) #24
   br label %38
 
-.thread55.i:                                      ; preds = %.thread.i
+.thread53.i:                                      ; preds = %.thread.i
   %32 = icmp samesign ult i64 %9, 264
   br i1 %32, label %33, label %38
 
-33:                                               ; preds = %.thread55.i
+33:                                               ; preds = %.thread53.i
   %34 = add nsw i64 %9, -258
   %35 = getelementptr inbounds nuw [6 x [6 x i32]], ptr @typecast, i64 0, i64 %34, i64 5
   %36 = load i32, ptr %35, align 4, !tbaa !49
   %37 = sext i32 %36 to i64
   br label %38
 
-38:                                               ; preds = %33, %.thread55.i, %extypename.exit51.i, %25
-  %.0.i = phi i64 [ %37, %33 ], [ 0, %.thread55.i ], [ 321, %extypename.exit51.i ], [ 321, %25 ]
+38:                                               ; preds = %33, %.thread53.i, %extypename.exit49.i, %25
+  %.0.i = phi i64 [ %37, %33 ], [ 0, %.thread53.i ], [ 321, %extypename.exit49.i ], [ 321, %25 ]
   %39 = load ptr, ptr %5, align 8, !tbaa !3
   %40 = tail call ptr @vmalloc(ptr noundef %39, i64 noundef 72) #24
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
@@ -6578,27 +6578,27 @@ extypename.exit51.i:                              ; preds = %25
   %53 = select i1 %51, i64 %52, i64 0
   %54 = getelementptr inbounds nuw [6 x ptr], ptr @typename, i64 0, i64 %53
   %55 = load ptr, ptr %54, align 8, !tbaa !42
-  br label %extypename.exit53.i
+  br label %extypename.exit51.i
 
 56:                                               ; preds = %47
   %57 = load ptr, ptr %4, align 8, !tbaa !43
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 56
   %59 = load ptr, ptr %58, align 8, !tbaa !44
   %60 = tail call ptr %59(i64 noundef %48) #24
-  br label %extypename.exit53.i
+  br label %extypename.exit51.i
 
-extypename.exit53.i:                              ; preds = %56, %50
-  %.0.i52.i = phi ptr [ %55, %50 ], [ %60, %56 ]
-  tail call void (ptr, ...) @exerror(ptr noundef nonnull @.str.96, ptr noundef %.0.i52.i) #24
+extypename.exit51.i:                              ; preds = %56, %50
+  %.0.i50.i = phi ptr [ %55, %50 ], [ %60, %56 ]
+  tail call void (ptr, ...) @exerror(ptr noundef nonnull @.str.96, ptr noundef %.0.i50.i) #24
   br label %exstringOf.exit
 
-.thread56.i:                                      ; preds = %.thread.i
+.thread54.i:                                      ; preds = %.thread.i
   switch i64 %9, label %71 [
     i64 262, label %61
     i64 259, label %66
   ]
 
-61:                                               ; preds = %.thread56.i
+61:                                               ; preds = %.thread54.i
   %62 = load ptr, ptr %5, align 8, !tbaa !3
   %63 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %64 = load double, ptr %63, align 8, !tbaa !27
@@ -6606,7 +6606,7 @@ extypename.exit53.i:                              ; preds = %56, %50
   store ptr %65, ptr %63, align 8, !tbaa !27
   br label %exstringOf.exit
 
-66:                                               ; preds = %.thread56.i
+66:                                               ; preds = %.thread54.i
   %67 = load ptr, ptr %5, align 8, !tbaa !3
   %68 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %69 = load i64, ptr %68, align 8, !tbaa !27
@@ -6614,12 +6614,12 @@ extypename.exit53.i:                              ; preds = %56, %50
   store ptr %70, ptr %68, align 8, !tbaa !27
   br label %exstringOf.exit
 
-71:                                               ; preds = %.thread56.i
+71:                                               ; preds = %.thread54.i
   tail call void (ptr, ...) @exerror(ptr noundef nonnull @.str.97, i64 noundef %9) #24
   br label %exstringOf.exit
 
-exstringOf.exit:                                  ; preds = %6, %38, %44, %extypename.exit53.i, %61, %66, %71
-  %.044.sink.i = phi ptr [ %40, %38 ], [ %8, %71 ], [ %8, %61 ], [ %8, %66 ], [ %8, %extypename.exit53.i ], [ %8, %44 ], [ %8, %6 ]
+exstringOf.exit:                                  ; preds = %6, %38, %44, %extypename.exit51.i, %61, %66, %71
+  %.044.sink.i = phi ptr [ %40, %38 ], [ %8, %71 ], [ %8, %61 ], [ %8, %66 ], [ %8, %extypename.exit51.i ], [ %8, %44 ], [ %8, %6 ]
   store i64 263, ptr %.044.sink.i, align 8, !tbaa !25
   store ptr %.044.sink.i, ptr %7, align 8, !tbaa !27
   br label %72

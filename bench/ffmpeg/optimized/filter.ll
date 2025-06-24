@@ -1518,7 +1518,7 @@ sao_extends_edges.exit:                           ; preds = %610, %.preheader22.
   br i1 %or.cond, label %622, label %630
 
 622:                                              ; preds = %sao_extends_edges.exit
-  %623 = ashr i32 %416, %451
+  %623 = lshr i32 %416, %451
   %624 = add nsw i32 %623, -1
   %625 = shl i32 %624, %456
   %626 = sext i32 %625 to i64
@@ -1534,7 +1534,7 @@ sao_extends_edges.exit:                           ; preds = %610, %.preheader22.
   br i1 %or.cond3, label %632, label %641
 
 632:                                              ; preds = %630
-  %633 = ashr i32 %418, %454
+  %633 = lshr i32 %418, %454
   %634 = add nsw i32 %633, -1
   %635 = sext i32 %634 to i64
   %636 = mul nsw i64 %635, %427

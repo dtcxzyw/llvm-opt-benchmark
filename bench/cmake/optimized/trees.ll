@@ -1773,8 +1773,8 @@ pqdownheap.exit122:                               ; preds = %pqdownheap.exit122.
 
 300:                                              ; preds = %295
   %301 = sub nsw i32 %282, %264
-  %302 = sext i32 %301 to i64
-  %303 = getelementptr inbounds i32, ptr %262, i64 %302
+  %302 = zext nneg i32 %301 to i64
+  %303 = getelementptr inbounds nuw i32, ptr %262, i64 %302
   %304 = load i32, ptr %303, align 4, !tbaa !57
   br label %305
 

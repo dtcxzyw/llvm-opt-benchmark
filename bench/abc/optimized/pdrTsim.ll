@@ -2309,8 +2309,8 @@ Saig_ObjIsLo.exit280:                             ; preds = %Aig_ManObj.exit275
 349:                                              ; preds = %Saig_ObjIsLo.exit280
   %350 = sub nsw i32 %.val3.i278, %.val4.i279
   %.val211 = load ptr, ptr %327, align 8, !tbaa !26
-  %351 = sext i32 %350 to i64
-  %352 = getelementptr inbounds i32, ptr %.val211, i64 %351
+  %351 = zext nneg i32 %350 to i64
+  %352 = getelementptr inbounds nuw i32, ptr %.val211, i64 %351
   %353 = load i32, ptr %352, align 4, !tbaa !29
   %.not189 = icmp eq i32 %353, 0
   br i1 %.not189, label %354, label %Pdr_ManExtendUndo.exit301
@@ -2478,8 +2478,8 @@ Saig_ObjIsLo.exit309:                             ; preds = %Aig_ManObj.exit304
 428:                                              ; preds = %Saig_ObjIsLo.exit309
   %429 = sub nsw i32 %.val3.i307, %.val4.i308
   %.val209 = load ptr, ptr %332, align 8, !tbaa !26
-  %430 = sext i32 %429 to i64
-  %431 = getelementptr inbounds i32, ptr %.val209, i64 %430
+  %430 = zext nneg i32 %429 to i64
+  %431 = getelementptr inbounds nuw i32, ptr %.val209, i64 %430
   %432 = load i32, ptr %431, align 4, !tbaa !29
   %.not186 = icmp eq i32 %432, 0
   br i1 %.not186, label %Pdr_ManExtendUndo.exit330, label %433

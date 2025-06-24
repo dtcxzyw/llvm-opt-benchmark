@@ -624,7 +624,7 @@ define hidden void @FLAC__window_triangle(ptr noundef writeonly captures(none) %
   %indvars.iv61 = phi i64 [ %17, %.lr.ph46 ], [ %indvars.iv.next62, %24 ]
   %25 = trunc i64 %indvars.iv61 to i32
   %26 = sub i32 %1, %25
-  %27 = shl i32 %26, 1
+  %27 = shl nuw i32 %26, 1
   %28 = add i32 %27, 2
   %29 = sitofp i32 %28 to float
   %30 = fmul reassoc nsz arcp float %29, %18
@@ -664,7 +664,7 @@ define hidden void @FLAC__window_triangle(ptr noundef writeonly captures(none) %
   %indvars.iv71 = phi i64 [ %33, %.lr.ph57 ], [ %indvars.iv.next72, %41 ]
   %42 = trunc i64 %indvars.iv71 to i32
   %43 = sub i32 %1, %42
-  %44 = shl i32 %43, 1
+  %44 = shl nuw i32 %43, 1
   %45 = add i32 %44, 2
   %46 = sitofp i32 %45 to float
   %47 = fmul reassoc nsz arcp float %46, %35

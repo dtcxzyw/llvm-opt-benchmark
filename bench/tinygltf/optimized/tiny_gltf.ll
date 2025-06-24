@@ -7294,7 +7294,7 @@ _ZL21stbiw__linear_to_rgbePhPf.exit119.i:         ; preds = %133, %.preheader131
   %164 = sext i32 %.3143.i to i64
   %165 = getelementptr inbounds i8, ptr %147, i64 %164
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #55
-  %166 = trunc i32 %spec.store.select.i to i8
+  %166 = trunc nuw i32 %spec.store.select.i to i8
   store i8 %166, ptr %7, align 1, !tbaa !21
   call void %.0.val(ptr noundef %.8.val, ptr noundef nonnull %7, i32 noundef 1)
   call void %.0.val(ptr noundef %.8.val, ptr noundef %165, i32 noundef %spec.store.select.i)
@@ -7346,8 +7346,8 @@ _ZL21stbiw__linear_to_rgbePhPf.exit119.i:         ; preds = %133, %.preheader131
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
   store i8 %184, ptr %5, align 1, !tbaa !21
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #55
-  %185 = trunc i32 %spec.store.select2.i to i8
-  %186 = xor i8 %185, -128
+  %185 = trunc nuw i32 %spec.store.select2.i to i8
+  %186 = or disjoint i8 %185, -128
   store i8 %186, ptr %6, align 1, !tbaa !21
   call void %.0.val(ptr noundef %.8.val, ptr noundef nonnull %6, i32 noundef 1)
   call void %.0.val(ptr noundef %.8.val, ptr noundef nonnull %5, i32 noundef 1)

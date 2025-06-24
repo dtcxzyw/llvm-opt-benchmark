@@ -349,15 +349,15 @@ define internal noundef i32 @rgtc2s_block(ptr noundef writeonly captures(none) %
   call fastcc void @rgtc1_block_internal(ptr noundef nonnull %5, i64 noundef 16, ptr noundef nonnull readonly %6, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 4)
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %33, %3
-  %indvars.iv34.i = phi i64 [ 0, %3 ], [ %indvars.iv.next35.i, %33 ]
+.preheader.i:                                     ; preds = %34, %3
+  %indvars.iv34.i = phi i64 [ 0, %3 ], [ %indvars.iv.next35.i, %34 ]
   %7 = mul nsw i64 %indvars.iv34.i, %1
   %invariant.gep.i = getelementptr i8, ptr %0, i64 %7
   %8 = shl nuw nsw i64 %indvars.iv34.i, 4
   br label %9
 
-9:                                                ; preds = %29, %.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %29 ]
+9:                                                ; preds = %30, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %30 ]
   %10 = shl nuw nsw i64 %indvars.iv.i, 2
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %10
   %11 = add nuw nsw i64 %10, %8
@@ -371,37 +371,37 @@ define internal noundef i32 @rgtc2s_block(ptr noundef writeonly captures(none) %
   %19 = mul nuw nsw i32 %17, %17
   %20 = add nuw nsw i32 %19, %18
   %21 = icmp samesign ult i32 %20, 65024
-  br i1 %21, label %22, label %29
+  br i1 %21, label %22, label %30
 
 22:                                               ; preds = %9
-  %.lhs.trunc.i = sub nuw nsw i32 65025, %20
-  %23 = lshr i32 %.lhs.trunc.i, 1
-  %24 = uitofp nneg i32 %23 to float
-  %25 = tail call nsz float @llvm.sqrt.f32(float %24)
-  %26 = fpext nsz float %25 to double
-  %27 = tail call i64 @llvm.lrint.i64.f64(double %26)
-  %28 = trunc i64 %27 to i8
-  br label %29
+  %23 = sub nuw nsw i32 65025, %20
+  %24 = lshr i32 %23, 1
+  %25 = uitofp nneg i32 %24 to float
+  %26 = tail call nsz float @llvm.sqrt.f32(float %25)
+  %27 = fpext nsz float %26 to double
+  %28 = tail call i64 @llvm.lrint.i64.f64(double %27)
+  %29 = trunc i64 %28 to i8
+  br label %30
 
-29:                                               ; preds = %22, %9
-  %.028.i = phi i8 [ %28, %22 ], [ 127, %9 ]
+30:                                               ; preds = %22, %9
+  %.028.i = phi i8 [ %29, %22 ], [ 127, %9 ]
   store i8 %13, ptr %gep.i, align 1, !tbaa !23
-  %30 = getelementptr inbounds nuw i8, ptr %gep.i, i64 1
-  store i8 %16, ptr %30, align 1, !tbaa !23
-  %31 = getelementptr inbounds nuw i8, ptr %gep.i, i64 2
-  store i8 %.028.i, ptr %31, align 1, !tbaa !23
-  %32 = getelementptr inbounds nuw i8, ptr %gep.i, i64 3
-  store i8 -1, ptr %32, align 1, !tbaa !23
+  %31 = getelementptr inbounds nuw i8, ptr %gep.i, i64 1
+  store i8 %16, ptr %31, align 1, !tbaa !23
+  %32 = getelementptr inbounds nuw i8, ptr %gep.i, i64 2
+  store i8 %.028.i, ptr %32, align 1, !tbaa !23
+  %33 = getelementptr inbounds nuw i8, ptr %gep.i, i64 3
+  store i8 -1, ptr %33, align 1, !tbaa !23
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %33, label %9, !llvm.loop !33
+  br i1 %exitcond.not.i, label %34, label %9, !llvm.loop !33
 
-33:                                               ; preds = %29
+34:                                               ; preds = %30
   %indvars.iv.next35.i = add nuw nsw i64 %indvars.iv34.i, 1
   %exitcond37.not.i = icmp eq i64 %indvars.iv.next35.i, 4
   br i1 %exitcond37.not.i, label %rgtc2_block_internal.exit, label %.preheader.i, !llvm.loop !34
 
-rgtc2_block_internal.exit:                        ; preds = %33
+rgtc2_block_internal.exit:                        ; preds = %34
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #7
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #7
   ret i32 16
@@ -418,15 +418,15 @@ define internal noundef i32 @rgtc2u_block(ptr noundef writeonly captures(none) %
   call fastcc void @rgtc1_block_internal(ptr noundef nonnull %5, i64 noundef 16, ptr noundef nonnull readonly %6, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 4)
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %33, %3
-  %indvars.iv34.i = phi i64 [ 0, %3 ], [ %indvars.iv.next35.i, %33 ]
+.preheader.i:                                     ; preds = %34, %3
+  %indvars.iv34.i = phi i64 [ 0, %3 ], [ %indvars.iv.next35.i, %34 ]
   %7 = mul nsw i64 %indvars.iv34.i, %1
   %invariant.gep.i = getelementptr i8, ptr %0, i64 %7
   %8 = shl nuw nsw i64 %indvars.iv34.i, 4
   br label %9
 
-9:                                                ; preds = %29, %.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %29 ]
+9:                                                ; preds = %30, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %30 ]
   %10 = shl nuw nsw i64 %indvars.iv.i, 2
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %10
   %11 = add nuw nsw i64 %10, %8
@@ -440,37 +440,37 @@ define internal noundef i32 @rgtc2u_block(ptr noundef writeonly captures(none) %
   %19 = mul nuw nsw i32 %17, %17
   %20 = add nuw nsw i32 %19, %18
   %21 = icmp samesign ult i32 %20, 65024
-  br i1 %21, label %22, label %29
+  br i1 %21, label %22, label %30
 
 22:                                               ; preds = %9
-  %.lhs.trunc.i = sub nuw nsw i32 65025, %20
-  %23 = lshr i32 %.lhs.trunc.i, 1
-  %24 = uitofp nneg i32 %23 to float
-  %25 = tail call nsz float @llvm.sqrt.f32(float %24)
-  %26 = fpext nsz float %25 to double
-  %27 = tail call i64 @llvm.lrint.i64.f64(double %26)
-  %28 = trunc i64 %27 to i8
-  br label %29
+  %23 = sub nuw nsw i32 65025, %20
+  %24 = lshr i32 %23, 1
+  %25 = uitofp nneg i32 %24 to float
+  %26 = tail call nsz float @llvm.sqrt.f32(float %25)
+  %27 = fpext nsz float %26 to double
+  %28 = tail call i64 @llvm.lrint.i64.f64(double %27)
+  %29 = trunc i64 %28 to i8
+  br label %30
 
-29:                                               ; preds = %22, %9
-  %.028.i = phi i8 [ %28, %22 ], [ 127, %9 ]
+30:                                               ; preds = %22, %9
+  %.028.i = phi i8 [ %29, %22 ], [ 127, %9 ]
   store i8 %13, ptr %gep.i, align 1, !tbaa !23
-  %30 = getelementptr inbounds nuw i8, ptr %gep.i, i64 1
-  store i8 %16, ptr %30, align 1, !tbaa !23
-  %31 = getelementptr inbounds nuw i8, ptr %gep.i, i64 2
-  store i8 %.028.i, ptr %31, align 1, !tbaa !23
-  %32 = getelementptr inbounds nuw i8, ptr %gep.i, i64 3
-  store i8 -1, ptr %32, align 1, !tbaa !23
+  %31 = getelementptr inbounds nuw i8, ptr %gep.i, i64 1
+  store i8 %16, ptr %31, align 1, !tbaa !23
+  %32 = getelementptr inbounds nuw i8, ptr %gep.i, i64 2
+  store i8 %.028.i, ptr %32, align 1, !tbaa !23
+  %33 = getelementptr inbounds nuw i8, ptr %gep.i, i64 3
+  store i8 -1, ptr %33, align 1, !tbaa !23
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %33, label %9, !llvm.loop !33
+  br i1 %exitcond.not.i, label %34, label %9, !llvm.loop !33
 
-33:                                               ; preds = %29
+34:                                               ; preds = %30
   %indvars.iv.next35.i = add nuw nsw i64 %indvars.iv34.i, 1
   %exitcond37.not.i = icmp eq i64 %indvars.iv.next35.i, 4
   br i1 %exitcond37.not.i, label %rgtc2_block_internal.exit, label %.preheader.i, !llvm.loop !34
 
-rgtc2_block_internal.exit:                        ; preds = %33
+rgtc2_block_internal.exit:                        ; preds = %34
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #7
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #7
   ret i32 16
@@ -487,15 +487,15 @@ define internal noundef i32 @dxn3dc_block(ptr noundef captures(none) %0, i64 nou
   call fastcc void @rgtc1_block_internal(ptr noundef nonnull %5, i64 noundef 16, ptr noundef nonnull readonly %6, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 4)
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %33, %3
-  %indvars.iv34.i = phi i64 [ 0, %3 ], [ %indvars.iv.next35.i, %33 ]
+.preheader.i:                                     ; preds = %34, %3
+  %indvars.iv34.i = phi i64 [ 0, %3 ], [ %indvars.iv.next35.i, %34 ]
   %7 = mul nsw i64 %indvars.iv34.i, %1
   %invariant.gep.i = getelementptr i8, ptr %0, i64 %7
   %8 = shl nuw nsw i64 %indvars.iv34.i, 4
   br label %9
 
-9:                                                ; preds = %29, %.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %29 ]
+9:                                                ; preds = %30, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %30 ]
   %10 = shl nuw nsw i64 %indvars.iv.i, 2
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %10
   %11 = add nuw nsw i64 %10, %8
@@ -509,66 +509,66 @@ define internal noundef i32 @dxn3dc_block(ptr noundef captures(none) %0, i64 nou
   %19 = mul nuw nsw i32 %17, %17
   %20 = add nuw nsw i32 %19, %18
   %21 = icmp samesign ult i32 %20, 65024
-  br i1 %21, label %22, label %29
+  br i1 %21, label %22, label %30
 
 22:                                               ; preds = %9
-  %.lhs.trunc.i = sub nuw nsw i32 65025, %20
-  %23 = lshr i32 %.lhs.trunc.i, 1
-  %24 = uitofp nneg i32 %23 to float
-  %25 = tail call nsz float @llvm.sqrt.f32(float %24)
-  %26 = fpext nsz float %25 to double
-  %27 = tail call i64 @llvm.lrint.i64.f64(double %26)
-  %28 = trunc i64 %27 to i8
-  br label %29
+  %23 = sub nuw nsw i32 65025, %20
+  %24 = lshr i32 %23, 1
+  %25 = uitofp nneg i32 %24 to float
+  %26 = tail call nsz float @llvm.sqrt.f32(float %25)
+  %27 = fpext nsz float %26 to double
+  %28 = tail call i64 @llvm.lrint.i64.f64(double %27)
+  %29 = trunc i64 %28 to i8
+  br label %30
 
-29:                                               ; preds = %22, %9
-  %.028.i = phi i8 [ %28, %22 ], [ 127, %9 ]
+30:                                               ; preds = %22, %9
+  %.028.i = phi i8 [ %29, %22 ], [ 127, %9 ]
   store i8 %13, ptr %gep.i, align 1, !tbaa !23
-  %30 = getelementptr inbounds nuw i8, ptr %gep.i, i64 1
-  store i8 %16, ptr %30, align 1, !tbaa !23
-  %31 = getelementptr inbounds nuw i8, ptr %gep.i, i64 2
-  store i8 %.028.i, ptr %31, align 1, !tbaa !23
-  %32 = getelementptr inbounds nuw i8, ptr %gep.i, i64 3
-  store i8 -1, ptr %32, align 1, !tbaa !23
+  %31 = getelementptr inbounds nuw i8, ptr %gep.i, i64 1
+  store i8 %16, ptr %31, align 1, !tbaa !23
+  %32 = getelementptr inbounds nuw i8, ptr %gep.i, i64 2
+  store i8 %.028.i, ptr %32, align 1, !tbaa !23
+  %33 = getelementptr inbounds nuw i8, ptr %gep.i, i64 3
+  store i8 -1, ptr %33, align 1, !tbaa !23
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %33, label %9, !llvm.loop !33
+  br i1 %exitcond.not.i, label %34, label %9, !llvm.loop !33
 
-33:                                               ; preds = %29
+34:                                               ; preds = %30
   %indvars.iv.next35.i = add nuw nsw i64 %indvars.iv34.i, 1
   %exitcond37.not.i = icmp eq i64 %indvars.iv.next35.i, 4
   br i1 %exitcond37.not.i, label %rgtc2_block_internal.exit, label %.preheader.i, !llvm.loop !34
 
-rgtc2_block_internal.exit:                        ; preds = %33
+rgtc2_block_internal.exit:                        ; preds = %34
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #7
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #7
   br label %.preheader
 
-.preheader:                                       ; preds = %rgtc2_block_internal.exit, %40
-  %indvars.iv19 = phi i64 [ 0, %rgtc2_block_internal.exit ], [ %indvars.iv.next20, %40 ]
-  %34 = mul nsw i64 %1, %indvars.iv19
-  %invariant.gep = getelementptr i8, ptr %0, i64 %34
-  br label %35
+.preheader:                                       ; preds = %rgtc2_block_internal.exit, %41
+  %indvars.iv19 = phi i64 [ 0, %rgtc2_block_internal.exit ], [ %indvars.iv.next20, %41 ]
+  %35 = mul nsw i64 %1, %indvars.iv19
+  %invariant.gep = getelementptr i8, ptr %0, i64 %35
+  br label %36
 
-35:                                               ; preds = %.preheader, %35
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %35 ]
-  %36 = shl nuw nsw i64 %indvars.iv, 2
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %36
-  %37 = getelementptr inbounds nuw i8, ptr %gep, i64 1
-  %38 = load i8, ptr %37, align 1, !tbaa !23
-  %39 = load i8, ptr %gep, align 1, !tbaa !23
-  store i8 %39, ptr %37, align 1, !tbaa !23
-  store i8 %38, ptr %gep, align 1, !tbaa !23
+36:                                               ; preds = %.preheader, %36
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %36 ]
+  %37 = shl nuw nsw i64 %indvars.iv, 2
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %37
+  %38 = getelementptr inbounds nuw i8, ptr %gep, i64 1
+  %39 = load i8, ptr %38, align 1, !tbaa !23
+  %40 = load i8, ptr %gep, align 1, !tbaa !23
+  store i8 %40, ptr %38, align 1, !tbaa !23
+  store i8 %39, ptr %gep, align 1, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %40, label %35, !llvm.loop !35
+  br i1 %exitcond.not, label %41, label %36, !llvm.loop !35
 
-40:                                               ; preds = %35
+41:                                               ; preds = %36
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %exitcond22.not = icmp eq i64 %indvars.iv.next20, 4
-  br i1 %exitcond22.not, label %41, label %.preheader, !llvm.loop !36
+  br i1 %exitcond22.not, label %42, label %.preheader, !llvm.loop !36
 
-41:                                               ; preds = %40
+42:                                               ; preds = %41
   ret i32 16
 }
 

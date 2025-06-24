@@ -1101,7 +1101,7 @@ DitherRow.exit:                                   ; preds = %229, %146, %FilterR
   %273 = getelementptr inbounds i8, ptr %271, i64 %272
   store ptr %273, ptr %248, align 8, !tbaa !94
   %274 = load i32, ptr %17, align 4, !tbaa !72
-  %275 = ashr i32 %268, 1
+  %275 = lshr i32 %268, 1
   %276 = mul nsw i32 %274, %275
   %277 = load ptr, ptr %249, align 8, !tbaa !95
   %278 = sext i32 %276 to i64

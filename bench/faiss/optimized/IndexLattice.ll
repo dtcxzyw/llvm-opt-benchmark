@@ -1229,7 +1229,7 @@ define internal void @_ZNK5faiss12IndexLattice9sa_decodeElPKhPf.omp_outlined(ptr
   %63 = zext nneg i32 %47 to i64
   %64 = sub nsw i32 %47, %50
   %.02431.i = add nuw nsw i64 %51, 1
-  %65 = icmp sgt i32 %64, 8
+  %65 = icmp samesign ugt i32 %64, 8
   br i1 %65, label %.lr.ph.preheader.i, label %._crit_edge.i
 
 .lr.ph.preheader.i:                               ; preds = %61
@@ -1249,7 +1249,7 @@ define internal void @_ZNK5faiss12IndexLattice9sa_decodeElPKhPf.omp_outlined(ptr
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 8
   %72 = add nsw i32 %.02732.i, -8
   %.024.i = add nuw nsw i64 %.02435.i, 1
-  %73 = icmp samesign ugt i32 %.02732.i, 16
+  %73 = icmp samesign ugt i32 %72, 8
   br i1 %73, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !98
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
@@ -1321,7 +1321,7 @@ _ZN5faiss15BitstringReader4readEi.exit:           ; preds = %56, %._crit_edge.i
   %119 = zext nneg i32 %103 to i64
   %120 = sub nsw i32 %103, %106
   %.02431.i40 = add nuw nsw i64 %107, 1
-  %121 = icmp sgt i32 %120, 8
+  %121 = icmp samesign ugt i32 %120, 8
   br i1 %121, label %.lr.ph.preheader.i47, label %._crit_edge.i41
 
 .lr.ph.preheader.i47:                             ; preds = %117
@@ -1341,7 +1341,7 @@ _ZN5faiss15BitstringReader4readEi.exit:           ; preds = %56, %._crit_edge.i
   %indvars.iv.next.i53 = add nuw nsw i64 %indvars.iv.i49, 8
   %128 = add nsw i32 %.02732.i52, -8
   %.024.i54 = add nuw nsw i64 %.02435.i50, 1
-  %129 = icmp samesign ugt i32 %.02732.i52, 16
+  %129 = icmp samesign ugt i32 %128, 8
   br i1 %129, label %.lr.ph.i48, label %._crit_edge.loopexit.i55, !llvm.loop !98
 
 ._crit_edge.loopexit.i55:                         ; preds = %.lr.ph.i48

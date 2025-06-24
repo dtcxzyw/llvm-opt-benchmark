@@ -1469,7 +1469,7 @@ define internal ptr @dissect_fields_cau(ptr noundef %0, ptr noundef %1, ptr noun
   %60 = add i32 %.06372, 2
   %61 = tail call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %59, ptr noundef %1, i32 noundef %60, i32 noundef 1, i32 noundef 0)
   %62 = add nsw i32 %.073, -2
-  %63 = icmp samesign ugt i32 %.073, 3
+  %63 = icmp samesign ugt i32 %62, 1
   br i1 %63, label %.lr.ph, label %.loopexit, !llvm.loop !11
 
 64:                                               ; preds = %50

@@ -2428,7 +2428,7 @@ define internal void @_ZNK5faiss17AdditiveQuantizer6decodeEPKhPfm.omp_outlined(p
   %59 = and i64 %42, 4294967295
   %60 = sub nsw i32 %43, %46
   %.02431.i = add nuw nsw i64 %47, 1
-  %61 = icmp sgt i32 %60, 8
+  %61 = icmp samesign ugt i32 %60, 8
   br i1 %61, label %.lr.ph.preheader.i, label %._crit_edge.i
 
 .lr.ph.preheader.i:                               ; preds = %57
@@ -2448,7 +2448,7 @@ define internal void @_ZNK5faiss17AdditiveQuantizer6decodeEPKhPfm.omp_outlined(p
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 8
   %68 = add nsw i32 %.02732.i, -8
   %.024.i = add nuw nsw i64 %.02435.i, 1
-  %69 = icmp samesign ugt i32 %.02732.i, 16
+  %69 = icmp samesign ugt i32 %68, 8
   br i1 %69, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !105
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
@@ -4207,7 +4207,7 @@ define noundef float @_ZNK5faiss17AdditiveQuantizer22compute_1_distance_LUTILb1E
   %25 = and i64 %8, 4294967295
   %26 = sub nsw i32 %9, %12
   %.02431.i.i = add nuw nsw i64 %13, 1
-  %27 = icmp sgt i32 %26, 8
+  %27 = icmp samesign ugt i32 %26, 8
   br i1 %27, label %.lr.ph.preheader.i.i, label %._crit_edge.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %23
@@ -4227,7 +4227,7 @@ define noundef float @_ZNK5faiss17AdditiveQuantizer22compute_1_distance_LUTILb1E
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 8
   %34 = add nsw i32 %.02732.i.i, -8
   %.024.i.i = add nuw nsw i64 %.02435.i.i, 1
-  %35 = icmp samesign ugt i32 %.02732.i.i, 16
+  %35 = icmp samesign ugt i32 %34, 8
   br i1 %35, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !105
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
@@ -4313,7 +4313,7 @@ define noundef float @_ZNK5faiss17AdditiveQuantizer22compute_1_distance_LUTILb0E
   %25 = and i64 %8, 4294967295
   %26 = sub nsw i32 %9, %12
   %.02431.i.i = add nuw nsw i64 %13, 1
-  %27 = icmp sgt i32 %26, 8
+  %27 = icmp samesign ugt i32 %26, 8
   br i1 %27, label %.lr.ph.preheader.i.i, label %._crit_edge.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %23
@@ -4333,7 +4333,7 @@ define noundef float @_ZNK5faiss17AdditiveQuantizer22compute_1_distance_LUTILb0E
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 8
   %34 = add nsw i32 %.02732.i.i, -8
   %.024.i.i = add nuw nsw i64 %.02435.i.i, 1
-  %35 = icmp samesign ugt i32 %.02732.i.i, 16
+  %35 = icmp samesign ugt i32 %34, 8
   br i1 %35, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !105
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
@@ -4420,7 +4420,7 @@ define noundef float @_ZNK5faiss17AdditiveQuantizer22compute_1_distance_LUTILb0E
   %25 = and i64 %8, 4294967295
   %26 = sub nsw i32 %9, %12
   %.02431.i.i = add nuw nsw i64 %13, 1
-  %27 = icmp sgt i32 %26, 8
+  %27 = icmp samesign ugt i32 %26, 8
   br i1 %27, label %.lr.ph.preheader.i.i, label %._crit_edge.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %23
@@ -4440,7 +4440,7 @@ define noundef float @_ZNK5faiss17AdditiveQuantizer22compute_1_distance_LUTILb0E
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 8
   %34 = add nsw i32 %.02732.i.i, -8
   %.024.i.i = add nuw nsw i64 %.02435.i.i, 1
-  %35 = icmp samesign ugt i32 %.02732.i.i, 16
+  %35 = icmp samesign ugt i32 %34, 8
   br i1 %35, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !105
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
@@ -4509,7 +4509,7 @@ _ZN5faiss12_GLOBAL__N_114accumulate_IPsERKNS_17AdditiveQuantizerERNS_15Bitstring
   %indvars.iv.next.i9 = add nuw nsw i64 %indvars.iv.i8, 8
   %68 = add nsw i32 %.02732.i, -8
   %.024.i = add nuw nsw i64 %.02435.i, 1
-  %69 = icmp samesign ugt i32 %.02732.i, 16
+  %69 = icmp samesign ugt i32 %68, 8
   br i1 %69, label %.lr.ph.i7, label %._crit_edge.loopexit.i, !llvm.loop !105
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i7
@@ -4576,7 +4576,7 @@ _ZN5faiss12_GLOBAL__N_114accumulate_IPsERKNS_17AdditiveQuantizerERNS_15Bitstring
   %27 = and i64 %10, 4294967295
   %28 = sub nsw i32 %11, %14
   %.02431.i.i = add nuw nsw i64 %15, 1
-  %29 = icmp sgt i32 %28, 8
+  %29 = icmp samesign ugt i32 %28, 8
   br i1 %29, label %.lr.ph.preheader.i.i, label %._crit_edge.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %25
@@ -4596,7 +4596,7 @@ _ZN5faiss12_GLOBAL__N_114accumulate_IPsERKNS_17AdditiveQuantizerERNS_15Bitstring
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 8
   %36 = add nsw i32 %.02732.i.i, -8
   %.024.i.i = add nuw nsw i64 %.02435.i.i, 1
-  %37 = icmp samesign ugt i32 %.02732.i.i, 16
+  %37 = icmp samesign ugt i32 %36, 8
   br i1 %37, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !105
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
@@ -4715,7 +4715,7 @@ _ZN5faiss12_GLOBAL__N_114accumulate_IPsERKNS_17AdditiveQuantizerERNS_15Bitstring
   %27 = and i64 %10, 4294967295
   %28 = sub nsw i32 %11, %14
   %.02431.i.i = add nuw nsw i64 %15, 1
-  %29 = icmp sgt i32 %28, 8
+  %29 = icmp samesign ugt i32 %28, 8
   br i1 %29, label %.lr.ph.preheader.i.i, label %._crit_edge.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %25
@@ -4735,7 +4735,7 @@ _ZN5faiss12_GLOBAL__N_114accumulate_IPsERKNS_17AdditiveQuantizerERNS_15Bitstring
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 8
   %36 = add nsw i32 %.02732.i.i, -8
   %.024.i.i = add nuw nsw i64 %.02435.i.i, 1
-  %37 = icmp samesign ugt i32 %.02732.i.i, 16
+  %37 = icmp samesign ugt i32 %36, 8
   br i1 %37, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !105
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
@@ -4860,7 +4860,7 @@ _ZN5faiss12_GLOBAL__N_114accumulate_IPsERKNS_17AdditiveQuantizerERNS_15Bitstring
   %27 = and i64 %10, 4294967295
   %28 = sub nsw i32 %11, %14
   %.02431.i.i = add nuw nsw i64 %15, 1
-  %29 = icmp sgt i32 %28, 8
+  %29 = icmp samesign ugt i32 %28, 8
   br i1 %29, label %.lr.ph.preheader.i.i, label %._crit_edge.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %25
@@ -4880,7 +4880,7 @@ _ZN5faiss12_GLOBAL__N_114accumulate_IPsERKNS_17AdditiveQuantizerERNS_15Bitstring
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 8
   %36 = add nsw i32 %.02732.i.i, -8
   %.024.i.i = add nuw nsw i64 %.02435.i.i, 1
-  %37 = icmp samesign ugt i32 %.02732.i.i, 16
+  %37 = icmp samesign ugt i32 %36, 8
   br i1 %37, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !105
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
@@ -5021,7 +5021,7 @@ _ZN5faiss12_GLOBAL__N_114accumulate_IPsERKNS_17AdditiveQuantizerERNS_15Bitstring
   %27 = and i64 %10, 4294967295
   %28 = sub nsw i32 %11, %14
   %.02431.i.i = add nuw nsw i64 %15, 1
-  %29 = icmp sgt i32 %28, 8
+  %29 = icmp samesign ugt i32 %28, 8
   br i1 %29, label %.lr.ph.preheader.i.i, label %._crit_edge.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %25
@@ -5041,7 +5041,7 @@ _ZN5faiss12_GLOBAL__N_114accumulate_IPsERKNS_17AdditiveQuantizerERNS_15Bitstring
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 8
   %36 = add nsw i32 %.02732.i.i, -8
   %.024.i.i = add nuw nsw i64 %.02435.i.i, 1
-  %37 = icmp samesign ugt i32 %.02732.i.i, 16
+  %37 = icmp samesign ugt i32 %36, 8
   br i1 %37, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !105
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
@@ -5243,7 +5243,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %53 = and i64 %36, 4294967295
   %54 = sub nsw i32 %37, %40
   %.02431.i.i = add nuw nsw i64 %41, 1
-  %55 = icmp sgt i32 %54, 8
+  %55 = icmp samesign ugt i32 %54, 8
   br i1 %55, label %.lr.ph.preheader.i.i, label %._crit_edge.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %51
@@ -5263,7 +5263,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 8
   %62 = add nsw i32 %.02732.i.i, -8
   %.024.i.i = add nuw nsw i64 %.02435.i.i, 1
-  %63 = icmp samesign ugt i32 %.02732.i.i, 16
+  %63 = icmp samesign ugt i32 %62, 8
   br i1 %63, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !105
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
@@ -5367,7 +5367,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc37.i
   %111 = and i64 %94, 4294967295
   %112 = sub nsw i32 %95, %98
   %.02431.i.i21 = add nuw nsw i64 %99, 1
-  %113 = icmp sgt i32 %112, 8
+  %113 = icmp samesign ugt i32 %112, 8
   br i1 %113, label %.lr.ph.preheader.i.i28, label %._crit_edge.i.i22
 
 .lr.ph.preheader.i.i28:                           ; preds = %109
@@ -5387,7 +5387,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc37.i
   %indvars.iv.next.i.i34 = add nuw nsw i64 %indvars.iv.i.i30, 8
   %120 = add nsw i32 %.02732.i.i33, -8
   %.024.i.i35 = add nuw nsw i64 %.02435.i.i31, 1
-  %121 = icmp samesign ugt i32 %.02732.i.i33, 16
+  %121 = icmp samesign ugt i32 %120, 8
   br i1 %121, label %.lr.ph.i.i29, label %._crit_edge.loopexit.i.i36, !llvm.loop !105
 
 ._crit_edge.loopexit.i.i36:                       ; preds = %.lr.ph.i.i29

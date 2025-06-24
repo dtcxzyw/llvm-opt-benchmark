@@ -3676,7 +3676,7 @@ define void @png_ascii_from_fp(ptr noalias noundef %0, ptr noundef captures(none
   %.2.i = select i1 %.not.i, double %.1.i, double %33
   %34 = fmul double %.0.i, %.0.i
   %35 = lshr i32 %.117.i, 1
-  %.not22.i = icmp ult i32 %.117.i, 2
+  %.not22.i = icmp samesign ult i32 %.117.i, 2
   br i1 %.not22.i, label %36, label %.preheader.i, !llvm.loop !140
 
 36:                                               ; preds = %.preheader.i
@@ -3728,7 +3728,7 @@ png_pow10.exit:                                   ; preds = %31, %36
   %.2.i172 = select i1 %.not.i171, double %.1.i169, double %49
   %50 = fmul double %.0.i170, %.0.i170
   %51 = lshr i32 %.117.i168, 1
-  %.not22.i173 = icmp ult i32 %.117.i168, 2
+  %.not22.i173 = icmp samesign ult i32 %.117.i168, 2
   br i1 %.not22.i173, label %png_pow10.exit177, label %.preheader.i167, !llvm.loop !140
 
 png_pow10.exit177:                                ; preds = %.preheader.i167
@@ -4201,7 +4201,7 @@ define void @png_ascii_from_fixed(ptr noalias noundef %0, ptr noundef writeonly 
   %20 = icmp ne i32 %13, 0
   %or.cond = and i1 %19, %20
   %spec.select = select i1 %or.cond, i32 %16, i32 %.03651
-  %.not = icmp ult i32 %.14249, 10
+  %.not = icmp samesign ult i32 %.14249, 10
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !150
 
 ._crit_edge:                                      ; preds = %.lr.ph

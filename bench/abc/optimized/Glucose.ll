@@ -1596,7 +1596,7 @@ _ZN5Gluco3vecIcE4pushEv.exit:                     ; preds = %._ZN5Gluco3vecIcE4p
   %246 = add nsw i32 %245, 2
   %247 = call noundef i32 @llvm.smax.i32(i32 %246, i32 %243)
   %248 = sub nsw i32 2147483647, %239
-  %249 = icmp sgt i32 %247, %248
+  %249 = icmp samesign ugt i32 %247, %248
   br i1 %249, label %261, label %250
 
 250:                                              ; preds = %240
@@ -1702,7 +1702,7 @@ define linkonce_odr void @_ZN5Gluco8OccListsINS_3LitENS_3vecINS_6Solver7WatcherE
   %17 = add nsw i32 %16, 2
   %18 = tail call noundef i32 @llvm.smax.i32(i32 %17, i32 %14)
   %19 = sub nsw i32 2147483647, %10
-  %20 = icmp sgt i32 %18, %19
+  %20 = icmp samesign ugt i32 %18, %19
   br i1 %20, label %31, label %21
 
 21:                                               ; preds = %11
@@ -6080,7 +6080,7 @@ define linkonce_odr void @_ZNK5Gluco3vecINS_3LitEE7copyTo_ERS2_(ptr noundef nonn
   %15 = add nsw i32 %14, 2
   %16 = tail call noundef i32 @llvm.smax.i32(i32 %15, i32 %12)
   %17 = sub nsw i32 2147483647, %8
-  %18 = icmp sgt i32 %16, %17
+  %18 = icmp samesign ugt i32 %16, %17
   br i1 %18, label %30, label %19
 
 19:                                               ; preds = %9
@@ -8805,7 +8805,7 @@ _ZNK5Gluco6Solver12withinBudgetEv.exit.thread:    ; preds = %106, %91, %_ZNK5Glu
   %143 = add nsw i32 %142, 2
   %144 = call noundef i32 @llvm.smax.i32(i32 %143, i32 %140)
   %145 = sub nsw i32 2147483647, %136
-  %146 = icmp sgt i32 %144, %145
+  %146 = icmp samesign ugt i32 %144, %145
   br i1 %146, label %157, label %147
 
 147:                                              ; preds = %137
@@ -9151,7 +9151,7 @@ define internal fastcc noundef i32 @_ZL6mapVariRN5Gluco3vecIiEERi(i32 noundef %0
   %22 = add nsw i32 %21, 2
   %23 = tail call noundef i32 @llvm.smax.i32(i32 %22, i32 %19)
   %24 = sub nsw i32 2147483647, %15
-  %25 = icmp sgt i32 %23, %24
+  %25 = icmp samesign ugt i32 %23, %24
   br i1 %25, label %37, label %26
 
 26:                                               ; preds = %16
@@ -9481,7 +9481,7 @@ _ZNK5Gluco6Solver9satisfiedERKNS_6ClauseE.exit46.thread68: ; preds = %_ZNK5Gluco
   %139 = add nsw i32 %138, 2
   %140 = tail call noundef i32 @llvm.smax.i32(i32 %139, i32 %136)
   %141 = sub nsw i32 2147483647, %132
-  %142 = icmp sgt i32 %140, %141
+  %142 = icmp samesign ugt i32 %140, %141
   br i1 %142, label %153, label %143
 
 143:                                              ; preds = %133
@@ -9626,7 +9626,7 @@ _ZNK5Gluco6Solver9satisfiedERKNS_6ClauseE.exit46.thread: ; preds = %94, %_ZNK5Gl
   %206 = add nsw i32 %205, 2
   %207 = tail call noundef i32 @llvm.smax.i32(i32 %206, i32 %203)
   %208 = sub nsw i32 2147483647, %199
-  %209 = icmp sgt i32 %207, %208
+  %209 = icmp samesign ugt i32 %207, %208
   br i1 %209, label %220, label %210
 
 210:                                              ; preds = %200
@@ -11522,7 +11522,7 @@ define linkonce_odr void @_ZN5Gluco4HeapINS_6Solver10VarOrderLtEE6insertEi(ptr n
   %16 = add nsw i32 %15, 2
   %17 = tail call noundef i32 @llvm.smax.i32(i32 %16, i32 %13)
   %18 = sub nsw i32 2147483647, %9
-  %19 = icmp sgt i32 %17, %18
+  %19 = icmp samesign ugt i32 %17, %18
   br i1 %19, label %31, label %20
 
 20:                                               ; preds = %10
@@ -11777,7 +11777,7 @@ define linkonce_odr void @_ZN5Gluco3vecIjE6growToEi(ptr noundef nonnull align 8 
   %14 = add nsw i32 %13, 2
   %15 = tail call noundef i32 @llvm.smax.i32(i32 %14, i32 %11)
   %16 = sub nsw i32 2147483647, %7
-  %17 = icmp sgt i32 %15, %16
+  %17 = icmp samesign ugt i32 %15, %16
   br i1 %17, label %29, label %18
 
 18:                                               ; preds = %8
@@ -11849,7 +11849,7 @@ define linkonce_odr void @_ZN5Gluco3vecINS0_INS_6Solver7WatcherEEEE6growToEi(ptr
   %14 = add nsw i32 %13, 2
   %15 = tail call noundef i32 @llvm.smax.i32(i32 %14, i32 %11)
   %16 = sub nsw i32 2147483647, %7
-  %17 = icmp sgt i32 %15, %16
+  %17 = icmp samesign ugt i32 %15, %16
   br i1 %17, label %29, label %18
 
 18:                                               ; preds = %8

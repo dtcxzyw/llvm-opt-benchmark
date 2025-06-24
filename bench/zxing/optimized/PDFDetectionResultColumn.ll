@@ -74,7 +74,7 @@ define void @_ZN5ZXing6Pdf41721DetectionResultColumnC2ERKNS0_11BoundingBoxENS1_1
 
 20:                                               ; preds = %18
   %21 = sub i32 %19, %9
-  %22 = sext i32 %21 to i64
+  %22 = zext nneg i32 %21 to i64
   invoke void @_ZNSt6vectorIN5ZXing8NullableINS0_6Pdf4178CodewordEEESaIS4_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %22)
           to label %_ZNSt6vectorIN5ZXing8NullableINS0_6Pdf4178CodewordEEESaIS4_EE6resizeEm.exit unwind label %14
 

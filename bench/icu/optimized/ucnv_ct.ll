@@ -277,7 +277,7 @@ define internal void @_ZL41UConverter_toUnicode_CompoundText_OFFSETSP23UConverte
 
 43:                                               ; preds = %.lr.ph.i
   %44 = sub nsw i64 %indvars.iv.i, %36
-  %45 = getelementptr inbounds i8, ptr %.075133, i64 %44
+  %45 = getelementptr inbounds nuw i8, ptr %.075133, i64 %44
   %.not31.i = icmp ult ptr %45, %9
   br i1 %.not31.i, label %47, label %46
 

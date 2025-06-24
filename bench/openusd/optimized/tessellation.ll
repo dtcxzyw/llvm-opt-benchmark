@@ -6678,8 +6678,8 @@ define void @_ZN10OpenSubdiv6v3_6_03Bfr12Tessellation26TransformFacetCoordIndice
   %22 = zext nneg i32 %17 to i64
   %23 = getelementptr inbounds nuw i32, ptr %2, i64 %22
   %24 = sub nsw i32 %17, %20
-  %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds i32, ptr %3, i64 %25
+  %25 = zext nneg i32 %24 to i64
+  %26 = getelementptr inbounds nuw i32, ptr %3, i64 %25
   %.in = select i1 %21, ptr %23, ptr %26
   %27 = load i32, ptr %.in, align 4
   store i32 %27, ptr %16, align 4

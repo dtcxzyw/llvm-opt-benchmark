@@ -237,7 +237,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23Doub
   %78 = getelementptr inbounds [6 x i8], ptr %6, i64 0, i64 %indvars.iv.next
   store i8 %77, ptr %78, align 1
   %79 = udiv i32 %.12634, 10
-  %.not40 = icmp samesign ult i32 %.12634, 10
+  %.not40 = icmp ult i32 %.12634, 10
   br i1 %.not40, label %.loopexit.loopexit, label %.lr.ph, !llvm.loop !5
 
 .loopexit.loopexit:                               ; preds = %.lr.ph
@@ -442,7 +442,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion13StringBuilder10Add
   %87 = load ptr, ptr %5, align 8
   %88 = sext i32 %86 to i64
   %89 = getelementptr inbounds i8, ptr %87, i64 %88
-  %90 = sext i32 %85 to i64
+  %90 = zext nneg i32 %85 to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %89, ptr nonnull align 1 %84, i64 %90, i1 false)
   %91 = load i32, ptr %46, align 8
   %92 = add nsw i32 %91, %85

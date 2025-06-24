@@ -12923,9 +12923,9 @@ Rtl_NtkMapWires.exit:                             ; preds = %.lr.ph.split.us.i, 
 64:                                               ; preds = %63
   %65 = sub nsw i32 %61, %.val48
   %.val61 = load ptr, ptr %52, align 8, !tbaa !3
-  %66 = shl nsw i32 %65, 1
-  %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds i32, ptr %.val61, i64 %67
+  %66 = shl nuw nsw i32 %65, 1
+  %67 = zext nneg i32 %66 to i64
+  %68 = getelementptr inbounds nuw i32, ptr %.val61, i64 %67
   store i32 0, ptr %53, align 4, !tbaa !37
   %69 = load i32, ptr %68, align 4, !tbaa !38
   tail call void @Rtl_NtkCollectSignalRange(ptr noundef nonnull %0, i32 noundef %69)

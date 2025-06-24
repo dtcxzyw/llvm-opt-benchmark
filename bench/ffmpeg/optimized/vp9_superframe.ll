@@ -85,8 +85,8 @@ define internal i32 @vp9_superframe_filter(ptr noundef %0, ptr noundef %1) #0 {
 
 30:                                               ; preds = %22
   %31 = sub nsw i32 %9, %29
-  %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds i8, ptr %14, i64 %32
+  %32 = zext nneg i32 %31 to i64
+  %33 = getelementptr inbounds nuw i8, ptr %14, i64 %32
   %34 = load i8, ptr %33, align 1, !tbaa !27
   %35 = icmp eq i8 %34, %18
   br label %36
