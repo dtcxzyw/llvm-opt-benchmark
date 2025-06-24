@@ -24682,9 +24682,9 @@ switch.lookup:
   %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @"switch.table._ZN58_$LT$png..common..BitDepth$u20$as$u20$core..fmt..Debug$GT$3fmt17hc3c0e2f245de2e0eE", i64 0, i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   %5 = zext nneg i8 %3 to i64
-  %switch.gep1 = getelementptr inbounds nuw [5 x ptr], ptr @"switch.table._ZN58_$LT$png..common..BitDepth$u20$as$u20$core..fmt..Debug$GT$3fmt17hc3c0e2f245de2e0eE.659", i64 0, i64 %5
-  %switch.load2 = load ptr, ptr %switch.gep1, align 8
-  %6 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h614ed3390cd2c9c4E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
+  %switch.gep2 = getelementptr inbounds nuw [5 x ptr], ptr @"switch.table._ZN58_$LT$png..common..BitDepth$u20$as$u20$core..fmt..Debug$GT$3fmt17hc3c0e2f245de2e0eE.659", i64 0, i64 %5
+  %switch.load3 = load ptr, ptr %switch.gep2, align 8
+  %6 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h614ed3390cd2c9c4E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %6
 }
 
@@ -25097,7 +25097,7 @@ common.resume:                                    ; preds = %178, %77, %111, %11
   invoke fastcc void @"_ZN3png7decoder16Decoder$LT$R$GT$16read_header_info17h8933f186b7484865E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %15, ptr noalias noundef align 8 dereferenceable(536) %16)
           to label %31 unwind label %178
 
-30:                                               ; preds = %138, %136, %132, %130, %127
+default.unreachable:                              ; preds = %138, %136, %132, %130, %127
   unreachable
 
 31:                                               ; preds = %"_ZN3png7decoder16Decoder$LT$R$GT$15new_with_limits17h833072576602718aE.exit"

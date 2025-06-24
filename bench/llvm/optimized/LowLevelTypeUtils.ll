@@ -759,27 +759,27 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit:              ; preds = %9, %11
     i64 7, label %28
   ]
 
-22:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit
-  %23 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase8IEEEhalfEv() #7
-  br label %31
+21:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit
+  %22 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase8IEEEhalfEv() #7
+  br label %30
 
-24:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit
-  %25 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase10IEEEsingleEv() #7
-  br label %31
+23:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit
+  %24 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase10IEEEsingleEv() #7
+  br label %30
 
-26:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit
-  %27 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase10IEEEdoubleEv() #7
-  br label %31
+25:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit
+  %26 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase10IEEEdoubleEv() #7
+  br label %30
 
-28:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit
-  %29 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase8IEEEquadEv() #7
-  br label %31
+27:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit
+  %28 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase8IEEEquadEv() #7
+  br label %30
 
-30:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit
+29:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit
   unreachable
 
-31:                                               ; preds = %28, %26, %24, %22
-  %.0 = phi ptr [ %23, %22 ], [ %25, %24 ], [ %27, %26 ], [ %29, %28 ]
+30:                                               ; preds = %27, %25, %23, %21
+  %.0 = phi ptr [ %22, %22 ], [ %24, %24 ], [ %26, %26 ], [ %28, %28 ]
   ret ptr %.0
 }
 

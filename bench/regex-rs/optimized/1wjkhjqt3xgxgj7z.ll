@@ -2385,7 +2385,7 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$regex_syntax..hir..print..Writer$LT
     i64 7, label %45
   ]
 
-15:                                               ; preds = %38, %2
+default.unreachable411:                           ; preds = %38, %2
   unreachable
 
 16:                                               ; preds = %2
@@ -2507,7 +2507,7 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$regex_syntax..hir..print..Writer$LT
   %61 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %62 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %63 = icmp eq i64 %23, 0
-  br i1 %63, label %.thread, label %.lr.ph421
+  br i1 %63, label %.thread, label %.lr.ph422
 
 64:                                               ; preds = %"_ZN12regex_syntax3hir5print15Writer$LT$W$GT$18write_literal_char17hf90c140c1cb42a42E.exit", %53
   %.sroa.0.0 = phi ptr [ %.sroa.4.0.copyload, %53 ], [ %.sroa.0.1.ph376, %"_ZN12regex_syntax3hir5print15Writer$LT$W$GT$18write_literal_char17hf90c140c1cb42a42E.exit" ]
@@ -2586,22 +2586,22 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$regex_syntax..hir..print..Writer$LT
 .thread:                                          ; preds = %64, %92, %.backedge, %55
   br i1 %31, label %118, label %"_ZN12regex_syntax3hir5print15Writer$LT$W$GT$18write_literal_char17hf90c140c1cb42a42E.exit.thread"
 
-.lr.ph421:                                        ; preds = %55, %.backedge
-  %.sroa.0361.0419 = phi ptr [ %108, %.backedge ], [ %21, %55 ]
-  %108 = getelementptr inbounds nuw i8, ptr %.sroa.0361.0419, i64 1
-  %109 = load i8, ptr %.sroa.0361.0419, align 1, !noundef !4
+.lr.ph422:                                        ; preds = %55, %.backedge
+  %.sroa.0361.0420 = phi ptr [ %108, %.backedge ], [ %21, %55 ]
+  %108 = getelementptr inbounds nuw i8, ptr %.sroa.0361.0420, i64 1
+  %109 = load i8, ptr %.sroa.0361.0420, align 1, !noundef !4
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
   store i8 %109, ptr %6, align 1
   %or.cond.i = icmp slt i8 %109, 32
   br i1 %or.cond.i, label %.critedge.i, label %switch.early.test.i
 
-switch.early.test.i:                              ; preds = %.lr.ph421
+switch.early.test.i:                              ; preds = %.lr.ph422
   switch i8 %109, label %111 [
     i8 127, label %.critedge.i
     i8 32, label %.critedge.i
   ]
 
-.critedge.i:                                      ; preds = %switch.early.test.i, %switch.early.test.i, %.lr.ph421
+.critedge.i:                                      ; preds = %switch.early.test.i, %switch.early.test.i, %.lr.ph422
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   store ptr %6, ptr %4, align 8
@@ -2650,7 +2650,7 @@ switch.early.test.i:                              ; preds = %.lr.ph421
 
 .backedge:                                        ; preds = %"_ZN12regex_syntax3hir5print15Writer$LT$W$GT$18write_literal_byte17hcde399eb5f49ed7bE.exit", %.critedge.i
   %117 = icmp eq ptr %108, %56
-  br i1 %117, label %.thread, label %.lr.ph421
+  br i1 %117, label %.thread, label %.lr.ph422
 
 118:                                              ; preds = %.thread
   %119 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17hd5a64a03c9fdc386E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %.val342, ptr noalias noundef nonnull readonly align 1 @anon.a0cf07ee2bf0c4ef13b938348e5442a5.24, i64 noundef 1), !noalias !515
@@ -3554,10 +3554,10 @@ declare noundef zeroext i1 @_ZN12regex_syntax17is_meta_character17h7072eaeb7bb36
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #16
+declare void @llvm.experimental.noalias.scope.decl(metadata) #17
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.cttz.i32(i32, i1 immarg) #18
@@ -3579,7 +3579,7 @@ attributes #13 = { cold noreturn nounwind nonlazybind uwtable "probe-stack"="inl
 attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #15 = { nocallback nofree nounwind nonlazybind willreturn memory(argmem: read) }
 attributes #16 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #17 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #17 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #19 = { noreturn }
 attributes #20 = { cold }

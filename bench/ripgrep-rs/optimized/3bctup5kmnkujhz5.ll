@@ -1108,9 +1108,9 @@ define hidden void @_ZN10grep_regex12non_matching21remove_matching_bytes17h9d607
   %8 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %9 = alloca { { { ptr, ptr, {} } } }, align 8
   %.sroa.5.0.i.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %.sroa.5.0.i.sroa.gep92 = getelementptr inbounds nuw i8, ptr %5, i64 6
-  %.sroa.5.0.i.sroa.gep93 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.sroa.5.0.i.sroa.gep94 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  %.sroa.5.0.i.sroa.gep91 = getelementptr inbounds nuw i8, ptr %5, i64 6
+  %.sroa.5.0.i.sroa.gep92 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.sroa.5.0.i.sroa.gep93 = getelementptr inbounds nuw i8, ptr %5, i64 2
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %tailrecurse.backedge, %2
@@ -1130,13 +1130,13 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
     i64 7, label %35
   ]
 
-tailrecurse.unreachabledefault:                   ; preds = %tailrecurse
+default.unreachable94:                            ; preds = %tailrecurse
   unreachable
 
 14:                                               ; preds = %24
   unreachable
 
-.loopexit:                                        ; preds = %tailrecurse, %.lr.ph, %.lr.ph65, %.lr.ph76, %35, %30, %15, %134, %131, %128, %._crit_edge, %._crit_edge73, %24, %24, %24, %24, %24, %24, %24, %24, %24, %24, %24, %24
+.loopexit:                                        ; preds = %tailrecurse, %.lr.ph, %.lr.ph64, %.lr.ph75, %35, %30, %15, %134, %131, %128, %._crit_edge, %._crit_edge72, %24, %24, %24, %24, %24, %24, %24, %24, %24, %24, %24, %24
   ret void
 
 15:                                               ; preds = %tailrecurse
@@ -1146,7 +1146,7 @@ tailrecurse.unreachabledefault:                   ; preds = %tailrecurse
   %19 = load i64, ptr %18, align 8, !noundef !7
   %20 = getelementptr inbounds i8, ptr %17, i64 %19
   %21 = icmp eq i64 %19, 0
-  br i1 %21, label %.loopexit, label %.lr.ph76
+  br i1 %21, label %.loopexit, label %.lr.ph75
 
 22:                                               ; preds = %tailrecurse
   %switch = icmp eq i64 %10, 0
@@ -1194,7 +1194,7 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %28
   %.val19 = load i64, ptr %32, align 8, !noundef !7
   %33 = getelementptr inbounds { { i64, [4 x i64] }, ptr }, ptr %.val18, i64 %.val19
   %34 = icmp eq i64 %.val19, 0
-  br i1 %34, label %.loopexit, label %.lr.ph65
+  br i1 %34, label %.loopexit, label %.lr.ph64
 
 35:                                               ; preds = %tailrecurse
   %36 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
@@ -1205,10 +1205,10 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %28
   %39 = icmp eq i64 %.val17, 0
   br i1 %39, label %.loopexit, label %.lr.ph
 
-.lr.ph76:                                         ; preds = %15, %.lr.ph76
-  %.sroa.0.074 = phi ptr [ %40, %.lr.ph76 ], [ %17, %15 ]
-  %40 = getelementptr inbounds nuw i8, ptr %.sroa.0.074, i64 1
-  %41 = load i8, ptr %.sroa.0.074, align 1, !noundef !7
+.lr.ph75:                                         ; preds = %15, %.lr.ph75
+  %.sroa.0.073 = phi ptr [ %40, %.lr.ph76 ], [ %17, %15 ]
+  %40 = getelementptr inbounds nuw i8, ptr %.sroa.0.073, i64 1
+  %41 = load i8, ptr %.sroa.0.073, align 1, !noundef !7
   %42 = lshr i8 %41, 6
   %43 = zext nneg i8 %42 to i64
   %44 = and i8 %41, 63
@@ -1220,7 +1220,7 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %28
   %50 = and i64 %49, %47
   store i64 %50, ptr %48, align 8
   %51 = icmp eq ptr %40, %20
-  br i1 %51, label %.loopexit, label %.lr.ph76
+  br i1 %51, label %.loopexit, label %.lr.ph75
 
 52:                                               ; preds = %22
   %53 = tail call { ptr, ptr } @_ZN12regex_syntax3hir12ClassUnicode4iter17h00c78c167e1a028dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %23)
@@ -1232,9 +1232,9 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %28
   store ptr %55, ptr %56, align 8
   %57 = call noundef align 4 dereferenceable_or_null(8) ptr @"_ZN94_$LT$regex_syntax..hir..ClassUnicodeIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7d3320476a858f38E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9)
   %58 = icmp eq ptr %57, null
-  br i1 %58, label %._crit_edge73, label %.lr.ph72
+  br i1 %58, label %._crit_edge72, label %.lr.ph71
 
-.lr.ph72:                                         ; preds = %52
+.lr.ph71:                                         ; preds = %52
   %.sroa.0.0.i.ptr = getelementptr inbounds nuw i8, ptr %5, i64 1
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %60 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1251,13 +1251,13 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %28
   store ptr %65, ptr %66, align 8
   %67 = call noundef align 1 dereferenceable_or_null(2) ptr @"_ZN92_$LT$regex_syntax..hir..ClassBytesIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h57c45129dd6b18b6E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
   %68 = icmp eq ptr %67, null
-  br i1 %68, label %._crit_edge, label %.lr.ph66
+  br i1 %68, label %._crit_edge, label %.lr.ph65
 
-._crit_edge73:                                    ; preds = %"_ZN4core3ptr54drop_in_place$LT$regex_syntax..utf8..Utf8Sequences$GT$17h8f0a5217b1abce39E.exit", %52
+._crit_edge72:                                    ; preds = %"_ZN4core3ptr54drop_in_place$LT$regex_syntax..utf8..Utf8Sequences$GT$17h8f0a5217b1abce39E.exit", %52
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   br label %.loopexit
 
-69:                                               ; preds = %.lr.ph72, %"_ZN4core3ptr54drop_in_place$LT$regex_syntax..utf8..Utf8Sequences$GT$17h8f0a5217b1abce39E.exit"
+69:                                               ; preds = %.lr.ph71, %"_ZN4core3ptr54drop_in_place$LT$regex_syntax..utf8..Utf8Sequences$GT$17h8f0a5217b1abce39E.exit"
   %70 = phi ptr [ %57, %.lr.ph72 ], [ %85, %"_ZN4core3ptr54drop_in_place$LT$regex_syntax..utf8..Utf8Sequences$GT$17h8f0a5217b1abce39E.exit" ]
   %71 = load i32, ptr %70, align 4, !range !17, !noundef !7
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 4
@@ -1267,7 +1267,7 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   br label %74
 
-74:                                               ; preds = %._crit_edge70, %69
+74:                                               ; preds = %._crit_edge69, %69
   call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %6)
   invoke void @"_ZN92_$LT$regex_syntax..utf8..Utf8Sequences$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h013cd0d50ace3500E"(ptr noalias noundef nonnull sret({ i8, [8 x i8] }) align 1 captures(none) dereferenceable(9) %6, ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
           to label %77 unwind label %75
@@ -1302,14 +1302,14 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %28
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   %85 = call noundef align 4 dereferenceable_or_null(8) ptr @"_ZN94_$LT$regex_syntax..hir..ClassUnicodeIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7d3320476a858f38E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9)
   %86 = icmp eq ptr %85, null
-  br i1 %86, label %._crit_edge73, label %69
+  br i1 %86, label %._crit_edge72, label %69
 
 87:                                               ; preds = %77
   call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %5, ptr noundef nonnull align 1 dereferenceable(9) %6, i64 9, i1 false)
   %88 = load i8, ptr %5, align 1, !range !197, !alias.scope !198, !noundef !7
   switch i8 %88, label %default.unreachable [
-    i8 0, label %.lr.ph69.preheader
+    i8 0, label %.lr.ph68.preheader
     i8 1, label %89
     i8 2, label %90
     i8 3, label %91
@@ -1319,34 +1319,34 @@ default.unreachable:                              ; preds = %87
   unreachable
 
 89:                                               ; preds = %87
-  br label %.lr.ph69.preheader
+  br label %.lr.ph68.preheader
 
 90:                                               ; preds = %87
-  br label %.lr.ph69.preheader
+  br label %.lr.ph68.preheader
 
 91:                                               ; preds = %87
-  br label %.lr.ph69.preheader
+  br label %.lr.ph68.preheader
 
-.lr.ph69.preheader:                               ; preds = %87, %89, %90, %91
-  %.sroa.5.0.i.sroa.phi = phi ptr [ %.sroa.5.0.i.sroa.gep, %89 ], [ %.sroa.5.0.i.sroa.gep92, %90 ], [ %.sroa.5.0.i.sroa.gep93, %91 ], [ %.sroa.5.0.i.sroa.gep94, %87 ]
+.lr.ph68.preheader:                               ; preds = %87, %89, %90, %91
+  %.sroa.5.0.i.sroa.phi = phi ptr [ %.sroa.5.0.i.sroa.gep, %89 ], [ %.sroa.5.0.i.sroa.gep91, %90 ], [ %.sroa.5.0.i.sroa.gep92, %91 ], [ %.sroa.5.0.i.sroa.gep93, %87 ]
   %.ptr = getelementptr inbounds nuw i8, ptr %.sroa.5.0.i.sroa.phi, i64 1
-  br label %.lr.ph69
+  br label %.lr.ph68
 
-._crit_edge70:                                    ; preds = %_ZN12grep_matcher7ByteSet10remove_all17hd0eef1246d773bc5E.exit
+._crit_edge69:                                    ; preds = %_ZN12grep_matcher7ByteSet10remove_all17hd0eef1246d773bc5E.exit
   call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %6)
   br label %74
 
-.lr.ph69:                                         ; preds = %.lr.ph69.preheader, %_ZN12grep_matcher7ByteSet10remove_all17hd0eef1246d773bc5E.exit
-  %.sroa.032.067 = phi ptr [ %92, %_ZN12grep_matcher7ByteSet10remove_all17hd0eef1246d773bc5E.exit ], [ %.sroa.0.0.i.ptr, %.lr.ph69.preheader ]
-  %92 = getelementptr inbounds nuw i8, ptr %.sroa.032.067, i64 2
-  %93 = load i8, ptr %.sroa.032.067, align 1, !noundef !7
-  %94 = getelementptr inbounds nuw i8, ptr %.sroa.032.067, i64 1
+.lr.ph68:                                         ; preds = %.lr.ph68.preheader, %_ZN12grep_matcher7ByteSet10remove_all17hd0eef1246d773bc5E.exit
+  %.sroa.032.066 = phi ptr [ %92, %_ZN12grep_matcher7ByteSet10remove_all17hd0eef1246d773bc5E.exit ], [ %.sroa.0.0.i.ptr, %.lr.ph69.preheader ]
+  %92 = getelementptr inbounds nuw i8, ptr %.sroa.032.066, i64 2
+  %93 = load i8, ptr %.sroa.032.066, align 1, !noundef !7
+  %94 = getelementptr inbounds nuw i8, ptr %.sroa.032.066, i64 1
   %95 = load i8, ptr %94, align 1, !noundef !7
   %.not.i8.i = icmp ugt i8 %93, %95
   br i1 %.not.i8.i, label %_ZN12grep_matcher7ByteSet10remove_all17hd0eef1246d773bc5E.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph69, %.lr.ph.i
+.lr.ph.i:                                         ; preds = %.lr.ph68, %.lr.ph.i
   %.sroa.5.09.i = phi i8 [ %spec.select.i, %.lr.ph.i ], [ %93, %.lr.ph69 ]
   %96 = icmp uge i8 %.sroa.5.09.i, %95
   %not..i = xor i1 %96, true
@@ -1366,9 +1366,9 @@ default.unreachable:                              ; preds = %87
   %or.cond.i = select i1 %96, i1 true, i1 %.not.i.i
   br i1 %or.cond.i, label %_ZN12grep_matcher7ByteSet10remove_all17hd0eef1246d773bc5E.exit, label %.lr.ph.i
 
-_ZN12grep_matcher7ByteSet10remove_all17hd0eef1246d773bc5E.exit: ; preds = %.lr.ph.i, %.lr.ph69
+_ZN12grep_matcher7ByteSet10remove_all17hd0eef1246d773bc5E.exit: ; preds = %.lr.ph.i, %.lr.ph68
   %107 = icmp eq ptr %92, %.ptr
-  br i1 %107, label %._crit_edge70, label %.lr.ph69
+  br i1 %107, label %._crit_edge69, label %.lr.ph68
 
 108:                                              ; preds = %75
   %109 = landingpad { ptr, i32 }
@@ -1383,7 +1383,7 @@ _ZN12grep_matcher7ByteSet10remove_all17hd0eef1246d773bc5E.exit: ; preds = %.lr.p
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %.loopexit
 
-.lr.ph66:                                         ; preds = %62, %_ZN12grep_matcher7ByteSet10remove_all17hd0eef1246d773bc5E.exit28
+.lr.ph65:                                         ; preds = %62, %_ZN12grep_matcher7ByteSet10remove_all17hd0eef1246d773bc5E.exit28
   %111 = phi ptr [ %126, %_ZN12grep_matcher7ByteSet10remove_all17hd0eef1246d773bc5E.exit28 ], [ %67, %62 ]
   %112 = load i8, ptr %111, align 1, !noundef !7
   %113 = getelementptr inbounds nuw i8, ptr %111, i64 1
@@ -1391,7 +1391,7 @@ _ZN12grep_matcher7ByteSet10remove_all17hd0eef1246d773bc5E.exit: ; preds = %.lr.p
   %.not.i8.i21 = icmp ugt i8 %112, %114
   br i1 %.not.i8.i21, label %_ZN12grep_matcher7ByteSet10remove_all17hd0eef1246d773bc5E.exit28, label %.lr.ph.i22
 
-.lr.ph.i22:                                       ; preds = %.lr.ph66, %.lr.ph.i22
+.lr.ph.i22:                                       ; preds = %.lr.ph65, %.lr.ph.i22
   %.sroa.5.09.i23 = phi i8 [ %spec.select.i25, %.lr.ph.i22 ], [ %112, %.lr.ph66 ]
   %115 = icmp uge i8 %.sroa.5.09.i23, %114
   %not..i24 = xor i1 %115, true
@@ -1411,10 +1411,10 @@ _ZN12grep_matcher7ByteSet10remove_all17hd0eef1246d773bc5E.exit: ; preds = %.lr.p
   %or.cond.i27 = select i1 %115, i1 true, i1 %.not.i.i26
   br i1 %or.cond.i27, label %_ZN12grep_matcher7ByteSet10remove_all17hd0eef1246d773bc5E.exit28, label %.lr.ph.i22
 
-_ZN12grep_matcher7ByteSet10remove_all17hd0eef1246d773bc5E.exit28: ; preds = %.lr.ph.i22, %.lr.ph66
+_ZN12grep_matcher7ByteSet10remove_all17hd0eef1246d773bc5E.exit28: ; preds = %.lr.ph.i22, %.lr.ph65
   %126 = call noundef align 1 dereferenceable_or_null(2) ptr @"_ZN92_$LT$regex_syntax..hir..ClassBytesIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h57c45129dd6b18b6E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
   %127 = icmp eq ptr %126, null
-  br i1 %127, label %._crit_edge, label %.lr.ph66
+  br i1 %127, label %._crit_edge, label %.lr.ph65
 
 128:                                              ; preds = %24, %24
   %129 = load i64, ptr %1, align 8, !noundef !7
@@ -1434,17 +1434,17 @@ _ZN12grep_matcher7ByteSet10remove_all17hd0eef1246d773bc5E.exit28: ; preds = %.lr
   store i64 %136, ptr %1, align 8
   br label %.loopexit
 
-.lr.ph65:                                         ; preds = %30, %.lr.ph65
-  %.sroa.034.064 = phi ptr [ %137, %.lr.ph65 ], [ %.val18, %30 ]
-  %137 = getelementptr inbounds nuw i8, ptr %.sroa.034.064, i64 48
-  tail call void @_ZN10grep_regex12non_matching21remove_matching_bytes17h9d6073d9c418b589E.llvm.8118306253422699639(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.sroa.034.064, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
+.lr.ph64:                                         ; preds = %30, %.lr.ph64
+  %.sroa.034.063 = phi ptr [ %137, %.lr.ph65 ], [ %.val18, %30 ]
+  %137 = getelementptr inbounds nuw i8, ptr %.sroa.034.063, i64 48
+  tail call void @_ZN10grep_regex12non_matching21remove_matching_bytes17h9d6073d9c418b589E.llvm.8118306253422699639(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.sroa.034.063, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
   %138 = icmp eq ptr %137, %33
-  br i1 %138, label %.loopexit, label %.lr.ph65
+  br i1 %138, label %.loopexit, label %.lr.ph64
 
 .lr.ph:                                           ; preds = %35, %.lr.ph
-  %.sroa.036.063 = phi ptr [ %139, %.lr.ph ], [ %.val, %35 ]
-  %139 = getelementptr inbounds nuw i8, ptr %.sroa.036.063, i64 48
-  tail call void @_ZN10grep_regex12non_matching21remove_matching_bytes17h9d6073d9c418b589E.llvm.8118306253422699639(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.sroa.036.063, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
+  %.sroa.036.062 = phi ptr [ %139, %.lr.ph ], [ %.val, %35 ]
+  %139 = getelementptr inbounds nuw i8, ptr %.sroa.036.062, i64 48
+  tail call void @_ZN10grep_regex12non_matching21remove_matching_bytes17h9d6073d9c418b589E.llvm.8118306253422699639(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.sroa.036.062, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
   %140 = icmp eq ptr %139, %38
   br i1 %140, label %.loopexit, label %.lr.ph
 }
@@ -1552,22 +1552,22 @@ declare hidden void @_ZN10grep_regex7literal9Extractor5union17h551851f30961b48bE
 declare hidden { i64, i64 } @_ZN12regex_syntax3hir7literal3Seq15min_literal_len17h495f07da7a76dcc0E.llvm.16979978850130570624(ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #18
+declare void @llvm.experimental.noalias.scope.decl(metadata) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i32(i32, i32) #19
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i32(i32, i32) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #19
+declare i32 @llvm.umax.i32(i32, i32) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #19
+declare i32 @llvm.umin.i32(i32, i32) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.umax.i8(i8, i8) #19
+declare i8 @llvm.umax.i8(i8, i8) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.umin.i8(i8, i8) #19
+declare i8 @llvm.umin.i8(i8, i8) #18
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #20
