@@ -152,10 +152,10 @@ define internal void @UpsampleRgbLinePair_SSE41(ptr noalias noundef %0, ptr noal
   %127 = getelementptr inbounds nuw i8, ptr %18, i64 112
   br label %128
 
-128:                                              ; preds = %.lr.ph, %231
-  %indvars.iv274 = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next275, %231 ]
-  %indvars.iv272 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next273, %231 ]
-  %indvars.iv = phi i64 [ 33, %.lr.ph ], [ %indvars.iv.next, %231 ]
+128:                                              ; preds = %.lr.ph, %221
+  %indvars.iv274 = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next275, %221 ]
+  %indvars.iv272 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next273, %221 ]
+  %indvars.iv = phi i64 [ 33, %.lr.ph ], [ %indvars.iv.next, %221 ]
   %129 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv272
   %130 = load <2 x i64>, ptr %129, align 1, !tbaa !7
   %131 = getelementptr inbounds nuw i8, ptr %129, i64 1
@@ -167,322 +167,314 @@ define internal void @UpsampleRgbLinePair_SSE41(ptr noalias noundef %0, ptr noal
   %137 = bitcast <2 x i64> %130 to <16 x i8>
   %138 = bitcast <2 x i64> %136 to <16 x i8>
   %139 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %137, <16 x i8> %138)
-  %140 = bitcast <16 x i8> %139 to <2 x i64>
-  %141 = bitcast <2 x i64> %132 to <16 x i8>
-  %142 = bitcast <2 x i64> %134 to <16 x i8>
-  %143 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %141, <16 x i8> %142)
-  %144 = bitcast <16 x i8> %143 to <2 x i64>
-  %145 = xor <2 x i64> %144, %140
-  %146 = xor <2 x i64> %136, %130
-  %147 = xor <2 x i64> %134, %132
-  %148 = or <2 x i64> %146, %147
-  %149 = or <2 x i64> %148, %145
-  %150 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %139, <16 x i8> %143)
-  %151 = bitcast <2 x i64> %149 to <16 x i8>
-  %152 = and <16 x i8> %151, splat (i8 1)
-  %153 = sub <16 x i8> %150, %152
-  %154 = bitcast <16 x i8> %153 to <2 x i64>
-  %155 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %153, <16 x i8> %143)
-  %156 = and <2 x i64> %145, %147
-  %157 = xor <2 x i64> %154, %144
-  %158 = or <2 x i64> %157, %156
-  %159 = bitcast <2 x i64> %158 to <16 x i8>
-  %160 = and <16 x i8> %159, splat (i8 1)
-  %161 = sub <16 x i8> %155, %160
-  %162 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %153, <16 x i8> %139)
-  %163 = and <2 x i64> %145, %146
-  %164 = xor <2 x i64> %154, %140
-  %165 = or <2 x i64> %164, %163
-  %166 = bitcast <2 x i64> %165 to <16 x i8>
-  %167 = and <16 x i8> %166, splat (i8 1)
-  %168 = sub <16 x i8> %162, %167
-  %169 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %137, <16 x i8> %161)
-  %170 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %141, <16 x i8> %168)
-  %171 = shufflevector <16 x i8> %169, <16 x i8> %170, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  %172 = shufflevector <16 x i8> %169, <16 x i8> %170, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  store <16 x i8> %171, ptr %18, align 16, !tbaa !7
-  store <16 x i8> %172, ptr %122, align 16, !tbaa !7
-  %173 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %142, <16 x i8> %168)
-  %174 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %138, <16 x i8> %161)
-  %175 = shufflevector <16 x i8> %173, <16 x i8> %174, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  %176 = shufflevector <16 x i8> %173, <16 x i8> %174, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  store <16 x i8> %175, ptr %123, align 16, !tbaa !7
-  store <16 x i8> %176, ptr %124, align 16, !tbaa !7
-  %177 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv272
-  %178 = load <2 x i64>, ptr %177, align 1, !tbaa !7
-  %179 = getelementptr inbounds nuw i8, ptr %177, i64 1
-  %180 = load <2 x i64>, ptr %179, align 1, !tbaa !7
-  %181 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv272
-  %182 = load <2 x i64>, ptr %181, align 1, !tbaa !7
-  %183 = getelementptr inbounds nuw i8, ptr %181, i64 1
-  %184 = load <2 x i64>, ptr %183, align 1, !tbaa !7
-  %185 = bitcast <2 x i64> %178 to <16 x i8>
-  %186 = bitcast <2 x i64> %184 to <16 x i8>
-  %187 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %185, <16 x i8> %186)
-  %188 = bitcast <16 x i8> %187 to <2 x i64>
-  %189 = bitcast <2 x i64> %180 to <16 x i8>
-  %190 = bitcast <2 x i64> %182 to <16 x i8>
-  %191 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %189, <16 x i8> %190)
-  %192 = bitcast <16 x i8> %191 to <2 x i64>
-  %193 = xor <2 x i64> %192, %188
-  %194 = xor <2 x i64> %184, %178
-  %195 = xor <2 x i64> %182, %180
-  %196 = or <2 x i64> %194, %195
-  %197 = or <2 x i64> %196, %193
-  %198 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %187, <16 x i8> %191)
-  %199 = bitcast <2 x i64> %197 to <16 x i8>
-  %200 = and <16 x i8> %199, splat (i8 1)
-  %201 = sub <16 x i8> %198, %200
-  %202 = bitcast <16 x i8> %201 to <2 x i64>
-  %203 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %201, <16 x i8> %191)
-  %204 = and <2 x i64> %193, %195
-  %205 = xor <2 x i64> %202, %192
-  %206 = or <2 x i64> %205, %204
-  %207 = bitcast <2 x i64> %206 to <16 x i8>
-  %208 = and <16 x i8> %207, splat (i8 1)
-  %209 = sub <16 x i8> %203, %208
-  %210 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %201, <16 x i8> %187)
-  %211 = and <2 x i64> %193, %194
-  %212 = xor <2 x i64> %202, %188
-  %213 = or <2 x i64> %212, %211
-  %214 = bitcast <2 x i64> %213 to <16 x i8>
-  %215 = and <16 x i8> %214, splat (i8 1)
-  %216 = sub <16 x i8> %210, %215
-  %217 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %185, <16 x i8> %209)
-  %218 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %189, <16 x i8> %216)
-  %219 = shufflevector <16 x i8> %217, <16 x i8> %218, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  %220 = shufflevector <16 x i8> %217, <16 x i8> %218, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  store <16 x i8> %219, ptr %19, align 16, !tbaa !7
-  store <16 x i8> %220, ptr %125, align 16, !tbaa !7
-  %221 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %190, <16 x i8> %216)
-  %222 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %186, <16 x i8> %209)
-  %223 = shufflevector <16 x i8> %221, <16 x i8> %222, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  %224 = shufflevector <16 x i8> %221, <16 x i8> %222, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  store <16 x i8> %223, ptr %126, align 16, !tbaa !7
-  store <16 x i8> %224, ptr %127, align 16, !tbaa !7
-  %225 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv274
-  %226 = mul nuw nsw i64 %indvars.iv274, 3
-  %227 = getelementptr inbounds nuw i8, ptr %6, i64 %226
-  call void @VP8YuvToRgb32_SSE41(ptr noundef nonnull %225, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %227) #9
-  br i1 %.not, label %231, label %228
+  %140 = bitcast <2 x i64> %132 to <16 x i8>
+  %141 = bitcast <2 x i64> %134 to <16 x i8>
+  %142 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %140, <16 x i8> %141)
+  %.inner = xor <16 x i8> %142, %139
+  %143 = bitcast <16 x i8> %.inner to <2 x i64>
+  %144 = xor <2 x i64> %136, %130
+  %145 = xor <2 x i64> %134, %132
+  %146 = or <2 x i64> %144, %145
+  %147 = or <2 x i64> %146, %143
+  %148 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %139, <16 x i8> %142)
+  %149 = bitcast <2 x i64> %147 to <16 x i8>
+  %150 = and <16 x i8> %149, splat (i8 1)
+  %151 = sub <16 x i8> %148, %150
+  %152 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %151, <16 x i8> %142)
+  %153 = and <2 x i64> %145, %143
+  %.inner281 = xor <16 x i8> %151, %142
+  %154 = bitcast <2 x i64> %153 to <16 x i8>
+  %155 = or <16 x i8> %.inner281, %154
+  %156 = and <16 x i8> %155, splat (i8 1)
+  %157 = sub <16 x i8> %152, %156
+  %158 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %151, <16 x i8> %139)
+  %159 = and <2 x i64> %144, %143
+  %.inner282 = xor <16 x i8> %151, %139
+  %160 = bitcast <2 x i64> %159 to <16 x i8>
+  %161 = or <16 x i8> %.inner282, %160
+  %162 = and <16 x i8> %161, splat (i8 1)
+  %163 = sub <16 x i8> %158, %162
+  %164 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %137, <16 x i8> %157)
+  %165 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %140, <16 x i8> %163)
+  %166 = shufflevector <16 x i8> %164, <16 x i8> %165, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
+  %167 = shufflevector <16 x i8> %164, <16 x i8> %165, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
+  store <16 x i8> %166, ptr %18, align 16, !tbaa !7
+  store <16 x i8> %167, ptr %122, align 16, !tbaa !7
+  %168 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %141, <16 x i8> %163)
+  %169 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %138, <16 x i8> %157)
+  %170 = shufflevector <16 x i8> %168, <16 x i8> %169, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
+  %171 = shufflevector <16 x i8> %168, <16 x i8> %169, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
+  store <16 x i8> %170, ptr %123, align 16, !tbaa !7
+  store <16 x i8> %171, ptr %124, align 16, !tbaa !7
+  %172 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv272
+  %173 = load <2 x i64>, ptr %172, align 1, !tbaa !7
+  %174 = getelementptr inbounds nuw i8, ptr %172, i64 1
+  %175 = load <2 x i64>, ptr %174, align 1, !tbaa !7
+  %176 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv272
+  %177 = load <2 x i64>, ptr %176, align 1, !tbaa !7
+  %178 = getelementptr inbounds nuw i8, ptr %176, i64 1
+  %179 = load <2 x i64>, ptr %178, align 1, !tbaa !7
+  %180 = bitcast <2 x i64> %173 to <16 x i8>
+  %181 = bitcast <2 x i64> %179 to <16 x i8>
+  %182 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %180, <16 x i8> %181)
+  %183 = bitcast <2 x i64> %175 to <16 x i8>
+  %184 = bitcast <2 x i64> %177 to <16 x i8>
+  %185 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %183, <16 x i8> %184)
+  %.inner283 = xor <16 x i8> %185, %182
+  %186 = bitcast <16 x i8> %.inner283 to <2 x i64>
+  %187 = xor <2 x i64> %179, %173
+  %188 = xor <2 x i64> %177, %175
+  %189 = or <2 x i64> %187, %188
+  %190 = or <2 x i64> %189, %186
+  %191 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %182, <16 x i8> %185)
+  %192 = bitcast <2 x i64> %190 to <16 x i8>
+  %193 = and <16 x i8> %192, splat (i8 1)
+  %194 = sub <16 x i8> %191, %193
+  %195 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %194, <16 x i8> %185)
+  %196 = and <2 x i64> %188, %186
+  %.inner284 = xor <16 x i8> %194, %185
+  %197 = bitcast <2 x i64> %196 to <16 x i8>
+  %198 = or <16 x i8> %.inner284, %197
+  %199 = and <16 x i8> %198, splat (i8 1)
+  %200 = sub <16 x i8> %195, %199
+  %201 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %194, <16 x i8> %182)
+  %202 = and <2 x i64> %187, %186
+  %.inner285 = xor <16 x i8> %194, %182
+  %203 = bitcast <2 x i64> %202 to <16 x i8>
+  %204 = or <16 x i8> %.inner285, %203
+  %205 = and <16 x i8> %204, splat (i8 1)
+  %206 = sub <16 x i8> %201, %205
+  %207 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %180, <16 x i8> %200)
+  %208 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %183, <16 x i8> %206)
+  %209 = shufflevector <16 x i8> %207, <16 x i8> %208, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
+  %210 = shufflevector <16 x i8> %207, <16 x i8> %208, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
+  store <16 x i8> %209, ptr %19, align 16, !tbaa !7
+  store <16 x i8> %210, ptr %125, align 16, !tbaa !7
+  %211 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %184, <16 x i8> %206)
+  %212 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %181, <16 x i8> %200)
+  %213 = shufflevector <16 x i8> %211, <16 x i8> %212, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
+  %214 = shufflevector <16 x i8> %211, <16 x i8> %212, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
+  store <16 x i8> %213, ptr %126, align 16, !tbaa !7
+  store <16 x i8> %214, ptr %127, align 16, !tbaa !7
+  %215 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv274
+  %216 = mul nuw nsw i64 %indvars.iv274, 3
+  %217 = getelementptr inbounds nuw i8, ptr %6, i64 %216
+  call void @VP8YuvToRgb32_SSE41(ptr noundef nonnull %215, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %217) #9
+  br i1 %.not, label %221, label %218
 
-228:                                              ; preds = %128
-  %229 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv274
-  %230 = getelementptr inbounds nuw i8, ptr %7, i64 %226
-  call void @VP8YuvToRgb32_SSE41(ptr noundef nonnull %229, ptr noundef nonnull %123, ptr noundef nonnull %126, ptr noundef nonnull %230) #9
-  br label %231
+218:                                              ; preds = %128
+  %219 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv274
+  %220 = getelementptr inbounds nuw i8, ptr %7, i64 %216
+  call void @VP8YuvToRgb32_SSE41(ptr noundef nonnull %219, ptr noundef nonnull %123, ptr noundef nonnull %126, ptr noundef nonnull %220) #9
+  br label %221
 
-231:                                              ; preds = %128, %228
+221:                                              ; preds = %128, %218
   %indvars.iv.next273 = add nuw nsw i64 %indvars.iv272, 16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 32
-  %232 = trunc i64 %indvars.iv to i32
-  %233 = add i32 %232, 33
-  %.not259 = icmp sgt i32 %233, %8
+  %222 = trunc i64 %indvars.iv to i32
+  %223 = add i32 %222, 33
+  %.not259 = icmp sgt i32 %223, %8
   %indvars.iv.next275 = add nuw nsw i64 %indvars.iv274, 32
   br i1 %.not259, label %._crit_edge.loopexit, label %128, !llvm.loop !8
 
-._crit_edge.loopexit:                             ; preds = %231
-  %234 = trunc nuw nsw i64 %indvars.iv to i32
-  %235 = and i64 %indvars.iv.next273, 4294967280
+._crit_edge.loopexit:                             ; preds = %221
+  %224 = trunc nuw nsw i64 %indvars.iv to i32
+  %225 = and i64 %indvars.iv.next273, 4294967280
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %121
-  %.0255.lcssa = phi i32 [ 1, %121 ], [ %234, %._crit_edge.loopexit ]
-  %.0.lcssa = phi i64 [ 0, %121 ], [ %235, %._crit_edge.loopexit ]
-  %236 = icmp sgt i32 %8, 1
-  br i1 %236, label %237, label %382
+  %.0255.lcssa = phi i32 [ 1, %121 ], [ %224, %._crit_edge.loopexit ]
+  %.0.lcssa = phi i64 [ 0, %121 ], [ %225, %._crit_edge.loopexit ]
+  %226 = icmp sgt i32 %8, 1
+  br i1 %226, label %227, label %362
 
-237:                                              ; preds = %._crit_edge
-  %238 = add nuw nsw i32 %8, 1
-  %239 = lshr i32 %238, 1
-  %240 = lshr i32 %.0255.lcssa, 1
-  %241 = sub nsw i32 %239, %240
-  %242 = getelementptr inbounds nuw i8, ptr %18, i64 128
-  %243 = getelementptr inbounds nuw i8, ptr %18, i64 384
+227:                                              ; preds = %._crit_edge
+  %228 = add nuw nsw i32 %8, 1
+  %229 = lshr i32 %228, 1
+  %230 = lshr i32 %.0255.lcssa, 1
+  %231 = sub nsw i32 %229, %230
+  %232 = getelementptr inbounds nuw i8, ptr %18, i64 128
+  %233 = getelementptr inbounds nuw i8, ptr %18, i64 384
   call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %11) #9
   call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %12) #9
-  %244 = getelementptr inbounds nuw i8, ptr %2, i64 %.0.lcssa
-  %245 = sext i32 %241 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %11, ptr nonnull align 1 %244, i64 %245, i1 false)
-  %246 = getelementptr inbounds nuw i8, ptr %4, i64 %.0.lcssa
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %12, ptr nonnull align 1 %246, i64 %245, i1 false)
-  %247 = getelementptr inbounds i8, ptr %11, i64 %245
-  %248 = add nsw i32 %241, -1
-  %249 = sext i32 %248 to i64
-  %250 = getelementptr inbounds [17 x i8], ptr %11, i64 0, i64 %249
-  %251 = load i8, ptr %250, align 1, !tbaa !7
-  %252 = sub nsw i32 17, %241
-  %253 = sext i32 %252 to i64
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %247, i8 %251, i64 %253, i1 false)
-  %254 = getelementptr inbounds i8, ptr %12, i64 %245
-  %255 = getelementptr inbounds [17 x i8], ptr %12, i64 0, i64 %249
-  %256 = load i8, ptr %255, align 1, !tbaa !7
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %254, i8 %256, i64 %253, i1 false)
+  %234 = getelementptr inbounds nuw i8, ptr %2, i64 %.0.lcssa
+  %235 = sext i32 %231 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %11, ptr nonnull align 1 %234, i64 %235, i1 false)
+  %236 = getelementptr inbounds nuw i8, ptr %4, i64 %.0.lcssa
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %12, ptr nonnull align 1 %236, i64 %235, i1 false)
+  %237 = getelementptr inbounds i8, ptr %11, i64 %235
+  %238 = add nsw i32 %231, -1
+  %239 = sext i32 %238 to i64
+  %240 = getelementptr inbounds [17 x i8], ptr %11, i64 0, i64 %239
+  %241 = load i8, ptr %240, align 1, !tbaa !7
+  %242 = sub nsw i32 17, %231
+  %243 = sext i32 %242 to i64
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %237, i8 %241, i64 %243, i1 false)
+  %244 = getelementptr inbounds i8, ptr %12, i64 %235
+  %245 = getelementptr inbounds [17 x i8], ptr %12, i64 0, i64 %239
+  %246 = load i8, ptr %245, align 1, !tbaa !7
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %244, i8 %246, i64 %243, i1 false)
   call void @llvm.experimental.noalias.scope.decl(metadata !10)
   call void @llvm.experimental.noalias.scope.decl(metadata !13)
   call void @llvm.experimental.noalias.scope.decl(metadata !15)
-  %257 = load <2 x i64>, ptr %11, align 16, !tbaa !7, !alias.scope !10, !noalias !17
-  %258 = getelementptr inbounds nuw i8, ptr %11, i64 1
-  %259 = load <2 x i64>, ptr %258, align 1, !tbaa !7, !alias.scope !10, !noalias !17
-  %260 = load <2 x i64>, ptr %12, align 16, !tbaa !7, !alias.scope !13, !noalias !18
-  %261 = getelementptr inbounds nuw i8, ptr %12, i64 1
-  %262 = load <2 x i64>, ptr %261, align 1, !tbaa !7, !alias.scope !13, !noalias !18
-  %263 = bitcast <2 x i64> %257 to <16 x i8>
-  %264 = bitcast <2 x i64> %262 to <16 x i8>
-  %265 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %263, <16 x i8> %264)
-  %266 = bitcast <16 x i8> %265 to <2 x i64>
-  %267 = bitcast <2 x i64> %259 to <16 x i8>
-  %268 = bitcast <2 x i64> %260 to <16 x i8>
-  %269 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %267, <16 x i8> %268)
-  %270 = bitcast <16 x i8> %269 to <2 x i64>
-  %271 = xor <2 x i64> %270, %266
-  %272 = xor <2 x i64> %262, %257
-  %273 = xor <2 x i64> %260, %259
-  %274 = or <2 x i64> %272, %273
-  %275 = or <2 x i64> %274, %271
-  %276 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %265, <16 x i8> %269)
-  %277 = bitcast <2 x i64> %275 to <16 x i8>
+  %247 = load <2 x i64>, ptr %11, align 16, !tbaa !7, !alias.scope !10, !noalias !17
+  %248 = getelementptr inbounds nuw i8, ptr %11, i64 1
+  %249 = load <2 x i64>, ptr %248, align 1, !tbaa !7, !alias.scope !10, !noalias !17
+  %250 = load <2 x i64>, ptr %12, align 16, !tbaa !7, !alias.scope !13, !noalias !18
+  %251 = getelementptr inbounds nuw i8, ptr %12, i64 1
+  %252 = load <2 x i64>, ptr %251, align 1, !tbaa !7, !alias.scope !13, !noalias !18
+  %253 = bitcast <2 x i64> %247 to <16 x i8>
+  %254 = bitcast <2 x i64> %252 to <16 x i8>
+  %255 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %253, <16 x i8> %254)
+  %256 = bitcast <2 x i64> %249 to <16 x i8>
+  %257 = bitcast <2 x i64> %250 to <16 x i8>
+  %258 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %256, <16 x i8> %257)
+  %.inner286 = xor <16 x i8> %258, %255
+  %259 = bitcast <16 x i8> %.inner286 to <2 x i64>
+  %260 = xor <2 x i64> %252, %247
+  %261 = xor <2 x i64> %250, %249
+  %262 = or <2 x i64> %260, %261
+  %263 = or <2 x i64> %262, %259
+  %264 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %255, <16 x i8> %258)
+  %265 = bitcast <2 x i64> %263 to <16 x i8>
+  %266 = and <16 x i8> %265, splat (i8 1)
+  %267 = sub <16 x i8> %264, %266
+  %268 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %267, <16 x i8> %258)
+  %269 = and <2 x i64> %261, %259
+  %.inner287 = xor <16 x i8> %267, %258
+  %270 = bitcast <2 x i64> %269 to <16 x i8>
+  %271 = or <16 x i8> %.inner287, %270
+  %272 = and <16 x i8> %271, splat (i8 1)
+  %273 = sub <16 x i8> %268, %272
+  %274 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %267, <16 x i8> %255)
+  %275 = and <2 x i64> %260, %259
+  %.inner288 = xor <16 x i8> %267, %255
+  %276 = bitcast <2 x i64> %275 to <16 x i8>
+  %277 = or <16 x i8> %.inner288, %276
   %278 = and <16 x i8> %277, splat (i8 1)
-  %279 = sub <16 x i8> %276, %278
-  %280 = bitcast <16 x i8> %279 to <2 x i64>
-  %281 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %279, <16 x i8> %269)
-  %282 = and <2 x i64> %271, %273
-  %283 = xor <2 x i64> %280, %270
-  %284 = or <2 x i64> %283, %282
-  %285 = bitcast <2 x i64> %284 to <16 x i8>
-  %286 = and <16 x i8> %285, splat (i8 1)
-  %287 = sub <16 x i8> %281, %286
-  %288 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %279, <16 x i8> %265)
-  %289 = and <2 x i64> %271, %272
-  %290 = xor <2 x i64> %280, %266
-  %291 = or <2 x i64> %290, %289
-  %292 = bitcast <2 x i64> %291 to <16 x i8>
-  %293 = and <16 x i8> %292, splat (i8 1)
-  %294 = sub <16 x i8> %288, %293
-  %295 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %263, <16 x i8> %287)
-  %296 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %267, <16 x i8> %294)
-  %297 = shufflevector <16 x i8> %295, <16 x i8> %296, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  %298 = shufflevector <16 x i8> %295, <16 x i8> %296, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  store <16 x i8> %297, ptr %18, align 16, !tbaa !7, !alias.scope !15, !noalias !19
-  %299 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store <16 x i8> %298, ptr %299, align 16, !tbaa !7, !alias.scope !15, !noalias !19
-  %300 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %268, <16 x i8> %294)
-  %301 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %264, <16 x i8> %287)
-  %302 = shufflevector <16 x i8> %300, <16 x i8> %301, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  %303 = shufflevector <16 x i8> %300, <16 x i8> %301, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  %304 = getelementptr inbounds nuw i8, ptr %18, i64 64
-  store <16 x i8> %302, ptr %304, align 16, !tbaa !7, !alias.scope !15, !noalias !19
-  %305 = getelementptr inbounds nuw i8, ptr %18, i64 80
-  store <16 x i8> %303, ptr %305, align 16, !tbaa !7, !alias.scope !15, !noalias !19
+  %279 = sub <16 x i8> %274, %278
+  %280 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %253, <16 x i8> %273)
+  %281 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %256, <16 x i8> %279)
+  %282 = shufflevector <16 x i8> %280, <16 x i8> %281, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
+  %283 = shufflevector <16 x i8> %280, <16 x i8> %281, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
+  store <16 x i8> %282, ptr %18, align 16, !tbaa !7, !alias.scope !15, !noalias !19
+  %284 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  store <16 x i8> %283, ptr %284, align 16, !tbaa !7, !alias.scope !15, !noalias !19
+  %285 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %257, <16 x i8> %279)
+  %286 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %254, <16 x i8> %273)
+  %287 = shufflevector <16 x i8> %285, <16 x i8> %286, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
+  %288 = shufflevector <16 x i8> %285, <16 x i8> %286, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
+  %289 = getelementptr inbounds nuw i8, ptr %18, i64 64
+  store <16 x i8> %287, ptr %289, align 16, !tbaa !7, !alias.scope !15, !noalias !19
+  %290 = getelementptr inbounds nuw i8, ptr %18, i64 80
+  store <16 x i8> %288, ptr %290, align 16, !tbaa !7, !alias.scope !15, !noalias !19
   call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %12) #9
   call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %11) #9
   call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %13) #9
   call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %14) #9
-  %306 = getelementptr inbounds nuw i8, ptr %3, i64 %.0.lcssa
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %13, ptr nonnull align 1 %306, i64 %245, i1 false)
-  %307 = getelementptr inbounds nuw i8, ptr %5, i64 %.0.lcssa
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %14, ptr nonnull align 1 %307, i64 %245, i1 false)
-  %308 = getelementptr inbounds i8, ptr %13, i64 %245
-  %309 = getelementptr inbounds [17 x i8], ptr %13, i64 0, i64 %249
-  %310 = load i8, ptr %309, align 1, !tbaa !7
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %308, i8 %310, i64 %253, i1 false)
-  %311 = getelementptr inbounds i8, ptr %14, i64 %245
-  %312 = getelementptr inbounds [17 x i8], ptr %14, i64 0, i64 %249
-  %313 = load i8, ptr %312, align 1, !tbaa !7
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %311, i8 %313, i64 %253, i1 false)
+  %291 = getelementptr inbounds nuw i8, ptr %3, i64 %.0.lcssa
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %13, ptr nonnull align 1 %291, i64 %235, i1 false)
+  %292 = getelementptr inbounds nuw i8, ptr %5, i64 %.0.lcssa
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %14, ptr nonnull align 1 %292, i64 %235, i1 false)
+  %293 = getelementptr inbounds i8, ptr %13, i64 %235
+  %294 = getelementptr inbounds [17 x i8], ptr %13, i64 0, i64 %239
+  %295 = load i8, ptr %294, align 1, !tbaa !7
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %293, i8 %295, i64 %243, i1 false)
+  %296 = getelementptr inbounds i8, ptr %14, i64 %235
+  %297 = getelementptr inbounds [17 x i8], ptr %14, i64 0, i64 %239
+  %298 = load i8, ptr %297, align 1, !tbaa !7
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %296, i8 %298, i64 %243, i1 false)
   call void @llvm.experimental.noalias.scope.decl(metadata !20)
   call void @llvm.experimental.noalias.scope.decl(metadata !23)
   call void @llvm.experimental.noalias.scope.decl(metadata !25)
-  %314 = load <2 x i64>, ptr %13, align 16, !tbaa !7, !alias.scope !20, !noalias !27
-  %315 = getelementptr inbounds nuw i8, ptr %13, i64 1
-  %316 = load <2 x i64>, ptr %315, align 1, !tbaa !7, !alias.scope !20, !noalias !27
-  %317 = load <2 x i64>, ptr %14, align 16, !tbaa !7, !alias.scope !23, !noalias !28
-  %318 = getelementptr inbounds nuw i8, ptr %14, i64 1
-  %319 = load <2 x i64>, ptr %318, align 1, !tbaa !7, !alias.scope !23, !noalias !28
-  %320 = bitcast <2 x i64> %314 to <16 x i8>
-  %321 = bitcast <2 x i64> %319 to <16 x i8>
-  %322 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %320, <16 x i8> %321)
-  %323 = bitcast <16 x i8> %322 to <2 x i64>
-  %324 = bitcast <2 x i64> %316 to <16 x i8>
-  %325 = bitcast <2 x i64> %317 to <16 x i8>
-  %326 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %324, <16 x i8> %325)
-  %327 = bitcast <16 x i8> %326 to <2 x i64>
-  %328 = xor <2 x i64> %327, %323
-  %329 = xor <2 x i64> %319, %314
-  %330 = xor <2 x i64> %317, %316
-  %331 = or <2 x i64> %329, %330
-  %332 = or <2 x i64> %331, %328
-  %333 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %322, <16 x i8> %326)
-  %334 = bitcast <2 x i64> %332 to <16 x i8>
-  %335 = and <16 x i8> %334, splat (i8 1)
-  %336 = sub <16 x i8> %333, %335
-  %337 = bitcast <16 x i8> %336 to <2 x i64>
-  %338 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %336, <16 x i8> %326)
-  %339 = and <2 x i64> %328, %330
-  %340 = xor <2 x i64> %337, %327
-  %341 = or <2 x i64> %340, %339
-  %342 = bitcast <2 x i64> %341 to <16 x i8>
-  %343 = and <16 x i8> %342, splat (i8 1)
-  %344 = sub <16 x i8> %338, %343
-  %345 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %336, <16 x i8> %322)
-  %346 = and <2 x i64> %328, %329
-  %347 = xor <2 x i64> %337, %323
-  %348 = or <2 x i64> %347, %346
-  %349 = bitcast <2 x i64> %348 to <16 x i8>
-  %350 = and <16 x i8> %349, splat (i8 1)
-  %351 = sub <16 x i8> %345, %350
-  %352 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %320, <16 x i8> %344)
-  %353 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %324, <16 x i8> %351)
-  %354 = shufflevector <16 x i8> %352, <16 x i8> %353, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  %355 = shufflevector <16 x i8> %352, <16 x i8> %353, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  store <16 x i8> %354, ptr %19, align 16, !tbaa !7, !alias.scope !25, !noalias !29
-  %356 = getelementptr inbounds nuw i8, ptr %18, i64 48
-  store <16 x i8> %355, ptr %356, align 16, !tbaa !7, !alias.scope !25, !noalias !29
-  %357 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %325, <16 x i8> %351)
-  %358 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %321, <16 x i8> %344)
-  %359 = shufflevector <16 x i8> %357, <16 x i8> %358, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  %360 = shufflevector <16 x i8> %357, <16 x i8> %358, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  %361 = getelementptr inbounds nuw i8, ptr %18, i64 96
-  store <16 x i8> %359, ptr %361, align 16, !tbaa !7, !alias.scope !25, !noalias !29
-  %362 = getelementptr inbounds nuw i8, ptr %18, i64 112
-  store <16 x i8> %360, ptr %362, align 16, !tbaa !7, !alias.scope !25, !noalias !29
+  %299 = load <2 x i64>, ptr %13, align 16, !tbaa !7, !alias.scope !20, !noalias !27
+  %300 = getelementptr inbounds nuw i8, ptr %13, i64 1
+  %301 = load <2 x i64>, ptr %300, align 1, !tbaa !7, !alias.scope !20, !noalias !27
+  %302 = load <2 x i64>, ptr %14, align 16, !tbaa !7, !alias.scope !23, !noalias !28
+  %303 = getelementptr inbounds nuw i8, ptr %14, i64 1
+  %304 = load <2 x i64>, ptr %303, align 1, !tbaa !7, !alias.scope !23, !noalias !28
+  %305 = bitcast <2 x i64> %299 to <16 x i8>
+  %306 = bitcast <2 x i64> %304 to <16 x i8>
+  %307 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %305, <16 x i8> %306)
+  %308 = bitcast <2 x i64> %301 to <16 x i8>
+  %309 = bitcast <2 x i64> %302 to <16 x i8>
+  %310 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %308, <16 x i8> %309)
+  %.inner289 = xor <16 x i8> %310, %307
+  %311 = bitcast <16 x i8> %.inner289 to <2 x i64>
+  %312 = xor <2 x i64> %304, %299
+  %313 = xor <2 x i64> %302, %301
+  %314 = or <2 x i64> %312, %313
+  %315 = or <2 x i64> %314, %311
+  %316 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %307, <16 x i8> %310)
+  %317 = bitcast <2 x i64> %315 to <16 x i8>
+  %318 = and <16 x i8> %317, splat (i8 1)
+  %319 = sub <16 x i8> %316, %318
+  %320 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %319, <16 x i8> %310)
+  %321 = and <2 x i64> %313, %311
+  %.inner290 = xor <16 x i8> %319, %310
+  %322 = bitcast <2 x i64> %321 to <16 x i8>
+  %323 = or <16 x i8> %.inner290, %322
+  %324 = and <16 x i8> %323, splat (i8 1)
+  %325 = sub <16 x i8> %320, %324
+  %326 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %319, <16 x i8> %307)
+  %327 = and <2 x i64> %312, %311
+  %.inner291 = xor <16 x i8> %319, %307
+  %328 = bitcast <2 x i64> %327 to <16 x i8>
+  %329 = or <16 x i8> %.inner291, %328
+  %330 = and <16 x i8> %329, splat (i8 1)
+  %331 = sub <16 x i8> %326, %330
+  %332 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %305, <16 x i8> %325)
+  %333 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %308, <16 x i8> %331)
+  %334 = shufflevector <16 x i8> %332, <16 x i8> %333, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
+  %335 = shufflevector <16 x i8> %332, <16 x i8> %333, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
+  store <16 x i8> %334, ptr %19, align 16, !tbaa !7, !alias.scope !25, !noalias !29
+  %336 = getelementptr inbounds nuw i8, ptr %18, i64 48
+  store <16 x i8> %335, ptr %336, align 16, !tbaa !7, !alias.scope !25, !noalias !29
+  %337 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %309, <16 x i8> %331)
+  %338 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %306, <16 x i8> %325)
+  %339 = shufflevector <16 x i8> %337, <16 x i8> %338, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
+  %340 = shufflevector <16 x i8> %337, <16 x i8> %338, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
+  %341 = getelementptr inbounds nuw i8, ptr %18, i64 96
+  store <16 x i8> %339, ptr %341, align 16, !tbaa !7, !alias.scope !25, !noalias !29
+  %342 = getelementptr inbounds nuw i8, ptr %18, i64 112
+  store <16 x i8> %340, ptr %342, align 16, !tbaa !7, !alias.scope !25, !noalias !29
   call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %14) #9
   call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %13) #9
-  %363 = zext nneg i32 %.0255.lcssa to i64
-  %364 = getelementptr inbounds nuw i8, ptr %0, i64 %363
-  %365 = sub nsw i32 %8, %.0255.lcssa
-  %366 = sext i32 %365 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %243, ptr nonnull align 1 %364, i64 %366, i1 false)
-  br i1 %.not, label %.thread261, label %372
+  %343 = zext nneg i32 %.0255.lcssa to i64
+  %344 = getelementptr inbounds nuw i8, ptr %0, i64 %343
+  %345 = sub nsw i32 %8, %.0255.lcssa
+  %346 = sext i32 %345 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %233, ptr nonnull align 1 %344, i64 %346, i1 false)
+  br i1 %.not, label %.thread261, label %352
 
-.thread261:                                       ; preds = %237
-  call void @VP8YuvToRgb32_SSE41(ptr noundef nonnull %243, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %242) #9
-  %367 = mul nuw nsw i32 %.0255.lcssa, 3
-  %368 = zext nneg i32 %367 to i64
-  %369 = getelementptr inbounds nuw i8, ptr %6, i64 %368
-  %370 = mul nsw i32 %365, 3
-  %371 = sext i32 %370 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %369, ptr nonnull align 16 %242, i64 %371, i1 false)
-  br label %382
+.thread261:                                       ; preds = %227
+  call void @VP8YuvToRgb32_SSE41(ptr noundef nonnull %233, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %232) #9
+  %347 = mul nuw nsw i32 %.0255.lcssa, 3
+  %348 = zext nneg i32 %347 to i64
+  %349 = getelementptr inbounds nuw i8, ptr %6, i64 %348
+  %350 = mul nsw i32 %345, 3
+  %351 = sext i32 %350 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %349, ptr nonnull align 16 %232, i64 %351, i1 false)
+  br label %362
 
-372:                                              ; preds = %237
-  %373 = getelementptr inbounds nuw i8, ptr %18, i64 416
-  %374 = getelementptr inbounds nuw i8, ptr %18, i64 256
-  %375 = getelementptr inbounds nuw i8, ptr %1, i64 %363
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %373, ptr nonnull align 1 %375, i64 %366, i1 false)
-  call void @VP8YuvToRgb32_SSE41(ptr noundef nonnull %243, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %242) #9
-  call void @VP8YuvToRgb32_SSE41(ptr noundef nonnull %373, ptr noundef nonnull %304, ptr noundef nonnull %361, ptr noundef nonnull %374) #9
-  %376 = mul nuw nsw i32 %.0255.lcssa, 3
-  %377 = zext nneg i32 %376 to i64
-  %378 = getelementptr inbounds nuw i8, ptr %6, i64 %377
-  %379 = mul nsw i32 %365, 3
-  %380 = sext i32 %379 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %378, ptr nonnull align 16 %242, i64 %380, i1 false)
-  %381 = getelementptr inbounds nuw i8, ptr %7, i64 %377
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %381, ptr nonnull align 16 %374, i64 %380, i1 false)
-  br label %382
+352:                                              ; preds = %227
+  %353 = getelementptr inbounds nuw i8, ptr %18, i64 416
+  %354 = getelementptr inbounds nuw i8, ptr %18, i64 256
+  %355 = getelementptr inbounds nuw i8, ptr %1, i64 %343
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %353, ptr nonnull align 1 %355, i64 %346, i1 false)
+  call void @VP8YuvToRgb32_SSE41(ptr noundef nonnull %233, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %232) #9
+  call void @VP8YuvToRgb32_SSE41(ptr noundef nonnull %353, ptr noundef nonnull %289, ptr noundef nonnull %341, ptr noundef nonnull %354) #9
+  %356 = mul nuw nsw i32 %.0255.lcssa, 3
+  %357 = zext nneg i32 %356 to i64
+  %358 = getelementptr inbounds nuw i8, ptr %6, i64 %357
+  %359 = mul nsw i32 %345, 3
+  %360 = sext i32 %359 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %358, ptr nonnull align 16 %232, i64 %360, i1 false)
+  %361 = getelementptr inbounds nuw i8, ptr %7, i64 %357
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %361, ptr nonnull align 16 %354, i64 %360, i1 false)
+  br label %362
 
-382:                                              ; preds = %.thread261, %372, %._crit_edge
+362:                                              ; preds = %.thread261, %352, %._crit_edge
   call void @llvm.lifetime.end.p0(i64 463, ptr nonnull %10) #9
   ret void
 }
@@ -626,10 +618,10 @@ define internal void @UpsampleBgrLinePair_SSE41(ptr noalias noundef %0, ptr noal
   %127 = getelementptr inbounds nuw i8, ptr %18, i64 112
   br label %128
 
-128:                                              ; preds = %.lr.ph, %231
-  %indvars.iv274 = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next275, %231 ]
-  %indvars.iv272 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next273, %231 ]
-  %indvars.iv = phi i64 [ 33, %.lr.ph ], [ %indvars.iv.next, %231 ]
+128:                                              ; preds = %.lr.ph, %221
+  %indvars.iv274 = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next275, %221 ]
+  %indvars.iv272 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next273, %221 ]
+  %indvars.iv = phi i64 [ 33, %.lr.ph ], [ %indvars.iv.next, %221 ]
   %129 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv272
   %130 = load <2 x i64>, ptr %129, align 1, !tbaa !7
   %131 = getelementptr inbounds nuw i8, ptr %129, i64 1
@@ -641,322 +633,314 @@ define internal void @UpsampleBgrLinePair_SSE41(ptr noalias noundef %0, ptr noal
   %137 = bitcast <2 x i64> %130 to <16 x i8>
   %138 = bitcast <2 x i64> %136 to <16 x i8>
   %139 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %137, <16 x i8> %138)
-  %140 = bitcast <16 x i8> %139 to <2 x i64>
-  %141 = bitcast <2 x i64> %132 to <16 x i8>
-  %142 = bitcast <2 x i64> %134 to <16 x i8>
-  %143 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %141, <16 x i8> %142)
-  %144 = bitcast <16 x i8> %143 to <2 x i64>
-  %145 = xor <2 x i64> %144, %140
-  %146 = xor <2 x i64> %136, %130
-  %147 = xor <2 x i64> %134, %132
-  %148 = or <2 x i64> %146, %147
-  %149 = or <2 x i64> %148, %145
-  %150 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %139, <16 x i8> %143)
-  %151 = bitcast <2 x i64> %149 to <16 x i8>
-  %152 = and <16 x i8> %151, splat (i8 1)
-  %153 = sub <16 x i8> %150, %152
-  %154 = bitcast <16 x i8> %153 to <2 x i64>
-  %155 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %153, <16 x i8> %143)
-  %156 = and <2 x i64> %145, %147
-  %157 = xor <2 x i64> %154, %144
-  %158 = or <2 x i64> %157, %156
-  %159 = bitcast <2 x i64> %158 to <16 x i8>
-  %160 = and <16 x i8> %159, splat (i8 1)
-  %161 = sub <16 x i8> %155, %160
-  %162 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %153, <16 x i8> %139)
-  %163 = and <2 x i64> %145, %146
-  %164 = xor <2 x i64> %154, %140
-  %165 = or <2 x i64> %164, %163
-  %166 = bitcast <2 x i64> %165 to <16 x i8>
-  %167 = and <16 x i8> %166, splat (i8 1)
-  %168 = sub <16 x i8> %162, %167
-  %169 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %137, <16 x i8> %161)
-  %170 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %141, <16 x i8> %168)
-  %171 = shufflevector <16 x i8> %169, <16 x i8> %170, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  %172 = shufflevector <16 x i8> %169, <16 x i8> %170, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  store <16 x i8> %171, ptr %18, align 16, !tbaa !7
-  store <16 x i8> %172, ptr %122, align 16, !tbaa !7
-  %173 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %142, <16 x i8> %168)
-  %174 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %138, <16 x i8> %161)
-  %175 = shufflevector <16 x i8> %173, <16 x i8> %174, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  %176 = shufflevector <16 x i8> %173, <16 x i8> %174, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  store <16 x i8> %175, ptr %123, align 16, !tbaa !7
-  store <16 x i8> %176, ptr %124, align 16, !tbaa !7
-  %177 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv272
-  %178 = load <2 x i64>, ptr %177, align 1, !tbaa !7
-  %179 = getelementptr inbounds nuw i8, ptr %177, i64 1
-  %180 = load <2 x i64>, ptr %179, align 1, !tbaa !7
-  %181 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv272
-  %182 = load <2 x i64>, ptr %181, align 1, !tbaa !7
-  %183 = getelementptr inbounds nuw i8, ptr %181, i64 1
-  %184 = load <2 x i64>, ptr %183, align 1, !tbaa !7
-  %185 = bitcast <2 x i64> %178 to <16 x i8>
-  %186 = bitcast <2 x i64> %184 to <16 x i8>
-  %187 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %185, <16 x i8> %186)
-  %188 = bitcast <16 x i8> %187 to <2 x i64>
-  %189 = bitcast <2 x i64> %180 to <16 x i8>
-  %190 = bitcast <2 x i64> %182 to <16 x i8>
-  %191 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %189, <16 x i8> %190)
-  %192 = bitcast <16 x i8> %191 to <2 x i64>
-  %193 = xor <2 x i64> %192, %188
-  %194 = xor <2 x i64> %184, %178
-  %195 = xor <2 x i64> %182, %180
-  %196 = or <2 x i64> %194, %195
-  %197 = or <2 x i64> %196, %193
-  %198 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %187, <16 x i8> %191)
-  %199 = bitcast <2 x i64> %197 to <16 x i8>
-  %200 = and <16 x i8> %199, splat (i8 1)
-  %201 = sub <16 x i8> %198, %200
-  %202 = bitcast <16 x i8> %201 to <2 x i64>
-  %203 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %201, <16 x i8> %191)
-  %204 = and <2 x i64> %193, %195
-  %205 = xor <2 x i64> %202, %192
-  %206 = or <2 x i64> %205, %204
-  %207 = bitcast <2 x i64> %206 to <16 x i8>
-  %208 = and <16 x i8> %207, splat (i8 1)
-  %209 = sub <16 x i8> %203, %208
-  %210 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %201, <16 x i8> %187)
-  %211 = and <2 x i64> %193, %194
-  %212 = xor <2 x i64> %202, %188
-  %213 = or <2 x i64> %212, %211
-  %214 = bitcast <2 x i64> %213 to <16 x i8>
-  %215 = and <16 x i8> %214, splat (i8 1)
-  %216 = sub <16 x i8> %210, %215
-  %217 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %185, <16 x i8> %209)
-  %218 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %189, <16 x i8> %216)
-  %219 = shufflevector <16 x i8> %217, <16 x i8> %218, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  %220 = shufflevector <16 x i8> %217, <16 x i8> %218, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  store <16 x i8> %219, ptr %19, align 16, !tbaa !7
-  store <16 x i8> %220, ptr %125, align 16, !tbaa !7
-  %221 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %190, <16 x i8> %216)
-  %222 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %186, <16 x i8> %209)
-  %223 = shufflevector <16 x i8> %221, <16 x i8> %222, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  %224 = shufflevector <16 x i8> %221, <16 x i8> %222, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  store <16 x i8> %223, ptr %126, align 16, !tbaa !7
-  store <16 x i8> %224, ptr %127, align 16, !tbaa !7
-  %225 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv274
-  %226 = mul nuw nsw i64 %indvars.iv274, 3
-  %227 = getelementptr inbounds nuw i8, ptr %6, i64 %226
-  call void @VP8YuvToBgr32_SSE41(ptr noundef nonnull %225, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %227) #9
-  br i1 %.not, label %231, label %228
+  %140 = bitcast <2 x i64> %132 to <16 x i8>
+  %141 = bitcast <2 x i64> %134 to <16 x i8>
+  %142 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %140, <16 x i8> %141)
+  %.inner = xor <16 x i8> %142, %139
+  %143 = bitcast <16 x i8> %.inner to <2 x i64>
+  %144 = xor <2 x i64> %136, %130
+  %145 = xor <2 x i64> %134, %132
+  %146 = or <2 x i64> %144, %145
+  %147 = or <2 x i64> %146, %143
+  %148 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %139, <16 x i8> %142)
+  %149 = bitcast <2 x i64> %147 to <16 x i8>
+  %150 = and <16 x i8> %149, splat (i8 1)
+  %151 = sub <16 x i8> %148, %150
+  %152 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %151, <16 x i8> %142)
+  %153 = and <2 x i64> %145, %143
+  %.inner281 = xor <16 x i8> %151, %142
+  %154 = bitcast <2 x i64> %153 to <16 x i8>
+  %155 = or <16 x i8> %.inner281, %154
+  %156 = and <16 x i8> %155, splat (i8 1)
+  %157 = sub <16 x i8> %152, %156
+  %158 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %151, <16 x i8> %139)
+  %159 = and <2 x i64> %144, %143
+  %.inner282 = xor <16 x i8> %151, %139
+  %160 = bitcast <2 x i64> %159 to <16 x i8>
+  %161 = or <16 x i8> %.inner282, %160
+  %162 = and <16 x i8> %161, splat (i8 1)
+  %163 = sub <16 x i8> %158, %162
+  %164 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %137, <16 x i8> %157)
+  %165 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %140, <16 x i8> %163)
+  %166 = shufflevector <16 x i8> %164, <16 x i8> %165, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
+  %167 = shufflevector <16 x i8> %164, <16 x i8> %165, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
+  store <16 x i8> %166, ptr %18, align 16, !tbaa !7
+  store <16 x i8> %167, ptr %122, align 16, !tbaa !7
+  %168 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %141, <16 x i8> %163)
+  %169 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %138, <16 x i8> %157)
+  %170 = shufflevector <16 x i8> %168, <16 x i8> %169, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
+  %171 = shufflevector <16 x i8> %168, <16 x i8> %169, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
+  store <16 x i8> %170, ptr %123, align 16, !tbaa !7
+  store <16 x i8> %171, ptr %124, align 16, !tbaa !7
+  %172 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv272
+  %173 = load <2 x i64>, ptr %172, align 1, !tbaa !7
+  %174 = getelementptr inbounds nuw i8, ptr %172, i64 1
+  %175 = load <2 x i64>, ptr %174, align 1, !tbaa !7
+  %176 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv272
+  %177 = load <2 x i64>, ptr %176, align 1, !tbaa !7
+  %178 = getelementptr inbounds nuw i8, ptr %176, i64 1
+  %179 = load <2 x i64>, ptr %178, align 1, !tbaa !7
+  %180 = bitcast <2 x i64> %173 to <16 x i8>
+  %181 = bitcast <2 x i64> %179 to <16 x i8>
+  %182 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %180, <16 x i8> %181)
+  %183 = bitcast <2 x i64> %175 to <16 x i8>
+  %184 = bitcast <2 x i64> %177 to <16 x i8>
+  %185 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %183, <16 x i8> %184)
+  %.inner283 = xor <16 x i8> %185, %182
+  %186 = bitcast <16 x i8> %.inner283 to <2 x i64>
+  %187 = xor <2 x i64> %179, %173
+  %188 = xor <2 x i64> %177, %175
+  %189 = or <2 x i64> %187, %188
+  %190 = or <2 x i64> %189, %186
+  %191 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %182, <16 x i8> %185)
+  %192 = bitcast <2 x i64> %190 to <16 x i8>
+  %193 = and <16 x i8> %192, splat (i8 1)
+  %194 = sub <16 x i8> %191, %193
+  %195 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %194, <16 x i8> %185)
+  %196 = and <2 x i64> %188, %186
+  %.inner284 = xor <16 x i8> %194, %185
+  %197 = bitcast <2 x i64> %196 to <16 x i8>
+  %198 = or <16 x i8> %.inner284, %197
+  %199 = and <16 x i8> %198, splat (i8 1)
+  %200 = sub <16 x i8> %195, %199
+  %201 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %194, <16 x i8> %182)
+  %202 = and <2 x i64> %187, %186
+  %.inner285 = xor <16 x i8> %194, %182
+  %203 = bitcast <2 x i64> %202 to <16 x i8>
+  %204 = or <16 x i8> %.inner285, %203
+  %205 = and <16 x i8> %204, splat (i8 1)
+  %206 = sub <16 x i8> %201, %205
+  %207 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %180, <16 x i8> %200)
+  %208 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %183, <16 x i8> %206)
+  %209 = shufflevector <16 x i8> %207, <16 x i8> %208, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
+  %210 = shufflevector <16 x i8> %207, <16 x i8> %208, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
+  store <16 x i8> %209, ptr %19, align 16, !tbaa !7
+  store <16 x i8> %210, ptr %125, align 16, !tbaa !7
+  %211 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %184, <16 x i8> %206)
+  %212 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %181, <16 x i8> %200)
+  %213 = shufflevector <16 x i8> %211, <16 x i8> %212, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
+  %214 = shufflevector <16 x i8> %211, <16 x i8> %212, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
+  store <16 x i8> %213, ptr %126, align 16, !tbaa !7
+  store <16 x i8> %214, ptr %127, align 16, !tbaa !7
+  %215 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv274
+  %216 = mul nuw nsw i64 %indvars.iv274, 3
+  %217 = getelementptr inbounds nuw i8, ptr %6, i64 %216
+  call void @VP8YuvToBgr32_SSE41(ptr noundef nonnull %215, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %217) #9
+  br i1 %.not, label %221, label %218
 
-228:                                              ; preds = %128
-  %229 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv274
-  %230 = getelementptr inbounds nuw i8, ptr %7, i64 %226
-  call void @VP8YuvToBgr32_SSE41(ptr noundef nonnull %229, ptr noundef nonnull %123, ptr noundef nonnull %126, ptr noundef nonnull %230) #9
-  br label %231
+218:                                              ; preds = %128
+  %219 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv274
+  %220 = getelementptr inbounds nuw i8, ptr %7, i64 %216
+  call void @VP8YuvToBgr32_SSE41(ptr noundef nonnull %219, ptr noundef nonnull %123, ptr noundef nonnull %126, ptr noundef nonnull %220) #9
+  br label %221
 
-231:                                              ; preds = %128, %228
+221:                                              ; preds = %128, %218
   %indvars.iv.next273 = add nuw nsw i64 %indvars.iv272, 16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 32
-  %232 = trunc i64 %indvars.iv to i32
-  %233 = add i32 %232, 33
-  %.not259 = icmp sgt i32 %233, %8
+  %222 = trunc i64 %indvars.iv to i32
+  %223 = add i32 %222, 33
+  %.not259 = icmp sgt i32 %223, %8
   %indvars.iv.next275 = add nuw nsw i64 %indvars.iv274, 32
   br i1 %.not259, label %._crit_edge.loopexit, label %128, !llvm.loop !30
 
-._crit_edge.loopexit:                             ; preds = %231
-  %234 = trunc nuw nsw i64 %indvars.iv to i32
-  %235 = and i64 %indvars.iv.next273, 4294967280
+._crit_edge.loopexit:                             ; preds = %221
+  %224 = trunc nuw nsw i64 %indvars.iv to i32
+  %225 = and i64 %indvars.iv.next273, 4294967280
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %121
-  %.0255.lcssa = phi i32 [ 1, %121 ], [ %234, %._crit_edge.loopexit ]
-  %.0.lcssa = phi i64 [ 0, %121 ], [ %235, %._crit_edge.loopexit ]
-  %236 = icmp sgt i32 %8, 1
-  br i1 %236, label %237, label %382
+  %.0255.lcssa = phi i32 [ 1, %121 ], [ %224, %._crit_edge.loopexit ]
+  %.0.lcssa = phi i64 [ 0, %121 ], [ %225, %._crit_edge.loopexit ]
+  %226 = icmp sgt i32 %8, 1
+  br i1 %226, label %227, label %362
 
-237:                                              ; preds = %._crit_edge
-  %238 = add nuw nsw i32 %8, 1
-  %239 = lshr i32 %238, 1
-  %240 = lshr i32 %.0255.lcssa, 1
-  %241 = sub nsw i32 %239, %240
-  %242 = getelementptr inbounds nuw i8, ptr %18, i64 128
-  %243 = getelementptr inbounds nuw i8, ptr %18, i64 384
+227:                                              ; preds = %._crit_edge
+  %228 = add nuw nsw i32 %8, 1
+  %229 = lshr i32 %228, 1
+  %230 = lshr i32 %.0255.lcssa, 1
+  %231 = sub nsw i32 %229, %230
+  %232 = getelementptr inbounds nuw i8, ptr %18, i64 128
+  %233 = getelementptr inbounds nuw i8, ptr %18, i64 384
   call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %11) #9
   call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %12) #9
-  %244 = getelementptr inbounds nuw i8, ptr %2, i64 %.0.lcssa
-  %245 = sext i32 %241 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %11, ptr nonnull align 1 %244, i64 %245, i1 false)
-  %246 = getelementptr inbounds nuw i8, ptr %4, i64 %.0.lcssa
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %12, ptr nonnull align 1 %246, i64 %245, i1 false)
-  %247 = getelementptr inbounds i8, ptr %11, i64 %245
-  %248 = add nsw i32 %241, -1
-  %249 = sext i32 %248 to i64
-  %250 = getelementptr inbounds [17 x i8], ptr %11, i64 0, i64 %249
-  %251 = load i8, ptr %250, align 1, !tbaa !7
-  %252 = sub nsw i32 17, %241
-  %253 = sext i32 %252 to i64
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %247, i8 %251, i64 %253, i1 false)
-  %254 = getelementptr inbounds i8, ptr %12, i64 %245
-  %255 = getelementptr inbounds [17 x i8], ptr %12, i64 0, i64 %249
-  %256 = load i8, ptr %255, align 1, !tbaa !7
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %254, i8 %256, i64 %253, i1 false)
+  %234 = getelementptr inbounds nuw i8, ptr %2, i64 %.0.lcssa
+  %235 = sext i32 %231 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %11, ptr nonnull align 1 %234, i64 %235, i1 false)
+  %236 = getelementptr inbounds nuw i8, ptr %4, i64 %.0.lcssa
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %12, ptr nonnull align 1 %236, i64 %235, i1 false)
+  %237 = getelementptr inbounds i8, ptr %11, i64 %235
+  %238 = add nsw i32 %231, -1
+  %239 = sext i32 %238 to i64
+  %240 = getelementptr inbounds [17 x i8], ptr %11, i64 0, i64 %239
+  %241 = load i8, ptr %240, align 1, !tbaa !7
+  %242 = sub nsw i32 17, %231
+  %243 = sext i32 %242 to i64
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %237, i8 %241, i64 %243, i1 false)
+  %244 = getelementptr inbounds i8, ptr %12, i64 %235
+  %245 = getelementptr inbounds [17 x i8], ptr %12, i64 0, i64 %239
+  %246 = load i8, ptr %245, align 1, !tbaa !7
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %244, i8 %246, i64 %243, i1 false)
   call void @llvm.experimental.noalias.scope.decl(metadata !31)
   call void @llvm.experimental.noalias.scope.decl(metadata !34)
   call void @llvm.experimental.noalias.scope.decl(metadata !36)
-  %257 = load <2 x i64>, ptr %11, align 16, !tbaa !7, !alias.scope !31, !noalias !38
-  %258 = getelementptr inbounds nuw i8, ptr %11, i64 1
-  %259 = load <2 x i64>, ptr %258, align 1, !tbaa !7, !alias.scope !31, !noalias !38
-  %260 = load <2 x i64>, ptr %12, align 16, !tbaa !7, !alias.scope !34, !noalias !39
-  %261 = getelementptr inbounds nuw i8, ptr %12, i64 1
-  %262 = load <2 x i64>, ptr %261, align 1, !tbaa !7, !alias.scope !34, !noalias !39
-  %263 = bitcast <2 x i64> %257 to <16 x i8>
-  %264 = bitcast <2 x i64> %262 to <16 x i8>
-  %265 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %263, <16 x i8> %264)
-  %266 = bitcast <16 x i8> %265 to <2 x i64>
-  %267 = bitcast <2 x i64> %259 to <16 x i8>
-  %268 = bitcast <2 x i64> %260 to <16 x i8>
-  %269 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %267, <16 x i8> %268)
-  %270 = bitcast <16 x i8> %269 to <2 x i64>
-  %271 = xor <2 x i64> %270, %266
-  %272 = xor <2 x i64> %262, %257
-  %273 = xor <2 x i64> %260, %259
-  %274 = or <2 x i64> %272, %273
-  %275 = or <2 x i64> %274, %271
-  %276 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %265, <16 x i8> %269)
-  %277 = bitcast <2 x i64> %275 to <16 x i8>
+  %247 = load <2 x i64>, ptr %11, align 16, !tbaa !7, !alias.scope !31, !noalias !38
+  %248 = getelementptr inbounds nuw i8, ptr %11, i64 1
+  %249 = load <2 x i64>, ptr %248, align 1, !tbaa !7, !alias.scope !31, !noalias !38
+  %250 = load <2 x i64>, ptr %12, align 16, !tbaa !7, !alias.scope !34, !noalias !39
+  %251 = getelementptr inbounds nuw i8, ptr %12, i64 1
+  %252 = load <2 x i64>, ptr %251, align 1, !tbaa !7, !alias.scope !34, !noalias !39
+  %253 = bitcast <2 x i64> %247 to <16 x i8>
+  %254 = bitcast <2 x i64> %252 to <16 x i8>
+  %255 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %253, <16 x i8> %254)
+  %256 = bitcast <2 x i64> %249 to <16 x i8>
+  %257 = bitcast <2 x i64> %250 to <16 x i8>
+  %258 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %256, <16 x i8> %257)
+  %.inner286 = xor <16 x i8> %258, %255
+  %259 = bitcast <16 x i8> %.inner286 to <2 x i64>
+  %260 = xor <2 x i64> %252, %247
+  %261 = xor <2 x i64> %250, %249
+  %262 = or <2 x i64> %260, %261
+  %263 = or <2 x i64> %262, %259
+  %264 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %255, <16 x i8> %258)
+  %265 = bitcast <2 x i64> %263 to <16 x i8>
+  %266 = and <16 x i8> %265, splat (i8 1)
+  %267 = sub <16 x i8> %264, %266
+  %268 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %267, <16 x i8> %258)
+  %269 = and <2 x i64> %261, %259
+  %.inner287 = xor <16 x i8> %267, %258
+  %270 = bitcast <2 x i64> %269 to <16 x i8>
+  %271 = or <16 x i8> %.inner287, %270
+  %272 = and <16 x i8> %271, splat (i8 1)
+  %273 = sub <16 x i8> %268, %272
+  %274 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %267, <16 x i8> %255)
+  %275 = and <2 x i64> %260, %259
+  %.inner288 = xor <16 x i8> %267, %255
+  %276 = bitcast <2 x i64> %275 to <16 x i8>
+  %277 = or <16 x i8> %.inner288, %276
   %278 = and <16 x i8> %277, splat (i8 1)
-  %279 = sub <16 x i8> %276, %278
-  %280 = bitcast <16 x i8> %279 to <2 x i64>
-  %281 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %279, <16 x i8> %269)
-  %282 = and <2 x i64> %271, %273
-  %283 = xor <2 x i64> %280, %270
-  %284 = or <2 x i64> %283, %282
-  %285 = bitcast <2 x i64> %284 to <16 x i8>
-  %286 = and <16 x i8> %285, splat (i8 1)
-  %287 = sub <16 x i8> %281, %286
-  %288 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %279, <16 x i8> %265)
-  %289 = and <2 x i64> %271, %272
-  %290 = xor <2 x i64> %280, %266
-  %291 = or <2 x i64> %290, %289
-  %292 = bitcast <2 x i64> %291 to <16 x i8>
-  %293 = and <16 x i8> %292, splat (i8 1)
-  %294 = sub <16 x i8> %288, %293
-  %295 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %263, <16 x i8> %287)
-  %296 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %267, <16 x i8> %294)
-  %297 = shufflevector <16 x i8> %295, <16 x i8> %296, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  %298 = shufflevector <16 x i8> %295, <16 x i8> %296, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  store <16 x i8> %297, ptr %18, align 16, !tbaa !7, !alias.scope !36, !noalias !40
-  %299 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store <16 x i8> %298, ptr %299, align 16, !tbaa !7, !alias.scope !36, !noalias !40
-  %300 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %268, <16 x i8> %294)
-  %301 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %264, <16 x i8> %287)
-  %302 = shufflevector <16 x i8> %300, <16 x i8> %301, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  %303 = shufflevector <16 x i8> %300, <16 x i8> %301, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  %304 = getelementptr inbounds nuw i8, ptr %18, i64 64
-  store <16 x i8> %302, ptr %304, align 16, !tbaa !7, !alias.scope !36, !noalias !40
-  %305 = getelementptr inbounds nuw i8, ptr %18, i64 80
-  store <16 x i8> %303, ptr %305, align 16, !tbaa !7, !alias.scope !36, !noalias !40
+  %279 = sub <16 x i8> %274, %278
+  %280 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %253, <16 x i8> %273)
+  %281 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %256, <16 x i8> %279)
+  %282 = shufflevector <16 x i8> %280, <16 x i8> %281, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
+  %283 = shufflevector <16 x i8> %280, <16 x i8> %281, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
+  store <16 x i8> %282, ptr %18, align 16, !tbaa !7, !alias.scope !36, !noalias !40
+  %284 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  store <16 x i8> %283, ptr %284, align 16, !tbaa !7, !alias.scope !36, !noalias !40
+  %285 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %257, <16 x i8> %279)
+  %286 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %254, <16 x i8> %273)
+  %287 = shufflevector <16 x i8> %285, <16 x i8> %286, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
+  %288 = shufflevector <16 x i8> %285, <16 x i8> %286, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
+  %289 = getelementptr inbounds nuw i8, ptr %18, i64 64
+  store <16 x i8> %287, ptr %289, align 16, !tbaa !7, !alias.scope !36, !noalias !40
+  %290 = getelementptr inbounds nuw i8, ptr %18, i64 80
+  store <16 x i8> %288, ptr %290, align 16, !tbaa !7, !alias.scope !36, !noalias !40
   call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %12) #9
   call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %11) #9
   call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %13) #9
   call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %14) #9
-  %306 = getelementptr inbounds nuw i8, ptr %3, i64 %.0.lcssa
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %13, ptr nonnull align 1 %306, i64 %245, i1 false)
-  %307 = getelementptr inbounds nuw i8, ptr %5, i64 %.0.lcssa
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %14, ptr nonnull align 1 %307, i64 %245, i1 false)
-  %308 = getelementptr inbounds i8, ptr %13, i64 %245
-  %309 = getelementptr inbounds [17 x i8], ptr %13, i64 0, i64 %249
-  %310 = load i8, ptr %309, align 1, !tbaa !7
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %308, i8 %310, i64 %253, i1 false)
-  %311 = getelementptr inbounds i8, ptr %14, i64 %245
-  %312 = getelementptr inbounds [17 x i8], ptr %14, i64 0, i64 %249
-  %313 = load i8, ptr %312, align 1, !tbaa !7
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %311, i8 %313, i64 %253, i1 false)
+  %291 = getelementptr inbounds nuw i8, ptr %3, i64 %.0.lcssa
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %13, ptr nonnull align 1 %291, i64 %235, i1 false)
+  %292 = getelementptr inbounds nuw i8, ptr %5, i64 %.0.lcssa
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %14, ptr nonnull align 1 %292, i64 %235, i1 false)
+  %293 = getelementptr inbounds i8, ptr %13, i64 %235
+  %294 = getelementptr inbounds [17 x i8], ptr %13, i64 0, i64 %239
+  %295 = load i8, ptr %294, align 1, !tbaa !7
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %293, i8 %295, i64 %243, i1 false)
+  %296 = getelementptr inbounds i8, ptr %14, i64 %235
+  %297 = getelementptr inbounds [17 x i8], ptr %14, i64 0, i64 %239
+  %298 = load i8, ptr %297, align 1, !tbaa !7
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %296, i8 %298, i64 %243, i1 false)
   call void @llvm.experimental.noalias.scope.decl(metadata !41)
   call void @llvm.experimental.noalias.scope.decl(metadata !44)
   call void @llvm.experimental.noalias.scope.decl(metadata !46)
-  %314 = load <2 x i64>, ptr %13, align 16, !tbaa !7, !alias.scope !41, !noalias !48
-  %315 = getelementptr inbounds nuw i8, ptr %13, i64 1
-  %316 = load <2 x i64>, ptr %315, align 1, !tbaa !7, !alias.scope !41, !noalias !48
-  %317 = load <2 x i64>, ptr %14, align 16, !tbaa !7, !alias.scope !44, !noalias !49
-  %318 = getelementptr inbounds nuw i8, ptr %14, i64 1
-  %319 = load <2 x i64>, ptr %318, align 1, !tbaa !7, !alias.scope !44, !noalias !49
-  %320 = bitcast <2 x i64> %314 to <16 x i8>
-  %321 = bitcast <2 x i64> %319 to <16 x i8>
-  %322 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %320, <16 x i8> %321)
-  %323 = bitcast <16 x i8> %322 to <2 x i64>
-  %324 = bitcast <2 x i64> %316 to <16 x i8>
-  %325 = bitcast <2 x i64> %317 to <16 x i8>
-  %326 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %324, <16 x i8> %325)
-  %327 = bitcast <16 x i8> %326 to <2 x i64>
-  %328 = xor <2 x i64> %327, %323
-  %329 = xor <2 x i64> %319, %314
-  %330 = xor <2 x i64> %317, %316
-  %331 = or <2 x i64> %329, %330
-  %332 = or <2 x i64> %331, %328
-  %333 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %322, <16 x i8> %326)
-  %334 = bitcast <2 x i64> %332 to <16 x i8>
-  %335 = and <16 x i8> %334, splat (i8 1)
-  %336 = sub <16 x i8> %333, %335
-  %337 = bitcast <16 x i8> %336 to <2 x i64>
-  %338 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %336, <16 x i8> %326)
-  %339 = and <2 x i64> %328, %330
-  %340 = xor <2 x i64> %337, %327
-  %341 = or <2 x i64> %340, %339
-  %342 = bitcast <2 x i64> %341 to <16 x i8>
-  %343 = and <16 x i8> %342, splat (i8 1)
-  %344 = sub <16 x i8> %338, %343
-  %345 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %336, <16 x i8> %322)
-  %346 = and <2 x i64> %328, %329
-  %347 = xor <2 x i64> %337, %323
-  %348 = or <2 x i64> %347, %346
-  %349 = bitcast <2 x i64> %348 to <16 x i8>
-  %350 = and <16 x i8> %349, splat (i8 1)
-  %351 = sub <16 x i8> %345, %350
-  %352 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %320, <16 x i8> %344)
-  %353 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %324, <16 x i8> %351)
-  %354 = shufflevector <16 x i8> %352, <16 x i8> %353, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  %355 = shufflevector <16 x i8> %352, <16 x i8> %353, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  store <16 x i8> %354, ptr %19, align 16, !tbaa !7, !alias.scope !46, !noalias !50
-  %356 = getelementptr inbounds nuw i8, ptr %18, i64 48
-  store <16 x i8> %355, ptr %356, align 16, !tbaa !7, !alias.scope !46, !noalias !50
-  %357 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %325, <16 x i8> %351)
-  %358 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %321, <16 x i8> %344)
-  %359 = shufflevector <16 x i8> %357, <16 x i8> %358, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  %360 = shufflevector <16 x i8> %357, <16 x i8> %358, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  %361 = getelementptr inbounds nuw i8, ptr %18, i64 96
-  store <16 x i8> %359, ptr %361, align 16, !tbaa !7, !alias.scope !46, !noalias !50
-  %362 = getelementptr inbounds nuw i8, ptr %18, i64 112
-  store <16 x i8> %360, ptr %362, align 16, !tbaa !7, !alias.scope !46, !noalias !50
+  %299 = load <2 x i64>, ptr %13, align 16, !tbaa !7, !alias.scope !41, !noalias !48
+  %300 = getelementptr inbounds nuw i8, ptr %13, i64 1
+  %301 = load <2 x i64>, ptr %300, align 1, !tbaa !7, !alias.scope !41, !noalias !48
+  %302 = load <2 x i64>, ptr %14, align 16, !tbaa !7, !alias.scope !44, !noalias !49
+  %303 = getelementptr inbounds nuw i8, ptr %14, i64 1
+  %304 = load <2 x i64>, ptr %303, align 1, !tbaa !7, !alias.scope !44, !noalias !49
+  %305 = bitcast <2 x i64> %299 to <16 x i8>
+  %306 = bitcast <2 x i64> %304 to <16 x i8>
+  %307 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %305, <16 x i8> %306)
+  %308 = bitcast <2 x i64> %301 to <16 x i8>
+  %309 = bitcast <2 x i64> %302 to <16 x i8>
+  %310 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %308, <16 x i8> %309)
+  %.inner289 = xor <16 x i8> %310, %307
+  %311 = bitcast <16 x i8> %.inner289 to <2 x i64>
+  %312 = xor <2 x i64> %304, %299
+  %313 = xor <2 x i64> %302, %301
+  %314 = or <2 x i64> %312, %313
+  %315 = or <2 x i64> %314, %311
+  %316 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %307, <16 x i8> %310)
+  %317 = bitcast <2 x i64> %315 to <16 x i8>
+  %318 = and <16 x i8> %317, splat (i8 1)
+  %319 = sub <16 x i8> %316, %318
+  %320 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %319, <16 x i8> %310)
+  %321 = and <2 x i64> %313, %311
+  %.inner290 = xor <16 x i8> %319, %310
+  %322 = bitcast <2 x i64> %321 to <16 x i8>
+  %323 = or <16 x i8> %.inner290, %322
+  %324 = and <16 x i8> %323, splat (i8 1)
+  %325 = sub <16 x i8> %320, %324
+  %326 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %319, <16 x i8> %307)
+  %327 = and <2 x i64> %312, %311
+  %.inner291 = xor <16 x i8> %319, %307
+  %328 = bitcast <2 x i64> %327 to <16 x i8>
+  %329 = or <16 x i8> %.inner291, %328
+  %330 = and <16 x i8> %329, splat (i8 1)
+  %331 = sub <16 x i8> %326, %330
+  %332 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %305, <16 x i8> %325)
+  %333 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %308, <16 x i8> %331)
+  %334 = shufflevector <16 x i8> %332, <16 x i8> %333, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
+  %335 = shufflevector <16 x i8> %332, <16 x i8> %333, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
+  store <16 x i8> %334, ptr %19, align 16, !tbaa !7, !alias.scope !46, !noalias !50
+  %336 = getelementptr inbounds nuw i8, ptr %18, i64 48
+  store <16 x i8> %335, ptr %336, align 16, !tbaa !7, !alias.scope !46, !noalias !50
+  %337 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %309, <16 x i8> %331)
+  %338 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %306, <16 x i8> %325)
+  %339 = shufflevector <16 x i8> %337, <16 x i8> %338, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
+  %340 = shufflevector <16 x i8> %337, <16 x i8> %338, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
+  %341 = getelementptr inbounds nuw i8, ptr %18, i64 96
+  store <16 x i8> %339, ptr %341, align 16, !tbaa !7, !alias.scope !46, !noalias !50
+  %342 = getelementptr inbounds nuw i8, ptr %18, i64 112
+  store <16 x i8> %340, ptr %342, align 16, !tbaa !7, !alias.scope !46, !noalias !50
   call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %14) #9
   call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %13) #9
-  %363 = zext nneg i32 %.0255.lcssa to i64
-  %364 = getelementptr inbounds nuw i8, ptr %0, i64 %363
-  %365 = sub nsw i32 %8, %.0255.lcssa
-  %366 = sext i32 %365 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %243, ptr nonnull align 1 %364, i64 %366, i1 false)
-  br i1 %.not, label %.thread261, label %372
+  %343 = zext nneg i32 %.0255.lcssa to i64
+  %344 = getelementptr inbounds nuw i8, ptr %0, i64 %343
+  %345 = sub nsw i32 %8, %.0255.lcssa
+  %346 = sext i32 %345 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %233, ptr nonnull align 1 %344, i64 %346, i1 false)
+  br i1 %.not, label %.thread261, label %352
 
-.thread261:                                       ; preds = %237
-  call void @VP8YuvToBgr32_SSE41(ptr noundef nonnull %243, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %242) #9
-  %367 = mul nuw nsw i32 %.0255.lcssa, 3
-  %368 = zext nneg i32 %367 to i64
-  %369 = getelementptr inbounds nuw i8, ptr %6, i64 %368
-  %370 = mul nsw i32 %365, 3
-  %371 = sext i32 %370 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %369, ptr nonnull align 16 %242, i64 %371, i1 false)
-  br label %382
+.thread261:                                       ; preds = %227
+  call void @VP8YuvToBgr32_SSE41(ptr noundef nonnull %233, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %232) #9
+  %347 = mul nuw nsw i32 %.0255.lcssa, 3
+  %348 = zext nneg i32 %347 to i64
+  %349 = getelementptr inbounds nuw i8, ptr %6, i64 %348
+  %350 = mul nsw i32 %345, 3
+  %351 = sext i32 %350 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %349, ptr nonnull align 16 %232, i64 %351, i1 false)
+  br label %362
 
-372:                                              ; preds = %237
-  %373 = getelementptr inbounds nuw i8, ptr %18, i64 416
-  %374 = getelementptr inbounds nuw i8, ptr %18, i64 256
-  %375 = getelementptr inbounds nuw i8, ptr %1, i64 %363
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %373, ptr nonnull align 1 %375, i64 %366, i1 false)
-  call void @VP8YuvToBgr32_SSE41(ptr noundef nonnull %243, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %242) #9
-  call void @VP8YuvToBgr32_SSE41(ptr noundef nonnull %373, ptr noundef nonnull %304, ptr noundef nonnull %361, ptr noundef nonnull %374) #9
-  %376 = mul nuw nsw i32 %.0255.lcssa, 3
-  %377 = zext nneg i32 %376 to i64
-  %378 = getelementptr inbounds nuw i8, ptr %6, i64 %377
-  %379 = mul nsw i32 %365, 3
-  %380 = sext i32 %379 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %378, ptr nonnull align 16 %242, i64 %380, i1 false)
-  %381 = getelementptr inbounds nuw i8, ptr %7, i64 %377
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %381, ptr nonnull align 16 %374, i64 %380, i1 false)
-  br label %382
+352:                                              ; preds = %227
+  %353 = getelementptr inbounds nuw i8, ptr %18, i64 416
+  %354 = getelementptr inbounds nuw i8, ptr %18, i64 256
+  %355 = getelementptr inbounds nuw i8, ptr %1, i64 %343
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %353, ptr nonnull align 1 %355, i64 %346, i1 false)
+  call void @VP8YuvToBgr32_SSE41(ptr noundef nonnull %233, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %232) #9
+  call void @VP8YuvToBgr32_SSE41(ptr noundef nonnull %353, ptr noundef nonnull %289, ptr noundef nonnull %341, ptr noundef nonnull %354) #9
+  %356 = mul nuw nsw i32 %.0255.lcssa, 3
+  %357 = zext nneg i32 %356 to i64
+  %358 = getelementptr inbounds nuw i8, ptr %6, i64 %357
+  %359 = mul nsw i32 %345, 3
+  %360 = sext i32 %359 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %358, ptr nonnull align 16 %232, i64 %360, i1 false)
+  %361 = getelementptr inbounds nuw i8, ptr %7, i64 %357
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %361, ptr nonnull align 16 %354, i64 %360, i1 false)
+  br label %362
 
-382:                                              ; preds = %.thread261, %372, %._crit_edge
+362:                                              ; preds = %.thread261, %352, %._crit_edge
   call void @llvm.lifetime.end.p0(i64 463, ptr nonnull %10) #9
   ret void
 }

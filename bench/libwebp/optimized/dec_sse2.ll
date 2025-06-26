@@ -352,106 +352,98 @@ define internal void @VFilter16_SSE2(ptr noundef captures(none) %0, i32 noundef 
   %70 = tail call <16 x i8> @llvm.uadd.sat.v16i8(<16 x i8> %67, <16 x i8> %69)
   %71 = icmp ule <16 x i8> %70, %58
   %72 = and <16 x i1> %55, %71
-  %73 = sext <16 x i1> %72 to <16 x i8>
-  %74 = bitcast <16 x i8> %73 to <2 x i64>
-  %75 = trunc i32 %4 to i8
-  %76 = insertelement <16 x i8> poison, i8 %75, i64 0
-  %77 = shufflevector <16 x i8> %76, <16 x i8> poison, <16 x i32> zeroinitializer
-  %78 = tail call <16 x i8> @llvm.umax.v16i8(<16 x i8> %24, <16 x i8> %42)
-  %79 = icmp ule <16 x i8> %78, %77
-  %80 = sext <16 x i1> %79 to <16 x i8>
-  %81 = bitcast <16 x i8> %80 to <2 x i64>
-  %82 = xor <16 x i8> %17, splat (i8 -128)
-  %83 = xor <16 x i8> %21, splat (i8 -128)
-  %84 = xor <16 x i8> %33, splat (i8 -128)
-  %85 = xor <16 x i8> %35, splat (i8 -128)
-  %86 = tail call <16 x i8> @llvm.ssub.sat.v16i8(<16 x i8> %82, <16 x i8> %85)
-  %87 = tail call <16 x i8> @llvm.ssub.sat.v16i8(<16 x i8> %84, <16 x i8> %83)
-  %88 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %86, <16 x i8> %87)
-  %89 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %87, <16 x i8> %88)
-  %90 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %87, <16 x i8> %89)
-  %91 = bitcast <16 x i8> %90 to <2 x i64>
-  %92 = xor <2 x i64> %81, splat (i64 -1)
-  %93 = and <2 x i64> %91, %92
-  %94 = and <2 x i64> %93, %74
-  %95 = bitcast <2 x i64> %94 to <16 x i8>
-  %96 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %95, <16 x i8> splat (i8 3))
-  %97 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %95, <16 x i8> splat (i8 4))
-  %98 = shufflevector <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i8> %97, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  %99 = shufflevector <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i8> %97, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  %100 = bitcast <16 x i8> %98 to <8 x i16>
-  %101 = ashr <8 x i16> %100, splat (i16 11)
-  %102 = bitcast <16 x i8> %99 to <8 x i16>
-  %103 = ashr <8 x i16> %102, splat (i16 11)
-  %104 = tail call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %101, <8 x i16> %103)
-  %105 = shufflevector <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i8> %96, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  %106 = shufflevector <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i8> %96, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  %107 = bitcast <16 x i8> %105 to <8 x i16>
-  %108 = ashr <8 x i16> %107, splat (i16 11)
-  %109 = bitcast <16 x i8> %106 to <8 x i16>
-  %110 = ashr <8 x i16> %109, splat (i16 11)
-  %111 = tail call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %108, <8 x i16> %110)
-  %112 = tail call <16 x i8> @llvm.ssub.sat.v16i8(<16 x i8> %84, <16 x i8> %104)
-  %113 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %83, <16 x i8> %111)
-  %114 = and <2 x i64> %74, %91
-  %115 = and <2 x i64> %114, %81
-  %116 = bitcast <2 x i64> %115 to <16 x i8>
-  %117 = shufflevector <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i8> %116, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  %118 = shufflevector <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i8> %116, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  %119 = bitcast <16 x i8> %117 to <8 x i16>
-  %120 = tail call <8 x i16> @llvm.x86.sse2.pmulh.w(<8 x i16> %119, <8 x i16> splat (i16 2304))
-  %121 = bitcast <16 x i8> %118 to <8 x i16>
-  %122 = tail call <8 x i16> @llvm.x86.sse2.pmulh.w(<8 x i16> %121, <8 x i16> splat (i16 2304))
-  %123 = add <8 x i16> %120, splat (i16 63)
-  %124 = add <8 x i16> %122, splat (i16 63)
-  %125 = add <8 x i16> %123, %120
-  %126 = add <8 x i16> %124, %122
-  %127 = add <8 x i16> %125, %120
-  %128 = add <8 x i16> %126, %122
-  %129 = ashr <8 x i16> %123, splat (i16 7)
-  %130 = ashr <8 x i16> %124, splat (i16 7)
+  %73 = trunc i32 %4 to i8
+  %74 = insertelement <16 x i8> poison, i8 %73, i64 0
+  %75 = shufflevector <16 x i8> %74, <16 x i8> poison, <16 x i32> zeroinitializer
+  %76 = tail call <16 x i8> @llvm.umax.v16i8(<16 x i8> %24, <16 x i8> %42)
+  %.not = icmp ugt <16 x i8> %76, %75
+  %77 = xor <16 x i8> %17, splat (i8 -128)
+  %78 = xor <16 x i8> %21, splat (i8 -128)
+  %79 = xor <16 x i8> %33, splat (i8 -128)
+  %80 = xor <16 x i8> %35, splat (i8 -128)
+  %81 = tail call <16 x i8> @llvm.ssub.sat.v16i8(<16 x i8> %77, <16 x i8> %80)
+  %82 = tail call <16 x i8> @llvm.ssub.sat.v16i8(<16 x i8> %79, <16 x i8> %78)
+  %83 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %81, <16 x i8> %82)
+  %84 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %82, <16 x i8> %83)
+  %85 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %82, <16 x i8> %84)
+  %86 = select <16 x i1> %.not, <16 x i8> %85, <16 x i8> zeroinitializer
+  %87 = select <16 x i1> %72, <16 x i8> %86, <16 x i8> zeroinitializer
+  %88 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %87, <16 x i8> splat (i8 3))
+  %89 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %87, <16 x i8> splat (i8 4))
+  %90 = shufflevector <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i8> %89, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
+  %91 = shufflevector <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i8> %89, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
+  %92 = bitcast <16 x i8> %90 to <8 x i16>
+  %93 = ashr <8 x i16> %92, splat (i16 11)
+  %94 = bitcast <16 x i8> %91 to <8 x i16>
+  %95 = ashr <8 x i16> %94, splat (i16 11)
+  %96 = tail call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %93, <8 x i16> %95)
+  %97 = shufflevector <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i8> %88, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
+  %98 = shufflevector <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i8> %88, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
+  %99 = bitcast <16 x i8> %97 to <8 x i16>
+  %100 = ashr <8 x i16> %99, splat (i16 11)
+  %101 = bitcast <16 x i8> %98 to <8 x i16>
+  %102 = ashr <8 x i16> %101, splat (i16 11)
+  %103 = tail call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %100, <8 x i16> %102)
+  %104 = tail call <16 x i8> @llvm.ssub.sat.v16i8(<16 x i8> %79, <16 x i8> %96)
+  %105 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %78, <16 x i8> %103)
+  %.inner = select <16 x i1> %72, <16 x i8> %85, <16 x i8> zeroinitializer
+  %.inner108 = select <16 x i1> %.not, <16 x i8> zeroinitializer, <16 x i8> %.inner
+  %106 = shufflevector <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i8> %.inner108, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
+  %107 = shufflevector <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i8> %.inner108, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
+  %108 = bitcast <16 x i8> %106 to <8 x i16>
+  %109 = tail call <8 x i16> @llvm.x86.sse2.pmulh.w(<8 x i16> %108, <8 x i16> splat (i16 2304))
+  %110 = bitcast <16 x i8> %107 to <8 x i16>
+  %111 = tail call <8 x i16> @llvm.x86.sse2.pmulh.w(<8 x i16> %110, <8 x i16> splat (i16 2304))
+  %112 = add <8 x i16> %109, splat (i16 63)
+  %113 = add <8 x i16> %111, splat (i16 63)
+  %114 = add <8 x i16> %112, %109
+  %115 = add <8 x i16> %113, %111
+  %116 = add <8 x i16> %114, %109
+  %117 = add <8 x i16> %115, %111
+  %118 = ashr <8 x i16> %112, splat (i16 7)
+  %119 = ashr <8 x i16> %113, splat (i16 7)
+  %120 = tail call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %118, <8 x i16> %119)
+  %121 = xor <16 x i8> %13, splat (i8 -128)
+  %122 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %121, <16 x i8> %120)
+  %123 = bitcast <16 x i8> %122 to <2 x i64>
+  %124 = xor <16 x i8> %37, splat (i8 -128)
+  %125 = tail call <16 x i8> @llvm.ssub.sat.v16i8(<16 x i8> %124, <16 x i8> %120)
+  %126 = bitcast <16 x i8> %125 to <2 x i64>
+  %127 = xor <2 x i64> %123, splat (i64 -9187201950435737472)
+  %128 = xor <2 x i64> %126, splat (i64 -9187201950435737472)
+  %129 = ashr <8 x i16> %114, splat (i16 7)
+  %130 = ashr <8 x i16> %115, splat (i16 7)
   %131 = tail call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %129, <8 x i16> %130)
-  %132 = xor <16 x i8> %13, splat (i8 -128)
-  %133 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %132, <16 x i8> %131)
-  %134 = bitcast <16 x i8> %133 to <2 x i64>
-  %135 = xor <16 x i8> %37, splat (i8 -128)
-  %136 = tail call <16 x i8> @llvm.ssub.sat.v16i8(<16 x i8> %135, <16 x i8> %131)
-  %137 = bitcast <16 x i8> %136 to <2 x i64>
-  %138 = xor <2 x i64> %134, splat (i64 -9187201950435737472)
-  %139 = xor <2 x i64> %137, splat (i64 -9187201950435737472)
-  %140 = ashr <8 x i16> %125, splat (i16 7)
-  %141 = ashr <8 x i16> %126, splat (i16 7)
-  %142 = tail call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %140, <8 x i16> %141)
-  %143 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %82, <16 x i8> %142)
+  %132 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %77, <16 x i8> %131)
+  %133 = bitcast <16 x i8> %132 to <2 x i64>
+  %134 = tail call <16 x i8> @llvm.ssub.sat.v16i8(<16 x i8> %80, <16 x i8> %131)
+  %135 = bitcast <16 x i8> %134 to <2 x i64>
+  %136 = xor <2 x i64> %133, splat (i64 -9187201950435737472)
+  %137 = xor <2 x i64> %135, splat (i64 -9187201950435737472)
+  %138 = ashr <8 x i16> %116, splat (i16 7)
+  %139 = ashr <8 x i16> %117, splat (i16 7)
+  %140 = tail call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %138, <8 x i16> %139)
+  %141 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %105, <16 x i8> %140)
+  %142 = bitcast <16 x i8> %141 to <2 x i64>
+  %143 = tail call <16 x i8> @llvm.ssub.sat.v16i8(<16 x i8> %104, <16 x i8> %140)
   %144 = bitcast <16 x i8> %143 to <2 x i64>
-  %145 = tail call <16 x i8> @llvm.ssub.sat.v16i8(<16 x i8> %85, <16 x i8> %142)
-  %146 = bitcast <16 x i8> %145 to <2 x i64>
-  %147 = xor <2 x i64> %144, splat (i64 -9187201950435737472)
-  %148 = xor <2 x i64> %146, splat (i64 -9187201950435737472)
-  %149 = ashr <8 x i16> %127, splat (i16 7)
-  %150 = ashr <8 x i16> %128, splat (i16 7)
-  %151 = tail call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %149, <8 x i16> %150)
-  %152 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %113, <16 x i8> %151)
-  %153 = bitcast <16 x i8> %152 to <2 x i64>
-  %154 = tail call <16 x i8> @llvm.ssub.sat.v16i8(<16 x i8> %112, <16 x i8> %151)
-  %155 = bitcast <16 x i8> %154 to <2 x i64>
-  %156 = xor <2 x i64> %153, splat (i64 -9187201950435737472)
-  %157 = xor <2 x i64> %155, splat (i64 -9187201950435737472)
-  %158 = mul nsw i32 %1, -3
-  %159 = sext i32 %158 to i64
-  %160 = getelementptr inbounds i8, ptr %0, i64 %159
-  store <2 x i64> %138, ptr %160, align 1, !tbaa !7
-  %161 = mul nsw i32 %1, -2
-  %162 = sext i32 %161 to i64
-  %163 = getelementptr inbounds i8, ptr %0, i64 %162
-  store <2 x i64> %147, ptr %163, align 1, !tbaa !7
-  %164 = sub nsw i32 0, %1
-  %165 = sext i32 %164 to i64
-  %166 = getelementptr inbounds i8, ptr %0, i64 %165
-  store <2 x i64> %156, ptr %166, align 1, !tbaa !7
-  store <2 x i64> %157, ptr %0, align 1, !tbaa !7
-  store <2 x i64> %148, ptr %34, align 1, !tbaa !7
-  store <2 x i64> %139, ptr %36, align 1, !tbaa !7
+  %145 = xor <2 x i64> %142, splat (i64 -9187201950435737472)
+  %146 = xor <2 x i64> %144, splat (i64 -9187201950435737472)
+  %147 = mul nsw i32 %1, -3
+  %148 = sext i32 %147 to i64
+  %149 = getelementptr inbounds i8, ptr %0, i64 %148
+  store <2 x i64> %127, ptr %149, align 1, !tbaa !7
+  %150 = mul nsw i32 %1, -2
+  %151 = sext i32 %150 to i64
+  %152 = getelementptr inbounds i8, ptr %0, i64 %151
+  store <2 x i64> %136, ptr %152, align 1, !tbaa !7
+  %153 = sub nsw i32 0, %1
+  %154 = sext i32 %153 to i64
+  %155 = getelementptr inbounds i8, ptr %0, i64 %154
+  store <2 x i64> %145, ptr %155, align 1, !tbaa !7
+  store <2 x i64> %146, ptr %0, align 1, !tbaa !7
+  store <2 x i64> %137, ptr %34, align 1, !tbaa !7
+  store <2 x i64> %128, ptr %36, align 1, !tbaa !7
   ret void
 }
 
@@ -683,269 +675,261 @@ define internal void @HFilter16_SSE2(ptr noundef captures(none) %0, i32 noundef 
   %197 = tail call <16 x i8> @llvm.uadd.sat.v16i8(<16 x i8> %194, <16 x i8> %196)
   %198 = icmp ule <16 x i8> %197, %185
   %199 = and <16 x i1> %182, %198
-  %200 = sext <16 x i1> %199 to <16 x i8>
-  %201 = bitcast <16 x i8> %200 to <2 x i64>
-  %202 = trunc i32 %4 to i8
-  %203 = insertelement <16 x i8> poison, i8 %202, i64 0
-  %204 = shufflevector <16 x i8> %203, <16 x i8> poison, <16 x i32> zeroinitializer
-  %205 = tail call <16 x i8> @llvm.umax.v16i8(<16 x i8> %89, <16 x i8> %167)
-  %206 = icmp ule <16 x i8> %205, %204
-  %207 = sext <16 x i1> %206 to <16 x i8>
-  %208 = bitcast <16 x i8> %207 to <2 x i64>
-  %209 = xor <16 x i8> %86, splat (i8 -128)
-  %210 = xor <16 x i8> %85, splat (i8 -128)
-  %211 = xor <16 x i8> %163, splat (i8 -128)
-  %212 = xor <16 x i8> %164, splat (i8 -128)
-  %213 = tail call <16 x i8> @llvm.ssub.sat.v16i8(<16 x i8> %209, <16 x i8> %212)
-  %214 = tail call <16 x i8> @llvm.ssub.sat.v16i8(<16 x i8> %211, <16 x i8> %210)
-  %215 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %213, <16 x i8> %214)
-  %216 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %214, <16 x i8> %215)
-  %217 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %214, <16 x i8> %216)
-  %218 = bitcast <16 x i8> %217 to <2 x i64>
-  %219 = xor <2 x i64> %208, splat (i64 -1)
-  %220 = and <2 x i64> %218, %219
-  %221 = and <2 x i64> %220, %201
-  %222 = bitcast <2 x i64> %221 to <16 x i8>
-  %223 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %222, <16 x i8> splat (i8 3))
-  %224 = shufflevector <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i8> %223, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  %225 = shufflevector <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i8> %223, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
+  %200 = trunc i32 %4 to i8
+  %201 = insertelement <16 x i8> poison, i8 %200, i64 0
+  %202 = shufflevector <16 x i8> %201, <16 x i8> poison, <16 x i32> zeroinitializer
+  %203 = tail call <16 x i8> @llvm.umax.v16i8(<16 x i8> %89, <16 x i8> %167)
+  %.not = icmp ugt <16 x i8> %203, %202
+  %204 = xor <16 x i8> %86, splat (i8 -128)
+  %205 = xor <16 x i8> %85, splat (i8 -128)
+  %206 = xor <16 x i8> %163, splat (i8 -128)
+  %207 = xor <16 x i8> %164, splat (i8 -128)
+  %208 = tail call <16 x i8> @llvm.ssub.sat.v16i8(<16 x i8> %204, <16 x i8> %207)
+  %209 = tail call <16 x i8> @llvm.ssub.sat.v16i8(<16 x i8> %206, <16 x i8> %205)
+  %210 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %208, <16 x i8> %209)
+  %211 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %209, <16 x i8> %210)
+  %212 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %209, <16 x i8> %211)
+  %213 = select <16 x i1> %.not, <16 x i8> %212, <16 x i8> zeroinitializer
+  %214 = select <16 x i1> %199, <16 x i8> %213, <16 x i8> zeroinitializer
+  %215 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %214, <16 x i8> splat (i8 3))
+  %216 = shufflevector <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i8> %215, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
+  %217 = shufflevector <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i8> %215, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
+  %218 = bitcast <16 x i8> %216 to <8 x i16>
+  %219 = ashr <8 x i16> %218, splat (i16 11)
+  %220 = bitcast <16 x i8> %217 to <8 x i16>
+  %221 = ashr <8 x i16> %220, splat (i16 11)
+  %222 = tail call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %219, <8 x i16> %221)
+  %223 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %205, <16 x i8> %222)
+  %.inner = select <16 x i1> %199, <16 x i8> %212, <16 x i8> zeroinitializer
+  %.inner164 = select <16 x i1> %.not, <16 x i8> zeroinitializer, <16 x i8> %.inner
+  %224 = shufflevector <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i8> %.inner164, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
+  %225 = shufflevector <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i8> %.inner164, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
   %226 = bitcast <16 x i8> %224 to <8 x i16>
-  %227 = ashr <8 x i16> %226, splat (i16 11)
+  %227 = tail call <8 x i16> @llvm.x86.sse2.pmulh.w(<8 x i16> %226, <8 x i16> splat (i16 2304))
   %228 = bitcast <16 x i8> %225 to <8 x i16>
-  %229 = ashr <8 x i16> %228, splat (i16 11)
-  %230 = tail call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %227, <8 x i16> %229)
-  %231 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %210, <16 x i8> %230)
-  %232 = and <2 x i64> %201, %218
-  %233 = and <2 x i64> %232, %208
-  %234 = bitcast <2 x i64> %233 to <16 x i8>
-  %235 = shufflevector <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i8> %234, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  %236 = shufflevector <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i8> %234, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  %237 = bitcast <16 x i8> %235 to <8 x i16>
-  %238 = tail call <8 x i16> @llvm.x86.sse2.pmulh.w(<8 x i16> %237, <8 x i16> splat (i16 2304))
-  %239 = bitcast <16 x i8> %236 to <8 x i16>
-  %240 = tail call <8 x i16> @llvm.x86.sse2.pmulh.w(<8 x i16> %239, <8 x i16> splat (i16 2304))
-  %241 = add <8 x i16> %238, splat (i16 63)
-  %242 = add <8 x i16> %240, splat (i16 63)
-  %243 = add <8 x i16> %241, %238
-  %244 = add <8 x i16> %242, %240
-  %245 = add <8 x i16> %243, %238
-  %246 = add <8 x i16> %244, %240
-  %247 = ashr <8 x i16> %241, splat (i16 7)
-  %248 = ashr <8 x i16> %242, splat (i16 7)
-  %249 = tail call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %247, <8 x i16> %248)
-  %250 = xor <16 x i8> %90, splat (i8 -128)
-  %251 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %250, <16 x i8> %249)
-  %252 = ashr <8 x i16> %243, splat (i16 7)
-  %253 = ashr <8 x i16> %244, splat (i16 7)
-  %254 = tail call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %252, <8 x i16> %253)
-  %255 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %209, <16 x i8> %254)
-  %256 = ashr <8 x i16> %245, splat (i16 7)
-  %257 = ashr <8 x i16> %246, splat (i16 7)
-  %258 = tail call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %256, <8 x i16> %257)
-  %259 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %231, <16 x i8> %258)
-  %260 = xor <16 x i8> %251, splat (i8 -128)
-  %261 = shufflevector <16 x i8> %91, <16 x i8> %260, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  %262 = xor <16 x i8> %255, splat (i8 -128)
-  %263 = xor <16 x i8> %259, splat (i8 -128)
-  %264 = shufflevector <16 x i8> %262, <16 x i8> %263, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  %265 = bitcast <16 x i8> %261 to <8 x i16>
-  %266 = bitcast <16 x i8> %264 to <8 x i16>
-  %267 = shufflevector <8 x i16> %265, <8 x i16> %266, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
-  %268 = bitcast <8 x i16> %267 to <4 x i32>
-  %.sroa.020.0.vec.extract.i = extractelement <4 x i32> %268, i64 0
-  %269 = bitcast <8 x i16> %267 to <16 x i8>
-  br label %270
+  %229 = tail call <8 x i16> @llvm.x86.sse2.pmulh.w(<8 x i16> %228, <8 x i16> splat (i16 2304))
+  %230 = add <8 x i16> %227, splat (i16 63)
+  %231 = add <8 x i16> %229, splat (i16 63)
+  %232 = add <8 x i16> %230, %227
+  %233 = add <8 x i16> %231, %229
+  %234 = add <8 x i16> %232, %227
+  %235 = add <8 x i16> %233, %229
+  %236 = ashr <8 x i16> %230, splat (i16 7)
+  %237 = ashr <8 x i16> %231, splat (i16 7)
+  %238 = tail call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %236, <8 x i16> %237)
+  %239 = xor <16 x i8> %90, splat (i8 -128)
+  %240 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %239, <16 x i8> %238)
+  %241 = ashr <8 x i16> %232, splat (i16 7)
+  %242 = ashr <8 x i16> %233, splat (i16 7)
+  %243 = tail call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %241, <8 x i16> %242)
+  %244 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %204, <16 x i8> %243)
+  %245 = ashr <8 x i16> %234, splat (i16 7)
+  %246 = ashr <8 x i16> %235, splat (i16 7)
+  %247 = tail call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %245, <8 x i16> %246)
+  %248 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %223, <16 x i8> %247)
+  %249 = xor <16 x i8> %240, splat (i8 -128)
+  %250 = shufflevector <16 x i8> %91, <16 x i8> %249, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
+  %251 = xor <16 x i8> %244, splat (i8 -128)
+  %252 = xor <16 x i8> %248, splat (i8 -128)
+  %253 = shufflevector <16 x i8> %251, <16 x i8> %252, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
+  %254 = bitcast <16 x i8> %250 to <8 x i16>
+  %255 = bitcast <16 x i8> %253 to <8 x i16>
+  %256 = shufflevector <8 x i16> %254, <8 x i16> %255, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
+  %257 = bitcast <8 x i16> %256 to <4 x i32>
+  %.sroa.020.0.vec.extract.i = extractelement <4 x i32> %257, i64 0
+  %258 = bitcast <8 x i16> %256 to <16 x i8>
+  br label %259
 
-270:                                              ; preds = %270, %5
-  %.sroa.020.0.i = phi <16 x i8> [ %269, %5 ], [ %272, %270 ]
-  %271 = phi i32 [ %.sroa.020.0.vec.extract.i, %5 ], [ %276, %270 ]
-  %.09.i.i = phi i32 [ 0, %5 ], [ %274, %270 ]
-  %.078.i.i = phi ptr [ %6, %5 ], [ %275, %270 ]
-  store i32 %271, ptr %.078.i.i, align 1
-  %272 = shufflevector <16 x i8> %.sroa.020.0.i, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
-  %273 = bitcast <16 x i8> %272 to <4 x i32>
-  %274 = add nuw nsw i32 %.09.i.i, 1
-  %275 = getelementptr inbounds i8, ptr %.078.i.i, i64 %32
-  %exitcond.not.i.i = icmp eq i32 %274, 4
-  %276 = extractelement <4 x i32> %273, i64 0
-  br i1 %exitcond.not.i.i, label %Store4x4_SSE2.exit.i, label %270, !llvm.loop !8
+259:                                              ; preds = %259, %5
+  %.sroa.020.0.i = phi <16 x i8> [ %258, %5 ], [ %261, %259 ]
+  %260 = phi i32 [ %.sroa.020.0.vec.extract.i, %5 ], [ %265, %259 ]
+  %.09.i.i = phi i32 [ 0, %5 ], [ %263, %259 ]
+  %.078.i.i = phi ptr [ %6, %5 ], [ %264, %259 ]
+  store i32 %260, ptr %.078.i.i, align 1
+  %261 = shufflevector <16 x i8> %.sroa.020.0.i, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
+  %262 = bitcast <16 x i8> %261 to <4 x i32>
+  %263 = add nuw nsw i32 %.09.i.i, 1
+  %264 = getelementptr inbounds i8, ptr %.078.i.i, i64 %32
+  %exitcond.not.i.i = icmp eq i32 %263, 4
+  %265 = extractelement <4 x i32> %262, i64 0
+  br i1 %exitcond.not.i.i, label %Store4x4_SSE2.exit.i, label %259, !llvm.loop !8
 
-Store4x4_SSE2.exit.i:                             ; preds = %270
-  %277 = shufflevector <8 x i16> %265, <8 x i16> %266, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  %278 = bitcast <8 x i16> %277 to <4 x i32>
-  %.sroa.013.0.vec.extract.i = extractelement <4 x i32> %278, i64 0
-  %279 = bitcast <8 x i16> %277 to <16 x i8>
-  br label %280
+Store4x4_SSE2.exit.i:                             ; preds = %259
+  %266 = shufflevector <8 x i16> %254, <8 x i16> %255, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
+  %267 = bitcast <8 x i16> %266 to <4 x i32>
+  %.sroa.013.0.vec.extract.i = extractelement <4 x i32> %267, i64 0
+  %268 = bitcast <8 x i16> %266 to <16 x i8>
+  br label %269
 
-280:                                              ; preds = %280, %Store4x4_SSE2.exit.i
-  %.sroa.013.0.i = phi <16 x i8> [ %279, %Store4x4_SSE2.exit.i ], [ %282, %280 ]
-  %281 = phi i32 [ %.sroa.013.0.vec.extract.i, %Store4x4_SSE2.exit.i ], [ %286, %280 ]
-  %.09.i26.i = phi i32 [ 0, %Store4x4_SSE2.exit.i ], [ %284, %280 ]
-  %.078.i27.i = phi ptr [ %18, %Store4x4_SSE2.exit.i ], [ %285, %280 ]
-  store i32 %281, ptr %.078.i27.i, align 1
-  %282 = shufflevector <16 x i8> %.sroa.013.0.i, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
-  %283 = bitcast <16 x i8> %282 to <4 x i32>
-  %284 = add nuw nsw i32 %.09.i26.i, 1
-  %285 = getelementptr inbounds i8, ptr %.078.i27.i, i64 %32
-  %exitcond.not.i28.i = icmp eq i32 %284, 4
-  %286 = extractelement <4 x i32> %283, i64 0
-  br i1 %exitcond.not.i28.i, label %Store4x4_SSE2.exit30.i, label %280, !llvm.loop !8
+269:                                              ; preds = %269, %Store4x4_SSE2.exit.i
+  %.sroa.013.0.i = phi <16 x i8> [ %268, %Store4x4_SSE2.exit.i ], [ %271, %269 ]
+  %270 = phi i32 [ %.sroa.013.0.vec.extract.i, %Store4x4_SSE2.exit.i ], [ %275, %269 ]
+  %.09.i26.i = phi i32 [ 0, %Store4x4_SSE2.exit.i ], [ %273, %269 ]
+  %.078.i27.i = phi ptr [ %18, %Store4x4_SSE2.exit.i ], [ %274, %269 ]
+  store i32 %270, ptr %.078.i27.i, align 1
+  %271 = shufflevector <16 x i8> %.sroa.013.0.i, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
+  %272 = bitcast <16 x i8> %271 to <4 x i32>
+  %273 = add nuw nsw i32 %.09.i26.i, 1
+  %274 = getelementptr inbounds i8, ptr %.078.i27.i, i64 %32
+  %exitcond.not.i28.i = icmp eq i32 %273, 4
+  %275 = extractelement <4 x i32> %272, i64 0
+  br i1 %exitcond.not.i28.i, label %Store4x4_SSE2.exit30.i, label %269, !llvm.loop !8
 
-Store4x4_SSE2.exit30.i:                           ; preds = %280
-  %287 = shufflevector <16 x i8> %91, <16 x i8> %260, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  %288 = shufflevector <16 x i8> %262, <16 x i8> %263, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  %289 = bitcast <16 x i8> %287 to <8 x i16>
-  %290 = bitcast <16 x i8> %288 to <8 x i16>
-  %291 = shufflevector <8 x i16> %289, <8 x i16> %290, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
-  %292 = bitcast <8 x i16> %291 to <4 x i32>
-  %.sroa.026.0.vec.extract.i = extractelement <4 x i32> %292, i64 0
-  %293 = bitcast <8 x i16> %291 to <16 x i8>
-  br label %294
+Store4x4_SSE2.exit30.i:                           ; preds = %269
+  %276 = shufflevector <16 x i8> %91, <16 x i8> %249, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
+  %277 = shufflevector <16 x i8> %251, <16 x i8> %252, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
+  %278 = bitcast <16 x i8> %276 to <8 x i16>
+  %279 = bitcast <16 x i8> %277 to <8 x i16>
+  %280 = shufflevector <8 x i16> %278, <8 x i16> %279, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
+  %281 = bitcast <8 x i16> %280 to <4 x i32>
+  %.sroa.026.0.vec.extract.i = extractelement <4 x i32> %281, i64 0
+  %282 = bitcast <8 x i16> %280 to <16 x i8>
+  br label %283
 
-294:                                              ; preds = %294, %Store4x4_SSE2.exit30.i
-  %.sroa.026.0.i = phi <16 x i8> [ %293, %Store4x4_SSE2.exit30.i ], [ %296, %294 ]
-  %295 = phi i32 [ %.sroa.026.0.vec.extract.i, %Store4x4_SSE2.exit30.i ], [ %300, %294 ]
-  %.09.i32.i = phi i32 [ 0, %Store4x4_SSE2.exit30.i ], [ %298, %294 ]
-  %.078.i33.i = phi ptr [ %9, %Store4x4_SSE2.exit30.i ], [ %299, %294 ]
-  store i32 %295, ptr %.078.i33.i, align 1
-  %296 = shufflevector <16 x i8> %.sroa.026.0.i, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
-  %297 = bitcast <16 x i8> %296 to <4 x i32>
-  %298 = add nuw nsw i32 %.09.i32.i, 1
-  %299 = getelementptr inbounds i8, ptr %.078.i33.i, i64 %32
-  %exitcond.not.i34.i = icmp eq i32 %298, 4
-  %300 = extractelement <4 x i32> %297, i64 0
-  br i1 %exitcond.not.i34.i, label %Store4x4_SSE2.exit36.i, label %294, !llvm.loop !8
+283:                                              ; preds = %283, %Store4x4_SSE2.exit30.i
+  %.sroa.026.0.i = phi <16 x i8> [ %282, %Store4x4_SSE2.exit30.i ], [ %285, %283 ]
+  %284 = phi i32 [ %.sroa.026.0.vec.extract.i, %Store4x4_SSE2.exit30.i ], [ %289, %283 ]
+  %.09.i32.i = phi i32 [ 0, %Store4x4_SSE2.exit30.i ], [ %287, %283 ]
+  %.078.i33.i = phi ptr [ %9, %Store4x4_SSE2.exit30.i ], [ %288, %283 ]
+  store i32 %284, ptr %.078.i33.i, align 1
+  %285 = shufflevector <16 x i8> %.sroa.026.0.i, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
+  %286 = bitcast <16 x i8> %285 to <4 x i32>
+  %287 = add nuw nsw i32 %.09.i32.i, 1
+  %288 = getelementptr inbounds i8, ptr %.078.i33.i, i64 %32
+  %exitcond.not.i34.i = icmp eq i32 %287, 4
+  %289 = extractelement <4 x i32> %286, i64 0
+  br i1 %exitcond.not.i34.i, label %Store4x4_SSE2.exit36.i, label %283, !llvm.loop !8
 
-Store4x4_SSE2.exit36.i:                           ; preds = %294
-  %301 = shufflevector <8 x i16> %289, <8 x i16> %290, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  %302 = bitcast <8 x i16> %301 to <4 x i32>
-  %.sroa.0.0.vec.extract.i = extractelement <4 x i32> %302, i64 0
-  %303 = bitcast <8 x i16> %301 to <16 x i8>
-  br label %304
+Store4x4_SSE2.exit36.i:                           ; preds = %283
+  %290 = shufflevector <8 x i16> %278, <8 x i16> %279, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
+  %291 = bitcast <8 x i16> %290 to <4 x i32>
+  %.sroa.0.0.vec.extract.i = extractelement <4 x i32> %291, i64 0
+  %292 = bitcast <8 x i16> %290 to <16 x i8>
+  br label %293
 
-304:                                              ; preds = %304, %Store4x4_SSE2.exit36.i
-  %.sroa.0.0.i = phi <16 x i8> [ %303, %Store4x4_SSE2.exit36.i ], [ %306, %304 ]
-  %305 = phi i32 [ %.sroa.0.0.vec.extract.i, %Store4x4_SSE2.exit36.i ], [ %310, %304 ]
-  %.09.i38.i = phi i32 [ 0, %Store4x4_SSE2.exit36.i ], [ %308, %304 ]
-  %.078.i39.i = phi ptr [ %54, %Store4x4_SSE2.exit36.i ], [ %309, %304 ]
-  store i32 %305, ptr %.078.i39.i, align 1
-  %306 = shufflevector <16 x i8> %.sroa.0.0.i, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
-  %307 = bitcast <16 x i8> %306 to <4 x i32>
-  %308 = add nuw nsw i32 %.09.i38.i, 1
-  %309 = getelementptr inbounds i8, ptr %.078.i39.i, i64 %32
-  %exitcond.not.i40.i = icmp eq i32 %308, 4
-  %310 = extractelement <4 x i32> %307, i64 0
-  br i1 %exitcond.not.i40.i, label %Store16x4_SSE2.exit, label %304, !llvm.loop !8
+293:                                              ; preds = %293, %Store4x4_SSE2.exit36.i
+  %.sroa.0.0.i = phi <16 x i8> [ %292, %Store4x4_SSE2.exit36.i ], [ %295, %293 ]
+  %294 = phi i32 [ %.sroa.0.0.vec.extract.i, %Store4x4_SSE2.exit36.i ], [ %299, %293 ]
+  %.09.i38.i = phi i32 [ 0, %Store4x4_SSE2.exit36.i ], [ %297, %293 ]
+  %.078.i39.i = phi ptr [ %54, %Store4x4_SSE2.exit36.i ], [ %298, %293 ]
+  store i32 %294, ptr %.078.i39.i, align 1
+  %295 = shufflevector <16 x i8> %.sroa.0.0.i, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
+  %296 = bitcast <16 x i8> %295 to <4 x i32>
+  %297 = add nuw nsw i32 %.09.i38.i, 1
+  %298 = getelementptr inbounds i8, ptr %.078.i39.i, i64 %32
+  %exitcond.not.i40.i = icmp eq i32 %297, 4
+  %299 = extractelement <4 x i32> %296, i64 0
+  br i1 %exitcond.not.i40.i, label %Store16x4_SSE2.exit, label %293, !llvm.loop !8
 
-Store16x4_SSE2.exit:                              ; preds = %304
-  %311 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %222, <16 x i8> splat (i8 4))
-  %312 = shufflevector <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i8> %311, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  %313 = shufflevector <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i8> %311, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  %314 = bitcast <16 x i8> %312 to <8 x i16>
-  %315 = ashr <8 x i16> %314, splat (i16 11)
-  %316 = bitcast <16 x i8> %313 to <8 x i16>
-  %317 = ashr <8 x i16> %316, splat (i16 11)
-  %318 = tail call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %315, <8 x i16> %317)
-  %319 = tail call <16 x i8> @llvm.ssub.sat.v16i8(<16 x i8> %211, <16 x i8> %318)
-  %320 = xor <16 x i8> %169, splat (i8 -128)
-  %321 = tail call <16 x i8> @llvm.ssub.sat.v16i8(<16 x i8> %320, <16 x i8> %249)
-  %322 = tail call <16 x i8> @llvm.ssub.sat.v16i8(<16 x i8> %212, <16 x i8> %254)
-  %323 = tail call <16 x i8> @llvm.ssub.sat.v16i8(<16 x i8> %319, <16 x i8> %258)
-  %324 = xor <16 x i8> %323, splat (i8 -128)
-  %325 = xor <16 x i8> %322, splat (i8 -128)
-  %326 = shufflevector <16 x i8> %324, <16 x i8> %325, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  %327 = xor <16 x i8> %321, splat (i8 -128)
-  %328 = shufflevector <16 x i8> %327, <16 x i8> %170, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  %329 = bitcast <16 x i8> %326 to <8 x i16>
-  %330 = bitcast <16 x i8> %328 to <8 x i16>
-  %331 = shufflevector <8 x i16> %329, <8 x i16> %330, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
-  %332 = bitcast <8 x i16> %331 to <4 x i32>
-  %.sroa.020.0.vec.extract.i47 = extractelement <4 x i32> %332, i64 0
-  %333 = bitcast <8 x i16> %331 to <16 x i8>
-  br label %334
+Store16x4_SSE2.exit:                              ; preds = %293
+  %300 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %214, <16 x i8> splat (i8 4))
+  %301 = shufflevector <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i8> %300, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
+  %302 = shufflevector <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i8> %300, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
+  %303 = bitcast <16 x i8> %301 to <8 x i16>
+  %304 = ashr <8 x i16> %303, splat (i16 11)
+  %305 = bitcast <16 x i8> %302 to <8 x i16>
+  %306 = ashr <8 x i16> %305, splat (i16 11)
+  %307 = tail call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %304, <8 x i16> %306)
+  %308 = tail call <16 x i8> @llvm.ssub.sat.v16i8(<16 x i8> %206, <16 x i8> %307)
+  %309 = xor <16 x i8> %169, splat (i8 -128)
+  %310 = tail call <16 x i8> @llvm.ssub.sat.v16i8(<16 x i8> %309, <16 x i8> %238)
+  %311 = tail call <16 x i8> @llvm.ssub.sat.v16i8(<16 x i8> %207, <16 x i8> %243)
+  %312 = tail call <16 x i8> @llvm.ssub.sat.v16i8(<16 x i8> %308, <16 x i8> %247)
+  %313 = xor <16 x i8> %312, splat (i8 -128)
+  %314 = xor <16 x i8> %311, splat (i8 -128)
+  %315 = shufflevector <16 x i8> %313, <16 x i8> %314, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
+  %316 = xor <16 x i8> %310, splat (i8 -128)
+  %317 = shufflevector <16 x i8> %316, <16 x i8> %170, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
+  %318 = bitcast <16 x i8> %315 to <8 x i16>
+  %319 = bitcast <16 x i8> %317 to <8 x i16>
+  %320 = shufflevector <8 x i16> %318, <8 x i16> %319, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
+  %321 = bitcast <8 x i16> %320 to <4 x i32>
+  %.sroa.020.0.vec.extract.i47 = extractelement <4 x i32> %321, i64 0
+  %322 = bitcast <8 x i16> %320 to <16 x i8>
+  br label %323
 
-334:                                              ; preds = %334, %Store16x4_SSE2.exit
-  %.sroa.020.0.i48 = phi <16 x i8> [ %333, %Store16x4_SSE2.exit ], [ %336, %334 ]
-  %335 = phi i32 [ %.sroa.020.0.vec.extract.i47, %Store16x4_SSE2.exit ], [ %340, %334 ]
-  %.09.i.i49 = phi i32 [ 0, %Store16x4_SSE2.exit ], [ %338, %334 ]
-  %.078.i.i50 = phi ptr [ %0, %Store16x4_SSE2.exit ], [ %339, %334 ]
-  store i32 %335, ptr %.078.i.i50, align 1
-  %336 = shufflevector <16 x i8> %.sroa.020.0.i48, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
-  %337 = bitcast <16 x i8> %336 to <4 x i32>
-  %338 = add nuw nsw i32 %.09.i.i49, 1
-  %339 = getelementptr inbounds i8, ptr %.078.i.i50, i64 %32
-  %exitcond.not.i.i51 = icmp eq i32 %338, 4
-  %340 = extractelement <4 x i32> %337, i64 0
-  br i1 %exitcond.not.i.i51, label %Store4x4_SSE2.exit.i52, label %334, !llvm.loop !8
+323:                                              ; preds = %323, %Store16x4_SSE2.exit
+  %.sroa.020.0.i48 = phi <16 x i8> [ %322, %Store16x4_SSE2.exit ], [ %325, %323 ]
+  %324 = phi i32 [ %.sroa.020.0.vec.extract.i47, %Store16x4_SSE2.exit ], [ %329, %323 ]
+  %.09.i.i49 = phi i32 [ 0, %Store16x4_SSE2.exit ], [ %327, %323 ]
+  %.078.i.i50 = phi ptr [ %0, %Store16x4_SSE2.exit ], [ %328, %323 ]
+  store i32 %324, ptr %.078.i.i50, align 1
+  %325 = shufflevector <16 x i8> %.sroa.020.0.i48, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
+  %326 = bitcast <16 x i8> %325 to <4 x i32>
+  %327 = add nuw nsw i32 %.09.i.i49, 1
+  %328 = getelementptr inbounds i8, ptr %.078.i.i50, i64 %32
+  %exitcond.not.i.i51 = icmp eq i32 %327, 4
+  %329 = extractelement <4 x i32> %326, i64 0
+  br i1 %exitcond.not.i.i51, label %Store4x4_SSE2.exit.i52, label %323, !llvm.loop !8
 
-Store4x4_SSE2.exit.i52:                           ; preds = %334
-  %341 = shufflevector <8 x i16> %329, <8 x i16> %330, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  %342 = bitcast <8 x i16> %341 to <4 x i32>
-  %.sroa.013.0.vec.extract.i53 = extractelement <4 x i32> %342, i64 0
-  %343 = bitcast <8 x i16> %341 to <16 x i8>
-  br label %344
+Store4x4_SSE2.exit.i52:                           ; preds = %323
+  %330 = shufflevector <8 x i16> %318, <8 x i16> %319, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
+  %331 = bitcast <8 x i16> %330 to <4 x i32>
+  %.sroa.013.0.vec.extract.i53 = extractelement <4 x i32> %331, i64 0
+  %332 = bitcast <8 x i16> %330 to <16 x i8>
+  br label %333
 
-344:                                              ; preds = %344, %Store4x4_SSE2.exit.i52
-  %.sroa.013.0.i54 = phi <16 x i8> [ %343, %Store4x4_SSE2.exit.i52 ], [ %346, %344 ]
-  %345 = phi i32 [ %.sroa.013.0.vec.extract.i53, %Store4x4_SSE2.exit.i52 ], [ %350, %344 ]
-  %.09.i26.i55 = phi i32 [ 0, %Store4x4_SSE2.exit.i52 ], [ %348, %344 ]
-  %.078.i27.i56 = phi ptr [ %103, %Store4x4_SSE2.exit.i52 ], [ %349, %344 ]
-  store i32 %345, ptr %.078.i27.i56, align 1
-  %346 = shufflevector <16 x i8> %.sroa.013.0.i54, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
-  %347 = bitcast <16 x i8> %346 to <4 x i32>
-  %348 = add nuw nsw i32 %.09.i26.i55, 1
-  %349 = getelementptr inbounds i8, ptr %.078.i27.i56, i64 %32
-  %exitcond.not.i28.i57 = icmp eq i32 %348, 4
-  %350 = extractelement <4 x i32> %347, i64 0
-  br i1 %exitcond.not.i28.i57, label %Store4x4_SSE2.exit30.i58, label %344, !llvm.loop !8
+333:                                              ; preds = %333, %Store4x4_SSE2.exit.i52
+  %.sroa.013.0.i54 = phi <16 x i8> [ %332, %Store4x4_SSE2.exit.i52 ], [ %335, %333 ]
+  %334 = phi i32 [ %.sroa.013.0.vec.extract.i53, %Store4x4_SSE2.exit.i52 ], [ %339, %333 ]
+  %.09.i26.i55 = phi i32 [ 0, %Store4x4_SSE2.exit.i52 ], [ %337, %333 ]
+  %.078.i27.i56 = phi ptr [ %103, %Store4x4_SSE2.exit.i52 ], [ %338, %333 ]
+  store i32 %334, ptr %.078.i27.i56, align 1
+  %335 = shufflevector <16 x i8> %.sroa.013.0.i54, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
+  %336 = bitcast <16 x i8> %335 to <4 x i32>
+  %337 = add nuw nsw i32 %.09.i26.i55, 1
+  %338 = getelementptr inbounds i8, ptr %.078.i27.i56, i64 %32
+  %exitcond.not.i28.i57 = icmp eq i32 %337, 4
+  %339 = extractelement <4 x i32> %336, i64 0
+  br i1 %exitcond.not.i28.i57, label %Store4x4_SSE2.exit30.i58, label %333, !llvm.loop !8
 
-Store4x4_SSE2.exit30.i58:                         ; preds = %344
-  %351 = shufflevector <16 x i8> %324, <16 x i8> %325, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  %352 = shufflevector <16 x i8> %327, <16 x i8> %170, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  %353 = bitcast <16 x i8> %351 to <8 x i16>
-  %354 = bitcast <16 x i8> %352 to <8 x i16>
-  %355 = shufflevector <8 x i16> %353, <8 x i16> %354, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
-  %356 = bitcast <8 x i16> %355 to <4 x i32>
-  %.sroa.026.0.vec.extract.i59 = extractelement <4 x i32> %356, i64 0
-  %357 = bitcast <8 x i16> %355 to <16 x i8>
-  br label %358
+Store4x4_SSE2.exit30.i58:                         ; preds = %333
+  %340 = shufflevector <16 x i8> %313, <16 x i8> %314, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
+  %341 = shufflevector <16 x i8> %316, <16 x i8> %170, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
+  %342 = bitcast <16 x i8> %340 to <8 x i16>
+  %343 = bitcast <16 x i8> %341 to <8 x i16>
+  %344 = shufflevector <8 x i16> %342, <8 x i16> %343, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
+  %345 = bitcast <8 x i16> %344 to <4 x i32>
+  %.sroa.026.0.vec.extract.i59 = extractelement <4 x i32> %345, i64 0
+  %346 = bitcast <8 x i16> %344 to <16 x i8>
+  br label %347
 
-358:                                              ; preds = %358, %Store4x4_SSE2.exit30.i58
-  %.sroa.026.0.i60 = phi <16 x i8> [ %357, %Store4x4_SSE2.exit30.i58 ], [ %360, %358 ]
-  %359 = phi i32 [ %.sroa.026.0.vec.extract.i59, %Store4x4_SSE2.exit30.i58 ], [ %364, %358 ]
-  %.09.i32.i61 = phi i32 [ 0, %Store4x4_SSE2.exit30.i58 ], [ %362, %358 ]
-  %.078.i33.i62 = phi ptr [ %100, %Store4x4_SSE2.exit30.i58 ], [ %363, %358 ]
-  store i32 %359, ptr %.078.i33.i62, align 1
-  %360 = shufflevector <16 x i8> %.sroa.026.0.i60, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
-  %361 = bitcast <16 x i8> %360 to <4 x i32>
-  %362 = add nuw nsw i32 %.09.i32.i61, 1
-  %363 = getelementptr inbounds i8, ptr %.078.i33.i62, i64 %32
-  %exitcond.not.i34.i63 = icmp eq i32 %362, 4
-  %364 = extractelement <4 x i32> %361, i64 0
-  br i1 %exitcond.not.i34.i63, label %Store4x4_SSE2.exit36.i64, label %358, !llvm.loop !8
+347:                                              ; preds = %347, %Store4x4_SSE2.exit30.i58
+  %.sroa.026.0.i60 = phi <16 x i8> [ %346, %Store4x4_SSE2.exit30.i58 ], [ %349, %347 ]
+  %348 = phi i32 [ %.sroa.026.0.vec.extract.i59, %Store4x4_SSE2.exit30.i58 ], [ %353, %347 ]
+  %.09.i32.i61 = phi i32 [ 0, %Store4x4_SSE2.exit30.i58 ], [ %351, %347 ]
+  %.078.i33.i62 = phi ptr [ %100, %Store4x4_SSE2.exit30.i58 ], [ %352, %347 ]
+  store i32 %348, ptr %.078.i33.i62, align 1
+  %349 = shufflevector <16 x i8> %.sroa.026.0.i60, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
+  %350 = bitcast <16 x i8> %349 to <4 x i32>
+  %351 = add nuw nsw i32 %.09.i32.i61, 1
+  %352 = getelementptr inbounds i8, ptr %.078.i33.i62, i64 %32
+  %exitcond.not.i34.i63 = icmp eq i32 %351, 4
+  %353 = extractelement <4 x i32> %350, i64 0
+  br i1 %exitcond.not.i34.i63, label %Store4x4_SSE2.exit36.i64, label %347, !llvm.loop !8
 
-Store4x4_SSE2.exit36.i64:                         ; preds = %358
-  %365 = shufflevector <8 x i16> %353, <8 x i16> %354, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  %366 = bitcast <8 x i16> %365 to <4 x i32>
-  %.sroa.0.0.vec.extract.i65 = extractelement <4 x i32> %366, i64 0
-  %367 = bitcast <8 x i16> %365 to <16 x i8>
-  br label %368
+Store4x4_SSE2.exit36.i64:                         ; preds = %347
+  %354 = shufflevector <8 x i16> %342, <8 x i16> %343, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
+  %355 = bitcast <8 x i16> %354 to <4 x i32>
+  %.sroa.0.0.vec.extract.i65 = extractelement <4 x i32> %355, i64 0
+  %356 = bitcast <8 x i16> %354 to <16 x i8>
+  br label %357
 
-368:                                              ; preds = %368, %Store4x4_SSE2.exit36.i64
-  %.sroa.0.0.i66 = phi <16 x i8> [ %367, %Store4x4_SSE2.exit36.i64 ], [ %370, %368 ]
-  %369 = phi i32 [ %.sroa.0.0.vec.extract.i65, %Store4x4_SSE2.exit36.i64 ], [ %374, %368 ]
-  %.09.i38.i67 = phi i32 [ 0, %Store4x4_SSE2.exit36.i64 ], [ %372, %368 ]
-  %.078.i39.i68 = phi ptr [ %132, %Store4x4_SSE2.exit36.i64 ], [ %373, %368 ]
-  store i32 %369, ptr %.078.i39.i68, align 1
-  %370 = shufflevector <16 x i8> %.sroa.0.0.i66, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
-  %371 = bitcast <16 x i8> %370 to <4 x i32>
-  %372 = add nuw nsw i32 %.09.i38.i67, 1
-  %373 = getelementptr inbounds i8, ptr %.078.i39.i68, i64 %32
-  %exitcond.not.i40.i69 = icmp eq i32 %372, 4
-  %374 = extractelement <4 x i32> %371, i64 0
-  br i1 %exitcond.not.i40.i69, label %Store16x4_SSE2.exit70, label %368, !llvm.loop !8
+357:                                              ; preds = %357, %Store4x4_SSE2.exit36.i64
+  %.sroa.0.0.i66 = phi <16 x i8> [ %356, %Store4x4_SSE2.exit36.i64 ], [ %359, %357 ]
+  %358 = phi i32 [ %.sroa.0.0.vec.extract.i65, %Store4x4_SSE2.exit36.i64 ], [ %363, %357 ]
+  %.09.i38.i67 = phi i32 [ 0, %Store4x4_SSE2.exit36.i64 ], [ %361, %357 ]
+  %.078.i39.i68 = phi ptr [ %132, %Store4x4_SSE2.exit36.i64 ], [ %362, %357 ]
+  store i32 %358, ptr %.078.i39.i68, align 1
+  %359 = shufflevector <16 x i8> %.sroa.0.0.i66, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
+  %360 = bitcast <16 x i8> %359 to <4 x i32>
+  %361 = add nuw nsw i32 %.09.i38.i67, 1
+  %362 = getelementptr inbounds i8, ptr %.078.i39.i68, i64 %32
+  %exitcond.not.i40.i69 = icmp eq i32 %361, 4
+  %363 = extractelement <4 x i32> %360, i64 0
+  br i1 %exitcond.not.i40.i69, label %Store16x4_SSE2.exit70, label %357, !llvm.loop !8
 
-Store16x4_SSE2.exit70:                            ; preds = %368
+Store16x4_SSE2.exit70:                            ; preds = %357
   ret void
 }
 
@@ -1057,127 +1041,119 @@ define internal void @VFilter8_SSE2(ptr noalias noundef captures(none) %0, ptr n
   %110 = tail call <16 x i8> @llvm.uadd.sat.v16i8(<16 x i8> %107, <16 x i8> %109)
   %111 = icmp ule <16 x i8> %110, %98
   %112 = and <16 x i1> %111, %95
-  %113 = sext <16 x i1> %112 to <16 x i8>
-  %114 = bitcast <16 x i8> %113 to <2 x i64>
-  %115 = trunc i32 %5 to i8
-  %116 = insertelement <16 x i8> poison, i8 %115, i64 0
-  %117 = shufflevector <16 x i8> %116, <16 x i8> poison, <16 x i32> zeroinitializer
-  %118 = tail call <16 x i8> @llvm.umax.v16i8(<16 x i8> %43, <16 x i8> %80)
-  %119 = icmp ule <16 x i8> %118, %117
-  %120 = sext <16 x i1> %119 to <16 x i8>
-  %121 = bitcast <16 x i8> %120 to <2 x i64>
-  %122 = xor <16 x i8> %40, splat (i8 -128)
-  %123 = xor <16 x i8> %39, splat (i8 -128)
-  %124 = xor <16 x i8> %76, splat (i8 -128)
-  %125 = xor <16 x i8> %77, splat (i8 -128)
-  %126 = tail call <16 x i8> @llvm.ssub.sat.v16i8(<16 x i8> %122, <16 x i8> %125)
-  %127 = tail call <16 x i8> @llvm.ssub.sat.v16i8(<16 x i8> %124, <16 x i8> %123)
-  %128 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %126, <16 x i8> %127)
-  %129 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %127, <16 x i8> %128)
-  %130 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %127, <16 x i8> %129)
-  %131 = bitcast <16 x i8> %130 to <2 x i64>
-  %132 = xor <2 x i64> %121, splat (i64 -1)
-  %133 = and <2 x i64> %131, %132
-  %134 = and <2 x i64> %133, %114
-  %135 = bitcast <2 x i64> %134 to <16 x i8>
-  %136 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %135, <16 x i8> splat (i8 3))
-  %137 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %135, <16 x i8> splat (i8 4))
-  %138 = shufflevector <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i8> %137, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  %139 = shufflevector <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i8> %137, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  %140 = bitcast <16 x i8> %138 to <8 x i16>
-  %141 = ashr <8 x i16> %140, splat (i16 11)
-  %142 = bitcast <16 x i8> %139 to <8 x i16>
-  %143 = ashr <8 x i16> %142, splat (i16 11)
-  %144 = tail call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %141, <8 x i16> %143)
-  %145 = shufflevector <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i8> %136, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  %146 = shufflevector <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i8> %136, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  %147 = bitcast <16 x i8> %145 to <8 x i16>
-  %148 = ashr <8 x i16> %147, splat (i16 11)
-  %149 = bitcast <16 x i8> %146 to <8 x i16>
-  %150 = ashr <8 x i16> %149, splat (i16 11)
-  %151 = tail call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %148, <8 x i16> %150)
-  %152 = tail call <16 x i8> @llvm.ssub.sat.v16i8(<16 x i8> %124, <16 x i8> %144)
-  %153 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %123, <16 x i8> %151)
-  %154 = and <2 x i64> %114, %131
-  %155 = and <2 x i64> %154, %121
-  %156 = bitcast <2 x i64> %155 to <16 x i8>
-  %157 = shufflevector <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i8> %156, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  %158 = shufflevector <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i8> %156, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  %159 = bitcast <16 x i8> %157 to <8 x i16>
-  %160 = tail call <8 x i16> @llvm.x86.sse2.pmulh.w(<8 x i16> %159, <8 x i16> splat (i16 2304))
-  %161 = bitcast <16 x i8> %158 to <8 x i16>
-  %162 = tail call <8 x i16> @llvm.x86.sse2.pmulh.w(<8 x i16> %161, <8 x i16> splat (i16 2304))
-  %163 = add <8 x i16> %160, splat (i16 63)
-  %164 = add <8 x i16> %162, splat (i16 63)
-  %165 = add <8 x i16> %163, %160
-  %166 = add <8 x i16> %164, %162
-  %167 = add <8 x i16> %165, %160
-  %168 = add <8 x i16> %166, %162
-  %169 = ashr <8 x i16> %163, splat (i16 7)
-  %170 = ashr <8 x i16> %164, splat (i16 7)
+  %113 = trunc i32 %5 to i8
+  %114 = insertelement <16 x i8> poison, i8 %113, i64 0
+  %115 = shufflevector <16 x i8> %114, <16 x i8> poison, <16 x i32> zeroinitializer
+  %116 = tail call <16 x i8> @llvm.umax.v16i8(<16 x i8> %43, <16 x i8> %80)
+  %.not = icmp ugt <16 x i8> %116, %115
+  %117 = xor <16 x i8> %40, splat (i8 -128)
+  %118 = xor <16 x i8> %39, splat (i8 -128)
+  %119 = xor <16 x i8> %76, splat (i8 -128)
+  %120 = xor <16 x i8> %77, splat (i8 -128)
+  %121 = tail call <16 x i8> @llvm.ssub.sat.v16i8(<16 x i8> %117, <16 x i8> %120)
+  %122 = tail call <16 x i8> @llvm.ssub.sat.v16i8(<16 x i8> %119, <16 x i8> %118)
+  %123 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %121, <16 x i8> %122)
+  %124 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %122, <16 x i8> %123)
+  %125 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %122, <16 x i8> %124)
+  %126 = select <16 x i1> %.not, <16 x i8> %125, <16 x i8> zeroinitializer
+  %127 = select <16 x i1> %112, <16 x i8> %126, <16 x i8> zeroinitializer
+  %128 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %127, <16 x i8> splat (i8 3))
+  %129 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %127, <16 x i8> splat (i8 4))
+  %130 = shufflevector <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i8> %129, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
+  %131 = shufflevector <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i8> %129, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
+  %132 = bitcast <16 x i8> %130 to <8 x i16>
+  %133 = ashr <8 x i16> %132, splat (i16 11)
+  %134 = bitcast <16 x i8> %131 to <8 x i16>
+  %135 = ashr <8 x i16> %134, splat (i16 11)
+  %136 = tail call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %133, <8 x i16> %135)
+  %137 = shufflevector <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i8> %128, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
+  %138 = shufflevector <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i8> %128, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
+  %139 = bitcast <16 x i8> %137 to <8 x i16>
+  %140 = ashr <8 x i16> %139, splat (i16 11)
+  %141 = bitcast <16 x i8> %138 to <8 x i16>
+  %142 = ashr <8 x i16> %141, splat (i16 11)
+  %143 = tail call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %140, <8 x i16> %142)
+  %144 = tail call <16 x i8> @llvm.ssub.sat.v16i8(<16 x i8> %119, <16 x i8> %136)
+  %145 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %118, <16 x i8> %143)
+  %.inner = select <16 x i1> %112, <16 x i8> %125, <16 x i8> zeroinitializer
+  %.inner168 = select <16 x i1> %.not, <16 x i8> zeroinitializer, <16 x i8> %.inner
+  %146 = shufflevector <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i8> %.inner168, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
+  %147 = shufflevector <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i8> %.inner168, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
+  %148 = bitcast <16 x i8> %146 to <8 x i16>
+  %149 = tail call <8 x i16> @llvm.x86.sse2.pmulh.w(<8 x i16> %148, <8 x i16> splat (i16 2304))
+  %150 = bitcast <16 x i8> %147 to <8 x i16>
+  %151 = tail call <8 x i16> @llvm.x86.sse2.pmulh.w(<8 x i16> %150, <8 x i16> splat (i16 2304))
+  %152 = add <8 x i16> %149, splat (i16 63)
+  %153 = add <8 x i16> %151, splat (i16 63)
+  %154 = add <8 x i16> %152, %149
+  %155 = add <8 x i16> %153, %151
+  %156 = add <8 x i16> %154, %149
+  %157 = add <8 x i16> %155, %151
+  %158 = ashr <8 x i16> %152, splat (i16 7)
+  %159 = ashr <8 x i16> %153, splat (i16 7)
+  %160 = tail call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %158, <8 x i16> %159)
+  %161 = xor <16 x i8> %44, splat (i8 -128)
+  %162 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %161, <16 x i8> %160)
+  %163 = bitcast <16 x i8> %162 to <2 x i64>
+  %164 = xor <16 x i8> %82, splat (i8 -128)
+  %165 = tail call <16 x i8> @llvm.ssub.sat.v16i8(<16 x i8> %164, <16 x i8> %160)
+  %166 = bitcast <16 x i8> %165 to <2 x i64>
+  %167 = xor <2 x i64> %163, splat (i64 -9187201950435737472)
+  %168 = xor <2 x i64> %166, splat (i64 -9187201950435737472)
+  %169 = ashr <8 x i16> %154, splat (i16 7)
+  %170 = ashr <8 x i16> %155, splat (i16 7)
   %171 = tail call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %169, <8 x i16> %170)
-  %172 = xor <16 x i8> %44, splat (i8 -128)
-  %173 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %172, <16 x i8> %171)
-  %174 = bitcast <16 x i8> %173 to <2 x i64>
-  %175 = xor <16 x i8> %82, splat (i8 -128)
-  %176 = tail call <16 x i8> @llvm.ssub.sat.v16i8(<16 x i8> %175, <16 x i8> %171)
-  %177 = bitcast <16 x i8> %176 to <2 x i64>
-  %178 = xor <2 x i64> %174, splat (i64 -9187201950435737472)
-  %179 = xor <2 x i64> %177, splat (i64 -9187201950435737472)
-  %180 = ashr <8 x i16> %165, splat (i16 7)
-  %181 = ashr <8 x i16> %166, splat (i16 7)
-  %182 = tail call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %180, <8 x i16> %181)
-  %183 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %122, <16 x i8> %182)
+  %172 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %117, <16 x i8> %171)
+  %173 = bitcast <16 x i8> %172 to <2 x i64>
+  %174 = tail call <16 x i8> @llvm.ssub.sat.v16i8(<16 x i8> %120, <16 x i8> %171)
+  %175 = bitcast <16 x i8> %174 to <2 x i64>
+  %176 = xor <2 x i64> %173, splat (i64 -9187201950435737472)
+  %177 = xor <2 x i64> %175, splat (i64 -9187201950435737472)
+  %178 = ashr <8 x i16> %156, splat (i16 7)
+  %179 = ashr <8 x i16> %157, splat (i16 7)
+  %180 = tail call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %178, <8 x i16> %179)
+  %181 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %145, <16 x i8> %180)
+  %182 = bitcast <16 x i8> %181 to <2 x i64>
+  %183 = tail call <16 x i8> @llvm.ssub.sat.v16i8(<16 x i8> %144, <16 x i8> %180)
   %184 = bitcast <16 x i8> %183 to <2 x i64>
-  %185 = tail call <16 x i8> @llvm.ssub.sat.v16i8(<16 x i8> %125, <16 x i8> %182)
-  %186 = bitcast <16 x i8> %185 to <2 x i64>
-  %187 = xor <2 x i64> %184, splat (i64 -9187201950435737472)
-  %188 = xor <2 x i64> %186, splat (i64 -9187201950435737472)
-  %189 = ashr <8 x i16> %167, splat (i16 7)
-  %190 = ashr <8 x i16> %168, splat (i16 7)
-  %191 = tail call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %189, <8 x i16> %190)
-  %192 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %153, <16 x i8> %191)
-  %193 = bitcast <16 x i8> %192 to <2 x i64>
-  %194 = tail call <16 x i8> @llvm.ssub.sat.v16i8(<16 x i8> %152, <16 x i8> %191)
-  %195 = bitcast <16 x i8> %194 to <2 x i64>
-  %196 = xor <2 x i64> %193, splat (i64 -9187201950435737472)
-  %197 = xor <2 x i64> %195, splat (i64 -9187201950435737472)
-  %198 = mul nsw i32 %2, -3
-  %199 = sext i32 %198 to i64
-  %200 = getelementptr inbounds i8, ptr %0, i64 %199
-  %201 = extractelement <2 x i64> %178, i64 0
-  store i64 %201, ptr %200, align 1, !tbaa !7
-  %202 = getelementptr inbounds i8, ptr %1, i64 %199
-  %203 = extractelement <2 x i64> %178, i64 1
-  store i64 %203, ptr %202, align 1, !tbaa !7
-  %204 = mul nsw i32 %2, -2
-  %205 = sext i32 %204 to i64
-  %206 = getelementptr inbounds i8, ptr %0, i64 %205
-  %207 = extractelement <2 x i64> %187, i64 0
-  store i64 %207, ptr %206, align 1, !tbaa !7
-  %208 = getelementptr inbounds i8, ptr %1, i64 %205
-  %209 = extractelement <2 x i64> %187, i64 1
-  store i64 %209, ptr %208, align 1, !tbaa !7
-  %210 = sub nsw i32 0, %2
-  %211 = sext i32 %210 to i64
-  %212 = getelementptr inbounds i8, ptr %0, i64 %211
-  %213 = extractelement <2 x i64> %196, i64 0
-  store i64 %213, ptr %212, align 1, !tbaa !7
-  %214 = getelementptr inbounds i8, ptr %1, i64 %211
-  %215 = extractelement <2 x i64> %196, i64 1
-  store i64 %215, ptr %214, align 1, !tbaa !7
-  %216 = extractelement <2 x i64> %197, i64 0
-  store i64 %216, ptr %0, align 1, !tbaa !7
-  %217 = extractelement <2 x i64> %197, i64 1
-  store i64 %217, ptr %1, align 1, !tbaa !7
-  %218 = extractelement <2 x i64> %188, i64 0
-  store i64 %218, ptr %58, align 1, !tbaa !7
-  %219 = extractelement <2 x i64> %188, i64 1
-  store i64 %219, ptr %61, align 1, !tbaa !7
-  %220 = extractelement <2 x i64> %179, i64 0
-  store i64 %220, ptr %64, align 1, !tbaa !7
-  %221 = extractelement <2 x i64> %179, i64 1
-  store i64 %221, ptr %67, align 1, !tbaa !7
+  %185 = xor <2 x i64> %182, splat (i64 -9187201950435737472)
+  %186 = xor <2 x i64> %184, splat (i64 -9187201950435737472)
+  %187 = mul nsw i32 %2, -3
+  %188 = sext i32 %187 to i64
+  %189 = getelementptr inbounds i8, ptr %0, i64 %188
+  %190 = extractelement <2 x i64> %167, i64 0
+  store i64 %190, ptr %189, align 1, !tbaa !7
+  %191 = getelementptr inbounds i8, ptr %1, i64 %188
+  %192 = extractelement <2 x i64> %167, i64 1
+  store i64 %192, ptr %191, align 1, !tbaa !7
+  %193 = mul nsw i32 %2, -2
+  %194 = sext i32 %193 to i64
+  %195 = getelementptr inbounds i8, ptr %0, i64 %194
+  %196 = extractelement <2 x i64> %176, i64 0
+  store i64 %196, ptr %195, align 1, !tbaa !7
+  %197 = getelementptr inbounds i8, ptr %1, i64 %194
+  %198 = extractelement <2 x i64> %176, i64 1
+  store i64 %198, ptr %197, align 1, !tbaa !7
+  %199 = sub nsw i32 0, %2
+  %200 = sext i32 %199 to i64
+  %201 = getelementptr inbounds i8, ptr %0, i64 %200
+  %202 = extractelement <2 x i64> %185, i64 0
+  store i64 %202, ptr %201, align 1, !tbaa !7
+  %203 = getelementptr inbounds i8, ptr %1, i64 %200
+  %204 = extractelement <2 x i64> %185, i64 1
+  store i64 %204, ptr %203, align 1, !tbaa !7
+  %205 = extractelement <2 x i64> %186, i64 0
+  store i64 %205, ptr %0, align 1, !tbaa !7
+  %206 = extractelement <2 x i64> %186, i64 1
+  store i64 %206, ptr %1, align 1, !tbaa !7
+  %207 = extractelement <2 x i64> %177, i64 0
+  store i64 %207, ptr %58, align 1, !tbaa !7
+  %208 = extractelement <2 x i64> %177, i64 1
+  store i64 %208, ptr %61, align 1, !tbaa !7
+  %209 = extractelement <2 x i64> %168, i64 0
+  store i64 %209, ptr %64, align 1, !tbaa !7
+  %210 = extractelement <2 x i64> %168, i64 1
+  store i64 %210, ptr %67, align 1, !tbaa !7
   ret void
 }
 
@@ -1406,269 +1382,261 @@ define internal void @HFilter8_SSE2(ptr noalias noundef captures(none) %0, ptr n
   %195 = tail call <16 x i8> @llvm.uadd.sat.v16i8(<16 x i8> %192, <16 x i8> %194)
   %196 = icmp ule <16 x i8> %195, %183
   %197 = and <16 x i1> %180, %196
-  %198 = sext <16 x i1> %197 to <16 x i8>
-  %199 = bitcast <16 x i8> %198 to <2 x i64>
-  %200 = trunc i32 %5 to i8
-  %201 = insertelement <16 x i8> poison, i8 %200, i64 0
-  %202 = shufflevector <16 x i8> %201, <16 x i8> poison, <16 x i32> zeroinitializer
-  %203 = tail call <16 x i8> @llvm.umax.v16i8(<16 x i8> %88, <16 x i8> %165)
-  %204 = icmp ule <16 x i8> %203, %202
-  %205 = sext <16 x i1> %204 to <16 x i8>
-  %206 = bitcast <16 x i8> %205 to <2 x i64>
-  %207 = xor <16 x i8> %85, splat (i8 -128)
-  %208 = xor <16 x i8> %84, splat (i8 -128)
-  %209 = xor <16 x i8> %161, splat (i8 -128)
-  %210 = xor <16 x i8> %162, splat (i8 -128)
-  %211 = tail call <16 x i8> @llvm.ssub.sat.v16i8(<16 x i8> %207, <16 x i8> %210)
-  %212 = tail call <16 x i8> @llvm.ssub.sat.v16i8(<16 x i8> %209, <16 x i8> %208)
-  %213 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %211, <16 x i8> %212)
-  %214 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %212, <16 x i8> %213)
-  %215 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %212, <16 x i8> %214)
-  %216 = bitcast <16 x i8> %215 to <2 x i64>
-  %217 = xor <2 x i64> %206, splat (i64 -1)
-  %218 = and <2 x i64> %216, %217
-  %219 = and <2 x i64> %218, %199
-  %220 = bitcast <2 x i64> %219 to <16 x i8>
-  %221 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %220, <16 x i8> splat (i8 3))
-  %222 = shufflevector <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i8> %221, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  %223 = shufflevector <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i8> %221, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
+  %198 = trunc i32 %5 to i8
+  %199 = insertelement <16 x i8> poison, i8 %198, i64 0
+  %200 = shufflevector <16 x i8> %199, <16 x i8> poison, <16 x i32> zeroinitializer
+  %201 = tail call <16 x i8> @llvm.umax.v16i8(<16 x i8> %88, <16 x i8> %165)
+  %.not = icmp ugt <16 x i8> %201, %200
+  %202 = xor <16 x i8> %85, splat (i8 -128)
+  %203 = xor <16 x i8> %84, splat (i8 -128)
+  %204 = xor <16 x i8> %161, splat (i8 -128)
+  %205 = xor <16 x i8> %162, splat (i8 -128)
+  %206 = tail call <16 x i8> @llvm.ssub.sat.v16i8(<16 x i8> %202, <16 x i8> %205)
+  %207 = tail call <16 x i8> @llvm.ssub.sat.v16i8(<16 x i8> %204, <16 x i8> %203)
+  %208 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %206, <16 x i8> %207)
+  %209 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %207, <16 x i8> %208)
+  %210 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %207, <16 x i8> %209)
+  %211 = select <16 x i1> %.not, <16 x i8> %210, <16 x i8> zeroinitializer
+  %212 = select <16 x i1> %197, <16 x i8> %211, <16 x i8> zeroinitializer
+  %213 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %212, <16 x i8> splat (i8 3))
+  %214 = shufflevector <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i8> %213, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
+  %215 = shufflevector <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i8> %213, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
+  %216 = bitcast <16 x i8> %214 to <8 x i16>
+  %217 = ashr <8 x i16> %216, splat (i16 11)
+  %218 = bitcast <16 x i8> %215 to <8 x i16>
+  %219 = ashr <8 x i16> %218, splat (i16 11)
+  %220 = tail call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %217, <8 x i16> %219)
+  %221 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %203, <16 x i8> %220)
+  %.inner = select <16 x i1> %197, <16 x i8> %210, <16 x i8> zeroinitializer
+  %.inner161 = select <16 x i1> %.not, <16 x i8> zeroinitializer, <16 x i8> %.inner
+  %222 = shufflevector <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i8> %.inner161, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
+  %223 = shufflevector <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i8> %.inner161, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
   %224 = bitcast <16 x i8> %222 to <8 x i16>
-  %225 = ashr <8 x i16> %224, splat (i16 11)
+  %225 = tail call <8 x i16> @llvm.x86.sse2.pmulh.w(<8 x i16> %224, <8 x i16> splat (i16 2304))
   %226 = bitcast <16 x i8> %223 to <8 x i16>
-  %227 = ashr <8 x i16> %226, splat (i16 11)
-  %228 = tail call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %225, <8 x i16> %227)
-  %229 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %208, <16 x i8> %228)
-  %230 = and <2 x i64> %199, %216
-  %231 = and <2 x i64> %230, %206
-  %232 = bitcast <2 x i64> %231 to <16 x i8>
-  %233 = shufflevector <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i8> %232, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  %234 = shufflevector <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i8> %232, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  %235 = bitcast <16 x i8> %233 to <8 x i16>
-  %236 = tail call <8 x i16> @llvm.x86.sse2.pmulh.w(<8 x i16> %235, <8 x i16> splat (i16 2304))
-  %237 = bitcast <16 x i8> %234 to <8 x i16>
-  %238 = tail call <8 x i16> @llvm.x86.sse2.pmulh.w(<8 x i16> %237, <8 x i16> splat (i16 2304))
-  %239 = add <8 x i16> %236, splat (i16 63)
-  %240 = add <8 x i16> %238, splat (i16 63)
-  %241 = add <8 x i16> %239, %236
-  %242 = add <8 x i16> %240, %238
-  %243 = add <8 x i16> %241, %236
-  %244 = add <8 x i16> %242, %238
-  %245 = ashr <8 x i16> %239, splat (i16 7)
-  %246 = ashr <8 x i16> %240, splat (i16 7)
-  %247 = tail call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %245, <8 x i16> %246)
-  %248 = xor <16 x i8> %89, splat (i8 -128)
-  %249 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %248, <16 x i8> %247)
-  %250 = ashr <8 x i16> %241, splat (i16 7)
-  %251 = ashr <8 x i16> %242, splat (i16 7)
-  %252 = tail call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %250, <8 x i16> %251)
-  %253 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %207, <16 x i8> %252)
-  %254 = ashr <8 x i16> %243, splat (i16 7)
-  %255 = ashr <8 x i16> %244, splat (i16 7)
-  %256 = tail call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %254, <8 x i16> %255)
-  %257 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %229, <16 x i8> %256)
-  %258 = xor <16 x i8> %249, splat (i8 -128)
-  %259 = shufflevector <16 x i8> %90, <16 x i8> %258, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  %260 = xor <16 x i8> %253, splat (i8 -128)
-  %261 = xor <16 x i8> %257, splat (i8 -128)
-  %262 = shufflevector <16 x i8> %260, <16 x i8> %261, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  %263 = bitcast <16 x i8> %259 to <8 x i16>
-  %264 = bitcast <16 x i8> %262 to <8 x i16>
-  %265 = shufflevector <8 x i16> %263, <8 x i16> %264, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
-  %266 = bitcast <8 x i16> %265 to <4 x i32>
-  %.sroa.020.0.vec.extract.i = extractelement <4 x i32> %266, i64 0
-  %267 = bitcast <8 x i16> %265 to <16 x i8>
-  br label %268
+  %227 = tail call <8 x i16> @llvm.x86.sse2.pmulh.w(<8 x i16> %226, <8 x i16> splat (i16 2304))
+  %228 = add <8 x i16> %225, splat (i16 63)
+  %229 = add <8 x i16> %227, splat (i16 63)
+  %230 = add <8 x i16> %228, %225
+  %231 = add <8 x i16> %229, %227
+  %232 = add <8 x i16> %230, %225
+  %233 = add <8 x i16> %231, %227
+  %234 = ashr <8 x i16> %228, splat (i16 7)
+  %235 = ashr <8 x i16> %229, splat (i16 7)
+  %236 = tail call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %234, <8 x i16> %235)
+  %237 = xor <16 x i8> %89, splat (i8 -128)
+  %238 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %237, <16 x i8> %236)
+  %239 = ashr <8 x i16> %230, splat (i16 7)
+  %240 = ashr <8 x i16> %231, splat (i16 7)
+  %241 = tail call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %239, <8 x i16> %240)
+  %242 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %202, <16 x i8> %241)
+  %243 = ashr <8 x i16> %232, splat (i16 7)
+  %244 = ashr <8 x i16> %233, splat (i16 7)
+  %245 = tail call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %243, <8 x i16> %244)
+  %246 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %221, <16 x i8> %245)
+  %247 = xor <16 x i8> %238, splat (i8 -128)
+  %248 = shufflevector <16 x i8> %90, <16 x i8> %247, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
+  %249 = xor <16 x i8> %242, splat (i8 -128)
+  %250 = xor <16 x i8> %246, splat (i8 -128)
+  %251 = shufflevector <16 x i8> %249, <16 x i8> %250, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
+  %252 = bitcast <16 x i8> %248 to <8 x i16>
+  %253 = bitcast <16 x i8> %251 to <8 x i16>
+  %254 = shufflevector <8 x i16> %252, <8 x i16> %253, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
+  %255 = bitcast <8 x i16> %254 to <4 x i32>
+  %.sroa.020.0.vec.extract.i = extractelement <4 x i32> %255, i64 0
+  %256 = bitcast <8 x i16> %254 to <16 x i8>
+  br label %257
 
-268:                                              ; preds = %268, %6
-  %.sroa.020.0.i = phi <16 x i8> [ %267, %6 ], [ %270, %268 ]
-  %269 = phi i32 [ %.sroa.020.0.vec.extract.i, %6 ], [ %274, %268 ]
-  %.09.i.i = phi i32 [ 0, %6 ], [ %272, %268 ]
-  %.078.i.i = phi ptr [ %7, %6 ], [ %273, %268 ]
-  store i32 %269, ptr %.078.i.i, align 1
-  %270 = shufflevector <16 x i8> %.sroa.020.0.i, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
-  %271 = bitcast <16 x i8> %270 to <4 x i32>
-  %272 = add nuw nsw i32 %.09.i.i, 1
-  %273 = getelementptr inbounds i8, ptr %.078.i.i, i64 %31
-  %exitcond.not.i.i = icmp eq i32 %272, 4
-  %274 = extractelement <4 x i32> %271, i64 0
-  br i1 %exitcond.not.i.i, label %Store4x4_SSE2.exit.i, label %268, !llvm.loop !8
+257:                                              ; preds = %257, %6
+  %.sroa.020.0.i = phi <16 x i8> [ %256, %6 ], [ %259, %257 ]
+  %258 = phi i32 [ %.sroa.020.0.vec.extract.i, %6 ], [ %263, %257 ]
+  %.09.i.i = phi i32 [ 0, %6 ], [ %261, %257 ]
+  %.078.i.i = phi ptr [ %7, %6 ], [ %262, %257 ]
+  store i32 %258, ptr %.078.i.i, align 1
+  %259 = shufflevector <16 x i8> %.sroa.020.0.i, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
+  %260 = bitcast <16 x i8> %259 to <4 x i32>
+  %261 = add nuw nsw i32 %.09.i.i, 1
+  %262 = getelementptr inbounds i8, ptr %.078.i.i, i64 %31
+  %exitcond.not.i.i = icmp eq i32 %261, 4
+  %263 = extractelement <4 x i32> %260, i64 0
+  br i1 %exitcond.not.i.i, label %Store4x4_SSE2.exit.i, label %257, !llvm.loop !8
 
-Store4x4_SSE2.exit.i:                             ; preds = %268
-  %275 = shufflevector <8 x i16> %263, <8 x i16> %264, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  %276 = bitcast <8 x i16> %275 to <4 x i32>
-  %.sroa.013.0.vec.extract.i = extractelement <4 x i32> %276, i64 0
-  %277 = bitcast <8 x i16> %275 to <16 x i8>
-  br label %278
+Store4x4_SSE2.exit.i:                             ; preds = %257
+  %264 = shufflevector <8 x i16> %252, <8 x i16> %253, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
+  %265 = bitcast <8 x i16> %264 to <4 x i32>
+  %.sroa.013.0.vec.extract.i = extractelement <4 x i32> %265, i64 0
+  %266 = bitcast <8 x i16> %264 to <16 x i8>
+  br label %267
 
-278:                                              ; preds = %278, %Store4x4_SSE2.exit.i
-  %.sroa.013.0.i = phi <16 x i8> [ %277, %Store4x4_SSE2.exit.i ], [ %280, %278 ]
-  %279 = phi i32 [ %.sroa.013.0.vec.extract.i, %Store4x4_SSE2.exit.i ], [ %284, %278 ]
-  %.09.i26.i = phi i32 [ 0, %Store4x4_SSE2.exit.i ], [ %282, %278 ]
-  %.078.i27.i = phi ptr [ %17, %Store4x4_SSE2.exit.i ], [ %283, %278 ]
-  store i32 %279, ptr %.078.i27.i, align 1
-  %280 = shufflevector <16 x i8> %.sroa.013.0.i, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
-  %281 = bitcast <16 x i8> %280 to <4 x i32>
-  %282 = add nuw nsw i32 %.09.i26.i, 1
-  %283 = getelementptr inbounds i8, ptr %.078.i27.i, i64 %31
-  %exitcond.not.i28.i = icmp eq i32 %282, 4
-  %284 = extractelement <4 x i32> %281, i64 0
-  br i1 %exitcond.not.i28.i, label %Store4x4_SSE2.exit30.i, label %278, !llvm.loop !8
+267:                                              ; preds = %267, %Store4x4_SSE2.exit.i
+  %.sroa.013.0.i = phi <16 x i8> [ %266, %Store4x4_SSE2.exit.i ], [ %269, %267 ]
+  %268 = phi i32 [ %.sroa.013.0.vec.extract.i, %Store4x4_SSE2.exit.i ], [ %273, %267 ]
+  %.09.i26.i = phi i32 [ 0, %Store4x4_SSE2.exit.i ], [ %271, %267 ]
+  %.078.i27.i = phi ptr [ %17, %Store4x4_SSE2.exit.i ], [ %272, %267 ]
+  store i32 %268, ptr %.078.i27.i, align 1
+  %269 = shufflevector <16 x i8> %.sroa.013.0.i, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
+  %270 = bitcast <16 x i8> %269 to <4 x i32>
+  %271 = add nuw nsw i32 %.09.i26.i, 1
+  %272 = getelementptr inbounds i8, ptr %.078.i27.i, i64 %31
+  %exitcond.not.i28.i = icmp eq i32 %271, 4
+  %273 = extractelement <4 x i32> %270, i64 0
+  br i1 %exitcond.not.i28.i, label %Store4x4_SSE2.exit30.i, label %267, !llvm.loop !8
 
-Store4x4_SSE2.exit30.i:                           ; preds = %278
-  %285 = shufflevector <16 x i8> %90, <16 x i8> %258, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  %286 = shufflevector <16 x i8> %260, <16 x i8> %261, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  %287 = bitcast <16 x i8> %285 to <8 x i16>
-  %288 = bitcast <16 x i8> %286 to <8 x i16>
-  %289 = shufflevector <8 x i16> %287, <8 x i16> %288, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
-  %290 = bitcast <8 x i16> %289 to <4 x i32>
-  %.sroa.026.0.vec.extract.i = extractelement <4 x i32> %290, i64 0
-  %291 = bitcast <8 x i16> %289 to <16 x i8>
-  br label %292
+Store4x4_SSE2.exit30.i:                           ; preds = %267
+  %274 = shufflevector <16 x i8> %90, <16 x i8> %247, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
+  %275 = shufflevector <16 x i8> %249, <16 x i8> %250, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
+  %276 = bitcast <16 x i8> %274 to <8 x i16>
+  %277 = bitcast <16 x i8> %275 to <8 x i16>
+  %278 = shufflevector <8 x i16> %276, <8 x i16> %277, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
+  %279 = bitcast <8 x i16> %278 to <4 x i32>
+  %.sroa.026.0.vec.extract.i = extractelement <4 x i32> %279, i64 0
+  %280 = bitcast <8 x i16> %278 to <16 x i8>
+  br label %281
 
-292:                                              ; preds = %292, %Store4x4_SSE2.exit30.i
-  %.sroa.026.0.i = phi <16 x i8> [ %291, %Store4x4_SSE2.exit30.i ], [ %294, %292 ]
-  %293 = phi i32 [ %.sroa.026.0.vec.extract.i, %Store4x4_SSE2.exit30.i ], [ %298, %292 ]
-  %.09.i32.i = phi i32 [ 0, %Store4x4_SSE2.exit30.i ], [ %296, %292 ]
-  %.078.i33.i = phi ptr [ %8, %Store4x4_SSE2.exit30.i ], [ %297, %292 ]
-  store i32 %293, ptr %.078.i33.i, align 1
-  %294 = shufflevector <16 x i8> %.sroa.026.0.i, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
-  %295 = bitcast <16 x i8> %294 to <4 x i32>
-  %296 = add nuw nsw i32 %.09.i32.i, 1
-  %297 = getelementptr inbounds i8, ptr %.078.i33.i, i64 %31
-  %exitcond.not.i34.i = icmp eq i32 %296, 4
-  %298 = extractelement <4 x i32> %295, i64 0
-  br i1 %exitcond.not.i34.i, label %Store4x4_SSE2.exit36.i, label %292, !llvm.loop !8
+281:                                              ; preds = %281, %Store4x4_SSE2.exit30.i
+  %.sroa.026.0.i = phi <16 x i8> [ %280, %Store4x4_SSE2.exit30.i ], [ %283, %281 ]
+  %282 = phi i32 [ %.sroa.026.0.vec.extract.i, %Store4x4_SSE2.exit30.i ], [ %287, %281 ]
+  %.09.i32.i = phi i32 [ 0, %Store4x4_SSE2.exit30.i ], [ %285, %281 ]
+  %.078.i33.i = phi ptr [ %8, %Store4x4_SSE2.exit30.i ], [ %286, %281 ]
+  store i32 %282, ptr %.078.i33.i, align 1
+  %283 = shufflevector <16 x i8> %.sroa.026.0.i, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
+  %284 = bitcast <16 x i8> %283 to <4 x i32>
+  %285 = add nuw nsw i32 %.09.i32.i, 1
+  %286 = getelementptr inbounds i8, ptr %.078.i33.i, i64 %31
+  %exitcond.not.i34.i = icmp eq i32 %285, 4
+  %287 = extractelement <4 x i32> %284, i64 0
+  br i1 %exitcond.not.i34.i, label %Store4x4_SSE2.exit36.i, label %281, !llvm.loop !8
 
-Store4x4_SSE2.exit36.i:                           ; preds = %292
-  %299 = shufflevector <8 x i16> %287, <8 x i16> %288, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  %300 = bitcast <8 x i16> %299 to <4 x i32>
-  %.sroa.0.0.vec.extract.i = extractelement <4 x i32> %300, i64 0
-  %301 = bitcast <8 x i16> %299 to <16 x i8>
-  br label %302
+Store4x4_SSE2.exit36.i:                           ; preds = %281
+  %288 = shufflevector <8 x i16> %276, <8 x i16> %277, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
+  %289 = bitcast <8 x i16> %288 to <4 x i32>
+  %.sroa.0.0.vec.extract.i = extractelement <4 x i32> %289, i64 0
+  %290 = bitcast <8 x i16> %288 to <16 x i8>
+  br label %291
 
-302:                                              ; preds = %302, %Store4x4_SSE2.exit36.i
-  %.sroa.0.0.i = phi <16 x i8> [ %301, %Store4x4_SSE2.exit36.i ], [ %304, %302 ]
-  %303 = phi i32 [ %.sroa.0.0.vec.extract.i, %Store4x4_SSE2.exit36.i ], [ %308, %302 ]
-  %.09.i38.i = phi i32 [ 0, %Store4x4_SSE2.exit36.i ], [ %306, %302 ]
-  %.078.i39.i = phi ptr [ %53, %Store4x4_SSE2.exit36.i ], [ %307, %302 ]
-  store i32 %303, ptr %.078.i39.i, align 1
-  %304 = shufflevector <16 x i8> %.sroa.0.0.i, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
-  %305 = bitcast <16 x i8> %304 to <4 x i32>
-  %306 = add nuw nsw i32 %.09.i38.i, 1
-  %307 = getelementptr inbounds i8, ptr %.078.i39.i, i64 %31
-  %exitcond.not.i40.i = icmp eq i32 %306, 4
-  %308 = extractelement <4 x i32> %305, i64 0
-  br i1 %exitcond.not.i40.i, label %Store16x4_SSE2.exit, label %302, !llvm.loop !8
+291:                                              ; preds = %291, %Store4x4_SSE2.exit36.i
+  %.sroa.0.0.i = phi <16 x i8> [ %290, %Store4x4_SSE2.exit36.i ], [ %293, %291 ]
+  %292 = phi i32 [ %.sroa.0.0.vec.extract.i, %Store4x4_SSE2.exit36.i ], [ %297, %291 ]
+  %.09.i38.i = phi i32 [ 0, %Store4x4_SSE2.exit36.i ], [ %295, %291 ]
+  %.078.i39.i = phi ptr [ %53, %Store4x4_SSE2.exit36.i ], [ %296, %291 ]
+  store i32 %292, ptr %.078.i39.i, align 1
+  %293 = shufflevector <16 x i8> %.sroa.0.0.i, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
+  %294 = bitcast <16 x i8> %293 to <4 x i32>
+  %295 = add nuw nsw i32 %.09.i38.i, 1
+  %296 = getelementptr inbounds i8, ptr %.078.i39.i, i64 %31
+  %exitcond.not.i40.i = icmp eq i32 %295, 4
+  %297 = extractelement <4 x i32> %294, i64 0
+  br i1 %exitcond.not.i40.i, label %Store16x4_SSE2.exit, label %291, !llvm.loop !8
 
-Store16x4_SSE2.exit:                              ; preds = %302
-  %309 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %220, <16 x i8> splat (i8 4))
-  %310 = shufflevector <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i8> %309, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  %311 = shufflevector <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i8> %309, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  %312 = bitcast <16 x i8> %310 to <8 x i16>
-  %313 = ashr <8 x i16> %312, splat (i16 11)
-  %314 = bitcast <16 x i8> %311 to <8 x i16>
-  %315 = ashr <8 x i16> %314, splat (i16 11)
-  %316 = tail call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %313, <8 x i16> %315)
-  %317 = tail call <16 x i8> @llvm.ssub.sat.v16i8(<16 x i8> %209, <16 x i8> %316)
-  %318 = xor <16 x i8> %167, splat (i8 -128)
-  %319 = tail call <16 x i8> @llvm.ssub.sat.v16i8(<16 x i8> %318, <16 x i8> %247)
-  %320 = tail call <16 x i8> @llvm.ssub.sat.v16i8(<16 x i8> %210, <16 x i8> %252)
-  %321 = tail call <16 x i8> @llvm.ssub.sat.v16i8(<16 x i8> %317, <16 x i8> %256)
-  %322 = xor <16 x i8> %321, splat (i8 -128)
-  %323 = xor <16 x i8> %320, splat (i8 -128)
-  %324 = shufflevector <16 x i8> %322, <16 x i8> %323, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  %325 = xor <16 x i8> %319, splat (i8 -128)
-  %326 = shufflevector <16 x i8> %325, <16 x i8> %168, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  %327 = bitcast <16 x i8> %324 to <8 x i16>
-  %328 = bitcast <16 x i8> %326 to <8 x i16>
-  %329 = shufflevector <8 x i16> %327, <8 x i16> %328, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
-  %330 = bitcast <8 x i16> %329 to <4 x i32>
-  %.sroa.020.0.vec.extract.i44 = extractelement <4 x i32> %330, i64 0
-  %331 = bitcast <8 x i16> %329 to <16 x i8>
-  br label %332
+Store16x4_SSE2.exit:                              ; preds = %291
+  %298 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %212, <16 x i8> splat (i8 4))
+  %299 = shufflevector <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i8> %298, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
+  %300 = shufflevector <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i8> %298, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
+  %301 = bitcast <16 x i8> %299 to <8 x i16>
+  %302 = ashr <8 x i16> %301, splat (i16 11)
+  %303 = bitcast <16 x i8> %300 to <8 x i16>
+  %304 = ashr <8 x i16> %303, splat (i16 11)
+  %305 = tail call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %302, <8 x i16> %304)
+  %306 = tail call <16 x i8> @llvm.ssub.sat.v16i8(<16 x i8> %204, <16 x i8> %305)
+  %307 = xor <16 x i8> %167, splat (i8 -128)
+  %308 = tail call <16 x i8> @llvm.ssub.sat.v16i8(<16 x i8> %307, <16 x i8> %236)
+  %309 = tail call <16 x i8> @llvm.ssub.sat.v16i8(<16 x i8> %205, <16 x i8> %241)
+  %310 = tail call <16 x i8> @llvm.ssub.sat.v16i8(<16 x i8> %306, <16 x i8> %245)
+  %311 = xor <16 x i8> %310, splat (i8 -128)
+  %312 = xor <16 x i8> %309, splat (i8 -128)
+  %313 = shufflevector <16 x i8> %311, <16 x i8> %312, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
+  %314 = xor <16 x i8> %308, splat (i8 -128)
+  %315 = shufflevector <16 x i8> %314, <16 x i8> %168, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
+  %316 = bitcast <16 x i8> %313 to <8 x i16>
+  %317 = bitcast <16 x i8> %315 to <8 x i16>
+  %318 = shufflevector <8 x i16> %316, <8 x i16> %317, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
+  %319 = bitcast <8 x i16> %318 to <4 x i32>
+  %.sroa.020.0.vec.extract.i44 = extractelement <4 x i32> %319, i64 0
+  %320 = bitcast <8 x i16> %318 to <16 x i8>
+  br label %321
 
-332:                                              ; preds = %332, %Store16x4_SSE2.exit
-  %.sroa.020.0.i45 = phi <16 x i8> [ %331, %Store16x4_SSE2.exit ], [ %334, %332 ]
-  %333 = phi i32 [ %.sroa.020.0.vec.extract.i44, %Store16x4_SSE2.exit ], [ %338, %332 ]
-  %.09.i.i46 = phi i32 [ 0, %Store16x4_SSE2.exit ], [ %336, %332 ]
-  %.078.i.i47 = phi ptr [ %0, %Store16x4_SSE2.exit ], [ %337, %332 ]
-  store i32 %333, ptr %.078.i.i47, align 1
-  %334 = shufflevector <16 x i8> %.sroa.020.0.i45, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
-  %335 = bitcast <16 x i8> %334 to <4 x i32>
-  %336 = add nuw nsw i32 %.09.i.i46, 1
-  %337 = getelementptr inbounds i8, ptr %.078.i.i47, i64 %31
-  %exitcond.not.i.i48 = icmp eq i32 %336, 4
-  %338 = extractelement <4 x i32> %335, i64 0
-  br i1 %exitcond.not.i.i48, label %Store4x4_SSE2.exit.i49, label %332, !llvm.loop !8
+321:                                              ; preds = %321, %Store16x4_SSE2.exit
+  %.sroa.020.0.i45 = phi <16 x i8> [ %320, %Store16x4_SSE2.exit ], [ %323, %321 ]
+  %322 = phi i32 [ %.sroa.020.0.vec.extract.i44, %Store16x4_SSE2.exit ], [ %327, %321 ]
+  %.09.i.i46 = phi i32 [ 0, %Store16x4_SSE2.exit ], [ %325, %321 ]
+  %.078.i.i47 = phi ptr [ %0, %Store16x4_SSE2.exit ], [ %326, %321 ]
+  store i32 %322, ptr %.078.i.i47, align 1
+  %323 = shufflevector <16 x i8> %.sroa.020.0.i45, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
+  %324 = bitcast <16 x i8> %323 to <4 x i32>
+  %325 = add nuw nsw i32 %.09.i.i46, 1
+  %326 = getelementptr inbounds i8, ptr %.078.i.i47, i64 %31
+  %exitcond.not.i.i48 = icmp eq i32 %325, 4
+  %327 = extractelement <4 x i32> %324, i64 0
+  br i1 %exitcond.not.i.i48, label %Store4x4_SSE2.exit.i49, label %321, !llvm.loop !8
 
-Store4x4_SSE2.exit.i49:                           ; preds = %332
-  %339 = shufflevector <8 x i16> %327, <8 x i16> %328, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  %340 = bitcast <8 x i16> %339 to <4 x i32>
-  %.sroa.013.0.vec.extract.i50 = extractelement <4 x i32> %340, i64 0
-  %341 = bitcast <8 x i16> %339 to <16 x i8>
-  br label %342
+Store4x4_SSE2.exit.i49:                           ; preds = %321
+  %328 = shufflevector <8 x i16> %316, <8 x i16> %317, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
+  %329 = bitcast <8 x i16> %328 to <4 x i32>
+  %.sroa.013.0.vec.extract.i50 = extractelement <4 x i32> %329, i64 0
+  %330 = bitcast <8 x i16> %328 to <16 x i8>
+  br label %331
 
-342:                                              ; preds = %342, %Store4x4_SSE2.exit.i49
-  %.sroa.013.0.i51 = phi <16 x i8> [ %341, %Store4x4_SSE2.exit.i49 ], [ %344, %342 ]
-  %343 = phi i32 [ %.sroa.013.0.vec.extract.i50, %Store4x4_SSE2.exit.i49 ], [ %348, %342 ]
-  %.09.i26.i52 = phi i32 [ 0, %Store4x4_SSE2.exit.i49 ], [ %346, %342 ]
-  %.078.i27.i53 = phi ptr [ %101, %Store4x4_SSE2.exit.i49 ], [ %347, %342 ]
-  store i32 %343, ptr %.078.i27.i53, align 1
-  %344 = shufflevector <16 x i8> %.sroa.013.0.i51, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
-  %345 = bitcast <16 x i8> %344 to <4 x i32>
-  %346 = add nuw nsw i32 %.09.i26.i52, 1
-  %347 = getelementptr inbounds i8, ptr %.078.i27.i53, i64 %31
-  %exitcond.not.i28.i54 = icmp eq i32 %346, 4
-  %348 = extractelement <4 x i32> %345, i64 0
-  br i1 %exitcond.not.i28.i54, label %Store4x4_SSE2.exit30.i55, label %342, !llvm.loop !8
+331:                                              ; preds = %331, %Store4x4_SSE2.exit.i49
+  %.sroa.013.0.i51 = phi <16 x i8> [ %330, %Store4x4_SSE2.exit.i49 ], [ %333, %331 ]
+  %332 = phi i32 [ %.sroa.013.0.vec.extract.i50, %Store4x4_SSE2.exit.i49 ], [ %337, %331 ]
+  %.09.i26.i52 = phi i32 [ 0, %Store4x4_SSE2.exit.i49 ], [ %335, %331 ]
+  %.078.i27.i53 = phi ptr [ %101, %Store4x4_SSE2.exit.i49 ], [ %336, %331 ]
+  store i32 %332, ptr %.078.i27.i53, align 1
+  %333 = shufflevector <16 x i8> %.sroa.013.0.i51, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
+  %334 = bitcast <16 x i8> %333 to <4 x i32>
+  %335 = add nuw nsw i32 %.09.i26.i52, 1
+  %336 = getelementptr inbounds i8, ptr %.078.i27.i53, i64 %31
+  %exitcond.not.i28.i54 = icmp eq i32 %335, 4
+  %337 = extractelement <4 x i32> %334, i64 0
+  br i1 %exitcond.not.i28.i54, label %Store4x4_SSE2.exit30.i55, label %331, !llvm.loop !8
 
-Store4x4_SSE2.exit30.i55:                         ; preds = %342
-  %349 = shufflevector <16 x i8> %322, <16 x i8> %323, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  %350 = shufflevector <16 x i8> %325, <16 x i8> %168, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  %351 = bitcast <16 x i8> %349 to <8 x i16>
-  %352 = bitcast <16 x i8> %350 to <8 x i16>
-  %353 = shufflevector <8 x i16> %351, <8 x i16> %352, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
-  %354 = bitcast <8 x i16> %353 to <4 x i32>
-  %.sroa.026.0.vec.extract.i56 = extractelement <4 x i32> %354, i64 0
-  %355 = bitcast <8 x i16> %353 to <16 x i8>
-  br label %356
+Store4x4_SSE2.exit30.i55:                         ; preds = %331
+  %338 = shufflevector <16 x i8> %311, <16 x i8> %312, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
+  %339 = shufflevector <16 x i8> %314, <16 x i8> %168, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
+  %340 = bitcast <16 x i8> %338 to <8 x i16>
+  %341 = bitcast <16 x i8> %339 to <8 x i16>
+  %342 = shufflevector <8 x i16> %340, <8 x i16> %341, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
+  %343 = bitcast <8 x i16> %342 to <4 x i32>
+  %.sroa.026.0.vec.extract.i56 = extractelement <4 x i32> %343, i64 0
+  %344 = bitcast <8 x i16> %342 to <16 x i8>
+  br label %345
 
-356:                                              ; preds = %356, %Store4x4_SSE2.exit30.i55
-  %.sroa.026.0.i57 = phi <16 x i8> [ %355, %Store4x4_SSE2.exit30.i55 ], [ %358, %356 ]
-  %357 = phi i32 [ %.sroa.026.0.vec.extract.i56, %Store4x4_SSE2.exit30.i55 ], [ %362, %356 ]
-  %.09.i32.i58 = phi i32 [ 0, %Store4x4_SSE2.exit30.i55 ], [ %360, %356 ]
-  %.078.i33.i59 = phi ptr [ %1, %Store4x4_SSE2.exit30.i55 ], [ %361, %356 ]
-  store i32 %357, ptr %.078.i33.i59, align 1
-  %358 = shufflevector <16 x i8> %.sroa.026.0.i57, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
-  %359 = bitcast <16 x i8> %358 to <4 x i32>
-  %360 = add nuw nsw i32 %.09.i32.i58, 1
-  %361 = getelementptr inbounds i8, ptr %.078.i33.i59, i64 %31
-  %exitcond.not.i34.i60 = icmp eq i32 %360, 4
-  %362 = extractelement <4 x i32> %359, i64 0
-  br i1 %exitcond.not.i34.i60, label %Store4x4_SSE2.exit36.i61, label %356, !llvm.loop !8
+345:                                              ; preds = %345, %Store4x4_SSE2.exit30.i55
+  %.sroa.026.0.i57 = phi <16 x i8> [ %344, %Store4x4_SSE2.exit30.i55 ], [ %347, %345 ]
+  %346 = phi i32 [ %.sroa.026.0.vec.extract.i56, %Store4x4_SSE2.exit30.i55 ], [ %351, %345 ]
+  %.09.i32.i58 = phi i32 [ 0, %Store4x4_SSE2.exit30.i55 ], [ %349, %345 ]
+  %.078.i33.i59 = phi ptr [ %1, %Store4x4_SSE2.exit30.i55 ], [ %350, %345 ]
+  store i32 %346, ptr %.078.i33.i59, align 1
+  %347 = shufflevector <16 x i8> %.sroa.026.0.i57, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
+  %348 = bitcast <16 x i8> %347 to <4 x i32>
+  %349 = add nuw nsw i32 %.09.i32.i58, 1
+  %350 = getelementptr inbounds i8, ptr %.078.i33.i59, i64 %31
+  %exitcond.not.i34.i60 = icmp eq i32 %349, 4
+  %351 = extractelement <4 x i32> %348, i64 0
+  br i1 %exitcond.not.i34.i60, label %Store4x4_SSE2.exit36.i61, label %345, !llvm.loop !8
 
-Store4x4_SSE2.exit36.i61:                         ; preds = %356
-  %363 = shufflevector <8 x i16> %351, <8 x i16> %352, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  %364 = bitcast <8 x i16> %363 to <4 x i32>
-  %.sroa.0.0.vec.extract.i62 = extractelement <4 x i32> %364, i64 0
-  %365 = bitcast <8 x i16> %363 to <16 x i8>
-  br label %366
+Store4x4_SSE2.exit36.i61:                         ; preds = %345
+  %352 = shufflevector <8 x i16> %340, <8 x i16> %341, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
+  %353 = bitcast <8 x i16> %352 to <4 x i32>
+  %.sroa.0.0.vec.extract.i62 = extractelement <4 x i32> %353, i64 0
+  %354 = bitcast <8 x i16> %352 to <16 x i8>
+  br label %355
 
-366:                                              ; preds = %366, %Store4x4_SSE2.exit36.i61
-  %.sroa.0.0.i63 = phi <16 x i8> [ %365, %Store4x4_SSE2.exit36.i61 ], [ %368, %366 ]
-  %367 = phi i32 [ %.sroa.0.0.vec.extract.i62, %Store4x4_SSE2.exit36.i61 ], [ %372, %366 ]
-  %.09.i38.i64 = phi i32 [ 0, %Store4x4_SSE2.exit36.i61 ], [ %370, %366 ]
-  %.078.i39.i65 = phi ptr [ %130, %Store4x4_SSE2.exit36.i61 ], [ %371, %366 ]
-  store i32 %367, ptr %.078.i39.i65, align 1
-  %368 = shufflevector <16 x i8> %.sroa.0.0.i63, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
-  %369 = bitcast <16 x i8> %368 to <4 x i32>
-  %370 = add nuw nsw i32 %.09.i38.i64, 1
-  %371 = getelementptr inbounds i8, ptr %.078.i39.i65, i64 %31
-  %exitcond.not.i40.i66 = icmp eq i32 %370, 4
-  %372 = extractelement <4 x i32> %369, i64 0
-  br i1 %exitcond.not.i40.i66, label %Store16x4_SSE2.exit67, label %366, !llvm.loop !8
+355:                                              ; preds = %355, %Store4x4_SSE2.exit36.i61
+  %.sroa.0.0.i63 = phi <16 x i8> [ %354, %Store4x4_SSE2.exit36.i61 ], [ %357, %355 ]
+  %356 = phi i32 [ %.sroa.0.0.vec.extract.i62, %Store4x4_SSE2.exit36.i61 ], [ %361, %355 ]
+  %.09.i38.i64 = phi i32 [ 0, %Store4x4_SSE2.exit36.i61 ], [ %359, %355 ]
+  %.078.i39.i65 = phi ptr [ %130, %Store4x4_SSE2.exit36.i61 ], [ %360, %355 ]
+  store i32 %356, ptr %.078.i39.i65, align 1
+  %357 = shufflevector <16 x i8> %.sroa.0.0.i63, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
+  %358 = bitcast <16 x i8> %357 to <4 x i32>
+  %359 = add nuw nsw i32 %.09.i38.i64, 1
+  %360 = getelementptr inbounds i8, ptr %.078.i39.i65, i64 %31
+  %exitcond.not.i40.i66 = icmp eq i32 %359, 4
+  %361 = extractelement <4 x i32> %358, i64 0
+  br i1 %exitcond.not.i40.i66, label %Store16x4_SSE2.exit67, label %355, !llvm.loop !8
 
-Store16x4_SSE2.exit67:                            ; preds = %366
+Store16x4_SSE2.exit67:                            ; preds = %355
   ret void
 }
 
