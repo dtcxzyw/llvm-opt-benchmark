@@ -2791,8 +2791,10 @@ _ZN6memchr4arch3all6twoway6Finder3new17h6ed313fa298207a2E.exit72.i: ; preds = %.
   %127 = extractvalue { i64, i64 } %126, 0
   %128 = extractvalue { i64, i64 } %126, 1
   %129 = bitcast i64 %127 to <8 x i8>
+  %.sroa.0.0.vec.expand33 = shufflevector <8 x i8> %129, <8 x i8> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
   %130 = bitcast i64 %128 to <8 x i8>
-  %.sroa.0.8.vecblend45 = shufflevector <8 x i8> %129, <8 x i8> %130, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
+  %.sroa.0.8.vec.expand44 = shufflevector <8 x i8> %130, <8 x i8> poison, <16 x i32> <i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %.sroa.0.8.vecblend45 = shufflevector <16 x i8> %.sroa.0.0.vec.expand33, <16 x i8> %.sroa.0.8.vec.expand44, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
   %.sroa.14.16.vec.insert54 = insertelement <2 x i64> poison, i64 %119, i64 0
   %.sroa.14.24.vec.insert60 = insertelement <2 x i64> %.sroa.14.16.vec.insert54, i64 %.6.i67.i, i64 1
   br label %_ZN6memchr6memmem8searcher8Searcher3new17ha2f4f6f930ca3d54E.exit
@@ -2831,8 +2833,10 @@ _ZN6memchr4arch3all6twoway6Finder3new17h6ed313fa298207a2E.exit82.i: ; preds = %.
   %144 = extractvalue { i64, i64 } %143, 0
   %145 = extractvalue { i64, i64 } %143, 1
   %146 = bitcast i64 %144 to <8 x i8>
+  %.sroa.0.0.vec.expand36 = shufflevector <8 x i8> %146, <8 x i8> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
   %147 = bitcast i64 %145 to <8 x i8>
-  %.sroa.0.8.vecblend48 = shufflevector <8 x i8> %146, <8 x i8> %147, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
+  %.sroa.0.8.vec.expand47 = shufflevector <8 x i8> %147, <8 x i8> poison, <16 x i32> <i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %.sroa.0.8.vecblend48 = shufflevector <16 x i8> %.sroa.0.0.vec.expand36, <16 x i8> %.sroa.0.8.vec.expand47, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
   %.sroa.14.16.vec.insert56 = insertelement <2 x i64> poison, i64 %136, i64 0
   %.sroa.14.24.vec.insert62 = insertelement <2 x i64> %.sroa.14.16.vec.insert56, i64 %.6.i77.i, i64 1
   br label %_ZN6memchr6memmem8searcher8Searcher3new17ha2f4f6f930ca3d54E.exit
@@ -2874,8 +2878,10 @@ _ZN6memchr4arch3all6twoway6Finder3new17h6ed313fa298207a2E.exit92.i: ; preds = %.
   %162 = extractvalue { i64, i64 } %161, 0
   %163 = extractvalue { i64, i64 } %161, 1
   %164 = bitcast i64 %162 to <8 x i8>
+  %.sroa.0.0.vec.expand = shufflevector <8 x i8> %164, <8 x i8> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
   %165 = bitcast i64 %163 to <8 x i8>
-  %.sroa.0.8.vecblend = shufflevector <8 x i8> %164, <8 x i8> %165, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
+  %.sroa.0.8.vec.expand = shufflevector <8 x i8> %165, <8 x i8> poison, <16 x i32> <i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %.sroa.0.8.vecblend = shufflevector <16 x i8> %.sroa.0.0.vec.expand, <16 x i8> %.sroa.0.8.vec.expand, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
   %.sroa.14.16.vec.insert = insertelement <2 x i64> poison, i64 %154, i64 0
   %.sroa.14.24.vec.insert = insertelement <2 x i64> %.sroa.14.16.vec.insert, i64 %.6.i87.i, i64 1
   br label %_ZN6memchr6memmem8searcher8Searcher3new17ha2f4f6f930ca3d54E.exit
@@ -2930,8 +2936,10 @@ _ZN6memchr4arch3all6twoway6Finder3new17h6ed313fa298207a2E.exit102.i: ; preds = %
   %.sroa.3.sroa.0.i.sroa.7.72.vec.extract = extractelement <16 x i8> %.sroa.3.sroa.0.i.sroa.7.31.copyload, i64 9
   %.sroa.3.sroa.0.i.sroa.7.73.vec.extract = shufflevector <16 x i8> %.sroa.3.sroa.0.i.sroa.7.31.copyload, <16 x i8> poison, <6 x i32> <i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
   %188 = bitcast i64 %185 to <8 x i8>
+  %.sroa.0.0.vec.expand30 = shufflevector <8 x i8> %188, <8 x i8> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
   %189 = bitcast i64 %186 to <8 x i8>
-  %.sroa.0.8.vecblend42 = shufflevector <8 x i8> %188, <8 x i8> %189, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
+  %.sroa.0.8.vec.expand41 = shufflevector <8 x i8> %189, <8 x i8> poison, <16 x i32> <i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %.sroa.0.8.vecblend42 = shufflevector <16 x i8> %.sroa.0.0.vec.expand30, <16 x i8> %.sroa.0.8.vec.expand41, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
   %.sroa.14.16.vec.insert52 = insertelement <2 x i64> poison, i64 %177, i64 0
   %.sroa.14.24.vec.insert58 = insertelement <2 x i64> %.sroa.14.16.vec.insert52, i64 %.6.i97.i, i64 1
   br label %_ZN6memchr6memmem8searcher8Searcher3new17ha2f4f6f930ca3d54E.exit

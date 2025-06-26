@@ -14798,19 +14798,19 @@ GetPixelDataSize.exit:                            ; preds = %17, %.thread
 define void @ImageCrop(ptr noundef captures(none) %0, <2 x float> %1, <2 x float> %2) local_unnamed_addr #25 {
   %4 = load ptr, ptr %0, align 8
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %81, label %6
+  br i1 %5, label %79, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %81, label %10
+  br i1 %9, label %79, label %10
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %81, label %14
+  br i1 %13, label %79, label %14
 
 14:                                               ; preds = %10
   %.sroa.0.0.vec.extract = extractelement <2 x float> %1, i64 0
@@ -14822,173 +14822,167 @@ define void @ImageCrop(ptr noundef captures(none) %0, <2 x float> %1, <2 x float
   %.sroa.16.0 = shufflevector <2 x float> %sel, <2 x float> %2, <2 x i32> <i32 0, i32 3>
   %.sroa.0.4.vec.extract = extractelement <2 x float> %.sroa.0.0, i64 1
   %17 = fcmp olt float %.sroa.0.4.vec.extract, 0.000000e+00
-  br i1 %17, label %18, label %20
-
-18:                                               ; preds = %14
-  %19 = fadd <2 x float> %.sroa.0.0, %.sroa.16.0
-  %.sroa.16.12.vec.insert = shufflevector <2 x float> %.sroa.16.0, <2 x float> %19, <2 x i32> <i32 0, i32 3>
+  %18 = fadd <2 x float> %.sroa.0.0, %.sroa.16.0
+  %.sroa.16.12.vec.insert = shufflevector <2 x float> %.sroa.16.0, <2 x float> %18, <2 x i32> <i32 0, i32 3>
   %.sroa.0.4.vec.insert = insertelement <2 x float> %.sroa.0.0, float 0.000000e+00, i64 1
-  br label %20
-
-20:                                               ; preds = %18, %14
-  %.sroa.0.4.vec.extract43.pre-phi = phi float [ 0.000000e+00, %18 ], [ %.sroa.0.4.vec.extract, %14 ]
-  %.sroa.0.1 = phi <2 x float> [ %.sroa.0.4.vec.insert, %18 ], [ %.sroa.0.0, %14 ]
-  %.sroa.16.1 = phi <2 x float> [ %.sroa.16.12.vec.insert, %18 ], [ %.sroa.16.0, %14 ]
+  %.sroa.0.4.vec.extract43.pre-phi = select i1 %17, float 0.000000e+00, float %.sroa.0.4.vec.extract
+  %.sroa.0.1 = select i1 %17, <2 x float> %.sroa.0.4.vec.insert, <2 x float> %.sroa.0.0
+  %.sroa.16.1 = select i1 %17, <2 x float> %.sroa.16.12.vec.insert, <2 x float> %.sroa.16.0
   %.sroa.0.0.vec.extract32 = extractelement <2 x float> %.sroa.0.1, i64 0
-  %21 = fadd <2 x float> %.sroa.0.1, %.sroa.16.1
-  %22 = extractelement <2 x float> %21, i64 0
-  %23 = sitofp i32 %8 to float
-  %24 = fcmp ogt float %22, %23
-  %25 = fsub float %23, %.sroa.0.0.vec.extract32
-  %.sroa.16.8.vec.insert56 = insertelement <2 x float> %.sroa.16.1, float %25, i64 0
-  %.sroa.16.2 = select i1 %24, <2 x float> %.sroa.16.8.vec.insert56, <2 x float> %.sroa.16.1
+  %19 = fadd <2 x float> %.sroa.0.1, %.sroa.16.1
+  %20 = extractelement <2 x float> %19, i64 0
+  %21 = sitofp i32 %8 to float
+  %22 = fcmp ogt float %20, %21
+  %23 = fsub float %21, %.sroa.0.0.vec.extract32
+  %.sroa.16.8.vec.insert56 = insertelement <2 x float> %.sroa.16.1, float %23, i64 0
+  %.sroa.16.2 = select i1 %22, <2 x float> %.sroa.16.8.vec.insert56, <2 x float> %.sroa.16.1
   %.sroa.16.12.vec.extract67 = extractelement <2 x float> %.sroa.16.2, i64 1
-  %26 = fadd float %.sroa.0.4.vec.extract43.pre-phi, %.sroa.16.12.vec.extract67
-  %27 = sitofp i32 %12 to float
-  %28 = fcmp ogt float %26, %27
-  %29 = fsub float %27, %.sroa.0.4.vec.extract43.pre-phi
-  %.sroa.16.12.vec.insert69 = insertelement <2 x float> %.sroa.16.2, float %29, i64 1
-  %.sroa.16.3 = select i1 %28, <2 x float> %.sroa.16.12.vec.insert69, <2 x float> %.sroa.16.2
-  %30 = fcmp ogt float %.sroa.0.0.vec.extract32, %23
-  %31 = fcmp ogt float %.sroa.0.4.vec.extract43.pre-phi, %27
-  %or.cond = or i1 %30, %31
-  br i1 %or.cond, label %32, label %33
+  %24 = fadd float %.sroa.0.4.vec.extract43.pre-phi, %.sroa.16.12.vec.extract67
+  %25 = sitofp i32 %12 to float
+  %26 = fcmp ogt float %24, %25
+  %27 = fsub float %25, %.sroa.0.4.vec.extract43.pre-phi
+  %.sroa.16.12.vec.insert69 = insertelement <2 x float> %.sroa.16.2, float %27, i64 1
+  %.sroa.16.3 = select i1 %26, <2 x float> %.sroa.16.12.vec.insert69, <2 x float> %.sroa.16.2
+  %28 = fcmp ogt float %.sroa.0.0.vec.extract32, %21
+  %29 = fcmp ogt float %.sroa.0.4.vec.extract43.pre-phi, %25
+  %or.cond = or i1 %28, %29
+  br i1 %or.cond, label %30, label %31
 
-32:                                               ; preds = %20
+30:                                               ; preds = %14
   tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.52) #54
-  br label %81
+  br label %79
 
-33:                                               ; preds = %20
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %35 = load i32, ptr %34, align 8
-  %36 = icmp sgt i32 %35, 1
-  br i1 %36, label %37, label %38
+31:                                               ; preds = %14
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %33 = load i32, ptr %32, align 8
+  %34 = icmp sgt i32 %33, 1
+  br i1 %34, label %35, label %36
 
-37:                                               ; preds = %33
+35:                                               ; preds = %31
   tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.53) #54
-  br label %38
+  br label %36
 
-38:                                               ; preds = %37, %33
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %40 = load i32, ptr %39, align 4
-  %41 = icmp sgt i32 %40, 13
-  br i1 %41, label %42, label %43
+36:                                               ; preds = %35, %31
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %38 = load i32, ptr %37, align 4
+  %39 = icmp sgt i32 %38, 13
+  br i1 %39, label %40, label %41
 
-42:                                               ; preds = %38
+40:                                               ; preds = %36
   tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.54) #54
-  br label %81
+  br label %79
 
-43:                                               ; preds = %38
-  switch i32 %40, label %52 [
+41:                                               ; preds = %36
+  switch i32 %38, label %50 [
     i32 1, label %.thread
-    i32 2, label %44
-    i32 3, label %44
-    i32 5, label %44
-    i32 6, label %44
-    i32 7, label %45
-    i32 4, label %46
-    i32 8, label %45
-    i32 9, label %47
-    i32 10, label %48
-    i32 11, label %49
-    i32 12, label %50
-    i32 13, label %51
+    i32 2, label %42
+    i32 3, label %42
+    i32 5, label %42
+    i32 6, label %42
+    i32 7, label %43
+    i32 4, label %44
+    i32 8, label %43
+    i32 9, label %45
+    i32 10, label %46
+    i32 11, label %47
+    i32 12, label %48
+    i32 13, label %49
   ]
 
-44:                                               ; preds = %43, %43, %43, %43
-  br label %52
+42:                                               ; preds = %41, %41, %41, %41
+  br label %50
 
-45:                                               ; preds = %43, %43
-  br label %52
+43:                                               ; preds = %41, %41
+  br label %50
 
-46:                                               ; preds = %43
+44:                                               ; preds = %41
   br label %.thread
 
-47:                                               ; preds = %43
+45:                                               ; preds = %41
   br label %.thread
 
-48:                                               ; preds = %43
+46:                                               ; preds = %41
   br label %.thread
 
-49:                                               ; preds = %43
+47:                                               ; preds = %41
   br label %.thread
 
-50:                                               ; preds = %43
+48:                                               ; preds = %41
   br label %.thread
 
-51:                                               ; preds = %43
+49:                                               ; preds = %41
   br label %.thread
 
-52:                                               ; preds = %45, %44, %43
-  %.016.i = phi i32 [ 0, %43 ], [ 2, %44 ], [ 4, %45 ]
-  %53 = and i32 %40, -2
-  %or.cond3.i = icmp eq i32 %53, 14
+50:                                               ; preds = %43, %42, %41
+  %.016.i = phi i32 [ 0, %41 ], [ 2, %42 ], [ 4, %43 ]
+  %51 = and i32 %38, -2
+  %or.cond3.i = icmp eq i32 %51, 14
   br i1 %or.cond3.i, label %GetPixelDataSize.exit, label %.thread
 
-.thread:                                          ; preds = %43, %46, %47, %48, %49, %50, %51, %52
-  %54 = phi i32 [ %.016.i, %52 ], [ 8, %51 ], [ 6, %50 ], [ 2, %49 ], [ 16, %48 ], [ 12, %47 ], [ 3, %46 ], [ %40, %43 ]
-  %55 = and i32 %40, -8
-  %or.cond5.i = icmp eq i32 %55, 16
-  %spec.select.i = select i1 %or.cond5.i, i32 16, i32 %54
+.thread:                                          ; preds = %41, %44, %45, %46, %47, %48, %49, %50
+  %52 = phi i32 [ %.016.i, %50 ], [ 8, %49 ], [ 6, %48 ], [ 2, %47 ], [ 16, %46 ], [ 12, %45 ], [ 3, %44 ], [ %38, %41 ]
+  %53 = and i32 %38, -8
+  %or.cond5.i = icmp eq i32 %53, 16
+  %spec.select.i = select i1 %or.cond5.i, i32 16, i32 %52
   br label %GetPixelDataSize.exit
 
-GetPixelDataSize.exit:                            ; preds = %52, %.thread
-  %.0.i = phi i32 [ 8, %52 ], [ %spec.select.i, %.thread ]
+GetPixelDataSize.exit:                            ; preds = %50, %.thread
+  %.0.i = phi i32 [ 8, %50 ], [ %spec.select.i, %.thread ]
   %.sroa.16.8.vec.extract58 = extractelement <2 x float> %.sroa.16.3, i64 0
   %.sroa.16.12.vec.extract71 = extractelement <2 x float> %.sroa.16.3, i64 1
-  %56 = fmul float %.sroa.16.8.vec.extract58, %.sroa.16.12.vec.extract71
-  %57 = fptosi float %56 to i32
-  %58 = mul nsw i32 %.0.i, %57
-  %59 = sext i32 %58 to i64
-  %60 = tail call noalias ptr @malloc(i64 noundef %59) #55
-  %61 = fptosi float %.sroa.0.4.vec.extract43.pre-phi to i32
-  %62 = fadd float %.sroa.0.4.vec.extract43.pre-phi, %.sroa.16.12.vec.extract71
-  %63 = fptosi float %62 to i32
-  %64 = icmp slt i32 %61, %63
+  %54 = fmul float %.sroa.16.8.vec.extract58, %.sroa.16.12.vec.extract71
+  %55 = fptosi float %54 to i32
+  %56 = mul nsw i32 %.0.i, %55
+  %57 = sext i32 %56 to i64
+  %58 = tail call noalias ptr @malloc(i64 noundef %57) #55
+  %59 = fptosi float %.sroa.0.4.vec.extract43.pre-phi to i32
+  %60 = fadd float %.sroa.0.4.vec.extract43.pre-phi, %.sroa.16.12.vec.extract71
+  %61 = fptosi float %60 to i32
+  %62 = icmp slt i32 %59, %61
   %.pre = load ptr, ptr %0, align 8
-  br i1 %64, label %.lr.ph, label %GetPixelDataSize.exit.._crit_edge_crit_edge
+  br i1 %62, label %.lr.ph, label %GetPixelDataSize.exit.._crit_edge_crit_edge
 
 GetPixelDataSize.exit.._crit_edge_crit_edge:      ; preds = %GetPixelDataSize.exit
   %.pre90 = fptosi float %.sroa.16.8.vec.extract58 to i32
   br label %._crit_edge
 
 .lr.ph:                                           ; preds = %GetPixelDataSize.exit
-  %65 = load i32, ptr %7, align 8
-  %66 = fptosi float %.sroa.0.0.vec.extract32 to i32
-  %67 = fptosi float %.sroa.16.8.vec.extract58 to i32
-  %68 = mul i32 %.0.i, %67
-  %69 = sext i32 %68 to i64
-  %70 = sext i32 %61 to i64
-  %71 = sext i32 %65 to i64
-  %72 = sext i32 %66 to i64
-  %73 = zext nneg i32 %.0.i to i64
-  %wide.trip.count = sext i32 %63 to i64
-  br label %75
+  %63 = load i32, ptr %7, align 8
+  %64 = fptosi float %.sroa.0.0.vec.extract32 to i32
+  %65 = fptosi float %.sroa.16.8.vec.extract58 to i32
+  %66 = mul i32 %.0.i, %65
+  %67 = sext i32 %66 to i64
+  %68 = sext i32 %59 to i64
+  %69 = sext i32 %63 to i64
+  %70 = sext i32 %64 to i64
+  %71 = zext nneg i32 %.0.i to i64
+  %wide.trip.count = sext i32 %61 to i64
+  br label %73
 
-._crit_edge:                                      ; preds = %75, %GetPixelDataSize.exit.._crit_edge_crit_edge
-  %.pre-phi = phi i32 [ %.pre90, %GetPixelDataSize.exit.._crit_edge_crit_edge ], [ %67, %75 ]
+._crit_edge:                                      ; preds = %73, %GetPixelDataSize.exit.._crit_edge_crit_edge
+  %.pre-phi = phi i32 [ %.pre90, %GetPixelDataSize.exit.._crit_edge_crit_edge ], [ %65, %73 ]
   tail call void @free(ptr noundef %.pre) #54
-  store ptr %60, ptr %0, align 8
+  store ptr %58, ptr %0, align 8
   store i32 %.pre-phi, ptr %7, align 8
-  %74 = fptosi float %.sroa.16.12.vec.extract71 to i32
-  store i32 %74, ptr %11, align 4
-  br label %81
+  %72 = fptosi float %.sroa.16.12.vec.extract71 to i32
+  store i32 %72, ptr %11, align 4
+  br label %79
 
-75:                                               ; preds = %.lr.ph, %75
-  %indvars.iv84 = phi i64 [ %70, %.lr.ph ], [ %indvars.iv.next85, %75 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %75 ]
-  %76 = getelementptr inbounds i8, ptr %60, i64 %indvars.iv
-  %77 = mul nsw i64 %indvars.iv84, %71
-  %78 = add nsw i64 %77, %72
-  %79 = mul nsw i64 %78, %73
-  %80 = getelementptr inbounds i8, ptr %.pre, i64 %79
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %76, ptr align 1 %80, i64 %69, i1 false)
-  %indvars.iv.next = add nsw i64 %indvars.iv, %69
+73:                                               ; preds = %.lr.ph, %73
+  %indvars.iv84 = phi i64 [ %68, %.lr.ph ], [ %indvars.iv.next85, %73 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %73 ]
+  %74 = getelementptr inbounds i8, ptr %58, i64 %indvars.iv
+  %75 = mul nsw i64 %indvars.iv84, %69
+  %76 = add nsw i64 %75, %70
+  %77 = mul nsw i64 %76, %71
+  %78 = getelementptr inbounds i8, ptr %.pre, i64 %77
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %74, ptr align 1 %78, i64 %67, i1 false)
+  %indvars.iv.next = add nsw i64 %indvars.iv, %67
   %indvars.iv.next85 = add nsw i64 %indvars.iv84, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next85, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %75
+  br i1 %exitcond.not, label %._crit_edge, label %73
 
-81:                                               ; preds = %3, %6, %10, %._crit_edge, %42, %32
+79:                                               ; preds = %3, %6, %10, %._crit_edge, %40, %30
   ret void
 }
 
@@ -16968,13 +16962,13 @@ define void @ImageDraw(ptr noundef readonly captures(none) %0, ptr noundef reado
   %13 = icmp eq ptr %12, null
   %.0.sroa.gep229 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.0.sroa.gep230 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br i1 %13, label %257, label %14
+  br i1 %13, label %255, label %14
 
 14:                                               ; preds = %7
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load i32, ptr %15, align 8
   %17 = icmp eq i32 %16, 0
-  br i1 %17, label %257, label %18
+  br i1 %17, label %255, label %18
 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -16990,7 +16984,7 @@ define void @ImageDraw(ptr noundef readonly captures(none) %0, ptr noundef reado
   %27 = load i32, ptr %26, align 4
   %28 = icmp eq i32 %27, 0
   %or.cond8 = select i1 %or.cond5, i1 true, i1 %28
-  br i1 %or.cond8, label %257, label %29
+  br i1 %or.cond8, label %255, label %29
 
 29:                                               ; preds = %18
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -17000,7 +16994,7 @@ define void @ImageDraw(ptr noundef readonly captures(none) %0, ptr noundef reado
 
 33:                                               ; preds = %29
   tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.77) #54
-  br label %257
+  br label %255
 
 34:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #54
@@ -17014,515 +17008,509 @@ define void @ImageDraw(ptr noundef readonly captures(none) %0, ptr noundef reado
   %.sroa.21.0 = shufflevector <2 x float> %sel, <2 x float> %3, <2 x i32> <i32 0, i32 3>
   %.sroa.0136.4.vec.extract = extractelement <2 x float> %.sroa.0136.0, i64 1
   %37 = fcmp olt float %.sroa.0136.4.vec.extract, 0.000000e+00
-  br i1 %37, label %38, label %40
-
-38:                                               ; preds = %34
-  %39 = fadd <2 x float> %.sroa.0136.0, %.sroa.21.0
-  %.sroa.21.12.vec.insert = shufflevector <2 x float> %.sroa.21.0, <2 x float> %39, <2 x i32> <i32 0, i32 3>
+  %38 = fadd <2 x float> %.sroa.0136.0, %.sroa.21.0
+  %.sroa.21.12.vec.insert = shufflevector <2 x float> %.sroa.21.0, <2 x float> %38, <2 x i32> <i32 0, i32 3>
   %.sroa.0136.4.vec.insert = insertelement <2 x float> %.sroa.0136.0, float 0.000000e+00, i64 1
-  br label %40
-
-40:                                               ; preds = %38, %34
-  %.sroa.0136.4.vec.extract158.pre-phi = phi float [ 0.000000e+00, %38 ], [ %.sroa.0136.4.vec.extract, %34 ]
-  %.sroa.0136.1 = phi <2 x float> [ %.sroa.0136.4.vec.insert, %38 ], [ %.sroa.0136.0, %34 ]
-  %.sroa.21.1 = phi <2 x float> [ %.sroa.21.12.vec.insert, %38 ], [ %.sroa.21.0, %34 ]
+  %.sroa.0136.4.vec.extract158.pre-phi = select i1 %37, float 0.000000e+00, float %.sroa.0136.4.vec.extract
+  %.sroa.0136.1 = select i1 %37, <2 x float> %.sroa.0136.4.vec.insert, <2 x float> %.sroa.0136.0
+  %.sroa.21.1 = select i1 %37, <2 x float> %.sroa.21.12.vec.insert, <2 x float> %.sroa.21.0
   %.sroa.0136.0.vec.extract143 = extractelement <2 x float> %.sroa.0136.1, i64 0
-  %41 = fadd <2 x float> %.sroa.0136.1, %.sroa.21.1
-  %42 = extractelement <2 x float> %41, i64 0
-  %43 = sitofp i32 %24 to float
-  %44 = fcmp ogt float %42, %43
-  %45 = fsub float %43, %.sroa.0136.0.vec.extract143
-  %.sroa.21.8.vec.insert175 = insertelement <2 x float> %.sroa.21.1, float %45, i64 0
-  %.sroa.21.2 = select i1 %44, <2 x float> %.sroa.21.8.vec.insert175, <2 x float> %.sroa.21.1
+  %39 = fadd <2 x float> %.sroa.0136.1, %.sroa.21.1
+  %40 = extractelement <2 x float> %39, i64 0
+  %41 = sitofp i32 %24 to float
+  %42 = fcmp ogt float %40, %41
+  %43 = fsub float %41, %.sroa.0136.0.vec.extract143
+  %.sroa.21.8.vec.insert175 = insertelement <2 x float> %.sroa.21.1, float %43, i64 0
+  %.sroa.21.2 = select i1 %42, <2 x float> %.sroa.21.8.vec.insert175, <2 x float> %.sroa.21.1
   %.sroa.21.12.vec.extract198 = extractelement <2 x float> %.sroa.21.2, i64 1
-  %46 = fadd float %.sroa.0136.4.vec.extract158.pre-phi, %.sroa.21.12.vec.extract198
-  %47 = sitofp i32 %27 to float
-  %48 = fcmp ogt float %46, %47
-  %49 = fsub float %47, %.sroa.0136.4.vec.extract158.pre-phi
-  %.sroa.21.12.vec.insert200 = insertelement <2 x float> %.sroa.21.2, float %49, i64 1
-  %.sroa.21.3 = select i1 %48, <2 x float> %.sroa.21.12.vec.insert200, <2 x float> %.sroa.21.2
+  %44 = fadd float %.sroa.0136.4.vec.extract158.pre-phi, %.sroa.21.12.vec.extract198
+  %45 = sitofp i32 %27 to float
+  %46 = fcmp ogt float %44, %45
+  %47 = fsub float %45, %.sroa.0136.4.vec.extract158.pre-phi
+  %.sroa.21.12.vec.insert200 = insertelement <2 x float> %.sroa.21.2, float %47, i64 1
+  %.sroa.21.3 = select i1 %46, <2 x float> %.sroa.21.12.vec.insert200, <2 x float> %.sroa.21.2
   %.sroa.21.8.vec.extract177 = extractelement <2 x float> %.sroa.21.3, i64 0
-  %50 = fptosi float %.sroa.21.8.vec.extract177 to i32
+  %48 = fptosi float %.sroa.21.8.vec.extract177 to i32
   %.sroa.16.8.vec.extract = extractelement <2 x float> %5, i64 0
-  %51 = fptosi float %.sroa.16.8.vec.extract to i32
-  %.not = icmp eq i32 %50, %51
-  br i1 %.not, label %52, label %._crit_edge335
+  %49 = fptosi float %.sroa.16.8.vec.extract to i32
+  %.not = icmp eq i32 %48, %49
+  br i1 %.not, label %50, label %._crit_edge335
 
-._crit_edge335:                                   ; preds = %40
+._crit_edge335:                                   ; preds = %34
   %.pre336 = extractelement <2 x float> %5, i64 1
   %.pre337 = fptosi float %.pre336 to i32
-  br label %55
+  br label %53
 
-52:                                               ; preds = %40
+50:                                               ; preds = %34
   %.sroa.21.12.vec.extract202 = extractelement <2 x float> %.sroa.21.3, i64 1
-  %53 = fptosi float %.sroa.21.12.vec.extract202 to i32
+  %51 = fptosi float %.sroa.21.12.vec.extract202 to i32
   %.sroa.16.12.vec.extract = extractelement <2 x float> %5, i64 1
-  %54 = fptosi float %.sroa.16.12.vec.extract to i32
-  %.not272 = icmp eq i32 %53, %54
-  br i1 %.not272, label %61, label %55
+  %52 = fptosi float %.sroa.16.12.vec.extract to i32
+  %.not272 = icmp eq i32 %51, %52
+  br i1 %.not272, label %59, label %53
 
-55:                                               ; preds = %._crit_edge335, %52
-  %.pre-phi338 = phi i32 [ %.pre337, %._crit_edge335 ], [ %54, %52 ]
+53:                                               ; preds = %._crit_edge335, %50
+  %.pre-phi338 = phi i32 [ %.pre337, %._crit_edge335 ], [ %52, %50 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #54
   call void @ImageFromImage(ptr dead_on_unwind nonnull writable sret(%struct.Image) align 8 %9, ptr noundef nonnull byval(%struct.Image) align 8 %1, <2 x float> %.sroa.0136.1, <2 x float> %.sroa.21.3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #54
-  call void @ImageResize(ptr noundef nonnull %8, i32 noundef %51, i32 noundef %.pre-phi338)
-  %56 = load i32, ptr %.0.sroa.gep229, align 8
-  %57 = sitofp i32 %56 to float
-  %58 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  %59 = load i32, ptr %58, align 4
-  %60 = sitofp i32 %59 to float
-  %.sroa.21.8.vec.insert195 = insertelement <2 x float> poison, float %57, i64 0
-  %.sroa.21.12.vec.insert218 = insertelement <2 x float> %.sroa.21.8.vec.insert195, float %60, i64 1
-  br label %61
+  call void @ImageResize(ptr noundef nonnull %8, i32 noundef %49, i32 noundef %.pre-phi338)
+  %54 = load i32, ptr %.0.sroa.gep229, align 8
+  %55 = sitofp i32 %54 to float
+  %56 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  %57 = load i32, ptr %56, align 4
+  %58 = sitofp i32 %57 to float
+  %.sroa.21.8.vec.insert195 = insertelement <2 x float> poison, float %55, i64 0
+  %.sroa.21.12.vec.insert218 = insertelement <2 x float> %.sroa.21.8.vec.insert195, float %58, i64 1
+  br label %59
 
-61:                                               ; preds = %55, %52
-  %62 = phi i32 [ %56, %55 ], [ %24, %52 ]
-  %.0219 = phi i1 [ true, %55 ], [ false, %52 ]
-  %.0.sroa.phi237 = phi ptr [ %8, %55 ], [ %1, %52 ]
-  %.sroa.0136.2 = phi <2 x float> [ zeroinitializer, %55 ], [ %.sroa.0136.1, %52 ]
-  %.sroa.21.4 = phi <2 x float> [ %.sroa.21.12.vec.insert218, %55 ], [ %.sroa.21.3, %52 ]
+59:                                               ; preds = %53, %50
+  %60 = phi i32 [ %54, %53 ], [ %24, %50 ]
+  %.0219 = phi i1 [ true, %53 ], [ false, %50 ]
+  %.0.sroa.phi237 = phi ptr [ %8, %53 ], [ %1, %50 ]
+  %.sroa.0136.2 = phi <2 x float> [ zeroinitializer, %53 ], [ %.sroa.0136.1, %50 ]
+  %.sroa.21.4 = phi <2 x float> [ %.sroa.21.12.vec.insert218, %53 ], [ %.sroa.21.3, %50 ]
   %.0.sroa.phi237.sroa.phi = getelementptr inbounds nuw i8, ptr %.0.sroa.phi237, i64 20
   %.sroa.0107.0.vec.extract = extractelement <2 x float> %4, i64 0
-  %63 = fcmp olt float %.sroa.0107.0.vec.extract, 0.000000e+00
-  br i1 %63, label %64, label %67
+  %61 = fcmp olt float %.sroa.0107.0.vec.extract, 0.000000e+00
+  br i1 %61, label %62, label %65
 
-64:                                               ; preds = %61
-  %65 = fsub <2 x float> %.sroa.0136.2, %4
-  %.sroa.0136.0.vec.insert149 = shufflevector <2 x float> %65, <2 x float> %.sroa.0136.2, <2 x i32> <i32 0, i32 3>
-  %66 = fadd <2 x float> %4, %.sroa.21.4
-  %.sroa.21.8.vec.insert181 = shufflevector <2 x float> %66, <2 x float> %.sroa.21.4, <2 x i32> <i32 0, i32 3>
+62:                                               ; preds = %59
+  %63 = fsub <2 x float> %.sroa.0136.2, %4
+  %.sroa.0136.0.vec.insert149 = shufflevector <2 x float> %63, <2 x float> %.sroa.0136.2, <2 x i32> <i32 0, i32 3>
+  %64 = fadd <2 x float> %4, %.sroa.21.4
+  %.sroa.21.8.vec.insert181 = shufflevector <2 x float> %64, <2 x float> %.sroa.21.4, <2 x i32> <i32 0, i32 3>
   %.sroa.0107.0.vec.insert = insertelement <2 x float> %4, float 0.000000e+00, i64 0
-  br label %75
+  br label %73
 
-67:                                               ; preds = %61
-  %68 = fadd <2 x float> %4, %.sroa.21.4
-  %69 = extractelement <2 x float> %68, i64 0
-  %70 = load i32, ptr %15, align 8
-  %71 = sitofp i32 %70 to float
-  %72 = fcmp ogt float %69, %71
-  br i1 %72, label %73, label %75
+65:                                               ; preds = %59
+  %66 = fadd <2 x float> %4, %.sroa.21.4
+  %67 = extractelement <2 x float> %66, i64 0
+  %68 = load i32, ptr %15, align 8
+  %69 = sitofp i32 %68 to float
+  %70 = fcmp ogt float %67, %69
+  br i1 %70, label %71, label %73
 
-73:                                               ; preds = %67
-  %74 = fsub float %71, %.sroa.0107.0.vec.extract
-  %.sroa.21.8.vec.insert185 = insertelement <2 x float> %.sroa.21.4, float %74, i64 0
-  br label %75
+71:                                               ; preds = %65
+  %72 = fsub float %69, %.sroa.0107.0.vec.extract
+  %.sroa.21.8.vec.insert185 = insertelement <2 x float> %.sroa.21.4, float %72, i64 0
+  br label %73
 
-75:                                               ; preds = %67, %73, %64
-  %.sroa.0107.0 = phi <2 x float> [ %.sroa.0107.0.vec.insert, %64 ], [ %4, %73 ], [ %4, %67 ]
-  %.sroa.0136.3 = phi <2 x float> [ %.sroa.0136.0.vec.insert149, %64 ], [ %.sroa.0136.2, %73 ], [ %.sroa.0136.2, %67 ]
-  %.sroa.21.5 = phi <2 x float> [ %.sroa.21.8.vec.insert181, %64 ], [ %.sroa.21.8.vec.insert185, %73 ], [ %.sroa.21.4, %67 ]
+73:                                               ; preds = %65, %71, %62
+  %.sroa.0107.0 = phi <2 x float> [ %.sroa.0107.0.vec.insert, %62 ], [ %4, %71 ], [ %4, %65 ]
+  %.sroa.0136.3 = phi <2 x float> [ %.sroa.0136.0.vec.insert149, %62 ], [ %.sroa.0136.2, %71 ], [ %.sroa.0136.2, %65 ]
+  %.sroa.21.5 = phi <2 x float> [ %.sroa.21.8.vec.insert181, %62 ], [ %.sroa.21.8.vec.insert185, %71 ], [ %.sroa.21.4, %65 ]
   %.sroa.0107.4.vec.extract = extractelement <2 x float> %.sroa.0107.0, i64 1
-  %76 = fcmp olt float %.sroa.0107.4.vec.extract, 0.000000e+00
-  br i1 %76, label %77, label %80
+  %74 = fcmp olt float %.sroa.0107.4.vec.extract, 0.000000e+00
+  br i1 %74, label %75, label %78
 
-77:                                               ; preds = %75
-  %78 = fsub <2 x float> %.sroa.0136.3, %.sroa.0107.0
-  %.sroa.0136.4.vec.insert164 = shufflevector <2 x float> %.sroa.0136.3, <2 x float> %78, <2 x i32> <i32 0, i32 3>
-  %79 = fadd <2 x float> %.sroa.0107.0, %.sroa.21.5
-  %.sroa.21.12.vec.insert206 = shufflevector <2 x float> %.sroa.21.5, <2 x float> %79, <2 x i32> <i32 0, i32 3>
+75:                                               ; preds = %73
+  %76 = fsub <2 x float> %.sroa.0136.3, %.sroa.0107.0
+  %.sroa.0136.4.vec.insert164 = shufflevector <2 x float> %.sroa.0136.3, <2 x float> %76, <2 x i32> <i32 0, i32 3>
+  %77 = fadd <2 x float> %.sroa.0107.0, %.sroa.21.5
+  %.sroa.21.12.vec.insert206 = shufflevector <2 x float> %.sroa.21.5, <2 x float> %77, <2 x i32> <i32 0, i32 3>
   %.sroa.0107.4.vec.insert = insertelement <2 x float> %.sroa.0107.0, float 0.000000e+00, i64 1
   %.pre = load i32, ptr %19, align 4
   %.pre334 = sitofp i32 %.pre to float
-  br label %88
+  br label %86
 
-80:                                               ; preds = %75
-  %81 = fadd <2 x float> %.sroa.0107.0, %.sroa.21.5
-  %82 = extractelement <2 x float> %81, i64 1
-  %83 = load i32, ptr %19, align 4
-  %84 = sitofp i32 %83 to float
-  %85 = fcmp ogt float %82, %84
-  br i1 %85, label %86, label %88
+78:                                               ; preds = %73
+  %79 = fadd <2 x float> %.sroa.0107.0, %.sroa.21.5
+  %80 = extractelement <2 x float> %79, i64 1
+  %81 = load i32, ptr %19, align 4
+  %82 = sitofp i32 %81 to float
+  %83 = fcmp ogt float %80, %82
+  br i1 %83, label %84, label %86
 
-86:                                               ; preds = %80
-  %87 = fsub float %84, %.sroa.0107.4.vec.extract
-  %.sroa.21.12.vec.insert210 = insertelement <2 x float> %.sroa.21.5, float %87, i64 1
-  br label %88
+84:                                               ; preds = %78
+  %85 = fsub float %82, %.sroa.0107.4.vec.extract
+  %.sroa.21.12.vec.insert210 = insertelement <2 x float> %.sroa.21.5, float %85, i64 1
+  br label %86
 
-88:                                               ; preds = %80, %86, %77
-  %.pre-phi = phi float [ %84, %80 ], [ %84, %86 ], [ %.pre334, %77 ]
-  %.sroa.0107.1 = phi <2 x float> [ %.sroa.0107.0, %80 ], [ %.sroa.0107.0, %86 ], [ %.sroa.0107.4.vec.insert, %77 ]
-  %.sroa.0136.4 = phi <2 x float> [ %.sroa.0136.3, %80 ], [ %.sroa.0136.3, %86 ], [ %.sroa.0136.4.vec.insert164, %77 ]
-  %.sroa.21.6 = phi <2 x float> [ %.sroa.21.5, %80 ], [ %.sroa.21.12.vec.insert210, %86 ], [ %.sroa.21.12.vec.insert206, %77 ]
-  %89 = load i32, ptr %15, align 8
-  %90 = sitofp i32 %89 to float
+86:                                               ; preds = %78, %84, %75
+  %.pre-phi = phi float [ %82, %78 ], [ %82, %84 ], [ %.pre334, %75 ]
+  %.sroa.0107.1 = phi <2 x float> [ %.sroa.0107.0, %78 ], [ %.sroa.0107.0, %84 ], [ %.sroa.0107.4.vec.insert, %75 ]
+  %.sroa.0136.4 = phi <2 x float> [ %.sroa.0136.3, %78 ], [ %.sroa.0136.3, %84 ], [ %.sroa.0136.4.vec.insert164, %75 ]
+  %.sroa.21.6 = phi <2 x float> [ %.sroa.21.5, %78 ], [ %.sroa.21.12.vec.insert210, %84 ], [ %.sroa.21.12.vec.insert206, %75 ]
+  %87 = load i32, ptr %15, align 8
+  %88 = sitofp i32 %87 to float
   %.sroa.21.8.vec.extract187 = extractelement <2 x float> %.sroa.21.6, i64 0
-  %91 = fcmp ogt float %.sroa.21.8.vec.extract187, %90
-  %.sroa.21.8.vec.insert189 = insertelement <2 x float> %.sroa.21.6, float %90, i64 0
-  %.sroa.21.7 = select i1 %91, <2 x float> %.sroa.21.8.vec.insert189, <2 x float> %.sroa.21.6
+  %89 = fcmp ogt float %.sroa.21.8.vec.extract187, %88
+  %.sroa.21.8.vec.insert189 = insertelement <2 x float> %.sroa.21.6, float %88, i64 0
+  %.sroa.21.7 = select i1 %89, <2 x float> %.sroa.21.8.vec.insert189, <2 x float> %.sroa.21.6
   %.sroa.21.12.vec.extract212 = extractelement <2 x float> %.sroa.21.7, i64 1
-  %92 = fcmp ogt float %.sroa.21.12.vec.extract212, %.pre-phi
+  %90 = fcmp ogt float %.sroa.21.12.vec.extract212, %.pre-phi
   %.sroa.21.12.vec.insert214 = insertelement <2 x float> %.sroa.21.7, float %.pre-phi, i64 1
-  %.sroa.21.8 = select i1 %92, <2 x float> %.sroa.21.12.vec.insert214, <2 x float> %.sroa.21.7
-  %93 = icmp ugt i32 %6, -16777217
-  br i1 %93, label %94, label %97
+  %.sroa.21.8 = select i1 %90, <2 x float> %.sroa.21.12.vec.insert214, <2 x float> %.sroa.21.7
+  %91 = icmp ugt i32 %6, -16777217
+  br i1 %91, label %92, label %95
 
-94:                                               ; preds = %88
-  %95 = load i32, ptr %.0.sroa.phi237.sroa.phi, align 4
-  %96 = icmp ult i32 %95, 13
-  br i1 %96, label %switch.lookup, label %97
+92:                                               ; preds = %86
+  %93 = load i32, ptr %.0.sroa.phi237.sroa.phi, align 4
+  %94 = icmp ult i32 %93, 13
+  br i1 %94, label %switch.lookup, label %95
 
-switch.lookup:                                    ; preds = %94
-  %switch.cast = trunc nuw i32 %95 to i13
+switch.lookup:                                    ; preds = %92
+  %switch.cast = trunc nuw i32 %93 to i13
   %switch.downshift = lshr i13 1253, %switch.cast
   %switch.masked = trunc i13 %switch.downshift to i1
-  br label %97
+  br label %95
 
-97:                                               ; preds = %switch.lookup, %94, %88
-  %.0220 = phi i1 [ true, %88 ], [ true, %94 ], [ %switch.masked, %switch.lookup ]
-  %98 = load i32, ptr %30, align 4
-  %switch.tableidx = add i32 %98, -1
-  %99 = icmp ult i32 %switch.tableidx, 24
-  br i1 %99, label %switch.lookup345, label %101
+95:                                               ; preds = %switch.lookup, %92, %86
+  %.0220 = phi i1 [ true, %86 ], [ true, %92 ], [ %switch.masked, %switch.lookup ]
+  %96 = load i32, ptr %30, align 4
+  %switch.tableidx = add i32 %96, -1
+  %97 = icmp ult i32 %switch.tableidx, 24
+  br i1 %97, label %switch.lookup345, label %99
 
-switch.lookup345:                                 ; preds = %97
-  %100 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [24 x double], ptr @switch.table.ImageDraw.32, i64 0, i64 %100
+switch.lookup345:                                 ; preds = %95
+  %98 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [24 x double], ptr @switch.table.ImageDraw.32, i64 0, i64 %98
   %switch.load = load double, ptr %switch.gep, align 8
-  br label %101
+  br label %99
 
-101:                                              ; preds = %switch.lookup345, %97
-  %.016.i = phi double [ 0.000000e+00, %97 ], [ %switch.load, %switch.lookup345 ]
-  %102 = sitofp i32 %89 to double
-  %103 = fmul double %.016.i, %102
-  %104 = fptosi double %103 to i32
-  %105 = icmp slt i32 %89, 4
-  br i1 %105, label %106, label %GetPixelDataSize.exit
+99:                                               ; preds = %switch.lookup345, %95
+  %.016.i = phi double [ 0.000000e+00, %95 ], [ %switch.load, %switch.lookup345 ]
+  %100 = sitofp i32 %87 to double
+  %101 = fmul double %.016.i, %100
+  %102 = fptosi double %101 to i32
+  %103 = icmp slt i32 %87, 4
+  br i1 %103, label %104, label %GetPixelDataSize.exit
 
-106:                                              ; preds = %101
-  %107 = and i32 %98, -2
-  %or.cond3.i = icmp eq i32 %107, 14
-  br i1 %or.cond3.i, label %GetPixelDataSize.exit, label %108
+104:                                              ; preds = %99
+  %105 = and i32 %96, -2
+  %or.cond3.i = icmp eq i32 %105, 14
+  br i1 %or.cond3.i, label %GetPixelDataSize.exit, label %106
 
-108:                                              ; preds = %106
-  %109 = and i32 %98, -8
-  %or.cond5.i = icmp eq i32 %109, 16
-  %spec.select.i = select i1 %or.cond5.i, i32 16, i32 %104
+106:                                              ; preds = %104
+  %107 = and i32 %96, -8
+  %or.cond5.i = icmp eq i32 %107, 16
+  %spec.select.i = select i1 %or.cond5.i, i32 16, i32 %102
   br label %GetPixelDataSize.exit
 
-GetPixelDataSize.exit:                            ; preds = %101, %106, %108
-  %.0.i = phi i32 [ %104, %101 ], [ 8, %106 ], [ %spec.select.i, %108 ]
-  %110 = sdiv i32 %.0.i, %89
-  %111 = load i32, ptr %.0.sroa.phi237.sroa.phi, align 4
-  %switch.tableidx347 = add i32 %111, -1
-  %112 = icmp ult i32 %switch.tableidx347, 24
-  br i1 %112, label %switch.lookup346, label %114
+GetPixelDataSize.exit:                            ; preds = %99, %104, %106
+  %.0.i = phi i32 [ %102, %99 ], [ 8, %104 ], [ %spec.select.i, %106 ]
+  %108 = sdiv i32 %.0.i, %87
+  %109 = load i32, ptr %.0.sroa.phi237.sroa.phi, align 4
+  %switch.tableidx347 = add i32 %109, -1
+  %110 = icmp ult i32 %switch.tableidx347, 24
+  br i1 %110, label %switch.lookup346, label %112
 
 switch.lookup346:                                 ; preds = %GetPixelDataSize.exit
-  %113 = zext nneg i32 %switch.tableidx347 to i64
-  %switch.gep348 = getelementptr inbounds nuw [24 x double], ptr @switch.table.ImageDraw.32, i64 0, i64 %113
+  %111 = zext nneg i32 %switch.tableidx347 to i64
+  %switch.gep348 = getelementptr inbounds nuw [24 x double], ptr @switch.table.ImageDraw.32, i64 0, i64 %111
   %switch.load349 = load double, ptr %switch.gep348, align 8
-  br label %114
+  br label %112
 
-114:                                              ; preds = %switch.lookup346, %GetPixelDataSize.exit
+112:                                              ; preds = %switch.lookup346, %GetPixelDataSize.exit
   %.016.i273 = phi double [ 0.000000e+00, %GetPixelDataSize.exit ], [ %switch.load349, %switch.lookup346 ]
-  %115 = sitofp i32 %62 to double
-  %116 = fmul double %.016.i273, %115
-  %117 = fptosi double %116 to i32
-  %118 = icmp slt i32 %62, 4
-  br i1 %118, label %119, label %GetPixelDataSize.exit278
+  %113 = sitofp i32 %60 to double
+  %114 = fmul double %.016.i273, %113
+  %115 = fptosi double %114 to i32
+  %116 = icmp slt i32 %60, 4
+  br i1 %116, label %117, label %GetPixelDataSize.exit278
 
-119:                                              ; preds = %114
-  %120 = and i32 %111, -2
-  %or.cond3.i275 = icmp eq i32 %120, 14
-  br i1 %or.cond3.i275, label %GetPixelDataSize.exit278, label %121
+117:                                              ; preds = %112
+  %118 = and i32 %109, -2
+  %or.cond3.i275 = icmp eq i32 %118, 14
+  br i1 %or.cond3.i275, label %GetPixelDataSize.exit278, label %119
 
-121:                                              ; preds = %119
-  %122 = and i32 %111, -8
-  %or.cond5.i276 = icmp eq i32 %122, 16
-  %spec.select.i277 = select i1 %or.cond5.i276, i32 16, i32 %117
+119:                                              ; preds = %117
+  %120 = and i32 %109, -8
+  %or.cond5.i276 = icmp eq i32 %120, 16
+  %spec.select.i277 = select i1 %or.cond5.i276, i32 16, i32 %115
   br label %GetPixelDataSize.exit278
 
-GetPixelDataSize.exit278:                         ; preds = %114, %119, %121
-  %.0.i274 = phi i32 [ %117, %114 ], [ 8, %119 ], [ %spec.select.i277, %121 ]
-  %123 = sdiv i32 %.0.i274, %62
-  %124 = load ptr, ptr %.0.sroa.phi237, align 8
+GetPixelDataSize.exit278:                         ; preds = %112, %117, %119
+  %.0.i274 = phi i32 [ %115, %112 ], [ 8, %117 ], [ %spec.select.i277, %119 ]
+  %121 = sdiv i32 %.0.i274, %60
+  %122 = load ptr, ptr %.0.sroa.phi237, align 8
   %.sroa.0136.4.vec.extract166 = extractelement <2 x float> %.sroa.0136.4, i64 1
-  %125 = fptosi float %.sroa.0136.4.vec.extract166 to i32
-  %126 = mul nsw i32 %62, %125
+  %123 = fptosi float %.sroa.0136.4.vec.extract166 to i32
+  %124 = mul nsw i32 %60, %123
   %.sroa.0136.0.vec.extract151 = extractelement <2 x float> %.sroa.0136.4, i64 0
-  %127 = fptosi float %.sroa.0136.0.vec.extract151 to i32
-  %128 = add nsw i32 %126, %127
-  %129 = mul nsw i32 %123, %128
-  %130 = sext i32 %129 to i64
-  %131 = getelementptr inbounds i8, ptr %124, i64 %130
-  %132 = load ptr, ptr %0, align 8
+  %125 = fptosi float %.sroa.0136.0.vec.extract151 to i32
+  %126 = add nsw i32 %124, %125
+  %127 = mul nsw i32 %121, %126
+  %128 = sext i32 %127 to i64
+  %129 = getelementptr inbounds i8, ptr %122, i64 %128
+  %130 = load ptr, ptr %0, align 8
   %.sroa.0107.4.vec.extract130 = extractelement <2 x float> %.sroa.0107.1, i64 1
-  %133 = fptosi float %.sroa.0107.4.vec.extract130 to i32
-  %134 = mul nsw i32 %89, %133
+  %131 = fptosi float %.sroa.0107.4.vec.extract130 to i32
+  %132 = mul nsw i32 %87, %131
   %.sroa.0107.0.vec.extract119 = extractelement <2 x float> %.sroa.0107.1, i64 0
-  %135 = fptosi float %.sroa.0107.0.vec.extract119 to i32
-  %136 = add nsw i32 %134, %135
-  %137 = mul nsw i32 %110, %136
-  %138 = sext i32 %137 to i64
-  %139 = getelementptr inbounds i8, ptr %132, i64 %138
+  %133 = fptosi float %.sroa.0107.0.vec.extract119 to i32
+  %134 = add nsw i32 %132, %133
+  %135 = mul nsw i32 %108, %134
+  %136 = sext i32 %135 to i64
+  %137 = getelementptr inbounds i8, ptr %130, i64 %136
   %.sroa.21.12.vec.extract216 = extractelement <2 x float> %.sroa.21.8, i64 1
-  %140 = fptosi float %.sroa.21.12.vec.extract216 to i32
-  %141 = icmp sgt i32 %140, 0
-  br i1 %141, label %.lr.ph303, label %._crit_edge
+  %138 = fptosi float %.sroa.21.12.vec.extract216 to i32
+  %139 = icmp sgt i32 %138, 0
+  br i1 %139, label %.lr.ph303, label %._crit_edge
 
 .lr.ph303:                                        ; preds = %GetPixelDataSize.exit278
   %.sroa.21.8.vec.extract191 = extractelement <2 x float> %.sroa.21.8, i64 0
-  %142 = fptosi float %.sroa.21.8.vec.extract191 to i32
-  %.fr322 = freeze i32 %142
-  %143 = mul nsw i32 %123, %.fr322
-  %144 = sext i32 %143 to i64
-  %145 = icmp sgt i32 %.fr322, 0
-  %146 = sext i32 %110 to i64
-  %147 = sext i32 %123 to i64
-  %148 = sext i32 %.0.i274 to i64
-  %149 = sext i32 %.0.i to i64
-  br i1 %145, label %.lr.ph303.split.us, label %.lr.ph303.split
+  %140 = fptosi float %.sroa.21.8.vec.extract191 to i32
+  %.fr322 = freeze i32 %140
+  %141 = mul nsw i32 %121, %.fr322
+  %142 = sext i32 %141 to i64
+  %143 = icmp sgt i32 %.fr322, 0
+  %144 = sext i32 %108 to i64
+  %145 = sext i32 %121 to i64
+  %146 = sext i32 %.0.i274 to i64
+  %147 = sext i32 %.0.i to i64
+  br i1 %143, label %.lr.ph303.split.us, label %.lr.ph303.split
 
 .lr.ph303.split.us:                               ; preds = %.lr.ph303
   br i1 %.0220, label %.lr.ph.us.us, label %.lr.ph303.split.us.split
 
 .lr.ph.us.us:                                     ; preds = %.lr.ph303.split.us, %..loopexit_crit_edge.split.us.us.us
-  %.0224302.us.us = phi i32 [ %161, %..loopexit_crit_edge.split.us.us.us ], [ 0, %.lr.ph303.split.us ]
-  %.0225299.us.us = phi ptr [ %160, %..loopexit_crit_edge.split.us.us.us ], [ %139, %.lr.ph303.split.us ]
-  %.0226296.us.us = phi ptr [ %159, %..loopexit_crit_edge.split.us.us.us ], [ %131, %.lr.ph303.split.us ]
-  br label %150
+  %.0224302.us.us = phi i32 [ %159, %..loopexit_crit_edge.split.us.us.us ], [ 0, %.lr.ph303.split.us ]
+  %.0225299.us.us = phi ptr [ %158, %..loopexit_crit_edge.split.us.us.us ], [ %137, %.lr.ph303.split.us ]
+  %.0226296.us.us = phi ptr [ %157, %..loopexit_crit_edge.split.us.us.us ], [ %129, %.lr.ph303.split.us ]
+  br label %148
 
-150:                                              ; preds = %150, %.lr.ph.us.us
-  %.0221295.us.us.us = phi i32 [ 0, %.lr.ph.us.us ], [ %158, %150 ]
-  %.0222294.us.us.us = phi ptr [ %.0225299.us.us, %.lr.ph.us.us ], [ %156, %150 ]
-  %.0223293.us.us.us = phi ptr [ %.0226296.us.us, %.lr.ph.us.us ], [ %157, %150 ]
-  %151 = load i32, ptr %.0.sroa.phi237.sroa.phi, align 4
-  %152 = call i32 @GetPixelColor(ptr noundef %.0223293.us.us.us, i32 noundef %151)
-  %153 = load i32, ptr %30, align 4
-  %154 = call i32 @GetPixelColor(ptr noundef %.0222294.us.us.us, i32 noundef %153)
-  %155 = call i32 @ColorAlphaBlend(i32 %154, i32 %152, i32 %6)
-  call void @SetPixelColor(ptr noundef %.0222294.us.us.us, i32 %155, i32 noundef %153)
-  %156 = getelementptr inbounds i8, ptr %.0222294.us.us.us, i64 %146
-  %157 = getelementptr inbounds i8, ptr %.0223293.us.us.us, i64 %147
-  %158 = add nuw nsw i32 %.0221295.us.us.us, 1
-  %exitcond329.not = icmp eq i32 %158, %.fr322
-  br i1 %exitcond329.not, label %..loopexit_crit_edge.split.us.us.us, label %150
+148:                                              ; preds = %148, %.lr.ph.us.us
+  %.0221295.us.us.us = phi i32 [ 0, %.lr.ph.us.us ], [ %156, %148 ]
+  %.0222294.us.us.us = phi ptr [ %.0225299.us.us, %.lr.ph.us.us ], [ %154, %148 ]
+  %.0223293.us.us.us = phi ptr [ %.0226296.us.us, %.lr.ph.us.us ], [ %155, %148 ]
+  %149 = load i32, ptr %.0.sroa.phi237.sroa.phi, align 4
+  %150 = call i32 @GetPixelColor(ptr noundef %.0223293.us.us.us, i32 noundef %149)
+  %151 = load i32, ptr %30, align 4
+  %152 = call i32 @GetPixelColor(ptr noundef %.0222294.us.us.us, i32 noundef %151)
+  %153 = call i32 @ColorAlphaBlend(i32 %152, i32 %150, i32 %6)
+  call void @SetPixelColor(ptr noundef %.0222294.us.us.us, i32 %153, i32 noundef %151)
+  %154 = getelementptr inbounds i8, ptr %.0222294.us.us.us, i64 %144
+  %155 = getelementptr inbounds i8, ptr %.0223293.us.us.us, i64 %145
+  %156 = add nuw nsw i32 %.0221295.us.us.us, 1
+  %exitcond329.not = icmp eq i32 %156, %.fr322
+  br i1 %exitcond329.not, label %..loopexit_crit_edge.split.us.us.us, label %148
 
-..loopexit_crit_edge.split.us.us.us:              ; preds = %150
-  %159 = getelementptr inbounds i8, ptr %.0226296.us.us, i64 %148
-  %160 = getelementptr inbounds i8, ptr %.0225299.us.us, i64 %149
-  %161 = add nuw nsw i32 %.0224302.us.us, 1
-  %exitcond330.not = icmp eq i32 %161, %140
+..loopexit_crit_edge.split.us.us.us:              ; preds = %148
+  %157 = getelementptr inbounds i8, ptr %.0226296.us.us, i64 %146
+  %158 = getelementptr inbounds i8, ptr %.0225299.us.us, i64 %147
+  %159 = add nuw nsw i32 %.0224302.us.us, 1
+  %exitcond330.not = icmp eq i32 %159, %138
   br i1 %exitcond330.not, label %._crit_edge, label %.lr.ph.us.us
 
 .lr.ph303.split.us.split:                         ; preds = %.lr.ph303.split.us, %..loopexit_crit_edge.split.us307
-  %.0224302.us = phi i32 [ %168, %..loopexit_crit_edge.split.us307 ], [ 0, %.lr.ph303.split.us ]
-  %.0225299.us = phi ptr [ %167, %..loopexit_crit_edge.split.us307 ], [ %139, %.lr.ph303.split.us ]
-  %.0226296.us = phi ptr [ %166, %..loopexit_crit_edge.split.us307 ], [ %131, %.lr.ph303.split.us ]
-  %162 = load i32, ptr %.0.sroa.phi237.sroa.phi, align 4
-  %163 = load i32, ptr %30, align 4
-  %164 = icmp eq i32 %162, %163
-  br i1 %164, label %165, label %.lr.ph.us
+  %.0224302.us = phi i32 [ %166, %..loopexit_crit_edge.split.us307 ], [ 0, %.lr.ph303.split.us ]
+  %.0225299.us = phi ptr [ %165, %..loopexit_crit_edge.split.us307 ], [ %137, %.lr.ph303.split.us ]
+  %.0226296.us = phi ptr [ %164, %..loopexit_crit_edge.split.us307 ], [ %129, %.lr.ph303.split.us ]
+  %160 = load i32, ptr %.0.sroa.phi237.sroa.phi, align 4
+  %161 = load i32, ptr %30, align 4
+  %162 = icmp eq i32 %160, %161
+  br i1 %162, label %163, label %.lr.ph.us
 
-165:                                              ; preds = %.lr.ph303.split.us.split
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0225299.us, ptr align 1 %.0226296.us, i64 %144, i1 false)
+163:                                              ; preds = %.lr.ph303.split.us.split
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0225299.us, ptr align 1 %.0226296.us, i64 %142, i1 false)
   br label %..loopexit_crit_edge.split.us307
 
-..loopexit_crit_edge.split.us307:                 ; preds = %.lr.ph.us, %165
-  %166 = getelementptr inbounds i8, ptr %.0226296.us, i64 %148
-  %167 = getelementptr inbounds i8, ptr %.0225299.us, i64 %149
-  %168 = add nuw nsw i32 %.0224302.us, 1
-  %exitcond328.not = icmp eq i32 %168, %140
+..loopexit_crit_edge.split.us307:                 ; preds = %.lr.ph.us, %163
+  %164 = getelementptr inbounds i8, ptr %.0226296.us, i64 %146
+  %165 = getelementptr inbounds i8, ptr %.0225299.us, i64 %147
+  %166 = add nuw nsw i32 %.0224302.us, 1
+  %exitcond328.not = icmp eq i32 %166, %138
   br i1 %exitcond328.not, label %._crit_edge, label %.lr.ph303.split.us.split
 
 .lr.ph.us:                                        ; preds = %.lr.ph303.split.us.split, %.lr.ph.us
-  %.0221295.us304 = phi i32 [ %174, %.lr.ph.us ], [ 0, %.lr.ph303.split.us.split ]
-  %.0222294.us305 = phi ptr [ %172, %.lr.ph.us ], [ %.0225299.us, %.lr.ph303.split.us.split ]
-  %.0223293.us306 = phi ptr [ %173, %.lr.ph.us ], [ %.0226296.us, %.lr.ph303.split.us.split ]
-  %169 = load i32, ptr %.0.sroa.phi237.sroa.phi, align 4
-  %170 = call i32 @GetPixelColor(ptr noundef %.0223293.us306, i32 noundef %169)
-  %171 = load i32, ptr %30, align 4
-  call void @SetPixelColor(ptr noundef %.0222294.us305, i32 %170, i32 noundef %171)
-  %172 = getelementptr inbounds i8, ptr %.0222294.us305, i64 %146
-  %173 = getelementptr inbounds i8, ptr %.0223293.us306, i64 %147
-  %174 = add nuw nsw i32 %.0221295.us304, 1
-  %exitcond327.not = icmp eq i32 %174, %.fr322
+  %.0221295.us304 = phi i32 [ %172, %.lr.ph.us ], [ 0, %.lr.ph303.split.us.split ]
+  %.0222294.us305 = phi ptr [ %170, %.lr.ph.us ], [ %.0225299.us, %.lr.ph303.split.us.split ]
+  %.0223293.us306 = phi ptr [ %171, %.lr.ph.us ], [ %.0226296.us, %.lr.ph303.split.us.split ]
+  %167 = load i32, ptr %.0.sroa.phi237.sroa.phi, align 4
+  %168 = call i32 @GetPixelColor(ptr noundef %.0223293.us306, i32 noundef %167)
+  %169 = load i32, ptr %30, align 4
+  call void @SetPixelColor(ptr noundef %.0222294.us305, i32 %168, i32 noundef %169)
+  %170 = getelementptr inbounds i8, ptr %.0222294.us305, i64 %144
+  %171 = getelementptr inbounds i8, ptr %.0223293.us306, i64 %145
+  %172 = add nuw nsw i32 %.0221295.us304, 1
+  %exitcond327.not = icmp eq i32 %172, %.fr322
   br i1 %exitcond327.not, label %..loopexit_crit_edge.split.us307, label %.lr.ph.us
 
 .lr.ph303.split:                                  ; preds = %.lr.ph303
-  %175 = icmp ne i32 %111, %98
-  %or.cond341.not = or i1 %175, %.0220
+  %173 = icmp ne i32 %109, %96
+  %or.cond341.not = or i1 %173, %.0220
   br i1 %or.cond341.not, label %._crit_edge, label %.lr.ph303.split.split.split
 
 ._crit_edge:                                      ; preds = %.loopexit, %..loopexit_crit_edge.split.us307, %..loopexit_crit_edge.split.us.us.us, %.lr.ph303.split, %GetPixelDataSize.exit278
-  br i1 %.0219, label %183, label %184
+  br i1 %.0219, label %181, label %182
 
 .lr.ph303.split.split.split:                      ; preds = %.lr.ph303.split, %.loopexit
-  %.0224302 = phi i32 [ %182, %.loopexit ], [ 0, %.lr.ph303.split ]
-  %.0225299 = phi ptr [ %181, %.loopexit ], [ %139, %.lr.ph303.split ]
-  %.0226296 = phi ptr [ %180, %.loopexit ], [ %131, %.lr.ph303.split ]
-  %176 = load i32, ptr %.0.sroa.phi237.sroa.phi, align 4
-  %177 = load i32, ptr %30, align 4
-  %178 = icmp eq i32 %176, %177
-  br i1 %178, label %179, label %.loopexit
+  %.0224302 = phi i32 [ %180, %.loopexit ], [ 0, %.lr.ph303.split ]
+  %.0225299 = phi ptr [ %179, %.loopexit ], [ %137, %.lr.ph303.split ]
+  %.0226296 = phi ptr [ %178, %.loopexit ], [ %129, %.lr.ph303.split ]
+  %174 = load i32, ptr %.0.sroa.phi237.sroa.phi, align 4
+  %175 = load i32, ptr %30, align 4
+  %176 = icmp eq i32 %174, %175
+  br i1 %176, label %177, label %.loopexit
 
-179:                                              ; preds = %.lr.ph303.split.split.split
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0225299, ptr align 1 %.0226296, i64 %144, i1 false)
+177:                                              ; preds = %.lr.ph303.split.split.split
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0225299, ptr align 1 %.0226296, i64 %142, i1 false)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph303.split.split.split, %179
-  %180 = getelementptr inbounds i8, ptr %.0226296, i64 %148
-  %181 = getelementptr inbounds i8, ptr %.0225299, i64 %149
-  %182 = add nuw nsw i32 %.0224302, 1
-  %exitcond.not = icmp eq i32 %182, %140
+.loopexit:                                        ; preds = %.lr.ph303.split.split.split, %177
+  %178 = getelementptr inbounds i8, ptr %.0226296, i64 %146
+  %179 = getelementptr inbounds i8, ptr %.0225299, i64 %147
+  %180 = add nuw nsw i32 %.0224302, 1
+  %exitcond.not = icmp eq i32 %180, %138
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph303.split.split.split, !llvm.loop !15
 
-183:                                              ; preds = %._crit_edge
+181:                                              ; preds = %._crit_edge
   %.sroa.0.0.copyload = load ptr, ptr %8, align 8
   call void @free(ptr noundef %.sroa.0.0.copyload) #54
-  br label %184
+  br label %182
 
-184:                                              ; preds = %183, %._crit_edge
-  %185 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %186 = load i32, ptr %185, align 8
-  %187 = icmp sgt i32 %186, 1
-  %188 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %189 = load i32, ptr %188, align 8
-  %190 = icmp sgt i32 %189, 1
-  %or.cond11 = select i1 %187, i1 %190, i1 false
-  br i1 %or.cond11, label %191, label %256
+182:                                              ; preds = %181, %._crit_edge
+  %183 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %184 = load i32, ptr %183, align 8
+  %185 = icmp sgt i32 %184, 1
+  %186 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %187 = load i32, ptr %186, align 8
+  %188 = icmp sgt i32 %187, 1
+  %or.cond11 = select i1 %185, i1 %188, i1 false
+  br i1 %or.cond11, label %189, label %254
 
-191:                                              ; preds = %184
+189:                                              ; preds = %182
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #54
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
-  %192 = load ptr, ptr %10, align 8
-  %193 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %194 = load i32, ptr %193, align 8
-  %195 = getelementptr inbounds nuw i8, ptr %10, i64 12
+  %190 = load ptr, ptr %10, align 8
+  %191 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %192 = load i32, ptr %191, align 8
+  %193 = getelementptr inbounds nuw i8, ptr %10, i64 12
+  %194 = load i32, ptr %193, align 4
+  %195 = getelementptr inbounds nuw i8, ptr %10, i64 20
   %196 = load i32, ptr %195, align 4
-  %197 = getelementptr inbounds nuw i8, ptr %10, i64 20
-  %198 = load i32, ptr %197, align 4
-  %switch.tableidx351 = add i32 %198, -1
-  %199 = icmp ult i32 %switch.tableidx351, 24
-  br i1 %199, label %switch.lookup350, label %201
+  %switch.tableidx351 = add i32 %196, -1
+  %197 = icmp ult i32 %switch.tableidx351, 24
+  br i1 %197, label %switch.lookup350, label %199
 
-switch.lookup350:                                 ; preds = %191
-  %200 = zext nneg i32 %switch.tableidx351 to i64
-  %switch.gep352 = getelementptr inbounds nuw [24 x double], ptr @switch.table.ImageDraw.32, i64 0, i64 %200
+switch.lookup350:                                 ; preds = %189
+  %198 = zext nneg i32 %switch.tableidx351 to i64
+  %switch.gep352 = getelementptr inbounds nuw [24 x double], ptr @switch.table.ImageDraw.32, i64 0, i64 %198
   %switch.load353 = load double, ptr %switch.gep352, align 8
-  br label %201
+  br label %199
 
-201:                                              ; preds = %switch.lookup350, %191
-  %.016.i279 = phi double [ 0.000000e+00, %191 ], [ %switch.load353, %switch.lookup350 ]
+199:                                              ; preds = %switch.lookup350, %189
+  %.016.i279 = phi double [ 0.000000e+00, %189 ], [ %switch.load353, %switch.lookup350 ]
+  %200 = sitofp i32 %192 to double
+  %201 = fmul double %.016.i279, %200
   %202 = sitofp i32 %194 to double
-  %203 = fmul double %.016.i279, %202
-  %204 = sitofp i32 %196 to double
-  %205 = fmul double %203, %204
-  %206 = fptosi double %205 to i32
-  %207 = icmp slt i32 %194, 4
-  %208 = icmp slt i32 %196, 4
-  %or.cond.i = and i1 %207, %208
-  br i1 %or.cond.i, label %209, label %GetPixelDataSize.exit284
+  %203 = fmul double %201, %202
+  %204 = fptosi double %203 to i32
+  %205 = icmp slt i32 %192, 4
+  %206 = icmp slt i32 %194, 4
+  %or.cond.i = and i1 %205, %206
+  br i1 %or.cond.i, label %207, label %GetPixelDataSize.exit284
 
-209:                                              ; preds = %201
-  %210 = and i32 %198, -2
-  %or.cond3.i281 = icmp eq i32 %210, 14
-  br i1 %or.cond3.i281, label %GetPixelDataSize.exit284, label %211
+207:                                              ; preds = %199
+  %208 = and i32 %196, -2
+  %or.cond3.i281 = icmp eq i32 %208, 14
+  br i1 %or.cond3.i281, label %GetPixelDataSize.exit284, label %209
 
-211:                                              ; preds = %209
-  %212 = and i32 %198, -8
-  %or.cond5.i282 = icmp eq i32 %212, 16
-  %spec.select.i283 = select i1 %or.cond5.i282, i32 16, i32 %206
+209:                                              ; preds = %207
+  %210 = and i32 %196, -8
+  %or.cond5.i282 = icmp eq i32 %210, 16
+  %spec.select.i283 = select i1 %or.cond5.i282, i32 16, i32 %204
   br label %GetPixelDataSize.exit284
 
-GetPixelDataSize.exit284:                         ; preds = %201, %209, %211
-  %.0.i280 = phi i32 [ %206, %201 ], [ 8, %209 ], [ %spec.select.i283, %211 ]
-  %213 = sext i32 %.0.i280 to i64
-  %214 = getelementptr inbounds i8, ptr %192, i64 %213
-  store ptr %214, ptr %10, align 8
-  %215 = sdiv i32 %194, 2
-  store i32 %215, ptr %193, align 8
-  %216 = sdiv i32 %196, 2
-  store i32 %216, ptr %195, align 4
-  %217 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %218 = load i32, ptr %217, align 8
-  %219 = add nsw i32 %218, -1
-  store i32 %219, ptr %217, align 8
+GetPixelDataSize.exit284:                         ; preds = %199, %207, %209
+  %.0.i280 = phi i32 [ %204, %199 ], [ 8, %207 ], [ %spec.select.i283, %209 ]
+  %211 = sext i32 %.0.i280 to i64
+  %212 = getelementptr inbounds i8, ptr %190, i64 %211
+  store ptr %212, ptr %10, align 8
+  %213 = sdiv i32 %192, 2
+  store i32 %213, ptr %191, align 8
+  %214 = sdiv i32 %194, 2
+  store i32 %214, ptr %193, align 4
+  %215 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %216 = load i32, ptr %215, align 8
+  %217 = add nsw i32 %216, -1
+  store i32 %217, ptr %215, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #54
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  %220 = load ptr, ptr %11, align 8
-  %221 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %222 = load i32, ptr %221, align 8
-  %223 = getelementptr inbounds nuw i8, ptr %11, i64 12
+  %218 = load ptr, ptr %11, align 8
+  %219 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %220 = load i32, ptr %219, align 8
+  %221 = getelementptr inbounds nuw i8, ptr %11, i64 12
+  %222 = load i32, ptr %221, align 4
+  %223 = getelementptr inbounds nuw i8, ptr %11, i64 20
   %224 = load i32, ptr %223, align 4
-  %225 = getelementptr inbounds nuw i8, ptr %11, i64 20
-  %226 = load i32, ptr %225, align 4
-  %switch.tableidx355 = add i32 %226, -1
-  %227 = icmp ult i32 %switch.tableidx355, 24
-  br i1 %227, label %switch.lookup354, label %229
+  %switch.tableidx355 = add i32 %224, -1
+  %225 = icmp ult i32 %switch.tableidx355, 24
+  br i1 %225, label %switch.lookup354, label %227
 
 switch.lookup354:                                 ; preds = %GetPixelDataSize.exit284
-  %228 = zext nneg i32 %switch.tableidx355 to i64
-  %switch.gep356 = getelementptr inbounds nuw [24 x double], ptr @switch.table.ImageDraw.32, i64 0, i64 %228
+  %226 = zext nneg i32 %switch.tableidx355 to i64
+  %switch.gep356 = getelementptr inbounds nuw [24 x double], ptr @switch.table.ImageDraw.32, i64 0, i64 %226
   %switch.load357 = load double, ptr %switch.gep356, align 8
-  br label %229
+  br label %227
 
-229:                                              ; preds = %switch.lookup354, %GetPixelDataSize.exit284
+227:                                              ; preds = %switch.lookup354, %GetPixelDataSize.exit284
   %.016.i285 = phi double [ 0.000000e+00, %GetPixelDataSize.exit284 ], [ %switch.load357, %switch.lookup354 ]
+  %228 = sitofp i32 %220 to double
+  %229 = fmul double %.016.i285, %228
   %230 = sitofp i32 %222 to double
-  %231 = fmul double %.016.i285, %230
-  %232 = sitofp i32 %224 to double
-  %233 = fmul double %231, %232
-  %234 = fptosi double %233 to i32
-  %235 = icmp slt i32 %222, 4
-  %236 = icmp slt i32 %224, 4
-  %or.cond.i286 = and i1 %235, %236
-  br i1 %or.cond.i286, label %237, label %GetPixelDataSize.exit291
+  %231 = fmul double %229, %230
+  %232 = fptosi double %231 to i32
+  %233 = icmp slt i32 %220, 4
+  %234 = icmp slt i32 %222, 4
+  %or.cond.i286 = and i1 %233, %234
+  br i1 %or.cond.i286, label %235, label %GetPixelDataSize.exit291
 
-237:                                              ; preds = %229
-  %238 = and i32 %226, -2
-  %or.cond3.i288 = icmp eq i32 %238, 14
-  br i1 %or.cond3.i288, label %GetPixelDataSize.exit291, label %239
+235:                                              ; preds = %227
+  %236 = and i32 %224, -2
+  %or.cond3.i288 = icmp eq i32 %236, 14
+  br i1 %or.cond3.i288, label %GetPixelDataSize.exit291, label %237
 
-239:                                              ; preds = %237
-  %240 = and i32 %226, -8
-  %or.cond5.i289 = icmp eq i32 %240, 16
-  %spec.select.i290 = select i1 %or.cond5.i289, i32 16, i32 %234
+237:                                              ; preds = %235
+  %238 = and i32 %224, -8
+  %or.cond5.i289 = icmp eq i32 %238, 16
+  %spec.select.i290 = select i1 %or.cond5.i289, i32 16, i32 %232
   br label %GetPixelDataSize.exit291
 
-GetPixelDataSize.exit291:                         ; preds = %229, %237, %239
-  %.0.i287 = phi i32 [ %234, %229 ], [ 8, %237 ], [ %spec.select.i290, %239 ]
-  %241 = sext i32 %.0.i287 to i64
-  %242 = getelementptr inbounds i8, ptr %220, i64 %241
-  store ptr %242, ptr %11, align 8
-  %243 = sdiv i32 %222, 2
-  store i32 %243, ptr %221, align 8
-  %244 = sdiv i32 %224, 2
-  store i32 %244, ptr %223, align 4
-  %245 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %246 = load i32, ptr %245, align 8
-  %247 = add nsw i32 %246, -1
-  store i32 %247, ptr %245, align 8
+GetPixelDataSize.exit291:                         ; preds = %227, %235, %237
+  %.0.i287 = phi i32 [ %232, %227 ], [ 8, %235 ], [ %spec.select.i290, %237 ]
+  %239 = sext i32 %.0.i287 to i64
+  %240 = getelementptr inbounds i8, ptr %218, i64 %239
+  store ptr %240, ptr %11, align 8
+  %241 = sdiv i32 %220, 2
+  store i32 %241, ptr %219, align 8
+  %242 = sdiv i32 %222, 2
+  store i32 %242, ptr %221, align 4
+  %243 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %244 = load i32, ptr %243, align 8
+  %245 = add nsw i32 %244, -1
+  store i32 %245, ptr %243, align 8
   %.sroa.822.8.vec.extract = extractelement <2 x float> %.sroa.21.8, i64 0
-  %248 = fmul float %.sroa.822.8.vec.extract, 5.000000e-01
-  %.sroa.822.8.vec.insert = insertelement <2 x float> poison, float %248, i64 0
-  %249 = fmul float %.sroa.21.12.vec.extract216, 5.000000e-01
-  %.sroa.822.12.vec.insert = insertelement <2 x float> %.sroa.822.8.vec.insert, float %249, i64 1
-  %250 = fmul float %.sroa.0136.0.vec.extract151, 5.000000e-01
-  %.sroa.018.0.vec.insert = insertelement <2 x float> poison, float %250, i64 0
-  %251 = fmul float %.sroa.0136.4.vec.extract166, 5.000000e-01
-  %.sroa.018.4.vec.insert = insertelement <2 x float> %.sroa.018.0.vec.insert, float %251, i64 1
-  %252 = fmul float %.sroa.16.8.vec.extract, 5.000000e-01
-  %.sroa.8.8.vec.insert = insertelement <2 x float> poison, float %252, i64 0
+  %246 = fmul float %.sroa.822.8.vec.extract, 5.000000e-01
+  %.sroa.822.8.vec.insert = insertelement <2 x float> poison, float %246, i64 0
+  %247 = fmul float %.sroa.21.12.vec.extract216, 5.000000e-01
+  %.sroa.822.12.vec.insert = insertelement <2 x float> %.sroa.822.8.vec.insert, float %247, i64 1
+  %248 = fmul float %.sroa.0136.0.vec.extract151, 5.000000e-01
+  %.sroa.018.0.vec.insert = insertelement <2 x float> poison, float %248, i64 0
+  %249 = fmul float %.sroa.0136.4.vec.extract166, 5.000000e-01
+  %.sroa.018.4.vec.insert = insertelement <2 x float> %.sroa.018.0.vec.insert, float %249, i64 1
+  %250 = fmul float %.sroa.16.8.vec.extract, 5.000000e-01
+  %.sroa.8.8.vec.insert = insertelement <2 x float> poison, float %250, i64 0
   %.sroa.8.12.vec.extract = extractelement <2 x float> %5, i64 1
-  %253 = fmul float %.sroa.8.12.vec.extract, 5.000000e-01
-  %.sroa.8.12.vec.insert = insertelement <2 x float> %.sroa.8.8.vec.insert, float %253, i64 1
-  %254 = fmul float %.sroa.0107.0.vec.extract119, 5.000000e-01
-  %.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %254, i64 0
-  %255 = fmul float %.sroa.0107.4.vec.extract130, 5.000000e-01
-  %.sroa.0.4.vec.insert = insertelement <2 x float> %.sroa.0.0.vec.insert, float %255, i64 1
+  %251 = fmul float %.sroa.8.12.vec.extract, 5.000000e-01
+  %.sroa.8.12.vec.insert = insertelement <2 x float> %.sroa.8.8.vec.insert, float %251, i64 1
+  %252 = fmul float %.sroa.0107.0.vec.extract119, 5.000000e-01
+  %.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %252, i64 0
+  %253 = fmul float %.sroa.0107.4.vec.extract130, 5.000000e-01
+  %.sroa.0.4.vec.insert = insertelement <2 x float> %.sroa.0.0.vec.insert, float %253, i64 1
   call void @ImageDraw(ptr noundef nonnull %10, ptr noundef nonnull byval(%struct.Image) align 8 %11, <2 x float> %.sroa.018.4.vec.insert, <2 x float> %.sroa.822.12.vec.insert, <2 x float> %.sroa.0.4.vec.insert, <2 x float> %.sroa.8.12.vec.insert, i32 %6)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #54
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #54
-  br label %256
+  br label %254
 
-256:                                              ; preds = %GetPixelDataSize.exit291, %184
+254:                                              ; preds = %GetPixelDataSize.exit291, %182
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #54
-  br label %257
+  br label %255
 
-257:                                              ; preds = %7, %14, %18, %256, %33
+255:                                              ; preds = %7, %14, %18, %254, %33
   ret void
 }
 
@@ -23824,114 +23812,108 @@ define void @ImageDrawRectangleRec(ptr noundef readonly captures(none) %0, <2 x 
   %.sroa.17.0 = shufflevector <2 x float> %sel, <2 x float> %2, <2 x i32> <i32 0, i32 3>
   %.sroa.034.4.vec.extract = extractelement <2 x float> %.sroa.034.0, i64 1
   %18 = fcmp olt float %.sroa.034.4.vec.extract, 0.000000e+00
-  br i1 %18, label %19, label %21
-
-19:                                               ; preds = %15
-  %20 = fadd <2 x float> %.sroa.034.0, %.sroa.17.0
-  %.sroa.17.12.vec.insert = shufflevector <2 x float> %.sroa.17.0, <2 x float> %20, <2 x i32> <i32 0, i32 3>
+  %19 = fadd <2 x float> %.sroa.034.0, %.sroa.17.0
+  %.sroa.17.12.vec.insert = shufflevector <2 x float> %.sroa.17.0, <2 x float> %19, <2 x i32> <i32 0, i32 3>
   %.sroa.034.4.vec.insert = insertelement <2 x float> %.sroa.034.0, float 0.000000e+00, i64 1
-  br label %21
-
-21:                                               ; preds = %19, %15
-  %.sroa.034.4.vec.extract52.pre-phi = phi float [ 0.000000e+00, %19 ], [ %.sroa.034.4.vec.extract, %15 ]
-  %.sroa.034.1 = phi <2 x float> [ %.sroa.034.4.vec.insert, %19 ], [ %.sroa.034.0, %15 ]
-  %.sroa.17.1 = phi <2 x float> [ %.sroa.17.12.vec.insert, %19 ], [ %.sroa.17.0, %15 ]
+  %.sroa.034.4.vec.extract52.pre-phi = select i1 %18, float 0.000000e+00, float %.sroa.034.4.vec.extract
+  %.sroa.034.1 = select i1 %18, <2 x float> %.sroa.034.4.vec.insert, <2 x float> %.sroa.034.0
+  %.sroa.17.1 = select i1 %18, <2 x float> %.sroa.17.12.vec.insert, <2 x float> %.sroa.17.0
   %.sroa.17.8.vec.extract63 = extractelement <2 x float> %.sroa.17.1, i64 0
-  %22 = fcmp olt float %.sroa.17.8.vec.extract63, 0.000000e+00
+  %20 = fcmp olt float %.sroa.17.8.vec.extract63, 0.000000e+00
   %.sroa.17.8.vec.insert65 = insertelement <2 x float> %.sroa.17.1, float 0.000000e+00, i64 0
-  %.sroa.17.2 = select i1 %22, <2 x float> %.sroa.17.8.vec.insert65, <2 x float> %.sroa.17.1
+  %.sroa.17.2 = select i1 %20, <2 x float> %.sroa.17.8.vec.insert65, <2 x float> %.sroa.17.1
   %.sroa.17.12.vec.extract78 = extractelement <2 x float> %.sroa.17.2, i64 1
-  %23 = fcmp olt float %.sroa.17.12.vec.extract78, 0.000000e+00
+  %21 = fcmp olt float %.sroa.17.12.vec.extract78, 0.000000e+00
   %.sroa.17.12.vec.insert80 = insertelement <2 x float> %.sroa.17.2, float 0.000000e+00, i64 1
-  %.sroa.17.3 = select i1 %23, <2 x float> %.sroa.17.12.vec.insert80, <2 x float> %.sroa.17.2
+  %.sroa.17.3 = select i1 %21, <2 x float> %.sroa.17.12.vec.insert80, <2 x float> %.sroa.17.2
   %.sroa.034.0.vec.extract39 = extractelement <2 x float> %.sroa.034.1, i64 0
-  %24 = fadd <2 x float> %.sroa.034.1, %.sroa.17.3
-  %25 = extractelement <2 x float> %24, i64 0
-  %26 = sitofp i32 %9 to float
-  %27 = fcmp ult float %25, %26
-  %28 = fsub float %26, %.sroa.034.0.vec.extract39
-  %.sroa.17.8.vec.insert69 = insertelement <2 x float> %.sroa.17.3, float %28, i64 0
-  %.sroa.17.4 = select i1 %27, <2 x float> %.sroa.17.3, <2 x float> %.sroa.17.8.vec.insert69
+  %22 = fadd <2 x float> %.sroa.034.1, %.sroa.17.3
+  %23 = extractelement <2 x float> %22, i64 0
+  %24 = sitofp i32 %9 to float
+  %25 = fcmp ult float %23, %24
+  %26 = fsub float %24, %.sroa.034.0.vec.extract39
+  %.sroa.17.8.vec.insert69 = insertelement <2 x float> %.sroa.17.3, float %26, i64 0
+  %.sroa.17.4 = select i1 %25, <2 x float> %.sroa.17.3, <2 x float> %.sroa.17.8.vec.insert69
   %.sroa.17.12.vec.extract82 = extractelement <2 x float> %.sroa.17.4, i64 1
-  %29 = fadd float %.sroa.034.4.vec.extract52.pre-phi, %.sroa.17.12.vec.extract82
-  %30 = sitofp i32 %13 to float
-  %31 = fcmp ult float %29, %30
-  %32 = fsub float %30, %.sroa.034.4.vec.extract52.pre-phi
-  %.sroa.17.12.vec.insert84 = insertelement <2 x float> %.sroa.17.4, float %32, i64 1
-  %.sroa.17.5 = select i1 %31, <2 x float> %.sroa.17.4, <2 x float> %.sroa.17.12.vec.insert84
-  %33 = fcmp ult float %.sroa.034.0.vec.extract39, %26
-  %34 = fcmp ult float %.sroa.034.4.vec.extract52.pre-phi, %30
-  %or.cond = and i1 %33, %34
-  br i1 %or.cond, label %35, label %.loopexit
+  %27 = fadd float %.sroa.034.4.vec.extract52.pre-phi, %.sroa.17.12.vec.extract82
+  %28 = sitofp i32 %13 to float
+  %29 = fcmp ult float %27, %28
+  %30 = fsub float %28, %.sroa.034.4.vec.extract52.pre-phi
+  %.sroa.17.12.vec.insert84 = insertelement <2 x float> %.sroa.17.4, float %30, i64 1
+  %.sroa.17.5 = select i1 %29, <2 x float> %.sroa.17.4, <2 x float> %.sroa.17.12.vec.insert84
+  %31 = fcmp ult float %.sroa.034.0.vec.extract39, %24
+  %32 = fcmp ult float %.sroa.034.4.vec.extract52.pre-phi, %28
+  %or.cond = and i1 %31, %32
+  br i1 %or.cond, label %33, label %.loopexit
 
-35:                                               ; preds = %21
+33:                                               ; preds = %15
   %.sroa.17.8.vec.extract71 = extractelement <2 x float> %.sroa.17.5, i64 0
-  %36 = fadd <2 x float> %.sroa.034.1, %.sroa.17.5
-  %37 = extractelement <2 x float> %36, i64 0
-  %38 = fcmp ugt float %37, 0.000000e+00
-  br i1 %38, label %39, label %.loopexit
+  %34 = fadd <2 x float> %.sroa.034.1, %.sroa.17.5
+  %35 = extractelement <2 x float> %34, i64 0
+  %36 = fcmp ugt float %35, 0.000000e+00
+  br i1 %36, label %37, label %.loopexit
 
-39:                                               ; preds = %35
+37:                                               ; preds = %33
   %.sroa.17.12.vec.extract86 = extractelement <2 x float> %.sroa.17.5, i64 1
-  %40 = fadd float %.sroa.034.4.vec.extract52.pre-phi, %.sroa.17.12.vec.extract86
-  %41 = fcmp ugt float %40, 0.000000e+00
-  br i1 %41, label %42, label %.loopexit
+  %38 = fadd float %.sroa.034.4.vec.extract52.pre-phi, %.sroa.17.12.vec.extract86
+  %39 = fcmp ugt float %38, 0.000000e+00
+  br i1 %39, label %40, label %.loopexit
 
-42:                                               ; preds = %39
-  %43 = fptosi float %.sroa.034.4.vec.extract52.pre-phi to i32
-  %44 = fptosi float %.sroa.034.0.vec.extract39 to i32
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %46 = load i32, ptr %45, align 4
-  %47 = tail call i32 @GetPixelDataSize(i32 noundef 1, i32 noundef 1, i32 noundef %46)
-  tail call void @ImageDrawPixel(ptr noundef nonnull %0, i32 noundef %44, i32 noundef %43, i32 %3)
-  %48 = load i32, ptr %8, align 8
-  %49 = mul nsw i32 %48, %43
-  %50 = add nsw i32 %49, %44
-  %51 = mul nsw i32 %50, %47
-  %52 = load ptr, ptr %0, align 8
-  %53 = sext i32 %51 to i64
-  %54 = getelementptr inbounds i8, ptr %52, i64 %53
-  %55 = fptosi float %.sroa.17.8.vec.extract71 to i32
-  %56 = icmp sgt i32 %55, 1
-  br i1 %56, label %.lr.ph, label %._crit_edge
+40:                                               ; preds = %37
+  %41 = fptosi float %.sroa.034.4.vec.extract52.pre-phi to i32
+  %42 = fptosi float %.sroa.034.0.vec.extract39 to i32
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %44 = load i32, ptr %43, align 4
+  %45 = tail call i32 @GetPixelDataSize(i32 noundef 1, i32 noundef 1, i32 noundef %44)
+  tail call void @ImageDrawPixel(ptr noundef nonnull %0, i32 noundef %42, i32 noundef %41, i32 %3)
+  %46 = load i32, ptr %8, align 8
+  %47 = mul nsw i32 %46, %41
+  %48 = add nsw i32 %47, %42
+  %49 = mul nsw i32 %48, %45
+  %50 = load ptr, ptr %0, align 8
+  %51 = sext i32 %49 to i64
+  %52 = getelementptr inbounds i8, ptr %50, i64 %51
+  %53 = fptosi float %.sroa.17.8.vec.extract71 to i32
+  %54 = icmp sgt i32 %53, 1
+  br i1 %54, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %42
-  %57 = sext i32 %47 to i64
-  %wide.trip.count = zext nneg i32 %55 to i64
-  br label %62
+.lr.ph:                                           ; preds = %40
+  %55 = sext i32 %45 to i64
+  %wide.trip.count = zext nneg i32 %53 to i64
+  br label %60
 
-._crit_edge:                                      ; preds = %62, %42
-  %58 = fptosi float %.sroa.17.12.vec.extract86 to i32
-  %59 = icmp sgt i32 %58, 1
-  br i1 %59, label %.lr.ph96, label %.loopexit
+._crit_edge:                                      ; preds = %60, %40
+  %56 = fptosi float %.sroa.17.12.vec.extract86 to i32
+  %57 = icmp sgt i32 %56, 1
+  br i1 %57, label %.lr.ph96, label %.loopexit
 
 .lr.ph96:                                         ; preds = %._crit_edge
-  %60 = mul nsw i32 %47, %55
-  %61 = sext i32 %60 to i64
-  br label %65
+  %58 = mul nsw i32 %45, %53
+  %59 = sext i32 %58 to i64
+  br label %63
 
-62:                                               ; preds = %.lr.ph, %62
-  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %62 ]
-  %63 = mul nsw i64 %indvars.iv, %57
-  %64 = getelementptr inbounds i8, ptr %54, i64 %63
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %64, ptr align 1 %54, i64 %57, i1 false)
+60:                                               ; preds = %.lr.ph, %60
+  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %60 ]
+  %61 = mul nsw i64 %indvars.iv, %55
+  %62 = getelementptr inbounds i8, ptr %52, i64 %61
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %62, ptr align 1 %52, i64 %55, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %62
+  br i1 %exitcond.not, label %._crit_edge, label %60
 
-65:                                               ; preds = %.lr.ph96, %65
-  %.094 = phi i32 [ 1, %.lr.ph96 ], [ %71, %65 ]
-  %66 = load i32, ptr %8, align 8
-  %67 = mul i32 %.094, %47
-  %68 = mul i32 %67, %66
-  %69 = sext i32 %68 to i64
-  %70 = getelementptr inbounds i8, ptr %54, i64 %69
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %70, ptr align 1 %54, i64 %61, i1 false)
-  %71 = add nuw nsw i32 %.094, 1
-  %exitcond98.not = icmp eq i32 %71, %58
-  br i1 %exitcond98.not, label %.loopexit, label %65
+63:                                               ; preds = %.lr.ph96, %63
+  %.094 = phi i32 [ 1, %.lr.ph96 ], [ %69, %63 ]
+  %64 = load i32, ptr %8, align 8
+  %65 = mul i32 %.094, %45
+  %66 = mul i32 %65, %64
+  %67 = sext i32 %66 to i64
+  %68 = getelementptr inbounds i8, ptr %52, i64 %67
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %68, ptr align 1 %52, i64 %59, i1 false)
+  %69 = add nuw nsw i32 %.094, 1
+  %exitcond98.not = icmp eq i32 %69, %56
+  br i1 %exitcond98.not, label %.loopexit, label %63
 
-.loopexit:                                        ; preds = %65, %._crit_edge, %35, %39, %21, %4, %7, %11
+.loopexit:                                        ; preds = %63, %._crit_edge, %33, %37, %15, %4, %7, %11
   ret void
 }
 
