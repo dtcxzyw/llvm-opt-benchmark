@@ -63,7 +63,7 @@ define hidden zeroext i1 @Wayland_GLES_SetSwapInterval(ptr noundef readonly capt
   br label %15
 
 7:                                                ; preds = %2
-  %.0 = tail call i32 @llvm.scmp.i32.i32(i32 %1, i32 0)
+  %spec.store.select = tail call i32 @llvm.scmp.i32.i32(i32 %1, i32 0)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i32 %.0, ptr %8, align 8
   %9 = load ptr, ptr %3, align 8

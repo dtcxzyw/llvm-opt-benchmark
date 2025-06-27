@@ -2374,19 +2374,19 @@ define internal fastcc void @exp_quant_coarse(ptr noundef %0, ptr noundef captur
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
   ret void
 
-._crit_edge.loopexit:                             ; preds = %103
+._crit_edge.loopexit:                             ; preds = %104
   %.pre73 = load i32, ptr %38, align 4, !tbaa !114
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
   %54 = phi i32 [ %.pre73, %._crit_edge.loopexit ], [ %46, %.preheader ]
-  %55 = phi i32 [ %110, %._crit_edge.loopexit ], [ %47, %.preheader ]
+  %55 = phi i32 [ %111, %._crit_edge.loopexit ], [ %47, %.preheader ]
   %indvars.iv.next71 = add nsw i64 %indvars.iv70, 1
   %56 = sext i32 %54 to i64
   %57 = icmp slt i64 %indvars.iv.next71, %56
   br i1 %57, label %.preheader, label %._crit_edge66, !llvm.loop !161
 
-58:                                               ; preds = %.lr.ph, %103
+58:                                               ; preds = %.lr.ph, %104
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %103 ]
   %59 = getelementptr inbounds nuw [2 x %struct.CeltBlock], ptr %42, i64 0, i64 %indvars.iv
   %60 = load i32, ptr %27, align 4, !tbaa !95
@@ -2435,52 +2435,52 @@ define internal fastcc void @exp_quant_coarse(ptr noundef %0, ptr noundef captur
   %90 = zext i8 %89 to i32
   %91 = shl nuw nsw i32 %90, 6
   call void @ff_opus_rc_enc_laplace(ptr noundef nonnull %0, ptr noundef nonnull %6, i32 noundef %88, i32 noundef %91) #9
-  br label %103
+  br label %104
 
 92:                                               ; preds = %58
   %93 = icmp sgt i32 %71, 1
-  br i1 %93, label %94, label %98
+  br i1 %93, label %94, label %99
 
 94:                                               ; preds = %92
-  %.0.i54 = call i32 @llvm.scmp.i32.i32(i32 %83, i32 0)
+  %95 = call i32 @llvm.scmp.i32.i32(i32 %83, i32 0)
   store i32 %.0.i54, ptr %6, align 4, !tbaa !113
-  %95 = shl nsw i32 %.0.i54, 1
+  %96 = shl nsw i32 %.0.i54, 1
   %isneg = icmp slt i32 %83, 0
-  %96 = select i1 %isneg, i32 3, i32 0
-  %97 = add nsw i32 %95, %96
-  call void @ff_opus_rc_enc_cdf(ptr noundef nonnull %0, i32 noundef %97, ptr noundef nonnull @ff_celt_model_tapset) #9
-  br label %103
+  %97 = select i1 %isneg, i32 3, i32 0
+  %98 = add nsw i32 %96, %97
+  call void @ff_opus_rc_enc_cdf(ptr noundef nonnull %0, i32 noundef %98, ptr noundef nonnull @ff_celt_model_tapset) #9
+  br label %104
 
-98:                                               ; preds = %92
-  %99 = icmp eq i32 %71, 1
-  br i1 %99, label %100, label %102
+99:                                               ; preds = %92
+  %100 = icmp eq i32 %71, 1
+  br i1 %100, label %101, label %103
 
-100:                                              ; preds = %98
+101:                                              ; preds = %99
   %.lobit = ashr i32 %83, 31
   store i32 %.lobit, ptr %6, align 4, !tbaa !113
-  %101 = lshr i32 %83, 31
-  call void @ff_opus_rc_enc_log(ptr noundef nonnull %0, i32 noundef %101, i32 noundef 1) #9
-  br label %103
+  %102 = lshr i32 %83, 31
+  call void @ff_opus_rc_enc_log(ptr noundef nonnull %0, i32 noundef %102, i32 noundef 1) #9
+  br label %104
 
-102:                                              ; preds = %98
+103:                                              ; preds = %99
   store i32 -1, ptr %6, align 4, !tbaa !113
-  br label %103
+  br label %104
 
-103:                                              ; preds = %94, %102, %100, %85
-  %104 = load i32, ptr %6, align 4, !tbaa !113
-  %105 = sitofp i32 %104 to float
-  %106 = fsub nsz float %105, %81
-  %107 = getelementptr inbounds nuw i8, ptr %59, i64 168
-  %108 = getelementptr inbounds [21 x float], ptr %107, i64 0, i64 %indvars.iv70
-  store float %106, ptr %108, align 4, !tbaa !56
-  %109 = call nsz float @llvm.fmuladd.f32(float %.047, float %105, float %78)
-  store float %109, ptr %77, align 4, !tbaa !56
+104:                                              ; preds = %94, %103, %101, %85
+  %105 = load i32, ptr %6, align 4, !tbaa !113
+  %106 = sitofp i32 %105 to float
+  %107 = fsub nsz float %106, %81
+  %108 = getelementptr inbounds nuw i8, ptr %59, i64 168
+  %109 = getelementptr inbounds [21 x float], ptr %108, i64 0, i64 %indvars.iv70
+  store float %107, ptr %109, align 4, !tbaa !56
+  %110 = call nsz float @llvm.fmuladd.f32(float %.047, float %106, float %78)
+  store float %110, ptr %77, align 4, !tbaa !56
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %110 = load i32, ptr %41, align 8, !tbaa !82
-  %111 = sext i32 %110 to i64
-  %112 = icmp slt i64 %indvars.iv.next, %111
-  br i1 %112, label %58, label %._crit_edge.loopexit, !llvm.loop !162
+  %111 = load i32, ptr %41, align 8, !tbaa !82
+  %112 = sext i32 %111 to i64
+  %113 = icmp slt i64 %indvars.iv.next, %112
+  br i1 %113, label %58, label %._crit_edge.loopexit, !llvm.loop !162
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)

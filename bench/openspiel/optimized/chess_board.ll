@@ -7409,29 +7409,29 @@ define void @_ZNK10open_spiel5chess10ChessBoard26BreachingMoveToCaptureMoveEPNS0
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 7
   br label %25
 
-25:                                               ; preds = %28, %9
+27:                                               ; preds = %30, %9
   %.pn = phi i8 [ %19, %9 ], [ %.sroa.6.0, %28 ]
   %.pn50 = phi i8 [ %13, %9 ], [ %.sroa.0.0, %28 ]
   %.sroa.0.0 = add i8 %.pn50, %21
   %.sroa.6.0 = add i8 %.pn, %22
-  %26 = icmp ne i8 %.sroa.0.0, %11
-  %27 = icmp ne i8 %.sroa.6.0, %16
-  %.not3.i = select i1 %26, i1 true, i1 %27
-  br i1 %.not3.i, label %28, label %36
+  %28 = icmp ne i8 %.sroa.0.0, %11
+  %29 = icmp ne i8 %.sroa.6.0, %16
+  %.not3.i = select i1 %28, i1 true, i1 %29
+  br i1 %.not3.i, label %30, label %38
 
-28:                                               ; preds = %25
-  %29 = sext i8 %.sroa.6.0 to i32
-  %30 = mul nsw i32 %23, %29
-  %31 = sext i8 %.sroa.0.0 to i32
-  %32 = add nsw i32 %30, %31
-  %33 = sext i32 %32 to i64
-  %.idx = shl nsw i64 %33, 1
-  %34 = getelementptr i8, ptr %24, i64 %.idx
-  %35 = load i8, ptr %34, align 1
-  %.not11 = icmp eq i8 %35, 0
-  br i1 %.not11, label %25, label %36, !llvm.loop !42
+30:                                               ; preds = %27
+  %31 = sext i8 %.sroa.6.0 to i32
+  %32 = mul nsw i32 %23, %31
+  %33 = sext i8 %.sroa.0.0 to i32
+  %34 = add nsw i32 %32, %33
+  %35 = sext i32 %34 to i64
+  %.idx = shl nsw i64 %35, 1
+  %36 = getelementptr i8, ptr %24, i64 %.idx
+  %37 = load i8, ptr %36, align 1
+  %.not11 = icmp eq i8 %37, 0
+  br i1 %.not11, label %27, label %38, !llvm.loop !42
 
-36:                                               ; preds = %28, %25
+38:                                               ; preds = %30, %27
   %.sroa.0.0.lcssa = phi i8 [ %.sroa.0.0, %28 ], [ %11, %25 ]
   %.sroa.6.0.lcssa = phi i8 [ %.sroa.6.0, %28 ], [ %16, %25 ]
   %.sroa.6.0.insert.ext20 = zext i8 %.sroa.6.0.lcssa to i16
