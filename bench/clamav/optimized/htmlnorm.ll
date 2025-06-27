@@ -5736,7 +5736,7 @@ define internal fastcc ptr @cli_readchunk(ptr noundef nonnull captures(none) %0)
   %6 = load i64, ptr %5, align 8, !tbaa !28
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8, !tbaa !51
-  %9 = sub nsw i64 %6, %8
+  %9 = sub i64 %6, %8
   %10 = tail call i64 @llvm.smin.i64(i64 %9, i64 8191)
   %11 = trunc i64 %10 to i32
   %.not150 = icmp eq i32 %11, 0
@@ -5759,6 +5759,7 @@ define internal fastcc ptr @cli_readchunk(ptr noundef nonnull captures(none) %0)
   %20 = tail call ptr %19(ptr noundef nonnull %15, i64 noundef %8, i64 noundef range(i64 1, 4294967296) %17, i32 noundef 0) #17
   %.pre = load i64, ptr %7, align 8, !tbaa !51
   %.pre8 = load i64, ptr %5, align 8, !tbaa !28
+  %.pre9 = sub i64 %.pre8, %.pre
   br label %24
 
 21:                                               ; preds = %13
@@ -5767,15 +5768,16 @@ define internal fastcc ptr @cli_readchunk(ptr noundef nonnull captures(none) %0)
   br label %24
 
 24:                                               ; preds = %21, %16
-  %25 = phi i64 [ %.pre8, %16 ], [ %6, %21 ]
-  %26 = phi i64 [ %.pre, %16 ], [ %8, %21 ]
-  %.0125 = phi ptr [ %20, %16 ], [ %23, %21 ]
+  %.pre-phi = phi i64 [ %9, %21 ], [ %.pre9, %16 ]
+  %25 = phi i64 [ %6, %21 ], [ %.pre8, %16 ]
+  %26 = phi i64 [ %8, %21 ], [ %.pre, %16 ]
+  %.0125 = phi ptr [ %23, %21 ], [ %20, %16 ]
   %27 = sub i64 0, %26
   %28 = getelementptr inbounds i8, ptr %.0125, i64 %27
   %29 = getelementptr inbounds i8, ptr %28, i64 %25
-  %30 = icmp ult ptr %.0125, %29
+  %30 = icmp sgt i64 %.pre-phi, 0
   %31 = icmp ne ptr %.0125, null
-  %or.cond = and i1 %31, %30
+  %or.cond = select i1 %30, i1 %31, i1 false
   br i1 %or.cond, label %33, label %32
 
 32:                                               ; preds = %24

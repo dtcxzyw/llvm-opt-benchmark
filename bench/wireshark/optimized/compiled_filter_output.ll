@@ -19,7 +19,6 @@ module asm ".previous"
 %class.QExplicitlySharedDataPointer = type { ptr }
 %"class.QMetaObject::Connection" = type { ptr }
 %class.QSize = type { i32, i32 }
-%struct.InterfaceFilter = type { %class.QString, %class.QString }
 %class.QVariant = type { %"struct.QVariant::Private" }
 %"struct.QVariant::Private" = type { %union.anon, i64 }
 %union.anon = type { ptr, [16 x i8] }
@@ -1014,8 +1013,8 @@ _ZN17QArrayDataPointerI15InterfaceFilterE5derefEv.exit.i: ; preds = %1
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr %struct.InterfaceFilter, ptr %6, i64 %8
   %.idx.i.i = mul i64 %8, 48
+  %9 = getelementptr i8, ptr %6, i64 %.idx.i.i
   %.not4.i.i.i.i.i = icmp eq i64 %.idx.i.i, 0
   br i1 %.not4.i.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsI15InterfaceFilterE10destroyAllEv.exit.i, label %.lr.ph.i.i.i.i.i
 
@@ -1148,8 +1147,8 @@ _ZN17QArrayDataPointerI15InterfaceFilterE5derefEv.exit.i.i: ; preds = %_ZN5QHash
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %37 = load i64, ptr %36, align 8
-  %38 = getelementptr %struct.InterfaceFilter, ptr %35, i64 %37
   %.idx.i.i.i = mul i64 %37, 48
+  %38 = getelementptr i8, ptr %35, i64 %.idx.i.i.i
   %.not4.i.i.i.i.i.i = icmp eq i64 %.idx.i.i.i, 0
   br i1 %.not4.i.i.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsI15InterfaceFilterE10destroyAllEv.exit.i.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -1626,16 +1625,17 @@ define linkonce_odr void @_ZN12QHashPrivate4DataINS_4NodeI7QStringS2_EEED2Ev(ptr
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %37, label %5
+  br i1 %4, label %36, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 -8
   %7 = load i64, ptr %6, align 8
+  %.idx = mul i64 %7, 144
   %8 = icmp eq i64 %7, 0
   br i1 %8, label %.loopexit, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %5
-  %9 = getelementptr inbounds %"struct.QHashPrivate::Span", ptr %3, i64 %7
+  %9 = getelementptr inbounds i8, ptr %3, i64 %.idx
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %_ZN12QHashPrivate4SpanINS_4NodeI7QStringS2_EEED2Ev.exit
@@ -1709,12 +1709,11 @@ _ZN12QHashPrivate4SpanINS_4NodeI7QStringS2_EEED2Ev.exit: ; preds = %.preheader, 
   br i1 %34, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %_ZN12QHashPrivate4SpanINS_4NodeI7QStringS2_EEED2Ev.exit, %5
-  %35 = mul i64 %7, 144
-  %36 = or disjoint i64 %35, 8
-  tail call void @_ZdaPvm(ptr noundef %6, i64 noundef %36) #19
-  br label %37
+  %35 = or disjoint i64 %.idx, 8
+  tail call void @_ZdaPvm(ptr noundef %6, i64 noundef %35) #19
+  br label %36
 
-37:                                               ; preds = %.loopexit, %1
+36:                                               ; preds = %.loopexit, %1
   ret void
 }
 

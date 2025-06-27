@@ -57266,13 +57266,14 @@ stbir__get_extents.exit:                          ; preds = %._crit_edge.thread.
 .loopexit.i:                                      ; preds = %.preheader313.i, %.preheader311.i, %.preheader309.i, %.preheader307.i, %.preheader305.i, %.preheader303.i, %.preheader301.i, %.preheader299.i, %.preheader297.i, %.preheader295.i, %.preheader293.i, %.preheader291.i, %._crit_edge.i381, %stbir__get_extents.exit
   %598 = getelementptr inbounds float, ptr %481, i64 %.pre356.i
   store float 8.888000e+03, ptr %598, align 4
-  %599 = sext i32 %479 to i64
-  %600 = getelementptr inbounds %struct.stbir__contributors, ptr %480, i64 %599
-  %.0271329.i = getelementptr inbounds i8, ptr %600, i64 -8
-  %.not283330.i = icmp ult ptr %.0271329.i, %480
+  %.not283330.i = icmp slt i32 %479, 1
   br i1 %.not283330.i, label %stbir__pack_coefficients.exit, label %.lr.ph335.i
 
 .lr.ph335.i:                                      ; preds = %.loopexit.i
+  %599 = zext nneg i32 %479 to i64
+  %.idx.i = shl nuw nsw i64 %599, 3
+  %600 = getelementptr inbounds nuw i8, ptr %480, i64 %.idx.i
+  %.0271329.i = getelementptr inbounds i8, ptr %600, i64 -8
   %601 = add nsw i32 %479, -1
   %602 = mul nsw i32 %484, %601
   %603 = sext i32 %602 to i64
@@ -57850,53 +57851,56 @@ define internal void @stbir__fancy_alpha_weight_4ch(ptr noundef %0, i32 noundef 
   %5 = sext i32 %4 to i64
   %6 = getelementptr inbounds float, ptr %0, i64 %5
   %7 = sext i32 %1 to i64
-  %8 = sub nsw i64 0, %7
-  %9 = getelementptr inbounds float, ptr %6, i64 %8
-  %.04043 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %.not44 = icmp ugt ptr %.04043, %6
-  br i1 %.not44, label %._crit_edge, label %.lr.ph
+  %.neg = mul nsw i64 %7, -4
+  %8 = getelementptr inbounds i8, ptr %6, i64 %.neg
+  %.not44.not = icmp eq i32 %1, 8
+  br i1 %.not44.not, label %.lr.ph.preheader, label %._crit_edge
 
-.lr.ph:                                           ; preds = %2, %.lr.ph
-  %.04047 = phi ptr [ %.040, %.lr.ph ], [ %.04043, %2 ]
-  %.046 = phi ptr [ %20, %.lr.ph ], [ %0, %2 ]
-  %.pn45 = phi ptr [ %.04047, %.lr.ph ], [ %9, %2 ]
+.lr.ph.preheader:                                 ; preds = %2
+  %.04043 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %.04047 = phi ptr [ %.040, %.lr.ph ], [ %.04043, %.lr.ph.preheader ]
+  %.046 = phi ptr [ %19, %.lr.ph ], [ %0, %.lr.ph.preheader ]
+  %.pn45 = phi ptr [ %.04047, %.lr.ph ], [ %8, %.lr.ph.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.04047) #54, !srcloc !349
-  %10 = load <4 x float>, ptr %.pn45, align 1
-  %11 = getelementptr inbounds nuw i8, ptr %.pn45, i64 16
-  %12 = load <4 x float>, ptr %11, align 1
-  %13 = shufflevector <4 x float> %10, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
-  %14 = shufflevector <4 x float> %12, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
-  %15 = fmul <4 x float> %10, %13
-  %16 = fmul <4 x float> %12, %14
-  store <4 x float> %10, ptr %.046, align 1
-  %17 = getelementptr inbounds nuw i8, ptr %.046, i64 16
-  store <4 x float> %15, ptr %17, align 1
-  %18 = getelementptr inbounds nuw i8, ptr %.046, i64 28
-  store <4 x float> %12, ptr %18, align 1
-  %19 = getelementptr inbounds nuw i8, ptr %.046, i64 44
-  store <4 x float> %16, ptr %19, align 1
-  %20 = getelementptr inbounds nuw i8, ptr %.046, i64 56
+  %9 = load <4 x float>, ptr %.pn45, align 1
+  %10 = getelementptr inbounds nuw i8, ptr %.pn45, i64 16
+  %11 = load <4 x float>, ptr %10, align 1
+  %12 = shufflevector <4 x float> %9, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
+  %13 = shufflevector <4 x float> %11, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
+  %14 = fmul <4 x float> %9, %12
+  %15 = fmul <4 x float> %11, %13
+  store <4 x float> %9, ptr %.046, align 1
+  %16 = getelementptr inbounds nuw i8, ptr %.046, i64 16
+  store <4 x float> %14, ptr %16, align 1
+  %17 = getelementptr inbounds nuw i8, ptr %.046, i64 28
+  store <4 x float> %11, ptr %17, align 1
+  %18 = getelementptr inbounds nuw i8, ptr %.046, i64 44
+  store <4 x float> %15, ptr %18, align 1
+  %19 = getelementptr inbounds nuw i8, ptr %.046, i64 56
   %.040 = getelementptr inbounds nuw i8, ptr %.04047, i64 32
   %.not = icmp ugt ptr %.040, %6
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !350
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
-  %.pn.lcssa = phi ptr [ %9, %2 ], [ %.04047, %.lr.ph ]
-  %.0.lcssa = phi ptr [ %0, %2 ], [ %20, %.lr.ph ]
-  %21 = icmp ult ptr %.pn.lcssa, %6
-  br i1 %21, label %22, label %27
+  %.pn.lcssa = phi ptr [ %8, %2 ], [ %.04047, %.lr.ph ]
+  %.0.lcssa = phi ptr [ %0, %2 ], [ %19, %.lr.ph ]
+  %20 = icmp ult ptr %.pn.lcssa, %6
+  br i1 %20, label %21, label %26
 
-22:                                               ; preds = %._crit_edge
+21:                                               ; preds = %._crit_edge
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.pn.lcssa) #54, !srcloc !351
-  %23 = load <4 x float>, ptr %.pn.lcssa, align 1
-  %24 = shufflevector <4 x float> %23, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
-  %25 = fmul <4 x float> %23, %24
-  store <4 x float> %23, ptr %.0.lcssa, align 1
-  %26 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 16
-  store <4 x float> %25, ptr %26, align 1
-  br label %27
+  %22 = load <4 x float>, ptr %.pn.lcssa, align 1
+  %23 = shufflevector <4 x float> %22, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
+  %24 = fmul <4 x float> %22, %23
+  store <4 x float> %22, ptr %.0.lcssa, align 1
+  %25 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 16
+  store <4 x float> %24, ptr %25, align 1
+  br label %26
 
-27:                                               ; preds = %22, %._crit_edge
+26:                                               ; preds = %21, %._crit_edge
   ret void
 }
 
@@ -57909,13 +57913,16 @@ define internal void @stbir__fancy_alpha_weight_2ch(ptr noundef %0, i32 noundef 
   %7 = sext i32 %1 to i64
   %8 = sub nsw i64 0, %7
   %9 = getelementptr inbounds float, ptr %6, i64 %8
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %.not = icmp ugt ptr %10, %6
-  br i1 %.not, label %.loopexit, label %.preheader
+  %.not.not = icmp eq i32 %1, 8
+  br i1 %.not.not, label %.preheader.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %2, %.preheader
-  %.150 = phi ptr [ %34, %.preheader ], [ %10, %2 ]
-  %.1 = phi ptr [ %35, %.preheader ], [ %0, %2 ]
+.preheader.preheader:                             ; preds = %2
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  br label %.preheader
+
+.preheader:                                       ; preds = %.preheader.preheader, %.preheader
+  %.150 = phi ptr [ %34, %.preheader ], [ %10, %.preheader.preheader ]
+  %.1 = phi ptr [ %35, %.preheader ], [ %0, %.preheader.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.150) #54, !srcloc !352
   %11 = getelementptr inbounds i8, ptr %.150, i64 -32
   %12 = load <4 x float>, ptr %11, align 1
@@ -57948,8 +57955,8 @@ define internal void @stbir__fancy_alpha_weight_2ch(ptr noundef %0, i32 noundef 
   store double %33, ptr %31, align 1
   %34 = getelementptr inbounds nuw i8, ptr %.150, i64 32
   %35 = getelementptr inbounds nuw i8, ptr %.1, i64 48
-  %.not55 = icmp ugt ptr %34, %6
-  br i1 %.not55, label %.loopexit, label %.preheader, !llvm.loop !353
+  %.not = icmp ugt ptr %34, %6
+  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !353
 
 .loopexit:                                        ; preds = %.preheader, %2
   %36 = phi ptr [ %9, %2 ], [ %.150, %.preheader ]
@@ -57958,20 +57965,20 @@ define internal void @stbir__fancy_alpha_weight_2ch(ptr noundef %0, i32 noundef 
   br i1 %37, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.loopexit, %.lr.ph
-  %.257 = phi ptr [ %44, %.lr.ph ], [ %.0, %.loopexit ]
-  %.25156 = phi ptr [ %45, %.lr.ph ], [ %36, %.loopexit ]
-  %38 = load float, ptr %.25156, align 4
-  %39 = getelementptr inbounds nuw i8, ptr %.25156, i64 4
+  %.256 = phi ptr [ %44, %.lr.ph ], [ %.0, %.loopexit ]
+  %.25155 = phi ptr [ %45, %.lr.ph ], [ %36, %.loopexit ]
+  %38 = load float, ptr %.25155, align 4
+  %39 = getelementptr inbounds nuw i8, ptr %.25155, i64 4
   %40 = load float, ptr %39, align 4
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.25156) #54, !srcloc !354
-  store float %38, ptr %.257, align 4
-  %41 = getelementptr inbounds nuw i8, ptr %.257, i64 4
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.25155) #54, !srcloc !354
+  store float %38, ptr %.256, align 4
+  %41 = getelementptr inbounds nuw i8, ptr %.256, i64 4
   store float %40, ptr %41, align 4
   %42 = fmul float %38, %40
-  %43 = getelementptr inbounds nuw i8, ptr %.257, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %.256, i64 8
   store float %42, ptr %43, align 4
-  %44 = getelementptr inbounds nuw i8, ptr %.257, i64 12
-  %45 = getelementptr inbounds nuw i8, ptr %.25156, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %.256, i64 12
+  %45 = getelementptr inbounds nuw i8, ptr %.25155, i64 8
   %46 = icmp ult ptr %45, %6
   br i1 %46, label %.lr.ph, label %._crit_edge, !llvm.loop !355
 
@@ -58223,9 +58230,10 @@ define internal void @stbir__simple_alpha_unweight_2ch(ptr noundef captures(addr
 ; Function Attrs: nounwind uwtable
 define internal void @stbir__simple_flip_3ch(ptr noundef %0, i32 noundef %1) #22 {
   %3 = sext i32 %1 to i64
-  %4 = getelementptr inbounds float, ptr %0, i64 %3
+  %.idx = shl nsw i64 %3, 2
+  %4 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %5 = getelementptr inbounds i8, ptr %4, i64 -96
-  %.not52 = icmp ugt ptr %0, %5
+  %.not52 = icmp slt i32 %1, 24
   br i1 %.not52, label %.preheader, label %.lr.ph
 
 .preheader:                                       ; preds = %.lr.ph, %2

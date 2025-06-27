@@ -1807,7 +1807,8 @@ define hidden void @_ZN12clap_builder7builder3ext10Extensions6update17h249c38ca6
   %5 = load ptr, ptr %4, align 8, !alias.scope !414, !noalias !417, !nonnull !18, !noundef !18
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 8, !alias.scope !414, !noalias !417, !noundef !18
-  %8 = getelementptr inbounds i128, ptr %5, i64 %7
+  %.idx = shl nsw i64 %7, 4
+  %8 = getelementptr inbounds i8, ptr %5, i64 %.idx
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load ptr, ptr %9, align 8, !alias.scope !414, !noalias !417, !nonnull !18, !noundef !18
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -2126,7 +2127,8 @@ define void @_ZN12clap_builder6parser7matches11arg_matches10ArgMatches19get_raw_
   %6 = load ptr, ptr %5, align 8, !alias.scope !495, !noalias !496, !nonnull !18, !noundef !18
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8, !alias.scope !495, !noalias !496, !noundef !18
-  %9 = getelementptr inbounds { ptr, i64 }, ptr %6, i64 %8
+  %.idx.i.i = shl nsw i64 %8, 4
+  %9 = getelementptr inbounds i8, ptr %6, i64 %.idx.i.i
   %10 = icmp eq i64 %8, 0
   br i1 %10, label %_ZN12clap_builder6parser5error12MatchesError6unwrap17hb05acbeb27fbd9a4E.exit, label %.lr.ph.i.i
 
@@ -2197,7 +2199,8 @@ define noundef zeroext i1 @_ZN12clap_builder6parser7matches11arg_matches10ArgMat
   %.val.i = load ptr, ptr %4, align 8, !alias.scope !532, !noalias !535, !nonnull !18, !noundef !18
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val1.i = load i64, ptr %5, align 8, !alias.scope !532, !noalias !535, !noundef !18
-  %6 = getelementptr inbounds { ptr, i64 }, ptr %.val.i, i64 %.val1.i
+  %.idx.i.i = shl nsw i64 %.val1.i, 4
+  %6 = getelementptr inbounds i8, ptr %.val.i, i64 %.idx.i.i
   %7 = icmp eq i64 %.val1.i, 0
   br i1 %7, label %_ZN12clap_builder6parser5error12MatchesError6unwrap17hca8465733d699f9fE.exit, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8fbeef26ed0ac208E.llvm.7008872586094235178.exit.i.i"
 
@@ -2251,7 +2254,8 @@ define noundef range(i8 0, 4) i8 @_ZN12clap_builder6parser7matches11arg_matches1
   %5 = load ptr, ptr %4, align 8, !alias.scope !559, !noalias !562, !nonnull !18, !noundef !18
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !alias.scope !559, !noalias !562, !noundef !18
-  %8 = getelementptr inbounds { ptr, i64 }, ptr %5, i64 %7
+  %.idx.i = shl nsw i64 %7, 4
+  %8 = getelementptr inbounds i8, ptr %5, i64 %.idx.i
   %9 = icmp eq i64 %7, 0
   br i1 %9, label %"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$3get17h337f81c16ac6ce05E.exit.thread", label %.lr.ph.i
 
@@ -2304,7 +2308,8 @@ define { i64, i64 } @_ZN12clap_builder6parser7matches11arg_matches10ArgMatches8i
   %5 = load ptr, ptr %4, align 8, !alias.scope !586, !noalias !589, !nonnull !18, !noundef !18
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !alias.scope !586, !noalias !589, !noundef !18
-  %8 = getelementptr inbounds { ptr, i64 }, ptr %5, i64 %7
+  %.idx.i = shl nsw i64 %7, 4
+  %8 = getelementptr inbounds i8, ptr %5, i64 %.idx.i
   %9 = icmp eq i64 %7, 0
   br i1 %9, label %"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$3get17h337f81c16ac6ce05E.exit.thread", label %.lr.ph.i
 
@@ -2369,7 +2374,8 @@ define void @_ZN12clap_builder6parser7matches11arg_matches10ArgMatches10indices_
   %6 = load ptr, ptr %5, align 8, !alias.scope !617, !noalias !620, !nonnull !18, !noundef !18
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8, !alias.scope !617, !noalias !620, !noundef !18
-  %9 = getelementptr inbounds { ptr, i64 }, ptr %6, i64 %8
+  %.idx.i = shl nsw i64 %8, 4
+  %9 = getelementptr inbounds i8, ptr %6, i64 %.idx.i
   %10 = icmp eq i64 %8, 0
   br i1 %10, label %.loopexit, label %.lr.ph.i
 
@@ -2500,7 +2506,8 @@ define void @_ZN12clap_builder6parser7matches11arg_matches10ArgMatches11try_get_
   %6 = load ptr, ptr %5, align 8, !alias.scope !653, !noalias !656, !nonnull !18, !noundef !18
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8, !alias.scope !653, !noalias !656, !noundef !18
-  %9 = getelementptr inbounds { ptr, i64 }, ptr %6, i64 %8
+  %.idx.i = shl nsw i64 %8, 4
+  %9 = getelementptr inbounds i8, ptr %6, i64 %.idx.i
   %10 = icmp eq i64 %8, 0
   br i1 %10, label %.loopexit, label %.lr.ph.i
 
@@ -2572,7 +2579,8 @@ define void @_ZN12clap_builder6parser7matches11arg_matches10ArgMatches23try_get_
   %6 = load ptr, ptr %5, align 8, !alias.scope !679, !noalias !682, !nonnull !18, !noundef !18
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8, !alias.scope !679, !noalias !682, !noundef !18
-  %9 = getelementptr inbounds { ptr, i64 }, ptr %6, i64 %8
+  %.idx.i = shl nsw i64 %8, 4
+  %9 = getelementptr inbounds i8, ptr %6, i64 %.idx.i
   %10 = icmp eq i64 %8, 0
   br i1 %10, label %.loopexit, label %.lr.ph.i
 
@@ -2636,7 +2644,8 @@ define void @_ZN12clap_builder6parser7matches11arg_matches10ArgMatches15try_cont
   %.val = load ptr, ptr %5, align 8, !alias.scope !705, !nonnull !18, !noundef !18
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val1 = load i64, ptr %6, align 8, !alias.scope !705, !noundef !18
-  %7 = getelementptr inbounds { ptr, i64 }, ptr %.val, i64 %.val1
+  %.idx.i = shl nsw i64 %.val1, 4
+  %7 = getelementptr inbounds i8, ptr %.val, i64 %.idx.i
   %8 = icmp eq i64 %.val1, 0
   br i1 %8, label %"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$12contains_key17hf3f9edf444bbee99E.exit", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8fbeef26ed0ac208E.llvm.7008872586094235178.exit.i"
 
@@ -3409,7 +3418,8 @@ define hidden noundef align 8 dereferenceable_or_null(552) ptr @_ZN12clap_builde
   %4 = load ptr, ptr %3, align 8, !nonnull !18, !noundef !18
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load i64, ptr %5, align 8, !noundef !18
-  %7 = getelementptr inbounds { { i32, [5 x i32] }, i64 }, ptr %4, i64 %6
+  %.idx = shl nsw i64 %6, 5
+  %7 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %8 = icmp eq i64 %6, 0
   br i1 %8, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h129976943f4a770fE.llvm.7008872586094235178.exit", label %.lr.ph.i
 
@@ -3527,7 +3537,8 @@ define hidden noundef align 8 dereferenceable_or_null(552) ptr @_ZN12clap_builde
   %4 = load ptr, ptr %3, align 8, !nonnull !18, !noundef !18
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load i64, ptr %5, align 8, !noundef !18
-  %7 = getelementptr inbounds { { i32, [5 x i32] }, i64 }, ptr %4, i64 %6
+  %.idx = shl nsw i64 %6, 5
+  %7 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %8 = icmp eq i64 %6, 0
   br i1 %8, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h96caf12e00dffbbdE.llvm.7008872586094235178.exit.thread", label %.lr.ph.i
 
@@ -3592,7 +3603,8 @@ define hidden noundef align 8 dereferenceable_or_null(552) ptr @_ZN12clap_builde
   %5 = load ptr, ptr %4, align 8, !nonnull !18, !noundef !18
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load i64, ptr %6, align 8, !noundef !18
-  %8 = getelementptr inbounds { { i32, [5 x i32] }, i64 }, ptr %5, i64 %7
+  %.idx = shl nsw i64 %7, 5
+  %8 = getelementptr inbounds i8, ptr %5, i64 %.idx
   %9 = icmp eq i64 %7, 0
   br i1 %9, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17hd3b4c9540098941fE.llvm.7008872586094235178.exit.thread", label %.lr.ph.i
 
@@ -4081,7 +4093,8 @@ define hidden void @"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$6inser
   %9 = load ptr, ptr %8, align 8, !nonnull !18, !noundef !18
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load i64, ptr %10, align 8, !noundef !18
-  %12 = getelementptr inbounds { ptr, i64 }, ptr %9, i64 %11
+  %.idx = shl nsw i64 %11, 4
+  %12 = getelementptr inbounds i8, ptr %9, i64 %.idx
   %13 = icmp eq i64 %11, 0
   br i1 %13, label %"_ZN67_$LT$clap_builder..util..id..Id$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7953693b163d6e92E.llvm.7008872586094235178.exit._crit_edge", label %.lr.ph
 
@@ -4773,7 +4786,8 @@ define hidden noundef zeroext i1 @"_ZN12clap_builder4util8flat_map20FlatMap$LT$K
   %4 = load ptr, ptr %3, align 8, !alias.scope !1319, !nonnull !18, !noundef !18
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !alias.scope !1319, !noundef !18
-  %7 = getelementptr inbounds { ptr, i64 }, ptr %4, i64 %6
+  %.idx = shl nsw i64 %6, 4
+  %7 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %.not = icmp eq i64 %6, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -4839,7 +4853,8 @@ define hidden void @"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$12remo
   %5 = load ptr, ptr %4, align 8, !nonnull !18, !noundef !18
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !18
-  %8 = getelementptr inbounds { ptr, i64 }, ptr %5, i64 %7
+  %.idx = shl nsw i64 %7, 4
+  %8 = getelementptr inbounds i8, ptr %5, i64 %.idx
   %9 = icmp eq i64 %7, 0
   br i1 %9, label %.loopexit, label %.lr.ph.i.i
 
@@ -4940,7 +4955,8 @@ define hidden void @"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$5entry
   %6 = load ptr, ptr %5, align 8, !nonnull !18, !noundef !18
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8, !noundef !18
-  %9 = getelementptr inbounds { ptr, i64 }, ptr %6, i64 %8
+  %.idx = shl nsw i64 %8, 4
+  %9 = getelementptr inbounds i8, ptr %6, i64 %.idx
   %10 = icmp eq i64 %8, 0
   br i1 %10, label %"_ZN67_$LT$clap_builder..util..id..Id$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7953693b163d6e92E.llvm.7008872586094235178.exit._crit_edge", label %.lr.ph
 
@@ -5036,7 +5052,8 @@ define hidden noundef align 8 dereferenceable_or_null(104) ptr @"_ZN12clap_build
   %5 = load ptr, ptr %4, align 8, !nonnull !18, !noundef !18
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !18
-  %8 = getelementptr inbounds { ptr, i64 }, ptr %5, i64 %7
+  %.idx = shl nsw i64 %7, 4
+  %8 = getelementptr inbounds i8, ptr %5, i64 %.idx
   %9 = icmp eq i64 %7, 0
   br i1 %9, label %.loopexit, label %.lr.ph
 
@@ -5131,7 +5148,8 @@ define hidden noundef align 8 dereferenceable_or_null(104) ptr @"_ZN12clap_build
   %4 = load ptr, ptr %3, align 8, !nonnull !18, !noundef !18
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !18
-  %7 = getelementptr inbounds { ptr, i64 }, ptr %4, i64 %6
+  %.idx = shl nsw i64 %6, 4
+  %7 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %8 = icmp eq i64 %6, 0
   br i1 %8, label %.loopexit, label %.lr.ph
 
@@ -5192,7 +5210,8 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN12clap_builde
   %4 = load ptr, ptr %3, align 8, !nonnull !18, !noundef !18
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !18
-  %7 = getelementptr inbounds { ptr, i64 }, ptr %4, i64 %6
+  %.idx = shl nsw i64 %6, 4
+  %7 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %8 = icmp eq i64 %6, 0
   br i1 %8, label %.loopexit, label %.lr.ph
 
@@ -5253,7 +5272,8 @@ define hidden noundef align 8 dereferenceable_or_null(104) ptr @"_ZN12clap_build
   %4 = load ptr, ptr %3, align 8, !nonnull !18, !noundef !18
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !18
-  %7 = getelementptr inbounds { ptr, i64 }, ptr %4, i64 %6
+  %.idx = shl nsw i64 %6, 4
+  %7 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %8 = icmp eq i64 %6, 0
   br i1 %8, label %.loopexit, label %.lr.ph
 
@@ -5702,7 +5722,8 @@ define hidden noundef zeroext i1 @"_ZN12clap_builder4util8flat_set16FlatSet$LT$T
   %5 = load ptr, ptr %4, align 8, !alias.scope !1556, !nonnull !18, !noundef !18
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !alias.scope !1556, !noundef !18
-  %8 = getelementptr inbounds { ptr, i64 }, ptr %5, i64 %7
+  %.idx = shl nsw i64 %7, 4
+  %8 = getelementptr inbounds i8, ptr %5, i64 %.idx
   %9 = icmp eq i64 %7, 0
   br i1 %9, label %"_ZN67_$LT$clap_builder..util..id..Id$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7953693b163d6e92E.llvm.7008872586094235178.exit._crit_edge", label %.lr.ph
 
@@ -5760,7 +5781,8 @@ define hidden noundef zeroext i1 @"_ZN12clap_builder4util8flat_set16FlatSet$LT$T
   %.val = load ptr, ptr %4, align 8, !nonnull !18, !noundef !18
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val2 = load i64, ptr %5, align 8, !noundef !18
-  %6 = getelementptr inbounds { ptr, i64 }, ptr %.val, i64 %.val2
+  %.idx = shl nsw i64 %.val2, 4
+  %6 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   %7 = icmp eq i64 %.val2, 0
   br i1 %7, label %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h8cb83b48d961d7f5E.exit._crit_edge", label %.lr.ph
 
@@ -5818,7 +5840,8 @@ define hidden noundef zeroext i1 @"_ZN12clap_builder4util8flat_set16FlatSet$LT$T
   %6 = load ptr, ptr %5, align 8, !alias.scope !1593, !nonnull !18, !noundef !18
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8, !alias.scope !1593, !noundef !18
-  %9 = getelementptr inbounds { { { { i64, ptr }, i64 } } }, ptr %6, i64 %8
+  %.idx = mul nsw i64 %8, 24
+  %9 = getelementptr inbounds i8, ptr %6, i64 %.idx
   %10 = icmp eq i64 %8, 0
   br i1 %10, label %"_ZN85_$LT$clap_builder..builder..styled_str..StyledStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h49ca00c833ee311fE.llvm.7008872586094235178.exit._crit_edge", label %.lr.ph
 
@@ -5922,7 +5945,8 @@ define hidden noundef zeroext i1 @"_ZN12clap_builder4util8flat_set16FlatSet$LT$T
   %4 = load ptr, ptr %3, align 8, !alias.scope !1628, !nonnull !18, !noundef !18
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !alias.scope !1628, !noundef !18
-  %7 = getelementptr inbounds { ptr, i64 }, ptr %4, i64 %6
+  %.idx = shl nsw i64 %6, 4
+  %7 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %.not = icmp eq i64 %6, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -5968,7 +5992,8 @@ define hidden void @"_ZN111_$LT$clap_builder..util..flat_set..FlatSet$LT$T$GT$$u
   %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !1654, !noalias !1657, !nonnull !18, !noundef !18
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !1654, !noalias !1657
-  %5 = getelementptr inbounds { ptr, i64 }, ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
+  %.idx = shl nsw i64 %.sroa.5.0.copyload.i, 4
+  %5 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   store ptr %.sroa.4.0.copyload.i, ptr %4, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -6032,7 +6057,8 @@ common.resume:                                    ; preds = %9, %12
   %23 = load i64, ptr %22, align 8, !noalias !1671, !noundef !18
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1674)
   %24 = load ptr, ptr %7, align 8, !alias.scope !1659, !noalias !1664, !nonnull !18, !noundef !18
-  %25 = getelementptr inbounds { ptr, i64 }, ptr %24, i64 %18
+  %.idx.i = shl nsw i64 %18, 4
+  %25 = getelementptr inbounds i8, ptr %24, i64 %.idx.i
   %26 = icmp eq i64 %18, 0
   br i1 %26, label %"_ZN67_$LT$clap_builder..util..id..Id$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7953693b163d6e92E.llvm.7008872586094235178.exit._crit_edge.i", label %.lr.ph.i
 
@@ -6154,7 +6180,8 @@ define hidden void @"_ZN117_$LT$clap_builder..util..flat_set..FlatSet$LT$T$GT$$u
   call void @llvm.experimental.noalias.scope.decl(metadata !1699)
   %.val.i = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !1699, !noalias !1702, !nonnull !18, !noundef !18
   %.val2.i = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !1699, !noalias !1702, !noundef !18
-  %14 = getelementptr inbounds { ptr, i64 }, ptr %.val.i, i64 %.val2.i
+  %.idx.i = shl nsw i64 %.val2.i, 4
+  %14 = getelementptr inbounds i8, ptr %.val.i, i64 %.idx.i
   %15 = icmp eq i64 %.val2.i, 0
   br i1 %15, label %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h8cb83b48d961d7f5E.exit._crit_edge.i", label %.lr.ph.i
 

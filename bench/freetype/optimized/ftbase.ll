@@ -5782,7 +5782,8 @@ define void @FT_Outline_Transform(ptr noundef readonly captures(address_is_null)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %10 = load i16, ptr %9, align 2, !tbaa !129
   %11 = zext i16 %10 to i64
-  %12 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %7, i64 %11
+  %.idx = shl nuw nsw i64 %11, 4
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
   %.not16 = icmp eq i16 %10, 0
   br i1 %.not16, label %.loopexit, label %FT_Vector_Transform.exit.lr.ph
 
@@ -8968,13 +8969,17 @@ define range(i32 0, 39) i32 @FT_Select_Charmap(ptr noundef captures(address_is_n
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %12 = load i32, ptr %11, align 8, !tbaa !336
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds ptr, ptr %9, i64 %13
-  %15 = getelementptr inbounds i8, ptr %14, i64 -8
-  %.not2427.i = icmp ult ptr %15, %9
-  br i1 %.not2427.i, label %.preheader.i.preheader, label %.lr.ph.i
+  %.idx.i = shl nsw i64 %13, 3
+  %14 = getelementptr inbounds i8, ptr %9, i64 %.idx.i
+  %.not2427.i = icmp slt i32 %12, 1
+  br i1 %.not2427.i, label %.preheader.i.preheader, label %.lr.ph.preheader.i
 
-.lr.ph.i:                                         ; preds = %10, %.thread.i
-  %16 = phi ptr [ %32, %.thread.i ], [ %15, %10 ]
+.lr.ph.preheader.i:                               ; preds = %10
+  %15 = getelementptr inbounds i8, ptr %14, i64 -8
+  br label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %.thread.i, %.lr.ph.preheader.i
+  %16 = phi ptr [ %32, %.thread.i ], [ %15, %.lr.ph.preheader.i ]
   %17 = load ptr, ptr %16, align 8, !tbaa !338
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load i32, ptr %18, align 8, !tbaa !379
@@ -9032,7 +9037,8 @@ define range(i32 0, 39) i32 @FT_Select_Charmap(ptr noundef captures(address_is_n
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %44 = load i32, ptr %43, align 8, !tbaa !336
   %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds ptr, ptr %41, i64 %45
+  %.idx = shl nsw i64 %45, 3
+  %46 = getelementptr inbounds i8, ptr %41, i64 %.idx
   %47 = icmp sgt i32 %44, 0
   br i1 %47, label %.lr.ph, label %find_unicode_charmap.exit
 
@@ -9078,7 +9084,8 @@ define range(i32 0, 39) i32 @FT_Set_Charmap(ptr noundef captures(address_is_null
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %11 = load i32, ptr %10, align 8, !tbaa !336
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds ptr, ptr %6, i64 %12
+  %.idx = shl nsw i64 %12, 3
+  %13 = getelementptr inbounds i8, ptr %6, i64 %.idx
   %14 = icmp sgt i32 %11, 0
   br i1 %14, label %.lr.ph, label %.loopexit
 
@@ -9827,7 +9834,8 @@ define i32 @FT_Face_GetCharVariantIndex(ptr noundef readonly captures(address_is
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %17 = load i32, ptr %16, align 8, !tbaa !336
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds ptr, ptr %14, i64 %18
+  %.idx.i = shl nsw i64 %18, 3
+  %19 = getelementptr inbounds i8, ptr %14, i64 %.idx.i
   %20 = icmp sgt i32 %17, 0
   br i1 %20, label %.lr.ph.i, label %find_variant_selector_charmap.exit.thread
 
@@ -9927,7 +9935,8 @@ define i32 @FT_Face_GetCharVariantIsDefault(ptr noundef readonly captures(addres
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %10 = load i32, ptr %9, align 8, !tbaa !336
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds ptr, ptr %7, i64 %11
+  %.idx.i = shl nsw i64 %11, 3
+  %12 = getelementptr inbounds i8, ptr %7, i64 %.idx.i
   %13 = icmp sgt i32 %10, 0
   br i1 %13, label %.lr.ph.i, label %find_variant_selector_charmap.exit.thread
 
@@ -10026,7 +10035,8 @@ define ptr @FT_Face_GetVariantSelectors(ptr noundef readonly captures(address_is
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %8 = load i32, ptr %7, align 8, !tbaa !336
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds ptr, ptr %5, i64 %9
+  %.idx.i = shl nsw i64 %9, 3
+  %10 = getelementptr inbounds i8, ptr %5, i64 %.idx.i
   %11 = icmp sgt i32 %8, 0
   br i1 %11, label %.lr.ph.i, label %find_variant_selector_charmap.exit.thread
 
@@ -10125,7 +10135,8 @@ define ptr @FT_Face_GetVariantsOfChar(ptr noundef readonly captures(address_is_n
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %9 = load i32, ptr %8, align 8, !tbaa !336
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds ptr, ptr %6, i64 %10
+  %.idx.i = shl nsw i64 %10, 3
+  %11 = getelementptr inbounds i8, ptr %6, i64 %.idx.i
   %12 = icmp sgt i32 %9, 0
   br i1 %12, label %.lr.ph.i, label %find_variant_selector_charmap.exit.thread
 
@@ -10225,7 +10236,8 @@ define ptr @FT_Face_GetCharsOfVariant(ptr noundef readonly captures(address_is_n
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %9 = load i32, ptr %8, align 8, !tbaa !336
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds ptr, ptr %6, i64 %10
+  %.idx.i = shl nsw i64 %10, 3
+  %11 = getelementptr inbounds i8, ptr %6, i64 %.idx.i
   %12 = icmp sgt i32 %9, 0
   br i1 %12, label %.lr.ph.i, label %find_variant_selector_charmap.exit.thread
 
@@ -18218,13 +18230,17 @@ select.unfold:                                    ; preds = %ft_mem_qalloc.exit.
   %65 = getelementptr inbounds nuw i8, ptr %.0.i17.i.ph, i64 72
   %66 = load i32, ptr %65, align 8, !tbaa !336
   %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds ptr, ptr %63, i64 %67
-  %69 = getelementptr inbounds i8, ptr %68, i64 -8
-  %.not2427.i = icmp ult ptr %69, %63
-  br i1 %.not2427.i, label %.preheader.i.preheader, label %.lr.ph.i
+  %.idx.i = shl nsw i64 %67, 3
+  %68 = getelementptr inbounds i8, ptr %63, i64 %.idx.i
+  %.not2427.i = icmp slt i32 %66, 1
+  br i1 %.not2427.i, label %.preheader.i.preheader, label %.lr.ph.preheader.i
 
-.lr.ph.i:                                         ; preds = %64, %.thread.i
-  %70 = phi ptr [ %86, %.thread.i ], [ %69, %64 ]
+.lr.ph.preheader.i:                               ; preds = %64
+  %69 = getelementptr inbounds i8, ptr %68, i64 -8
+  br label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %.thread.i, %.lr.ph.preheader.i
+  %70 = phi ptr [ %86, %.thread.i ], [ %69, %.lr.ph.preheader.i ]
   %71 = load ptr, ptr %70, align 8, !tbaa !338
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %73 = load i32, ptr %72, align 8, !tbaa !379

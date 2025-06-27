@@ -24,12 +24,12 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.ImVec1 = type { float }
 %struct.ImGuiTableColumn = type <{ i32, float, float, float, float, float, float, float, float, %struct.ImRect, i32, float, float, float, float, float, float, float, i16, i16, i16, i16, i16, i16, i16, i16, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 }>
 %struct.ImVec4 = type { float, float, float, float }
-%struct.ImGuiTableCellData = type { i32, i16 }
 %struct.MergeGroup = type { %struct.ImRect, i32, ptr }
 %struct.ImDrawChannel = type { %struct.ImVector.36, %struct.ImVector }
 %struct.ImVector.36 = type { i32, i32, ptr }
 %struct.ImVector = type { i32, i32, ptr }
 %struct.ImDrawCmd = type { %struct.ImVec4, ptr, i32, i32, i32, ptr, ptr }
+%struct.ImGuiTableCellData = type { i32, i16 }
 %struct.ImGuiTableHeaderData = type { i16, i32, i32, i32 }
 %struct.ImGuiSettingsHandler = type { ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.ImGuiStoragePair = type { i32, %union.anon }
@@ -6466,7 +6466,8 @@ _ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit: ; preds = %86, %88
   %208 = load i16, ptr %153, align 2, !tbaa !487
   %209 = load ptr, ptr %207, align 8, !tbaa !277
   %210 = sext i16 %208 to i64
-  %211 = getelementptr inbounds %struct.ImGuiTableCellData, ptr %209, i64 %210
+  %.idx = shl nsw i64 %210, 3
+  %211 = getelementptr inbounds i8, ptr %209, i64 %.idx
   %.not181208 = icmp slt i16 %208, 0
   br i1 %.not181208, label %.loopexit, label %.lr.ph
 

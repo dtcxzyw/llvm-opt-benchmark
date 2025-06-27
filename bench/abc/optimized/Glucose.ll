@@ -2527,7 +2527,8 @@ _ZN5Gluco3vecINS_6Solver7WatcherEE6shrinkEi.exit.thread: ; preds = %.lr.ph
   %166 = getelementptr inbounds nuw i8, ptr %130, i64 8
   %167 = load i32, ptr %166, align 8, !tbaa !118
   %168 = sext i32 %167 to i64
-  %169 = getelementptr inbounds %"struct.Gluco::Solver::Watcher", ptr %165, i64 %168
+  %.idx = shl nsw i64 %168, 3
+  %169 = getelementptr inbounds i8, ptr %165, i64 %.idx
   %.not132292 = icmp eq i32 %167, 0
   br i1 %.not132292, label %._crit_edge300, label %.lr.ph299
 

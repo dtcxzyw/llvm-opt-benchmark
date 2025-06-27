@@ -3977,7 +3977,8 @@ define hidden { i64, ptr } @_ZN3std2io22default_write_vectored17hf113047209c953b
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal { i64, ptr } @"_ZN3std2io5impls74_$LT$impl$u20$std..io..Write$u20$for$u20$alloc..vec..Vec$LT$u8$C$A$GT$$GT$14write_vectored17h7b4fa458f99376d2E"(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 captures(address) %1, i64 noundef %2) unnamed_addr #3 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds nuw { { { ptr, i64 }, {} } }, ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 4
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %5 = icmp eq i64 %2, 0
   br i1 %5, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h0fefea0aab1879d0E.exit.thread", label %.preheader
 
@@ -4028,7 +4029,8 @@ define internal noundef zeroext i1 @"_ZN3std2io5impls74_$LT$impl$u20$std..io..Wr
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal noalias noundef ptr @"_ZN3std2io5impls74_$LT$impl$u20$std..io..Write$u20$for$u20$alloc..vec..Vec$LT$u8$C$A$GT$$GT$18write_all_vectored17h8dbad85aa6f3fab7E"(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 captures(address) %1, i64 noundef %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !428)
-  %4 = getelementptr inbounds nuw { { { ptr, i64 }, {} } }, ptr %1, i64 %2
+  %.idx.i = shl nuw nsw i64 %2, 4
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx.i
   %5 = icmp eq i64 %2, 0
   br i1 %5, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h0fefea0aab1879d0E.exit.thread.i", label %.preheader.i
 
@@ -5036,7 +5038,8 @@ define hidden noundef zeroext i1 @"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..D
   %5 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @_ZN4core3fmt9Formatter10debug_list17h6d35c138e0d8eb64E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
-  %6 = getelementptr inbounds nuw { { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, i32, [1 x i32] }, ptr %0, i64 %1
+  %.idx = mul nuw nsw i64 %1, 80
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   %7 = icmp eq i64 %1, 0
   br i1 %7, label %_ZN4core3fmt8builders9DebugList7entries17hd4fec23f0e8d9930E.exit, label %.lr.ph.i
 
@@ -5062,7 +5065,8 @@ define hidden noundef zeroext i1 @"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..D
   %5 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @_ZN4core3fmt9Formatter10debug_list17h6d35c138e0d8eb64E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
-  %6 = getelementptr inbounds nuw { i32, [5 x i32] }, ptr %0, i64 %1
+  %.idx = mul nuw nsw i64 %1, 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   %7 = icmp eq i64 %1, 0
   br i1 %7, label %_ZN4core3fmt8builders9DebugList7entries17h7c3652dc2f177e4cE.exit, label %.lr.ph.i
 
@@ -6481,7 +6485,7 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$16trim_end_match
   br i1 %11, label %18, label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h002101dc8604bc6aE.exit17.i.i.i"
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h002101dc8604bc6aE.exit17.i.i.i": ; preds = %8
-  %12 = icmp ne ptr %0, %9
+  %12 = icmp ne i64 %5, 1
   tail call void @llvm.assume(i1 %12)
   %13 = getelementptr inbounds i8, ptr %6, i64 -2
   %14 = load i8, ptr %13, align 1, !noalias !677, !noundef !4
@@ -6495,7 +6499,7 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$16trim_end_match
   br label %"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h22789a1f2032e6e9E.exit.i"
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h002101dc8604bc6aE.exit19.i.i.i": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h002101dc8604bc6aE.exit17.i.i.i"
-  %20 = icmp ne ptr %0, %13
+  %20 = icmp ne i64 %5, 2
   tail call void @llvm.assume(i1 %20)
   %21 = getelementptr inbounds i8, ptr %6, i64 -3
   %22 = load i8, ptr %21, align 1, !noalias !677, !noundef !4
@@ -6514,7 +6518,7 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$16trim_end_match
   br label %"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h22789a1f2032e6e9E.exit.i"
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h002101dc8604bc6aE.exit21.i.i.i": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h002101dc8604bc6aE.exit19.i.i.i"
-  %31 = icmp ne ptr %0, %21
+  %31 = icmp ne i64 %5, 3
   tail call void @llvm.assume(i1 %31)
   %32 = getelementptr inbounds i8, ptr %6, i64 -4
   %33 = load i8, ptr %32, align 1, !noalias !677, !noundef !4

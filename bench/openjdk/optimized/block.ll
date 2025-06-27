@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %class.VectorSet = type { i32, ptr, i32, ptr }
 %class.Node_Stack = type { ptr, ptr, ptr, ptr }
-%"struct.Node_Stack::INode" = type { ptr, i32 }
 %class.OptoRegPair = type { i16, i16 }
 %class.GrowableArray.0 = type { %class.GrowableArrayWithAllocator.1, %class.GrowableArrayMetadata }
 %class.GrowableArrayWithAllocator.1 = type { %class.GrowableArrayView.2 }
@@ -1343,7 +1342,7 @@ _ZN10Node_StackC2Ei.exit:                         ; preds = %27, %29
   %.0.i.i.i = phi ptr [ %23, %27 ], [ %30, %29 ]
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %.0.i.i.i, ptr %31, align 8
-  %32 = getelementptr inbounds nuw %"struct.Node_Stack::INode", ptr %.0.i.i.i, i64 %13
+  %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 %19
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %32, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16

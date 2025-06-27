@@ -21703,16 +21703,17 @@ _ZNSt8_Rb_treeIN4Json5Value8CZStringESt4pairIKS2_S1_ESt10_Select1stIS5_ESt4lessI
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8, !tbaa !81
   %.not3 = icmp eq ptr %19, null
-  br i1 %.not3, label %32, label %20
+  br i1 %.not3, label %31, label %20
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds i8, ptr %19, i64 -8
   %22 = load i64, ptr %21, align 8
+  %.idx = shl i64 %22, 3
   %23 = icmp eq i64 %22, 0
   br i1 %23, label %.loopexit, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %20
-  %24 = getelementptr inbounds %"struct.Json::Value::CommentInfo", ptr %19, i64 %22
+  %24 = getelementptr inbounds i8, ptr %19, i64 %.idx
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %_ZN4Json5Value11CommentInfoD2Ev.exit
@@ -21731,12 +21732,11 @@ _ZN4Json5Value11CommentInfoD2Ev.exit:             ; preds = %.preheader, %28
   br i1 %29, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %_ZN4Json5Value11CommentInfoD2Ev.exit, %20
-  %30 = shl i64 %22, 3
-  %31 = add i64 %30, 8
-  tail call void @_ZdaPvm(ptr noundef nonnull %21, i64 noundef %31) #45
-  br label %32
+  %30 = add i64 %.idx, 8
+  tail call void @_ZdaPvm(ptr noundef nonnull %21, i64 noundef %30) #45
+  br label %31
 
-32:                                               ; preds = %.loopexit, %17
+31:                                               ; preds = %.loopexit, %17
   ret void
 }
 
@@ -42013,7 +42013,8 @@ _ZNSt11_Deque_baseIN4Json6Reader9ErrorInfoESaIS2_EE15_M_allocate_mapEm.exit: ; p
   %12 = sub nsw i64 %.sroa.speculated, %9
   %13 = lshr i64 %12, 1
   %14 = getelementptr inbounds nuw ptr, ptr %11, i64 %13
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %9
+  %.idx = shl nuw nsw i64 %9, 3
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt11_Deque_baseIN4Json6Reader9ErrorInfoESaIS2_EE15_M_allocate_mapEm.exit, %_ZNSt11_Deque_baseIN4Json6Reader9ErrorInfoESaIS2_EE16_M_allocate_nodeEv.exit.i
@@ -42160,7 +42161,8 @@ _ZNSt11_Deque_baseIN4Json9OurReader9ErrorInfoESaIS2_EE15_M_allocate_mapEm.exit: 
   %12 = sub nsw i64 %.sroa.speculated, %9
   %13 = lshr i64 %12, 1
   %14 = getelementptr inbounds nuw ptr, ptr %11, i64 %13
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %9
+  %.idx = shl nuw nsw i64 %9, 3
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt11_Deque_baseIN4Json9OurReader9ErrorInfoESaIS2_EE15_M_allocate_mapEm.exit, %_ZNSt11_Deque_baseIN4Json9OurReader9ErrorInfoESaIS2_EE16_M_allocate_nodeEv.exit.i
@@ -43210,7 +43212,8 @@ _ZNSt11_Deque_baseIPN4Json5ValueESaIS2_EE15_M_allocate_mapEm.exit:
   %8 = sub nsw i64 %.sroa.speculated, %3
   %9 = lshr i64 %8, 1
   %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %3
+  %.idx = shl nuw nsw i64 %3, 3
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt11_Deque_baseIPN4Json5ValueESaIS2_EE15_M_allocate_mapEm.exit, %_ZNSt11_Deque_baseIPN4Json5ValueESaIS2_EE16_M_allocate_nodeEv.exit.i

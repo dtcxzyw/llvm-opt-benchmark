@@ -1733,7 +1733,8 @@ _ZNSt12__shared_ptrIN7xgboost6common15ResourceHandlerELN9__gnu_cxx12_Lock_policy
 
 56:                                               ; preds = %_ZNSt12__shared_ptrIN7xgboost6common15ResourceHandlerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   %57 = load ptr, ptr %0, align 8, !tbaa !47
-  %58 = getelementptr inbounds nuw i64, ptr %57, i64 %54
+  %.idx.i.i = shl nuw nsw i64 %54, 3
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 %.idx.i.i
   %59 = load i64, ptr %2, align 8, !tbaa !29
   br label %.lr.ph.i.i.i.i
 
@@ -3839,7 +3840,7 @@ _ZNSt6vectorIPvSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i: ; preds = %3
           to label %.noexc27 unwind label %22
 
 .noexc27:                                         ; preds = %8
-  %11 = getelementptr ptr, ptr %10, i64 %2
+  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %2
   store ptr null, ptr %10, align 8, !tbaa !148
   %12 = icmp eq i64 %2, 1
   br i1 %12, label %_ZNSt6vectorIPvSaIS0_EEC2EmRKS1_.exit, label %_ZSt6fill_nIPPvmS0_ET_S2_T0_RKT1_.exit.loopexit.i.i.i.i.i
@@ -5166,7 +5167,8 @@ _ZNSt12__shared_ptrIN7xgboost6common15ResourceHandlerELN9__gnu_cxx12_Lock_policy
 
 56:                                               ; preds = %_ZNSt12__shared_ptrIN7xgboost6common15ResourceHandlerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   %57 = load ptr, ptr %0, align 8, !tbaa !110
-  %58 = getelementptr inbounds nuw i32, ptr %57, i64 %54
+  %.idx.i.i = shl nuw nsw i64 %54, 2
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 %.idx.i.i
   %59 = load i32, ptr %2, align 4, !tbaa !27
   br label %.lr.ph.i.i.i.i
 

@@ -4370,7 +4370,8 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17he32c21541f82e2d
   call fastcc void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h4333538354312dc8E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %5, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef 8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !504
   tail call void @llvm.experimental.noalias.scope.decl(metadata !511)
-  %13 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %.val.i, i64 %.val1.i
+  %.idx.i.i.i = mul nuw nsw i64 %.val1.i, 24
+  %13 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %.idx.i.i.i
   %14 = icmp eq i64 %.val1.i, 0
   br i1 %14, label %"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17heca2c3ed96ca7699E.exit", label %.lr.ph.i.i.i
 
@@ -5912,7 +5913,8 @@ define hidden noundef zeroext i1 @"_ZN4http6header3map18HeaderMap$LT$T$GT$15try_
   tail call void @_ZN4http6header3map6Danger6to_red17hf5616423aa0d0ebcE(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
   %25 = load ptr, ptr %24, align 8, !nonnull !10, !align !676, !noundef !10
   %26 = load i64, ptr %11, align 8, !noundef !10
-  %27 = getelementptr inbounds nuw { i16, i16 }, ptr %25, i64 %26
+  %.idx = shl nuw nsw i64 %26, 2
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 %.idx
   %28 = icmp eq i64 %26, 0
   br i1 %28, label %._crit_edge, label %.lr.ph
 
@@ -5936,7 +5938,8 @@ define hidden noundef zeroext i1 @"_ZN4http6header3map18HeaderMap$LT$T$GT$15try_
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %36 = load ptr, ptr %35, align 8, !alias.scope !699, !nonnull !10, !noundef !10
   %37 = load i64, ptr %6, align 8, !alias.scope !699, !noundef !10
-  %38 = getelementptr inbounds nuw { { i64, [2 x i64] }, { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, { { ptr, [3 x i64] } }, i16, [3 x i16] }, ptr %36, i64 %37
+  %.idx.i = mul nuw nsw i64 %37, 104
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 %.idx.i
   %39 = icmp eq i64 %37, 0
   br i1 %39, label %"_ZN4http6header3map18HeaderMap$LT$T$GT$7rebuild17ha18259ee45e99959E.exit", label %.lr.ph.i
 
@@ -6802,7 +6805,8 @@ define internal fastcc noundef zeroext i1 @"_ZN4http6header3map18HeaderMap$LT$T$
   %8 = load ptr, ptr %7, align 8, !nonnull !10, !align !676, !noundef !10
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %10 = load i64, ptr %9, align 8, !noundef !10
-  %11 = getelementptr inbounds nuw { i16, i16 }, ptr %8, i64 %10
+  %.idx = shl nuw nsw i64 %10, 2
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
   %12 = icmp eq i64 %10, 0
   br i1 %12, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb32651c4b9eac7d5E.exit.thread", label %.lr.ph
 
@@ -6955,7 +6959,8 @@ common.resume:                                    ; preds = %85, %88, %39
   br i1 %61, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb32651c4b9eac7d5E.exit.thread", label %16
 
 62:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17h9ae84e3ae7808076E.exit"
-  %63 = getelementptr inbounds nuw { i16, i16 }, ptr %47, i64 %.sroa.07.0
+  %.idx69 = shl nuw nsw i64 %.sroa.07.0, 2
+  %63 = getelementptr inbounds nuw i8, ptr %47, i64 %.idx69
   %64 = getelementptr inbounds nuw { i16, i16 }, ptr %47, i64 %48
   %65 = icmp samesign eq i64 %.sroa.07.0, %48
   br i1 %65, label %.preheader, label %.lr.ph63.preheader
@@ -6990,10 +6995,10 @@ common.resume:                                    ; preds = %85, %88, %39
   %73 = zext i16 %72 to i64
   br label %74
 
-74:                                               ; preds = %.backedge72, %71
-  %.sroa.01.0.i = phi i64 [ %73, %71 ], [ %.sroa.01.0.i.be, %.backedge72 ]
+74:                                               ; preds = %.backedge73, %71
+  %.sroa.01.0.i = phi i64 [ %73, %71 ], [ %.sroa.01.0.i.be, %.backedge73 ]
   %75 = icmp ult i64 %.sroa.01.0.i, %46
-  br i1 %75, label %76, label %.backedge72
+  br i1 %75, label %76, label %.backedge73
 
 76:                                               ; preds = %74
   %77 = getelementptr inbounds nuw { i16, i16 }, ptr %44, i64 %.sroa.01.0.i
@@ -7003,9 +7008,9 @@ common.resume:                                    ; preds = %85, %88, %39
 
 79:                                               ; preds = %76
   %80 = add nuw i64 %.sroa.01.0.i, 1
-  br label %.backedge72
+  br label %.backedge73
 
-.backedge72:                                      ; preds = %79, %74
+.backedge73:                                      ; preds = %79, %74
   %.sroa.01.0.i.be = phi i64 [ %80, %79 ], [ 0, %74 ]
   br label %74
 
@@ -15809,7 +15814,8 @@ define noundef ptr @_ZN11foundations8security25enable_syscall_sandboxing17ha44e1
   %26 = load ptr, ptr %25, align 8, !nonnull !10, !noundef !10
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %28 = load i64, ptr %27, align 8, !noundef !10
-  %29 = getelementptr inbounds nuw { i16, [15 x i16] }, ptr %26, i64 %28
+  %.idx = shl nuw nsw i64 %28, 5
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 %.idx
   %30 = icmp eq i64 %28, 0
   br i1 %30, label %._crit_edge, label %.lr.ph
 
@@ -20120,7 +20126,8 @@ common.resume:                                    ; preds = %.thread149, %125, %
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15), !noalias !2399
   %274 = icmp ne ptr %.val, null
   call void @llvm.assume(i1 %274)
-  %275 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %.val, i64 %.val12
+  %.idx.i = mul nuw nsw i64 %.val12, 24
+  %275 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx.i
   %276 = icmp eq i64 %.val12, 0
   br i1 %276, label %.thread.i, label %.lr.ph.i78
 

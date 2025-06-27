@@ -1526,7 +1526,8 @@ define hidden noundef align 8 dereferenceable_or_null(56) ptr @"_ZN4core6option1
   %6 = load ptr, ptr %5, align 8, !alias.scope !420, !nonnull !4, !noundef !4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %8 = load i64, ptr %7, align 8, !alias.scope !420, !noundef !4
-  %9 = getelementptr inbounds { i64, [6 x i64] }, ptr %6, i64 %8
+  %.idx.i.i = mul nsw i64 %8, 56
+  %9 = getelementptr inbounds i8, ptr %6, i64 %.idx.i.i
   %10 = icmp eq i64 %8, 0
   br i1 %10, label %"_ZN6rustls4msgs9handshake18ClientHelloPayload21quic_params_extension28_$u7b$$u7b$closure$u7d$$u7d$17h76514ea261d131afE.llvm.15934541666227088301.exit", label %.lr.ph.i.i.i
 
@@ -3318,7 +3319,8 @@ define noundef zeroext i1 @"_ZN112_$LT$$u5b$rustls..msgs..handshake..ServerName$
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define void @"_ZN112_$LT$$u5b$rustls..msgs..handshake..ServerName$u5d$$u20$as$u20$rustls..msgs..handshake..ConvertServerNameList$GT$15single_hostname17he76c0ed169ca56dbE"(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 captures(address) %1, i64 noundef %2) unnamed_addr #15 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds { { i64, [3 x i64] }, { i8, i8 }, [6 x i8] }, ptr %1, i64 %2
+  %.idx = mul nsw i64 %2, 40
+  %4 = getelementptr inbounds i8, ptr %1, i64 %.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !758)
   %5 = icmp eq i64 %2, 0
   br i1 %5, label %._crit_edge.i, label %.lr.ph.i
@@ -6907,7 +6909,8 @@ define hidden noundef align 8 dereferenceable_or_null(56) ptr @_ZN6rustls4msgs9h
   %5 = load ptr, ptr %4, align 8, !nonnull !4, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load i64, ptr %6, align 8, !noundef !4
-  %8 = getelementptr inbounds { i64, [6 x i64] }, ptr %5, i64 %7
+  %.idx = mul nsw i64 %7, 56
+  %8 = getelementptr inbounds i8, ptr %5, i64 %.idx
   %9 = icmp eq i64 %7, 0
   br i1 %9, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h8f00ca1e4cfdbaa9E.llvm.15934541666227088301.exit", label %.lr.ph.i
 
@@ -7121,7 +7124,8 @@ define hidden { ptr, i64 } @_ZN6rustls4msgs9handshake18ClientHelloPayload13sni_e
   %3 = load ptr, ptr %2, align 8, !alias.scope !1618, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load i64, ptr %4, align 8, !alias.scope !1618, !noundef !4
-  %6 = getelementptr inbounds { i64, [6 x i64] }, ptr %3, i64 %5
+  %.idx.i = mul nsw i64 %5, 56
+  %6 = getelementptr inbounds i8, ptr %3, i64 %.idx.i
   %7 = icmp eq i64 %5, 0
   br i1 %7, label %_ZN6rustls4msgs9handshake18ClientHelloPayload14find_extension17hffb7ef2b44ea7fedE.exit.thread, label %.lr.ph.i.i
 
@@ -7189,7 +7193,8 @@ define { ptr, i64 } @_ZN6rustls4msgs9handshake18ClientHelloPayload17sigalgs_exte
   %3 = load ptr, ptr %2, align 8, !alias.scope !1631, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load i64, ptr %4, align 8, !alias.scope !1631, !noundef !4
-  %6 = getelementptr inbounds { i64, [6 x i64] }, ptr %3, i64 %5
+  %.idx.i = mul nsw i64 %5, 56
+  %6 = getelementptr inbounds i8, ptr %3, i64 %.idx.i
   %7 = icmp eq i64 %5, 0
   br i1 %7, label %_ZN6rustls4msgs9handshake18ClientHelloPayload14find_extension17hffb7ef2b44ea7fedE.exit.thread, label %.lr.ph.i.i
 
@@ -7257,7 +7262,8 @@ define hidden { ptr, i64 } @_ZN6rustls4msgs9handshake18ClientHelloPayload21named
   %3 = load ptr, ptr %2, align 8, !alias.scope !1644, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load i64, ptr %4, align 8, !alias.scope !1644, !noundef !4
-  %6 = getelementptr inbounds { i64, [6 x i64] }, ptr %3, i64 %5
+  %.idx.i = mul nsw i64 %5, 56
+  %6 = getelementptr inbounds i8, ptr %3, i64 %.idx.i
   %7 = icmp eq i64 %5, 0
   br i1 %7, label %_ZN6rustls4msgs9handshake18ClientHelloPayload14find_extension17hffb7ef2b44ea7fedE.exit.thread, label %.lr.ph.i.i
 
@@ -7325,7 +7331,8 @@ define hidden { ptr, i64 } @_ZN6rustls4msgs9handshake18ClientHelloPayload18ecpoi
   %3 = load ptr, ptr %2, align 8, !alias.scope !1657, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load i64, ptr %4, align 8, !alias.scope !1657, !noundef !4
-  %6 = getelementptr inbounds { i64, [6 x i64] }, ptr %3, i64 %5
+  %.idx.i = mul nsw i64 %5, 56
+  %6 = getelementptr inbounds i8, ptr %3, i64 %.idx.i
   %7 = icmp eq i64 %5, 0
   br i1 %7, label %_ZN6rustls4msgs9handshake18ClientHelloPayload14find_extension17hffb7ef2b44ea7fedE.exit.thread, label %.lr.ph.i.i
 
@@ -7393,7 +7400,8 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @_ZN6rustls4msgs9h
   %3 = load ptr, ptr %2, align 8, !alias.scope !1670, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load i64, ptr %4, align 8, !alias.scope !1670, !noundef !4
-  %6 = getelementptr inbounds { i64, [6 x i64] }, ptr %3, i64 %5
+  %.idx.i = mul nsw i64 %5, 56
+  %6 = getelementptr inbounds i8, ptr %3, i64 %.idx.i
   %7 = icmp eq i64 %5, 0
   br i1 %7, label %_ZN6rustls4msgs9handshake18ClientHelloPayload14find_extension17hffb7ef2b44ea7fedE.exit.thread, label %.lr.ph.i.i
 
@@ -7452,7 +7460,8 @@ define hidden void @_ZN6rustls4msgs9handshake18ClientHelloPayload21quic_params_e
   %4 = load ptr, ptr %3, align 8, !alias.scope !1683, !nonnull !4, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %6 = load i64, ptr %5, align 8, !alias.scope !1683, !noundef !4
-  %7 = getelementptr inbounds { i64, [6 x i64] }, ptr %4, i64 %6
+  %.idx.i = mul nsw i64 %6, 56
+  %7 = getelementptr inbounds i8, ptr %4, i64 %.idx.i
   %8 = icmp eq i64 %6, 0
   br i1 %8, label %.thread, label %.lr.ph.i.i
 
@@ -7565,7 +7574,8 @@ define hidden noundef align 8 dereferenceable_or_null(56) ptr @"_ZN6rustls4msgs9
   %3 = load ptr, ptr %2, align 8, !alias.scope !1718, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load i64, ptr %4, align 8, !alias.scope !1718, !noundef !4
-  %6 = getelementptr inbounds { i64, [6 x i64] }, ptr %3, i64 %5
+  %.idx.i = mul nsw i64 %5, 56
+  %6 = getelementptr inbounds i8, ptr %3, i64 %.idx.i
   %7 = icmp eq i64 %5, 0
   br i1 %7, label %_ZN6rustls4msgs9handshake18ClientHelloPayload14find_extension17hffb7ef2b44ea7fedE.exit, label %.lr.ph.i.i
 
@@ -7618,7 +7628,8 @@ define hidden noundef align 8 dereferenceable_or_null(56) ptr @_ZN6rustls4msgs9h
   %3 = load ptr, ptr %2, align 8, !alias.scope !1731, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load i64, ptr %4, align 8, !alias.scope !1731, !noundef !4
-  %6 = getelementptr inbounds { i64, [6 x i64] }, ptr %3, i64 %5
+  %.idx.i = mul nsw i64 %5, 56
+  %6 = getelementptr inbounds i8, ptr %3, i64 %.idx.i
   %7 = icmp eq i64 %5, 0
   br i1 %7, label %_ZN6rustls4msgs9handshake18ClientHelloPayload14find_extension17hffb7ef2b44ea7fedE.exit, label %.lr.ph.i.i
 
@@ -7671,7 +7682,8 @@ define hidden { ptr, i64 } @_ZN6rustls4msgs9handshake18ClientHelloPayload18versi
   %3 = load ptr, ptr %2, align 8, !alias.scope !1744, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load i64, ptr %4, align 8, !alias.scope !1744, !noundef !4
-  %6 = getelementptr inbounds { i64, [6 x i64] }, ptr %3, i64 %5
+  %.idx.i = mul nsw i64 %5, 56
+  %6 = getelementptr inbounds i8, ptr %3, i64 %.idx.i
   %7 = icmp eq i64 %5, 0
   br i1 %7, label %_ZN6rustls4msgs9handshake18ClientHelloPayload14find_extension17hffb7ef2b44ea7fedE.exit.thread, label %.lr.ph.i.i
 
@@ -7739,7 +7751,8 @@ define { ptr, i64 } @_ZN6rustls4msgs9handshake18ClientHelloPayload18keyshare_ext
   %3 = load ptr, ptr %2, align 8, !alias.scope !1757, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load i64, ptr %4, align 8, !alias.scope !1757, !noundef !4
-  %6 = getelementptr inbounds { i64, [6 x i64] }, ptr %3, i64 %5
+  %.idx.i = mul nsw i64 %5, 56
+  %6 = getelementptr inbounds i8, ptr %3, i64 %.idx.i
   %7 = icmp eq i64 %5, 0
   br i1 %7, label %_ZN6rustls4msgs9handshake18ClientHelloPayload14find_extension17hffb7ef2b44ea7fedE.exit.thread, label %.lr.ph.i.i
 
@@ -7815,7 +7828,8 @@ define hidden noundef zeroext i1 @_ZN6rustls4msgs9handshake18ClientHelloPayload3
   %10 = load ptr, ptr %9, align 8, !alias.scope !1776, !nonnull !4, !noundef !4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %12 = load i64, ptr %11, align 8, !alias.scope !1776, !noundef !4
-  %13 = getelementptr inbounds { i64, [6 x i64] }, ptr %10, i64 %12
+  %.idx.i.i = mul nsw i64 %12, 56
+  %13 = getelementptr inbounds i8, ptr %10, i64 %.idx.i.i
   %14 = icmp eq i64 %12, 0
   br i1 %14, label %_ZN6rustls4msgs9handshake18ClientHelloPayload18keyshare_extension17h4f7b3ce890f2c444E.exit.thread, label %.lr.ph.i.i.i
 
@@ -7870,7 +7884,8 @@ _ZN6rustls4msgs9handshake15ClientExtension8ext_type17h9e184a34ef0da354E.exit.i.i
   store ptr null, ptr %8, align 8
   %.sroa.55.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 0, ptr %.sroa.55.0..sroa_idx, align 8
-  %27 = getelementptr inbounds { { { { i64, ptr }, i64 } }, { i16, i16 }, [2 x i16] }, ptr %24, i64 %26
+  %.idx = shl nsw i64 %26, 5
+  %27 = getelementptr inbounds i8, ptr %24, i64 %.idx
   %28 = icmp eq i64 %26, 0
   br i1 %28, label %._crit_edge, label %.lr.ph
 
@@ -8002,7 +8017,8 @@ define hidden noundef align 8 dereferenceable_or_null(48) ptr @_ZN6rustls4msgs9h
   %3 = load ptr, ptr %2, align 8, !alias.scope !1807, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load i64, ptr %4, align 8, !alias.scope !1807, !noundef !4
-  %6 = getelementptr inbounds { i64, [6 x i64] }, ptr %3, i64 %5
+  %.idx.i = mul nsw i64 %5, 56
+  %6 = getelementptr inbounds i8, ptr %3, i64 %.idx.i
   %7 = icmp eq i64 %5, 0
   br i1 %7, label %_ZN6rustls4msgs9handshake18ClientHelloPayload14find_extension17hffb7ef2b44ea7fedE.exit.thread, label %.lr.ph.i.i
 
@@ -8151,7 +8167,8 @@ define hidden { ptr, i64 } @_ZN6rustls4msgs9handshake18ClientHelloPayload9psk_mo
   %3 = load ptr, ptr %2, align 8, !alias.scope !1830, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load i64, ptr %4, align 8, !alias.scope !1830, !noundef !4
-  %6 = getelementptr inbounds { i64, [6 x i64] }, ptr %3, i64 %5
+  %.idx.i = mul nsw i64 %5, 56
+  %6 = getelementptr inbounds i8, ptr %3, i64 %.idx.i
   %7 = icmp eq i64 %5, 0
   br i1 %7, label %_ZN6rustls4msgs9handshake18ClientHelloPayload14find_extension17hffb7ef2b44ea7fedE.exit.thread, label %.lr.ph.i.i
 
@@ -8221,7 +8238,8 @@ define hidden noundef zeroext i1 @_ZN6rustls4msgs9handshake18ClientHelloPayload1
   %6 = load ptr, ptr %5, align 8, !alias.scope !1849, !nonnull !4, !noundef !4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = load i64, ptr %7, align 8, !alias.scope !1849, !noundef !4
-  %9 = getelementptr inbounds { i64, [6 x i64] }, ptr %6, i64 %8
+  %.idx.i.i = mul nsw i64 %8, 56
+  %9 = getelementptr inbounds i8, ptr %6, i64 %.idx.i.i
   %10 = icmp eq i64 %8, 0
   br i1 %10, label %_ZN6rustls4msgs9handshake18ClientHelloPayload9psk_modes17h35f27fb1e0a458a3E.exit.thread, label %.lr.ph.i.i.i
 
@@ -8330,7 +8348,8 @@ define hidden noundef zeroext i1 @_ZN6rustls4msgs9handshake18ClientHelloPayload1
   %3 = load ptr, ptr %2, align 8, !alias.scope !1876, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load i64, ptr %4, align 8, !alias.scope !1876, !noundef !4
-  %6 = getelementptr inbounds { i64, [6 x i64] }, ptr %3, i64 %5
+  %.idx.i = mul nsw i64 %5, 56
+  %6 = getelementptr inbounds i8, ptr %3, i64 %.idx.i
   %7 = icmp eq i64 %5, 0
   br i1 %7, label %_ZN6rustls4msgs9handshake18ClientHelloPayload14find_extension17hffb7ef2b44ea7fedE.exit, label %.lr.ph.i.i
 
@@ -8383,7 +8402,8 @@ define hidden noundef zeroext i1 @_ZN6rustls4msgs9handshake18ClientHelloPayload2
   %3 = load ptr, ptr %2, align 8, !alias.scope !1889, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load i64, ptr %4, align 8, !alias.scope !1889, !noundef !4
-  %6 = getelementptr inbounds { i64, [6 x i64] }, ptr %3, i64 %5
+  %.idx.i = mul nsw i64 %5, 56
+  %6 = getelementptr inbounds i8, ptr %3, i64 %.idx.i
   %7 = icmp eq i64 %5, 0
   br i1 %7, label %_ZN6rustls4msgs9handshake18ClientHelloPayload14find_extension17hffb7ef2b44ea7fedE.exit, label %.lr.ph.i.i
 
@@ -9561,7 +9581,8 @@ define hidden noundef zeroext i1 @_ZN6rustls4msgs9handshake17HelloRetryRequest21
   %3 = load ptr, ptr %2, align 8, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !4
-  %6 = getelementptr inbounds { i64, [3 x i64] }, ptr %3, i64 %5
+  %.idx = shl nsw i64 %5, 5
+  %6 = getelementptr inbounds i8, ptr %3, i64 %.idx
   %.not.i = icmp eq i64 %5, 0
   br i1 %.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h160e186cedd00a2eE.llvm.15934541666227088301.exit", label %.lr.ph.i
 
@@ -9616,7 +9637,8 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @_ZN6rustls4msgs9h
   %5 = load ptr, ptr %4, align 8, !nonnull !4, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !4
-  %8 = getelementptr inbounds { i64, [3 x i64] }, ptr %5, i64 %7
+  %.idx = shl nsw i64 %7, 5
+  %8 = getelementptr inbounds i8, ptr %5, i64 %.idx
   %9 = icmp eq i64 %7, 0
   br i1 %9, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h2be9d92027cab171E.llvm.15934541666227088301.exit", label %.lr.ph.i
 
@@ -9678,7 +9700,8 @@ define { i16, i16 } @_ZN6rustls4msgs9handshake17HelloRetryRequest25requested_key
   %3 = load ptr, ptr %2, align 8, !alias.scope !2274, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !2274, !noundef !4
-  %6 = getelementptr inbounds { i64, [3 x i64] }, ptr %3, i64 %5
+  %.idx.i = shl nsw i64 %5, 5
+  %6 = getelementptr inbounds i8, ptr %3, i64 %.idx.i
   %7 = icmp eq i64 %5, 0
   br i1 %7, label %_ZN6rustls4msgs9handshake17HelloRetryRequest14find_extension17h0f83e09d0038118eE.llvm.15934541666227088301.exit.thread, label %.lr.ph.i.i
 
@@ -9734,7 +9757,8 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @_ZN6rustls4msgs9h
   %3 = load ptr, ptr %2, align 8, !alias.scope !2284, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !2284, !noundef !4
-  %6 = getelementptr inbounds { i64, [3 x i64] }, ptr %3, i64 %5
+  %.idx.i = shl nsw i64 %5, 5
+  %6 = getelementptr inbounds i8, ptr %3, i64 %.idx.i
   %7 = icmp eq i64 %5, 0
   br i1 %7, label %_ZN6rustls4msgs9handshake17HelloRetryRequest14find_extension17h0f83e09d0038118eE.llvm.15934541666227088301.exit.thread, label %.lr.ph.i.i
 
@@ -9782,7 +9806,8 @@ define hidden { i16, i16 } @_ZN6rustls4msgs9handshake17HelloRetryRequest18suppor
   %3 = load ptr, ptr %2, align 8, !alias.scope !2294, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !2294, !noundef !4
-  %6 = getelementptr inbounds { i64, [3 x i64] }, ptr %3, i64 %5
+  %.idx.i = shl nsw i64 %5, 5
+  %6 = getelementptr inbounds i8, ptr %3, i64 %.idx.i
   %7 = icmp eq i64 %5, 0
   br i1 %7, label %_ZN6rustls4msgs9handshake17HelloRetryRequest14find_extension17h0f83e09d0038118eE.llvm.15934541666227088301.exit.thread, label %.lr.ph.i.i
 
@@ -11531,7 +11556,8 @@ define hidden noundef zeroext i1 @_ZN6rustls4msgs9handshake23CertificatePayloadT
   %3 = load ptr, ptr %2, align 8, !alias.scope !2796, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i64, ptr %4, align 8, !alias.scope !2796, !noundef !4
-  %6 = getelementptr inbounds { { { i64, ptr }, i64 }, { { { i64, [2 x i64] } } } }, ptr %3, i64 %5
+  %.idx = mul nsw i64 %5, 48
+  %6 = getelementptr inbounds i8, ptr %3, i64 %.idx
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
 
@@ -14456,7 +14482,8 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @_ZN6rustls4msgs9h
   %5 = load ptr, ptr %4, align 8, !nonnull !4, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load i64, ptr %6, align 8, !noundef !4
-  %8 = getelementptr inbounds { i64, [3 x i64] }, ptr %5, i64 %7
+  %.idx = shl nsw i64 %7, 5
+  %8 = getelementptr inbounds i8, ptr %5, i64 %.idx
   %9 = icmp eq i64 %7, 0
   br i1 %9, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17hb71662abb3b26b58E.llvm.15934541666227088301.exit", label %.lr.ph.i
 
@@ -14514,7 +14541,8 @@ define hidden { ptr, i64 } @_ZN6rustls4msgs9handshake30CertificateRequestPayload
   %3 = load ptr, ptr %2, align 8, !alias.scope !3572, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i64, ptr %4, align 8, !alias.scope !3572, !noundef !4
-  %6 = getelementptr inbounds { i64, [3 x i64] }, ptr %3, i64 %5
+  %.idx.i = shl nsw i64 %5, 5
+  %6 = getelementptr inbounds i8, ptr %3, i64 %.idx.i
   %7 = icmp eq i64 %5, 0
   br i1 %7, label %_ZN6rustls4msgs9handshake30CertificateRequestPayloadTls1314find_extension17ha9f9eaff20709257E.llvm.15934541666227088301.exit.thread, label %.lr.ph.i.i
 
@@ -14569,7 +14597,8 @@ define hidden { ptr, i64 } @_ZN6rustls4msgs9handshake30CertificateRequestPayload
   %3 = load ptr, ptr %2, align 8, !alias.scope !3582, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i64, ptr %4, align 8, !alias.scope !3582, !noundef !4
-  %6 = getelementptr inbounds { i64, [3 x i64] }, ptr %3, i64 %5
+  %.idx.i = shl nsw i64 %5, 5
+  %6 = getelementptr inbounds i8, ptr %3, i64 %.idx.i
   %7 = icmp eq i64 %5, 0
   br i1 %7, label %_ZN6rustls4msgs9handshake30CertificateRequestPayloadTls1314find_extension17ha9f9eaff20709257E.llvm.15934541666227088301.exit.thread, label %.lr.ph.i.i
 
@@ -15138,7 +15167,8 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @_ZN6rustls4msgs9h
   %5 = load ptr, ptr %4, align 8, !nonnull !4, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load i64, ptr %6, align 8, !noundef !4
-  %8 = getelementptr inbounds { i64, [3 x i64] }, ptr %5, i64 %7
+  %.idx = shl nsw i64 %7, 5
+  %8 = getelementptr inbounds i8, ptr %5, i64 %.idx
   %9 = icmp eq i64 %7, 0
   br i1 %9, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17ha26cd6ae29de2f50E.llvm.15934541666227088301.exit", label %.lr.ph.i
 
@@ -15194,7 +15224,8 @@ define hidden { i32, i32 } @_ZN6rustls4msgs9handshake28NewSessionTicketPayloadTl
   %3 = load ptr, ptr %2, align 8, !alias.scope !3789, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load i64, ptr %4, align 8, !alias.scope !3789, !noundef !4
-  %6 = getelementptr inbounds { i64, [3 x i64] }, ptr %3, i64 %5
+  %.idx.i = shl nsw i64 %5, 5
+  %6 = getelementptr inbounds i8, ptr %3, i64 %.idx.i
   %7 = icmp eq i64 %5, 0
   br i1 %7, label %_ZN6rustls4msgs9handshake28NewSessionTicketPayloadTls1314find_extension17h8a4589a9bbd9e015E.llvm.15934541666227088301.exit.thread, label %.lr.ph.i.split.us.i
 

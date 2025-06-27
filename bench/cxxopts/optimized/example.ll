@@ -13640,13 +13640,13 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %1, %9,
 define linkonce_odr dso_local void @_ZN7cxxopts7Options16parse_positionalESt16initializer_listINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE(ptr noundef nonnull align 8 dereferenceable(320) %0, ptr %1, i64 %2) local_unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.std::__detail::_AllocNode", align 8
   %5 = alloca %"class.std::vector", align 8
-  %6 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %1, i64 %2
-  %.idx.i = shl nuw nsw i64 %2, 5
+  %.idx7.i = shl nuw nsw i64 %2, 5
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx7.i
   %.not.i.i.i = icmp eq i64 %2, 0
   br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.i.i, label %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i.i.i
 
 _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i.i.i: ; preds = %3
-  %7 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx.i) #32
+  %7 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx7.i) #32
   br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.i.i
 
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.i.i: ; preds = %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i.i.i, %3
@@ -13661,11 +13661,11 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   br i1 %.not.i.i5.i, label %.body, label %12
 
 12:                                               ; preds = %10
-  tail call void @_ZdlPvm(ptr noundef nonnull %8, i64 noundef %.idx.i) #33
+  tail call void @_ZdlPvm(ptr noundef nonnull %8, i64 noundef %.idx7.i) #33
   br label %.body
 
 13:                                               ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.i.i
-  %14 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx.i
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx7.i
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %16 = load ptr, ptr %15, align 8, !tbaa !249
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -22093,7 +22093,8 @@ _ZNSt11_Deque_baseINSt8__detail9_StateSeqINSt7__cxx1112regex_traitsIcEEEESaIS5_E
   %9 = sub nsw i64 %.sroa.speculated, %4
   %10 = lshr i64 %9, 1
   %11 = getelementptr inbounds nuw ptr, ptr %8, i64 %10
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %4
+  %.idx = shl nuw nsw i64 %4, 3
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt11_Deque_baseINSt8__detail9_StateSeqINSt7__cxx1112regex_traitsIcEEEESaIS5_EE15_M_allocate_mapEm.exit, %_ZNSt11_Deque_baseINSt8__detail9_StateSeqINSt7__cxx1112regex_traitsIcEEEESaIS5_EE16_M_allocate_nodeEv.exit.i
@@ -44334,7 +44335,8 @@ _ZNSt11_Deque_baseIlSaIlEE15_M_allocate_mapEm.exit:
   %8 = sub nsw i64 %.sroa.speculated, %3
   %9 = lshr i64 %8, 1
   %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %3
+  %.idx = shl nuw nsw i64 %3, 3
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt11_Deque_baseIlSaIlEE15_M_allocate_mapEm.exit, %_ZNSt11_Deque_baseIlSaIlEE16_M_allocate_nodeEv.exit.i
@@ -45839,7 +45841,8 @@ _ZSt24__uninitialized_fill_n_aIPNSt7__cxx119sub_matchIPKcEEmS4_S4_ET_S6_T0_RKT1_
   br i1 %40, label %_ZSt6fill_nIPNSt7__cxx119sub_matchIPKcEEmS4_ET_S6_T0_RKT1_.exit, label %.lr.ph.i.i.i.i14
 
 .lr.ph.i.i.i.i14:                                 ; preds = %39
-  %41 = getelementptr inbounds nuw %"class.std::__cxx11::sub_match.262", ptr %6, i64 %1
+  %.idx.i.i = mul nuw nsw i64 %1, 24
+  %41 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i.i
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.pre.i.i.i.i15 = load ptr, ptr %2, align 8, !tbaa !1019
@@ -50031,7 +50034,8 @@ _ZSt24__uninitialized_fill_n_aIPNSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iter
   br i1 %42, label %_ZSt6fill_nIPNSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNS0_12basic_stringIcSt11char_traitsIcESaIcEEEEEEEmSC_ET_SE_T0_RKT1_.exit, label %.lr.ph.i.i.i.i14
 
 .lr.ph.i.i.i.i14:                                 ; preds = %41
-  %43 = getelementptr inbounds nuw %"class.std::__cxx11::sub_match", ptr %6, i64 %1
+  %.idx.i.i = mul nuw nsw i64 %1, 24
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i.i
   %44 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.pre.i.i.i.i15 = load i8, ptr %45, align 8, !tbaa !1097, !range !219

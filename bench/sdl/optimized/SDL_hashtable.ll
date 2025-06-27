@@ -55,7 +55,8 @@ CalculateHashBucketsFromEstimate.exit:            ; preds = %6, %8
   %26 = load i32, ptr %25, align 8
   %27 = add i32 %26, 1
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds nuw %struct.SDL_HashItem, ptr %24, i64 %28
+  %.idx.i.i = mul nuw nsw i64 %28, 24
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 %.idx.i.i
   %.not18.i.i = icmp eq i32 %27, 0
   br i1 %.not18.i.i, label %SDL_DestroyHashTable.exit, label %.lr.ph.i.i
 
@@ -108,7 +109,7 @@ SDL_DestroyHashTable.exit:                        ; preds = %17, %20, %destroy_a
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %49 = load ptr, ptr %48, align 8
   %.not.i.i26 = icmp eq ptr %49, null
-  br i1 %.not.i.i26, label %destroy_all.exit.i31, label %50
+  br i1 %.not.i.i26, label %destroy_all.exit.i32, label %50
 
 50:                                               ; preds = %47
   %51 = getelementptr inbounds nuw i8, ptr %13, i64 40
@@ -117,41 +118,42 @@ SDL_DestroyHashTable.exit:                        ; preds = %17, %20, %destroy_a
   %54 = load i32, ptr %53, align 8
   %55 = add i32 %54, 1
   %56 = zext i32 %55 to i64
-  %57 = getelementptr inbounds nuw %struct.SDL_HashItem, ptr null, i64 %56
-  %.not18.i.i27 = icmp eq i32 %55, 0
-  br i1 %.not18.i.i27, label %destroy_all.exit.i31, label %.lr.ph.i.i28
+  %.idx.i.i27 = mul nuw nsw i64 %56, 24
+  %57 = getelementptr inbounds nuw i8, ptr null, i64 %.idx.i.i27
+  %.not18.i.i28 = icmp eq i32 %55, 0
+  br i1 %.not18.i.i28, label %destroy_all.exit.i32, label %.lr.ph.i.i29
 
-.lr.ph.i.i28:                                     ; preds = %50, %65
-  %.017.i.i29 = phi ptr [ %66, %65 ], [ null, %50 ]
-  %58 = getelementptr inbounds nuw i8, ptr %.017.i.i29, i64 20
+.lr.ph.i.i29:                                     ; preds = %50, %65
+  %.017.i.i30 = phi ptr [ %66, %65 ], [ null, %50 ]
+  %58 = getelementptr inbounds nuw i8, ptr %.017.i.i30, i64 20
   %59 = load i32, ptr %58, align 4
-  %.not16.i.i30 = icmp sgt i32 %59, -1
-  br i1 %.not16.i.i30, label %65, label %60
+  %.not16.i.i31 = icmp sgt i32 %59, -1
+  br i1 %.not16.i.i31, label %65, label %60
 
-60:                                               ; preds = %.lr.ph.i.i28
+60:                                               ; preds = %.lr.ph.i.i29
   %61 = and i32 %59, 2147483647
   store i32 %61, ptr %58, align 4
-  %62 = load ptr, ptr %.017.i.i29, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %.017.i.i29, i64 8
+  %62 = load ptr, ptr %.017.i.i30, align 8
+  %63 = getelementptr inbounds nuw i8, ptr %.017.i.i30, i64 8
   %64 = load ptr, ptr %63, align 8
   tail call void %49(ptr noundef %52, ptr noundef %62, ptr noundef %64) #10
   br label %65
 
-65:                                               ; preds = %60, %.lr.ph.i.i28
-  %66 = getelementptr inbounds nuw i8, ptr %.017.i.i29, i64 24
+65:                                               ; preds = %60, %.lr.ph.i.i29
+  %66 = getelementptr inbounds nuw i8, ptr %.017.i.i30, i64 24
   %67 = icmp ult ptr %66, %57
-  br i1 %67, label %.lr.ph.i.i28, label %destroy_all.exit.i31, !llvm.loop !3
+  br i1 %67, label %.lr.ph.i.i29, label %destroy_all.exit.i32, !llvm.loop !3
 
-destroy_all.exit.i31:                             ; preds = %65, %50, %47
+destroy_all.exit.i32:                             ; preds = %65, %50, %47
   %68 = load ptr, ptr %13, align 8
-  %.not7.i32 = icmp eq ptr %68, null
-  br i1 %.not7.i32, label %SDL_DestroyHashTable.exit33, label %69
+  %.not7.i33 = icmp eq ptr %68, null
+  br i1 %.not7.i33, label %SDL_DestroyHashTable.exit34, label %69
 
-69:                                               ; preds = %destroy_all.exit.i31
+69:                                               ; preds = %destroy_all.exit.i32
   tail call void @SDL_DestroyRWLock_REAL(ptr noundef nonnull %68) #10
-  br label %SDL_DestroyHashTable.exit33
+  br label %SDL_DestroyHashTable.exit34
 
-SDL_DestroyHashTable.exit33:                      ; preds = %destroy_all.exit.i31, %69
+SDL_DestroyHashTable.exit34:                      ; preds = %destroy_all.exit.i32, %69
   %70 = load ptr, ptr %46, align 8
   tail call void @SDL_free_REAL(ptr noundef %70) #10
   tail call void @SDL_free_REAL(ptr noundef nonnull %13) #10
@@ -171,8 +173,8 @@ SDL_DestroyHashTable.exit33:                      ; preds = %destroy_all.exit.i3
   store ptr %4, ptr %77, align 8
   br label %78
 
-78:                                               ; preds = %CalculateHashBucketsFromEstimate.exit, %71, %SDL_DestroyHashTable.exit33, %SDL_DestroyHashTable.exit
-  %.0 = phi ptr [ %13, %71 ], [ null, %SDL_DestroyHashTable.exit33 ], [ null, %SDL_DestroyHashTable.exit ], [ null, %CalculateHashBucketsFromEstimate.exit ]
+78:                                               ; preds = %CalculateHashBucketsFromEstimate.exit, %71, %SDL_DestroyHashTable.exit34, %SDL_DestroyHashTable.exit
+  %.0 = phi ptr [ %13, %71 ], [ null, %SDL_DestroyHashTable.exit34 ], [ null, %SDL_DestroyHashTable.exit ], [ null, %CalculateHashBucketsFromEstimate.exit ]
   ret ptr %.0
 }
 
@@ -204,7 +206,8 @@ define hidden void @SDL_DestroyHashTable(ptr noundef %0) local_unnamed_addr #0 {
   %11 = load i32, ptr %10, align 8
   %12 = add i32 %11, 1
   %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds nuw %struct.SDL_HashItem, ptr %9, i64 %13
+  %.idx.i = mul nuw nsw i64 %13, 24
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx.i
   %.not18.i = icmp eq i32 %12, 0
   br i1 %.not18.i, label %destroy_all.exit, label %.lr.ph.i
 
@@ -968,7 +971,8 @@ define hidden zeroext i1 @SDL_IterateHashTable(ptr noundef %0, ptr noundef reado
   %14 = load i32, ptr %13, align 8
   %15 = add i32 %14, 1
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw %struct.SDL_HashItem, ptr %12, i64 %16
+  %.idx = mul nuw nsw i64 %16, 24
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx
   %.not30 = icmp eq i32 %15, 0
   br i1 %.not30, label %._crit_edge, label %.lr.ph
 
@@ -1059,7 +1063,8 @@ define hidden void @SDL_ClearHashTable(ptr noundef captures(address_is_null) %0)
   %12 = load i32, ptr %11, align 8
   %13 = add i32 %12, 1
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %struct.SDL_HashItem, ptr %10, i64 %14
+  %.idx.i = mul nuw nsw i64 %14, 24
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i
   %.not18.i = icmp eq i32 %13, 0
   br i1 %.not18.i, label %destroy_all.exit, label %.lr.ph.i
 

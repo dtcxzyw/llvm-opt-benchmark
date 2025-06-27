@@ -188,9 +188,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::__shared_ptr.101" = type { ptr, %"class.std::__shared_count" }
 %"class.std::shared_ptr.104" = type { %"class.std::__shared_ptr.105" }
 %"class.std::__shared_ptr.105" = type { ptr, %"class.std::__shared_count" }
-%"class.openvdb::v11_0::math::Vec3.144" = type { %"class.openvdb::v11_0::math::Tuple.145" }
-%"class.openvdb::v11_0::math::Tuple.145" = type { [3 x %"class.openvdb::v11_0::math::internal::half"] }
-%"class.openvdb::v11_0::math::internal::half" = type { i16 }
 %"class.openvdb::v11_0::tree::IteratorRange.196" = type { %"class.openvdb::v11_0::tree::TreeValueIteratorBase.171", i64, i64 }
 %"class.openvdb::v11_0::tree::NodeUnion.212" = type { %union.anon.213 }
 %union.anon.213 = type { %"class.openvdb::v11_0::math::Vec3" }
@@ -7566,21 +7563,26 @@ if.then.i.i.i.i.i:                                ; preds = %if.end
   %conv = zext i32 %count to i64
   %mul.i.i.i.i.i.i = mul nuw nsw i64 %conv, 6
   %call5.i.i.i.i2.i.i10 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #26
-  %add.ptr.i.i.i = getelementptr %"class.openvdb::v11_0::math::Vec3.144", ptr %call5.i.i.i.i2.i.i10, i64 %conv
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %call5.i.i.i.i2.i.i10, i8 0, i64 6, i1 false)
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i10, i64 6
-  %cmp.i.i.i.i.i.i.i = icmp eq i32 %count, 1
-  br i1 %cmp.i.i.i.i.i.i.i, label %if.else.i14, label %for.body.i.i.i.i.i.i.i.i.i
+  %sub.i.i.i.i.i = add nsw i64 %conv, -1
+  %cmp.i.i.i.i.i.i.i = icmp eq i64 %sub.i.i.i.i.i, 0
+  br i1 %cmp.i.i.i.i.i.i.i, label %if.else.i14, label %if.end.i.i.i.i.i.i.i
 
-for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i
-  %__first.addr.04.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i, %if.then.i.i.i.i.i ]
+if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i
+  %add.ptr.idx.i.i.i.i.i.i.i = mul nuw nsw i64 %sub.i.i.i.i.i, 6
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i, i64 %add.ptr.idx.i.i.i.i.i.i.i
+  br label %for.body.i.i.i.i.i.i.i.i.i
+
+for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i
+  %__first.addr.04.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %__first.addr.04.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 2 dereferenceable(6) %call5.i.i.i.i2.i.i10, i64 6, i1 false)
   %incdec.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i, i64 6
-  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i, %add.ptr.i.i.i
+  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i, %add.ptr.i.i.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %if.else.i14, label %for.body.i.i.i.i.i.i.i.i.i, !llvm.loop !102
 
 if.else.i14:                                      ; preds = %for.body.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
-  %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %add.ptr.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ]
+  %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ]
   %and9.i15 = and i32 %compression, 4
   %tobool10.not.i16 = icmp eq i32 %and9.i15, 0
   br i1 %tobool10.not.i16, label %if.else12.i20, label %if.then11.i17
@@ -15474,21 +15476,26 @@ if.then.i.i.i.i.i:                                ; preds = %if.end
   %conv = zext i32 %count to i64
   %mul.i.i.i.i.i.i = mul nuw nsw i64 %conv, 6
   %call5.i.i.i.i2.i.i10 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #26
-  %add.ptr.i.i.i = getelementptr %"class.openvdb::v11_0::math::Vec3.144", ptr %call5.i.i.i.i2.i.i10, i64 %conv
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %call5.i.i.i.i2.i.i10, i8 0, i64 6, i1 false)
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i10, i64 6
-  %cmp.i.i.i.i.i.i.i = icmp eq i32 %count, 1
-  br i1 %cmp.i.i.i.i.i.i.i, label %if.else.i14, label %for.body.i.i.i.i.i.i.i.i.i
+  %sub.i.i.i.i.i = add nsw i64 %conv, -1
+  %cmp.i.i.i.i.i.i.i = icmp eq i64 %sub.i.i.i.i.i, 0
+  br i1 %cmp.i.i.i.i.i.i.i, label %if.else.i14, label %if.end.i.i.i.i.i.i.i
 
-for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i
-  %__first.addr.04.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i, %if.then.i.i.i.i.i ]
+if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i
+  %add.ptr.idx.i.i.i.i.i.i.i = mul nuw nsw i64 %sub.i.i.i.i.i, 6
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i, i64 %add.ptr.idx.i.i.i.i.i.i.i
+  br label %for.body.i.i.i.i.i.i.i.i.i
+
+for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i
+  %__first.addr.04.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %__first.addr.04.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 2 dereferenceable(6) %call5.i.i.i.i2.i.i10, i64 6, i1 false)
   %incdec.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i, i64 6
-  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i, %add.ptr.i.i.i
+  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i, %add.ptr.i.i.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %if.else.i14, label %for.body.i.i.i.i.i.i.i.i.i, !llvm.loop !102
 
 if.else.i14:                                      ; preds = %for.body.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
-  %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %add.ptr.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ]
+  %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ]
   %and9.i15 = and i32 %compression, 4
   %tobool10.not.i16 = icmp eq i32 %and9.i15, 0
   br i1 %tobool10.not.i16, label %if.else12.i20, label %if.then11.i17

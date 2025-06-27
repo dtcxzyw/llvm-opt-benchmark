@@ -55579,7 +55579,8 @@ define linkonce_odr dso_local void @_ZSt13__stable_sortIN9__gnu_cxx17__normal_it
   %22 = load ptr, ptr %12, align 8, !tbaa !809
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %24 = load i64, ptr %23, align 8, !tbaa !811
-  %25 = getelementptr inbounds %"struct.flatbuffers::IncludedFile", ptr %22, i64 %24
+  %.idx.i = shl nsw i64 %24, 6
+  %25 = getelementptr inbounds i8, ptr %22, i64 %.idx.i
   %.not4.i.i.i = icmp eq i64 %24, 0
   br i1 %.not4.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12IncludedFileESt6vectorIS3_SaIS3_EEEES3_ED2Ev.exit, label %.lr.ph.i.i.i
 
@@ -55777,7 +55778,8 @@ define linkonce_odr dso_local void @_ZNSt17_Temporary_bufferIN9__gnu_cxx17__norm
   %3 = load ptr, ptr %2, align 8, !tbaa !809
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !811
-  %6 = getelementptr inbounds %"struct.flatbuffers::IncludedFile", ptr %3, i64 %5
+  %.idx = shl nsw i64 %5, 6
+  %6 = getelementptr inbounds i8, ptr %3, i64 %.idx
   %.not4.i.i = icmp eq i64 %5, 0
   br i1 %.not4.i.i, label %_ZSt8_DestroyIPN11flatbuffers12IncludedFileEEvT_S3_.exit, label %.lr.ph.i.i
 
@@ -58012,25 +58014,31 @@ _ZSt22__chunk_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12Inc
 
 _ZSt22__chunk_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12IncludedFileESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_less_iterEEvT_SB_T0_T1_.exit: ; preds = %.lr.ph.i
   tail call void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12IncludedFileESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_T0_(ptr nonnull %9, ptr %1)
-  %.not203 = icmp eq i64 %6, 448
-  br i1 %.not203, label %._crit_edge, label %.lr.ph
+  %.not207 = icmp eq i64 %6, 448
+  br i1 %.not207, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZSt22__chunk_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12IncludedFileESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_less_iterEEvT_SB_T0_T1_.exit
   %12 = ptrtoint ptr %8 to i64
   br label %13
 
 13:                                               ; preds = %.lr.ph, %_ZSt17__merge_sort_loopIPN11flatbuffers12IncludedFileEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEElNS3_5__ops15_Iter_less_iterEEvT_SB_T0_T1_T2_.exit
-  %.0179 = phi i64 [ 7, %.lr.ph ], [ %360, %_ZSt17__merge_sort_loopIPN11flatbuffers12IncludedFileEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEElNS3_5__ops15_Iter_less_iterEEvT_SB_T0_T1_T2_.exit ]
-  %14 = shl nsw i64 %.0179, 1
+  %.0183 = phi i64 [ 7, %.lr.ph ], [ %360, %_ZSt17__merge_sort_loopIPN11flatbuffers12IncludedFileEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEElNS3_5__ops15_Iter_less_iterEEvT_SB_T0_T1_T2_.exit ]
+  %14 = shl nsw i64 %.0183, 1
   %.not27.i = icmp slt i64 %7, %14
-  br i1 %.not27.i, label %_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12IncludedFileESt6vectorIS3_SaIS3_EEEES4_lNS0_5__ops15_Iter_less_iterEEvT_SB_T0_T1_T2_.exit, label %.lr.ph.i15
+  br i1 %.not27.i, label %_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12IncludedFileESt6vectorIS3_SaIS3_EEEES4_lNS0_5__ops15_Iter_less_iterEEvT_SB_T0_T1_T2_.exit, label %.lr.ph.i15.preheader
 
-.lr.ph.i15:                                       ; preds = %13, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12IncludedFileESt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_less_iterEET0_T_SC_SC_SC_SB_T1_.exit
-  %.029.i = phi ptr [ %.08.lcssa.i.i.i.i.i9.i, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12IncludedFileESt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_less_iterEET0_T_SC_SC_SC_SB_T1_.exit ], [ %2, %13 ]
-  %.sroa.019.028.i = phi ptr [ %16, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12IncludedFileESt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_less_iterEET0_T_SC_SC_SC_SB_T1_.exit ], [ %0, %13 ]
-  %15 = getelementptr inbounds %"struct.flatbuffers::IncludedFile", ptr %.sroa.019.028.i, i64 %.0179
-  %16 = getelementptr inbounds %"struct.flatbuffers::IncludedFile", ptr %.sroa.019.028.i, i64 %14
-  br label %.lr.ph.i24
+.lr.ph.i15.preheader:                             ; preds = %13
+  %.idx = shl nsw i64 %.0183, 6
+  %.idx168 = shl nsw i64 %.0183, 7
+  %.not = icmp eq i64 %.idx, %.idx168
+  br label %.lr.ph.i15
+
+.lr.ph.i15:                                       ; preds = %.lr.ph.i15.preheader, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12IncludedFileESt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_less_iterEET0_T_SC_SC_SC_SB_T1_.exit
+  %.029.i = phi ptr [ %.08.lcssa.i.i.i.i.i9.i, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12IncludedFileESt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_less_iterEET0_T_SC_SC_SC_SB_T1_.exit ], [ %2, %.lr.ph.i15.preheader ]
+  %.sroa.019.028.i = phi ptr [ %16, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12IncludedFileESt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_less_iterEET0_T_SC_SC_SC_SB_T1_.exit ], [ %0, %.lr.ph.i15.preheader ]
+  %15 = getelementptr inbounds i8, ptr %.sroa.019.028.i, i64 %.idx
+  %16 = getelementptr inbounds i8, ptr %.sroa.019.028.i, i64 %.idx168
+  br i1 %.not, label %.critedge.i, label %.lr.ph.i24
 
 .lr.ph.i24:                                       ; preds = %.lr.ph.i15, %178
   %.026.i25 = phi ptr [ %179, %178 ], [ %.029.i, %.lr.ph.i15 ]
@@ -58439,9 +58447,12 @@ _ZN11flatbuffers12IncludedFileaSEOS0_.exit76:     ; preds = %155, %_ZNSt7__cxx11
   %or.cond.i = select i1 %180, i1 %181, i1 false
   br i1 %or.cond.i, label %.lr.ph.i24, label %.critedge.i, !llvm.loop !825
 
-.critedge.i:                                      ; preds = %178
+.critedge.i:                                      ; preds = %178, %.lr.ph.i15
+  %.sroa.015.0.lcssa.i = phi ptr [ %15, %.lr.ph.i15 ], [ %.sroa.015.1.i, %178 ]
+  %.sroa.019.0.lcssa.i22 = phi ptr [ %.sroa.019.028.i, %.lr.ph.i15 ], [ %.sroa.019.1.i, %178 ]
+  %.0.lcssa.i23 = phi ptr [ %.029.i, %.lr.ph.i15 ], [ %179, %178 ]
   %182 = ptrtoint ptr %15 to i64
-  %183 = ptrtoint ptr %.sroa.019.1.i to i64
+  %183 = ptrtoint ptr %.sroa.019.0.lcssa.i22 to i64
   %184 = sub i64 %182, %183
   %185 = ashr exact i64 %184, 6
   %186 = icmp sgt i64 %185, 0
@@ -58449,8 +58460,8 @@ _ZN11flatbuffers12IncludedFileaSEOS0_.exit76:     ; preds = %155, %_ZNSt7__cxx11
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.critedge.i, %_ZN11flatbuffers12IncludedFileaSEOS0_.exit58
   %.012.i.i.i.i.i.i = phi i64 [ %267, %_ZN11flatbuffers12IncludedFileaSEOS0_.exit58 ], [ %185, %.critedge.i ]
-  %.0811.i.i.i.i.i.i = phi ptr [ %266, %_ZN11flatbuffers12IncludedFileaSEOS0_.exit58 ], [ %179, %.critedge.i ]
-  %.0910.i.i.i.i.i.i = phi ptr [ %265, %_ZN11flatbuffers12IncludedFileaSEOS0_.exit58 ], [ %.sroa.019.1.i, %.critedge.i ]
+  %.0811.i.i.i.i.i.i = phi ptr [ %266, %_ZN11flatbuffers12IncludedFileaSEOS0_.exit58 ], [ %.0.lcssa.i23, %.critedge.i ]
+  %.0910.i.i.i.i.i.i = phi ptr [ %265, %_ZN11flatbuffers12IncludedFileaSEOS0_.exit58 ], [ %.sroa.019.0.lcssa.i22, %.critedge.i ]
   %187 = load ptr, ptr %.0811.i.i.i.i.i.i, align 8, !tbaa !16
   %188 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i, i64 16
   %189 = icmp eq ptr %187, %188
@@ -58642,9 +58653,9 @@ _ZN11flatbuffers12IncludedFileaSEOS0_.exit58:     ; preds = %239, %_ZNSt7__cxx11
   br i1 %268, label %.lr.ph.i.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12IncludedFileESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit.i, !llvm.loop !826
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12IncludedFileESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit.i: ; preds = %_ZN11flatbuffers12IncludedFileaSEOS0_.exit58, %.critedge.i
-  %.08.lcssa.i.i.i.i.i.i = phi ptr [ %179, %.critedge.i ], [ %266, %_ZN11flatbuffers12IncludedFileaSEOS0_.exit58 ]
+  %.08.lcssa.i.i.i.i.i.i = phi ptr [ %.0.lcssa.i23, %.critedge.i ], [ %266, %_ZN11flatbuffers12IncludedFileaSEOS0_.exit58 ]
   %269 = ptrtoint ptr %16 to i64
-  %270 = ptrtoint ptr %.sroa.015.1.i to i64
+  %270 = ptrtoint ptr %.sroa.015.0.lcssa.i to i64
   %271 = sub i64 %269, %270
   %272 = ashr exact i64 %271, 6
   %273 = icmp sgt i64 %272, 0
@@ -58653,7 +58664,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12IncludedFileESt6vector
 .lr.ph.i.i.i.i.i10.i:                             ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12IncludedFileESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit.i, %_ZN11flatbuffers12IncludedFileaSEOS0_.exit
   %.012.i.i.i.i.i11.i = phi i64 [ %354, %_ZN11flatbuffers12IncludedFileaSEOS0_.exit ], [ %272, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12IncludedFileESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit.i ]
   %.0811.i.i.i.i.i12.i = phi ptr [ %353, %_ZN11flatbuffers12IncludedFileaSEOS0_.exit ], [ %.08.lcssa.i.i.i.i.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12IncludedFileESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit.i ]
-  %.0910.i.i.i.i.i13.i = phi ptr [ %352, %_ZN11flatbuffers12IncludedFileaSEOS0_.exit ], [ %.sroa.015.1.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12IncludedFileESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit.i ]
+  %.0910.i.i.i.i.i13.i = phi ptr [ %352, %_ZN11flatbuffers12IncludedFileaSEOS0_.exit ], [ %.sroa.015.0.lcssa.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12IncludedFileESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit.i ]
   %274 = load ptr, ptr %.0811.i.i.i.i.i12.i, align 8, !tbaa !16
   %275 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i12.i, i64 16
   %276 = icmp eq ptr %274, %275
@@ -58855,23 +58866,25 @@ _ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12Included
   %.sroa.019.0.lcssa.i = phi ptr [ %0, %13 ], [ %16, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12IncludedFileESt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_less_iterEET0_T_SC_SC_SC_SB_T1_.exit ]
   %.0.lcssa.i = phi ptr [ %2, %13 ], [ %.08.lcssa.i.i.i.i.i9.i, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12IncludedFileESt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_less_iterEET0_T_SC_SC_SC_SB_T1_.exit ]
   %.lcssa.i = phi i64 [ %7, %13 ], [ %357, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12IncludedFileESt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_less_iterEET0_T_SC_SC_SC_SB_T1_.exit ]
-  %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %.0179, i64 %.lcssa.i)
+  %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %.0183, i64 %.lcssa.i)
   %358 = getelementptr inbounds %"struct.flatbuffers::IncludedFile", ptr %.sroa.019.0.lcssa.i, i64 %.sroa.speculated.i
   %359 = tail call noundef ptr @_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12IncludedFileESt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_less_iterEET0_T_SC_SC_SC_SB_T1_(ptr %.sroa.019.0.lcssa.i, ptr %358, ptr %358, ptr %1, ptr noundef %.0.lcssa.i)
-  %360 = shl nsw i64 %.0179, 2
+  %360 = shl nsw i64 %.0183, 2
   %.not25.i = icmp slt i64 %7, %360
   br i1 %.not25.i, label %_ZSt17__merge_sort_loopIPN11flatbuffers12IncludedFileEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEElNS3_5__ops15_Iter_less_iterEEvT_SB_T0_T1_T2_.exit, label %.lr.ph.i17.preheader
 
 .lr.ph.i17.preheader:                             ; preds = %_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12IncludedFileESt6vectorIS3_SaIS3_EEEES4_lNS0_5__ops15_Iter_less_iterEEvT_SB_T0_T1_T2_.exit
-  %.not = icmp eq i64 %14, %360
+  %.idx169 = shl nsw i64 %.0183, 7
+  %.idx170 = shl nsw i64 %.0183, 8
+  %.not171 = icmp eq i64 %.idx169, %.idx170
   br label %.lr.ph.i17
 
 .lr.ph.i17:                                       ; preds = %.lr.ph.i17.preheader, %_ZSt12__move_mergeIPN11flatbuffers12IncludedFileEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEENS3_5__ops15_Iter_less_iterEET0_T_SC_SC_SC_SB_T1_.exit
   %.sroa.018.027.i = phi ptr [ %709, %_ZSt12__move_mergeIPN11flatbuffers12IncludedFileEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEENS3_5__ops15_Iter_less_iterEET0_T_SC_SC_SC_SB_T1_.exit ], [ %0, %.lr.ph.i17.preheader ]
   %.026.i = phi ptr [ %362, %_ZSt12__move_mergeIPN11flatbuffers12IncludedFileEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEENS3_5__ops15_Iter_less_iterEET0_T_SC_SC_SC_SB_T1_.exit ], [ %2, %.lr.ph.i17.preheader ]
-  %361 = getelementptr inbounds %"struct.flatbuffers::IncludedFile", ptr %.026.i, i64 %14
-  %362 = getelementptr inbounds %"struct.flatbuffers::IncludedFile", ptr %.026.i, i64 %360
-  br i1 %.not, label %._crit_edge.i, label %.lr.ph.i32
+  %361 = getelementptr inbounds i8, ptr %.026.i, i64 %.idx169
+  %362 = getelementptr inbounds i8, ptr %.026.i, i64 %.idx170
+  br i1 %.not171, label %._crit_edge.i, label %.lr.ph.i32
 
 .lr.ph.i32:                                       ; preds = %.lr.ph.i17, %524
   %.030.i = phi ptr [ %.1.i, %524 ], [ %.026.i, %.lr.ph.i17 ]

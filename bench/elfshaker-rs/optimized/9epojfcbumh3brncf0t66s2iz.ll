@@ -676,7 +676,7 @@ _ZN4core5slice4sort6stable5drift10create_run17he6590972d3386436E.exit: ; preds =
   %114 = mul i64 %.sroa.0.0.sroa.speculated.i.i33, 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr nonnull align 8 %.16.i, i64 %114, i1 false), !alias.scope !126
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !126
-  %115 = getelementptr inbounds nuw { i32, [1 x i32], { i64, i64 } }, ptr %2, i64 %.sroa.0.0.sroa.speculated.i.i33
+  %115 = getelementptr inbounds nuw i8, ptr %2, i64 %114
   store ptr %2, ptr %7, align 8, !noalias !126
   store ptr %115, ptr %21, align 8, !noalias !126
   br i1 %.not.i34, label %116, label %.lr.ph.i.preheader.i
@@ -1045,7 +1045,7 @@ _ZN4core5slice4sort6stable5drift10create_run17hdbc8342d3181fd3fE.exit: ; preds =
   %114 = mul i64 %.sroa.0.0.sroa.speculated.i.i33, 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr nonnull align 8 %.16.i, i64 %114, i1 false), !alias.scope !148
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !148
-  %115 = getelementptr inbounds nuw { i32, [1 x i32], { i64, i64 } }, ptr %2, i64 %.sroa.0.0.sroa.speculated.i.i33
+  %115 = getelementptr inbounds nuw i8, ptr %2, i64 %114
   store ptr %2, ptr %7, align 8, !noalias !148
   store ptr %115, ptr %21, align 8, !noalias !148
   br i1 %.not.i34, label %116, label %.lr.ph.i.preheader.i
@@ -1473,7 +1473,7 @@ _ZN4core5slice4sort6stable5drift10create_run17hee622417edba931aE.exit: ; preds =
   %164 = mul i64 %.sroa.0.0.sroa.speculated.i.i33, 40
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr nonnull align 8 %.16.i, i64 %164, i1 false), !alias.scope !208
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !208
-  %165 = getelementptr inbounds nuw { { ptr, i64 }, ptr, ptr, i32, [1 x i32] }, ptr %2, i64 %.sroa.0.0.sroa.speculated.i.i33
+  %165 = getelementptr inbounds nuw i8, ptr %2, i64 %164
   store ptr %2, ptr %7, align 8, !noalias !208
   store ptr %165, ptr %21, align 8, !noalias !208
   br i1 %.not.i34, label %166, label %.lr.ph.i.preheader.i
@@ -1919,7 +1919,7 @@ _ZN4core5slice4sort6stable5drift10create_run17h36232d7762c9bf43E.exit: ; preds =
   %134 = shl i64 %.sroa.0.0.sroa.speculated.i.i33, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr nonnull align 8 %.16.i, i64 %134, i1 false), !alias.scope !280
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !280
-  %135 = getelementptr inbounds nuw ptr, ptr %2, i64 %.sroa.0.0.sroa.speculated.i.i33
+  %135 = getelementptr inbounds nuw i8, ptr %2, i64 %134
   store ptr %2, ptr %7, align 8, !noalias !280
   store ptr %135, ptr %21, align 8, !noalias !280
   br i1 %.not.i34, label %136, label %.lr.ph.i.preheader.i
@@ -2317,7 +2317,7 @@ _ZN4core5slice4sort6stable5drift10create_run17h01d9b73ab4a37ed3E.exit: ; preds =
   %115 = shl i64 %.sroa.0.0.sroa.speculated.i.i33, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr nonnull align 8 %.16.i, i64 %115, i1 false), !alias.scope !310
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !310
-  %116 = getelementptr inbounds nuw { { { { { { i64, ptr, {} }, {} }, i64 } } }, { i64, i64 }, [20 x i8], i32 }, ptr %2, i64 %.sroa.0.0.sroa.speculated.i.i33
+  %116 = getelementptr inbounds nuw i8, ptr %2, i64 %115
   store ptr %2, ptr %7, align 8, !noalias !310
   store ptr %116, ptr %21, align 8, !noalias !310
   br i1 %.not.i34, label %117, label %.lr.ph.i.preheader.i
@@ -2711,7 +2711,7 @@ _ZN4core5slice4sort6stable5drift10create_run17hc82ed481b8ee64c1E.exit: ; preds =
   %128 = mul i64 %.sroa.0.0.sroa.speculated.i.i33, 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr nonnull align 8 %.16.i, i64 %128, i1 false), !alias.scope !333
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !333
-  %129 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } } }, ptr %2, i64 %.sroa.0.0.sroa.speculated.i.i33
+  %129 = getelementptr inbounds nuw i8, ptr %2, i64 %128
   store ptr %2, ptr %7, align 8, !noalias !333
   store ptr %129, ptr %21, align 8, !noalias !333
   store ptr %.16.i, ptr %22, align 8, !noalias !333
@@ -3669,7 +3669,8 @@ define hidden void @_ZN9elfshaker3log10measure_ok17hb743a93cddb106f3E(ptr dead_o
   tail call void @llvm.assume(i1 %17)
   %18 = icmp ult i64 %.sroa.520.0.copyload, 144115188075855872
   tail call void @llvm.assume(i1 %18)
-  %19 = getelementptr inbounds nuw { { { { { { i64, ptr, {} }, {} }, i64 } } }, { i64, i64 }, [20 x i8], i32 }, ptr %.sroa.419.0.copyload, i64 %.sroa.520.0.copyload
+  %.idx.i = shl nuw nsw i64 %.sroa.520.0.copyload, 6
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.419.0.copyload, i64 %.idx.i
   %20 = icmp sgt i64 %.sroa.018.0.copyload, -1
   tail call void @llvm.assume(i1 %20)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8), !noalias !586
