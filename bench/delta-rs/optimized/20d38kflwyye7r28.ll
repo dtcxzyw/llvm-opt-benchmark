@@ -8920,18 +8920,18 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.86254
   br i1 %170, label %.loopexit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.noexc83, %.lr.ph.i.i
-  %.sroa.0.06.i.i = phi ptr [ %171, %.lr.ph.i.i ], [ %167, %.noexc83 ]
-  %171 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i.i, i64 1
-  %172 = load i8, ptr %.sroa.0.06.i.i, align 1, !alias.scope !1719, !noalias !1722, !noundef !9
-  %173 = add i8 %172, -65
-  %174 = icmp ult i8 %173, 26
-  %.0.i.i = select i1 %174, i8 32, i8 0
-  %175 = or i8 %.0.i.i, %172
-  store i8 %175, ptr %.sroa.0.06.i.i, align 1, !alias.scope !1719, !noalias !1722
-  %176 = icmp eq ptr %171, %169
-  br i1 %176, label %.loopexit, label %.lr.ph.i.i
+  %.sroa.0.06.i.i = phi ptr [ %170, %.lr.ph.i.i ], [ %167, %.noexc83 ]
+  %170 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i.i, i64 1
+  %171 = load i8, ptr %.sroa.0.06.i.i, align 1, !alias.scope !1719, !noalias !1722, !noundef !9
+  %172 = add i8 %171, -65
+  %173 = icmp ult i8 %172, 26
+  %.0.i.i = select i1 %173, i8 32, i8 0
+  %174 = or i8 %.0.i.i, %171
+  store i8 %174, ptr %.sroa.0.06.i.i, align 1, !alias.scope !1719, !noalias !1722
+  %175 = icmp eq ptr %170, %169
+  br i1 %175, label %176, label %.lr.ph.i.i
 
-.loopexit:                                        ; preds = %.lr.ph.i.i, %.noexc83
+176:                                              ; preds = %.lr.ph.i.i, %.noexc83
   %177 = extractvalue { i64, ptr } %166, 0
   store i64 %177, ptr %26, align 8, !alias.scope !1716, !noalias !1724
   store ptr %167, ptr %.sroa.4.0..sroa_idx.i82, align 8, !alias.scope !1716, !noalias !1724
@@ -8944,12 +8944,12 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.86254
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h61a26582174a9d03E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %26) #32
           to label %144 unwind label %136
 
-178:                                              ; preds = %.thread138, %.loopexit
+178:                                              ; preds = %.thread138, %176
   %179 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr115drop_in_place$LT$core..result..Result$LT$object_store..azure..builder..AzureConfigKey$C$object_store..Error$GT$$GT$17h9117ccff291c1af5E.exit86"
 
-180:                                              ; preds = %.loopexit
+180:                                              ; preds = %176
   %181 = load i64, ptr %27, align 8, !range !16, !noundef !9
   %182 = icmp eq i64 %181, 16
   br i1 %182, label %183, label %.thread138

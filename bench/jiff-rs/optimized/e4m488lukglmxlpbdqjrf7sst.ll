@@ -329,13 +329,13 @@ define hidden void @_ZN4core5slice4sort6stable5merge5merge17h3b98565988a98d3fE(p
   %8 = icmp eq i64 %4, 0
   %9 = icmp uge i64 %4, %1
   %or.cond = or i1 %8, %9
-  br i1 %or.cond, label %50, label %10
+  br i1 %or.cond, label %49, label %10
 
 10:                                               ; preds = %6
   %11 = sub nuw i64 %1, %4
   %.sroa.0.0.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %11, i64 %4)
   %12 = icmp ult i64 %3, %.sroa.0.0.sroa.speculated.i
-  br i1 %12, label %50, label %13
+  br i1 %12, label %49, label %13
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw ptr, ptr %0, i64 %4
@@ -351,7 +351,7 @@ define hidden void @_ZN4core5slice4sort6stable5merge5merge17h3b98565988a98d3fE(p
   store ptr %17, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %.16, ptr %19, align 8
-  br i1 %.not, label %20, label %36
+  br i1 %.not, label %20, label %.lr.ph.i.preheader
 
 20:                                               ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
@@ -384,66 +384,66 @@ define hidden void @_ZN4core5slice4sort6stable5merge5merge17h3b98565988a98d3fE(p
   %or.cond.i = select i1 %34, i1 true, i1 %35
   br i1 %or.cond.i, label %"_ZN4core5slice4sort6stable5merge19MergeState$LT$T$GT$10merge_down17h91ca38be8917b8adE.exit", label %21
 
-36:                                               ; preds = %13
+.lr.ph.i.preheader:                               ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21)
   %.not21 = icmp eq ptr %2, %17
   br i1 %.not21, label %"_ZN4core5slice4sort6stable5merge19MergeState$LT$T$GT$10merge_down17h91ca38be8917b8adE.exit", label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %36, %.noexc20
-  %37 = phi ptr [ %46, %.noexc20 ], [ %0, %36 ]
-  %.sroa.0.02.i = phi ptr [ %45, %.noexc20 ], [ %14, %36 ]
+.lr.ph.i:; preds = %.lr.ph.i.preheader, %.noexc20
+  %.sroa.0.02.i = phi ptr [ %46, %.noexc20 ], [ %0, %36 ]
+  %37 = phi ptr [ %45, %.noexc20 ], [ %14, %36 ]
   %38 = phi ptr [ %43, %.noexc20 ], [ %2, %36 ]
   %39 = invoke noundef i8 @"_ZN85_$LT$jiff..tz..db..zoneinfo..inner..ZoneInfoName$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h90962d5abd12f6afE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %.sroa.0.02.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %38)
           to label %.noexc20 unwind label %.loopexit.split-lp
 
 .noexc20:                                         ; preds = %.lr.ph.i
-  %40 = icmp sgt i8 %39, -1
-  %.sroa.05.0.i = select i1 %40, ptr %38, ptr %.sroa.0.02.i
-  %41 = load i64, ptr %.sroa.05.0.i, align 8, !noalias !21
-  store i64 %41, ptr %37, align 8, !noalias !21
-  %42 = zext i1 %40 to i64
-  %43 = getelementptr inbounds nuw ptr, ptr %38, i64 %42
-  store ptr %43, ptr %7, align 8, !alias.scope !21
+  %39 = icmp sgt i8 %39, -1
+  %.sroa.05.0.i = select i1 %39, ptr %38, ptr %.sroa.0.02.i
+  %40 = load i64, ptr %.sroa.05.0.i, align 8, !noalias !21
+  store i64 %40, ptr %37, align 8, !noalias !21
+  %41 = zext i1 %39 to i64
+  %42 = getelementptr inbounds nuw ptr, ptr %38, i64 %41
+  store ptr %42, ptr %7, align 8, !alias.scope !21
   %.lobit.i18 = lshr i8 %39, 7
-  %44 = zext nneg i8 %.lobit.i18 to i64
-  %45 = getelementptr inbounds nuw ptr, ptr %.sroa.0.02.i, i64 %44
-  %46 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  store ptr %46, ptr %19, align 8, !alias.scope !21
-  %47 = icmp ne ptr %43, %17
-  %48 = icmp ne ptr %45, %15
-  %or.cond.i19 = select i1 %47, i1 %48, i1 false
+  %43 = zext nneg i8 %.lobit.i18 to i64
+  %44 = getelementptr inbounds nuw ptr, ptr %.sroa.0.02.i, i64 %43
+  %45 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  store ptr %45, ptr %19, align 8, !alias.scope !21
+  %46 = icmp ne ptr %42, %17
+  %47 = icmp ne ptr %44, %15
+  %or.cond.i19 = select i1 %46, i1 %47, i1 false
   br i1 %or.cond.i19, label %.lr.ph.i, label %"_ZN4core5slice4sort6stable5merge19MergeState$LT$T$GT$10merge_down17h91ca38be8917b8adE.exit"
 
 .loopexit:                                        ; preds = %21
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %49
+  br label %48
 
 .loopexit.split-lp:                               ; preds = %.lr.ph.i
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %49
+  br label %48
 
-49:                                               ; preds = %.loopexit.split-lp, %.loopexit
+48:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr116drop_in_place$LT$core..slice..sort..stable..merge..MergeState$LT$jiff..tz..db..zoneinfo..inner..ZoneInfoName$GT$$GT$17hb8f2bfa53cafe287E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7) #19
-          to label %53 unwind label %51
+          to label %53 unwind label %50
 
 "_ZN4core5slice4sort6stable5merge19MergeState$LT$T$GT$10merge_down17h91ca38be8917b8adE.exit": ; preds = %.noexc20, %.noexc, %36
   call void @"_ZN4core3ptr116drop_in_place$LT$core..slice..sort..stable..merge..MergeState$LT$jiff..tz..db..zoneinfo..inner..ZoneInfoName$GT$$GT$17hb8f2bfa53cafe287E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
-  br label %50
+  br label %49
 
-50:                                               ; preds = %10, %6, %"_ZN4core5slice4sort6stable5merge19MergeState$LT$T$GT$10merge_down17h91ca38be8917b8adE.exit"
+49:                                               ; preds = %10, %6, %"_ZN4core5slice4sort6stable5merge19MergeState$LT$T$GT$10merge_down17h91ca38be8917b8adE.exit"
   ret void
 
-51:                                               ; preds = %49
-  %52 = landingpad { ptr, i32 }
+50:                                               ; preds = %48
+  %51 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #20
   unreachable
 
-53:                                               ; preds = %49
+52:                                               ; preds = %48
   resume { ptr, i32 } %lpad.phi
 }
 

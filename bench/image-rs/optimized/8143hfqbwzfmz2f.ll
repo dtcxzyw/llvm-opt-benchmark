@@ -31573,7 +31573,7 @@ switch.lookup284:                                 ; preds = %"_ZN5image6codecs3t
   %235 = icmp eq ptr %.sroa.017.022.i, %233
   br i1 %235, label %.loopexit.i, label %.lr.ph.i.i137
 
-.lr.ph.i.i137:                                    ; preds = %231, %.lr.ph.i.i137
+.lr.ph.i.i137: ; preds = %231, %.lr.ph.i.i137
   %.07.i.i = phi i64 [ %240, %.lr.ph.i.i137 ], [ 0, %231 ]
   %.sroa.0.06.i.i = phi ptr [ %236, %.lr.ph.i.i137 ], [ %.sroa.017.022.i, %231 ]
   %236 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i.i, i64 1
@@ -31584,7 +31584,7 @@ switch.lookup284:                                 ; preds = %"_ZN5image6codecs3t
   %241 = icmp eq ptr %236, %233
   br i1 %241, label %.loopexit.i, label %.lr.ph.i.i137
 
-.loopexit.i:                                      ; preds = %.lr.ph.i.i137, %231
+.loopexit.i:; preds = %.lr.ph.i.i137, %231
   %.0.lcssa.i.i = phi i64 [ 0, %231 ], [ %240, %.lr.ph.i.i137 ]
   %242 = mul i64 %.0.lcssa.i.i, %220
   %243 = add i64 %242, %219
@@ -32579,7 +32579,7 @@ switch.lookup342:                                 ; preds = %"_ZN5image6codecs3t
   %267 = icmp eq ptr %.sroa.017.022.i, %265
   br i1 %267, label %.loopexit.i, label %.lr.ph.i.i139
 
-.lr.ph.i.i139:                                    ; preds = %263, %.lr.ph.i.i139
+.lr.ph.i.i139: ; preds = %263, %.lr.ph.i.i139
   %.07.i.i = phi i64 [ %272, %.lr.ph.i.i139 ], [ 0, %263 ]
   %.sroa.0.06.i.i = phi ptr [ %268, %.lr.ph.i.i139 ], [ %.sroa.017.022.i, %263 ]
   %268 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i.i, i64 1
@@ -32590,7 +32590,7 @@ switch.lookup342:                                 ; preds = %"_ZN5image6codecs3t
   %273 = icmp eq ptr %268, %265
   br i1 %273, label %.loopexit.i, label %.lr.ph.i.i139
 
-.loopexit.i:                                      ; preds = %.lr.ph.i.i139, %263
+.loopexit.i:; preds = %.lr.ph.i.i139, %263
   %.0.lcssa.i.i = phi i64 [ 0, %263 ], [ %272, %.lr.ph.i.i139 ]
   %274 = mul i64 %.0.lcssa.i.i, %252
   %275 = add i64 %274, %251

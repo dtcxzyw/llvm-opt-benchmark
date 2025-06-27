@@ -444,10 +444,10 @@ _ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_E
   br label %.lr.ph39.i.i.i.i75
 
 .lr.ph39.i.i.i.i75:                               ; preds = %.lr.ph39.i.i.i.i75.preheader, %152
-  %.sink = phi ptr [ %153, %152 ], [ %133, %.lr.ph39.i.i.i.i75.preheader ]
-  %.not27.i.i.i.i78 = icmp ne ptr %.sink, %135
+  %.not27.i.i.i.i78.sink = phi ptr [ %153, %152 ], [ %133, %.lr.ph39.i.i.i.i75.preheader ]
+  %.not27.i.i.i.i78 = icmp ne ptr %.not27.i.i.i.i78.sink, %135
   call void @llvm.assume(i1 %.not27.i.i.i.i78)
-  %146 = load ptr, ptr %.sink, align 8, !tbaa !69
+  %146 = load ptr, ptr %.not27.i.i.i.i78.sink, align 8, !tbaa !69
   %cond93 = icmp eq ptr %146, inttoptr (i64 1 to ptr)
   br i1 %cond93, label %152, label %147
 
@@ -460,11 +460,11 @@ _ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_E
   br i1 %or.cond31.i.i.i.i79, label %.loopexit.i80, label %152
 
 152:                                              ; preds = %.lr.ph39.i.i.i.i75, %147
-  %153 = getelementptr inbounds nuw i8, ptr %.sink, i64 16
+  %153 = getelementptr inbounds nuw i8, ptr %.not27.i.i.i.i78.sink, i64 16
   br label %.lr.ph39.i.i.i.i75
 
 .loopexit.i80:                                    ; preds = %139, %147
-  %.026.i.i.i.i81 = phi ptr [ %.sink, %147 ], [ %.036.i.i.i.i70, %139 ]
+  %.026.i.i.i.i81 = phi ptr [ %.not27.i.i.i.i78.sink, %147 ], [ %.036.i.i.i.i70, %139 ]
   %154 = getelementptr inbounds nuw i8, ptr %.026.i.i.i.i81, i64 8
   %155 = load ptr, ptr %154, align 8, !tbaa !74
   %156 = invoke noundef ptr @_ZNK11func_interp4copyEv(ptr noundef nonnull align 8 dereferenceable(56) %155)

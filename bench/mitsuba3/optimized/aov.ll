@@ -11137,14 +11137,14 @@ common.resume:                                    ; preds = %_ZN5drjit12DynamicA
   resume { ptr, i32 } %common.resume.op
 
 _ZN7mitsuba5ColorIN5drjit12DynamicArrayIfEELm3EEC2ERKS4_.exit: ; preds = %_ZN5drjit12DynamicArrayIfEC2ERKS1_.exit.i.i
-  %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %.ptr23 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 72
   br label %40
 
 40:                                               ; preds = %_ZN5drjit12DynamicArrayIfEC2ERKS1_.exit.i.i15, %_ZN7mitsuba5ColorIN5drjit12DynamicArrayIfEELm3EEC2ERKS4_.exit
   %41 = phi i64 [ 0, %_ZN7mitsuba5ColorIN5drjit12DynamicArrayIfEELm3EEC2ERKS4_.exit ], [ %60, %_ZN5drjit12DynamicArrayIfEC2ERKS1_.exit.i.i15 ]
-  %.idx = mul nuw nsw i64 %41, 24
-  %.ptr25 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
+  %.idx20 = mul nuw nsw i64 %41, 24
+  %.ptr25 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx20
   %.add22 = add nuw nsw i64 %.idx, 72
   %.ptr20.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.add22
   %42 = getelementptr inbounds nuw [3 x %"struct.drjit::DynamicArray.156"], ptr %39, i64 0, i64 %41
@@ -11198,16 +11198,16 @@ _ZN5drjit12DynamicArrayIfEC2ERKS1_.exit.i.i15:    ; preds = %.lr.ph.i.i.i13, %40
   br label %.preheader.i.i9
 
 .preheader.i.i9:                                  ; preds = %.preheader.i.i9.preheader, %_ZN5drjit12DynamicArrayIfED2Ev.exit.i.i10
-  %.idx21 = phi i64 [ %.add, %_ZN5drjit12DynamicArrayIfED2Ev.exit.i.i10 ], [ %.add22, %.preheader.i.i9.preheader ]
-  %.add = add nsw i64 %.idx21, -24
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx21
+  %.idx = phi i64 [ %.add, %_ZN5drjit12DynamicArrayIfED2Ev.exit.i.i10 ], [ %.add22, %.preheader.i.i9.preheader ]
+  %.add = add nsw i64 %.idx, -24
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
   %65 = load i8, ptr %gep, align 8
   %66 = trunc i8 %65 to i1
   br i1 %66, label %67, label %_ZN5drjit12DynamicArrayIfED2Ev.exit.i.i10
 
 67:                                               ; preds = %.preheader.i.i9
-  %.ptr24 = getelementptr inbounds i8, ptr %0, i64 %.add
-  %68 = load ptr, ptr %.ptr24, align 8
+  %.ptr22 = getelementptr inbounds i8, ptr %0, i64 %.add
+  %68 = load ptr, ptr %.ptr22, align 8
   %69 = icmp eq ptr %68, null
   br i1 %69, label %_ZN5drjit12DynamicArrayIfED2Ev.exit.i.i10, label %70
 
@@ -11267,20 +11267,20 @@ _ZN5drjit12DynamicArrayIfEC2ERKS1_.exit:          ; preds = %.lr.ph.i, %_ZN7mits
 95:                                               ; preds = %.lr.ph.preheader.i
   %96 = landingpad { ptr, i32 }
           cleanup
-  %invariant.gep37 = getelementptr i8, ptr %0, i64 -8
+  %invariant.gep38 = getelementptr i8, ptr %0, i64 -8
   br label %97
 
 97:                                               ; preds = %_ZN5drjit12DynamicArrayIfED2Ev.exit.i.i17, %95
-  %.idx26 = phi i64 [ 144, %95 ], [ %.add27, %_ZN5drjit12DynamicArrayIfED2Ev.exit.i.i17 ]
-  %.add27 = add nsw i64 %.idx26, -24
-  %gep38 = getelementptr i8, ptr %invariant.gep37, i64 %.idx26
-  %98 = load i8, ptr %gep38, align 8
+  %.idx25 = phi i64 [ 144, %95 ], [ %.add26, %_ZN5drjit12DynamicArrayIfED2Ev.exit.i.i17 ]
+  %.add26 = add nsw i64 %.idx25, -24
+  %gep39 = getelementptr i8, ptr %invariant.gep38, i64 %.idx25
+  %98 = load i8, ptr %gep39, align 8
   %99 = trunc i8 %98 to i1
   br i1 %99, label %100, label %_ZN5drjit12DynamicArrayIfED2Ev.exit.i.i17
 
 100:                                              ; preds = %97
-  %.ptr29 = getelementptr inbounds i8, ptr %0, i64 %.add27
-  %101 = load ptr, ptr %.ptr29, align 8
+  %.ptr28 = getelementptr inbounds i8, ptr %0, i64 %.add26
+  %101 = load ptr, ptr %.ptr28, align 8
   %102 = icmp eq ptr %101, null
   br i1 %102, label %_ZN5drjit12DynamicArrayIfED2Ev.exit.i.i17, label %103
 
@@ -11289,7 +11289,7 @@ _ZN5drjit12DynamicArrayIfEC2ERKS1_.exit:          ; preds = %.lr.ph.i, %_ZN7mits
   br label %_ZN5drjit12DynamicArrayIfED2Ev.exit.i.i17
 
 _ZN5drjit12DynamicArrayIfED2Ev.exit.i.i17:        ; preds = %103, %100, %97
-  %104 = icmp eq i64 %.add27, 72
+  %104 = icmp eq i64 %.add26, 72
   br i1 %104, label %.body, label %97
 
 .body:                                            ; preds = %_ZN5drjit12DynamicArrayIfED2Ev.exit.i.i10, %_ZN5drjit12DynamicArrayIfED2Ev.exit.i.i17, %62
@@ -11297,7 +11297,7 @@ _ZN5drjit12DynamicArrayIfED2Ev.exit.i.i17:        ; preds = %103, %100, %97
   br label %105
 
 105:                                              ; preds = %_ZN5drjit12DynamicArrayIfED2Ev.exit.i.i18, %.body
-  %106 = phi ptr [ %.ptr, %.body ], [ %107, %_ZN5drjit12DynamicArrayIfED2Ev.exit.i.i18 ]
+  %106 = phi ptr [ %.ptr23, %.body ], [ %107, %_ZN5drjit12DynamicArrayIfED2Ev.exit.i.i18 ]
   %107 = getelementptr inbounds i8, ptr %106, i64 -24
   %108 = getelementptr inbounds i8, ptr %106, i64 -8
   %109 = load i8, ptr %108, align 8

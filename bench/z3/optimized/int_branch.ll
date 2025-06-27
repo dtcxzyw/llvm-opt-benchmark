@@ -773,7 +773,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableI17default_map_entryIj8ratio
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 0
   %or.cond = select i1 %4, i1 %7, i1 false
-  br i1 %or.cond, label %55, label %8
+  br i1 %or.cond, label %54, label %8
 
 8:                                                ; preds = %1
   %9 = load ptr, ptr %0, align 8, !tbaa !47
@@ -804,9 +804,9 @@ define linkonce_odr hidden void @_ZN14core_hashtableI17default_map_entryIj8ratio
   %.1 = phi i32 [ %19, %18 ], [ %.015, %17 ]
   %21 = getelementptr inbounds nuw i8, ptr %.0714, i64 48
   %.not = icmp eq ptr %21, %13
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !52
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !52
 
-._crit_edge.loopexit:                             ; preds = %20
+._crit_edge:                                      ; preds = %20
   %22 = shl i32 %.1, 2
   br label %._crit_edge
 
@@ -815,8 +815,8 @@ define linkonce_odr hidden void @_ZN14core_hashtableI17default_map_entryIj8ratio
   %23 = icmp ugt i32 %11, 16
   %24 = mul i32 %11, 3
   %25 = icmp ugt i32 %.0.lcssa, %24
-  %or.cond17 = select i1 %23, i1 %25, i1 false
-  br i1 %or.cond17, label %26, label %54
+  %or.cond18 = select i1 %23, i1 %25, i1 false
+  br i1 %or.cond18, label %26, label %._crit_edge.thread
 
 26:                                               ; preds = %._crit_edge
   %27 = icmp eq ptr %9, null
@@ -893,14 +893,14 @@ _ZN14core_hashtableI17default_map_entryIj8rationalEN9table2mapIS2_6u_hash4u_eqE1
 
 _ZN14core_hashtableI17default_map_entryIj8rationalEN9table2mapIS2_6u_hash4u_eqE15entry_hash_procENS6_13entry_eq_procEE11alloc_tableEj.exit: ; preds = %.lr.ph.i.i.i.i.i11, %_ZN14core_hashtableI17default_map_entryIj8rationalEN9table2mapIS2_6u_hash4u_eqE15entry_hash_procENS6_13entry_eq_procEE12delete_tableEv.exit
   store ptr %40, ptr %0, align 8, !tbaa !47
-  br label %54
+  br label %._crit_edge.thread
 
-54:                                               ; preds = %_ZN14core_hashtableI17default_map_entryIj8rationalEN9table2mapIS2_6u_hash4u_eqE15entry_hash_procENS6_13entry_eq_procEE11alloc_tableEj.exit, %._crit_edge
+._crit_edge.thread:                               ; preds = %_ZN14core_hashtableI17default_map_entryIj8rationalEN9table2mapIS2_6u_hash4u_eqE15entry_hash_procENS6_13entry_eq_procEE11alloc_tableEj.exit, %._crit_edge
   store i32 0, ptr %2, align 4, !tbaa !44
   store i32 0, ptr %5, align 8, !tbaa !57
-  br label %55
+  br label %54
 
-55:                                               ; preds = %1, %54
+54:                                               ; preds = %1, %._crit_edge.thread
   ret void
 }
 

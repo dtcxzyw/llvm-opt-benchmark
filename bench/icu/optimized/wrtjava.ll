@@ -423,8 +423,8 @@ _ZL10write_tabsP11_FileStream.exit.i.i:           ; preds = %.lr.ph.i86.i.i, %_Z
   br i1 %.not.i.i6.i, label %_ZL6strrchPKcjc.exit.i.i, label %.lr.ph.i87.i.i, !llvm.loop !31
 
 _ZL6strrchPKcjc.exit.i.i:                         ; preds = %159, %.lr.ph.i87.i.i, %153
-  %.0.lcssa.sink.i.i.i = phi ptr [ %156, %153 ], [ %160, %159 ], [ %.015.i.i.i, %.lr.ph.i87.i.i ]
-  %161 = ptrtoint ptr %.0.lcssa.sink.i.i.i to i64
+  %.lcssa.sink.i.i.i = phi ptr [ %156, %153 ], [ %160, %159 ], [ %.015.i.i.i, %.lr.ph.i87.i.i ]
+  %161 = ptrtoint ptr %.lcssa.sink.i.i.i to i64
   %162 = ptrtoint ptr %150 to i64
   %163 = sub i64 %161, %162
   %.011.i.i.i = trunc i64 %163 to i32

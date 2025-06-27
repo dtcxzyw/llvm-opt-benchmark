@@ -36567,16 +36567,16 @@ define hidden void @"_ZN12polars_arrow5array7binview31BinaryViewArrayGeneric$LT$
   br label %.body.thread.i
 
 "_ZN12polars_arrow5array7binview7mutable31MutableBinaryViewArray$LT$T$GT$19push_view_unchecked17h65b48be547ed8a99E.exit.i": ; preds = %154, %"_ZN12polars_arrow5array7binview7mutable31MutableBinaryViewArray$LT$T$GT$26push_value_ignore_validity17h807936c41ece2a2bE.exit.i.i"
-  %.sink46.i = phi ptr [ %158, %154 ], [ %153, %"_ZN12polars_arrow5array7binview7mutable31MutableBinaryViewArray$LT$T$GT$26push_value_ignore_validity17h807936c41ece2a2bE.exit.i.i" ]
+  %.sink47.i = phi ptr [ %158, %154 ], [ %153, %"_ZN12polars_arrow5array7binview7mutable31MutableBinaryViewArray$LT$T$GT$26push_value_ignore_validity17h807936c41ece2a2bE.exit.i.i" ]
   %.sroa.5.0.copyload.sink.i = phi i32 [ %.sroa.5.0.copyload.i, %154 ], [ %.sroa.02.0.copyload.i.i.i.i, %"_ZN12polars_arrow5array7binview7mutable31MutableBinaryViewArray$LT$T$GT$26push_value_ignore_validity17h807936c41ece2a2bE.exit.i.i" ]
   %.sroa.526.0.copyload.sink.i = phi i32 [ %.sroa.526.0.copyload.i, %154 ], [ %146, %"_ZN12polars_arrow5array7binview7mutable31MutableBinaryViewArray$LT$T$GT$26push_value_ignore_validity17h807936c41ece2a2bE.exit.i.i" ]
   %.sroa.6.0.copyload.sink.i = phi i32 [ %.sroa.6.0.copyload.i, %154 ], [ %147, %"_ZN12polars_arrow5array7binview7mutable31MutableBinaryViewArray$LT$T$GT$26push_value_ignore_validity17h807936c41ece2a2bE.exit.i.i" ]
   %storemerge.in.i = phi i64 [ %156, %154 ], [ %148, %"_ZN12polars_arrow5array7binview7mutable31MutableBinaryViewArray$LT$T$GT$26push_value_ignore_validity17h807936c41ece2a2bE.exit.i.i" ]
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sink46.i, i64 4
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sink47.i, i64 4
   store i32 %.sroa.5.0.copyload.sink.i, ptr %.sroa.5.0..sroa_idx.i, align 4, !noalias !1901
-  %.sroa.526.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sink46.i, i64 8
+  %.sroa.526.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sink47.i, i64 8
   store i32 %.sroa.526.0.copyload.sink.i, ptr %.sroa.526.0..sroa_idx.i, align 4, !noalias !1901
-  %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sink46.i, i64 12
+  %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sink47.i, i64 12
   store i32 %.sroa.6.0.copyload.sink.i, ptr %.sroa.6.0..sroa_idx.i, align 4, !noalias !1901
   %storemerge.i = add i64 %storemerge.in.i, 1
   store i64 %storemerge.i, ptr %87, align 8, !alias.scope !1864, !noalias !1869

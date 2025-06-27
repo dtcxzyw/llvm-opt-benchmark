@@ -667,7 +667,7 @@ define internal fastcc noundef zeroext i1 @_ZN4leanL6is_numERKNS_4exprEb(ptr nou
   %.val.i.i.i.i.i = load i32, ptr %10, align 4
   %.mask.i.i = and i32 %.val.i.i.i.i.i, -16777216
   %11 = icmp eq i32 %.mask.i.i, 67108864
-  br i1 %11, label %14, label %78
+  br i1 %11, label %14, label %thread-pre-split
 
 12:                                               ; preds = %.invoke, %66, %54, %41, %28, %16, %63, %51, %38, %25, %14, %2
   %13 = landingpad { ptr, i32 }
@@ -709,11 +709,11 @@ define internal fastcc noundef zeroext i1 @_ZN4leanL6is_numERKNS_4exprEb(ptr nou
           to label %33 unwind label %12
 
 33:                                               ; preds = %28
-  %.not16 = icmp eq i8 %32, 0
-  br i1 %.not16, label %38, label %34
+  %.not15 = icmp eq i8 %32, 0
+  br i1 %.not15, label %38, label %34
 
 34:                                               ; preds = %33
-  br i1 %1, label %35, label %78
+  br i1 %1, label %35, label %thread-pre-split
 
 35:                                               ; preds = %34
   %36 = load i64, ptr %5, align 8, !tbaa !48
@@ -733,11 +733,11 @@ define internal fastcc noundef zeroext i1 @_ZN4leanL6is_numERKNS_4exprEb(ptr nou
           to label %46 unwind label %12
 
 46:                                               ; preds = %41
-  %.not17 = icmp eq i8 %45, 0
-  br i1 %.not17, label %51, label %47
+  %.not16 = icmp eq i8 %45, 0
+  br i1 %.not16, label %51, label %47
 
 47:                                               ; preds = %46
-  br i1 %1, label %48, label %78
+  br i1 %1, label %48, label %thread-pre-split
 
 48:                                               ; preds = %47
   %49 = load i64, ptr %5, align 8, !tbaa !48
@@ -757,8 +757,8 @@ define internal fastcc noundef zeroext i1 @_ZN4leanL6is_numERKNS_4exprEb(ptr nou
           to label %59 unwind label %12
 
 59:                                               ; preds = %54
-  %.not18 = icmp eq i8 %58, 0
-  br i1 %.not18, label %63, label %60
+  %.not17 = icmp eq i8 %58, 0
+  br i1 %.not17, label %63, label %60
 
 60:                                               ; preds = %59
   %61 = load i64, ptr %5, align 8, !tbaa !48
@@ -778,7 +778,7 @@ define internal fastcc noundef zeroext i1 @_ZN4leanL6is_numERKNS_4exprEb(ptr nou
           to label %71 unwind label %12
 
 71:                                               ; preds = %66
-  %72 = icmp ne i8 %70, 0
+  %.not18 = icmp ne i8 %70, 0
   %73 = load i64, ptr %5, align 8
   %74 = icmp eq i64 %73, 4
   %or.cond = select i1 %72, i1 %74, i1 false
@@ -791,9 +791,9 @@ define internal fastcc noundef zeroext i1 @_ZN4leanL6is_numERKNS_4exprEb(ptr nou
   %77 = invoke fastcc noundef zeroext i1 @_ZN4leanL6is_numERKNS_4exprEb(ptr noundef nonnull align 8 dereferenceable(8) %76, i1 noundef zeroext false)
           to label %78 unwind label %12
 
-78:                                               ; preds = %.invoke, %71, %60, %47, %48, %34, %35, %8, %22
-  %.0 = phi i1 [ %24, %22 ], [ false, %8 ], [ false, %34 ], [ %37, %35 ], [ false, %47 ], [ %50, %48 ], [ false, %60 ], [ false, %71 ], [ %77, %.invoke ]
-  %79 = load ptr, ptr %3, align 8, !tbaa !44
+thread-pre-split:                                 ; preds = %.invoke, %71, %60, %47, %48, %34, %35, %8, %22
+  %.0.ph = phi i1 [ %24, %22 ], [ false, %8 ], [ false, %34 ], [ %37, %35 ], [ false, %47 ], [ %50, %48 ], [ false, %60 ], [ false, %71 ], [ %77, %.invoke ]
+  %.pr = load ptr, ptr %3, align 8, !tbaa !44
   %80 = load i64, ptr %5, align 8, !tbaa !48
   %81 = getelementptr inbounds nuw %"class.lean::expr", ptr %79, i64 %80
   %.not4.i.i.i.i = icmp eq ptr %79, %81

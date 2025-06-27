@@ -2269,7 +2269,7 @@ common.resume:                                    ; preds = %289, %263, %188, %1
   %146 = load <2 x i64>, ptr %145, align 16
   br label %150
 
-_ZN6cipher11stream_core13StreamBackend15gen_tail_blocks17h9be0976c3f3fc38bE.exit.i.preheader: ; preds = %"_ZN110_$LT$generic_array..GenericArray$LT$T$C$N$GT$$u20$as$u20$generic_array..sequence..GenericSequence$LT$T$GT$$GT$8generate17ha6b6f358ce7b7248E.exit.i", %110
+.lr.ph66:                                         ; preds = %"_ZN110_$LT$generic_array..GenericArray$LT$T$C$N$GT$$u20$as$u20$generic_array..sequence..GenericSequence$LT$T$GT$$GT$8generate17ha6b6f358ce7b7248E.exit.i", %110
   %.not = icmp eq i64 %35, 0
   br i1 %.not, label %"_ZN88_$LT$ctr..backend..Closure$LT$F$C$BS$C$SC$GT$$u20$as$u20$cipher..block..BlockClosure$GT$4call17h1ca8da35bfa82f1cE.exit", label %.lr.ph66
 
@@ -2339,7 +2339,7 @@ _ZN6cipher11stream_core13StreamBackend15gen_tail_blocks17h9be0976c3f3fc38bE.exit
   %176 = call <2 x i64> @llvm.x86.aesni.aesenclast(<2 x i64> %175, <2 x i64> %146) #29
   store <2 x i64> %176, ptr %.sroa.022.061, align 1, !noalias !577
   %177 = icmp eq ptr %155, %111
-  br i1 %177, label %_ZN6cipher11stream_core13StreamBackend15gen_tail_blocks17h9be0976c3f3fc38bE.exit.i.preheader, label %150
+  br i1 %177, label %.lr.ph66, label %150
 
 178:                                              ; preds = %.lr.ph, %"_ZN5inout5inout93InOut$LT$generic_array..GenericArray$LT$generic_array..GenericArray$LT$u8$C$N$GT$$C$M$GT$$GT$10xor_in2out17h90a072124bc98d96E.exit.i"
   %.sroa.4.1.i.i59 = phi i64 [ 1, %.lr.ph ], [ %.sroa.4.1.i.i, %"_ZN5inout5inout93InOut$LT$generic_array..GenericArray$LT$generic_array..GenericArray$LT$u8$C$N$GT$$C$M$GT$$GT$10xor_in2out17h90a072124bc98d96E.exit.i" ]
@@ -2773,7 +2773,7 @@ _ZN3aes2ni6aes2568encrypt817h4e2f0a4931a43febE.exit: ; preds = %_ZN3aes2ni5utils
   %exitcond69.not = icmp eq i64 %285, %35
   br i1 %exitcond69.not, label %"_ZN88_$LT$ctr..backend..Closure$LT$F$C$BS$C$SC$GT$$u20$as$u20$cipher..block..BlockClosure$GT$4call17h1ca8da35bfa82f1cE.exit", label %284
 
-"_ZN88_$LT$ctr..backend..Closure$LT$F$C$BS$C$SC$GT$$u20$as$u20$cipher..block..BlockClosure$GT$4call17h1ca8da35bfa82f1cE.exit": ; preds = %"_ZN5inout5inout54InOut$LT$generic_array..GenericArray$LT$u8$C$N$GT$$GT$10xor_in2out17hb5aceffc68d96023E.exit.i", %_ZN6cipher11stream_core13StreamBackend15gen_tail_blocks17h9be0976c3f3fc38bE.exit.i.preheader
+"_ZN88_$LT$ctr..backend..Closure$LT$F$C$BS$C$SC$GT$$u20$as$u20$cipher..block..BlockClosure$GT$4call17h1ca8da35bfa82f1cE.exit": ; preds = %"_ZN5inout5inout54InOut$LT$generic_array..GenericArray$LT$u8$C$N$GT$$GT$10xor_in2out17hb5aceffc68d96023E.exit.i", %.lr.ph66
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %31), !noalias !532
   ret void
 }

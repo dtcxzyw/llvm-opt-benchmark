@@ -339,7 +339,7 @@ define dso_local void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 captures(none)
   %16 = icmp eq ptr %10, %15
   br i1 %16, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %12, %_ZN4enki12ICompletableD2Ev.exit
+.preheader.preheader:                             ; preds = %12, %_ZN4enki12ICompletableD2Ev.exit
   %17 = phi ptr [ %18, %_ZN4enki12ICompletableD2Ev.exit ], [ %15, %12 ]
   %18 = getelementptr inbounds i8, ptr %17, i64 -72
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4enki12ICompletableE, i64 16), ptr %18, align 8, !tbaa !19

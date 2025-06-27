@@ -2731,8 +2731,8 @@ _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit: ; preds = 
   %10 = load i64, ptr %9, align 8, !noalias !384, !noundef !4
   %11 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %8, i64 %10
   tail call void @llvm.experimental.noalias.scope.decl(metadata !387)
-  %12 = icmp eq ptr %8, %11
-  br i1 %12, label %.loopexit.i, label %.lr.ph.i.i.i
+  %11 = icmp eq ptr %8, %11
+  br i1 %11, label %.loopexit.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit, %17
   %13 = phi ptr [ %14, %17 ], [ %11, %_ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit ]

@@ -1451,17 +1451,17 @@ define hidden void @_ZN5bench15parse_byte_size17h204e5e12ea9660d7E(ptr dead_on_u
   %.sroa.011.0 = phi i64 [ 1, %47 ], [ 1, %3 ], [ %.sroa.011.1, %55 ]
   switch i64 %.sroa.6.0, label %61 [
     i64 0, label %.loopexit
-    i64 1, label %59
+    i64 1, label %60
   ]
 
-59:                                               ; preds = %58
+60:                                               ; preds = %58
   %60 = load i8, ptr %5, align 1, !alias.scope !116, !noalias !119, !noundef !8
   switch i8 %60, label %.lr.ph.i.preheader [
     i8 43, label %.loopexit
     i8 45, label %.loopexit
   ]
 
-.lr.ph.i.preheader:                               ; preds = %62, %66, %59
+.lr.ph.i.preheader:                               ; preds = %62, %66, %60
   %.sroa.01.153.i.ph = phi ptr [ %63, %62 ], [ %5, %59 ], [ %5, %66 ]
   %.sroa.14.152.i.ph = phi i64 [ %64, %62 ], [ 1, %59 ], [ %.sroa.6.0, %66 ]
   br label %.lr.ph.i
@@ -1534,7 +1534,7 @@ define hidden void @_ZN5bench15parse_byte_size17h204e5e12ea9660d7E(ptr dead_on_u
   %.not42.i = icmp eq i64 %90, 0
   br i1 %.not42.i, label %"_ZN4core3num21_$LT$impl$u20$u64$GT$16from_ascii_radix17h94ae65e2f8b0b215E.exit", label %.lr.ph.i
 
-.loopexit:                                        ; preds = %68, %77, %79, %.lr.ph.i, %52, %58, %59, %59
+.loopexit:                                        ; preds = %68, %77, %79, %.lr.ph.i, %52, %58, %60, %60
   %.sroa.520.0.ph = phi i8 [ 1, %59 ], [ 1, %59 ], [ 0, %58 ], [ 0, %52 ], [ 1, %.lr.ph.i ], [ 1, %68 ], [ 2, %77 ], [ 2, %79 ]
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sroa.520.0.ph, ptr %94, align 1

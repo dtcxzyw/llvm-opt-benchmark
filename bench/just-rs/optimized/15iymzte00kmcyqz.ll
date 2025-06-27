@@ -16124,7 +16124,7 @@ define noundef zeroext i1 @"_ZN88_$LT$just..unresolved_dependency..UnresolvedDep
   %21 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %10)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  br label %45
+  br label %43
 
 22:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -16144,7 +16144,7 @@ define noundef zeroext i1 @"_ZN88_$LT$just..unresolved_dependency..UnresolvedDep
   %28 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %8)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  br i1 %28, label %45, label %29
+  br i1 %28, label %43, label %29
 
 29:                                               ; preds = %22
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -16161,23 +16161,23 @@ define noundef zeroext i1 @"_ZN88_$LT$just..unresolved_dependency..UnresolvedDep
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 24
   br label %43
 
-._crit_edge:                                      ; preds = %46, %29
+.lr.ph:                                           ; preds = %46, %29
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   store ptr @anon.b7ae7c3d55ba6f4ffad1d37df00c288f.109, ptr %3, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 1, ptr %38, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store ptr null, ptr %39, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr @anon.b7ae7c3d55ba6f4ffad1d37df00c288f.14.llvm.5593464411486612011, ptr %40, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i64 0, ptr %41, align 8
-  %42 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3)
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i64 1, ptr %36, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store ptr null, ptr %37, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr @anon.b7ae7c3d55ba6f4ffad1d37df00c288f.14.llvm.5593464411486612011, ptr %38, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store i64 0, ptr %39, align 8
+  %40 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
-  br label %45
+  br label %43
 
-43:                                               ; preds = %.lr.ph, %46
-  %.sroa.0.018 = phi ptr [ %.val, %.lr.ph ], [ %47, %46 ]
+41:                                               ; preds = %.lr.ph, %44
+  %.sroa.0.018 = phi ptr [ %.val, %.lr.ph ], [ %45, %46 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr %.sroa.0.018, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
@@ -16189,25 +16189,25 @@ define noundef zeroext i1 @"_ZN88_$LT$just..unresolved_dependency..UnresolvedDep
   store ptr null, ptr %35, align 8, !alias.scope !3509, !noalias !3512
   store ptr %4, ptr %36, align 8, !alias.scope !3509, !noalias !3512
   store i64 1, ptr %37, align 8, !alias.scope !3509, !noalias !3512
-  %44 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5)
+  %42 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
-  br i1 %44, label %49, label %46
+  br i1 %42, label %47, label %44
 
-45:                                               ; preds = %22, %49, %15, %._crit_edge
-  %.0.shrunk = phi i1 [ %21, %15 ], [ %42, %._crit_edge ], [ true, %49 ], [ true, %22 ]
+43:                                               ; preds = %22, %47, %15, %._crit_edge
+  %.0.shrunk = phi i1 [ %21, %15 ], [ %40, %._crit_edge ], [ true, %49 ], [ true, %22 ]
   ret i1 %.0.shrunk
 
-46:                                               ; preds = %43
-  %47 = getelementptr inbounds nuw i8, ptr %.sroa.0.018, i64 128
+44:                                               ; preds = %41
+  %45 = getelementptr inbounds nuw i8, ptr %.sroa.0.018, i64 128
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %48 = icmp eq ptr %47, %31
-  br i1 %48, label %._crit_edge, label %43
+  %46 = icmp eq ptr %45, %31
+  br i1 %46, label %._crit_edge, label %41
 
-49:                                               ; preds = %43
+47:                                               ; preds = %41
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  br label %45
+  br label %43
 }
 
 ; Function Attrs: nonlazybind uwtable

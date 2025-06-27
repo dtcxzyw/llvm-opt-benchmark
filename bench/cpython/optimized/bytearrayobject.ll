@@ -7807,7 +7807,7 @@ PyByteArray_AS_STRING.exit73.i.i.i:               ; preds = %301, %299
   %305 = ptrtoint ptr %304 to i64
   br label %306
 
-306:                                              ; preds = %317, %PyByteArray_AS_STRING.exit73.i.i.i
+306:                                              ; preds = %314, %PyByteArray_AS_STRING.exit73.i.i.i
   %.in.i113.i.i = phi i64 [ %..i.i112.i.i, %PyByteArray_AS_STRING.exit73.i.i.i ], [ %307, %317 ]
   %.06080.i.i.i = phi ptr [ %.0.i75.i.i.i, %PyByteArray_AS_STRING.exit73.i.i.i ], [ %.1.i115.i.i, %317 ]
   %.06279.i.i.i = phi ptr [ %.0.i72.i.i.i, %PyByteArray_AS_STRING.exit73.i.i.i ], [ %.163.i.i.i, %317 ]
@@ -7823,21 +7823,21 @@ PyByteArray_AS_STRING.exit73.i.i.i:               ; preds = %301, %299
   %314 = icmp eq ptr %313, %.06080.i.i.i
   br i1 %314, label %317, label %315
 
-315:                                              ; preds = %312
+311:                                              ; preds = %312
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.06279.i.i.i, ptr align 1 %.06080.i.i.i, i64 %310, i1 false)
-  %316 = getelementptr i8, ptr %.06279.i.i.i, i64 %310
-  br label %317
+  %313 = getelementptr i8, ptr %.06279.i.i.i, i64 %310
+  br label %314
 
-317:                                              ; preds = %315, %312
-  %.sink.i114.i.i = phi ptr [ %316, %315 ], [ %.06279.i.i.i, %312 ]
+314:                                              ; preds = %311, %312
+  %.sink.i114.i.i = phi ptr [ %313, %315 ], [ %.06279.i.i.i, %312 ]
   %.060.pn.i.i.i = phi ptr [ %313, %315 ], [ %.06080.i.i.i, %312 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.sink.i114.i.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %.val30, i64 range(i64 1, 0) %.val31, i1 false)
   %.1.i115.i.i = getelementptr i8, ptr %.060.pn.i.i.i, i64 %.val29
   %.163.i.i.i = getelementptr i8, ptr %.sink.i114.i.i, i64 %.val31
-  %318 = icmp samesign ugt i64 %.in.i113.i.i, 1
-  br i1 %318, label %306, label %._crit_edge.i116.i.i, !llvm.loop !161
+  %315 = icmp samesign ugt i64 %.in.i113.i.i, 1
+  br i1 %315, label %306, label %._crit_edge.i116.i.i, !llvm.loop !161
 
-._crit_edge.i116.i.i:                             ; preds = %317
+._crit_edge.i116.i.i:                             ; preds = %314
   %.pre.i117.i.i = ptrtoint ptr %.1.i115.i.i to i64
   %.pre82.i.i.i = sub i64 %305, %.pre.i117.i.i
   br label %split.i118.i.i, !llvm.loop !161
@@ -7851,26 +7851,26 @@ split.i118.i.i:                                   ; preds = %306, %._crit_edge.i
 
 bytearray_replace_impl.exit:                      ; preds = %228, %.lr.ph.i88.i.i, %198, %193, %split.i118.i.i, %294, %292, %return_self.exit.i124.i.i, %split.i104.i.i, %257, %255, %return_self.exit.i106.i.i, %PyByteArray_AS_STRING.exit47.i.i.i, %212, %return_self.exit.i91.i.i, %PyByteArray_AS_STRING.exit40.i.i.i, %178, %return_self.exit.i80.i.i, %._crit_edge.i69.i.i, %143, %return_self.exit.i71.i.i, %split.i.i.i, %116, %return_self.exit.i.i.i, %.loopexit.i.i.i, %65, %63, %return_self.exit58.i.i, %return_self.exit54.i.i, %return_self.exit.i.i, %Py_DECREF.exit.thread, %12, %9, %7
   %.020 = phi ptr [ null, %9 ], [ null, %12 ], [ null, %7 ], [ null, %Py_DECREF.exit.thread ], [ %39, %return_self.exit.i.i ], [ %57, %return_self.exit58.i.i ], [ %48, %return_self.exit54.i.i ], [ null, %63 ], [ %68, %.loopexit.i.i.i ], [ null, %65 ], [ %115, %return_self.exit.i.i.i ], [ %118, %split.i.i.i ], [ null, %116 ], [ %142, %return_self.exit.i71.i.i ], [ %146, %._crit_edge.i69.i.i ], [ null, %143 ], [ %177, %return_self.exit.i80.i.i ], [ null, %178 ], [ %179, %PyByteArray_AS_STRING.exit40.i.i.i ], [ %211, %return_self.exit.i91.i.i ], [ null, %212 ], [ %213, %PyByteArray_AS_STRING.exit47.i.i.i ], [ %249, %return_self.exit.i106.i.i ], [ null, %255 ], [ %260, %split.i104.i.i ], [ null, %257 ], [ %286, %return_self.exit.i124.i.i ], [ null, %292 ], [ %297, %split.i118.i.i ], [ null, %294 ], [ %179, %193 ], [ %179, %198 ], [ %213, %.lr.ph.i88.i.i ], [ %213, %228 ]
-  %319 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %320 = load ptr, ptr %319, align 8, !tbaa !146
-  %.not26 = icmp eq ptr %320, null
-  br i1 %.not26, label %322, label %321
+  %316 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %317 = load ptr, ptr %316, align 8, !tbaa !146
+  %.not26 = icmp eq ptr %317, null
+  br i1 %.not26, label %319, label %318
 
-321:                                              ; preds = %bytearray_replace_impl.exit
+318:                                              ; preds = %bytearray_replace_impl.exit
   call void @PyBuffer_Release(ptr noundef nonnull %4) #16
-  br label %322
+  br label %319
 
-322:                                              ; preds = %321, %bytearray_replace_impl.exit
-  %323 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %324 = load ptr, ptr %323, align 8, !tbaa !146
-  %.not27 = icmp eq ptr %324, null
-  br i1 %.not27, label %326, label %325
+319:                                              ; preds = %318, %bytearray_replace_impl.exit
+  %320 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %321 = load ptr, ptr %320, align 8, !tbaa !146
+  %.not27 = icmp eq ptr %321, null
+  br i1 %.not27, label %323, label %322
 
-325:                                              ; preds = %322
+322:                                              ; preds = %319
   call void @PyBuffer_Release(ptr noundef nonnull %5) #16
-  br label %326
+  br label %323
 
-326:                                              ; preds = %322, %325
+323:                                              ; preds = %319, %322
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #16
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #16
   ret ptr %.020

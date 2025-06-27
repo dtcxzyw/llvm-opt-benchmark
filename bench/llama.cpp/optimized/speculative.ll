@@ -76,12 +76,12 @@ define noundef nonnull ptr @_Z23common_speculative_initP13llama_context(ptr noun
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %5, align 8, !tbaa !21
   %6 = invoke i32 @llama_n_batch(ptr noundef %0)
-          to label %7 unwind label %42
+          to label %7 unwind label %39
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   invoke void @llama_batch_init(ptr dead_on_unwind nonnull writable sret(%struct.llama_batch) align 8 %8, i32 noundef %6, i32 noundef 0, i32 noundef 1)
-          to label %9 unwind label %42
+          to label %9 unwind label %39
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 72
@@ -106,7 +106,7 @@ define noundef nonnull ptr @_Z23common_speculative_initP13llama_context(ptr noun
 
 21:                                               ; preds = %9
   %22 = invoke noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #17
-          to label %.noexc unwind label %44
+          to label %.noexc unwind label %41
 
 .noexc:                                           ; preds = %21
   store i32 2, ptr %22, align 4
@@ -131,25 +131,25 @@ _ZNSt12_Vector_baseI19common_sampler_typeSaIS0_EE13_M_deallocateEPS0_m.exit.i: ;
   %29 = ptrtoint ptr %28 to i64
   %30 = sub i64 %29, %18
   %.not.i = icmp eq ptr %28, %16
-  br i1 %.not.i, label %_ZSt7advanceIPK19common_sampler_typemEvRT_T0_.exit.i, label %31
+  br i1 %.not.i, label %_ZSt22__uninitialized_copy_aIPK19common_sampler_typePS0_S0_ET0_T_S5_S4_RSaIT1_E.exit.i, label %29
 
-31:                                               ; preds = %26
+29:                                               ; preds = %26
   store i32 2, ptr %16, align 4
   %.pre.i = load ptr, ptr %27, align 8, !tbaa !62
-  %32 = getelementptr inbounds nuw i8, ptr %16, i64 4
-  %.not.i16.i = icmp eq ptr %.pre.i, %32
-  br i1 %.not.i16.i, label %_ZNSt6vectorI19common_sampler_typeSaIS0_EEaSESt16initializer_listIS0_E.exit, label %33
+  %30 = getelementptr inbounds nuw i8, ptr %16, i64 4
+  %.not.i16.i = icmp eq ptr %.pre.i, %30
+  br i1 %.not.i16.i, label %_ZNSt6vectorI19common_sampler_typeSaIS0_EEaSESt16initializer_listIS0_E.exit, label %31
 
-33:                                               ; preds = %31
-  store ptr %32, ptr %27, align 8, !tbaa !62
+31:                                               ; preds = %29
+  store ptr %30, ptr %27, align 8, !tbaa !62
   br label %_ZNSt6vectorI19common_sampler_typeSaIS0_EEaSESt16initializer_listIS0_E.exit
 
-_ZSt7advanceIPK19common_sampler_typemEvRT_T0_.exit.i: ; preds = %26
+_ZSt22__uninitialized_copy_aIPK19common_sampler_typePS0_S0_ET0_T_S5_S4_RSaIT1_E.exit.i: ; preds = %26
   %34 = getelementptr inbounds i8, ptr %3, i64 %30
   %.not.i.i.i.i.i17.i = icmp eq ptr %34, %3
   br i1 %.not.i.i.i.i.i17.i, label %_ZSt22__uninitialized_copy_aIPK19common_sampler_typePS0_S0_ET0_T_S5_S4_RSaIT1_E.exit.i, label %_ZSt4copyIPK19common_sampler_typePS0_ET0_T_S5_S4_.exit18.i
 
-_ZSt4copyIPK19common_sampler_typePS0_ET0_T_S5_S4_.exit18.i: ; preds = %_ZSt7advanceIPK19common_sampler_typemEvRT_T0_.exit.i
+_ZSt4copyIPK19common_sampler_typePS0_ET0_T_S5_S4_.exit18.i:   ; preds = %_ZSt7advanceIPK19common_sampler_typemEvRT_T0_.exit.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %16, ptr nonnull align 4 %3, i64 %30, i1 false)
   %.pre26.i = load ptr, ptr %27, align 8, !tbaa !62
   br label %_ZSt22__uninitialized_copy_aIPK19common_sampler_typePS0_S0_ET0_T_S5_S4_RSaIT1_E.exit.i
@@ -163,46 +163,46 @@ _ZSt22__uninitialized_copy_aIPK19common_sampler_typePS0_S0_ET0_T_S5_S4_RSaIT1_E.
   store ptr %37, ptr %27, align 8, !tbaa !62
   br label %_ZNSt6vectorI19common_sampler_typeSaIS0_EEaSESt16initializer_listIS0_E.exit
 
-_ZNSt6vectorI19common_sampler_typeSaIS0_EEaSESt16initializer_listIS0_E.exit: ; preds = %_ZNSt12_Vector_baseI19common_sampler_typeSaIS0_EE13_M_deallocateEPS0_m.exit.i, %31, %33, %_ZSt22__uninitialized_copy_aIPK19common_sampler_typePS0_S0_ET0_T_S5_S4_RSaIT1_E.exit.i
+_ZNSt6vectorI19common_sampler_typeSaIS0_EEaSESt16initializer_listIS0_E.exit: ; preds = %_ZNSt12_Vector_baseI19common_sampler_typeSaIS0_EE13_M_deallocateEPS0_m.exit.i, %29, %31, %_ZSt22__uninitialized_copy_aIPK19common_sampler_typePS0_S0_ET0_T_S5_S4_RSaIT1_E.exit.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #18
-  %38 = invoke ptr @llama_get_model(ptr noundef %0)
-          to label %39 unwind label %46
+  %35 = invoke ptr @llama_get_model(ptr noundef %0)
+          to label %39 unwind label %43
 
-39:                                               ; preds = %_ZNSt6vectorI19common_sampler_typeSaIS0_EEaSESt16initializer_listIS0_E.exit
-  %40 = invoke noundef ptr @_Z19common_sampler_initPK11llama_modelRK22common_params_sampling(ptr noundef %38, ptr noundef nonnull align 8 dereferenceable(312) %2)
-          to label %41 unwind label %46
+36:                                               ; preds = %_ZNSt6vectorI19common_sampler_typeSaIS0_EEaSESt16initializer_listIS0_E.exit
+  %37 = invoke noundef ptr @_Z19common_sampler_initPK11llama_modelRK22common_params_sampling(ptr noundef %35, ptr noundef nonnull align 8 dereferenceable(312) %2)
+          to label %41 unwind label %43
 
-41:                                               ; preds = %39
-  store ptr %40, ptr %5, align 8, !tbaa !21
+38:                                               ; preds = %36
+  store ptr %37, ptr %5, align 8, !tbaa !21
   call void @_ZN22common_params_samplingD2Ev(ptr noundef nonnull align 8 dereferenceable(312) %2) #18
   call void @llvm.lifetime.end.p0(i64 312, ptr nonnull %2) #18
   ret ptr %4
 
-42:                                               ; preds = %7, %1
-  %43 = landingpad { ptr, i32 }
+39:                                               ; preds = %7, %1
+  %40 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 96) #19
-  br label %49
+  br label %46
 
-44:                                               ; preds = %21
-  %45 = landingpad { ptr, i32 }
+41:                                               ; preds = %21
+  %42 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #18
-  br label %48
+  br label %45
 
-46:                                               ; preds = %39, %_ZNSt6vectorI19common_sampler_typeSaIS0_EEaSESt16initializer_listIS0_E.exit
-  %47 = landingpad { ptr, i32 }
+43:                                               ; preds = %36, %_ZNSt6vectorI19common_sampler_typeSaIS0_EEaSESt16initializer_listIS0_E.exit
+  %44 = landingpad { ptr, i32 }
           cleanup
-  br label %48
+  br label %45
 
-48:                                               ; preds = %46, %44
-  %.pn = phi { ptr, i32 } [ %47, %46 ], [ %45, %44 ]
+45:                                               ; preds = %43, %41
+  %.pn = phi { ptr, i32 } [ %44, %46 ], [ %42, %44 ]
   call void @_ZN22common_params_samplingD2Ev(ptr noundef nonnull align 8 dereferenceable(312) %2) #18
   call void @llvm.lifetime.end.p0(i64 312, ptr nonnull %2) #18
-  br label %49
+  br label %46
 
-49:                                               ; preds = %48, %42
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %48 ], [ %43, %42 ]
+46:                                               ; preds = %45, %39
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %48 ], [ %40, %42 ]
   resume { ptr, i32 } %.pn.pn
 }
 

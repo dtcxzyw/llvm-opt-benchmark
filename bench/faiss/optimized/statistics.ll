@@ -210,7 +210,7 @@ _ZNSt6vectorIdSaIdEEC2ERKS1_.exit:                ; preds = %.thread, %22
   %37 = shl nuw nsw i64 %36, 1
   %38 = xor i64 %37, 126
   invoke void @_ZSt13__introselectIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEElNS0_5__ops15_Iter_less_iterEEvT_S9_S9_T0_T1_(ptr %26, ptr %28, ptr %25, i64 noundef %38)
-          to label %._ZSt11nth_elementIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEEvT_S7_S7_.exit_crit_edge unwind label %58
+          to label %._ZSt11nth_elementIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEEvT_S7_S7_.exit_crit_edge unwind label %57
 
 ._ZSt11nth_elementIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEEvT_S7_S7_.exit_crit_edge: ; preds = %31
   %.pre = load ptr, ptr %2, align 8, !tbaa !12
@@ -237,50 +237,50 @@ _ZSt11nth_elementIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEEvT_S7_S7_
   br i1 %or.cond.i.i, label %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEET_S7_S7_.exit, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %42
-  %44 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %.pre.i.i = load double, ptr %26, align 8, !tbaa !8
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
-  %45 = phi double [ %49, %.lr.ph.i.i ], [ %.pre.i.i, %.lr.ph.preheader.i.i ]
-  %46 = phi ptr [ %50, %.lr.ph.i.i ], [ %44, %.lr.ph.preheader.i.i ]
+  %44 = phi double [ %48, %.lr.ph.i.i ], [ %.pre.i.i, %.lr.ph.preheader.i.i ]
+  %45 = phi ptr [ %49, %.lr.ph.i.i ], [ %43, %.lr.ph.preheader.i.i ]
   %.sroa.02.110.i.i = phi ptr [ %spec.select.i.i, %.lr.ph.i.i ], [ %26, %.lr.ph.preheader.i.i ]
-  %47 = load double, ptr %46, align 8, !tbaa !8
-  %48 = fcmp olt double %45, %47
-  %49 = select i1 %48, double %47, double %45
-  %spec.select.i.i = select i1 %48, ptr %46, ptr %.sroa.02.110.i.i
-  %50 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %.not.i.i = icmp eq ptr %50, %28
+  %46 = load double, ptr %45, align 8, !tbaa !8
+  %47 = fcmp olt double %44, %46
+  %48 = select i1 %47, double %46, double %44
+  %spec.select.i.i = select i1 %47, ptr %45, ptr %.sroa.02.110.i.i
+  %49 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %.not.i.i = icmp eq ptr %49, %28
   br i1 %.not.i.i, label %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEET_S7_S7_.exit, label %.lr.ph.i.i, !llvm.loop !16
 
 _ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEET_S7_S7_.exit: ; preds = %.lr.ph.i.i, %42
   %.sroa.02.0.i.i = phi ptr [ %26, %42 ], [ %spec.select.i.i, %.lr.ph.i.i ]
-  %51 = load double, ptr %28, align 8, !tbaa !8
-  %52 = load double, ptr %.sroa.02.0.i.i, align 8, !tbaa !8
-  %53 = fadd double %51, %52
-  %54 = fmul double %53, 5.000000e-01
+  %50 = load double, ptr %28, align 8, !tbaa !8
+  %51 = load double, ptr %.sroa.02.0.i.i, align 8, !tbaa !8
+  %52 = fadd double %50, %51
+  %53 = fmul double %52, 5.000000e-01
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEET_S7_S7_.exit, %40
-  %.1 = phi double [ %41, %40 ], [ %54, %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEET_S7_S7_.exit ]
-  %55 = ptrtoint ptr %25 to i64
-  %56 = ptrtoint ptr %26 to i64
-  %57 = sub i64 %55, %56
-  tail call void @_ZdlPvm(ptr noundef nonnull %26, i64 noundef %57) #28
+  %.1 = phi double [ %41, %40 ], [ %53, %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEET_S7_S7_.exit ]
+  %54 = ptrtoint ptr %25 to i64
+  %55 = ptrtoint ptr %26 to i64
+  %56 = sub i64 %54, %55
+  tail call void @_ZdlPvm(ptr noundef nonnull %26, i64 noundef %56) #28
   br label %_ZN9benchmark14StatisticsMeanERKSt6vectorIdSaIdEE.exit
 
-58:                                               ; preds = %31
-  %59 = landingpad { ptr, i32 }
+57:                                               ; preds = %31
+  %58 = landingpad { ptr, i32 }
           cleanup
   %.not.i.i.i15 = icmp eq ptr %26, null
   br i1 %.not.i.i.i15, label %_ZNSt6vectorIdSaIdEED2Ev.exit16, label %.thread26
 
-.thread26:                                        ; preds = %58
+.thread26:                                        ; preds = %57
   tail call void @_ZdlPvm(ptr noundef nonnull %26, i64 noundef %34) #28
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit16
 
-_ZNSt6vectorIdSaIdEED2Ev.exit16:                  ; preds = %58, %.thread26
-  resume { ptr, i32 } %59
+_ZNSt6vectorIdSaIdEED2Ev.exit16:                  ; preds = %57, %.thread26
+  resume { ptr, i32 } %58
 
 _ZN9benchmark14StatisticsMeanERKSt6vectorIdSaIdEE.exit: ; preds = %"_ZNK9benchmark3$_0clERKSt6vectorIdSaIdEE.exit.i", %11, %_ZNSt6vectorIdSaIdEED2Ev.exit
   %.0 = phi double [ %.1, %_ZNSt6vectorIdSaIdEED2Ev.exit ], [ %17, %"_ZNK9benchmark3$_0clERKSt6vectorIdSaIdEE.exit.i" ], [ 0.000000e+00, %11 ]

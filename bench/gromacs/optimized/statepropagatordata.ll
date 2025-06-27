@@ -3667,14 +3667,14 @@ _ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIfSaI
   store float 0.000000e+00, ptr %30, align 4, !tbaa !136
   %33 = getelementptr i8, ptr %30, i64 4
   %34 = icmp eq i32 %6, 1
-  br i1 %34, label %36, label %.lr.ph.i.i.preheader.i.i.i.i.i.i.i
+  br i1 %34, label %36, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
 
-.lr.ph.i.i.preheader.i.i.i.i.i.i.i:               ; preds = %.noexc10
+_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc10
   %35 = add nsw i64 %.idx, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %33, i8 0, i64 %35, i1 false), !tbaa !136
   br label %36
 
-36:                                               ; preds = %.lr.ph.i.i.preheader.i.i.i.i.i.i.i, %.noexc10, %_ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i
+36:                                               ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc10, %_ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i
   %.0.i.i.i.i.i = phi ptr [ %33, %.noexc10 ], [ %31, %.lr.ph.i.i.preheader.i.i.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i ]
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.0.i.i.i.i.i, ptr %37, align 8, !tbaa !423

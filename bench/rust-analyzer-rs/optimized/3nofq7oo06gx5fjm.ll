@@ -801,7 +801,7 @@ _ZN4core3str7pattern15ReverseSearcher16next_reject_back17h4dc894859c133de5E.llvm
   %91 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hdc244aaf69d832a7E"(i64 noundef %.sroa.4.1.i.i.i, i1 noundef zeroext false)
           to label %.noexc.i.i.i unwind label %188, !noalias !103
 
-.noexc.i.i.i:                                     ; preds = %90
+.lr.ph.i.i.i.i:                                   ; preds = %90
   %92 = extractvalue { i64, ptr } %91, 0
   %93 = extractvalue { i64, ptr } %91, 1
   store i64 %92, ptr %15, align 8, !noalias !111
@@ -811,7 +811,7 @@ _ZN4core3str7pattern15ReverseSearcher16next_reject_back17h4dc894859c133de5E.llvm
   %95 = icmp eq ptr %.sroa.0.1.i.i.i, %94
   br i1 %95, label %.loopexit.i.i.i, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %.noexc.i.i.i, %184
+95:                                               ; preds = %.lr.ph.i.i.i.i, %184
   %.026.i.i.i.i = phi i1 [ %.1.i.i.i.i, %184 ], [ true, %.noexc.i.i.i ]
   %.01325.i.i.i.i = phi i1 [ false, %184 ], [ true, %.noexc.i.i.i ]
   %.sroa.0.024.i.i.i.i = phi ptr [ %.sroa.0.1.ph15.i.i.i.i, %184 ], [ %.sroa.0.1.i.i.i, %.noexc.i.i.i ]
@@ -820,7 +820,7 @@ _ZN4core3str7pattern15ReverseSearcher16next_reject_back17h4dc894859c133de5E.llvm
   %98 = icmp sgt i8 %97, -1
   br i1 %98, label %109, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbdd77eb0f2817061E.exit13.i.i.i.i.i"
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbdd77eb0f2817061E.exit13.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbdd77eb0f2817061E.exit13.i.i.i.i.i": ; preds = %95
   %99 = and i8 %97, 31
   %100 = zext nneg i8 %99 to i32
   %101 = icmp ne ptr %96, %94
@@ -834,7 +834,7 @@ _ZN4core3str7pattern15ReverseSearcher16next_reject_back17h4dc894859c133de5E.llvm
   %108 = icmp samesign ugt i8 %97, -33
   br i1 %108, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbdd77eb0f2817061E.exit15.i.i.i.i.i", label %.thread12.i.i.i.i
 
-109:                                              ; preds = %.lr.ph.i.i.i.i
+109:                                              ; preds = %95
   %110 = zext nneg i8 %97 to i32
   br label %.thread12.i.i.i.i
 
@@ -1056,7 +1056,7 @@ switch.lookup16:                                  ; preds = %.thread21.i.i.i.i
 184:                                              ; preds = %182, %180, %159
   %.1.i.i.i.i = phi i1 [ true, %159 ], [ false, %180 ], [ %183, %182 ]
   %185 = icmp eq ptr %.sroa.0.1.ph15.i.i.i.i, %94
-  br i1 %185, label %.loopexit.i.i.i, label %.lr.ph.i.i.i.i
+  br i1 %185, label %.loopexit.i.i.i, label %95
 
 186:                                              ; preds = %121
   %187 = landingpad { ptr, i32 }

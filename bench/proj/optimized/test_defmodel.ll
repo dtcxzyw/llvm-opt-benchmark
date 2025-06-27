@@ -53262,10 +53262,10 @@ define linkonce_odr hidden void @_ZNSt6vectorIN13proj_nlohmann10basic_jsonISt3ma
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 16
   %34 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i = icmp eq ptr %33, %20
-  br i1 %.not.i.i.i.i.i, label %_ZSt22__uninitialized_move_aIPN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEEESE_SaISD_EET0_T_SH_SG_RT1_.exit.loopexit, label %.lr.ph.i.i.i.i.i, !llvm.loop !711
+  br i1 %.not.i.i.i.i.i, label %_ZSt22__uninitialized_move_aIPN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEEESE_SaISD_EET0_T_SH_SG_RT1_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !711
 
-_ZSt22__uninitialized_move_aIPN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEEESE_SaISD_EET0_T_SH_SG_RT1_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
-  %.pre = load ptr, ptr %12, align 8, !tbaa !139
+_ZSt22__uninitialized_move_aIPN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEEESE_SaISD_EET0_T_SH_SG_RT1_.exit: ; preds = %.lr.ph.i.i.i.i.i
+  %35 = load ptr, ptr %12, align 8, !tbaa !139
   br label %_ZSt22__uninitialized_move_aIPN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEEESE_SaISD_EET0_T_SH_SG_RT1_.exit
 
 _ZSt22__uninitialized_move_aIPN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEEESE_SaISD_EET0_T_SH_SG_RT1_.exit: ; preds = %_ZSt22__uninitialized_move_aIPN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEEESE_SaISD_EET0_T_SH_SG_RT1_.exit.loopexit, %26
@@ -53277,7 +53277,7 @@ _ZSt22__uninitialized_move_aIPN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__
   %38 = sub i64 %37, %22
   %39 = ashr exact i64 %38, 4
   %40 = icmp sgt i64 %39, 0
-  br i1 %40, label %.lr.ph.i.i.i.i.i68, label %.loopexit132
+  br i1 %40, label %.lr.ph.i.i.i.i.i68, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i.i.i68:                               ; preds = %_ZSt22__uninitialized_move_aIPN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEEESE_SaISD_EET0_T_SH_SG_RT1_.exit
   %41 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -53304,16 +53304,16 @@ _ZSt22__uninitialized_move_aIPN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__
   call void @_ZN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEE10json_value7destroyENS_6detail7value_tE(ptr noundef nonnull align 8 dereferenceable(8) %41, i8 noundef zeroext %48) #40
   %50 = add nsw i64 %.010.i.i.i.i.i, -1
   %51 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
-  br i1 %51, label %42, label %.loopexit132, !llvm.loop !712
+  br i1 %51, label %42, label %.lr.ph.i.i.i, !llvm.loop !712
 
-.loopexit132:                                     ; preds = %42, %_ZSt22__uninitialized_move_aIPN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEEESE_SaISD_EET0_T_SH_SG_RT1_.exit
+.lr.ph.i.i.i:                                     ; preds = %42, %_ZSt22__uninitialized_move_aIPN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEEESE_SaISD_EET0_T_SH_SG_RT1_.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   %52 = getelementptr inbounds nuw %"class.proj_nlohmann::basic_json", ptr %1, i64 %2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %53 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %54
 
-54:                                               ; preds = %.noexc, %.loopexit132
+54:                                               ; preds = %.noexc, %.lr.ph.i.i.i
   %.06.i.i.i = phi ptr [ %1, %.loopexit132 ], [ %59, %.noexc ]
   invoke void @_ZN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEEC2ERKSC_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %19)
           to label %.noexc unwind label %.loopexit

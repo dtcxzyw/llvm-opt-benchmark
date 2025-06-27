@@ -3028,20 +3028,20 @@ define hidden noundef range(i64 1, 0) i64 @_ZN10polars_row8variable6binary10enco
   br label %57
 
 57:                                               ; preds = %"_ZN74_$LT$$u5b$T$u5d$$u20$as$u20$core..slice..specialize..SpecFill$LT$T$GT$$GT$9spec_fill17hf45eb06c1d08b7e9E.exit", %49
-  br i1 %.not, label %.loopexit, label %58
+  br i1 %.not, label %.loopexit, label %.lr.ph.preheader
 
-58:                                               ; preds = %57
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 %22
+.lr.ph.preheader:                                 ; preds = %57
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 %22
   %.not4142 = icmp eq ptr %0, %59
   br i1 %.not4142, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %58, %.lr.ph
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.sroa.022.043 = phi ptr [ %.sroa.022.1, %.lr.ph ], [ %0, %58 ]
   %.sroa.022.1 = getelementptr inbounds nuw i8, ptr %.sroa.022.043, i64 1
-  %60 = load i8, ptr %.sroa.022.043, align 1
-  %61 = xor i8 %60, -1
-  store i8 %61, ptr %.sroa.022.043, align 1
-  %.not41 = icmp eq ptr %.sroa.022.1, %59
+  %59 = load i8, ptr %.sroa.022.043, align 1
+  %60 = xor i8 %59, -1
+  store i8 %60, ptr %.sroa.022.043, align 1
+  %.not41 = icmp eq ptr %.sroa.022.1, %58
   br i1 %.not41, label %.loopexit, label %.lr.ph
 }
 

@@ -11225,7 +11225,7 @@ define internal fastcc noundef align 8 ptr @_ZN12clap_builder6parser6parser6Pars
   store ptr %41, ptr %22, align 8, !noalias !2616
   %42 = call noundef align 8 dereferenceable_or_null(16) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8fbeef26ed0ac208E.llvm.7008872586094235178"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5), !noalias !2615
   %.not.i.i.i = icmp eq ptr %42, null
-  br i1 %.not.i.i.i, label %.loopexit47.i, label %.lr.ph.i.i.i
+  br i1 %.not.i.i.i, label %.lr.ph.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %38
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.0.020, i64 488
@@ -11254,19 +11254,19 @@ define internal fastcc noundef align 8 ptr @_ZN12clap_builder6parser6parser6Pars
 "_ZN67_$LT$clap_builder..util..id..Id$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7953693b163d6e92E.llvm.7008872586094235178.exit.backedge.i.i.i": ; preds = %51, %47
   %54 = call noundef align 8 dereferenceable_or_null(16) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8fbeef26ed0ac208E.llvm.7008872586094235178"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5), !noalias !2615
   %.not5.i.i.i = icmp eq ptr %54, null
-  br i1 %.not5.i.i.i, label %.loopexit47.i, label %47
+  br i1 %.not5.i.i.i, label %.lr.ph.i, label %47
 
 _ZN12clap_builder6parser11arg_matcher10ArgMatcher8contains17h25bdae54dbad0760E.exit.i: ; preds = %51
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !2616
   br label %.loopexit46.i
 
-.loopexit46.i:                                    ; preds = %.critedge.i, %.loopexit47.i, %_ZN12clap_builder6parser11arg_matcher10ArgMatcher8contains17h25bdae54dbad0760E.exit.i, %33
+.loopexit46.i:                                    ; preds = %.critedge.i, %61, %_ZN12clap_builder6parser11arg_matcher10ArgMatcher8contains17h25bdae54dbad0760E.exit.i, %33
   %55 = getelementptr inbounds nuw i8, ptr %.sroa.0.020, i64 384
   %56 = load i64, ptr %55, align 8, !alias.scope !2604, !noalias !2607, !noundef !5
   %57 = icmp eq i64 %56, 0
   br i1 %57, label %_ZN12clap_builder6parser6parser6Parser17add_default_value17h54f105bc157973e2E.exit, label %133
 
-.loopexit47.i:                                    ; preds = %"_ZN67_$LT$clap_builder..util..id..Id$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7953693b163d6e92E.llvm.7008872586094235178.exit.backedge.i.i.i", %38
+.lr.ph.i:                                         ; preds = %"_ZN67_$LT$clap_builder..util..id..Id$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7953693b163d6e92E.llvm.7008872586094235178.exit.backedge.i.i.i", %38
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !2616
   %58 = getelementptr inbounds nuw i8, ptr %.sroa.0.020, i64 400
   %59 = load ptr, ptr %58, align 8, !alias.scope !2604, !noalias !2607, !nonnull !5, !noundef !5
@@ -11274,14 +11274,14 @@ _ZN12clap_builder6parser11arg_matcher10ArgMatcher8contains17h25bdae54dbad0760E.e
   %61 = icmp eq ptr %59, %60
   br i1 %61, label %.loopexit46.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.loopexit47.i, %.critedge.i
+61:                                               ; preds = %61, %.critedge.i
   %.sroa.0.068.i = phi ptr [ %62, %.critedge.i ], [ %59, %.loopexit47.i ]
   %62 = getelementptr inbounds nuw i8, ptr %.sroa.0.068.i, i64 48
   %63 = call noundef align 8 dereferenceable_or_null(104) ptr @"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$3get17h76ca65b8eb9089a8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %21, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.068.i), !noalias !2604
   %.not.i = icmp eq ptr %63, null
   br i1 %.not.i, label %.critedge.i, label %64
 
-64:                                               ; preds = %.lr.ph.i
+64:                                               ; preds = %61
   %65 = getelementptr inbounds nuw i8, ptr %.sroa.0.068.i, i64 16
   %66 = load ptr, ptr %65, align 8, !noalias !2604, !noundef !5
   %67 = icmp eq ptr %66, null
@@ -11443,9 +11443,9 @@ _ZN12clap_builder6parser11arg_matcher10ArgMatcher8contains17h25bdae54dbad0760E.e
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12), !noalias !2643
   br label %.critedge.i
 
-.critedge.i:                                      ; preds = %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hc74c741644ee8054E.exit.i", %.lr.ph.i
+.critedge.i:                                      ; preds = %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hc74c741644ee8054E.exit.i", %61
   %114 = icmp eq ptr %62, %60
-  br i1 %114, label %.loopexit46.i, label %.lr.ph.i
+  br i1 %114, label %.loopexit46.i, label %61
 
 .critedge31.i:                                    ; preds = %64, %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hc74c741644ee8054E.exit.thread.i"
   %115 = getelementptr inbounds nuw i8, ptr %.sroa.0.068.i, i64 32
@@ -11735,7 +11735,7 @@ _ZN12clap_builder6parser11arg_matcher10ArgMatcher6remove17h28a41f819a99b3b4E.exi
   %.not.i.i.i = icmp eq ptr %68, null
   br i1 %.not.i.i.i, label %.thread51.i, label %61
 
-._crit_edge66.loopexit.i:                         ; preds = %108
+._crit_edge66.i:                                  ; preds = %108
   %.sroa.032.0.copyload.pre.i = load i64, ptr %15, align 8, !noalias !2852
   %.sroa.433.0.copyload.pre.i = load ptr, ptr %35, align 8, !noalias !2852
   %.sroa.534.0.copyload.pre.i = load i64, ptr %36, align 8, !noalias !2852
@@ -11878,7 +11878,7 @@ _ZN12clap_builder6parser11arg_matcher10ArgMatcher6remove17h28a41f819a99b3b4E.exi
 
 108:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h70fdffb1c32f1d9bE.exit.i", %.thread55.i, %.thread51.i
   %109 = icmp eq ptr %50, %41
-  br i1 %109, label %._crit_edge66.loopexit.i, label %49
+  br i1 %109, label %._crit_edge66.i, label %49
 
 .thread55.i:                                      ; preds = %.noexc26.i, %.noexc25.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !2913

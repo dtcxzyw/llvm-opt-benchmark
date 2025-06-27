@@ -1077,16 +1077,16 @@ define internal void @browser_file_event_handler(ptr noundef %0) #0 {
   br i1 %.not.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !35
 
 .critedge.i:                                      ; preds = %38, %.lr.ph.i, %33
-  %.0.lcssa.i = phi ptr [ %36, %33 ], [ %.015.i, %.lr.ph.i ], [ %scevgep, %38 ]
-  %40 = icmp ugt ptr %.0.lcssa.i, %2
+  %.0.lcssa.ph.i = phi ptr [ %36, %33 ], [ %.015.i, %.lr.ph.i ], [ %scevgep, %38 ]
+  %40 = icmp ugt ptr %.0.lcssa.ph.i, %2
   br i1 %40, label %41, label %42
 
 41:                                               ; preds = %.critedge.i
-  store i8 0, ptr %.0.lcssa.i, align 1, !tbaa !32
+  store i8 0, ptr %.0.lcssa.ph.i, align 1, !tbaa !32
   br label %strip_ext.exit
 
 42:                                               ; preds = %.critedge.i
-  %43 = icmp eq ptr %.0.lcssa.i, %2
+  %43 = icmp eq ptr %.0.lcssa.ph.i, %2
   br i1 %43, label %44, label %strip_ext.exit
 
 44:                                               ; preds = %42
@@ -1100,19 +1100,19 @@ strip_ext.exit:                                   ; preds = %41, %42, %44
   %.not14.i36 = icmp ult ptr %47, %2
   br i1 %.not14.i36, label %.critedge.i41, label %.lr.ph.i37.preheader
 
-.lr.ph.i37.preheader:                             ; preds = %strip_ext.exit
+.lr.ph.i37.preheader: ; preds = %strip_ext.exit
   %scevgep45 = getelementptr i8, ptr %2, i64 -1
   br label %.lr.ph.i37
 
 .lr.ph.i37:                                       ; preds = %.lr.ph.i37.preheader, %49
   %.015.i38 = phi ptr [ %50, %49 ], [ %47, %.lr.ph.i37.preheader ]
   %48 = load i8, ptr %.015.i38, align 1, !tbaa !32
-  %.not13.i39 = icmp eq i8 %48, 47
-  br i1 %.not13.i39, label %.critedge.i41, label %49
+  %.not.i39 = icmp eq i8 %48, 47
+  br i1 %.not.i39, label %.critedge.i41, label %49
 
-49:                                               ; preds = %.lr.ph.i37
+.critedge.i40:                                    ; preds = %.lr.ph.i37
   %50 = getelementptr inbounds i8, ptr %.015.i38, i64 -1
-  %.not.i40 = icmp ult ptr %50, %2
+  %51 = icmp ult ptr %50, %2
   br i1 %.not.i40, label %.critedge.i41, label %.lr.ph.i37, !llvm.loop !35
 
 .critedge.i41:                                    ; preds = %49, %.lr.ph.i37, %strip_ext.exit
@@ -1122,18 +1122,18 @@ strip_ext.exit:                                   ; preds = %41, %42, %44
 
 52:                                               ; preds = %.critedge.i41
   store i8 0, ptr %.0.lcssa.i42, align 1, !tbaa !32
-  br label %strip_ext.exit43
+  br label %strip_ext.exit42
 
 53:                                               ; preds = %.critedge.i41
   %54 = icmp eq ptr %.0.lcssa.i42, %2
-  br i1 %54, label %55, label %strip_ext.exit43
+  br i1 %54, label %55, label %strip_ext.exit42
 
 55:                                               ; preds = %53
   %56 = getelementptr inbounds nuw i8, ptr %2, i64 1
   store i8 0, ptr %56, align 1, !tbaa !32
-  br label %strip_ext.exit43
+  br label %strip_ext.exit42
 
-strip_ext.exit43:                                 ; preds = %52, %53, %55
+strip_ext.exit42:                                 ; preds = %52, %53, %55
   %57 = call i64 @lv_strlen(ptr noundef nonnull %2) #6
   %58 = getelementptr inbounds nuw i8, ptr %2, i64 %57
   store i8 47, ptr %58, align 1, !tbaa !32
@@ -1141,12 +1141,12 @@ strip_ext.exit43:                                 ; preds = %52, %53, %55
   %60 = icmp ult i64 %59, 128
   br i1 %60, label %61, label %63
 
-61:                                               ; preds = %strip_ext.exit43
+61:                                               ; preds = %strip_ext.exit42
   %62 = getelementptr inbounds nuw i8, ptr %58, i64 1
   store i8 0, ptr %62, align 1, !tbaa !32
   br label %63
 
-63:                                               ; preds = %strip_ext.exit43, %61
+63:                                               ; preds = %strip_ext.exit42, %61
   %64 = load i32, ptr %26, align 4, !tbaa !30
   %65 = icmp eq i32 %64, 0
   br i1 %65, label %69, label %77
@@ -1155,7 +1155,7 @@ strip_ext.exit43:                                 ; preds = %52, %53, %55
   %66 = call i32 (ptr, i64, ptr, ...) @lv_snprintf(ptr noundef nonnull %2, i64 noundef 128, ptr noundef nonnull @.str.11, ptr noundef nonnull %29, ptr noundef nonnull %27) #6
   %67 = load i32, ptr %26, align 4, !tbaa !30
   %68 = icmp eq i32 %67, 0
-  br i1 %68, label %69, label %.thread44
+  br i1 %68, label %69, label %.thread43
 
 69:                                               ; preds = %.thread, %63
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #6
@@ -1172,13 +1172,13 @@ strip_ext.exit43:                                 ; preds = %52, %53, %55
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #6
   br label %77
 
-.thread44:                                        ; preds = %.thread
+.thread43:                                        ; preds = %.thread
   %75 = getelementptr inbounds nuw i8, ptr %7, i64 176
   store ptr %27, ptr %75, align 8, !tbaa !29
   %76 = call i32 @lv_obj_send_event(ptr noundef nonnull %7, i32 noundef 35, ptr noundef null) #6
   br label %77
 
-77:                                               ; preds = %63, %74, %.thread44
+77:                                               ; preds = %63, %74, %.thread43
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #6
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2) #6

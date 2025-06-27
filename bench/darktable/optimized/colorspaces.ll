@@ -3687,53 +3687,53 @@ _colorspaces_get_base_name.exit:                  ; preds = %12, %_colorspaces_i
   %.not13.i7 = icmp ult ptr %17, %0
   br i1 %.not13.i7, label %_colorspaces_get_base_name.exit12, label %.lr.ph.i8
 
-.lr.ph.i8:                                        ; preds = %15, %21
-  %.014.i9 = phi ptr [ %22, %21 ], [ %17, %15 ]
-  %18 = load i8, ptr %.014.i9, align 1, !tbaa !80
+.lr.ph.i7:                                        ; preds = %15, %21
+  %.014.i8 = phi ptr [ %22, %21 ], [ %17, %15 ]
+  %18 = load i8, ptr %.014.i8, align 1, !tbaa !80
   switch i8 %18, label %21 [
     i8 47, label %19
     i8 92, label %19
   ]
 
-19:                                               ; preds = %.lr.ph.i8, %.lr.ph.i8
-  %20 = getelementptr inbounds nuw i8, ptr %.014.i9, i64 1
-  br label %_colorspaces_get_base_name.exit12
+19:                                               ; preds = %.lr.ph.i7, %.lr.ph.i7
+  %20 = getelementptr inbounds nuw i8, ptr %.014.i8, i64 1
+  br label %_colorspaces_get_base_name.exit11
 
-21:                                               ; preds = %.lr.ph.i8
-  %22 = getelementptr inbounds i8, ptr %.014.i9, i64 -1
-  %.not.i11 = icmp ult ptr %22, %0
-  br i1 %.not.i11, label %_colorspaces_get_base_name.exit12, label %.lr.ph.i8
+21:                                               ; preds = %.lr.ph.i7
+  %22 = getelementptr inbounds i8, ptr %.014.i8, i64 -1
+  %.not.i10 = icmp ult ptr %22, %0
+  br i1 %.not.i10, label %_colorspaces_get_base_name.exit11, label %.lr.ph.i7
 
-_colorspaces_get_base_name.exit12:                ; preds = %21, %15, %19
-  %.010.i10 = phi ptr [ %20, %19 ], [ %17, %15 ], [ %22, %21 ]
+_colorspaces_get_base_name.exit11:                ; preds = %21, %15, %19
+  %.010.i9 = phi ptr [ %20, %19 ], [ %17, %15 ], [ %22, %21 ]
   %23 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #24
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 %23
   %.not13.i13 = icmp ult ptr %24, %1
   br i1 %.not13.i13, label %_colorspaces_get_base_name.exit18, label %.lr.ph.i14
 
-.lr.ph.i14:                                       ; preds = %_colorspaces_get_base_name.exit12, %28
-  %.014.i15 = phi ptr [ %29, %28 ], [ %24, %_colorspaces_get_base_name.exit12 ]
-  %25 = load i8, ptr %.014.i15, align 1, !tbaa !80
+.lr.ph.i12:                                       ; preds = %_colorspaces_get_base_name.exit11, %28
+  %.014.i13 = phi ptr [ %29, %28 ], [ %24, %_colorspaces_get_base_name.exit12 ]
+  %25 = load i8, ptr %.014.i13, align 1, !tbaa !80
   switch i8 %25, label %28 [
     i8 47, label %26
     i8 92, label %26
   ]
 
-26:                                               ; preds = %.lr.ph.i14, %.lr.ph.i14
-  %27 = getelementptr inbounds nuw i8, ptr %.014.i15, i64 1
-  br label %_colorspaces_get_base_name.exit18
+26:                                               ; preds = %.lr.ph.i12, %.lr.ph.i12
+  %27 = getelementptr inbounds nuw i8, ptr %.014.i13, i64 1
+  br label %_colorspaces_get_base_name.exit16
 
-28:                                               ; preds = %.lr.ph.i14
-  %29 = getelementptr inbounds i8, ptr %.014.i15, i64 -1
-  %.not.i17 = icmp ult ptr %29, %1
-  br i1 %.not.i17, label %_colorspaces_get_base_name.exit18, label %.lr.ph.i14
+28:                                               ; preds = %.lr.ph.i12
+  %29 = getelementptr inbounds i8, ptr %.014.i13, i64 -1
+  %.not.i15 = icmp ult ptr %29, %1
+  br i1 %.not.i15, label %_colorspaces_get_base_name.exit16, label %.lr.ph.i12
 
-_colorspaces_get_base_name.exit18:                ; preds = %28, %_colorspaces_get_base_name.exit12, %26
-  %.010.i16 = phi ptr [ %27, %26 ], [ %24, %_colorspaces_get_base_name.exit12 ], [ %29, %28 ]
-  %30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.010.i10, ptr noundef nonnull dereferenceable(1) %.010.i16) #24
+_colorspaces_get_base_name.exit16:                ; preds = %28, %_colorspaces_get_base_name.exit12, %26
+  %.010.i14 = phi ptr [ %27, %26 ], [ %24, %_colorspaces_get_base_name.exit12 ], [ %29, %28 ]
+  %30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.010.i9, ptr noundef nonnull dereferenceable(1) %.010.i14) #24
   br label %31
 
-31:                                               ; preds = %_colorspaces_get_base_name.exit18, %_colorspaces_get_base_name.exit
+31:                                               ; preds = %_colorspaces_get_base_name.exit16, %_colorspaces_get_base_name.exit
   %.in.in = phi i32 [ %14, %_colorspaces_get_base_name.exit ], [ %30, %_colorspaces_get_base_name.exit18 ]
   %.in = icmp eq i32 %.in.in, 0
   %32 = zext i1 %.in to i32

@@ -7454,7 +7454,7 @@ define internal fastcc void @format_duration(ptr noundef captures(address) %0, i
   %42 = icmp ugt ptr %41, %.041
   br i1 %42, label %.lr.ph, label %.critedge44
 
-.lr.ph:                                           ; preds = %39, %45
+.lr.ph:; preds = %39, %45
   %.055 = phi ptr [ %43, %45 ], [ %41, %39 ]
   %43 = getelementptr inbounds i8, ptr %.055, i64 -1
   %44 = load i8, ptr %43, align 1, !tbaa !29
@@ -7463,16 +7463,16 @@ define internal fastcc void @format_duration(ptr noundef captures(address) %0, i
     i8 46, label %47
   ]
 
-45:                                               ; preds = %.lr.ph
+44:                                               ; preds = %.lr.ph
   store i8 0, ptr %43, align 1, !tbaa !29
-  %46 = icmp ugt ptr %43, %.041
-  br i1 %46, label %.lr.ph, label %.critedge44, !llvm.loop !114
+  %45 = icmp ugt ptr %43, %.041
+  br i1 %45, label %.lr.ph, label %.critedge44, !llvm.loop !114
 
-47:                                               ; preds = %.lr.ph
+46:                                               ; preds = %.lr.ph
   store i8 0, ptr %43, align 1, !tbaa !29
   br label %.critedge44
 
-.critedge44:                                      ; preds = %45, %.lr.ph, %39, %47
+.critedge44:                                      ; preds = %44, %.lr.ph, %39, %46
   ret void
 }
 

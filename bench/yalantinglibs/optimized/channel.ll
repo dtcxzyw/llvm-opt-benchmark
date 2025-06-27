@@ -62605,52 +62605,52 @@ land.rhs.i.i.preheader:                           ; preds = %entry
   br label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %land.rhs.i.i.preheader, %for.body.i.i
-  %2 = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %land.rhs.i.i.preheader ]
+  %1 = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %land.rhs.i.i.preheader ]
   %iter.05.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %buffers_.ptr, %land.rhs.i.i.preheader ]
-  %cmp2.i.i = icmp ult i64 %2, 64
+  %cmp2.i.i = icmp ult i64 %1, 64
   br i1 %cmp2.i.i, label %for.body.i.i, label %_ZN4asio6detail23buffer_sequence_adapterINS_12const_bufferENS0_16prepared_buffersIS2_Lm64EEEEC2ERKS4_.exit
 
 for.body.i.i:                                     ; preds = %land.rhs.i.i
   %buffer.sroa.0.0.copyload.i.i = load ptr, ptr %iter.05.i.i, align 8
   %buffer.sroa.2.0.iter.0.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %iter.05.i.i, i64 8
   %buffer.sroa.2.0.copyload.i.i = load i64, ptr %buffer.sroa.2.0.iter.0.sroa_idx.i.i, align 8
-  %arrayidx.i.i = getelementptr inbounds nuw [64 x %struct.iovec], ptr %bufs, i64 0, i64 %2
+  %arrayidx.i.i = getelementptr inbounds nuw [64 x %struct.iovec], ptr %bufs, i64 0, i64 %1
   store ptr %buffer.sroa.0.0.copyload.i.i, ptr %arrayidx.i.i, align 8
   %iov_len.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 8
   store i64 %buffer.sroa.2.0.copyload.i.i, ptr %iov_len.i.i.i, align 8
-  %3 = load i64, ptr %total_buffer_size_.i, align 8
-  %add.i.i = add i64 %3, %buffer.sroa.2.0.copyload.i.i
+  %2 = load i64, ptr %total_buffer_size_.i, align 8
+  %add.i.i = add i64 %2, %buffer.sroa.2.0.copyload.i.i
   store i64 %add.i.i, ptr %total_buffer_size_.i, align 8
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %iter.05.i.i, i64 16
-  %4 = load i64, ptr %count_.i, align 8
-  %inc.i.i = add i64 %4, 1
+  %3 = load i64, ptr %count_.i, align 8
+  %inc.i.i = add i64 %3, 1
   store i64 %inc.i.i, ptr %count_.i, align 8
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i.ptr
   br i1 %cmp.not.i.i, label %_ZN4asio6detail23buffer_sequence_adapterINS_12const_bufferENS0_16prepared_buffersIS2_Lm64EEEEC2ERKS4_.exit, label %land.rhs.i.i, !llvm.loop !645
 
 _ZN4asio6detail23buffer_sequence_adapterINS_12const_bufferENS0_16prepared_buffersIS2_Lm64EEEEC2ERKS4_.exit: ; preds = %land.rhs.i.i, %for.body.i.i, %entry
-  %5 = phi i64 [ 0, %entry ], [ %2, %land.rhs.i.i ], [ %inc.i.i, %for.body.i.i ]
+  %4 = phi i64 [ 0, %entry ], [ %1, %land.rhs.i.i ], [ %inc.i.i, %for.body.i.i ]
   %socket_ = getelementptr inbounds nuw i8, ptr %base, i64 64
-  %6 = load i32, ptr %socket_, align 8
+  %5 = load i32, ptr %socket_, align 8
   %flags_ = getelementptr inbounds nuw i8, ptr %base, i64 336
-  %7 = load i32, ptr %flags_, align 8
+  %6 = load i32, ptr %flags_, align 8
   %ec_ = getelementptr inbounds nuw i8, ptr %base, i64 24
   %bytes_transferred_ = getelementptr inbounds nuw i8, ptr %base, i64 48
-  %call2 = call noundef zeroext i1 @_ZN4asio6detail10socket_ops17non_blocking_sendEiPK5iovecmiRSt10error_codeRm(i32 noundef %6, ptr noundef nonnull %bufs, i64 noundef %5, i32 noundef %7, ptr noundef nonnull align 8 dereferenceable(16) %ec_, ptr noundef nonnull align 8 dereferenceable(8) %bytes_transferred_)
+  %call2 = call noundef zeroext i1 @_ZN4asio6detail10socket_ops17non_blocking_sendEiPK5iovecmiRSt10error_codeRm(i32 noundef %5, ptr noundef nonnull %bufs, i64 noundef %4, i32 noundef %6, ptr noundef nonnull align 8 dereferenceable(16) %ec_, ptr noundef nonnull align 8 dereferenceable(8) %bytes_transferred_)
   %cond = zext i1 %call2 to i32
   br i1 %call2, label %if.then, label %if.end10
 
 if.then:                                          ; preds = %_ZN4asio6detail23buffer_sequence_adapterINS_12const_bufferENS0_16prepared_buffersIS2_Lm64EEEEC2ERKS4_.exit
   %state_ = getelementptr inbounds nuw i8, ptr %base, i64 68
-  %8 = load i8, ptr %state_, align 4
-  %9 = and i8 %8, 16
-  %cmp3.not = icmp eq i8 %9, 0
+  %7 = load i8, ptr %state_, align 4
+  %8 = and i8 %7, 16
+  %cmp3.not = icmp eq i8 %8, 0
   br i1 %cmp3.not, label %if.end10, label %if.then4
 
 if.then4:                                         ; preds = %if.then
-  %10 = load i64, ptr %bytes_transferred_, align 8
-  %11 = load i64, ptr %total_buffer_size_.i, align 8
-  %cmp7 = icmp ult i64 %10, %11
+  %9 = load i64, ptr %bytes_transferred_, align 8
+  %10 = load i64, ptr %total_buffer_size_.i, align 8
+  %cmp7 = icmp ult i64 %9, %10
   %spec.select = select i1 %cmp7, i32 2, i32 %cond
   br label %if.end10
 

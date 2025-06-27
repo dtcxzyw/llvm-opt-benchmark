@@ -13248,7 +13248,7 @@ invoke.cont.i:                                    ; preds = %for.body.i
   store ptr %call5.i.i.i5.i, ptr %__cur.08.i, align 8
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__cur.08.i, i64 8
   %cmp.i8 = icmp ult ptr %incdec.ptr.i, %add.ptr14
-  br i1 %cmp.i8, label %for.body.i, label %try.cont.loopexit, !llvm.loop !250
+  br i1 %cmp.i8, label %for.body.i, label %try.cont, !llvm.loop !250
 
 lpad.i:                                           ; preds = %for.body.i
   %1 = landingpad { ptr, i32 }
@@ -13301,7 +13301,7 @@ lpad23:                                           ; preds = %lpad.body
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
 
-try.cont.loopexit:                                ; preds = %invoke.cont.i
+try.cont:                                         ; preds = %invoke.cont.i
   %.pre = load ptr, ptr %add.ptr, align 8
   %add.ptr27.phi.trans.insert = getelementptr inbounds i8, ptr %add.ptr14, i64 -8
   %.pre19 = load ptr, ptr %add.ptr27.phi.trans.insert, align 8

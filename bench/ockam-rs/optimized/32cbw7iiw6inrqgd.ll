@@ -5325,26 +5325,26 @@ common.resume:                                    ; preds = %.body, %25
   %50 = load i64, ptr %49, align 8, !noalias !967, !noundef !4
   %51 = getelementptr inbounds { i64, i8 }, ptr %48, i64 %50
   store ptr %48, ptr %6, align 8, !noalias !970
-  %52 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !972)
   call void @llvm.experimental.noalias.scope.decl(metadata !975)
   call void @llvm.experimental.noalias.scope.decl(metadata !977)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !980
-  %53 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %53, ptr %4, align 8, !noalias !980
-  %54 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %7, ptr %54, align 8, !noalias !980
-  %55 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %8, ptr %55, align 8, !noalias !980
+  %52 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store ptr %52, ptr %4, align 8, !noalias !980
+  %53 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr %7, ptr %53, align 8, !noalias !980
+  %54 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr %8, ptr %54, align 8, !noalias !980
   call void @llvm.experimental.noalias.scope.decl(metadata !986)
   call void @llvm.experimental.noalias.scope.decl(metadata !989)
-  %56 = icmp eq ptr %48, %51
-  br i1 %56, label %"_ZN4core3ptr490drop_in_place$LT$core..ops..control_flow..ControlFlow$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..layer..layered..Layered$LT$tracing_error..layer..ErrorLayer$LT$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$GT$$C$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$GT$$GT$$GT$$GT$17hcdc7ee03f51c2ae7E.exit.i.i", label %.lr.ph.i.i.i.i.i
+  %55 = icmp eq ptr %48, %51
+  br i1 %55, label %"_ZN4core3ptr490drop_in_place$LT$core..ops..control_flow..ControlFlow$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..layer..layered..Layered$LT$tracing_error..layer..ErrorLayer$LT$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$GT$$C$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$GT$$GT$$GT$$GT$17hcdc7ee03f51c2ae7E.exit.i.i", label %.lr.ph.i.i.i.i.i.preheader
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %.noexc22, %61
+.lr.ph.i.i.i.i.i.preheader:                       ; preds = %.noexc22, %61
   %57 = phi ptr [ %58, %61 ], [ %51, %.noexc22 ]
   %58 = getelementptr inbounds i8, ptr %57, i64 -16
-  store ptr %58, ptr %52, align 8, !alias.scope !992, !noalias !997
+  store ptr %58, ptr %51, align 8, !alias.scope !992, !noalias !997
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3), !noalias !1002
   invoke void @"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h88a0365059a879b8E.llvm.3062767651664570529"(ptr noalias noundef nonnull sret({ ptr, [4 x i64] }) align 8 captures(none) dereferenceable(40) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %58)
           to label %.noexc.i unwind label %65, !noalias !967

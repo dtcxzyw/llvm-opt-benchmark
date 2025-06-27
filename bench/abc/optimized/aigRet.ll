@@ -1147,11 +1147,11 @@ Rtm_ObjTransferToBigger.exit:                     ; preds = %._crit_edge.i12, %5
   %83 = load i32, ptr %43, align 8, !tbaa !48
   %84 = add nsw i32 %82, %83
   store i32 %84, ptr %43, align 8, !tbaa !48
-  %.pre17 = load i32, ptr %1, align 8
+  %.pre18 = load i32, ptr %1, align 8
   br label %85
 
 85:                                               ; preds = %37, %Rtm_ObjTransferToBigger.exit, %Rtm_ObjTransferToBig.exit
-  %86 = phi i32 [ %4, %37 ], [ %.pre17, %Rtm_ObjTransferToBigger.exit ], [ %36, %Rtm_ObjTransferToBig.exit ]
+  %86 = phi i32 [ %4, %37 ], [ %.pre18, %Rtm_ObjTransferToBigger.exit ], [ %36, %Rtm_ObjTransferToBig.exit ]
   %87 = and i32 %86, 4094
   %88 = icmp samesign ugt i32 %87, 9
   br i1 %88, label %89, label %108
@@ -1191,8 +1191,8 @@ Rtm_ObjTransferToBigger.exit:                     ; preds = %._crit_edge.i12, %5
   %110 = and i32 %109, 1048572
   %111 = or disjoint i32 %110, %2
   %112 = shl nuw i32 %111, 12
-  %narrow.i16 = add i32 %86, 1
-  %113 = and i32 %narrow.i16, 4095
+  %narrow.i17 = add i32 %86, 1
+  %113 = and i32 %narrow.i17, 4095
   %114 = or disjoint i32 %112, %113
   store i32 %114, ptr %1, align 8
   br label %Rtm_ObjAddFirst2.exit

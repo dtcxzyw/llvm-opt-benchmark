@@ -35197,8 +35197,8 @@ _ZN12polars_arrow2io3ipc5write9serialize34_write_compressed_buffer_from_iter17h0
 86:                                               ; preds = %35
   %87 = icmp ne ptr %30, null
   tail call void @llvm.assume(i1 %87)
-  %.idx34 = shl i64 %24, 2
-  tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hdf22dc3c3b65886bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %.idx34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b5d9d3cf873c3267a8f7de4845b47373.322), !noalias !2616
+  %.idx35 = shl i64 %24, 2
+  tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hdf22dc3c3b65886bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %.idx35, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b5d9d3cf873c3267a8f7de4845b47373.322), !noalias !2616
   br i1 %5, label %89, label %88
 
 88:                                               ; preds = %86
@@ -35560,8 +35560,8 @@ _ZN12polars_arrow2io3ipc5write9serialize34_write_compressed_buffer_from_iter17h6
 86:                                               ; preds = %35
   %87 = icmp ne ptr %30, null
   tail call void @llvm.assume(i1 %87)
-  %.idx34 = shl i64 %24, 3
-  tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hdf22dc3c3b65886bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %.idx34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b5d9d3cf873c3267a8f7de4845b47373.322), !noalias !2661
+  %.idx35 = shl i64 %24, 3
+  tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hdf22dc3c3b65886bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %.idx35, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b5d9d3cf873c3267a8f7de4845b47373.322), !noalias !2661
   br i1 %5, label %89, label %88
 
 88:                                               ; preds = %86

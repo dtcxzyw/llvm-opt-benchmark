@@ -3535,7 +3535,7 @@ define linkonce_odr void @_ZN6marisa6KeysetD2Ev(ptr noundef nonnull align 8 dere
   %9 = icmp eq ptr %3, %8
   br i1 %9, label %.loopexit.i, label %.preheader.i
 
-.preheader.i:                                     ; preds = %5, %_ZN6marisa12scoped_arrayINS_3KeyEED2Ev.exit.i
+.preheader.preheader.i:                           ; preds = %5, %_ZN6marisa12scoped_arrayINS_3KeyEED2Ev.exit.i
   %10 = phi ptr [ %11, %_ZN6marisa12scoped_arrayINS_3KeyEED2Ev.exit.i ], [ %8, %5 ]
   %11 = getelementptr inbounds i8, ptr %10, i64 -8
   %12 = load ptr, ptr %11, align 8, !tbaa !97
@@ -3569,31 +3569,31 @@ _ZN6marisa12scoped_arrayINS0_INS_3KeyEEEED2Ev.exit: ; preds = %1, %.loopexit.i
   %25 = icmp eq ptr %19, %24
   br i1 %25, label %.loopexit.i2, label %.preheader.i1
 
-.preheader.i1:                                    ; preds = %21, %_ZN6marisa12scoped_arrayIcED2Ev.exit.i
+.preheader.i2:                                    ; preds = %21, %_ZN6marisa12scoped_arrayIcED2Ev.exit.i
   %26 = phi ptr [ %27, %_ZN6marisa12scoped_arrayIcED2Ev.exit.i ], [ %24, %21 ]
   %27 = getelementptr inbounds i8, ptr %26, i64 -8
   %28 = load ptr, ptr %27, align 8, !tbaa !103
   %29 = icmp eq ptr %28, null
   br i1 %29, label %_ZN6marisa12scoped_arrayIcED2Ev.exit.i, label %30
 
-30:                                               ; preds = %.preheader.i1
+30:                                               ; preds = %.preheader.i2
   tail call void @_ZdaPv(ptr noundef nonnull %28) #29
   br label %_ZN6marisa12scoped_arrayIcED2Ev.exit.i
 
-_ZN6marisa12scoped_arrayIcED2Ev.exit.i:           ; preds = %30, %.preheader.i1
+_ZN6marisa12scoped_arrayIcED2Ev.exit.i:           ; preds = %30, %.preheader.i2
   %31 = icmp eq ptr %27, %19
-  br i1 %31, label %.loopexit.i2, label %.preheader.i1
+  br i1 %31, label %.loopexit.i3, label %.preheader.i2
 
-.loopexit.i2:                                     ; preds = %_ZN6marisa12scoped_arrayIcED2Ev.exit.i, %21
+.loopexit.i3:                                     ; preds = %_ZN6marisa12scoped_arrayIcED2Ev.exit.i, %21
   %32 = shl i64 %23, 3
   %33 = add i64 %32, 8
   tail call void @_ZdaPvm(ptr noundef nonnull %22, i64 noundef %33) #29
   br label %_ZN6marisa12scoped_arrayINS0_IcEEED2Ev.exit
 
-_ZN6marisa12scoped_arrayINS0_IcEEED2Ev.exit:      ; preds = %_ZN6marisa12scoped_arrayINS0_INS_3KeyEEEED2Ev.exit, %.loopexit.i2
+_ZN6marisa12scoped_arrayINS0_IcEEED2Ev.exit:      ; preds = %_ZN6marisa12scoped_arrayINS0_INS_3KeyEEEED2Ev.exit, %.loopexit.i3
   %34 = load ptr, ptr %0, align 8, !tbaa !100
   %35 = icmp eq ptr %34, null
-  br i1 %35, label %_ZN6marisa12scoped_arrayINS0_IcEEED2Ev.exit6, label %36
+  br i1 %35, label %_ZN6marisa12scoped_arrayINS0_IcEEED2Ev.exit8, label %36
 
 36:                                               ; preds = %_ZN6marisa12scoped_arrayINS0_IcEEED2Ev.exit
   %37 = getelementptr inbounds i8, ptr %34, i64 -8
@@ -3602,28 +3602,28 @@ _ZN6marisa12scoped_arrayINS0_IcEEED2Ev.exit:      ; preds = %_ZN6marisa12scoped_
   %40 = icmp eq ptr %34, %39
   br i1 %40, label %.loopexit.i5, label %.preheader.i3
 
-.preheader.i3:                                    ; preds = %36, %_ZN6marisa12scoped_arrayIcED2Ev.exit.i4
+.preheader.i5:                                    ; preds = %36, %_ZN6marisa12scoped_arrayIcED2Ev.exit.i4
   %41 = phi ptr [ %42, %_ZN6marisa12scoped_arrayIcED2Ev.exit.i4 ], [ %39, %36 ]
   %42 = getelementptr inbounds i8, ptr %41, i64 -8
   %43 = load ptr, ptr %42, align 8, !tbaa !103
   %44 = icmp eq ptr %43, null
-  br i1 %44, label %_ZN6marisa12scoped_arrayIcED2Ev.exit.i4, label %45
+  br i1 %44, label %_ZN6marisa12scoped_arrayIcED2Ev.exit.i6, label %45
 
-45:                                               ; preds = %.preheader.i3
+45:                                               ; preds = %.preheader.i5
   tail call void @_ZdaPv(ptr noundef nonnull %43) #29
-  br label %_ZN6marisa12scoped_arrayIcED2Ev.exit.i4
+  br label %_ZN6marisa12scoped_arrayIcED2Ev.exit.i6
 
-_ZN6marisa12scoped_arrayIcED2Ev.exit.i4:          ; preds = %45, %.preheader.i3
+_ZN6marisa12scoped_arrayIcED2Ev.exit.i6:          ; preds = %45, %.preheader.i5
   %46 = icmp eq ptr %42, %34
-  br i1 %46, label %.loopexit.i5, label %.preheader.i3
+  br i1 %46, label %.loopexit.i7, label %.preheader.i5
 
-.loopexit.i5:                                     ; preds = %_ZN6marisa12scoped_arrayIcED2Ev.exit.i4, %36
+.loopexit.i7:                                     ; preds = %_ZN6marisa12scoped_arrayIcED2Ev.exit.i6, %36
   %47 = shl i64 %38, 3
   %48 = add i64 %47, 8
   tail call void @_ZdaPvm(ptr noundef nonnull %37, i64 noundef %48) #29
-  br label %_ZN6marisa12scoped_arrayINS0_IcEEED2Ev.exit6
+  br label %_ZN6marisa12scoped_arrayINS0_IcEEED2Ev.exit8
 
-_ZN6marisa12scoped_arrayINS0_IcEEED2Ev.exit6:     ; preds = %_ZN6marisa12scoped_arrayINS0_IcEEED2Ev.exit, %.loopexit.i5
+_ZN6marisa12scoped_arrayINS0_IcEEED2Ev.exit8:     ; preds = %_ZN6marisa12scoped_arrayINS0_IcEEED2Ev.exit, %.loopexit.i7
   ret void
 }
 

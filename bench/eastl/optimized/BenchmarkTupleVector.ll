@@ -6645,29 +6645,29 @@ if.then.i81:                                      ; preds = %_ZN5eastl22uninitia
   %add.ptr3.idx.i63114 = mul nsw i64 %1, 56
   %add.ptr3.i64115 = getelementptr inbounds i8, ptr %18, i64 %add.ptr3.idx.i63114
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %temp.sroa.0.i, ptr noundef nonnull align 1 dereferenceable(56) %args1, i64 56, i1 false)
-  %add.ptr4.idx.i = mul i64 %n, -56
-  %add.ptr4.i82 = getelementptr inbounds i8, ptr %add.ptr3.i64115, i64 %add.ptr4.idx.i
+  %add.ptr4.idx37.i = mul i64 %n, -56
+  %add.ptr4.i82 = getelementptr inbounds i8, ptr %add.ptr3.i64115, i64 %add.ptr4.idx37.i
   %cmp.i.i.i.i.i.i.i83 = icmp eq ptr %add.ptr4.i82, %add.ptr3.i64115
   br i1 %cmp.i.i.i.i.i.i.i83, label %_ZN5eastl22uninitialized_move_ptrIP13PaddingStructS2_S2_EET1_T_T0_S3_.exit.i, label %if.end.i.i.i.i.i.i.i84
 
 if.end.i.i.i.i.i.i.i84:                           ; preds = %if.then.i81
-  %add.ptr4.idx.neg.i85 = mul i64 %n, 56
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr3.i64115, ptr align 1 %add.ptr4.i82, i64 %add.ptr4.idx.neg.i85, i1 false)
+  %add.ptr4.idx35.neg.i = mul i64 %n, 56
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr3.i64115, ptr align 1 %add.ptr4.i82, i64 %add.ptr4.idx35.neg.i, i1 false)
   br label %_ZN5eastl22uninitialized_move_ptrIP13PaddingStructS2_S2_EET1_T_T0_S3_.exit.i
 
 _ZN5eastl22uninitialized_move_ptrIP13PaddingStructS2_S2_EET1_T_T0_S3_.exit.i: ; preds = %if.end.i.i.i.i.i.i.i84, %if.then.i81
-  %cmp.not.i.i.i.i.i86 = icmp eq ptr %add.ptr4.i82, %add.ptr.i62113
-  br i1 %cmp.not.i.i.i.i.i86, label %_ZN5eastl13move_backwardIP13PaddingStructS2_EET0_T_S4_S3_.exit.i, label %if.then.i.i.i.i.i87
+  %cmp.not.i.i.i.i.i85 = icmp eq ptr %add.ptr4.i82, %add.ptr.i62113
+  br i1 %cmp.not.i.i.i.i.i85, label %_ZN5eastl13move_backwardIP13PaddingStructS2_EET0_T_S4_S3_.exit.i, label %if.then.i.i.i.i.i86
 
-if.then.i.i.i.i.i87:                              ; preds = %_ZN5eastl22uninitialized_move_ptrIP13PaddingStructS2_S2_EET1_T_T0_S3_.exit.i
-  %19 = sub i64 %add.ptr4.idx.i, %add.ptr.idx.i61112
-  %gepdiff36.i = add i64 %19, %add.ptr3.idx.i63114
-  %sub.ptr.div.neg.i.i.i.i.i = sdiv exact i64 %gepdiff36.i, -56
+if.then.i.i.i.i.i86:                              ; preds = %_ZN5eastl22uninitialized_move_ptrIP13PaddingStructS2_S2_EET1_T_T0_S3_.exit.i
+  %19 = sub i64 %add.ptr4.idx37.i, %add.ptr.idx.i61112
+  %gepdiff38.i87 = add i64 %19, %add.ptr3.idx.i63114
+  %sub.ptr.div.neg.i.i.i.i.i = sdiv exact i64 %gepdiff38.i87, -56
   %add.ptr.i.i.i.i.i88 = getelementptr inbounds %struct.PaddingStruct, ptr %add.ptr3.i64115, i64 %sub.ptr.div.neg.i.i.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i.i.i.i88, ptr align 1 %add.ptr.i62113, i64 %gepdiff36.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i.i.i.i88, ptr align 1 %add.ptr.i62113, i64 %gepdiff38.i87, i1 false)
   br label %_ZN5eastl13move_backwardIP13PaddingStructS2_EET0_T_S4_S3_.exit.i
 
-_ZN5eastl13move_backwardIP13PaddingStructS2_EET0_T_S4_S3_.exit.i: ; preds = %if.then.i.i.i.i.i87, %_ZN5eastl22uninitialized_move_ptrIP13PaddingStructS2_S2_EET1_T_T0_S3_.exit.i
+_ZN5eastl13move_backwardIP13PaddingStructS2_EET0_T_S4_S3_.exit.i: ; preds = %if.then.i.i.i.i.i86, %_ZN5eastl22uninitialized_move_ptrIP13PaddingStructS2_S2_EET1_T_T0_S3_.exit.i
   %add.ptr8.i = getelementptr inbounds %struct.PaddingStruct, ptr %add.ptr.i62113, i64 %n
   %cmp.not3.i.i.i = icmp eq ptr %add.ptr.i62113, %add.ptr8.i
   br i1 %cmp.not3.i.i.i, label %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E13PaddingStructE15DoInsertAndFillEmmmRKS2_.exit, label %for.body.i.i.i

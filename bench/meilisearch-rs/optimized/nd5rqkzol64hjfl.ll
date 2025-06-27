@@ -737,23 +737,23 @@ _ZN4core3ops8function6FnOnce9call_once17h97e7e6d832835524E.exit.i: ; preds = %13
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc noalias noundef nonnull ptr @_ZN5alloc5alloc15exchange_malloc17hf45cfb43b91670a0E(i64 noundef range(i64 0, 25) %0, i64 noundef range(i64 1, 9) %1) unnamed_addr #0 {
   %3 = icmp eq i64 %0, 0
-  br i1 %3, label %_ZN5alloc5alloc6Global10alloc_impl17ha40af4e5081ee874E.exit.thread, label %_ZN5alloc5alloc6Global10alloc_impl17ha40af4e5081ee874E.exit
+  br i1 %3, label %4, label %6
 
-_ZN5alloc5alloc6Global10alloc_impl17ha40af4e5081ee874E.exit.thread: ; preds = %2
-  %4 = getelementptr i8, ptr null, i64 %1
+4:                                                ; preds = %2
+  %5 = getelementptr i8, ptr null, i64 %1
   %5 = icmp ne ptr %4, null
   tail call void @llvm.assume(i1 %5)
   br label %9
 
-_ZN5alloc5alloc6Global10alloc_impl17ha40af4e5081ee874E.exit: ; preds = %2
-  %6 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %7 = tail call noalias noundef ptr @__rust_alloc(i64 noundef range(i64 1, 25) %0, i64 noundef range(i64 1, 9) %1) #20
+6:                                                ; preds = %2
+  %7 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
+  %8 = tail call noalias noundef ptr @__rust_alloc(i64 noundef range(i64 1, 25) %0, i64 noundef range(i64 1, 9) %1) #20
   %8 = icmp eq ptr %7, null
   br i1 %8, label %10, label %9
 
-9:                                                ; preds = %_ZN5alloc5alloc6Global10alloc_impl17ha40af4e5081ee874E.exit.thread, %_ZN5alloc5alloc6Global10alloc_impl17ha40af4e5081ee874E.exit
-  %.sroa.0.0.i7 = phi ptr [ %4, %_ZN5alloc5alloc6Global10alloc_impl17ha40af4e5081ee874E.exit.thread ], [ %7, %_ZN5alloc5alloc6Global10alloc_impl17ha40af4e5081ee874E.exit ]
-  ret ptr %.sroa.0.0.i7
+_ZN5alloc5alloc6Global10alloc_impl17ha40af4e5081ee874E.exit: ; preds = %4, %6
+  %.sroa.0.0.i = phi ptr [ %5, %_ZN5alloc5alloc6Global10alloc_impl17ha40af4e5081ee874E.exit.thread ], [ %8, %_ZN5alloc5alloc6Global10alloc_impl17ha40af4e5081ee874E.exit ]
+  ret ptr %.sroa.0.0.i
 
 10:                                               ; preds = %_ZN5alloc5alloc6Global10alloc_impl17ha40af4e5081ee874E.exit
   tail call void @_ZN5alloc5alloc18handle_alloc_error17hc735483c05842e7cE(i64 noundef %1, i64 noundef %0) #18

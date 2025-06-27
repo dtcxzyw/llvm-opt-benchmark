@@ -355,7 +355,7 @@ define hidden { ptr, ptr } @_ZN7uu_fold18fold_file_bytewise17h124db9fe0d382980E(
   %84 = icmp eq ptr %80, %83
   br i1 %84, label %.loopexit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %82, %146
+.lr.ph.i.preheader.i:                             ; preds = %82, %146
   %85 = phi ptr [ %.sink.i.i.i, %146 ], [ %83, %82 ]
   %86 = getelementptr inbounds i8, ptr %85, i64 -1
   %87 = load i8, ptr %86, align 1, !alias.scope !47, !noalias !50, !noundef !5

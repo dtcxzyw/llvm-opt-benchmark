@@ -6,26 +6,26 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @swab(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp sgt i64 %2, 1
-  br i1 %4, label %5, label %.loopexit
+  br i1 %4, label %.lr.ph.preheader, label %.loopexit
 
-5:                                                ; preds = %3
-  %6 = and i64 %2, 9223372036854775806
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 %6
+.lr.ph.preheader:                                 ; preds = %3
+  %5 = and i64 %2, 9223372036854775806
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %5
   %.not13 = icmp eq ptr %1, %7
   br i1 %.not13, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %5, %.lr.ph
-  %.015 = phi ptr [ %10, %.lr.ph ], [ %0, %5 ]
-  %.01114 = phi ptr [ %13, %.lr.ph ], [ %1, %5 ]
-  %8 = getelementptr inbounds nuw i8, ptr %.015, i64 1
-  %9 = load i8, ptr %.015, align 1
-  %10 = getelementptr inbounds nuw i8, ptr %.015, i64 2
-  %11 = load i8, ptr %8, align 1
-  %12 = getelementptr inbounds nuw i8, ptr %.01114, i64 1
-  store i8 %11, ptr %.01114, align 1
-  %13 = getelementptr inbounds nuw i8, ptr %.01114, i64 2
-  store i8 %9, ptr %12, align 1
-  %.not = icmp eq ptr %13, %7
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %.015 = phi ptr [ %9, %.lr.ph ], [ %0, %5 ]
+  %.01114 = phi ptr [ %12, %.lr.ph ], [ %1, %5 ]
+  %7 = getelementptr inbounds nuw i8, ptr %.015, i64 1
+  %8 = load i8, ptr %.015, align 1
+  %9 = getelementptr inbounds nuw i8, ptr %.015, i64 2
+  %10 = load i8, ptr %7, align 1
+  %11 = getelementptr inbounds nuw i8, ptr %.01114, i64 1
+  store i8 %10, ptr %.01114, align 1
+  %12 = getelementptr inbounds nuw i8, ptr %.01114, i64 2
+  store i8 %8, ptr %11, align 1
+  %.not = icmp eq ptr %12, %6
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.lr.ph, %5, %3

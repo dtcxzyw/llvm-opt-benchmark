@@ -697,7 +697,7 @@ _ZN6memchr4arch3all9rabinkarp6Finder3new17h85b66220665eec02E.exit: ; preds = %20
   %40 = icmp ult ptr %0, %39
   br i1 %40, label %.lr.ph.i.i, label %.preheader.i.i.preheader
 
-.lr.ph.i.i:                                       ; preds = %35, %.lr.ph.i.i
+.lr.ph.i.i:; preds = %35, %.lr.ph.i.i
   %.0172.i.i = phi ptr [ %45, %.lr.ph.i.i ], [ %0, %35 ]
   %.0181.i.i = phi i32 [ %44, %.lr.ph.i.i ], [ 0, %35 ]
   %41 = load i8, ptr %.0172.i.i, align 1, !alias.scope !179, !noalias !182, !noundef !4

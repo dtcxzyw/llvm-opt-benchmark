@@ -60324,14 +60324,14 @@ common.resume:                                    ; preds = %25, %50
   br i1 %99, label %"_ZN4core3ptr78drop_in_place$LT$alloc..boxed..Box$LT$$u5b$http..header..map..Pos$u5d$$GT$$GT$17hd69f0856414286caE.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.6961039930124626028.exit.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.6961039930124626028.exit.i.i": ; preds = %98
-  %100 = shl nsw i64 %10, 2
-  call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef %100, i64 noundef 2) #61
+  %99 = shl nsw i64 %10, 2
+  call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef %99, i64 noundef 2) #61
   br label %"_ZN4core3ptr78drop_in_place$LT$alloc..boxed..Box$LT$$u5b$http..header..map..Pos$u5d$$GT$$GT$17hd69f0856414286caE.exit"
 
 "_ZN4core3ptr78drop_in_place$LT$alloc..boxed..Box$LT$$u5b$http..header..map..Pos$u5d$$GT$$GT$17hd69f0856414286caE.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.6961039930124626028.exit.i.i", %98, %16
   ret i1 %5
 
-101:                                              ; preds = %49
+100:                                              ; preds = %49
   unreachable
 }
 
@@ -60566,14 +60566,14 @@ common.resume:                                    ; preds = %25, %50
   br i1 %99, label %"_ZN4core3ptr78drop_in_place$LT$alloc..boxed..Box$LT$$u5b$http..header..map..Pos$u5d$$GT$$GT$17h83fdedee4da7c4c3E.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.6961039930124626028.exit.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.6961039930124626028.exit.i.i": ; preds = %98
-  %100 = shl nsw i64 %10, 2
-  call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef %100, i64 noundef 2) #61
+  %99 = shl nsw i64 %10, 2
+  call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef %99, i64 noundef 2) #61
   br label %"_ZN4core3ptr78drop_in_place$LT$alloc..boxed..Box$LT$$u5b$http..header..map..Pos$u5d$$GT$$GT$17h83fdedee4da7c4c3E.exit"
 
 "_ZN4core3ptr78drop_in_place$LT$alloc..boxed..Box$LT$$u5b$http..header..map..Pos$u5d$$GT$$GT$17h83fdedee4da7c4c3E.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.6961039930124626028.exit.i.i", %98, %16
   ret i1 %5
 
-101:                                              ; preds = %49
+100:                                              ; preds = %49
   unreachable
 }
 

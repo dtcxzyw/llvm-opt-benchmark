@@ -171,14 +171,14 @@ define internal noundef i32 @lrc_write_packet(ptr noundef %0, ptr noundef readon
   br i1 %.not6875, label %.loopexit, label %.lr.ph77
 
 .lr.ph77:                                         ; preds = %.preheader, %.loopexit71
-  %.05385 = phi ptr [ %7, %.loopexit71 ], [ %.154, %.preheader ]
+  %.05380 = phi ptr [ %7, %.loopexit71 ], [ %.154, %.preheader ]
   %.052.lcssa8084 = phi ptr [ %.052.lcssa80, %.loopexit71 ], [ %.052.lcssa, %.preheader ]
   %18 = ptrtoint ptr %.052.lcssa8084 to i64
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %20
 
 20:                                               ; preds = %.lr.ph77, %40
-  %.276 = phi ptr [ %.05385, %.lr.ph77 ], [ %.051, %40 ]
+  %.276 = phi ptr [ %.05380, %.lr.ph77 ], [ %.051, %40 ]
   %21 = ptrtoint ptr %.276 to i64
   %22 = sub i64 %18, %21
   %23 = tail call ptr @memchr(ptr noundef nonnull %.276, i32 noundef 10, i64 noundef %22) #5

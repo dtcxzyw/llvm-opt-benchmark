@@ -1651,7 +1651,7 @@ define void @_ZN6sparse5index12posting_list11PostingList4from17hf09543c46381d0a4
   %40 = icmp eq ptr %30, %39
   br i1 %40, label %.loopexit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %38, %.lr.ph.i
+.lr.ph.preheader.i:                               ; preds = %38, %.lr.ph.i
   %.019.i = phi float [ %45, %.lr.ph.i ], [ 0xFFF0000000000000, %38 ]
   %.sroa.4.018.i = phi ptr [ %41, %.lr.ph.i ], [ %39, %38 ]
   %41 = getelementptr inbounds i8, ptr %.sroa.4.018.i, i64 -12
@@ -1829,7 +1829,7 @@ define void @_ZN6sparse5index12posting_list11PostingList6upsert17h63af1831e8aac7
   br i1 %43, label %_ZN6sparse5index12posting_list11PostingList37propagate_max_next_weight_to_the_left17hec35d9b5ff6b23dcE.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h7d28550995aaff86E.exit.i"
-  %44 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %45 = load float, ptr %44, align 4, !noundef !10
   %46 = fcmp uno float %45, 0.000000e+00
   %47 = getelementptr inbounds nuw i8, ptr %42, i64 4

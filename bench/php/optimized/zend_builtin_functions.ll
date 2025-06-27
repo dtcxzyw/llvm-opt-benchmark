@@ -2048,16 +2048,16 @@ zend_parse_arg_bool_ex.exit:                      ; preds = %21
   %30 = icmp samesign ult i64 %28, 2
   br i1 %30, label %.loopexit, label %31
 
-31:                                               ; preds = %.critedge
-  %.ptr = getelementptr inbounds nuw i8, ptr %26, i64 24
+30:                                               ; preds = %.critedge
+  %31 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %32 = getelementptr inbounds nuw i8, ptr %26, i64 %28
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 22
   %34 = ptrtoint ptr %33 to i64
   %35 = add i64 %34, 1
   br label %36
 
-36:                                               ; preds = %41, %31
-  %.038.i = phi ptr [ %.ptr, %31 ], [ %42, %41 ]
+36:                                               ; preds = %41, %30
+  %.038.i = phi ptr [ %31, %31 ], [ %42, %41 ]
   %.not.i = icmp ugt ptr %.038.i, %33
   br i1 %.not.i, label %.loopexit, label %37
 
@@ -6662,7 +6662,7 @@ define hidden void @zif_get_defined_constants(ptr noundef readonly captures(none
   %33 = and i32 %32, 4
   %.not100 = icmp eq i32 %33, 0
   call void @llvm.assume(i1 %.not100)
-  %.not101116 = icmp eq ptr %28, %31
+  %.not101116 = icmp eq ptr %28, %30
   br i1 %.not101116, label %._crit_edge121, label %.lr.ph120
 
 .lr.ph120:                                        ; preds = %18, %46
