@@ -408,9 +408,10 @@ _ZL10write_tabsP11_FileStream.exit.i.i:           ; preds = %.lr.ph.i86.i.i, %_Z
   %154 = add i32 %147, -6
   %155 = zext i32 %154 to i64
   %156 = getelementptr inbounds nuw i8, ptr %150, i64 %155
-  br label %.lr.ph.i87.i.i
+  %.not14.i.i.i = icmp ult ptr %156, %150
+  br i1 %.not14.i.i.i, label %_ZL6strrchPKcjc.exit.i.i, label %.lr.ph.i87.i.i
 
-.lr.ph.i87.i.i:                                   ; preds = %159, %153
+.lr.ph.i87.i.i:                                   ; preds = %153, %159
   %.015.i.i.i = phi ptr [ %160, %159 ], [ %156, %153 ]
   %157 = load i8, ptr %.015.i.i.i, align 1, !tbaa !17
   %158 = icmp eq i8 %157, 92
@@ -421,9 +422,9 @@ _ZL10write_tabsP11_FileStream.exit.i.i:           ; preds = %.lr.ph.i86.i.i, %_Z
   %.not.i.i6.i = icmp ult ptr %160, %150
   br i1 %.not.i.i6.i, label %_ZL6strrchPKcjc.exit.i.i, label %.lr.ph.i87.i.i, !llvm.loop !31
 
-_ZL6strrchPKcjc.exit.i.i:                         ; preds = %159, %.lr.ph.i87.i.i
-  %.lcssa.sink.i.i.i = phi ptr [ %.015.i.i.i, %.lr.ph.i87.i.i ], [ %160, %159 ]
-  %161 = ptrtoint ptr %.lcssa.sink.i.i.i to i64
+_ZL6strrchPKcjc.exit.i.i:                         ; preds = %159, %.lr.ph.i87.i.i, %153
+  %.0.lcssa.sink.i.i.i = phi ptr [ %156, %153 ], [ %160, %159 ], [ %.015.i.i.i, %.lr.ph.i87.i.i ]
+  %161 = ptrtoint ptr %.0.lcssa.sink.i.i.i to i64
   %162 = ptrtoint ptr %150 to i64
   %163 = sub i64 %161, %162
   %.011.i.i.i = trunc i64 %163 to i32

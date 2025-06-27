@@ -472,16 +472,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i55
   %122 = load ptr, ptr %15, align 8, !tbaa !12, !noalias !31
   %123 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %124 = load i64, ptr %123, align 8, !tbaa !15, !noalias !31
-  %.not7.i = icmp samesign eq i64 %124, 0
-  br i1 %.not7.i, label %.critedge.i, label %.lr.ph.preheader.i
-
-.lr.ph.preheader.i:                               ; preds = %121
   %125 = getelementptr inbounds nuw i8, ptr %122, i64 %124
-  br label %.lr.ph.i
+  %.not7.i = icmp eq ptr %125, %122
+  br i1 %.not7.i, label %.critedge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.noexc62, %.lr.ph.preheader.i
-  %126 = phi ptr [ %135, %.noexc62 ], [ %122, %.lr.ph.preheader.i ]
-  %storemerge8.i = phi ptr [ %136, %.noexc62 ], [ %125, %.lr.ph.preheader.i ]
+.lr.ph.i:                                         ; preds = %121, %.noexc62
+  %126 = phi ptr [ %135, %.noexc62 ], [ %122, %121 ]
+  %storemerge8.i = phi ptr [ %136, %.noexc62 ], [ %125, %121 ]
   %127 = getelementptr inbounds i8, ptr %storemerge8.i, i64 -1
   %128 = load i8, ptr %127, align 1, !tbaa !14, !noalias !31
   %129 = zext i8 %128 to i32
@@ -499,7 +496,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i55
 .noexc62:                                         ; preds = %131
   %135 = load ptr, ptr %15, align 8, !tbaa !12, !noalias !31
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 %134
-  %.not.i = icmp eq ptr %127, %126
+  %.not.i = icmp eq ptr %136, %135
   br i1 %.not.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !34
 
 .critedge.i:                                      ; preds = %.noexc62, %.lr.ph.i, %121
@@ -1574,16 +1571,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i53
   %122 = load ptr, ptr %15, align 8, !tbaa !12, !noalias !65
   %123 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %124 = load i64, ptr %123, align 8, !tbaa !15, !noalias !65
-  %.not7.i = icmp samesign eq i64 %124, 0
-  br i1 %.not7.i, label %.critedge.i, label %.lr.ph.preheader.i
-
-.lr.ph.preheader.i:                               ; preds = %121
   %125 = getelementptr inbounds nuw i8, ptr %122, i64 %124
-  br label %.lr.ph.i
+  %.not7.i = icmp eq ptr %125, %122
+  br i1 %.not7.i, label %.critedge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.noexc60, %.lr.ph.preheader.i
-  %126 = phi ptr [ %135, %.noexc60 ], [ %122, %.lr.ph.preheader.i ]
-  %storemerge8.i = phi ptr [ %136, %.noexc60 ], [ %125, %.lr.ph.preheader.i ]
+.lr.ph.i:                                         ; preds = %121, %.noexc60
+  %126 = phi ptr [ %135, %.noexc60 ], [ %122, %121 ]
+  %storemerge8.i = phi ptr [ %136, %.noexc60 ], [ %125, %121 ]
   %127 = getelementptr inbounds i8, ptr %storemerge8.i, i64 -1
   %128 = load i8, ptr %127, align 1, !tbaa !14, !noalias !65
   %129 = zext i8 %128 to i32
@@ -1601,7 +1595,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i53
 .noexc60:                                         ; preds = %131
   %135 = load ptr, ptr %15, align 8, !tbaa !12, !noalias !65
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 %134
-  %.not.i = icmp eq ptr %127, %126
+  %.not.i = icmp eq ptr %136, %135
   br i1 %.not.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !34
 
 .critedge.i:                                      ; preds = %.noexc60, %.lr.ph.i, %121

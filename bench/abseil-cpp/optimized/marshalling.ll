@@ -4121,7 +4121,8 @@ define linkonce_odr dso_local void @_ZNSt6vectorISt17basic_string_viewIcSt11char
 22:                                               ; preds = %17
   %23 = sub nsw i64 0, %9
   %24 = getelementptr inbounds %"class.std::basic_string_view", ptr %13, i64 %23
-  br label %.lr.ph.i.i.i.i.i
+  %.not11.i.i.i.i.i = icmp eq ptr %24, %13
+  br i1 %.not11.i.i.i.i.i, label %_ZSt22__uninitialized_move_aIPSt17basic_string_viewIcSt11char_traitsIcEES4_SaIS3_EET0_T_S7_S6_RT1_.exit, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %22, %.lr.ph.i.i.i.i.i
   %.013.i.i.i.i.i = phi ptr [ %26, %.lr.ph.i.i.i.i.i ], [ %13, %22 ]
@@ -4130,10 +4131,14 @@ define linkonce_odr dso_local void @_ZNSt6vectorISt17basic_string_viewIcSt11char
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 16
   %26 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i = icmp eq ptr %25, %13
-  br i1 %.not.i.i.i.i.i, label %_ZSt22__uninitialized_move_aIPSt17basic_string_viewIcSt11char_traitsIcEES4_SaIS3_EET0_T_S7_S6_RT1_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !237
+  br i1 %.not.i.i.i.i.i, label %_ZSt22__uninitialized_move_aIPSt17basic_string_viewIcSt11char_traitsIcEES4_SaIS3_EET0_T_S7_S6_RT1_.exit.loopexit, label %.lr.ph.i.i.i.i.i, !llvm.loop !237
 
-_ZSt22__uninitialized_move_aIPSt17basic_string_viewIcSt11char_traitsIcEES4_SaIS3_EET0_T_S7_S6_RT1_.exit: ; preds = %.lr.ph.i.i.i.i.i
-  %27 = load ptr, ptr %12, align 8, !tbaa !235
+_ZSt22__uninitialized_move_aIPSt17basic_string_viewIcSt11char_traitsIcEES4_SaIS3_EET0_T_S7_S6_RT1_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
+  %.pre109 = load ptr, ptr %12, align 8, !tbaa !235
+  br label %_ZSt22__uninitialized_move_aIPSt17basic_string_viewIcSt11char_traitsIcEES4_SaIS3_EET0_T_S7_S6_RT1_.exit
+
+_ZSt22__uninitialized_move_aIPSt17basic_string_viewIcSt11char_traitsIcEES4_SaIS3_EET0_T_S7_S6_RT1_.exit: ; preds = %_ZSt22__uninitialized_move_aIPSt17basic_string_viewIcSt11char_traitsIcEES4_SaIS3_EET0_T_S7_S6_RT1_.exit.loopexit, %22
+  %27 = phi ptr [ %.pre109, %_ZSt22__uninitialized_move_aIPSt17basic_string_viewIcSt11char_traitsIcEES4_SaIS3_EET0_T_S7_S6_RT1_.exit.loopexit ], [ %13, %22 ]
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 %8
   store ptr %28, ptr %12, align 8, !tbaa !235
   %.not.i.i.i.i.i55 = icmp eq ptr %24, %1

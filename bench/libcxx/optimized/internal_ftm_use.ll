@@ -1628,16 +1628,13 @@ define linkonce_odr hidden void @_ZN5clang20DiagStorageAllocator10DeallocateEPNS
   %16 = load ptr, ptr %15, align 8, !tbaa !66
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 536
   %18 = load i32, ptr %17, align 8, !tbaa !68
-  %.not4.i.i.i = icmp eq i32 %18, 0
-  br i1 %.not4.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE13destroy_rangeEPS2_S4_.exit.i.i, label %.lr.ph.i.preheader.i.i
-
-.lr.ph.i.preheader.i.i:                           ; preds = %14
   %19 = zext i32 %18 to i64
   %20 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %16, i64 %19
-  br label %.lr.ph.i.i.i
+  %.not4.i.i.i = icmp eq ptr %16, %20
+  br i1 %.not4.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE13destroy_rangeEPS2_S4_.exit.i.i, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i, %.lr.ph.i.preheader.i.i
-  %.05.i.i.i = phi ptr [ %21, %_ZN5clang9FixItHintD2Ev.exit.i.i.i ], [ %20, %.lr.ph.i.preheader.i.i ]
+.lr.ph.i.i.i:                                     ; preds = %14, %_ZN5clang9FixItHintD2Ev.exit.i.i.i
+  %.05.i.i.i = phi ptr [ %21, %_ZN5clang9FixItHintD2Ev.exit.i.i.i ], [ %20, %14 ]
   %21 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 -64
   %22 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 -40
   %23 = load ptr, ptr %22, align 8, !tbaa !25

@@ -13910,8 +13910,7 @@ define linkonce_odr hidden void @_ZNSt6vectorI10aiVector3tIfESaIS1_EE14_M_fill_i
 19:                                               ; preds = %14
   %20 = sub i64 0, %2
   %21 = getelementptr inbounds %class.aiVector3t, ptr %9, i64 %20
-  %.idx = mul i64 %2, -12
-  %.not11.i.i.i.i.i = icmp eq i64 %.idx, 0
+  %.not11.i.i.i.i.i = icmp eq ptr %21, %9
   br i1 %.not11.i.i.i.i.i, label %_ZSt22__uninitialized_move_aIP10aiVector3tIfES2_SaIS1_EET0_T_S5_S4_RT1_.exit, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %19, %.lr.ph.i.i.i.i.i
@@ -14448,7 +14447,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i: ; preds = 
   %39 = load ptr, ptr %0, align 8, !alias.scope !130
   %40 = load i64, ptr %36, align 8, !alias.scope !130
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 %40
-  %.not7.i.i = icmp samesign eq i64 %40, 0
+  %.not7.i.i = icmp eq ptr %39, %41
   br i1 %.not7.i.i, label %.critedge, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i, %.lr.ph.i.i

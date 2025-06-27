@@ -1068,7 +1068,7 @@ define hidden noundef zeroext i1 @"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..D
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @_ZN4core3fmt9Formatter10debug_list17hb52e020ba072cadeE(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %2)
   %6 = getelementptr inbounds { ptr, i8, [7 x i8] }, ptr %0, i64 %1
-  %7 = icmp eq i64 %1, 0
+  %7 = icmp eq ptr %0, %6
   br i1 %7, label %_ZN4core3fmt8builders9DebugList7entries17h60fd57202d08a95fE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
@@ -1398,27 +1398,32 @@ define hidden noundef zeroext i1 @"_ZN66_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$a
   %5 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8, !noundef !3
-  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !141
   call void @_ZN4core3fmt9Formatter10debug_list17hb52e020ba072cadeE(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(64) %1), !noalias !145
-  %9 = getelementptr inbounds i64, ptr %8, i64 %7
-  %10 = icmp eq i64 %7, 0
-  br i1 %10, label %"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..Debug$GT$3fmt17h0a5161a712c1227fE.exit", label %.lr.ph.i.i
+  %.idx = shl nsw i64 %7, 3
+  %8 = getelementptr i8, ptr %5, i64 %.idx
+  %.ptr1 = getelementptr i8, ptr %8, i64 16
+  %9 = icmp eq i64 %7, 0
+  br i1 %9, label %"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..Debug$GT$3fmt17h0a5161a712c1227fE.exit", label %.lr.ph.i.i.preheader
 
-.lr.ph.i.i:                                       ; preds = %2, %.lr.ph.i.i
-  %.sroa.0.06.i.i = phi ptr [ %11, %.lr.ph.i.i ], [ %8, %2 ]
-  %11 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i.i, i64 8
+.lr.ph.i.i.preheader:                             ; preds = %2
+  %.ptr = getelementptr inbounds nuw i8, ptr %5, i64 16
+  br label %.lr.ph.i.i
+
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i
+  %.sroa.0.06.i.i = phi ptr [ %10, %.lr.ph.i.i ], [ %.ptr, %.lr.ph.i.i.preheader ]
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i.i, i64 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !146
   store ptr %.sroa.0.06.i.i, ptr %3, align 8, !noalias !146
-  %12 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h6ad6783d6ece380fE(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.10511f8de6cdd818757164d865fd2b17.15.llvm.6803604826760749696)
+  %11 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h6ad6783d6ece380fE(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.10511f8de6cdd818757164d865fd2b17.15.llvm.6803604826760749696)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !146
-  %13 = icmp eq ptr %11, %9
-  br i1 %13, label %"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..Debug$GT$3fmt17h0a5161a712c1227fE.exit", label %.lr.ph.i.i
+  %12 = icmp eq ptr %10, %.ptr1
+  br i1 %12, label %"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..Debug$GT$3fmt17h0a5161a712c1227fE.exit", label %.lr.ph.i.i
 
 "_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..Debug$GT$3fmt17h0a5161a712c1227fE.exit": ; preds = %.lr.ph.i.i, %2
-  %14 = call noundef zeroext i1 @_ZN4core3fmt8builders9DebugList6finish17h0eca50d3e55a937aE(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
+  %13 = call noundef zeroext i1 @_ZN4core3fmt8builders9DebugList6finish17h0eca50d3e55a937aE(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !141
-  ret i1 %14
+  ret i1 %13
 }
 
 ; Function Attrs: nonlazybind uwtable

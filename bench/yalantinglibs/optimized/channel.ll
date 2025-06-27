@@ -61793,7 +61793,7 @@ land.rhs:                                         ; preds = %if.end
   %count.i.i.i = getelementptr inbounds nuw i8, ptr %buffers, i64 256
   %15 = load i64, ptr %count.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds %"class.asio::const_buffer", ptr %buffers, i64 %15
-  %cmp4.i.i = icmp eq i64 %15, 0
+  %cmp4.i.i = icmp eq ptr %buffers, %add.ptr.i.i.i
   br i1 %cmp4.i.i, label %if.end10.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %land.rhs, %for.inc.i.i
@@ -62589,63 +62589,68 @@ ehcleanup:                                        ; preds = %if.then.i.i.i.i.i.i
 define linkonce_odr dso_local noundef i32 @_ZN4asio6detail28reactive_socket_send_op_baseINS0_16prepared_buffersINS_12const_bufferELm64EEEE10do_performEPNS0_10reactor_opE(ptr noundef %base) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %bufs = alloca %"class.asio::detail::buffer_sequence_adapter", align 8
-  %buffers_ = getelementptr inbounds nuw i8, ptr %base, i64 72
   %count_.i = getelementptr inbounds nuw i8, ptr %bufs, i64 1024
   %total_buffer_size_.i = getelementptr inbounds nuw i8, ptr %bufs, i64 1032
   %count.i.i.i = getelementptr inbounds nuw i8, ptr %base, i64 328
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %count_.i, i8 0, i64 16, i1 false)
   %0 = load i64, ptr %count.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds %"class.asio::const_buffer", ptr %buffers_, i64 %0
+  %add.ptr.i.i.i.idx = shl nsw i64 %0, 4
+  %1 = getelementptr i8, ptr %base, i64 %add.ptr.i.i.i.idx
+  %add.ptr.i.i.i.ptr = getelementptr i8, ptr %1, i64 72
   %cmp.not4.i.i = icmp eq i64 %0, 0
-  br i1 %cmp.not4.i.i, label %_ZN4asio6detail23buffer_sequence_adapterINS_12const_bufferENS0_16prepared_buffersIS2_Lm64EEEEC2ERKS4_.exit, label %land.rhs.i.i
+  br i1 %cmp.not4.i.i, label %_ZN4asio6detail23buffer_sequence_adapterINS_12const_bufferENS0_16prepared_buffersIS2_Lm64EEEEC2ERKS4_.exit, label %land.rhs.i.i.preheader
 
-land.rhs.i.i:                                     ; preds = %entry, %for.body.i.i
-  %1 = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %entry ]
-  %iter.05.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %buffers_, %entry ]
-  %cmp2.i.i = icmp ult i64 %1, 64
+land.rhs.i.i.preheader:                           ; preds = %entry
+  %buffers_.ptr = getelementptr inbounds nuw i8, ptr %base, i64 72
+  br label %land.rhs.i.i
+
+land.rhs.i.i:                                     ; preds = %land.rhs.i.i.preheader, %for.body.i.i
+  %2 = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %land.rhs.i.i.preheader ]
+  %iter.05.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %buffers_.ptr, %land.rhs.i.i.preheader ]
+  %cmp2.i.i = icmp ult i64 %2, 64
   br i1 %cmp2.i.i, label %for.body.i.i, label %_ZN4asio6detail23buffer_sequence_adapterINS_12const_bufferENS0_16prepared_buffersIS2_Lm64EEEEC2ERKS4_.exit
 
 for.body.i.i:                                     ; preds = %land.rhs.i.i
   %buffer.sroa.0.0.copyload.i.i = load ptr, ptr %iter.05.i.i, align 8
   %buffer.sroa.2.0.iter.0.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %iter.05.i.i, i64 8
   %buffer.sroa.2.0.copyload.i.i = load i64, ptr %buffer.sroa.2.0.iter.0.sroa_idx.i.i, align 8
-  %arrayidx.i.i = getelementptr inbounds nuw [64 x %struct.iovec], ptr %bufs, i64 0, i64 %1
+  %arrayidx.i.i = getelementptr inbounds nuw [64 x %struct.iovec], ptr %bufs, i64 0, i64 %2
   store ptr %buffer.sroa.0.0.copyload.i.i, ptr %arrayidx.i.i, align 8
   %iov_len.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 8
   store i64 %buffer.sroa.2.0.copyload.i.i, ptr %iov_len.i.i.i, align 8
-  %2 = load i64, ptr %total_buffer_size_.i, align 8
-  %add.i.i = add i64 %2, %buffer.sroa.2.0.copyload.i.i
+  %3 = load i64, ptr %total_buffer_size_.i, align 8
+  %add.i.i = add i64 %3, %buffer.sroa.2.0.copyload.i.i
   store i64 %add.i.i, ptr %total_buffer_size_.i, align 8
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %iter.05.i.i, i64 16
-  %3 = load i64, ptr %count_.i, align 8
-  %inc.i.i = add i64 %3, 1
+  %4 = load i64, ptr %count_.i, align 8
+  %inc.i.i = add i64 %4, 1
   store i64 %inc.i.i, ptr %count_.i, align 8
-  %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i
+  %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i.ptr
   br i1 %cmp.not.i.i, label %_ZN4asio6detail23buffer_sequence_adapterINS_12const_bufferENS0_16prepared_buffersIS2_Lm64EEEEC2ERKS4_.exit, label %land.rhs.i.i, !llvm.loop !645
 
 _ZN4asio6detail23buffer_sequence_adapterINS_12const_bufferENS0_16prepared_buffersIS2_Lm64EEEEC2ERKS4_.exit: ; preds = %land.rhs.i.i, %for.body.i.i, %entry
-  %4 = phi i64 [ 0, %entry ], [ %1, %land.rhs.i.i ], [ %inc.i.i, %for.body.i.i ]
+  %5 = phi i64 [ 0, %entry ], [ %2, %land.rhs.i.i ], [ %inc.i.i, %for.body.i.i ]
   %socket_ = getelementptr inbounds nuw i8, ptr %base, i64 64
-  %5 = load i32, ptr %socket_, align 8
+  %6 = load i32, ptr %socket_, align 8
   %flags_ = getelementptr inbounds nuw i8, ptr %base, i64 336
-  %6 = load i32, ptr %flags_, align 8
+  %7 = load i32, ptr %flags_, align 8
   %ec_ = getelementptr inbounds nuw i8, ptr %base, i64 24
   %bytes_transferred_ = getelementptr inbounds nuw i8, ptr %base, i64 48
-  %call2 = call noundef zeroext i1 @_ZN4asio6detail10socket_ops17non_blocking_sendEiPK5iovecmiRSt10error_codeRm(i32 noundef %5, ptr noundef nonnull %bufs, i64 noundef %4, i32 noundef %6, ptr noundef nonnull align 8 dereferenceable(16) %ec_, ptr noundef nonnull align 8 dereferenceable(8) %bytes_transferred_)
+  %call2 = call noundef zeroext i1 @_ZN4asio6detail10socket_ops17non_blocking_sendEiPK5iovecmiRSt10error_codeRm(i32 noundef %6, ptr noundef nonnull %bufs, i64 noundef %5, i32 noundef %7, ptr noundef nonnull align 8 dereferenceable(16) %ec_, ptr noundef nonnull align 8 dereferenceable(8) %bytes_transferred_)
   %cond = zext i1 %call2 to i32
   br i1 %call2, label %if.then, label %if.end10
 
 if.then:                                          ; preds = %_ZN4asio6detail23buffer_sequence_adapterINS_12const_bufferENS0_16prepared_buffersIS2_Lm64EEEEC2ERKS4_.exit
   %state_ = getelementptr inbounds nuw i8, ptr %base, i64 68
-  %7 = load i8, ptr %state_, align 4
-  %8 = and i8 %7, 16
-  %cmp3.not = icmp eq i8 %8, 0
+  %8 = load i8, ptr %state_, align 4
+  %9 = and i8 %8, 16
+  %cmp3.not = icmp eq i8 %9, 0
   br i1 %cmp3.not, label %if.end10, label %if.then4
 
 if.then4:                                         ; preds = %if.then
-  %9 = load i64, ptr %bytes_transferred_, align 8
-  %10 = load i64, ptr %total_buffer_size_.i, align 8
-  %cmp7 = icmp ult i64 %9, %10
+  %10 = load i64, ptr %bytes_transferred_, align 8
+  %11 = load i64, ptr %total_buffer_size_.i, align 8
+  %cmp7 = icmp ult i64 %10, %11
   %spec.select = select i1 %cmp7, i32 2, i32 %cond
   br label %if.end10
 
@@ -64378,7 +64383,6 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %headers_ = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %cmp.not4.i.i.i.i = icmp eq i64 %key.coerce0, 0
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -64392,6 +64396,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp.not.i.i.i, label %if.end.i.i.i, label %for.inc
 
 if.end.i.i.i:                                     ; preds = %for.body
+  %cmp.not4.i.i.i.i = icmp eq ptr %agg.tmp.sroa.2.0.copyload, %add.ptr.i.i
   br i1 %cmp.not4.i.i.i.i, label %if.then, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %if.end.i.i.i, %for.inc.i.i.i.i
@@ -64803,7 +64808,7 @@ _ZN4asio16buffers_iteratorINS_15const_buffers_1EcE7advanceEl.exit: ; preds = %if
   br i1 %cmp.i.i.not90.i, label %if.else, label %for.cond2.preheader.lr.ph.i
 
 for.cond2.preheader.lr.ph.i:                      ; preds = %_ZN4asio16buffers_iteratorINS_15const_buffers_1EcE7advanceEl.exit
-  %cmp.i74.i = icmp eq i64 %14, 0
+  %cmp.i74.i = icmp eq ptr %13, %add.ptr.i
   br i1 %cmp.i74.i, label %_ZN4asio6detail14partial_searchINS_16buffers_iteratorINS_15const_buffers_1EcEEN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEESt4pairIT_bESG_SG_T0_SI_.exit, label %for.cond2.preheader.i
 
 for.cond2.preheader.i:                            ; preds = %for.cond2.preheader.lr.ph.i, %_ZN4asio16buffers_iteratorINS_15const_buffers_1EcEppEv.exit25.i

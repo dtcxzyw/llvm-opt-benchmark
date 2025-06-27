@@ -1228,7 +1228,8 @@ _ZN5Eigen6MatrixIfLi1ELin1ELi1ELi1ELin1EEaSINS_13CwiseBinaryOpINS_8internal17sca
 
 .split.us:                                        ; preds = %._crit_edge757.us
   call void @free(ptr noundef %24) #14
-  br label %.lr.ph.i.i
+  %.not5.i.i = icmp eq ptr %calloc.i143, %scevgep.i.i.i145
+  br i1 %.not5.i.i, label %_ZNSt6vectorIN5Eigen6MatrixIfLi1ELin1ELi1ELi1ELin1EEENS0_17aligned_allocatorIS2_EEED2Ev.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.split.us, %.lr.ph.i.i
   %.06.i.i = phi ptr [ %428, %.lr.ph.i.i ], [ %calloc.i143, %.split.us ]
@@ -1238,9 +1239,10 @@ _ZN5Eigen6MatrixIfLi1ELin1ELi1ELi1ELin1EEaSINS_13CwiseBinaryOpINS_8internal17sca
   %.not.i.i230 = icmp eq ptr %428, %scevgep.i.i.i145
   br i1 %.not.i.i230, label %_ZNSt6vectorIN5Eigen6MatrixIfLi1ELin1ELi1ELi1ELin1EEENS0_17aligned_allocatorIS2_EEED2Ev.exit, label %.lr.ph.i.i, !llvm.loop !49
 
-_ZNSt6vectorIN5Eigen6MatrixIfLi1ELin1ELi1ELi1ELin1EEENS0_17aligned_allocatorIS2_EEED2Ev.exit: ; preds = %.lr.ph.i.i
+_ZNSt6vectorIN5Eigen6MatrixIfLi1ELin1ELi1ELi1ELin1EEENS0_17aligned_allocatorIS2_EEED2Ev.exit: ; preds = %.lr.ph.i.i, %.split.us
   call void @free(ptr noundef nonnull %calloc.i143) #14
-  br label %.lr.ph.i.i232
+  %.not5.i.i231 = icmp eq ptr %calloc.i131, %scevgep.i.i.i133
+  br i1 %.not5.i.i231, label %_ZSt8_DestroyIPN5Eigen6MatrixIfLi1ELin1ELi1ELi1ELin1EEENS0_17aligned_allocatorIS2_EEEvT_S6_RT0_.exit.i237, label %.lr.ph.i.i232
 
 .lr.ph.i.i232:                                    ; preds = %_ZNSt6vectorIN5Eigen6MatrixIfLi1ELin1ELi1ELi1ELin1EEENS0_17aligned_allocatorIS2_EEED2Ev.exit, %.lr.ph.i.i232
   %.06.i.i233 = phi ptr [ %430, %.lr.ph.i.i232 ], [ %calloc.i131, %_ZNSt6vectorIN5Eigen6MatrixIfLi1ELin1ELi1ELi1ELin1EEENS0_17aligned_allocatorIS2_EEED2Ev.exit ]
@@ -1250,9 +1252,10 @@ _ZNSt6vectorIN5Eigen6MatrixIfLi1ELin1ELi1ELi1ELin1EEENS0_17aligned_allocatorIS2_
   %.not.i.i234 = icmp eq ptr %430, %scevgep.i.i.i133
   br i1 %.not.i.i234, label %_ZSt8_DestroyIPN5Eigen6MatrixIfLi1ELin1ELi1ELi1ELin1EEENS0_17aligned_allocatorIS2_EEEvT_S6_RT0_.exit.i237, label %.lr.ph.i.i232, !llvm.loop !49
 
-_ZSt8_DestroyIPN5Eigen6MatrixIfLi1ELin1ELi1ELi1ELin1EEENS0_17aligned_allocatorIS2_EEEvT_S6_RT0_.exit.i237: ; preds = %.lr.ph.i.i232
+_ZSt8_DestroyIPN5Eigen6MatrixIfLi1ELin1ELi1ELi1ELin1EEENS0_17aligned_allocatorIS2_EEEvT_S6_RT0_.exit.i237: ; preds = %.lr.ph.i.i232, %_ZNSt6vectorIN5Eigen6MatrixIfLi1ELin1ELi1ELi1ELin1EEENS0_17aligned_allocatorIS2_EEED2Ev.exit
   call void @free(ptr noundef nonnull %calloc.i131) #14
-  br label %.lr.ph.i.i241
+  %.not5.i.i240 = icmp eq ptr %calloc.i, %scevgep.i.i.i
+  br i1 %.not5.i.i240, label %.loopexit, label %.lr.ph.i.i241
 
 .lr.ph.i.i241:                                    ; preds = %_ZSt8_DestroyIPN5Eigen6MatrixIfLi1ELin1ELi1ELi1ELin1EEENS0_17aligned_allocatorIS2_EEEvT_S6_RT0_.exit.i237, %.lr.ph.i.i241
   %.06.i.i242 = phi ptr [ %432, %.lr.ph.i.i241 ], [ %calloc.i, %_ZSt8_DestroyIPN5Eigen6MatrixIfLi1ELin1ELi1ELi1ELin1EEENS0_17aligned_allocatorIS2_EEEvT_S6_RT0_.exit.i237 ]
@@ -1262,7 +1265,7 @@ _ZSt8_DestroyIPN5Eigen6MatrixIfLi1ELin1ELi1ELi1ELin1EEENS0_17aligned_allocatorIS
   %.not.i.i243 = icmp eq ptr %432, %scevgep.i.i.i
   br i1 %.not.i.i243, label %.loopexit, label %.lr.ph.i.i241, !llvm.loop !49
 
-.loopexit:                                        ; preds = %.lr.ph.i.i241
+.loopexit:                                        ; preds = %.lr.ph.i.i241, %_ZSt8_DestroyIPN5Eigen6MatrixIfLi1ELin1ELi1ELi1ELin1EEENS0_17aligned_allocatorIS2_EEEvT_S6_RT0_.exit.i237
   call void @free(ptr noundef nonnull %calloc.i) #14
   br label %_ZNSt6vectorIN5Eigen6MatrixIfLi1ELin1ELi1ELi1ELin1EEENS0_17aligned_allocatorIS2_EEED2Ev.exit248
 
@@ -1277,7 +1280,8 @@ _ZNSt6vectorIN5Eigen6MatrixIfLi1ELin1ELi1ELi1ELin1EEENS0_17aligned_allocatorIS2_
 
 .body:                                            ; preds = %28, %.body288
   %.pn118.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn118.pn.pn.pn, %.body288 ], [ %29, %28 ]
-  br label %.lr.ph.i.i250
+  %.not5.i.i249 = icmp eq ptr %calloc.i143, %scevgep.i.i.i145
+  br i1 %.not5.i.i249, label %_ZSt8_DestroyIPN5Eigen6MatrixIfLi1ELin1ELi1ELi1ELin1EEENS0_17aligned_allocatorIS2_EEEvT_S6_RT0_.exit.i255, label %.lr.ph.i.i250
 
 .lr.ph.i.i250:                                    ; preds = %.body, %.lr.ph.i.i250
   %.06.i.i251 = phi ptr [ %434, %.lr.ph.i.i250 ], [ %calloc.i143, %.body ]
@@ -1287,13 +1291,14 @@ _ZNSt6vectorIN5Eigen6MatrixIfLi1ELin1ELi1ELi1ELin1EEENS0_17aligned_allocatorIS2_
   %.not.i.i252 = icmp eq ptr %434, %scevgep.i.i.i145
   br i1 %.not.i.i252, label %_ZSt8_DestroyIPN5Eigen6MatrixIfLi1ELin1ELi1ELi1ELin1EEENS0_17aligned_allocatorIS2_EEEvT_S6_RT0_.exit.i255, label %.lr.ph.i.i250, !llvm.loop !49
 
-_ZSt8_DestroyIPN5Eigen6MatrixIfLi1ELin1ELi1ELi1ELin1EEENS0_17aligned_allocatorIS2_EEEvT_S6_RT0_.exit.i255: ; preds = %.lr.ph.i.i250
+_ZSt8_DestroyIPN5Eigen6MatrixIfLi1ELin1ELi1ELi1ELin1EEENS0_17aligned_allocatorIS2_EEEvT_S6_RT0_.exit.i255: ; preds = %.lr.ph.i.i250, %.body
   call void @free(ptr noundef nonnull %calloc.i143) #14
   br label %_ZNSt6vectorIN5Eigen6MatrixIfLi1ELin1ELi1ELi1ELin1EEENS0_17aligned_allocatorIS2_EEED2Ev.exit257
 
 _ZNSt6vectorIN5Eigen6MatrixIfLi1ELin1ELi1ELi1ELin1EEENS0_17aligned_allocatorIS2_EEED2Ev.exit257: ; preds = %_ZSt8_DestroyIPN5Eigen6MatrixIfLi1ELin1ELi1ELi1ELin1EEENS0_17aligned_allocatorIS2_EEEvT_S6_RT0_.exit.i255, %261
   %.pn118.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %262, %261 ], [ %.pn118.pn.pn.pn.pn, %_ZSt8_DestroyIPN5Eigen6MatrixIfLi1ELin1ELi1ELi1ELin1EEENS0_17aligned_allocatorIS2_EEEvT_S6_RT0_.exit.i255 ]
-  br label %.lr.ph.i.i259
+  %.not5.i.i258 = icmp eq ptr %calloc.i131, %scevgep.i.i.i133
+  br i1 %.not5.i.i258, label %_ZSt8_DestroyIPN5Eigen6MatrixIfLi1ELin1ELi1ELi1ELin1EEENS0_17aligned_allocatorIS2_EEEvT_S6_RT0_.exit.i264, label %.lr.ph.i.i259
 
 .lr.ph.i.i259:                                    ; preds = %_ZNSt6vectorIN5Eigen6MatrixIfLi1ELin1ELi1ELi1ELin1EEENS0_17aligned_allocatorIS2_EEED2Ev.exit257, %.lr.ph.i.i259
   %.06.i.i260 = phi ptr [ %436, %.lr.ph.i.i259 ], [ %calloc.i131, %_ZNSt6vectorIN5Eigen6MatrixIfLi1ELin1ELi1ELi1ELin1EEENS0_17aligned_allocatorIS2_EEED2Ev.exit257 ]
@@ -1303,13 +1308,14 @@ _ZNSt6vectorIN5Eigen6MatrixIfLi1ELin1ELi1ELi1ELin1EEENS0_17aligned_allocatorIS2_
   %.not.i.i261 = icmp eq ptr %436, %scevgep.i.i.i133
   br i1 %.not.i.i261, label %_ZSt8_DestroyIPN5Eigen6MatrixIfLi1ELin1ELi1ELi1ELin1EEENS0_17aligned_allocatorIS2_EEEvT_S6_RT0_.exit.i264, label %.lr.ph.i.i259, !llvm.loop !49
 
-_ZSt8_DestroyIPN5Eigen6MatrixIfLi1ELin1ELi1ELi1ELin1EEENS0_17aligned_allocatorIS2_EEEvT_S6_RT0_.exit.i264: ; preds = %.lr.ph.i.i259
+_ZSt8_DestroyIPN5Eigen6MatrixIfLi1ELin1ELi1ELi1ELin1EEENS0_17aligned_allocatorIS2_EEEvT_S6_RT0_.exit.i264: ; preds = %.lr.ph.i.i259, %_ZNSt6vectorIN5Eigen6MatrixIfLi1ELin1ELi1ELi1ELin1EEENS0_17aligned_allocatorIS2_EEED2Ev.exit257
   call void @free(ptr noundef nonnull %calloc.i131) #14
   br label %_ZNSt6vectorIN5Eigen6MatrixIfLi1ELin1ELi1ELi1ELin1EEENS0_17aligned_allocatorIS2_EEED2Ev.exit266
 
 _ZNSt6vectorIN5Eigen6MatrixIfLi1ELin1ELi1ELi1ELin1EEENS0_17aligned_allocatorIS2_EEED2Ev.exit266: ; preds = %_ZSt8_DestroyIPN5Eigen6MatrixIfLi1ELin1ELi1ELi1ELin1EEENS0_17aligned_allocatorIS2_EEEvT_S6_RT0_.exit.i264, %259
   %.pn118.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %260, %259 ], [ %.pn118.pn.pn.pn.pn.pn, %_ZSt8_DestroyIPN5Eigen6MatrixIfLi1ELin1ELi1ELi1ELin1EEENS0_17aligned_allocatorIS2_EEEvT_S6_RT0_.exit.i264 ]
-  br label %.lr.ph.i.i268
+  %.not5.i.i267 = icmp eq ptr %calloc.i, %scevgep.i.i.i
+  br i1 %.not5.i.i267, label %_ZSt8_DestroyIPN5Eigen6MatrixIfLi1ELin1ELi1ELi1ELin1EEENS0_17aligned_allocatorIS2_EEEvT_S6_RT0_.exit.i273, label %.lr.ph.i.i268
 
 .lr.ph.i.i268:                                    ; preds = %_ZNSt6vectorIN5Eigen6MatrixIfLi1ELin1ELi1ELi1ELin1EEENS0_17aligned_allocatorIS2_EEED2Ev.exit266, %.lr.ph.i.i268
   %.06.i.i269 = phi ptr [ %438, %.lr.ph.i.i268 ], [ %calloc.i, %_ZNSt6vectorIN5Eigen6MatrixIfLi1ELin1ELi1ELi1ELin1EEENS0_17aligned_allocatorIS2_EEED2Ev.exit266 ]
@@ -1319,7 +1325,7 @@ _ZNSt6vectorIN5Eigen6MatrixIfLi1ELin1ELi1ELi1ELin1EEENS0_17aligned_allocatorIS2_
   %.not.i.i270 = icmp eq ptr %438, %scevgep.i.i.i
   br i1 %.not.i.i270, label %_ZSt8_DestroyIPN5Eigen6MatrixIfLi1ELin1ELi1ELi1ELin1EEENS0_17aligned_allocatorIS2_EEEvT_S6_RT0_.exit.i273, label %.lr.ph.i.i268, !llvm.loop !49
 
-_ZSt8_DestroyIPN5Eigen6MatrixIfLi1ELin1ELi1ELi1ELin1EEENS0_17aligned_allocatorIS2_EEEvT_S6_RT0_.exit.i273: ; preds = %.lr.ph.i.i268
+_ZSt8_DestroyIPN5Eigen6MatrixIfLi1ELin1ELi1ELi1ELin1EEENS0_17aligned_allocatorIS2_EEEvT_S6_RT0_.exit.i273: ; preds = %.lr.ph.i.i268, %_ZNSt6vectorIN5Eigen6MatrixIfLi1ELin1ELi1ELi1ELin1EEENS0_17aligned_allocatorIS2_EEED2Ev.exit266
   call void @free(ptr noundef nonnull %calloc.i) #14
   resume { ptr, i32 } %.pn118.pn.pn.pn.pn.pn.pn
 }

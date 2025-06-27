@@ -132,7 +132,7 @@ define internal noundef i32 @lrc_write_packet(ptr noundef %0, ptr noundef readon
   %9 = load i32, ptr %8, align 8, !tbaa !49
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds i8, ptr %7, i64 %10
-  %12 = icmp sgt i32 %9, 0
+  %12 = icmp ugt ptr %11, %7
   br i1 %12, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %5, %.critedge2
@@ -146,10 +146,10 @@ define internal noundef i32 @lrc_write_packet(ptr noundef %0, ptr noundef readon
 
 .critedge2:                                       ; preds = %.lr.ph, %.lr.ph
   %15 = icmp ugt ptr %13, %7
-  br i1 %15, label %.lr.ph, label %.critedge, !llvm.loop !50
+  br i1 %15, label %.lr.ph, label %.loopexit71, !llvm.loop !50
 
-.critedge:                                        ; preds = %.critedge2, %.lr.ph, %5
-  %.052.lcssa = phi ptr [ %11, %5 ], [ %.05272, %.lr.ph ], [ %13, %.critedge2 ]
+.critedge:                                        ; preds = %.lr.ph, %5
+  %.052.lcssa = phi ptr [ %11, %5 ], [ %.05272, %.lr.ph ]
   %.not67 = icmp eq ptr %7, %.052.lcssa
   br i1 %.not67, label %.loopexit71, label %.preheader
 
@@ -165,18 +165,20 @@ define internal noundef i32 @lrc_write_packet(ptr noundef %0, ptr noundef readon
   %17 = getelementptr inbounds nuw i8, ptr %.154, i64 1
   br label %.preheader, !llvm.loop !51
 
-.loopexit71:                                      ; preds = %.critedge
+.loopexit71:                                      ; preds = %.critedge2, %.critedge
+  %.052.lcssa80 = phi ptr [ %.052.lcssa, %.critedge ], [ %7, %.critedge2 ]
   %.not6875 = icmp eq ptr %7, null
   br i1 %.not6875, label %.loopexit, label %.lr.ph77
 
 .lr.ph77:                                         ; preds = %.preheader, %.loopexit71
-  %.05380 = phi ptr [ %7, %.loopexit71 ], [ %.154, %.preheader ]
-  %18 = ptrtoint ptr %.052.lcssa to i64
+  %.05385 = phi ptr [ %7, %.loopexit71 ], [ %.154, %.preheader ]
+  %.052.lcssa8084 = phi ptr [ %.052.lcssa80, %.loopexit71 ], [ %.052.lcssa, %.preheader ]
+  %18 = ptrtoint ptr %.052.lcssa8084 to i64
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %20
 
 20:                                               ; preds = %.lr.ph77, %40
-  %.276 = phi ptr [ %.05380, %.lr.ph77 ], [ %.051, %40 ]
+  %.276 = phi ptr [ %.05385, %.lr.ph77 ], [ %.051, %40 ]
   %21 = ptrtoint ptr %.276 to i64
   %22 = sub i64 %18, %21
   %23 = tail call ptr @memchr(ptr noundef nonnull %.276, i32 noundef 10, i64 noundef %22) #5

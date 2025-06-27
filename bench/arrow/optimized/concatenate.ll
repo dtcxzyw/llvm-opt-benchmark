@@ -16346,7 +16346,7 @@ _ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE6resizeEm.exit: ; preds = %1
   %.sroa.0.0.idx.i = select i1 %61, i64 0, i64 2
   %.sroa.0.0.i = getelementptr inbounds nuw %"class.std::shared_ptr.48", ptr %54, i64 %.sroa.0.0.idx.i
   %62 = getelementptr inbounds nuw %"class.std::shared_ptr.48", ptr %.sroa.0.0.i, i64 %.sroa.3.0.i
-  %.not30 = icmp ult i64 %60, 3
+  %.not30 = icmp eq ptr %.sroa.0.0.i, %62
   br i1 %.not30, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE9push_backERKS3_.exit, %.lr.ph34
@@ -19881,17 +19881,17 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZN5arrow6Stat
   %514 = getelementptr i32, ptr %513, i64 %508
   store i32 0, ptr %513, align 4, !tbaa !44
   %515 = icmp eq i64 %508, 1
-  br i1 %515, label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
+  br i1 %515, label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, label %.lr.ph.i.i.preheader.i.i.i.i.i.i.i
 
-_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc277
+.lr.ph.i.i.preheader.i.i.i.i.i.i.i:               ; preds = %.noexc277
   %516 = getelementptr i8, ptr %513, i64 4
   %517 = add nsw i64 %512, -4
   call void @llvm.memset.p0.i64(ptr align 4 %516, i8 0, i64 %517, i1 false), !tbaa !44
   br label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
 
-_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc277, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
-  %.sroa.14.0 = phi ptr [ %514, %.noexc277 ], [ %514, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %.sroa.0339.0 = phi ptr [ %513, %.noexc277 ], [ %513, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
+_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %.lr.ph.i.i.preheader.i.i.i.i.i.i.i, %.noexc277, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
+  %.sroa.14.0 = phi ptr [ %514, %.noexc277 ], [ %514, %.lr.ph.i.i.preheader.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.0339.0 = phi ptr [ %513, %.noexc277 ], [ %513, %.lr.ph.i.i.preheader.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
   %518 = load ptr, ptr %1, align 8, !tbaa !100
   %519 = getelementptr inbounds nuw i8, ptr %518, i64 8
   %520 = load ptr, ptr %519, align 8, !tbaa !70
@@ -21618,9 +21618,9 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit: ; preds = %5
   %.val58.pre = load ptr, ptr %4, align 8, !tbaa !200
   br label %97
 
-.loopexit:                                        ; preds = %.lr.ph.i.i, %106
-  %.val5889 = phi ptr [ %.val59.pre, %106 ], [ %.val58, %.lr.ph.i.i ]
-  %74 = phi ptr [ %.pre, %106 ], [ %98, %.lr.ph.i.i ]
+.loopexit:                                        ; preds = %.lr.ph.i.i, %124, %106
+  %.val5889 = phi ptr [ %.val59.pre, %106 ], [ %.val58, %124 ], [ %.val58, %.lr.ph.i.i ]
+  %74 = phi ptr [ %.pre, %106 ], [ %98, %124 ], [ %98, %.lr.ph.i.i ]
   %75 = getelementptr inbounds nuw %"class.std::shared_ptr.48", ptr %74, i64 %.03685
   %76 = load ptr, ptr %75, align 8, !tbaa !147
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 24
@@ -21704,9 +21704,10 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit67: ; preds = 
 
 124:                                              ; preds = %107
   %125 = sub i32 %.03784, %115
-  br label %.lr.ph.i.i
+  %.not8.i.i = icmp eq ptr %113, %114
+  br i1 %.not8.i.i, label %.loopexit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %124
+.lr.ph.i.i:                                       ; preds = %124, %.lr.ph.i.i
   %.010.i.i = phi ptr [ %129, %.lr.ph.i.i ], [ %101, %124 ]
   %.079.i.i = phi ptr [ %128, %.lr.ph.i.i ], [ %112, %124 ]
   %126 = load i32, ptr %.079.i.i, align 4, !tbaa !44, !noalias !883
@@ -22964,9 +22965,9 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit: ; preds = %5
   %.val59.pre = load ptr, ptr %4, align 8, !tbaa !200
   br label %96
 
-.loopexit:                                        ; preds = %.lr.ph.i.i, %105
-  %.val5989 = phi ptr [ %.val58.pre, %105 ], [ %.val59, %.lr.ph.i.i ]
-  %74 = phi ptr [ %.pre, %105 ], [ %97, %.lr.ph.i.i ]
+.loopexit:                                        ; preds = %.lr.ph.i.i, %120, %105
+  %.val5989 = phi ptr [ %.val58.pre, %105 ], [ %.val59, %120 ], [ %.val59, %.lr.ph.i.i ]
+  %74 = phi ptr [ %.pre, %105 ], [ %97, %120 ], [ %97, %.lr.ph.i.i ]
   %75 = getelementptr inbounds nuw %"class.std::shared_ptr.48", ptr %74, i64 %.03685
   %76 = load ptr, ptr %75, align 8, !tbaa !147
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 24
@@ -23047,9 +23048,10 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit67: ; preds = 
 120:                                              ; preds = %106
   %121 = load i64, ptr %111, align 8, !tbaa !158, !noalias !915
   %122 = sub i64 %.03784, %121
-  br label %.lr.ph.i.i
+  %.not8.i.i = icmp eq ptr %112, %113
+  br i1 %.not8.i.i, label %.loopexit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %120
+.lr.ph.i.i:                                       ; preds = %120, %.lr.ph.i.i
   %.010.i.i = phi ptr [ %126, %.lr.ph.i.i ], [ %100, %120 ]
   %.079.i.i = phi ptr [ %125, %.lr.ph.i.i ], [ %111, %120 ]
   %123 = load i64, ptr %.079.i.i, align 8, !tbaa !158, !noalias !915

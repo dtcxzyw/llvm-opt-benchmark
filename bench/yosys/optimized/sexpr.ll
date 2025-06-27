@@ -675,7 +675,7 @@ define void @_ZN5Yosys11SExprWriter4putsESt17basic_string_viewIcSt11char_traitsI
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %10 = load i8, ptr %9, align 4, !tbaa !56, !range !12, !noundef !13
   %11 = trunc nuw i8 %10 to i1
-  br i1 %11, label %12, label %.lr.ph21
+  br i1 %11, label %12, label %_ZN5Yosys11SExprWriter13nl_if_pendingEv.exit
 
 12:                                               ; preds = %8
   %13 = load ptr, ptr %0, align 8, !tbaa !71
@@ -703,10 +703,14 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit.i: ; preds = %22, %20
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %24, align 8, !tbaa !79
   store i8 0, ptr %9, align 4, !tbaa !56
-  br label %.lr.ph21
+  br label %_ZN5Yosys11SExprWriter13nl_if_pendingEv.exit
 
-.lr.ph21:                                         ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit.i, %8
+_ZN5Yosys11SExprWriter13nl_if_pendingEv.exit:     ; preds = %8, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit.i
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 %1
+  %.not19 = icmp eq ptr %2, %25
+  br i1 %.not19, label %.loopexit, label %.lr.ph21
+
+.lr.ph21:                                         ; preds = %_ZN5Yosys11SExprWriter13nl_if_pendingEv.exit
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 12
   br label %28
@@ -801,7 +805,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit15: ; preds = %62, %64
   %.not = icmp eq ptr %69, %25
   br i1 %.not, label %.loopexit, label %28
 
-.loopexit:                                        ; preds = %68, %3
+.loopexit:                                        ; preds = %68, %_ZN5Yosys11SExprWriter13nl_if_pendingEv.exit, %3
   ret void
 }
 

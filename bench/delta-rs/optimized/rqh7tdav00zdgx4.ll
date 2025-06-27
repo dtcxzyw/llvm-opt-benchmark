@@ -9376,21 +9376,22 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.76080
   call void @llvm.assume(i1 %168)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %167, ptr nonnull readonly align 1 %149, i64 %.sroa.439.0, i1 false), !noalias !1790
   %169 = getelementptr inbounds i8, ptr %167, i64 %.sroa.439.0
-  br label %.lr.ph.i.i
+  %170 = icmp eq ptr %167, %169
+  br i1 %170, label %.loopexit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.noexc77, %.lr.ph.i.i
-  %.sroa.0.06.i.i = phi ptr [ %170, %.lr.ph.i.i ], [ %167, %.noexc77 ]
-  %170 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i.i, i64 1
-  %171 = load i8, ptr %.sroa.0.06.i.i, align 1, !alias.scope !1793, !noalias !1796, !noundef !9
-  %172 = add i8 %171, -65
-  %173 = icmp ult i8 %172, 26
-  %.0.i.i = select i1 %173, i8 32, i8 0
-  %174 = or i8 %.0.i.i, %171
-  store i8 %174, ptr %.sroa.0.06.i.i, align 1, !alias.scope !1793, !noalias !1796
-  %175 = icmp eq ptr %170, %169
-  br i1 %175, label %176, label %.lr.ph.i.i
+  %.sroa.0.06.i.i = phi ptr [ %171, %.lr.ph.i.i ], [ %167, %.noexc77 ]
+  %171 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i.i, i64 1
+  %172 = load i8, ptr %.sroa.0.06.i.i, align 1, !alias.scope !1793, !noalias !1796, !noundef !9
+  %173 = add i8 %172, -65
+  %174 = icmp ult i8 %173, 26
+  %.0.i.i = select i1 %174, i8 32, i8 0
+  %175 = or i8 %.0.i.i, %172
+  store i8 %175, ptr %.sroa.0.06.i.i, align 1, !alias.scope !1793, !noalias !1796
+  %176 = icmp eq ptr %171, %169
+  br i1 %176, label %.loopexit, label %.lr.ph.i.i
 
-176:                                              ; preds = %.lr.ph.i.i
+.loopexit:                                        ; preds = %.lr.ph.i.i, %.noexc77
   %177 = extractvalue { i64, ptr } %166, 0
   store i64 %177, ptr %26, align 8, !alias.scope !1790, !noalias !1798
   store ptr %167, ptr %.sroa.4.0..sroa_idx.i76, align 8, !alias.scope !1790, !noalias !1798
@@ -9403,12 +9404,12 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.76080
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hdeaf2b35720a3dfbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %26) #22
           to label %144 unwind label %136
 
-178:                                              ; preds = %.thread133, %176
+178:                                              ; preds = %.thread133, %.loopexit
   %179 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr114drop_in_place$LT$core..result..Result$LT$object_store..gcp..builder..GoogleConfigKey$C$object_store..Error$GT$$GT$17he7243cd9e80f4e17E.exit80"
 
-180:                                              ; preds = %176
+180:                                              ; preds = %.loopexit
   %181 = load i64, ptr %27, align 8, !range !16, !noundef !9
   %182 = icmp eq i64 %181, 16
   br i1 %182, label %183, label %.thread133

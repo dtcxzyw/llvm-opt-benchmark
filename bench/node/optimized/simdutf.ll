@@ -956,7 +956,8 @@ _ZN7simdutf8internalL37get_available_implementation_pointersEv.exit: ; preds = %
   %.b = load i1, ptr @_ZZN7simdutf8internalL37get_available_implementation_pointersEvE33available_implementation_pointers.1, align 8
   %25 = select i1 %.b, i64 4, i64 0
   %add.ptr.i = getelementptr inbounds nuw ptr, ptr %24, i64 %25
-  br i1 %.b, label %for.body, label %return
+  %cmp.not6 = icmp eq ptr %24, %add.ptr.i
+  br i1 %cmp.not6, label %return, label %for.body
 
 for.cond:                                         ; preds = %for.body
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin2.07, i64 8

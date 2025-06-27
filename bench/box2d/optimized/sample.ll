@@ -335,15 +335,12 @@ define dso_local void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 captures(none)
 12:                                               ; preds = %8
   %13 = getelementptr inbounds i8, ptr %10, i64 -8
   %14 = load i64, ptr %13, align 8
-  %15 = icmp eq i64 %14, 0
-  br i1 %15, label %.loopexit, label %.preheader.preheader
+  %15 = getelementptr inbounds %class.SampleTask, ptr %10, i64 %14
+  %16 = icmp eq ptr %10, %15
+  br i1 %16, label %.loopexit, label %.preheader
 
-.preheader.preheader:                             ; preds = %12
-  %16 = getelementptr inbounds %class.SampleTask, ptr %10, i64 %14
-  br label %.preheader
-
-.preheader:                                       ; preds = %.preheader.preheader, %_ZN4enki12ICompletableD2Ev.exit
-  %17 = phi ptr [ %18, %_ZN4enki12ICompletableD2Ev.exit ], [ %16, %.preheader.preheader ]
+.preheader:                                       ; preds = %12, %_ZN4enki12ICompletableD2Ev.exit
+  %17 = phi ptr [ %18, %_ZN4enki12ICompletableD2Ev.exit ], [ %15, %12 ]
   %18 = getelementptr inbounds i8, ptr %17, i64 -72
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4enki12ICompletableE, i64 16), ptr %18, align 8, !tbaa !19
   %19 = getelementptr inbounds i8, ptr %17, i64 -40

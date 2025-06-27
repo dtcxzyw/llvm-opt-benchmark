@@ -735,28 +735,27 @@ _ZN4core3ops8function6FnOnce9call_once17h97e7e6d832835524E.exit.i: ; preds = %13
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef nonnull ptr @_ZN5alloc5alloc15exchange_malloc17hf45cfb43b91670a0E(i64 noundef range(i64 0, 25) %0, i64 noundef range(i64 1, 9) %1) unnamed_addr #0 {
+define internal fastcc noalias noundef nonnull ptr @_ZN5alloc5alloc15exchange_malloc17hf45cfb43b91670a0E(i64 noundef range(i64 0, 25) %0, i64 noundef range(i64 1, 9) %1) unnamed_addr #0 {
   %3 = icmp eq i64 %0, 0
-  br i1 %3, label %4, label %6
+  br i1 %3, label %_ZN5alloc5alloc6Global10alloc_impl17ha40af4e5081ee874E.exit.thread, label %_ZN5alloc5alloc6Global10alloc_impl17ha40af4e5081ee874E.exit
 
-4:                                                ; preds = %2
-  %5 = getelementptr i8, ptr null, i64 %1
-  br label %_ZN5alloc5alloc6Global10alloc_impl17ha40af4e5081ee874E.exit
+_ZN5alloc5alloc6Global10alloc_impl17ha40af4e5081ee874E.exit.thread: ; preds = %2
+  %4 = getelementptr i8, ptr null, i64 %1
+  %5 = icmp ne ptr %4, null
+  tail call void @llvm.assume(i1 %5)
+  br label %9
 
-6:                                                ; preds = %2
-  %7 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %8 = tail call noalias noundef ptr @__rust_alloc(i64 noundef range(i64 1, 25) %0, i64 noundef range(i64 1, 9) %1) #20
-  br label %_ZN5alloc5alloc6Global10alloc_impl17ha40af4e5081ee874E.exit
+_ZN5alloc5alloc6Global10alloc_impl17ha40af4e5081ee874E.exit: ; preds = %2
+  %6 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
+  %7 = tail call noalias noundef ptr @__rust_alloc(i64 noundef range(i64 1, 25) %0, i64 noundef range(i64 1, 9) %1) #20
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %10, label %9
 
-_ZN5alloc5alloc6Global10alloc_impl17ha40af4e5081ee874E.exit: ; preds = %4, %6
-  %.sroa.0.0.i = phi ptr [ %5, %4 ], [ %8, %6 ]
-  %9 = icmp eq ptr %.sroa.0.0.i, null
-  br i1 %9, label %11, label %10
+9:                                                ; preds = %_ZN5alloc5alloc6Global10alloc_impl17ha40af4e5081ee874E.exit.thread, %_ZN5alloc5alloc6Global10alloc_impl17ha40af4e5081ee874E.exit
+  %.sroa.0.0.i7 = phi ptr [ %4, %_ZN5alloc5alloc6Global10alloc_impl17ha40af4e5081ee874E.exit.thread ], [ %7, %_ZN5alloc5alloc6Global10alloc_impl17ha40af4e5081ee874E.exit ]
+  ret ptr %.sroa.0.0.i7
 
 10:                                               ; preds = %_ZN5alloc5alloc6Global10alloc_impl17ha40af4e5081ee874E.exit
-  ret ptr %.sroa.0.0.i
-
-11:                                               ; preds = %_ZN5alloc5alloc6Global10alloc_impl17ha40af4e5081ee874E.exit
   tail call void @_ZN5alloc5alloc18handle_alloc_error17hc735483c05842e7cE(i64 noundef %1, i64 noundef %0) #18
   unreachable
 }
@@ -2258,7 +2257,7 @@ define void @_ZN16meilisearch_auth5store13HeedAuthStore11put_api_key17hf2d7cb442
   %88 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %89 = load i64, ptr %88, align 8, !alias.scope !524, !noundef !4
   %90 = getelementptr inbounds i8, ptr %87, i64 %89
-  %91 = icmp eq i64 %89, 0
+  %91 = icmp eq ptr %87, %90
   br i1 %91, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %81
@@ -2388,7 +2387,7 @@ define void @_ZN16meilisearch_auth5store13HeedAuthStore11put_api_key17hf2d7cb442
   %135 = load ptr, ptr %92, align 8, !nonnull !4, !noundef !4
   %136 = load i64, ptr %94, align 8, !noundef !4
   %137 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } } }, ptr %135, i64 %136
-  %138 = icmp eq i64 %136, 0
+  %138 = icmp eq ptr %135, %137
   br i1 %138, label %.loopexit.us, label %.lr.ph175.us
 
 .lr.ph175.us:                                     ; preds = %132, %159

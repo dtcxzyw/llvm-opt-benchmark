@@ -1561,7 +1561,7 @@ define void @_ZN6sparse5index12posting_list11PostingList4from17hf09543c46381d0a4
   store i64 %.sroa.012.0.copyload, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %9, ptr %.sroa.6.0..sroa_idx, align 8
-  %10 = icmp eq i64 %.sroa.514.0.copyload, 0
+  %10 = icmp eq ptr %.sroa.413.0.copyload, %9
   br i1 %10, label %._crit_edge, label %.lr.ph
 
 .thread27:                                        ; preds = %"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5a6dd03fca67da5aE.llvm.4482545766329047864.exit.i"
@@ -1647,16 +1647,13 @@ define void @_ZN6sparse5index12posting_list11PostingList4from17hf09543c46381d0a4
 38:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !229
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3), !noalias !228
-  %39 = icmp eq i64 %32, 0
-  br i1 %39, label %.loopexit, label %.lr.ph.preheader.i
+  %39 = getelementptr inbounds { i32, float, float }, ptr %30, i64 %32
+  %40 = icmp eq ptr %30, %39
+  br i1 %40, label %.loopexit, label %.lr.ph.i
 
-.lr.ph.preheader.i:                               ; preds = %38
-  %40 = getelementptr inbounds { i32, float, float }, ptr %30, i64 %32
-  br label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.019.i = phi float [ %45, %.lr.ph.i ], [ 0xFFF0000000000000, %.lr.ph.preheader.i ]
-  %.sroa.4.018.i = phi ptr [ %41, %.lr.ph.i ], [ %40, %.lr.ph.preheader.i ]
+.lr.ph.i:                                         ; preds = %38, %.lr.ph.i
+  %.019.i = phi float [ %45, %.lr.ph.i ], [ 0xFFF0000000000000, %38 ]
+  %.sroa.4.018.i = phi ptr [ %41, %.lr.ph.i ], [ %39, %38 ]
   %41 = getelementptr inbounds i8, ptr %.sroa.4.018.i, i64 -12
   %42 = getelementptr inbounds i8, ptr %.sroa.4.018.i, i64 -4
   store float %.019.i, ptr %42, align 4, !noalias !228
@@ -1827,15 +1824,15 @@ define void @_ZN6sparse5index12posting_list11PostingList6upsert17h63af1831e8aac7
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h7d28550995aaff86E.exit.i": ; preds = %39
   %41 = icmp ne ptr %.val13, null
   tail call void @llvm.assume(i1 %41)
-  %42 = icmp eq i64 %.sroa.7.0.ph, 0
-  br i1 %42, label %_ZN6sparse5index12posting_list11PostingList37propagate_max_next_weight_to_the_left17hec35d9b5ff6b23dcE.exit, label %.lr.ph.preheader.i
+  %42 = getelementptr inbounds [0 x { i32, float, float }], ptr %.val13, i64 0, i64 %.sroa.7.0.ph
+  %43 = icmp eq ptr %.val13, %42
+  br i1 %43, label %_ZN6sparse5index12posting_list11PostingList37propagate_max_next_weight_to_the_left17hec35d9b5ff6b23dcE.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h7d28550995aaff86E.exit.i"
-  %43 = getelementptr inbounds [0 x { i32, float, float }], ptr %.val13, i64 0, i64 %.sroa.7.0.ph
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %45 = load float, ptr %44, align 4, !noundef !10
   %46 = fcmp uno float %45, 0.000000e+00
-  %47 = getelementptr inbounds nuw i8, ptr %43, i64 4
+  %47 = getelementptr inbounds nuw i8, ptr %42, i64 4
   %48 = load float, ptr %47, align 4, !noundef !10
   %49 = fcmp oge float %45, %48
   %50 = or i1 %46, %49
@@ -1852,7 +1849,7 @@ define void @_ZN6sparse5index12posting_list11PostingList6upsert17h63af1831e8aac7
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %.04.i = phi float [ %59, %.lr.ph.i ], [ %.0.sroa.speculated.i.i, %.lr.ph.preheader.i ]
-  %.sroa.4.03.i = phi ptr [ %58, %.lr.ph.i ], [ %43, %.lr.ph.preheader.i ]
+  %.sroa.4.03.i = phi ptr [ %58, %.lr.ph.i ], [ %42, %.lr.ph.preheader.i ]
   %54 = getelementptr inbounds i8, ptr %.sroa.4.03.i, i64 -4
   store float %.04.i, ptr %54, align 4
   %55 = getelementptr inbounds i8, ptr %.sroa.4.03.i, i64 -8
@@ -1943,20 +1940,17 @@ define void @_ZN6sparse5index12posting_list14PostingBuilder5build17h5c727e63726a
 14:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !259
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3)
-  %15 = icmp eq i64 %8, 0
-  br i1 %15, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %14
-  %16 = getelementptr inbounds { i32, float, float }, ptr %6, i64 %8
-  br label %.lr.ph
+  %15 = getelementptr inbounds { i32, float, float }, ptr %6, i64 %8
+  %16 = icmp eq ptr %6, %15
+  br i1 %16, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   ret void
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.019 = phi float [ %21, %.lr.ph ], [ 0xFFF0000000000000, %.lr.ph.preheader ]
-  %.sroa.4.018 = phi ptr [ %17, %.lr.ph ], [ %16, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %14, %.lr.ph
+  %.019 = phi float [ %21, %.lr.ph ], [ 0xFFF0000000000000, %14 ]
+  %.sroa.4.018 = phi ptr [ %17, %.lr.ph ], [ %15, %14 ]
   %17 = getelementptr inbounds i8, ptr %.sroa.4.018, i64 -12
   %18 = getelementptr inbounds i8, ptr %.sroa.4.018, i64 -4
   store float %.019, ptr %18, align 4

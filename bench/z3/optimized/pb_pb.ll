@@ -1496,7 +1496,7 @@ define hidden noundef zeroext i1 @_ZNK2pb3pbc10is_blockedERN3sat10simplifierENS1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   %.ptr38 = getelementptr inbounds nuw i8, ptr %7, i64 76
   %.not31 = icmp eq i32 %5, 0
-  br i1 %.not31, label %._crit_edge, label %.lr.ph
+  br i1 %.not31, label %.split.loop.exit29, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.critedge
   %.01932 = phi ptr [ %10, %.critedge ], [ %.ptr, %3 ]
@@ -1509,20 +1509,24 @@ define hidden noundef zeroext i1 @_ZNK2pb3pbc10is_blockedERN3sat10simplifierENS1
 .critedge:                                        ; preds = %.lr.ph
   %10 = getelementptr inbounds nuw i8, ptr %.01932, i64 8
   %.not = icmp eq ptr %10, %.ptr38
-  br i1 %.not, label %.lr.ph36, label %.lr.ph
+  br i1 %.not, label %.split.loop.exit29, label %.lr.ph
 
 .split.loop.exit:                                 ; preds = %.lr.ph
   %.sroa.08.0.copyload.le = load i32, ptr %.01932, align 4
-  br label %.lr.ph36
+  br label %.split.loop.exit29
 
-.lr.ph36:                                         ; preds = %.critedge, %.split.loop.exit
-  %.027 = phi i32 [ %.sroa.08.0.copyload.le, %.split.loop.exit ], [ 0, %.critedge ]
+.split.loop.exit29:                               ; preds = %.critedge, %3, %.split.loop.exit
+  %.027 = phi i32 [ %.sroa.08.0.copyload.le, %.split.loop.exit ], [ 0, %3 ], [ 0, %.critedge ]
+  %.not2233 = icmp eq ptr %0, %7
+  br i1 %.not2233, label %._crit_edge, label %.lr.ph36
+
+.lr.ph36:                                         ; preds = %.split.loop.exit29
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %12 = load ptr, ptr %11, align 8, !tbaa !79
   br label %16
 
-._crit_edge:                                      ; preds = %16, %3
-  %.0.lcssa = phi i32 [ 0, %3 ], [ %.1, %16 ]
+._crit_edge:                                      ; preds = %16, %.split.loop.exit29
+  %.0.lcssa = phi i32 [ 0, %.split.loop.exit29 ], [ %.1, %16 ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %14 = load i32, ptr %13, align 4, !tbaa !25
   %15 = icmp uge i32 %.0.lcssa, %14

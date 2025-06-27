@@ -164,10 +164,11 @@ _ZN18XArrayIteratorImplIP5XPageLb0EEC2EPK18GrowableArrayCHeapIS1_L8MEMFLAGS5EE.e
   %11 = select i1 %8, ptr null, ptr %10
   %12 = sext i32 %7 to i64
   %13 = getelementptr inbounds ptr, ptr %11, i64 %12
-  br i1 %8, label %_ZN18XArrayIteratorImplIP5XPageLb0EE4nextEPS1_.exit.preheader, label %.lr.ph
+  %.not46 = icmp eq ptr %11, %13
+  br i1 %.not46, label %_ZN18XArrayIteratorImplIP5XPageLb0EE4nextEPS1_.exit.preheader, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN18XArrayIteratorImplIP5XPageLb0EEC2EPK18GrowableArrayCHeapIS1_L8MEMFLAGS5EE.exit, %.lr.ph
-  %.sroa.026.047 = phi ptr [ %15, %.lr.ph ], [ %10, %_ZN18XArrayIteratorImplIP5XPageLb0EEC2EPK18GrowableArrayCHeapIS1_L8MEMFLAGS5EE.exit ]
+  %.sroa.026.047 = phi ptr [ %15, %.lr.ph ], [ %11, %_ZN18XArrayIteratorImplIP5XPageLb0EEC2EPK18GrowableArrayCHeapIS1_L8MEMFLAGS5EE.exit ]
   %14 = load ptr, ptr %.sroa.026.047, align 8
   %15 = getelementptr inbounds nuw i8, ptr %.sroa.026.047, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 40
@@ -216,10 +217,11 @@ _ZN18GrowableArrayCHeapIP5XPageL8MEMFLAGS5EEC2EiiRKS1_.exit: ; preds = %.lr.ph.p
   %33 = select i1 %31, ptr null, ptr %32
   %34 = sext i32 %30 to i64
   %35 = getelementptr inbounds ptr, ptr %33, i64 %34
-  br i1 %31, label %_ZN18XArrayIteratorImplIP5XPageLb0EE4nextEPS1_.exit17, label %.lr.ph52
+  %.not4550 = icmp eq ptr %33, %35
+  br i1 %.not4550, label %_ZN18XArrayIteratorImplIP5XPageLb0EE4nextEPS1_.exit17, label %.lr.ph52
 
 .lr.ph52:                                         ; preds = %_ZN18GrowableArrayCHeapIP5XPageL8MEMFLAGS5EEC2EiiRKS1_.exit, %.lr.ph52
-  %.sroa.0.051 = phi ptr [ %37, %.lr.ph52 ], [ %32, %_ZN18GrowableArrayCHeapIP5XPageL8MEMFLAGS5EEC2EiiRKS1_.exit ]
+  %.sroa.0.051 = phi ptr [ %37, %.lr.ph52 ], [ %33, %_ZN18GrowableArrayCHeapIP5XPageL8MEMFLAGS5EEC2EiiRKS1_.exit ]
   %36 = load ptr, ptr %.sroa.0.051, align 8
   %37 = getelementptr inbounds nuw i8, ptr %.sroa.0.051, i64 8
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 40

@@ -19572,7 +19572,7 @@ define void @"_ZN127_$LT$polars_arrow..array..boolean..builder..BooleanArrayBuil
 
 13:                                               ; preds = %5, %12
   %14 = getelementptr inbounds nuw i32, ptr %2, i64 %3
-  %15 = icmp eq i64 %3, 0
+  %15 = icmp eq ptr %2, %14
   br i1 %15, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13
@@ -19672,7 +19672,7 @@ define void @"_ZN127_$LT$polars_arrow..array..boolean..builder..BooleanArrayBuil
 
 13:                                               ; preds = %5, %12
   %14 = getelementptr inbounds nuw i32, ptr %2, i64 %3
-  %15 = icmp eq i64 %3, 0
+  %15 = icmp eq ptr %2, %14
   br i1 %15, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13
@@ -30370,7 +30370,7 @@ define void @"_ZN126_$LT$polars_arrow..array..struct_..builder..StructArrayBuild
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !10
   %7 = getelementptr inbounds nuw { { { { ptr, ptr } }, {} }, {} }, ptr %4, i64 %6
-  %8 = icmp eq i64 %6, 0
+  %8 = icmp eq ptr %4, %7
   br i1 %8, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
@@ -30583,7 +30583,7 @@ define void @"_ZN126_$LT$polars_arrow..array..struct_..builder..StructArrayBuild
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !10
   %7 = getelementptr inbounds nuw { { { { ptr, ptr } }, {} }, {} }, ptr %4, i64 %6
-  %8 = icmp eq i64 %6, 0
+  %8 = icmp eq ptr %4, %7
   br i1 %8, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
@@ -35028,8 +35028,7 @@ define hidden void @_ZN12polars_arrow2io3ipc5write9serialize4list10write_list17h
   br i1 %42, label %48, label %_ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i.i.i.i
 
 _ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i.i.i.i: ; preds = %39
-  %.idx34.mask = and i64 %24, 4611686018427387903
-  %43 = icmp eq i64 %.idx34.mask, 0
+  %43 = icmp eq ptr %30, %28
   br i1 %43, label %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17hb6b75508fc365032E.exit.i.i", label %44
 
 44:                                               ; preds = %_ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i.i.i.i
@@ -35198,8 +35197,8 @@ _ZN12polars_arrow2io3ipc5write9serialize34_write_compressed_buffer_from_iter17h0
 86:                                               ; preds = %35
   %87 = icmp ne ptr %30, null
   tail call void @llvm.assume(i1 %87)
-  %.idx35 = shl i64 %24, 2
-  tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hdf22dc3c3b65886bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %.idx35, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b5d9d3cf873c3267a8f7de4845b47373.322), !noalias !2616
+  %.idx34 = shl i64 %24, 2
+  tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hdf22dc3c3b65886bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %.idx34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b5d9d3cf873c3267a8f7de4845b47373.322), !noalias !2616
   br i1 %5, label %89, label %88
 
 88:                                               ; preds = %86
@@ -35392,8 +35391,7 @@ define hidden void @_ZN12polars_arrow2io3ipc5write9serialize4list10write_list17h
   br i1 %42, label %48, label %_ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i.i.i.i
 
 _ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i.i.i.i: ; preds = %39
-  %.idx34.mask = and i64 %24, 2305843009213693951
-  %43 = icmp eq i64 %.idx34.mask, 0
+  %43 = icmp eq ptr %30, %28
   br i1 %43, label %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17hb6b75508fc365032E.exit.i.i", label %44
 
 44:                                               ; preds = %_ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i.i.i.i
@@ -35562,8 +35560,8 @@ _ZN12polars_arrow2io3ipc5write9serialize34_write_compressed_buffer_from_iter17h6
 86:                                               ; preds = %35
   %87 = icmp ne ptr %30, null
   tail call void @llvm.assume(i1 %87)
-  %.idx35 = shl i64 %24, 3
-  tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hdf22dc3c3b65886bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %.idx35, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b5d9d3cf873c3267a8f7de4845b47373.322), !noalias !2661
+  %.idx34 = shl i64 %24, 3
+  tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hdf22dc3c3b65886bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %.idx34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b5d9d3cf873c3267a8f7de4845b47373.322), !noalias !2661
   br i1 %5, label %89, label %88
 
 88:                                               ; preds = %86

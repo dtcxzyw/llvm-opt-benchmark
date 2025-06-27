@@ -489,7 +489,7 @@ define linkonce_odr dso_local void @_ZN4absl16strings_internal17FindSubstitution
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.not88 = icmp eq i64 %7, 0
-  br i1 %.not88, label %._crit_edge, label %_ZNSt12_Vector_baseIN4absl16strings_internal18ViableSubstitutionESaIS2_EE11_M_allocateEm.exit.i
+  br i1 %.not88, label %_ZNSt6vectorIN4absl16strings_internal18ViableSubstitutionESaIS2_EE7reserveEm.exit, label %_ZNSt12_Vector_baseIN4absl16strings_internal18ViableSubstitutionESaIS2_EE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseIN4absl16strings_internal18ViableSubstitutionESaIS2_EE11_M_allocateEm.exit.i: ; preds = %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -499,8 +499,17 @@ _ZNSt12_Vector_baseIN4absl16strings_internal18ViableSubstitutionESaIS2_EE11_M_al
   store ptr %13, ptr %11, align 8, !tbaa !19
   %14 = getelementptr inbounds nuw %"struct.absl::strings_internal::ViableSubstitution", ptr %13, i64 %7
   store ptr %14, ptr %10, align 8, !tbaa !30
+  br label %_ZNSt6vectorIN4absl16strings_internal18ViableSubstitutionESaIS2_EE7reserveEm.exit
+
+_ZNSt6vectorIN4absl16strings_internal18ViableSubstitutionESaIS2_EE7reserveEm.exit: ; preds = %_ZNSt12_Vector_baseIN4absl16strings_internal18ViableSubstitutionESaIS2_EE11_M_allocateEm.exit.i, %9
+  %.promoted65 = phi ptr [ %13, %_ZNSt12_Vector_baseIN4absl16strings_internal18ViableSubstitutionESaIS2_EE11_M_allocateEm.exit.i ], [ null, %9 ]
+  %.promoted = phi ptr [ %14, %_ZNSt12_Vector_baseIN4absl16strings_internal18ViableSubstitutionESaIS2_EE11_M_allocateEm.exit.i ], [ null, %9 ]
   %15 = load ptr, ptr %3, align 8, !tbaa !34
   %16 = getelementptr inbounds nuw %"struct.std::pair", ptr %15, i64 %7
+  %.not69 = icmp eq ptr %15, %16
+  br i1 %.not69, label %._crit_edge, label %.lr.ph72
+
+.lr.ph72:                                         ; preds = %_ZNSt6vectorIN4absl16strings_internal18ViableSubstitutionESaIS2_EE7reserveEm.exit
   %.not.i.i = icmp eq i64 %.fr, 0
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 %.fr
   %18 = ptrtoint ptr %17 to i64
@@ -508,11 +517,11 @@ _ZNSt12_Vector_baseIN4absl16strings_internal18ViableSubstitutionESaIS2_EE11_M_al
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %.not.i.i, label %._crit_edge, label %.lr.ph72.split
 
-.lr.ph72.split:                                   ; preds = %_ZNSt12_Vector_baseIN4absl16strings_internal18ViableSubstitutionESaIS2_EE11_M_allocateEm.exit.i, %.critedge
-  %21 = phi ptr [ %89, %.critedge ], [ %13, %_ZNSt12_Vector_baseIN4absl16strings_internal18ViableSubstitutionESaIS2_EE11_M_allocateEm.exit.i ]
-  %.02170 = phi ptr [ %92, %.critedge ], [ %15, %_ZNSt12_Vector_baseIN4absl16strings_internal18ViableSubstitutionESaIS2_EE11_M_allocateEm.exit.i ]
-  %22 = phi ptr [ %91, %.critedge ], [ %14, %_ZNSt12_Vector_baseIN4absl16strings_internal18ViableSubstitutionESaIS2_EE11_M_allocateEm.exit.i ]
-  %23 = phi ptr [ %90, %.critedge ], [ %13, %_ZNSt12_Vector_baseIN4absl16strings_internal18ViableSubstitutionESaIS2_EE11_M_allocateEm.exit.i ]
+.lr.ph72.split:                                   ; preds = %.lr.ph72, %.critedge
+  %21 = phi ptr [ %89, %.critedge ], [ %.promoted65, %.lr.ph72 ]
+  %.02170 = phi ptr [ %92, %.critedge ], [ %15, %.lr.ph72 ]
+  %22 = phi ptr [ %91, %.critedge ], [ %.promoted, %.lr.ph72 ]
+  %23 = phi ptr [ %90, %.critedge ], [ %.promoted65, %.lr.ph72 ]
   %.sroa.0.0.copyload47 = load i64, ptr %.02170, align 8, !tbaa !14
   %.sroa.8.0..021.sroa_idx = getelementptr inbounds nuw i8, ptr %.02170, i64 8
   %.sroa.8.0.copyload = load ptr, ptr %.sroa.8.0..021.sroa_idx, align 8, !tbaa !15
@@ -708,9 +717,9 @@ _ZNSt6vectorIN4absl16strings_internal18ViableSubstitutionESaIS2_EE12emplace_back
   %.not = icmp eq ptr %92, %16
   br i1 %.not, label %._crit_edge, label %.lr.ph72.split
 
-._crit_edge:                                      ; preds = %.critedge, %9, %_ZNSt12_Vector_baseIN4absl16strings_internal18ViableSubstitutionESaIS2_EE11_M_allocateEm.exit.i
-  %.lcssa66 = phi ptr [ %13, %_ZNSt12_Vector_baseIN4absl16strings_internal18ViableSubstitutionESaIS2_EE11_M_allocateEm.exit.i ], [ null, %9 ], [ %90, %.critedge ]
-  %.lcssa62 = phi ptr [ %14, %_ZNSt12_Vector_baseIN4absl16strings_internal18ViableSubstitutionESaIS2_EE11_M_allocateEm.exit.i ], [ null, %9 ], [ %91, %.critedge ]
+._crit_edge:                                      ; preds = %.critedge, %.lr.ph72, %_ZNSt6vectorIN4absl16strings_internal18ViableSubstitutionESaIS2_EE7reserveEm.exit
+  %.lcssa66 = phi ptr [ %.promoted65, %_ZNSt6vectorIN4absl16strings_internal18ViableSubstitutionESaIS2_EE7reserveEm.exit ], [ %.promoted65, %.lr.ph72 ], [ %90, %.critedge ]
+  %.lcssa62 = phi ptr [ %.promoted, %_ZNSt6vectorIN4absl16strings_internal18ViableSubstitutionESaIS2_EE7reserveEm.exit ], [ %.promoted, %.lr.ph72 ], [ %91, %.critedge ]
   store ptr %.lcssa62, ptr %10, align 8
   store ptr %.lcssa66, ptr %0, align 8
   ret void

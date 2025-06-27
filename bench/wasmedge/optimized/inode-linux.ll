@@ -892,7 +892,7 @@ declare i32 @futimens(i32 noundef, ptr noundef) local_unnamed_addr #4
 define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode7fdPreadEN5cxx204spanINS4_IhLm18446744073709551615EEELm18446744073709551615EEEmRj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %0, ptr readonly captures(address) %1, i64 %2, i64 noundef %3, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca [1024 x %struct.iovec], align 16
   %7 = getelementptr inbounds %"struct.cxx20::span.25", ptr %1, i64 %2
-  %.not21 = icmp eq i64 %2, 0
+  %.not21 = icmp eq ptr %1, %7
   br i1 %.not21, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5, %.lr.ph
@@ -955,7 +955,7 @@ declare i64 @preadv(i32 noundef, ptr noundef, i32 noundef, i64 noundef) local_un
 define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode8fdPwriteEN5cxx204spanINS4_IKhLm18446744073709551615EEELm18446744073709551615EEEmRj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %0, ptr readonly captures(address) %1, i64 %2, i64 noundef %3, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca [1024 x %struct.iovec], align 16
   %7 = getelementptr inbounds %"struct.cxx20::span.29", ptr %1, i64 %2
-  %.not21 = icmp eq i64 %2, 0
+  %.not21 = icmp eq ptr %1, %7
   br i1 %.not21, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5, %.lr.ph
@@ -1018,7 +1018,7 @@ declare i64 @pwritev(i32 noundef, ptr noundef, i32 noundef, i64 noundef) local_u
 define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode6fdReadEN5cxx204spanINS4_IhLm18446744073709551615EEELm18446744073709551615EEERj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %0, ptr readonly captures(address) %1, i64 %2, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca [1024 x %struct.iovec], align 16
   %6 = getelementptr inbounds %"struct.cxx20::span.25", ptr %1, i64 %2
-  %.not20 = icmp eq i64 %2, 0
+  %.not20 = icmp eq ptr %1, %6
   br i1 %.not20, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
@@ -1528,7 +1528,7 @@ define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode6fdTellERm(ptr nou
 define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode7fdWriteEN5cxx204spanINS4_IKhLm18446744073709551615EEELm18446744073709551615EEERj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %0, ptr readonly captures(address) %1, i64 %2, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca [1024 x %struct.iovec], align 16
   %6 = getelementptr inbounds %"struct.cxx20::span.29", ptr %1, i64 %2
-  %.not21 = icmp eq i64 %2, 0
+  %.not21 = icmp eq ptr %1, %6
   br i1 %.not21, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
@@ -2789,7 +2789,7 @@ define range(i32 0, -65534) i32 @_ZNK8WasmEdge4Host4WASI5INode12sockRecvFromEN5c
   %.167 = or disjoint i16 %14, %16
   %.1 = zext nneg i16 %.167 to i32
   %17 = getelementptr inbounds %"struct.cxx20::span.25", ptr %1, i64 %2
-  %.not4868 = icmp eq i64 %2, 0
+  %.not4868 = icmp eq ptr %1, %17
   br i1 %.not4868, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %9, %.lr.ph
@@ -3087,7 +3087,7 @@ _ZSt5visitIN8WasmEdge4Host4WASI11VarAddrSizeEJRSt7variantIJNS2_13SockEmptyAddrE1
   %26 = phi ptr [ null, %8 ], [ %9, %_ZSt5visitIN8WasmEdge4Host4WASI11VarAddrSizeEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit.sink.split ]
   %.021 = phi i32 [ 0, %8 ], [ %.021.ph, %_ZSt5visitIN8WasmEdge4Host4WASI11VarAddrSizeEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit.sink.split ]
   %27 = getelementptr inbounds %"struct.cxx20::span.29", ptr %1, i64 %2
-  %.not2461 = icmp eq i64 %2, 0
+  %.not2461 = icmp eq ptr %1, %27
   br i1 %.not2461, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZSt5visitIN8WasmEdge4Host4WASI11VarAddrSizeEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit, %.lr.ph
@@ -7287,18 +7287,20 @@ define linkonce_odr void @_ZNSt6vectorI11epoll_eventSaIS0_EE17_M_default_appendE
   br i1 %21, label %_ZSt27__uninitialized_default_n_aIP11epoll_eventmS0_ET_S2_T0_RSaIT1_E.exit, label %22
 
 22:                                               ; preds = %19
-  %23 = getelementptr %struct.epoll_event, ptr %5, i64 %1
-  br label %.lr.ph.i.i.i.i.i.i.i
+  %.idx.i.i.i = mul i64 %1, 12
+  %23 = getelementptr i8, ptr %5, i64 %.idx.i.i.i
+  %.not5.i.i.i.i.i.i.i = icmp eq i64 %.idx.i.i.i, 12
+  br i1 %.not5.i.i.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIP11epoll_eventmS0_ET_S2_T0_RSaIT1_E.exit, label %.lr.ph.i.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %22
+.lr.ph.i.i.i.i.i.i.i:                             ; preds = %22, %.lr.ph.i.i.i.i.i.i.i
   %.06.i.i.i.i.i.i.i = phi ptr [ %24, %.lr.ph.i.i.i.i.i.i.i ], [ %20, %22 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %.06.i.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(12) %5, i64 12, i1 false)
   %24 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i, i64 12
   %.not.i.i.i.i.i.i.i = icmp eq ptr %24, %23
   br i1 %.not.i.i.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIP11epoll_eventmS0_ET_S2_T0_RSaIT1_E.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !50
 
-_ZSt27__uninitialized_default_n_aIP11epoll_eventmS0_ET_S2_T0_RSaIT1_E.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i, %19
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %.lr.ph.i.i.i.i.i.i.i ]
+_ZSt27__uninitialized_default_n_aIP11epoll_eventmS0_ET_S2_T0_RSaIT1_E.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i, %19, %22
+  %.0.i.i.i = phi ptr [ %20, %19 ], [ %20, %22 ], [ %23, %.lr.ph.i.i.i.i.i.i.i ]
   store ptr %.0.i.i.i, ptr %4, align 8
   br label %44
 
@@ -7319,38 +7321,39 @@ _ZNKSt6vectorI11epoll_eventSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %25
   %32 = getelementptr inbounds i8, ptr %31, i64 %9
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %32, i8 0, i64 12, i1 false)
   %33 = icmp eq i64 %1, 1
-  br i1 %33, label %_ZSt27__uninitialized_default_n_aIP11epoll_eventmS0_ET_S2_T0_RSaIT1_E.exit34, label %34
+  br i1 %33, label %_ZSt27__uninitialized_default_n_aIP11epoll_eventmS0_ET_S2_T0_RSaIT1_E.exit36, label %34
 
 34:                                               ; preds = %_ZNKSt6vectorI11epoll_eventSaIS0_EE12_M_check_lenEmPKc.exit
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 12
-  %36 = getelementptr %struct.epoll_event, ptr %32, i64 %1
-  br label %.lr.ph.i.i.i.i.i.i.i30
+  %.idx.i.i.i30 = mul nuw nsw i64 %1, 12
+  %36 = getelementptr i8, ptr %32, i64 %.idx.i.i.i30
+  br label %.lr.ph.i.i.i.i.i.i.i32
 
-.lr.ph.i.i.i.i.i.i.i30:                           ; preds = %.lr.ph.i.i.i.i.i.i.i30, %34
-  %.06.i.i.i.i.i.i.i31 = phi ptr [ %37, %.lr.ph.i.i.i.i.i.i.i30 ], [ %35, %34 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %.06.i.i.i.i.i.i.i31, ptr noundef nonnull align 1 dereferenceable(12) %32, i64 12, i1 false)
-  %37 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i31, i64 12
-  %.not.i.i.i.i.i.i.i32 = icmp eq ptr %37, %36
-  br i1 %.not.i.i.i.i.i.i.i32, label %_ZSt27__uninitialized_default_n_aIP11epoll_eventmS0_ET_S2_T0_RSaIT1_E.exit34, label %.lr.ph.i.i.i.i.i.i.i30, !llvm.loop !50
+.lr.ph.i.i.i.i.i.i.i32:                           ; preds = %34, %.lr.ph.i.i.i.i.i.i.i32
+  %.06.i.i.i.i.i.i.i33 = phi ptr [ %37, %.lr.ph.i.i.i.i.i.i.i32 ], [ %35, %34 ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %.06.i.i.i.i.i.i.i33, ptr noundef nonnull align 1 dereferenceable(12) %32, i64 12, i1 false)
+  %37 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i33, i64 12
+  %.not.i.i.i.i.i.i.i34 = icmp eq ptr %37, %36
+  br i1 %.not.i.i.i.i.i.i.i34, label %_ZSt27__uninitialized_default_n_aIP11epoll_eventmS0_ET_S2_T0_RSaIT1_E.exit36, label %.lr.ph.i.i.i.i.i.i.i32, !llvm.loop !50
 
-_ZSt27__uninitialized_default_n_aIP11epoll_eventmS0_ET_S2_T0_RSaIT1_E.exit34: ; preds = %.lr.ph.i.i.i.i.i.i.i30, %_ZNKSt6vectorI11epoll_eventSaIS0_EE12_M_check_lenEmPKc.exit
+_ZSt27__uninitialized_default_n_aIP11epoll_eventmS0_ET_S2_T0_RSaIT1_E.exit36: ; preds = %.lr.ph.i.i.i.i.i.i.i32, %_ZNKSt6vectorI11epoll_eventSaIS0_EE12_M_check_lenEmPKc.exit
   %38 = icmp sgt i64 %9, 0
   br i1 %38, label %39, label %_ZNSt6vectorI11epoll_eventSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit
 
-39:                                               ; preds = %_ZSt27__uninitialized_default_n_aIP11epoll_eventmS0_ET_S2_T0_RSaIT1_E.exit34
+39:                                               ; preds = %_ZSt27__uninitialized_default_n_aIP11epoll_eventmS0_ET_S2_T0_RSaIT1_E.exit36
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %31, ptr align 1 %6, i64 %9, i1 false)
   br label %_ZNSt6vectorI11epoll_eventSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit
 
-_ZNSt6vectorI11epoll_eventSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; preds = %_ZSt27__uninitialized_default_n_aIP11epoll_eventmS0_ET_S2_T0_RSaIT1_E.exit34, %39
-  %.not.i36 = icmp eq ptr %6, null
-  br i1 %.not.i36, label %_ZNSt12_Vector_baseI11epoll_eventSaIS0_EE13_M_deallocateEPS0_m.exit37, label %40
+_ZNSt6vectorI11epoll_eventSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; preds = %_ZSt27__uninitialized_default_n_aIP11epoll_eventmS0_ET_S2_T0_RSaIT1_E.exit36, %39
+  %.not.i38 = icmp eq ptr %6, null
+  br i1 %.not.i38, label %_ZNSt12_Vector_baseI11epoll_eventSaIS0_EE13_M_deallocateEPS0_m.exit39, label %40
 
 40:                                               ; preds = %_ZNSt6vectorI11epoll_eventSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit
   %41 = sub i64 %13, %8
   tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %41) #29
-  br label %_ZNSt12_Vector_baseI11epoll_eventSaIS0_EE13_M_deallocateEPS0_m.exit37
+  br label %_ZNSt12_Vector_baseI11epoll_eventSaIS0_EE13_M_deallocateEPS0_m.exit39
 
-_ZNSt12_Vector_baseI11epoll_eventSaIS0_EE13_M_deallocateEPS0_m.exit37: ; preds = %_ZNSt6vectorI11epoll_eventSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, %40
+_ZNSt12_Vector_baseI11epoll_eventSaIS0_EE13_M_deallocateEPS0_m.exit39: ; preds = %_ZNSt6vectorI11epoll_eventSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, %40
   store ptr %31, ptr %0, align 8
   %42 = getelementptr inbounds %struct.epoll_event, ptr %32, i64 %1
   store ptr %42, ptr %4, align 8
@@ -7358,7 +7361,7 @@ _ZNSt12_Vector_baseI11epoll_eventSaIS0_EE13_M_deallocateEPS0_m.exit37: ; preds =
   store ptr %43, ptr %11, align 8
   br label %44
 
-44:                                               ; preds = %_ZSt27__uninitialized_default_n_aIP11epoll_eventmS0_ET_S2_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseI11epoll_eventSaIS0_EE13_M_deallocateEPS0_m.exit37, %2
+44:                                               ; preds = %_ZSt27__uninitialized_default_n_aIP11epoll_eventmS0_ET_S2_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseI11epoll_eventSaIS0_EE13_M_deallocateEPS0_m.exit39, %2
   ret void
 }
 

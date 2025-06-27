@@ -10698,7 +10698,7 @@ define dso_local range(i32 -2147483520, 0) i32 @zend_array_type_info(ptr noundef
   %19 = load i32, ptr %18, align 8, !tbaa !105
   %20 = zext i32 %19 to i64
   %21 = getelementptr inbounds nuw %struct._zval_struct, ptr %17, i64 %20
-  %.not4446 = icmp eq i32 %19, 0
+  %.not4446 = icmp eq ptr %17, %21
   br i1 %.not4446, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %14, %.lr.ph
@@ -10722,7 +10722,7 @@ define dso_local range(i32 -2147483520, 0) i32 @zend_array_type_info(ptr noundef
   %33 = load i32, ptr %32, align 8, !tbaa !105
   %34 = zext i32 %33 to i64
   %35 = getelementptr inbounds nuw %struct._Bucket, ptr %31, i64 %34
-  %.not4249 = icmp eq i32 %33, 0
+  %.not4249 = icmp eq ptr %31, %35
   br i1 %.not4249, label %.loopexit, label %.lr.ph52
 
 .lr.ph52:                                         ; preds = %29, %46
@@ -11012,7 +11012,7 @@ define dso_local range(i32 -1, 1) i32 @zend_update_type_info(ptr noundef %0, ptr
   %61 = load i32, ptr %60, align 8, !tbaa !105
   %62 = zext i32 %61 to i64
   %63 = getelementptr inbounds nuw %struct._zval_struct, ptr %59, i64 %62
-  %.not4446.i = icmp eq i32 %61, 0
+  %.not4446.i = icmp eq ptr %59, %63
   br i1 %.not4446.i, label %_ssa_op1_info.exit50, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %56, %.lr.ph.i
@@ -11036,7 +11036,7 @@ define dso_local range(i32 -1, 1) i32 @zend_update_type_info(ptr noundef %0, ptr
   %75 = load i32, ptr %74, align 8, !tbaa !105
   %76 = zext i32 %75 to i64
   %77 = getelementptr inbounds nuw %struct._Bucket, ptr %73, i64 %76
-  %.not4249.i = icmp eq i32 %75, 0
+  %.not4249.i = icmp eq ptr %73, %77
   br i1 %.not4249.i, label %_ssa_op1_info.exit50, label %.lr.ph52.i
 
 .lr.ph52.i:                                       ; preds = %71, %88
@@ -11173,7 +11173,7 @@ _ssa_op1_info.exit50.thread:                      ; preds = %99
   %152 = load i32, ptr %151, align 8, !tbaa !105
   %153 = zext i32 %152 to i64
   %154 = getelementptr inbounds nuw %struct._zval_struct, ptr %150, i64 %153
-  %.not4446.i288 = icmp eq i32 %152, 0
+  %.not4446.i288 = icmp eq ptr %150, %154
   br i1 %.not4446.i288, label %_ssa_op2_info.exit59, label %.lr.ph.i289
 
 .lr.ph.i289:                                      ; preds = %147, %.lr.ph.i289
@@ -11197,7 +11197,7 @@ _ssa_op1_info.exit50.thread:                      ; preds = %99
   %166 = load i32, ptr %165, align 8, !tbaa !105
   %167 = zext i32 %166 to i64
   %168 = getelementptr inbounds nuw %struct._Bucket, ptr %164, i64 %167
-  %.not4249.i295 = icmp eq i32 %166, 0
+  %.not4249.i295 = icmp eq ptr %164, %168
   br i1 %.not4249.i295, label %_ssa_op2_info.exit59, label %.lr.ph52.i296
 
 .lr.ph52.i296:                                    ; preds = %162, %179
@@ -11336,12 +11336,12 @@ _ssa_op2_info.exit59:                             ; preds = %.lr.ph.i289, %179, 
   %245 = getelementptr inbounds nuw i8, ptr %233, i64 24
   %246 = load i32, ptr %245, align 8, !tbaa !105
   %247 = zext i32 %246 to i64
-  %.not4249.i314 = icmp eq i32 %246, 0
   br i1 %.not41.i306, label %257, label %248
 
 248:                                              ; preds = %239
   %249 = getelementptr inbounds nuw %struct._zval_struct, ptr %244, i64 %247
-  br i1 %.not4249.i314, label %_ssa_result_info.exit, label %.lr.ph.i308
+  %.not4446.i307 = icmp eq ptr %244, %249
+  br i1 %.not4446.i307, label %_ssa_result_info.exit, label %.lr.ph.i308
 
 .lr.ph.i308:                                      ; preds = %248, %.lr.ph.i308
   %.248.i309 = phi i32 [ %.3.i311, %.lr.ph.i308 ], [ %..i305, %248 ]
@@ -11359,6 +11359,7 @@ _ssa_op2_info.exit59:                             ; preds = %.lr.ph.i289, %179, 
 
 257:                                              ; preds = %239
   %258 = getelementptr inbounds nuw %struct._Bucket, ptr %244, i64 %247
+  %.not4249.i314 = icmp eq ptr %244, %258
   br i1 %.not4249.i314, label %_ssa_result_info.exit, label %.lr.ph52.i315
 
 .lr.ph52.i315:                                    ; preds = %257, %269
@@ -11487,12 +11488,12 @@ _ssa_result_info.exit.thread:                     ; preds = %228, %278, %_ssa_re
   %325 = getelementptr inbounds nuw i8, ptr %313, i64 24
   %326 = load i32, ptr %325, align 8, !tbaa !105
   %327 = zext i32 %326 to i64
-  %.not4249.i333 = icmp eq i32 %326, 0
   br i1 %.not41.i325, label %337, label %328
 
 328:                                              ; preds = %319
   %329 = getelementptr inbounds nuw %struct._zval_struct, ptr %324, i64 %327
-  br i1 %.not4249.i333, label %_ssa_op1_info.exit46, label %.lr.ph.i327
+  %.not4446.i326 = icmp eq ptr %324, %329
+  br i1 %.not4446.i326, label %_ssa_op1_info.exit46, label %.lr.ph.i327
 
 .lr.ph.i327:                                      ; preds = %328, %.lr.ph.i327
   %.248.i328 = phi i32 [ %.3.i330, %.lr.ph.i327 ], [ %..i324, %328 ]
@@ -11510,6 +11511,7 @@ _ssa_result_info.exit.thread:                     ; preds = %228, %278, %_ssa_re
 
 337:                                              ; preds = %319
   %338 = getelementptr inbounds nuw %struct._Bucket, ptr %324, i64 %327
+  %.not4249.i333 = icmp eq ptr %324, %338
   br i1 %.not4249.i333, label %_ssa_op1_info.exit46, label %.lr.ph52.i334
 
 .lr.ph52.i334:                                    ; preds = %337, %349
@@ -28960,7 +28962,7 @@ define internal fastcc range(i32 -1, 1) i32 @zend_infer_types(ptr noundef %0, pt
   %155 = load i32, ptr %154, align 8, !tbaa !105
   %156 = zext i32 %155 to i64
   %157 = getelementptr inbounds nuw %struct._zval_struct, ptr %153, i64 %156
-  %.not4446.i.i = icmp eq i32 %155, 0
+  %.not4446.i.i = icmp eq ptr %153, %157
   br i1 %.not4446.i.i, label %_ssa_op1_info.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %150, %.lr.ph.i.i
@@ -28984,7 +28986,7 @@ define internal fastcc range(i32 -1, 1) i32 @zend_infer_types(ptr noundef %0, pt
   %169 = load i32, ptr %168, align 8, !tbaa !105
   %170 = zext i32 %169 to i64
   %171 = getelementptr inbounds nuw %struct._Bucket, ptr %167, i64 %170
-  %.not4249.i.i = icmp eq i32 %169, 0
+  %.not4249.i.i = icmp eq ptr %167, %171
   br i1 %.not4249.i.i, label %_ssa_op1_info.exit.i, label %.lr.ph52.i.i
 
 .lr.ph52.i.i:                                     ; preds = %165, %182
@@ -30809,7 +30811,7 @@ define dso_local zeroext i1 @zend_may_throw(ptr noundef %0, ptr noundef readonly
   %46 = load i32, ptr %45, align 8, !tbaa !105
   %47 = zext i32 %46 to i64
   %48 = getelementptr inbounds nuw %struct._zval_struct, ptr %44, i64 %47
-  %.not4446.i = icmp eq i32 %46, 0
+  %.not4446.i = icmp eq ptr %44, %48
   br i1 %.not4446.i, label %_ssa_op1_info.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %41, %.lr.ph.i
@@ -30833,7 +30835,7 @@ define dso_local zeroext i1 @zend_may_throw(ptr noundef %0, ptr noundef readonly
   %60 = load i32, ptr %59, align 8, !tbaa !105
   %61 = zext i32 %60 to i64
   %62 = getelementptr inbounds nuw %struct._Bucket, ptr %58, i64 %61
-  %.not4249.i = icmp eq i32 %60, 0
+  %.not4249.i = icmp eq ptr %58, %62
   br i1 %.not4249.i, label %_ssa_op1_info.exit, label %.lr.ph52.i
 
 .lr.ph52.i:                                       ; preds = %56, %73
@@ -30964,7 +30966,7 @@ _ssa_op1_info.exit:                               ; preds = %.lr.ph.i, %73, %24,
   %135 = load i32, ptr %134, align 8, !tbaa !105
   %136 = zext i32 %135 to i64
   %137 = getelementptr inbounds nuw %struct._zval_struct, ptr %133, i64 %136
-  %.not4446.i28 = icmp eq i32 %135, 0
+  %.not4446.i28 = icmp eq ptr %133, %137
   br i1 %.not4446.i28, label %_ssa_op2_info.exit, label %.lr.ph.i29
 
 .lr.ph.i29:                                       ; preds = %130, %.lr.ph.i29
@@ -30988,7 +30990,7 @@ _ssa_op1_info.exit:                               ; preds = %.lr.ph.i, %73, %24,
   %149 = load i32, ptr %148, align 8, !tbaa !105
   %150 = zext i32 %149 to i64
   %151 = getelementptr inbounds nuw %struct._Bucket, ptr %147, i64 %150
-  %.not4249.i35 = icmp eq i32 %149, 0
+  %.not4249.i35 = icmp eq ptr %147, %151
   br i1 %.not4249.i35, label %_ssa_op2_info.exit, label %.lr.ph52.i36
 
 .lr.ph52.i36:                                     ; preds = %145, %162
@@ -35032,7 +35034,7 @@ join_class_entries.exit:                          ; preds = %._crit_edge.i, %287
   %417 = load i32, ptr %416, align 8, !tbaa !105
   %418 = zext i32 %417 to i64
   %419 = getelementptr inbounds nuw %struct._zval_struct, ptr %415, i64 %418
-  %.not4446.i = icmp eq i32 %417, 0
+  %.not4446.i = icmp eq ptr %415, %419
   br i1 %.not4446.i, label %_ssa_op1_info.exit404, label %.lr.ph.i667
 
 .lr.ph.i667:                                      ; preds = %412, %.lr.ph.i667
@@ -35056,7 +35058,7 @@ join_class_entries.exit:                          ; preds = %._crit_edge.i, %287
   %431 = load i32, ptr %430, align 8, !tbaa !105
   %432 = zext i32 %431 to i64
   %433 = getelementptr inbounds nuw %struct._Bucket, ptr %429, i64 %432
-  %.not4249.i = icmp eq i32 %431, 0
+  %.not4249.i = icmp eq ptr %429, %433
   br i1 %.not4249.i, label %_ssa_op1_info.exit404, label %.lr.ph52.i
 
 .lr.ph52.i:                                       ; preds = %427, %444
@@ -35191,7 +35193,7 @@ _ssa_op1_info.exit404.thread:                     ; preds = %455
   %506 = load i32, ptr %505, align 8, !tbaa !105
   %507 = zext i32 %506 to i64
   %508 = getelementptr inbounds nuw %struct._zval_struct, ptr %504, i64 %507
-  %.not4446.i674 = icmp eq i32 %506, 0
+  %.not4446.i674 = icmp eq ptr %504, %508
   br i1 %.not4446.i674, label %_ssa_op2_info.exit413, label %.lr.ph.i675
 
 .lr.ph.i675:                                      ; preds = %501, %.lr.ph.i675
@@ -35215,7 +35217,7 @@ _ssa_op1_info.exit404.thread:                     ; preds = %455
   %520 = load i32, ptr %519, align 8, !tbaa !105
   %521 = zext i32 %520 to i64
   %522 = getelementptr inbounds nuw %struct._Bucket, ptr %518, i64 %521
-  %.not4249.i681 = icmp eq i32 %520, 0
+  %.not4249.i681 = icmp eq ptr %518, %522
   br i1 %.not4249.i681, label %_ssa_op2_info.exit413, label %.lr.ph52.i682
 
 .lr.ph52.i682:                                    ; preds = %516, %533
@@ -35352,12 +35354,12 @@ _ssa_op2_info.exit413:                            ; preds = %.lr.ph.i675, %533, 
   %597 = getelementptr inbounds nuw i8, ptr %585, i64 24
   %598 = load i32, ptr %597, align 8, !tbaa !105
   %599 = zext i32 %598 to i64
-  %.not4249.i700 = icmp eq i32 %598, 0
   br i1 %.not41.i692, label %609, label %600
 
 600:                                              ; preds = %591
   %601 = getelementptr inbounds nuw %struct._zval_struct, ptr %596, i64 %599
-  br i1 %.not4249.i700, label %_ssa_result_info.exit, label %.lr.ph.i694
+  %.not4446.i693 = icmp eq ptr %596, %601
+  br i1 %.not4446.i693, label %_ssa_result_info.exit, label %.lr.ph.i694
 
 .lr.ph.i694:                                      ; preds = %600, %.lr.ph.i694
   %.248.i695 = phi i32 [ %.3.i697, %.lr.ph.i694 ], [ %..i691, %600 ]
@@ -35375,6 +35377,7 @@ _ssa_op2_info.exit413:                            ; preds = %.lr.ph.i675, %533, 
 
 609:                                              ; preds = %591
   %610 = getelementptr inbounds nuw %struct._Bucket, ptr %596, i64 %599
+  %.not4249.i700 = icmp eq ptr %596, %610
   br i1 %.not4249.i700, label %_ssa_result_info.exit, label %.lr.ph52.i701
 
 .lr.ph52.i701:                                    ; preds = %609, %621
@@ -35501,12 +35504,12 @@ _ssa_result_info.exit.thread:                     ; preds = %580, %630, %_ssa_re
   %675 = getelementptr inbounds nuw i8, ptr %663, i64 24
   %676 = load i32, ptr %675, align 8, !tbaa !105
   %677 = zext i32 %676 to i64
-  %.not4249.i719 = icmp eq i32 %676, 0
   br i1 %.not41.i711, label %687, label %678
 
 678:                                              ; preds = %669
   %679 = getelementptr inbounds nuw %struct._zval_struct, ptr %674, i64 %677
-  br i1 %.not4249.i719, label %_ssa_op1_info.exit400, label %.lr.ph.i713
+  %.not4446.i712 = icmp eq ptr %674, %679
+  br i1 %.not4446.i712, label %_ssa_op1_info.exit400, label %.lr.ph.i713
 
 .lr.ph.i713:                                      ; preds = %678, %.lr.ph.i713
   %.248.i714 = phi i32 [ %.3.i716, %.lr.ph.i713 ], [ %..i710, %678 ]
@@ -35524,6 +35527,7 @@ _ssa_result_info.exit.thread:                     ; preds = %580, %630, %_ssa_re
 
 687:                                              ; preds = %669
   %688 = getelementptr inbounds nuw %struct._Bucket, ptr %674, i64 %677
+  %.not4249.i719 = icmp eq ptr %674, %688
   br i1 %.not4249.i719, label %_ssa_op1_info.exit400, label %.lr.ph52.i720
 
 .lr.ph52.i720:                                    ; preds = %687, %699

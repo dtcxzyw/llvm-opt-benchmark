@@ -5804,7 +5804,7 @@ define internal fastcc void @"_ZN4core3ptr148drop_in_place$LT$core..option..Opti
   %10 = icmp eq ptr %.0.val, null
   br i1 %10, label %"_ZN4core3ptr120drop_in_place$LT$moka..sync_base..key_lock..KeyLockMap$LT$$LP$usize$C$usize$RP$$C$std..hash..random..RandomState$GT$$GT$17he4ee32e79fb4ae8cE.exit", label %11
 
-"_ZN4core3ptr120drop_in_place$LT$moka..sync_base..key_lock..KeyLockMap$LT$$LP$usize$C$usize$RP$$C$std..hash..random..RandomState$GT$$GT$17he4ee32e79fb4ae8cE.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.1597650999041595525.exit.i.i20.i.i", %.thread.i.i, %0
+"_ZN4core3ptr120drop_in_place$LT$moka..sync_base..key_lock..KeyLockMap$LT$$LP$usize$C$usize$RP$$C$std..hash..random..RandomState$GT$$GT$17he4ee32e79fb4ae8cE.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.1597650999041595525.exit.i.i20.i.i", %.loopexit6.i.i, %0
   ret void
 
 11:                                               ; preds = %0
@@ -5814,13 +5814,8 @@ define internal fastcc void @"_ZN4core3ptr148drop_in_place$LT$core..option..Opti
   store ptr %8, ptr %9, align 8
   fence acquire
   %12 = getelementptr inbounds { { { i64 }, {} }, { i64 } }, ptr %.0.val, i64 %.8.val
-  %13 = icmp eq i64 %.8.val, 0
-  br i1 %13, label %.thread.i.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h31950b02b6dfc0d2E.exit.lr.ph.i.i.i"
-
-.thread.i.i:                                      ; preds = %11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  br label %"_ZN4core3ptr120drop_in_place$LT$moka..sync_base..key_lock..KeyLockMap$LT$$LP$usize$C$usize$RP$$C$std..hash..random..RandomState$GT$$GT$17he4ee32e79fb4ae8cE.exit"
+  %13 = icmp eq ptr %.0.val, %12
+  br i1 %13, label %.loopexit6.i.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h31950b02b6dfc0d2E.exit.lr.ph.i.i.i"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h31950b02b6dfc0d2E.exit.lr.ph.i.i.i": ; preds = %11
   %.sroa.05.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -5836,7 +5831,7 @@ define internal fastcc void @"_ZN4core3ptr148drop_in_place$LT$core..option..Opti
 
 .loopexit.i.i.i:                                  ; preds = %_ZN4moka3cht3map6bucket21defer_acquire_destroy17h1731d345d7757375E.exit.i.i.i, %.noexc.i.i
   %21 = icmp eq ptr %22, %12
-  br i1 %21, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.1597650999041595525.exit.i.i20.i.i", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h31950b02b6dfc0d2E.exit.i.i.i"
+  br i1 %21, label %.loopexit6.i.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h31950b02b6dfc0d2E.exit.i.i.i"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h31950b02b6dfc0d2E.exit.i.i.i": ; preds = %.loopexit.i.i.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h31950b02b6dfc0d2E.exit.lr.ph.i.i.i"
   %.sroa.0.011.i.i.i = phi ptr [ %.0.val, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h31950b02b6dfc0d2E.exit.lr.ph.i.i.i" ], [ %22, %.loopexit.i.i.i ]
@@ -5952,7 +5947,7 @@ define internal fastcc void @"_ZN4core3ptr148drop_in_place$LT$core..option..Opti
           cleanup
   %53 = load ptr, ptr %5, align 8, !alias.scope !1714, !noalias !1686, !nonnull !4, !noundef !4
   invoke void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.3266194154532769905"(ptr noalias noundef nonnull readonly align 1 %20, ptr noundef nonnull %53, i64 noundef 8, i64 noundef 48)
-          to label %.loopexit.split-lp.i.i unwind label %54, !noalias !1686
+          to label %.body.i.i unwind label %54, !noalias !1686
 
 54:                                               ; preds = %51
   %55 = landingpad { ptr, i32 }
@@ -6047,7 +6042,7 @@ _ZN4moka3cht3map6bucket20defer_destroy_bucket17h47421f93e1f20969E.exit.i.i.i: ; 
           cleanup
   %84 = load ptr, ptr %3, align 8, !alias.scope !1754, !noalias !1734, !nonnull !4, !noundef !4
   invoke void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.3266194154532769905"(ptr noalias noundef nonnull readonly align 1 %18, ptr noundef nonnull %84, i64 noundef 8, i64 noundef 16)
-          to label %.loopexit.split-lp.i.i unwind label %85, !noalias !1734
+          to label %.body.i.i unwind label %85, !noalias !1734
 
 85:                                               ; preds = %82
   %86 = landingpad { ptr, i32 }
@@ -6124,7 +6119,7 @@ _ZN4moka3cht3map6bucket21defer_acquire_destroy17h443c6f2be00d996bE.exit.i.i.i: ;
           cleanup
   %106 = load ptr, ptr %1, align 8, !alias.scope !1786, !noalias !1766, !nonnull !4, !noundef !4
   invoke void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.3266194154532769905"(ptr noalias noundef nonnull readonly align 1 %16, ptr noundef nonnull %106, i64 noundef 8, i64 noundef 16)
-          to label %.loopexit.split-lp.i.i unwind label %107, !noalias !1766
+          to label %.body.i.i unwind label %107, !noalias !1766
 
 107:                                              ; preds = %104
   %108 = landingpad { ptr, i32 }
@@ -6144,34 +6139,45 @@ _ZN4moka3cht3map6bucket21defer_acquire_destroy17h443c6f2be00d996bE.exit.i.i.i: ;
 .loopexit.i.i:                                    ; preds = %"_ZN4moka3cht3map6bucket21defer_acquire_destroy28_$u7b$$u7b$closure$u7d$$u7d$17h2357ff152e4d8835E.llvm.7882632941992561125.exit.i.i.i.i", %96, %_ZN15crossbeam_epoch5guard5Guard15defer_unchecked17h6dcd54e77ee3c9fbE.exit.i.i.i, %"_ZN4moka3cht3map6bucket20defer_destroy_bucket28_$u7b$$u7b$closure$u7d$$u7d$17ha3a921e3dab1456aE.llvm.7882632941992561125.exit.i.i.i.i", %.noexc13.i.i, %75, %67
   %lpad.loopexit.i.i = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit.split-lp.i.i
+  br label %.body.i.i
 
 .loopexit.split-lp.loopexit.i.i:                  ; preds = %"_ZN4core3ptr236drop_in_place$LT$alloc..boxed..Box$LT$moka..cht..map..bucket..BucketArray$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$triomphe..arc..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$$GT$$GT$$GT$17h83cd8e5e0868c632E.llvm.3266194154532769905.exit.i.i.i", %40, %.noexc6.i.i, %.lr.ph10.i.i.i
   %lpad.loopexit1.i.i = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit.split-lp.i.i
+  br label %.body.i.i
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.i.i: ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h31950b02b6dfc0d2E.exit.i.i.i"
   %lpad.loopexit4.i.i = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit.split-lp.i.i
+  br label %.body.i.i
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i: ; preds = %.invoke.i.i
   %lpad.loopexit.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit.split-lp.i.i
+  br label %.body.i.i
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.1597650999041595525.exit.i.i20.i.i": ; preds = %.loopexit.i.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  %110 = shl nsw i64 %.8.val, 4
-  call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef %110, i64 noundef 8) #30
-  br label %"_ZN4core3ptr120drop_in_place$LT$moka..sync_base..key_lock..KeyLockMap$LT$$LP$usize$C$usize$RP$$C$std..hash..random..RandomState$GT$$GT$17he4ee32e79fb4ae8cE.exit"
-
-.loopexit.split-lp.i.i:                           ; preds = %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i.i, %.loopexit.split-lp.loopexit.i.i, %.loopexit.i.i, %104, %82, %51
+.body.i.i:                                        ; preds = %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i.i, %.loopexit.split-lp.loopexit.i.i, %.loopexit.i.i, %104, %82, %51
   %eh.lpad-body.i.i = phi { ptr, i32 } [ %52, %51 ], [ %83, %82 ], [ %105, %104 ], [ %lpad.loopexit.i.i, %.loopexit.i.i ], [ %lpad.loopexit1.i.i, %.loopexit.split-lp.loopexit.i.i ], [ %lpad.loopexit4.i.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i.i ], [ %lpad.loopexit.split-lp.i.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i ]
+  %110 = icmp eq i64 %.8.val, 0
+  br i1 %110, label %"_ZN4core3ptr238drop_in_place$LT$alloc..boxed..Box$LT$$u5b$moka..cht..segment..Segment$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$triomphe..arc..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$$GT$$u5d$$GT$$GT$17h6d1c45318bd66f61E.exit.i.i", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.1597650999041595525.exit.i.i.i.i"
+
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.1597650999041595525.exit.i.i.i.i": ; preds = %.body.i.i
   %111 = shl nsw i64 %.8.val, 4
   call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef %111, i64 noundef 8) #30
+  br label %"_ZN4core3ptr238drop_in_place$LT$alloc..boxed..Box$LT$$u5b$moka..cht..segment..Segment$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$triomphe..arc..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$$GT$$u5d$$GT$$GT$17h6d1c45318bd66f61E.exit.i.i"
+
+.loopexit6.i.i:                                   ; preds = %.loopexit.i.i.i, %11
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
+  %112 = icmp eq i64 %.8.val, 0
+  br i1 %112, label %"_ZN4core3ptr120drop_in_place$LT$moka..sync_base..key_lock..KeyLockMap$LT$$LP$usize$C$usize$RP$$C$std..hash..random..RandomState$GT$$GT$17he4ee32e79fb4ae8cE.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.1597650999041595525.exit.i.i20.i.i"
+
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.1597650999041595525.exit.i.i20.i.i": ; preds = %.loopexit6.i.i
+  %113 = shl nsw i64 %.8.val, 4
+  call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef %113, i64 noundef 8) #30
+  br label %"_ZN4core3ptr120drop_in_place$LT$moka..sync_base..key_lock..KeyLockMap$LT$$LP$usize$C$usize$RP$$C$std..hash..random..RandomState$GT$$GT$17he4ee32e79fb4ae8cE.exit"
+
+"_ZN4core3ptr238drop_in_place$LT$alloc..boxed..Box$LT$$u5b$moka..cht..segment..Segment$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$triomphe..arc..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$$GT$$u5d$$GT$$GT$17h6d1c45318bd66f61E.exit.i.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.1597650999041595525.exit.i.i.i.i", %.body.i.i
   resume { ptr, i32 } %eh.lpad-body.i.i
 }
 
@@ -12128,13 +12134,8 @@ define internal fastcc void @"_ZN4core3ptr244drop_in_place$LT$moka..cht..segment
   store ptr %9, ptr %10, align 8
   fence acquire
   %12 = getelementptr inbounds { { { i64 }, {} }, { i64 } }, ptr %.val, i64 %.val1
-  %13 = icmp eq i64 %.val1, 0
-  br i1 %13, label %.thread, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcb3f92a09798c482E.exit.lr.ph.i"
-
-.thread:                                          ; preds = %1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  br label %"_ZN4core3ptr279drop_in_place$LT$alloc..boxed..Box$LT$$u5b$moka..cht..segment..Segment$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$triomphe..arc..Arc$LT$moka..common..concurrent..ValueEntry$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$GT$$GT$$u5d$$GT$$GT$17hfac65f3ed2cd3cafE.exit21"
+  %13 = icmp eq ptr %.val, %12
+  br i1 %13, label %.loopexit27, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcb3f92a09798c482E.exit.lr.ph.i"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcb3f92a09798c482E.exit.lr.ph.i": ; preds = %1
   %.sroa.05.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -12150,7 +12151,7 @@ define internal fastcc void @"_ZN4core3ptr244drop_in_place$LT$moka..cht..segment
 
 .loopexit.i:                                      ; preds = %_ZN4moka3cht3map6bucket21defer_acquire_destroy17hbec4823cfb688559E.exit.i, %.noexc
   %21 = icmp eq ptr %22, %12
-  br i1 %21, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.1597650999041595525.exit.i.i20", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcb3f92a09798c482E.exit.i"
+  br i1 %21, label %.loopexit27, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcb3f92a09798c482E.exit.i"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcb3f92a09798c482E.exit.i": ; preds = %.loopexit.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcb3f92a09798c482E.exit.lr.ph.i"
   %.sroa.0.011.i = phi ptr [ %.val, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcb3f92a09798c482E.exit.lr.ph.i" ], [ %22, %.loopexit.i ]
@@ -12266,7 +12267,7 @@ define internal fastcc void @"_ZN4core3ptr244drop_in_place$LT$moka..cht..segment
           cleanup
   %53 = load ptr, ptr %6, align 8, !alias.scope !3630, !noalias !3602, !nonnull !4, !noundef !4
   invoke void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.3266194154532769905"(ptr noalias noundef nonnull readonly align 1 %20, ptr noundef nonnull %53, i64 noundef 8, i64 noundef 48)
-          to label %.loopexit.split-lp unwind label %54, !noalias !3602
+          to label %.body unwind label %54, !noalias !3602
 
 54:                                               ; preds = %51
   %55 = landingpad { ptr, i32 }
@@ -12361,7 +12362,7 @@ _ZN4moka3cht3map6bucket20defer_destroy_bucket17h6aa34676af3b2e79E.exit.i: ; pred
           cleanup
   %84 = load ptr, ptr %4, align 8, !alias.scope !3670, !noalias !3650, !nonnull !4, !noundef !4
   invoke void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.3266194154532769905"(ptr noalias noundef nonnull readonly align 1 %18, ptr noundef nonnull %84, i64 noundef 8, i64 noundef 16)
-          to label %.loopexit.split-lp unwind label %85, !noalias !3650
+          to label %.body unwind label %85, !noalias !3650
 
 85:                                               ; preds = %82
   %86 = landingpad { ptr, i32 }
@@ -12438,7 +12439,7 @@ _ZN4moka3cht3map6bucket21defer_acquire_destroy17hd082663b4fdfc5deE.exit.i: ; pre
           cleanup
   %106 = load ptr, ptr %2, align 8, !alias.scope !3702, !noalias !3682, !nonnull !4, !noundef !4
   invoke void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.3266194154532769905"(ptr noalias noundef nonnull readonly align 1 %16, ptr noundef nonnull %106, i64 noundef 8, i64 noundef 16)
-          to label %.loopexit.split-lp unwind label %107, !noalias !3682
+          to label %.body unwind label %107, !noalias !3682
 
 107:                                              ; preds = %104
   %108 = landingpad { ptr, i32 }
@@ -12458,37 +12459,48 @@ _ZN4moka3cht3map6bucket21defer_acquire_destroy17hd082663b4fdfc5deE.exit.i: ; pre
 .loopexit:                                        ; preds = %67, %75, %.noexc13, %"_ZN4moka3cht3map6bucket20defer_destroy_bucket28_$u7b$$u7b$closure$u7d$$u7d$17h21dc6b2bec37ac5eE.llvm.7882632941992561125.exit.i.i", %_ZN15crossbeam_epoch5guard5Guard15defer_unchecked17h2eca11831653866bE.exit.i, %96, %"_ZN4moka3cht3map6bucket21defer_acquire_destroy28_$u7b$$u7b$closure$u7d$$u7d$17h85200ae8f3f8b9cdE.llvm.7882632941992561125.exit.i.i"
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit.split-lp
+  br label %.body
 
 .loopexit.split-lp.loopexit:                      ; preds = %"_ZN4core3ptr277drop_in_place$LT$alloc..boxed..Box$LT$moka..cht..map..bucket..BucketArray$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$triomphe..arc..Arc$LT$moka..common..concurrent..ValueEntry$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$GT$$GT$$GT$$GT$17h5a69f0086d16833dE.llvm.3266194154532769905.exit.i", %40, %.noexc6, %.lr.ph10.i
   %lpad.loopexit22 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit.split-lp
+  br label %.body
 
 .loopexit.split-lp.loopexit.split-lp.loopexit:    ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcb3f92a09798c482E.exit.i"
   %lpad.loopexit25 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit.split-lp
+  br label %.body
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit.split-lp
+  br label %.body
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.1597650999041595525.exit.i.i20": ; preds = %.loopexit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  %110 = shl nsw i64 %.val1, 4
-  call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef %110, i64 noundef 8) #30
-  br label %"_ZN4core3ptr279drop_in_place$LT$alloc..boxed..Box$LT$$u5b$moka..cht..segment..Segment$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$triomphe..arc..Arc$LT$moka..common..concurrent..ValueEntry$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$GT$$GT$$u5d$$GT$$GT$17hfac65f3ed2cd3cafE.exit21"
-
-"_ZN4core3ptr279drop_in_place$LT$alloc..boxed..Box$LT$$u5b$moka..cht..segment..Segment$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$triomphe..arc..Arc$LT$moka..common..concurrent..ValueEntry$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$GT$$GT$$u5d$$GT$$GT$17hfac65f3ed2cd3cafE.exit21": ; preds = %.thread, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.1597650999041595525.exit.i.i20"
-  ret void
-
-.loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %104, %82, %51
+.body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %51, %82, %104
   %eh.lpad-body = phi { ptr, i32 } [ %52, %51 ], [ %83, %82 ], [ %105, %104 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit22, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit25, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %110 = icmp eq i64 %.val1, 0
+  br i1 %110, label %"_ZN4core3ptr279drop_in_place$LT$alloc..boxed..Box$LT$$u5b$moka..cht..segment..Segment$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$triomphe..arc..Arc$LT$moka..common..concurrent..ValueEntry$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$GT$$GT$$u5d$$GT$$GT$17hfac65f3ed2cd3cafE.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.1597650999041595525.exit.i.i"
+
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.1597650999041595525.exit.i.i": ; preds = %.body
   %111 = shl nsw i64 %.val1, 4
   call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef %111, i64 noundef 8) #30
+  br label %"_ZN4core3ptr279drop_in_place$LT$alloc..boxed..Box$LT$$u5b$moka..cht..segment..Segment$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$triomphe..arc..Arc$LT$moka..common..concurrent..ValueEntry$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$GT$$GT$$u5d$$GT$$GT$17hfac65f3ed2cd3cafE.exit"
+
+.loopexit27:                                      ; preds = %.loopexit.i, %1
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
+  %112 = icmp eq i64 %.val1, 0
+  br i1 %112, label %"_ZN4core3ptr279drop_in_place$LT$alloc..boxed..Box$LT$$u5b$moka..cht..segment..Segment$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$triomphe..arc..Arc$LT$moka..common..concurrent..ValueEntry$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$GT$$GT$$u5d$$GT$$GT$17hfac65f3ed2cd3cafE.exit21", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.1597650999041595525.exit.i.i20"
+
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.1597650999041595525.exit.i.i20": ; preds = %.loopexit27
+  %113 = shl nsw i64 %.val1, 4
+  call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef %113, i64 noundef 8) #30
+  br label %"_ZN4core3ptr279drop_in_place$LT$alloc..boxed..Box$LT$$u5b$moka..cht..segment..Segment$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$triomphe..arc..Arc$LT$moka..common..concurrent..ValueEntry$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$GT$$GT$$u5d$$GT$$GT$17hfac65f3ed2cd3cafE.exit21"
+
+"_ZN4core3ptr279drop_in_place$LT$alloc..boxed..Box$LT$$u5b$moka..cht..segment..Segment$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$triomphe..arc..Arc$LT$moka..common..concurrent..ValueEntry$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$GT$$GT$$u5d$$GT$$GT$17hfac65f3ed2cd3cafE.exit21": ; preds = %.loopexit27, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.1597650999041595525.exit.i.i20"
+  ret void
+
+"_ZN4core3ptr279drop_in_place$LT$alloc..boxed..Box$LT$$u5b$moka..cht..segment..Segment$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$triomphe..arc..Arc$LT$moka..common..concurrent..ValueEntry$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$GT$$GT$$u5d$$GT$$GT$17hfac65f3ed2cd3cafE.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.1597650999041595525.exit.i.i", %.body
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -27272,7 +27284,7 @@ define hidden void @"_ZN86_$LT$moka..cht..segment..HashMap$LT$K$C$V$C$S$GT$$u20$
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i64, ptr %12, align 8, !noundef !4
   %14 = getelementptr inbounds { { { i64 }, {} }, { i64 } }, ptr %11, i64 %13
-  %15 = icmp eq i64 %13, 0
+  %15 = icmp eq ptr %11, %14
   br i1 %15, label %._crit_edge35, label %.lr.ph34
 
 .lr.ph34:                                         ; preds = %1

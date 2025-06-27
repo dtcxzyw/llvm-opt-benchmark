@@ -1065,7 +1065,7 @@ define i32 @sat_solver_propagate(ptr noundef captures(none) %0) local_unnamed_ad
   %34 = load i64, ptr %6, align 8, !tbaa !57
   %35 = add nsw i64 %34, 1
   store i64 %35, ptr %6, align 8, !tbaa !57
-  %36 = icmp sgt i32 %.val127, 0
+  %36 = icmp ult ptr %.val122, %33
   br i1 %36, label %.lr.ph.lr.ph, label %.outer._crit_edge
 
 .lr.ph.lr.ph:                                     ; preds = %22
@@ -4630,8 +4630,7 @@ veci_push.exit:                                   ; preds = %.lr.ph90, %49
 
 ._crit_edge102:                                   ; preds = %.critedge, %._crit_edge91.thread, %._crit_edge91
   %70 = phi ptr [ %57, %._crit_edge91 ], [ %.pre111.pre, %._crit_edge91.thread ], [ %57, %.critedge ]
-  %.val83121 = phi ptr [ %.pre111114, %._crit_edge91 ], [ %.pre111.pre, %._crit_edge91.thread ], [ %.pre111114, %.critedge ]
-  %.val84120 = phi i32 [ %.val84.pre, %._crit_edge91 ], [ 0, %._crit_edge91.thread ], [ %.val84.pre, %.critedge ]
+  %.val83120 = phi ptr [ %.pre111114, %._crit_edge91 ], [ %.pre111.pre, %._crit_edge91.thread ], [ %.pre111114, %.critedge ]
   %.068.lcssa = phi i32 [ %59, %._crit_edge91 ], [ %20, %._crit_edge91.thread ], [ %spec.select, %.critedge ]
   %71 = add nsw i32 %.068.lcssa, 1
   tail call void @sat_solver_setnvars(ptr noundef %0, i32 noundef %71)
@@ -4641,11 +4640,11 @@ veci_push.exit:                                   ; preds = %.lr.ph90, %49
   br i1 %.not79, label %76, label %74
 
 74:                                               ; preds = %._crit_edge102
-  %75 = tail call i32 @Sto_ManAddClause(ptr noundef nonnull %73, ptr noundef nonnull %.val83121, ptr noundef nonnull %70) #33
+  %75 = tail call i32 @Sto_ManAddClause(ptr noundef nonnull %73, ptr noundef nonnull %.val83120, ptr noundef nonnull %70) #33
   br label %76
 
 76:                                               ; preds = %74, %._crit_edge102
-  %77 = icmp sgt i32 %.val84120, 0
+  %77 = icmp ult ptr %.val83120, %70
   br i1 %77, label %.lr.ph108, label %sat_solver_enqueue.exit
 
 .lr.ph108:                                        ; preds = %76
@@ -4654,8 +4653,8 @@ veci_push.exit:                                   ; preds = %.lr.ph90, %49
 
 79:                                               ; preds = %.lr.ph108, %95
   %.067106 = phi i32 [ -2, %.lr.ph108 ], [ %.1, %95 ]
-  %.170105 = phi ptr [ %.val83121, %.lr.ph108 ], [ %.2, %95 ]
-  %.3104 = phi ptr [ %.val83121, %.lr.ph108 ], [ %96, %95 ]
+  %.170105 = phi ptr [ %.val83120, %.lr.ph108 ], [ %.2, %95 ]
+  %.3104 = phi ptr [ %.val83120, %.lr.ph108 ], [ %96, %95 ]
   %80 = load i32, ptr %.3104, align 4, !tbaa !30
   %81 = xor i32 %80, %.067106
   %82 = icmp eq i32 %81, 1
@@ -4691,18 +4690,18 @@ veci_push.exit:                                   ; preds = %.lr.ph90, %49
   br i1 %97, label %79, label %._crit_edge109, !llvm.loop !137
 
 ._crit_edge109:                                   ; preds = %95
-  %98 = icmp eq ptr %.2, %.val83121
+  %98 = icmp eq ptr %.2, %.val83120
   br i1 %98, label %sat_solver_enqueue.exit, label %99
 
 99:                                               ; preds = %._crit_edge109
   %100 = ptrtoint ptr %.2 to i64
-  %101 = ptrtoint ptr %.val83121 to i64
+  %101 = ptrtoint ptr %.val83120 to i64
   %102 = sub i64 %100, %101
   %103 = icmp eq i64 %102, 4
   br i1 %103, label %104, label %139
 
 104:                                              ; preds = %99
-  %105 = load i32, ptr %.val83121, align 4, !tbaa !30
+  %105 = load i32, ptr %.val83120, align 4, !tbaa !30
   %106 = ashr i32 %105, 1
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %108 = load ptr, ptr %107, align 8, !tbaa !58
@@ -4757,7 +4756,7 @@ veci_push.exit:                                   ; preds = %.lr.ph90, %49
   br label %sat_solver_enqueue.exit
 
 139:                                              ; preds = %99
-  %140 = tail call i32 @sat_solver_clause_new(ptr noundef nonnull %0, ptr noundef nonnull %.val83121, ptr noundef %.2, i32 noundef 0)
+  %140 = tail call i32 @sat_solver_clause_new(ptr noundef nonnull %0, ptr noundef nonnull %.val83120, ptr noundef %.2, i32 noundef 0)
   br label %sat_solver_enqueue.exit
 
 sat_solver_enqueue.exit:                          ; preds = %79, %83, %76, %123, %118, %._crit_edge109, %139

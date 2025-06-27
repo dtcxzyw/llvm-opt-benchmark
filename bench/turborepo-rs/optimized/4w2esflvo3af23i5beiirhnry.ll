@@ -172,13 +172,13 @@ define void @_RINvNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6stable5merge5mergeNtNtC
   %7 = icmp eq i64 %4, 0
   %8 = icmp uge i64 %4, %1
   %or.cond = or i1 %7, %8
-  br i1 %or.cond, label %50, label %9
+  br i1 %or.cond, label %51, label %9
 
 9:                                                ; preds = %6
   %10 = sub nuw i64 %1, %4
   %.sroa.0.0.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %4, i64 %10)
   %11 = icmp ult i64 %3, %.sroa.0.0.sroa.speculated.i
-  br i1 %11, label %50, label %12
+  br i1 %11, label %51, label %12
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %0, i64 %4
@@ -188,7 +188,7 @@ define void @_RINvNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6stable5merge5mergeNtNtC
   %15 = mul i64 %.sroa.0.0.sroa.speculated.i, 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr nonnull align 8 %.20, i64 %15, i1 false)
   %16 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %2, i64 %.sroa.0.0.sroa.speculated.i
-  br i1 %.not, label %.preheader, label %.lr.ph.i
+  br i1 %.not, label %.preheader, label %33
 
 .preheader:                                       ; preds = %12, %.noexc
   %.sroa.13.2 = phi ptr [ %28, %.noexc ], [ %13, %12 ]
@@ -222,68 +222,72 @@ define void @_RINvNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6stable5merge5mergeNtNtC
   %or.cond.i = select i1 %31, i1 true, i1 %32
   br i1 %or.cond.i, label %_RINvMNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6stable5mergeINtB3_10MergeStateNtNtCs68wO5nsWeTG_5alloc6string6StringE10merge_downNvYB1a_NtNtBb_3cmp10PartialOrd2ltECsff1zCjKRl2o_13turborepo_env.exit, label %.preheader
 
-.lr.ph.i:                                         ; preds = %12, %.noexc24
-  %.sroa.13.3 = phi ptr [ %44, %.noexc24 ], [ %0, %12 ]
-  %.sroa.0.2 = phi ptr [ %41, %.noexc24 ], [ %2, %12 ]
-  %.sroa.0.09.i = phi ptr [ %43, %.noexc24 ], [ %13, %12 ]
-  %33 = getelementptr i8, ptr %.sroa.0.09.i, i64 8
-  %.sroa.0.0.val.i = load ptr, ptr %33, align 8, !noalias !27, !nonnull !21, !noundef !21
-  %34 = getelementptr i8, ptr %.sroa.0.09.i, i64 16
-  %.sroa.0.0.val6.i = load i64, ptr %34, align 8, !noalias !27, !noundef !21
-  %35 = getelementptr i8, ptr %.sroa.0.2, i64 8
-  %.val.i22 = load ptr, ptr %35, align 8, !noalias !27, !nonnull !21, !noundef !21
-  %36 = getelementptr i8, ptr %.sroa.0.2, i64 16
-  %.val7.i = load i64, ptr %36, align 8, !noalias !27, !noundef !21
-  %37 = invoke noundef range(i8 -1, 3) i8 @_RNvXs5_NtNtCs1LoaDTb72WA_4core5slice3cmphNtB5_15SlicePartialOrd15partial_compareCsgrIngBG6lgl_14regex_automata(ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.val.i, i64 noundef %.sroa.0.0.val6.i, ptr noalias noundef nonnull readonly align 1 %.val.i22, i64 noundef %.val7.i)
+33:                                               ; preds = %12
+  %.not29 = icmp eq ptr %2, %16
+  br i1 %.not29, label %_RINvMNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6stable5mergeINtB3_10MergeStateNtNtCs68wO5nsWeTG_5alloc6string6StringE10merge_downNvYB1a_NtNtBb_3cmp10PartialOrd2ltECsff1zCjKRl2o_13turborepo_env.exit, label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %33, %.noexc24
+  %.sroa.13.3 = phi ptr [ %45, %.noexc24 ], [ %0, %33 ]
+  %.sroa.0.2 = phi ptr [ %42, %.noexc24 ], [ %2, %33 ]
+  %.sroa.0.09.i = phi ptr [ %44, %.noexc24 ], [ %13, %33 ]
+  %34 = getelementptr i8, ptr %.sroa.0.09.i, i64 8
+  %.sroa.0.0.val.i = load ptr, ptr %34, align 8, !noalias !27, !nonnull !21, !noundef !21
+  %35 = getelementptr i8, ptr %.sroa.0.09.i, i64 16
+  %.sroa.0.0.val6.i = load i64, ptr %35, align 8, !noalias !27, !noundef !21
+  %36 = getelementptr i8, ptr %.sroa.0.2, i64 8
+  %.val.i22 = load ptr, ptr %36, align 8, !noalias !27, !nonnull !21, !noundef !21
+  %37 = getelementptr i8, ptr %.sroa.0.2, i64 16
+  %.val7.i = load i64, ptr %37, align 8, !noalias !27, !noundef !21
+  %38 = invoke noundef range(i8 -1, 3) i8 @_RNvXs5_NtNtCs1LoaDTb72WA_4core5slice3cmphNtB5_15SlicePartialOrd15partial_compareCsgrIngBG6lgl_14regex_automata(ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.val.i, i64 noundef %.sroa.0.0.val6.i, ptr noalias noundef nonnull readonly align 1 %.val.i22, i64 noundef %.val7.i)
           to label %.noexc24 unwind label %.loopexit.split-lp
 
 .noexc24:                                         ; preds = %.lr.ph.i
-  %38 = icmp eq i8 %37, -1
-  %39 = xor i1 %38, true
-  %.sroa.05.0.i = select i1 %38, ptr %.sroa.0.09.i, ptr %.sroa.0.2
+  %39 = icmp eq i8 %38, -1
+  %40 = xor i1 %39, true
+  %.sroa.05.0.i = select i1 %39, ptr %.sroa.0.09.i, ptr %.sroa.0.2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.13.3, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.05.0.i, i64 24, i1 false), !noalias !27
-  %40 = zext i1 %39 to i64
-  %41 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 } }, ptr %.sroa.0.2, i64 %40
-  %42 = zext i1 %38 to i64
-  %43 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 } }, ptr %.sroa.0.09.i, i64 %42
-  %44 = getelementptr inbounds nuw i8, ptr %.sroa.13.3, i64 24
-  %45 = icmp ne ptr %41, %16
-  %46 = icmp ne ptr %43, %14
-  %or.cond.i23 = select i1 %45, i1 %46, i1 false
+  %41 = zext i1 %40 to i64
+  %42 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 } }, ptr %.sroa.0.2, i64 %41
+  %43 = zext i1 %39 to i64
+  %44 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 } }, ptr %.sroa.0.09.i, i64 %43
+  %45 = getelementptr inbounds nuw i8, ptr %.sroa.13.3, i64 24
+  %46 = icmp ne ptr %42, %16
+  %47 = icmp ne ptr %44, %14
+  %or.cond.i23 = select i1 %46, i1 %47, i1 false
   br i1 %or.cond.i23, label %.lr.ph.i, label %_RINvMNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6stable5mergeINtB3_10MergeStateNtNtCs68wO5nsWeTG_5alloc6string6StringE10merge_downNvYB1a_NtNtBb_3cmp10PartialOrd2ltECsff1zCjKRl2o_13turborepo_env.exit
 
-_RINvMNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6stable5mergeINtB3_10MergeStateNtNtCs68wO5nsWeTG_5alloc6string6StringE10merge_downNvYB1a_NtNtBb_3cmp10PartialOrd2ltECsff1zCjKRl2o_13turborepo_env.exit: ; preds = %.noexc24, %.noexc
-  %.sroa.13.1 = phi ptr [ %28, %.noexc ], [ %44, %.noexc24 ]
-  %.sroa.7.1 = phi ptr [ %30, %.noexc ], [ %16, %.noexc24 ]
-  %.sroa.0.1 = phi ptr [ %2, %.noexc ], [ %41, %.noexc24 ]
-  %47 = ptrtoint ptr %.sroa.7.1 to i64
-  %48 = ptrtoint ptr %.sroa.0.1 to i64
-  %49 = sub nuw i64 %47, %48
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.13.1, ptr align 8 %.sroa.0.1, i64 %49, i1 false), !noalias !30
-  br label %50
+_RINvMNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6stable5mergeINtB3_10MergeStateNtNtCs68wO5nsWeTG_5alloc6string6StringE10merge_downNvYB1a_NtNtBb_3cmp10PartialOrd2ltECsff1zCjKRl2o_13turborepo_env.exit: ; preds = %.noexc24, %.noexc, %33
+  %.sroa.13.1 = phi ptr [ %0, %33 ], [ %28, %.noexc ], [ %45, %.noexc24 ]
+  %.sroa.7.1 = phi ptr [ %2, %33 ], [ %30, %.noexc ], [ %16, %.noexc24 ]
+  %.sroa.0.1 = phi ptr [ %2, %33 ], [ %2, %.noexc ], [ %42, %.noexc24 ]
+  %48 = ptrtoint ptr %.sroa.7.1 to i64
+  %49 = ptrtoint ptr %.sroa.0.1 to i64
+  %50 = sub nuw i64 %48, %49
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %.sroa.13.1, ptr align 8 %.sroa.0.1, i64 %50, i1 false), !noalias !30
+  br label %51
 
-50:                                               ; preds = %9, %6, %_RINvMNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6stable5mergeINtB3_10MergeStateNtNtCs68wO5nsWeTG_5alloc6string6StringE10merge_downNvYB1a_NtNtBb_3cmp10PartialOrd2ltECsff1zCjKRl2o_13turborepo_env.exit
+51:                                               ; preds = %9, %6, %_RINvMNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6stable5mergeINtB3_10MergeStateNtNtCs68wO5nsWeTG_5alloc6string6StringE10merge_downNvYB1a_NtNtBb_3cmp10PartialOrd2ltECsff1zCjKRl2o_13turborepo_env.exit
   ret void
 
 .loopexit:                                        ; preds = %.preheader
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %51
+  br label %52
 
 .loopexit.split-lp:                               ; preds = %.lr.ph.i
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %51
+  br label %52
 
-51:                                               ; preds = %.loopexit.split-lp, %.loopexit
+52:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %.sroa.13.0 = phi ptr [ %.sroa.13.2, %.loopexit ], [ %.sroa.13.3, %.loopexit.split-lp ]
   %.sroa.7.0 = phi ptr [ %.sroa.7.2, %.loopexit ], [ %16, %.loopexit.split-lp ]
   %.sroa.0.0 = phi ptr [ %2, %.loopexit ], [ %.sroa.0.2, %.loopexit.split-lp ]
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %52 = ptrtoint ptr %.sroa.7.0 to i64
-  %53 = ptrtoint ptr %.sroa.0.0 to i64
-  %54 = sub nuw i64 %52, %53
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %.sroa.13.0, ptr align 8 %.sroa.0.0, i64 %54, i1 false), !noalias !35
+  %53 = ptrtoint ptr %.sroa.7.0 to i64
+  %54 = ptrtoint ptr %.sroa.0.0 to i64
+  %55 = sub nuw i64 %53, %54
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %.sroa.13.0, ptr align 8 %.sroa.0.0, i64 %55, i1 false), !noalias !35
   resume { ptr, i32 } %lpad.phi
 }
 

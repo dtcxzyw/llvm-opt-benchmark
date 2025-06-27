@@ -773,7 +773,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableI17default_map_entryIj8ratio
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 0
   %or.cond = select i1 %4, i1 %7, i1 false
-  br i1 %or.cond, label %54, label %8
+  br i1 %or.cond, label %55, label %8
 
 8:                                                ; preds = %1
   %9 = load ptr, ptr %0, align 8, !tbaa !47
@@ -781,8 +781,8 @@ define linkonce_odr hidden void @_ZN14core_hashtableI17default_map_entryIj8ratio
   %11 = load i32, ptr %10, align 8, !tbaa !48
   %12 = zext i32 %11 to i64
   %13 = getelementptr inbounds nuw %class.default_map_entry, ptr %9, i64 %12
-  %.not13 = icmp eq i32 %11, 0
-  br i1 %.not13, label %._crit_edge.thread, label %.lr.ph
+  %.not13 = icmp eq ptr %9, %13
+  br i1 %.not13, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8, %20
   %.015 = phi i32 [ %.1, %20 ], [ 0, %8 ]
@@ -804,15 +804,19 @@ define linkonce_odr hidden void @_ZN14core_hashtableI17default_map_entryIj8ratio
   %.1 = phi i32 [ %19, %18 ], [ %.015, %17 ]
   %21 = getelementptr inbounds nuw i8, ptr %.0714, i64 48
   %.not = icmp eq ptr %21, %13
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !52
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !52
 
-._crit_edge:                                      ; preds = %20
+._crit_edge.loopexit:                             ; preds = %20
   %22 = shl i32 %.1, 2
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %8
+  %.0.lcssa = phi i32 [ 0, %8 ], [ %22, %._crit_edge.loopexit ]
   %23 = icmp ugt i32 %11, 16
   %24 = mul i32 %11, 3
-  %25 = icmp ugt i32 %22, %24
-  %or.cond18 = select i1 %23, i1 %25, i1 false
-  br i1 %or.cond18, label %26, label %._crit_edge.thread
+  %25 = icmp ugt i32 %.0.lcssa, %24
+  %or.cond17 = select i1 %23, i1 %25, i1 false
+  br i1 %or.cond17, label %26, label %54
 
 26:                                               ; preds = %._crit_edge
   %27 = icmp eq ptr %9, null
@@ -889,14 +893,14 @@ _ZN14core_hashtableI17default_map_entryIj8rationalEN9table2mapIS2_6u_hash4u_eqE1
 
 _ZN14core_hashtableI17default_map_entryIj8rationalEN9table2mapIS2_6u_hash4u_eqE15entry_hash_procENS6_13entry_eq_procEE11alloc_tableEj.exit: ; preds = %.lr.ph.i.i.i.i.i11, %_ZN14core_hashtableI17default_map_entryIj8rationalEN9table2mapIS2_6u_hash4u_eqE15entry_hash_procENS6_13entry_eq_procEE12delete_tableEv.exit
   store ptr %40, ptr %0, align 8, !tbaa !47
-  br label %._crit_edge.thread
-
-._crit_edge.thread:                               ; preds = %8, %_ZN14core_hashtableI17default_map_entryIj8rationalEN9table2mapIS2_6u_hash4u_eqE15entry_hash_procENS6_13entry_eq_procEE11alloc_tableEj.exit, %._crit_edge
-  store i32 0, ptr %2, align 4, !tbaa !44
-  store i32 0, ptr %5, align 8, !tbaa !57
   br label %54
 
-54:                                               ; preds = %1, %._crit_edge.thread
+54:                                               ; preds = %_ZN14core_hashtableI17default_map_entryIj8rationalEN9table2mapIS2_6u_hash4u_eqE15entry_hash_procENS6_13entry_eq_procEE11alloc_tableEj.exit, %._crit_edge
+  store i32 0, ptr %2, align 4, !tbaa !44
+  store i32 0, ptr %5, align 8, !tbaa !57
+  br label %55
+
+55:                                               ; preds = %1, %54
   ret void
 }
 
@@ -964,7 +968,7 @@ define linkonce_odr hidden noundef ptr @_ZNK9table2mapI17default_map_entryIj8rat
   br i1 %.not30.i, label %.preheader.i, label %.lr.ph.i
 
 .preheader.i:                                     ; preds = %26, %2
-  %.not2732.i = icmp eq i32 %11, 0
+  %.not2732.i = icmp eq ptr %12, %14
   br i1 %.not2732.i, label %_ZNK14core_hashtableI17default_map_entryIj8rationalEN9table2mapIS2_6u_hash4u_eqE15entry_hash_procENS6_13entry_eq_procEE9find_coreERK9_key_dataIjS1_E.exit, label %.lr.ph34.i
 
 .lr.ph.i:                                         ; preds = %2, %26
@@ -1163,7 +1167,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableI17default_map_entryIj8ratio
 
 .preheader:                                       ; preds = %152, %14
   %.044.lcssa = phi ptr [ null, %14 ], [ %.1, %152 ]
-  %.not4767 = icmp eq i32 %18, 0
+  %.not4767 = icmp eq ptr %19, %21
   br i1 %.not4767, label %._crit_edge, label %.lr.ph70
 
 .lr.ph:                                           ; preds = %14, %152
@@ -1663,7 +1667,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableI17default_map_entryIj8ratio
   %7 = getelementptr inbounds nuw %class.default_map_entry, ptr %0, i64 %6
   %8 = zext i32 %3 to i64
   %9 = getelementptr inbounds nuw %class.default_map_entry, ptr %2, i64 %8
-  %.not38 = icmp eq i32 %1, 0
+  %.not38 = icmp eq ptr %0, %7
   br i1 %.not38, label %._crit_edge43, label %.lr.ph42
 
 ._crit_edge43:                                    ; preds = %146, %4
@@ -1685,7 +1689,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableI17default_map_entryIj8ratio
   br i1 %.not2933, label %.preheader, label %.lr.ph
 
 .preheader:                                       ; preds = %80, %13
-  %.not3035 = icmp eq i32 %15, 0
+  %.not3035 = icmp eq ptr %2, %17
   br i1 %.not3035, label %._crit_edge, label %.lr.ph37
 
 .lr.ph:                                           ; preds = %13, %80
@@ -2040,7 +2044,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableI17default_map_entryIj8ratio
   br i1 %.not39, label %.preheader, label %.lr.ph
 
 .preheader:                                       ; preds = %22, %2
-  %.not3241 = icmp eq i32 %7, 0
+  %.not3241 = icmp eq ptr %8, %10
   br i1 %.not3241, label %.loopexit, label %.lr.ph43
 
 .lr.ph:                                           ; preds = %2, %22

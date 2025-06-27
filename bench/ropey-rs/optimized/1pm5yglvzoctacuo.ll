@@ -285,32 +285,31 @@ define internal fastcc noundef nonnull align 8 dereferenceable(1008) ptr @"_ZN5a
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull ptr @_ZN5alloc5alloc15exchange_malloc17hf45cfb43b91670a0E.llvm.13367099715250013183(i64 noundef %0, i64 noundef %1) unnamed_addr #2 {
+define hidden noalias noundef nonnull ptr @_ZN5alloc5alloc15exchange_malloc17hf45cfb43b91670a0E.llvm.13367099715250013183(i64 noundef %0, i64 noundef %1) unnamed_addr #2 {
   %3 = icmp ne i64 %1, 0
   tail call void @llvm.assume(i1 %3)
   %4 = icmp ult i64 %1, -9223372036854775807
   tail call void @llvm.assume(i1 %4)
   %5 = icmp eq i64 %0, 0
-  br i1 %5, label %6, label %8
+  br i1 %5, label %_ZN5alloc5alloc6Global10alloc_impl17ha40af4e5081ee874E.llvm.13367099715250013183.exit.thread, label %_ZN5alloc5alloc6Global10alloc_impl17ha40af4e5081ee874E.llvm.13367099715250013183.exit
 
-6:                                                ; preds = %2
-  %7 = getelementptr i8, ptr null, i64 %1
-  br label %_ZN5alloc5alloc6Global10alloc_impl17ha40af4e5081ee874E.llvm.13367099715250013183.exit
+_ZN5alloc5alloc6Global10alloc_impl17ha40af4e5081ee874E.llvm.13367099715250013183.exit.thread: ; preds = %2
+  %6 = getelementptr i8, ptr null, i64 %1
+  %7 = icmp ne ptr %6, null
+  tail call void @llvm.assume(i1 %7)
+  br label %11
 
-8:                                                ; preds = %2
-  %9 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %10 = tail call noalias noundef ptr @__rust_alloc(i64 noundef range(i64 1, 0) %0, i64 noundef range(i64 1, -9223372036854775807) %1) #24
-  br label %_ZN5alloc5alloc6Global10alloc_impl17ha40af4e5081ee874E.llvm.13367099715250013183.exit
+_ZN5alloc5alloc6Global10alloc_impl17ha40af4e5081ee874E.llvm.13367099715250013183.exit: ; preds = %2
+  %8 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
+  %9 = tail call noalias noundef ptr @__rust_alloc(i64 noundef range(i64 1, 0) %0, i64 noundef range(i64 1, -9223372036854775807) %1) #24
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %12, label %11
 
-_ZN5alloc5alloc6Global10alloc_impl17ha40af4e5081ee874E.llvm.13367099715250013183.exit: ; preds = %6, %8
-  %.sroa.0.0.i = phi ptr [ %7, %6 ], [ %10, %8 ]
-  %11 = icmp eq ptr %.sroa.0.0.i, null
-  br i1 %11, label %13, label %12
+11:                                               ; preds = %_ZN5alloc5alloc6Global10alloc_impl17ha40af4e5081ee874E.llvm.13367099715250013183.exit.thread, %_ZN5alloc5alloc6Global10alloc_impl17ha40af4e5081ee874E.llvm.13367099715250013183.exit
+  %.sroa.0.0.i7 = phi ptr [ %6, %_ZN5alloc5alloc6Global10alloc_impl17ha40af4e5081ee874E.llvm.13367099715250013183.exit.thread ], [ %9, %_ZN5alloc5alloc6Global10alloc_impl17ha40af4e5081ee874E.llvm.13367099715250013183.exit ]
+  ret ptr %.sroa.0.0.i7
 
 12:                                               ; preds = %_ZN5alloc5alloc6Global10alloc_impl17ha40af4e5081ee874E.llvm.13367099715250013183.exit
-  ret ptr %.sroa.0.0.i
-
-13:                                               ; preds = %_ZN5alloc5alloc6Global10alloc_impl17ha40af4e5081ee874E.llvm.13367099715250013183.exit
   tail call void @_ZN5alloc5alloc18handle_alloc_error17hc735483c05842e7cE(i64 noundef %1, i64 noundef %0) #21
   unreachable
 }
@@ -318,29 +317,31 @@ _ZN5alloc5alloc6Global10alloc_impl17ha40af4e5081ee874E.llvm.13367099715250013183
 ; Function Attrs: inlinehint nounwind nonlazybind uwtable
 define hidden { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17ha40af4e5081ee874E.llvm.13367099715250013183(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #3 {
   %5 = icmp eq i64 %2, 0
-  br i1 %5, label %6, label %8
+  br i1 %5, label %6, label %9
 
 6:                                                ; preds = %4
   %7 = getelementptr i8, ptr null, i64 %1
-  br label %9
+  %8 = icmp ne ptr %7, null
+  tail call void @llvm.assume(i1 %8)
+  br label %10
 
-8:                                                ; preds = %4
-  br i1 %3, label %15, label %12
+9:                                                ; preds = %4
+  br i1 %3, label %16, label %13
 
-9:                                                ; preds = %12, %15, %6
-  %.sroa.0.0 = phi ptr [ %7, %6 ], [ %16, %15 ], [ %14, %12 ]
-  %10 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %11 = insertvalue { ptr, i64 } %10, i64 %2, 1
-  ret { ptr, i64 } %11
+10:                                               ; preds = %13, %16, %6
+  %.sroa.0.0 = phi ptr [ %7, %6 ], [ %17, %16 ], [ %15, %13 ]
+  %11 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
+  %12 = insertvalue { ptr, i64 } %11, i64 %2, 1
+  ret { ptr, i64 } %12
 
-12:                                               ; preds = %8
-  %13 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %14 = tail call noalias noundef ptr @__rust_alloc(i64 noundef range(i64 1, 0) %2, i64 noundef range(i64 1, -9223372036854775807) %1) #24
-  br label %9
+13:                                               ; preds = %9
+  %14 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
+  %15 = tail call noalias noundef ptr @__rust_alloc(i64 noundef range(i64 1, 0) %2, i64 noundef range(i64 1, -9223372036854775807) %1) #24
+  br label %10
 
-15:                                               ; preds = %8
-  %16 = tail call noundef ptr @__rust_alloc_zeroed(i64 noundef %2, i64 noundef %1) #24
-  br label %9
+16:                                               ; preds = %9
+  %17 = tail call noundef ptr @__rust_alloc_zeroed(i64 noundef %2, i64 noundef %1) #24
+  br label %10
 }
 
 ; Function Attrs: alwaysinline nonlazybind uwtable
@@ -1923,7 +1924,7 @@ _ZN5ropey4rope4Rope13chunk_at_byte17h8290b9e820ea6253E.exit.i: ; preds = %_ZN5ro
   %294 = getelementptr inbounds <2 x i64>, ptr %270, i64 %284
   %295 = and i64 %272, 3
   %296 = getelementptr inbounds nuw <2 x i64>, ptr %294, i64 %295
-  %297 = icmp eq i64 %295, 0
+  %297 = icmp eq ptr %294, %296
   br i1 %297, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit.thread.i.i", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit.i.i"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit.thread.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit.i.i", %._crit_edge.i.i

@@ -690,29 +690,31 @@ _ZN6memchr4arch3all9rabinkarp6Finder3new17h85b66220665eec02E.exit: ; preds = %20
   br i1 %34, label %_ZN6memchr4arch3all9rabinkarp6Finder4find17h181cc588d46a72baE.exit, label %35
 
 35:                                               ; preds = %_ZN6memchr4arch3all9rabinkarp6Finder3new17h85b66220665eec02E.exit
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 %3
-  br label %.lr.ph.i.i
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 %1
+  %37 = sub nsw i64 0, %3
+  %38 = getelementptr inbounds i8, ptr %36, i64 %37
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 %3
+  %40 = icmp ult ptr %0, %39
+  br i1 %40, label %.lr.ph.i.i, label %.preheader.i.i.preheader
 
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %35
-  %.0172.i.i = phi ptr [ %41, %.lr.ph.i.i ], [ %0, %35 ]
-  %.0181.i.i = phi i32 [ %40, %.lr.ph.i.i ], [ 0, %35 ]
-  %37 = load i8, ptr %.0172.i.i, align 1, !alias.scope !179, !noalias !182, !noundef !4
-  %38 = shl i32 %.0181.i.i, 1
-  %39 = zext i8 %37 to i32
-  %40 = add i32 %38, %39
-  %41 = getelementptr inbounds nuw i8, ptr %.0172.i.i, i64 1
-  %42 = icmp ult ptr %41, %36
-  br i1 %42, label %.lr.ph.i.i, label %.preheader.i.preheader.i
+.lr.ph.i.i:                                       ; preds = %35, %.lr.ph.i.i
+  %.0172.i.i = phi ptr [ %45, %.lr.ph.i.i ], [ %0, %35 ]
+  %.0181.i.i = phi i32 [ %44, %.lr.ph.i.i ], [ 0, %35 ]
+  %41 = load i8, ptr %.0172.i.i, align 1, !alias.scope !179, !noalias !182, !noundef !4
+  %42 = shl i32 %.0181.i.i, 1
+  %43 = zext i8 %41 to i32
+  %44 = add i32 %42, %43
+  %45 = getelementptr inbounds nuw i8, ptr %.0172.i.i, i64 1
+  %exitcond.not.i.i = icmp eq ptr %45, %39
+  br i1 %exitcond.not.i.i, label %.preheader.i.i.preheader, label %.lr.ph.i.i
 
-.preheader.i.preheader.i:                         ; preds = %.lr.ph.i.i
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 %1
-  %44 = sub nsw i64 0, %3
-  %45 = getelementptr inbounds i8, ptr %43, i64 %44
+.preheader.i.i.preheader:                         ; preds = %.lr.ph.i.i, %35
+  %.016.i.i.ph = phi i32 [ 0, %35 ], [ %44, %.lr.ph.i.i ]
   br label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %50, %.preheader.i.preheader.i
-  %.016.i.i = phi i32 [ %59, %50 ], [ %40, %.preheader.i.preheader.i ]
-  %.0.i.i = phi ptr [ %60, %50 ], [ %0, %.preheader.i.preheader.i ]
+.preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %50
+  %.016.i.i = phi i32 [ %59, %50 ], [ %.016.i.i.ph, %.preheader.i.i.preheader ]
+  %.0.i.i = phi ptr [ %60, %50 ], [ %0, %.preheader.i.i.preheader ]
   %46 = icmp eq i32 %.sroa.01.0.i4, %.016.i.i
   br i1 %46, label %47, label %49
 
@@ -721,7 +723,7 @@ _ZN6memchr4arch3all9rabinkarp6Finder3new17h85b66220665eec02E.exit: ; preds = %20
   br i1 %48, label %61, label %49
 
 49:                                               ; preds = %47, %.preheader.i.i
-  %.not.i.i5 = icmp ult ptr %.0.i.i, %45
+  %.not.i.i5 = icmp ult ptr %.0.i.i, %38
   br i1 %.not.i.i5, label %50, label %_ZN6memchr4arch3all9rabinkarp6Finder4find17h181cc588d46a72baE.exit
 
 50:                                               ; preds = %49
@@ -2134,7 +2136,7 @@ _ZN15actix_multipart6server14InnerMultipart13read_boundary17h45c533dd8c15961dE.e
 
 386:                                              ; preds = %383
   %387 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr %378, i64 %385
-  %388 = icmp eq i64 %385, 0
+  %388 = icmp eq ptr %378, %387
   br i1 %388, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb0ce2b987f184a87E.exit.thread.i.i", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb0ce2b987f184a87E.exit.lr.ph.i.i"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb0ce2b987f184a87E.exit.lr.ph.i.i": ; preds = %386

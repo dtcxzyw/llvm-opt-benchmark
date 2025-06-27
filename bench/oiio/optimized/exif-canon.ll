@@ -883,9 +883,9 @@ define hidden void @_ZN11OpenImageIO6v3_1_03pvt22encode_canon_makernoteERSt6vect
 
 _ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %8
   %.not.i.i.i.i.i = icmp eq i32 %10, 0
-  br i1 %.not.i.i.i.i.i, label %.lr.ph.i, label %.noexc28.i
+  br i1 %.not.i.i.i.i.i, label %.lr.ph.i, label %.lr.ph.i.i.preheader.i.i.i.i.i.i.i.i
 
-.noexc28.i:                                       ; preds = %_ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i.i
+.lr.ph.i.i.preheader.i.i.i.i.i.i.i.i:             ; preds = %_ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i.i
   %13 = shl nsw i64 %11, 1
   %14 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %13) #23
   call void @llvm.memset.p0.i64(ptr nonnull align 2 %14, i8 0, i64 %13, i1 false), !tbaa !15
@@ -893,9 +893,9 @@ _ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %8
   %16 = ptrtoint ptr %15 to i64
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %_ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i.i, %.noexc28.i
-  %.sroa.15.0.i = phi i64 [ 0, %_ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %16, %.noexc28.i ]
-  %.sroa.032.0.i = phi ptr [ null, %_ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %14, %.noexc28.i ]
+.lr.ph.i:                                         ; preds = %_ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i.i, %.lr.ph.i.i.preheader.i.i.i.i.i.i.i.i
+  %.sroa.15.0.i = phi i64 [ 0, %_ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %16, %.lr.ph.i.i.preheader.i.i.i.i.i.i.i.i ]
+  %.sroa.032.0.i = phi ptr [ null, %_ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %14, %.lr.ph.i.i.preheader.i.i.i.i.i.i.i.i ]
   %17 = ptrtoint ptr %.sroa.032.0.i to i64
   %18 = sub i64 %.sroa.15.0.i, %17
   %19 = lshr exact i64 %18, 1
@@ -1101,9 +1101,9 @@ define internal fastcc void @_ZN11OpenImageIO6v3_1_03pvtL18encode_indexed_tagIsE
 
 _ZNSt6vectorIsSaIsEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %7
   %.not.i.i.i.i = icmp eq i32 %12, 0
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIsSaIsEEC2EmRKsRKS0_.exit, label %.noexc28
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIsSaIsEEC2EmRKsRKS0_.exit, label %.lr.ph.i.i.preheader.i.i.i.i.i.i.i
 
-.noexc28:                                         ; preds = %_ZNSt6vectorIsSaIsEE17_S_check_init_lenEmRKS0_.exit.i
+.lr.ph.i.i.preheader.i.i.i.i.i.i.i:               ; preds = %_ZNSt6vectorIsSaIsEE17_S_check_init_lenEmRKS0_.exit.i
   %15 = shl nsw i64 %13, 1
   %16 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %15) #23
   tail call void @llvm.memset.p0.i64(ptr nonnull align 2 %16, i8 0, i64 %15, i1 false), !tbaa !15
@@ -1111,11 +1111,10 @@ _ZNSt6vectorIsSaIsEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %7
   %18 = ptrtoint ptr %17 to i64
   br label %_ZNSt6vectorIsSaIsEEC2EmRKsRKS0_.exit
 
-_ZNSt6vectorIsSaIsEEC2EmRKsRKS0_.exit:            ; preds = %.noexc28, %_ZNSt6vectorIsSaIsEE17_S_check_init_lenEmRKS0_.exit.i
-  %.sroa.15.0 = phi i64 [ 0, %_ZNSt6vectorIsSaIsEE17_S_check_init_lenEmRKS0_.exit.i ], [ %18, %.noexc28 ]
-  %.sroa.032.0 = phi ptr [ null, %_ZNSt6vectorIsSaIsEE17_S_check_init_lenEmRKS0_.exit.i ], [ %16, %.noexc28 ]
-  %.idx.mask = and i64 %2, 1152921504606846975
-  %.not49 = icmp eq i64 %.idx.mask, 0
+_ZNSt6vectorIsSaIsEEC2EmRKsRKS0_.exit:            ; preds = %.lr.ph.i.i.preheader.i.i.i.i.i.i.i, %_ZNSt6vectorIsSaIsEE17_S_check_init_lenEmRKS0_.exit.i
+  %.sroa.15.0 = phi i64 [ 0, %_ZNSt6vectorIsSaIsEE17_S_check_init_lenEmRKS0_.exit.i ], [ %18, %.lr.ph.i.i.preheader.i.i.i.i.i.i.i ]
+  %.sroa.032.0 = phi ptr [ null, %_ZNSt6vectorIsSaIsEE17_S_check_init_lenEmRKS0_.exit.i ], [ %16, %.lr.ph.i.i.preheader.i.i.i.i.i.i.i ]
+  %.not49 = icmp eq ptr %1, %9
   br i1 %.not49, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIsSaIsEEC2EmRKsRKS0_.exit
@@ -3439,7 +3438,7 @@ define linkonce_odr hidden void @_ZN11OpenImageIO6v3_1_03pvt13array_to_specIsEEv
 _ZN11OpenImageIO6v3_1_03pvt7dataptrERK12TIFFDirEntryNS0_4spanIKhLm18446744073709551615EEEi.exit.thread30: ; preds = %22, %14
   %.0.i33 = phi ptr [ %17, %14 ], [ %26, %22 ]
   %27 = getelementptr inbounds nuw %"struct.OpenImageIO::v3_1_0::pvt::LabelIndex", ptr %4, i64 %5
-  %.not2434 = icmp eq i64 %5, 0
+  %.not2434 = icmp eq ptr %4, %27
   br i1 %.not2434, label %_ZN11OpenImageIO6v3_1_03pvt7dataptrERK12TIFFDirEntryNS0_4spanIKhLm18446744073709551615EEEi.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN11OpenImageIO6v3_1_03pvt7dataptrERK12TIFFDirEntryNS0_4spanIKhLm18446744073709551615EEEi.exit.thread30
@@ -3578,7 +3577,7 @@ define linkonce_odr hidden void @_ZN11OpenImageIO6v3_1_03pvt13array_to_specItEEv
 _ZN11OpenImageIO6v3_1_03pvt7dataptrERK12TIFFDirEntryNS0_4spanIKhLm18446744073709551615EEEi.exit.thread30: ; preds = %22, %14
   %.0.i33 = phi ptr [ %17, %14 ], [ %26, %22 ]
   %27 = getelementptr inbounds nuw %"struct.OpenImageIO::v3_1_0::pvt::LabelIndex", ptr %4, i64 %5
-  %.not2434 = icmp eq i64 %5, 0
+  %.not2434 = icmp eq ptr %4, %27
   br i1 %.not2434, label %_ZN11OpenImageIO6v3_1_03pvt7dataptrERK12TIFFDirEntryNS0_4spanIKhLm18446744073709551615EEEi.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN11OpenImageIO6v3_1_03pvt7dataptrERK12TIFFDirEntryNS0_4spanIKhLm18446744073709551615EEEi.exit.thread30

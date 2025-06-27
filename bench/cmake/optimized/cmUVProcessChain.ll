@@ -1723,11 +1723,15 @@ _ZNSt6vectorIPKN16cmUVProcessChain6StatusESaIS3_EE17_S_check_init_lenEmRKS4_.exi
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %12, i8 0, i64 %18, i1 false), !tbaa !140
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %13, ptr %19, align 8, !tbaa !142
+  %.not = icmp eq ptr %13, %12
+  br i1 %.not, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %.loopexit
   %20 = lshr exact i64 %10, 3
   br label %21
 
-21:                                               ; preds = %.loopexit, %21
-  %.08 = phi i64 [ 0, %.loopexit ], [ %26, %21 ]
+21:                                               ; preds = %.lr.ph, %21
+  %.08 = phi i64 [ 0, %.lr.ph ], [ %26, %21 ]
   %22 = getelementptr inbounds nuw %"class.std::unique_ptr.23", ptr %7, i64 %.08
   %23 = load ptr, ptr %22, align 8, !tbaa !85
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 56
@@ -1737,7 +1741,7 @@ _ZNSt6vectorIPKN16cmUVProcessChain6StatusESaIS3_EE17_S_check_init_lenEmRKS4_.exi
   %exitcond.not = icmp eq i64 %26, %20
   br i1 %exitcond.not, label %._crit_edge, label %21, !llvm.loop !143
 
-._crit_edge:                                      ; preds = %21, %.loopexit.thread
+._crit_edge:                                      ; preds = %21, %.loopexit.thread, %.loopexit
   ret void
 }
 

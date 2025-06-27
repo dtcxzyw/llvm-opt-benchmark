@@ -2094,6 +2094,14 @@ _ZNSt6vectorIN8facebook5velox9ByteRangeESaIS2_EEC2ERKS4_.exit: ; preds = %cond.t
   store ptr %add.ptr.i.i.i3, ptr %_M_finish.i.i.i.i.i, align 8
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %add.ptr.i.i.i3, ptr %_M_end_of_storage.i.i.i.i.i, align 8
+  %cmp.i.i.i6 = icmp eq ptr %call5.i.i.i.i2.i6.i, %add.ptr.i.i.i3
+  br i1 %cmp.i.i.i6, label %if.then.i8, label %_ZNSt6vectorIN8facebook5velox9ByteRangeESaIS2_EED2Ev.exit13
+
+if.then.i8:                                       ; preds = %_ZNSt6vectorIN8facebook5velox9ByteRangeESaIS2_EEC2ERKS4_.exit
+  tail call void @llvm.trap()
+  unreachable
+
+_ZNSt6vectorIN8facebook5velox9ByteRangeESaIS2_EED2Ev.exit13: ; preds = %_ZNSt6vectorIN8facebook5velox9ByteRangeESaIS2_EEC2ERKS4_.exit
   %current_.i7 = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %call5.i.i.i.i2.i6.i, ptr %current_.i7, align 8
   ret void

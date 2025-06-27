@@ -10508,7 +10508,8 @@ _ZSt27__uninitialized_default_n_aIPN5boost6nowide17basic_stackstringIwcLm5EEEmS3
   %36 = extractvalue { ptr, i32 } %35, 0
   %37 = tail call ptr @__cxa_begin_catch(ptr %36) #23
   %38 = getelementptr inbounds nuw %"class.boost::nowide::basic_stackstring.26", ptr %29, i64 %1
-  br label %.lr.ph.i.i.i46
+  %.not4.i.i.i = icmp eq ptr %29, %38
+  br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN5boost6nowide17basic_stackstringIwcLm5EEES3_EvT_S5_RSaIT0_E.exit, label %.lr.ph.i.i.i46
 
 .lr.ph.i.i.i46:                                   ; preds = %34, %_ZSt8_DestroyIN5boost6nowide17basic_stackstringIwcLm5EEEEvPT_.exit.i.i.i
   %.05.i.i.i = phi ptr [ %44, %_ZSt8_DestroyIN5boost6nowide17basic_stackstringIwcLm5EEEEvPT_.exit.i.i.i ], [ %29, %34 ]
@@ -10535,7 +10536,7 @@ _ZSt8_DestroyIN5boost6nowide17basic_stackstringIwcLm5EEEEvPT_.exit.i.i.i: ; pred
   invoke void @__cxa_end_catch()
           to label %47 unwind label %61
 
-_ZSt8_DestroyIPN5boost6nowide17basic_stackstringIwcLm5EEES3_EvT_S5_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIN5boost6nowide17basic_stackstringIwcLm5EEEEvPT_.exit.i.i.i
+_ZSt8_DestroyIPN5boost6nowide17basic_stackstringIwcLm5EEES3_EvT_S5_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIN5boost6nowide17basic_stackstringIwcLm5EEEEvPT_.exit.i.i.i, %34
   tail call void @_ZdlPvm(ptr noundef nonnull %28, i64 noundef %27) #25
   invoke void @__cxa_rethrow() #28
           to label %64 unwind label %45

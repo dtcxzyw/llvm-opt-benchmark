@@ -3924,7 +3924,7 @@ define linkonce_odr dso_local void @_ZN3fmt3v116detail5valueINS0_7contextEE17for
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load i64, ptr %12, align 8, !tbaa !154
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 %13
-  %15 = icmp samesign eq i64 %13, 0
+  %15 = icmp eq ptr %11, %14
   br i1 %15, label %_ZN3fmt3v116detail16native_formatterINS0_17basic_string_viewIcEEcLNS1_4typeE13EE5parseINS0_26basic_format_parse_contextIcEEEEPKcRT_.exit, label %16
 
 16:                                               ; preds = %3
@@ -3939,7 +3939,7 @@ define linkonce_odr dso_local void @_ZN3fmt3v116detail5valueINS0_7contextEE17for
   br label %_ZN3fmt3v116detail16native_formatterINS0_17basic_string_viewIcEEcLNS1_4typeE13EE5parseINS0_26basic_format_parse_contextIcEEEEPKcRT_.exit
 
 _ZN3fmt3v116detail16native_formatterINS0_17basic_string_viewIcEEcLNS1_4typeE13EE5parseINS0_26basic_format_parse_contextIcEEEEPKcRT_.exit: ; preds = %3, %16, %19
-  %21 = phi i64 [ %.pre7, %19 ], [ %13, %16 ], [ 0, %3 ]
+  %21 = phi i64 [ %.pre7, %19 ], [ %13, %16 ], [ %13, %3 ]
   %22 = phi ptr [ %.pre, %19 ], [ %11, %16 ], [ %11, %3 ]
   %.0.i = phi ptr [ %20, %19 ], [ %11, %16 ], [ %11, %3 ]
   %23 = ptrtoint ptr %.0.i to i64
@@ -5275,7 +5275,7 @@ _ZN3fmt3v116detail7reserveIcEENS0_14basic_appenderIT_EES5_m.exit: ; preds = %5, 
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %46 = load i64, ptr %45, align 8, !tbaa !226
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 %46
-  %.not24.i.i.i = icmp samesign eq i64 %46, 0
+  %.not24.i.i.i = icmp eq ptr %44, %47
   br i1 %.not24.i.i.i, label %_ZZN3fmt3v116detail5writeIcNS0_14basic_appenderIcEEEET0_S5_NS0_17basic_string_viewIT_EERKNS0_12format_specsEENKUlS4_E_clES4_.exit, label %.lr.ph27.i.i.i
 
 .lr.ph27.i.i.i:                                   ; preds = %42
@@ -6103,7 +6103,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt3v116detail4fillIcNS0_14basic_appender
 
 .lr.ph:                                           ; preds = %.preheader
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 %6
-  %.not24.i.i = icmp eq i8 %5, 0
+  %.not24.i.i = icmp eq ptr %2, %8
   %9 = ptrtoint ptr %8 to i64
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -7829,7 +7829,8 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN5vcpkg11PackageSpecESaIS1_EE15
 22:                                               ; preds = %17
   %23 = sub nsw i64 0, %9
   %24 = getelementptr inbounds %"struct.vcpkg::PackageSpec", ptr %13, i64 %23
-  br label %.lr.ph.i.i.i.i.i
+  %.not11.i.i.i.i.i = icmp eq ptr %24, %13
+  br i1 %.not11.i.i.i.i.i, label %_ZSt22__uninitialized_move_aIPN5vcpkg11PackageSpecES2_SaIS1_EET0_T_S5_S4_RT1_.exit, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %22, %_ZSt10_ConstructIN5vcpkg11PackageSpecEJS1_EEvPT_DpOT0_.exit.i.i.i.i.i
   %.013.i.i.i.i.i = phi ptr [ %42, %_ZSt10_ConstructIN5vcpkg11PackageSpecEJS1_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %13, %22 ]
@@ -7871,10 +7872,14 @@ _ZSt10_ConstructIN5vcpkg11PackageSpecEJS1_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds =
   %41 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 40
   %42 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 40
   %.not.i.i.i.i.i = icmp eq ptr %41, %13
-  br i1 %.not.i.i.i.i.i, label %_ZSt22__uninitialized_move_aIPN5vcpkg11PackageSpecES2_SaIS1_EET0_T_S5_S4_RT1_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !275
+  br i1 %.not.i.i.i.i.i, label %_ZSt22__uninitialized_move_aIPN5vcpkg11PackageSpecES2_SaIS1_EET0_T_S5_S4_RT1_.exit.loopexit, label %.lr.ph.i.i.i.i.i, !llvm.loop !275
 
-_ZSt22__uninitialized_move_aIPN5vcpkg11PackageSpecES2_SaIS1_EET0_T_S5_S4_RT1_.exit: ; preds = %_ZSt10_ConstructIN5vcpkg11PackageSpecEJS1_EEvPT_DpOT0_.exit.i.i.i.i.i
-  %43 = load ptr, ptr %12, align 8, !tbaa !55
+_ZSt22__uninitialized_move_aIPN5vcpkg11PackageSpecES2_SaIS1_EET0_T_S5_S4_RT1_.exit.loopexit: ; preds = %_ZSt10_ConstructIN5vcpkg11PackageSpecEJS1_EEvPT_DpOT0_.exit.i.i.i.i.i
+  %.pre145 = load ptr, ptr %12, align 8, !tbaa !55
+  br label %_ZSt22__uninitialized_move_aIPN5vcpkg11PackageSpecES2_SaIS1_EET0_T_S5_S4_RT1_.exit
+
+_ZSt22__uninitialized_move_aIPN5vcpkg11PackageSpecES2_SaIS1_EET0_T_S5_S4_RT1_.exit: ; preds = %_ZSt22__uninitialized_move_aIPN5vcpkg11PackageSpecES2_SaIS1_EET0_T_S5_S4_RT1_.exit.loopexit, %22
+  %43 = phi ptr [ %.pre145, %_ZSt22__uninitialized_move_aIPN5vcpkg11PackageSpecES2_SaIS1_EET0_T_S5_S4_RT1_.exit.loopexit ], [ %13, %22 ]
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 %8
   store ptr %44, ptr %12, align 8, !tbaa !55
   %45 = ptrtoint ptr %24 to i64
@@ -8381,11 +8386,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   %255 = load i64, ptr %248, align 8, !tbaa !44
   store i64 %255, ptr %246, align 8, !tbaa !44
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i93, i64 8
-  %.pre145 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !43
+  %.pre146 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !43
   br label %_ZSt10_ConstructIN5vcpkg11PackageSpecEJS1_EEvPT_DpOT0_.exit.i.i.i.i.i95
 
 _ZSt10_ConstructIN5vcpkg11PackageSpecEJS1_EEvPT_DpOT0_.exit.i.i.i.i.i95: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i94, %250
-  %256 = phi i64 [ %.pre145, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i94 ], [ %252, %250 ]
+  %256 = phi i64 [ %.pre146, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i94 ], [ %252, %250 ]
   %257 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i93, i64 8
   %258 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i92, i64 8
   store i64 %256, ptr %258, align 8, !tbaa !43

@@ -135,8 +135,10 @@ bsearch.exit.i:                                   ; preds = %56
   %.1.i2639.idx = phi i64 [ %.idx69, %60 ], [ %.add, %53 ]
   %.121.i38 = phi i32 [ %64, %60 ], [ 0, %53 ]
   %.1.i2639.ptr = getelementptr inbounds nuw i8, ptr @lang_table, i64 %.1.i2639.idx
+  %.not24.i28 = icmp uge ptr %.1.i2639.ptr, @lang_table
   %59 = icmp slt i64 %.1.i2639.idx, 2904
-  br i1 %59, label %ff_convert_lang_to.exit, label %60
+  %or.cond = and i1 %.not24.i28, %59
+  br i1 %or.cond, label %ff_convert_lang_to.exit, label %60
 
 60:                                               ; preds = %.preheader
   %61 = getelementptr inbounds nuw i8, ptr %.1.i2639.ptr, i64 4

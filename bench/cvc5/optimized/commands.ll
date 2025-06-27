@@ -39376,8 +39376,7 @@ _ZN4cvc54Term14const_iteratorD2Ev.exit67:         ; preds = %_ZN4cvc54Term14cons
 80:                                               ; preds = %75
   %81 = sub i64 0, %19
   %82 = getelementptr inbounds %"class.cvc5::Term", ptr %70, i64 %81
-  %.idx = mul i64 %19, -24
-  %.not11.i.i.i.i.i = icmp eq i64 %.idx, 0
+  %.not11.i.i.i.i.i = icmp eq ptr %82, %70
   br i1 %.not11.i.i.i.i.i, label %_ZSt22__uninitialized_move_aIPN4cvc54TermES2_SaIS1_EET0_T_S5_S4_RT1_.exit, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %80, %_ZSt10_ConstructIN4cvc54TermEJS1_EEvPT_DpOT0_.exit.i.i.i.i.i

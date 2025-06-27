@@ -1348,8 +1348,8 @@ define hidden void @_ZN5bench15parse_byte_size17h204e5e12ea9660d7E(ptr dead_on_u
   %7 = icmp ne ptr %5, null
   tail call void @llvm.assume(i1 %7)
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 %6
-  %9 = icmp samesign eq i64 %6, 0
-  br i1 %9, label %.loopexit, label %10
+  %9 = icmp eq ptr %5, %8
+  br i1 %9, label %58, label %10
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds i8, ptr %8, i64 -1
@@ -1437,33 +1437,38 @@ define hidden void @_ZN5bench15parse_byte_size17h204e5e12ea9660d7E(ptr dead_on_u
   br i1 %54, label %.loopexit, label %55
 
 55:                                               ; preds = %52
+  %.not.i.not = icmp ne i64 %6, 0
   %56 = icmp sgt i8 %12, -65
-  br i1 %56, label %58, label %57
+  %or.cond = and i1 %.not.i.not, %56
+  br i1 %or.cond, label %58, label %57
 
 57:                                               ; preds = %55
   tail call void @_ZN4core3str16slice_error_fail17hc6990271b5365929E(ptr noalias noundef nonnull readonly align 1 %5, i64 noundef %6, i64 noundef 0, i64 noundef %53, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.aef231025632435600c1c9255a3befda.72) #25
   unreachable
 
-58:                                               ; preds = %55, %47
-  %.sroa.6.0 = phi i64 [ %6, %47 ], [ %53, %55 ]
-  %.sroa.011.0 = phi i64 [ 1, %47 ], [ %.sroa.011.1, %55 ]
-  %cond = icmp eq i64 %.sroa.6.0, 1
-  %59 = load i8, ptr %5, align 1, !alias.scope !116, !noalias !119
-  br i1 %cond, label %60, label %61
+58:                                               ; preds = %55, %3, %47
+  %.sroa.6.0 = phi i64 [ %6, %47 ], [ %6, %3 ], [ %53, %55 ]
+  %.sroa.011.0 = phi i64 [ 1, %47 ], [ 1, %3 ], [ %.sroa.011.1, %55 ]
+  switch i64 %.sroa.6.0, label %61 [
+    i64 0, label %.loopexit
+    i64 1, label %59
+  ]
 
-60:                                               ; preds = %58
-  switch i8 %59, label %.lr.ph.i.preheader [
+59:                                               ; preds = %58
+  %60 = load i8, ptr %5, align 1, !alias.scope !116, !noalias !119, !noundef !8
+  switch i8 %60, label %.lr.ph.i.preheader [
     i8 43, label %.loopexit
     i8 45, label %.loopexit
   ]
 
-.lr.ph.i.preheader:                               ; preds = %62, %66, %60
-  %.sroa.01.153.i.ph = phi ptr [ %63, %62 ], [ %5, %60 ], [ %5, %66 ]
-  %.sroa.14.152.i.ph = phi i64 [ %64, %62 ], [ 1, %60 ], [ %.sroa.6.0, %66 ]
+.lr.ph.i.preheader:                               ; preds = %62, %66, %59
+  %.sroa.01.153.i.ph = phi ptr [ %63, %62 ], [ %5, %59 ], [ %5, %66 ]
+  %.sroa.14.152.i.ph = phi i64 [ %64, %62 ], [ 1, %59 ], [ %.sroa.6.0, %66 ]
   br label %.lr.ph.i
 
 61:                                               ; preds = %58
-  %cond.i = icmp eq i8 %59, 43
+  %.pr.i = load i8, ptr %5, align 1, !alias.scope !116, !noalias !119
+  %cond.i = icmp eq i8 %.pr.i, 43
   br i1 %cond.i, label %62, label %66
 
 62:                                               ; preds = %61
@@ -1529,8 +1534,8 @@ define hidden void @_ZN5bench15parse_byte_size17h204e5e12ea9660d7E(ptr dead_on_u
   %.not42.i = icmp eq i64 %90, 0
   br i1 %.not42.i, label %"_ZN4core3num21_$LT$impl$u20$u64$GT$16from_ascii_radix17h94ae65e2f8b0b215E.exit", label %.lr.ph.i
 
-.loopexit:                                        ; preds = %68, %77, %79, %.lr.ph.i, %52, %3, %60, %60
-  %.sroa.520.0.ph = phi i8 [ 1, %60 ], [ 1, %60 ], [ 0, %3 ], [ 0, %52 ], [ 1, %.lr.ph.i ], [ 1, %68 ], [ 2, %77 ], [ 2, %79 ]
+.loopexit:                                        ; preds = %68, %77, %79, %.lr.ph.i, %52, %58, %59, %59
+  %.sroa.520.0.ph = phi i8 [ 1, %59 ], [ 1, %59 ], [ 0, %58 ], [ 0, %52 ], [ 1, %.lr.ph.i ], [ 1, %68 ], [ 2, %77 ], [ 2, %79 ]
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sroa.520.0.ph, ptr %94, align 1
   br label %97

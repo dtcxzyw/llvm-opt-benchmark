@@ -42318,8 +42318,7 @@ define linkonce_odr void @_ZNSt6vectorIN5boost9sub_matchIN9__gnu_cxx17__normal_i
 21:                                               ; preds = %14
   %22 = sub i64 0, %2
   %23 = getelementptr inbounds %"struct.boost::sub_match", ptr %9, i64 %22
-  %.idx = mul i64 %2, -24
-  %.not11.i.i.i.i.i = icmp eq i64 %.idx, 0
+  %.not11.i.i.i.i.i = icmp eq ptr %23, %9
   br i1 %.not11.i.i.i.i.i, label %_ZSt22__uninitialized_move_aIPN5boost9sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEESE_SaISD_EET0_T_SH_SG_RT1_.exit, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %21, %.lr.ph.i.i.i.i.i
@@ -42479,7 +42478,7 @@ _ZNKSt6vectorIN5boost9sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112b
   %85 = phi ptr [ %84, %82 ], [ null, %_ZNKSt6vectorIN5boost9sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEESaISD_EE12_M_check_lenEmS5_.exit ]
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 %81
   %87 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %.pre139 = load i8, ptr %87, align 8, !tbaa !963, !range !319
+  %.pre138 = load i8, ptr %87, align 8, !tbaa !963, !range !319
   br label %88
 
 88:                                               ; preds = %88, %.lr.ph.i.i.i.i83
@@ -42487,7 +42486,7 @@ _ZNKSt6vectorIN5boost9sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112b
   %.01113.i.i.i.i85 = phi i64 [ %2, %.lr.ph.i.i.i.i83 ], [ %90, %88 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %.014.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(17) %3, i64 16, i1 false)
   %89 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i84, i64 16
-  store i8 %.pre139, ptr %89, align 8, !tbaa !963
+  store i8 %.pre138, ptr %89, align 8, !tbaa !963
   %90 = add i64 %.01113.i.i.i.i85, -1
   %91 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i84, i64 24
   %.not.i.i.i.i86 = icmp eq i64 %90, 0

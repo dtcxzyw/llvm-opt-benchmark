@@ -78,8 +78,8 @@ define void @_ZN5boost4urls10parse_pathENS_4core17basic_string_viewIcEE(ptr dead
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
   store ptr %1, ptr %4, align 8, !tbaa !3
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 %2
-  %.not = icmp samesign eq i64 %2, 0
-  br i1 %.not, label %_ZN5boost4urls6detail13path_segmentsENS_4core17basic_string_viewIcEEm.exit, label %.lr.ph.lr.ph
+  %.not = icmp eq ptr %1, %8
+  br i1 %.not, label %.outer._crit_edge, label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %3
   %9 = load i8, ptr %1, align 1, !tbaa !7
@@ -183,9 +183,9 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit: ; preds = %_ZN
   %.not19 = icmp eq ptr %43, %8
   br i1 %.not19, label %.outer._crit_edge, label %12, !llvm.loop !8
 
-.outer._crit_edge:                                ; preds = %.outer, %40
-  %.113.ph.lcssa47 = phi i64 [ %.113.ph54, %40 ], [ %18, %.outer ]
-  %.0.lcssa = phi i64 [ %42, %40 ], [ %17, %.outer ]
+.outer._crit_edge:                                ; preds = %.outer, %40, %3
+  %.113.ph.lcssa47 = phi i64 [ 0, %3 ], [ %.113.ph54, %40 ], [ %18, %.outer ]
+  %.0.lcssa = phi i64 [ 0, %3 ], [ %42, %40 ], [ %17, %.outer ]
   switch i64 %2, label %54 [
     i64 0, label %_ZN5boost4urls6detail13path_segmentsENS_4core17basic_string_viewIcEEm.exit
     i64 1, label %44
@@ -240,11 +240,10 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit: ; preds = %_ZN
   %spec.select9.i = add i64 %.113.ph.lcssa47, %69
   br label %_ZN5boost4urls6detail13path_segmentsENS_4core17basic_string_viewIcEEm.exit
 
-_ZN5boost4urls6detail13path_segmentsENS_4core17basic_string_viewIcEEm.exit: ; preds = %3, %.outer._crit_edge, %44, %47, %49, %54, %56, %60, %65
-  %.0.lcssa79 = phi i64 [ %.0.lcssa, %.outer._crit_edge ], [ %.0.lcssa, %44 ], [ %.0.lcssa, %56 ], [ %.0.lcssa, %49 ], [ %.0.lcssa, %60 ], [ %.0.lcssa, %65 ], [ %.0.lcssa, %47 ], [ %.0.lcssa, %54 ], [ 0, %3 ]
-  %.0.i = phi i64 [ %2, %.outer._crit_edge ], [ %..i, %44 ], [ %.113.ph.lcssa47, %56 ], [ %spec.select.i, %49 ], [ %spec.select8.i, %60 ], [ %spec.select9.i, %65 ], [ %.113.ph.lcssa47, %47 ], [ %.113.ph.lcssa47, %54 ], [ 0, %3 ]
+_ZN5boost4urls6detail13path_segmentsENS_4core17basic_string_viewIcEEm.exit: ; preds = %.outer._crit_edge, %44, %47, %49, %54, %56, %60, %65
+  %.0.i = phi i64 [ %2, %.outer._crit_edge ], [ %..i, %44 ], [ %.113.ph.lcssa47, %56 ], [ %spec.select.i, %49 ], [ %spec.select8.i, %60 ], [ %spec.select9.i, %65 ], [ %.113.ph.lcssa47, %47 ], [ %.113.ph.lcssa47, %54 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #7
-  call void @_ZN5boost4urls6detail8path_refC1ENS_4core17basic_string_viewIcEEmm(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr %1, i64 %2, i64 noundef %.0.lcssa79, i64 noundef %.0.i) #7
+  call void @_ZN5boost4urls6detail8path_refC1ENS_4core17basic_string_viewIcEEmm(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr %1, i64 %2, i64 noundef %.0.lcssa, i64 noundef %.0.i) #7
   call void @_ZN5boost4urls21segments_encoded_viewC1ERKNS0_6detail8path_refE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %7) #7
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 1, ptr %70, align 8, !tbaa !19

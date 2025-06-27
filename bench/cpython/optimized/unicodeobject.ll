@@ -28901,7 +28901,7 @@ _PyUnicode_DATA.exit211:                          ; preds = %15, %17
 
 27:                                               ; preds = %22
   %28 = getelementptr i8, ptr %.0.i, i64 %21
-  %.not196273 = icmp eq i64 %21, 0
+  %.not196273 = icmp eq ptr %.0.i, %28
   br i1 %.not196273, label %.thread214, label %.lr.ph276
 
 .lr.ph276:                                        ; preds = %27, %33
@@ -28927,7 +28927,7 @@ _PyUnicode_DATA.exit211:                          ; preds = %15, %17
 
 39:                                               ; preds = %22
   %40 = getelementptr i8, ptr %.0.i, i64 %21
-  %.not194269 = icmp eq i64 %21, 0
+  %.not194269 = icmp eq ptr %.0.i, %40
   br i1 %.not194269, label %.thread214, label %.lr.ph272
 
 .lr.ph272:                                        ; preds = %39, %44
@@ -28955,8 +28955,7 @@ _PyUnicode_DATA.exit211:                          ; preds = %15, %17
 
 51:                                               ; preds = %_PyUnicode_DATA.exit211
   %52 = getelementptr i16, ptr %.0.i, i64 %21
-  %.idx.mask280 = and i64 %21, 9223372036854775807
-  %.not192265 = icmp eq i64 %.idx.mask280, 0
+  %.not192265 = icmp eq ptr %.0.i, %52
   switch i16 %8, label %83 [
     i16 1, label %53
     i16 2, label %64
@@ -29044,8 +29043,7 @@ _PyUnicode_DATA.exit211:                          ; preds = %15, %17
 
 85:                                               ; preds = %84
   %86 = getelementptr i32, ptr %.0.i, i64 %21
-  %.idx.mask277 = and i64 %21, 4611686018427387903
-  %.not186253 = icmp eq i64 %.idx.mask277, 0
+  %.not186253 = icmp eq ptr %.0.i, %86
   br i1 %.not186253, label %.thread214, label %.lr.ph256
 
 .lr.ph256:                                        ; preds = %85, %90
@@ -29070,8 +29068,7 @@ _PyUnicode_DATA.exit211:                          ; preds = %15, %17
 
 96:                                               ; preds = %84
   %97 = getelementptr i32, ptr %.0.i, i64 %21
-  %.idx.mask = and i64 %21, 4611686018427387903
-  %.not184250 = icmp eq i64 %.idx.mask, 0
+  %.not184250 = icmp eq ptr %.0.i, %97
   br i1 %.not184250, label %.thread214, label %.lr.ph
 
 .lr.ph:                                           ; preds = %96, %101
@@ -30810,7 +30807,7 @@ _PyUnicode_DATA.exit60:                           ; preds = %19, %21
 
 23:                                               ; preds = %_PyUnicode_DATA.exit60
   %24 = getelementptr i8, ptr %.0.i58, i64 %.val
-  %.not3243.i = icmp eq i64 %.val, 0
+  %.not3243.i = icmp eq ptr %.0.i58, %24
   br i1 %.not3243.i, label %make_bloom_mask.exit, label %.lr.ph46.i
 
 .lr.ph46.i:                                       ; preds = %23, %.lr.ph46.i
@@ -30827,8 +30824,7 @@ _PyUnicode_DATA.exit60:                           ; preds = %19, %21
 
 31:                                               ; preds = %_PyUnicode_DATA.exit60
   %32 = getelementptr i16, ptr %.0.i58, i64 %.val
-  %.idx.mask48.i = and i64 %.val, 9223372036854775807
-  %.not3138.i = icmp eq i64 %.idx.mask48.i, 0
+  %.not3138.i = icmp eq ptr %.0.i58, %32
   br i1 %.not3138.i, label %make_bloom_mask.exit, label %.lr.ph41.i
 
 .lr.ph41.i:                                       ; preds = %31, %.lr.ph41.i
@@ -30845,8 +30841,7 @@ _PyUnicode_DATA.exit60:                           ; preds = %19, %21
 
 39:                                               ; preds = %_PyUnicode_DATA.exit60
   %40 = getelementptr i32, ptr %.0.i58, i64 %.val
-  %.idx.mask.i = and i64 %.val, 4611686018427387903
-  %.not35.i = icmp eq i64 %.idx.mask.i, 0
+  %.not35.i = icmp eq ptr %.0.i58, %40
   br i1 %.not35.i, label %make_bloom_mask.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %39, %.lr.ph.i

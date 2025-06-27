@@ -7680,7 +7680,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %24
   store i64 0, ptr %40, align 8, !tbaa !103
   %41 = ptrtoint ptr %35 to i64
   store i64 %41, ptr %9, align 8, !tbaa !19
-  %.not42 = icmp eq i64 %2, 0
+  %.not42 = icmp eq ptr %1, %10
   br i1 %.not42, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %36
@@ -26626,7 +26626,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vector10al
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 %9
   store i8 0, ptr %23, align 1, !tbaa !19
   %24 = getelementptr inbounds nuw i32, ptr %1, i64 %2
-  %.not19 = icmp eq i64 %2, 0
+  %.not19 = icmp eq ptr %1, %24
   br i1 %.not19, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vector10alt_stringblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIPKcEEE3addEi.exit, %_ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vector10alt_stringblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIPKcEEE3addEi.exit13
@@ -54754,7 +54754,8 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN8nlohmann16json_abi_v3_11_310b
 25:                                               ; preds = %20
   %26 = sub nsw i64 0, %12
   %27 = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::basic_json", ptr %16, i64 %26
-  br label %.lr.ph.i.i.i.i.i
+  %.not11.i.i.i.i.i = icmp eq ptr %27, %16
+  br i1 %.not11.i.i.i.i.i, label %_ZSt22__uninitialized_move_aIPN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS1_14adl_serializerES4_IhSaIhEEvEESA_SaIS9_EET0_T_SD_SC_RT1_.exit, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %25, %.lr.ph.i.i.i.i.i
   %.013.i.i.i.i.i = phi ptr [ %30, %.lr.ph.i.i.i.i.i ], [ %16, %25 ]
@@ -54766,10 +54767,14 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN8nlohmann16json_abi_v3_11_310b
   %29 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 16
   %30 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i = icmp eq ptr %29, %16
-  br i1 %.not.i.i.i.i.i, label %_ZSt22__uninitialized_move_aIPN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS1_14adl_serializerES4_IhSaIhEEvEESA_SaIS9_EET0_T_SD_SC_RT1_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !784
+  br i1 %.not.i.i.i.i.i, label %_ZSt22__uninitialized_move_aIPN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS1_14adl_serializerES4_IhSaIhEEvEESA_SaIS9_EET0_T_SD_SC_RT1_.exit.loopexit, label %.lr.ph.i.i.i.i.i, !llvm.loop !784
 
-_ZSt22__uninitialized_move_aIPN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS1_14adl_serializerES4_IhSaIhEEvEESA_SaIS9_EET0_T_SD_SC_RT1_.exit: ; preds = %.lr.ph.i.i.i.i.i
-  %31 = load ptr, ptr %15, align 8, !tbaa !189
+_ZSt22__uninitialized_move_aIPN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS1_14adl_serializerES4_IhSaIhEEvEESA_SaIS9_EET0_T_SD_SC_RT1_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
+  %.pre114 = load ptr, ptr %15, align 8, !tbaa !189
+  br label %_ZSt22__uninitialized_move_aIPN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS1_14adl_serializerES4_IhSaIhEEvEESA_SaIS9_EET0_T_SD_SC_RT1_.exit
+
+_ZSt22__uninitialized_move_aIPN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS1_14adl_serializerES4_IhSaIhEEvEESA_SaIS9_EET0_T_SD_SC_RT1_.exit: ; preds = %_ZSt22__uninitialized_move_aIPN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS1_14adl_serializerES4_IhSaIhEEvEESA_SaIS9_EET0_T_SD_SC_RT1_.exit.loopexit, %25
+  %31 = phi ptr [ %.pre114, %_ZSt22__uninitialized_move_aIPN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS1_14adl_serializerES4_IhSaIhEEvEESA_SaIS9_EET0_T_SD_SC_RT1_.exit.loopexit ], [ %16, %25 ]
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 %11
   store ptr %32, ptr %15, align 8, !tbaa !189
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)

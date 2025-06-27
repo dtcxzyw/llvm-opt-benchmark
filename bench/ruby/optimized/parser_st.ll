@@ -3292,8 +3292,7 @@ define dso_local range(i64 -1152921504606846976, 1152921504606846976) i64 @rb_pa
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i64, ptr %9, align 8, !tbaa !31
   %11 = icmp uge i64 %10, %7
-  %.idx.mask.i = and i64 %2, 2305843009213693951
-  %12 = icmp eq i64 %.idx.mask.i, 0
+  %12 = icmp eq ptr %1, %8
   %or.cond19.i = or i1 %12, %11
   br i1 %or.cond19.i, label %st_general_keys.exit, label %.lr.ph.i
 
@@ -3339,8 +3338,7 @@ define dso_local range(i64 -1152921504606846976, 1152921504606846976) i64 @rb_pa
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load i64, ptr %10, align 8, !tbaa !31
   %12 = icmp uge i64 %11, %8
-  %.idx.mask.i = and i64 %2, 2305843009213693951
-  %13 = icmp eq i64 %.idx.mask.i, 0
+  %13 = icmp eq ptr %1, %9
   %or.cond19.i = or i1 %13, %12
   br i1 %or.cond19.i, label %st_general_keys.exit, label %.lr.ph.i
 
@@ -3386,8 +3384,7 @@ define dso_local range(i64 -1152921504606846976, 1152921504606846976) i64 @rb_pa
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i64, ptr %9, align 8, !tbaa !31
   %11 = icmp uge i64 %10, %8
-  %.idx.mask.i = and i64 %2, 2305843009213693951
-  %12 = icmp eq i64 %.idx.mask.i, 0
+  %12 = icmp eq ptr %1, %6
   %or.cond18.i = or i1 %12, %11
   br i1 %or.cond18.i, label %st_general_values.exit, label %.lr.ph.i
 
@@ -3433,8 +3430,7 @@ define dso_local range(i64 -1152921504606846976, 1152921504606846976) i64 @rb_pa
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load i64, ptr %10, align 8, !tbaa !31
   %12 = icmp uge i64 %11, %9
-  %.idx.mask.i = and i64 %2, 2305843009213693951
-  %13 = icmp eq i64 %.idx.mask.i, 0
+  %13 = icmp eq ptr %1, %7
   %or.cond18.i = or i1 %13, %12
   br i1 %or.cond18.i, label %st_general_values.exit, label %.lr.ph.i
 

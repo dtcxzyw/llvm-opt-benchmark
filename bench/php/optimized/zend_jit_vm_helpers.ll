@@ -485,20 +485,17 @@ define hidden void @zend_jit_copy_extra_args_helper(ptr noundef captures(address
   %26 = load i32, ptr %25, align 4, !tbaa !72
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %28 = load i32, ptr %27, align 8, !tbaa !73
-  %29 = add i32 %28, %26
-  %.not46.i = icmp eq i32 %29, %9
-  br i1 %.not46.i, label %.preheader.i, label %.preheader52.preheader.i, !prof !21
-
-.preheader52.preheader.i:                         ; preds = %18
-  %30 = sub i32 %29, %9
+  %29 = sub i32 %26, %9
+  %30 = add i32 %29, %28
   %31 = zext i32 %30 to i64
   %32 = getelementptr inbounds nuw %struct._zval_struct, ptr %24, i64 %31
-  br label %.preheader52.i
+  %.not46.i = icmp eq ptr %24, %32
+  br i1 %.not46.i, label %.preheader.i, label %.preheader52.i, !prof !21
 
-.preheader52.i:                                   ; preds = %.preheader52.i, %.preheader52.preheader.i
-  %.041.i = phi i32 [ %35, %.preheader52.i ], [ 0, %.preheader52.preheader.i ]
-  %.040.i = phi ptr [ %39, %.preheader52.i ], [ %32, %.preheader52.preheader.i ]
-  %.0.i = phi ptr [ %38, %.preheader52.i ], [ %24, %.preheader52.preheader.i ]
+.preheader52.i:                                   ; preds = %18, %.preheader52.i
+  %.041.i = phi i32 [ %35, %.preheader52.i ], [ 0, %18 ]
+  %.040.i = phi ptr [ %39, %.preheader52.i ], [ %32, %18 ]
+  %.0.i = phi ptr [ %38, %.preheader52.i ], [ %24, %18 ]
   %33 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %34 = load i32, ptr %33, align 8, !tbaa !16
   %35 = or i32 %34, %.041.i
@@ -565,20 +562,17 @@ define hidden void @zend_jit_copy_extra_args_helper_no_skip_recv(ptr noundef cap
   %19 = load i32, ptr %18, align 4, !tbaa !72
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %21 = load i32, ptr %20, align 8, !tbaa !73
-  %22 = add i32 %21, %19
-  %.not46.i = icmp eq i32 %22, %9
-  br i1 %.not46.i, label %.preheader.i, label %.preheader52.preheader.i, !prof !21
-
-.preheader52.preheader.i:                         ; preds = %7
-  %23 = sub i32 %22, %9
+  %22 = sub i32 %19, %9
+  %23 = add i32 %22, %21
   %24 = zext i32 %23 to i64
   %25 = getelementptr inbounds nuw %struct._zval_struct, ptr %17, i64 %24
-  br label %.preheader52.i
+  %.not46.i = icmp eq ptr %17, %25
+  br i1 %.not46.i, label %.preheader.i, label %.preheader52.i, !prof !21
 
-.preheader52.i:                                   ; preds = %.preheader52.i, %.preheader52.preheader.i
-  %.041.i = phi i32 [ %28, %.preheader52.i ], [ 0, %.preheader52.preheader.i ]
-  %.040.i = phi ptr [ %32, %.preheader52.i ], [ %25, %.preheader52.preheader.i ]
-  %.0.i = phi ptr [ %31, %.preheader52.i ], [ %17, %.preheader52.preheader.i ]
+.preheader52.i:                                   ; preds = %7, %.preheader52.i
+  %.041.i = phi i32 [ %28, %.preheader52.i ], [ 0, %7 ]
+  %.040.i = phi ptr [ %32, %.preheader52.i ], [ %25, %7 ]
+  %.0.i = phi ptr [ %31, %.preheader52.i ], [ %17, %7 ]
   %26 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %27 = load i32, ptr %26, align 8, !tbaa !16
   %28 = or i32 %27, %.041.i

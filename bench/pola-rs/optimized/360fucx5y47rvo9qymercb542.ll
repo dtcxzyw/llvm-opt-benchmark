@@ -13603,8 +13603,8 @@ define internal fastcc void @_ZN11fast_float26number12parse_number17h41c7f6d6eb0
   br label %10
 
 .critedge2:                                       ; preds = %7, %32, %11
-  %.sroa.0.078 = phi ptr [ %12, %11 ], [ %33, %32 ], [ %1, %7 ]
-  %.sroa.027.0 = phi i8 [ 1, %11 ], [ 0, %32 ], [ 0, %7 ]
+  %.sroa.0.078 = phi ptr [ %33, %32 ], [ %12, %11 ], [ %1, %7 ]
+  %.sroa.027.0 = phi i8 [ 0, %32 ], [ 1, %11 ], [ 0, %7 ]
   %16 = icmp eq ptr %.sroa.0.078, %8
   br i1 %16, label %_ZN11fast_float26common8AsciiStr12parse_digits17h5a26db9adf76e23dE.exit.thread, label %.lr.ph.i
 
@@ -14204,21 +14204,18 @@ _ZN11fast_float26common12parse_digits17h17245853d08b267aE.exit: ; preds = %50, %
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h2adaa803eeb4cf01E.exit": ; preds = %91
-  %95 = icmp eq i64 %2, %.sroa.27.1
-  br i1 %95, label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h94a2aa3dbbca28c6E.exit.thread", label %.lr.ph139.preheader
-
-.lr.ph139.preheader:                              ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h2adaa803eeb4cf01E.exit"
-  %96 = getelementptr inbounds nuw i8, ptr %1, i64 %92
-  br label %.lr.ph139
+  %95 = getelementptr inbounds nuw i8, ptr %1, i64 %92
+  %96 = icmp eq ptr %1, %95
+  br i1 %96, label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h94a2aa3dbbca28c6E.exit.thread", label %.lr.ph139
 
 97:                                               ; preds = %112, %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h94a2aa3dbbca28c6E.exit.thread", %40
   %98 = phi i64 [ 768, %112 ], [ %104, %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h94a2aa3dbbca28c6E.exit.thread" ], [ 0, %40 ]
   %.not31 = icmp eq i64 %.sroa.27.1, 0
   br i1 %.not31, label %115, label %113
 
-.lr.ph139:                                        ; preds = %.lr.ph139.preheader, %110
-  %.sroa.02.0138 = phi i64 [ %.sroa.02.1, %110 ], [ 0, %.lr.ph139.preheader ]
-  %.sroa.4.0137 = phi ptr [ %99, %110 ], [ %96, %.lr.ph139.preheader ]
+.lr.ph139:                                        ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h2adaa803eeb4cf01E.exit", %110
+  %.sroa.02.0138 = phi i64 [ %.sroa.02.1, %110 ], [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h2adaa803eeb4cf01E.exit" ]
+  %.sroa.4.0137 = phi ptr [ %99, %110 ], [ %95, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h2adaa803eeb4cf01E.exit" ]
   %99 = getelementptr inbounds i8, ptr %.sroa.4.0137, i64 -1
   %100 = load i8, ptr %99, align 1, !noundef !3
   switch i8 %100, label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h94a2aa3dbbca28c6E.exit.thread" [
@@ -36337,7 +36334,7 @@ define hidden void @"_ZN12polars_arrow5array7binview31BinaryViewArrayGeneric$LT$
   %72 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %73 = load ptr, ptr %72, align 8, !alias.scope !1858, !noalias !1861, !nonnull !3, !noundef !3
   %74 = getelementptr inbounds nuw { i32, i32, i32, i32 }, ptr %73, i64 %68
-  %.not41.i = icmp eq i64 %68, 0
+  %.not41.i = icmp eq ptr %73, %74
   br i1 %.not41.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %71
@@ -36570,16 +36567,16 @@ define hidden void @"_ZN12polars_arrow5array7binview31BinaryViewArrayGeneric$LT$
   br label %.body.thread.i
 
 "_ZN12polars_arrow5array7binview7mutable31MutableBinaryViewArray$LT$T$GT$19push_view_unchecked17h65b48be547ed8a99E.exit.i": ; preds = %154, %"_ZN12polars_arrow5array7binview7mutable31MutableBinaryViewArray$LT$T$GT$26push_value_ignore_validity17h807936c41ece2a2bE.exit.i.i"
-  %.sink47.i = phi ptr [ %158, %154 ], [ %153, %"_ZN12polars_arrow5array7binview7mutable31MutableBinaryViewArray$LT$T$GT$26push_value_ignore_validity17h807936c41ece2a2bE.exit.i.i" ]
+  %.sink46.i = phi ptr [ %158, %154 ], [ %153, %"_ZN12polars_arrow5array7binview7mutable31MutableBinaryViewArray$LT$T$GT$26push_value_ignore_validity17h807936c41ece2a2bE.exit.i.i" ]
   %.sroa.5.0.copyload.sink.i = phi i32 [ %.sroa.5.0.copyload.i, %154 ], [ %.sroa.02.0.copyload.i.i.i.i, %"_ZN12polars_arrow5array7binview7mutable31MutableBinaryViewArray$LT$T$GT$26push_value_ignore_validity17h807936c41ece2a2bE.exit.i.i" ]
   %.sroa.526.0.copyload.sink.i = phi i32 [ %.sroa.526.0.copyload.i, %154 ], [ %146, %"_ZN12polars_arrow5array7binview7mutable31MutableBinaryViewArray$LT$T$GT$26push_value_ignore_validity17h807936c41ece2a2bE.exit.i.i" ]
   %.sroa.6.0.copyload.sink.i = phi i32 [ %.sroa.6.0.copyload.i, %154 ], [ %147, %"_ZN12polars_arrow5array7binview7mutable31MutableBinaryViewArray$LT$T$GT$26push_value_ignore_validity17h807936c41ece2a2bE.exit.i.i" ]
   %storemerge.in.i = phi i64 [ %156, %154 ], [ %148, %"_ZN12polars_arrow5array7binview7mutable31MutableBinaryViewArray$LT$T$GT$26push_value_ignore_validity17h807936c41ece2a2bE.exit.i.i" ]
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sink47.i, i64 4
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sink46.i, i64 4
   store i32 %.sroa.5.0.copyload.sink.i, ptr %.sroa.5.0..sroa_idx.i, align 4, !noalias !1901
-  %.sroa.526.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sink47.i, i64 8
+  %.sroa.526.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sink46.i, i64 8
   store i32 %.sroa.526.0.copyload.sink.i, ptr %.sroa.526.0..sroa_idx.i, align 4, !noalias !1901
-  %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sink47.i, i64 12
+  %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sink46.i, i64 12
   store i32 %.sroa.6.0.copyload.sink.i, ptr %.sroa.6.0..sroa_idx.i, align 4, !noalias !1901
   %storemerge.i = add i64 %storemerge.in.i, 1
   store i64 %storemerge.i, ptr %87, align 8, !alias.scope !1864, !noalias !1869
@@ -36918,7 +36915,7 @@ define hidden void @"_ZN12polars_arrow5array7binview31BinaryViewArrayGeneric$LT$
   %70 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %71 = load ptr, ptr %70, align 8, !alias.scope !1960, !noalias !1963, !nonnull !3, !noundef !3
   %72 = getelementptr inbounds nuw { i32, i32, i32, i32 }, ptr %71, i64 %64
-  %.not16.i = icmp eq i64 %64, 0
+  %.not16.i = icmp eq ptr %71, %72
   br i1 %.not16.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %67, %74

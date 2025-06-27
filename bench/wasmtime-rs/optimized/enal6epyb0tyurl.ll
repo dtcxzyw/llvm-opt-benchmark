@@ -377,7 +377,7 @@ define hidden void @"_ZN101_$LT$object..read..macho..file..MachOFile$LT$Mach$C$R
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %11 = load i64, ptr %10, align 8, !noundef !4
   %12 = getelementptr inbounds { { i32, [1 x i32] }, ptr, i64, i64 }, ptr %9, i64 %11
-  %13 = icmp eq i64 %11, 0
+  %13 = icmp eq ptr %9, %12
   br i1 %13, label %.loopexit, label %"_ZN125_$LT$object..read..macho..section..MachOSectionIterator$LT$Mach$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdba075afc17cf9d4E.exit.lr.ph.i"
 
 "_ZN125_$LT$object..read..macho..section..MachOSectionIterator$LT$Mach$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdba075afc17cf9d4E.exit.lr.ph.i": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h375fd9078e4a8ec3E.exit.thread"
@@ -557,7 +557,7 @@ define hidden void @"_ZN101_$LT$object..read..macho..file..MachOFile$LT$Mach$C$R
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %11 = load i64, ptr %10, align 8, !noundef !4
   %12 = getelementptr inbounds { { i32, [1 x i32] }, ptr, i64, i64 }, ptr %9, i64 %11
-  %13 = icmp eq i64 %11, 0
+  %13 = icmp eq ptr %9, %12
   br i1 %13, label %.loopexit, label %"_ZN125_$LT$object..read..macho..section..MachOSectionIterator$LT$Mach$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h552b98e4319d889bE.exit.lr.ph.i"
 
 "_ZN125_$LT$object..read..macho..section..MachOSectionIterator$LT$Mach$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h552b98e4319d889bE.exit.lr.ph.i": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h375fd9078e4a8ec3E.exit.thread"
@@ -15481,7 +15481,7 @@ _ZN5gimli4read6reader6Reader11read_offset17haccfa5cfe0240852E.exit1595: ; preds 
   %.val44.i = load i64, ptr %295, align 8, !alias.scope !2355, !noalias !2358, !noundef !4
   %296 = getelementptr inbounds i8, ptr %.val.i, i64 %.val44.i
   %297 = ptrtoint ptr %.val.i to i64
-  %298 = icmp eq i64 %.val44.i, 0
+  %298 = icmp eq ptr %.val.i, %296
   br i1 %298, label %.loopexit2629, label %.lr.ph.i.i.i1596
 
 .lr.ph.i.i.i1596:                                 ; preds = %294, %301
@@ -15493,7 +15493,7 @@ _ZN5gimli4read6reader6Reader11read_offset17haccfa5cfe0240852E.exit1595: ; preds 
 
 301:                                              ; preds = %.lr.ph.i.i.i1596
   %302 = getelementptr inbounds nuw i8, ptr %299, i64 1
-  %303 = add nuw i64 %.011.i.i.i, 1
+  %303 = add i64 %.011.i.i.i, 1
   %304 = icmp eq ptr %302, %296
   br i1 %304, label %.loopexit2629, label %.lr.ph.i.i.i1596
 
@@ -17432,7 +17432,7 @@ define internal fastcc void @_ZN5gimli4read4unit15skip_attributes17he3699ba3cfc7
   %.sroa.5204 = alloca [7 x i8], align 2
   %8 = alloca { i8, [15 x i8] }, align 8
   %9 = getelementptr inbounds { i64, i16, i16, [2 x i16] }, ptr %3, i64 %4
-  %10 = icmp eq i64 %4, 0
+  %10 = icmp eq ptr %3, %9
   br i1 %10, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
@@ -17709,7 +17709,7 @@ define internal fastcc void @_ZN5gimli4read4unit15skip_attributes17he3699ba3cfc7
   %.val.i = load ptr, ptr %1, align 8, !alias.scope !3019, !noalias !3022, !nonnull !4, !align !171, !noundef !4
   %.val44.i = load i64, ptr %11, align 8, !alias.scope !3019, !noalias !3022, !noundef !4
   %87 = getelementptr inbounds i8, ptr %.val.i, i64 %.val44.i
-  %88 = icmp eq i64 %.val44.i, 0
+  %88 = icmp eq ptr %.val.i, %87
   br i1 %88, label %.loopexit379, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %86, %91
@@ -17721,7 +17721,7 @@ define internal fastcc void @_ZN5gimli4read4unit15skip_attributes17he3699ba3cfc7
 
 91:                                               ; preds = %.lr.ph.i.i.i
   %92 = getelementptr inbounds nuw i8, ptr %89, i64 1
-  %93 = add nuw i64 %.011.i.i.i, 1
+  %93 = add i64 %.011.i.i.i, 1
   %94 = icmp eq ptr %92, %87
   br i1 %94, label %.loopexit379, label %.lr.ph.i.i.i
 
@@ -21423,7 +21423,7 @@ define hidden void @"_ZN5gimli4read5dwarf14Dwarf$LT$R$GT$11attr_string17h557edb6
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3653)
   %20 = getelementptr inbounds i8, ptr %13, i64 %15
   %21 = ptrtoint ptr %19 to i64
-  %22 = icmp eq i64 %15, %11
+  %22 = icmp eq i64 %11, %15
   br i1 %22, label %.loopexit.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %17, %25
@@ -21504,7 +21504,7 @@ define hidden void @"_ZN5gimli4read5dwarf14Dwarf$LT$R$GT$11attr_string17h557edb6
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3673)
   %64 = getelementptr inbounds i8, ptr %57, i64 %59
   %65 = ptrtoint ptr %63 to i64
-  %66 = icmp eq i64 %59, %55
+  %66 = icmp eq i64 %55, %59
   br i1 %66, label %.loopexit.i.i24, label %.lr.ph.i.i.i.i21
 
 .lr.ph.i.i.i.i21:                                 ; preds = %61, %69
@@ -21572,7 +21572,7 @@ define hidden void @"_ZN5gimli4read5dwarf14Dwarf$LT$R$GT$11attr_string17h557edb6
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3693)
   %97 = getelementptr inbounds i8, ptr %90, i64 %92
   %98 = ptrtoint ptr %96 to i64
-  %99 = icmp eq i64 %92, %39
+  %99 = icmp eq i64 %39, %92
   br i1 %99, label %.loopexit.i.i33, label %.lr.ph.i.i.i.i30
 
 .lr.ph.i.i.i.i30:                                 ; preds = %94, %102
@@ -21637,7 +21637,7 @@ define hidden void @"_ZN5gimli4read5dwarf14Dwarf$LT$R$GT$11attr_string17h557edb6
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3713)
   %127 = getelementptr inbounds i8, ptr %120, i64 %122
   %128 = ptrtoint ptr %126 to i64
-  %129 = icmp eq i64 %122, %118
+  %129 = icmp eq i64 %118, %122
   br i1 %129, label %.loopexit.i.i43, label %.lr.ph.i.i.i.i40
 
 .lr.ph.i.i.i.i40:                                 ; preds = %124, %132
@@ -22942,7 +22942,7 @@ define hidden void @_ZN5gimli4read6reader6Reader26read_null_terminated_slice17h5
   %.val44 = load i64, ptr %3, align 8, !noundef !4
   %4 = getelementptr inbounds i8, ptr %.val, i64 %.val44
   %5 = ptrtoint ptr %.val to i64
-  %6 = icmp eq i64 %.val44, 0
+  %6 = icmp eq ptr %.val, %4
   br i1 %6, label %.loopexit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %2, %9
@@ -22954,7 +22954,7 @@ define hidden void @_ZN5gimli4read6reader6Reader26read_null_terminated_slice17h5
 
 9:                                                ; preds = %.lr.ph.i.i
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 1
-  %11 = add nuw i64 %.011.i.i, 1
+  %11 = add i64 %.011.i.i, 1
   %12 = icmp eq ptr %10, %4
   br i1 %12, label %.loopexit, label %.lr.ph.i.i
 
@@ -26552,7 +26552,7 @@ define hidden void @"_ZN6object4read5macho4file25MachOFile$LT$Mach$C$R$GT$5parse
 73:                                               ; preds = %71
   %74 = extractvalue { ptr, i64 } %70, 1
   %75 = getelementptr inbounds { [16 x i8], [16 x i8], i64, i64, i32, i32, i32, i32, i32, i32, i32, i32 }, ptr %72, i64 %74
-  %76 = icmp eq i64 %74, 0
+  %76 = icmp eq ptr %72, %75
   br i1 %76, label %.thread150, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %73
@@ -26969,7 +26969,7 @@ define hidden void @"_ZN6object4read5macho4file25MachOFile$LT$Mach$C$R$GT$5parse
 73:                                               ; preds = %71
   %74 = extractvalue { ptr, i64 } %70, 1
   %75 = getelementptr inbounds { [16 x i8], [16 x i8], i32, i32, i32, i32, i32, i32, i32, i32, i32 }, ptr %72, i64 %74
-  %76 = icmp eq i64 %74, 0
+  %76 = icmp eq ptr %72, %75
   br i1 %76, label %.thread150, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %73
@@ -30421,15 +30421,12 @@ define hidden void @"_ZN9addr2line16Context$LT$R$GT$11find_frames17h1209f5d37ff0
   unreachable
 
 32:                                               ; preds = %28
-  %33 = icmp eq i64 %29, 0
-  br i1 %33, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h35d8466560df3bfeE.llvm.14223331465801898566.exit.thread", label %.lr.ph.i.i.i.i.i.i.preheader
+  %33 = getelementptr inbounds { { i64, i64 }, i64, i64 }, ptr %11, i64 %29
+  %34 = icmp eq ptr %11, %33
+  br i1 %34, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h35d8466560df3bfeE.llvm.14223331465801898566.exit.thread", label %.lr.ph.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.preheader:                     ; preds = %32
-  %34 = getelementptr inbounds { { i64, i64 }, i64, i64 }, ptr %11, i64 %29
-  br label %.lr.ph.i.i.i.i.i.i
-
-.lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i.preheader, %57
-  %35 = phi ptr [ %36, %57 ], [ %34, %.lr.ph.i.i.i.i.i.i.preheader ]
+.lr.ph.i.i.i.i.i.i:                               ; preds = %32, %57
+  %35 = phi ptr [ %36, %57 ], [ %33, %32 ]
   %36 = getelementptr inbounds i8, ptr %35, i64 -32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.4.i.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.75.i.i.i.i.i.i)
@@ -31160,7 +31157,7 @@ define hidden void @"_ZN9addr2line16Context$LT$R$GT$11parse_units17h367bf8d00de3
   %180 = getelementptr inbounds { i64, i16, i16, [2 x i16] }, ptr %178, i64 %179
   %181 = icmp ne ptr %178, null
   call void @llvm.assume(i1 %181)
-  %182 = icmp eq i64 %179, 0
+  %182 = icmp eq ptr %178, %180
   br i1 %182, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h203b6c5c566d3df7E.exit.thread.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h203b6c5c566d3df7E.exit"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h203b6c5c566d3df7E.exit": ; preds = %177, %627
@@ -32474,7 +32471,7 @@ _ZN5gimli4read6reader6Reader12read_address17hdbb4a02ccb10cfa1E.exit491._crit_edg
   %528 = getelementptr inbounds nuw i8, ptr %522, i64 24
   %529 = load i64, ptr %528, align 8, !noundef !4
   %530 = getelementptr inbounds { { { { { ptr, i64 } }, {} }, {} }, i64, i64 }, ptr %527, i64 %529
-  %531 = icmp eq i64 %529, 0
+  %531 = icmp eq ptr %527, %530
   br i1 %531, label %.loopexit, label %.lr.ph1414.preheader
 
 .lr.ph1414.preheader:                             ; preds = %525
@@ -32880,7 +32877,7 @@ _ZN5gimli4read6reader6Reader12read_address17hdbb4a02ccb10cfa1E.exit491._crit_edg
   %649 = load ptr, ptr %81, align 8, !nonnull !4, !noundef !4
   %650 = load i64, ptr %82, align 8, !noundef !4
   %651 = getelementptr inbounds { { i64, i64 }, i64, i64 }, ptr %649, i64 %650
-  %652 = icmp eq i64 %650, 0
+  %652 = icmp eq ptr %649, %651
   br i1 %652, label %._crit_edge, label %.lr.ph1417
 
 ._crit_edge:                                      ; preds = %.lr.ph1417, %648
@@ -36041,7 +36038,7 @@ define internal fastcc void @_ZN9addr2line8function10name_entry17hf92eabcd009c27
   %49 = getelementptr inbounds { i64, i16, i16, [2 x i16] }, ptr %47, i64 %48
   %50 = icmp ne ptr %47, null
   call void @llvm.assume(i1 %50)
-  %51 = icmp eq i64 %48, 0
+  %51 = icmp eq ptr %47, %49
   br i1 %51, label %.thread, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h203b6c5c566d3df7E.exit.lr.ph"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h203b6c5c566d3df7E.exit.lr.ph": ; preds = %45
@@ -36474,7 +36471,7 @@ define internal fastcc void @"_ZN9addr2line8function17Function$LT$R$GT$14parse_c
   %156 = getelementptr inbounds { i64, i16, i16, [2 x i16] }, ptr %154, i64 %155
   %157 = icmp ne ptr %154, null
   call void @llvm.assume(i1 %157)
-  %158 = icmp eq i64 %155, 0
+  %158 = icmp eq ptr %154, %156
   br i1 %158, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h203b6c5c566d3df7E.exit.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h203b6c5c566d3df7E.exit"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h203b6c5c566d3df7E.exit": ; preds = %152, %323
@@ -37242,7 +37239,7 @@ define hidden void @"_ZN9addr2line8function17Function$LT$R$GT$5parse17h1398a64c7
   %60 = getelementptr inbounds { i64, i16, i16, [2 x i16] }, ptr %58, i64 %59
   %61 = icmp ne ptr %58, null
   call void @llvm.assume(i1 %61)
-  %62 = icmp eq i64 %59, 0
+  %62 = icmp eq ptr %58, %60
   br i1 %62, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h203b6c5c566d3df7E.exit.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h203b6c5c566d3df7E.exit.lr.ph"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h203b6c5c566d3df7E.exit.lr.ph": ; preds = %56
@@ -37766,7 +37763,7 @@ define hidden void @"_ZN9addr2line8function18Functions$LT$R$GT$5parse17hd7739247
   %97 = getelementptr inbounds { i64, i16, i16, [2 x i16] }, ptr %95, i64 %96
   %98 = icmp ne ptr %95, null
   call void @llvm.assume(i1 %98)
-  %99 = icmp eq i64 %96, 0
+  %99 = icmp eq ptr %95, %97
   br i1 %99, label %"_ZN9addr2line24RangeAttributes$LT$R$GT$14for_each_range17h55304288ca949be2E.exit.thread.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h203b6c5c566d3df7E.exit.outer"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h203b6c5c566d3df7E.exit.outer": ; preds = %94, %.loopexit511

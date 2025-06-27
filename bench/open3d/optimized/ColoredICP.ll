@@ -1090,7 +1090,7 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i112.i: ; preds = %_ZN5
   %173 = shl nuw i64 %160, 1
   %calloc = call ptr @calloc(i64 1, i64 %173)
   %174 = icmp eq ptr %calloc, null
-  br i1 %174, label %175, label %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE11setConstantERKd.exit.loopexit.i93.i
+  br i1 %174, label %175, label %.lr.ph.i.i.preheader.i.i.i.i.i.i.i.i.i.i.i93.i
 
 175:                                              ; preds = %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i112.i
   %176 = call ptr @__cxa_allocate_exception(i64 8) #30, !noalias !66
@@ -1115,16 +1115,16 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i112.i: ; preds = %_ZN5
   store i64 1, ptr %123, align 8, !tbaa !88, !noalias !66
   br label %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE7setZeroEv.exit94.i
 
-_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE11setConstantERKd.exit.loopexit.i93.i: ; preds = %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i112.i
+.lr.ph.i.i.preheader.i.i.i.i.i.i.i.i.i.i.i93.i:   ; preds = %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i112.i
   store ptr %calloc, ptr %12, align 8, !tbaa !89, !noalias !66
   store i64 %161, ptr %122, align 8, !tbaa !86, !noalias !66
   store i64 1, ptr %123, align 8, !tbaa !88, !noalias !66
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %168, i8 0, i64 %167, i1 false), !tbaa !35, !noalias !66
   br label %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE7setZeroEv.exit94.i
 
-_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE7setZeroEv.exit94.i: ; preds = %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE11setConstantERKd.exit.loopexit.i93.i, %.thread152.i
-  %.sink.i.i51 = phi ptr [ %168, %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE11setConstantERKd.exit.loopexit.i93.i ], [ null, %.thread152.i ]
-  %179 = phi ptr [ %calloc, %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE11setConstantERKd.exit.loopexit.i93.i ], [ null, %.thread152.i ]
+_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE7setZeroEv.exit94.i: ; preds = %.lr.ph.i.i.preheader.i.i.i.i.i.i.i.i.i.i.i93.i, %.thread152.i
+  %.sink.i.i51 = phi ptr [ %168, %.lr.ph.i.i.preheader.i.i.i.i.i.i.i.i.i.i.i93.i ], [ null, %.thread152.i ]
+  %179 = phi ptr [ %calloc, %.lr.ph.i.i.preheader.i.i.i.i.i.i.i.i.i.i.i93.i ], [ null, %.thread152.i ]
   %180 = icmp ugt i64 %161, 1
   br i1 %180, label %.lr.ph.i, label %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE7setZeroEv.exit94.._crit_edge_crit_edge.i
 
@@ -2327,17 +2327,17 @@ define linkonce_odr void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef 
   store double 0.000000e+00, ptr %5, align 8, !tbaa !35
   %20 = getelementptr i8, ptr %5, i64 8
   %21 = icmp eq i64 %1, 1
-  br i1 %21, label %_ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i
+  br i1 %21, label %_ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit, label %.lr.ph.i.i.preheader.i.i.i.i.i
 
-_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
+.lr.ph.i.i.preheader.i.i.i.i.i:                   ; preds = %19
   %22 = shl i64 %1, 3
   %23 = add i64 %22, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %23, i1 false), !tbaa !35
   %24 = getelementptr double, ptr %5, i64 %1
   br label %_ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit
 
-_ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %24, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
+_ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit: ; preds = %19, %.lr.ph.i.i.preheader.i.i.i.i.i
+  %.0.i.i.i = phi ptr [ %20, %19 ], [ %24, %.lr.ph.i.i.preheader.i.i.i.i.i ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !118
   br label %43
 
@@ -2358,16 +2358,16 @@ _ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit:    ; preds = %25
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 %9
   store double 0.000000e+00, ptr %32, align 8, !tbaa !35
   %33 = icmp eq i64 %1, 1
-  br i1 %33, label %_ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit32, label %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i30
+  br i1 %33, label %_ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit32, label %.lr.ph.i.i.preheader.i.i.i.i.i30
 
-_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i30: ; preds = %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit
+.lr.ph.i.i.preheader.i.i.i.i.i30:                 ; preds = %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit
   %34 = getelementptr i8, ptr %32, i64 8
   %35 = shl nuw nsw i64 %1, 3
   %36 = add nsw i64 %35, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %34, i8 0, i64 %36, i1 false), !tbaa !35
   br label %_ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit32
 
-_ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit32: ; preds = %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i30, %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit
+_ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit32: ; preds = %.lr.ph.i.i.preheader.i.i.i.i.i30, %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit
   %37 = icmp sgt i64 %9, 0
   br i1 %37, label %38, label %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit
 
@@ -3122,8 +3122,7 @@ define linkonce_odr void @_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaI
 19:                                               ; preds = %14
   %20 = sub i64 0, %2
   %21 = getelementptr inbounds %"class.Eigen::Matrix.94", ptr %9, i64 %20
-  %.idx = mul i64 %2, -24
-  %.not11.i.i.i.i.i = icmp eq i64 %.idx, 0
+  %.not11.i.i.i.i.i = icmp eq ptr %21, %9
   br i1 %.not11.i.i.i.i.i, label %_ZSt22__uninitialized_move_aIPN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEES3_SaIS2_EET0_T_S6_S5_RT1_.exit, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %19, %.lr.ph.i.i.i.i.i
@@ -3444,15 +3443,15 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 40:                                               ; preds = %27
   %41 = mul i64 %28, %29
   %42 = icmp slt i64 %41, 1
-  br i1 %42, label %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE7setZeroEv.exit.i, label %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE11setConstantERKd.exit.loopexit.i.i
+  br i1 %42, label %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE7setZeroEv.exit.i, label %.lr.ph.i.i.preheader.i.i.i.i.i.i.i.i.i.i.i.i
 
-_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE11setConstantERKd.exit.loopexit.i.i: ; preds = %40
+.lr.ph.i.i.preheader.i.i.i.i.i.i.i.i.i.i.i.i:     ; preds = %40
   %43 = load ptr, ptr %0, align 8, !tbaa !89
   %44 = shl i64 %41, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %43, i8 0, i64 %44, i1 false), !tbaa !35
   br label %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE7setZeroEv.exit.i
 
-_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE7setZeroEv.exit.i: ; preds = %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE11setConstantERKd.exit.loopexit.i.i, %40
+_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE7setZeroEv.exit.i: ; preds = %.lr.ph.i.i.preheader.i.i.i.i.i.i.i.i.i.i.i.i, %40
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #30
   store double 1.000000e+00, ptr %6, align 8, !tbaa !35
   call void @_ZN5Eigen8internal20generic_product_implINS_9TransposeINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEES4_NS_10DenseShapeES6_Li8EE13scaleAndAddToIS4_EEvRT_RKS5_RKS4_RKd(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(8) %6)
@@ -9296,15 +9295,15 @@ _ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdL
 
 116:                                              ; preds = %3
   %117 = icmp slt i64 %11, 1
-  br i1 %117, label %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEv.exit, label %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11setConstantERKd.exit.loopexit.i
+  br i1 %117, label %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEv.exit, label %.lr.ph.i.i.preheader.i.i.i.i.i.i.i.i.i.i.i
 
-_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11setConstantERKd.exit.loopexit.i: ; preds = %116
+.lr.ph.i.i.preheader.i.i.i.i.i.i.i.i.i.i.i:       ; preds = %116
   %118 = load ptr, ptr %0, align 8, !tbaa !91
   %119 = shl i64 %11, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %118, i8 0, i64 %119, i1 false), !tbaa !35
   br label %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEv.exit
 
-_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEv.exit: ; preds = %116, %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11setConstantERKd.exit.loopexit.i
+_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEv.exit: ; preds = %116, %.lr.ph.i.i.preheader.i.i.i.i.i.i.i.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #30
   store double 1.000000e+00, ptr %7, align 8, !tbaa !35
   %120 = load ptr, ptr %1, align 8, !tbaa !163

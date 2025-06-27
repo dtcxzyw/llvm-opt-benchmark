@@ -7450,32 +7450,29 @@ define internal fastcc void @format_duration(ptr noundef captures(address) %0, i
 
 39:                                               ; preds = %11, %28, %35, %15, %9
   %40 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.041) #19
-  %.not = icmp eq i64 %40, 0
-  br i1 %.not, label %.critedge44, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %39
   %41 = getelementptr inbounds nuw i8, ptr %.041, i64 %40
-  br label %.lr.ph
+  %42 = icmp ugt ptr %41, %.041
+  br i1 %42, label %.lr.ph, label %.critedge44
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %44
-  %.055 = phi ptr [ %42, %44 ], [ %41, %.lr.ph.preheader ]
-  %42 = getelementptr inbounds i8, ptr %.055, i64 -1
-  %43 = load i8, ptr %42, align 1, !tbaa !29
-  switch i8 %43, label %.critedge44 [
-    i8 48, label %44
-    i8 46, label %46
+.lr.ph:                                           ; preds = %39, %45
+  %.055 = phi ptr [ %43, %45 ], [ %41, %39 ]
+  %43 = getelementptr inbounds i8, ptr %.055, i64 -1
+  %44 = load i8, ptr %43, align 1, !tbaa !29
+  switch i8 %44, label %.critedge44 [
+    i8 48, label %45
+    i8 46, label %47
   ]
 
-44:                                               ; preds = %.lr.ph
-  store i8 0, ptr %42, align 1, !tbaa !29
-  %45 = icmp ugt ptr %42, %.041
-  br i1 %45, label %.lr.ph, label %.critedge44, !llvm.loop !114
+45:                                               ; preds = %.lr.ph
+  store i8 0, ptr %43, align 1, !tbaa !29
+  %46 = icmp ugt ptr %43, %.041
+  br i1 %46, label %.lr.ph, label %.critedge44, !llvm.loop !114
 
-46:                                               ; preds = %.lr.ph
-  store i8 0, ptr %42, align 1, !tbaa !29
+47:                                               ; preds = %.lr.ph
+  store i8 0, ptr %43, align 1, !tbaa !29
   br label %.critedge44
 
-.critedge44:                                      ; preds = %44, %.lr.ph, %39, %46
+.critedge44:                                      ; preds = %45, %.lr.ph, %39, %47
   ret void
 }
 

@@ -351,15 +351,12 @@ define hidden { ptr, ptr } @_ZN7uu_fold18fold_file_bytewise17h124db9fe0d382980E(
 
 82:                                               ; preds = %79
   call void @llvm.experimental.noalias.scope.decl(metadata !47)
-  %83 = icmp eq i64 %.173, 0
-  br i1 %83, label %.loopexit, label %.lr.ph.i.preheader.i
+  %83 = getelementptr inbounds i8, ptr %80, i64 %.173
+  %84 = icmp eq ptr %80, %83
+  br i1 %84, label %.loopexit, label %.lr.ph.i.i
 
-.lr.ph.i.preheader.i:                             ; preds = %82
-  %84 = getelementptr inbounds i8, ptr %80, i64 %.173
-  br label %.lr.ph.i.i
-
-.lr.ph.i.i:                                       ; preds = %146, %.lr.ph.i.preheader.i
-  %85 = phi ptr [ %.sink.i.i.i, %146 ], [ %84, %.lr.ph.i.preheader.i ]
+.lr.ph.i.i:                                       ; preds = %82, %146
+  %85 = phi ptr [ %.sink.i.i.i, %146 ], [ %83, %82 ]
   %86 = getelementptr inbounds i8, ptr %85, i64 -1
   %87 = load i8, ptr %86, align 1, !alias.scope !47, !noalias !50, !noundef !5
   %88 = icmp sgt i8 %87, -1
@@ -756,7 +753,7 @@ define hidden { ptr, ptr } @_ZN7uu_fold9fold_file17h3dc381615f276ae5E(ptr noalia
   %70 = load ptr, ptr %.sroa.339.0..sroa_idx, align 8, !nonnull !5, !noundef !5
   %71 = load i64, ptr %.sroa.442.0..sroa_idx, align 8, !noundef !5
   %72 = getelementptr inbounds i8, ptr %70, i64 %71
-  %73 = icmp eq i64 %71, 0
+  %73 = icmp eq ptr %70, %72
   br i1 %73, label %thread-pre-split, label %.lr.ph
 
 74:                                               ; preds = %75, %.loopexit.split-lp

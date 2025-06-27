@@ -29874,12 +29874,12 @@ define { ptr, ptr } @_ZN10tokenizers5utils7padding13pad_encodings17h8d5a86c09f0b
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %35 = load i64, ptr %34, align 8, !noundef !4
   %.not = icmp eq i64 %35, 0
-  br i1 %.not, label %36, label %51
+  br i1 %.not, label %36, label %53
 
-36:                                               ; preds = %30, %51, %33, %53
-  %37 = phi i64 [ %storemerge, %30 ], [ %storemerge, %51 ], [ %storemerge, %33 ], [ %55, %53 ]
+36:                                               ; preds = %30, %53, %33, %55
+  %37 = phi i64 [ %storemerge, %30 ], [ %storemerge, %53 ], [ %storemerge, %33 ], [ %57, %55 ]
   %38 = call noundef zeroext i1 @_ZN10tokenizers5utils11parallelism15get_parallelism17h553a2769088f8814E(), !noalias !8021
-  br i1 %38, label %39, label %.lr.ph.i.i
+  br i1 %38, label %39, label %41
 
 39:                                               ; preds = %36
   store i8 1, ptr @_ZN10tokenizers5utils11parallelism16USED_PARALLELISM17h9be1cc9045796a51E, align 1, !noalias !8021
@@ -29891,41 +29891,45 @@ define { ptr, ptr } @_ZN10tokenizers5utils7padding13pad_encodings17h8d5a86c09f0b
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !8025
   br label %"_ZN10rayon_cond25CondIterator$LT$P$C$S$GT$8for_each17h99d7d96a70b9ef8fE.exit"
 
-.lr.ph.i.i:                                       ; preds = %36
-  %41 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, ptr %0, i64 %1
-  %42 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %43 = getelementptr inbounds nuw i8, ptr %2, i64 60
-  %44 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %45 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %46 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %.pre = load i32, ptr %42, align 8, !noalias !8036
-  %.pre30 = load i32, ptr %43, align 4, !noalias !8036
-  %.pre31 = load ptr, ptr %44, align 8, !alias.scope !8043, !noalias !8036
-  %.pre32 = load i64, ptr %45, align 8, !alias.scope !8043, !noalias !8036
-  %.pre33 = load i8, ptr %46, align 8, !range !7775, !noalias !8036
-  %47 = trunc nuw i8 %.pre33 to i1
-  br label %48
+41:                                               ; preds = %36
+  %42 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, ptr %0, i64 %1
+  %43 = icmp eq ptr %0, %42
+  br i1 %43, label %"_ZN10rayon_cond25CondIterator$LT$P$C$S$GT$8for_each17h99d7d96a70b9ef8fE.exit", label %.lr.ph.i.i
 
-48:                                               ; preds = %48, %.lr.ph.i.i
-  %.sroa.0.06.i.i = phi ptr [ %0, %.lr.ph.i.i ], [ %49, %48 ]
-  %49 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i.i, i64 240
-  call void @_ZN10tokenizers9tokenizer8encoding8Encoding3pad17h9a2ef012c0e8cebdE(ptr noalias noundef nonnull align 8 dereferenceable(240) %.sroa.0.06.i.i, i64 noundef %37, i32 noundef %.pre, i32 noundef %.pre30, ptr noalias noundef nonnull readonly align 1 %.pre31, i64 noundef %.pre32, i1 noundef zeroext %47), !noalias !8046
-  %50 = icmp eq ptr %49, %41
-  br i1 %50, label %"_ZN10rayon_cond25CondIterator$LT$P$C$S$GT$8for_each17h99d7d96a70b9ef8fE.exit", label %48
+.lr.ph.i.i:                                       ; preds = %41
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %45 = getelementptr inbounds nuw i8, ptr %2, i64 60
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %47 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %48 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %.pre = load i32, ptr %44, align 8, !noalias !8036
+  %.pre30 = load i32, ptr %45, align 4, !noalias !8036
+  %.pre31 = load ptr, ptr %46, align 8, !alias.scope !8043, !noalias !8036
+  %.pre32 = load i64, ptr %47, align 8, !alias.scope !8043, !noalias !8036
+  %.pre33 = load i8, ptr %48, align 8, !range !7775, !noalias !8036
+  %49 = trunc nuw i8 %.pre33 to i1
+  br label %50
 
-"_ZN10rayon_cond25CondIterator$LT$P$C$S$GT$8for_each17h99d7d96a70b9ef8fE.exit": ; preds = %48, %39
+50:                                               ; preds = %50, %.lr.ph.i.i
+  %.sroa.0.06.i.i = phi ptr [ %0, %.lr.ph.i.i ], [ %51, %50 ]
+  %51 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i.i, i64 240
+  call void @_ZN10tokenizers9tokenizer8encoding8Encoding3pad17h9a2ef012c0e8cebdE(ptr noalias noundef nonnull align 8 dereferenceable(240) %.sroa.0.06.i.i, i64 noundef %37, i32 noundef %.pre, i32 noundef %.pre30, ptr noalias noundef nonnull readonly align 1 %.pre31, i64 noundef %.pre32, i1 noundef zeroext %49), !noalias !8046
+  %52 = icmp eq ptr %51, %42
+  br i1 %52, label %"_ZN10rayon_cond25CondIterator$LT$P$C$S$GT$8for_each17h99d7d96a70b9ef8fE.exit", label %50
+
+"_ZN10rayon_cond25CondIterator$LT$P$C$S$GT$8for_each17h99d7d96a70b9ef8fE.exit": ; preds = %50, %39, %41
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   br label %13
 
-51:                                               ; preds = %33
-  %52 = urem i64 %storemerge, %35
-  %.not7 = icmp eq i64 %52, 0
-  br i1 %.not7, label %36, label %53
+53:                                               ; preds = %33
+  %54 = urem i64 %storemerge, %35
+  %.not7 = icmp eq i64 %54, 0
+  br i1 %.not7, label %36, label %55
 
-53:                                               ; preds = %51
-  %54 = add i64 %35, %storemerge
-  %55 = sub i64 %54, %52
-  store i64 %55, ptr %8, align 8
+55:                                               ; preds = %53
+  %56 = add i64 %35, %storemerge
+  %57 = sub i64 %56, %54
+  store i64 %57, ptr %8, align 8
   br label %36
 }
 

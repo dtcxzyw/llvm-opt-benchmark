@@ -527,7 +527,8 @@ invoke.cont4:                                     ; preds = %if.then.i.i.i.i.i.i
   store i8 1, ptr %ZBuffer.i, align 8, !tbaa !48
   %bf.set6.i = or disjoint i16 %bf.clear21.i, 108
   store i16 %bf.set6.i, ptr %Wireframe.i, align 8
-  br i1 %tobool.not.i.i.i.i.i.i.i.i.i, label %_ZN18PostProcessingStep17configureMaterialEv.exit, label %for.body.i
+  %cmp36.not.i = icmp eq ptr %add.ptr.i.i.i.i.i.i.i.i.i, %cond.i.i.i.i
+  br i1 %cmp36.not.i, label %_ZN18PostProcessingStep17configureMaterialEv.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %invoke.cont4, %for.body.i
   %conv38.i = phi i64 [ %conv.i, %for.body.i ], [ 0, %invoke.cont4 ]
@@ -727,7 +728,8 @@ invoke.cont3:                                     ; preds = %if.then.i.i.i.i.i.i
   store i8 1, ptr %ZBuffer.i, align 8, !tbaa !48
   %bf.set6.i = or disjoint i16 %bf.clear21.i, 108
   store i16 %bf.set6.i, ptr %Wireframe.i, align 8
-  br i1 %tobool.not.i.i.i.i.i.i.i.i.i, label %_ZN18PostProcessingStep17configureMaterialEv.exit, label %for.body.i
+  %cmp36.not.i = icmp eq ptr %add.ptr.i.i.i.i.i.i.i.i.i, %cond.i.i.i.i
+  br i1 %cmp36.not.i, label %_ZN18PostProcessingStep17configureMaterialEv.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %invoke.cont3, %for.body.i
   %conv38.i = phi i64 [ %conv.i, %for.body.i ], [ 0, %invoke.cont3 ]

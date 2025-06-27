@@ -478,7 +478,7 @@ define hidden { i64, i64 } @_ZN10serde_json4read9SliceRead17position_of_index17h
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb50f686c68ecdff8E.llvm.5010337980914317090.exit": ; preds = %2
   %7 = load ptr, ptr %0, align 8, !nonnull !13, !align !75, !noundef !13
   %8 = getelementptr inbounds i8, ptr %7, i64 %1
-  %9 = icmp eq i64 %1, 0
+  %9 = icmp eq ptr %7, %8
   br i1 %9, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb50f686c68ecdff8E.llvm.5010337980914317090.exit"
@@ -520,7 +520,7 @@ define { i64, i64 } @"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_jso
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb50f686c68ecdff8E.llvm.5010337980914317090.exit.i": ; preds = %1
   %8 = load ptr, ptr %0, align 8, !alias.scope !76, !nonnull !13, !align !75, !noundef !13
   %9 = getelementptr inbounds i8, ptr %8, i64 %3
-  %10 = icmp eq i64 %3, 0
+  %10 = icmp eq ptr %8, %9
   br i1 %10, label %_ZN10serde_json4read9SliceRead17position_of_index17h02c4711b4edef64dE.llvm.5010337980914317090.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb50f686c68ecdff8E.llvm.5010337980914317090.exit.i", %.lr.ph.i
@@ -557,7 +557,7 @@ define { i64, i64 } @"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_jso
   tail call void @llvm.experimental.noalias.scope.decl(metadata !82)
   %6 = load ptr, ptr %0, align 8, !alias.scope !82, !nonnull !13, !align !75, !noundef !13
   %7 = getelementptr inbounds i8, ptr %6, i64 %.0.sroa.speculated.i
-  %8 = icmp eq i64 %.0.sroa.speculated.i, 0
+  %8 = icmp eq ptr %6, %7
   br i1 %8, label %_ZN10serde_json4read9SliceRead17position_of_index17h02c4711b4edef64dE.llvm.5010337980914317090.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb50f686c68ecdff8E.llvm.5010337980914317090.exit.i", %.lr.ph.i
@@ -647,7 +647,7 @@ define noundef align 8 ptr @"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$se
   tail call void @llvm.experimental.noalias.scope.decl(metadata !92)
   %24 = load ptr, ptr %0, align 8, !alias.scope !95, !noalias !96, !nonnull !13, !align !75, !noundef !13
   %25 = getelementptr inbounds i8, ptr %24, i64 %.lcssa22
-  %26 = icmp eq i64 %.lcssa22, 0
+  %26 = icmp eq ptr %24, %25
   br i1 %26, label %_ZN10serde_json4read5error17h163b424e2d9691fcE.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb50f686c68ecdff8E.llvm.5010337980914317090.exit.i.i.i", %.lr.ph.i.i.i
@@ -685,7 +685,7 @@ _ZN10serde_json4read5error17h163b424e2d9691fcE.exit: ; preds = %.lr.ph.i.i.i, %"
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb50f686c68ecdff8E.llvm.5010337980914317090.exit.i.i.i7": ; preds = %34
   %36 = getelementptr inbounds [0 x i8], ptr %12, i64 0, i64 %11
-  %37 = icmp eq i64 %11, 0
+  %37 = icmp eq ptr %12, %36
   br i1 %37, label %_ZN10serde_json4read5error17h163b424e2d9691fcE.exit17, label %.lr.ph.i.i.i8
 
 .lr.ph.i.i.i8:                                    ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb50f686c68ecdff8E.llvm.5010337980914317090.exit.i.i.i7", %.lr.ph.i.i.i8
@@ -757,7 +757,7 @@ define void @"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_json..read.
   tail call void @llvm.experimental.noalias.scope.decl(metadata !118)
   %12 = load ptr, ptr %1, align 8, !alias.scope !121, !noalias !122, !nonnull !13, !align !75, !noundef !13
   %13 = getelementptr inbounds i8, ptr %12, i64 %9
-  %14 = icmp eq i64 %9, 0
+  %14 = icmp eq ptr %12, %13
   br i1 %14, label %_ZN10serde_json4read5error17h53e783baf89b9e7dE.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb50f686c68ecdff8E.llvm.5010337980914317090.exit.i.i.i", %.lr.ph.i.i.i
@@ -785,15 +785,15 @@ _ZN10serde_json4read5error17h53e783baf89b9e7dE.exit: ; preds = %.lr.ph.i.i.i, %"
   store ptr %21, ptr %22, align 8, !alias.scope !110, !noalias !127
   br label %29
 
-23:                                               ; preds = %47
+23:                                               ; preds = %48
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 %50, ptr %24, align 2
+  store i16 %51, ptr %24, align 2
   br label %29
 
-25:                                               ; preds = %.preheader, %47
-  %.sroa.0.031 = phi i32 [ 0, %.preheader ], [ %27, %47 ]
-  %.030 = phi i16 [ 0, %.preheader ], [ %50, %47 ]
-  %26 = phi i64 [ %6, %.preheader ], [ %36, %47 ]
+25:                                               ; preds = %.preheader, %48
+  %.sroa.0.031 = phi i32 [ 0, %.preheader ], [ %27, %48 ]
+  %.030 = phi i16 [ 0, %.preheader ], [ %51, %48 ]
+  %26 = phi i64 [ %6, %.preheader ], [ %36, %48 ]
   %27 = add nuw nsw i32 %.sroa.0.031, 1
   %28 = icmp ult i64 %26, %9
   br i1 %28, label %30, label %37, !prof !128
@@ -812,7 +812,7 @@ _ZN10serde_json4read5error17h53e783baf89b9e7dE.exit: ; preds = %.lr.ph.i.i.i, %"
   %.not = icmp eq i8 %35, -1
   %36 = add nuw i64 %26, 1
   store i64 %36, ptr %5, align 8
-  br i1 %.not, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb50f686c68ecdff8E.llvm.5010337980914317090.exit.i.i.i11", label %47
+  br i1 %.not, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb50f686c68ecdff8E.llvm.5010337980914317090.exit.i.i.i11", label %48
 
 37:                                               ; preds = %25
   tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %26, i64 noundef %9, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a356725989ec8dca616dc0cb15d607e7.12) #19
@@ -821,35 +821,38 @@ _ZN10serde_json4read5error17h53e783baf89b9e7dE.exit: ; preds = %.lr.ph.i.i.i, %"
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb50f686c68ecdff8E.llvm.5010337980914317090.exit.i.i.i11": ; preds = %30
   tail call void @llvm.experimental.noalias.scope.decl(metadata !129)
   %38 = getelementptr inbounds i8, ptr %11, i64 %36
-  br label %.lr.ph.i.i.i12
+  %39 = icmp eq ptr %11, %38
+  br i1 %39, label %_ZN10serde_json4read5error17h53e783baf89b9e7dE.exit21, label %.lr.ph.i.i.i12
 
 .lr.ph.i.i.i12:                                   ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb50f686c68ecdff8E.llvm.5010337980914317090.exit.i.i.i11", %.lr.ph.i.i.i12
   %.sroa.0.015.i.i.i13 = phi i64 [ %.sroa.0.1.i.i.i17, %.lr.ph.i.i.i12 ], [ 1, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb50f686c68ecdff8E.llvm.5010337980914317090.exit.i.i.i11" ]
   %.sroa.4.014.i.i.i14 = phi i64 [ %.sroa.4.1.i.i.i16, %.lr.ph.i.i.i12 ], [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb50f686c68ecdff8E.llvm.5010337980914317090.exit.i.i.i11" ]
-  %.sroa.0.0913.i.i.i15 = phi ptr [ %39, %.lr.ph.i.i.i12 ], [ %11, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb50f686c68ecdff8E.llvm.5010337980914317090.exit.i.i.i11" ]
-  %39 = getelementptr inbounds nuw i8, ptr %.sroa.0.0913.i.i.i15, i64 1
-  %40 = load i8, ptr %.sroa.0.0913.i.i.i15, align 1, !noalias !132, !noundef !13
-  %41 = icmp eq i8 %40, 10
-  %42 = add i64 %.sroa.4.014.i.i.i14, 1
-  %.sroa.4.1.i.i.i16 = select i1 %41, i64 0, i64 %42
-  %43 = zext i1 %41 to i64
-  %.sroa.0.1.i.i.i17 = add i64 %.sroa.0.015.i.i.i13, %43
-  %44 = icmp eq ptr %39, %38
-  br i1 %44, label %_ZN10serde_json4read5error17h53e783baf89b9e7dE.exit21, label %.lr.ph.i.i.i12
+  %.sroa.0.0913.i.i.i15 = phi ptr [ %40, %.lr.ph.i.i.i12 ], [ %11, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb50f686c68ecdff8E.llvm.5010337980914317090.exit.i.i.i11" ]
+  %40 = getelementptr inbounds nuw i8, ptr %.sroa.0.0913.i.i.i15, i64 1
+  %41 = load i8, ptr %.sroa.0.0913.i.i.i15, align 1, !noalias !132, !noundef !13
+  %42 = icmp eq i8 %41, 10
+  %43 = add i64 %.sroa.4.014.i.i.i14, 1
+  %.sroa.4.1.i.i.i16 = select i1 %42, i64 0, i64 %43
+  %44 = zext i1 %42 to i64
+  %.sroa.0.1.i.i.i17 = add i64 %.sroa.0.015.i.i.i13, %44
+  %45 = icmp eq ptr %40, %38
+  br i1 %45, label %_ZN10serde_json4read5error17h53e783baf89b9e7dE.exit21, label %.lr.ph.i.i.i12
 
-_ZN10serde_json4read5error17h53e783baf89b9e7dE.exit21: ; preds = %.lr.ph.i.i.i12
+_ZN10serde_json4read5error17h53e783baf89b9e7dE.exit21: ; preds = %.lr.ph.i.i.i12, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb50f686c68ecdff8E.llvm.5010337980914317090.exit.i.i.i11"
+  %.sroa.4.0.lcssa.i.i.i18 = phi i64 [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb50f686c68ecdff8E.llvm.5010337980914317090.exit.i.i.i11" ], [ %.sroa.4.1.i.i.i16, %.lr.ph.i.i.i12 ]
+  %.sroa.0.0.lcssa.i.i.i19 = phi i64 [ 1, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb50f686c68ecdff8E.llvm.5010337980914317090.exit.i.i.i11" ], [ %.sroa.0.1.i.i.i17, %.lr.ph.i.i.i12 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !139
   store i64 12, ptr %3, align 8, !noalias !140
-  %45 = call noundef nonnull align 8 ptr @_ZN10serde_json5error5Error6syntax17h923767d9ec04bba7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %3, i64 noundef %.sroa.0.1.i.i.i17, i64 noundef %.sroa.4.1.i.i.i16), !noalias !139
+  %46 = call noundef nonnull align 8 ptr @_ZN10serde_json5error5Error6syntax17h923767d9ec04bba7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %3, i64 noundef %.sroa.0.0.lcssa.i.i.i19, i64 noundef %.sroa.4.0.lcssa.i.i.i18), !noalias !139
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !139
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %45, ptr %46, align 8, !alias.scope !129, !noalias !141
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %46, ptr %47, align 8, !alias.scope !129, !noalias !141
   br label %29
 
-47:                                               ; preds = %30
-  %48 = zext i8 %35 to i16
-  %49 = shl i16 %.030, 4
-  %50 = add i16 %49, %48
+48:                                               ; preds = %30
+  %49 = zext i8 %35 to i16
+  %50 = shl i16 %.030, 4
+  %51 = add i16 %50, %49
   %exitcond.not = icmp eq i32 %27, 4
   br i1 %exitcond.not, label %23, label %25
 }
@@ -882,7 +885,7 @@ define { i64, i64 } @"_ZN68_$LT$serde_json..read..StrRead$u20$as$u20$serde_json.
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb50f686c68ecdff8E.llvm.5010337980914317090.exit.i.i": ; preds = %1
   %8 = load ptr, ptr %0, align 8, !alias.scope !148, !nonnull !13, !align !75, !noundef !13
   %9 = getelementptr inbounds i8, ptr %8, i64 %3
-  %10 = icmp eq i64 %3, 0
+  %10 = icmp eq ptr %8, %9
   br i1 %10, label %"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_json..read..Read$GT$8position17hbaf1c2126e026048E.exit", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb50f686c68ecdff8E.llvm.5010337980914317090.exit.i.i", %.lr.ph.i.i
@@ -919,7 +922,7 @@ define { i64, i64 } @"_ZN68_$LT$serde_json..read..StrRead$u20$as$u20$serde_json.
   tail call void @llvm.experimental.noalias.scope.decl(metadata !155)
   %7 = load ptr, ptr %0, align 8, !alias.scope !158, !nonnull !13, !align !75, !noundef !13
   %8 = getelementptr inbounds i8, ptr %7, i64 %.0.sroa.speculated.i.i
-  %9 = icmp eq i64 %.0.sroa.speculated.i.i, 0
+  %9 = icmp eq ptr %7, %8
   br i1 %9, label %"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_json..read..Read$GT$13peek_position17h91f521185fa3e670E.exit", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %1, %.lr.ph.i.i

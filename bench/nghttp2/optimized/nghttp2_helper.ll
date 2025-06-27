@@ -441,7 +441,7 @@ define range(i32 0, 2) i32 @nghttp2_check_header_name(ptr noundef readonly captu
 4:                                                ; preds = %2
   %5 = load i8, ptr %0, align 1, !tbaa !3
   %6 = icmp eq i8 %5, 58
-  br i1 %6, label %7, label %.lr.ph.preheader
+  br i1 %6, label %7, label %12
 
 7:                                                ; preds = %4
   %8 = icmp eq i64 %1, 1
@@ -450,37 +450,38 @@ define range(i32 0, 2) i32 @nghttp2_check_header_name(ptr noundef readonly captu
 9:                                                ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %11 = add i64 %1, -1
-  br label %.lr.ph.preheader
+  br label %12
 
-.lr.ph.preheader:                                 ; preds = %4, %9
+12:                                               ; preds = %9, %4
   %.012 = phi ptr [ %10, %9 ], [ %0, %4 ]
   %.011 = phi i64 [ %11, %9 ], [ %1, %4 ]
-  %12 = getelementptr inbounds nuw i8, ptr %.012, i64 %.011
-  br label %.lr.ph
+  %13 = getelementptr inbounds nuw i8, ptr %.012, i64 %.011
+  %.not15 = icmp eq ptr %.012, %13
+  br i1 %.not15, label %.loopexit, label %.lr.ph
 
-13:                                               ; preds = %.lr.ph
-  %14 = getelementptr inbounds nuw i8, ptr %.116, i64 1
-  %.not = icmp eq ptr %14, %12
+14:                                               ; preds = %.lr.ph
+  %15 = getelementptr inbounds nuw i8, ptr %.116, i64 1
+  %.not = icmp eq ptr %15, %13
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %13
-  %.116 = phi ptr [ %14, %13 ], [ %.012, %.lr.ph.preheader ]
-  %15 = load i8, ptr %.116, align 1, !tbaa !3
-  %16 = zext i8 %15 to i64
-  %17 = getelementptr inbounds nuw [256 x i32], ptr @VALID_HD_NAME_CHARS, i64 0, i64 %16
-  %18 = load i32, ptr %17, align 4, !tbaa !8
-  %.not14 = icmp eq i32 %18, 0
-  br i1 %.not14, label %.loopexit, label %13
+.lr.ph:                                           ; preds = %12, %14
+  %.116 = phi ptr [ %15, %14 ], [ %.012, %12 ]
+  %16 = load i8, ptr %.116, align 1, !tbaa !3
+  %17 = zext i8 %16 to i64
+  %18 = getelementptr inbounds nuw [256 x i32], ptr @VALID_HD_NAME_CHARS, i64 0, i64 %17
+  %19 = load i32, ptr %18, align 4, !tbaa !8
+  %.not14 = icmp eq i32 %19, 0
+  br i1 %.not14, label %.loopexit, label %14
 
-.loopexit:                                        ; preds = %.lr.ph, %13, %7, %2
-  %.0 = phi i32 [ 0, %2 ], [ 0, %7 ], [ 0, %.lr.ph ], [ 1, %13 ]
+.loopexit:                                        ; preds = %.lr.ph, %14, %12, %7, %2
+  %.0 = phi i32 [ 0, %2 ], [ 0, %7 ], [ 1, %12 ], [ 0, %.lr.ph ], [ 1, %14 ]
   ret i32 %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define range(i32 0, 2) i32 @nghttp2_check_header_value(ptr noundef readonly captures(address) %0, i64 noundef %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 %1
-  %.not8 = icmp samesign eq i64 %1, 0
+  %.not8 = icmp eq ptr %0, %3
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
 4:                                                ; preds = %.lr.ph
@@ -545,35 +546,36 @@ nghttp2_check_header_value.exit:                  ; preds = %.lr.ph.i, %10, %4, 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define range(i32 0, 2) i32 @nghttp2_check_method(ptr noundef readonly captures(address) %0, i64 noundef %1) local_unnamed_addr #8 {
   %3 = icmp eq i64 %1, 0
-  br i1 %3, label %.loopexit, label %.lr.ph.preheader
+  br i1 %3, label %.loopexit, label %4
 
-.lr.ph.preheader:                                 ; preds = %2
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 %1
-  br label %.lr.ph
+4:                                                ; preds = %2
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 %1
+  %.not10 = icmp eq ptr %0, %5
+  br i1 %.not10, label %.loopexit, label %.lr.ph
 
-5:                                                ; preds = %.lr.ph
-  %6 = getelementptr inbounds nuw i8, ptr %.0711, i64 1
-  %.not = icmp eq ptr %6, %4
+6:                                                ; preds = %.lr.ph
+  %7 = getelementptr inbounds nuw i8, ptr %.0711, i64 1
+  %.not = icmp eq ptr %7, %5
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !12
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %5
-  %.0711 = phi ptr [ %6, %5 ], [ %0, %.lr.ph.preheader ]
-  %7 = load i8, ptr %.0711, align 1, !tbaa !3
-  %8 = zext i8 %7 to i64
-  %9 = getelementptr inbounds nuw [256 x i8], ptr @VALID_METHOD_CHARS, i64 0, i64 %8
-  %10 = load i8, ptr %9, align 1, !tbaa !3
-  %.not9 = icmp eq i8 %10, 0
-  br i1 %.not9, label %.loopexit, label %5
+.lr.ph:                                           ; preds = %4, %6
+  %.0711 = phi ptr [ %7, %6 ], [ %0, %4 ]
+  %8 = load i8, ptr %.0711, align 1, !tbaa !3
+  %9 = zext i8 %8 to i64
+  %10 = getelementptr inbounds nuw [256 x i8], ptr @VALID_METHOD_CHARS, i64 0, i64 %9
+  %11 = load i8, ptr %10, align 1, !tbaa !3
+  %.not9 = icmp eq i8 %11, 0
+  br i1 %.not9, label %.loopexit, label %6
 
-.loopexit:                                        ; preds = %.lr.ph, %5, %2
-  %.0 = phi i32 [ 0, %2 ], [ 0, %.lr.ph ], [ 1, %5 ]
+.loopexit:                                        ; preds = %.lr.ph, %6, %4, %2
+  %.0 = phi i32 [ 0, %2 ], [ 1, %4 ], [ 0, %.lr.ph ], [ 1, %6 ]
   ret i32 %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define range(i32 0, 2) i32 @nghttp2_check_path(ptr noundef readonly captures(address) %0, i64 noundef %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 %1
-  %.not8 = icmp samesign eq i64 %1, 0
+  %.not8 = icmp eq ptr %0, %3
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
 4:                                                ; preds = %.lr.ph
@@ -598,7 +600,7 @@ define range(i32 0, 2) i32 @nghttp2_check_path(ptr noundef readonly captures(add
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define range(i32 0, 2) i32 @nghttp2_check_authority(ptr noundef readonly captures(address) %0, i64 noundef %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 %1
-  %.not8 = icmp samesign eq i64 %1, 0
+  %.not8 = icmp eq ptr %0, %3
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
 4:                                                ; preds = %.lr.ph

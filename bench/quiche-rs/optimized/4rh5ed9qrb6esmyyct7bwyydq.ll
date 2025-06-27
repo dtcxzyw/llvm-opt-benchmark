@@ -1095,7 +1095,7 @@ define hidden void @_ZN6quiche2h35qpack7encoder7Encoder6encode17hc00c3a6db74c0ff
 
 17:                                               ; preds = %15
   %18 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 } }, ptr %2, i64 %3
-  %19 = icmp eq i64 %3, 0
+  %19 = icmp eq ptr %2, %18
   br i1 %19, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %17
@@ -1129,7 +1129,7 @@ define hidden void @_ZN6quiche2h35qpack7encoder7Encoder6encode17hc00c3a6db74c0ff
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %39 = load i64, ptr %38, align 8, !noalias !76, !noundef !3
   %40 = getelementptr inbounds nuw { { ptr, i64 }, { ptr, i64 } }, ptr %37, i64 %39
-  %41 = icmp eq i64 %39, 0
+  %41 = icmp eq ptr %37, %40
   br i1 %41, label %.loopexit99, label %.lr.ph34.i
 
 .lr.ph34.i:                                       ; preds = %35, %58
@@ -1181,8 +1181,8 @@ define hidden void @_ZN6quiche2h35qpack7encoder7Encoder6encode17hc00c3a6db74c0ff
   %63 = getelementptr inbounds nuw i8, ptr %.sroa.013.032.i, i64 24
   %64 = load i64, ptr %63, align 8, !noundef !3
   %65 = getelementptr inbounds nuw { { ptr, i64 }, i64 }, ptr %62, i64 %64
-  %66 = icmp eq i64 %64, 0
-  br i1 %66, label %.loopexit99, label %.lr.ph40.preheader.i
+  %66 = icmp eq ptr %62, %65
+  br i1 %66, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd23a799ddb71a7d3E.exit._crit_edge.i", label %.lr.ph40.preheader.i
 
 .lr.ph40.preheader.i:                             ; preds = %._crit_edge.i
   %.sroa.014.136.i = getelementptr inbounds nuw i8, ptr %62, i64 24
@@ -1196,10 +1196,14 @@ define hidden void @_ZN6quiche2h35qpack7encoder7Encoder6encode17hc00c3a6db74c0ff
   %69 = icmp eq i64 %68, 0
   br i1 %69, label %.loopexit, label %73
 
-"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd23a799ddb71a7d3E.exit._crit_edge.i": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd23a799ddb71a7d3E.exit.backedge.i"
+"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd23a799ddb71a7d3E.exit._crit_edge.loopexit.i": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd23a799ddb71a7d3E.exit.backedge.i"
   %.pre.i = load i64, ptr %63, align 8
-  %70 = icmp eq i64 %.pre.i, 0
-  br i1 %70, label %.loopexit99, label %71
+  br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd23a799ddb71a7d3E.exit._crit_edge.i"
+
+"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd23a799ddb71a7d3E.exit._crit_edge.i": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd23a799ddb71a7d3E.exit._crit_edge.loopexit.i", %._crit_edge.i
+  %70 = phi i64 [ %.pre.i, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd23a799ddb71a7d3E.exit._crit_edge.loopexit.i" ], [ %64, %._crit_edge.i ]
+  %.not16.i = icmp eq i64 %70, 0
+  br i1 %.not16.i, label %.loopexit99, label %71
 
 71:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd23a799ddb71a7d3E.exit._crit_edge.i"
   %72 = load ptr, ptr %61, align 8, !nonnull !3, !align !20, !noundef !3
@@ -1223,7 +1227,7 @@ define hidden void @_ZN6quiche2h35qpack7encoder7Encoder6encode17hc00c3a6db74c0ff
   %81 = icmp eq ptr %.sroa.014.138.i, %65
   %.sroa.014.1.idx.i = select i1 %81, i64 0, i64 24
   %.sroa.014.1.i = getelementptr inbounds nuw i8, ptr %.sroa.014.138.i, i64 %.sroa.014.1.idx.i
-  br i1 %81, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd23a799ddb71a7d3E.exit._crit_edge.i", label %.lr.ph40.i
+  br i1 %81, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd23a799ddb71a7d3E.exit._crit_edge.loopexit.i", label %.lr.ph40.i
 
 ._crit_edge:                                      ; preds = %142, %17
   %82 = call noundef i64 @_ZN6octets9OctetsMut3off17ha4c1eb6eb910d44bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %13)
@@ -1237,7 +1241,7 @@ define hidden void @_ZN6quiche2h35qpack7encoder7Encoder6encode17hc00c3a6db74c0ff
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
   ret void
 
-.loopexit99:                                      ; preds = %58, %31, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd23a799ddb71a7d3E.exit._crit_edge.i", %35, %._crit_edge.i
+.loopexit99:                                      ; preds = %58, %31, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd23a799ddb71a7d3E.exit._crit_edge.i", %35
   %85 = call { ptr, i64 } @"_ZN60_$LT$quiche..h3..Header$u20$as$u20$quiche..h3..NameValue$GT$4name17h0e2c197f5152d2dbE"(ptr noalias noundef readonly align 8 dereferenceable(48) %.sroa.046.0123)
   %86 = extractvalue { ptr, i64 } %85, 0
   %87 = extractvalue { ptr, i64 } %85, 1

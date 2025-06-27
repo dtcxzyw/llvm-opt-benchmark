@@ -776,24 +776,34 @@ _ZNSt6vectorImSaImEED2Ev.exit.thread:             ; preds = %_ZNSt6vectorImSaImE
 if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i
   %mul.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i, 1
   %call5.i.i.i.i2.i.i8 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #17
-  %add.ptr.i.i.i = getelementptr i64, ptr %call5.i.i.i.i2.i.i8, i64 %sub.ptr.div.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i2.i.i8, i64 %sub.ptr.div.i
   store i64 0, ptr %call5.i.i.i.i2.i.i8, align 8
   %incdec.ptr.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i8, i64 8
   %cmp.i.i.i.i.i.i.i = icmp eq i64 %sub.ptr.sub.i, 16
-  br i1 %cmp.i.i.i.i.i.i.i, label %for.body.i.preheader, label %_ZNSt6vectorImSaImEED2Ev.exit
+  br i1 %cmp.i.i.i.i.i.i.i, label %_ZNSt6vectorImSaImEED2Ev.exit.thread27, label %_ZNSt6vectorImSaImEED2Ev.exit
 
-_ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %if.then.i.i.i.i.i
-  %2 = add nsw i64 %mul.i.i.i.i.i.i, -8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i, i8 0, i64 %2, i1 false)
+_ZNSt6vectorImSaImEED2Ev.exit.thread27:           ; preds = %if.then.i.i.i.i.i
+  %_M_finish.i.i.i.i31 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  %_M_end_of_storage.i.i.i.i32 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
+  store ptr %call5.i.i.i.i2.i.i8, ptr %agg.result, align 8
+  store ptr %incdec.ptr.i.i.i.i.i, ptr %_M_finish.i.i.i.i31, align 8
+  store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i.i32, align 8
   br label %for.body.i.preheader
 
-for.body.i.preheader:                             ; preds = %if.then.i.i.i.i.i, %_ZNSt6vectorImSaImEED2Ev.exit
-  %add.ptr.i.i.i.sink = phi ptr [ %add.ptr.i.i.i, %_ZNSt6vectorImSaImEED2Ev.exit ], [ %incdec.ptr.i.i.i.i.i, %if.then.i.i.i.i.i ]
+_ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %if.then.i.i.i.i.i
+  %add.ptr.i.i.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i8, i64 %mul.i.i.i.i.i.i
+  %2 = add nsw i64 %mul.i.i.i.i.i.i, -8
+  tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i, i8 0, i64 %2, i1 false)
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %call5.i.i.i.i2.i.i8, ptr %agg.result, align 8
-  store ptr %add.ptr.i.i.i.sink, ptr %_M_finish.i.i.i.i, align 8
+  store ptr %add.ptr.i.i.i.i.i.i.i, ptr %_M_finish.i.i.i.i, align 8
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i.i, align 8
+  %cmp.i.not3.i = icmp eq ptr %call5.i.i.i.i2.i.i8, %add.ptr.i.i.i.i.i.i.i
+  br i1 %cmp.i.not3.i, label %nrvo.skipdtor, label %for.body.i.preheader
+
+for.body.i.preheader:                             ; preds = %_ZNSt6vectorImSaImEED2Ev.exit.thread27, %_ZNSt6vectorImSaImEED2Ev.exit
+  %__first.addr.0.i.i.i.i.i35 = phi ptr [ %incdec.ptr.i.i.i.i.i, %_ZNSt6vectorImSaImEED2Ev.exit.thread27 ], [ %add.ptr.i.i.i.i.i.i.i, %_ZNSt6vectorImSaImEED2Ev.exit ]
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.body.i
@@ -802,14 +812,14 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   store i64 %indvars.iv.i, ptr %__first.sroa.0.04.i, align 8
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.04.i, i64 8
-  %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i.sink
+  %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %__first.addr.0.i.i.i.i.i35
   br i1 %cmp.i.not.i, label %nrvo.skipdtor, label %for.body.i, !llvm.loop !19
 
 if.end:                                           ; preds = %entry
   %call17 = invoke noundef i64 @_ZNK8proxygen14RendezvousHash20getNthByWeightedHashEmmPSt6vectorImSaImEE(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %key, i64 noundef %rank, ptr noundef nonnull %agg.result)
           to label %nrvo.skipdtor unwind label %ehcleanup
 
-nrvo.skipdtor:                                    ; preds = %for.body.i, %_ZNSt6vectorImSaImEED2Ev.exit.thread, %if.end
+nrvo.skipdtor:                                    ; preds = %for.body.i, %_ZNSt6vectorImSaImEED2Ev.exit.thread, %_ZNSt6vectorImSaImEED2Ev.exit, %if.end
   ret void
 
 ehcleanup:                                        ; preds = %if.end

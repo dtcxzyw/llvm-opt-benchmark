@@ -920,22 +920,23 @@ thread-pre-split320:                              ; preds = %322, %327
   %375 = load i32, ptr @onas_in_fd, align 4, !tbaa !11
   %376 = call i64 @read(i32 noundef %375, ptr noundef nonnull %9, i64 noundef 4096) #16
   %377 = icmp sgt i64 %376, 0
-  br i1 %377, label %.lr.ph374.preheader, label %.loopexit.backedge
+  br i1 %377, label %.lr.ph375, label %.loopexit.backedge
 
-.critedge291.loopexit:                            ; preds = %569
+.critedge291.loopexit:                            ; preds = %569, %.lr.ph375
   %378 = load i32, ptr @onas_in_fd, align 4, !tbaa !11
   %379 = call i64 @read(i32 noundef %378, ptr noundef nonnull %9, i64 noundef 4096) #16
   %380 = icmp sgt i64 %379, 0
-  br i1 %380, label %.lr.ph374.preheader, label %.loopexit.backedge
+  br i1 %380, label %.lr.ph375, label %.loopexit.backedge
 
-.lr.ph374.preheader:                              ; preds = %.critedge, %.critedge291.loopexit
+.lr.ph375:                                        ; preds = %.critedge, %.critedge291.loopexit
   %381 = phi i64 [ %379, %.critedge291.loopexit ], [ %376, %.critedge ]
   call void @pthread_testcancel() #16
   %382 = getelementptr inbounds nuw i8, ptr %9, i64 %381
-  br label %.lr.ph374
+  %.not283371 = icmp ult ptr %9, %382
+  br i1 %.not283371, label %.lr.ph374, label %.critedge291.loopexit
 
-.lr.ph374:                                        ; preds = %.lr.ph374.preheader, %569
-  %.0214372 = phi ptr [ %574, %569 ], [ %9, %.lr.ph374.preheader ]
+.lr.ph374:                                        ; preds = %.lr.ph375, %569
+  %.0214372 = phi ptr [ %574, %569 ], [ %9, %.lr.ph375 ]
   %383 = load i32, ptr %.0214372, align 4, !tbaa !11
   %384 = icmp sgt i32 %383, -1
   br i1 %384, label %385, label %.thread322

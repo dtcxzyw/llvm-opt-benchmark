@@ -15421,7 +15421,8 @@ define linkonce_odr void @_ZNSt6vectorIN7glslang10TArraySizeENS0_14pool_allocato
 22:                                               ; preds = %17
   %23 = sub nsw i64 0, %9
   %24 = getelementptr inbounds %"struct.glslang::TArraySize", ptr %13, i64 %23
-  br label %.lr.ph.i.i
+  %.not8.i.i = icmp eq ptr %24, %13
+  br i1 %.not8.i.i, label %_ZSt22__uninitialized_move_aIPN7glslang10TArraySizeES2_NS0_14pool_allocatorIS1_EEET0_T_S6_S5_RT1_.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %22, %.lr.ph.i.i
   %.010.i.i = phi ptr [ %26, %.lr.ph.i.i ], [ %13, %22 ]
@@ -15430,10 +15431,14 @@ define linkonce_odr void @_ZNSt6vectorIN7glslang10TArraySizeENS0_14pool_allocato
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.05.09.i.i, i64 16
   %26 = getelementptr inbounds nuw i8, ptr %.010.i.i, i64 16
   %.not.i.i = icmp eq ptr %25, %13
-  br i1 %.not.i.i, label %_ZSt22__uninitialized_move_aIPN7glslang10TArraySizeES2_NS0_14pool_allocatorIS1_EEET0_T_S6_S5_RT1_.exit, label %.lr.ph.i.i, !llvm.loop !59
+  br i1 %.not.i.i, label %_ZSt22__uninitialized_move_aIPN7glslang10TArraySizeES2_NS0_14pool_allocatorIS1_EEET0_T_S6_S5_RT1_.exit.loopexit, label %.lr.ph.i.i, !llvm.loop !59
 
-_ZSt22__uninitialized_move_aIPN7glslang10TArraySizeES2_NS0_14pool_allocatorIS1_EEET0_T_S6_S5_RT1_.exit: ; preds = %.lr.ph.i.i
-  %27 = load ptr, ptr %12, align 8
+_ZSt22__uninitialized_move_aIPN7glslang10TArraySizeES2_NS0_14pool_allocatorIS1_EEET0_T_S6_S5_RT1_.exit.loopexit: ; preds = %.lr.ph.i.i
+  %.pre89 = load ptr, ptr %12, align 8
+  br label %_ZSt22__uninitialized_move_aIPN7glslang10TArraySizeES2_NS0_14pool_allocatorIS1_EEET0_T_S6_S5_RT1_.exit
+
+_ZSt22__uninitialized_move_aIPN7glslang10TArraySizeES2_NS0_14pool_allocatorIS1_EEET0_T_S6_S5_RT1_.exit: ; preds = %_ZSt22__uninitialized_move_aIPN7glslang10TArraySizeES2_NS0_14pool_allocatorIS1_EEET0_T_S6_S5_RT1_.exit.loopexit, %22
+  %27 = phi ptr [ %.pre89, %_ZSt22__uninitialized_move_aIPN7glslang10TArraySizeES2_NS0_14pool_allocatorIS1_EEET0_T_S6_S5_RT1_.exit.loopexit ], [ %13, %22 ]
   %28 = getelementptr inbounds i8, ptr %27, i64 %8
   store ptr %28, ptr %12, align 8
   %.not.i.i.i.i.i = icmp eq ptr %24, %1
@@ -15495,7 +15500,7 @@ _ZSt22__uninitialized_move_aIPN7glslang10TArraySizeES2_NS0_14pool_allocatorIS1_E
   %43 = phi ptr [ %.pre88, %_ZSt22__uninitialized_move_aIPN7glslang10TArraySizeES2_NS0_14pool_allocatorIS1_EEET0_T_S6_S5_RT1_.exit50.loopexit ], [ %40, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7glslang10TArraySizeESt6vectorIS3_NS2_14pool_allocatorIS3_EEEEES4_S7_ET0_T_SB_SA_RT1_.exit ]
   %44 = getelementptr inbounds i8, ptr %43, i64 %19
   store ptr %44, ptr %12, align 8
-  %.not.i.i.i.i.i51 = icmp eq ptr %13, %1
+  %.not.i.i.i.i.i51 = icmp eq ptr %35, %2
   br i1 %.not.i.i.i.i.i51, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN7glslang10TArraySizeESt6vectorIS3_NS2_14pool_allocatorIS3_EEEEES9_ET0_T_SB_SA_.exit, label %45
 
 45:                                               ; preds = %_ZSt22__uninitialized_move_aIPN7glslang10TArraySizeES2_NS0_14pool_allocatorIS1_EEET0_T_S6_S5_RT1_.exit50

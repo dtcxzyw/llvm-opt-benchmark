@@ -562,7 +562,7 @@ define hidden void @_ZN14universal_hash9to_blocks17ha535ee1ce1c4cff1E.llvm.10553
 define hidden void @"_ZN152_$LT$$LT$ghash..GHash$u20$as$u20$universal_hash..UniversalHash$GT$..update_with_backend..GHashClosure$LT$C$GT$$u20$as$u20$universal_hash..UhfClosure$GT$4call17h1672f190140ab5dcE"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias noundef align 16 dereferenceable(32) %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %4 = alloca { { { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, {} } }, align 1
   %5 = getelementptr inbounds { { { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, {} } }, ptr %0, i64 %1
-  %6 = icmp eq i64 %1, 0
+  %6 = icmp eq ptr %0, %5
   br i1 %6, label %"_ZN99_$LT$universal_hash..UniversalHash..update..Ctx$LT$BS$GT$$u20$as$u20$universal_hash..UhfClosure$GT$4call17h9823627ad5551653E.llvm.10553303005396541960.exit", label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
@@ -607,7 +607,7 @@ define hidden void @"_ZN152_$LT$$LT$ghash..GHash$u20$as$u20$universal_hash..Univ
 define hidden void @"_ZN152_$LT$$LT$ghash..GHash$u20$as$u20$universal_hash..UniversalHash$GT$..update_with_backend..GHashClosure$LT$C$GT$$u20$as$u20$universal_hash..UhfClosure$GT$4call17ha4743d2d811352dcE"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias noundef align 8 dereferenceable(32) %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %4 = alloca { { { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, {} } }, align 1
   %5 = getelementptr inbounds { { { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, {} } }, ptr %0, i64 %1
-  %6 = icmp eq i64 %1, 0
+  %6 = icmp eq ptr %0, %5
   br i1 %6, label %"_ZN99_$LT$universal_hash..UniversalHash..update..Ctx$LT$BS$GT$$u20$as$u20$universal_hash..UhfClosure$GT$4call17h2c0ad0d3fa48be0bE.llvm.10553303005396541960.exit", label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
@@ -1476,8 +1476,8 @@ common.resume.i.i.i.i:                            ; preds = %151, %125, %117, %1
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %27), !noalias !316
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3), !noalias !304
   %75 = getelementptr inbounds nuw { { { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, {} } }, ptr %37, i64 %49
-  %76 = icmp eq i64 %49, 0
-  br i1 %76, label %"_ZN88_$LT$ctr..backend..Closure$LT$F$C$BS$C$SC$GT$$u20$as$u20$cipher..block..BlockClosure$GT$4call17h00c45b14da9f23fcE.exit.i.i.i.i", label %.lr.ph62.i.i.i.i
+  %76 = icmp eq ptr %37, %75
+  br i1 %76, label %_ZN6cipher11stream_core13StreamBackend15gen_tail_blocks17ha8f78e22546c17e7E.exit.i.preheader.i.i.i.i, label %.lr.ph62.i.i.i.i
 
 .lr.ph62.i.i.i.i:                                 ; preds = %74
   %77 = getelementptr inbounds nuw i8, ptr %24, i64 16
@@ -1492,7 +1492,11 @@ common.resume.i.i.i.i:                            ; preds = %151, %125, %117, %1
   %.sroa.5.0..sroa_idx69.i.i.i.i = getelementptr inbounds nuw i8, ptr %32, i64 12
   br label %89
 
-_ZN6cipher11stream_core13StreamBackend15gen_tail_blocks17ha8f78e22546c17e7E.exit.i.preheader.i.i.i.i: ; preds = %"_ZN110_$LT$generic_array..GenericArray$LT$T$C$N$GT$$u20$as$u20$generic_array..sequence..GenericSequence$LT$T$GT$$GT$8generate17h9bd3cca07d4dff76E.exit1.i.i.i.i"
+_ZN6cipher11stream_core13StreamBackend15gen_tail_blocks17ha8f78e22546c17e7E.exit.i.preheader.i.i.i.i: ; preds = %"_ZN110_$LT$generic_array..GenericArray$LT$T$C$N$GT$$u20$as$u20$generic_array..sequence..GenericSequence$LT$T$GT$$GT$8generate17h9bd3cca07d4dff76E.exit1.i.i.i.i", %74
+  %.not.i.i.i.i = icmp eq i64 %49, 0
+  br i1 %.not.i.i.i.i, label %"_ZN88_$LT$ctr..backend..Closure$LT$F$C$BS$C$SC$GT$$u20$as$u20$cipher..block..BlockClosure$GT$4call17h00c45b14da9f23fcE.exit.i.i.i.i", label %.lr.ph65.i.i.i.i
+
+.lr.ph65.i.i.i.i:                                 ; preds = %_ZN6cipher11stream_core13StreamBackend15gen_tail_blocks17ha8f78e22546c17e7E.exit.i.preheader.i.i.i.i
   %86 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %87 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %88 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -1773,8 +1777,8 @@ _ZN6cipher11stream_core13StreamBackend15gen_tail_blocks17ha8f78e22546c17e7E.exit
   %.sroa.4.1.i.i.i.i.i.i = add i64 %.sroa.4.1.i.i58.i.i.i.i, %145
   br i1 %142, label %105, label %._crit_edge.i.i.i.i
 
-146:                                              ; preds = %"_ZN5inout5inout54InOut$LT$generic_array..GenericArray$LT$u8$C$N$GT$$GT$10xor_in2out17hb5aceffc68d96023E.exit.i.i.i.i.i", %_ZN6cipher11stream_core13StreamBackend15gen_tail_blocks17ha8f78e22546c17e7E.exit.i.preheader.i.i.i.i
-  %.sroa.05.0.i.i64.i.i.i.i = phi i64 [ 0, %_ZN6cipher11stream_core13StreamBackend15gen_tail_blocks17ha8f78e22546c17e7E.exit.i.preheader.i.i.i.i ], [ %147, %"_ZN5inout5inout54InOut$LT$generic_array..GenericArray$LT$u8$C$N$GT$$GT$10xor_in2out17hb5aceffc68d96023E.exit.i.i.i.i.i" ]
+146:                                              ; preds = %"_ZN5inout5inout54InOut$LT$generic_array..GenericArray$LT$u8$C$N$GT$$GT$10xor_in2out17hb5aceffc68d96023E.exit.i.i.i.i.i", %.lr.ph65.i.i.i.i
+  %.sroa.05.0.i.i64.i.i.i.i = phi i64 [ 0, %.lr.ph65.i.i.i.i ], [ %147, %"_ZN5inout5inout54InOut$LT$generic_array..GenericArray$LT$u8$C$N$GT$$GT$10xor_in2out17hb5aceffc68d96023E.exit.i.i.i.i.i" ]
   %147 = add nuw nsw i64 %.sroa.05.0.i.i64.i.i.i.i, 1
   %148 = getelementptr inbounds nuw { { { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, {} } }, ptr %50, i64 %.sroa.05.0.i.i64.i.i.i.i
   %149 = getelementptr inbounds nuw { { { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, {} } }, ptr %51, i64 %.sroa.05.0.i.i64.i.i.i.i
@@ -1833,7 +1837,7 @@ _ZN6cipher11stream_core13StreamBackend15gen_tail_blocks17ha8f78e22546c17e7E.exit
   %exitcond68.not.i.i.i.i = icmp eq i64 %147, %49
   br i1 %exitcond68.not.i.i.i.i, label %"_ZN88_$LT$ctr..backend..Closure$LT$F$C$BS$C$SC$GT$$u20$as$u20$cipher..block..BlockClosure$GT$4call17h00c45b14da9f23fcE.exit.i.i.i.i", label %146
 
-"_ZN88_$LT$ctr..backend..Closure$LT$F$C$BS$C$SC$GT$$u20$as$u20$cipher..block..BlockClosure$GT$4call17h00c45b14da9f23fcE.exit.i.i.i.i": ; preds = %"_ZN5inout5inout54InOut$LT$generic_array..GenericArray$LT$u8$C$N$GT$$GT$10xor_in2out17hb5aceffc68d96023E.exit.i.i.i.i.i", %74
+"_ZN88_$LT$ctr..backend..Closure$LT$F$C$BS$C$SC$GT$$u20$as$u20$cipher..block..BlockClosure$GT$4call17h00c45b14da9f23fcE.exit.i.i.i.i": ; preds = %"_ZN5inout5inout54InOut$LT$generic_array..GenericArray$LT$u8$C$N$GT$$GT$10xor_in2out17hb5aceffc68d96023E.exit.i.i.i.i.i", %_ZN6cipher11stream_core13StreamBackend15gen_tail_blocks17ha8f78e22546c17e7E.exit.i.preheader.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %37), !noalias !309
   br label %"_ZN93_$LT$ctr..ctr_core..CtrCore$LT$C$C$F$GT$$u20$as$u20$cipher..stream_core..StreamCipherCore$GT$20process_with_backend17h91eb35d0bb5bfc4cE.exit"
 
@@ -2225,8 +2229,8 @@ common.resume:                                    ; preds = %289, %263, %188, %1
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %25), !noalias !539
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3)
   %111 = getelementptr inbounds nuw { { { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, {} } }, ptr %31, i64 %35
-  %112 = icmp eq i64 %35, 0
-  br i1 %112, label %"_ZN88_$LT$ctr..backend..Closure$LT$F$C$BS$C$SC$GT$$u20$as$u20$cipher..block..BlockClosure$GT$4call17h1ca8da35bfa82f1cE.exit", label %.lr.ph63
+  %112 = icmp eq ptr %31, %111
+  br i1 %112, label %_ZN6cipher11stream_core13StreamBackend15gen_tail_blocks17h9be0976c3f3fc38bE.exit.i.preheader, label %.lr.ph63
 
 .lr.ph63:                                         ; preds = %110
   %113 = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -2265,7 +2269,11 @@ common.resume:                                    ; preds = %289, %263, %188, %1
   %146 = load <2 x i64>, ptr %145, align 16
   br label %150
 
-.lr.ph66:                                         ; preds = %"_ZN110_$LT$generic_array..GenericArray$LT$T$C$N$GT$$u20$as$u20$generic_array..sequence..GenericSequence$LT$T$GT$$GT$8generate17ha6b6f358ce7b7248E.exit.i"
+_ZN6cipher11stream_core13StreamBackend15gen_tail_blocks17h9be0976c3f3fc38bE.exit.i.preheader: ; preds = %"_ZN110_$LT$generic_array..GenericArray$LT$T$C$N$GT$$u20$as$u20$generic_array..sequence..GenericSequence$LT$T$GT$$GT$8generate17ha6b6f358ce7b7248E.exit.i", %110
+  %.not = icmp eq i64 %35, 0
+  br i1 %.not, label %"_ZN88_$LT$ctr..backend..Closure$LT$F$C$BS$C$SC$GT$$u20$as$u20$cipher..block..BlockClosure$GT$4call17h1ca8da35bfa82f1cE.exit", label %.lr.ph66
+
+.lr.ph66:                                         ; preds = %_ZN6cipher11stream_core13StreamBackend15gen_tail_blocks17h9be0976c3f3fc38bE.exit.i.preheader
   %147 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %148 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %149 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -2331,7 +2339,7 @@ common.resume:                                    ; preds = %289, %263, %188, %1
   %176 = call <2 x i64> @llvm.x86.aesni.aesenclast(<2 x i64> %175, <2 x i64> %146) #29
   store <2 x i64> %176, ptr %.sroa.022.061, align 1, !noalias !577
   %177 = icmp eq ptr %155, %111
-  br i1 %177, label %.lr.ph66, label %150
+  br i1 %177, label %_ZN6cipher11stream_core13StreamBackend15gen_tail_blocks17h9be0976c3f3fc38bE.exit.i.preheader, label %150
 
 178:                                              ; preds = %.lr.ph, %"_ZN5inout5inout93InOut$LT$generic_array..GenericArray$LT$generic_array..GenericArray$LT$u8$C$N$GT$$C$M$GT$$GT$10xor_in2out17h90a072124bc98d96E.exit.i"
   %.sroa.4.1.i.i59 = phi i64 [ 1, %.lr.ph ], [ %.sroa.4.1.i.i, %"_ZN5inout5inout93InOut$LT$generic_array..GenericArray$LT$generic_array..GenericArray$LT$u8$C$N$GT$$C$M$GT$$GT$10xor_in2out17h90a072124bc98d96E.exit.i" ]
@@ -2765,7 +2773,7 @@ _ZN3aes2ni6aes2568encrypt817h4e2f0a4931a43febE.exit: ; preds = %_ZN3aes2ni5utils
   %exitcond69.not = icmp eq i64 %285, %35
   br i1 %exitcond69.not, label %"_ZN88_$LT$ctr..backend..Closure$LT$F$C$BS$C$SC$GT$$u20$as$u20$cipher..block..BlockClosure$GT$4call17h1ca8da35bfa82f1cE.exit", label %284
 
-"_ZN88_$LT$ctr..backend..Closure$LT$F$C$BS$C$SC$GT$$u20$as$u20$cipher..block..BlockClosure$GT$4call17h1ca8da35bfa82f1cE.exit": ; preds = %"_ZN5inout5inout54InOut$LT$generic_array..GenericArray$LT$u8$C$N$GT$$GT$10xor_in2out17hb5aceffc68d96023E.exit.i", %110
+"_ZN88_$LT$ctr..backend..Closure$LT$F$C$BS$C$SC$GT$$u20$as$u20$cipher..block..BlockClosure$GT$4call17h1ca8da35bfa82f1cE.exit": ; preds = %"_ZN5inout5inout54InOut$LT$generic_array..GenericArray$LT$u8$C$N$GT$$GT$10xor_in2out17hb5aceffc68d96023E.exit.i", %_ZN6cipher11stream_core13StreamBackend15gen_tail_blocks17h9be0976c3f3fc38bE.exit.i.preheader
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %31), !noalias !532
   ret void
 }
@@ -3761,7 +3769,7 @@ _ZN6cipher5block12BlockEncrypt13encrypt_block17hf20d566a87ea2d88E.llvm.105533030
 define hidden void @"_ZN99_$LT$universal_hash..UniversalHash..update..Ctx$LT$BS$GT$$u20$as$u20$universal_hash..UhfClosure$GT$4call17h2c0ad0d3fa48be0bE.llvm.10553303005396541960"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %2) unnamed_addr #7 personality ptr @rust_eh_personality {
   %4 = alloca { { { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, {} } }, align 1
   %5 = getelementptr inbounds { { { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, {} } }, ptr %0, i64 %1
-  %6 = icmp eq i64 %1, 0
+  %6 = icmp eq ptr %0, %5
   br i1 %6, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
@@ -3807,7 +3815,7 @@ define hidden void @"_ZN99_$LT$universal_hash..UniversalHash..update..Ctx$LT$BS$
 define hidden void @"_ZN99_$LT$universal_hash..UniversalHash..update..Ctx$LT$BS$GT$$u20$as$u20$universal_hash..UhfClosure$GT$4call17h9823627ad5551653E.llvm.10553303005396541960"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %2) unnamed_addr #7 personality ptr @rust_eh_personality {
   %4 = alloca { { { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, {} } }, align 1
   %5 = getelementptr inbounds { { { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, {} } }, ptr %0, i64 %1
-  %6 = icmp eq i64 %1, 0
+  %6 = icmp eq ptr %0, %5
   br i1 %6, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
@@ -4432,7 +4440,7 @@ define void @"_ZN82_$LT$ockam_vault..software..legacy..secret..Secret$u20$as$u20
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !alias.scope !1217, !noundef !9
   %5 = getelementptr inbounds i8, ptr %2, i64 %4
-  %6 = icmp eq i64 %4, 0
+  %6 = icmp eq ptr %2, %5
   br i1 %6, label %"_ZN72_$LT$core..slice..iter..IterMut$LT$Z$GT$$u20$as$u20$zeroize..Zeroize$GT$7zeroize17hf45a3fb50d576df0E.exit.i", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %1, %.lr.ph.i.i

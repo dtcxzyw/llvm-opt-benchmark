@@ -17,8 +17,8 @@ $_ZN5ZXing4OneD7DataBar24NormalizedPatternFromE2EILi8EEESt5arrayIiXT_EERKNS_11Pa
 define noundef i32 @_ZN5ZXing4OneD7DataBar8GetValueESt4spanIiLm18446744073709551615EEib(ptr readonly captures(address) %0, i64 %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = trunc i64 %1 to i32
   %6 = getelementptr inbounds nuw i32, ptr %0, i64 %1
-  %7 = icmp eq i64 %1, 0
-  br i1 %7, label %._crit_edge128, label %.lr.ph.i.i.i
+  %7 = icmp eq ptr %0, %6
+  br i1 %7, label %_ZN5ZXing6ReduceISt4spanIiLm18446744073709551615EEiSt4plusIiEEET0_RKT_S5_T1_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %4, %.lr.ph.i.i.i
   %.06.i.i.i = phi i32 [ %9, %.lr.ph.i.i.i ], [ 0, %4 ]
@@ -29,7 +29,8 @@ define noundef i32 @_ZN5ZXing4OneD7DataBar8GetValueESt4spanIiLm18446744073709551
   %11 = icmp eq ptr %10, %6
   br i1 %11, label %_ZN5ZXing6ReduceISt4spanIiLm18446744073709551615EEiSt4plusIiEEET0_RKT_S5_T1_.exit, label %.lr.ph.i.i.i, !llvm.loop !7
 
-_ZN5ZXing6ReduceISt4spanIiLm18446744073709551615EEiSt4plusIiEEET0_RKT_S5_T1_.exit: ; preds = %.lr.ph.i.i.i
+_ZN5ZXing6ReduceISt4spanIiLm18446744073709551615EEiSt4plusIiEEET0_RKT_S5_T1_.exit: ; preds = %.lr.ph.i.i.i, %4
+  %.0.lcssa.i.i.i = phi i32 [ 0, %4 ], [ %9, %.lr.ph.i.i.i ]
   %12 = add i32 %5, -1
   %13 = icmp sgt i32 %5, 1
   br i1 %13, label %.lr.ph127.preheader, label %._crit_edge128
@@ -40,15 +41,15 @@ _ZN5ZXing6ReduceISt4spanIiLm18446744073709551615EEiSt4plusIiEEET0_RKT_S5_T1_.exi
   %not. = xor i1 %3, true
   br label %.lr.ph127
 
-._crit_edge128:                                   ; preds = %._crit_edge119, %4, %_ZN5ZXing6ReduceISt4spanIiLm18446744073709551615EEiSt4plusIiEEET0_RKT_S5_T1_.exit
-  %.064.lcssa = phi i32 [ 0, %_ZN5ZXing6ReduceISt4spanIiLm18446744073709551615EEiSt4plusIiEEET0_RKT_S5_T1_.exit ], [ 0, %4 ], [ %.165.lcssa, %._crit_edge119 ]
+._crit_edge128:                                   ; preds = %._crit_edge119, %_ZN5ZXing6ReduceISt4spanIiLm18446744073709551615EEiSt4plusIiEEET0_RKT_S5_T1_.exit
+  %.064.lcssa = phi i32 [ 0, %_ZN5ZXing6ReduceISt4spanIiLm18446744073709551615EEiSt4plusIiEEET0_RKT_S5_T1_.exit ], [ %.165.lcssa, %._crit_edge119 ]
   ret i32 %.064.lcssa
 
 .lr.ph127:                                        ; preds = %.lr.ph127.preheader, %._crit_edge119
   %indvars.iv = phi i64 [ 0, %.lr.ph127.preheader ], [ %indvars.iv.next, %._crit_edge119 ]
   %.062125 = phi i32 [ 0, %.lr.ph127.preheader ], [ %.163.lcssa, %._crit_edge119 ]
   %.064124 = phi i32 [ 0, %.lr.ph127.preheader ], [ %.165.lcssa, %._crit_edge119 ]
-  %.066123 = phi i32 [ %9, %.lr.ph127.preheader ], [ %90, %._crit_edge119 ]
+  %.066123 = phi i32 [ %.0.lcssa.i.i.i, %.lr.ph127.preheader ], [ %90, %._crit_edge119 ]
   %indvars138 = trunc i64 %indvars.iv to i32
   %15 = shl nuw i32 1, %indvars138
   %16 = or i32 %15, %.062125

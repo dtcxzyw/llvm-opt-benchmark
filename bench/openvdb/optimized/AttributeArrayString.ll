@@ -3412,7 +3412,8 @@ entry:
   %div137 = lshr i64 %sub, 1
   %add.ptr = getelementptr inbounds nuw ptr, ptr %call5.i.i2.i, i64 %div137
   %add.ptr14 = getelementptr inbounds nuw ptr, ptr %add.ptr, i64 %add
-  br label %for.body.i
+  %cmp7.i = icmp ult ptr %add.ptr, %add.ptr14
+  br i1 %cmp7.i, label %for.body.i, label %try.cont
 
 for.body.i:                                       ; preds = %entry, %invoke.cont.i
   %__cur.08.i = phi ptr [ %incdec.ptr.i, %invoke.cont.i ], [ %add.ptr, %entry ]
@@ -3423,7 +3424,7 @@ invoke.cont.i:                                    ; preds = %for.body.i
   store ptr %call5.i.i.i5.i, ptr %__cur.08.i, align 8
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__cur.08.i, i64 8
   %cmp.i8 = icmp ult ptr %incdec.ptr.i, %add.ptr14
-  br i1 %cmp.i8, label %for.body.i, label %try.cont, !llvm.loop !74
+  br i1 %cmp.i8, label %for.body.i, label %try.cont.loopexit, !llvm.loop !74
 
 lpad.i:                                           ; preds = %for.body.i
   %1 = landingpad { ptr, i32 }
@@ -3476,29 +3477,35 @@ lpad23:                                           ; preds = %lpad.body
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
 
-try.cont:                                         ; preds = %invoke.cont.i
+try.cont.loopexit:                                ; preds = %invoke.cont.i
+  %.pre = load ptr, ptr %add.ptr, align 8
+  %add.ptr27.phi.trans.insert = getelementptr inbounds i8, ptr %add.ptr14, i64 -8
+  %.pre19 = load ptr, ptr %add.ptr27.phi.trans.insert, align 8
+  br label %try.cont
+
+try.cont:                                         ; preds = %try.cont.loopexit, %entry
+  %12 = phi ptr [ %.pre19, %try.cont.loopexit ], [ undef, %entry ]
+  %13 = phi ptr [ %.pre, %try.cont.loopexit ], [ undef, %entry ]
   %_M_start = getelementptr inbounds nuw i8, ptr %this, i64 16
   %_M_node.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %add.ptr, ptr %_M_node.i, align 8
-  %12 = load ptr, ptr %add.ptr, align 8
   %_M_first.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store ptr %12, ptr %_M_first.i, align 8
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %12, i64 512
+  store ptr %13, ptr %_M_first.i, align 8
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %13, i64 512
   %_M_last.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr %add.ptr.i, ptr %_M_last.i, align 8
   %_M_finish = getelementptr inbounds nuw i8, ptr %this, i64 48
   %add.ptr27 = getelementptr inbounds i8, ptr %add.ptr14, i64 -8
   %_M_node.i10 = getelementptr inbounds nuw i8, ptr %this, i64 72
   store ptr %add.ptr27, ptr %_M_node.i10, align 8
-  %13 = load ptr, ptr %add.ptr27, align 8
   %_M_first.i11 = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store ptr %13, ptr %_M_first.i11, align 8
-  %add.ptr.i12 = getelementptr inbounds nuw i8, ptr %13, i64 512
+  store ptr %12, ptr %_M_first.i11, align 8
+  %add.ptr.i12 = getelementptr inbounds nuw i8, ptr %12, i64 512
   %_M_last.i13 = getelementptr inbounds nuw i8, ptr %this, i64 64
   store ptr %add.ptr.i12, ptr %_M_last.i13, align 8
-  store ptr %12, ptr %_M_start, align 8
+  store ptr %13, ptr %_M_start, align 8
   %rem = and i64 %__num_elements, 63
-  %add.ptr36 = getelementptr inbounds nuw %"struct.std::pair.13", ptr %13, i64 %rem
+  %add.ptr36 = getelementptr inbounds nuw %"struct.std::pair.13", ptr %12, i64 %rem
   store ptr %add.ptr36, ptr %_M_finish, align 8
   ret void
 

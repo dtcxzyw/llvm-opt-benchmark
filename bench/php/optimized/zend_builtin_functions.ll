@@ -2043,19 +2043,21 @@ zend_parse_arg_bool_ex.exit:                      ; preds = %21
   %26 = load ptr, ptr %3, align 8, !tbaa !60
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load i64, ptr %27, align 8, !tbaa !65
-  %29 = icmp ult i64 %28, 2
-  br i1 %29, label %.loopexit, label %30
+  %29 = icmp sgt i64 %28, -1
+  call void @llvm.assume(i1 %29)
+  %30 = icmp samesign ult i64 %28, 2
+  br i1 %30, label %.loopexit, label %31
 
-30:                                               ; preds = %.critedge
-  %31 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 %28
-  %33 = getelementptr inbounds i8, ptr %32, i64 -2
+31:                                               ; preds = %.critedge
+  %.ptr = getelementptr inbounds nuw i8, ptr %26, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %26, i64 %28
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 22
   %34 = ptrtoint ptr %33 to i64
   %35 = add i64 %34, 1
   br label %36
 
-36:                                               ; preds = %41, %30
-  %.038.i = phi ptr [ %31, %30 ], [ %42, %41 ]
+36:                                               ; preds = %41, %31
+  %.038.i = phi ptr [ %.ptr, %31 ], [ %42, %41 ]
   %.not.i = icmp ugt ptr %.038.i, %33
   br i1 %.not.i, label %.loopexit, label %37
 
@@ -2955,7 +2957,7 @@ zend_class_default_properties_table.exit:         ; preds = %12, %17
   %27 = and i32 %26, 4
   %.not = icmp eq i32 %27, 0
   tail call void @llvm.assume(i1 %.not)
-  %.not5379 = icmp eq i32 %22, 0
+  %.not5379 = icmp eq ptr %20, %24
   br i1 %.not5379, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %zend_class_default_properties_table.exit
@@ -3686,7 +3688,7 @@ zend_parse_arg_obj_or_class_name.exit:            ; preds = %7
   %27 = and i32 %26, 4
   %.not68 = icmp eq i32 %27, 0
   tail call void @llvm.assume(i1 %.not68)
-  %.not69117 = icmp eq i32 %22, 0
+  %.not69117 = icmp eq ptr %20, %24
   br i1 %.not69117, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.critedge
@@ -5258,7 +5260,7 @@ define hidden void @zif_get_included_files(ptr noundef readonly captures(none) %
   %14 = and i32 %13, 4
   %.not19 = icmp eq i32 %14, 0
   tail call void @llvm.assume(i1 %.not19)
-  %.not2022 = icmp eq i32 %10, 0
+  %.not2022 = icmp eq ptr %9, %12
   br i1 %.not2022, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6, %29
@@ -5785,7 +5787,7 @@ define internal fastcc void @get_declared_class_impl(i32 %.44.val, ptr noundef c
   %25 = and i32 %24, 4
   %.not71 = icmp eq i32 %25, 0
   tail call void @llvm.assume(i1 %.not71)
-  %.not722 = icmp eq i32 %20, 0
+  %.not722 = icmp eq ptr %18, %22
   br i1 %.not722, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
@@ -5984,7 +5986,7 @@ define hidden void @zif_get_defined_functions(ptr noundef readonly captures(none
   %33 = and i32 %32, 4
   %.not = icmp eq i32 %33, 0
   call void @llvm.assume(i1 %.not)
-  %.not3237 = icmp eq i32 %28, 0
+  %.not3237 = icmp eq ptr %26, %30
   br i1 %.not3237, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %17, %57
@@ -6574,7 +6576,7 @@ define hidden void @zif_get_loaded_extensions(ptr noundef readonly captures(none
   %23 = and i32 %22, 4
   %.not = icmp eq i32 %23, 0
   call void @llvm.assume(i1 %.not)
-  %.not1819 = icmp eq i32 %19, 0
+  %.not1819 = icmp eq ptr %18, %21
   br i1 %.not1819, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %17, %32
@@ -6660,7 +6662,7 @@ define hidden void @zif_get_defined_constants(ptr noundef readonly captures(none
   %33 = and i32 %32, 4
   %.not100 = icmp eq i32 %33, 0
   call void @llvm.assume(i1 %.not100)
-  %.not101116 = icmp eq i32 %29, 0
+  %.not101116 = icmp eq ptr %28, %31
   br i1 %.not101116, label %._crit_edge121, label %.lr.ph120
 
 .lr.ph120:                                        ; preds = %18, %46
@@ -6706,7 +6708,7 @@ define hidden void @zif_get_defined_constants(ptr noundef readonly captures(none
   %59 = and i32 %58, 4
   %.not102 = icmp eq i32 %59, 0
   call void @llvm.assume(i1 %.not102)
-  %.not103122 = icmp eq i32 %54, 0
+  %.not103122 = icmp eq ptr %52, %56
   br i1 %.not103122, label %._crit_edge126, label %.lr.ph125
 
 .lr.ph125:                                        ; preds = %._crit_edge121
@@ -6821,7 +6823,7 @@ define hidden void @zif_get_defined_constants(ptr noundef readonly captures(none
   %116 = and i32 %115, 4
   %.not = icmp eq i32 %116, 0
   call void @llvm.assume(i1 %.not)
-  %.not96114 = icmp eq i32 %111, 0
+  %.not96114 = icmp eq ptr %109, %113
   br i1 %.not96114, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %106
@@ -8719,7 +8721,7 @@ zend_gc_try_delref.exit.i:                        ; preds = %997, %992, %989
   %1010 = and i32 %1009, 4
   %.not215.i = icmp eq i32 %1010, 0
   call void @llvm.assume(i1 %.not215.i)
-  %.not216247.i = icmp eq i32 %1005, 0
+  %.not216247.i = icmp eq ptr %1003, %1007
   br i1 %.not216247.i, label %debug_backtrace_get_args.exit, label %.lr.ph249.i
 
 .lr.ph249.i:                                      ; preds = %zend_gc_try_delref.exit.i, %1031
@@ -9219,7 +9221,7 @@ zend_string_release_ex.exit.thread:               ; preds = %29, %zend_string_re
   %49 = and i32 %48, 4
   %.not35 = icmp eq i32 %49, 0
   call void @llvm.assume(i1 %.not35)
-  %.not3647 = icmp eq i32 %44, 0
+  %.not3647 = icmp eq ptr %42, %46
   br i1 %.not3647, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %39

@@ -6276,7 +6276,7 @@ define dso_local void @_ZN4pbrt17BasicSceneBuilder9AttributeERKNSt7__cxx1112basi
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %27 = load i64, ptr %26, align 8, !tbaa !65
   %28 = getelementptr inbounds nuw ptr, ptr %25, i64 %27
-  %.not16 = icmp eq i64 %27, 0
+  %.not16 = icmp eq ptr %25, %28
   br i1 %.not16, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %20
@@ -16339,7 +16339,7 @@ define dso_local void @_ZN4pbrt17BasicSceneBuilder6OptionERKNSt7__cxx1112basic_s
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load i64, ptr %13, align 8, !tbaa !36, !noalias !496
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 %14
-  %.not13.i = icmp samesign eq i64 %14, 0
+  %.not13.i = icmp eq ptr %12, %15
   br i1 %.not13.i, label %_ZN4pbrt12normalizeArgERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %4, %43
@@ -30684,7 +30684,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pbrt6MediumESt4l
   %423 = load i64, ptr %65, align 8, !tbaa !756
   %424 = getelementptr inbounds nuw %"class.pbrt::Shape", ptr %422, i64 %423
   %.promoted = load ptr, ptr %0, align 8
-  %.not77414 = icmp eq i64 %423, 0
+  %.not77414 = icmp eq ptr %422, %424
   br i1 %.not77414, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %416
@@ -34168,7 +34168,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pbrt6MediumESt4
   %204 = load ptr, ptr %39, align 8, !tbaa !752
   %205 = load i64, ptr %33, align 8, !tbaa !756
   %206 = getelementptr inbounds nuw %"class.pbrt::Shape", ptr %204, i64 %205
-  %.not396 = icmp eq i64 %205, 0
+  %.not396 = icmp eq ptr %204, %206
   br i1 %.not396, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %203
@@ -51086,7 +51086,7 @@ _ZN4pstd6vectorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_3pmr21p
   %76 = phi ptr [ %39, %61 ], [ %.pre, %.lr.ph.i.i ]
   store i64 %62, ptr %66, align 8, !tbaa !4
   %77 = getelementptr inbounds nuw ptr, ptr %76, i64 %75
-  %.not4173 = icmp eq i64 %75, 0
+  %.not4173 = icmp eq ptr %76, %77
   br i1 %.not4173, label %._crit_edge76, label %.lr.ph75
 
 ._crit_edge76:                                    ; preds = %96, %_ZN4pstd6vectorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_3pmr21polymorphic_allocatorIS8_EEEC2EmRKSB_.exit
@@ -68481,7 +68481,7 @@ _ZN4pstd6vectorIPKN4pbrt9TransformENS_3pmr21polymorphic_allocatorIS4_EEEC2EmRKS7
   %83 = phi ptr [ %49, %68 ], [ %.pre, %.lr.ph.i.i ]
   store i64 %69, ptr %73, align 8, !tbaa !131
   %84 = getelementptr inbounds nuw ptr, ptr %83, i64 %82
-  %.not43100 = icmp eq i64 %82, 0
+  %.not43100 = icmp eq ptr %83, %84
   br i1 %.not43100, label %._crit_edge102, label %.lr.ph
 
 ._crit_edge102:                                   ; preds = %107, %_ZN4pstd6vectorIPKN4pbrt9TransformENS_3pmr21polymorphic_allocatorIS4_EEEC2EmRKS7_.exit
@@ -86814,7 +86814,8 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN4pbrt9PrimitiveESaIS1_EE15_M_r
 22:                                               ; preds = %17
   %23 = sub nsw i64 0, %9
   %24 = getelementptr inbounds %"class.pbrt::Primitive", ptr %13, i64 %23
-  br label %.lr.ph.i.i.i.i.i
+  %.not11.i.i.i.i.i = icmp eq ptr %24, %13
+  br i1 %.not11.i.i.i.i.i, label %_ZSt22__uninitialized_move_aIPN4pbrt9PrimitiveES2_SaIS1_EET0_T_S5_S4_RT1_.exit, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %22, %.lr.ph.i.i.i.i.i
   %.013.i.i.i.i.i = phi ptr [ %27, %.lr.ph.i.i.i.i.i ], [ %13, %22 ]
@@ -86827,7 +86828,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN4pbrt9PrimitiveESaIS1_EE15_M_r
   %.not.i.i.i.i.i = icmp eq ptr %26, %13
   br i1 %.not.i.i.i.i.i, label %_ZSt22__uninitialized_move_aIPN4pbrt9PrimitiveES2_SaIS1_EET0_T_S5_S4_RT1_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !2051
 
-_ZSt22__uninitialized_move_aIPN4pbrt9PrimitiveES2_SaIS1_EET0_T_S5_S4_RT1_.exit: ; preds = %.lr.ph.i.i.i.i.i
+_ZSt22__uninitialized_move_aIPN4pbrt9PrimitiveES2_SaIS1_EET0_T_S5_S4_RT1_.exit: ; preds = %.lr.ph.i.i.i.i.i, %22
   %28 = getelementptr inbounds nuw i8, ptr %13, i64 %8
   store ptr %28, ptr %12, align 8, !tbaa !830
   %29 = ptrtoint ptr %24 to i64

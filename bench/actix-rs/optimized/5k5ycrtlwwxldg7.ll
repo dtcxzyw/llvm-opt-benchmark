@@ -3214,7 +3214,7 @@ switch.lookup:                                    ; preds = %2, %4, %_ZN4core7un
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: write) uwtable
 define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17hcb39d740d4dfef49E"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1) unnamed_addr #11 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 %1
-  %4 = icmp eq i64 %1, 0
+  %4 = icmp eq ptr %0, %3
   br i1 %4, label %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h34c910a34e0f5d56E.llvm.5350303487615222083.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h1075c25805394cc8E.llvm.5350303487615222083.exit.i"
@@ -3750,15 +3750,12 @@ _ZN4core3str7pattern15ReverseSearcher16next_reject_back17hf9e2585ffe230a28E.llvm
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: write) uwtable
 define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$16trim_end_matches17h43dcb7ac625b5c83E"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1) unnamed_addr #11 personality ptr @rust_eh_personality {
-  %3 = icmp eq i64 %1, 0
-  br i1 %3, label %.loopexit, label %.lr.ph.i.preheader
+  %3 = getelementptr inbounds i8, ptr %0, i64 %1
+  %4 = icmp eq ptr %0, %3
+  br i1 %4, label %.loopexit, label %.lr.ph.i
 
-.lr.ph.i.preheader:                               ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 %1
-  br label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %66
-  %5 = phi ptr [ %.sink.i.i, %66 ], [ %4, %.lr.ph.i.preheader ]
+.lr.ph.i:                                         ; preds = %2, %66
+  %5 = phi ptr [ %.sink.i.i, %66 ], [ %3, %2 ]
   %6 = getelementptr inbounds i8, ptr %5, i64 -1
   %7 = load i8, ptr %6, align 1, !noalias !688, !noundef !9
   %8 = icmp sgt i8 %7, -1
@@ -3895,7 +3892,7 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$16trim_end_match
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: write) uwtable
 define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$18trim_start_matches17h6f40ca3cdd378163E"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1) unnamed_addr #11 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 %1
-  %4 = icmp eq i64 %1, 0
+  %4 = icmp eq ptr %0, %3
   br i1 %4, label %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17hacb9f9b09d6051f1E.llvm.5350303487615222083.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17ha2cb3995b8dc4166E.llvm.5350303487615222083.exit.i"
@@ -4017,7 +4014,7 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$18trim_start_mat
   br i1 %70, label %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17hacb9f9b09d6051f1E.llvm.5350303487615222083.exit", label %.lr.ph.i
 
 "_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17hacb9f9b09d6051f1E.llvm.5350303487615222083.exit": ; preds = %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17ha2cb3995b8dc4166E.llvm.5350303487615222083.exit.i", %33, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h92153619b18f3d82E.llvm.5350303487615222083.exit.i.i", %50, %48, %2
-  %71 = phi i64 [ 0, %2 ], [ %1, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17ha2cb3995b8dc4166E.llvm.5350303487615222083.exit.i" ], [ %1, %33 ], [ %5, %48 ], [ %5, %50 ], [ %5, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h92153619b18f3d82E.llvm.5350303487615222083.exit.i.i" ]
+  %71 = phi i64 [ %1, %2 ], [ %1, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17ha2cb3995b8dc4166E.llvm.5350303487615222083.exit.i" ], [ %1, %33 ], [ %5, %48 ], [ %5, %50 ], [ %5, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h92153619b18f3d82E.llvm.5350303487615222083.exit.i.i" ]
   %72 = getelementptr inbounds i8, ptr %0, i64 %71
   %73 = sub i64 %1, %71
   %74 = insertvalue { ptr, i64 } poison, ptr %72, 0
@@ -6161,7 +6158,7 @@ define hidden void @"_ZN97_$LT$futures_util..future..join_all..JoinAll$LT$F$GT$$
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %17 = load i64, ptr %16, align 8, !noundef !9
   %18 = getelementptr inbounds { i64, [3 x i64] }, ptr %15, i64 %17
-  %19 = icmp eq i64 %17, 0
+  %19 = icmp eq ptr %15, %18
   br i1 %19, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13
@@ -6349,7 +6346,7 @@ define hidden void @"_ZN97_$LT$futures_util..future..join_all..JoinAll$LT$F$GT$$
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load i64, ptr %14, align 8, !noundef !9
   %16 = getelementptr inbounds { i64, [26 x i64] }, ptr %13, i64 %15
-  %17 = icmp eq i64 %15, 0
+  %17 = icmp eq ptr %13, %16
   br i1 %17, label %.critedge, label %.lr.ph
 
 18:                                               ; preds = %3
@@ -6475,7 +6472,7 @@ define hidden void @"_ZN97_$LT$futures_util..future..join_all..JoinAll$LT$F$GT$$
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load i64, ptr %14, align 8, !noundef !9
   %16 = getelementptr inbounds { i64, [26 x i64] }, ptr %13, i64 %15
-  %17 = icmp eq i64 %15, 0
+  %17 = icmp eq ptr %13, %16
   br i1 %17, label %.critedge, label %.lr.ph
 
 18:                                               ; preds = %3
@@ -7352,7 +7349,7 @@ _ZN5alloc6string6String6insert17h8034384019f081d0E.exit: ; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.val11 = load i64, ptr %19, align 8, !noundef !9
   %20 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %.val, i64 %.val11
-  %21 = icmp eq i64 %.val11, 0
+  %21 = icmp eq ptr %.val, %20
   br i1 %21, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %17, %26

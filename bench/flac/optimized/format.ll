@@ -582,53 +582,51 @@ define internal fastcc range(i32 0, 7) i32 @utf8len_(ptr noundef readonly captur
 define range(i32 0, 2) i32 @FLAC__format_vorbiscomment_entry_is_legal(ptr noundef readonly captures(address) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = zext i32 %1 to i64
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 %3
-  %.not36 = icmp eq i32 %1, 0
-  br i1 %.not36, label %.critedge, label %.lr.ph
+  %5 = icmp ult ptr %0, %4
+  br i1 %5, label %.lr.ph, label %.critedge
 
-.lr.ph:                                           ; preds = %2, %8
-  %.02233 = phi ptr [ %9, %8 ], [ %0, %2 ]
-  %5 = load i8, ptr %.02233, align 1, !tbaa !22
-  %.not = icmp eq i8 %5, 61
-  br i1 %.not, label %.critedge, label %6
+.lr.ph:                                           ; preds = %2, %7
+  %.02233 = phi ptr [ %9, %7 ], [ %0, %2 ]
+  %6 = load i8, ptr %.02233, align 1, !tbaa !22
+  %.not = icmp eq i8 %6, 61
+  br i1 %.not, label %.critedge, label %7
 
-6:                                                ; preds = %.lr.ph
-  %7 = add i8 %5, -126
-  %or.cond = icmp ult i8 %7, -94
-  br i1 %or.cond, label %.loopexit, label %8
-
-8:                                                ; preds = %6
+7:                                                ; preds = %.lr.ph
+  %8 = add i8 %6, -126
+  %or.cond = icmp ult i8 %8, -94
   %9 = getelementptr inbounds nuw i8, ptr %.02233, i64 1
-  %10 = icmp ult ptr %9, %4
-  br i1 %10, label %.lr.ph, label %.critedge, !llvm.loop !25
+  %exitcond.not = icmp eq ptr %9, %4
+  %or.cond42 = select i1 %or.cond, i1 true, i1 %exitcond.not
+  br i1 %or.cond42, label %.loopexit, label %.lr.ph, !llvm.loop !25
 
-.critedge:                                        ; preds = %.lr.ph, %8, %2
-  %.022.lcssa = phi ptr [ %0, %2 ], [ %9, %8 ], [ %.02233, %.lr.ph ]
-  %11 = icmp eq ptr %.022.lcssa, %4
-  br i1 %11, label %.loopexit, label %12
+.critedge:                                        ; preds = %.lr.ph, %2
+  %.022.lcssa = phi ptr [ %0, %2 ], [ %.02233, %.lr.ph ]
+  %10 = icmp eq ptr %.022.lcssa, %4
+  br i1 %10, label %.loopexit, label %11
 
-12:                                               ; preds = %.critedge
-  %13 = getelementptr inbounds nuw i8, ptr %.022.lcssa, i64 1
-  br label %14
+11:                                               ; preds = %.critedge
+  %12 = getelementptr inbounds nuw i8, ptr %.022.lcssa, i64 1
+  br label %13
 
-14:                                               ; preds = %16, %12
-  %.123 = phi ptr [ %13, %12 ], [ %19, %16 ]
-  %15 = icmp ult ptr %.123, %4
-  br i1 %15, label %16, label %20
+13:                                               ; preds = %15, %11
+  %.123 = phi ptr [ %12, %11 ], [ %18, %15 ]
+  %14 = icmp ult ptr %.123, %4
+  br i1 %14, label %15, label %19
 
-16:                                               ; preds = %14
-  %17 = tail call fastcc i32 @utf8len_(ptr noundef %.123)
-  %.not29 = icmp eq i32 %17, 0
-  %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds nuw i8, ptr %.123, i64 %18
-  br i1 %.not29, label %.loopexit, label %14, !llvm.loop !26
+15:                                               ; preds = %13
+  %16 = tail call fastcc i32 @utf8len_(ptr noundef %.123)
+  %.not29 = icmp eq i32 %16, 0
+  %17 = zext nneg i32 %16 to i64
+  %18 = getelementptr inbounds nuw i8, ptr %.123, i64 %17
+  br i1 %.not29, label %.loopexit, label %13, !llvm.loop !26
 
-20:                                               ; preds = %14
+19:                                               ; preds = %13
   %.not28 = icmp eq ptr %.123, %4
   %. = zext i1 %.not28 to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %6, %16, %20, %.critedge
-  %.0 = phi i32 [ 0, %.critedge ], [ %., %20 ], [ 0, %16 ], [ 0, %6 ]
+.loopexit:                                        ; preds = %7, %15, %19, %.critedge
+  %.0 = phi i32 [ 0, %.critedge ], [ %., %19 ], [ 0, %15 ], [ 0, %7 ]
   ret i32 %.0
 }
 

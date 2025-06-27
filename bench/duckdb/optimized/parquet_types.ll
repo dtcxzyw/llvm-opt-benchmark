@@ -71630,17 +71630,17 @@ define linkonce_odr void @_ZNSt6vectorIlSaIlEE17_M_default_appendEm(ptr noundef 
   store i64 0, ptr %5, align 8, !tbaa !35
   %20 = getelementptr i8, ptr %5, i64 8
   %21 = icmp eq i64 %1, 1
-  br i1 %21, label %_ZSt27__uninitialized_default_n_aIPlmlET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i
+  br i1 %21, label %_ZSt27__uninitialized_default_n_aIPlmlET_S1_T0_RSaIT1_E.exit, label %.lr.ph.i.i.preheader.i.i.i.i.i
 
-_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
+.lr.ph.i.i.preheader.i.i.i.i.i:                   ; preds = %19
   %22 = shl i64 %1, 3
   %23 = add i64 %22, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %23, i1 false), !tbaa !35
   %24 = getelementptr i64, ptr %5, i64 %1
   br label %_ZSt27__uninitialized_default_n_aIPlmlET_S1_T0_RSaIT1_E.exit
 
-_ZSt27__uninitialized_default_n_aIPlmlET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %24, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
+_ZSt27__uninitialized_default_n_aIPlmlET_S1_T0_RSaIT1_E.exit: ; preds = %19, %.lr.ph.i.i.preheader.i.i.i.i.i
+  %.0.i.i.i = phi ptr [ %20, %19 ], [ %24, %.lr.ph.i.i.preheader.i.i.i.i.i ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !103
   br label %42
 
@@ -71661,16 +71661,16 @@ _ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit:    ; preds = %25
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 %9
   store i64 0, ptr %32, align 8, !tbaa !35
   %33 = icmp eq i64 %1, 1
-  br i1 %33, label %_ZSt27__uninitialized_default_n_aIPlmlET_S1_T0_RSaIT1_E.exit32, label %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i30
+  br i1 %33, label %_ZSt27__uninitialized_default_n_aIPlmlET_S1_T0_RSaIT1_E.exit32, label %.lr.ph.i.i.preheader.i.i.i.i.i30
 
-_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i30: ; preds = %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit
+.lr.ph.i.i.preheader.i.i.i.i.i30:                 ; preds = %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit
   %34 = getelementptr i8, ptr %32, i64 8
   %35 = shl nuw nsw i64 %1, 3
   %36 = add nsw i64 %35, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %34, i8 0, i64 %36, i1 false), !tbaa !35
   br label %_ZSt27__uninitialized_default_n_aIPlmlET_S1_T0_RSaIT1_E.exit32
 
-_ZSt27__uninitialized_default_n_aIPlmlET_S1_T0_RSaIT1_E.exit32: ; preds = %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i30, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit
+_ZSt27__uninitialized_default_n_aIPlmlET_S1_T0_RSaIT1_E.exit32: ; preds = %.lr.ph.i.i.preheader.i.i.i.i.i30, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit
   %37 = icmp sgt i64 %9, 0
   br i1 %37, label %38, label %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit
 
@@ -72815,7 +72815,8 @@ _ZSt27__uninitialized_default_n_aIPN14duckdb_parquet8KeyValueEmS1_ET_S3_T0_RSaIT
   %52 = extractvalue { ptr, i32 } %51, 0
   %53 = tail call ptr @__cxa_begin_catch(ptr %52) #26
   %54 = getelementptr inbounds nuw %"class.duckdb_parquet::KeyValue", ptr %37, i64 %1
-  br label %.lr.ph.i.i.i46
+  %.not4.i.i.i = icmp eq ptr %37, %54
+  br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN14duckdb_parquet8KeyValueES1_EvT_S3_RSaIT0_E.exit, label %.lr.ph.i.i.i46
 
 .lr.ph.i.i.i46:                                   ; preds = %50, %.lr.ph.i.i.i46
   %.05.i.i.i = phi ptr [ %57, %.lr.ph.i.i.i46 ], [ %37, %50 ]
@@ -72832,7 +72833,7 @@ _ZSt27__uninitialized_default_n_aIPN14duckdb_parquet8KeyValueEmS1_ET_S3_T0_RSaIT
   invoke void @__cxa_end_catch()
           to label %60 unwind label %68
 
-_ZSt8_DestroyIPN14duckdb_parquet8KeyValueES1_EvT_S3_RSaIT0_E.exit: ; preds = %.lr.ph.i.i.i46
+_ZSt8_DestroyIPN14duckdb_parquet8KeyValueES1_EvT_S3_RSaIT0_E.exit: ; preds = %.lr.ph.i.i.i46, %50
   tail call void @_ZdlPv(ptr noundef nonnull %36) #28
   invoke void @__cxa_rethrow() #27
           to label %71 unwind label %58
@@ -74319,7 +74320,8 @@ _ZSt8_DestroyIPN14duckdb_parquet11ColumnChunkEEvT_S3_.exit.i.i.i.i.i: ; preds = 
   %48 = extractvalue { ptr, i32 } %40, 0
   %49 = tail call ptr @__cxa_begin_catch(ptr %48) #26
   %50 = getelementptr inbounds nuw %"class.duckdb_parquet::ColumnChunk", ptr %28, i64 %1
-  br label %.lr.ph.i.i.i
+  %.not4.i.i.i = icmp eq ptr %28, %50
+  br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN14duckdb_parquet11ColumnChunkES1_EvT_S3_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.body, %.lr.ph.i.i.i
   %.05.i.i.i = phi ptr [ %53, %.lr.ph.i.i.i ], [ %28, %.body ]
@@ -74336,7 +74338,7 @@ _ZSt8_DestroyIPN14duckdb_parquet11ColumnChunkEEvT_S3_.exit.i.i.i.i.i: ; preds = 
   invoke void @__cxa_end_catch()
           to label %56 unwind label %64
 
-_ZSt8_DestroyIPN14duckdb_parquet11ColumnChunkES1_EvT_S3_RSaIT0_E.exit: ; preds = %.lr.ph.i.i.i, %.body.thread
+_ZSt8_DestroyIPN14duckdb_parquet11ColumnChunkES1_EvT_S3_RSaIT0_E.exit: ; preds = %.lr.ph.i.i.i, %.body.thread, %.body
   tail call void @_ZdlPv(ptr noundef nonnull %27) #28
   invoke void @__cxa_rethrow() #27
           to label %67 unwind label %54
@@ -76730,7 +76732,8 @@ _ZSt8_DestroyIPN14duckdb_parquet13SchemaElementEEvT_S3_.exit.i.i.i.i.i: ; preds 
   %142 = extractvalue { ptr, i32 } %137, 0
   %143 = tail call ptr @__cxa_begin_catch(ptr %142) #26
   %144 = getelementptr inbounds nuw %"class.duckdb_parquet::SchemaElement", ptr %76, i64 %1
-  br label %.lr.ph.i.i.i46
+  %.not4.i.i.i = icmp eq ptr %76, %144
+  br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN14duckdb_parquet13SchemaElementES1_EvT_S3_RSaIT0_E.exit, label %.lr.ph.i.i.i46
 
 .lr.ph.i.i.i46:                                   ; preds = %.body, %.lr.ph.i.i.i46
   %.05.i.i.i = phi ptr [ %147, %.lr.ph.i.i.i46 ], [ %76, %.body ]
@@ -76747,7 +76750,7 @@ _ZSt8_DestroyIPN14duckdb_parquet13SchemaElementEEvT_S3_.exit.i.i.i.i.i: ; preds 
   invoke void @__cxa_end_catch()
           to label %150 unwind label %158
 
-_ZSt8_DestroyIPN14duckdb_parquet13SchemaElementES1_EvT_S3_RSaIT0_E.exit: ; preds = %.lr.ph.i.i.i46
+_ZSt8_DestroyIPN14duckdb_parquet13SchemaElementES1_EvT_S3_RSaIT0_E.exit: ; preds = %.lr.ph.i.i.i46, %.body
   tail call void @_ZdlPv(ptr noundef nonnull %75) #28
   invoke void @__cxa_rethrow() #27
           to label %161 unwind label %148
@@ -76881,7 +76884,8 @@ _ZSt27__uninitialized_default_n_aIPN14duckdb_parquet8RowGroupEmS1_ET_S3_T0_RSaIT
   %42 = extractvalue { ptr, i32 } %41, 0
   %43 = tail call ptr @__cxa_begin_catch(ptr %42) #26
   %44 = getelementptr inbounds nuw %"class.duckdb_parquet::RowGroup", ptr %32, i64 %1
-  br label %.lr.ph.i.i.i46
+  %.not4.i.i.i = icmp eq ptr %32, %44
+  br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN14duckdb_parquet8RowGroupES1_EvT_S3_RSaIT0_E.exit, label %.lr.ph.i.i.i46
 
 .lr.ph.i.i.i46:                                   ; preds = %40, %.lr.ph.i.i.i46
   %.05.i.i.i = phi ptr [ %47, %.lr.ph.i.i.i46 ], [ %32, %40 ]
@@ -76898,7 +76902,7 @@ _ZSt27__uninitialized_default_n_aIPN14duckdb_parquet8RowGroupEmS1_ET_S3_T0_RSaIT
   invoke void @__cxa_end_catch()
           to label %50 unwind label %58
 
-_ZSt8_DestroyIPN14duckdb_parquet8RowGroupES1_EvT_S3_RSaIT0_E.exit: ; preds = %.lr.ph.i.i.i46
+_ZSt8_DestroyIPN14duckdb_parquet8RowGroupES1_EvT_S3_RSaIT0_E.exit: ; preds = %.lr.ph.i.i.i46, %40
   tail call void @_ZdlPv(ptr noundef nonnull %31) #28
   invoke void @__cxa_rethrow() #27
           to label %61 unwind label %48

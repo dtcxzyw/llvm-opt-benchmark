@@ -9199,16 +9199,18 @@ define hidden range(i32 -30080, 1) i32 @mbedtls_ssl_parse_alpn_ext(ptr noundef %
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 %17
   %.ptr79 = getelementptr inbounds nuw i8, ptr %24, i64 2
   %.not = icmp eq i16 %.0.copyload.i, 0
-  br i1 %.not, label %.critedge64, label %.lr.ph
+  br i1 %.not, label %.preheader, label %.lr.ph
 
 .lr.ph:                                           ; preds = %23
   %25 = ptrtoint ptr %.ptr79 to i64
   br label %40
 
-.preheader:                                       ; preds = %50
+.preheader:                                       ; preds = %50, %23
   %26 = load ptr, ptr %6, align 8, !tbaa !64
-  %.not6076 = icmp eq ptr %26, null
-  br i1 %.not6076, label %.critedge64, label %.lr.ph75.us
+  %.not6076 = icmp ne ptr %26, null
+  %.not6173 = icmp ult ptr %1, %24
+  %or.cond = select i1 %.not6076, i1 %.not6173, i1 false
+  br i1 %or.cond, label %.lr.ph75.us, label %.critedge64
 
 .lr.ph75.us:                                      ; preds = %.preheader, %..critedge_crit_edge.us
   %27 = phi ptr [ %39, %..critedge_crit_edge.us ], [ %26, %.preheader ]
@@ -9273,7 +9275,7 @@ define hidden range(i32 -30080, 1) i32 @mbedtls_ssl_parse_alpn_ext(ptr noundef %
   store ptr %27, ptr %53, align 8, !tbaa !126
   br label %54
 
-.critedge64:                                      ; preds = %..critedge_crit_edge.us, %.preheader, %23
+.critedge64:                                      ; preds = %..critedge_crit_edge.us, %.preheader
   tail call void @mbedtls_ssl_pend_fatal_alert(ptr noundef nonnull %0, i8 noundef zeroext 120, i32 noundef -30080) #26
   br label %54
 

@@ -2919,8 +2919,8 @@ define hidden noundef range(i64 1, 0) i64 @_ZN10polars_row8variable6binary10enco
   store i8 %..sink, ptr %0, align 1
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %.loopexit.sink.split, %57
-  %.sroa.02.0 = phi i64 [ %22, %57 ], [ 1, %.loopexit.sink.split ], [ %22, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %.loopexit.sink.split, %58, %57
+  %.sroa.02.0 = phi i64 [ %22, %57 ], [ %22, %58 ], [ 1, %.loopexit.sink.split ], [ %22, %.lr.ph ]
   ret i64 %.sroa.02.0
 
 14:                                               ; preds = %10
@@ -3028,19 +3028,20 @@ define hidden noundef range(i64 1, 0) i64 @_ZN10polars_row8variable6binary10enco
   br label %57
 
 57:                                               ; preds = %"_ZN74_$LT$$u5b$T$u5d$$u20$as$u20$core..slice..specialize..SpecFill$LT$T$GT$$GT$9spec_fill17hf45eb06c1d08b7e9E.exit", %49
-  br i1 %.not, label %.loopexit, label %.lr.ph.preheader
+  br i1 %.not, label %.loopexit, label %58
 
-.lr.ph.preheader:                                 ; preds = %57
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 %22
-  br label %.lr.ph
+58:                                               ; preds = %57
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 %22
+  %.not4142 = icmp eq ptr %0, %59
+  br i1 %.not4142, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.sroa.022.043 = phi ptr [ %.sroa.022.1, %.lr.ph ], [ %0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %58, %.lr.ph
+  %.sroa.022.043 = phi ptr [ %.sroa.022.1, %.lr.ph ], [ %0, %58 ]
   %.sroa.022.1 = getelementptr inbounds nuw i8, ptr %.sroa.022.043, i64 1
-  %59 = load i8, ptr %.sroa.022.043, align 1
-  %60 = xor i8 %59, -1
-  store i8 %60, ptr %.sroa.022.043, align 1
-  %.not41 = icmp eq ptr %.sroa.022.1, %58
+  %60 = load i8, ptr %.sroa.022.043, align 1
+  %61 = xor i8 %60, -1
+  store i8 %61, ptr %.sroa.022.043, align 1
+  %.not41 = icmp eq ptr %.sroa.022.1, %59
   br i1 %.not41, label %.loopexit, label %.lr.ph
 }
 
@@ -3115,7 +3116,7 @@ define hidden void @_ZN10polars_row8variable6binary14decode_binview17h233edf8602
   %24 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i64 0, ptr %24, align 8
   %25 = getelementptr inbounds nuw { ptr, i64 }, ptr %1, i64 %2
-  %.not75 = icmp eq i64 %2, 0
+  %.not75 = icmp eq ptr %1, %25
   br i1 %.not75, label %._crit_edge80, label %.lr.ph79
 
 .lr.ph79:                                         ; preds = %22
@@ -3453,7 +3454,7 @@ _ZN12polars_arrow5array7binview4view4View14new_from_bytes17h2e0224cb3746c684E.ex
   %135 = load ptr, ptr %23, align 8, !nonnull !3, !noundef !3
   %136 = load i64, ptr %24, align 8, !noundef !3
   %137 = getelementptr inbounds nuw i8, ptr %135, i64 %136
-  %138 = icmp samesign eq i64 %136, 0
+  %138 = icmp eq ptr %135, %137
   br i1 %138, label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h6230fcbe181e59b7E.exit", label %.lr.ph.i33
 
 .lr.ph.i33:                                       ; preds = %134, %.lr.ph.i33

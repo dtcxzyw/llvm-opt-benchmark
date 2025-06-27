@@ -204,7 +204,7 @@ _ZNK10model_core17get_num_functionsEv.exit:       ; preds = %._crit_edge
   br i1 %.not35.i.i, label %.preheader.i.i, label %.lr.ph.i.i
 
 .preheader.i.i:                                   ; preds = %57, %37
-  %.not2737.i.i = icmp eq i32 %45, 0
+  %.not2737.i.i = icmp eq ptr %46, %48
   br i1 %.not2737.i.i, label %.loopexit99, label %.lr.ph39.i.i
 
 .lr.ph.i.i:                                       ; preds = %37, %57
@@ -264,7 +264,7 @@ _ZNK10model_core17get_num_functionsEv.exit:       ; preds = %._crit_edge
   br i1 %.not35.i.i.i.i, label %.preheader.i.i.i.i, label %.lr.ph.i.i.i.i
 
 .preheader.i.i.i.i:                               ; preds = %81, %.loopexit99
-  %.not2737.i.i.i.i = icmp eq i32 %69, 0
+  %.not2737.i.i.i.i = icmp eq ptr %70, %72
   br i1 %.not2737.i.i.i.i, label %_ZNK10model_core16get_const_interpEP9func_decl.exit, label %.lr.ph39.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.loopexit99, %81
@@ -362,7 +362,7 @@ _ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_E
   br i1 %.not35.i.i53, label %.preheader.i.i58, label %.lr.ph.i.i54
 
 .preheader.i.i58:                                 ; preds = %120, %100
-  %.not2737.i.i59 = icmp eq i32 %108, 0
+  %.not2737.i.i59 = icmp eq ptr %109, %111
   br i1 %.not2737.i.i59, label %.loopexit, label %.lr.ph39.i.i60
 
 .lr.ph.i.i54:                                     ; preds = %100, %120
@@ -419,11 +419,7 @@ _ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_E
   %136 = zext i32 %130 to i64
   %137 = getelementptr inbounds nuw %"class.obj_map<func_decl, func_interp *>::obj_map_entry", ptr %133, i64 %136
   %.not35.i.i.i.i68 = icmp eq i32 %132, %130
-  br i1 %.not35.i.i.i.i68, label %.preheader.i.i.i.i73, label %.lr.ph.i.i.i.i69
-
-.preheader.i.i.i.i73:                             ; preds = %144, %.loopexit
-  %.not2737.i.i.i.i74 = icmp ne i32 %132, 0
-  br label %.lr.ph39.i.i.i.i75
+  br i1 %.not35.i.i.i.i68, label %.lr.ph39.i.i.i.i75.preheader, label %.lr.ph.i.i.i.i69
 
 .lr.ph.i.i.i.i69:                                 ; preds = %.loopexit, %144
   %.036.i.i.i.i70 = phi ptr [ %145, %144 ], [ %135, %.loopexit ]
@@ -442,13 +438,16 @@ _ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_E
 144:                                              ; preds = %.lr.ph.i.i.i.i69, %139
   %145 = getelementptr inbounds nuw i8, ptr %.036.i.i.i.i70, i64 16
   %.not.i.i.i.i72 = icmp eq ptr %145, %137
-  br i1 %.not.i.i.i.i72, label %.preheader.i.i.i.i73, label %.lr.ph.i.i.i.i69, !llvm.loop !73
+  br i1 %.not.i.i.i.i72, label %.lr.ph39.i.i.i.i75.preheader, label %.lr.ph.i.i.i.i69, !llvm.loop !73
 
-.lr.ph39.i.i.i.i75:                               ; preds = %152, %.preheader.i.i.i.i73
-  %.not27.i.i.i.i78.sink = phi i1 [ %.not27.i.i.i.i78, %152 ], [ %.not2737.i.i.i.i74, %.preheader.i.i.i.i73 ]
-  %.138.i.i.i.i76 = phi ptr [ %153, %152 ], [ %133, %.preheader.i.i.i.i73 ]
-  call void @llvm.assume(i1 %.not27.i.i.i.i78.sink)
-  %146 = load ptr, ptr %.138.i.i.i.i76, align 8, !tbaa !69
+.lr.ph39.i.i.i.i75.preheader:                     ; preds = %144, %.loopexit
+  br label %.lr.ph39.i.i.i.i75
+
+.lr.ph39.i.i.i.i75:                               ; preds = %.lr.ph39.i.i.i.i75.preheader, %152
+  %.sink = phi ptr [ %153, %152 ], [ %133, %.lr.ph39.i.i.i.i75.preheader ]
+  %.not27.i.i.i.i78 = icmp ne ptr %.sink, %135
+  call void @llvm.assume(i1 %.not27.i.i.i.i78)
+  %146 = load ptr, ptr %.sink, align 8, !tbaa !69
   %cond93 = icmp eq ptr %146, inttoptr (i64 1 to ptr)
   br i1 %cond93, label %152, label %147
 
@@ -461,12 +460,11 @@ _ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_E
   br i1 %or.cond31.i.i.i.i79, label %.loopexit.i80, label %152
 
 152:                                              ; preds = %.lr.ph39.i.i.i.i75, %147
-  %153 = getelementptr inbounds nuw i8, ptr %.138.i.i.i.i76, i64 16
-  %.not27.i.i.i.i78 = icmp ne ptr %153, %135
+  %153 = getelementptr inbounds nuw i8, ptr %.sink, i64 16
   br label %.lr.ph39.i.i.i.i75
 
 .loopexit.i80:                                    ; preds = %139, %147
-  %.026.i.i.i.i81 = phi ptr [ %.138.i.i.i.i76, %147 ], [ %.036.i.i.i.i70, %139 ]
+  %.026.i.i.i.i81 = phi ptr [ %.sink, %147 ], [ %.036.i.i.i.i70, %139 ]
   %154 = getelementptr inbounds nuw i8, ptr %.026.i.i.i.i81, i64 8
   %155 = load ptr, ptr %154, align 8, !tbaa !74
   %156 = invoke noundef ptr @_ZNK11func_interp4copyEv(ptr noundef nonnull align 8 dereferenceable(56) %155)

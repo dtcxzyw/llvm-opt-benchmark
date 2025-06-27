@@ -76,12 +76,12 @@ define noundef nonnull ptr @_Z23common_speculative_initP13llama_context(ptr noun
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %5, align 8, !tbaa !21
   %6 = invoke i32 @llama_n_batch(ptr noundef %0)
-          to label %7 unwind label %39
+          to label %7 unwind label %42
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   invoke void @llama_batch_init(ptr dead_on_unwind nonnull writable sret(%struct.llama_batch) align 8 %8, i32 noundef %6, i32 noundef 0, i32 noundef 1)
-          to label %9 unwind label %39
+          to label %9 unwind label %42
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 72
@@ -106,7 +106,7 @@ define noundef nonnull ptr @_Z23common_speculative_initP13llama_context(ptr noun
 
 21:                                               ; preds = %9
   %22 = invoke noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #17
-          to label %.noexc unwind label %41
+          to label %.noexc unwind label %44
 
 .noexc:                                           ; preds = %21
   store i32 2, ptr %22, align 4
@@ -128,70 +128,81 @@ _ZNSt12_Vector_baseI19common_sampler_typeSaIS0_EE13_M_deallocateEPS0_m.exit.i: ;
 26:                                               ; preds = %9
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 136
   %28 = load ptr, ptr %27, align 8, !tbaa !62
+  %29 = ptrtoint ptr %28 to i64
+  %30 = sub i64 %29, %18
   %.not.i = icmp eq ptr %28, %16
-  br i1 %.not.i, label %_ZSt22__uninitialized_copy_aIPK19common_sampler_typePS0_S0_ET0_T_S5_S4_RSaIT1_E.exit.i, label %29
+  br i1 %.not.i, label %_ZSt7advanceIPK19common_sampler_typemEvRT_T0_.exit.i, label %31
 
-29:                                               ; preds = %26
+31:                                               ; preds = %26
   store i32 2, ptr %16, align 4
   %.pre.i = load ptr, ptr %27, align 8, !tbaa !62
-  %30 = getelementptr inbounds nuw i8, ptr %16, i64 4
-  %.not.i16.i = icmp eq ptr %.pre.i, %30
-  br i1 %.not.i16.i, label %_ZNSt6vectorI19common_sampler_typeSaIS0_EEaSESt16initializer_listIS0_E.exit, label %31
+  %32 = getelementptr inbounds nuw i8, ptr %16, i64 4
+  %.not.i16.i = icmp eq ptr %.pre.i, %32
+  br i1 %.not.i16.i, label %_ZNSt6vectorI19common_sampler_typeSaIS0_EEaSESt16initializer_listIS0_E.exit, label %33
 
-31:                                               ; preds = %29
-  store ptr %30, ptr %27, align 8, !tbaa !62
+33:                                               ; preds = %31
+  store ptr %32, ptr %27, align 8, !tbaa !62
   br label %_ZNSt6vectorI19common_sampler_typeSaIS0_EEaSESt16initializer_listIS0_E.exit
 
-_ZSt22__uninitialized_copy_aIPK19common_sampler_typePS0_S0_ET0_T_S5_S4_RSaIT1_E.exit.i: ; preds = %26
-  %32 = ptrtoint ptr %28 to i64
-  %33 = sub i64 %32, %18
-  %gepdiff = sub nsw i64 4, %33
-  %.sink.i.i25.i.ptr = getelementptr inbounds i8, ptr %3, i64 %33
-  call void @llvm.memmove.p0.p0.i64(ptr align 4 %28, ptr nonnull align 4 %.sink.i.i25.i.ptr, i64 %gepdiff, i1 false)
-  %34 = getelementptr inbounds i8, ptr %28, i64 %gepdiff
-  store ptr %34, ptr %27, align 8, !tbaa !62
+_ZSt7advanceIPK19common_sampler_typemEvRT_T0_.exit.i: ; preds = %26
+  %34 = getelementptr inbounds i8, ptr %3, i64 %30
+  %.not.i.i.i.i.i17.i = icmp eq ptr %34, %3
+  br i1 %.not.i.i.i.i.i17.i, label %_ZSt22__uninitialized_copy_aIPK19common_sampler_typePS0_S0_ET0_T_S5_S4_RSaIT1_E.exit.i, label %_ZSt4copyIPK19common_sampler_typePS0_ET0_T_S5_S4_.exit18.i
+
+_ZSt4copyIPK19common_sampler_typePS0_ET0_T_S5_S4_.exit18.i: ; preds = %_ZSt7advanceIPK19common_sampler_typemEvRT_T0_.exit.i
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %16, ptr nonnull align 4 %3, i64 %30, i1 false)
+  %.pre26.i = load ptr, ptr %27, align 8, !tbaa !62
+  br label %_ZSt22__uninitialized_copy_aIPK19common_sampler_typePS0_S0_ET0_T_S5_S4_RSaIT1_E.exit.i
+
+_ZSt22__uninitialized_copy_aIPK19common_sampler_typePS0_S0_ET0_T_S5_S4_RSaIT1_E.exit.i: ; preds = %_ZSt7advanceIPK19common_sampler_typemEvRT_T0_.exit.i, %_ZSt4copyIPK19common_sampler_typePS0_ET0_T_S5_S4_.exit18.i
+  %.sink.i.i25.i12 = phi ptr [ %34, %_ZSt4copyIPK19common_sampler_typePS0_ET0_T_S5_S4_.exit18.i ], [ %3, %_ZSt7advanceIPK19common_sampler_typemEvRT_T0_.exit.i ]
+  %35 = phi ptr [ %.pre26.i, %_ZSt4copyIPK19common_sampler_typePS0_ET0_T_S5_S4_.exit18.i ], [ %28, %_ZSt7advanceIPK19common_sampler_typemEvRT_T0_.exit.i ]
+  %36 = load i32, ptr %.sink.i.i25.i12, align 4
+  store i32 %36, ptr %35, align 4
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 4
+  store ptr %37, ptr %27, align 8, !tbaa !62
   br label %_ZNSt6vectorI19common_sampler_typeSaIS0_EEaSESt16initializer_listIS0_E.exit
 
-_ZNSt6vectorI19common_sampler_typeSaIS0_EEaSESt16initializer_listIS0_E.exit: ; preds = %_ZNSt12_Vector_baseI19common_sampler_typeSaIS0_EE13_M_deallocateEPS0_m.exit.i, %29, %31, %_ZSt22__uninitialized_copy_aIPK19common_sampler_typePS0_S0_ET0_T_S5_S4_RSaIT1_E.exit.i
+_ZNSt6vectorI19common_sampler_typeSaIS0_EEaSESt16initializer_listIS0_E.exit: ; preds = %_ZNSt12_Vector_baseI19common_sampler_typeSaIS0_EE13_M_deallocateEPS0_m.exit.i, %31, %33, %_ZSt22__uninitialized_copy_aIPK19common_sampler_typePS0_S0_ET0_T_S5_S4_RSaIT1_E.exit.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #18
-  %35 = invoke ptr @llama_get_model(ptr noundef %0)
-          to label %36 unwind label %43
+  %38 = invoke ptr @llama_get_model(ptr noundef %0)
+          to label %39 unwind label %46
 
-36:                                               ; preds = %_ZNSt6vectorI19common_sampler_typeSaIS0_EEaSESt16initializer_listIS0_E.exit
-  %37 = invoke noundef ptr @_Z19common_sampler_initPK11llama_modelRK22common_params_sampling(ptr noundef %35, ptr noundef nonnull align 8 dereferenceable(312) %2)
-          to label %38 unwind label %43
+39:                                               ; preds = %_ZNSt6vectorI19common_sampler_typeSaIS0_EEaSESt16initializer_listIS0_E.exit
+  %40 = invoke noundef ptr @_Z19common_sampler_initPK11llama_modelRK22common_params_sampling(ptr noundef %38, ptr noundef nonnull align 8 dereferenceable(312) %2)
+          to label %41 unwind label %46
 
-38:                                               ; preds = %36
-  store ptr %37, ptr %5, align 8, !tbaa !21
+41:                                               ; preds = %39
+  store ptr %40, ptr %5, align 8, !tbaa !21
   call void @_ZN22common_params_samplingD2Ev(ptr noundef nonnull align 8 dereferenceable(312) %2) #18
   call void @llvm.lifetime.end.p0(i64 312, ptr nonnull %2) #18
   ret ptr %4
 
-39:                                               ; preds = %7, %1
-  %40 = landingpad { ptr, i32 }
+42:                                               ; preds = %7, %1
+  %43 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 96) #19
-  br label %46
+  br label %49
 
-41:                                               ; preds = %21
-  %42 = landingpad { ptr, i32 }
+44:                                               ; preds = %21
+  %45 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #18
-  br label %45
+  br label %48
 
-43:                                               ; preds = %36, %_ZNSt6vectorI19common_sampler_typeSaIS0_EEaSESt16initializer_listIS0_E.exit
-  %44 = landingpad { ptr, i32 }
+46:                                               ; preds = %39, %_ZNSt6vectorI19common_sampler_typeSaIS0_EEaSESt16initializer_listIS0_E.exit
+  %47 = landingpad { ptr, i32 }
           cleanup
-  br label %45
+  br label %48
 
-45:                                               ; preds = %43, %41
-  %.pn = phi { ptr, i32 } [ %44, %43 ], [ %42, %41 ]
+48:                                               ; preds = %46, %44
+  %.pn = phi { ptr, i32 } [ %47, %46 ], [ %45, %44 ]
   call void @_ZN22common_params_samplingD2Ev(ptr noundef nonnull align 8 dereferenceable(312) %2) #18
   call void @llvm.lifetime.end.p0(i64 312, ptr nonnull %2) #18
-  br label %46
+  br label %49
 
-46:                                               ; preds = %45, %39
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %45 ], [ %40, %39 ]
+49:                                               ; preds = %48, %42
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %48 ], [ %43, %42 ]
   resume { ptr, i32 } %.pn.pn
 }
 

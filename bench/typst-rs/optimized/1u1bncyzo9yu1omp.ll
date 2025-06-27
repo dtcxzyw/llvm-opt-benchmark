@@ -2729,16 +2729,13 @@ _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit: ; preds = 
   %8 = load ptr, ptr %7, align 8, !noalias !384, !nonnull !4, !noundef !4
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %10 = load i64, ptr %9, align 8, !noalias !384, !noundef !4
+  %11 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %8, i64 %10
   tail call void @llvm.experimental.noalias.scope.decl(metadata !387)
-  %11 = icmp eq i64 %10, 0
-  br i1 %11, label %.loopexit.i, label %.lr.ph.i.i.i.preheader
+  %12 = icmp eq ptr %8, %11
+  br i1 %12, label %.loopexit.i, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i.preheader:                           ; preds = %_ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit
-  %12 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %8, i64 %10
-  br label %.lr.ph.i.i.i
-
-.lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.preheader, %17
-  %13 = phi ptr [ %14, %17 ], [ %12, %.lr.ph.i.i.i.preheader ]
+.lr.ph.i.i.i:                                     ; preds = %_ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit, %17
+  %13 = phi ptr [ %14, %17 ], [ %11, %_ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit ]
   %14 = getelementptr inbounds i8, ptr %13, i64 -32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !390
   call void @"_ZN73_$LT$typst_syntax..ast..Pattern$u20$as$u20$typst_syntax..ast..AstNode$GT$12from_untyped17h9168fa4b781ff27cE"(ptr noalias noundef nonnull sret({ i64, [1 x i64] }) align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %14), !noalias !398
@@ -7085,7 +7082,7 @@ define hidden void @"_ZN66_$LT$typst_syntax..node..InnerNode$u20$as$u20$core..ha
 
 _ZN4core4hash6Hasher19write_length_prefix17h0c949a988e963dcdE.exit: ; preds = %238, %264
   %266 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %231, i64 %233
-  %267 = icmp eq i64 %233, 0
+  %267 = icmp eq ptr %231, %266
   br i1 %267, label %_ZN4core4hash4Hash10hash_slice17hacfa8337e98b84f4E.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4core4hash6Hasher19write_length_prefix17h0c949a988e963dcdE.exit, %.lr.ph
@@ -7279,7 +7276,7 @@ _ZN4core4hash6Hasher9write_str17h18c2101eababa2e8E.llvm.5444024693429055459.exit
 
 _ZN4core4hash6Hasher19write_length_prefix17h0c949a988e963dcdE.exit: ; preds = %102, %128
   %130 = getelementptr inbounds { { { [2 x i64] } } }, ptr %93, i64 %95
-  %131 = icmp eq i64 %95, 0
+  %131 = icmp eq ptr %93, %130
   br i1 %131, label %_ZN4core4hash4Hash10hash_slice17h83e3a6caa1342b53E.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN4core4hash6Hasher19write_length_prefix17h0c949a988e963dcdE.exit, %.lr.ph.i

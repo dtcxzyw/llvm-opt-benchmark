@@ -956,7 +956,7 @@ define internal fastcc noundef ptr @"_ZN5wasmi6engine8executor6instrs4copy59_$LT
   %6 = tail call noundef i16 @_ZN8wasmi_ir4span7RegSpan4head17h301082d21224707fE(i16 noundef %2)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !81)
   %7 = getelementptr inbounds nuw i16, ptr %3, i64 %4
-  %8 = icmp eq i64 %4, 0
+  %8 = icmp eq ptr %3, %7
   br i1 %8, label %"_ZN5wasmi6engine8executor6instrs4copy59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$38execute_copy_many_non_overlapping_impl28_$u7b$$u7b$closure$u7d$$u7d$17hc477310627371058E.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %5
@@ -987,9 +987,9 @@ define internal fastcc noundef ptr @"_ZN5wasmi6engine8executor6instrs4copy59_$LT
   %21 = load i16, ptr %.sroa.0.0, align 4, !range !32, !noundef !3
   switch i16 %21, label %32 [
     i16 522, label %22
-    i16 519, label %.loopexit.loopexit
-    i16 520, label %.loopexit
-    i16 521, label %.loopexit52
+    i16 519, label %.lr.ph.i13.loopexit
+    i16 520, label %.lr.ph.i13
+    i16 521, label %.lr.ph.i13.loopexit52
   ]
 
 22:                                               ; preds = %20
@@ -1017,31 +1017,30 @@ define internal fastcc noundef ptr @"_ZN5wasmi6engine8executor6instrs4copy59_$LT
 32:                                               ; preds = %20
   unreachable
 
-.loopexit52:                                      ; preds = %20
-  br label %.loopexit
+.lr.ph.i13.loopexit52:                            ; preds = %20
+  br label %.lr.ph.i13
 
-.loopexit.loopexit:                               ; preds = %20
-  br label %.loopexit
+.lr.ph.i13.loopexit:                              ; preds = %20
+  br label %.lr.ph.i13
 
-.loopexit:                                        ; preds = %20, %.loopexit.loopexit, %.loopexit52
-  %.sroa.4.0 = phi i64 [ 3, %.loopexit52 ], [ 1, %.loopexit.loopexit ], [ 2, %20 ]
-  %.sroa.04.0 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 2
+.lr.ph.i13:                                       ; preds = %20, %.lr.ph.i13.loopexit, %.lr.ph.i13.loopexit52
+  %.sroa.4.0 = phi i64 [ 6, %.lr.ph.i13.loopexit52 ], [ 2, %.lr.ph.i13.loopexit ], [ 4, %20 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !87)
-  %33 = getelementptr inbounds nuw i16, ptr %.sroa.04.0, i64 %.sroa.4.0
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 %.sroa.4.0
   br label %34
 
-34:                                               ; preds = %34, %.loopexit
-  %35 = phi i16 [ %.lcssa2224, %.loopexit ], [ %41, %34 ]
-  %.sroa.01.01.i14 = phi ptr [ %.sroa.04.0, %.loopexit ], [ %36, %34 ]
-  %36 = getelementptr inbounds nuw i8, ptr %.sroa.01.01.i14, i64 2
-  %37 = load i16, ptr %.sroa.01.01.i14, align 2, !alias.scope !87, !noundef !3
-  %38 = tail call { i64, i64 } @_ZN5wasmi6engine8executor5stack6values14FrameRegisters3get17h59309104584d4632E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %19, i16 noundef %37), !noalias !87
-  %39 = extractvalue { i64, i64 } %38, 0
-  %40 = extractvalue { i64, i64 } %38, 1
-  tail call void @_ZN5wasmi6engine8executor5stack6values14FrameRegisters3set17h6ea64cd62df6481aE(ptr noalias noundef nonnull align 8 dereferenceable(8) %19, i16 noundef %35, i64 noundef %39, i64 noundef %40), !noalias !87
-  %41 = tail call noundef i16 @_ZN8wasmi_ir5index3Reg4next17h32cb5eb8c8c5bb12E(i16 noundef %35), !noalias !87
-  %42 = icmp eq ptr %36, %33
-  br i1 %42, label %"_ZN5wasmi6engine8executor6instrs4copy59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$38execute_copy_many_non_overlapping_impl28_$u7b$$u7b$closure$u7d$$u7d$17hc477310627371058E.exit15", label %34
+34:                                               ; preds = %34, %.lr.ph.i13
+  %35 = phi i16 [ %.lcssa2224, %.lr.ph.i13 ], [ %40, %34 ]
+  %.sroa.0.0.pn = phi ptr [ %.sroa.0.0, %.lr.ph.i13 ], [ %.sroa.01.01.i14, %34 ]
+  %.sroa.01.01.i14 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.pn, i64 2
+  %36 = load i16, ptr %.sroa.01.01.i14, align 2, !alias.scope !87, !noundef !3
+  %37 = tail call { i64, i64 } @_ZN5wasmi6engine8executor5stack6values14FrameRegisters3get17h59309104584d4632E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %19, i16 noundef %36), !noalias !87
+  %38 = extractvalue { i64, i64 } %37, 0
+  %39 = extractvalue { i64, i64 } %37, 1
+  tail call void @_ZN5wasmi6engine8executor5stack6values14FrameRegisters3set17h6ea64cd62df6481aE(ptr noalias noundef nonnull align 8 dereferenceable(8) %19, i16 noundef %35, i64 noundef %38, i64 noundef %39), !noalias !87
+  %40 = tail call noundef i16 @_ZN8wasmi_ir5index3Reg4next17h32cb5eb8c8c5bb12E(i16 noundef %35), !noalias !87
+  %41 = icmp eq ptr %.sroa.01.01.i14, %33
+  br i1 %41, label %"_ZN5wasmi6engine8executor6instrs4copy59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$38execute_copy_many_non_overlapping_impl28_$u7b$$u7b$closure$u7d$$u7d$17hc477310627371058E.exit15", label %34
 
 "_ZN5wasmi6engine8executor6instrs4copy59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$38execute_copy_many_non_overlapping_impl28_$u7b$$u7b$closure$u7d$$u7d$17hc477310627371058E.exit15": ; preds = %34
   ret ptr %.sroa.0.0
@@ -2006,7 +2005,7 @@ define internal fastcc void @"_ZN5wasmi6engine8executor6instrs7return_59_$LT$imp
   %9 = tail call noundef i16 @_ZN8wasmi_ir4span7RegSpan4head17h301082d21224707fE(i16 noundef %8)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !157)
   %10 = getelementptr inbounds nuw i16, ptr %2, i64 %3
-  %11 = icmp eq i64 %3, 0
+  %11 = icmp eq ptr %2, %10
   br i1 %11, label %"_ZN5wasmi6engine8executor6instrs7return_59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$23copy_many_return_values28_$u7b$$u7b$closure$u7d$$u7d$17hbe43160fc55a900aE.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %4
@@ -2037,9 +2036,9 @@ define internal fastcc void @"_ZN5wasmi6engine8executor6instrs7return_59_$LT$imp
   %23 = load i16, ptr %.sroa.01.0, align 4, !range !32, !noundef !3
   switch i16 %23, label %33 [
     i16 522, label %24
-    i16 519, label %.loopexit.loopexit
-    i16 520, label %.loopexit.loopexit65
-    i16 521, label %.loopexit
+    i16 519, label %.lr.ph.i11.loopexit
+    i16 520, label %.lr.ph.i11.loopexit65
+    i16 521, label %.lr.ph.i11
   ]
 
 24:                                               ; preds = %22
@@ -2067,31 +2066,30 @@ define internal fastcc void @"_ZN5wasmi6engine8executor6instrs7return_59_$LT$imp
 33:                                               ; preds = %22
   unreachable
 
-.loopexit.loopexit:                               ; preds = %22
-  br label %.loopexit
+.lr.ph.i11.loopexit:                              ; preds = %22
+  br label %.lr.ph.i11
 
-.loopexit.loopexit65:                             ; preds = %22
-  br label %.loopexit
+.lr.ph.i11.loopexit65:                            ; preds = %22
+  br label %.lr.ph.i11
 
-.loopexit:                                        ; preds = %22, %.loopexit.loopexit65, %.loopexit.loopexit
-  %.sroa.4.0 = phi i64 [ 1, %.loopexit.loopexit ], [ 2, %.loopexit.loopexit65 ], [ 3, %22 ]
-  %.sroa.0.0 = getelementptr inbounds nuw i8, ptr %.sroa.01.0, i64 2
+.lr.ph.i11:                                       ; preds = %22, %.lr.ph.i11.loopexit65, %.lr.ph.i11.loopexit
+  %.sroa.4.0 = phi i64 [ 2, %.lr.ph.i11.loopexit ], [ 4, %.lr.ph.i11.loopexit65 ], [ 6, %22 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !169)
-  %34 = getelementptr inbounds nuw i16, ptr %.sroa.0.0, i64 %.sroa.4.0
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.01.0, i64 %.sroa.4.0
   br label %35
 
-35:                                               ; preds = %35, %.loopexit
-  %.sroa.0.4 = phi i16 [ %.sroa.0.025, %.loopexit ], [ %41, %35 ]
-  %.sroa.01.02.i12 = phi ptr [ %.sroa.0.0, %.loopexit ], [ %36, %35 ]
-  %36 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i12, i64 2
-  %37 = load i16, ptr %.sroa.01.02.i12, align 2, !alias.scope !169, !noalias !172, !noundef !3
-  %38 = call { i64, i64 } @_ZN5wasmi6engine8executor5stack6values14FrameRegisters3get17h59309104584d4632E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %21, i16 noundef %37), !noalias !174
-  %39 = extractvalue { i64, i64 } %38, 0
-  %40 = extractvalue { i64, i64 } %38, 1
-  call void @_ZN5wasmi6engine8executor5stack6values14FrameRegisters3set17h6ea64cd62df6481aE(ptr noalias noundef nonnull align 8 dereferenceable(8) %5, i16 noundef %.sroa.0.4, i64 noundef %39, i64 noundef %40), !noalias !174
-  %41 = call noundef i16 @_ZN8wasmi_ir5index3Reg4next17h32cb5eb8c8c5bb12E(i16 noundef %.sroa.0.4), !noalias !174
-  %42 = icmp eq ptr %36, %34
-  br i1 %42, label %"_ZN5wasmi6engine8executor6instrs7return_59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$23copy_many_return_values28_$u7b$$u7b$closure$u7d$$u7d$17hbe43160fc55a900aE.exit13", label %35
+35:                                               ; preds = %35, %.lr.ph.i11
+  %.sroa.0.4 = phi i16 [ %.sroa.0.025, %.lr.ph.i11 ], [ %40, %35 ]
+  %.sroa.01.0.pn = phi ptr [ %.sroa.01.0, %.lr.ph.i11 ], [ %.sroa.01.02.i12, %35 ]
+  %.sroa.01.02.i12 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.pn, i64 2
+  %36 = load i16, ptr %.sroa.01.02.i12, align 2, !alias.scope !169, !noalias !172, !noundef !3
+  %37 = call { i64, i64 } @_ZN5wasmi6engine8executor5stack6values14FrameRegisters3get17h59309104584d4632E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %21, i16 noundef %36), !noalias !174
+  %38 = extractvalue { i64, i64 } %37, 0
+  %39 = extractvalue { i64, i64 } %37, 1
+  call void @_ZN5wasmi6engine8executor5stack6values14FrameRegisters3set17h6ea64cd62df6481aE(ptr noalias noundef nonnull align 8 dereferenceable(8) %5, i16 noundef %.sroa.0.4, i64 noundef %38, i64 noundef %39), !noalias !174
+  %40 = call noundef i16 @_ZN8wasmi_ir5index3Reg4next17h32cb5eb8c8c5bb12E(i16 noundef %.sroa.0.4), !noalias !174
+  %41 = icmp eq ptr %.sroa.01.02.i12, %34
+  br i1 %41, label %"_ZN5wasmi6engine8executor6instrs7return_59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$23copy_many_return_values28_$u7b$$u7b$closure$u7d$$u7d$17hbe43160fc55a900aE.exit13", label %35
 
 "_ZN5wasmi6engine8executor6instrs7return_59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$23copy_many_return_values28_$u7b$$u7b$closure$u7d$$u7d$17hbe43160fc55a900aE.exit13": ; preds = %35
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)

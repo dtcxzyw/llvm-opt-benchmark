@@ -3656,9 +3656,10 @@ define range(i32 0, 2) i32 @dt_colorspaces_is_profile_equal(ptr noundef readonly
 _colorspaces_is_base_name.exit:                   ; preds = %3
   %7 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #24
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 %7
-  br label %.lr.ph.i
+  %.not13.i = icmp ult ptr %8, %0
+  br i1 %.not13.i, label %_colorspaces_get_base_name.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %12, %_colorspaces_is_base_name.exit
+.lr.ph.i:                                         ; preds = %_colorspaces_is_base_name.exit, %12
   %.014.i = phi ptr [ %13, %12 ], [ %8, %_colorspaces_is_base_name.exit ]
   %9 = load i8, ptr %.014.i, align 1, !tbaa !80
   switch i8 %9, label %12 [
@@ -3675,63 +3676,65 @@ _colorspaces_is_base_name.exit:                   ; preds = %3
   %.not.i = icmp ult ptr %13, %0
   br i1 %.not.i, label %_colorspaces_get_base_name.exit, label %.lr.ph.i
 
-_colorspaces_get_base_name.exit:                  ; preds = %12, %10
-  %.010.i = phi ptr [ %11, %10 ], [ %13, %12 ]
+_colorspaces_get_base_name.exit:                  ; preds = %12, %_colorspaces_is_base_name.exit, %10
+  %.010.i = phi ptr [ %11, %10 ], [ %8, %_colorspaces_is_base_name.exit ], [ %13, %12 ]
   %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.010.i, ptr noundef nonnull dereferenceable(1) %1) #24
   br label %31
 
 15:                                               ; preds = %3, %3
   %16 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #24
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 %16
-  br label %.lr.ph.i7
+  %.not13.i7 = icmp ult ptr %17, %0
+  br i1 %.not13.i7, label %_colorspaces_get_base_name.exit12, label %.lr.ph.i8
 
-.lr.ph.i7:                                        ; preds = %21, %15
-  %.014.i8 = phi ptr [ %22, %21 ], [ %17, %15 ]
-  %18 = load i8, ptr %.014.i8, align 1, !tbaa !80
+.lr.ph.i8:                                        ; preds = %15, %21
+  %.014.i9 = phi ptr [ %22, %21 ], [ %17, %15 ]
+  %18 = load i8, ptr %.014.i9, align 1, !tbaa !80
   switch i8 %18, label %21 [
     i8 47, label %19
     i8 92, label %19
   ]
 
-19:                                               ; preds = %.lr.ph.i7, %.lr.ph.i7
-  %20 = getelementptr inbounds nuw i8, ptr %.014.i8, i64 1
-  br label %_colorspaces_get_base_name.exit11
+19:                                               ; preds = %.lr.ph.i8, %.lr.ph.i8
+  %20 = getelementptr inbounds nuw i8, ptr %.014.i9, i64 1
+  br label %_colorspaces_get_base_name.exit12
 
-21:                                               ; preds = %.lr.ph.i7
-  %22 = getelementptr inbounds i8, ptr %.014.i8, i64 -1
-  %.not.i10 = icmp ult ptr %22, %0
-  br i1 %.not.i10, label %_colorspaces_get_base_name.exit11, label %.lr.ph.i7
+21:                                               ; preds = %.lr.ph.i8
+  %22 = getelementptr inbounds i8, ptr %.014.i9, i64 -1
+  %.not.i11 = icmp ult ptr %22, %0
+  br i1 %.not.i11, label %_colorspaces_get_base_name.exit12, label %.lr.ph.i8
 
-_colorspaces_get_base_name.exit11:                ; preds = %21, %19
-  %.010.i9 = phi ptr [ %20, %19 ], [ %22, %21 ]
+_colorspaces_get_base_name.exit12:                ; preds = %21, %15, %19
+  %.010.i10 = phi ptr [ %20, %19 ], [ %17, %15 ], [ %22, %21 ]
   %23 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #24
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 %23
-  br label %.lr.ph.i12
+  %.not13.i13 = icmp ult ptr %24, %1
+  br i1 %.not13.i13, label %_colorspaces_get_base_name.exit18, label %.lr.ph.i14
 
-.lr.ph.i12:                                       ; preds = %28, %_colorspaces_get_base_name.exit11
-  %.014.i13 = phi ptr [ %29, %28 ], [ %24, %_colorspaces_get_base_name.exit11 ]
-  %25 = load i8, ptr %.014.i13, align 1, !tbaa !80
+.lr.ph.i14:                                       ; preds = %_colorspaces_get_base_name.exit12, %28
+  %.014.i15 = phi ptr [ %29, %28 ], [ %24, %_colorspaces_get_base_name.exit12 ]
+  %25 = load i8, ptr %.014.i15, align 1, !tbaa !80
   switch i8 %25, label %28 [
     i8 47, label %26
     i8 92, label %26
   ]
 
-26:                                               ; preds = %.lr.ph.i12, %.lr.ph.i12
-  %27 = getelementptr inbounds nuw i8, ptr %.014.i13, i64 1
-  br label %_colorspaces_get_base_name.exit16
+26:                                               ; preds = %.lr.ph.i14, %.lr.ph.i14
+  %27 = getelementptr inbounds nuw i8, ptr %.014.i15, i64 1
+  br label %_colorspaces_get_base_name.exit18
 
-28:                                               ; preds = %.lr.ph.i12
-  %29 = getelementptr inbounds i8, ptr %.014.i13, i64 -1
-  %.not.i15 = icmp ult ptr %29, %1
-  br i1 %.not.i15, label %_colorspaces_get_base_name.exit16, label %.lr.ph.i12
+28:                                               ; preds = %.lr.ph.i14
+  %29 = getelementptr inbounds i8, ptr %.014.i15, i64 -1
+  %.not.i17 = icmp ult ptr %29, %1
+  br i1 %.not.i17, label %_colorspaces_get_base_name.exit18, label %.lr.ph.i14
 
-_colorspaces_get_base_name.exit16:                ; preds = %28, %26
-  %.010.i14 = phi ptr [ %27, %26 ], [ %29, %28 ]
-  %30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.010.i9, ptr noundef nonnull dereferenceable(1) %.010.i14) #24
+_colorspaces_get_base_name.exit18:                ; preds = %28, %_colorspaces_get_base_name.exit12, %26
+  %.010.i16 = phi ptr [ %27, %26 ], [ %24, %_colorspaces_get_base_name.exit12 ], [ %29, %28 ]
+  %30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.010.i10, ptr noundef nonnull dereferenceable(1) %.010.i16) #24
   br label %31
 
-31:                                               ; preds = %_colorspaces_get_base_name.exit16, %_colorspaces_get_base_name.exit
-  %.in.in = phi i32 [ %14, %_colorspaces_get_base_name.exit ], [ %30, %_colorspaces_get_base_name.exit16 ]
+31:                                               ; preds = %_colorspaces_get_base_name.exit18, %_colorspaces_get_base_name.exit
+  %.in.in = phi i32 [ %14, %_colorspaces_get_base_name.exit ], [ %30, %_colorspaces_get_base_name.exit18 ]
   %.in = icmp eq i32 %.in.in, 0
   %32 = zext i1 %.in to i32
   ret i32 %32
