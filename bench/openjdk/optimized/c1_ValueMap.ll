@@ -375,14 +375,14 @@ _ZN13GrowableArrayIP13ValueMapEntryE8allocateEv.exit.i: ; preds = %_ZN8ValueMap9
 
 .lr.ph19.preheader.i:                             ; preds = %.preheader16.i
   %49 = zext nneg i32 %.0.lcssa.i to i64
-  %50 = shl nuw nsw i64 %49, 3
-  %scevgep = getelementptr i8, ptr %45, i64 %50
-  %51 = xor i32 %.0.lcssa.i, -1
-  %52 = add nsw i32 %.0.i.i.i.i.i, %51
-  %53 = zext i32 %52 to i64
-  %54 = shl nuw nsw i64 %53, 3
-  %55 = add nuw nsw i64 %54, 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, i8 0, i64 %55, i1 false)
+  %50 = zext nneg i32 %.0.i.i.i.i.i to i64
+  %51 = shl nuw nsw i64 %49, 3
+  %scevgep = getelementptr i8, ptr %45, i64 %51
+  %52 = add nuw nsw i64 %49, 1
+  %53 = tail call i64 @llvm.umax.i64(i64 %52, i64 %50)
+  %54 = sub nsw i64 %53, %49
+  %55 = shl nsw i64 %54, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep, i8 0, i64 %55, i1 false)
   br label %_ZN26GrowableArrayWithAllocatorIP13ValueMapEntry13GrowableArrayIS1_EE4pushERKS1_.exit
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
@@ -4416,12 +4416,12 @@ _ZN13GrowableArrayIP10BlockBeginE8allocateEv.exit: ; preds = %7, %11, %15
 
 .lr.ph19:                                         ; preds = %.lr.ph19.preheader, %.lr.ph19
   %indvars.iv21 = phi i64 [ %24, %.lr.ph19.preheader ], [ %indvars.iv.next22, %.lr.ph19 ]
-  %35 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv21
+  %35 = getelementptr inbounds ptr, ptr %.0.i, i64 %indvars.iv21
   store ptr null, ptr %35, align 8
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %36 = load i32, ptr %3, align 4
-  %37 = trunc nuw i64 %indvars.iv.next22 to i32
-  %38 = icmp sgt i32 %36, %37
+  %37 = sext i32 %36 to i64
+  %38 = icmp slt i64 %indvars.iv.next22, %37
   br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !35
 
 39:                                               ; preds = %.preheader
@@ -4449,6 +4449,9 @@ declare i32 @llvm.ctpop.i32(i32) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6

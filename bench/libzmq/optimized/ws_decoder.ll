@@ -757,30 +757,30 @@ define noundef i32 @_ZN3zmq12ws_decoder_t13message_readyEPKh(ptr noundef nonnull
   br label %16
 
 16:                                               ; preds = %.lr.ph, %16
-  %.010 = phi i32 [ %14, %.lr.ph ], [ %25, %16 ]
-  %.089 = phi i64 [ 0, %.lr.ph ], [ %24, %16 ]
+  %.010 = phi i32 [ %14, %.lr.ph ], [ %24, %16 ]
+  %.089 = phi i64 [ 0, %.lr.ph ], [ %23, %16 ]
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 %.089
   %18 = load i8, ptr %17, align 1, !tbaa !32
-  %19 = and i32 %.010, 3
-  %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 0, i64 %20
-  %22 = load i8, ptr %21, align 1, !tbaa !32
-  %23 = xor i8 %22, %18
-  store i8 %23, ptr %17, align 1, !tbaa !32
-  %24 = add nuw i64 %.089, 1
-  %25 = add nuw nsw i32 %.010, 1
-  %26 = load i64, ptr %11, align 8, !tbaa !23
-  %27 = icmp ult i64 %24, %26
-  br i1 %27, label %16, label %.loopexit, !llvm.loop !40
+  %.urem = and i32 %.010, 3
+  %19 = zext nneg i32 %.urem to i64
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 0, i64 %19
+  %21 = load i8, ptr %20, align 1, !tbaa !32
+  %22 = xor i8 %21, %18
+  store i8 %22, ptr %17, align 1, !tbaa !32
+  %23 = add nuw i64 %.089, 1
+  %24 = add nuw nsw i32 %.010, 1
+  %25 = load i64, ptr %11, align 8, !tbaa !23
+  %26 = icmp ult i64 %23, %25
+  br i1 %26, label %16, label %.loopexit, !llvm.loop !40
 
 .loopexit:                                        ; preds = %16, %6, %2
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %28, ptr %29, align 8, !tbaa !29
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 1, ptr %30, align 8, !tbaa !30
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 ptrtoint (ptr @_ZN3zmq12ws_decoder_t12opcode_readyEPKh to i64), ptr %31, align 8, !tbaa !31
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %27, ptr %28, align 8, !tbaa !29
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 1, ptr %29, align 8, !tbaa !30
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 ptrtoint (ptr @_ZN3zmq12ws_decoder_t12opcode_readyEPKh to i64), ptr %30, align 8, !tbaa !31
   %.repack8.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %.repack8.i, align 8, !tbaa !31
   ret i32 1

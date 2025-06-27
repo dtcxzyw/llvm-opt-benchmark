@@ -5893,7 +5893,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resize
   br label %49
 
 ._crit_edge.loopexit:                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %44 = and i64 %indvars.iv.next, 4294967295
+  %sext = shl i64 %indvars.iv.next, 32
+  %44 = ashr exact i64 %sext, 32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit
@@ -6236,7 +6237,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i28
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit30: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i29, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i28
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #26
-  %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
+  %indvars.iv.next53 = add nsw i64 %indvars.iv52, 1
   %156 = getelementptr inbounds nuw i8, ptr %.sroa.032.046, i64 40
   %.not41 = icmp eq ptr %156, %46
   br i1 %.not41, label %._crit_edge50, label %103

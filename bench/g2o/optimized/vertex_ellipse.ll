@@ -5454,11 +5454,11 @@ define linkonce_odr void @_ZN5Eigen8internal29general_matrix_vector_productIlfNS
 
 .lr.ph456:                                        ; preds = %.preheader407
   %196 = mul nsw i64 %.1207475, %.sroa.33.0.copyload
-  %197 = add nuw nsw i64 %.1207475, 1
+  %197 = add nsw i64 %.1207475, 1
   %198 = mul nsw i64 %197, %.sroa.33.0.copyload
-  %199 = add nuw nsw i64 %.1207475, 2
+  %199 = add nsw i64 %.1207475, 2
   %200 = mul nsw i64 %199, %.sroa.33.0.copyload
-  %201 = add nuw nsw i64 %.1207475, 3
+  %201 = add nsw i64 %.1207475, 3
   %202 = mul nsw i64 %201, %.sroa.33.0.copyload
   br label %207
 
@@ -5535,18 +5535,18 @@ define linkonce_odr void @_ZN5Eigen8internal29general_matrix_vector_productIlfNS
   br i1 %246, label %.lr.ph469, label %._crit_edge457.._crit_edge470_crit_edge
 
 ._crit_edge457.._crit_edge470_crit_edge:          ; preds = %._crit_edge457
-  %.pre565 = add nuw nsw i64 %.1207475, 1
-  %.pre567 = add nuw nsw i64 %.1207475, 2
-  %.pre569 = add nuw nsw i64 %.1207475, 3
+  %.pre565 = add nsw i64 %.1207475, 1
+  %.pre567 = add nsw i64 %.1207475, 2
+  %.pre569 = add nsw i64 %.1207475, 3
   br label %._crit_edge470
 
 .lr.ph469:                                        ; preds = %._crit_edge457
   %247 = mul nsw i64 %.1207475, %.sroa.33.0.copyload
-  %248 = add nuw nsw i64 %.1207475, 1
+  %248 = add nsw i64 %.1207475, 1
   %249 = mul nsw i64 %248, %.sroa.33.0.copyload
-  %250 = add nuw nsw i64 %.1207475, 2
+  %250 = add nsw i64 %.1207475, 2
   %251 = mul nsw i64 %250, %.sroa.33.0.copyload
-  %252 = add nuw nsw i64 %.1207475, 3
+  %252 = add nsw i64 %.1207475, 3
   %253 = mul nsw i64 %252, %.sroa.33.0.copyload
   br label %254
 
@@ -5608,7 +5608,7 @@ define linkonce_odr void @_ZN5Eigen8internal29general_matrix_vector_productIlfNS
   %290 = load float, ptr %289, align 4, !tbaa !6
   %291 = tail call float @llvm.fmuladd.f32(float %6, float %.0214.lcssa, float %290)
   store float %291, ptr %289, align 4, !tbaa !6
-  %292 = add nuw nsw i64 %.1207475, 4
+  %292 = add nsw i64 %.1207475, 4
   %293 = icmp slt i64 %292, %11
   br i1 %293, label %.preheader407, label %.preheader406, !llvm.loop !412
 
@@ -5618,7 +5618,7 @@ define linkonce_odr void @_ZN5Eigen8internal29general_matrix_vector_productIlfNS
 
 .lr.ph481:                                        ; preds = %.preheader405
   %294 = mul nsw i64 %.2494, %.sroa.33.0.copyload
-  %295 = add nuw nsw i64 %.2494, 1
+  %295 = add nsw i64 %.2494, 1
   %296 = mul nsw i64 %295, %.sroa.33.0.copyload
   br label %301
 
@@ -5673,12 +5673,12 @@ define linkonce_odr void @_ZN5Eigen8internal29general_matrix_vector_productIlfNS
   br i1 %324, label %.lr.ph490, label %._crit_edge482.._crit_edge491_crit_edge
 
 ._crit_edge482.._crit_edge491_crit_edge:          ; preds = %._crit_edge482
-  %.pre571 = add nuw nsw i64 %.2494, 1
+  %.pre571 = add nsw i64 %.2494, 1
   br label %._crit_edge491
 
 .lr.ph490:                                        ; preds = %._crit_edge482
   %325 = mul nsw i64 %.2494, %.sroa.33.0.copyload
-  %326 = add nuw nsw i64 %.2494, 1
+  %326 = add nsw i64 %.2494, 1
   %327 = mul nsw i64 %326, %.sroa.33.0.copyload
   br label %328
 
@@ -5716,7 +5716,7 @@ define linkonce_odr void @_ZN5Eigen8internal29general_matrix_vector_productIlfNS
   %348 = load float, ptr %347, align 4, !tbaa !6
   %349 = tail call float @llvm.fmuladd.f32(float %6, float %.0210.lcssa, float %348)
   store float %349, ptr %347, align 4, !tbaa !6
-  %350 = add nuw nsw i64 %.2494, 2
+  %350 = add nsw i64 %.2494, 2
   %351 = icmp slt i64 %350, %12
   br i1 %351, label %.preheader405, label %.preheader404, !llvm.loop !415
 
@@ -5781,7 +5781,7 @@ define linkonce_odr void @_ZN5Eigen8internal29general_matrix_vector_productIlfNS
   %378 = load float, ptr %377, align 4, !tbaa !6
   %379 = tail call float @llvm.fmuladd.f32(float %6, float %.0.lcssa, float %378)
   store float %379, ptr %377, align 4, !tbaa !6
-  %380 = add nuw nsw i64 %.3511, 1
+  %380 = add nsw i64 %.3511, 1
   %exitcond552.not = icmp eq i64 %380, %0
   br i1 %exitcond552.not, label %._crit_edge512, label %.preheader, !llvm.loop !418
 
@@ -10280,7 +10280,7 @@ define linkonce_odr void @_ZN5Eigen8internal13gemm_pack_lhsIflNS0_22const_blas_d
   br i1 %exitcond99.not, label %._crit_edge.us87, label %62, !llvm.loop !590
 
 ._crit_edge.us87:                                 ; preds = %62
-  %69 = add nuw nsw i64 %.285.us, 1
+  %69 = add nsw i64 %.285.us, 1
   %exitcond100.not = icmp eq i64 %69, %4
   br i1 %exitcond100.not, label %._crit_edge86, label %.preheader.us, !llvm.loop !591
 

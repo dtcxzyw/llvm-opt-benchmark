@@ -1757,11 +1757,11 @@ _ZL19huffmanDecodeSymbolP16LodePNGBitReaderPK11HuffmanTree.exit.i.i: ; preds = %
 319:                                              ; preds = %327, %307
   %indvars.iv223.i.i = phi i64 [ %317, %307 ], [ %indvars.iv.next224.i.i, %327 ]
   %.0137199.i.i = phi i32 [ 0, %307 ], [ %328, %327 ]
-  %.not160.i.i = icmp samesign ult i64 %indvars.iv223.i.i, %215
+  %.not160.i.i = icmp ult i64 %indvars.iv223.i.i, %215
   br i1 %.not160.i.i, label %320, label %.loopexit.loopexit.i.i
 
 320:                                              ; preds = %319
-  %321 = icmp samesign ult i64 %indvars.iv223.i.i, %214
+  %321 = icmp ult i64 %indvars.iv223.i.i, %214
   br i1 %321, label %322, label %324
 
 322:                                              ; preds = %320
@@ -1770,7 +1770,7 @@ _ZL19huffmanDecodeSymbolP16LodePNGBitReaderPK11HuffmanTree.exit.i.i: ; preds = %
   br label %327
 
 324:                                              ; preds = %320
-  %325 = sub nuw nsw i64 %indvars.iv223.i.i, %214
+  %325 = sub nuw i64 %indvars.iv223.i.i, %214
   %326 = getelementptr inbounds nuw i32, ptr %208, i64 %325
   store i32 %.0.i115.i, ptr %326, align 4, !tbaa !10
   br label %327
@@ -1791,11 +1791,11 @@ _ZL19huffmanDecodeSymbolP16LodePNGBitReaderPK11HuffmanTree.exit.i.i: ; preds = %
 334:                                              ; preds = %342, %329
   %indvars.iv218.i.i = phi i64 [ %332, %329 ], [ %indvars.iv.next219.i.i, %342 ]
   %.1138197.i.i = phi i32 [ 0, %329 ], [ %343, %342 ]
-  %.not159.i.i = icmp samesign ult i64 %indvars.iv218.i.i, %215
+  %.not159.i.i = icmp ult i64 %indvars.iv218.i.i, %215
   br i1 %.not159.i.i, label %335, label %.loopexit.loopexit202.i.i
 
 335:                                              ; preds = %334
-  %336 = icmp samesign ult i64 %indvars.iv218.i.i, %214
+  %336 = icmp ult i64 %indvars.iv218.i.i, %214
   br i1 %336, label %337, label %339
 
 337:                                              ; preds = %335
@@ -1804,7 +1804,7 @@ _ZL19huffmanDecodeSymbolP16LodePNGBitReaderPK11HuffmanTree.exit.i.i: ; preds = %
   br label %342
 
 339:                                              ; preds = %335
-  %340 = sub nuw nsw i64 %indvars.iv218.i.i, %214
+  %340 = sub nuw i64 %indvars.iv218.i.i, %214
   %341 = getelementptr inbounds nuw i32, ptr %208, i64 %340
   store i32 0, ptr %341, align 4, !tbaa !10
   br label %342
@@ -1825,11 +1825,11 @@ _ZL19huffmanDecodeSymbolP16LodePNGBitReaderPK11HuffmanTree.exit.i.i: ; preds = %
 349:                                              ; preds = %357, %344
   %indvars.iv215.i.i = phi i64 [ %347, %344 ], [ %indvars.iv.next216.i.i, %357 ]
   %.2139195.i.i = phi i32 [ 0, %344 ], [ %358, %357 ]
-  %.not158.i.i = icmp samesign ult i64 %indvars.iv215.i.i, %215
+  %.not158.i.i = icmp ult i64 %indvars.iv215.i.i, %215
   br i1 %.not158.i.i, label %350, label %.loopexit.loopexit205.i.i
 
 350:                                              ; preds = %349
-  %351 = icmp samesign ult i64 %indvars.iv215.i.i, %214
+  %351 = icmp ult i64 %indvars.iv215.i.i, %214
   br i1 %351, label %352, label %354
 
 352:                                              ; preds = %350
@@ -1838,7 +1838,7 @@ _ZL19huffmanDecodeSymbolP16LodePNGBitReaderPK11HuffmanTree.exit.i.i: ; preds = %
   br label %357
 
 354:                                              ; preds = %350
-  %355 = sub nuw nsw i64 %indvars.iv215.i.i, %214
+  %355 = sub nuw i64 %indvars.iv215.i.i, %214
   %356 = getelementptr inbounds nuw i32, ptr %208, i64 %355
   store i32 0, ptr %356, align 4, !tbaa !10
   br label %357

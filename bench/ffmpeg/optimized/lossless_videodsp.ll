@@ -47,9 +47,9 @@ define internal void @add_bytes_c(ptr noundef captures(none) %0, ptr noundef rea
 
 .lr.ph22:                                         ; preds = %.preheader, %.lr.ph22
   %.121 = phi i64 [ %22, %.lr.ph22 ], [ %.0.lcssa, %.preheader ]
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 %.121
+  %17 = getelementptr inbounds i8, ptr %1, i64 %.121
   %18 = load i8, ptr %17, align 1, !tbaa !17
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 %.121
+  %19 = getelementptr inbounds i8, ptr %0, i64 %.121
   %20 = load i8, ptr %19, align 1, !tbaa !17
   %21 = add i8 %20, %18
   store i8 %21, ptr %19, align 1, !tbaa !17
@@ -135,7 +135,8 @@ define internal i32 @add_left_pred_c(ptr noundef writeonly captures(none) %0, pt
   br i1 %6, label %.lr.ph, label %.preheader
 
 .preheader.loopexit:                              ; preds = %.lr.ph
-  %7 = and i64 %indvars.iv.next, 4294967294
+  %sext = shl i64 %indvars.iv.next, 32
+  %7 = ashr exact i64 %sext, 32
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.loopexit, %4
@@ -169,12 +170,12 @@ define internal i32 @add_left_pred_c(ptr noundef writeonly captures(none) %0, pt
 .lr.ph34:                                         ; preds = %.preheader, %.lr.ph34
   %indvars.iv39 = phi i64 [ %indvars.iv.next40, %.lr.ph34 ], [ %.0.lcssa, %.preheader ]
   %.12632 = phi i32 [ %26, %.lr.ph34 ], [ %.025.lcssa, %.preheader ]
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv39
+  %23 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv39
   %24 = load i8, ptr %23, align 1, !tbaa !17
   %25 = zext i8 %24 to i32
   %26 = add nsw i32 %.12632, %25
   %27 = trunc i32 %26 to i8
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv39
+  %28 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv39
   store i8 %27, ptr %28, align 1, !tbaa !17
   %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next40, %2
@@ -192,7 +193,8 @@ define internal i32 @add_left_pred_int16_c(ptr noundef writeonly captures(none) 
   br i1 %7, label %.lr.ph, label %.preheader
 
 .preheader.loopexit:                              ; preds = %.lr.ph
-  %8 = and i64 %indvars.iv.next, 4294967294
+  %sext = shl i64 %indvars.iv.next, 32
+  %8 = ashr exact i64 %sext, 32
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.loopexit, %5
@@ -228,13 +230,13 @@ define internal i32 @add_left_pred_int16_c(ptr noundef writeonly captures(none) 
 .lr.ph37:                                         ; preds = %.preheader, %.lr.ph37
   %indvars.iv42 = phi i64 [ %indvars.iv.next43, %.lr.ph37 ], [ %.0.lcssa, %.preheader ]
   %.12935 = phi i32 [ %30, %.lr.ph37 ], [ %.028.lcssa, %.preheader ]
-  %26 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv42
+  %26 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv42
   %27 = load i16, ptr %26, align 2, !tbaa !24
   %28 = zext i16 %27 to i32
   %29 = add i32 %.12935, %28
   %30 = and i32 %29, %2
   %31 = trunc i32 %30 to i16
-  %32 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv42
+  %32 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv42
   store i16 %31, ptr %32, align 2, !tbaa !24
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next43, %3

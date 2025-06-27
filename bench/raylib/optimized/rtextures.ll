@@ -8798,46 +8798,47 @@ define internal fastcc range(i32 0, 2) i32 @stbi_write_jpg_core(ptr noundef nonn
   br i1 %158, label %.preheader280.us, label %.loopexit
 
 .preheader280.us:                                 ; preds = %.preheader280.lr.ph, %._crit_edge.us
-  %indvars.iv367 = phi i32 [ %indvars.iv.next368, %._crit_edge.us ], [ 8, %.preheader280.lr.ph ]
-  %.2236306.us = phi i32 [ %198, %._crit_edge.us ], [ 0, %.preheader280.lr.ph ]
-  %.2239305.us = phi i32 [ %199, %._crit_edge.us ], [ 0, %.preheader280.lr.ph ]
-  %.2243304.us = phi i32 [ %200, %._crit_edge.us ], [ 0, %.preheader280.lr.ph ]
+  %indvars.iv366 = phi i32 [ %indvars.iv.next367, %._crit_edge.us ], [ 8, %.preheader280.lr.ph ]
+  %.2236306.us = phi i32 [ %199, %._crit_edge.us ], [ 0, %.preheader280.lr.ph ]
+  %.2239305.us = phi i32 [ %200, %._crit_edge.us ], [ 0, %.preheader280.lr.ph ]
+  %.2243304.us = phi i32 [ %201, %._crit_edge.us ], [ 0, %.preheader280.lr.ph ]
   %.1248303.us = phi i32 [ %237, %._crit_edge.us ], [ 0, %.preheader280.lr.ph ]
   br label %161
 
 161:                                              ; preds = %.preheader280.us, %.split296.us307
-  %.3300.us = phi i32 [ %.2236306.us, %.preheader280.us ], [ %198, %.split296.us307 ]
-  %.3240299.us = phi i32 [ %.2239305.us, %.preheader280.us ], [ %199, %.split296.us307 ]
-  %.3244298.us = phi i32 [ %.2243304.us, %.preheader280.us ], [ %200, %.split296.us307 ]
-  %.1246297.us = phi i32 [ 0, %.preheader280.us ], [ %201, %.split296.us307 ]
+  %.3300.us = phi i32 [ %.2236306.us, %.preheader280.us ], [ %199, %.split296.us307 ]
+  %.3240299.us = phi i32 [ %.2239305.us, %.preheader280.us ], [ %200, %.split296.us307 ]
+  %.3244298.us = phi i32 [ %.2243304.us, %.preheader280.us ], [ %201, %.split296.us307 ]
+  %.1246297.us = phi i32 [ 0, %.preheader280.us ], [ %163, %.split296.us307 ]
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %27) #54
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %28) #54
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %29) #54
   %162 = load i32, ptr @stbi__flip_vertically_on_write, align 4
   %.fr = freeze i32 %162
   %.not264.us = icmp eq i32 %.fr, 0
+  %163 = add nuw nsw i32 %.1246297.us, 8
   br i1 %.not264.us, label %.split.us.us, label %.split.us313
 
 .split.us313:                                     ; preds = %161, %168
   %.2294.us308 = phi i32 [ %169, %168 ], [ %.1248303.us, %161 ]
-  %.4293.us309 = phi i32 [ %167, %168 ], [ 0, %161 ]
-  %163 = call i32 @llvm.smin.i32(i32 %.2294.us308, i32 %159)
-  %164 = sub nsw i32 %159, %163
-  %165 = mul nsw i32 %164, %1
-  %166 = sext i32 %.4293.us309 to i64
-  %167 = add i32 %.4293.us309, 8
+  %.4293.us309 = phi i64 [ %indvars.iv.next364, %168 ], [ 0, %161 ]
+  %164 = call i32 @llvm.smin.i32(i32 %.2294.us308, i32 %159)
+  %165 = sub nsw i32 %159, %164
+  %166 = mul nsw i32 %165, %1
+  %sext392 = shl i64 %.4293.us309, 32
+  %167 = ashr exact i64 %sext392, 32
   br label %170
 
 168:                                              ; preds = %170
   %169 = add nuw nsw i32 %.2294.us308, 1
-  %exitcond369.not = icmp eq i32 %169, %indvars.iv367
-  br i1 %exitcond369.not, label %.split296.us307, label %.split.us313
+  %exitcond368.not = icmp eq i32 %169, %indvars.iv366
+  br i1 %exitcond368.not, label %.split296.us307, label %.split.us313
 
 170:                                              ; preds = %170, %.split.us313
-  %indvars.iv363 = phi i64 [ %indvars.iv.next364, %170 ], [ %166, %.split.us313 ]
+  %indvars.iv363 = phi i64 [ %indvars.iv.next364, %170 ], [ %167, %.split.us313 ]
   %.2228292.us311 = phi i32 [ %197, %170 ], [ %.1246297.us, %.split.us313 ]
   %171 = call i32 @llvm.smin.i32(i32 %.2228292.us311, i32 %160)
-  %172 = add i32 %171, %165
+  %172 = add i32 %171, %166
   %173 = mul i32 %172, %3
   %174 = sext i32 %173 to i64
   %175 = getelementptr inbounds i8, ptr %4, i64 %174
@@ -8867,77 +8868,74 @@ define internal fastcc range(i32 0, 2) i32 @stbi_write_jpg_core(ptr noundef nonn
   store float %195, ptr %196, align 4
   %197 = add nuw nsw i32 %.2228292.us311, 1
   %indvars.iv.next364 = add nsw i64 %indvars.iv363, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next364 to i32
-  %exitcond366.not = icmp eq i32 %167, %lftr.wideiv
-  br i1 %exitcond366.not, label %168, label %170
+  %198 = icmp samesign ult i32 %197, %163
+  br i1 %198, label %170, label %168
 
-.split296.us307:                                  ; preds = %168, %207
-  %198 = call fastcc i32 @stbiw__jpg_processDU(ptr noundef %0, ptr noundef %20, ptr noundef %21, ptr noundef %27, i32 noundef 8, ptr noundef %15, i32 noundef %.3300.us, ptr noundef nonnull @stbi_write_jpg_core.YDC_HT, ptr noundef nonnull @stbi_write_jpg_core.YAC_HT)
-  %199 = call fastcc i32 @stbiw__jpg_processDU(ptr noundef %0, ptr noundef %20, ptr noundef %21, ptr noundef %28, i32 noundef 8, ptr noundef %16, i32 noundef %.3240299.us, ptr noundef nonnull @stbi_write_jpg_core.UVDC_HT, ptr noundef nonnull @stbi_write_jpg_core.UVAC_HT)
-  %200 = call fastcc i32 @stbiw__jpg_processDU(ptr noundef %0, ptr noundef %20, ptr noundef %21, ptr noundef %29, i32 noundef 8, ptr noundef %16, i32 noundef %.3244298.us, ptr noundef nonnull @stbi_write_jpg_core.UVDC_HT, ptr noundef nonnull @stbi_write_jpg_core.UVAC_HT)
+.split296.us307:                                  ; preds = %168, %206
+  %199 = call fastcc i32 @stbiw__jpg_processDU(ptr noundef %0, ptr noundef %20, ptr noundef %21, ptr noundef %27, i32 noundef 8, ptr noundef %15, i32 noundef %.3300.us, ptr noundef nonnull @stbi_write_jpg_core.YDC_HT, ptr noundef nonnull @stbi_write_jpg_core.YAC_HT)
+  %200 = call fastcc i32 @stbiw__jpg_processDU(ptr noundef %0, ptr noundef %20, ptr noundef %21, ptr noundef %28, i32 noundef 8, ptr noundef %16, i32 noundef %.3240299.us, ptr noundef nonnull @stbi_write_jpg_core.UVDC_HT, ptr noundef nonnull @stbi_write_jpg_core.UVAC_HT)
+  %201 = call fastcc i32 @stbiw__jpg_processDU(ptr noundef %0, ptr noundef %20, ptr noundef %21, ptr noundef %29, i32 noundef 8, ptr noundef %16, i32 noundef %.3244298.us, ptr noundef nonnull @stbi_write_jpg_core.UVDC_HT, ptr noundef nonnull @stbi_write_jpg_core.UVAC_HT)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %29) #54
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %28) #54
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %27) #54
-  %201 = add nuw nsw i32 %.1246297.us, 8
-  %202 = icmp slt i32 %201, %1
+  %202 = icmp slt i32 %163, %1
   br i1 %202, label %161, label %._crit_edge.us
 
-.split.us.us:                                     ; preds = %161, %207
-  %.2294.us.us = phi i32 [ %208, %207 ], [ %.1248303.us, %161 ]
-  %.4293.us.us = phi i32 [ %206, %207 ], [ 0, %161 ]
+.split.us.us:                                     ; preds = %161, %206
+  %.2294.us.us = phi i32 [ %207, %206 ], [ %.1248303.us, %161 ]
+  %.4293.us.us = phi i64 [ %indvars.iv.next370, %206 ], [ 0, %161 ]
   %203 = call i32 @llvm.smin.i32(i32 %.2294.us.us, i32 %159)
   %204 = mul nsw i32 %203, %1
-  %205 = sext i32 %.4293.us.us to i64
-  %206 = add i32 %.4293.us.us, 8
-  br label %209
+  %sext393 = shl i64 %.4293.us.us, 32
+  %205 = ashr exact i64 %sext393, 32
+  br label %208
 
-207:                                              ; preds = %209
-  %208 = add nuw nsw i32 %.2294.us.us, 1
-  %exitcond375.not = icmp eq i32 %208, %indvars.iv367
-  br i1 %exitcond375.not, label %.split296.us307, label %.split.us.us
+206:                                              ; preds = %208
+  %207 = add nuw nsw i32 %.2294.us.us, 1
+  %exitcond372.not = icmp eq i32 %207, %indvars.iv366
+  br i1 %exitcond372.not, label %.split296.us307, label %.split.us.us
 
-209:                                              ; preds = %209, %.split.us.us
-  %indvars.iv370 = phi i64 [ %indvars.iv.next371, %209 ], [ %205, %.split.us.us ]
-  %.2228292.us.us = phi i32 [ %236, %209 ], [ %.1246297.us, %.split.us.us ]
-  %210 = call i32 @llvm.smin.i32(i32 %.2228292.us.us, i32 %160)
-  %211 = add i32 %210, %204
-  %212 = mul i32 %211, %3
-  %213 = sext i32 %212 to i64
-  %214 = getelementptr inbounds i8, ptr %4, i64 %213
-  %215 = load i8, ptr %214, align 1
-  %216 = uitofp i8 %215 to float
-  %217 = getelementptr inbounds i8, ptr %155, i64 %213
-  %218 = load i8, ptr %217, align 1
-  %219 = uitofp i8 %218 to float
-  %220 = getelementptr inbounds i8, ptr %156, i64 %213
-  %221 = load i8, ptr %220, align 1
-  %222 = uitofp i8 %221 to float
-  %223 = fmul float %219, 0x3FE2C8B440000000
-  %224 = call float @llvm.fmuladd.f32(float %216, float 0x3FD322D0E0000000, float %223)
-  %225 = call float @llvm.fmuladd.f32(float %222, float 0x3FBD2F1AA0000000, float %224)
-  %226 = fadd float %225, -1.280000e+02
-  %227 = getelementptr inbounds [64 x float], ptr %27, i64 0, i64 %indvars.iv370
-  store float %226, ptr %227, align 4
-  %228 = fmul float %219, 0xBFD5335D20000000
-  %229 = call float @llvm.fmuladd.f32(float %216, float 0xBFC59945C0000000, float %228)
-  %230 = call float @llvm.fmuladd.f32(float %222, float 5.000000e-01, float %229)
-  %231 = getelementptr inbounds [64 x float], ptr %28, i64 0, i64 %indvars.iv370
-  store float %230, ptr %231, align 4
-  %232 = fmul float %219, 0xBFDACBD120000000
-  %233 = call float @llvm.fmuladd.f32(float %216, float 5.000000e-01, float %232)
-  %234 = call float @llvm.fmuladd.f32(float %222, float 0xBFB4D0BB60000000, float %233)
-  %235 = getelementptr inbounds [64 x float], ptr %29, i64 0, i64 %indvars.iv370
-  store float %234, ptr %235, align 4
-  %236 = add nuw nsw i32 %.2228292.us.us, 1
-  %indvars.iv.next371 = add nsw i64 %indvars.iv370, 1
-  %lftr.wideiv373 = trunc i64 %indvars.iv.next371 to i32
-  %exitcond374.not = icmp eq i32 %206, %lftr.wideiv373
-  br i1 %exitcond374.not, label %207, label %209
+208:                                              ; preds = %208, %.split.us.us
+  %indvars.iv369 = phi i64 [ %indvars.iv.next370, %208 ], [ %205, %.split.us.us ]
+  %.2228292.us.us = phi i32 [ %235, %208 ], [ %.1246297.us, %.split.us.us ]
+  %209 = call i32 @llvm.smin.i32(i32 %.2228292.us.us, i32 %160)
+  %210 = add i32 %209, %204
+  %211 = mul i32 %210, %3
+  %212 = sext i32 %211 to i64
+  %213 = getelementptr inbounds i8, ptr %4, i64 %212
+  %214 = load i8, ptr %213, align 1
+  %215 = uitofp i8 %214 to float
+  %216 = getelementptr inbounds i8, ptr %155, i64 %212
+  %217 = load i8, ptr %216, align 1
+  %218 = uitofp i8 %217 to float
+  %219 = getelementptr inbounds i8, ptr %156, i64 %212
+  %220 = load i8, ptr %219, align 1
+  %221 = uitofp i8 %220 to float
+  %222 = fmul float %218, 0x3FE2C8B440000000
+  %223 = call float @llvm.fmuladd.f32(float %215, float 0x3FD322D0E0000000, float %222)
+  %224 = call float @llvm.fmuladd.f32(float %221, float 0x3FBD2F1AA0000000, float %223)
+  %225 = fadd float %224, -1.280000e+02
+  %226 = getelementptr inbounds [64 x float], ptr %27, i64 0, i64 %indvars.iv369
+  store float %225, ptr %226, align 4
+  %227 = fmul float %218, 0xBFD5335D20000000
+  %228 = call float @llvm.fmuladd.f32(float %215, float 0xBFC59945C0000000, float %227)
+  %229 = call float @llvm.fmuladd.f32(float %221, float 5.000000e-01, float %228)
+  %230 = getelementptr inbounds [64 x float], ptr %28, i64 0, i64 %indvars.iv369
+  store float %229, ptr %230, align 4
+  %231 = fmul float %218, 0xBFDACBD120000000
+  %232 = call float @llvm.fmuladd.f32(float %215, float 5.000000e-01, float %231)
+  %233 = call float @llvm.fmuladd.f32(float %221, float 0xBFB4D0BB60000000, float %232)
+  %234 = getelementptr inbounds [64 x float], ptr %29, i64 0, i64 %indvars.iv369
+  store float %233, ptr %234, align 4
+  %235 = add nuw nsw i32 %.2228292.us.us, 1
+  %indvars.iv.next370 = add nsw i64 %indvars.iv369, 1
+  %236 = icmp samesign ult i32 %235, %163
+  br i1 %236, label %208, label %206
 
 ._crit_edge.us:                                   ; preds = %.split296.us307
   %237 = add nuw nsw i32 %.1248303.us, 8
   %238 = icmp slt i32 %237, %2
-  %indvars.iv.next368 = add i32 %indvars.iv367, 8
+  %indvars.iv.next367 = add i32 %indvars.iv366, 8
   br i1 %238, label %.preheader280.us, label %.loopexit
 
 .preheader279:                                    ; preds = %94
@@ -8953,7 +8951,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi_write_jpg_core(ptr noundef nonn
   br i1 %239, label %.preheader278.us, label %.loopexit
 
 .preheader278.us:                                 ; preds = %.preheader278.lr.ph, %._crit_edge.us332
-  %indvars.iv381 = phi i32 [ %indvars.iv.next382, %._crit_edge.us332 ], [ 16, %.preheader278.lr.ph ]
+  %indvars.iv377 = phi i32 [ %indvars.iv.next378, %._crit_edge.us332 ], [ 16, %.preheader278.lr.ph ]
   %.0234331.us = phi i32 [ %251, %._crit_edge.us332 ], [ 0, %.preheader278.lr.ph ]
   %.0237330.us = phi i32 [ %253, %._crit_edge.us332 ], [ 0, %.preheader278.lr.ph ]
   %.0241329.us = phi i32 [ %254, %._crit_edge.us332 ], [ 0, %.preheader278.lr.ph ]
@@ -8994,14 +8992,14 @@ define internal fastcc range(i32 0, 2) i32 @stbi_write_jpg_core(ptr noundef nonn
   br i1 %256, label %245, label %._crit_edge.us332
 
 257:                                              ; preds = %258
-  %indvars.iv.next393 = add nuw nsw i64 %indvars.iv392, 1
-  %exitcond395.not = icmp eq i64 %indvars.iv.next393, 8
-  br i1 %exitcond395.not, label %252, label %.preheader.us
+  %indvars.iv.next389 = add nuw nsw i64 %indvars.iv388, 1
+  %exitcond391.not = icmp eq i64 %indvars.iv.next389, 8
+  br i1 %exitcond391.not, label %252, label %.preheader.us
 
 258:                                              ; preds = %.preheader.us, %258
-  %indvars.iv386 = phi i64 [ %328, %.preheader.us ], [ %indvars.iv.next387, %258 ]
-  %indvars.iv384 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next385, %258 ]
-  %259 = shl nuw nsw i64 %indvars.iv384, 1
+  %indvars.iv382 = phi i64 [ %328, %.preheader.us ], [ %indvars.iv.next383, %258 ]
+  %indvars.iv380 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next381, %258 ]
+  %259 = shl nuw nsw i64 %indvars.iv380, 1
   %260 = add nuw nsw i64 %259, %327
   %261 = getelementptr inbounds nuw [256 x float], ptr %23, i64 0, i64 %260
   %262 = load float, ptr %261, align 8
@@ -9018,7 +9016,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi_write_jpg_core(ptr noundef nonn
   %273 = load float, ptr %272, align 4
   %274 = fadd float %270, %273
   %275 = fmul float %274, 2.500000e-01
-  %276 = getelementptr inbounds [64 x float], ptr %25, i64 0, i64 %indvars.iv386
+  %276 = getelementptr inbounds [64 x float], ptr %25, i64 0, i64 %indvars.iv382
   store float %275, ptr %276, align 4
   %277 = getelementptr inbounds nuw [256 x float], ptr %24, i64 0, i64 %260
   %278 = load float, ptr %277, align 8
@@ -9032,12 +9030,12 @@ define internal fastcc range(i32 0, 2) i32 @stbi_write_jpg_core(ptr noundef nonn
   %286 = load float, ptr %285, align 4
   %287 = fadd float %284, %286
   %288 = fmul float %287, 2.500000e-01
-  %289 = getelementptr inbounds [64 x float], ptr %26, i64 0, i64 %indvars.iv386
+  %289 = getelementptr inbounds [64 x float], ptr %26, i64 0, i64 %indvars.iv382
   store float %288, ptr %289, align 4
-  %indvars.iv.next385 = add nuw nsw i64 %indvars.iv384, 1
-  %indvars.iv.next387 = add nsw i64 %indvars.iv386, 1
-  %exitcond391.not = icmp eq i64 %indvars.iv.next385, 8
-  br i1 %exitcond391.not, label %257, label %258
+  %indvars.iv.next381 = add nuw nsw i64 %indvars.iv380, 1
+  %indvars.iv.next383 = add nsw i64 %indvars.iv382, 1
+  %exitcond387.not = icmp eq i64 %indvars.iv.next381, 8
+  br i1 %exitcond387.not, label %257, label %258
 
 290:                                              ; preds = %297, %245
   %.1317.us = phi i32 [ %.0247328.us, %245 ], [ %298, %297 ]
@@ -9051,12 +9049,12 @@ define internal fastcc range(i32 0, 2) i32 @stbi_write_jpg_core(ptr noundef nonn
   br label %299
 
 297:                                              ; preds = %299
-  %298 = add nuw nsw i32 %.1317.us, 1
-  %exitcond383.not = icmp eq i32 %298, %indvars.iv381
-  br i1 %exitcond383.not, label %247, label %290
+  %298 = add nuw i32 %.1317.us, 1
+  %exitcond379.not = icmp eq i32 %298, %indvars.iv377
+  br i1 %exitcond379.not, label %247, label %290
 
 299:                                              ; preds = %299, %290
-  %indvars.iv376 = phi i64 [ %indvars.iv.next377, %299 ], [ %295, %290 ]
+  %indvars.iv373 = phi i64 [ %indvars.iv.next374, %299 ], [ %295, %290 ]
   %.1227315.us = phi i32 [ %326, %299 ], [ %.0245322.us, %290 ]
   %300 = call i32 @llvm.smin.i32(i32 %.1227315.us, i32 %241)
   %301 = add i32 %300, %294
@@ -9075,36 +9073,36 @@ define internal fastcc range(i32 0, 2) i32 @stbi_write_jpg_core(ptr noundef nonn
   %314 = call float @llvm.fmuladd.f32(float %306, float 0x3FD322D0E0000000, float %313)
   %315 = call float @llvm.fmuladd.f32(float %312, float 0x3FBD2F1AA0000000, float %314)
   %316 = fadd float %315, -1.280000e+02
-  %317 = getelementptr inbounds [256 x float], ptr %22, i64 0, i64 %indvars.iv376
+  %317 = getelementptr inbounds [256 x float], ptr %22, i64 0, i64 %indvars.iv373
   store float %316, ptr %317, align 4
   %318 = fmul float %309, 0xBFD5335D20000000
   %319 = call float @llvm.fmuladd.f32(float %306, float 0xBFC59945C0000000, float %318)
   %320 = call float @llvm.fmuladd.f32(float %312, float 5.000000e-01, float %319)
-  %321 = getelementptr inbounds [256 x float], ptr %23, i64 0, i64 %indvars.iv376
+  %321 = getelementptr inbounds [256 x float], ptr %23, i64 0, i64 %indvars.iv373
   store float %320, ptr %321, align 4
   %322 = fmul float %309, 0xBFDACBD120000000
   %323 = call float @llvm.fmuladd.f32(float %306, float 5.000000e-01, float %322)
   %324 = call float @llvm.fmuladd.f32(float %312, float 0xBFB4D0BB60000000, float %323)
-  %325 = getelementptr inbounds [256 x float], ptr %24, i64 0, i64 %indvars.iv376
+  %325 = getelementptr inbounds [256 x float], ptr %24, i64 0, i64 %indvars.iv373
   store float %324, ptr %325, align 4
   %326 = add nuw nsw i32 %.1227315.us, 1
-  %indvars.iv.next377 = add nsw i64 %indvars.iv376, 1
-  %lftr.wideiv379 = trunc i64 %indvars.iv.next377 to i32
-  %exitcond380.not = icmp eq i32 %296, %lftr.wideiv379
-  br i1 %exitcond380.not, label %297, label %299
+  %indvars.iv.next374 = add nsw i64 %indvars.iv373, 1
+  %lftr.wideiv = trunc i64 %indvars.iv.next374 to i32
+  %exitcond376.not = icmp eq i32 %296, %lftr.wideiv
+  br i1 %exitcond376.not, label %297, label %299
 
 .preheader.us:                                    ; preds = %257, %247
-  %indvars.iv392 = phi i64 [ %indvars.iv.next393, %257 ], [ 0, %247 ]
-  %.2251320.us = phi i64 [ %indvars.iv.next387, %257 ], [ 0, %247 ]
-  %327 = shl nuw nsw i64 %indvars.iv392, 5
-  %sext396 = shl i64 %.2251320.us, 32
-  %328 = ashr exact i64 %sext396, 32
+  %indvars.iv388 = phi i64 [ %indvars.iv.next389, %257 ], [ 0, %247 ]
+  %.2251320.us = phi i64 [ %indvars.iv.next383, %257 ], [ 0, %247 ]
+  %327 = shl nuw nsw i64 %indvars.iv388, 5
+  %sext394 = shl i64 %.2251320.us, 32
+  %328 = ashr exact i64 %sext394, 32
   br label %258
 
 ._crit_edge.us332:                                ; preds = %252
   %329 = add nuw nsw i32 %.0247328.us, 16
   %330 = icmp slt i32 %329, %2
-  %indvars.iv.next382 = add i32 %indvars.iv381, 16
+  %indvars.iv.next378 = add i32 %indvars.iv377, 16
   br i1 %330, label %.preheader278.us, label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge.us, %._crit_edge.us332, %.preheader278.lr.ph, %.preheader280.lr.ph, %.preheader281, %.preheader279
@@ -39758,16 +39756,16 @@ define internal void @stbi__YCbCr_to_RGB_simd(ptr noundef writeonly captures(non
 57:                                               ; preds = %.lr.ph107, %57
   %indvars.iv110 = phi i64 [ %56, %.lr.ph107 ], [ %indvars.iv.next111, %57 ]
   %.2106 = phi ptr [ %.0, %.lr.ph107 ], [ %95, %57 ]
-  %58 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv110
+  %58 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv110
   %59 = load i8, ptr %58, align 1
   %60 = zext i8 %59 to i32
   %61 = shl nuw nsw i32 %60, 20
   %62 = or disjoint i32 %61, 524288
-  %63 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv110
+  %63 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv110
   %64 = load i8, ptr %63, align 1
   %65 = zext i8 %64 to i32
   %66 = add nsw i32 %65, -128
-  %67 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv110
+  %67 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv110
   %68 = load i8, ptr %67, align 1
   %69 = zext i8 %68 to i32
   %70 = add nsw i32 %69, -128

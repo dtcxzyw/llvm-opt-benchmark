@@ -5017,11 +5017,11 @@ define linkonce_odr void @_ZN5Eigen8internal29general_matrix_vector_productIldNS
 
 .lr.ph456:                                        ; preds = %.preheader407
   %174 = mul nsw i64 %.1207475, %.sroa.33.0.copyload
-  %175 = add nuw nsw i64 %.1207475, 1
+  %175 = add nsw i64 %.1207475, 1
   %176 = mul nsw i64 %175, %.sroa.33.0.copyload
-  %177 = add nuw nsw i64 %.1207475, 2
+  %177 = add nsw i64 %.1207475, 2
   %178 = mul nsw i64 %177, %.sroa.33.0.copyload
-  %179 = add nuw nsw i64 %.1207475, 3
+  %179 = add nsw i64 %.1207475, 3
   %180 = mul nsw i64 %179, %.sroa.33.0.copyload
   br label %183
 
@@ -5087,18 +5087,18 @@ define linkonce_odr void @_ZN5Eigen8internal29general_matrix_vector_productIldNS
   br i1 %213, label %.lr.ph469, label %._crit_edge457.._crit_edge470_crit_edge
 
 ._crit_edge457.._crit_edge470_crit_edge:          ; preds = %._crit_edge457
-  %.pre565 = add nuw nsw i64 %.1207475, 1
-  %.pre567 = add nuw nsw i64 %.1207475, 2
-  %.pre569 = add nuw nsw i64 %.1207475, 3
+  %.pre565 = add nsw i64 %.1207475, 1
+  %.pre567 = add nsw i64 %.1207475, 2
+  %.pre569 = add nsw i64 %.1207475, 3
   br label %._crit_edge470
 
 .lr.ph469:                                        ; preds = %._crit_edge457
   %214 = mul nsw i64 %.1207475, %.sroa.33.0.copyload
-  %215 = add nuw nsw i64 %.1207475, 1
+  %215 = add nsw i64 %.1207475, 1
   %216 = mul nsw i64 %215, %.sroa.33.0.copyload
-  %217 = add nuw nsw i64 %.1207475, 2
+  %217 = add nsw i64 %.1207475, 2
   %218 = mul nsw i64 %217, %.sroa.33.0.copyload
-  %219 = add nuw nsw i64 %.1207475, 3
+  %219 = add nsw i64 %.1207475, 3
   %220 = mul nsw i64 %219, %.sroa.33.0.copyload
   br label %221
 
@@ -5159,7 +5159,7 @@ define linkonce_odr void @_ZN5Eigen8internal29general_matrix_vector_productIldNS
   %256 = load double, ptr %255, align 8, !tbaa !35
   %257 = tail call double @llvm.fmuladd.f64(double %6, double %.0214.lcssa, double %256)
   store double %257, ptr %255, align 8, !tbaa !35
-  %258 = add nuw nsw i64 %.1207475, 4
+  %258 = add nsw i64 %.1207475, 4
   %259 = icmp slt i64 %258, %11
   br i1 %259, label %.preheader407, label %.preheader406, !llvm.loop !253
 
@@ -5169,7 +5169,7 @@ define linkonce_odr void @_ZN5Eigen8internal29general_matrix_vector_productIldNS
 
 .lr.ph481:                                        ; preds = %.preheader405
   %260 = mul nsw i64 %.2494, %.sroa.33.0.copyload
-  %261 = add nuw nsw i64 %.2494, 1
+  %261 = add nsw i64 %.2494, 1
   %262 = mul nsw i64 %261, %.sroa.33.0.copyload
   br label %265
 
@@ -5217,12 +5217,12 @@ define linkonce_odr void @_ZN5Eigen8internal29general_matrix_vector_productIldNS
   br i1 %283, label %.lr.ph490, label %._crit_edge482.._crit_edge491_crit_edge
 
 ._crit_edge482.._crit_edge491_crit_edge:          ; preds = %._crit_edge482
-  %.pre571 = add nuw nsw i64 %.2494, 1
+  %.pre571 = add nsw i64 %.2494, 1
   br label %._crit_edge491
 
 .lr.ph490:                                        ; preds = %._crit_edge482
   %284 = mul nsw i64 %.2494, %.sroa.33.0.copyload
-  %285 = add nuw nsw i64 %.2494, 1
+  %285 = add nsw i64 %.2494, 1
   %286 = mul nsw i64 %285, %.sroa.33.0.copyload
   br label %287
 
@@ -5259,7 +5259,7 @@ define linkonce_odr void @_ZN5Eigen8internal29general_matrix_vector_productIldNS
   %306 = load double, ptr %305, align 8, !tbaa !35
   %307 = tail call double @llvm.fmuladd.f64(double %6, double %.0210.lcssa, double %306)
   store double %307, ptr %305, align 8, !tbaa !35
-  %308 = add nuw nsw i64 %.2494, 2
+  %308 = add nsw i64 %.2494, 2
   %309 = icmp slt i64 %308, %12
   br i1 %309, label %.preheader405, label %.preheader404, !llvm.loop !256
 
@@ -5320,7 +5320,7 @@ define linkonce_odr void @_ZN5Eigen8internal29general_matrix_vector_productIldNS
   %332 = load double, ptr %331, align 8, !tbaa !35
   %333 = tail call double @llvm.fmuladd.f64(double %6, double %.0.lcssa, double %332)
   store double %333, ptr %331, align 8, !tbaa !35
-  %334 = add nuw nsw i64 %.3511, 1
+  %334 = add nsw i64 %.3511, 1
   %exitcond552.not = icmp eq i64 %334, %0
   br i1 %exitcond552.not, label %._crit_edge512, label %.preheader, !llvm.loop !259
 

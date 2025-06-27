@@ -7147,13 +7147,14 @@ for.inc.i:                                        ; preds = %for.body.i
 for.end.i:                                        ; preds = %for.inc.i, %if.then5.i
   %i.027.in.i = phi i64 [ %indvars.iv.i, %if.then5.i ], [ %sub.ptr.div.i.i, %for.inc.i ]
   %elementTypeKind.0.i = phi i8 [ %3, %if.then5.i ], [ 33, %for.inc.i ]
-  %conv1032.i = and i64 %i.027.in.i, 4294967295
+  %sext.i = shl i64 %i.027.in.i, 32
+  %conv1032.i = ashr exact i64 %sext.i, 32
   %cmp1233.i = icmp ugt i64 %sub.ptr.div.i.i, %conv1032.i
   br i1 %cmp1233.i, label %for.body13.i, label %_ZN8facebook5velox7variant19verifyArrayElementsERKSt6vectorIS1_SaIS1_EE.exit
 
 for.body13.i:                                     ; preds = %for.end.i, %for.inc26.i
   %indvars.iv39.i = phi i64 [ %indvars.iv.next40.i, %for.inc26.i ], [ %conv1032.i, %for.end.i ]
-  %add.ptr.i20.i = getelementptr inbounds nuw %"class.facebook::velox::variant", ptr %0, i64 %indvars.iv39.i
+  %add.ptr.i20.i = getelementptr inbounds %"class.facebook::velox::variant", ptr %0, i64 %indvars.iv39.i
   %ptr_.i21.i = getelementptr inbounds nuw i8, ptr %add.ptr.i20.i, i64 8
   %4 = load ptr, ptr %ptr_.i21.i, align 8
   %cmp.i22.i = icmp eq ptr %4, null
@@ -7169,7 +7170,7 @@ if.then23.i:                                      ; preds = %if.then17.i
   unreachable
 
 for.inc26.i:                                      ; preds = %if.then17.i, %for.body13.i
-  %indvars.iv.next40.i = add nuw i64 %indvars.iv39.i, 1
+  %indvars.iv.next40.i = add i64 %indvars.iv39.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next40.i, %sub.ptr.div.i.i
   br i1 %exitcond.not, label %_ZN8facebook5velox7variant19verifyArrayElementsERKSt6vectorIS1_SaIS1_EE.exit, label %for.body13.i, !llvm.loop !102
 
@@ -8709,13 +8710,14 @@ for.inc:                                          ; preds = %for.body
 for.end:                                          ; preds = %for.inc, %if.then5
   %i.027.in = phi i64 [ %indvars.iv, %if.then5 ], [ %sub.ptr.div.i, %for.inc ]
   %elementTypeKind.0 = phi i8 [ %3, %if.then5 ], [ 33, %for.inc ]
-  %conv1032 = and i64 %i.027.in, 4294967295
+  %sext = shl i64 %i.027.in, 32
+  %conv1032 = ashr exact i64 %sext, 32
   %cmp1233 = icmp ugt i64 %sub.ptr.div.i, %conv1032
   br i1 %cmp1233, label %for.body13, label %if.end29
 
 for.body13:                                       ; preds = %for.end, %for.inc26
   %indvars.iv39 = phi i64 [ %indvars.iv.next40, %for.inc26 ], [ %conv1032, %for.end ]
-  %add.ptr.i20 = getelementptr inbounds nuw %"class.facebook::velox::variant", ptr %0, i64 %indvars.iv39
+  %add.ptr.i20 = getelementptr inbounds %"class.facebook::velox::variant", ptr %0, i64 %indvars.iv39
   %ptr_.i21 = getelementptr inbounds nuw i8, ptr %add.ptr.i20, i64 8
   %4 = load ptr, ptr %ptr_.i21, align 8
   %cmp.i22 = icmp eq ptr %4, null

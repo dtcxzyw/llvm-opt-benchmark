@@ -544,13 +544,14 @@ define internal fastcc i32 @genrand_uint32(ptr noundef captures(none) %0) unname
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8, !tbaa !32
   %5 = icmp sgt i32 %4, 623
-  br i1 %5, label %.preheader43.preheader, label %53
+  br i1 %5, label %.preheader43.preheader, label %52
 
 .preheader43.preheader:                           ; preds = %1
   %.pre = load i32, ptr %2, align 4, !tbaa !29
   br label %.preheader43
 
 .lr.ph.preheader:                                 ; preds = %.preheader43
+  %invariant.gep = getelementptr i8, ptr %0, i64 -888
   %.phi.trans.insert = getelementptr i8, ptr %0, i64 928
   %.pre51 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !29
   br label %.lr.ph
@@ -588,56 +589,56 @@ define internal fastcc i32 @genrand_uint32(ptr noundef captures(none) %0) unname
   %26 = load i32, ptr %25, align 4, !tbaa !29
   %27 = and i32 %26, 2147483646
   %28 = or disjoint i32 %27, %24
-  %29 = getelementptr i8, ptr %23, i64 -908
-  %30 = load i32, ptr %29, align 4, !tbaa !29
-  %31 = lshr exact i32 %28, 1
-  %32 = and i32 %26, 1
-  %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr [2 x i32], ptr @genrand_uint32.mag01, i64 0, i64 %33
-  %35 = load i32, ptr %34, align 4, !tbaa !29
+  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv47
+  %29 = load i32, ptr %gep, align 4, !tbaa !29
+  %30 = lshr exact i32 %28, 1
+  %31 = and i32 %26, 1
+  %32 = zext nneg i32 %31 to i64
+  %33 = getelementptr [2 x i32], ptr @genrand_uint32.mag01, i64 0, i64 %32
+  %34 = load i32, ptr %33, align 4, !tbaa !29
+  %35 = xor i32 %34, %29
   %36 = xor i32 %35, %30
-  %37 = xor i32 %36, %31
-  store i32 %37, ptr %23, align 4, !tbaa !29
+  store i32 %36, ptr %23, align 4, !tbaa !29
   %exitcond50.not = icmp eq i64 %indvars.iv.next48, 623
   br i1 %exitcond50.not, label %._crit_edge, label %.lr.ph, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %38 = getelementptr i8, ptr %0, i64 2512
-  %39 = load i32, ptr %38, align 4, !tbaa !29
-  %40 = and i32 %39, -2147483648
-  %41 = load i32, ptr %2, align 4, !tbaa !29
-  %42 = and i32 %41, 2147483646
-  %43 = or disjoint i32 %42, %40
-  %44 = getelementptr i8, ptr %0, i64 1604
-  %45 = load i32, ptr %44, align 4, !tbaa !29
-  %46 = lshr exact i32 %43, 1
-  %47 = and i32 %41, 1
-  %48 = zext nneg i32 %47 to i64
-  %49 = getelementptr [2 x i32], ptr @genrand_uint32.mag01, i64 0, i64 %48
-  %50 = load i32, ptr %49, align 4, !tbaa !29
+  %37 = getelementptr i8, ptr %0, i64 2512
+  %38 = load i32, ptr %37, align 4, !tbaa !29
+  %39 = and i32 %38, -2147483648
+  %40 = load i32, ptr %2, align 4, !tbaa !29
+  %41 = and i32 %40, 2147483646
+  %42 = or disjoint i32 %41, %39
+  %43 = getelementptr i8, ptr %0, i64 1604
+  %44 = load i32, ptr %43, align 4, !tbaa !29
+  %45 = lshr exact i32 %42, 1
+  %46 = and i32 %40, 1
+  %47 = zext nneg i32 %46 to i64
+  %48 = getelementptr [2 x i32], ptr @genrand_uint32.mag01, i64 0, i64 %47
+  %49 = load i32, ptr %48, align 4, !tbaa !29
+  %50 = xor i32 %49, %44
   %51 = xor i32 %50, %45
-  %52 = xor i32 %51, %46
-  store i32 %52, ptr %38, align 4, !tbaa !29
-  br label %53
+  store i32 %51, ptr %37, align 4, !tbaa !29
+  br label %52
 
-53:                                               ; preds = %._crit_edge, %1
-  %54 = phi i32 [ 0, %._crit_edge ], [ %4, %1 ]
-  %55 = add nsw i32 %54, 1
-  store i32 %55, ptr %3, align 8, !tbaa !32
-  %56 = sext i32 %54 to i64
-  %57 = getelementptr i32, ptr %2, i64 %56
-  %58 = load i32, ptr %57, align 4, !tbaa !29
-  %59 = lshr i32 %58, 11
-  %60 = xor i32 %59, %58
-  %61 = shl i32 %60, 7
-  %62 = and i32 %61, -1658038656
-  %63 = xor i32 %62, %60
-  %64 = shl i32 %63, 15
-  %65 = and i32 %64, -272236544
-  %66 = xor i32 %65, %63
-  %67 = lshr i32 %66, 18
-  %68 = xor i32 %67, %66
-  ret i32 %68
+52:                                               ; preds = %._crit_edge, %1
+  %53 = phi i32 [ 0, %._crit_edge ], [ %4, %1 ]
+  %54 = add nsw i32 %53, 1
+  store i32 %54, ptr %3, align 8, !tbaa !32
+  %55 = sext i32 %53 to i64
+  %56 = getelementptr i32, ptr %2, i64 %55
+  %57 = load i32, ptr %56, align 4, !tbaa !29
+  %58 = lshr i32 %57, 11
+  %59 = xor i32 %58, %57
+  %60 = shl i32 %59, 7
+  %61 = and i32 %60, -1658038656
+  %62 = xor i32 %61, %59
+  %63 = shl i32 %62, 15
+  %64 = and i32 %63, -272236544
+  %65 = xor i32 %64, %62
+  %66 = lshr i32 %65, 18
+  %67 = xor i32 %66, %65
+  ret i32 %67
 }
 
 declare ptr @PyFloat_FromDouble(double noundef) local_unnamed_addr #1

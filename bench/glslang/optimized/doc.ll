@@ -5573,13 +5573,13 @@ define internal void @__cxx_global_array_dtor(ptr readnone captures(none) %0) #1
   %4 = getelementptr inbounds i8, ptr %3, i64 -112
   %5 = getelementptr inbounds i8, ptr %3, i64 -96
   %6 = getelementptr inbounds i8, ptr %3, i64 -48
-  %7 = load ptr, ptr %6, align 8
+  %7 = load ptr, ptr %6, align 16
   %.not.i.i.i.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIbSaIbEED2Ev.exit.i.i, label %8
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds i8, ptr %3, i64 -16
-  %10 = load ptr, ptr %9, align 8
+  %10 = load ptr, ptr %9, align 16
   %11 = ptrtoint ptr %10 to i64
   %12 = ptrtoint ptr %7 to i64
   %13 = sub i64 %11, %12
@@ -5587,14 +5587,14 @@ define internal void @__cxx_global_array_dtor(ptr readnone captures(none) %0) #1
   %15 = sub nsw i64 0, %14
   %16 = getelementptr inbounds i64, ptr %10, i64 %15
   tail call void @_ZdlPvm(ptr noundef %16, i64 noundef %13) #15
-  store ptr null, ptr %6, align 8
+  store ptr null, ptr %6, align 16
   %.sroa.2.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 -40
   store i32 0, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i, align 8
   %.sroa.31.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 -32
-  store ptr null, ptr %.sroa.31.0..sroa_idx.i.i.i.i.i.i, align 8
+  store ptr null, ptr %.sroa.31.0..sroa_idx.i.i.i.i.i.i, align 16
   %.sroa.4.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 -24
   store i32 0, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i.i, align 8
-  store ptr null, ptr %9, align 8
+  store ptr null, ptr %9, align 16
   br label %_ZNSt6vectorIbSaIbEED2Ev.exit.i.i
 
 _ZNSt6vectorIbSaIbEED2Ev.exit.i.i:                ; preds = %8, %2
@@ -5613,13 +5613,13 @@ _ZNSt6vectorIbSaIbEED2Ev.exit.i.i:                ; preds = %8, %2
   br label %_ZNSt6vectorIPKcSaIS1_EED2Ev.exit.i.i
 
 _ZNSt6vectorIPKcSaIS1_EED2Ev.exit.i.i:            ; preds = %19, %_ZNSt6vectorIbSaIbEED2Ev.exit.i.i
-  %25 = load ptr, ptr %5, align 8
+  %25 = load ptr, ptr %5, align 16
   %.not.i.i.i2.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i.i2.i.i, label %_ZN3spv21InstructionParametersD2Ev.exit, label %26
 
 26:                                               ; preds = %_ZNSt6vectorIPKcSaIS1_EED2Ev.exit.i.i
   %27 = getelementptr inbounds i8, ptr %3, i64 -80
-  %28 = load ptr, ptr %27, align 8
+  %28 = load ptr, ptr %27, align 16
   %29 = ptrtoint ptr %28 to i64
   %30 = ptrtoint ptr %25 to i64
   %31 = sub i64 %29, %30

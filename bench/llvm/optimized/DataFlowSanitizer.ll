@@ -11448,7 +11448,7 @@ _ZSt4nextIN4llvm21ilist_iterator_w_bitsINS0_12ilist_detail12node_optionsINS0_11I
   br label %4132
 
 4132:                                             ; preds = %.critedge, %_ZSt4nextIN4llvm21ilist_iterator_w_bitsINS0_12ilist_detail12node_optionsINS0_11InstructionELb0ELb0EvLb1ENS0_10BasicBlockEEELb0ELb0EEEET_S8_NSt15iterator_traitsIS8_E15difference_typeE.exit
-  %.sroa.13.5 = phi i64 [ %.sroa.13.4, %_ZSt4nextIN4llvm21ilist_iterator_w_bitsINS0_12ilist_detail12node_optionsINS0_11InstructionELb0ELb0EvLb1ENS0_10BasicBlockEEELb0ELb0EEEET_S8_NSt15iterator_traitsIS8_E15difference_typeE.exit ], [ %.sroa.13.9.insert.mask, %.critedge ]
+  %.sroa.13.5 = phi i64 [ %.sroa.13.4, %_ZSt4nextIN4llvm21ilist_iterator_w_bitsINS0_12ilist_detail12node_optionsINS0_11InstructionELb0ELb0EvLb1ENS0_10BasicBlockEEELb0ELb0EEEET_S8_NSt15iterator_traitsIS8_E15difference_typeE.exit ], [ %.sroa.13.8.insert.mask, %.critedge ]
   %.sroa.0624.1.in = phi ptr [ %.sroa.0624.0.in, %_ZSt4nextIN4llvm21ilist_iterator_w_bitsINS0_12ilist_detail12node_optionsINS0_11InstructionELb0ELb0EvLb1ENS0_10BasicBlockEEELb0ELb0EEEET_S8_NSt15iterator_traitsIS8_E15difference_typeE.exit ], [ %4135, %.critedge ]
   %.sroa.0624.1 = load ptr, ptr %.sroa.0624.1.in, align 8, !tbaa !506
   %4133 = getelementptr inbounds i8, ptr %.sroa.0624.1, i64 -24
@@ -11460,6 +11460,7 @@ _ZSt4nextIN4llvm21ilist_iterator_w_bitsINS0_12ilist_detail12node_optionsINS0_11I
 
 .critedge:                                        ; preds = %4132, %4132
   %4135 = getelementptr inbounds nuw i8, ptr %.sroa.0624.1, i64 8
+  %.sroa.13.8.insert.mask = and i64 %.sroa.13.5, -65536
   br label %4132, !llvm.loop !631
 
 4136:                                             ; preds = %4132

@@ -244,14 +244,14 @@ _ZN13GrowableArrayIPKvE8allocateEv.exit.i:        ; preds = %59
 
 .lr.ph19.preheader.i:                             ; preds = %.preheader16.i
   %72 = zext nneg i32 %.0.lcssa.i to i64
-  %73 = shl nuw nsw i64 %72, 3
-  %scevgep = getelementptr i8, ptr %68, i64 %73
-  %74 = xor i32 %.0.lcssa.i, -1
-  %75 = add nsw i32 %.0.i.i.i.i.i, %74
-  %76 = zext i32 %75 to i64
-  %77 = shl nuw nsw i64 %76, 3
-  %78 = add nuw nsw i64 %77, 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, i8 0, i64 %78, i1 false)
+  %73 = zext nneg i32 %.0.i.i.i.i.i to i64
+  %74 = shl nuw nsw i64 %72, 3
+  %scevgep = getelementptr i8, ptr %68, i64 %74
+  %75 = add nuw nsw i64 %72, 1
+  %76 = call i64 @llvm.umax.i64(i64 %75, i64 %73)
+  %77 = sub nsw i64 %76, %72
+  %78 = shl nsw i64 %77, 3
+  call void @llvm.memset.p0.i64(ptr align 8 %scevgep, i8 0, i64 %78, i1 false)
   br label %_ZN26GrowableArrayWithAllocatorIPKv13GrowableArrayIS1_EE6appendERKS1_.exit.i
 
 .lr.ph.i31:                                       ; preds = %.lr.ph.i31.preheader, %.lr.ph.i31
@@ -1270,6 +1270,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #7
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

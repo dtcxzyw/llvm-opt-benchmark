@@ -198,7 +198,7 @@ define internal i32 @mp_decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %59
 
 59:                                               ; preds = %33, %59
-  %.06178 = phi i32 [ %58, %33 ], [ 1, %59 ]
+  %.06178 = phi i32 [ %58, %33 ], [ %83, %59 ]
   %60 = load i32, ptr %44, align 8, !tbaa !55
   %61 = load i32, ptr %40, align 8, !tbaa !53
   %62 = load ptr, ptr %5, align 8, !tbaa !50
@@ -225,8 +225,9 @@ define internal i32 @mp_decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef
   store i32 %82, ptr %44, align 8, !tbaa !55
   call fastcc void @mp_read_changes_map(ptr noundef nonnull %11, ptr noundef %5, i32 noundef %70, i32 noundef 8, i32 noundef %.06178)
   call fastcc void @mp_read_changes_map(ptr noundef nonnull %11, ptr noundef %5, i32 noundef %80, i32 noundef 4, i32 noundef %.06178)
-  %83 = icmp eq i32 %.06178, 0
-  br i1 %83, label %59, label %84, !llvm.loop !57
+  %83 = add nuw nsw i32 %.06178, 1
+  %exitcond.not = icmp eq i32 %83, 2
+  br i1 %exitcond.not, label %84, label %59, !llvm.loop !57
 
 84:                                               ; preds = %59
   %85 = load i32, ptr %44, align 8, !tbaa !55

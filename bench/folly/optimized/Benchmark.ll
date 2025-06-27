@@ -6354,7 +6354,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 .lr.ph.i.preheader.i:                             ; preds = %.preheader.i.i, %.lr.ph.i.i
   %.013.i1.i = phi ptr [ %346, %.lr.ph.i.i ], [ @_ZN5follyL13kTimeSuffixesE, %.preheader.i.i ]
   %346 = getelementptr inbounds nuw i8, ptr %.013.i1.i, i64 16
-  %347 = load double, ptr %346, align 8, !tbaa !279, !noalias !277
+  %347 = load double, ptr %346, align 16, !tbaa !279, !noalias !277
   %348 = fcmp olt double %333, %347
   br i1 %348, label %.lr.ph.i.i, label %.critedge.i.i, !llvm.loop !278
 
@@ -6415,7 +6415,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 .lr.ph.i.preheader.i86:                           ; preds = %.preheader.i.i82, %.lr.ph.i.i88
   %.013.i1.i87 = phi ptr [ %366, %.lr.ph.i.i88 ], [ @_ZN5follyL15kMetricSuffixesE, %.preheader.i.i82 ]
   %366 = getelementptr inbounds nuw i8, ptr %.013.i1.i87, i64 16
-  %367 = load double, ptr %366, align 8, !tbaa !279, !noalias !289
+  %367 = load double, ptr %366, align 16, !tbaa !279, !noalias !289
   %368 = fcmp olt double %353, %367
   br i1 %368, label %.lr.ph.i.i88, label %.critedge.i.i83, !llvm.loop !278
 
@@ -6555,7 +6555,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 .lr.ph.i.preheader.i108:                          ; preds = %.preheader.i.i104, %.lr.ph.i.i110
   %.013.i1.i109 = phi ptr [ %414, %.lr.ph.i.i110 ], [ @_ZN5follyL13kTimeSuffixesE, %.preheader.i.i104 ]
   %414 = getelementptr inbounds nuw i8, ptr %.013.i1.i109, i64 16
-  %415 = load double, ptr %414, align 8, !tbaa !279, !noalias !299
+  %415 = load double, ptr %414, align 16, !tbaa !279, !noalias !299
   %416 = fcmp olt double %401, %415
   br i1 %416, label %.lr.ph.i.i110, label %.critedge.i.i105, !llvm.loop !278
 
@@ -6616,7 +6616,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 .lr.ph.i.preheader.i124:                          ; preds = %.preheader.i.i120, %.lr.ph.i.i126
   %.013.i1.i125 = phi ptr [ %434, %.lr.ph.i.i126 ], [ @_ZN5follyL15kMetricSuffixesE, %.preheader.i.i120 ]
   %434 = getelementptr inbounds nuw i8, ptr %.013.i1.i125, i64 16
-  %435 = load double, ptr %434, align 8, !tbaa !279, !noalias !309
+  %435 = load double, ptr %434, align 16, !tbaa !279, !noalias !309
   %436 = fcmp olt double %421, %435
   br i1 %436, label %.lr.ph.i.i126, label %.critedge.i.i121, !llvm.loop !278
 
@@ -64454,7 +64454,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 .lr.ph.i.preheader.i:                             ; preds = %.preheader.i.i, %.lr.ph.i.i
   %.013.i1.i = phi ptr [ %192, %.lr.ph.i.i ], [ @_ZN5follyL13kTimeSuffixesE, %.preheader.i.i ]
   %192 = getelementptr inbounds nuw i8, ptr %.013.i1.i, i64 16
-  %193 = load double, ptr %192, align 8, !tbaa !279, !noalias !1381
+  %193 = load double, ptr %192, align 16, !tbaa !279, !noalias !1381
   %194 = fcmp olt double %179, %193
   br i1 %194, label %.lr.ph.i.i, label %.critedge.i.i, !llvm.loop !278
 
@@ -64515,7 +64515,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 .lr.ph.i.preheader.i76:                           ; preds = %.preheader.i.i72, %.lr.ph.i.i78
   %.013.i1.i77 = phi ptr [ %212, %.lr.ph.i.i78 ], [ @_ZN5follyL15kMetricSuffixesE, %.preheader.i.i72 ]
   %212 = getelementptr inbounds nuw i8, ptr %.013.i1.i77, i64 16
-  %213 = load double, ptr %212, align 8, !tbaa !279, !noalias !1391
+  %213 = load double, ptr %212, align 16, !tbaa !279, !noalias !1391
   %214 = fcmp olt double %199, %213
   br i1 %214, label %.lr.ph.i.i78, label %.critedge.i.i73, !llvm.loop !278
 
@@ -64656,7 +64656,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 .lr.ph.i.preheader.i100:                          ; preds = %.preheader.i.i96, %.lr.ph.i.i102
   %.013.i1.i101 = phi ptr [ %262, %.lr.ph.i.i102 ], [ @_ZN5follyL13kTimeSuffixesE, %.preheader.i.i96 ]
   %262 = getelementptr inbounds nuw i8, ptr %.013.i1.i101, i64 16
-  %263 = load double, ptr %262, align 8, !tbaa !279, !noalias !1401
+  %263 = load double, ptr %262, align 16, !tbaa !279, !noalias !1401
   %264 = fcmp olt double %249, %263
   br i1 %264, label %.lr.ph.i.i102, label %.critedge.i.i97, !llvm.loop !278
 
@@ -64717,7 +64717,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 .lr.ph.i.preheader.i116:                          ; preds = %.preheader.i.i112, %.lr.ph.i.i118
   %.013.i1.i117 = phi ptr [ %282, %.lr.ph.i.i118 ], [ @_ZN5follyL15kMetricSuffixesE, %.preheader.i.i112 ]
   %282 = getelementptr inbounds nuw i8, ptr %.013.i1.i117, i64 16
-  %283 = load double, ptr %282, align 8, !tbaa !279, !noalias !1411
+  %283 = load double, ptr %282, align 16, !tbaa !279, !noalias !1411
   %284 = fcmp olt double %269, %283
   br i1 %284, label %.lr.ph.i.i118, label %.critedge.i.i113, !llvm.loop !278
 
@@ -64988,7 +64988,7 @@ _ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
 .lr.ph.i.preheader.i143:                          ; preds = %382, %.lr.ph.i.i145
   %.013.i1.i144 = phi ptr [ %389, %.lr.ph.i.i145 ], [ @_ZN5follyL13kTimeSuffixesE, %382 ]
   %389 = getelementptr inbounds nuw i8, ptr %.013.i1.i144, i64 16
-  %390 = load double, ptr %389, align 8, !tbaa !279, !noalias !1415
+  %390 = load double, ptr %389, align 16, !tbaa !279, !noalias !1415
   %391 = fcmp olt double %385, %390
   br i1 %391, label %.lr.ph.i.i145, label %.critedge.i.i140, !llvm.loop !278
 
@@ -65048,7 +65048,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit154: ; preds = %_Z
 .lr.ph.i.preheader.i160:                          ; preds = %406, %.lr.ph.i.i162
   %.013.i1.i161 = phi ptr [ %413, %.lr.ph.i.i162 ], [ @_ZN5follyL15kMetricSuffixesE, %406 ]
   %413 = getelementptr inbounds nuw i8, ptr %.013.i1.i161, i64 16
-  %414 = load double, ptr %413, align 8, !tbaa !279, !noalias !1420
+  %414 = load double, ptr %413, align 16, !tbaa !279, !noalias !1420
   %415 = fcmp olt double %409, %414
   br i1 %415, label %.lr.ph.i.i162, label %.critedge.i.i157, !llvm.loop !278
 

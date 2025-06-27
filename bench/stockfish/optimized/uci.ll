@@ -3074,7 +3074,7 @@ define linkonce_odr dso_local noundef i64 @_ZN9Stockfish5perftILb1EEEmRNS_8Posit
   %.02629.us = phi ptr [ %24, %.lr.ph.split.us ], [ %4, %.lr.ph ]
   %15 = add i64 %.02530.us, 1
   %16 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9StockfishlsERSoNS_8SyncCoutE(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, i32 noundef 0) #21
-  %.sroa.0.0.copyload.us = load i16, ptr %.02629.us, align 4
+  %.sroa.0.0.copyload.us = load i16, ptr %.02629.us, align 8
   %17 = load i8, ptr %14, align 8
   %18 = trunc i8 %17 to i1
   call void @_ZN9Stockfish3UCI4moveB5cxx11ENS_4MoveEb(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, i16 %.sroa.0.0.copyload.us, i1 noundef zeroext %18)
@@ -3094,7 +3094,7 @@ define linkonce_odr dso_local noundef i64 @_ZN9Stockfish5perftILb1EEEmRNS_8Posit
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %.lr.ph.split.split.us
   %.02530.us31 = phi i64 [ %30, %.lr.ph.split.split.us ], [ 0, %.lr.ph.split ]
   %.02629.us32 = phi ptr [ %39, %.lr.ph.split.split.us ], [ %4, %.lr.ph.split ]
-  %.sroa.02.0.copyload.us = load i16, ptr %.02629.us32, align 4
+  %.sroa.02.0.copyload.us = load i16, ptr %.02629.us32, align 8
   %25 = call noundef zeroext i1 @_ZNK9Stockfish8Position11gives_checkENS_4MoveE(ptr noundef nonnull align 8 dereferenceable(865) %0, i16 %.sroa.02.0.copyload.us) #21
   call void @_ZN9Stockfish8Position7do_moveENS_4MoveERNS_9StateInfoEb(ptr noundef nonnull align 8 dereferenceable(865) %0, i16 %.sroa.02.0.copyload.us, ptr noundef nonnull align 64 dereferenceable(11264) %3, i1 noundef zeroext %25) #21
   %26 = call noundef ptr @_ZN9Stockfish8generateILNS_7GenTypeE5EEEPNS_7ExtMoveERKNS_8PositionES3_(ptr noundef nonnull align 8 dereferenceable(865) %0, ptr noundef nonnull align 8 dereferenceable(2056) %5) #21
@@ -3103,10 +3103,10 @@ define linkonce_odr dso_local noundef i64 @_ZN9Stockfish5perftILb1EEEmRNS_8Posit
   %28 = sub i64 %27, %13
   %29 = ashr exact i64 %28, 3
   %30 = add i64 %29, %.02530.us31
-  %.sroa.01.0.copyload.us = load i16, ptr %.02629.us32, align 4
+  %.sroa.01.0.copyload.us = load i16, ptr %.02629.us32, align 8
   call void @_ZN9Stockfish8Position9undo_moveENS_4MoveE(ptr noundef nonnull align 8 dereferenceable(865) %0, i16 %.sroa.01.0.copyload.us) #21
   %31 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9StockfishlsERSoNS_8SyncCoutE(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, i32 noundef 0) #21
-  %.sroa.0.0.copyload.us33 = load i16, ptr %.02629.us32, align 4
+  %.sroa.0.0.copyload.us33 = load i16, ptr %.02629.us32, align 8
   %32 = load i8, ptr %14, align 8
   %33 = trunc i8 %32 to i1
   call void @_ZN9Stockfish3UCI4moveB5cxx11ENS_4MoveEb(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, i16 %.sroa.0.0.copyload.us33, i1 noundef zeroext %33)
@@ -3123,15 +3123,15 @@ define linkonce_odr dso_local noundef i64 @_ZN9Stockfish5perftILb1EEEmRNS_8Posit
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %.lr.ph.split.split
   %.02530 = phi i64 [ %42, %.lr.ph.split.split ], [ 0, %.lr.ph.split ]
   %.02629 = phi ptr [ %51, %.lr.ph.split.split ], [ %4, %.lr.ph.split ]
-  %.sroa.02.0.copyload = load i16, ptr %.02629, align 4
+  %.sroa.02.0.copyload = load i16, ptr %.02629, align 8
   %40 = call noundef zeroext i1 @_ZNK9Stockfish8Position11gives_checkENS_4MoveE(ptr noundef nonnull align 8 dereferenceable(865) %0, i16 %.sroa.02.0.copyload) #21
   call void @_ZN9Stockfish8Position7do_moveENS_4MoveERNS_9StateInfoEb(ptr noundef nonnull align 8 dereferenceable(865) %0, i16 %.sroa.02.0.copyload, ptr noundef nonnull align 64 dereferenceable(11264) %3, i1 noundef zeroext %40) #21
   %41 = call noundef i64 @_ZN9Stockfish5perftILb0EEEmRNS_8PositionEi(ptr noundef nonnull align 8 dereferenceable(865) %0, i32 noundef %11)
   %42 = add i64 %41, %.02530
-  %.sroa.01.0.copyload = load i16, ptr %.02629, align 4
+  %.sroa.01.0.copyload = load i16, ptr %.02629, align 8
   call void @_ZN9Stockfish8Position9undo_moveENS_4MoveE(ptr noundef nonnull align 8 dereferenceable(865) %0, i16 %.sroa.01.0.copyload) #21
   %43 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9StockfishlsERSoNS_8SyncCoutE(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, i32 noundef 0) #21
-  %.sroa.0.0.copyload = load i16, ptr %.02629, align 4
+  %.sroa.0.0.copyload = load i16, ptr %.02629, align 8
   %44 = load i8, ptr %14, align 8
   %45 = trunc i8 %44 to i1
   call void @_ZN9Stockfish3UCI4moveB5cxx11ENS_4MoveEb(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, i16 %.sroa.0.0.copyload, i1 noundef zeroext %45)
@@ -3171,7 +3171,7 @@ define linkonce_odr dso_local noundef i64 @_ZN9Stockfish5perftILb0EEEmRNS_8Posit
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %.023.us = phi i64 [ %17, %.lr.ph.split.us ], [ 0, %.lr.ph ]
   %.01922.us = phi ptr [ %18, %.lr.ph.split.us ], [ %4, %.lr.ph ]
-  %.sroa.01.0.copyload.us = load i16, ptr %.01922.us, align 4
+  %.sroa.01.0.copyload.us = load i16, ptr %.01922.us, align 8
   %12 = call noundef zeroext i1 @_ZNK9Stockfish8Position11gives_checkENS_4MoveE(ptr noundef nonnull align 8 dereferenceable(865) %0, i16 %.sroa.01.0.copyload.us) #21
   call void @_ZN9Stockfish8Position7do_moveENS_4MoveERNS_9StateInfoEb(ptr noundef nonnull align 8 dereferenceable(865) %0, i16 %.sroa.01.0.copyload.us, ptr noundef nonnull align 64 dereferenceable(11264) %3, i1 noundef zeroext %12) #21
   %13 = call noundef ptr @_ZN9Stockfish8generateILNS_7GenTypeE5EEEPNS_7ExtMoveERKNS_8PositionES3_(ptr noundef nonnull align 8 dereferenceable(865) %0, ptr noundef nonnull align 8 dereferenceable(2056) %5) #21
@@ -3180,7 +3180,7 @@ define linkonce_odr dso_local noundef i64 @_ZN9Stockfish5perftILb0EEEmRNS_8Posit
   %15 = sub i64 %14, %11
   %16 = ashr exact i64 %15, 3
   %17 = add i64 %16, %.023.us
-  %.sroa.0.0.copyload.us = load i16, ptr %.01922.us, align 4
+  %.sroa.0.0.copyload.us = load i16, ptr %.01922.us, align 8
   call void @_ZN9Stockfish8Position9undo_moveENS_4MoveE(ptr noundef nonnull align 8 dereferenceable(865) %0, i16 %.sroa.0.0.copyload.us) #21
   %18 = getelementptr inbounds nuw i8, ptr %.01922.us, i64 8
   %.not.us = icmp eq ptr %18, %7
@@ -3189,12 +3189,12 @@ define linkonce_odr dso_local noundef i64 @_ZN9Stockfish5perftILb0EEEmRNS_8Posit
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %.023 = phi i64 [ %21, %.lr.ph.split ], [ 0, %.lr.ph ]
   %.01922 = phi ptr [ %22, %.lr.ph.split ], [ %4, %.lr.ph ]
-  %.sroa.01.0.copyload = load i16, ptr %.01922, align 4
+  %.sroa.01.0.copyload = load i16, ptr %.01922, align 8
   %19 = call noundef zeroext i1 @_ZNK9Stockfish8Position11gives_checkENS_4MoveE(ptr noundef nonnull align 8 dereferenceable(865) %0, i16 %.sroa.01.0.copyload) #21
   call void @_ZN9Stockfish8Position7do_moveENS_4MoveERNS_9StateInfoEb(ptr noundef nonnull align 8 dereferenceable(865) %0, i16 %.sroa.01.0.copyload, ptr noundef nonnull align 64 dereferenceable(11264) %3, i1 noundef zeroext %19) #21
   %20 = call noundef i64 @_ZN9Stockfish5perftILb0EEEmRNS_8PositionEi(ptr noundef nonnull align 8 dereferenceable(865) %0, i32 noundef %9)
   %21 = add i64 %20, %.023
-  %.sroa.0.0.copyload = load i16, ptr %.01922, align 4
+  %.sroa.0.0.copyload = load i16, ptr %.01922, align 8
   call void @_ZN9Stockfish8Position9undo_moveENS_4MoveE(ptr noundef nonnull align 8 dereferenceable(865) %0, i16 %.sroa.0.0.copyload) #21
   %22 = getelementptr inbounds nuw i8, ptr %.01922, i64 8
   %.not = icmp eq ptr %22, %7

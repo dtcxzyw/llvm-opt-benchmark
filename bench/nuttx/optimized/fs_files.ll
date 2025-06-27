@@ -33,7 +33,7 @@ define void @files_releaselist(ptr noundef readonly captures(none) %0) local_unn
   %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.next16
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw %struct.file, ptr %9, i64 %indvars.iv
-  %11 = tail call i32 @file_close(ptr noundef %10) #10
+  %11 = tail call i32 @file_close(ptr noundef %10) #11
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not18 = icmp eq i64 %indvars.iv, 0
   br i1 %.not18, label %12, label %6, !llvm.loop !6
@@ -73,10 +73,10 @@ define ptr @files_fget(ptr noundef readonly captures(none) %0, i32 noundef %1) l
   %4 = sdiv i32 %1, 8
   %5 = srem i32 %1, 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3) #10, !srcloc !9
+  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3) #11, !srcloc !9
   %6 = load i64, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !10
+  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !10
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = sext i32 %4 to i64
@@ -87,7 +87,7 @@ define ptr @files_fget(ptr noundef readonly captures(none) %0, i32 noundef %1) l
   br i1 %.not.i.i, label %files_fget_by_index.exit, label %13
 
 13:                                               ; preds = %2
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !11
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !11
   br label %files_fget_by_index.exit
 
 files_fget_by_index.exit:                         ; preds = %2, %13
@@ -100,7 +100,7 @@ files_fget_by_index.exit:                         ; preds = %2, %13
 define i32 @file_allocate_from_tcb(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i1 noundef zeroext %6) local_unnamed_addr #1 {
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
-  %10 = tail call ptr @nxsched_get_files_from_tcb(ptr noundef %0) #10
+  %10 = tail call ptr @nxsched_get_files_from_tcb(ptr noundef %0) #11
   %11 = sdiv i32 %5, 8
   %12 = srem i32 %5, 8
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 1
@@ -130,10 +130,10 @@ define i32 @file_allocate_from_tcb(ptr noundef %0, ptr noundef %1, i32 noundef %
 26:                                               ; preds = %37, %25
   %indvars.iv = phi i64 [ %indvars.iv.next, %37 ], [ %.0, %25 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %9) #10, !srcloc !9
+  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %9) #11, !srcloc !9
   %27 = load i64, ptr %9, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !10
+  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !10
   %28 = load ptr, ptr %22, align 8
   %29 = getelementptr inbounds ptr, ptr %28, i64 %indvars.iv56
   %30 = load ptr, ptr %29, align 8
@@ -142,7 +142,7 @@ define i32 @file_allocate_from_tcb(ptr noundef %0, ptr noundef %1, i32 noundef %
   br i1 %.not.i.i, label %files_fget_by_index.exit, label %32
 
 32:                                               ; preds = %26
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !11
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !11
   br label %files_fget_by_index.exit
 
 files_fget_by_index.exit:                         ; preds = %26, %32
@@ -173,10 +173,10 @@ files_fget_by_index.exit:                         ; preds = %26, %32
 
 47:                                               ; preds = %42
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %8) #10, !srcloc !9
+  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %8) #11, !srcloc !9
   %48 = load i64, ptr %8, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !10
+  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !10
   %49 = load ptr, ptr %22, align 8
   %50 = and i64 %indvars.iv.next57, 4294967295
   %51 = getelementptr inbounds nuw ptr, ptr %49, i64 %50
@@ -186,7 +186,7 @@ files_fget_by_index.exit:                         ; preds = %26, %32
   br i1 %.not.i.i44, label %files_fget_by_index.exit45, label %54
 
 54:                                               ; preds = %47
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !11
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !11
   br label %files_fget_by_index.exit45
 
 files_fget_by_index.exit45.loopexit:              ; preds = %files_fget_by_index.exit
@@ -208,7 +208,7 @@ files_fget_by_index.exit45:                       ; preds = %files_fget_by_index
   br i1 %6, label %59, label %61
 
 59:                                               ; preds = %files_fget_by_index.exit45
-  %60 = call i32 @inode_addref(ptr noundef %1) #10
+  %60 = call i32 @inode_addref(ptr noundef %1) #11
   br label %61
 
 61:                                               ; preds = %59, %files_fget_by_index.exit45
@@ -239,14 +239,14 @@ define internal fastcc range(i32 -24, 1) i32 @files_extend(ptr noundef captures(
 
 10:                                               ; preds = %7
   %11 = shl nsw i64 %1, 3
-  %12 = tail call noalias ptr @malloc(i64 noundef %11) #11
+  %12 = tail call noalias ptr @malloc(i64 noundef %11) #12
   %13 = icmp eq ptr %12, null
   br i1 %13, label %48, label %.preheader60
 
 .preheader60:                                     ; preds = %10, %26
-  %indvars.iv70.in = phi i32 [ %indvars.iv70, %26 ], [ %8, %10 ]
+  %indvars.iv70 = phi i32 [ %indvars.iv.next71, %26 ], [ %8, %10 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %26 ], [ %6, %10 ]
-  %14 = tail call noalias dereferenceable_or_null(192) ptr @zalloc(i64 noundef 192) #12
+  %14 = tail call noalias dereferenceable_or_null(192) ptr @zalloc(i64 noundef 192) #13
   %15 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
   store ptr %14, ptr %15, align 8
   %16 = icmp eq ptr %14, null
@@ -279,21 +279,21 @@ define internal fastcc range(i32 -24, 1) i32 @files_extend(ptr noundef captures(
   br label %48
 
 26:                                               ; preds = %.preheader60
-  %indvars.iv70 = add i32 %indvars.iv70.in, 1
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %1
+  %indvars.iv.next71 = add nuw i32 %indvars.iv70, 1
   br i1 %exitcond.not, label %27, label %.preheader60, !llvm.loop !15
 
 27:                                               ; preds = %26
   %28 = trunc nuw nsw i64 %indvars.iv to i32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3) #10, !srcloc !9
+  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3) #11, !srcloc !9
   %29 = load i64, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !10
+  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !10
   %30 = load i8, ptr %4, align 1
   %31 = zext i8 %30 to i64
-  %.not52 = icmp samesign ugt i64 %1, %31
+  %.not52 = icmp ugt i64 %1, %31
   br i1 %.not52, label %38, label %32
 
 32:                                               ; preds = %27
@@ -302,7 +302,7 @@ define internal fastcc range(i32 -24, 1) i32 @files_extend(ptr noundef captures(
   br i1 %.not.i, label %up_irq_restore.exit, label %34
 
 34:                                               ; preds = %32
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !11
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !11
   br label %up_irq_restore.exit
 
 up_irq_restore.exit:                              ; preds = %32, %34
@@ -311,6 +311,7 @@ up_irq_restore.exit:                              ; preds = %32, %34
 
 .lr.ph:                                           ; preds = %up_irq_restore.exit
   %35 = getelementptr inbounds nuw ptr, ptr %12, i64 %1
+  %smax = call i32 @llvm.smax.i32(i32 %indvars.iv70, i32 %8)
   %.pre = load ptr, ptr %35, align 8
   br label %36
 
@@ -318,7 +319,7 @@ up_irq_restore.exit:                              ; preds = %32, %34
   %.063 = phi i32 [ %8, %.lr.ph ], [ %37, %36 ]
   call void @free(ptr noundef %.pre)
   %37 = add nuw i32 %.063, 1
-  %exitcond73.not = icmp eq i32 %.063, %indvars.iv70.in
+  %exitcond73.not = icmp eq i32 %.063, %smax
   br i1 %exitcond73.not, label %._crit_edge, label %36, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %36, %up_irq_restore.exit
@@ -345,7 +346,7 @@ up_irq_restore.exit:                              ; preds = %32, %34
   br i1 %.not.i58, label %up_irq_restore.exit59, label %46
 
 46:                                               ; preds = %43
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !11
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !11
   br label %up_irq_restore.exit59
 
 up_irq_restore.exit59:                            ; preds = %43, %46
@@ -364,7 +365,7 @@ declare i32 @inode_addref(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define i32 @file_allocate(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i1 noundef zeroext %5) local_unnamed_addr #1 {
-  %7 = tail call ptr @nxsched_self() #10
+  %7 = tail call ptr @nxsched_self() #11
   %8 = tail call i32 @file_allocate_from_tcb(ptr noundef %7, ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i1 noundef zeroext %5)
   ret i32 %8
 }
@@ -397,10 +398,10 @@ define range(i32 -2147483648, 1) i32 @files_duplist(ptr noundef readonly capture
 11:                                               ; preds = %37, %.preheader.us.us
   %indvars.iv63 = phi i64 [ %indvars.iv.next64, %37 ], [ 0, %.preheader.us.us ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6) #10, !srcloc !9
+  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6) #11, !srcloc !9
   %12 = load i64, ptr %6, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !10
+  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !10
   %13 = load ptr, ptr %9, align 8
   %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv67
   %15 = load ptr, ptr %14, align 8
@@ -409,7 +410,7 @@ define range(i32 -2147483648, 1) i32 @files_duplist(ptr noundef readonly capture
   br i1 %.not.i.i.us.us.us.us, label %files_fget_by_index.exit.us.us.us.us, label %17
 
 17:                                               ; preds = %11
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !11
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !11
   br label %files_fget_by_index.exit.us.us.us.us
 
 files_fget_by_index.exit.us.us.us.us:             ; preds = %17, %11
@@ -432,10 +433,10 @@ files_fget_by_index.exit.us.us.us.us:             ; preds = %17, %11
 
 27:                                               ; preds = %.thread36.us.us.us.us
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %5) #10, !srcloc !9
+  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %5) #11, !srcloc !9
   %28 = load i64, ptr %5, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !10
+  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !10
   %29 = load ptr, ptr %10, align 8
   %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv67
   %31 = load ptr, ptr %30, align 8
@@ -444,12 +445,12 @@ files_fget_by_index.exit.us.us.us.us:             ; preds = %17, %11
   br i1 %.not.i.i33.us.us.us.us, label %files_fget_by_index.exit34.us.us.us.us, label %33
 
 33:                                               ; preds = %27
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !11
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !11
   br label %files_fget_by_index.exit34.us.us.us.us
 
 files_fget_by_index.exit34.us.us.us.us:           ; preds = %33, %27
   %34 = getelementptr inbounds nuw %struct.file, ptr %31, i64 %indvars.iv63
-  %35 = call i32 @file_dup2(ptr noundef nonnull %18, ptr noundef %34) #10
+  %35 = call i32 @file_dup2(ptr noundef nonnull %18, ptr noundef %34) #11
   %36 = icmp slt i32 %35, 0
   br i1 %36, label %.loopexit, label %37
 
@@ -474,10 +475,10 @@ files_fget_by_index.exit34.us.us.us.us:           ; preds = %33, %27
   %indvars.iv56 = phi i64 [ %indvars.iv.next57, %72 ], [ 0, %.preheader.us ]
   %43 = add nuw nsw i64 %indvars.iv56, %41
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6) #10, !srcloc !9
+  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6) #11, !srcloc !9
   %44 = load i64, ptr %6, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !10
+  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !10
   %45 = load ptr, ptr %9, align 8
   %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv60
   %47 = load ptr, ptr %46, align 8
@@ -486,7 +487,7 @@ files_fget_by_index.exit34.us.us.us.us:           ; preds = %33, %27
   br i1 %.not.i.i.us.us, label %files_fget_by_index.exit.us.us, label %49
 
 49:                                               ; preds = %42
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !11
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !11
   br label %files_fget_by_index.exit.us.us
 
 files_fget_by_index.exit.us.us:                   ; preds = %49, %42
@@ -501,7 +502,7 @@ files_fget_by_index.exit.us.us:                   ; preds = %49, %42
   %56 = and i32 %55, 1024
   %57 = icmp ne i32 %56, 0
   %58 = trunc nuw nsw i64 %43 to i32
-  %59 = call zeroext i1 @spawn_file_is_duplicateable(ptr noundef nonnull %2, i32 noundef %58, i1 noundef zeroext %57) #10
+  %59 = call zeroext i1 @spawn_file_is_duplicateable(ptr noundef nonnull %2, i32 noundef %58, i1 noundef zeroext %57) #11
   br i1 %59, label %.thread36.us.us, label %72
 
 .thread36.us.us:                                  ; preds = %54
@@ -511,10 +512,10 @@ files_fget_by_index.exit.us.us:                   ; preds = %49, %42
 
 62:                                               ; preds = %.thread36.us.us
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %5) #10, !srcloc !9
+  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %5) #11, !srcloc !9
   %63 = load i64, ptr %5, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !10
+  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !10
   %64 = load ptr, ptr %10, align 8
   %65 = getelementptr inbounds nuw ptr, ptr %64, i64 %indvars.iv60
   %66 = load ptr, ptr %65, align 8
@@ -523,12 +524,12 @@ files_fget_by_index.exit.us.us:                   ; preds = %49, %42
   br i1 %.not.i.i33.us.us, label %files_fget_by_index.exit34.us.us, label %68
 
 68:                                               ; preds = %62
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !11
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !11
   br label %files_fget_by_index.exit34.us.us
 
 files_fget_by_index.exit34.us.us:                 ; preds = %68, %62
   %69 = getelementptr inbounds nuw %struct.file, ptr %66, i64 %indvars.iv56
-  %70 = call i32 @file_dup2(ptr noundef nonnull %50, ptr noundef %69) #10
+  %70 = call i32 @file_dup2(ptr noundef nonnull %50, ptr noundef %69) #11
   %71 = icmp slt i32 %70, 0
   br i1 %71, label %.loopexit, label %72
 
@@ -553,10 +554,10 @@ files_fget_by_index.exit34.us.us:                 ; preds = %68, %62
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %104 ]
   %78 = add nuw nsw i64 %indvars.iv, %76
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6) #10, !srcloc !9
+  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6) #11, !srcloc !9
   %79 = load i64, ptr %6, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !10
+  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !10
   %80 = load ptr, ptr %9, align 8
   %81 = getelementptr inbounds nuw ptr, ptr %80, i64 %indvars.iv53
   %82 = load ptr, ptr %81, align 8
@@ -565,7 +566,7 @@ files_fget_by_index.exit34.us.us:                 ; preds = %68, %62
   br i1 %.not.i.i, label %files_fget_by_index.exit, label %84
 
 84:                                               ; preds = %77
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !11
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !11
   br label %files_fget_by_index.exit
 
 files_fget_by_index.exit:                         ; preds = %77, %84
@@ -580,7 +581,7 @@ files_fget_by_index.exit:                         ; preds = %77, %84
 
 89:                                               ; preds = %.thread
   %90 = trunc nuw nsw i64 %78 to i32
-  %91 = call zeroext i1 @spawn_file_is_duplicateable(ptr noundef nonnull %2, i32 noundef %90, i1 noundef zeroext false) #10
+  %91 = call zeroext i1 @spawn_file_is_duplicateable(ptr noundef nonnull %2, i32 noundef %90, i1 noundef zeroext false) #11
   br i1 %91, label %.thread36, label %104
 
 .thread36:                                        ; preds = %.thread, %89
@@ -590,10 +591,10 @@ files_fget_by_index.exit:                         ; preds = %77, %84
 
 94:                                               ; preds = %.thread36
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %5) #10, !srcloc !9
+  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %5) #11, !srcloc !9
   %95 = load i64, ptr %5, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !10
+  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !10
   %96 = load ptr, ptr %10, align 8
   %97 = getelementptr inbounds nuw ptr, ptr %96, i64 %indvars.iv53
   %98 = load ptr, ptr %97, align 8
@@ -602,12 +603,12 @@ files_fget_by_index.exit:                         ; preds = %77, %84
   br i1 %.not.i.i33, label %files_fget_by_index.exit34, label %100
 
 100:                                              ; preds = %94
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !11
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !11
   br label %files_fget_by_index.exit34
 
 files_fget_by_index.exit34:                       ; preds = %94, %100
   %101 = getelementptr inbounds nuw %struct.file, ptr %98, i64 %indvars.iv
-  %102 = call i32 @file_dup2(ptr noundef nonnull %85, ptr noundef %101) #10
+  %102 = call i32 @file_dup2(ptr noundef nonnull %85, ptr noundef %101) #11
   %103 = icmp slt i32 %102, 0
   br i1 %103, label %.loopexit, label %104
 
@@ -635,7 +636,7 @@ declare i32 @file_dup2(ptr noundef, ptr noundef) local_unnamed_addr #2
 define range(i32 -11, 1) i32 @fs_getfilep(i32 noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #1 {
   %3 = alloca i64, align 8
   store ptr null, ptr %1, align 8
-  %4 = tail call ptr @nxsched_get_files() #10
+  %4 = tail call ptr @nxsched_get_files() #11
   %5 = icmp eq ptr %4, null
   br i1 %5, label %28, label %6
 
@@ -654,10 +655,10 @@ define range(i32 -11, 1) i32 @fs_getfilep(i32 noundef %0, ptr noundef writeonly 
 13:                                               ; preds = %8
   %14 = lshr i32 %0, 3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3) #10, !srcloc !9
+  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3) #11, !srcloc !9
   %15 = load i64, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !10
+  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !10
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = zext nneg i32 %14 to i64
@@ -668,7 +669,7 @@ define range(i32 -11, 1) i32 @fs_getfilep(i32 noundef %0, ptr noundef writeonly 
   br i1 %.not.i.i.i, label %files_fget.exit, label %22
 
 22:                                               ; preds = %13
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !11
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !11
   br label %files_fget.exit
 
 files_fget.exit:                                  ; preds = %13, %22
@@ -706,7 +707,7 @@ define internal fastcc i32 @nx_dup3_from_tcb(ptr noundef %0, i32 noundef %1, i32
   br i1 %8, label %50, label %9
 
 9:                                                ; preds = %4
-  %10 = tail call ptr @nxsched_get_files_from_tcb(ptr noundef %0) #10
+  %10 = tail call ptr @nxsched_get_files_from_tcb(ptr noundef %0) #11
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 1
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i32
@@ -734,10 +735,10 @@ define internal fastcc i32 @nx_dup3_from_tcb(ptr noundef %0, i32 noundef %1, i32
 
 ._crit_edge:                                      ; preds = %19, %20
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6) #10, !srcloc !9
+  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6) #11, !srcloc !9
   %25 = load i64, ptr %6, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !10
+  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !10
   %26 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = zext nneg i32 %.pre to i64
@@ -748,7 +749,7 @@ define internal fastcc i32 @nx_dup3_from_tcb(ptr noundef %0, i32 noundef %1, i32
   br i1 %.not.i.i.i, label %files_fget.exit, label %32
 
 32:                                               ; preds = %._crit_edge
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !11
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !11
   br label %files_fget.exit
 
 files_fget.exit:                                  ; preds = %._crit_edge, %32
@@ -759,10 +760,10 @@ files_fget.exit:                                  ; preds = %._crit_edge, %32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false)
   %36 = lshr i32 %1, 3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %5) #10, !srcloc !9
+  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %5) #11, !srcloc !9
   %37 = load i64, ptr %5, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !10
+  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !10
   %38 = load ptr, ptr %26, align 8
   %39 = zext nneg i32 %36 to i64
   %40 = getelementptr inbounds nuw ptr, ptr %38, i64 %39
@@ -772,15 +773,15 @@ files_fget.exit:                                  ; preds = %._crit_edge, %32
   br i1 %.not.i.i.i31, label %files_fget.exit32, label %43
 
 43:                                               ; preds = %files_fget.exit
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !11
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !11
   br label %files_fget.exit32
 
 files_fget.exit32:                                ; preds = %files_fget.exit, %43
   %.zext34 = and i32 %1, 7
   %44 = zext nneg i32 %.zext34 to i64
   %45 = getelementptr inbounds nuw %struct.file, ptr %41, i64 %44
-  %46 = call i32 @file_dup3(ptr noundef %45, ptr noundef nonnull %35, i32 noundef %3) #10
-  %47 = call i32 @file_close(ptr noundef nonnull %7) #10
+  %46 = call i32 @file_dup3(ptr noundef %45, ptr noundef nonnull %35, i32 noundef %3) #11
+  %47 = call i32 @file_close(ptr noundef nonnull %7) #11
   %48 = icmp slt i32 %46, 0
   %49 = select i1 %48, i32 %46, i32 %2
   br label %50
@@ -792,21 +793,21 @@ files_fget.exit32:                                ; preds = %files_fget.exit, %4
 
 ; Function Attrs: nounwind uwtable
 define i32 @nx_dup2(i32 noundef %0, i32 noundef %1) local_unnamed_addr #1 {
-  %3 = tail call ptr @nxsched_self() #10
+  %3 = tail call ptr @nxsched_self() #11
   %4 = tail call fastcc i32 @nx_dup3_from_tcb(ptr noundef %3, i32 noundef %0, i32 noundef %1, i32 noundef 0)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, -2147483648) i32 @dup2(i32 noundef %0, i32 noundef %1) local_unnamed_addr #1 {
-  %3 = tail call ptr @nxsched_self() #10
+  %3 = tail call ptr @nxsched_self() #11
   %4 = tail call fastcc i32 @nx_dup3_from_tcb(ptr noundef %3, i32 noundef %0, i32 noundef %1, i32 noundef 0)
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %2
   %7 = sub nsw i32 0, %4
-  %8 = tail call ptr @__errno() #10
+  %8 = tail call ptr @__errno() #11
   store i32 %7, ptr %8, align 4
   br label %9
 
@@ -819,14 +820,14 @@ declare ptr @__errno() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, -2147483648) i32 @dup3(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
-  %4 = tail call ptr @nxsched_self() #10
+  %4 = tail call ptr @nxsched_self() #11
   %5 = tail call fastcc i32 @nx_dup3_from_tcb(ptr noundef %4, i32 noundef %0, i32 noundef %1, i32 noundef %2)
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %3
   %8 = sub nsw i32 0, %5
-  %9 = tail call ptr @__errno() #10
+  %9 = tail call ptr @__errno() #11
   store i32 %8, ptr %9, align 4
   br label %10
 
@@ -839,7 +840,7 @@ define range(i32 -1, -2147483648) i32 @dup3(i32 noundef %0, i32 noundef %1, i32 
 define i32 @nx_close_from_tcb(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = alloca i64, align 8
   %4 = alloca %struct.file, align 8
-  %5 = tail call ptr @nxsched_get_files_from_tcb(ptr noundef %0) #10
+  %5 = tail call ptr @nxsched_get_files_from_tcb(ptr noundef %0) #11
   %6 = icmp slt i32 %1, 0
   br i1 %6, label %29, label %7
 
@@ -854,10 +855,10 @@ define i32 @nx_close_from_tcb(ptr noundef %0, i32 noundef %1) local_unnamed_addr
 12:                                               ; preds = %7
   %13 = lshr i32 %1, 3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3) #10, !srcloc !9
+  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3) #11, !srcloc !9
   %14 = load i64, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !10
+  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !10
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = zext nneg i32 %13 to i64
@@ -868,7 +869,7 @@ define i32 @nx_close_from_tcb(ptr noundef %0, i32 noundef %1) local_unnamed_addr
   br i1 %.not.i.i.i, label %files_fget.exit, label %21
 
 21:                                               ; preds = %12
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !11
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !11
   br label %files_fget.exit
 
 files_fget.exit:                                  ; preds = %12, %21
@@ -883,7 +884,7 @@ files_fget.exit:                                  ; preds = %12, %21
 27:                                               ; preds = %files_fget.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %23, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, i8 0, i64 24, i1 false)
-  %28 = call i32 @file_close(ptr noundef nonnull %4) #10
+  %28 = call i32 @file_close(ptr noundef nonnull %4) #11
   br label %29
 
 29:                                               ; preds = %files_fget.exit, %2, %7, %27
@@ -901,9 +902,9 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 define i32 @nx_close(i32 noundef %0) local_unnamed_addr #1 {
   %2 = alloca i64, align 8
   %3 = alloca %struct.file, align 8
-  %4 = tail call ptr @nxsched_self() #10
+  %4 = tail call ptr @nxsched_self() #11
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  %5 = tail call ptr @nxsched_get_files_from_tcb(ptr noundef %4) #10
+  %5 = tail call ptr @nxsched_get_files_from_tcb(ptr noundef %4) #11
   %6 = icmp slt i32 %0, 0
   br i1 %6, label %nx_close_from_tcb.exit, label %7
 
@@ -918,10 +919,10 @@ define i32 @nx_close(i32 noundef %0) local_unnamed_addr #1 {
 12:                                               ; preds = %7
   %13 = lshr i32 %0, 3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %2) #10, !srcloc !9
+  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %2) #11, !srcloc !9
   %14 = load i64, ptr %2, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !10
+  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !10
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = zext nneg i32 %13 to i64
@@ -932,7 +933,7 @@ define i32 @nx_close(i32 noundef %0) local_unnamed_addr #1 {
   br i1 %.not.i.i.i.i, label %files_fget.exit.i, label %21
 
 21:                                               ; preds = %12
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !11
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !11
   br label %files_fget.exit.i
 
 files_fget.exit.i:                                ; preds = %21, %12
@@ -947,7 +948,7 @@ files_fget.exit.i:                                ; preds = %21, %12
 27:                                               ; preds = %files_fget.exit.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %23, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, i8 0, i64 24, i1 false)
-  %28 = call i32 @file_close(ptr noundef nonnull %3) #10
+  %28 = call i32 @file_close(ptr noundef nonnull %3) #11
   br label %nx_close_from_tcb.exit
 
 nx_close_from_tcb.exit:                           ; preds = %1, %7, %files_fget.exit.i, %27
@@ -960,9 +961,9 @@ nx_close_from_tcb.exit:                           ; preds = %1, %7, %files_fget.
 define range(i32 -1, -2147483648) i32 @close(i32 noundef %0) local_unnamed_addr #1 {
   %2 = alloca i64, align 8
   %3 = alloca %struct.file, align 8
-  %4 = tail call ptr @nxsched_self() #10
+  %4 = tail call ptr @nxsched_self() #11
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  %5 = tail call ptr @nxsched_get_files_from_tcb(ptr noundef %4) #10
+  %5 = tail call ptr @nxsched_get_files_from_tcb(ptr noundef %4) #11
   %6 = icmp slt i32 %0, 0
   br i1 %6, label %nx_close.exit.thread, label %7
 
@@ -977,10 +978,10 @@ define range(i32 -1, -2147483648) i32 @close(i32 noundef %0) local_unnamed_addr 
 12:                                               ; preds = %7
   %13 = lshr i32 %0, 3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %2) #10, !srcloc !9
+  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %2) #11, !srcloc !9
   %14 = load i64, ptr %2, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !10
+  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !10
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = zext nneg i32 %13 to i64
@@ -991,7 +992,7 @@ define range(i32 -1, -2147483648) i32 @close(i32 noundef %0) local_unnamed_addr 
   br i1 %.not.i.i.i.i.i, label %files_fget.exit.i.i, label %21
 
 21:                                               ; preds = %12
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !11
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !11
   br label %files_fget.exit.i.i
 
 files_fget.exit.i.i:                              ; preds = %21, %12
@@ -1010,7 +1011,7 @@ nx_close.exit.thread:                             ; preds = %7, %1, %files_fget.
 nx_close.exit:                                    ; preds = %files_fget.exit.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %23, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, i8 0, i64 24, i1 false)
-  %27 = call i32 @file_close(ptr noundef nonnull %3) #10
+  %27 = call i32 @file_close(ptr noundef nonnull %3) #11
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   %28 = icmp slt i32 %27, 0
   br i1 %28, label %29, label %32
@@ -1018,7 +1019,7 @@ nx_close.exit:                                    ; preds = %files_fget.exit.i.i
 29:                                               ; preds = %nx_close.exit.thread, %nx_close.exit
   %.0.i.i6 = phi i32 [ -9, %nx_close.exit.thread ], [ %27, %nx_close.exit ]
   %30 = sub nsw i32 0, %.0.i.i6
-  %31 = call ptr @__errno() #10
+  %31 = call ptr @__errno() #11
   store i32 %30, ptr %31, align 4
   br label %32
 
@@ -1029,7 +1030,7 @@ nx_close.exit:                                    ; preds = %files_fget.exit.i.i
 
 ; Function Attrs: nounwind uwtable
 define void @sync() local_unnamed_addr #1 {
-  tail call void @nxsched_foreach(ptr noundef nonnull @task_fssync, ptr noundef null) #10
+  tail call void @nxsched_foreach(ptr noundef nonnull @task_fssync, ptr noundef null) #11
   ret void
 }
 
@@ -1056,10 +1057,10 @@ define internal void @task_fssync(ptr noundef readonly captures(none) %0, ptr re
 9:                                                ; preds = %.preheader, %21
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %21 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3) #10, !srcloc !9
+  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3) #11, !srcloc !9
   %10 = load i64, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !10
+  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !10
   %11 = load ptr, ptr %8, align 8
   %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv15
   %13 = load ptr, ptr %12, align 8
@@ -1068,7 +1069,7 @@ define internal void @task_fssync(ptr noundef readonly captures(none) %0, ptr re
   br i1 %.not.i.i, label %files_fget_by_index.exit, label %15
 
 15:                                               ; preds = %9
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !11
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !11
   br label %files_fget_by_index.exit
 
 files_fget_by_index.exit:                         ; preds = %9, %15
@@ -1079,7 +1080,7 @@ files_fget_by_index.exit:                         ; preds = %9, %15
   br i1 %.not, label %21, label %19
 
 19:                                               ; preds = %files_fget_by_index.exit
-  %20 = call i32 @file_fsync(ptr noundef nonnull %16) #10
+  %20 = call i32 @file_fsync(ptr noundef nonnull %16) #11
   br label %21
 
 21:                                               ; preds = %files_fget_by_index.exit, %19
@@ -1114,6 +1115,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #10
+
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1124,9 +1128,10 @@ attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #7 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nounwind }
-attributes #11 = { allocsize(0) }
-attributes #12 = { nounwind allocsize(0) }
+attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nounwind }
+attributes #12 = { allocsize(0) }
+attributes #13 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

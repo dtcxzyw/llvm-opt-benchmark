@@ -28,19 +28,19 @@ define noundef i32 @sscal_k(i64 noundef %0, i64 noundef %1, i64 noundef %2, floa
   %.080 = phi i64 [ %17, %16 ], [ 0, %14 ]
   %.0 = phi i64 [ %18, %16 ], [ 0, %14 ]
   %20 = icmp slt i64 %.080, %0
-  br i1 %20, label %.lr.ph133, label %.loopexit
+  br i1 %20, label %.lr.ph134, label %.loopexit
 
-.lr.ph133:                                        ; preds = %19, %.lr.ph133
-  %.1132 = phi i64 [ %24, %.lr.ph133 ], [ %.0, %19 ]
-  %.181131 = phi i64 [ %25, %.lr.ph133 ], [ %.080, %19 ]
-  %21 = getelementptr inbounds float, ptr %4, i64 %.1132
+.lr.ph134:                                        ; preds = %19, %.lr.ph134
+  %.1133 = phi i64 [ %24, %.lr.ph134 ], [ %.0, %19 ]
+  %.181132 = phi i64 [ %25, %.lr.ph134 ], [ %.080, %19 ]
+  %21 = getelementptr inbounds float, ptr %4, i64 %.1133
   %22 = load float, ptr %21, align 4, !tbaa !3
   %23 = fmul float %3, %22
   store float %23, ptr %21, align 4, !tbaa !3
-  %24 = add nsw i64 %.1132, %5
-  %25 = add nuw nsw i64 %.181131, 1
-  %exitcond146.not = icmp eq i64 %25, %0
-  br i1 %exitcond146.not, label %.loopexit, label %.lr.ph133, !llvm.loop !7
+  %24 = add nsw i64 %.1133, %5
+  %25 = add nuw nsw i64 %.181132, 1
+  %exitcond147.not = icmp eq i64 %25, %0
+  br i1 %exitcond147.not, label %.loopexit, label %.lr.ph134, !llvm.loop !7
 
 26:                                               ; preds = %13
   %27 = and i64 %0, -16
@@ -59,8 +59,9 @@ define noundef i32 @sscal_k(i64 noundef %0, i64 noundef %1, i64 noundef %2, floa
   br label %.lr.ph3.i
 
 .preheader.i:                                     ; preds = %.lr.ph.i
-  %33 = and i64 %indvars.iv.next.i, 4294967264
-  %34 = icmp samesign ugt i64 %27, %33
+  %sext.i = shl i64 %indvars.iv.next.i, 32
+  %33 = ashr exact i64 %sext.i, 32
+  %34 = icmp sgt i64 %27, %33
   br i1 %34, label %.lr.ph3.i.preheader, label %sscal_kernel_16.exit
 
 .lr.ph.i:                                         ; preds = %29, %.lr.ph.i
@@ -79,7 +80,7 @@ define noundef i32 @sscal_k(i64 noundef %0, i64 noundef %1, i64 noundef %2, floa
 
 .lr.ph3.i:                                        ; preds = %.lr.ph3.i.preheader, %.lr.ph3.i
   %indvars.iv5.i = phi i64 [ %indvars.iv.next6.i, %.lr.ph3.i ], [ %indvars.iv5.i.ph, %.lr.ph3.i.preheader ]
-  %42 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv5.i
+  %42 = getelementptr inbounds float, ptr %4, i64 %indvars.iv5.i
   %43 = load <16 x float>, ptr %42, align 1, !tbaa !9
   %44 = fmul <16 x float> %31, %43
   store <16 x float> %44, ptr %42, align 1, !tbaa !9
@@ -88,18 +89,18 @@ define noundef i32 @sscal_k(i64 noundef %0, i64 noundef %1, i64 noundef %2, floa
   br i1 %45, label %.lr.ph3.i, label %sscal_kernel_16.exit, !llvm.loop !11
 
 sscal_kernel_16.exit:                             ; preds = %.lr.ph3.i, %.preheader.i, %26
-  %.not138 = icmp eq i64 %27, %0
-  br i1 %.not138, label %.loopexit, label %.lr.ph135
+  %.not139 = icmp eq i64 %27, %0
+  br i1 %.not139, label %.loopexit, label %.lr.ph136
 
-.lr.ph135:                                        ; preds = %sscal_kernel_16.exit, %.lr.ph135
-  %.2134 = phi i64 [ %49, %.lr.ph135 ], [ %27, %sscal_kernel_16.exit ]
-  %46 = getelementptr inbounds float, ptr %4, i64 %.2134
+.lr.ph136:                                        ; preds = %sscal_kernel_16.exit, %.lr.ph136
+  %.2135 = phi i64 [ %49, %.lr.ph136 ], [ %27, %sscal_kernel_16.exit ]
+  %46 = getelementptr inbounds float, ptr %4, i64 %.2135
   %47 = load float, ptr %46, align 4, !tbaa !3
   %48 = fmul float %3, %47
   store float %48, ptr %46, align 4, !tbaa !3
-  %49 = add nsw i64 %.2134, 1
+  %49 = add nsw i64 %.2135, 1
   %50 = icmp slt i64 %49, %0
-  br i1 %50, label %.lr.ph135, label %.loopexit, !llvm.loop !12
+  br i1 %50, label %.lr.ph136, label %.loopexit, !llvm.loop !12
 
 51:                                               ; preds = %10
   br i1 %.not93, label %82, label %52
@@ -110,9 +111,9 @@ sscal_kernel_16.exit:                             ; preds = %.lr.ph3.i, %.prehea
 53:                                               ; preds = %52
   %54 = and i64 %0, -2
   %55 = icmp sgt i64 %0, 1
-  br i1 %55, label %.lr.ph122, label %.preheader
+  br i1 %55, label %.lr.ph123, label %.preheader
 
-.lr.ph122:                                        ; preds = %53
+.lr.ph123:                                        ; preds = %53
   %56 = shl nsw i64 %5, 1
   br label %61
 
@@ -126,29 +127,29 @@ sscal_kernel_16.exit:                             ; preds = %.lr.ph3.i, %.prehea
   %.282.lcssa = phi i64 [ 0, %53 ], [ %59, %.preheader.loopexit ]
   %.3.lcssa = phi i64 [ 0, %53 ], [ %64, %.preheader.loopexit ]
   %60 = icmp slt i64 %.282.lcssa, %0
-  br i1 %60, label %.lr.ph126, label %.loopexit
+  br i1 %60, label %.lr.ph127, label %.loopexit
 
-61:                                               ; preds = %.lr.ph122, %61
-  %.3121 = phi i64 [ 0, %.lr.ph122 ], [ %64, %61 ]
-  %.282120 = phi i64 [ 0, %.lr.ph122 ], [ %65, %61 ]
-  %62 = getelementptr inbounds float, ptr %4, i64 %.3121
+61:                                               ; preds = %.lr.ph123, %61
+  %.3122 = phi i64 [ 0, %.lr.ph123 ], [ %64, %61 ]
+  %.282121 = phi i64 [ 0, %.lr.ph123 ], [ %65, %61 ]
+  %62 = getelementptr inbounds float, ptr %4, i64 %.3122
   store float 0.000000e+00, ptr %62, align 4, !tbaa !3
   %63 = getelementptr float, ptr %62, i64 %5
   store float 0.000000e+00, ptr %63, align 4, !tbaa !3
-  %64 = add nsw i64 %.3121, %56
-  %65 = add nuw nsw i64 %.282120, 2
+  %64 = add nsw i64 %.3122, %56
+  %65 = add nuw nsw i64 %.282121, 2
   %66 = icmp slt i64 %65, %54
   br i1 %66, label %61, label %.preheader.loopexit, !llvm.loop !13
 
-.lr.ph126:                                        ; preds = %.preheader, %.lr.ph126
-  %.4125 = phi i64 [ %68, %.lr.ph126 ], [ %.3.lcssa, %.preheader ]
-  %.383124 = phi i64 [ %69, %.lr.ph126 ], [ %.282.lcssa, %.preheader ]
-  %67 = getelementptr inbounds float, ptr %4, i64 %.4125
+.lr.ph127:                                        ; preds = %.preheader, %.lr.ph127
+  %.4126 = phi i64 [ %68, %.lr.ph127 ], [ %.3.lcssa, %.preheader ]
+  %.383125 = phi i64 [ %69, %.lr.ph127 ], [ %.282.lcssa, %.preheader ]
+  %67 = getelementptr inbounds float, ptr %4, i64 %.4126
   store float 0.000000e+00, ptr %67, align 4, !tbaa !3
-  %68 = add nsw i64 %.4125, %5
-  %69 = add nuw nsw i64 %.383124, 1
-  %exitcond145.not = icmp eq i64 %69, %0
-  br i1 %exitcond145.not, label %.loopexit, label %.lr.ph126, !llvm.loop !14
+  %68 = add nsw i64 %.4126, %5
+  %69 = add nsw i64 %.383125, 1
+  %exitcond146.not = icmp eq i64 %69, %0
+  br i1 %exitcond146.not, label %.loopexit, label %.lr.ph127, !llvm.loop !14
 
 70:                                               ; preds = %52
   %71 = icmp sgt i64 %0, 7
@@ -167,14 +168,14 @@ sscal_kernel_16.exit:                             ; preds = %.lr.ph3.i, %.prehea
   br i1 %76, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %75, %.lr.ph
-  %.6119 = phi i64 [ %80, %.lr.ph ], [ %.5, %75 ]
-  %.585118 = phi i64 [ %81, %.lr.ph ], [ %.484, %75 ]
-  %77 = getelementptr inbounds float, ptr %4, i64 %.6119
+  %.6120 = phi i64 [ %80, %.lr.ph ], [ %.5, %75 ]
+  %.585119 = phi i64 [ %81, %.lr.ph ], [ %.484, %75 ]
+  %77 = getelementptr inbounds float, ptr %4, i64 %.6120
   %78 = load float, ptr %77, align 4, !tbaa !3
   %79 = fmul float %3, %78
   store float %79, ptr %77, align 4, !tbaa !3
-  %80 = add nsw i64 %.6119, %5
-  %81 = add nuw nsw i64 %.585118, 1
+  %80 = add nsw i64 %.6120, %5
+  %81 = add nuw nsw i64 %.585119, 1
   %exitcond.not = icmp eq i64 %81, %0
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !15
 
@@ -195,10 +196,10 @@ sscal_kernel_16.exit:                             ; preds = %.lr.ph3.i, %.prehea
   br label %91
 
 91:                                               ; preds = %86, %85
-  %.not137 = icmp eq i64 %83, %0
-  br i1 %.not137, label %.loopexit, label %.lr.ph130.preheader
+  %.not138 = icmp eq i64 %83, %0
+  br i1 %.not138, label %.loopexit, label %.lr.ph131.preheader
 
-.lr.ph130.preheader:                              ; preds = %91
+.lr.ph131.preheader:                              ; preds = %91
   %92 = shl i64 %0, 2
   %93 = and i64 %92, -64
   %scevgep = getelementptr i8, ptr %4, i64 %93
@@ -210,23 +211,24 @@ sscal_kernel_16.exit:                             ; preds = %.lr.ph3.i, %.prehea
   br label %.loopexit
 
 97:                                               ; preds = %82
-  br i1 %84, label %98, label %sscal_kernel_16.exit107
+  br i1 %84, label %98, label %sscal_kernel_16.exit108
 
 98:                                               ; preds = %97
   %99 = insertelement <4 x float> poison, float %3, i64 0
   %100 = shufflevector <4 x float> %99, <4 x float> poison, <16 x i32> zeroinitializer
   %101 = and i64 %0, 9223372036854775776
   %.not.i97 = icmp eq i64 %101, 0
-  br i1 %.not.i97, label %.lr.ph3.i104.preheader, label %.lr.ph.i98
+  br i1 %.not.i97, label %.lr.ph3.i105.preheader, label %.lr.ph.i98
 
-.lr.ph3.i104.preheader:                           ; preds = %.preheader.i101, %98
-  %indvars.iv5.i105.ph = phi i64 [ 0, %98 ], [ %102, %.preheader.i101 ]
-  br label %.lr.ph3.i104
+.lr.ph3.i105.preheader:                           ; preds = %.preheader.i101, %98
+  %indvars.iv5.i106.ph = phi i64 [ 0, %98 ], [ %102, %.preheader.i101 ]
+  br label %.lr.ph3.i105
 
 .preheader.i101:                                  ; preds = %.lr.ph.i98
-  %102 = and i64 %indvars.iv.next.i100, 4294967264
-  %103 = icmp samesign ugt i64 %83, %102
-  br i1 %103, label %.lr.ph3.i104.preheader, label %sscal_kernel_16.exit107
+  %sext.i102 = shl i64 %indvars.iv.next.i100, 32
+  %102 = ashr exact i64 %sext.i102, 32
+  %103 = icmp sgt i64 %83, %102
+  br i1 %103, label %.lr.ph3.i105.preheader, label %sscal_kernel_16.exit108
 
 .lr.ph.i98:                                       ; preds = %98, %.lr.ph.i98
   %indvars.iv.i99 = phi i64 [ %indvars.iv.next.i100, %.lr.ph.i98 ], [ 0, %98 ]
@@ -242,31 +244,31 @@ sscal_kernel_16.exit:                             ; preds = %.lr.ph3.i, %.prehea
   %110 = icmp samesign ugt i64 %101, %indvars.iv.next.i100
   br i1 %110, label %.lr.ph.i98, label %.preheader.i101, !llvm.loop !10
 
-.lr.ph3.i104:                                     ; preds = %.lr.ph3.i104.preheader, %.lr.ph3.i104
-  %indvars.iv5.i105 = phi i64 [ %indvars.iv.next6.i106, %.lr.ph3.i104 ], [ %indvars.iv5.i105.ph, %.lr.ph3.i104.preheader ]
-  %111 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv5.i105
+.lr.ph3.i105:                                     ; preds = %.lr.ph3.i105.preheader, %.lr.ph3.i105
+  %indvars.iv5.i106 = phi i64 [ %indvars.iv.next6.i107, %.lr.ph3.i105 ], [ %indvars.iv5.i106.ph, %.lr.ph3.i105.preheader ]
+  %111 = getelementptr inbounds float, ptr %4, i64 %indvars.iv5.i106
   %112 = load <16 x float>, ptr %111, align 1, !tbaa !9
   %113 = fmul <16 x float> %100, %112
   store <16 x float> %113, ptr %111, align 1, !tbaa !9
-  %indvars.iv.next6.i106 = add nuw nsw i64 %indvars.iv5.i105, 16
-  %114 = icmp samesign ugt i64 %83, %indvars.iv.next6.i106
-  br i1 %114, label %.lr.ph3.i104, label %sscal_kernel_16.exit107, !llvm.loop !11
+  %indvars.iv.next6.i107 = add nuw nsw i64 %indvars.iv5.i106, 16
+  %114 = icmp samesign ugt i64 %83, %indvars.iv.next6.i107
+  br i1 %114, label %.lr.ph3.i105, label %sscal_kernel_16.exit108, !llvm.loop !11
 
-sscal_kernel_16.exit107:                          ; preds = %.lr.ph3.i104, %.preheader.i101, %97
-  %.not136 = icmp eq i64 %83, %0
-  br i1 %.not136, label %.loopexit, label %.lr.ph128
+sscal_kernel_16.exit108:                          ; preds = %.lr.ph3.i105, %.preheader.i101, %97
+  %.not137 = icmp eq i64 %83, %0
+  br i1 %.not137, label %.loopexit, label %.lr.ph129
 
-.lr.ph128:                                        ; preds = %sscal_kernel_16.exit107, %.lr.ph128
-  %.8127 = phi i64 [ %118, %.lr.ph128 ], [ %83, %sscal_kernel_16.exit107 ]
-  %115 = getelementptr inbounds float, ptr %4, i64 %.8127
+.lr.ph129:                                        ; preds = %sscal_kernel_16.exit108, %.lr.ph129
+  %.8128 = phi i64 [ %118, %.lr.ph129 ], [ %83, %sscal_kernel_16.exit108 ]
+  %115 = getelementptr inbounds float, ptr %4, i64 %.8128
   %116 = load float, ptr %115, align 4, !tbaa !3
   %117 = fmul float %3, %116
   store float %117, ptr %115, align 4, !tbaa !3
-  %118 = add nsw i64 %.8127, 1
+  %118 = add nsw i64 %.8128, 1
   %119 = icmp slt i64 %118, %0
-  br i1 %119, label %.lr.ph128, label %.loopexit, !llvm.loop !16
+  br i1 %119, label %.lr.ph129, label %.loopexit, !llvm.loop !16
 
-.loopexit:                                        ; preds = %.lr.ph, %.lr.ph126, %.lr.ph128, %.lr.ph133, %.lr.ph135, %.lr.ph130.preheader, %75, %.preheader, %sscal_kernel_16.exit107, %91, %19, %sscal_kernel_16.exit
+.loopexit:                                        ; preds = %.lr.ph, %.lr.ph127, %.lr.ph129, %.lr.ph134, %.lr.ph136, %.lr.ph131.preheader, %75, %.preheader, %sscal_kernel_16.exit108, %91, %19, %sscal_kernel_16.exit
   ret i32 0
 }
 

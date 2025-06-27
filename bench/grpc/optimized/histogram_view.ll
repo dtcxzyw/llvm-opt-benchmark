@@ -68,66 +68,72 @@ define noundef double @_ZNK9grpc_core13HistogramView22ThresholdForCountBelowEd(p
   %.0.lcssa = phi i32 [ 0, %2 ], [ %15, %._crit_edge.loopexit.split.loop.exit ], [ %4, %14 ]
   %.1 = phi double [ 0.000000e+00, %2 ], [ %12, %._crit_edge.loopexit.split.loop.exit ], [ %12, %14 ]
   %16 = fcmp oeq double %.1, %1
-  %17 = zext i32 %.0.lcssa to i64
-  br i1 %16, label %.preheader, label %38
+  br i1 %16, label %.preheader, label %39
 
 .preheader:                                       ; preds = %._crit_edge
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %19 = load ptr, ptr %18, align 8
-  %20 = add i32 %.0.lcssa, 1
-  %smax = tail call i32 @llvm.smax.i32(i32 %4, i32 %20)
-  br label %21
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %18 = load ptr, ptr %17, align 8
+  %19 = sext i32 %.0.lcssa to i64
+  %20 = sext i32 %4 to i64
+  %21 = add i32 %.0.lcssa, 1
+  %smax = tail call i32 @llvm.smax.i32(i32 %4, i32 %21)
+  br label %22
 
-21:                                               ; preds = %.preheader, %24
-  %indvars.iv38 = phi i64 [ %17, %.preheader ], [ %indvars.iv.next39, %24 ]
-  %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
-  %22 = trunc nuw i64 %indvars.iv.next39 to i32
-  %23 = icmp sgt i32 %4, %22
-  br i1 %23, label %24, label %27
+22:                                               ; preds = %.preheader, %24
+  %indvars.iv38 = phi i64 [ %19, %.preheader ], [ %indvars.iv.next39, %24 ]
+  %indvars.iv.next39 = add nsw i64 %indvars.iv38, 1
+  %23 = icmp slt i64 %indvars.iv.next39, %20
+  br i1 %23, label %24, label %.split.loop.exit44
 
-24:                                               ; preds = %21
-  %25 = getelementptr inbounds nuw i64, ptr %19, i64 %indvars.iv.next39
+24:                                               ; preds = %22
+  %25 = getelementptr inbounds i64, ptr %18, i64 %indvars.iv.next39
   %26 = load i64, ptr %25, align 8, !tbaa !12
   %.not = icmp eq i64 %26, 0
-  br i1 %.not, label %21, label %27, !llvm.loop !17
+  br i1 %.not, label %22, label %.split.loop.exit, !llvm.loop !17
 
-27:                                               ; preds = %24, %21
-  %.024.lcssa = phi i32 [ %22, %24 ], [ %smax, %21 ]
+.split.loop.exit:                                 ; preds = %24
+  %27 = trunc nsw i64 %indvars.iv.next39 to i32
+  br label %.split.loop.exit44
+
+.split.loop.exit44:                               ; preds = %22, %.split.loop.exit
+  %.024.lcssa = phi i32 [ %27, %.split.loop.exit ], [ %smax, %22 ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !18
-  %30 = getelementptr inbounds nuw i32, ptr %29, i64 %17
-  %31 = load i32, ptr %30, align 4, !tbaa !19
-  %32 = zext nneg i32 %.024.lcssa to i64
-  %33 = getelementptr inbounds nuw i32, ptr %29, i64 %32
-  %34 = load i32, ptr %33, align 4, !tbaa !19
-  %35 = add nsw i32 %34, %31
-  %36 = sitofp i32 %35 to double
-  %37 = fmul double %36, 5.000000e-01
-  br label %57
+  %30 = zext nneg i32 %.0.lcssa to i64
+  %31 = getelementptr inbounds nuw i32, ptr %29, i64 %30
+  %32 = load i32, ptr %31, align 4, !tbaa !19
+  %33 = sext i32 %.024.lcssa to i64
+  %34 = getelementptr inbounds i32, ptr %29, i64 %33
+  %35 = load i32, ptr %34, align 4, !tbaa !19
+  %36 = add nsw i32 %35, %32
+  %37 = sitofp i32 %36 to double
+  %38 = fmul double %37, 5.000000e-01
+  br label %59
 
-38:                                               ; preds = %._crit_edge
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %40 = load ptr, ptr %39, align 8, !tbaa !18
-  %41 = getelementptr inbounds nuw i32, ptr %40, i64 %17
-  %42 = load i32, ptr %41, align 4, !tbaa !19
-  %43 = sitofp i32 %42 to double
-  %44 = getelementptr inbounds nuw i8, ptr %41, i64 4
-  %45 = load i32, ptr %44, align 4, !tbaa !19
-  %46 = sitofp i32 %45 to double
-  %47 = fsub double %46, %43
-  %48 = fsub double %.1, %1
-  %49 = fmul double %48, %47
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %51 = load ptr, ptr %50, align 8, !tbaa !11
-  %52 = getelementptr inbounds nuw i64, ptr %51, i64 %17
-  %53 = load i64, ptr %52, align 8, !tbaa !12
-  %54 = uitofp i64 %53 to double
-  %55 = fdiv double %49, %54
-  %56 = fsub double %46, %55
-  br label %57
+39:                                               ; preds = %._crit_edge
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %41 = load ptr, ptr %40, align 8, !tbaa !18
+  %42 = zext nneg i32 %.0.lcssa to i64
+  %43 = getelementptr inbounds nuw i32, ptr %41, i64 %42
+  %44 = load i32, ptr %43, align 4, !tbaa !19
+  %45 = sitofp i32 %44 to double
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 4
+  %47 = load i32, ptr %46, align 4, !tbaa !19
+  %48 = sitofp i32 %47 to double
+  %49 = fsub double %48, %45
+  %50 = fsub double %.1, %1
+  %51 = fmul double %50, %49
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %53 = load ptr, ptr %52, align 8, !tbaa !11
+  %54 = getelementptr inbounds nuw i64, ptr %53, i64 %42
+  %55 = load i64, ptr %54, align 8, !tbaa !12
+  %56 = uitofp i64 %55 to double
+  %57 = fdiv double %51, %56
+  %58 = fsub double %48, %57
+  br label %59
 
-57:                                               ; preds = %38, %27
-  %.025 = phi double [ %37, %27 ], [ %56, %38 ]
+59:                                               ; preds = %39, %.split.loop.exit44
+  %.025 = phi double [ %38, %.split.loop.exit44 ], [ %58, %39 ]
   ret double %.025
 }
 
@@ -181,68 +187,72 @@ _ZNK9grpc_core13HistogramView5CountEv.exit:       ; preds = %8
 
 ._crit_edge.loopexit.split.loop.exit.i:           ; preds = %16
   %23 = trunc nuw nsw i64 %indvars.iv.i8 to i32
-  %.pre = and i64 %indvars.iv.i8, 4294967295
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %22, %._crit_edge.loopexit.split.loop.exit.i
-  %.pre-phi = phi i64 [ %.pre, %._crit_edge.loopexit.split.loop.exit.i ], [ %wide.trip.count.i, %22 ]
   %.0.lcssa.i = phi i32 [ %23, %._crit_edge.loopexit.split.loop.exit.i ], [ %4, %22 ]
   %24 = fcmp oeq double %20, %15
-  br i1 %24, label %.preheader.i, label %43
+  br i1 %24, label %.preheader.i, label %44
 
 .preheader.i:                                     ; preds = %._crit_edge.i
-  %25 = add i32 %.0.lcssa.i, 1
-  %smax.i = tail call i32 @llvm.smax.i32(i32 %4, i32 %25)
-  br label %26
+  %25 = sext i32 %.0.lcssa.i to i64
+  %26 = add i32 %.0.lcssa.i, 1
+  %smax.i = tail call i32 @llvm.smax.i32(i32 %4, i32 %26)
+  br label %27
 
-26:                                               ; preds = %29, %.preheader.i
-  %indvars.iv38.i = phi i64 [ %.pre-phi, %.preheader.i ], [ %indvars.iv.next39.i, %29 ]
-  %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
-  %27 = trunc nuw i64 %indvars.iv.next39.i to i32
-  %28 = icmp sgt i32 %4, %27
-  br i1 %28, label %29, label %32
+27:                                               ; preds = %29, %.preheader.i
+  %indvars.iv38.i = phi i64 [ %25, %.preheader.i ], [ %indvars.iv.next39.i, %29 ]
+  %indvars.iv.next39.i = add nsw i64 %indvars.iv38.i, 1
+  %28 = icmp slt i64 %indvars.iv.next39.i, %wide.trip.count.i
+  br i1 %28, label %29, label %.split.loop.exit44.i
 
-29:                                               ; preds = %26
-  %30 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv.next39.i
+29:                                               ; preds = %27
+  %30 = getelementptr inbounds i64, ptr %7, i64 %indvars.iv.next39.i
   %31 = load i64, ptr %30, align 8, !tbaa !12
   %.not.i = icmp eq i64 %31, 0
-  br i1 %.not.i, label %26, label %32, !llvm.loop !17
+  br i1 %.not.i, label %27, label %.split.loop.exit.i, !llvm.loop !17
 
-32:                                               ; preds = %29, %26
-  %.024.lcssa.i = phi i32 [ %27, %29 ], [ %smax.i, %26 ]
+.split.loop.exit.i:                               ; preds = %29
+  %32 = trunc nsw i64 %indvars.iv.next39.i to i32
+  br label %.split.loop.exit44.i
+
+.split.loop.exit44.i:                             ; preds = %27, %.split.loop.exit.i
+  %.024.lcssa.i = phi i32 [ %32, %.split.loop.exit.i ], [ %smax.i, %27 ]
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !18
-  %35 = getelementptr inbounds nuw i32, ptr %34, i64 %.pre-phi
-  %36 = load i32, ptr %35, align 4, !tbaa !19
-  %37 = zext nneg i32 %.024.lcssa.i to i64
-  %38 = getelementptr inbounds nuw i32, ptr %34, i64 %37
-  %39 = load i32, ptr %38, align 4, !tbaa !19
-  %40 = add nsw i32 %39, %36
-  %41 = sitofp i32 %40 to double
-  %42 = fmul double %41, 5.000000e-01
+  %35 = zext nneg i32 %.0.lcssa.i to i64
+  %36 = getelementptr inbounds nuw i32, ptr %34, i64 %35
+  %37 = load i32, ptr %36, align 4, !tbaa !19
+  %38 = sext i32 %.024.lcssa.i to i64
+  %39 = getelementptr inbounds i32, ptr %34, i64 %38
+  %40 = load i32, ptr %39, align 4, !tbaa !19
+  %41 = add nsw i32 %40, %37
+  %42 = sitofp i32 %41 to double
+  %43 = fmul double %42, 5.000000e-01
   br label %_ZNK9grpc_core13HistogramView22ThresholdForCountBelowEd.exit
 
-43:                                               ; preds = %._crit_edge.i
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %45 = load ptr, ptr %44, align 8, !tbaa !18
-  %46 = getelementptr inbounds nuw i32, ptr %45, i64 %.pre-phi
-  %47 = load i32, ptr %46, align 4, !tbaa !19
-  %48 = sitofp i32 %47 to double
-  %49 = getelementptr inbounds nuw i8, ptr %46, i64 4
-  %50 = load i32, ptr %49, align 4, !tbaa !19
-  %51 = sitofp i32 %50 to double
-  %52 = fsub double %51, %48
-  %53 = fsub double %20, %15
-  %54 = fmul double %53, %52
-  %55 = getelementptr inbounds nuw i64, ptr %7, i64 %.pre-phi
-  %56 = load i64, ptr %55, align 8, !tbaa !12
-  %57 = uitofp i64 %56 to double
-  %58 = fdiv double %54, %57
-  %59 = fsub double %51, %58
+44:                                               ; preds = %._crit_edge.i
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %46 = load ptr, ptr %45, align 8, !tbaa !18
+  %47 = zext nneg i32 %.0.lcssa.i to i64
+  %48 = getelementptr inbounds nuw i32, ptr %46, i64 %47
+  %49 = load i32, ptr %48, align 4, !tbaa !19
+  %50 = sitofp i32 %49 to double
+  %51 = getelementptr inbounds nuw i8, ptr %48, i64 4
+  %52 = load i32, ptr %51, align 4, !tbaa !19
+  %53 = sitofp i32 %52 to double
+  %54 = fsub double %53, %50
+  %55 = fsub double %20, %15
+  %56 = fmul double %55, %54
+  %57 = getelementptr inbounds nuw i64, ptr %7, i64 %47
+  %58 = load i64, ptr %57, align 8, !tbaa !12
+  %59 = uitofp i64 %58 to double
+  %60 = fdiv double %56, %59
+  %61 = fsub double %53, %60
   br label %_ZNK9grpc_core13HistogramView22ThresholdForCountBelowEd.exit
 
-_ZNK9grpc_core13HistogramView22ThresholdForCountBelowEd.exit: ; preds = %2, %43, %32, %_ZNK9grpc_core13HistogramView5CountEv.exit
-  %.0 = phi double [ 0.000000e+00, %_ZNK9grpc_core13HistogramView5CountEv.exit ], [ %42, %32 ], [ %59, %43 ], [ 0.000000e+00, %2 ]
+_ZNK9grpc_core13HistogramView22ThresholdForCountBelowEd.exit: ; preds = %2, %44, %.split.loop.exit44.i, %_ZNK9grpc_core13HistogramView5CountEv.exit
+  %.0 = phi double [ 0.000000e+00, %_ZNK9grpc_core13HistogramView5CountEv.exit ], [ %43, %.split.loop.exit44.i ], [ %61, %44 ], [ 0.000000e+00, %2 ]
   ret double %.0
 }
 

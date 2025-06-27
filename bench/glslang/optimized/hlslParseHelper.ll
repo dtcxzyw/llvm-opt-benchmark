@@ -3590,7 +3590,7 @@ switch.lookup:                                    ; preds = %157
 .lr.ph.i.i.i.i.i:                                 ; preds = %363, %.lr.ph.preheader.i.i.i.i.i
   %.044.i.i.i.i.i = phi i64 [ %365, %363 ], [ %350, %.lr.ph.preheader.i.i.i.i.i ]
   %.02943.i.i.i.i.i = phi ptr [ %364, %363 ], [ %5, %.lr.ph.preheader.i.i.i.i.i ]
-  %.029.val.i.i.i.i.i = load i8, ptr %.02943.i.i.i.i.i, align 1
+  %.029.val.i.i.i.i.i = load i8, ptr %.02943.i.i.i.i.i, align 4
   %353 = trunc i8 %.029.val.i.i.i.i.i to i1
   br i1 %353, label %354, label %"_ZZN7glslang16HlslParseContext12handleLvalueERKNS_10TSourceLocEPKcRPNS_12TIntermTypedEENK3$_0clEPNS_13TIntermSymbolEPNS_13TIntermBinaryE.exit"
 
@@ -3602,7 +3602,7 @@ switch.lookup:                                    ; preds = %157
 
 357:                                              ; preds = %354
   %358 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i, i64 2
-  %.val30.i.i.i.i.i = load i8, ptr %358, align 1
+  %.val30.i.i.i.i.i = load i8, ptr %358, align 2
   %359 = trunc i8 %.val30.i.i.i.i.i to i1
   br i1 %359, label %360, label %"_ZZN7glslang16HlslParseContext12handleLvalueERKNS_10TSourceLocEPKcRPNS_12TIntermTypedEENK3$_0clEPNS_13TIntermSymbolEPNS_13TIntermBinaryE.exit.loopexit.split.loop.exit208"
 
@@ -39446,7 +39446,7 @@ _ZN7glslang17TSwizzleSelectorsIiE9push_backEi.exit: ; preds = %.lr.ph.split, %12
   %indvars.iv.next662 = add nuw nsw i64 %indvars.iv661, 1
   %1711 = getelementptr inbounds nuw i8, ptr %1710, i64 8
   %1712 = load ptr, ptr %1711, align 8
-  %1713 = getelementptr inbounds nuw ptr, ptr %1712, i64 %indvars.iv661
+  %1713 = getelementptr inbounds ptr, ptr %1712, i64 %indvars.iv661
   %1714 = load ptr, ptr %1713, align 8
   %1715 = load ptr, ptr %1714, align 8
   %1716 = getelementptr inbounds nuw i8, ptr %1715, i64 24

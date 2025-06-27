@@ -535,46 +535,47 @@ define noundef i32 @H5P__encode_uint64_t(ptr noundef readonly captures(none) %0,
   %7 = trunc nuw i8 %6 to i1
   %8 = xor i1 %7, true
   %9 = select i1 %5, i1 true, i1 %8
-  br i1 %9, label %10, label %27, !prof !12
+  br i1 %9, label %10, label %28, !prof !12
 
 10:                                               ; preds = %3
   %11 = load ptr, ptr %1, align 8, !tbaa !13
   %.not = icmp eq ptr %11, null
-  br i1 %.not, label %24, label %12
+  br i1 %.not, label %25, label %12
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store ptr %13, ptr %1, align 8, !tbaa !13
   store i8 8, ptr %11, align 1, !tbaa !7
   %14 = load i32, ptr %0, align 4, !tbaa !19
-  %15 = load ptr, ptr %1, align 8, !tbaa !13
-  br label %16
+  %15 = zext i32 %14 to i64
+  %16 = load ptr, ptr %1, align 8, !tbaa !13
+  br label %17
 
-16:                                               ; preds = %12, %16
-  %.021 = phi ptr [ %15, %12 ], [ %18, %16 ]
-  %.01520 = phi i64 [ 0, %12 ], [ %19, %16 ]
-  %.01719 = phi i32 [ %14, %12 ], [ %20, %16 ]
-  %17 = trunc i32 %.01719 to i8
-  %18 = getelementptr inbounds nuw i8, ptr %.021, i64 1
-  store i8 %17, ptr %.021, align 1, !tbaa !7
-  %19 = add nuw nsw i64 %.01520, 1
-  %20 = lshr i32 %.01719, 8
-  %exitcond.not = icmp eq i64 %19, 8
-  br i1 %exitcond.not, label %21, label %16, !llvm.loop !22
+17:                                               ; preds = %12, %17
+  %.021 = phi ptr [ %16, %12 ], [ %19, %17 ]
+  %.01520 = phi i64 [ 0, %12 ], [ %20, %17 ]
+  %.01719 = phi i64 [ %15, %12 ], [ %21, %17 ]
+  %18 = trunc i64 %.01719 to i8
+  %19 = getelementptr inbounds nuw i8, ptr %.021, i64 1
+  store i8 %18, ptr %.021, align 1, !tbaa !7
+  %20 = add nuw nsw i64 %.01520, 1
+  %21 = lshr i64 %.01719, 8
+  %exitcond.not = icmp eq i64 %20, 8
+  br i1 %exitcond.not, label %22, label %17, !llvm.loop !22
 
-21:                                               ; preds = %16
-  %22 = load ptr, ptr %1, align 8, !tbaa !13
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  store ptr %23, ptr %1, align 8, !tbaa !13
-  br label %24
+22:                                               ; preds = %17
+  %23 = load ptr, ptr %1, align 8, !tbaa !13
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  store ptr %24, ptr %1, align 8, !tbaa !13
+  br label %25
 
-24:                                               ; preds = %21, %10
-  %25 = load i64, ptr %2, align 8, !tbaa !3
-  %26 = add i64 %25, 9
-  store i64 %26, ptr %2, align 8, !tbaa !3
-  br label %27
+25:                                               ; preds = %22, %10
+  %26 = load i64, ptr %2, align 8, !tbaa !3
+  %27 = add i64 %26, 9
+  store i64 %27, ptr %2, align 8, !tbaa !3
+  br label %28
 
-27:                                               ; preds = %24, %3
+28:                                               ; preds = %25, %3
   ret i32 0
 }
 

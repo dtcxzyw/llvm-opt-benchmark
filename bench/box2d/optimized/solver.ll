@@ -1728,7 +1728,7 @@ define internal void @b2SolverTask(i32 %0, i32 %1, i32 %2, ptr noundef readonly 
 .lr.ph233:                                        ; preds = %._crit_edge228
   %53 = shl i32 %.0140242, 16
   %54 = add i32 %53, 65536
-  %55 = zext i32 %.0148.lcssa to i64
+  %55 = sext i32 %.0148.lcssa to i64
   br label %122
 
 56:                                               ; preds = %.lr.ph227, %b2ExecuteMainStage.exit
@@ -1850,7 +1850,7 @@ b2ExecuteMainStage.exit:                          ; preds = %56, %60, %._crit_ed
   br i1 %exitcond.not, label %._crit_edge228, label %56, !llvm.loop !230
 
 ._crit_edge234.loopexit:                          ; preds = %b2ExecuteMainStage.exit181
-  %108 = trunc nuw i64 %indvars.iv.next266 to i32
+  %108 = trunc nsw i64 %indvars.iv.next266 to i32
   br label %._crit_edge234
 
 ._crit_edge234:                                   ; preds = %._crit_edge234.loopexit, %._crit_edge228
@@ -1861,9 +1861,9 @@ b2ExecuteMainStage.exit:                          ; preds = %56, %60, %._crit_ed
   store float %111, ptr %34, align 4, !tbaa !231
   %112 = add i32 %44, 65536
   %113 = or i32 %.1149.lcssa, %112
-  %114 = zext i32 %.1149.lcssa to i64
-  %115 = getelementptr inbounds nuw %struct.b2SolverStage, ptr %12, i64 %114
-  call fastcc void @b2ExecuteMainStage(ptr noundef nonnull %115, ptr noundef %8, i32 noundef %113)
+  %114 = sext i32 %.1149.lcssa to i64
+  %115 = getelementptr inbounds %struct.b2SolverStage, ptr %12, i64 %114
+  call fastcc void @b2ExecuteMainStage(ptr noundef %115, ptr noundef %8, i32 noundef %113)
   %116 = add nuw nsw i32 %.0243, 2
   %117 = call float @b2GetMillisecondsAndReset(ptr noundef nonnull %5) #8
   %118 = load float, ptr %35, align 4, !tbaa !232
@@ -1881,7 +1881,7 @@ b2ExecuteMainStage.exit:                          ; preds = %56, %60, %._crit_ed
 122:                                              ; preds = %.lr.ph233, %b2ExecuteMainStage.exit181
   %indvars.iv265 = phi i64 [ %55, %.lr.ph233 ], [ %indvars.iv.next266, %b2ExecuteMainStage.exit181 ]
   %.0146231 = phi i32 [ 0, %.lr.ph233 ], [ %174, %b2ExecuteMainStage.exit181 ]
-  %123 = getelementptr inbounds nuw %struct.b2SolverStage, ptr %12, i64 %indvars.iv265
+  %123 = getelementptr inbounds %struct.b2SolverStage, ptr %12, i64 %indvars.iv265
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 16
   %125 = load i32, ptr %124, align 8, !tbaa !123
   switch i32 %125, label %129 [
@@ -1896,7 +1896,7 @@ b2ExecuteMainStage.exit:                          ; preds = %56, %60, %._crit_ed
   br label %b2ExecuteMainStage.exit181
 
 129:                                              ; preds = %122
-  %130 = trunc nuw i64 %indvars.iv265 to i32
+  %130 = trunc nsw i64 %indvars.iv265 to i32
   %131 = or i32 %54, %130
   store atomic i32 %131, ptr %31 seq_cst, align 4
   %132 = lshr i32 %131, 16
@@ -1993,7 +1993,7 @@ b2ExecuteStage.exit.i158:                         ; preds = %._crit_edge.i.i168,
   br label %b2ExecuteMainStage.exit181
 
 b2ExecuteMainStage.exit181:                       ; preds = %122, %126, %._crit_edge.i162
-  %indvars.iv.next266 = add nuw nsw i64 %indvars.iv265, 1
+  %indvars.iv.next266 = add nsw i64 %indvars.iv265, 1
   %174 = add nuw nsw i32 %.0146231, 1
   %exitcond268.not = icmp eq i32 %174, %10
   br i1 %exitcond268.not, label %._crit_edge234.loopexit, label %122, !llvm.loop !233
@@ -2011,8 +2011,8 @@ b2ExecuteMainStage.exit181:                       ; preds = %122, %126, %._crit_
 180:                                              ; preds = %.lr.ph239, %b2ExecuteMainStage.exit207
   %indvars.iv269 = phi i64 [ %114, %.lr.ph239 ], [ %indvars.iv.next270, %b2ExecuteMainStage.exit207 ]
   %.0145237 = phi i32 [ 0, %.lr.ph239 ], [ %232, %b2ExecuteMainStage.exit207 ]
-  %indvars.iv.next270 = add nuw nsw i64 %indvars.iv269, 1
-  %181 = getelementptr inbounds nuw %struct.b2SolverStage, ptr %12, i64 %indvars.iv.next270
+  %indvars.iv.next270 = add nsw i64 %indvars.iv269, 1
+  %181 = getelementptr inbounds %struct.b2SolverStage, ptr %12, i64 %indvars.iv.next270
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 16
   %183 = load i32, ptr %182, align 8, !tbaa !123
   switch i32 %183, label %187 [
@@ -2027,7 +2027,7 @@ b2ExecuteMainStage.exit181:                       ; preds = %122, %126, %._crit_
   br label %b2ExecuteMainStage.exit207
 
 187:                                              ; preds = %180
-  %188 = trunc nuw i64 %indvars.iv.next270 to i32
+  %188 = trunc nsw i64 %indvars.iv.next270 to i32
   %189 = or i32 %121, %188
   store atomic i32 %189, ptr %31 seq_cst, align 4
   %190 = lshr i32 %189, 16
@@ -2605,81 +2605,95 @@ define internal void @b2FinalizeBodiesTask(i32 noundef %0, i32 noundef %1, i32 n
   br i1 %206, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
+  %.val.us = load ptr, ptr %43, align 8, !tbaa !170
   %.val165.us = load ptr, ptr %22, align 8, !tbaa !185
   %211 = getelementptr inbounds nuw i64, ptr %.val165.us, i64 %210
+  %invariant.gep = getelementptr i8, ptr %.val.us, i64 12
   %.promoted = load i64, ptr %211, align 8, !tbaa !87
-  %212 = or i64 %.promoted, %209
-  store i64 %212, ptr %211, align 8, !tbaa !87
+  br label %212
+
+212:                                              ; preds = %212, %.lr.ph.split.us
+  %213 = phi i64 [ %.promoted, %.lr.ph.split.us ], [ %215, %212 ]
+  %.0161194.us = phi i32 [ %.0161192, %.lr.ph.split.us ], [ %.0161.us, %212 ]
+  %214 = sext i32 %.0161194.us to i64
+  %215 = or i64 %213, %209
+  %gep = getelementptr %struct.b2Shape, ptr %invariant.gep, i64 %214
+  %.0161.us = load i32, ptr %gep, align 4, !tbaa !100
+  %.not.us = icmp eq i32 %.0161.us, -1
+  br i1 %.not.us, label %._crit_edge.split.us, label %212, !llvm.loop !270
+
+._crit_edge.split.us:                             ; preds = %212
+  store i64 %215, ptr %211, align 8, !tbaa !87
   br label %._crit_edge
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %243
-  %.0161194 = phi i32 [ %.0161, %243 ], [ %.0161192, %.lr.ph ]
+.lr.ph.split:                                     ; preds = %.lr.ph, %246
+  %.0161194 = phi i32 [ %.0161, %246 ], [ %.0161192, %.lr.ph ]
   %.val = load ptr, ptr %43, align 8, !tbaa !170
-  %213 = sext i32 %.0161194 to i64
-  %214 = getelementptr inbounds %struct.b2Shape, ptr %.val, i64 %213
-  %215 = tail call { <2 x float>, <2 x float> } @b2ComputeShapeAABB(ptr noundef %214, <2 x float> %.sroa.024.0.copyload, <2 x float> %.sroa.425.0.copyload) #8
-  %216 = extractvalue { <2 x float>, <2 x float> } %215, 0
-  %217 = extractvalue { <2 x float>, <2 x float> } %215, 1
-  %.sroa.02.0.vec.extract = extractelement <2 x float> %216, i64 0
-  %218 = fsub float %.sroa.02.0.vec.extract, %29
-  %.sroa.02.0.vec.insert = insertelement <2 x float> poison, float %218, i64 0
-  %.sroa.02.4.vec.extract = extractelement <2 x float> %216, i64 1
-  %219 = fsub float %.sroa.02.4.vec.extract, %29
-  %.sroa.02.4.vec.insert = insertelement <2 x float> %.sroa.02.0.vec.insert, float %219, i64 1
-  %.sroa.11.8.vec.extract = extractelement <2 x float> %217, i64 0
-  %220 = fadd float %29, %.sroa.11.8.vec.extract
-  %.sroa.11.8.vec.insert = insertelement <2 x float> poison, float %220, i64 0
-  %.sroa.11.12.vec.extract = extractelement <2 x float> %217, i64 1
-  %221 = fadd float %29, %.sroa.11.12.vec.extract
-  %.sroa.11.12.vec.insert = insertelement <2 x float> %.sroa.11.8.vec.insert, float %221, i64 1
-  %222 = getelementptr inbounds nuw i8, ptr %214, i64 48
-  store <2 x float> %.sroa.02.4.vec.insert, ptr %222, align 8
-  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %214, i64 56
+  %216 = sext i32 %.0161194 to i64
+  %217 = getelementptr inbounds %struct.b2Shape, ptr %.val, i64 %216
+  %218 = tail call { <2 x float>, <2 x float> } @b2ComputeShapeAABB(ptr noundef %217, <2 x float> %.sroa.024.0.copyload, <2 x float> %.sroa.425.0.copyload) #8
+  %219 = extractvalue { <2 x float>, <2 x float> } %218, 0
+  %220 = extractvalue { <2 x float>, <2 x float> } %218, 1
+  %.sroa.02.0.vec.extract = extractelement <2 x float> %219, i64 0
+  %221 = fsub float %.sroa.02.0.vec.extract, %29
+  %.sroa.02.0.vec.insert = insertelement <2 x float> poison, float %221, i64 0
+  %.sroa.02.4.vec.extract = extractelement <2 x float> %219, i64 1
+  %222 = fsub float %.sroa.02.4.vec.extract, %29
+  %.sroa.02.4.vec.insert = insertelement <2 x float> %.sroa.02.0.vec.insert, float %222, i64 1
+  %.sroa.11.8.vec.extract = extractelement <2 x float> %220, i64 0
+  %223 = fadd float %29, %.sroa.11.8.vec.extract
+  %.sroa.11.8.vec.insert = insertelement <2 x float> poison, float %223, i64 0
+  %.sroa.11.12.vec.extract = extractelement <2 x float> %220, i64 1
+  %224 = fadd float %29, %.sroa.11.12.vec.extract
+  %.sroa.11.12.vec.insert = insertelement <2 x float> %.sroa.11.8.vec.insert, float %224, i64 1
+  %225 = getelementptr inbounds nuw i8, ptr %217, i64 48
+  store <2 x float> %.sroa.02.4.vec.insert, ptr %225, align 8
+  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %217, i64 56
   store <2 x float> %.sroa.11.12.vec.insert, ptr %.sroa.11.0..sroa_idx, align 8
-  %223 = getelementptr inbounds nuw i8, ptr %214, i64 64
-  %224 = load <2 x float>, ptr %223, align 8
-  %225 = getelementptr inbounds nuw i8, ptr %214, i64 72
-  %226 = load <2 x float>, ptr %225, align 8
-  %.sroa.05.0.vec.extract.i188 = extractelement <2 x float> %224, i64 0
-  %227 = fcmp ole float %.sroa.05.0.vec.extract.i188, %218
-  %.sroa.05.4.vec.extract.i190 = extractelement <2 x float> %224, i64 1
-  %228 = fcmp ole float %.sroa.05.4.vec.extract.i190, %219
-  %229 = select i1 %227, i1 %228, i1 false
-  %.sroa.36.8.vec.extract.i = extractelement <2 x float> %226, i64 0
-  %230 = fcmp ole float %220, %.sroa.36.8.vec.extract.i
-  %231 = select i1 %229, i1 %230, i1 false
-  %.sroa.36.12.vec.extract.i = extractelement <2 x float> %226, i64 1
-  %232 = fcmp ole float %221, %.sroa.36.12.vec.extract.i
-  %233 = select i1 %231, i1 %232, i1 false
-  br i1 %233, label %243, label %234
+  %226 = getelementptr inbounds nuw i8, ptr %217, i64 64
+  %227 = load <2 x float>, ptr %226, align 8
+  %228 = getelementptr inbounds nuw i8, ptr %217, i64 72
+  %229 = load <2 x float>, ptr %228, align 8
+  %.sroa.05.0.vec.extract.i188 = extractelement <2 x float> %227, i64 0
+  %230 = fcmp ole float %.sroa.05.0.vec.extract.i188, %221
+  %.sroa.05.4.vec.extract.i190 = extractelement <2 x float> %227, i64 1
+  %231 = fcmp ole float %.sroa.05.4.vec.extract.i190, %222
+  %232 = select i1 %230, i1 %231, i1 false
+  %.sroa.36.8.vec.extract.i = extractelement <2 x float> %229, i64 0
+  %233 = fcmp ole float %223, %.sroa.36.8.vec.extract.i
+  %234 = select i1 %232, i1 %233, i1 false
+  %.sroa.36.12.vec.extract.i = extractelement <2 x float> %229, i64 1
+  %235 = fcmp ole float %224, %.sroa.36.12.vec.extract.i
+  %236 = select i1 %234, i1 %235, i1 false
+  br i1 %236, label %246, label %237
 
-234:                                              ; preds = %.lr.ph.split
-  %235 = fsub float %218, %30
-  %236 = fsub float %219, %30
-  %237 = fadd float %30, %220
-  %238 = fadd float %30, %221
-  store float %235, ptr %223, align 8, !tbaa !182
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %214, i64 68
-  store float %236, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !182
-  store float %237, ptr %225, align 8, !tbaa !182
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %214, i64 76
-  store float %238, ptr %.sroa.6.0..sroa_idx, align 4, !tbaa !182
-  %239 = getelementptr inbounds nuw i8, ptr %214, i64 281
-  store i8 1, ptr %239, align 1, !tbaa !206
+237:                                              ; preds = %.lr.ph.split
+  %238 = fsub float %221, %30
+  %239 = fsub float %222, %30
+  %240 = fadd float %30, %223
+  %241 = fadd float %30, %224
+  store float %238, ptr %226, align 8, !tbaa !182
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %217, i64 68
+  store float %239, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !182
+  store float %240, ptr %228, align 8, !tbaa !182
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %217, i64 76
+  store float %241, ptr %.sroa.6.0..sroa_idx, align 4, !tbaa !182
+  %242 = getelementptr inbounds nuw i8, ptr %217, i64 281
+  store i8 1, ptr %242, align 1, !tbaa !206
   %.val166 = load ptr, ptr %22, align 8, !tbaa !185
-  %240 = getelementptr inbounds nuw i64, ptr %.val166, i64 %210
-  %241 = load i64, ptr %240, align 8, !tbaa !87
-  %242 = or i64 %241, %209
-  store i64 %242, ptr %240, align 8, !tbaa !87
-  br label %243
+  %243 = getelementptr inbounds nuw i64, ptr %.val166, i64 %210
+  %244 = load i64, ptr %243, align 8, !tbaa !87
+  %245 = or i64 %244, %209
+  store i64 %245, ptr %243, align 8, !tbaa !87
+  br label %246
 
-243:                                              ; preds = %.lr.ph.split, %234
-  %244 = getelementptr inbounds nuw i8, ptr %214, i64 12
-  %.0161 = load i32, ptr %244, align 4, !tbaa !100
+246:                                              ; preds = %.lr.ph.split, %237
+  %247 = getelementptr inbounds nuw i8, ptr %217, i64 12
+  %.0161 = load i32, ptr %247, align 4, !tbaa !100
   %.not = icmp eq i32 %.0161, -1
   br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !270
 
-._crit_edge:                                      ; preds = %243, %.lr.ph.split.us, %203
+._crit_edge:                                      ; preds = %246, %._crit_edge.split.us, %203
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %1, %lftr.wideiv

@@ -633,34 +633,33 @@ define void @Fraig_NodeVecRemove(ptr noundef captures(none) %0, ptr noundef read
 
 ._crit_edge:                                      ; preds = %12, %._crit_edge.loopexit.split.loop.exit, %2
   %.0.lcssa = phi i32 [ 0, %2 ], [ %13, %._crit_edge.loopexit.split.loop.exit ], [ %4, %12 ]
-  %.121 = add nuw nsw i32 %.0.lcssa, 1
+  %.121 = add nsw i32 %.0.lcssa, 1
   %14 = icmp slt i32 %.121, %4
   br i1 %14, label %.lr.ph25, label %._crit_edge26
 
 .lr.ph25:                                         ; preds = %._crit_edge
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !11
-  %17 = zext i32 %.0.lcssa to i64
-  %18 = add nuw nsw i64 %17, 1
+  %17 = sext i32 %.0.lcssa to i64
+  %18 = add nsw i64 %17, 1
   br label %19
 
 19:                                               ; preds = %.lr.ph25, %19
-  %indvars.iv28 = phi i64 [ %18, %.lr.ph25 ], [ %indvars.iv.next29, %19 ]
-  %.1.in22 = phi i32 [ %.0.lcssa, %.lr.ph25 ], [ %26, %19 ]
-  %20 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv28
+  %indvars.iv31 = phi i64 [ %17, %.lr.ph25 ], [ %indvars.iv.next32, %19 ]
+  %indvars.iv29 = phi i64 [ %18, %.lr.ph25 ], [ %indvars.iv.next30, %19 ]
+  %20 = getelementptr inbounds ptr, ptr %16, i64 %indvars.iv29
   %21 = load ptr, ptr %20, align 8, !tbaa !12
-  %22 = zext nneg i32 %.1.in22 to i64
-  %23 = getelementptr inbounds nuw ptr, ptr %16, i64 %22
-  store ptr %21, ptr %23, align 8, !tbaa !12
-  %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
-  %24 = trunc nuw i64 %indvars.iv.next29 to i32
-  %25 = icmp sgt i32 %4, %24
-  %26 = trunc nuw i64 %indvars.iv28 to i32
-  br i1 %25, label %19, label %._crit_edge26, !llvm.loop !25
+  %22 = getelementptr inbounds ptr, ptr %16, i64 %indvars.iv31
+  store ptr %21, ptr %22, align 8, !tbaa !12
+  %indvars.iv.next30 = add nsw i64 %indvars.iv29, 1
+  %indvars.iv.next32 = add nsw i64 %indvars.iv31, 1
+  %lftr.wideiv = trunc i64 %indvars.iv.next30 to i32
+  %exitcond36.not = icmp eq i32 %4, %lftr.wideiv
+  br i1 %exitcond36.not, label %._crit_edge26, label %19, !llvm.loop !25
 
 ._crit_edge26:                                    ; preds = %19, %._crit_edge
-  %27 = add nsw i32 %4, -1
-  store i32 %27, ptr %3, align 4, !tbaa !3
+  %23 = add nsw i32 %4, -1
+  store i32 %23, ptr %3, align 4, !tbaa !3
   ret void
 }
 

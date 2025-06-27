@@ -2743,37 +2743,41 @@ define void @Gia_IsoAssignOneClass2(ptr noundef captures(none) %0) local_unnamed
 .lr.ph89:                                         ; preds = %67
   %71 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %72 = load ptr, ptr %71, align 8, !tbaa !39
-  %73 = zext i32 %.04672 to i64
+  %73 = sext i32 %.04672 to i64
   br label %74
 
 74:                                               ; preds = %.lr.ph89, %74
   %indvars.iv99 = phi i64 [ %73, %.lr.ph89 ], [ %indvars.iv.next100, %74 ]
-  %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 2
-  %75 = getelementptr inbounds nuw i32, ptr %72, i64 %indvars.iv.next100
+  %indvars.iv.next100 = add nsw i64 %indvars.iv99, 2
+  %75 = getelementptr inbounds i32, ptr %72, i64 %indvars.iv.next100
   %76 = load i32, ptr %75, align 4, !tbaa !43
-  %77 = getelementptr inbounds nuw i32, ptr %72, i64 %indvars.iv99
+  %77 = getelementptr inbounds i32, ptr %72, i64 %indvars.iv99
   store i32 %76, ptr %77, align 4, !tbaa !43
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 12
+  %78 = getelementptr i8, ptr %77, i64 12
   %79 = load i32, ptr %78, align 4, !tbaa !43
-  %80 = getelementptr inbounds nuw i8, ptr %77, i64 4
+  %80 = getelementptr i8, ptr %77, i64 4
   store i32 %79, ptr %80, align 4, !tbaa !43
   %.val51 = load i32, ptr %4, align 4, !tbaa !37
   %81 = add nsw i32 %.val51, -2
-  %82 = trunc nuw i64 %indvars.iv.next100 to i32
-  %83 = icmp sgt i32 %81, %82
-  br i1 %83, label %74, label %._crit_edge, !llvm.loop !91
+  %82 = sext i32 %81 to i64
+  %83 = icmp slt i64 %indvars.iv.next100, %82
+  br i1 %83, label %74, label %._crit_edge.loopexit, !llvm.loop !91
 
-._crit_edge:                                      ; preds = %74, %67
-  %.147.lcssa = phi i32 [ %.04672, %67 ], [ %82, %74 ]
-  %.lcssa = phi i32 [ %69, %67 ], [ %81, %74 ]
+._crit_edge.loopexit:                             ; preds = %74
+  %84 = trunc nsw i64 %indvars.iv.next100 to i32
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %67
+  %.147.lcssa = phi i32 [ %.04672, %67 ], [ %84, %._crit_edge.loopexit ]
+  %.lcssa = phi i32 [ %69, %67 ], [ %81, %._crit_edge.loopexit ]
   store i32 %.lcssa, ptr %4, align 4, !tbaa !37
-  %84 = lshr exact i32 %.147.lcssa, 1
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %86 = load ptr, ptr %85, align 8, !tbaa !34
-  %87 = lshr i64 %68, 32
-  %88 = getelementptr inbounds nuw i32, ptr %86, i64 %87
-  %89 = load i32, ptr %88, align 4, !tbaa !43
-  %90 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef %84, i32 noundef %.163, i32 noundef %89)
+  %85 = sdiv i32 %.147.lcssa, 2
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %87 = load ptr, ptr %86, align 8, !tbaa !34
+  %88 = lshr i64 %68, 32
+  %89 = getelementptr inbounds nuw i32, ptr %87, i64 %88
+  %90 = load i32, ptr %89, align 4, !tbaa !43
+  %91 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef %85, i32 noundef %.163, i32 noundef %90)
   ret void
 }
 

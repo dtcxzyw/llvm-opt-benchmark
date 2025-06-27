@@ -4172,7 +4172,7 @@ define dso_local void @_ZN7SRBRoot16compactStringsV2EP10UHashtableR10UErrorCode(
   %4 = alloca i32, align 4
   %5 = load i32, ptr %2, align 4, !tbaa !22
   %6 = icmp slt i32 %5, 1
-  br i1 %6, label %7, label %307
+  br i1 %6, label %7, label %305
 
 7:                                                ; preds = %3
   %8 = tail call i32 @uhash_count_77(ptr noundef %1)
@@ -4379,26 +4379,26 @@ _ZNK6icu_7713UnicodeString8endsWithERKS0_.exit:   ; preds = %79
   %122 = add nuw nsw i32 %119, 1
   store i32 %122, ptr %30, align 8, !tbaa !68
   %.pre.pre = load i16, ptr %67, align 8, !tbaa !4
-  %.pre248.pre = load i32, ptr %72, align 4
-  %.pre254 = ashr i16 %.pre.pre, 5
-  %.pre255 = sext i16 %.pre254 to i32
+  %.pre250.pre = load i32, ptr %72, align 4
+  %.pre256 = ashr i16 %.pre.pre, 5
+  %.pre257 = sext i16 %.pre256 to i32
   br label %123
 
 123:                                              ; preds = %121, %112
-  %.pre252.pre-phi = phi i32 [ %.pre255, %121 ], [ %106, %112 ]
-  %.pre248 = phi i32 [ %.pre248.pre, %121 ], [ %107, %112 ]
+  %.pre254.pre-phi = phi i32 [ %.pre257, %121 ], [ %106, %112 ]
+  %.pre250 = phi i32 [ %.pre250.pre, %121 ], [ %107, %112 ]
   %.pre = phi i16 [ %.pre.pre, %121 ], [ %103, %112 ]
   store i8 1, ptr %87, align 1, !tbaa !17
   br label %124
 
 124:                                              ; preds = %95, %123
-  %.pre-phi253 = phi i32 [ %106, %95 ], [ %.pre252.pre-phi, %123 ]
-  %125 = phi i32 [ %107, %95 ], [ %.pre248, %123 ]
+  %.pre-phi255 = phi i32 [ %106, %95 ], [ %.pre254.pre-phi, %123 ]
+  %125 = phi i32 [ %107, %95 ], [ %.pre250, %123 ]
   %126 = phi i16 [ %103, %95 ], [ %.pre, %123 ]
   %127 = getelementptr inbounds nuw i8, ptr %60, i64 132
   %128 = load i32, ptr %127, align 4, !tbaa !67
   %129 = icmp slt i16 %126, 0
-  %130 = select i1 %129, i32 %125, i32 %.pre-phi253
+  %130 = select i1 %129, i32 %125, i32 %.pre-phi255
   %131 = add i32 %130, 1
   %132 = mul nsw i32 %131, %128
   %133 = load i32, ptr %52, align 8, !tbaa !103
@@ -4568,7 +4568,7 @@ _ZNK6icu_7713UnicodeString8endsWithERKS0_.exit:   ; preds = %79
   %217 = getelementptr inbounds nuw i8, ptr %216, i64 120
   %218 = load ptr, ptr %217, align 8, !tbaa !63
   %219 = icmp eq ptr %218, null
-  br i1 %219, label %220, label %.critedge.loopexit.split.loop.exit268
+  br i1 %219, label %220, label %.critedge.loopexit.split.loop.exit270
 
 220:                                              ; preds = %214
   %221 = getelementptr inbounds nuw i8, ptr %216, i64 9
@@ -4607,12 +4607,12 @@ _ZNK6icu_7713UnicodeString8endsWithERKS0_.exit:   ; preds = %79
   %exitcond239.not = icmp eq i64 %indvars.iv.next236, %wide.trip.count238
   br i1 %exitcond239.not, label %.critedge, label %214, !llvm.loop !152
 
-.critedge.loopexit.split.loop.exit268:            ; preds = %214
+.critedge.loopexit.split.loop.exit270:            ; preds = %214
   %238 = trunc nuw nsw i64 %indvars.iv235 to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %237, %.critedge.loopexit.split.loop.exit268, %.preheader
-  %.0128.lcssa = phi i32 [ 0, %.preheader ], [ %238, %.critedge.loopexit.split.loop.exit268 ], [ %8, %237 ]
+.critedge:                                        ; preds = %237, %.critedge.loopexit.split.loop.exit270, %.preheader
+  %.0128.lcssa = phi i32 [ 0, %.preheader ], [ %238, %.critedge.loopexit.split.loop.exit270 ], [ %8, %237 ]
   %239 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %240 = load i16, ptr %239, align 8, !tbaa !4
   %241 = and i16 %240, 1
@@ -4629,9 +4629,9 @@ _ZNK6icu_7713UnicodeString8endsWithERKS0_.exit:   ; preds = %79
   %246 = icmp eq ptr %245, null
   %247 = load i32, ptr @_ZL14gFormatVersion, align 4
   %248 = icmp slt i32 %247, 3
-  %or.cond3.not273 = select i1 %246, i1 true, i1 %248
-  %brmerge = or i1 %or.cond3.not273, %19
-  %.0128.lcssa.mux = select i1 %or.cond3.not273, i32 %.0128.lcssa, i32 0
+  %or.cond3.not275 = select i1 %246, i1 true, i1 %248
+  %brmerge = or i1 %or.cond3.not275, %19
+  %.0128.lcssa.mux = select i1 %or.cond3.not275, i32 %.0128.lcssa, i32 0
   br i1 %brmerge, label %.critedge5, label %.lr.ph219
 
 .lr.ph219:                                        ; preds = %243
@@ -4699,13 +4699,13 @@ _ZNK6icu_7713UnicodeString8endsWithERKS0_.exit:   ; preds = %79
   %275 = load i32, ptr %274, align 8
   %276 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %.promoted = load i32, ptr %276, align 8
-  %277 = zext i32 %.1129 to i64
+  %277 = sext i32 %.1129 to i64
   br label %278
 
 278:                                              ; preds = %.lr.ph224, %303
   %indvars.iv245 = phi i64 [ %277, %.lr.ph224 ], [ %indvars.iv.next246, %303 ]
   %279 = phi i32 [ %.promoted, %.lr.ph224 ], [ %304, %303 ]
-  %280 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv245
+  %280 = getelementptr inbounds ptr, ptr %13, i64 %indvars.iv245
   %281 = load ptr, ptr %280, align 8, !tbaa !146
   %282 = getelementptr inbounds nuw i8, ptr %281, i64 9
   %283 = load i8, ptr %282, align 1, !tbaa !17
@@ -4743,16 +4743,15 @@ _ZNK6icu_7713UnicodeString8endsWithERKS0_.exit:   ; preds = %79
 
 303:                                              ; preds = %278, %301
   %304 = phi i32 [ %279, %278 ], [ %302, %301 ]
-  %indvars.iv.next246 = add nuw nsw i64 %indvars.iv245, 1
-  %305 = trunc nuw i64 %indvars.iv.next246 to i32
-  %306 = icmp sgt i32 %8, %305
-  br i1 %306, label %278, label %_ZN6icu_7710LocalArrayIP14StringResourceED2Ev.exit, !llvm.loop !155
+  %indvars.iv.next246 = add nsw i64 %indvars.iv245, 1
+  %exitcond249.not = icmp eq i64 %indvars.iv.next246, %9
+  br i1 %exitcond249.not, label %_ZN6icu_7710LocalArrayIP14StringResourceED2Ev.exit, label %278, !llvm.loop !155
 
 _ZN6icu_7710LocalArrayIP14StringResourceED2Ev.exit: ; preds = %266, %303, %.critedge5, %242, %199, %198, %138, %27, %7
   call void @_ZdaPv(ptr noundef nonnull %13) #36
-  br label %307
+  br label %305
 
-307:                                              ; preds = %3, %_ZN6icu_7710LocalArrayIP14StringResourceED2Ev.exit
+305:                                              ; preds = %3, %_ZN6icu_7710LocalArrayIP14StringResourceED2Ev.exit
   ret void
 
 _ZN6icu_7710LocalArrayIP14StringResourceED2Ev.exit167: ; preds = %233, %264, %262, %186, %194, %89, %25, %16

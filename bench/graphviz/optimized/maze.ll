@@ -120,12 +120,13 @@ updateWt.exit:                                    ; preds = %47, %53
   br i1 %57, label %.lr.ph42, label %._crit_edge43
 
 .lr.ph42:                                         ; preds = %._crit_edge
-  %58 = zext i32 %.0.lcssa to i64
+  %58 = sext i32 %.0.lcssa to i64
+  %wide.trip.count54 = sext i32 %33 to i64
   br i1 %.not.not, label %.lr.ph42.split, label %.lr.ph42.split.us
 
 .lr.ph42.split.us:                                ; preds = %.lr.ph42, %updateWt.exit34.us
   %indvars.iv46 = phi i64 [ %indvars.iv.next47, %updateWt.exit34.us ], [ %58, %.lr.ph42 ]
-  %59 = getelementptr inbounds nuw [6 x ptr], ptr %31, i64 0, i64 %indvars.iv46
+  %59 = getelementptr inbounds [6 x ptr], ptr %31, i64 0, i64 %indvars.iv46
   %60 = load ptr, ptr %59, align 8, !tbaa !31
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 12
   %62 = load i32, ptr %61, align 4, !tbaa !11
@@ -150,46 +151,44 @@ updateWt.exit:                                    ; preds = %47, %53
   br label %updateWt.exit34.us
 
 updateWt.exit34.us:                               ; preds = %73, %.lr.ph42.split.us
-  %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
-  %76 = trunc nuw i64 %indvars.iv.next47 to i32
-  %77 = icmp sgt i32 %33, %76
-  br i1 %77, label %.lr.ph42.split.us, label %._crit_edge43, !llvm.loop !36
+  %indvars.iv.next47 = add nsw i64 %indvars.iv46, 1
+  %exitcond50.not = icmp eq i64 %indvars.iv.next47, %wide.trip.count54
+  br i1 %exitcond50.not, label %._crit_edge43, label %.lr.ph42.split.us, !llvm.loop !36
 
 .lr.ph42.split:                                   ; preds = %.lr.ph42, %updateWt.exit34
-  %indvars.iv49 = phi i64 [ %indvars.iv.next50, %updateWt.exit34 ], [ %58, %.lr.ph42 ]
-  %78 = getelementptr inbounds nuw [6 x ptr], ptr %31, i64 0, i64 %indvars.iv49
-  %79 = load ptr, ptr %78, align 8, !tbaa !31
-  %80 = icmp eq ptr %79, %2
-  br i1 %80, label %81, label %updateWt.exit34
+  %indvars.iv51 = phi i64 [ %indvars.iv.next52, %updateWt.exit34 ], [ %58, %.lr.ph42 ]
+  %76 = getelementptr inbounds [6 x ptr], ptr %31, i64 0, i64 %indvars.iv51
+  %77 = load ptr, ptr %76, align 8, !tbaa !31
+  %78 = icmp eq ptr %77, %2
+  br i1 %78, label %79, label %updateWt.exit34
 
-81:                                               ; preds = %.lr.ph42.split
-  %82 = getelementptr inbounds nuw i8, ptr %79, i64 12
-  %83 = load i32, ptr %82, align 4, !tbaa !11
-  %84 = sext i32 %83 to i64
-  %85 = getelementptr inbounds %struct.snode, ptr %5, i64 %84, i32 9
-  %86 = load i8, ptr %85, align 4, !tbaa !14, !range !19, !noundef !20
-  %87 = trunc nuw i8 %86 to i1
-  %88 = select i1 %87, double %24, double %29
-  %89 = getelementptr inbounds nuw i8, ptr %79, i64 8
-  %90 = load i32, ptr %89, align 8, !tbaa !32
-  %91 = add nsw i32 %90, 1
-  store i32 %91, ptr %89, align 8, !tbaa !32
-  %92 = sitofp i32 %91 to double
-  %93 = fcmp olt double %88, %92
-  br i1 %93, label %94, label %updateWt.exit34
+79:                                               ; preds = %.lr.ph42.split
+  %80 = getelementptr inbounds nuw i8, ptr %77, i64 12
+  %81 = load i32, ptr %80, align 4, !tbaa !11
+  %82 = sext i32 %81 to i64
+  %83 = getelementptr inbounds %struct.snode, ptr %5, i64 %82, i32 9
+  %84 = load i8, ptr %83, align 4, !tbaa !14, !range !19, !noundef !20
+  %85 = trunc nuw i8 %84 to i1
+  %86 = select i1 %85, double %24, double %29
+  %87 = getelementptr inbounds nuw i8, ptr %77, i64 8
+  %88 = load i32, ptr %87, align 8, !tbaa !32
+  %89 = add nsw i32 %88, 1
+  store i32 %89, ptr %87, align 8, !tbaa !32
+  %90 = sitofp i32 %89 to double
+  %91 = fcmp olt double %86, %90
+  br i1 %91, label %92, label %updateWt.exit34
 
-94:                                               ; preds = %81
-  store i32 0, ptr %89, align 8, !tbaa !32
-  %95 = load double, ptr %79, align 8, !tbaa !33
-  %96 = fadd double %95, 1.638400e+04
-  store double %96, ptr %79, align 8, !tbaa !33
+92:                                               ; preds = %79
+  store i32 0, ptr %87, align 8, !tbaa !32
+  %93 = load double, ptr %77, align 8, !tbaa !33
+  %94 = fadd double %93, 1.638400e+04
+  store double %94, ptr %77, align 8, !tbaa !33
   br label %updateWt.exit34
 
-updateWt.exit34:                                  ; preds = %94, %81, %.lr.ph42.split
-  %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
-  %97 = trunc nuw i64 %indvars.iv.next50 to i32
-  %98 = icmp sgt i32 %33, %97
-  br i1 %98, label %.lr.ph42.split, label %._crit_edge43, !llvm.loop !36
+updateWt.exit34:                                  ; preds = %92, %79, %.lr.ph42.split
+  %indvars.iv.next52 = add nsw i64 %indvars.iv51, 1
+  %exitcond55.not = icmp eq i64 %indvars.iv.next52, %wide.trip.count54
+  br i1 %exitcond55.not, label %._crit_edge43, label %.lr.ph42.split, !llvm.loop !36
 
 ._crit_edge43:                                    ; preds = %updateWt.exit, %updateWt.exit34.us, %updateWt.exit34, %._crit_edge
   ret void

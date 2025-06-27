@@ -3705,7 +3705,7 @@ define linkonce_odr void @_ZN5Eigen8internal29general_matrix_vector_productIldNS
   %99 = load <2 x double>, ptr %98, align 1, !tbaa !117
   %100 = fmul <2 x double> %68, %99
   %101 = fadd <2 x double> %.0390405, %100
-  %102 = add nuw nsw i64 %.0186413, 1
+  %102 = add nsw i64 %.0186413, 1
   %103 = icmp slt i64 %102, %.sroa.speculated
   br i1 %103, label %63, label %._crit_edge, !llvm.loop !274
 
@@ -3775,7 +3775,7 @@ define linkonce_odr void @_ZN5Eigen8internal29general_matrix_vector_productIldNS
   %145 = load <2 x double>, ptr %144, align 1, !tbaa !117
   %146 = fmul <2 x double> %130, %145
   %147 = fadd <2 x double> %.0394436, %146
-  %148 = add nuw nsw i64 %.0185440, 1
+  %148 = add nsw i64 %.0185440, 1
   %149 = icmp slt i64 %148, %.sroa.speculated
   br i1 %149, label %125, label %._crit_edge442, !llvm.loop !275
 
@@ -3834,7 +3834,7 @@ define linkonce_odr void @_ZN5Eigen8internal29general_matrix_vector_productIldNS
   %184 = load <2 x double>, ptr %183, align 1, !tbaa !117
   %185 = fmul <2 x double> %173, %184
   %186 = fadd <2 x double> %.0399447, %185
-  %187 = add nuw nsw i64 %.0184450, 1
+  %187 = add nsw i64 %.0184450, 1
   %188 = icmp slt i64 %187, %.sroa.speculated
   br i1 %188, label %168, label %._crit_edge452, !llvm.loop !276
 
@@ -3882,7 +3882,7 @@ define linkonce_odr void @_ZN5Eigen8internal29general_matrix_vector_productIldNS
   %215 = load <2 x double>, ptr %214, align 1, !tbaa !117
   %216 = fmul <2 x double> %215, %208
   %217 = fadd <2 x double> %.0396457, %216
-  %218 = add nuw nsw i64 %.0183458, 1
+  %218 = add nsw i64 %.0183458, 1
   %219 = icmp slt i64 %218, %.sroa.speculated
   br i1 %219, label %203, label %._crit_edge460, !llvm.loop !277
 
@@ -3919,7 +3919,7 @@ define linkonce_odr void @_ZN5Eigen8internal29general_matrix_vector_productIldNS
   %238 = load <2 x double>, ptr %237, align 1, !tbaa !117
   %239 = fmul <2 x double> %238, %235
   %240 = fadd <2 x double> %.0387463, %239
-  %241 = add nuw nsw i64 %.0182464, 1
+  %241 = add nsw i64 %.0182464, 1
   %242 = icmp slt i64 %241, %.sroa.speculated
   br i1 %242, label %230, label %._crit_edge466, !llvm.loop !278
 
@@ -3958,7 +3958,7 @@ define linkonce_odr void @_ZN5Eigen8internal29general_matrix_vector_productIldNS
   %258 = load double, ptr %256, align 8, !tbaa !81
   %259 = fmul double %257, %258
   %260 = fadd double %.0181468, %259
-  %261 = add nuw nsw i64 %.0469, 1
+  %261 = add nsw i64 %.0469, 1
   %262 = icmp slt i64 %261, %.sroa.speculated
   br i1 %262, label %252, label %._crit_edge471, !llvm.loop !280
 }
@@ -6201,11 +6201,11 @@ define linkonce_odr void @_ZN5Eigen8internal29general_matrix_vector_productIldNS
 
 .lr.ph456:                                        ; preds = %.preheader407
   %174 = mul nsw i64 %.1207475, %.sroa.33.0.copyload
-  %175 = add nuw nsw i64 %.1207475, 1
+  %175 = add nsw i64 %.1207475, 1
   %176 = mul nsw i64 %175, %.sroa.33.0.copyload
-  %177 = add nuw nsw i64 %.1207475, 2
+  %177 = add nsw i64 %.1207475, 2
   %178 = mul nsw i64 %177, %.sroa.33.0.copyload
-  %179 = add nuw nsw i64 %.1207475, 3
+  %179 = add nsw i64 %.1207475, 3
   %180 = mul nsw i64 %179, %.sroa.33.0.copyload
   br label %183
 
@@ -6271,18 +6271,18 @@ define linkonce_odr void @_ZN5Eigen8internal29general_matrix_vector_productIldNS
   br i1 %213, label %.lr.ph469, label %._crit_edge457.._crit_edge470_crit_edge
 
 ._crit_edge457.._crit_edge470_crit_edge:          ; preds = %._crit_edge457
-  %.pre565 = add nuw nsw i64 %.1207475, 1
-  %.pre567 = add nuw nsw i64 %.1207475, 2
-  %.pre569 = add nuw nsw i64 %.1207475, 3
+  %.pre565 = add nsw i64 %.1207475, 1
+  %.pre567 = add nsw i64 %.1207475, 2
+  %.pre569 = add nsw i64 %.1207475, 3
   br label %._crit_edge470
 
 .lr.ph469:                                        ; preds = %._crit_edge457
   %214 = mul nsw i64 %.1207475, %.sroa.33.0.copyload
-  %215 = add nuw nsw i64 %.1207475, 1
+  %215 = add nsw i64 %.1207475, 1
   %216 = mul nsw i64 %215, %.sroa.33.0.copyload
-  %217 = add nuw nsw i64 %.1207475, 2
+  %217 = add nsw i64 %.1207475, 2
   %218 = mul nsw i64 %217, %.sroa.33.0.copyload
-  %219 = add nuw nsw i64 %.1207475, 3
+  %219 = add nsw i64 %.1207475, 3
   %220 = mul nsw i64 %219, %.sroa.33.0.copyload
   br label %221
 
@@ -6343,7 +6343,7 @@ define linkonce_odr void @_ZN5Eigen8internal29general_matrix_vector_productIldNS
   %256 = load double, ptr %255, align 8, !tbaa !81
   %257 = tail call double @llvm.fmuladd.f64(double %6, double %.0214.lcssa, double %256)
   store double %257, ptr %255, align 8, !tbaa !81
-  %258 = add nuw nsw i64 %.1207475, 4
+  %258 = add nsw i64 %.1207475, 4
   %259 = icmp slt i64 %258, %11
   br i1 %259, label %.preheader407, label %.preheader406, !llvm.loop !393
 
@@ -6353,7 +6353,7 @@ define linkonce_odr void @_ZN5Eigen8internal29general_matrix_vector_productIldNS
 
 .lr.ph481:                                        ; preds = %.preheader405
   %260 = mul nsw i64 %.2494, %.sroa.33.0.copyload
-  %261 = add nuw nsw i64 %.2494, 1
+  %261 = add nsw i64 %.2494, 1
   %262 = mul nsw i64 %261, %.sroa.33.0.copyload
   br label %265
 
@@ -6401,12 +6401,12 @@ define linkonce_odr void @_ZN5Eigen8internal29general_matrix_vector_productIldNS
   br i1 %283, label %.lr.ph490, label %._crit_edge482.._crit_edge491_crit_edge
 
 ._crit_edge482.._crit_edge491_crit_edge:          ; preds = %._crit_edge482
-  %.pre571 = add nuw nsw i64 %.2494, 1
+  %.pre571 = add nsw i64 %.2494, 1
   br label %._crit_edge491
 
 .lr.ph490:                                        ; preds = %._crit_edge482
   %284 = mul nsw i64 %.2494, %.sroa.33.0.copyload
-  %285 = add nuw nsw i64 %.2494, 1
+  %285 = add nsw i64 %.2494, 1
   %286 = mul nsw i64 %285, %.sroa.33.0.copyload
   br label %287
 
@@ -6443,7 +6443,7 @@ define linkonce_odr void @_ZN5Eigen8internal29general_matrix_vector_productIldNS
   %306 = load double, ptr %305, align 8, !tbaa !81
   %307 = tail call double @llvm.fmuladd.f64(double %6, double %.0210.lcssa, double %306)
   store double %307, ptr %305, align 8, !tbaa !81
-  %308 = add nuw nsw i64 %.2494, 2
+  %308 = add nsw i64 %.2494, 2
   %309 = icmp slt i64 %308, %12
   br i1 %309, label %.preheader405, label %.preheader404, !llvm.loop !396
 
@@ -6504,7 +6504,7 @@ define linkonce_odr void @_ZN5Eigen8internal29general_matrix_vector_productIldNS
   %332 = load double, ptr %331, align 8, !tbaa !81
   %333 = tail call double @llvm.fmuladd.f64(double %6, double %.0.lcssa, double %332)
   store double %333, ptr %331, align 8, !tbaa !81
-  %334 = add nuw nsw i64 %.3511, 1
+  %334 = add nsw i64 %.3511, 1
   %exitcond552.not = icmp eq i64 %334, %0
   br i1 %exitcond552.not, label %._crit_edge512, label %.preheader, !llvm.loop !399
 
@@ -10942,7 +10942,7 @@ define linkonce_odr void @_ZN5Eigen8internal13gemm_pack_lhsIdlNS0_22const_blas_d
   br i1 %exitcond99.not, label %._crit_edge.us87, label %62, !llvm.loop !603
 
 ._crit_edge.us87:                                 ; preds = %62
-  %69 = add nuw nsw i64 %.285.us, 1
+  %69 = add nsw i64 %.285.us, 1
   %exitcond100.not = icmp eq i64 %69, %4
   br i1 %exitcond100.not, label %._crit_edge86, label %.preheader.us, !llvm.loop !604
 

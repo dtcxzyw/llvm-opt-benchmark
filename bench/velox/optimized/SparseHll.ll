@@ -497,7 +497,8 @@ while.cond52.preheader:                           ; preds = %if.end51
   br i1 %cmp5478, label %while.body55.preheader, label %while.cond64.preheader
 
 while.body55.preheader:                           ; preds = %while.cond52.preheader
-  %5 = and i64 %indvars.iv.next, 4294967295
+  %sext = shl i64 %indvars.iv.next, 32
+  %5 = ashr exact i64 %sext, 32
   br label %while.body55
 
 while.body:                                       ; preds = %invoke.cont, %if.end51
@@ -559,7 +560,8 @@ while.cond64.preheader:                           ; preds = %while.body55, %whil
 while.body67.preheader:                           ; preds = %invoke.cont, %while.cond64.preheader
   %pos.2.lcssa118 = phi i64 [ %pos.2.lcssa.in, %while.cond64.preheader ], [ 0, %invoke.cont ]
   %rightPos.0.lcssa113117 = phi i64 [ %4, %while.cond64.preheader ], [ 0, %invoke.cont ]
-  %9 = and i64 %pos.2.lcssa118, 4294967295
+  %sext119 = shl i64 %pos.2.lcssa118, 32
+  %9 = ashr exact i64 %sext119, 32
   br label %while.body67
 
 while.body55:                                     ; preds = %while.body55.preheader, %while.body55
@@ -568,8 +570,8 @@ while.body55:                                     ; preds = %while.body55.prehea
   %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
   %add.ptr2.i44 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv94
   %10 = load i32, ptr %add.ptr2.i44, align 4
-  %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
-  %add.ptr.i45 = getelementptr inbounds nuw i32, ptr %merged.sroa.0.0, i64 %indvars.iv92
+  %indvars.iv.next93 = add nsw i64 %indvars.iv92, 1
+  %add.ptr.i45 = getelementptr inbounds i32, ptr %merged.sroa.0.0, i64 %indvars.iv92
   store i32 %10, ptr %add.ptr.i45, align 4
   %cmp54 = icmp ugt i64 %sub.ptr.div.i, %indvars.iv.next95
   br i1 %cmp54, label %while.body55, label %while.cond64.preheader, !llvm.loop !8
@@ -580,15 +582,17 @@ while.body67:                                     ; preds = %while.body67.prehea
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
   %arrayidx70 = getelementptr inbounds i32, ptr %otherEntries, i64 %indvars.iv101
   %11 = load i32, ptr %arrayidx70, align 4
-  %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
-  %add.ptr.i46 = getelementptr inbounds nuw i32, ptr %merged.sroa.0.0, i64 %indvars.iv99
+  %indvars.iv.next100 = add nsw i64 %indvars.iv99, 1
+  %add.ptr.i46 = getelementptr inbounds i32, ptr %merged.sroa.0.0, i64 %indvars.iv99
   store i32 %11, ptr %add.ptr.i46, align 4
   %cmp66 = icmp ugt i64 %otherSize, %indvars.iv.next102
   br i1 %cmp66, label %while.body67, label %while.end74, !llvm.loop !9
 
 while.end74:                                      ; preds = %while.body67, %while.cond64.preheader
   %pos.3.lcssa.in = phi i64 [ %pos.2.lcssa.in, %while.cond64.preheader ], [ %indvars.iv.next100, %while.body67 ]
-  %conv76 = and i64 %pos.3.lcssa.in, 4294967295
+  %pos.3.lcssa = trunc i64 %pos.3.lcssa.in to i32
+  %sext120 = shl i64 %pos.3.lcssa.in, 32
+  %conv76 = ashr exact i64 %sext120, 32
   %cmp.i47 = icmp ult i64 %sub.ptr.div.i, %conv76
   br i1 %cmp.i47, label %if.then.i, label %if.else.i
 
@@ -602,7 +606,7 @@ if.else.i:                                        ; preds = %while.end74
   br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorIjN8facebook5velox12StlAllocatorIjEEE6resizeEm.exit
 
 if.then5.i:                                       ; preds = %if.else.i
-  %add.ptr6.i = getelementptr inbounds nuw i32, ptr %1, i64 %conv76
+  %add.ptr6.i = getelementptr inbounds i32, ptr %1, i64 %conv76
   %tobool.not.i.i = icmp eq ptr %0, %add.ptr6.i
   br i1 %tobool.not.i.i, label %_ZNSt6vectorIjN8facebook5velox12StlAllocatorIjEEE6resizeEm.exit, label %if.then.i.i48
 
@@ -611,19 +615,22 @@ if.then.i.i48:                                    ; preds = %if.then5.i
   br label %_ZNSt6vectorIjN8facebook5velox12StlAllocatorIjEEE6resizeEm.exit
 
 _ZNSt6vectorIjN8facebook5velox12StlAllocatorIjEEE6resizeEm.exit: ; preds = %if.then.i, %if.else.i, %if.then5.i, %if.then.i.i48
-  %12 = and i64 %pos.3.lcssa.in, 4294967295
-  %cmp7889.not = icmp eq i64 %12, 0
-  br i1 %cmp7889.not, label %_ZNSt6vectorIjSaIjEED2Ev.exit55, label %for.body
+  %cmp7889 = icmp sgt i32 %pos.3.lcssa, 0
+  br i1 %cmp7889, label %for.body.preheader, label %_ZNSt6vectorIjSaIjEED2Ev.exit55
 
-for.body:                                         ; preds = %_ZNSt6vectorIjN8facebook5velox12StlAllocatorIjEEE6resizeEm.exit, %for.body
-  %indvars.iv106 = phi i64 [ %indvars.iv.next107, %for.body ], [ 0, %_ZNSt6vectorIjN8facebook5velox12StlAllocatorIjEEE6resizeEm.exit ]
+for.body.preheader:                               ; preds = %_ZNSt6vectorIjN8facebook5velox12StlAllocatorIjEEE6resizeEm.exit
+  %wide.trip.count = and i64 %pos.3.lcssa.in, 2147483647
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.preheader, %for.body
+  %indvars.iv106 = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next107, %for.body ]
   %add.ptr.i50 = getelementptr inbounds nuw i32, ptr %merged.sroa.0.0, i64 %indvars.iv106
-  %13 = load i32, ptr %add.ptr.i50, align 4
-  %14 = load ptr, ptr %add.ptr.i, align 8
-  %add.ptr2.i52 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv106
-  store i32 %13, ptr %add.ptr2.i52, align 4
+  %12 = load i32, ptr %add.ptr.i50, align 4
+  %13 = load ptr, ptr %add.ptr.i, align 8
+  %add.ptr2.i52 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv106
+  store i32 %12, ptr %add.ptr2.i52, align 4
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next107, %conv76
+  %exitcond.not = icmp eq i64 %indvars.iv.next107, %wide.trip.count
   br i1 %exitcond.not, label %_ZNSt6vectorIjSaIjEED2Ev.exit55, label %for.body, !llvm.loop !10
 
 _ZNSt6vectorIjSaIjEED2Ev.exit55:                  ; preds = %for.body, %_ZNSt6vectorIjN8facebook5velox12StlAllocatorIjEEE6resizeEm.exit
@@ -631,10 +638,10 @@ _ZNSt6vectorIjSaIjEED2Ev.exit55:                  ; preds = %for.body, %_ZNSt6ve
   ret void
 
 eh.resume:                                        ; preds = %if.then.i
-  %15 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %merged.sroa.0.0) #26
-  resume { ptr, i32 } %15
+  resume { ptr, i32 } %14
 }
 
 ; Function Attrs: mustprogress uwtable

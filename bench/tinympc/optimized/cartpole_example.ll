@@ -1544,7 +1544,7 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal29general_matrix_vector_pr
   %99 = load <2 x double>, ptr %98, align 1, !tbaa !13
   %100 = fmul <2 x double> %68, %99
   %101 = fadd <2 x double> %.0390405, %100
-  %102 = add nuw nsw i64 %.0186413, 1
+  %102 = add nsw i64 %.0186413, 1
   %103 = icmp slt i64 %102, %.sroa.speculated
   br i1 %103, label %63, label %._crit_edge, !llvm.loop !107
 
@@ -1614,7 +1614,7 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal29general_matrix_vector_pr
   %145 = load <2 x double>, ptr %144, align 1, !tbaa !13
   %146 = fmul <2 x double> %130, %145
   %147 = fadd <2 x double> %.0394436, %146
-  %148 = add nuw nsw i64 %.0185440, 1
+  %148 = add nsw i64 %.0185440, 1
   %149 = icmp slt i64 %148, %.sroa.speculated
   br i1 %149, label %125, label %._crit_edge442, !llvm.loop !108
 
@@ -1673,7 +1673,7 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal29general_matrix_vector_pr
   %184 = load <2 x double>, ptr %183, align 1, !tbaa !13
   %185 = fmul <2 x double> %173, %184
   %186 = fadd <2 x double> %.0399447, %185
-  %187 = add nuw nsw i64 %.0184450, 1
+  %187 = add nsw i64 %.0184450, 1
   %188 = icmp slt i64 %187, %.sroa.speculated
   br i1 %188, label %168, label %._crit_edge452, !llvm.loop !109
 
@@ -1721,7 +1721,7 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal29general_matrix_vector_pr
   %215 = load <2 x double>, ptr %214, align 1, !tbaa !13
   %216 = fmul <2 x double> %215, %208
   %217 = fadd <2 x double> %.0396457, %216
-  %218 = add nuw nsw i64 %.0183458, 1
+  %218 = add nsw i64 %.0183458, 1
   %219 = icmp slt i64 %218, %.sroa.speculated
   br i1 %219, label %203, label %._crit_edge460, !llvm.loop !110
 
@@ -1758,7 +1758,7 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal29general_matrix_vector_pr
   %238 = load <2 x double>, ptr %237, align 1, !tbaa !13
   %239 = fmul <2 x double> %238, %235
   %240 = fadd <2 x double> %.0387463, %239
-  %241 = add nuw nsw i64 %.0182464, 1
+  %241 = add nsw i64 %.0182464, 1
   %242 = icmp slt i64 %241, %.sroa.speculated
   br i1 %242, label %230, label %._crit_edge466, !llvm.loop !111
 
@@ -1797,7 +1797,7 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal29general_matrix_vector_pr
   %258 = load double, ptr %256, align 8, !tbaa !7
   %259 = fmul double %257, %258
   %260 = fadd double %.0181468, %259
-  %261 = add nuw nsw i64 %.0469, 1
+  %261 = add nsw i64 %.0469, 1
   %262 = icmp slt i64 %261, %.sroa.speculated
   br i1 %262, label %252, label %._crit_edge471, !llvm.loop !113
 }

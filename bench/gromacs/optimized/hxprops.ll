@@ -864,19 +864,19 @@ sub_1:                                            ; preds = %sub_0
   %111 = getelementptr inbounds nuw i8, ptr %98, i64 68
   %112 = load i32, ptr %111, align 4, !tbaa !61
   %.not127 = icmp eq i32 %112, -1
-  br i1 %.not127, label %113, label %._crit_edge187.split.loop.exit254
+  br i1 %.not127, label %113, label %._crit_edge187.split.loop.exit256
 
 113:                                              ; preds = %.lr.ph186, %101, %104, %107, %110
   %indvars.iv.next225 = add nuw nsw i64 %indvars.iv224, 1
   %exitcond228.not = icmp eq i64 %indvars.iv.next225, %wide.trip.count227
   br i1 %exitcond228.not, label %.lr.ph193.preheader, label %.lr.ph186, !llvm.loop !63
 
-._crit_edge187.split.loop.exit254:                ; preds = %110
+._crit_edge187.split.loop.exit256:                ; preds = %110
   %114 = trunc nuw nsw i64 %indvars.iv224 to i32
   br label %.lr.ph193.preheader
 
-.lr.ph193.preheader:                              ; preds = %113, %._crit_edge187.split.loop.exit254
-  %.0116.lcssa = phi i32 [ %114, %._crit_edge187.split.loop.exit254 ], [ %47, %113 ]
+.lr.ph193.preheader:                              ; preds = %113, %._crit_edge187.split.loop.exit256
+  %.0116.lcssa = phi i32 [ %114, %._crit_edge187.split.loop.exit256 ], [ %47, %113 ]
   %115 = zext nneg i32 %26 to i64
   br label %.lr.ph193
 
@@ -922,22 +922,27 @@ sub_1:                                            ; preds = %sub_0
   br label %._crit_edge194
 
 ._crit_edge194:                                   ; preds = %131, %._crit_edge194.loopexit.split.loop.exit, %.preheader171
-  %.0116.lcssa252 = phi i32 [ 0, %.preheader171 ], [ %.0116.lcssa, %._crit_edge194.loopexit.split.loop.exit ], [ %.0116.lcssa, %131 ]
+  %.0116.lcssa254 = phi i32 [ 0, %.preheader171 ], [ %.0116.lcssa, %._crit_edge194.loopexit.split.loop.exit ], [ %.0116.lcssa, %131 ]
   %.0115.lcssa = phi i32 [ %26, %.preheader171 ], [ %133, %._crit_edge194.loopexit.split.loop.exit ], [ -1, %131 ]
-  %spec.select = call i32 @llvm.umax.i32(i32 %.0116.lcssa252, i32 1)
+  %spec.select = call i32 @llvm.umax.i32(i32 %.0116.lcssa254, i32 1)
   %134 = icmp eq i32 %.0115.lcssa, %26
   %135 = sext i1 %134 to i32
   %.1 = add nsw i32 %.0115.lcssa, %135
   %invariant.gep = getelementptr i8, ptr %31, i64 -44
   %136 = icmp slt i32 %spec.select, %.1
-  br i1 %136, label %.lr.ph200.preheader, label %._crit_edge201
+  br i1 %136, label %.lr.ph200.preheader, label %._crit_edge194.._crit_edge201_crit_edge
+
+._crit_edge194.._crit_edge201_crit_edge:          ; preds = %._crit_edge194
+  %.pre251 = sext i32 %.1 to i64
+  br label %._crit_edge201
 
 .lr.ph200.preheader:                              ; preds = %._crit_edge194
-  %137 = call i32 @llvm.umax.i32(i32 %.0116.lcssa252, i32 1)
-  %umax = zext i32 %137 to i64
+  %137 = sext i32 %spec.select to i64
+  %wide.trip.count235 = sext i32 %.1 to i64
   br label %.lr.ph200
 
-._crit_edge201:                                   ; preds = %.lr.ph200, %._crit_edge194
+._crit_edge201:                                   ; preds = %.lr.ph200, %._crit_edge194.._crit_edge201_crit_edge
+  %.pre-phi = phi i64 [ %.pre251, %._crit_edge194.._crit_edge201_crit_edge ], [ %wide.trip.count235, %.lr.ph200 ]
   %138 = sub nsw i32 %.1, %spec.select
   %139 = call i32 @llvm.smax.i32(i32 %138, i32 -1)
   %.sroa.speculated = add nsw i32 %139, 1
@@ -945,98 +950,96 @@ sub_1:                                            ; preds = %sub_0
   %141 = zext nneg i32 %spec.select to i64
   %142 = getelementptr inbounds nuw %struct.t_bb, ptr %31, i64 %141, i32 11
   %143 = load i32, ptr %142, align 4, !tbaa !49
-  %144 = sext i32 %.1 to i64
-  %145 = getelementptr inbounds %struct.t_bb, ptr %31, i64 %144, i32 11
-  %146 = load i32, ptr %145, align 4, !tbaa !49
-  %147 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %140, ptr noundef nonnull @.str.17, i32 noundef %.sroa.speculated, i32 noundef %143, i32 noundef %146) #23
-  %148 = icmp eq i32 %.sroa.speculated, 0
-  br i1 %148, label %157, label %.preheader170
+  %144 = getelementptr inbounds %struct.t_bb, ptr %31, i64 %.pre-phi, i32 11
+  %145 = load i32, ptr %144, align 4, !tbaa !49
+  %146 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %140, ptr noundef nonnull @.str.17, i32 noundef %.sroa.speculated, i32 noundef %143, i32 noundef %145) #23
+  %147 = icmp eq i32 %.sroa.speculated, 0
+  br i1 %147, label %154, label %.preheader170
 
 .preheader170:                                    ; preds = %._crit_edge201
   %.not168202 = icmp slt i32 %138, 0
   br i1 %.not168202, label %._crit_edge209, label %.lr.ph205.preheader
 
 .lr.ph205.preheader:                              ; preds = %.preheader170
-  %149 = call i32 @llvm.umax.i32(i32 %.0116.lcssa252, i32 1)
-  %umax237 = zext i32 %149 to i64
-  %wide.trip.count241 = zext nneg i32 %.sroa.speculated to i64
+  %148 = call i32 @llvm.umax.i32(i32 %.0116.lcssa254, i32 1)
+  %umax = zext i32 %148 to i64
+  %wide.trip.count242 = zext nneg i32 %.sroa.speculated to i64
   br label %.lr.ph205
 
 .lr.ph200:                                        ; preds = %.lr.ph200.preheader, %.lr.ph200
-  %indvars.iv232 = phi i64 [ %umax, %.lr.ph200.preheader ], [ %indvars.iv.next233, %.lr.ph200 ]
+  %indvars.iv232 = phi i64 [ %137, %.lr.ph200.preheader ], [ %indvars.iv.next233, %.lr.ph200 ]
   %gep = getelementptr %struct.t_bb, ptr %invariant.gep, i64 %indvars.iv232
-  %150 = load i32, ptr %gep, align 4, !tbaa !60
-  %151 = getelementptr inbounds nuw %struct.t_bb, ptr %31, i64 %indvars.iv232, i32 12
-  store i32 %150, ptr %151, align 4, !tbaa !65
-  %indvars.iv.next233 = add nuw nsw i64 %indvars.iv232, 1
-  %152 = getelementptr inbounds nuw %struct.t_bb, ptr %31, i64 %indvars.iv.next233, i32 13
-  %153 = load i32, ptr %152, align 4, !tbaa !58
-  %154 = getelementptr inbounds nuw %struct.t_bb, ptr %31, i64 %indvars.iv232, i32 18
-  store i32 %153, ptr %154, align 4, !tbaa !66
-  %155 = trunc nuw i64 %indvars.iv.next233 to i32
-  %156 = icmp sgt i32 %.1, %155
-  br i1 %156, label %.lr.ph200, label %._crit_edge201, !llvm.loop !67
+  %149 = load i32, ptr %gep, align 4, !tbaa !60
+  %150 = getelementptr inbounds %struct.t_bb, ptr %31, i64 %indvars.iv232, i32 12
+  store i32 %149, ptr %150, align 4, !tbaa !65
+  %indvars.iv.next233 = add nsw i64 %indvars.iv232, 1
+  %151 = getelementptr inbounds %struct.t_bb, ptr %31, i64 %indvars.iv.next233, i32 13
+  %152 = load i32, ptr %151, align 4, !tbaa !58
+  %153 = getelementptr inbounds %struct.t_bb, ptr %31, i64 %indvars.iv232, i32 18
+  store i32 %152, ptr %153, align 4, !tbaa !66
+  %exitcond236.not = icmp eq i64 %indvars.iv.next233, %wide.trip.count235
+  br i1 %exitcond236.not, label %._crit_edge201, label %.lr.ph200, !llvm.loop !67
 
-157:                                              ; preds = %._crit_edge201
+154:                                              ; preds = %._crit_edge201
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12) #21
   call void @_ZNSt10filesystem7__cxx114pathC2IA124_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 1 dereferenceable(124) @.str.14, i8 noundef zeroext 2)
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %12, i32 noundef 427, ptr noundef nonnull @.str.18) #25
-          to label %158 unwind label %159
+          to label %155 unwind label %156
 
-158:                                              ; preds = %157
+155:                                              ; preds = %154
   unreachable
 
-159:                                              ; preds = %157
-  %160 = landingpad { ptr, i32 }
+156:                                              ; preds = %154
+  %157 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %12) #21
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12) #21
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #21
-  resume { ptr, i32 } %160
+  resume { ptr, i32 } %157
 
 .lr.ph208.preheader:                              ; preds = %.lr.ph205
-  %wide.trip.count246 = zext nneg i32 %.sroa.speculated to i64
+  %wide.trip.count247 = zext nneg i32 %.sroa.speculated to i64
   br label %.lr.ph208
 
 .lr.ph205:                                        ; preds = %.lr.ph205.preheader, %.lr.ph205
-  %indvars.iv238 = phi i64 [ %umax237, %.lr.ph205.preheader ], [ %indvars.iv.next239, %.lr.ph205 ]
-  %indvars.iv235 = phi i64 [ 0, %.lr.ph205.preheader ], [ %indvars.iv.next236, %.lr.ph205 ]
-  %161 = getelementptr inbounds nuw %struct.t_bb, ptr %31, i64 %indvars.iv238
-  %162 = getelementptr inbounds nuw %struct.t_bb, ptr %31, i64 %indvars.iv235
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(108) %162, ptr noundef nonnull align 4 dereferenceable(108) %161, i64 108, i1 false), !tbaa.struct !68
-  %indvars.iv.next236 = add nuw nsw i64 %indvars.iv235, 1
-  %indvars.iv.next239 = add nuw nsw i64 %indvars.iv238, 1
-  %exitcond242.not = icmp eq i64 %indvars.iv.next236, %wide.trip.count241
-  br i1 %exitcond242.not, label %.lr.ph208.preheader, label %.lr.ph205, !llvm.loop !71
+  %indvars.iv239 = phi i64 [ %umax, %.lr.ph205.preheader ], [ %indvars.iv.next240, %.lr.ph205 ]
+  %indvars.iv237 = phi i64 [ 0, %.lr.ph205.preheader ], [ %indvars.iv.next238, %.lr.ph205 ]
+  %158 = getelementptr inbounds nuw %struct.t_bb, ptr %31, i64 %indvars.iv239
+  %159 = getelementptr inbounds nuw %struct.t_bb, ptr %31, i64 %indvars.iv237
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(108) %159, ptr noundef nonnull align 4 dereferenceable(108) %158, i64 108, i1 false), !tbaa.struct !68
+  %indvars.iv.next238 = add nuw nsw i64 %indvars.iv237, 1
+  %indvars.iv.next240 = add nuw nsw i64 %indvars.iv239, 1
+  %exitcond243.not = icmp eq i64 %indvars.iv.next238, %wide.trip.count242
+  br i1 %exitcond243.not, label %.lr.ph208.preheader, label %.lr.ph205, !llvm.loop !71
 
 ._crit_edge209:                                   ; preds = %.lr.ph208, %.preheader170
   store i32 %.sroa.speculated, ptr %1, align 4, !tbaa !20
-  %163 = mul nsw i32 %.sroa.speculated, 6
-  store i32 %163, ptr %2, align 4, !tbaa !20
+  %160 = mul nsw i32 %.sroa.speculated, 6
+  store i32 %160, ptr %2, align 4, !tbaa !20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #21
   ret ptr %31
 
 .lr.ph208:                                        ; preds = %.lr.ph208.preheader, %.lr.ph208
-  %indvars.iv243 = phi i64 [ 0, %.lr.ph208.preheader ], [ %indvars.iv.next244, %.lr.ph208 ]
-  %164 = getelementptr inbounds nuw %struct.t_bb, ptr %31, i64 %indvars.iv243
-  %165 = getelementptr inbounds nuw i8, ptr %164, i64 60
-  %166 = load i32, ptr %165, align 4, !tbaa !59
-  %167 = sext i32 %166 to i64
-  %168 = getelementptr inbounds %struct.t_atom, ptr %7, i64 %167, i32 7
-  %169 = load i32, ptr %168, align 4, !tbaa !47
-  %170 = getelementptr inbounds nuw i8, ptr %164, i64 76
-  %171 = sext i32 %169 to i64
-  %172 = getelementptr inbounds %struct.t_resinfo, ptr %8, i64 %171
-  %173 = load ptr, ptr %172, align 8, !tbaa !51
-  %174 = load ptr, ptr %173, align 8, !tbaa !43
-  %175 = getelementptr inbounds nuw i8, ptr %172, i64 8
-  %176 = load i32, ptr %175, align 8, !tbaa !72
-  %177 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %170, ptr noundef nonnull dereferenceable(1) @.str.19, ptr noundef %174, i32 noundef %176) #21
-  %indvars.iv.next244 = add nuw nsw i64 %indvars.iv243, 1
-  %exitcond247.not = icmp eq i64 %indvars.iv.next244, %wide.trip.count246
-  br i1 %exitcond247.not, label %._crit_edge209, label %.lr.ph208, !llvm.loop !73
+  %indvars.iv244 = phi i64 [ 0, %.lr.ph208.preheader ], [ %indvars.iv.next245, %.lr.ph208 ]
+  %161 = getelementptr inbounds nuw %struct.t_bb, ptr %31, i64 %indvars.iv244
+  %162 = getelementptr inbounds nuw i8, ptr %161, i64 60
+  %163 = load i32, ptr %162, align 4, !tbaa !59
+  %164 = sext i32 %163 to i64
+  %165 = getelementptr inbounds %struct.t_atom, ptr %7, i64 %164, i32 7
+  %166 = load i32, ptr %165, align 4, !tbaa !47
+  %167 = getelementptr inbounds nuw i8, ptr %161, i64 76
+  %168 = sext i32 %166 to i64
+  %169 = getelementptr inbounds %struct.t_resinfo, ptr %8, i64 %168
+  %170 = load ptr, ptr %169, align 8, !tbaa !51
+  %171 = load ptr, ptr %170, align 8, !tbaa !43
+  %172 = getelementptr inbounds nuw i8, ptr %169, i64 8
+  %173 = load i32, ptr %172, align 8, !tbaa !72
+  %174 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %167, ptr noundef nonnull dereferenceable(1) @.str.19, ptr noundef %171, i32 noundef %173) #21
+  %indvars.iv.next245 = add nuw nsw i64 %indvars.iv244, 1
+  %exitcond248.not = icmp eq i64 %indvars.iv.next245, %wide.trip.count247
+  br i1 %exitcond248.not, label %._crit_edge209, label %.lr.ph208, !llvm.loop !73
 }
 
 declare void @_Z8rd_indexPKciPiPS1_PPc(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #9

@@ -5754,46 +5754,47 @@ define range(i32 0, 2) i32 @stbi_write_jpg_core(ptr noundef readonly captures(no
   br i1 %180, label %.preheader268.us, label %.loopexit
 
 .preheader268.us:                                 ; preds = %.preheader268.lr.ph, %._crit_edge.us
-  %indvars.iv355 = phi i32 [ %indvars.iv.next356, %._crit_edge.us ], [ 8, %.preheader268.lr.ph ]
-  %.2236294.us = phi i32 [ %220, %._crit_edge.us ], [ 0, %.preheader268.lr.ph ]
-  %.2239293.us = phi i32 [ %221, %._crit_edge.us ], [ 0, %.preheader268.lr.ph ]
-  %.2243292.us = phi i32 [ %222, %._crit_edge.us ], [ 0, %.preheader268.lr.ph ]
+  %indvars.iv354 = phi i32 [ %indvars.iv.next355, %._crit_edge.us ], [ 8, %.preheader268.lr.ph ]
+  %.2236294.us = phi i32 [ %221, %._crit_edge.us ], [ 0, %.preheader268.lr.ph ]
+  %.2239293.us = phi i32 [ %222, %._crit_edge.us ], [ 0, %.preheader268.lr.ph ]
+  %.2243292.us = phi i32 [ %223, %._crit_edge.us ], [ 0, %.preheader268.lr.ph ]
   %.1248291.us = phi i32 [ %259, %._crit_edge.us ], [ 0, %.preheader268.lr.ph ]
   br label %183
 
 183:                                              ; preds = %.preheader268.us, %.split284.us295
-  %.3288.us = phi i32 [ %.2236294.us, %.preheader268.us ], [ %220, %.split284.us295 ]
-  %.3240287.us = phi i32 [ %.2239293.us, %.preheader268.us ], [ %221, %.split284.us295 ]
-  %.3244286.us = phi i32 [ %.2243292.us, %.preheader268.us ], [ %222, %.split284.us295 ]
-  %.1246285.us = phi i32 [ 0, %.preheader268.us ], [ %223, %.split284.us295 ]
+  %.3288.us = phi i32 [ %.2236294.us, %.preheader268.us ], [ %221, %.split284.us295 ]
+  %.3240287.us = phi i32 [ %.2239293.us, %.preheader268.us ], [ %222, %.split284.us295 ]
+  %.3244286.us = phi i32 [ %.2243292.us, %.preheader268.us ], [ %223, %.split284.us295 ]
+  %.1246285.us = phi i32 [ 0, %.preheader268.us ], [ %185, %.split284.us295 ]
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %37) #26
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %38) #26
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %39) #26
   %184 = load i32, ptr @stbi__flip_vertically_on_write, align 4, !tbaa !3
   %.fr = freeze i32 %184
   %.not264.us = icmp eq i32 %.fr, 0
+  %185 = add nuw nsw i32 %.1246285.us, 8
   br i1 %.not264.us, label %.split.us.us, label %.split.us301
 
 .split.us301:                                     ; preds = %183, %190
   %.2282.us296 = phi i32 [ %191, %190 ], [ %.1248291.us, %183 ]
-  %.4281.us297 = phi i32 [ %189, %190 ], [ 0, %183 ]
-  %185 = call i32 @llvm.smin.i32(i32 %.2282.us296, i32 %181)
-  %186 = sub nsw i32 %181, %185
-  %187 = mul nsw i32 %186, %1
-  %188 = sext i32 %.4281.us297 to i64
-  %189 = add i32 %.4281.us297, 8
+  %.4281.us297 = phi i64 [ %indvars.iv.next352, %190 ], [ 0, %183 ]
+  %186 = call i32 @llvm.smin.i32(i32 %.2282.us296, i32 %181)
+  %187 = sub nsw i32 %181, %186
+  %188 = mul nsw i32 %187, %1
+  %sext380 = shl i64 %.4281.us297, 32
+  %189 = ashr exact i64 %sext380, 32
   br label %192
 
 190:                                              ; preds = %192
   %191 = add nuw nsw i32 %.2282.us296, 1
-  %exitcond357.not = icmp eq i32 %191, %indvars.iv355
-  br i1 %exitcond357.not, label %.split284.us295, label %.split.us301, !llvm.loop !78
+  %exitcond356.not = icmp eq i32 %191, %indvars.iv354
+  br i1 %exitcond356.not, label %.split284.us295, label %.split.us301, !llvm.loop !78
 
 192:                                              ; preds = %192, %.split.us301
-  %indvars.iv351 = phi i64 [ %indvars.iv.next352, %192 ], [ %188, %.split.us301 ]
+  %indvars.iv351 = phi i64 [ %indvars.iv.next352, %192 ], [ %189, %.split.us301 ]
   %.2228280.us299 = phi i32 [ %219, %192 ], [ %.1246285.us, %.split.us301 ]
   %193 = call i32 @llvm.smin.i32(i32 %.2228280.us299, i32 %182)
-  %194 = add i32 %193, %187
+  %194 = add i32 %193, %188
   %195 = mul i32 %194, %3
   %196 = sext i32 %195 to i64
   %197 = getelementptr inbounds i8, ptr %4, i64 %196
@@ -5823,77 +5824,74 @@ define range(i32 0, 2) i32 @stbi_write_jpg_core(ptr noundef readonly captures(no
   store float %217, ptr %218, align 4, !tbaa !23
   %219 = add nuw nsw i32 %.2228280.us299, 1
   %indvars.iv.next352 = add nsw i64 %indvars.iv351, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next352 to i32
-  %exitcond354.not = icmp eq i32 %189, %lftr.wideiv
-  br i1 %exitcond354.not, label %190, label %192, !llvm.loop !79
+  %220 = icmp samesign ult i32 %219, %185
+  br i1 %220, label %192, label %190, !llvm.loop !79
 
-.split284.us295:                                  ; preds = %190, %229
-  %220 = call i32 @stbiw__jpg_processDU(ptr noundef nonnull %0, ptr noundef nonnull %30, ptr noundef nonnull %31, ptr noundef nonnull %37, i32 noundef 8, ptr noundef nonnull %23, i32 noundef %.3288.us, ptr noundef nonnull @__const.stbi_write_jpg_core.YDC_HT, ptr noundef nonnull @__const.stbi_write_jpg_core.YAC_HT)
-  %221 = call i32 @stbiw__jpg_processDU(ptr noundef nonnull %0, ptr noundef nonnull %30, ptr noundef nonnull %31, ptr noundef nonnull %38, i32 noundef 8, ptr noundef nonnull %24, i32 noundef %.3240287.us, ptr noundef nonnull @__const.stbi_write_jpg_core.UVDC_HT, ptr noundef nonnull @__const.stbi_write_jpg_core.UVAC_HT)
-  %222 = call i32 @stbiw__jpg_processDU(ptr noundef nonnull %0, ptr noundef nonnull %30, ptr noundef nonnull %31, ptr noundef nonnull %39, i32 noundef 8, ptr noundef nonnull %24, i32 noundef %.3244286.us, ptr noundef nonnull @__const.stbi_write_jpg_core.UVDC_HT, ptr noundef nonnull @__const.stbi_write_jpg_core.UVAC_HT)
+.split284.us295:                                  ; preds = %190, %228
+  %221 = call i32 @stbiw__jpg_processDU(ptr noundef nonnull %0, ptr noundef nonnull %30, ptr noundef nonnull %31, ptr noundef nonnull %37, i32 noundef 8, ptr noundef nonnull %23, i32 noundef %.3288.us, ptr noundef nonnull @__const.stbi_write_jpg_core.YDC_HT, ptr noundef nonnull @__const.stbi_write_jpg_core.YAC_HT)
+  %222 = call i32 @stbiw__jpg_processDU(ptr noundef nonnull %0, ptr noundef nonnull %30, ptr noundef nonnull %31, ptr noundef nonnull %38, i32 noundef 8, ptr noundef nonnull %24, i32 noundef %.3240287.us, ptr noundef nonnull @__const.stbi_write_jpg_core.UVDC_HT, ptr noundef nonnull @__const.stbi_write_jpg_core.UVAC_HT)
+  %223 = call i32 @stbiw__jpg_processDU(ptr noundef nonnull %0, ptr noundef nonnull %30, ptr noundef nonnull %31, ptr noundef nonnull %39, i32 noundef 8, ptr noundef nonnull %24, i32 noundef %.3244286.us, ptr noundef nonnull @__const.stbi_write_jpg_core.UVDC_HT, ptr noundef nonnull @__const.stbi_write_jpg_core.UVAC_HT)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %39) #26
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %38) #26
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %37) #26
-  %223 = add nuw nsw i32 %.1246285.us, 8
-  %224 = icmp slt i32 %223, %1
+  %224 = icmp slt i32 %185, %1
   br i1 %224, label %183, label %._crit_edge.us, !llvm.loop !80
 
-.split.us.us:                                     ; preds = %183, %229
-  %.2282.us.us = phi i32 [ %230, %229 ], [ %.1248291.us, %183 ]
-  %.4281.us.us = phi i32 [ %228, %229 ], [ 0, %183 ]
+.split.us.us:                                     ; preds = %183, %228
+  %.2282.us.us = phi i32 [ %229, %228 ], [ %.1248291.us, %183 ]
+  %.4281.us.us = phi i64 [ %indvars.iv.next358, %228 ], [ 0, %183 ]
   %225 = call i32 @llvm.smin.i32(i32 %.2282.us.us, i32 %181)
   %226 = mul nsw i32 %225, %1
-  %227 = sext i32 %.4281.us.us to i64
-  %228 = add i32 %.4281.us.us, 8
-  br label %231
+  %sext381 = shl i64 %.4281.us.us, 32
+  %227 = ashr exact i64 %sext381, 32
+  br label %230
 
-229:                                              ; preds = %231
-  %230 = add nuw nsw i32 %.2282.us.us, 1
-  %exitcond363.not = icmp eq i32 %230, %indvars.iv355
-  br i1 %exitcond363.not, label %.split284.us295, label %.split.us.us, !llvm.loop !78
+228:                                              ; preds = %230
+  %229 = add nuw nsw i32 %.2282.us.us, 1
+  %exitcond360.not = icmp eq i32 %229, %indvars.iv354
+  br i1 %exitcond360.not, label %.split284.us295, label %.split.us.us, !llvm.loop !78
 
-231:                                              ; preds = %231, %.split.us.us
-  %indvars.iv358 = phi i64 [ %indvars.iv.next359, %231 ], [ %227, %.split.us.us ]
-  %.2228280.us.us = phi i32 [ %258, %231 ], [ %.1246285.us, %.split.us.us ]
-  %232 = call i32 @llvm.smin.i32(i32 %.2228280.us.us, i32 %182)
-  %233 = add i32 %232, %226
-  %234 = mul i32 %233, %3
-  %235 = sext i32 %234 to i64
-  %236 = getelementptr inbounds i8, ptr %4, i64 %235
-  %237 = load i8, ptr %236, align 1, !tbaa !11
-  %238 = uitofp i8 %237 to float
-  %239 = getelementptr inbounds i8, ptr %177, i64 %235
-  %240 = load i8, ptr %239, align 1, !tbaa !11
-  %241 = uitofp i8 %240 to float
-  %242 = getelementptr inbounds i8, ptr %178, i64 %235
-  %243 = load i8, ptr %242, align 1, !tbaa !11
-  %244 = uitofp i8 %243 to float
-  %245 = fmul float %241, 0x3FE2C8B440000000
-  %246 = call float @llvm.fmuladd.f32(float %238, float 0x3FD322D0E0000000, float %245)
-  %247 = call float @llvm.fmuladd.f32(float %244, float 0x3FBD2F1AA0000000, float %246)
-  %248 = fadd float %247, -1.280000e+02
-  %249 = getelementptr inbounds [64 x float], ptr %37, i64 0, i64 %indvars.iv358
-  store float %248, ptr %249, align 4, !tbaa !23
-  %250 = fmul float %241, 0xBFD5335D20000000
-  %251 = call float @llvm.fmuladd.f32(float %238, float 0xBFC59945C0000000, float %250)
-  %252 = call float @llvm.fmuladd.f32(float %244, float 5.000000e-01, float %251)
-  %253 = getelementptr inbounds [64 x float], ptr %38, i64 0, i64 %indvars.iv358
-  store float %252, ptr %253, align 4, !tbaa !23
-  %254 = fmul float %241, 0xBFDACBD120000000
-  %255 = call float @llvm.fmuladd.f32(float %238, float 5.000000e-01, float %254)
-  %256 = call float @llvm.fmuladd.f32(float %244, float 0xBFB4D0BB60000000, float %255)
-  %257 = getelementptr inbounds [64 x float], ptr %39, i64 0, i64 %indvars.iv358
-  store float %256, ptr %257, align 4, !tbaa !23
-  %258 = add nuw nsw i32 %.2228280.us.us, 1
-  %indvars.iv.next359 = add nsw i64 %indvars.iv358, 1
-  %lftr.wideiv361 = trunc i64 %indvars.iv.next359 to i32
-  %exitcond362.not = icmp eq i32 %228, %lftr.wideiv361
-  br i1 %exitcond362.not, label %229, label %231, !llvm.loop !79
+230:                                              ; preds = %230, %.split.us.us
+  %indvars.iv357 = phi i64 [ %indvars.iv.next358, %230 ], [ %227, %.split.us.us ]
+  %.2228280.us.us = phi i32 [ %257, %230 ], [ %.1246285.us, %.split.us.us ]
+  %231 = call i32 @llvm.smin.i32(i32 %.2228280.us.us, i32 %182)
+  %232 = add i32 %231, %226
+  %233 = mul i32 %232, %3
+  %234 = sext i32 %233 to i64
+  %235 = getelementptr inbounds i8, ptr %4, i64 %234
+  %236 = load i8, ptr %235, align 1, !tbaa !11
+  %237 = uitofp i8 %236 to float
+  %238 = getelementptr inbounds i8, ptr %177, i64 %234
+  %239 = load i8, ptr %238, align 1, !tbaa !11
+  %240 = uitofp i8 %239 to float
+  %241 = getelementptr inbounds i8, ptr %178, i64 %234
+  %242 = load i8, ptr %241, align 1, !tbaa !11
+  %243 = uitofp i8 %242 to float
+  %244 = fmul float %240, 0x3FE2C8B440000000
+  %245 = call float @llvm.fmuladd.f32(float %237, float 0x3FD322D0E0000000, float %244)
+  %246 = call float @llvm.fmuladd.f32(float %243, float 0x3FBD2F1AA0000000, float %245)
+  %247 = fadd float %246, -1.280000e+02
+  %248 = getelementptr inbounds [64 x float], ptr %37, i64 0, i64 %indvars.iv357
+  store float %247, ptr %248, align 4, !tbaa !23
+  %249 = fmul float %240, 0xBFD5335D20000000
+  %250 = call float @llvm.fmuladd.f32(float %237, float 0xBFC59945C0000000, float %249)
+  %251 = call float @llvm.fmuladd.f32(float %243, float 5.000000e-01, float %250)
+  %252 = getelementptr inbounds [64 x float], ptr %38, i64 0, i64 %indvars.iv357
+  store float %251, ptr %252, align 4, !tbaa !23
+  %253 = fmul float %240, 0xBFDACBD120000000
+  %254 = call float @llvm.fmuladd.f32(float %237, float 5.000000e-01, float %253)
+  %255 = call float @llvm.fmuladd.f32(float %243, float 0xBFB4D0BB60000000, float %254)
+  %256 = getelementptr inbounds [64 x float], ptr %39, i64 0, i64 %indvars.iv357
+  store float %255, ptr %256, align 4, !tbaa !23
+  %257 = add nuw nsw i32 %.2228280.us.us, 1
+  %indvars.iv.next358 = add nsw i64 %indvars.iv357, 1
+  %258 = icmp samesign ult i32 %257, %185
+  br i1 %258, label %230, label %228, !llvm.loop !79
 
 ._crit_edge.us:                                   ; preds = %.split284.us295
   %259 = add nuw nsw i32 %.1248291.us, 8
   %260 = icmp slt i32 %259, %2
-  %indvars.iv.next356 = add i32 %indvars.iv355, 8
+  %indvars.iv.next355 = add i32 %indvars.iv354, 8
   br i1 %260, label %.preheader268.us, label %.loopexit, !llvm.loop !81
 
 .preheader267:                                    ; preds = %104
@@ -5909,7 +5907,7 @@ define range(i32 0, 2) i32 @stbi_write_jpg_core(ptr noundef readonly captures(no
   br i1 %261, label %.preheader266.us, label %.loopexit
 
 .preheader266.us:                                 ; preds = %.preheader266.lr.ph, %._crit_edge.us320
-  %indvars.iv369 = phi i32 [ %indvars.iv.next370, %._crit_edge.us320 ], [ 16, %.preheader266.lr.ph ]
+  %indvars.iv365 = phi i32 [ %indvars.iv.next366, %._crit_edge.us320 ], [ 16, %.preheader266.lr.ph ]
   %.0234319.us = phi i32 [ %273, %._crit_edge.us320 ], [ 0, %.preheader266.lr.ph ]
   %.0237318.us = phi i32 [ %275, %._crit_edge.us320 ], [ 0, %.preheader266.lr.ph ]
   %.0241317.us = phi i32 [ %276, %._crit_edge.us320 ], [ 0, %.preheader266.lr.ph ]
@@ -5950,14 +5948,14 @@ define range(i32 0, 2) i32 @stbi_write_jpg_core(ptr noundef readonly captures(no
   br i1 %278, label %267, label %._crit_edge.us320, !llvm.loop !82
 
 279:                                              ; preds = %280
-  %indvars.iv.next381 = add nuw nsw i64 %indvars.iv380, 1
-  %exitcond383.not = icmp eq i64 %indvars.iv.next381, 8
-  br i1 %exitcond383.not, label %274, label %.preheader.us, !llvm.loop !83
+  %indvars.iv.next377 = add nuw nsw i64 %indvars.iv376, 1
+  %exitcond379.not = icmp eq i64 %indvars.iv.next377, 8
+  br i1 %exitcond379.not, label %274, label %.preheader.us, !llvm.loop !83
 
 280:                                              ; preds = %.preheader.us, %280
-  %indvars.iv374 = phi i64 [ %350, %.preheader.us ], [ %indvars.iv.next375, %280 ]
-  %indvars.iv372 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next373, %280 ]
-  %281 = shl nuw nsw i64 %indvars.iv372, 1
+  %indvars.iv370 = phi i64 [ %350, %.preheader.us ], [ %indvars.iv.next371, %280 ]
+  %indvars.iv368 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next369, %280 ]
+  %281 = shl nuw nsw i64 %indvars.iv368, 1
   %282 = add nuw nsw i64 %281, %349
   %283 = getelementptr inbounds nuw [256 x float], ptr %33, i64 0, i64 %282
   %284 = load float, ptr %283, align 8, !tbaa !23
@@ -5974,7 +5972,7 @@ define range(i32 0, 2) i32 @stbi_write_jpg_core(ptr noundef readonly captures(no
   %295 = load float, ptr %294, align 4, !tbaa !23
   %296 = fadd float %292, %295
   %297 = fmul float %296, 2.500000e-01
-  %298 = getelementptr inbounds [64 x float], ptr %35, i64 0, i64 %indvars.iv374
+  %298 = getelementptr inbounds [64 x float], ptr %35, i64 0, i64 %indvars.iv370
   store float %297, ptr %298, align 4, !tbaa !23
   %299 = getelementptr inbounds nuw [256 x float], ptr %34, i64 0, i64 %282
   %300 = load float, ptr %299, align 8, !tbaa !23
@@ -5988,12 +5986,12 @@ define range(i32 0, 2) i32 @stbi_write_jpg_core(ptr noundef readonly captures(no
   %308 = load float, ptr %307, align 4, !tbaa !23
   %309 = fadd float %306, %308
   %310 = fmul float %309, 2.500000e-01
-  %311 = getelementptr inbounds [64 x float], ptr %36, i64 0, i64 %indvars.iv374
+  %311 = getelementptr inbounds [64 x float], ptr %36, i64 0, i64 %indvars.iv370
   store float %310, ptr %311, align 4, !tbaa !23
-  %indvars.iv.next373 = add nuw nsw i64 %indvars.iv372, 1
-  %indvars.iv.next375 = add nsw i64 %indvars.iv374, 1
-  %exitcond379.not = icmp eq i64 %indvars.iv.next373, 8
-  br i1 %exitcond379.not, label %279, label %280, !llvm.loop !84
+  %indvars.iv.next369 = add nuw nsw i64 %indvars.iv368, 1
+  %indvars.iv.next371 = add nsw i64 %indvars.iv370, 1
+  %exitcond375.not = icmp eq i64 %indvars.iv.next369, 8
+  br i1 %exitcond375.not, label %279, label %280, !llvm.loop !84
 
 312:                                              ; preds = %319, %267
   %.1305.us = phi i32 [ %.0247316.us, %267 ], [ %320, %319 ]
@@ -6007,12 +6005,12 @@ define range(i32 0, 2) i32 @stbi_write_jpg_core(ptr noundef readonly captures(no
   br label %321
 
 319:                                              ; preds = %321
-  %320 = add nuw nsw i32 %.1305.us, 1
-  %exitcond371.not = icmp eq i32 %320, %indvars.iv369
-  br i1 %exitcond371.not, label %269, label %312, !llvm.loop !85
+  %320 = add nuw i32 %.1305.us, 1
+  %exitcond367.not = icmp eq i32 %320, %indvars.iv365
+  br i1 %exitcond367.not, label %269, label %312, !llvm.loop !85
 
 321:                                              ; preds = %321, %312
-  %indvars.iv364 = phi i64 [ %indvars.iv.next365, %321 ], [ %317, %312 ]
+  %indvars.iv361 = phi i64 [ %indvars.iv.next362, %321 ], [ %317, %312 ]
   %.1227303.us = phi i32 [ %348, %321 ], [ %.0245310.us, %312 ]
   %322 = call i32 @llvm.smin.i32(i32 %.1227303.us, i32 %263)
   %323 = add i32 %322, %316
@@ -6031,36 +6029,36 @@ define range(i32 0, 2) i32 @stbi_write_jpg_core(ptr noundef readonly captures(no
   %336 = call float @llvm.fmuladd.f32(float %328, float 0x3FD322D0E0000000, float %335)
   %337 = call float @llvm.fmuladd.f32(float %334, float 0x3FBD2F1AA0000000, float %336)
   %338 = fadd float %337, -1.280000e+02
-  %339 = getelementptr inbounds [256 x float], ptr %32, i64 0, i64 %indvars.iv364
+  %339 = getelementptr inbounds [256 x float], ptr %32, i64 0, i64 %indvars.iv361
   store float %338, ptr %339, align 4, !tbaa !23
   %340 = fmul float %331, 0xBFD5335D20000000
   %341 = call float @llvm.fmuladd.f32(float %328, float 0xBFC59945C0000000, float %340)
   %342 = call float @llvm.fmuladd.f32(float %334, float 5.000000e-01, float %341)
-  %343 = getelementptr inbounds [256 x float], ptr %33, i64 0, i64 %indvars.iv364
+  %343 = getelementptr inbounds [256 x float], ptr %33, i64 0, i64 %indvars.iv361
   store float %342, ptr %343, align 4, !tbaa !23
   %344 = fmul float %331, 0xBFDACBD120000000
   %345 = call float @llvm.fmuladd.f32(float %328, float 5.000000e-01, float %344)
   %346 = call float @llvm.fmuladd.f32(float %334, float 0xBFB4D0BB60000000, float %345)
-  %347 = getelementptr inbounds [256 x float], ptr %34, i64 0, i64 %indvars.iv364
+  %347 = getelementptr inbounds [256 x float], ptr %34, i64 0, i64 %indvars.iv361
   store float %346, ptr %347, align 4, !tbaa !23
   %348 = add nuw nsw i32 %.1227303.us, 1
-  %indvars.iv.next365 = add nsw i64 %indvars.iv364, 1
-  %lftr.wideiv367 = trunc i64 %indvars.iv.next365 to i32
-  %exitcond368.not = icmp eq i32 %318, %lftr.wideiv367
-  br i1 %exitcond368.not, label %319, label %321, !llvm.loop !86
+  %indvars.iv.next362 = add nsw i64 %indvars.iv361, 1
+  %lftr.wideiv = trunc i64 %indvars.iv.next362 to i32
+  %exitcond364.not = icmp eq i32 %318, %lftr.wideiv
+  br i1 %exitcond364.not, label %319, label %321, !llvm.loop !86
 
 .preheader.us:                                    ; preds = %279, %269
-  %indvars.iv380 = phi i64 [ %indvars.iv.next381, %279 ], [ 0, %269 ]
-  %.2251308.us = phi i64 [ %indvars.iv.next375, %279 ], [ 0, %269 ]
-  %349 = shl nuw nsw i64 %indvars.iv380, 5
-  %sext384 = shl i64 %.2251308.us, 32
-  %350 = ashr exact i64 %sext384, 32
+  %indvars.iv376 = phi i64 [ %indvars.iv.next377, %279 ], [ 0, %269 ]
+  %.2251308.us = phi i64 [ %indvars.iv.next371, %279 ], [ 0, %269 ]
+  %349 = shl nuw nsw i64 %indvars.iv376, 5
+  %sext382 = shl i64 %.2251308.us, 32
+  %350 = ashr exact i64 %sext382, 32
   br label %280
 
 ._crit_edge.us320:                                ; preds = %274
   %351 = add nuw nsw i32 %.0247316.us, 16
   %352 = icmp slt i32 %351, %2
-  %indvars.iv.next370 = add i32 %indvars.iv369, 16
+  %indvars.iv.next366 = add i32 %indvars.iv365, 16
   br i1 %352, label %.preheader266.us, label %.loopexit, !llvm.loop !87
 
 .loopexit:                                        ; preds = %._crit_edge.us, %._crit_edge.us320, %.preheader266.lr.ph, %.preheader268.lr.ph, %.preheader269, %.preheader267

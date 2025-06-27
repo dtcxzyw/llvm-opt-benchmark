@@ -470,14 +470,14 @@ setup_qtables.exit203:                            ; preds = %207
 .preheader270:                                    ; preds = %.preheader270.lr.ph, %._crit_edge288
   %219 = phi i32 [ %492, %._crit_edge288 ], [ %214, %.preheader270.lr.ph ]
   %220 = phi i32 [ %493, %._crit_edge288 ], [ %217, %.preheader270.lr.ph ]
-  %.0157290 = phi i32 [ %221, %._crit_edge288 ], [ 0, %.preheader270.lr.ph ]
+  %.0157290 = phi i32 [ %494, %._crit_edge288 ], [ 0, %.preheader270.lr.ph ]
   %.not182285 = icmp sgt i32 %220, 0
-  %221 = add nuw nsw i32 %.0157290, 16
   br i1 %.not182285, label %.lr.ph287, label %._crit_edge288
 
 .lr.ph287:                                        ; preds = %.preheader270
-  %222 = lshr exact i32 %.0157290, 1
-  %223 = or disjoint i32 %222, 4
+  %221 = lshr exact i32 %.0157290, 1
+  %222 = or disjoint i32 %221, 4
+  %223 = or disjoint i32 %.0157290, 8
   br label %224
 
 224:                                              ; preds = %.lr.ph287, %add_pframe_coefficients.exit243
@@ -661,7 +661,7 @@ get_ue_golomb.exit:                               ; preds = %311, %301
 .preheader:                                       ; preds = %327, %336
   %.0152284 = phi i32 [ %.0157290, %327 ], [ %337, %336 ]
   %.0154283 = phi i32 [ %331, %327 ], [ %385, %336 ]
-  %333 = or disjoint i32 %.0152284, 4
+  %333 = add nuw nsw i32 %.0152284, 4
   br label %339
 
 334:                                              ; preds = %336
@@ -671,7 +671,7 @@ get_ue_golomb.exit:                               ; preds = %311, %301
 
 336:                                              ; preds = %add_pframe_coefficients.exit
   %337 = add nuw nsw i32 %.0152284, 8
-  %338 = icmp samesign ult i32 %337, %221
+  %338 = icmp samesign ult i32 %.0152284, %223
   br i1 %338, label %.preheader, label %334, !llvm.loop !72
 
 339:                                              ; preds = %.preheader, %add_pframe_coefficients.exit
@@ -795,7 +795,7 @@ add_pframe_coefficients.exit:                     ; preds = %383, %377, %367, %3
 
 416:                                              ; preds = %389
   %417 = trunc nuw i64 %390 to i32
-  %418 = tail call fastcc i32 @add_coefficients(ptr nonnull %393, ptr noundef readonly %12, i32 noundef range(i32 -2147483648, 2147483647) %417, i32 noundef range(i32 -2147483648, 2147483647) %222, i32 noundef 8, i32 noundef range(i32 0, 3) %392)
+  %418 = tail call fastcc i32 @add_coefficients(ptr nonnull %393, ptr noundef readonly %12, i32 noundef range(i32 -2147483648, 2147483647) %417, i32 noundef range(i32 -2147483648, 2147483647) %221, i32 noundef 8, i32 noundef range(i32 0, 3) %392)
   br label %add_pframe_coefficients.exit231
 
 419:                                              ; preds = %389
@@ -812,7 +812,7 @@ add_pframe_coefficients.exit:                     ; preds = %383, %377, %367, %3
   br label %.preheader.i222
 
 .preheader.i222:                                  ; preds = %437, %421
-  %.03249.i223 = phi i32 [ %222, %421 ], [ %438, %437 ]
+  %.03249.i223 = phi i32 [ %221, %421 ], [ %438, %437 ]
   %.03348.i224 = phi i32 [ %425, %421 ], [ %434, %437 ]
   br label %428
 
@@ -838,7 +838,7 @@ add_pframe_coefficients.exit:                     ; preds = %383, %377, %367, %3
 
 437:                                              ; preds = %433
   %438 = add nuw nsw i32 %.03249.i223, 4
-  %.not41.i230 = icmp samesign ult i32 %.03249.i223, %223
+  %.not41.i230 = icmp samesign ult i32 %.03249.i223, %222
   br i1 %.not41.i230, label %.preheader.i222, label %add_pframe_coefficients.exit231, !llvm.loop !74
 
 add_pframe_coefficients.exit231:                  ; preds = %437, %430, %419, %416, %334
@@ -880,7 +880,7 @@ add_pframe_coefficients.exit231:                  ; preds = %437, %430, %419, %4
 
 467:                                              ; preds = %440
   %468 = trunc nuw i64 %441 to i32
-  %469 = tail call fastcc i32 @add_coefficients(ptr nonnull %444, ptr noundef readonly %12, i32 noundef range(i32 -2147483648, 2147483647) %468, i32 noundef range(i32 -2147483648, 2147483647) %222, i32 noundef 8, i32 noundef range(i32 0, 3) %443)
+  %469 = tail call fastcc i32 @add_coefficients(ptr nonnull %444, ptr noundef readonly %12, i32 noundef range(i32 -2147483648, 2147483647) %468, i32 noundef range(i32 -2147483648, 2147483647) %221, i32 noundef 8, i32 noundef range(i32 0, 3) %443)
   br label %add_pframe_coefficients.exit243
 
 470:                                              ; preds = %440
@@ -897,7 +897,7 @@ add_pframe_coefficients.exit231:                  ; preds = %437, %430, %419, %4
   br label %.preheader.i234
 
 .preheader.i234:                                  ; preds = %488, %472
-  %.03249.i235 = phi i32 [ %222, %472 ], [ %489, %488 ]
+  %.03249.i235 = phi i32 [ %221, %472 ], [ %489, %488 ]
   %.03348.i236 = phi i32 [ %476, %472 ], [ %485, %488 ]
   br label %479
 
@@ -923,7 +923,7 @@ add_pframe_coefficients.exit231:                  ; preds = %437, %430, %419, %4
 
 488:                                              ; preds = %484
   %489 = add nuw nsw i32 %.03249.i235, 4
-  %.not41.i242 = icmp samesign ult i32 %.03249.i235, %223
+  %.not41.i242 = icmp samesign ult i32 %.03249.i235, %222
   br i1 %.not41.i242, label %.preheader.i234, label %add_pframe_coefficients.exit243, !llvm.loop !74
 
 add_pframe_coefficients.exit243:                  ; preds = %488, %481, %.add_pframe_coefficients.exit243_crit_edge, %470, %467, %add_pframe_coefficients.exit231
@@ -937,38 +937,39 @@ add_pframe_coefficients.exit243:                  ; preds = %488, %481, %.add_pf
   %.pre304 = load i32, ptr %13, align 4, !tbaa !28
   br label %._crit_edge288
 
-._crit_edge288:                                   ; preds = %.preheader270, %._crit_edge288.loopexit
+._crit_edge288:                                   ; preds = %._crit_edge288.loopexit, %.preheader270
   %492 = phi i32 [ %.pre304, %._crit_edge288.loopexit ], [ %219, %.preheader270 ]
   %493 = phi i32 [ %490, %._crit_edge288.loopexit ], [ %220, %.preheader270 ]
-  %.not265 = icmp slt i32 %221, %492
+  %494 = add nuw nsw i32 %.0157290, 16
+  %.not265 = icmp slt i32 %494, %492
   br i1 %.not265, label %.preheader270, label %.thread246, !llvm.loop !77
 
 .thread246:                                       ; preds = %._crit_edge, %._crit_edge288, %.preheader270.lr.ph, %.preheader271.lr.ph, %setup_qtables.exit, %setup_qtables.exit203
-  %494 = getelementptr inbounds nuw i8, ptr %6, i64 52
-  %495 = load i32, ptr %494, align 4, !tbaa !58
-  %.not185 = icmp eq i32 %495, 0
-  br i1 %.not185, label %496, label %498
+  %495 = getelementptr inbounds nuw i8, ptr %6, i64 52
+  %496 = load i32, ptr %495, align 4, !tbaa !58
+  %.not185 = icmp eq i32 %496, 0
+  br i1 %.not185, label %497, label %499
 
-496:                                              ; preds = %.thread246
-  %497 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store i32 8, ptr %497, align 8, !tbaa !78
-  br label %498
+497:                                              ; preds = %.thread246
+  %498 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  store i32 8, ptr %498, align 8, !tbaa !78
+  br label %499
 
-498:                                              ; preds = %496, %.thread246
-  %499 = load i32, ptr %8, align 8, !tbaa !40
-  %500 = add nsw i32 %499, 1
-  %501 = srem i32 %500, 6
-  store i32 %501, ptr %8, align 8, !tbaa !40
-  %502 = tail call i32 @av_frame_ref(ptr noundef %1, ptr noundef %12) #11
-  %503 = icmp slt i32 %502, 0
-  br i1 %503, label %setup_qtables.exit.thread, label %504
+499:                                              ; preds = %497, %.thread246
+  %500 = load i32, ptr %8, align 8, !tbaa !40
+  %501 = add nsw i32 %500, 1
+  %502 = srem i32 %501, 6
+  store i32 %502, ptr %8, align 8, !tbaa !40
+  %503 = tail call i32 @av_frame_ref(ptr noundef %1, ptr noundef %12) #11
+  %504 = icmp slt i32 %503, 0
+  br i1 %504, label %setup_qtables.exit.thread, label %505
 
-504:                                              ; preds = %498
+505:                                              ; preds = %499
   store i32 1, ptr %2, align 4, !tbaa !61
   br label %setup_qtables.exit.thread
 
-setup_qtables.exit.thread:                        ; preds = %.lr.ph, %285, %get_ue_golomb.exit, %280, %311, %get_se_golomb.exit, %61, %498, %35, %29, %4, %504
-  %.0153 = phi i32 [ 0, %504 ], [ -1094995529, %4 ], [ %33, %29 ], [ -1094995529, %35 ], [ %502, %498 ], [ -1094995529, %61 ], [ -1094995529, %get_se_golomb.exit ], [ -1094995529, %311 ], [ %283, %280 ], [ %287, %285 ], [ -1094995529, %get_ue_golomb.exit ], [ %124, %.lr.ph ]
+setup_qtables.exit.thread:                        ; preds = %.lr.ph, %285, %get_ue_golomb.exit, %280, %311, %get_se_golomb.exit, %61, %499, %35, %29, %4, %505
+  %.0153 = phi i32 [ 0, %505 ], [ -1094995529, %4 ], [ %33, %29 ], [ -1094995529, %35 ], [ %503, %499 ], [ -1094995529, %61 ], [ -1094995529, %get_se_golomb.exit ], [ -1094995529, %311 ], [ %283, %280 ], [ %287, %285 ], [ -1094995529, %get_ue_golomb.exit ], [ %124, %.lr.ph ]
   ret i32 %.0153
 }
 

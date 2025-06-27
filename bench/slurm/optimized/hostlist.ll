@@ -1870,7 +1870,7 @@ _test_box.exit.thread:                            ; preds = %.preheader.i, %_tes
   %161 = and i64 %indvars.iv.next240, 4294967295
   %162 = getelementptr inbounds nuw i8, ptr %2, i64 %161
   store i8 120, ptr %162, align 1
-  %.6208 = add nuw i64 %indvars.iv239, 2
+  %.6208 = add i64 %indvars.iv239, 2
   %163 = and i64 %.6208, 4294967295
   %smax255 = tail call i32 @llvm.smax.i32(i32 %.0, i32 1)
   %wide.trip.count256 = zext nneg i32 %smax255 to i64
@@ -8143,7 +8143,7 @@ hostlist_parse_int_to_array.exit77:               ; preds = %.lr.ph.i73
   %64 = getelementptr inbounds nuw i8, ptr %2, i64 %63
   store i8 45, ptr %64, align 1
   %.384 = add nuw i32 %.160, 1
-  %65 = zext i32 %.384 to i64
+  %65 = sext i32 %.384 to i64
   %wide.trip.count97 = zext i16 %4 to i64
   br label %66
 
@@ -8157,16 +8157,17 @@ hostlist_parse_int_to_array.exit77:               ; preds = %.lr.ph.i73
   %70 = sext i32 %69 to i64
   %71 = getelementptr inbounds i8, ptr %67, i64 %70
   %72 = load i8, ptr %71, align 1
-  %73 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv90
+  %73 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv90
   store i8 %72, ptr %73, align 1
-  %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
+  %indvars.iv.next91 = add nsw i64 %indvars.iv90, 1
   %exitcond98.not = icmp eq i64 %indvars.iv.next93, %wide.trip.count97
   br i1 %exitcond98.not, label %74, label %66, !llvm.loop !84
 
 74:                                               ; preds = %66
-  %75 = trunc nuw i64 %indvars.iv.next91 to i32
-  %76 = and i64 %indvars.iv.next91, 4294967295
-  %77 = getelementptr inbounds nuw i8, ptr %2, i64 %76
+  %75 = trunc nsw i64 %indvars.iv.next91 to i32
+  %sext = shl i64 %indvars.iv.next91, 32
+  %76 = ashr exact i64 %sext, 32
+  %77 = getelementptr inbounds i8, ptr %2, i64 %76
   store i8 0, ptr %77, align 1
   call void @llvm.stackrestore.p0(ptr %55)
   br label %85

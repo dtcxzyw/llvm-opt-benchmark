@@ -14394,14 +14394,15 @@ _ZN5Ipopt14DenseSymMatrix6ValuesEv.exit50:        ; preds = %30
 .preheader.preheader:                             ; preds = %_ZN5Ipopt14DenseSymMatrix6ValuesEv.exit50
   %35 = zext nneg i32 %.035 to i64
   %36 = zext nneg i32 %13 to i64
+  %wide.trip.count122 = zext nneg i32 %.035 to i64
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %47
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %47 ]
   %37 = mul nuw nsw i64 %indvars.iv, %35
   %38 = mul nuw nsw i64 %indvars.iv, %36
-  %invariant.gep = getelementptr inbounds nuw double, ptr %33, i64 %37
-  %invariant.gep135 = getelementptr inbounds nuw double, ptr %28, i64 %38
+  %invariant.gep = getelementptr double, ptr %33, i64 %37
+  %invariant.gep135 = getelementptr double, ptr %28, i64 %38
   br label %48
 
 39:                                               ; preds = %11
@@ -14427,17 +14428,17 @@ _ZN5Ipopt14DenseSymMatrix6ValuesEv.exit50:        ; preds = %30
 
 47:                                               ; preds = %48
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond123.not = icmp eq i64 %indvars.iv.next, %35
+  %exitcond123.not = icmp eq i64 %indvars.iv.next, %wide.trip.count122
   br i1 %exitcond123.not, label %.loopexit, label %.preheader, !llvm.loop !365
 
 48:                                               ; preds = %.preheader, %48
   %indvars.iv118 = phi i64 [ %indvars.iv, %.preheader ], [ %indvars.iv.next119, %48 ]
-  %gep = getelementptr inbounds nuw double, ptr %invariant.gep, i64 %indvars.iv118
+  %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv118
   %49 = load double, ptr %gep, align 8, !tbaa !252
-  %gep136 = getelementptr inbounds nuw double, ptr %invariant.gep135, i64 %indvars.iv118
+  %gep136 = getelementptr double, ptr %invariant.gep135, i64 %indvars.iv118
   store double %49, ptr %gep136, align 8, !tbaa !252
   %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next119, %35
+  %exitcond.not = icmp eq i64 %indvars.iv.next119, %wide.trip.count122
   br i1 %exitcond.not, label %47, label %48, !llvm.loop !366
 
 .loopexit:                                        ; preds = %47, %_ZN5Ipopt14DenseSymMatrix6ValuesEv.exit50, %25
@@ -15359,8 +15360,8 @@ _ZN5Ipopt14DenseSymMatrix6ValuesEv.exit45:        ; preds = %19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %30 = mul nuw nsw i64 %indvars.iv.next, %29
   %31 = mul nuw nsw i64 %indvars.iv, %29
-  %invariant.gep = getelementptr inbounds nuw double, ptr %22, i64 %30
-  %invariant.gep119 = getelementptr inbounds nuw double, ptr %25, i64 %31
+  %invariant.gep = getelementptr double, ptr %22, i64 %30
+  %invariant.gep119 = getelementptr double, ptr %25, i64 %31
   br label %42
 
 .preheader:                                       ; preds = %41, %_ZN5Ipopt14DenseSymMatrix6ValuesEv.exit45
@@ -15393,11 +15394,11 @@ _ZN5Ipopt14DenseSymMatrix6ValuesEv.exit45:        ; preds = %19
 42:                                               ; preds = %.preheader87, %42
   %indvars.iv104 = phi i64 [ %indvars.iv, %.preheader87 ], [ %indvars.iv.next105, %42 ]
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
-  %gep = getelementptr inbounds nuw double, ptr %invariant.gep, i64 %indvars.iv.next105
+  %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv.next105
   %43 = load double, ptr %gep, align 8, !tbaa !252
-  %gep120 = getelementptr inbounds nuw double, ptr %invariant.gep119, i64 %indvars.iv104
+  %gep120 = getelementptr double, ptr %invariant.gep119, i64 %indvars.iv104
   store double %43, ptr %gep120, align 8, !tbaa !252
-  %44 = icmp samesign ult i64 %indvars.iv.next105, %28
+  %44 = icmp slt i64 %indvars.iv.next105, %28
   br i1 %44, label %42, label %41, !llvm.loop !394
 
 ._crit_edge:                                      ; preds = %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit60, %.preheader
@@ -15716,14 +15717,15 @@ _ZN5Ipopt14DenseSymMatrix6ValuesEv.exit50:        ; preds = %31
 .preheader.preheader:                             ; preds = %_ZN5Ipopt14DenseSymMatrix6ValuesEv.exit50
   %36 = zext nneg i32 %.035 to i64
   %37 = zext nneg i32 %14 to i64
+  %wide.trip.count122 = zext nneg i32 %.035 to i64
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %48
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %48 ]
   %38 = mul nuw nsw i64 %indvars.iv, %36
   %39 = mul nuw nsw i64 %indvars.iv, %37
-  %invariant.gep = getelementptr inbounds nuw double, ptr %34, i64 %38
-  %invariant.gep135 = getelementptr inbounds nuw double, ptr %29, i64 %39
+  %invariant.gep = getelementptr double, ptr %34, i64 %38
+  %invariant.gep135 = getelementptr double, ptr %29, i64 %39
   br label %49
 
 40:                                               ; preds = %12
@@ -15749,17 +15751,17 @@ _ZN5Ipopt14DenseSymMatrix6ValuesEv.exit50:        ; preds = %31
 
 48:                                               ; preds = %49
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond123.not = icmp eq i64 %indvars.iv.next, %36
+  %exitcond123.not = icmp eq i64 %indvars.iv.next, %wide.trip.count122
   br i1 %exitcond123.not, label %.loopexit, label %.preheader, !llvm.loop !402
 
 49:                                               ; preds = %.preheader, %49
   %indvars.iv118 = phi i64 [ %indvars.iv, %.preheader ], [ %indvars.iv.next119, %49 ]
-  %gep = getelementptr inbounds nuw double, ptr %invariant.gep, i64 %indvars.iv118
+  %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv118
   %50 = load double, ptr %gep, align 8, !tbaa !252
-  %gep136 = getelementptr inbounds nuw double, ptr %invariant.gep135, i64 %indvars.iv118
+  %gep136 = getelementptr double, ptr %invariant.gep135, i64 %indvars.iv118
   store double %50, ptr %gep136, align 8, !tbaa !252
   %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next119, %36
+  %exitcond.not = icmp eq i64 %indvars.iv.next119, %wide.trip.count122
   br i1 %exitcond.not, label %48, label %49, !llvm.loop !403
 
 .loopexit:                                        ; preds = %48, %_ZN5Ipopt14DenseSymMatrix6ValuesEv.exit50, %26
@@ -16116,8 +16118,8 @@ _ZN5Ipopt14DenseSymMatrix6ValuesEv.exit45:        ; preds = %20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %31 = mul nuw nsw i64 %indvars.iv.next, %30
   %32 = mul nuw nsw i64 %indvars.iv, %30
-  %invariant.gep = getelementptr inbounds nuw double, ptr %23, i64 %31
-  %invariant.gep119 = getelementptr inbounds nuw double, ptr %26, i64 %32
+  %invariant.gep = getelementptr double, ptr %23, i64 %31
+  %invariant.gep119 = getelementptr double, ptr %26, i64 %32
   br label %45
 
 .preheader:                                       ; preds = %44, %_ZN5Ipopt14DenseSymMatrix6ValuesEv.exit45
@@ -16152,11 +16154,11 @@ _ZN5Ipopt14DenseSymMatrix6ValuesEv.exit45:        ; preds = %20
 45:                                               ; preds = %.preheader87, %45
   %indvars.iv104 = phi i64 [ %indvars.iv, %.preheader87 ], [ %indvars.iv.next105, %45 ]
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
-  %gep = getelementptr inbounds nuw double, ptr %invariant.gep, i64 %indvars.iv.next105
+  %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv.next105
   %46 = load double, ptr %gep, align 8, !tbaa !252
-  %gep120 = getelementptr inbounds nuw double, ptr %invariant.gep119, i64 %indvars.iv104
+  %gep120 = getelementptr double, ptr %invariant.gep119, i64 %indvars.iv104
   store double %46, ptr %gep120, align 8, !tbaa !252
-  %47 = icmp samesign ult i64 %indvars.iv.next105, %29
+  %47 = icmp slt i64 %indvars.iv.next105, %29
   br i1 %47, label %45, label %44, !llvm.loop !415
 
 ._crit_edge:                                      ; preds = %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit60, %.preheader
@@ -17028,7 +17030,7 @@ _ZN5Ipopt8SmartPtrINS_19DenseGenMatrixSpaceEED2Ev.exit: ; preds = %._crit_edge, 
 
 .lr.ph:                                           ; preds = %.preheader
   %65 = mul nuw nsw i64 %indvar, %45
-  %invariant.gep = getelementptr inbounds nuw double, ptr %36, i64 %65
+  %invariant.gep = getelementptr double, ptr %36, i64 %65
   br label %66
 
 66:                                               ; preds = %.lr.ph, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit59
@@ -17217,7 +17219,7 @@ _ZNSt6vectorIPKN5Ipopt12TaggedObjectESaIS3_EED2Ev.exit8.i: ; preds = %129, %_ZNS
 
 _ZNK5Ipopt6Vector3DotERKS0_.exit:                 ; preds = %.noexc56, %_ZNK5Ipopt6Vector4Nrm2Ev.exit.i
   %.0.i = phi double [ %99, %_ZNK5Ipopt6Vector4Nrm2Ev.exit.i ], [ %139, %.noexc56 ]
-  %gep = getelementptr inbounds nuw double, ptr %invariant.gep, i64 %indvars.iv91
+  %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv91
   store double %.0.i, ptr %gep, align 8, !tbaa !252
   %.not.i.i57 = icmp eq ptr %.0.i4.i48, null
   br i1 %.not.i.i57, label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit, label %140

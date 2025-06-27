@@ -193121,7 +193121,7 @@ _ZN4absl4CordD2Ev.exit442:                        ; preds = %813, %816
 820:                                              ; preds = %.preheader496, %_ZN4absl4CordD2Ev.exit444
   %821 = phi ptr [ %822, %_ZN4absl4CordD2Ev.exit444 ], [ %141, %.preheader496 ]
   %822 = getelementptr inbounds i8, ptr %821, i64 -16
-  %823 = load i8, ptr %822, align 1, !tbaa !24
+  %823 = load i8, ptr %822, align 16, !tbaa !24
   %824 = and i8 %823, 1
   %.not.i443 = icmp eq i8 %824, 0
   br i1 %.not.i443, label %_ZN4absl4CordD2Ev.exit444, label %825

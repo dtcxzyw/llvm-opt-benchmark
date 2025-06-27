@@ -1936,13 +1936,13 @@ gen_bitlen.exit:                                  ; preds = %.outer.split.us.i, 
   %exitcond.not.i127 = icmp eq i64 %indvars.iv.next.i126, 16
   br i1 %exitcond.not.i127, label %.preheader.i128, label %368, !llvm.loop !73
 
-.lr.ph.i129:                                      ; preds = %390, %.lr.ph.preheader.i
-  %indvars.iv23.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next24.i, %390 ]
+.lr.ph.i129:                                      ; preds = %392, %.lr.ph.preheader.i
+  %indvars.iv23.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next24.i, %392 ]
   %373 = getelementptr inbounds nuw %struct.ct_data_s, ptr %4, i64 %indvars.iv23.i
   %374 = getelementptr inbounds nuw i8, ptr %373, i64 2
   %375 = load i16, ptr %374, align 2, !tbaa !26
   %376 = icmp eq i16 %375, 0
-  br i1 %376, label %390, label %377
+  br i1 %376, label %392, label %377
 
 377:                                              ; preds = %.lr.ph.i129
   %378 = zext i16 %375 to i32
@@ -1951,30 +1951,32 @@ gen_bitlen.exit:                                  ; preds = %.outer.split.us.i, 
   %381 = load i16, ptr %380, align 2, !tbaa !67
   %382 = add i16 %381, 1
   store i16 %382, ptr %380, align 2, !tbaa !67
-  br label %383
+  %383 = zext i16 %381 to i32
+  br label %384
 
-383:                                              ; preds = %383, %377
-  %.07.i.i = phi i16 [ %381, %377 ], [ %386, %383 ]
-  %.06.i.i = phi i32 [ %378, %377 ], [ %388, %383 ]
-  %.0.i.i = phi i16 [ 0, %377 ], [ %387, %383 ]
-  %384 = and i16 %.07.i.i, 1
-  %385 = or disjoint i16 %.0.i.i, %384
-  %386 = lshr i16 %.07.i.i, 1
-  %387 = shl i16 %385, 1
-  %388 = add nsw i32 %.06.i.i, -1
-  %389 = icmp samesign ugt i32 %.06.i.i, 1
-  br i1 %389, label %383, label %bi_reverse.exit.i, !llvm.loop !74
+384:                                              ; preds = %384, %377
+  %.07.i.i = phi i32 [ %383, %377 ], [ %387, %384 ]
+  %.06.i.i = phi i32 [ %378, %377 ], [ %389, %384 ]
+  %.0.i.i = phi i32 [ 0, %377 ], [ %388, %384 ]
+  %385 = and i32 %.07.i.i, 1
+  %386 = or disjoint i32 %.0.i.i, %385
+  %387 = lshr i32 %.07.i.i, 1
+  %388 = shl i32 %386, 1
+  %389 = add nsw i32 %.06.i.i, -1
+  %390 = icmp samesign ugt i32 %.06.i.i, 1
+  br i1 %390, label %384, label %bi_reverse.exit.i, !llvm.loop !74
 
-bi_reverse.exit.i:                                ; preds = %383
-  store i16 %385, ptr %373, align 2, !tbaa !26
-  br label %390
+bi_reverse.exit.i:                                ; preds = %384
+  %391 = trunc i32 %386 to i16
+  store i16 %391, ptr %373, align 2, !tbaa !26
+  br label %392
 
-390:                                              ; preds = %bi_reverse.exit.i, %.lr.ph.i129
+392:                                              ; preds = %bi_reverse.exit.i, %.lr.ph.i129
   %indvars.iv.next24.i = add nuw nsw i64 %indvars.iv23.i, 1
   %exitcond26.not.i = icmp eq i64 %indvars.iv.next24.i, %wide.trip.count.i
   br i1 %exitcond26.not.i, label %gen_codes.exit, label %.lr.ph.i129, !llvm.loop !75
 
-gen_codes.exit:                                   ; preds = %390, %.preheader.i128
+gen_codes.exit:                                   ; preds = %392, %.preheader.i128
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #9
   ret void
 }

@@ -1190,7 +1190,7 @@ define internal i32 @detect_clicks(ptr noundef readonly captures(none) %0, ptr r
 
 .preheader76:                                     ; preds = %.preheader76.preheader, %._crit_edge
   %indvars.iv94 = phi i64 [ %21, %.preheader76.preheader ], [ %indvars.iv.next95, %._crit_edge ]
-  %22 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv94
+  %22 = getelementptr inbounds double, ptr %3, i64 %indvars.iv94
   %.promoted = load double, ptr %22, align 8, !tbaa !65
   br label %25
 
@@ -1217,7 +1217,7 @@ define internal i32 @detect_clicks(ptr noundef readonly captures(none) %0, ptr r
   br i1 %exitcond.not, label %._crit_edge, label %25, !llvm.loop !123
 
 ._crit_edge:                                      ; preds = %25
-  %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
+  %indvars.iv.next95 = add nsw i64 %indvars.iv94, 1
   %exitcond98.not = icmp eq i64 %indvars.iv.next95, %wide.trip.count97
   br i1 %exitcond98.not, label %.preheader75, label %.preheader76, !llvm.loop !124
 
@@ -1712,13 +1712,13 @@ autocorrelation.exit.i139:                        ; preds = %autocorrelation.exi
   %173 = mul nuw nsw i64 %indvars.iv.i140, %151
   %174 = getelementptr inbounds nuw i32, ptr %124, i64 %indvars.iv.i140
   %175 = load i32, ptr %174, align 4, !tbaa !117
-  %invariant.gep139.sink.i = getelementptr inbounds nuw double, ptr %147, i64 %indvars.iv.i140
-  %invariant.gep.sink.i = getelementptr inbounds nuw double, ptr %147, i64 %173
+  %invariant.gep139.sink.i = getelementptr double, ptr %147, i64 %indvars.iv.i140
+  %invariant.gep.sink.i = getelementptr double, ptr %147, i64 %173
   br label %176
 
 176:                                              ; preds = %185, %autocorrelation.exit.i139
   %indvars.iv116.i = phi i64 [ %indvars.iv.i140, %autocorrelation.exit.i139 ], [ %indvars.iv.next117.i, %185 ]
-  %177 = getelementptr inbounds nuw i32, ptr %124, i64 %indvars.iv116.i
+  %177 = getelementptr inbounds i32, ptr %124, i64 %indvars.iv116.i
   %178 = load i32, ptr %177, align 4, !tbaa !117
   %179 = sub nsw i32 %178, %175
   %180 = tail call i32 @llvm.abs.i32(i32 %179, i1 true)
@@ -1733,10 +1733,10 @@ autocorrelation.exit.i139:                        ; preds = %autocorrelation.exi
 
 185:                                              ; preds = %181, %176
   %.sink146.i = phi double [ %184, %181 ], [ 0.000000e+00, %176 ]
-  %gep.i141 = getelementptr inbounds nuw double, ptr %invariant.gep.sink.i, i64 %indvars.iv116.i
+  %gep.i141 = getelementptr double, ptr %invariant.gep.sink.i, i64 %indvars.iv116.i
   store double %.sink146.i, ptr %gep.i141, align 8, !tbaa !65
   %186 = mul nuw nsw i64 %indvars.iv116.i, %151
-  %gep140.i = getelementptr inbounds nuw double, ptr %invariant.gep139.sink.i, i64 %186
+  %gep140.i = getelementptr double, ptr %invariant.gep139.sink.i, i64 %186
   store double %.sink146.i, ptr %gep140.i, align 8, !tbaa !65
   %indvars.iv.next117.i = add nuw nsw i64 %indvars.iv116.i, 1
   %exitcond.not.i142 = icmp eq i64 %indvars.iv.next117.i, %151
@@ -1878,9 +1878,9 @@ find_index.exit.i:                                ; preds = %.lr.ph.i88.i, %.loo
 .lr.ph73.us.i.i.i:                                ; preds = %._crit_edge74.us.i.i.i, %.lr.ph73.us.preheader.i.i.i
   %indvars.iv94.i.i.i = phi i64 [ %indvars.iv92.i.i.i, %.lr.ph73.us.preheader.i.i.i ], [ %indvars.iv.next95.i.i.i, %._crit_edge74.us.i.i.i ]
   %240 = mul nuw nsw i64 %indvars.iv94.i.i.i, %151
-  %gep116.i.i.i = getelementptr inbounds nuw double, ptr %225, i64 %240
+  %gep116.i.i.i = getelementptr double, ptr %225, i64 %240
   %241 = load double, ptr %gep116.i.i.i, align 8, !tbaa !65
-  %invariant.gep113.i.i.i = getelementptr inbounds nuw double, ptr %147, i64 %240
+  %invariant.gep113.i.i.i = getelementptr double, ptr %147, i64 %240
   br label %242
 
 242:                                              ; preds = %242, %.lr.ph73.us.i.i.i
@@ -1893,7 +1893,7 @@ find_index.exit.i:                                ; preds = %.lr.ph.i88.i, %.loo
   %247 = load double, ptr %246, align 8, !tbaa !65
   %gep112.i.i.i = getelementptr inbounds nuw double, ptr %invariant.gep111.i.i.i, i64 %indvars.iv87.i.i.i
   %248 = load double, ptr %gep112.i.i.i, align 8, !tbaa !65
-  %gep114.i.i.i = getelementptr inbounds nuw double, ptr %invariant.gep113.i.i.i, i64 %indvars.iv87.i.i.i
+  %gep114.i.i.i = getelementptr double, ptr %invariant.gep113.i.i.i, i64 %indvars.iv87.i.i.i
   %249 = load double, ptr %gep114.i.i.i, align 8, !tbaa !65
   %250 = fneg nsz double %248
   %251 = fmul nsz double %247, %250
@@ -1995,16 +1995,17 @@ factorization.exit.i.i:                           ; preds = %._crit_edge80.i.i.i
 283:                                              ; preds = %283, %.lr.ph70.i.i
   %indvars.iv87.i.i = phi i64 [ %indvars.iv85.i.i, %.lr.ph70.i.i ], [ %indvars.iv.next88.i.i, %283 ]
   %284 = phi double [ %280, %.lr.ph70.i.i ], [ %290, %283 ]
-  %285 = mul nuw nsw i64 %indvars.iv87.i.i, %151
+  %285 = mul nsw i64 %indvars.iv87.i.i, %151
   %gep97.i.i = getelementptr double, ptr %invariant.gep96.i.i, i64 %285
   %286 = load double, ptr %gep97.i.i, align 8, !tbaa !65
-  %287 = getelementptr inbounds nuw double, ptr %122, i64 %indvars.iv87.i.i
+  %287 = getelementptr inbounds double, ptr %122, i64 %indvars.iv87.i.i
   %288 = load double, ptr %287, align 8, !tbaa !65
   %289 = fneg nsz double %286
   %290 = tail call nsz double @llvm.fmuladd.f64(double %289, double %288, double %284)
   store double %290, ptr %281, align 8, !tbaa !65
   %indvars.iv.next88.i.i = add nuw nsw i64 %indvars.iv87.i.i, 1
-  %exitcond90.not.i.i = icmp eq i64 %indvars.iv.next88.i.i, %151
+  %lftr.wideiv.i.i = trunc i64 %indvars.iv.next88.i.i to i32
+  %exitcond90.not.i.i = icmp eq i32 %131, %lftr.wideiv.i.i
   br i1 %exitcond90.not.i.i, label %.loopexit.i.i, label %283, !llvm.loop !151
 
 .lr.ph.preheader:                                 ; preds = %.loopexit.i.i

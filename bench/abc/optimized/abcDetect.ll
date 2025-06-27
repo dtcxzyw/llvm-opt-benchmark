@@ -5698,7 +5698,7 @@ Abc_NtkFinSimOneWord.exit:                        ; preds = %.lr.ph.i238, %.lr.p
 243:                                              ; preds = %.lr.ph311, %367
   %244 = phi ptr [ %.val230, %.lr.ph311 ], [ %.val230367, %367 ]
   %indvars.iv358 = phi i64 [ %242, %.lr.ph311 ], [ %indvars.iv.next359, %367 ]
-  %245 = phi i32 [ %233, %.lr.ph311 ], [ %372, %367 ]
+  %245 = phi i32 [ %233, %.lr.ph311 ], [ %.reass, %367 ]
   %.0309 = phi ptr [ null, %.lr.ph311 ], [ %.1, %367 ]
   %.0165308 = phi i32 [ %232, %.lr.ph311 ], [ %.1166, %367 ]
   %.0167307 = phi ptr [ %230, %.lr.ph311 ], [ %.1168, %367 ]
@@ -5954,13 +5954,12 @@ Vec_IntPushTwo.exit:                              ; preds = %Vec_IntPush.exit.i,
   %.1166 = phi i32 [ %280, %.loopexit ], [ %.0165308, %Vec_IntPushTwo.exit ]
   %.1 = phi ptr [ %.0309, %.loopexit ], [ %320, %Vec_IntPushTwo.exit ]
   %indvars.iv.next359 = add nsw i64 %indvars.iv358, 2
-  %368 = or disjoint i64 %indvars.iv.next359, 1
+  %368 = trunc nsw i64 %indvars.iv358 to i32
+  %.reass = add i32 %368, 3
   %369 = getelementptr i8, ptr %.1168, i64 4
   %.0167.val218 = load i32, ptr %369, align 4, !tbaa !37
-  %370 = sext i32 %.0167.val218 to i64
-  %371 = icmp slt i64 %368, %370
-  %372 = trunc nsw i64 %368 to i32
-  br i1 %371, label %243, label %.critedge14.loopexit, !llvm.loop !155
+  %370 = icmp slt i32 %.reass, %.0167.val218
+  br i1 %370, label %243, label %.critedge14.loopexit, !llvm.loop !155
 
 .critedge14.loopexit:                             ; preds = %367
   %.val228.pre = load i32, ptr %14, align 4, !tbaa !87
@@ -5971,12 +5970,12 @@ Vec_IntPushTwo.exit:                              ; preds = %Vec_IntPush.exit.i,
   %.val230366 = phi ptr [ %.val230, %229 ], [ %.val230367, %.critedge14.loopexit ]
   %.0167.lcssa = phi ptr [ %230, %229 ], [ %.1168, %.critedge14.loopexit ]
   %.0165.lcssa = phi i32 [ %232, %229 ], [ %.1166, %.critedge14.loopexit ]
-  %373 = getelementptr i8, ptr %.0167.lcssa, i64 4
-  store i32 %.0165.lcssa, ptr %373, align 4, !tbaa !37
+  %371 = getelementptr i8, ptr %.0167.lcssa, i64 4
+  store i32 %.0165.lcssa, ptr %371, align 4, !tbaa !37
   %indvars.iv.next362 = add nsw i64 %indvars.iv361, 1
-  %374 = sext i32 %.val228 to i64
-  %375 = icmp slt i64 %indvars.iv.next362, %374
-  br i1 %375, label %229, label %.critedge12, !llvm.loop !156
+  %372 = sext i32 %.val228 to i64
+  %373 = icmp slt i64 %indvars.iv.next362, %372
+  br i1 %373, label %229, label %.critedge12, !llvm.loop !156
 
 .critedge12:                                      ; preds = %.critedge14, %.critedge8.preheader
   ret void

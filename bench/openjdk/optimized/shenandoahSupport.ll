@@ -13191,14 +13191,14 @@ _ZN13GrowableArrayIP4NodeE8allocateEv.exit.i:     ; preds = %_ZN7PhiNodeC2EP4Nod
 
 .lr.ph19.preheader.i:                             ; preds = %.preheader16.i
   %369 = zext nneg i32 %.0.lcssa.i to i64
-  %370 = shl nuw nsw i64 %369, 3
-  %scevgep = getelementptr i8, ptr %365, i64 %370
-  %371 = xor i32 %.0.lcssa.i, -1
-  %372 = add nsw i32 %.0.i.i.i.i.i, %371
-  %373 = zext i32 %372 to i64
-  %374 = shl nuw nsw i64 %373, 3
-  %375 = add nuw nsw i64 %374, 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, i8 0, i64 %375, i1 false)
+  %370 = zext nneg i32 %.0.i.i.i.i.i to i64
+  %371 = shl nuw nsw i64 %369, 3
+  %scevgep = getelementptr i8, ptr %365, i64 %371
+  %372 = add nuw nsw i64 %369, 1
+  %373 = call i64 @llvm.umax.i64(i64 %372, i64 %370)
+  %374 = sub nsw i64 %373, %369
+  %375 = shl nsw i64 %374, 3
+  call void @llvm.memset.p0.i64(ptr align 8 %scevgep, i8 0, i64 %375, i1 false)
   br label %_ZN26GrowableArrayWithAllocatorIP4Node13GrowableArrayIS1_EE4pushERKS1_.exit
 
 .lr.ph.i505:                                      ; preds = %.lr.ph.i505.preheader, %.lr.ph.i505
@@ -17696,7 +17696,7 @@ _ZN16Unique_Node_List6memberEP4Node.exit:         ; preds = %244
 .critedge.backedge:                               ; preds = %_ZNK4Type11make_oopptrEv.exit13.i58, %204, %199, %194, %.lr.ph89, %_ZN16Unique_Node_List6memberEP4Node.exit
   %256 = load i32, ptr %93, align 8
   %257 = zext i32 %256 to i64
-  %.not = icmp samesign ult i64 %indvars.iv.next98, %257
+  %.not = icmp ult i64 %indvars.iv.next98, %257
   br i1 %.not, label %.lr.ph89, label %_ZN16Unique_Node_List4pushEP4Node.exit54._crit_edge, !llvm.loop !68
 
 .critedge2:                                       ; preds = %244, %select.unfold72, %_ZN16Unique_Node_List6memberEP4Node.exit
@@ -22458,6 +22458,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #9
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

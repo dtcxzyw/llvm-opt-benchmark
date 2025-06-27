@@ -8718,7 +8718,8 @@ _ZN5faiss9heap_pushINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; preds = %_ZN
   br i1 %exitcond.not, label %._crit_edge, label %65, !llvm.loop !133
 
 .preheader.loopexit:                              ; preds = %187
-  %94 = and i64 %indvars.iv.next, 4294967295
+  %sext = shl i64 %indvars.iv.next, 32
+  %94 = ashr exact i64 %sext, 32
   br label %.preheader
 
 .preheader:                                       ; preds = %54, %.preheader.loopexit, %._crit_edge
@@ -8903,9 +8904,9 @@ _ZN5faiss9heap_pushINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit91: ; preds = %_
 
 .lr.ph114:                                        ; preds = %.lr.ph114.preheader, %.lr.ph114
   %indvars.iv121 = phi i64 [ %indvars.iv.next122, %.lr.ph114 ], [ %.071.lcssa, %.lr.ph114.preheader ]
-  %191 = getelementptr inbounds nuw i64, ptr %98, i64 %indvars.iv121
+  %191 = getelementptr inbounds i64, ptr %98, i64 %indvars.iv121
   store i64 -1, ptr %191, align 8, !tbaa !15
-  %192 = getelementptr inbounds nuw float, ptr %97, i64 %indvars.iv121
+  %192 = getelementptr inbounds float, ptr %97, i64 %indvars.iv121
   store float 0x47EFFFFFE0000000, ptr %192, align 4, !tbaa !18
   %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
   %193 = load i64, ptr %5, align 8, !tbaa !15
@@ -9199,7 +9200,8 @@ _ZN5faiss9heap_pushINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; preds = %_ZN
   br i1 %exitcond.not, label %._crit_edge, label %65, !llvm.loop !137
 
 .preheader.loopexit:                              ; preds = %187
-  %94 = and i64 %indvars.iv.next, 4294967295
+  %sext = shl i64 %indvars.iv.next, 32
+  %94 = ashr exact i64 %sext, 32
   br label %.preheader
 
 .preheader:                                       ; preds = %54, %.preheader.loopexit, %._crit_edge
@@ -9384,9 +9386,9 @@ _ZN5faiss9heap_pushINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit91: ; preds = %_
 
 .lr.ph114:                                        ; preds = %.lr.ph114.preheader, %.lr.ph114
   %indvars.iv121 = phi i64 [ %indvars.iv.next122, %.lr.ph114 ], [ %.071.lcssa, %.lr.ph114.preheader ]
-  %191 = getelementptr inbounds nuw i64, ptr %98, i64 %indvars.iv121
+  %191 = getelementptr inbounds i64, ptr %98, i64 %indvars.iv121
   store i64 -1, ptr %191, align 8, !tbaa !15
-  %192 = getelementptr inbounds nuw float, ptr %97, i64 %indvars.iv121
+  %192 = getelementptr inbounds float, ptr %97, i64 %indvars.iv121
   store float 0xC7EFFFFFE0000000, ptr %192, align 4, !tbaa !18
   %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
   %193 = load i64, ptr %5, align 8, !tbaa !15
@@ -9671,7 +9673,8 @@ _ZN5faiss9heap_pushINS_4CMinIiiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; preds = %_ZN
   br i1 %exitcond.not, label %._crit_edge, label %65, !llvm.loop !141
 
 .preheader.loopexit:                              ; preds = %185
-  %93 = and i64 %indvars.iv.next, 4294967295
+  %sext = shl i64 %indvars.iv.next, 32
+  %93 = ashr exact i64 %sext, 32
   br label %.preheader
 
 .preheader:                                       ; preds = %51, %.preheader.loopexit, %._crit_edge
@@ -9856,9 +9859,9 @@ _ZN5faiss9heap_pushINS_4CMinIiiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit94: ; preds = %_
 
 .lr.ph118:                                        ; preds = %.lr.ph118.preheader, %.lr.ph118
   %indvars.iv125 = phi i64 [ %indvars.iv.next126, %.lr.ph118 ], [ %.071.lcssa, %.lr.ph118.preheader ]
-  %189 = getelementptr inbounds nuw i64, ptr %97, i64 %indvars.iv125
+  %189 = getelementptr inbounds i64, ptr %97, i64 %indvars.iv125
   store i64 -1, ptr %189, align 8, !tbaa !15
-  %190 = getelementptr inbounds nuw i32, ptr %96, i64 %indvars.iv125
+  %190 = getelementptr inbounds i32, ptr %96, i64 %indvars.iv125
   store i32 2147483647, ptr %190, align 4, !tbaa !16
   %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
   %191 = load i64, ptr %5, align 8, !tbaa !15
@@ -10143,7 +10146,8 @@ _ZN5faiss9heap_pushINS_4CMaxIiiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; preds = %_ZN
   br i1 %exitcond.not, label %._crit_edge, label %65, !llvm.loop !146
 
 .preheader.loopexit:                              ; preds = %185
-  %93 = and i64 %indvars.iv.next, 4294967295
+  %sext = shl i64 %indvars.iv.next, 32
+  %93 = ashr exact i64 %sext, 32
   br label %.preheader
 
 .preheader:                                       ; preds = %51, %.preheader.loopexit, %._crit_edge
@@ -10328,9 +10332,9 @@ _ZN5faiss9heap_pushINS_4CMaxIiiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit94: ; preds = %_
 
 .lr.ph118:                                        ; preds = %.lr.ph118.preheader, %.lr.ph118
   %indvars.iv125 = phi i64 [ %indvars.iv.next126, %.lr.ph118 ], [ %.071.lcssa, %.lr.ph118.preheader ]
-  %189 = getelementptr inbounds nuw i64, ptr %97, i64 %indvars.iv125
+  %189 = getelementptr inbounds i64, ptr %97, i64 %indvars.iv125
   store i64 -1, ptr %189, align 8, !tbaa !15
-  %190 = getelementptr inbounds nuw i32, ptr %96, i64 %indvars.iv125
+  %190 = getelementptr inbounds i32, ptr %96, i64 %indvars.iv125
   store i32 -2147483648, ptr %190, align 4, !tbaa !16
   %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
   %191 = load i64, ptr %5, align 8, !tbaa !15

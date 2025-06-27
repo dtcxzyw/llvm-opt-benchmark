@@ -1176,6 +1176,7 @@ define noundef zeroext i1 @_ZN5Ipopt14DenseGenMatrix21ComputeCholeskyFactorERKNS
 
 .preheader34.lr.ph:                               ; preds = %2
   %13 = zext nneg i32 %7 to i64
+  %wide.trip.count45 = zext nneg i32 %7 to i64
   br label %.preheader34
 
 .preheader34:                                     ; preds = %.preheader34.lr.ph, %22
@@ -1205,18 +1206,18 @@ define noundef zeroext i1 @_ZN5Ipopt14DenseGenMatrix21ComputeCholeskyFactorERKNS
 
 22:                                               ; preds = %23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond46.not = icmp eq i64 %indvars.iv.next, %13
+  %exitcond46.not = icmp eq i64 %indvars.iv.next, %wide.trip.count45
   br i1 %exitcond46.not, label %._crit_edge, label %.preheader34, !llvm.loop !99
 
 23:                                               ; preds = %.preheader34, %23
   %indvars.iv41 = phi i64 [ %indvars.iv, %.preheader34 ], [ %indvars.iv.next42, %23 ]
-  %24 = add nuw nsw i64 %indvars.iv41, %14
-  %25 = getelementptr inbounds nuw double, ptr %9, i64 %24
+  %24 = add nsw i64 %indvars.iv41, %14
+  %25 = getelementptr inbounds double, ptr %9, i64 %24
   %26 = load double, ptr %25, align 8, !tbaa !47
-  %27 = getelementptr inbounds nuw double, ptr %12, i64 %24
+  %27 = getelementptr inbounds double, ptr %12, i64 %24
   store double %26, ptr %27, align 8, !tbaa !47
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next42, %13
+  %exitcond.not = icmp eq i64 %indvars.iv.next42, %wide.trip.count45
   br i1 %exitcond.not, label %22, label %23, !llvm.loop !100
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.preheader
@@ -1262,6 +1263,7 @@ define noundef zeroext i1 @_ZN5Ipopt14DenseGenMatrix19ComputeEigenVectorsERKNS_1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %13 = load ptr, ptr %12, align 8, !tbaa !34
   %14 = zext nneg i32 %8 to i64
+  %wide.trip.count30 = zext nneg i32 %8 to i64
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %46
@@ -1330,18 +1332,18 @@ _ZN5Ipopt11DenseVector6ValuesEv.exit:             ; preds = %23, %_ZNK5Ipopt16De
 
 46:                                               ; preds = %47
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond31.not = icmp eq i64 %indvars.iv.next, %14
+  %exitcond31.not = icmp eq i64 %indvars.iv.next, %wide.trip.count30
   br i1 %exitcond31.not, label %._crit_edge, label %.preheader, !llvm.loop !109
 
 47:                                               ; preds = %.preheader, %47
   %indvars.iv26 = phi i64 [ %indvars.iv, %.preheader ], [ %indvars.iv.next27, %47 ]
-  %48 = add nuw nsw i64 %indvars.iv26, %15
-  %49 = getelementptr inbounds nuw double, ptr %10, i64 %48
+  %48 = add nsw i64 %indvars.iv26, %15
+  %49 = getelementptr inbounds double, ptr %10, i64 %48
   %50 = load double, ptr %49, align 8, !tbaa !47
-  %51 = getelementptr inbounds nuw double, ptr %13, i64 %48
+  %51 = getelementptr inbounds double, ptr %13, i64 %48
   store double %50, ptr %51, align 8, !tbaa !47
   %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next27, %14
+  %exitcond.not = icmp eq i64 %indvars.iv.next27, %wide.trip.count30
   br i1 %exitcond.not, label %46, label %47, !llvm.loop !110
 }
 

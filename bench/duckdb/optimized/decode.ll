@@ -5424,8 +5424,9 @@ _ZN13duckdb_brotliL36EnsureCoumpoundDictionaryInitializedEPNS_24BrotliDecoderSta
   store i32 %512, ptr %510, align 4, !tbaa !60
   %513 = getelementptr inbounds nuw i8, ptr %456, i64 8
   store i32 %501, ptr %513, align 8, !tbaa !115
-  %514 = and i64 %indvars.iv.i, 4294967295
-  %515 = getelementptr inbounds nuw [16 x i32], ptr %490, i64 0, i64 %514
+  %sext.i = shl i64 %indvars.iv.i, 32
+  %514 = ashr exact i64 %sext.i, 32
+  %515 = getelementptr inbounds [16 x i32], ptr %490, i64 0, i64 %514
   %516 = load i32, ptr %515, align 4, !tbaa !39
   %517 = sub nsw i32 %455, %516
   %518 = getelementptr inbounds nuw i8, ptr %456, i64 12
@@ -6917,8 +6918,9 @@ _ZN13duckdb_brotliL36EnsureCoumpoundDictionaryInitializedEPNS_24BrotliDecoderSta
   store i32 %562, ptr %560, align 4, !tbaa !60
   %563 = getelementptr inbounds nuw i8, ptr %506, i64 8
   store i32 %551, ptr %563, align 8, !tbaa !115
-  %564 = and i64 %indvars.iv.i, 4294967295
-  %565 = getelementptr inbounds nuw [16 x i32], ptr %540, i64 0, i64 %564
+  %sext.i = shl i64 %indvars.iv.i, 32
+  %564 = ashr exact i64 %sext.i, 32
+  %565 = getelementptr inbounds [16 x i32], ptr %540, i64 0, i64 %564
   %566 = load i32, ptr %565, align 4, !tbaa !39
   %567 = sub nsw i32 %505, %566
   %568 = getelementptr inbounds nuw i8, ptr %506, i64 12

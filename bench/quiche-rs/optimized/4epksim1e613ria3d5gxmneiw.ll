@@ -1714,8 +1714,8 @@ _ZN5serde3ser5impls9format_u817h78a6d5d3fdacc8aaE.exit.i: ; preds = %43, %41, %2
 52:                                               ; preds = %_ZN5serde3ser5impls9format_u817h78a6d5d3fdacc8aaE.exit11.i, %_ZN5serde3ser5impls9format_u817h78a6d5d3fdacc8aaE.exit.i
   %.pn.add26.i = phi i64 [ 1, %_ZN5serde3ser5impls9format_u817h78a6d5d3fdacc8aaE.exit.i ], [ %.pn.add.i, %_ZN5serde3ser5impls9format_u817h78a6d5d3fdacc8aaE.exit11.i ]
   %.sroa.03.025.i = phi i64 [ %.sroa.07.0.i.i, %_ZN5serde3ser5impls9format_u817h78a6d5d3fdacc8aaE.exit.i ], [ %99, %_ZN5serde3ser5impls9format_u817h78a6d5d3fdacc8aaE.exit11.i ]
-  %53 = add nuw nsw i64 %.sroa.03.025.i, 1
-  %54 = icmp samesign ugt i64 %.sroa.03.025.i, 14
+  %53 = add i64 %.sroa.03.025.i, 1
+  %54 = icmp ugt i64 %53, 15
   br i1 %54, label %101, label %58, !prof !18
 
 55:                                               ; preds = %_ZN5serde3ser5impls9format_u817h78a6d5d3fdacc8aaE.exit11.i
@@ -1802,7 +1802,8 @@ _ZN5serde3ser5impls9format_u817h78a6d5d3fdacc8aaE.exit.i: ; preds = %43, %41, %2
   %90 = load i8, ptr %89, align 1, !noalias !157, !noundef !16
   %91 = getelementptr inbounds nuw i8, ptr %60, i64 1
   store i8 %90, ptr %91, align 1, !alias.scope !154, !noalias !144
-  %92 = icmp samesign ult i64 %.sroa.03.025.i, 12
+  %notsub.i = add nsw i64 %.sroa.03.025.i, -15
+  %92 = icmp samesign ult i64 %notsub.i, -3
   br i1 %92, label %94, label %98
 
 93:                                               ; preds = %85
@@ -1822,7 +1823,7 @@ _ZN5serde3ser5impls9format_u817h78a6d5d3fdacc8aaE.exit.i: ; preds = %43, %41, %2
 
 _ZN5serde3ser5impls9format_u817h78a6d5d3fdacc8aaE.exit11.i: ; preds = %94, %80, %71
   %.sroa.07.0.i10.i = phi i64 [ 4, %94 ], [ 3, %80 ], [ 2, %71 ]
-  %99 = add nuw nsw i64 %.sroa.07.0.i10.i, %.sroa.03.025.i
+  %99 = add nsw i64 %.sroa.07.0.i10.i, %.sroa.03.025.i
   %.pn.add.i = add nuw nsw i64 %.pn.add26.i, 1
   %100 = icmp eq i64 %.pn.add.i, 4
   br i1 %100, label %55, label %52

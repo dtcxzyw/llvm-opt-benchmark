@@ -2580,7 +2580,8 @@ Vec_PtrFree.exit378.i:                            ; preds = %127, %.critedge6.i
   %.val366500.pre.i = load ptr, ptr %37, align 8, !tbaa !62
   %.phi.trans.insert600.i = getelementptr i8, ptr %.val366500.pre.i, i64 4
   %.val366.val501.pre.i = load i32, ptr %.phi.trans.insert600.i, align 4, !tbaa !20
-  %147 = and i64 %indvars.iv.next581.i, 4294967295
+  %sext604.i = shl i64 %indvars.iv.next581.i, 32
+  %147 = ashr exact i64 %sext604.i, 32
   br label %.critedge8.preheader.i
 
 .critedge8.preheader.i:                           ; preds = %.critedge8.preheader.loopexit.i, %.critedge10.preheader.i
@@ -2645,9 +2646,9 @@ Vec_PtrFree.exit378.i:                            ; preds = %127, %.critedge6.i
   %.val366602.i = phi ptr [ %.val366.i, %.critedge8.loopexit.i ], [ %.val366500.i, %.critedge8.preheader.i ]
   %indvars.iv586.i = phi i64 [ %indvars.iv.next587.i, %.critedge8.loopexit.i ], [ %.1273.lcssa.i, %.critedge8.preheader.i ]
   %.2282502.i = phi i32 [ %.3283.lcssa.i, %.critedge8.loopexit.i ], [ 0, %.critedge8.preheader.i ]
-  %indvars.iv.next587.i = add nuw nsw i64 %indvars.iv586.i, 1
+  %indvars.iv.next587.i = add nsw i64 %indvars.iv586.i, 1
   %.val345.i = load ptr, ptr %41, align 8, !tbaa !23
-  %166 = getelementptr inbounds nuw ptr, ptr %.val345.i, i64 %indvars.iv586.i
+  %166 = getelementptr inbounds ptr, ptr %.val345.i, i64 %indvars.iv586.i
   %167 = load ptr, ptr %166, align 8, !tbaa !63
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 8
   %169 = load ptr, ptr %168, align 8, !tbaa !77
@@ -3011,8 +3012,8 @@ Ver_ParseFreeBundle.exit384.i:                    ; preds = %188, %183
 321:                                              ; preds = %316
   %322 = trunc i64 %317 to i32
   %.not409.i = icmp eq i64 %indvars.iv551.i, 1
-  %brmerge643.i = or i1 %296, %.not409.i
-  br i1 %brmerge643.i, label %.thread406.i, label %.lr.ph456.i
+  %brmerge644.i = or i1 %296, %.not409.i
+  br i1 %brmerge644.i, label %.thread406.i, label %.lr.ph456.i
 
 .lr.ph456.i:                                      ; preds = %321
   %.val338.i = load ptr, ptr %196, align 8, !tbaa !23

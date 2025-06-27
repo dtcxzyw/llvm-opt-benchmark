@@ -376,7 +376,7 @@ define i32 @SUNNonlinSolSolve_FixedPoint(ptr noundef %0, ptr readnone captures(n
 .lr.ph13.i:                                       ; preds = %.lr.ph16.i, %.lr.ph13.i
   %indvars.iv56.i = phi i64 [ %indvars.iv.next57.i, %.lr.ph13.i ], [ %indvars.iv54.i, %.lr.ph16.i ]
   %142 = mul nuw nsw i64 %indvars.iv56.i, %89
-  %gep128.i = getelementptr inbounds nuw double, ptr %128, i64 %142
+  %gep128.i = getelementptr double, ptr %128, i64 %142
   %143 = load double, ptr %gep128.i, align 8, !tbaa !51
   %144 = getelementptr i8, ptr %gep128.i, i64 8
   %145 = load double, ptr %144, align 8, !tbaa !51
@@ -592,7 +592,8 @@ define i32 @SUNNonlinSolSolve_FixedPoint(ptr noundef %0, ptr readnone captures(n
   store double %229, ptr %230, align 8, !tbaa !51
   %231 = getelementptr inbounds nuw ptr, ptr %47, i64 %wide.trip.count108.i
   store ptr %53, ptr %231, align 8, !tbaa !50
-  %232 = add nuw nsw i64 %wide.trip.count108.i, 1
+  %.244.i = add nuw i32 %spec.select.i, 2
+  %232 = sext i32 %.244.i to i64
   %233 = zext nneg i32 %191 to i64
   br label %.lr.ph48.i
 
@@ -602,22 +603,22 @@ define i32 @SUNNonlinSolSolve_FixedPoint(ptr noundef %0, ptr readnone captures(n
   %234 = getelementptr inbounds nuw double, ptr %51, i64 %indvars.iv112.i
   %235 = load double, ptr %234, align 8, !tbaa !51
   %236 = fmul double %228, %235
-  %237 = getelementptr inbounds nuw double, ptr %45, i64 %indvars.iv110.i
+  %237 = getelementptr inbounds double, ptr %45, i64 %indvars.iv110.i
   store double %236, ptr %237, align 8, !tbaa !51
   %238 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv112.i
   %239 = load i32, ptr %238, align 4, !tbaa !49
   %240 = sext i32 %239 to i64
   %241 = getelementptr inbounds ptr, ptr %39, i64 %240
   %242 = load ptr, ptr %241, align 8, !tbaa !50
-  %243 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv110.i
+  %243 = getelementptr inbounds ptr, ptr %47, i64 %indvars.iv110.i
   store ptr %242, ptr %243, align 8, !tbaa !50
   %indvars.iv.next113.i = add nsw i64 %indvars.iv112.i, -1
-  %indvars.iv.next111.i = add nuw nsw i64 %indvars.iv110.i, 1
+  %indvars.iv.next111.i = add nsw i64 %indvars.iv110.i, 1
   %.not139.i = icmp eq i64 %indvars.iv112.i, 0
   br i1 %.not139.i, label %.loopexit.loopexit.i, label %.lr.ph48.i
 
 .loopexit.loopexit.i:                             ; preds = %.lr.ph48.i
-  %244 = trunc nuw i64 %indvars.iv.next111.i to i32
+  %244 = trunc nsw i64 %indvars.iv.next111.i to i32
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.loopexit.i, %.thread124.i, %._crit_edge42.thread.i, %._crit_edge42.i

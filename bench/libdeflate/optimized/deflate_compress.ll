@@ -599,7 +599,7 @@ matchfinder_rebase_sse2.exit:                     ; preds = %.preheader201
 
 118:                                              ; preds = %.lr.ph222
   %indvars.iv.next248 = add nuw nsw i64 %indvars.iv247, 1
-  %119 = icmp samesign ult i64 %indvars.iv.next248, %108
+  %119 = icmp ult i64 %indvars.iv.next248, %108
   br i1 %119, label %.lr.ph222, label %lz_extend.exit101
 
 .loopexit198:                                     ; preds = %109
@@ -723,7 +723,7 @@ lz_extend.exit101:                                ; preds = %118, %lz_extend.exi
 
 170:                                              ; preds = %.lr.ph227
   %indvars.iv.next253 = add nuw nsw i64 %indvars.iv252, 1
-  %171 = icmp samesign ult i64 %indvars.iv.next253, %160
+  %171 = icmp ult i64 %indvars.iv.next253, %160
   br i1 %171, label %.lr.ph227, label %lz_extend.exit
 
 .loopexit:                                        ; preds = %161
@@ -842,7 +842,7 @@ lz_extend.exit:                                   ; preds = %170, %lz_extend.exi
 
 219:                                              ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %220 = icmp samesign ult i64 %indvars.iv.next, %209
+  %220 = icmp ult i64 %indvars.iv.next, %209
   br i1 %220, label %.lr.ph, label %ht_matchfinder_longest_match.exit
 
 .loopexit200:                                     ; preds = %210
@@ -1397,7 +1397,7 @@ hc_matchfinder_slide_window.exit77:               ; preds = %.preheader120
 
 178:                                              ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %179 = icmp samesign ult i64 %indvars.iv.next, %168
+  %179 = icmp ult i64 %indvars.iv.next, %168
   br i1 %179, label %.lr.ph, label %lz_extend.exit163.i
 
 .loopexit117:                                     ; preds = %169
@@ -1567,7 +1567,7 @@ lz_extend.exit163.i:                              ; preds = %178, %lz_extend.exi
 
 241:                                              ; preds = %.lr.ph146
   %indvars.iv.next173 = add nuw nsw i64 %indvars.iv172, 1
-  %242 = icmp samesign ult i64 %indvars.iv.next173, %199
+  %242 = icmp ult i64 %indvars.iv.next173, %199
   br i1 %242, label %.lr.ph146, label %lz_extend.exit.i
 
 .loopexit:                                        ; preds = %232
@@ -2371,7 +2371,7 @@ hc_matchfinder_slide_window.exit379.i:            ; preds = %.preheader81
 
 222:                                              ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %223 = icmp samesign ult i64 %indvars.iv.next, %212
+  %223 = icmp ult i64 %indvars.iv.next, %212
   br i1 %223, label %.lr.ph, label %lz_extend.exit163.i323.i
 
 .loopexit78:                                      ; preds = %213
@@ -2541,7 +2541,7 @@ lz_extend.exit163.i323.i:                         ; preds = %222, %lz_extend.exi
 
 285:                                              ; preds = %.lr.ph136
   %indvars.iv.next225 = add nuw nsw i64 %indvars.iv224, 1
-  %286 = icmp samesign ult i64 %indvars.iv.next225, %243
+  %286 = icmp ult i64 %indvars.iv.next225, %243
   br i1 %286, label %.lr.ph136, label %lz_extend.exit.i280.i
 
 .loopexit75:                                      ; preds = %276
@@ -3000,7 +3000,7 @@ hc_matchfinder_slide_window.exit383.i:            ; preds = %.preheader73
 
 518:                                              ; preds = %.lr.ph142
   %indvars.iv.next230 = add nuw nsw i64 %indvars.iv229, 1
-  %519 = icmp samesign ult i64 %indvars.iv.next230, %508
+  %519 = icmp ult i64 %indvars.iv.next230, %508
   br i1 %519, label %.lr.ph142, label %lz_extend.exit163.i228.i
 
 .loopexit70:                                      ; preds = %509
@@ -3170,7 +3170,7 @@ lz_extend.exit163.i228.i:                         ; preds = %518, %lz_extend.exi
 
 581:                                              ; preds = %.lr.ph147
   %indvars.iv.next235 = add nuw nsw i64 %indvars.iv234, 1
-  %582 = icmp samesign ult i64 %indvars.iv.next235, %539
+  %582 = icmp ult i64 %indvars.iv.next235, %539
   br i1 %582, label %.lr.ph147, label %lz_extend.exit.i185.i
 
 .loopexit:                                        ; preds = %572
@@ -3983,7 +3983,7 @@ hc_matchfinder_slide_window.exit379.i:            ; preds = %.preheader106
 
 222:                                              ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %223 = icmp samesign ult i64 %indvars.iv.next, %212
+  %223 = icmp ult i64 %indvars.iv.next, %212
   br i1 %223, label %.lr.ph, label %lz_extend.exit163.i323.i
 
 .loopexit103:                                     ; preds = %213
@@ -4153,7 +4153,7 @@ lz_extend.exit163.i323.i:                         ; preds = %222, %lz_extend.exi
 
 285:                                              ; preds = %.lr.ph177
   %indvars.iv.next283 = add nuw nsw i64 %indvars.iv282, 1
-  %286 = icmp samesign ult i64 %indvars.iv.next283, %243
+  %286 = icmp ult i64 %indvars.iv.next283, %243
   br i1 %286, label %.lr.ph177, label %lz_extend.exit.i280.i
 
 .loopexit100:                                     ; preds = %276
@@ -4612,7 +4612,7 @@ hc_matchfinder_slide_window.exit383.i:            ; preds = %.preheader98
 
 518:                                              ; preds = %.lr.ph183
   %indvars.iv.next288 = add nuw nsw i64 %indvars.iv287, 1
-  %519 = icmp samesign ult i64 %indvars.iv.next288, %508
+  %519 = icmp ult i64 %indvars.iv.next288, %508
   br i1 %519, label %.lr.ph183, label %lz_extend.exit163.i228.i
 
 .loopexit95:                                      ; preds = %509
@@ -4782,7 +4782,7 @@ lz_extend.exit163.i228.i:                         ; preds = %518, %lz_extend.exi
 
 581:                                              ; preds = %.lr.ph188
   %indvars.iv.next293 = add nuw nsw i64 %indvars.iv292, 1
-  %582 = icmp samesign ult i64 %indvars.iv.next293, %539
+  %582 = icmp ult i64 %indvars.iv.next293, %539
   br i1 %582, label %.lr.ph188, label %lz_extend.exit.i185.i
 
 .loopexit84:                                      ; preds = %572
@@ -5097,7 +5097,7 @@ hc_matchfinder_slide_window.exit387.i:            ; preds = %.preheader92
 
 729:                                              ; preds = %.lr.ph196
   %indvars.iv.next298 = add nuw nsw i64 %indvars.iv297, 1
-  %730 = icmp samesign ult i64 %indvars.iv.next298, %719
+  %730 = icmp ult i64 %indvars.iv.next298, %719
   br i1 %730, label %.lr.ph196, label %lz_extend.exit163.i.i
 
 .loopexit89:                                      ; preds = %720
@@ -5267,7 +5267,7 @@ lz_extend.exit163.i.i:                            ; preds = %729, %lz_extend.exi
 
 792:                                              ; preds = %.lr.ph201
   %indvars.iv.next303 = add nuw nsw i64 %indvars.iv302, 1
-  %793 = icmp samesign ult i64 %indvars.iv.next303, %750
+  %793 = icmp ult i64 %indvars.iv.next303, %750
   br i1 %793, label %.lr.ph201, label %lz_extend.exit.i.i
 
 .loopexit:                                        ; preds = %783
@@ -6076,7 +6076,7 @@ adjust_max_and_nice_len.exit:                     ; preds = %100, %102
 
 210:                                              ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %211 = icmp samesign ult i64 %indvars.iv.next, %158
+  %211 = icmp ult i64 %indvars.iv.next, %158
   br i1 %211, label %.lr.ph, label %lz_extend.exit.i242
 
 .loopexit327:                                     ; preds = %201
@@ -6477,7 +6477,7 @@ adjust_max_and_nice_len.exit198:                  ; preds = %316, %318
 
 406:                                              ; preds = %.lr.ph348
   %indvars.iv.next369 = add nuw nsw i64 %indvars.iv368, 1
-  %407 = icmp samesign ult i64 %indvars.iv.next369, %354
+  %407 = icmp ult i64 %indvars.iv.next369, %354
   br i1 %407, label %.lr.ph348, label %lz_extend.exit.i.thread
 
 .loopexit:                                        ; preds = %397
