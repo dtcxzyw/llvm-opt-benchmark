@@ -63,8 +63,7 @@ define hidden zeroext i1 @Wayland_GLES_SetSwapInterval(ptr noundef readonly capt
   br label %15
 
 7:                                                ; preds = %2
-  %spec.store.select = tail call i32 @llvm.smax.i32(i32 %1, i32 -1)
-  %.0 = tail call i32 @llvm.smin.i32(i32 %spec.store.select, i32 1)
+  %.0 = tail call i32 @llvm.scmp.i32.i32(i32 %1, i32 0)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i32 %.0, ptr %8, align 8
   %9 = load ptr, ptr %3, align 8
@@ -334,10 +333,7 @@ define hidden ptr @Wayland_GLES_GetEGLSurface(ptr noundef readnone captures(none
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #3
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #3
+declare range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32, i32) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
