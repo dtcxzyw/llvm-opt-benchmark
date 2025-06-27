@@ -3,7 +3,6 @@ source_filename = "bench/nuttx/original/lib_dumpvbuffer.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.iovec = type { ptr, i64 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
 @.str = private unnamed_addr constant [10 x i8] c"%s (%p):\0A\00", align 1
@@ -30,7 +29,8 @@ define void @lib_dumpvhandler(ptr noundef %0, ptr noundef readonly captures(addr
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 65
   store i8 0, ptr %12, align 1
   %13 = sext i32 %2 to i64
-  %14 = getelementptr inbounds %struct.iovec, ptr %1, i64 %13
+  %.idx = shl nsw i64 %13, 4
+  %14 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %.not5465 = icmp eq i32 %2, 0
   br i1 %.not5465, label %.critedge, label %.lr.ph
 

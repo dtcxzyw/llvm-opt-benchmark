@@ -1441,7 +1441,8 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_rice_signed_block(ptr no
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #21
   %7 = lshr i32 -1, %3
   %8 = zext i32 %2 to i64
-  %9 = getelementptr inbounds nuw i32, ptr %1, i64 %8
+  %.idx = shl nuw nsw i64 %8, 2
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %10 = icmp eq i32 %3, 0
   br i1 %10, label %.preheader, label %20
 
@@ -1698,7 +1699,8 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_rice_signed_block_bmi2(p
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #21
   %7 = lshr i32 -1, %3
   %8 = zext i32 %2 to i64
-  %9 = getelementptr inbounds nuw i32, ptr %1, i64 %8
+  %.idx = shl nuw nsw i64 %8, 2
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %10 = icmp eq i32 %3, 0
   br i1 %10, label %.preheader, label %20
 

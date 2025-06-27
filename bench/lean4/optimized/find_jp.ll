@@ -957,7 +957,8 @@ _ZN4lean10object_refD2Ev.exit33:                  ; preds = %_ZN4lean10object_re
 _ZNK4lean9local_ctx9mk_lambdaERKNS_6bufferINS_4exprELm16EEERKS2_b.exit: ; preds = %_ZN4lean10object_refD2Ev.exit33
   %165 = load ptr, ptr %5, align 8, !tbaa !17
   %166 = load i64, ptr %11, align 8, !tbaa !21
-  %167 = getelementptr inbounds nuw %"class.lean::expr", ptr %165, i64 %166
+  %.idx.i.i.i = shl nuw nsw i64 %166, 3
+  %167 = getelementptr inbounds nuw i8, ptr %165, i64 %.idx.i.i.i
   %.not4.i.i.i.i = icmp eq i64 %166, 0
   br i1 %.not4.i.i.i.i, label %_ZN4lean6bufferINS_4exprELm16EE16destroy_elementsEv.exit.i.i, label %.lr.ph.i.i.i.i
 
@@ -2440,7 +2441,8 @@ _ZN4lean10object_refD2Ev.exit176:                 ; preds = %_ZN4lean10object_re
   store ptr %512, ptr %0, align 8, !tbaa !11
   store ptr inttoptr (i64 1 to ptr), ptr %2, align 8, !tbaa !11
   %513 = load ptr, ptr %6, align 8, !tbaa !17
-  %514 = getelementptr inbounds nuw %"class.lean::expr", ptr %513, i64 %511
+  %.idx.i.i.i = shl nuw nsw i64 %511, 3
+  %514 = getelementptr inbounds nuw i8, ptr %513, i64 %.idx.i.i.i
   %.not4.i.i.i.i = icmp eq i64 %511, 0
   br i1 %.not4.i.i.i.i, label %_ZN4lean6bufferINS_4exprELm16EE16destroy_elementsEv.exit.i.i, label %.lr.ph.i.i.i.i
 
@@ -2545,7 +2547,8 @@ _ZN4lean15is_cases_on_appERKNS_16elab_environmentERKNS_4exprE.exit.thread: ; pre
 19:                                               ; preds = %_ZN4lean15is_cases_on_appERKNS_16elab_environmentERKNS_4exprE.exit.thread
   %20 = load ptr, ptr %6, align 8, !tbaa !17
   %21 = load i64, ptr %16, align 8, !tbaa !21
-  %22 = getelementptr inbounds nuw %"class.lean::expr", ptr %20, i64 %21
+  %.idx = shl nuw nsw i64 %21, 3
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx
   %.not34 = icmp eq i64 %21, 0
   br i1 %.not34, label %._crit_edge, label %.lr.ph
 
@@ -2729,7 +2732,8 @@ _ZN4lean10find_jp_fn30remove_candidates_occurring_atERKNS_4exprE.exit29: ; preds
 _ZN4lean4exprC2ERKS0_.exit:                       ; preds = %89, %87, %81, %90
   %91 = load ptr, ptr %6, align 8, !tbaa !17
   %92 = load i64, ptr %16, align 8, !tbaa !21
-  %93 = getelementptr inbounds nuw %"class.lean::expr", ptr %91, i64 %92
+  %.idx.i.i.i = shl nuw nsw i64 %92, 3
+  %93 = getelementptr inbounds nuw i8, ptr %91, i64 %.idx.i.i.i
   %.not4.i.i.i.i = icmp eq i64 %92, 0
   br i1 %.not4.i.i.i.i, label %_ZN4lean6bufferINS_4exprELm16EE16destroy_elementsEv.exit.i.i, label %.lr.ph.i.i.i.i
 
@@ -2913,7 +2917,8 @@ define linkonce_odr hidden void @_ZN4lean6bufferINS_4exprELm16EED2Ev(ptr noundef
   %2 = load ptr, ptr %0, align 8, !tbaa !17
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !21
-  %5 = getelementptr inbounds nuw %"class.lean::expr", ptr %2, i64 %4
+  %.idx.i.i = shl nuw nsw i64 %4, 3
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i.i
   %.not4.i.i.i = icmp eq i64 %4, 0
   br i1 %.not4.i.i.i, label %_ZN4lean6bufferINS_4exprELm16EE16destroy_elementsEv.exit.i, label %.lr.ph.i.i.i
 
@@ -5899,7 +5904,8 @@ define linkonce_odr hidden void @_ZN4lean6bufferINS_4exprELm16EE12set_capacityEm
   %9 = tail call noundef ptr @_ZSt16__do_uninit_copyIPN4lean4exprES2_ET0_T_S4_S3_(ptr noundef %5, ptr noundef %8, ptr noundef nonnull %4)
   %10 = load ptr, ptr %0, align 8, !tbaa !17
   %11 = load i64, ptr %6, align 8, !tbaa !21
-  %12 = getelementptr inbounds nuw %"class.lean::expr", ptr %10, i64 %11
+  %.idx.i.i = shl nuw nsw i64 %11, 3
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i.i
   %.not4.i.i.i = icmp eq i64 %11, 0
   br i1 %.not4.i.i.i, label %_ZN4lean6bufferINS_4exprELm16EE16destroy_elementsEv.exit.i, label %.lr.ph.i.i.i
 
@@ -7311,7 +7317,8 @@ _ZNSt14_Function_baseD2Ev.exit4.i27:              ; preds = %90, %87
 _ZN4lean6mk_appERKNS_4exprERKNS_6bufferIS0_Lm16EEE.exit: ; preds = %._crit_edge
   %100 = load ptr, ptr %6, align 8, !tbaa !17
   %101 = load i64, ptr %9, align 8, !tbaa !21
-  %102 = getelementptr inbounds nuw %"class.lean::expr", ptr %100, i64 %101
+  %.idx.i.i.i = shl nuw nsw i64 %101, 3
+  %102 = getelementptr inbounds nuw i8, ptr %100, i64 %.idx.i.i.i
   %.not4.i.i.i.i = icmp eq i64 %101, 0
   br i1 %.not4.i.i.i.i, label %_ZN4lean6bufferINS_4exprELm16EE16destroy_elementsEv.exit.i.i, label %.lr.ph.i.i.i.i
 

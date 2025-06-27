@@ -27215,7 +27215,8 @@ define hidden void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.us.us.us, i64 538
   %19 = load i16, ptr %18, align 2, !noalias !3993, !noundef !14
   %20 = zext i16 %19 to i64
-  %21 = getelementptr inbounds nuw { i64, [5 x i64] }, ptr %.sroa.0.0.us.us.us, i64 %20
+  %.idx182 = mul nuw nsw i64 %20, 48
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.us.us.us, i64 %.idx182
   %22 = icmp eq i16 %19, 0
   br i1 %22, label %.loopexit.loopexit.i.i.split.split.us.us.us.us, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77b2da974c9deb66E.exit.i.i.us66.us.us143.us"
 
@@ -27252,8 +27253,8 @@ define hidden void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..
 
 41:                                               ; preds = %39
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4005), !noalias !4008
-  %.not181 = icmp eq i64 %31, -9223372036854775808
-  br i1 %.not181, label %.split124.us, label %.loopexit.loopexit.i.i.split.split.us.us.us.us
+  %.not183 = icmp eq i64 %31, -9223372036854775808
+  br i1 %.not183, label %.split124.us, label %.loopexit.loopexit.i.i.split.split.us.us.us.us
 
 "_ZN61_$LT$just..attribute..Attribute$u20$as$u20$core..cmp..Ord$GT$3cmp17haae29be0466a65e1E.exit.us67.us.us146.us": ; preds = %37
   %42 = icmp eq ptr %30, %21
@@ -27386,7 +27387,8 @@ define hidden void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..
   %95 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 538
   %96 = load i16, ptr %95, align 2, !noalias !3993, !noundef !14
   %97 = zext i16 %96 to i64
-  %98 = getelementptr inbounds nuw { i64, [5 x i64] }, ptr %.sroa.0.0, i64 %97
+  %.idx = mul nuw nsw i64 %97, 48
+  %98 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 %.idx
   %99 = icmp eq i16 %96, 0
   br i1 %99, label %.loopexit.loopexit.i.i.split.us, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77b2da974c9deb66E.exit.i.i.us"
 
@@ -28272,7 +28274,8 @@ define hidden void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.us.us.us, i64 626
   %19 = load i16, ptr %18, align 2, !noalias !4184, !noundef !14
   %20 = zext i16 %19 to i64
-  %21 = getelementptr inbounds nuw { i64, [5 x i64] }, ptr %.sroa.0.0.us.us.us, i64 %20
+  %.idx182 = mul nuw nsw i64 %20, 48
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.us.us.us, i64 %.idx182
   %22 = icmp eq i16 %19, 0
   br i1 %22, label %.loopexit.loopexit.i.i.split.split.us.us.us.us, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77b2da974c9deb66E.exit.i.i.us66.us.us143.us"
 
@@ -28309,8 +28312,8 @@ define hidden void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..
 
 41:                                               ; preds = %39
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4196), !noalias !4199
-  %.not181 = icmp eq i64 %31, -9223372036854775808
-  br i1 %.not181, label %.split124.us, label %.loopexit.loopexit.i.i.split.split.us.us.us.us
+  %.not183 = icmp eq i64 %31, -9223372036854775808
+  br i1 %.not183, label %.split124.us, label %.loopexit.loopexit.i.i.split.split.us.us.us.us
 
 "_ZN61_$LT$just..attribute..Attribute$u20$as$u20$core..cmp..Ord$GT$3cmp17haae29be0466a65e1E.exit.us67.us.us146.us": ; preds = %37
   %42 = icmp eq ptr %30, %21
@@ -28443,7 +28446,8 @@ define hidden void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..
   %95 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 626
   %96 = load i16, ptr %95, align 2, !noalias !4184, !noundef !14
   %97 = zext i16 %96 to i64
-  %98 = getelementptr inbounds nuw { i64, [5 x i64] }, ptr %.sroa.0.0, i64 %97
+  %.idx = mul nuw nsw i64 %97, 48
+  %98 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 %.idx
   %99 = icmp eq i16 %96, 0
   br i1 %99, label %.loopexit.loopexit.i.i.split.us, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77b2da974c9deb66E.exit.i.i.us"
 
@@ -28763,7 +28767,8 @@ define hidden void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.us.us.us, i64 626
   %19 = load i16, ptr %18, align 2, !noalias !4260, !noundef !14
   %20 = zext i16 %19 to i64
-  %21 = getelementptr inbounds nuw { i64, [5 x i64] }, ptr %.sroa.0.0.us.us.us, i64 %20
+  %.idx182 = mul nuw nsw i64 %20, 48
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.us.us.us, i64 %.idx182
   %22 = icmp eq i16 %19, 0
   br i1 %22, label %.loopexit.loopexit.i.i.split.split.us.us.us.us, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77b2da974c9deb66E.exit.i.i.us66.us.us143.us"
 
@@ -28800,8 +28805,8 @@ define hidden void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..
 
 41:                                               ; preds = %39
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4272), !noalias !4275
-  %.not181 = icmp eq i64 %31, -9223372036854775808
-  br i1 %.not181, label %.split124.us, label %.loopexit.loopexit.i.i.split.split.us.us.us.us
+  %.not183 = icmp eq i64 %31, -9223372036854775808
+  br i1 %.not183, label %.split124.us, label %.loopexit.loopexit.i.i.split.split.us.us.us.us
 
 "_ZN61_$LT$just..attribute..Attribute$u20$as$u20$core..cmp..Ord$GT$3cmp17haae29be0466a65e1E.exit.us67.us.us146.us": ; preds = %37
   %42 = icmp eq ptr %30, %21
@@ -28934,7 +28939,8 @@ define hidden void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..
   %95 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 626
   %96 = load i16, ptr %95, align 2, !noalias !4260, !noundef !14
   %97 = zext i16 %96 to i64
-  %98 = getelementptr inbounds nuw { i64, [5 x i64] }, ptr %.sroa.0.0, i64 %97
+  %.idx = mul nuw nsw i64 %97, 48
+  %98 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 %.idx
   %99 = icmp eq i16 %96, 0
   br i1 %99, label %.loopexit.loopexit.i.i.split.us, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77b2da974c9deb66E.exit.i.i.us"
 

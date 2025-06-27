@@ -437,7 +437,8 @@ define linkonce_odr void @_ZNSt3mapI9gguf_typemSt4lessIS0_ESaISt4pairIKS0_mEEEC2
   store ptr %6, ptr %9, align 8, !tbaa !14
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %10, align 8, !tbaa !15
-  %11 = getelementptr inbounds nuw %"struct.std::pair", ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 4
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %.not7.i = icmp eq i64 %2, 0
   br i1 %.not7.i, label %_ZNSt8_Rb_treeI9gguf_typeSt4pairIKS0_mESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE22_M_insert_range_uniqueIPKS3_EENSt9enable_ifIXsr17__same_value_typeIT_EE5valueEvE4typeESE_SE_.exit, label %.lr.ph.i
 
@@ -578,7 +579,8 @@ define linkonce_odr void @_ZNSt3mapI9gguf_typePKcSt4lessIS0_ESaISt4pairIKS0_S2_E
   store ptr %6, ptr %9, align 8, !tbaa !14
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %10, align 8, !tbaa !15
-  %11 = getelementptr inbounds nuw %"struct.std::pair.9", ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 4
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %.not7.i = icmp eq i64 %2, 0
   br i1 %.not7.i, label %_ZNSt8_Rb_treeI9gguf_typeSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE22_M_insert_range_uniqueIPKS5_EENSt9enable_ifIXsr17__same_value_typeIT_EE5valueEvE4typeESG_SG_.exit, label %.lr.ph.i
 
@@ -2816,7 +2818,8 @@ _ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc34
 
 _ZNSt6vectorItSaItEE6resizeEm.exit.i:             ; preds = %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i, %.noexc34
   store ptr %15, ptr %6, align 8, !tbaa !105
-  %19 = getelementptr inbounds nuw i16, ptr %15, i64 %4
+  %.idx = shl nuw nsw i64 %4, 1
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx
   store ptr %19, ptr %9, align 8, !tbaa !108
   store ptr %19, ptr %11, align 8, !tbaa !109
   br label %.lr.ph.i
@@ -3014,7 +3017,8 @@ _ZSt6fill_nIPsmsET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc34
 
 _ZNSt6vectorIsSaIsEE6resizeEm.exit.i:             ; preds = %_ZSt6fill_nIPsmsET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i, %.noexc34
   store ptr %15, ptr %6, align 8, !tbaa !111
-  %19 = getelementptr inbounds nuw i16, ptr %15, i64 %4
+  %.idx = shl nuw nsw i64 %4, 1
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx
   store ptr %19, ptr %9, align 8, !tbaa !113
   store ptr %19, ptr %11, align 8, !tbaa !114
   br label %.lr.ph.i
@@ -3212,7 +3216,8 @@ _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc34
 
 _ZNSt6vectorIjSaIjEE6resizeEm.exit.i:             ; preds = %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i, %.noexc34
   store ptr %15, ptr %6, align 8, !tbaa !116
-  %19 = getelementptr inbounds nuw i32, ptr %15, i64 %4
+  %.idx = shl nuw nsw i64 %4, 2
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx
   store ptr %19, ptr %9, align 8, !tbaa !119
   store ptr %19, ptr %11, align 8, !tbaa !120
   br label %.lr.ph.i
@@ -3410,7 +3415,8 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc34
 
 _ZNSt6vectorIiSaIiEE6resizeEm.exit.i:             ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i, %.noexc34
   store ptr %15, ptr %6, align 8, !tbaa !122
-  %19 = getelementptr inbounds nuw i32, ptr %15, i64 %4
+  %.idx = shl nuw nsw i64 %4, 2
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx
   store ptr %19, ptr %9, align 8, !tbaa !124
   store ptr %19, ptr %11, align 8, !tbaa !125
   br label %.lr.ph.i
@@ -3608,7 +3614,8 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc34
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit.i:             ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i, %.noexc34
   store ptr %15, ptr %6, align 8, !tbaa !129
-  %19 = getelementptr inbounds nuw float, ptr %15, i64 %4
+  %.idx = shl nuw nsw i64 %4, 2
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx
   store ptr %19, ptr %9, align 8, !tbaa !132
   store ptr %19, ptr %11, align 8, !tbaa !133
   br label %.lr.ph.i
@@ -4249,7 +4256,8 @@ _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc34
 
 _ZNSt6vectorImSaImEE6resizeEm.exit.i:             ; preds = %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i, %.noexc34
   store ptr %15, ptr %6, align 8, !tbaa !148
-  %19 = getelementptr inbounds nuw i64, ptr %15, i64 %4
+  %.idx = shl nuw nsw i64 %4, 3
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx
   store ptr %19, ptr %9, align 8, !tbaa !150
   store ptr %19, ptr %11, align 8, !tbaa !151
   br label %.lr.ph.i
@@ -4447,7 +4455,8 @@ _ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc34
 
 _ZNSt6vectorIlSaIlEE6resizeEm.exit.i:             ; preds = %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i, %.noexc34
   store ptr %15, ptr %6, align 8, !tbaa !153
-  %19 = getelementptr inbounds nuw i64, ptr %15, i64 %4
+  %.idx = shl nuw nsw i64 %4, 3
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx
   store ptr %19, ptr %9, align 8, !tbaa !155
   store ptr %19, ptr %11, align 8, !tbaa !156
   br label %.lr.ph.i
@@ -4645,7 +4654,8 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc34
 
 _ZNSt6vectorIdSaIdEE6resizeEm.exit.i:             ; preds = %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i, %.noexc34
   store ptr %15, ptr %6, align 8, !tbaa !160
-  %19 = getelementptr inbounds nuw double, ptr %15, i64 %4
+  %.idx = shl nuw nsw i64 %4, 3
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx
   store ptr %19, ptr %9, align 8, !tbaa !163
   store ptr %19, ptr %11, align 8, !tbaa !164
   br label %.lr.ph.i
@@ -10723,7 +10733,7 @@ _ZNSt6vectorIPKcSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = %313
 .noexc168:                                        ; preds = %_ZNSt6vectorIPKcSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
   %315 = shl nuw nsw i64 %306, 3
   %316 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %315) #28
-  %317 = getelementptr ptr, ptr %316, i64 %306
+  %317 = getelementptr inbounds nuw ptr, ptr %316, i64 %306
   store ptr null, ptr %316, align 8, !tbaa !182
   %318 = icmp eq i64 %306, 1
   br i1 %318, label %.lr.ph, label %_ZSt6fill_nIPPKcmS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i

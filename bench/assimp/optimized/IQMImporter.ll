@@ -8,10 +8,8 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %struct.aiString = type { i32, [1024 x i8] }
-%struct.iqmmesh = type { i32, i32, i32, i32, i32, i32 }
 %struct.aiFace = type { i32, ptr }
 %struct.iqmtriangle = type { [3 x i32] }
-%struct.iqmvertexarray = type { i32, i32, i32, i32, i32 }
 %"class.Assimp::Formatter::basic_formatter" = type { %"class.std::__cxx11::basic_ostringstream" }
 %"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_ostream.base" = type { ptr }
@@ -592,7 +590,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit294: ; preds = %_Z
   %117 = getelementptr inbounds nuw i8, ptr %114, i64 1120
   %118 = load i32, ptr %117, align 8
   %119 = zext i32 %118 to i64
-  %120 = getelementptr inbounds nuw i32, ptr %116, i64 %119
+  %.idx = shl nuw nsw i64 %119, 2
+  %120 = getelementptr inbounds nuw i8, ptr %116, i64 %.idx
   %.not6.i = icmp eq i32 %118, 0
   br i1 %.not6.i, label %_ZSt4iotaIPjiEvT_S1_T0_.exit, label %.lr.ph.i
 
@@ -635,7 +634,8 @@ _ZSt4iotaIPjiEvT_S1_T0_.exit:                     ; preds = %.lr.ph.i, %111
   %138 = load i32, ptr %137, align 4
   %139 = zext i32 %138 to i64
   %140 = getelementptr inbounds nuw i8, ptr %53, i64 %139
-  %141 = getelementptr inbounds nuw %struct.iqmmesh, ptr %140, i64 %126
+  %.idx416 = mul nuw nsw i64 %126, 24
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 %.idx416
   %.not258412 = icmp eq i32 %125, 0
   br i1 %.not258412, label %_ZNSt10unique_ptrIN6Assimp8IOStreamESt14default_deleteIS1_EED2Ev.exit, label %.lr.ph415
 
@@ -850,7 +850,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit307: ; preds = %_Z
   %238 = getelementptr inbounds nuw %struct.iqmtriangle, ptr %234, i64 %237
   %239 = load i32, ptr %215, align 4
   %240 = zext i32 %239 to i64
-  %241 = getelementptr inbounds nuw %struct.iqmtriangle, ptr %238, i64 %240
+  %.idx417 = mul nuw nsw i64 %240, 12
+  %241 = getelementptr inbounds nuw i8, ptr %238, i64 %.idx417
   %.not261380 = icmp eq i32 %239, 0
   br i1 %.not261380, label %._crit_edge, label %.lr.ph
 
@@ -864,7 +865,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit307: ; preds = %_Z
   %245 = getelementptr inbounds nuw i8, ptr %53, i64 %244
   %246 = load i32, ptr %136, align 4
   %247 = zext i32 %246 to i64
-  %248 = getelementptr inbounds nuw %struct.iqmvertexarray, ptr %245, i64 %247
+  %.idx418 = mul nuw nsw i64 %247, 20
+  %248 = getelementptr inbounds nuw i8, ptr %245, i64 %.idx418
   %.not262407 = icmp eq i32 %246, 0
   br i1 %.not262407, label %._crit_edge411, label %.lr.ph410
 
@@ -1004,7 +1006,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit307: ; preds = %_Z
   %317 = getelementptr inbounds nuw float, ptr %313, i64 %316
   %318 = mul i32 %293, %291
   %319 = zext i32 %318 to i64
-  %320 = getelementptr inbounds nuw float, ptr %317, i64 %319
+  %.idx422 = shl nuw nsw i64 %319, 2
+  %320 = getelementptr inbounds nuw i8, ptr %317, i64 %.idx422
   %.not269402 = icmp eq i32 %318, 0
   br i1 %.not269402, label %.loopexit, label %.lr.ph406
 
@@ -1074,7 +1077,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit307: ; preds = %_Z
   %354 = getelementptr inbounds nuw float, ptr %350, i64 %353
   %355 = mul i32 %293, %291
   %356 = zext i32 %355 to i64
-  %357 = getelementptr inbounds nuw float, ptr %354, i64 %356
+  %.idx421 = shl nuw nsw i64 %356, 2
+  %357 = getelementptr inbounds nuw i8, ptr %354, i64 %.idx421
   %.not266397 = icmp eq i32 %355, 0
   br i1 %.not266397, label %.loopexit, label %.lr.ph401
 
@@ -1142,7 +1146,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit307: ; preds = %_Z
   %390 = getelementptr inbounds nuw float, ptr %386, i64 %389
   %391 = mul i32 %293, %291
   %392 = zext i32 %391 to i64
-  %393 = getelementptr inbounds nuw float, ptr %390, i64 %392
+  %.idx420 = shl nuw nsw i64 %392, 2
+  %393 = getelementptr inbounds nuw i8, ptr %390, i64 %.idx420
   %.not265392 = icmp eq i32 %391, 0
   br i1 %.not265392, label %.loopexit, label %.lr.ph396
 
@@ -1289,7 +1294,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit307: ; preds = %_Z
   %467 = getelementptr inbounds nuw float, ptr %463, i64 %466
   %468 = mul i32 %293, %291
   %469 = zext i32 %468 to i64
-  %470 = getelementptr inbounds nuw float, ptr %467, i64 %469
+  %.idx419 = shl nuw nsw i64 %469, 2
+  %470 = getelementptr inbounds nuw i8, ptr %467, i64 %.idx419
   %.not263382 = icmp eq i32 %468, 0
   br i1 %.not263382, label %.loopexit, label %.lr.ph386
 

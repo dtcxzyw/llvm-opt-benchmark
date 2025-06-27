@@ -718,7 +718,8 @@ define hidden void @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..funct
   %16 = load ptr, ptr %15, align 8, !alias.scope !240, !noalias !245, !nonnull !4, !noundef !4
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 312
   %18 = load i64, ptr %17, align 8, !alias.scope !240, !noalias !245, !noundef !4
-  %19 = getelementptr inbounds { { ptr, i64 }, i8, [7 x i8] }, ptr %16, i64 %18
+  %.idx.i = mul nsw i64 %18, 24
+  %19 = getelementptr inbounds i8, ptr %16, i64 %.idx.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !255)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !258)
   %20 = icmp eq i64 %18, 0
@@ -3254,7 +3255,8 @@ define hidden void @_ZN12clap_builder7builder3arg3Arg18stylize_arg_suffix17h7ff5
   %151 = phi i64 [ %.pre.i, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h4fb47f87c40dad33E.exit.i" ], [ %.pre100.i, %148 ]
   %152 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %153 = load ptr, ptr %152, align 8, !noalias !673, !nonnull !4, !noundef !4
-  %154 = getelementptr inbounds { ptr, i64 }, ptr %153, i64 %151
+  %.idx.i = shl nsw i64 %151, 4
+  %154 = getelementptr inbounds i8, ptr %153, i64 %.idx.i
   %155 = icmp eq i64 %151, 0
   br i1 %155, label %._crit_edge.i, label %.lr.ph.i
 
@@ -5404,7 +5406,8 @@ define hidden noundef zeroext i1 @_ZN12clap_builder6parser7matches11matched_arg1
   %10 = load ptr, ptr %9, align 8, !alias.scope !1104, !noalias !1107, !nonnull !4, !noundef !4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %12 = load i64, ptr %11, align 8, !alias.scope !1104, !noalias !1107, !noundef !4
-  %13 = getelementptr inbounds { { i64, ptr }, i64 }, ptr %10, i64 %12
+  %.idx = mul nsw i64 %12, 24
+  %13 = getelementptr inbounds i8, ptr %10, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !1109
   store ptr %0, ptr %3, align 8, !noalias !1114
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -7196,7 +7199,8 @@ define hidden void @"_ZN12clap_builder6parser6parser6Parser14parse_long_arg28_$u
   %15 = load ptr, ptr %14, align 8, !nonnull !4, !noundef !4
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 312
   %17 = load i64, ptr %16, align 8, !noundef !4
-  %18 = getelementptr inbounds { { ptr, i64 }, i8, [7 x i8] }, ptr %15, i64 %17
+  %.idx = mul nsw i64 %17, 24
+  %18 = getelementptr inbounds i8, ptr %15, i64 %.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1455)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1458)
   %19 = icmp eq i64 %17, 0

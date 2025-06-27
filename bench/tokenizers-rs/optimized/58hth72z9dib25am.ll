@@ -4553,7 +4553,8 @@ define hidden noundef zeroext i1 @"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..D
   %5 = alloca { { ptr, i8, i8, [6 x i8] } }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @_ZN4core3fmt9Formatter10debug_list17hdafe9e59d8eb6288E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %2)
-  %6 = getelementptr inbounds i32, ptr %0, i64 %1
+  %.idx = shl nsw i64 %1, 2
+  %6 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %7 = icmp eq i64 %1, 0
   br i1 %7, label %_ZN4core3fmt8builders9DebugList7entries17hde136799acb0dc02E.exit, label %.lr.ph.i
 
@@ -14349,7 +14350,8 @@ _ZN5serde2de9MapAccess10next_value17h5458795ed2581eecE.exit.i: ; preds = %140
   %.val96.i = load ptr, ptr %77, align 8, !alias.scope !3749, !noalias !3585, !nonnull !4, !noundef !4
   %.val97.i = load i64, ptr %78, align 8, !alias.scope !3749, !noalias !3585, !noundef !4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %30), !noalias !3752
-  %190 = getelementptr inbounds { i8, [63 x i8] }, ptr %.val96.i, i64 %.val97.i
+  %.idx.i.i = shl nsw i64 %.val97.i, 6
+  %190 = getelementptr inbounds i8, ptr %.val96.i, i64 %.idx.i.i
   %191 = getelementptr inbounds nuw i8, ptr %30, i64 32
   store ptr %.val96.i, ptr %191, align 8, !noalias !3752
   %192 = getelementptr inbounds nuw i8, ptr %30, i64 40
@@ -24567,7 +24569,8 @@ _ZN10tokenizers6models3bpe4word4Word3add17hb1778fc9c7c19992E.exit186: ; preds = 
 282:                                              ; preds = %280
   %283 = icmp ne ptr %.sroa.6.0.copyload, null
   call void @llvm.assume(i1 %283)
-  %284 = getelementptr inbounds ptr, ptr %.sroa.6.0.copyload, i64 %.sroa.7478.0.copyload
+  %.idx = shl nsw i64 %.sroa.7478.0.copyload, 3
+  %284 = getelementptr inbounds i8, ptr %.sroa.6.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %22)
   store ptr %.sroa.6.0.copyload, ptr %22, align 8
   store ptr %.sroa.6.0.copyload, ptr %.sroa.4.0..sroa_idx, align 8
@@ -29188,7 +29191,8 @@ define void @"_ZN106_$LT$tokenizers..pre_tokenizers..byte_level..ByteLevel$u20$a
           to label %91 unwind label %89
 
 23:                                               ; preds = %4
-  %24 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, ptr %.val22, i64 %.val23
+  %.idx49 = mul nsw i64 %.val23, 240
+  %24 = getelementptr inbounds i8, ptr %.val22, i64 %.idx49
   %25 = icmp eq i64 %.val23, 0
   br i1 %25, label %._crit_edge, label %.lr.ph
 
@@ -29268,7 +29272,8 @@ define void @"_ZN106_$LT$tokenizers..pre_tokenizers..byte_level..ByteLevel$u20$a
           to label %67 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .loopexit44:                                      ; preds = %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h04e2aacc609ea277E.exit", %4
-  %59 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, ptr %.val22, i64 %.val23
+  %.idx50 = mul nsw i64 %.val23, 240
+  %59 = getelementptr inbounds i8, ptr %.val22, i64 %.idx50
   %60 = icmp eq i64 %.val23, 0
   br i1 %60, label %._crit_edge, label %.lr.ph48
 
@@ -29301,7 +29306,8 @@ _ZN10tokenizers9tokenizer8encoding8Encoding15set_sequence_id17hb7c26fd98fbbf98aE
   %.val = load ptr, ptr %68, align 8, !nonnull !4, !noundef !4
   %69 = getelementptr i8, ptr %.sroa.0.045, i64 184
   %.val21 = load i64, ptr %69, align 8, !noundef !4
-  %70 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, ptr %.val, i64 %.val21
+  %.idx = mul nsw i64 %.val21, 240
+  %70 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   %71 = icmp eq i64 %.val21, 0
   br i1 %71, label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h04e2aacc609ea277E.exit", label %.lr.ph.i
 
@@ -29701,7 +29707,7 @@ define void @"_ZN107_$LT$tokenizers..processors..roberta..RobertaProcessing$u20$
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %23 = load i8, ptr %22, align 8, !range !42, !noundef !4
   %24 = trunc nuw i8 %23 to i1
-  br i1 %24, label %25, label %.loopexit46
+  br i1 %24, label %25, label %.loopexit47
 
 .loopexit:                                        ; preds = %72
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -29709,12 +29715,12 @@ define void @"_ZN107_$LT$tokenizers..processors..roberta..RobertaProcessing$u20$
   br label %.body
 
 .loopexit.split-lp.loopexit:                      ; preds = %.noexc39, %.noexc38, %.lr.ph.i37
-  %lpad.loopexit43 = landingpad { ptr, i32 }
+  %lpad.loopexit44 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
 .loopexit.split-lp.loopexit.split-lp.loopexit:    ; preds = %48, %.noexc, %.noexc31
-  %lpad.loopexit47 = landingpad { ptr, i32 }
+  %lpad.loopexit48 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
@@ -29724,7 +29730,7 @@ define void @"_ZN107_$LT$tokenizers..processors..roberta..RobertaProcessing$u20$
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %93
-  %eh.lpad-body = phi { ptr, i32 } [ %94, %93 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit43, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit47, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %94, %93 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit44, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit48, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr85drop_in_place$LT$alloc..vec..Vec$LT$tokenizers..tokenizer..encoding..Encoding$GT$$GT$17hd2c290acf223390cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2) #39
           to label %125 unwind label %123
 
@@ -29733,9 +29739,10 @@ define void @"_ZN107_$LT$tokenizers..processors..roberta..RobertaProcessing$u20$
   %.val27 = load ptr, ptr %26, align 8, !nonnull !4, !noundef !4
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.val28 = load i64, ptr %27, align 8, !noundef !4
-  %28 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, ptr %.val27, i64 %.val28
+  %.idx63 = mul nsw i64 %.val28, 240
+  %28 = getelementptr inbounds i8, ptr %.val27, i64 %.idx63
   %29 = icmp eq i64 %.val28, 0
-  br i1 %29, label %.loopexit46, label %.lr.ph
+  br i1 %29, label %.loopexit47, label %.lr.ph
 
 .lr.ph:                                           ; preds = %25
   %30 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -29759,20 +29766,20 @@ define void @"_ZN107_$LT$tokenizers..processors..roberta..RobertaProcessing$u20$
   br label %48
 
 48:                                               ; preds = %.lr.ph, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h1f30e2ec6eb69861E.exit"
-  %.sroa.0.061 = phi ptr [ %.val27, %.lr.ph ], [ %49, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h1f30e2ec6eb69861E.exit" ]
-  %49 = getelementptr inbounds nuw i8, ptr %.sroa.0.061, i64 240
+  %.sroa.0.062 = phi ptr [ %.val27, %.lr.ph ], [ %49, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h1f30e2ec6eb69861E.exit" ]
+  %49 = getelementptr inbounds nuw i8, ptr %.sroa.0.062, i64 240
   call void @llvm.experimental.noalias.scope.decl(metadata !7504)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %18)
   store i8 %47, ptr %18, align 1, !noalias !7504
   call void @llvm.experimental.noalias.scope.decl(metadata !7507)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %17), !noalias !7504
-  %50 = getelementptr inbounds nuw i8, ptr %.sroa.0.061, i64 56
+  %50 = getelementptr inbounds nuw i8, ptr %.sroa.0.062, i64 56
   %51 = load ptr, ptr %50, align 8, !alias.scope !7510, !noalias !7513, !nonnull !4, !noundef !4
-  %52 = getelementptr inbounds nuw i8, ptr %.sroa.0.061, i64 64
+  %52 = getelementptr inbounds nuw i8, ptr %.sroa.0.062, i64 64
   %53 = load i64, ptr %52, align 8, !alias.scope !7510, !noalias !7513, !noundef !4
-  %54 = getelementptr inbounds nuw i8, ptr %.sroa.0.061, i64 104
+  %54 = getelementptr inbounds nuw i8, ptr %.sroa.0.062, i64 104
   %55 = load ptr, ptr %54, align 8, !alias.scope !7515, !noalias !7513, !nonnull !4, !noundef !4
-  %56 = getelementptr inbounds nuw i8, ptr %.sroa.0.061, i64 112
+  %56 = getelementptr inbounds nuw i8, ptr %.sroa.0.062, i64 112
   %57 = load i64, ptr %56, align 8, !alias.scope !7515, !noalias !7513, !noundef !4
   %58 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %51, i64 %53
   %59 = getelementptr inbounds { i64, i64 }, ptr %55, i64 %57
@@ -29813,16 +29820,17 @@ define void @"_ZN107_$LT$tokenizers..processors..roberta..RobertaProcessing$u20$
   invoke void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17h1f8319afe11eb6f9E.llvm.14140520316429159617"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %17, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %18, i64 noundef 0)
           to label %101 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.loopexit46:                                      ; preds = %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h1f30e2ec6eb69861E.exit", %25, %4
+.loopexit47:                                      ; preds = %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h1f30e2ec6eb69861E.exit", %25, %4
   %64 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val29 = load ptr, ptr %64, align 8, !nonnull !4, !noundef !4
   %65 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.val30 = load i64, ptr %65, align 8, !noundef !4
-  %66 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, ptr %.val29, i64 %.val30
+  %.idx43 = mul nsw i64 %.val30, 240
+  %66 = getelementptr inbounds i8, ptr %.val29, i64 %.idx43
   %67 = icmp eq i64 %.val30, 0
   br i1 %67, label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h5d8f7d33c2167e3bE.exit", label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.loopexit46
+.lr.ph.i:                                         ; preds = %.loopexit47
   %68 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %69 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %70 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -29910,7 +29918,7 @@ define void @"_ZN107_$LT$tokenizers..processors..roberta..RobertaProcessing$u20$
   %95 = icmp eq ptr %73, %66
   br i1 %95, label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h5d8f7d33c2167e3bE.exit", label %72
 
-"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h5d8f7d33c2167e3bE.exit": ; preds = %"_ZN107_$LT$tokenizers..processors..roberta..RobertaProcessing$u20$as$u20$tokenizers..tokenizer..PostProcessor$GT$17process_encodings28_$u7b$$u7b$closure$u7d$$u7d$17h6a83151bdabee70aE.exit.i", %.loopexit46
+"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h5d8f7d33c2167e3bE.exit": ; preds = %"_ZN107_$LT$tokenizers..processors..roberta..RobertaProcessing$u20$as$u20$tokenizers..tokenizer..PostProcessor$GT$17process_encodings28_$u7b$$u7b$closure$u7d$$u7d$17h6a83151bdabee70aE.exit.i", %.loopexit47
   br i1 %3, label %98, label %96
 
 96:                                               ; preds = %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h5d8f7d33c2167e3bE.exit"
@@ -29942,11 +29950,12 @@ define void @"_ZN107_$LT$tokenizers..processors..roberta..RobertaProcessing$u20$
 101:                                              ; preds = %.noexc31
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %17), !noalias !7504
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %18)
-  %102 = getelementptr i8, ptr %.sroa.0.061, i64 176
+  %102 = getelementptr i8, ptr %.sroa.0.062, i64 176
   %.val = load ptr, ptr %102, align 8, !nonnull !4, !noundef !4
-  %103 = getelementptr i8, ptr %.sroa.0.061, i64 184
+  %103 = getelementptr i8, ptr %.sroa.0.062, i64 184
   %.val24 = load i64, ptr %103, align 8, !noundef !4
-  %104 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, ptr %.val, i64 %.val24
+  %.idx = mul nsw i64 %.val24, 240
+  %104 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   %105 = icmp eq i64 %.val24, 0
   br i1 %105, label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h1f30e2ec6eb69861E.exit", label %.lr.ph.i37
 
@@ -30014,7 +30023,7 @@ define void @"_ZN107_$LT$tokenizers..processors..roberta..RobertaProcessing$u20$
 
 "_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h1f30e2ec6eb69861E.exit": ; preds = %.noexc40, %101
   %122 = icmp eq ptr %49, %28
-  br i1 %122, label %.loopexit46, label %48
+  br i1 %122, label %.loopexit47, label %48
 
 123:                                              ; preds = %.body
   %124 = landingpad { ptr, i32 }
@@ -30978,7 +30987,8 @@ define void @"_ZN53_$LT$dyn$u20$tokenizers..tokenizer..PostProcessor$GT$15defaul
   %.sroa.0.0.copyload = load i64, ptr %1, align 8
   %.sroa.413.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.413.0.copyload = load ptr, ptr %.sroa.413.0..sroa_idx, align 8, !nonnull !4, !noundef !4
-  %18 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, ptr %.sroa.413.0.copyload, i64 %10
+  %.idx = mul nsw i64 %10, 240
+  %18 = getelementptr inbounds i8, ptr %.sroa.413.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
   store ptr %.sroa.413.0.copyload, ptr %7, align 8
   %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8

@@ -4227,7 +4227,8 @@ define hidden noundef align 8 dereferenceable_or_null(40) ptr @"_ZN4core6option1
   %6 = load ptr, ptr %5, align 8, !alias.scope !1089, !nonnull !4, !noundef !4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8, !alias.scope !1089, !noundef !4
-  %9 = getelementptr inbounds { i16, [19 x i16] }, ptr %6, i64 %8
+  %.idx.i.i = mul nsw i64 %8, 40
+  %9 = getelementptr inbounds i8, ptr %6, i64 %.idx.i.i
   %10 = icmp eq i64 %8, 0
   br i1 %10, label %"_ZN6rustls4msgs9handshake19HasServerExtensions21quic_params_extension28_$u7b$$u7b$closure$u7d$$u7d$17h73a34b7d10624381E.llvm.9964311202002838858.exit", label %.lr.ph.i.i.i
 
@@ -5119,7 +5120,8 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
 
 ; Function Attrs: nofree norecurse nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
 define hidden noundef zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17hf8bf38760031556bE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 captures(address) %1, i64 noundef %2) unnamed_addr #10 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds { { i64, ptr }, i64 }, ptr %1, i64 %2
+  %.idx = mul nsw i64 %2, 24
+  %4 = getelementptr inbounds i8, ptr %1, i64 %.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1230)
   %.not.i = icmp eq i64 %2, 0
   br i1 %.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hbe31329a12e159e9E.llvm.9964311202002838858.exit", label %.lr.ph.i
@@ -9748,7 +9750,8 @@ define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs.
   %22 = load ptr, ptr %21, align 8, !alias.scope !2091, !nonnull !4, !noundef !4
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load i64, ptr %23, align 8, !alias.scope !2091, !noundef !4
-  %25 = getelementptr inbounds { { { { i64, ptr }, i64 } } }, ptr %22, i64 %24
+  %.idx = mul nsw i64 %24, 24
+  %25 = getelementptr inbounds i8, ptr %22, i64 %.idx
   %26 = icmp eq i64 %24, 0
   br i1 %26, label %._crit_edge, label %.lr.ph
 
@@ -10065,7 +10068,8 @@ define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs.
   %21 = load ptr, ptr %20, align 8, !alias.scope !2169, !nonnull !4, !noundef !4
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load i64, ptr %22, align 8, !alias.scope !2169, !noundef !4
-  %24 = getelementptr inbounds { i16, i16 }, ptr %21, i64 %23
+  %.idx = shl nsw i64 %23, 2
+  %24 = getelementptr inbounds i8, ptr %21, i64 %.idx
   %25 = icmp eq i64 %23, 0
   br i1 %25, label %._crit_edge, label %.lr.ph
 
@@ -10555,7 +10559,8 @@ define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs.
   %22 = load ptr, ptr %21, align 8, !alias.scope !2273, !nonnull !4, !noundef !4
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load i64, ptr %23, align 8, !alias.scope !2273, !noundef !4
-  %25 = getelementptr inbounds { { { { i64, ptr }, i64 } } }, ptr %22, i64 %24
+  %.idx = mul nsw i64 %24, 24
+  %25 = getelementptr inbounds i8, ptr %22, i64 %.idx
   %26 = icmp eq i64 %24, 0
   br i1 %26, label %._crit_edge, label %.lr.ph
 
@@ -10662,7 +10667,8 @@ define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs.
   %23 = load ptr, ptr %22, align 8, !alias.scope !2309, !nonnull !4, !noundef !4
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %25 = load i64, ptr %24, align 8, !alias.scope !2309, !noundef !4
-  %26 = getelementptr inbounds { { { i64, [2 x i64] } } }, ptr %23, i64 %25
+  %.idx = mul nsw i64 %25, 24
+  %26 = getelementptr inbounds i8, ptr %23, i64 %.idx
   %27 = icmp eq i64 %25, 0
   br i1 %27, label %._crit_edge, label %.lr.ph
 
@@ -10793,7 +10799,8 @@ define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs.
   %22 = load ptr, ptr %21, align 8, !alias.scope !2347, !nonnull !4, !noundef !4
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load i64, ptr %23, align 8, !alias.scope !2347, !noundef !4
-  %25 = getelementptr inbounds { { { { i64, ptr }, i64 } } }, ptr %22, i64 %24
+  %.idx = mul nsw i64 %24, 24
+  %25 = getelementptr inbounds i8, ptr %22, i64 %.idx
   %26 = icmp eq i64 %24, 0
   br i1 %26, label %._crit_edge, label %.lr.ph
 
@@ -11007,7 +11014,8 @@ define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs.
   %22 = load ptr, ptr %21, align 8, !alias.scope !2419, !nonnull !4, !noundef !4
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load i64, ptr %23, align 8, !alias.scope !2419, !noundef !4
-  %25 = getelementptr inbounds { i16, i16 }, ptr %22, i64 %24
+  %.idx = shl nsw i64 %24, 2
+  %25 = getelementptr inbounds i8, ptr %22, i64 %.idx
   %26 = icmp eq i64 %24, 0
   br i1 %26, label %._crit_edge, label %.lr.ph
 
@@ -11237,7 +11245,8 @@ define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs.
   %22 = load ptr, ptr %21, align 8, !alias.scope !2466, !nonnull !4, !noundef !4
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load i64, ptr %23, align 8, !alias.scope !2466, !noundef !4
-  %25 = getelementptr inbounds { i16, i16 }, ptr %22, i64 %24
+  %.idx = shl nsw i64 %24, 2
+  %25 = getelementptr inbounds i8, ptr %22, i64 %.idx
   %26 = icmp eq i64 %24, 0
   br i1 %26, label %._crit_edge, label %.lr.ph
 
@@ -11339,7 +11348,8 @@ define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs.
   %22 = load ptr, ptr %21, align 8, !alias.scope !2499, !nonnull !4, !noundef !4
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load i64, ptr %23, align 8, !alias.scope !2499, !noundef !4
-  %25 = getelementptr inbounds { i16, i16 }, ptr %22, i64 %24
+  %.idx = shl nsw i64 %24, 2
+  %25 = getelementptr inbounds i8, ptr %22, i64 %.idx
   %26 = icmp eq i64 %24, 0
   br i1 %26, label %._crit_edge, label %.lr.ph
 
@@ -11699,7 +11709,8 @@ define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs.
   %22 = load ptr, ptr %21, align 8, !alias.scope !2574, !nonnull !4, !noundef !4
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load i64, ptr %23, align 8, !alias.scope !2574, !noundef !4
-  %25 = getelementptr inbounds { { { { i64, ptr }, i64 } } }, ptr %22, i64 %24
+  %.idx = mul nsw i64 %24, 24
+  %25 = getelementptr inbounds i8, ptr %22, i64 %.idx
   %26 = icmp eq i64 %24, 0
   br i1 %26, label %._crit_edge, label %.lr.ph
 
@@ -16969,7 +16980,8 @@ define hidden noundef align 8 dereferenceable_or_null(40) ptr @_ZN6rustls4msgs9h
   %5 = load ptr, ptr %4, align 8, !alias.scope !3648, !nonnull !4, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !alias.scope !3648, !noundef !4
-  %8 = getelementptr inbounds { i16, [19 x i16] }, ptr %5, i64 %7
+  %.idx = mul nsw i64 %7, 40
+  %8 = getelementptr inbounds i8, ptr %5, i64 %.idx
   %9 = icmp eq i64 %7, 0
   br i1 %9, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17hf657ed8c5228b563E.llvm.9964311202002838858.exit", label %.lr.ph.i
 
@@ -17159,7 +17171,8 @@ define hidden { ptr, i64 } @_ZN6rustls4msgs9handshake19HasServerExtensions13alpn
   %3 = load ptr, ptr %2, align 8, !alias.scope !3668, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !3668, !noundef !4
-  %6 = getelementptr inbounds { i16, [19 x i16] }, ptr %3, i64 %5
+  %.idx.i = mul nsw i64 %5, 40
+  %6 = getelementptr inbounds i8, ptr %3, i64 %.idx.i
   %7 = icmp eq i64 %5, 0
   br i1 %7, label %_ZN6rustls4msgs9handshake19HasServerExtensions14find_extension17h61c6bece141abe37E.exit.thread, label %.lr.ph.i.i
 
@@ -17233,7 +17246,8 @@ define hidden void @_ZN6rustls4msgs9handshake19HasServerExtensions21quic_params_
   %4 = load ptr, ptr %3, align 8, !alias.scope !3695, !nonnull !4, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !alias.scope !3695, !noundef !4
-  %7 = getelementptr inbounds { i16, [19 x i16] }, ptr %4, i64 %6
+  %.idx.i = mul nsw i64 %6, 40
+  %7 = getelementptr inbounds i8, ptr %4, i64 %.idx.i
   %8 = icmp eq i64 %6, 0
   br i1 %8, label %.thread, label %.lr.ph.i.i
 
@@ -17340,7 +17354,8 @@ define hidden noundef align 8 dereferenceable_or_null(40) ptr @"_ZN6rustls4msgs9
   %3 = load ptr, ptr %2, align 8, !alias.scope !3733, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !3733, !noundef !4
-  %6 = getelementptr inbounds { i16, [19 x i16] }, ptr %3, i64 %5
+  %.idx.i = mul nsw i64 %5, 40
+  %6 = getelementptr inbounds i8, ptr %3, i64 %.idx.i
   %7 = icmp eq i64 %5, 0
   br i1 %7, label %_ZN6rustls4msgs9handshake19HasServerExtensions14find_extension17h61c6bece141abe37E.exit, label %.lr.ph.i.i
 

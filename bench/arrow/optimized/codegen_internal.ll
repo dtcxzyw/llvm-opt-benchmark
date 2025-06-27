@@ -978,21 +978,21 @@ declare void @_ZN5arrow3mapESt10shared_ptrINS_8DataTypeEES2_b(ptr dead_on_unwind
 define linkonce_odr void @_ZNSt6vectorISt10shared_ptrIN5arrow8DataTypeEESaIS3_EEC2ESt16initializer_listIS3_ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, ptr noundef nonnull align 1 dereferenceable(1) %3) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt6vectorISt10shared_ptrIN5arrow8DataTypeEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  %4 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %1, i64 %2
-  %.idx = shl nuw nsw i64 %2, 4
+  %.idx6 = shl nuw nsw i64 %2, 4
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx6
   %.not.i.i = icmp eq i64 %2, 0
   br i1 %.not.i.i, label %_ZNSt12_Vector_baseISt10shared_ptrIN5arrow8DataTypeEESaIS3_EE11_M_allocateEm.exit.thread.i, label %.lr.ph.i.i.i.i.preheader.i
 
 _ZNSt12_Vector_baseISt10shared_ptrIN5arrow8DataTypeEESaIS3_EE11_M_allocateEm.exit.thread.i: ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow8DataTypeEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i
-  %5 = getelementptr inbounds nuw i8, ptr null, i64 %.idx
+  %5 = getelementptr inbounds nuw i8, ptr null, i64 %.idx6
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %5, ptr %6, align 8, !tbaa !52
   br label %.loopexit
 
 .lr.ph.i.i.i.i.preheader.i:                       ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow8DataTypeEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i
-  %7 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx) #26
+  %7 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx6) #26
   store ptr %7, ptr %0, align 8, !tbaa !55
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %8, ptr %9, align 8, !tbaa !52
   br label %.lr.ph.i.i.i.i.i
@@ -1568,7 +1568,8 @@ _ZN5arrow7compute8internal23EnsureDictionaryDecodedEPNS_10TypeHolderEm.exit: ; p
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5arrow7compute8internal23EnsureDictionaryDecodedEPNS_10TypeHolderEm(ptr noundef captures(address) %0, i64 noundef %1) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds nuw %"struct.arrow::TypeHolder", ptr %0, i64 %1
+  %.idx = mul nuw nsw i64 %1, 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   %.not14 = icmp eq i64 %1, 0
   br i1 %.not14, label %._crit_edge, label %.lr.ph
 
@@ -2563,7 +2564,8 @@ _ZN5arrow7compute8internal12ReplaceTypesERKNS_10TypeHolderEPS2_m.exit: ; preds =
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5arrow7compute8internal12ReplaceTypesERKNS_10TypeHolderEPS2_m(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef captures(address) %1, i64 noundef %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds nuw %"struct.arrow::TypeHolder", ptr %1, i64 %2
+  %.idx = mul nuw nsw i64 %2, 24
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %.not7 = icmp eq i64 %2, 0
   br i1 %.not7, label %._crit_edge, label %.lr.ph
 
@@ -3231,7 +3233,8 @@ declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow4int8Ev() loca
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_ZN5arrow7compute8internal24CommonTemporalResolutionEPKNS_10TypeHolderEmPNS_8TimeUnit4typeE(ptr noundef readonly captures(address) %0, i64 noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) local_unnamed_addr #7 {
   store i32 0, ptr %2, align 4, !tbaa !121
-  %4 = getelementptr inbounds nuw %"struct.arrow::TypeHolder", ptr %0, i64 %1
+  %.idx = mul nuw nsw i64 %1, 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   %.not49 = icmp eq i64 %1, 0
   br i1 %.not49, label %._crit_edge, label %.lr.ph
 
@@ -3307,7 +3310,8 @@ define void @_ZN5arrow7compute8internal14CommonTemporalEPKNS_10TypeHolderEm(ptr 
   %7 = alloca %"class.std::shared_ptr", align 8
   %8 = alloca %"class.std::shared_ptr", align 8
   %9 = alloca %"class.std::shared_ptr", align 8
-  %10 = getelementptr inbounds nuw %"struct.arrow::TypeHolder", ptr %1, i64 %2
+  %.idx = mul nuw nsw i64 %2, 24
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %.not135 = icmp eq i64 %2, 0
   br i1 %.not135, label %.thread177, label %.lr.ph
 
@@ -3596,7 +3600,8 @@ declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow6date32Ev() lo
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5arrow7compute8internal12CommonBinaryEPKNS_10TypeHolderEm(ptr dead_on_unwind noalias writable writeonly sret(%"struct.arrow::TypeHolder") align 8 captures(none) %0, ptr noundef readonly captures(address) %1, i64 noundef %2) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds nuw %"struct.arrow::TypeHolder", ptr %1, i64 %2
+  %.idx = mul nuw nsw i64 %2, 24
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %.not75 = icmp eq i64 %2, 0
   br i1 %.not75, label %._crit_edge.thread, label %.lr.ph
 
@@ -4828,7 +4833,8 @@ define void @_ZN5arrow7compute8internal15CastDecimalArgsEPNS_10TypeHolderEm(ptr 
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca i32, align 4
   %6 = alloca %"class.arrow::Result.42", align 8
-  %7 = getelementptr inbounds nuw %"struct.arrow::TypeHolder", ptr %1, i64 %2
+  %.idx = mul nuw nsw i64 %2, 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %.not171 = icmp eq i64 %2, 0
   br i1 %.not171, label %.thread, label %.lr.ph
 

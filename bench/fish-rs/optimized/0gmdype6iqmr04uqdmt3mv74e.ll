@@ -3370,7 +3370,8 @@ default.unreachable237:                           ; preds = %74
   %124 = load ptr, ptr %123, align 8, !nonnull !3, !noundef !3
   %125 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %126 = load i64, ptr %125, align 8, !noundef !3
-  %127 = getelementptr inbounds nuw { i64, [2 x i64] }, ptr %124, i64 %126
+  %.idx = mul nuw nsw i64 %126, 24
+  %127 = getelementptr inbounds nuw i8, ptr %124, i64 %.idx
   %128 = icmp eq i64 %126, 0
   br i1 %128, label %._crit_edge, label %.lr.ph
 
@@ -4158,7 +4159,8 @@ default.unreachable226:                           ; preds = %87
   %137 = load ptr, ptr %136, align 8, !nonnull !3, !noundef !3
   %138 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %139 = load i64, ptr %138, align 8, !noundef !3
-  %140 = getelementptr inbounds nuw { i64, [2 x i64] }, ptr %137, i64 %139
+  %.idx = mul nuw nsw i64 %139, 24
+  %140 = getelementptr inbounds nuw i8, ptr %137, i64 %.idx
   %141 = icmp eq i64 %139, 0
   br i1 %141, label %._crit_edge, label %.lr.ph
 
@@ -23881,7 +23883,8 @@ define void @_ZN4fish5abbrs15AbbreviationSet5match17hc118e586189eae1fE(ptr dead_
   br i1 %19, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
-  %20 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, { { { { i64, ptr, {} }, {} }, i64 } }, { { { i64, ptr, {} }, {} }, i64 }, { { { { i64, ptr, {} }, {} }, i64 } }, { i64, [2 x i64] }, ptr, i8, i8, i8, [5 x i8] }, ptr %16, i64 %18
+  %.idx = mul nuw nsw i64 %18, 136
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 24
@@ -24076,7 +24079,8 @@ define void @_ZN4fish5abbrs15AbbreviationSet3add17hbefde126d764f787E(ptr noalias
   %25 = load ptr, ptr %24, align 8, !nonnull !3, !noundef !3
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %27 = load i64, ptr %26, align 8, !noundef !3
-  %28 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, { { { { i64, ptr, {} }, {} }, i64 } }, { { { i64, ptr, {} }, {} }, i64 }, { { { { i64, ptr, {} }, {} }, i64 } }, { i64, [2 x i64] }, ptr, i8, i8, i8, [5 x i8] }, ptr %25, i64 %27
+  %.idx = mul nuw nsw i64 %27, 136
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 %.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2656)
   %29 = icmp eq i64 %27, 0
   br i1 %29, label %.loopexit10, label %.lr.ph.i
@@ -24246,7 +24250,8 @@ define void @_ZN4fish5abbrs15AbbreviationSet6rename17he463a2b9a81ef7b6E(ptr noal
   %30 = load ptr, ptr %29, align 8, !nonnull !3, !noundef !3
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %32 = load i64, ptr %31, align 8, !noundef !3
-  %33 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, { { { { i64, ptr, {} }, {} }, i64 } }, { { { i64, ptr, {} }, {} }, i64 }, { { { { i64, ptr, {} }, {} }, i64 } }, { i64, [2 x i64] }, ptr, i8, i8, i8, [5 x i8] }, ptr %30, i64 %32
+  %.idx = mul nuw nsw i64 %32, 136
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 %.idx
   %34 = icmp eq i64 %32, 0
   br i1 %34, label %.loopexit, label %.lr.ph
 
@@ -25486,7 +25491,8 @@ _ZN4fish3env16environment_impl5Query3new17heb394813a0d9aeb9E.exit: ; preds = %5,
   store i64 0, ptr %102, align 8, !noalias !2814
   %103 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %104 = load ptr, ptr %103, align 8, !alias.scope !2811, !noalias !2819, !nonnull !3, !noundef !3
-  %105 = getelementptr inbounds nuw i32, ptr %104, i64 %96
+  %.idx = shl nuw nsw i64 %96, 2
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 %.idx
   %106 = icmp eq i64 %96, 0
   br i1 %106, label %._crit_edge, label %.lr.ph.preheader
 
@@ -34427,7 +34433,8 @@ _ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i: ; preds = %112, %.no
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16)
   %142 = load ptr, ptr %33, align 8, !nonnull !3, !noundef !3
   %143 = load i64, ptr %34, align 8, !noundef !3
-  %144 = getelementptr inbounds nuw i64, ptr %142, i64 %143
+  %.idx = shl nuw nsw i64 %143, 3
+  %144 = getelementptr inbounds nuw i8, ptr %142, i64 %.idx
   %145 = icmp eq i64 %143, 0
   br i1 %145, label %._crit_edge204, label %.lr.ph203
 
@@ -36455,7 +36462,8 @@ define void @_ZN4fish12input_common23terminal_protocol_hacks17h37e44ec7b031d727E
   br i1 %.not40.i.i, label %124, label %101
 
 101:                                              ; preds = %.noexc7.i
-  %102 = getelementptr inbounds nuw i32, ptr %99, i64 %100
+  %.idx.i.i = shl nuw nsw i64 %100, 2
+  %102 = getelementptr inbounds nuw i8, ptr %99, i64 %.idx.i.i
   %103 = icmp eq i64 %100, 0
   br i1 %103, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h6bd3c254b0597f56E.exit.thread.i.i, label %.lr.ph.i.i.i
 
