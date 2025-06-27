@@ -42629,21 +42629,21 @@ define range(i64 8589934592, 545460846594) i64 @_ZN4fish8builtins7command7comman
 
 .outer:                                           ; preds = %16, %11
   %.sroa.017.0.ph = phi i1 [ false, %11 ], [ true, %16 ]
-  %.sroa.020.0.ph = phi i1 [ false, %11 ], [ %.sroa.020.0.ph141, %16 ]
+  %.sroa.020.0.ph = phi i1 [ false, %11 ], [ %.sroa.020.0.ph140, %16 ]
   %.sroa.022.0.ph = phi i1 [ false, %11 ], [ %.sroa.022.0, %16 ]
-  br label %.outer140
+  br label %.outer139
 
 15:                                               ; preds = %4
   tail call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef 0, i64 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.af0885d1f2ed80afa9677019cc2f89cf.175) #32
   unreachable
 
-16:                                               ; preds = %.outer140, %24
-  %.sroa.022.0 = phi i1 [ true, %24 ], [ %.sroa.022.0.ph142, %.outer140 ]
+16:                                               ; preds = %.outer139, %24
+  %.sroa.022.0 = phi i1 [ true, %24 ], [ %.sroa.022.0.ph141, %.outer140 ]
   %17 = call noundef i32 @_ZN4fish7wgetopt9WGetopter8next_opt17h00a46e38b64ab16dE(ptr noalias noundef nonnull align 8 dereferenceable(112) %10)
   switch i32 %17, label %19 [
     i32 1114112, label %18
     i32 97, label %.outer
-    i32 113, label %.outer140
+    i32 113, label %.outer139
     i32 115, label %24
     i32 118, label %24
     i32 104, label %25
@@ -42653,7 +42653,7 @@ define range(i64 8589934592, 545460846594) i64 @_ZN4fish8builtins7command7comman
 
 18:                                               ; preds = %16
   %or.cond = or i1 %.sroa.022.0, %.sroa.017.0.ph
-  %or.cond3 = or i1 %or.cond, %.sroa.020.0.ph141
+  %or.cond3 = or i1 %or.cond, %.sroa.020.0.ph140
   br i1 %or.cond3, label %48, label %101
 
 19:                                               ; preds = %16
@@ -42670,9 +42670,9 @@ define range(i64 8589934592, 545460846594) i64 @_ZN4fish8builtins7command7comman
   call void @_ZN4core9panicking9panic_fmt17h8d16370d7cdeaf7bE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %9, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.af0885d1f2ed80afa9677019cc2f89cf.185) #32
   unreachable
 
-.outer140:                                        ; preds = %16, %.outer
-  %.sroa.020.0.ph141 = phi i1 [ %.sroa.020.0.ph, %.outer ], [ true, %16 ]
-  %.sroa.022.0.ph142 = phi i1 [ %.sroa.022.0.ph, %.outer ], [ %.sroa.022.0, %16 ]
+.outer139:                                        ; preds = %16, %.outer
+  %.sroa.020.0.ph140 = phi i1 [ %.sroa.020.0.ph, %.outer ], [ true, %16 ]
+  %.sroa.022.0.ph141 = phi i1 [ %.sroa.022.0.ph, %.outer ], [ %.sroa.022.0, %16 ]
   br label %16
 
 24:                                               ; preds = %16, %16
@@ -42738,7 +42738,7 @@ define range(i64 8589934592, 545460846594) i64 @_ZN4fish8builtins7command7comman
   br i1 %.sroa.017.0.ph, label %.split66.us.split, label %.split66.split
 
 .split66.us.split:                                ; preds = %48
-  br i1 %.sroa.020.0.ph141, label %.split66.us.split.split.us, label %.split66.us.split.split
+  br i1 %.sroa.020.0.ph140, label %.split66.us.split.split.us, label %.split66.us.split.split
 
 .split66.us.split.split.us:                       ; preds = %.split66.us.split, %74
   %55 = phi i64 [ %.pr.us.us, %74 ], [ %50, %.split66.us.split ]
@@ -42906,7 +42906,7 @@ define range(i64 8589934592, 545460846594) i64 @_ZN4fish8builtins7command7comman
   call void @_ZN4fish4path13path_get_path17he019edc56aee634aE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 4 %115, i64 noundef %117, ptr noundef nonnull align 1 %118, ptr noalias noundef readonly align 8 dereferenceable(72) @anon.af0885d1f2ed80afa9677019cc2f89cf.186)
   %119 = load i64, ptr %6, align 8, !range !37, !noundef !3
   %.not34 = icmp eq i64 %119, -9223372036854775808
-  br i1 %.not34, label %.thread94, label %124
+  br i1 %.not34, label %.thread93, label %124
 
 .thread:                                          ; preds = %111, %103, %106, %81, %78, %76, %61, %58, %56
   %.us-phi68 = phi i8 [ 0, %56 ], [ 0, %58 ], [ 0, %61 ], [ %.sroa.013.0.us, %76 ], [ %.sroa.013.0.us, %78 ], [ %.sroa.013.0.us, %81 ], [ %.sroa.013.0, %106 ], [ %.sroa.013.0, %103 ], [ %.sroa.013.0, %111 ]
@@ -42922,7 +42922,7 @@ define range(i64 8589934592, 545460846594) i64 @_ZN4fish8builtins7command7comman
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.0.2, %.sroa.114.2
   ret i64 %.sroa.0.0.insert.insert
 
-.thread94:                                        ; preds = %114
+.thread93:                                        ; preds = %114
   store i64 0, ptr %7, align 8
   store ptr inttoptr (i64 8 to ptr), ptr %52, align 8
   store i64 0, ptr %53, align 8
@@ -42954,7 +42954,7 @@ define range(i64 8589934592, 545460846594) i64 @_ZN4fish8builtins7command7comman
   store i64 1, ptr %53, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  br i1 %.sroa.020.0.ph141, label %.split70.us, label %.lr.ph.split
+  br i1 %.sroa.020.0.ph140, label %.split70.us, label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %129 = load ptr, ptr %54, align 8, !nonnull !3, !align !51, !noundef !3
@@ -42974,7 +42974,7 @@ define range(i64 8589934592, 545460846594) i64 @_ZN4fish8builtins7command7comman
   %.pn = phi { ptr, i32 } [ %.us-phi, %135 ], [ %123, %122 ]
   resume { ptr, i32 } %.pn
 
-._crit_edge:                                      ; preds = %.thread94, %.lr.ph.split
+._crit_edge:                                      ; preds = %.thread93, %.lr.ph.split
   %.sroa.013.2 = phi i8 [ 1, %.lr.ph.split ], [ %.sroa.013.0, %.thread94 ]
   call void @"_ZN4core3ptr78drop_in_place$LT$alloc..vec..Vec$LT$widestring..utfstring..Utf32String$GT$$GT$17h7d7bb5ac9a2b0f86E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)

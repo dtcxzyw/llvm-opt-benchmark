@@ -2768,7 +2768,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorI16EC_b
   %cmp.i.i.i.i.i.i.i = icmp eq i64 %sub.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i.i, label %_ZNSt6vectorI16EC_builtin_curveSaIS0_EEC2EmRKS1_.exit, label %if.end.i.i.i.i.i.i.i
 
-if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i
+for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i
   %add.ptr.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i.i.i, 4
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i, i64 %add.ptr.idx.i.i.i.i.i.i.i
   br label %for.body.i.i.i.i.i.i.i.i.i

@@ -109,7 +109,7 @@ SDL_DestroyHashTable.exit:                        ; preds = %17, %20, %destroy_a
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %49 = load ptr, ptr %48, align 8
   %.not.i.i26 = icmp eq ptr %49, null
-  br i1 %.not.i.i26, label %destroy_all.exit.i32, label %50
+  br i1 %.not.i.i26, label %destroy_all.exit.i31, label %50
 
 50:                                               ; preds = %47
   %51 = getelementptr inbounds nuw i8, ptr %13, i64 40
@@ -123,12 +123,12 @@ SDL_DestroyHashTable.exit:                        ; preds = %17, %20, %destroy_a
   %.not18.i.i28 = icmp eq i32 %55, 0
   br i1 %.not18.i.i28, label %destroy_all.exit.i32, label %.lr.ph.i.i29
 
-.lr.ph.i.i29:                                     ; preds = %50, %65
+.lr.ph.i.i29:; preds = %50, %65
   %.017.i.i30 = phi ptr [ %66, %65 ], [ null, %50 ]
   %58 = getelementptr inbounds nuw i8, ptr %.017.i.i30, i64 20
   %59 = load i32, ptr %58, align 4
-  %.not16.i.i31 = icmp sgt i32 %59, -1
-  br i1 %.not16.i.i31, label %65, label %60
+  %.not16.i.i30 = icmp sgt i32 %59, -1
+  br i1 %.not16.i.i30, label %65, label %60
 
 60:                                               ; preds = %.lr.ph.i.i29
   %61 = and i32 %59, 2147483647
@@ -142,18 +142,18 @@ SDL_DestroyHashTable.exit:                        ; preds = %17, %20, %destroy_a
 65:                                               ; preds = %60, %.lr.ph.i.i29
   %66 = getelementptr inbounds nuw i8, ptr %.017.i.i30, i64 24
   %67 = icmp ult ptr %66, %57
-  br i1 %67, label %.lr.ph.i.i29, label %destroy_all.exit.i32, !llvm.loop !3
+  br i1 %67, label %.lr.ph.i.i29, label %destroy_all.exit.i31, !llvm.loop !3
 
-destroy_all.exit.i32:                             ; preds = %65, %50, %47
+destroy_all.exit.i31:                             ; preds = %65, %50, %47
   %68 = load ptr, ptr %13, align 8
-  %.not7.i33 = icmp eq ptr %68, null
-  br i1 %.not7.i33, label %SDL_DestroyHashTable.exit34, label %69
+  %.not7.i32 = icmp eq ptr %68, null
+  br i1 %.not7.i32, label %SDL_DestroyHashTable.exit33, label %69
 
-69:                                               ; preds = %destroy_all.exit.i32
+69:                                               ; preds = %destroy_all.exit.i31
   tail call void @SDL_DestroyRWLock_REAL(ptr noundef nonnull %68) #10
-  br label %SDL_DestroyHashTable.exit34
+  br label %SDL_DestroyHashTable.exit33
 
-SDL_DestroyHashTable.exit34:                      ; preds = %destroy_all.exit.i32, %69
+SDL_DestroyHashTable.exit33:                      ; preds = %destroy_all.exit.i31, %69
   %70 = load ptr, ptr %46, align 8
   tail call void @SDL_free_REAL(ptr noundef %70) #10
   tail call void @SDL_free_REAL(ptr noundef nonnull %13) #10
@@ -173,7 +173,7 @@ SDL_DestroyHashTable.exit34:                      ; preds = %destroy_all.exit.i3
   store ptr %4, ptr %77, align 8
   br label %78
 
-78:                                               ; preds = %CalculateHashBucketsFromEstimate.exit, %71, %SDL_DestroyHashTable.exit34, %SDL_DestroyHashTable.exit
+78:                                               ; preds = %CalculateHashBucketsFromEstimate.exit, %71, %SDL_DestroyHashTable.exit33, %SDL_DestroyHashTable.exit
   %.0 = phi ptr [ %13, %71 ], [ null, %SDL_DestroyHashTable.exit34 ], [ null, %SDL_DestroyHashTable.exit ], [ null, %CalculateHashBucketsFromEstimate.exit ]
   ret ptr %.0
 }

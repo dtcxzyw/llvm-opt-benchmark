@@ -1734,7 +1734,7 @@ define void @_ZN8WasmEdge8Executor8Executor14runTableGrowOpERNS_7Runtime12StackM
 
 31:                                               ; preds = %28
   invoke void @_ZNSt6vectorIN8WasmEdge10RefVariantESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %19, i64 noundef %16)
-          to label %_ZNSt6vectorIN8WasmEdge10RefVariantESaIS1_EE6resizeEm.exit.i unwind label %44
+          to label %_ZNSt6vectorIN8WasmEdge10RefVariantESaIS1_EE6resizeEm.exit.i unwind label %43
 
 32:                                               ; preds = %28
   %33 = icmp ult i64 %29, %26
@@ -1762,22 +1762,22 @@ _ZNSt6vectorIN8WasmEdge10RefVariantESaIS1_EE6resizeEm.exit.i: ; preds = %36, %34
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %38
-  %.06.i.i.i.i.i.i = phi ptr [ %43, %.lr.ph.i.i.i.i.i.i ], [ %41, %38 ]
+  %.06.i.i.i.i.i.i = phi ptr [ %42, %.lr.ph.i.i.i.i.i.i ], [ %41, %38 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.06.i.i.i.i.i.i, ptr noundef nonnull align 16 dereferenceable(16) %8, i64 16, i1 false)
-  %43 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i, i64 16
-  %.not.i.i.i.i.i.i = icmp eq ptr %43, %42
+  %42 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i, i64 16
+  %.not.i.i.i.i.i.i = icmp eq ptr %42, %42
   br i1 %.not.i.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !37
 
-44:                                               ; preds = %31
-  %45 = landingpad { ptr, i32 }
+43:                                               ; preds = %31
+  %44 = landingpad { ptr, i32 }
           catch ptr null
-  %46 = extractvalue { ptr, i32 } %45, 0
-  tail call void @__clang_call_terminate(ptr %46) #23
+  %45 = extractvalue { ptr, i32 } %44, 0
+  tail call void @__clang_call_terminate(ptr %45) #23
   unreachable
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt6vectorIN8WasmEdge10RefVariantESaIS1_EE6resizeEm.exit.i
-  %47 = add i32 %10, %.sroa.0.0.extract.trunc
-  store i32 %47, ptr %9, align 4
+  %46 = add i32 %10, %.sroa.0.0.extract.trunc
+  store i32 %46, ptr %9, align 4
   br label %_ZN8WasmEdge7Runtime8Instance13TableInstance9growTableEjRKNS_10RefVariantE.exit
 
 _ZN8WasmEdge7Runtime8Instance13TableInstance9growTableEjRKNS_10RefVariantE.exit: ; preds = %4, %.loopexit

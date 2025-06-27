@@ -27253,8 +27253,8 @@ define hidden void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..
 
 41:                                               ; preds = %39
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4005), !noalias !4008
-  %.not183 = icmp eq i64 %31, -9223372036854775808
-  br i1 %.not183, label %.split124.us, label %.loopexit.loopexit.i.i.split.split.us.us.us.us
+  %.not181 = icmp eq i64 %31, -9223372036854775808
+  br i1 %.not181, label %.split124.us, label %.loopexit.loopexit.i.i.split.split.us.us.us.us
 
 "_ZN61_$LT$just..attribute..Attribute$u20$as$u20$core..cmp..Ord$GT$3cmp17haae29be0466a65e1E.exit.us67.us.us146.us": ; preds = %37
   %42 = icmp eq ptr %30, %21
@@ -28312,8 +28312,8 @@ define hidden void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..
 
 41:                                               ; preds = %39
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4196), !noalias !4199
-  %.not183 = icmp eq i64 %31, -9223372036854775808
-  br i1 %.not183, label %.split124.us, label %.loopexit.loopexit.i.i.split.split.us.us.us.us
+  %.not181 = icmp eq i64 %31, -9223372036854775808
+  br i1 %.not181, label %.split124.us, label %.loopexit.loopexit.i.i.split.split.us.us.us.us
 
 "_ZN61_$LT$just..attribute..Attribute$u20$as$u20$core..cmp..Ord$GT$3cmp17haae29be0466a65e1E.exit.us67.us.us146.us": ; preds = %37
   %42 = icmp eq ptr %30, %21
@@ -28805,8 +28805,8 @@ define hidden void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..
 
 41:                                               ; preds = %39
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4272), !noalias !4275
-  %.not183 = icmp eq i64 %31, -9223372036854775808
-  br i1 %.not183, label %.split124.us, label %.loopexit.loopexit.i.i.split.split.us.us.us.us
+  %.not181 = icmp eq i64 %31, -9223372036854775808
+  br i1 %.not181, label %.split124.us, label %.loopexit.loopexit.i.i.split.split.us.us.us.us
 
 "_ZN61_$LT$just..attribute..Attribute$u20$as$u20$core..cmp..Ord$GT$3cmp17haae29be0466a65e1E.exit.us67.us.us146.us": ; preds = %37
   %42 = icmp eq ptr %30, %21

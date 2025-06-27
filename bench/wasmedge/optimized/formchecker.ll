@@ -15216,16 +15216,16 @@ _ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EEC2EmRKS2_.exit.thread: ; preds = 
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %8
-  %.06.i.i.i.i.i.i.i.i = phi ptr [ %16, %.lr.ph.i.i.i.i.i.i.i.i ], [ %10, %8 ]
+  %.06.i.i.i.i.i.i.i.i = phi ptr [ %15, %.lr.ph.i.i.i.i.i.i.i.i ], [ %10, %8 ]
   store i64 %15, ptr %.06.i.i.i.i.i.i.i.i, align 4
-  %16 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i.i, i64 8
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %16, %14
+  %15 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i.i, i64 8
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %15, %14
   br i1 %.not.i.i.i.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !353
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EEC2EmRKS2_.exit.thread
-  %17 = phi ptr [ %7, %_ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EEC2EmRKS2_.exit.thread ], [ %11, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %16 = phi ptr [ %7, %_ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EEC2EmRKS2_.exit.thread ], [ %11, %.lr.ph.i.i.i.i.i.i.i.i ]
   %.0.i.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EEC2EmRKS2_.exit.thread ], [ %14, %.lr.ph.i.i.i.i.i.i.i.i ]
-  store ptr %.0.i.i.i.i.i.i, ptr %17, align 8
+  store ptr %.0.i.i.i.i.i.i, ptr %16, align 8
   ret void
 }
 

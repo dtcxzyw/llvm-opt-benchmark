@@ -715,7 +715,7 @@ PredictorInverseTransform_C.exit:                 ; preds = %.lr.ph84.split.i, %
   %.05157.i = phi i32 [ %1, %.lr.ph62.i ], [ %168, %167 ]
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %6) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %6, i8 0, i64 3, i1 false)
-  %143 = getelementptr inbounds i8, ptr %.060.i53, i64 %.idx.i
+  %143 = getelementptr inbounds i8, ptr %.060.i53, i64 %16
   %144 = getelementptr inbounds i32, ptr %.060.i53, i64 %136
   br i1 %141, label %.lr.ph.i, label %._crit_edge.i
 
@@ -1111,8 +1111,8 @@ define hidden void @VP8LConvertFromBGRA(ptr noundef %0, i32 noundef %1, i32 noun
     i32 7, label %9
     i32 2, label %12
     i32 3, label %14
-    i32 8, label %16
-    i32 4, label %19
+    i32 8, label %17
+    i32 4, label %21
     i32 9, label %28
     i32 5, label %38
     i32 10, label %40
@@ -1143,32 +1143,32 @@ define hidden void @VP8LConvertFromBGRA(ptr noundef %0, i32 noundef %1, i32 noun
 
 14:                                               ; preds = %4
   %15 = sext i32 %1 to i64
-  %.idx.i = shl nsw i64 %15, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr readonly align 4 %0, i64 %.idx.i, i1 false), !alias.scope !47
+  %16 = shl nsw i64 %15, 2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr readonly align 4 %0, i64 %16, i1 false), !alias.scope !47
   br label %CopyOrSwap.exit
 
-16:                                               ; preds = %4
-  %17 = sext i32 %1 to i64
-  %.idx.i41 = shl nsw i64 %17, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr readonly align 4 %0, i64 %.idx.i41, i1 false), !alias.scope !51
-  %18 = load ptr, ptr @WebPApplyAlphaMultiply, align 8, !tbaa !23
+17:                                               ; preds = %4
+  %18 = sext i32 %1 to i64
+  %19 = shl nsw i64 %18, 2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr readonly align 4 %0, i64 %19, i1 false), !alias.scope !51
+  %20 = load ptr, ptr @WebPApplyAlphaMultiply, align 8, !tbaa !23
   tail call void %18(ptr noundef %3, i32 noundef 0, i32 noundef %1, i32 noundef 1, i32 noundef 0) #12
   br label %CopyOrSwap.exit
 
-19:                                               ; preds = %4
+21:                                               ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !55)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !58)
-  %20 = sext i32 %1 to i64
+  %22 = sext i32 %1 to i64
   %.idx.i42 = shl nsw i64 %20, 2
   %21 = getelementptr inbounds i8, ptr %0, i64 %.idx.i42
   %22 = icmp sgt i32 %1, 0
   br i1 %22, label %.lr.ph.i, label %CopyOrSwap.exit
 
-.lr.ph.i:                                         ; preds = %19, %.lr.ph.i
-  %.013.i = phi ptr [ %23, %.lr.ph.i ], [ %0, %19 ]
+.lr.ph.i:; preds = %21, %.lr.ph.i
+  %.01112.i = phi ptr [ %23, %.lr.ph.i ], [ %0, %19 ]
   %.01112.i = phi ptr [ %26, %.lr.ph.i ], [ %3, %19 ]
   %23 = getelementptr inbounds nuw i8, ptr %.013.i, i64 4
-  %24 = load i32, ptr %.013.i, align 4, !tbaa !3, !alias.scope !55, !noalias !58
+  %24 = load i32, ptr %.01112.i, align 4, !tbaa !3, !alias.scope !55, !noalias !58
   %25 = tail call noundef i32 @llvm.bswap.i32(i32 %24)
   store i32 %25, ptr %.01112.i, align 1, !alias.scope !58, !noalias !55
   %26 = getelementptr inbounds nuw i8, ptr %.01112.i, i64 4
@@ -1178,14 +1178,14 @@ define hidden void @VP8LConvertFromBGRA(ptr noundef %0, i32 noundef %1, i32 noun
 28:                                               ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !61)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !64)
-  %29 = sext i32 %1 to i64
-  %.idx.i43 = shl nsw i64 %29, 2
+  %31 = sext i32 %1 to i64
+  %.idx.i43 = shl nsw i64 %31, 2
   %30 = getelementptr inbounds i8, ptr %0, i64 %.idx.i43
   %31 = icmp sgt i32 %1, 0
   br i1 %31, label %.lr.ph.i44, label %CopyOrSwap.exit47
 
-.lr.ph.i44:                                       ; preds = %28, %.lr.ph.i44
-  %.013.i45 = phi ptr [ %32, %.lr.ph.i44 ], [ %0, %28 ]
+.lr.ph.i44:; preds = %28, %.lr.ph.i44
+  %.01112.i43 = phi ptr [ %32, %.lr.ph.i44 ], [ %0, %28 ]
   %.01112.i46 = phi ptr [ %35, %.lr.ph.i44 ], [ %3, %28 ]
   %32 = getelementptr inbounds nuw i8, ptr %.013.i45, i64 4
   %33 = load i32, ptr %.013.i45, align 4, !tbaa !3, !alias.scope !61, !noalias !64
@@ -1195,7 +1195,7 @@ define hidden void @VP8LConvertFromBGRA(ptr noundef %0, i32 noundef %1, i32 noun
   %36 = icmp ult ptr %32, %30
   br i1 %36, label %.lr.ph.i44, label %CopyOrSwap.exit47, !llvm.loop !60
 
-CopyOrSwap.exit47:                                ; preds = %.lr.ph.i44, %28
+CopyOrSwap.exit47:; preds = %.lr.ph.i44, %28
   %37 = load ptr, ptr @WebPApplyAlphaMultiply, align 8, !tbaa !23
   tail call void %37(ptr noundef %3, i32 noundef 1, i32 noundef %1, i32 noundef 1, i32 noundef 0) #12
   br label %CopyOrSwap.exit
@@ -1212,12 +1212,12 @@ CopyOrSwap.exit47:                                ; preds = %.lr.ph.i44, %28
   tail call void %42(ptr noundef %3, i32 noundef %1, i32 noundef 1, i32 noundef 0) #12
   br label %CopyOrSwap.exit
 
-43:                                               ; preds = %4
-  %44 = load ptr, ptr @VP8LConvertBGRAToRGB565, align 8, !tbaa !23
+42:                                               ; preds = %4
+  %43 = load ptr, ptr @VP8LConvertBGRAToRGB565, align 8, !tbaa !23
   tail call void %44(ptr noundef %0, i32 noundef %1, ptr noundef %3) #12
   br label %CopyOrSwap.exit
 
-CopyOrSwap.exit:                                  ; preds = %.lr.ph.i, %19, %4, %43, %40, %38, %CopyOrSwap.exit47, %16, %14, %12, %9, %7, %5
+CopyOrSwap.exit:                                  ; preds = %.lr.ph.i, %21, %4, %42, %40, %38, %CopyOrSwap.exit47, %17, %14, %12, %9, %7, %5
   ret void
 }
 

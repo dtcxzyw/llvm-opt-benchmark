@@ -28850,8 +28850,8 @@ define internal fastcc void @_ZN5image6codecs3dxt17encode_dxt_colors17h151bdd4f3
   %23 = getelementptr inbounds nuw [16 x [3 x i8]], ptr %11, i64 0, i64 %22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %23, i8 0, i64 3, i1 false)
   %24 = add nuw nsw i64 %22, 1
-  %exitcond389.not = icmp eq i64 %24, 16
-  br i1 %exitcond389.not, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$6chunks17he91d044c26285012E.exit", label %21
+  %exitcond388.not = icmp eq i64 %24, 16
+  br i1 %exitcond388.not, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$6chunks17he91d044c26285012E.exit", label %21
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$6chunks17he91d044c26285012E.exit": ; preds = %21
   %25 = lshr i64 %1, 4
@@ -28924,8 +28924,8 @@ define internal fastcc void @_ZN5image6codecs3dxt17encode_dxt_colors17h151bdd4f3
   %57 = getelementptr inbounds nuw [16 x [3 x i8]], ptr %10, i64 0, i64 %56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %57, i8 0, i64 3, i1 false)
   %58 = add nuw nsw i64 %56, 1
-  %exitcond390.not = icmp eq i64 %58, 16
-  br i1 %exitcond390.not, label %59, label %55
+  %exitcond389.not = icmp eq i64 %58, 16
+  br i1 %exitcond389.not, label %59, label %55
 
 59:                                               ; preds = %55
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -29171,16 +29171,16 @@ _ZN4core4iter6traits8iterator8Iterator10max_by_key17h5aa12293d676241dE.exit: ; p
   %166 = trunc i16 %165 to i8
   %167 = add i8 %161, %166
   store i8 %167, ptr %157, align 1
-  %exitcond391.not = icmp eq i64 %156, 3
-  br i1 %exitcond391.not, label %109, label %155
+  %exitcond390.not = icmp eq i64 %156, 3
+  br i1 %exitcond390.not, label %109, label %155
 
 168:                                              ; preds = %138, %168
   %169 = phi i64 [ 0, %138 ], [ %171, %168 ]
   %170 = getelementptr inbounds nuw [4 x [3 x i8]], ptr %7, i64 0, i64 %169
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %170, i8 0, i64 3, i1 false)
   %171 = add nuw nsw i64 %169, 1
-  %exitcond392.not = icmp eq i64 %171, 4
-  br i1 %exitcond392.not, label %172, label %168
+  %exitcond391.not = icmp eq i64 %171, 4
+  br i1 %exitcond391.not, label %172, label %168
 
 172:                                              ; preds = %168
   %.idx = mul nuw nsw i64 %.sroa.546.0, 3
@@ -29283,8 +29283,8 @@ _ZN4core4iter6traits8iterator8Iterator10max_by_key17h5aa12293d676241dE.exit: ; p
   %211 = getelementptr inbounds nuw [3 x i8], ptr %176, i64 0, i64 %.sroa.065.0354.us
   %212 = trunc nuw i16 %210 to i8
   store i8 %212, ptr %211, align 1
-  %exitcond394.not = icmp eq i64 %201, 3
-  br i1 %exitcond394.not, label %200, label %.preheader323.us
+  %exitcond393.not = icmp eq i64 %201, 3
+  br i1 %exitcond393.not, label %200, label %.preheader323.us
 
 .thread304.us:                                    ; preds = %.preheader.us, %200
   call void @llvm.experimental.noalias.scope.decl(metadata !7276)
@@ -29380,8 +29380,8 @@ _ZN4core4iter6traits8iterator8Iterator10max_by_key17h5aa12293d676241dE.exit: ; p
   %267 = getelementptr inbounds nuw [3 x i8], ptr %177, i64 0, i64 %.sroa.070.0355.us
   %268 = trunc nuw i16 %266 to i8
   store i8 %268, ptr %267, align 1
-  %exitcond395.not = icmp eq i64 %250, 3
-  br i1 %exitcond395.not, label %.thread304.us, label %.preheader.us
+  %exitcond394.not = icmp eq i64 %250, 3
+  br i1 %exitcond394.not, label %.thread304.us, label %.preheader.us
 
 .thread300.loopexit.us:                           ; preds = %249
   %269 = icmp eq ptr %197, %191
@@ -29488,8 +29488,8 @@ _ZN4core4iter6traits8iterator8Iterator10max_by_key17h5aa12293d676241dE.exit: ; p
   %327 = getelementptr inbounds nuw [3 x i8], ptr %177, i64 0, i64 %.sroa.078.0353
   %328 = trunc nuw i16 %326 to i8
   store i8 %328, ptr %327, align 1
-  %exitcond393.not = icmp eq i64 %310, 3
-  br i1 %exitcond393.not, label %270, label %309
+  %exitcond392.not = icmp eq i64 %310, 3
+  br i1 %exitcond392.not, label %270, label %309
 
 329:                                              ; preds = %_ZN4core4iter6traits8iterator8Iterator10min_by_key17hc587eb19fce70daaE.exit
   %.sroa.01.0.extract.trunc.i204 = trunc i24 %.sroa.0.0.copyload.i.i.i.i.i.i.i to i16
@@ -29639,8 +29639,8 @@ _ZN4core4iter6traits8iterator8Iterator10max_by_key17h5aa12293d676241dE.exit: ; p
   %417 = getelementptr inbounds nuw [0 x i8], ptr %2, i64 0, i64 %414
   %418 = trunc i32 %416 to i8
   store i8 %418, ptr %417, align 1
-  %exitcond397.not = icmp eq i64 %413, 4
-  br i1 %exitcond397.not, label %411, label %412
+  %exitcond396.not = icmp eq i64 %413, 4
+  br i1 %exitcond396.not, label %411, label %412
 
 _ZN4core4iter6traits8iterator8Iterator10min_by_key17hc587eb19fce70daaE.exit: ; preds = %373
   %.sroa.0251.0.add = add nuw nsw i64 %.sroa.0251.0.idx371, 3

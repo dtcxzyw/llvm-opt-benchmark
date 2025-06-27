@@ -6995,10 +6995,10 @@ common.resume:                                    ; preds = %85, %88, %39
   %73 = zext i16 %72 to i64
   br label %74
 
-74:                                               ; preds = %.backedge73, %71
+74:                                               ; preds = %.backedge72, %71
   %.sroa.01.0.i = phi i64 [ %73, %71 ], [ %.sroa.01.0.i.be, %.backedge73 ]
   %75 = icmp ult i64 %.sroa.01.0.i, %46
-  br i1 %75, label %76, label %.backedge73
+  br i1 %75, label %76, label %.backedge72
 
 76:                                               ; preds = %74
   %77 = getelementptr inbounds nuw { i16, i16 }, ptr %44, i64 %.sroa.01.0.i
@@ -7008,9 +7008,9 @@ common.resume:                                    ; preds = %85, %88, %39
 
 79:                                               ; preds = %76
   %80 = add nuw i64 %.sroa.01.0.i, 1
-  br label %.backedge73
+  br label %.backedge72
 
-.backedge73:                                      ; preds = %79, %74
+.backedge72:                                      ; preds = %79, %74
   %.sroa.01.0.i.be = phi i64 [ %80, %79 ], [ 0, %74 ]
   br label %74
 

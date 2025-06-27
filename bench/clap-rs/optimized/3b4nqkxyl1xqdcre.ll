@@ -1866,7 +1866,7 @@ define hidden void @_ZN12clap_builder6output13help_template8AutoHelp10write_help
   br i1 %or.cond.i31, label %.backedge.i.i26, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5c9a5ad8bf840250E.llvm.7816201618593889606.exit34"
 
 "_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5c9a5ad8bf840250E.llvm.7816201618593889606.exit34": ; preds = %45, %.backedge.us.i.i14, %56, %.backedge.i.i26, %1
-  %.lcssa.i.i3954 = phi i1 [ false, %1 ], [ %.lcssa.i.i39, %.backedge.i.i26 ], [ %.lcssa.i.i39, %56 ], [ %.lcssa.i.i39, %.backedge.us.i.i14 ], [ %.lcssa.i.i39, %45 ]
+  %.lcssa.i.i3953 = phi i1 [ false, %1 ], [ %.lcssa.i.i39, %.backedge.i.i26 ], [ %.lcssa.i.i39, %56 ], [ %.lcssa.i.i39, %.backedge.us.i.i14 ], [ %.lcssa.i.i39, %45 ]
   %.lcssa.i.i1941 = phi i1 [ false, %1 ], [ true, %56 ], [ false, %.backedge.i.i26 ], [ true, %45 ], [ false, %.backedge.us.i.i14 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !355)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !355
@@ -1898,7 +1898,7 @@ _ZN12clap_builder7builder7command7Command23has_visible_subcommands17h33da8fae85c
 _ZN12clap_builder7builder7command7Command23has_visible_subcommands17h33da8fae85ccf465E.exit: ; preds = %66
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !355
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !355
-  %brmerge = or i1 %.lcssa.i.i3954, %.lcssa.i.i1941
+  %brmerge = or i1 %.lcssa.i.i3953, %.lcssa.i.i1941
   br i1 %brmerge, label %.split6, label %.split
 
 .split6:                                          ; preds = %_ZN12clap_builder7builder7command7Command23has_visible_subcommands17h33da8fae85ccf465E.exit.thread, %_ZN12clap_builder7builder7command7Command23has_visible_subcommands17h33da8fae85ccf465E.exit
@@ -5542,7 +5542,7 @@ define internal fastcc void @_ZN12clap_builder6output13help_template12HelpTempla
   invoke void @"_ZN4core3ptr127drop_in_place$LT$alloc..vec..Vec$LT$$LP$$LP$usize$C$alloc..string..String$RP$$C$$RF$clap_builder..builder..arg..Arg$RP$$GT$$GT$17h309115392a9f85f4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %41) #18
           to label %437 unwind label %435
 
-.loopexit:                                        ; preds = %._crit_edge95, %371, %373, %383, %393
+.loopexit:                                        ; preds = %._crit_edge94, %371, %373, %383, %393
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -5930,9 +5930,9 @@ _ZN12clap_builder6output13help_template12HelpTemplate14will_args_wrap17h3c3e8e7d
   %236 = getelementptr inbounds nuw i8, ptr %.sroa.01.064, i64 40
   %237 = add nuw nsw i64 %.sroa.73.065, 1
   %238 = icmp eq i64 %.sroa.73.065, 0
-  br i1 %238, label %._crit_edge95, label %379
+  br i1 %238, label %._crit_edge94, label %379
 
-._crit_edge95:                                    ; preds = %235, %_ZN12clap_builder7builder10styled_str9StyledStr8push_str17hf3025370b2961e87E.exit51, %384
+._crit_edge94:                                    ; preds = %235, %_ZN12clap_builder7builder10styled_str9StyledStr8push_str17hf3025370b2961e87E.exit51, %384
   %.val.i = phi i8 [ 1, %_ZN12clap_builder7builder10styled_str9StyledStr8push_str17hf3025370b2961e87E.exit51 ], [ %227, %384 ], [ %.val.i.pre, %235 ]
   %239 = getelementptr inbounds nuw i8, ptr %.sroa.01.064, i64 32
   %240 = load ptr, ptr %239, align 8, !nonnull !12, !align !109, !noundef !12
@@ -5942,7 +5942,7 @@ _ZN12clap_builder6output13help_template12HelpTemplate14will_args_wrap17h3c3e8e7d
   invoke fastcc void @_ZN12clap_builder6output13help_template12HelpTemplate9spec_vals17h008b83ce80344a25E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %34, i8 %.val.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(552) %240)
           to label %.noexc43 unwind label %.loopexit
 
-.noexc43:                                         ; preds = %._crit_edge95
+.noexc43:                                         ; preds = %._crit_edge94
   %241 = load i64, ptr %230, align 8, !alias.scope !1263, !noalias !1272, !noundef !12
   %242 = load i64, ptr %229, align 8, !alias.scope !1263, !noalias !1272, !noundef !12
   %243 = sub i64 %242, %241
@@ -6484,7 +6484,7 @@ _ZN12clap_builder6output13help_template12HelpTemplate9write_arg17h3ce42201365da9
   %388 = load i64, ptr %225, align 8, !alias.scope !1416, !noalias !1413, !noundef !12
   %389 = add i64 %388, 1
   store i64 %389, ptr %225, align 8, !alias.scope !1416, !noalias !1413
-  br i1 %or.cond, label %390, label %._crit_edge95
+  br i1 %or.cond, label %390, label %._crit_edge94
 
 390:                                              ; preds = %384
   %391 = load i64, ptr %224, align 8, !alias.scope !1417, !noalias !1426, !noundef !12
@@ -6507,7 +6507,7 @@ _ZN12clap_builder7builder10styled_str9StyledStr8push_str17hf3025370b2961e87E.exi
   %397 = load i64, ptr %225, align 8, !alias.scope !1429, !noalias !1426, !noundef !12
   %398 = add i64 %397, 1
   store i64 %398, ptr %225, align 8, !alias.scope !1429, !noalias !1426
-  br label %._crit_edge95
+  br label %._crit_edge94
 
 _ZN12clap_builder6output13help_template14longest_filter17ha41fb5f3551b308eE.exit: ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17hc39154b209dabbbdE.exit"
   %399 = getelementptr inbounds nuw i8, ptr %80, i64 536

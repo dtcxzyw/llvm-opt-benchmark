@@ -19501,7 +19501,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteI
 define linkonce_odr dso_local void @_ZSt13__stable_sortIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS8_SH_EEEEvT_SL_T0_(ptr %0, ptr %1, ptr %2) local_unnamed_addr #11 comdat personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::_Temporary_buffer", align 8
   %5 = icmp eq ptr %0, %1
-  br i1 %5, label %39, label %6
+  br i1 %5, label %40, label %6
 
 6:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #22
@@ -19609,16 +19609,16 @@ _ZSt8_DestroyISt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEE
   store ptr null, ptr %.05.i.i.i, align 8, !tbaa !51
   %37 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 8
   %.not.i.i.i9 = icmp eq ptr %37, %32
-  br i1 %.not.i.i.i9, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_ED2Ev.exit, label %.lr.ph.i.i.i8, !llvm.loop !98
+  br i1 %.not.i.i.i9, label %_ZSt8_DestroyIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEEvT_S8_.exit.loopexit.i, label %.lr.ph.i.i.i8, !llvm.loop !98
 
-_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_ED2Ev.exit: ; preds = %_ZSt8_DestroyISt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEEvPT_.exit.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_EC2ESD_l.exit, %31
+_ZSt8_DestroyIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEEvT_S8_.exit.loopexit.i: ; preds = %_ZSt8_DestroyISt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEEvPT_.exit.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_EC2ESD_l.exit, %31
   %.pre.i1030 = phi ptr [ %17, %31 ], [ null, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_EC2ESD_l.exit ], [ %17, %_ZSt8_DestroyISt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEEvPT_.exit.i.i.i ]
   %38 = phi i64 [ 0, %31 ], [ 0, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_EC2ESD_l.exit ], [ %.idx.i, %_ZSt8_DestroyISt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEEvPT_.exit.i.i.i ]
   tail call void @_ZdlPvm(ptr noundef %.pre.i1030, i64 noundef %38) #22
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #22
-  br label %39
+  br label %40
 
-39:                                               ; preds = %3, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_ED2Ev.exit
+40:                                               ; preds = %3, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_ED2Ev.exit
   ret void
 }
 
@@ -20145,16 +20145,16 @@ _ZSt22__chunk_insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14
 
 _ZSt22__chunk_insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKS8_SH_EEEEvT_SL_T0_T1_.exit: ; preds = %.lr.ph.i
   tail call void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS8_SH_EEEEvT_SL_T0_(ptr nonnull %10, ptr %1, ptr %3)
-  %.not83 = icmp eq i64 %7, 56
-  br i1 %.not83, label %._crit_edge, label %.lr.ph
+  %.not79 = icmp eq i64 %7, 56
+  br i1 %.not79, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZSt22__chunk_insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKS8_SH_EEEEvT_SL_T0_T1_.exit
   %13 = ptrtoint ptr %9 to i64
   br label %14
 
 14:                                               ; preds = %.lr.ph, %_ZSt17__merge_sort_loopIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEElNS8_5__ops15_Iter_comp_iterIPFbRKS6_SH_EEEEvT_SL_T0_T1_T2_.exit
-  %.059 = phi i64 [ 7, %.lr.ph ], [ %69, %_ZSt17__merge_sort_loopIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEElNS8_5__ops15_Iter_comp_iterIPFbRKS6_SH_EEEEvT_SL_T0_T1_T2_.exit ]
-  %15 = shl nsw i64 %.059, 1
+  %.055 = phi i64 [ 7, %.lr.ph ], [ %69, %_ZSt17__merge_sort_loopIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEElNS8_5__ops15_Iter_comp_iterIPFbRKS6_SH_EEEEvT_SL_T0_T1_T2_.exit ]
+  %15 = shl nsw i64 %.055, 1
   %.not30.i = icmp slt i64 %8, %15
   br i1 %.not30.i, label %_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES9_lNS0_5__ops15_Iter_comp_iterIPFbRKS8_SH_EEEEvT_SL_T0_T1_T2_.exit, label %.lr.ph.i19.preheader
 
@@ -20306,10 +20306,10 @@ _ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_
   %.sroa.022.0.lcssa.i = phi ptr [ %0, %14 ], [ %17, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES9_NS0_5__ops15_Iter_comp_iterIPFbRKS8_SH_EEEET0_T_SM_SM_SM_SL_T1_.exit ]
   %.0.lcssa.i = phi ptr [ %2, %14 ], [ %.08.lcssa.i.i.i.i.i12.i, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES9_NS0_5__ops15_Iter_comp_iterIPFbRKS8_SH_EEEET0_T_SM_SM_SM_SL_T1_.exit ]
   %.lcssa.i = phi i64 [ %8, %14 ], [ %66, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES9_NS0_5__ops15_Iter_comp_iterIPFbRKS8_SH_EEEET0_T_SM_SM_SM_SL_T1_.exit ]
-  %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %.059, i64 %.lcssa.i)
+  %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %.055, i64 %.lcssa.i)
   %67 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %.sroa.022.0.lcssa.i, i64 %.sroa.speculated.i
   %68 = tail call noundef ptr @_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES9_NS0_5__ops15_Iter_comp_iterIPFbRKS8_SH_EEEET0_T_SM_SM_SM_SL_T1_(ptr %.sroa.022.0.lcssa.i, ptr %67, ptr %67, ptr %1, ptr noundef %.0.lcssa.i, ptr %3)
-  %69 = shl nsw i64 %.059, 2
+  %69 = shl nsw i64 %.055, 2
   %.not28.i = icmp slt i64 %8, %69
   br i1 %.not28.i, label %_ZSt17__merge_sort_loopIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEElNS8_5__ops15_Iter_comp_iterIPFbRKS6_SH_EEEEvT_SL_T0_T1_T2_.exit, label %.lr.ph.i21.preheader
 

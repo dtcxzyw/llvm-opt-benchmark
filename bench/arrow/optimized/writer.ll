@@ -31010,16 +31010,16 @@ _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread: ; preds = %_ZNSt6vectorIiSaIiE
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %7
-  %.06.i.i.i.i.i.i.i.i = phi ptr [ %14, %.lr.ph.i.i.i.i.i.i.i.i ], [ %9, %7 ]
+  %.06.i.i.i.i.i.i.i.i = phi ptr [ %13, %.lr.ph.i.i.i.i.i.i.i.i ], [ %9, %7 ]
   store i32 %13, ptr %.06.i.i.i.i.i.i.i.i, align 4, !tbaa !130
-  %14 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i.i, i64 4
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %14, %12
+  %13 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i.i, i64 4
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %13, %12
   br i1 %.not.i.i.i.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !1617
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread
   %.0.i.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread ], [ %12, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.0.i.i.i.i.i.i, ptr %15, align 8, !tbaa !1618
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.0.i.i.i.i.i.i, ptr %14, align 8, !tbaa !1618
   ret void
 }
 

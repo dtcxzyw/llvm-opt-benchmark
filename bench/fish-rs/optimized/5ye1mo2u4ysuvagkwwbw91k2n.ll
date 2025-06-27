@@ -25641,9 +25641,9 @@ _ZN4fish8builtins4echo13parse_options17hc4244bb359736cebE.exit.thread: ; preds =
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   %119 = load i64, ptr %12, align 8, !range !29, !noundef !23
   %120 = trunc nuw i64 %119 to i1
-  br i1 %120, label %121, label %.thread211
+  br i1 %120, label %121, label %.thread210
 
-.thread211:                                       ; preds = %118
+.thread210:                                       ; preds = %118
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
   br label %._crit_edge.us
 
@@ -25655,16 +25655,16 @@ _ZN4fish8builtins4echo13parse_options17hc4244bb359736cebE.exit.thread: ; preds =
 
 125:                                              ; preds = %121
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
-  %.not169 = icmp eq i64 %122, 0
-  br i1 %.not169, label %._crit_edge.us, label %.lr.ph.us.preheader
+  %.not168 = icmp eq i64 %122, 0
+  br i1 %.not168, label %._crit_edge.us, label %.lr.ph.us.preheader
 
 .lr.ph.us.preheader:                              ; preds = %107, %109, %110, %111, %112, %113, %114, %115, %116, %125
-  %.sroa.035.0.us210 = phi i64 [ %122, %125 ], [ 1, %116 ], [ 1, %115 ], [ 1, %114 ], [ 1, %113 ], [ 1, %112 ], [ 1, %111 ], [ 1, %110 ], [ 1, %109 ], [ 1, %107 ]
-  %.sroa.017.0.us208 = phi i32 [ %124, %125 ], [ 8, %116 ], [ 27, %115 ], [ 12, %114 ], [ 10, %113 ], [ 13, %112 ], [ 9, %111 ], [ 11, %110 ], [ 92, %109 ], [ 7, %107 ]
+  %.sroa.035.0.us209 = phi i64 [ %122, %125 ], [ 1, %116 ], [ 1, %115 ], [ 1, %114 ], [ 1, %113 ], [ 1, %112 ], [ 1, %111 ], [ 1, %110 ], [ 1, %109 ], [ 1, %107 ]
+  %.sroa.017.0.us207 = phi i32 [ %124, %125 ], [ 8, %116 ], [ 27, %115 ], [ 12, %114 ], [ 10, %113 ], [ 13, %112 ], [ 9, %111 ], [ 11, %110 ], [ 92, %109 ], [ 7, %107 ]
   br label %.lr.ph.us
 
-._crit_edge.us:                                   ; preds = %"_ZN95_$LT$widestring..utfstr..iter..CharsUtf32$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdd5f1ed485b774daE.exit60.us", %.thread211, %125
-  %.sroa.017.0.us209 = phi i32 [ %124, %125 ], [ 92, %.thread211 ], [ %.sroa.017.0.us208, %"_ZN95_$LT$widestring..utfstr..iter..CharsUtf32$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdd5f1ed485b774daE.exit60.us" ]
+._crit_edge.us:                                   ; preds = %"_ZN95_$LT$widestring..utfstr..iter..CharsUtf32$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdd5f1ed485b774daE.exit60.us", %.thread210, %125
+  %.sroa.017.0.us208 = phi i32 [ %124, %125 ], [ 92, %.thread211 ], [ %.sroa.017.0.us207, %"_ZN95_$LT$widestring..utfstr..iter..CharsUtf32$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdd5f1ed485b774daE.exit60.us" ]
   %.lcssa117.us = phi ptr [ %102, %125 ], [ %102, %.thread211 ], [ %143, %"_ZN95_$LT$widestring..utfstr..iter..CharsUtf32$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdd5f1ed485b774daE.exit60.us" ]
   %.lcssa114.us = phi i32 [ %103, %125 ], [ %103, %.thread211 ], [ 1114113, %"_ZN95_$LT$widestring..utfstr..iter..CharsUtf32$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdd5f1ed485b774daE.exit60.us" ]
   %126 = load i64, ptr %.sroa.528.0..sroa_idx, align 8, !alias.scope !3832, !noundef !23
@@ -25677,14 +25677,14 @@ _ZN4fish8builtins4echo13parse_options17hc4244bb359736cebE.exit.thread: ; preds =
           to label %thread-pre-split83.us unwind label %.loopexit.split.split.us
 
 thread-pre-split83.us:                            ; preds = %._crit_edge.us, %129, %94, %98
-  %.sink253 = phi i64 [ %83, %98 ], [ %83, %94 ], [ %126, %129 ], [ %126, %._crit_edge.us ]
-  %.sroa.017.0.us209.sink = phi i32 [ %.sroa.031.090.us, %98 ], [ %.sroa.031.090.us, %94 ], [ %.sroa.017.0.us209, %129 ], [ %.sroa.017.0.us209, %._crit_edge.us ]
+  %.sink252 = phi i64 [ %83, %98 ], [ %83, %94 ], [ %126, %129 ], [ %126, %._crit_edge.us ]
+  %.sroa.017.0.us208.sink = phi i32 [ %.sroa.031.090.us, %98 ], [ %.sroa.031.090.us, %94 ], [ %.sroa.017.0.us208, %129 ], [ %.sroa.017.0.us208, %._crit_edge.us ]
   %.lcssa117123.us = phi ptr [ %.lcssa117124.us, %98 ], [ %.lcssa117124.us, %94 ], [ %.lcssa117.us, %129 ], [ %.lcssa117.us, %._crit_edge.us ]
   %.lcssa114121.us = phi i32 [ 1114113, %98 ], [ 1114113, %94 ], [ %.lcssa114.us, %129 ], [ %.lcssa114.us, %._crit_edge.us ]
   %130 = load ptr, ptr %.sroa.427.0..sroa_idx, align 8, !nonnull !23, !noundef !23
-  %131 = getelementptr inbounds nuw i32, ptr %130, i64 %.sink253
-  store i32 %.sroa.017.0.us209.sink, ptr %131, align 4
-  %storemerge.us141 = add i64 %.sink253, 1
+  %131 = getelementptr inbounds nuw i32, ptr %130, i64 %.sink252
+  store i32 %.sroa.017.0.us208.sink, ptr %131, align 4
+  %storemerge.us141 = add i64 %.sink252, 1
   store i64 %storemerge.us141, ptr %.sroa.528.0..sroa_idx, align 8
   br label %82
 
@@ -25714,7 +25714,7 @@ thread-pre-split83.us:                            ; preds = %._crit_edge.us, %12
 "_ZN95_$LT$widestring..utfstr..iter..CharsUtf32$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdd5f1ed485b774daE.exit60.us": ; preds = %.split7.i56.us, %134, %.lr.ph.us
   %143 = phi ptr [ %141, %.split7.i56.us ], [ %81, %134 ], [ %133, %.lr.ph.us ]
   %144 = add i64 %132, 1
-  %exitcond.not = icmp eq i64 %132, %.sroa.035.0.us210
+  %exitcond.not = icmp eq i64 %132, %.sroa.035.0.us209
   br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph.us
 
 145:                                              ; preds = %99

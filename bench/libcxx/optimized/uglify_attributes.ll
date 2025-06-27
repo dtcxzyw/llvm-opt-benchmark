@@ -3687,12 +3687,12 @@ _ZSt10_ConstructIN5clang9FixItHintEJS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i: ; preds = 
 
 _ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE18uninitialized_moveIPS2_S5_EEvT_S6_T0_.exit.i: ; preds = %_ZSt10_ConstructIN5clang9FixItHintEJS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !474
-  %.pre3.i = load i32, ptr %7, align 8, !tbaa !475
-  %.not4.i.i = icmp eq i32 %.pre3.i, 0
+  %.pre2.i = load i32, ptr %7, align 8, !tbaa !475
+  %.not4.i.i = icmp eq i32 %.pre2.i, 0
   br i1 %.not4.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE19moveElementsForGrowEPS2_.exit, label %.lr.ph.i.preheader.i
 
 .lr.ph.i.preheader.i:                             ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE18uninitialized_moveIPS2_S5_EEvT_S6_T0_.exit.i
-  %33 = zext i32 %.pre3.i to i64
+  %33 = zext i32 %.pre2.i to i64
   %.idx2.i = shl nuw nsw i64 %33, 6
   %34 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 %.idx2.i
   br label %.lr.ph.i.i

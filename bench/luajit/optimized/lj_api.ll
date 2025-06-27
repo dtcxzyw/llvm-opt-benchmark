@@ -8778,26 +8778,26 @@ define dso_local void @lua_call(ptr noundef %0, i32 noundef %1, i32 noundef %2) 
   %5 = load ptr, ptr %4, align 8, !tbaa !14
   %6 = sext i32 %1 to i64
   %.neg.i = mul nsw i64 %6, -8
-  %7 = getelementptr inbounds i8, ptr %5, i64 %.neg.i
-  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %8, ptr %4, align 8, !tbaa !14
-  %9 = icmp sgt i32 %1, 0
-  br i1 %9, label %.lr.ph.i, label %api_call_base.exit
+  %8 = getelementptr inbounds i8, ptr %5, i64 %.neg.i
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %9, ptr %4, align 8, !tbaa !14
+  %10 = icmp sgt i32 %1, 0
+  br i1 %10, label %.lr.ph.i, label %api_call_base.exit
 
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
-  %.012.i = phi ptr [ %10, %.lr.ph.i ], [ %5, %3 ]
-  %10 = getelementptr inbounds i8, ptr %.012.i, i64 -8
-  %11 = load i64, ptr %10, align 8, !tbaa !17
-  store i64 %11, ptr %.012.i, align 8, !tbaa !17
-  %12 = icmp ugt ptr %10, %7
-  br i1 %12, label %.lr.ph.i, label %api_call_base.exit, !llvm.loop !59
+  %.012.i = phi ptr [ %11, %.lr.ph.i ], [ %5, %3 ]
+  %11 = getelementptr inbounds i8, ptr %.012.i, i64 -8
+  %12 = load i64, ptr %11, align 8, !tbaa !17
+  store i64 %12, ptr %.012.i, align 8, !tbaa !17
+  %13 = icmp ugt ptr %11, %8
+  br i1 %13, label %.lr.ph.i, label %api_call_base.exit, !llvm.loop !59
 
 api_call_base.exit:                               ; preds = %.lr.ph.i, %3
-  %.0.lcssa.i = phi ptr [ %5, %3 ], [ %10, %.lr.ph.i ]
+  %.0.lcssa.i = phi ptr [ %5, %3 ], [ %11, %.lr.ph.i ]
   store i64 -1, ptr %.0.lcssa.i, align 8, !tbaa !17
-  %13 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i, i64 8
-  %14 = add nsw i32 %2, 1
-  tail call void @lj_vm_call(ptr noundef nonnull %0, ptr noundef nonnull %13, i32 noundef %14) #13
+  %14 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i, i64 8
+  %15 = add nsw i32 %2, 1
+  tail call void @lj_vm_call(ptr noundef nonnull %0, ptr noundef nonnull %14, i32 noundef %15) #13
   ret void
 }
 
@@ -8856,38 +8856,38 @@ index2adr_stack.exit:                             ; preds = %14, %24
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %37 = sext i32 %1 to i64
   %.neg.i = mul nsw i64 %37, -8
-  %38 = getelementptr inbounds i8, ptr %35, i64 %.neg.i
-  %39 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  store ptr %39, ptr %36, align 8, !tbaa !14
-  %40 = icmp sgt i32 %1, 0
-  br i1 %40, label %.lr.ph.i, label %api_call_base.exit
+  %39 = getelementptr inbounds i8, ptr %35, i64 %.neg.i
+  %40 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  store ptr %40, ptr %36, align 8, !tbaa !14
+  %41 = icmp sgt i32 %1, 0
+  br i1 %41, label %.lr.ph.i, label %api_call_base.exit
 
 .lr.ph.i:                                         ; preds = %34, %.lr.ph.i
-  %.012.i = phi ptr [ %41, %.lr.ph.i ], [ %35, %34 ]
-  %41 = getelementptr inbounds i8, ptr %.012.i, i64 -8
-  %42 = load i64, ptr %41, align 8, !tbaa !17
-  store i64 %42, ptr %.012.i, align 8, !tbaa !17
-  %43 = icmp ugt ptr %41, %38
-  br i1 %43, label %.lr.ph.i, label %api_call_base.exit, !llvm.loop !59
+  %.012.i = phi ptr [ %42, %.lr.ph.i ], [ %35, %34 ]
+  %42 = getelementptr inbounds i8, ptr %.012.i, i64 -8
+  %43 = load i64, ptr %42, align 8, !tbaa !17
+  store i64 %43, ptr %.012.i, align 8, !tbaa !17
+  %44 = icmp ugt ptr %42, %39
+  br i1 %44, label %.lr.ph.i, label %api_call_base.exit, !llvm.loop !59
 
 api_call_base.exit:                               ; preds = %.lr.ph.i, %34
-  %.0.lcssa.i = phi ptr [ %35, %34 ], [ %41, %.lr.ph.i ]
+  %.0.lcssa.i = phi ptr [ %35, %34 ], [ %42, %.lr.ph.i ]
   store i64 -1, ptr %.0.lcssa.i, align 8, !tbaa !17
-  %44 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i, i64 8
-  %45 = add nsw i32 %2, 1
-  %46 = tail call i32 @lj_vm_pcall(ptr noundef nonnull %0, ptr noundef nonnull %44, i32 noundef %45, i64 noundef %.0) #13
-  %.not = icmp eq i32 %46, 0
-  br i1 %.not, label %51, label %47
+  %45 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i, i64 8
+  %46 = add nsw i32 %2, 1
+  %47 = tail call i32 @lj_vm_pcall(ptr noundef nonnull %0, ptr noundef nonnull %45, i32 noundef %46, i64 noundef %.0) #13
+  %.not = icmp eq i32 %47, 0
+  br i1 %.not, label %52, label %48
 
-47:                                               ; preds = %api_call_base.exit
-  %48 = load i8, ptr %8, align 1, !tbaa !60
-  %49 = and i8 %48, 15
-  %50 = or disjoint i8 %49, %10
-  store i8 %50, ptr %8, align 1, !tbaa !60
-  br label %51
+48:                                               ; preds = %api_call_base.exit
+  %49 = load i8, ptr %8, align 1, !tbaa !60
+  %50 = and i8 %49, 15
+  %51 = or disjoint i8 %50, %10
+  store i8 %51, ptr %8, align 1, !tbaa !60
+  br label %52
 
-51:                                               ; preds = %47, %api_call_base.exit
-  ret i32 %46
+52:                                               ; preds = %48, %api_call_base.exit
+  ret i32 %47
 }
 
 declare hidden i32 @lj_vm_pcall(ptr noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
@@ -9237,46 +9237,46 @@ define dso_local i32 @lua_resume(ptr noundef %0, i32 noundef %1) local_unnamed_a
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load ptr, ptr %12, align 8, !tbaa !14
   %14 = sext i32 %1 to i64
-  br i1 %11, label %15, label %23
+  br i1 %11, label %15, label %24
 
-15:                                               ; preds = %10
+15:; preds = %11
   %.neg.i = mul nsw i64 %14, -8
   %16 = getelementptr inbounds i8, ptr %13, i64 %.neg.i
-  %17 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store ptr %17, ptr %12, align 8, !tbaa !14
-  %18 = icmp sgt i32 %1, 0
-  br i1 %18, label %.lr.ph.i, label %api_call_base.exit
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store ptr %18, ptr %12, align 8, !tbaa !14
+  %19 = icmp sgt i32 %1, 0
+  br i1 %19, label %.lr.ph.i, label %api_call_base.exit
 
 .lr.ph.i:                                         ; preds = %15, %.lr.ph.i
-  %.012.i = phi ptr [ %19, %.lr.ph.i ], [ %13, %15 ]
-  %19 = getelementptr inbounds i8, ptr %.012.i, i64 -8
-  %20 = load i64, ptr %19, align 8, !tbaa !17
-  store i64 %20, ptr %.012.i, align 8, !tbaa !17
-  %21 = icmp ugt ptr %19, %16
-  br i1 %21, label %.lr.ph.i, label %api_call_base.exit, !llvm.loop !59
+  %.012.i = phi ptr [ %20, %.lr.ph.i ], [ %13, %15 ]
+  %20 = getelementptr inbounds i8, ptr %.012.i, i64 -8
+  %21 = load i64, ptr %20, align 8, !tbaa !17
+  store i64 %21, ptr %.012.i, align 8, !tbaa !17
+  %22 = icmp ugt ptr %20, %16
+  br i1 %22, label %.lr.ph.i, label %api_call_base.exit, !llvm.loop !59
 
 api_call_base.exit:                               ; preds = %.lr.ph.i, %15
-  %.0.lcssa.i = phi ptr [ %13, %15 ], [ %19, %.lr.ph.i ]
+  %.0.lcssa.i = phi ptr [ %13, %15 ], [ %20, %.lr.ph.i ]
   store i64 -1, ptr %.0.lcssa.i, align 8, !tbaa !17
-  %22 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i, i64 8
   br label %26
 
-23:                                               ; preds = %10
+24:                                               ; preds = %10
   %24 = sub nsw i64 0, %14
   %25 = getelementptr inbounds %union.TValue, ptr %13, i64 %24
   br label %26
 
-26:                                               ; preds = %23, %api_call_base.exit
+27:                                               ; preds = %23, %api_call_base.exit
   %27 = phi ptr [ %22, %api_call_base.exit ], [ %25, %23 ]
   %28 = tail call i32 @lj_vm_resume(ptr noundef nonnull %0, ptr noundef %27, i32 noundef 0, i64 noundef 0) #13
-  br label %42
+  br label %40
 
-29:                                               ; preds = %6, %2
+29:; preds = %6, %2
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %31 = load ptr, ptr %30, align 8, !tbaa !15
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %31, ptr %32, align 8, !tbaa !14
-  %33 = tail call ptr @lj_err_str(ptr noundef nonnull %0, i32 noundef 1347) #13
+  %33 = tail call ptr @lj_err_str(ptr noundef nonnull %0, i32 noundef 1348) #13
   %34 = ptrtoint ptr %33 to i64
   %35 = or i64 %34, -703687441776640
   store i64 %35, ptr %31, align 8, !tbaa !17
@@ -9289,11 +9289,11 @@ api_call_base.exit:                               ; preds = %.lr.ph.i, %15
   %.not = icmp ult ptr %37, %40
   br i1 %.not, label %42, label %41
 
-41:                                               ; preds = %29
+39:                                               ; preds = %29
   tail call void @lj_state_growstack1(ptr noundef nonnull %0) #13
-  br label %42
+  br label %40
 
-42:                                               ; preds = %29, %41, %26
+40:                                               ; preds = %29, %39, %26
   %.0 = phi i32 [ %28, %26 ], [ 2, %41 ], [ 2, %29 ]
   ret i32 %.0
 }

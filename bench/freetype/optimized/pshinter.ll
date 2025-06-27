@@ -2093,7 +2093,7 @@ define internal fastcc void @psh_glyph_interpolate_normal_points(ptr noundef non
   br label %.lr.ph140
 
 .lr.ph150:                                        ; preds = %53
-  %.not157 = icmp eq i32 %.3, 0
+  %.not156 = icmp eq i32 %.3, 0
   %sext123 = shl i64 %11, 32
   %32 = ashr exact i64 %sext123, 32
   %33 = zext i32 %.3 to i64
@@ -2189,7 +2189,7 @@ define internal fastcc void @psh_glyph_interpolate_normal_points(ptr noundef non
   br label %77
 
 77:                                               ; preds = %75, %60
-  br i1 %.not157, label %._crit_edge145.thread, label %.lr.ph144
+  br i1 %.not156, label %._crit_edge145.thread, label %.lr.ph144
 
 .lr.ph144:                                        ; preds = %77
   %78 = getelementptr inbounds nuw i8, ptr %.2149, i64 48
@@ -2209,11 +2209,11 @@ define internal fastcc void @psh_glyph_interpolate_normal_points(ptr noundef non
 87:                                               ; preds = %80
   %88 = add nuw i32 %.099142, 1
   %exitcond.not = icmp eq i32 %88, %.3
-  br i1 %exitcond.not, label %._crit_edge145.thread161, label %80, !llvm.loop !158
+  br i1 %exitcond.not, label %._crit_edge145.thread160, label %80, !llvm.loop !158
 
 ._crit_edge145:                                   ; preds = %80
   %89 = icmp eq i32 %.099142, 0
-  br i1 %89, label %._crit_edge145.thread, label %._crit_edge145.thread161
+  br i1 %89, label %._crit_edge145.thread, label %._crit_edge145.thread160
 
 ._crit_edge145.thread:                            ; preds = %77, %._crit_edge145
   %90 = load ptr, ptr %.0, align 8, !tbaa !155
@@ -2237,9 +2237,9 @@ define internal fastcc void @psh_glyph_interpolate_normal_points(ptr noundef non
   store i64 %105, ptr %106, align 8, !tbaa !115
   br label %170
 
-._crit_edge145.thread161:                         ; preds = %87, %._crit_edge145
-  %.099.lcssa163 = phi i32 [ %.099142, %._crit_edge145 ], [ %.3, %87 ]
-  %107 = add i32 %.099.lcssa163, -1
+._crit_edge145.thread160:                         ; preds = %87, %._crit_edge145
+  %.099.lcssa162 = phi i32 [ %.099142, %._crit_edge145 ], [ %.3, %87 ]
+  %107 = add i32 %.099.lcssa162, -1
   %108 = zext i32 %107 to i64
   %109 = getelementptr inbounds nuw ptr, ptr %.0, i64 %108
   %110 = load ptr, ptr %109, align 8, !tbaa !155
@@ -2247,10 +2247,10 @@ define internal fastcc void @psh_glyph_interpolate_normal_points(ptr noundef non
   %112 = load i64, ptr %111, align 8, !tbaa !58
   br label %113
 
-113:                                              ; preds = %114, %._crit_edge145.thread161
+113:                                              ; preds = %114, %._crit_edge145.thread160
   %indvars.iv = phi i64 [ %115, %114 ], [ %33, %._crit_edge145.thread161 ]
   %.not119 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not119, label %.split.loop.exit165, label %114
+  br i1 %.not119, label %.split.loop.exit164, label %114
 
 114:                                              ; preds = %113
   %115 = add nsw i64 %indvars.iv, -1
@@ -2263,15 +2263,15 @@ define internal fastcc void @psh_glyph_interpolate_normal_points(ptr noundef non
 
 .split.loop.exit:                                 ; preds = %114
   %121 = trunc nuw i64 %indvars.iv to i32
-  br label %.split.loop.exit165
+  br label %.split.loop.exit164
 
-.split.loop.exit165:                              ; preds = %113, %.split.loop.exit
+.split.loop.exit164:                              ; preds = %113, %.split.loop.exit
   %.1.lcssa = phi i32 [ %121, %.split.loop.exit ], [ 0, %113 ]
   %122 = icmp eq i32 %.1.lcssa, %.3
   %123 = load i64, ptr %111, align 8, !tbaa !58
   br i1 %122, label %124, label %140
 
-124:                                              ; preds = %.split.loop.exit165
+124:                                              ; preds = %.split.loop.exit164
   %125 = load ptr, ptr %36, align 8, !tbaa !155
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 64
   %127 = load i64, ptr %126, align 8, !tbaa !115
@@ -2291,7 +2291,7 @@ define internal fastcc void @psh_glyph_interpolate_normal_points(ptr noundef non
   store i64 %138, ptr %139, align 8, !tbaa !115
   br label %170
 
-140:                                              ; preds = %.split.loop.exit165
+140:                                              ; preds = %.split.loop.exit164
   %141 = zext i32 %.1.lcssa to i64
   %142 = getelementptr inbounds nuw ptr, ptr %.0, i64 %141
   %143 = load ptr, ptr %142, align 8, !tbaa !155

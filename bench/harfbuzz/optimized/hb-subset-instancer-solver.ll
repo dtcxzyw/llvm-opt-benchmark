@@ -509,8 +509,8 @@ _ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.thread6.i.i: ; preds = 
   store i32 1, ptr %0, align 8, !tbaa !34
   store i32 1, ptr %99, align 4, !tbaa !22
   store double %.0.i108, ptr %malloc.i, align 8, !tbaa !25
-  %.sroa.4382.0..sroa_idx = getelementptr inbounds nuw i8, ptr %malloc.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4382.0..sroa_idx, i8 0, i64 24, i1 false)
+  %.sroa.4381.0..sroa_idx = getelementptr inbounds nuw i8, ptr %malloc.i, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4381.0..sroa_idx, i8 0, i64 24, i1 false)
   br label %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EEC2ESt16initializer_listIS2_E.exit
 
 _ZN11hb_vector_tI9hb_pair_tId6TripleELb0EEC2ESt16initializer_listIS2_E.exit: ; preds = %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.thread6.i.i, %.critedge.i8.i
@@ -592,16 +592,16 @@ _ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.thread6.i: ; preds = %_
 
 .critedge.i:                                      ; preds = %119, %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.i, %125
   %132 = phi ptr [ %131, %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.i ], [ %malloc.i, %125 ], [ %malloc.i, %119 ]
-  %.pre-phi386 = add nuw nsw i32 %102, 1
-  store i32 %.pre-phi386, ptr %99, align 4, !tbaa !22
+  %.pre-phi385 = add nuw nsw i32 %102, 1
+  store i32 %.pre-phi385, ptr %99, align 4, !tbaa !22
   %133 = zext nneg i32 %102 to i64
   %134 = getelementptr inbounds nuw %struct.hb_pair_t, ptr %132, i64 %133
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 8
   store double %.sroa.speculated312, ptr %135, align 8
-  %.sroa.4379.0..sroa_idx = getelementptr inbounds nuw i8, ptr %134, i64 16
-  store double %14, ptr %.sroa.4379.0..sroa_idx, align 8
-  %.sroa.5380.0..sroa_idx = getelementptr inbounds nuw i8, ptr %134, i64 24
-  store double %122, ptr %.sroa.5380.0..sroa_idx, align 8
+  %.sroa.4378.0..sroa_idx = getelementptr inbounds nuw i8, ptr %134, i64 16
+  store double %14, ptr %.sroa.4378.0..sroa_idx, align 8
+  %.sroa.5379.0..sroa_idx = getelementptr inbounds nuw i8, ptr %134, i64 24
+  store double %122, ptr %.sroa.5379.0..sroa_idx, align 8
   store double %120, ptr %134, align 8, !tbaa !23, !alias.scope !44
   br label %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE4pushIJS0_IdRS1_EEEEPS2_DpOT_.exit
 
@@ -674,10 +674,10 @@ _ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.thread6.i138: ; preds =
   %160 = getelementptr inbounds nuw %struct.hb_pair_t, ptr %156, i64 %159
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 8
   store double %122, ptr %161, align 8
-  %.sroa.4376.0..sroa_idx = getelementptr inbounds nuw i8, ptr %160, i64 16
-  store double %11, ptr %.sroa.4376.0..sroa_idx, align 8
-  %.sroa.5377.0..sroa_idx = getelementptr inbounds nuw i8, ptr %160, i64 24
-  store double %11, ptr %.sroa.5377.0..sroa_idx, align 8
+  %.sroa.4375.0..sroa_idx = getelementptr inbounds nuw i8, ptr %160, i64 16
+  store double %11, ptr %.sroa.4375.0..sroa_idx, align 8
+  %.sroa.5376.0..sroa_idx = getelementptr inbounds nuw i8, ptr %160, i64 24
+  store double %11, ptr %.sroa.5376.0..sroa_idx, align 8
   store double %138, ptr %160, align 8, !tbaa !23, !alias.scope !47
   br label %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE4pushIJS0_IdRS1_EEEEPS2_DpOT_.exit139
 
@@ -750,10 +750,10 @@ _ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.thread6.i156: ; preds =
   %188 = getelementptr inbounds nuw %struct.hb_pair_t, ptr %184, i64 %187
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 8
   store double %122, ptr %189, align 8
-  %.sroa.4373.0..sroa_idx = getelementptr inbounds nuw i8, ptr %188, i64 16
-  store double %.0, ptr %.sroa.4373.0..sroa_idx, align 8
-  %.sroa.5374.0..sroa_idx = getelementptr inbounds nuw i8, ptr %188, i64 24
-  store double %11, ptr %.sroa.5374.0..sroa_idx, align 8
+  %.sroa.4372.0..sroa_idx = getelementptr inbounds nuw i8, ptr %188, i64 16
+  store double %.0, ptr %.sroa.4372.0..sroa_idx, align 8
+  %.sroa.5373.0..sroa_idx = getelementptr inbounds nuw i8, ptr %188, i64 24
+  store double %11, ptr %.sroa.5373.0..sroa_idx, align 8
   store double %165, ptr %188, align 8, !tbaa !23, !alias.scope !50
   %.pre = load i32, ptr %0, align 8, !tbaa !34
   br label %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE4pushIJS0_IdRS1_EEEEPS2_DpOT_.exit157
@@ -822,10 +822,10 @@ _ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.thread6.i174: ; preds =
   %211 = getelementptr inbounds nuw %struct.hb_pair_t, ptr %207, i64 %210
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 8
   store double %.0, ptr %212, align 8
-  %.sroa.4370.0..sroa_idx = getelementptr inbounds nuw i8, ptr %211, i64 16
-  store double %11, ptr %.sroa.4370.0..sroa_idx, align 8
-  %.sroa.5371.0..sroa_idx = getelementptr inbounds nuw i8, ptr %211, i64 24
-  store double %11, ptr %.sroa.5371.0..sroa_idx, align 8
+  %.sroa.4369.0..sroa_idx = getelementptr inbounds nuw i8, ptr %211, i64 16
+  store double %11, ptr %.sroa.4369.0..sroa_idx, align 8
+  %.sroa.5370.0..sroa_idx = getelementptr inbounds nuw i8, ptr %211, i64 24
+  store double %11, ptr %.sroa.5370.0..sroa_idx, align 8
   store double %165, ptr %211, align 8, !tbaa !23, !alias.scope !53
   br label %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE4pushIJS0_IdRS1_EEEEPS2_DpOT_.exit139
 
@@ -875,10 +875,10 @@ _ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.thread6.i192: ; preds =
   %226 = getelementptr inbounds nuw %struct.hb_pair_t, ptr %224, i64 %225
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 8
   store double %.sroa.speculated, ptr %227, align 8
-  %.sroa.4367.0..sroa_idx = getelementptr inbounds nuw i8, ptr %226, i64 16
-  store double %14, ptr %.sroa.4367.0..sroa_idx, align 8
-  %.sroa.5368.0..sroa_idx = getelementptr inbounds nuw i8, ptr %226, i64 24
-  store double %11, ptr %.sroa.5368.0..sroa_idx, align 8
+  %.sroa.4366.0..sroa_idx = getelementptr inbounds nuw i8, ptr %226, i64 16
+  store double %14, ptr %.sroa.4366.0..sroa_idx, align 8
+  %.sroa.5367.0..sroa_idx = getelementptr inbounds nuw i8, ptr %226, i64 24
+  store double %11, ptr %.sroa.5367.0..sroa_idx, align 8
   store double %215, ptr %226, align 8, !tbaa !23, !alias.scope !56
   br label %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE4pushIJS0_IdRS1_EEEEPS2_DpOT_.exit193
 
@@ -951,10 +951,10 @@ _ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.thread6.i210: ; preds =
   %252 = getelementptr inbounds nuw %struct.hb_pair_t, ptr %248, i64 %251
   %253 = getelementptr inbounds nuw i8, ptr %252, i64 8
   store double %14, ptr %253, align 8
-  %.sroa.4364.0..sroa_idx = getelementptr inbounds nuw i8, ptr %252, i64 16
-  store double %11, ptr %.sroa.4364.0..sroa_idx, align 8
-  %.sroa.5365.0..sroa_idx = getelementptr inbounds nuw i8, ptr %252, i64 24
-  store double %11, ptr %.sroa.5365.0..sroa_idx, align 8
+  %.sroa.4363.0..sroa_idx = getelementptr inbounds nuw i8, ptr %252, i64 16
+  store double %11, ptr %.sroa.4363.0..sroa_idx, align 8
+  %.sroa.5364.0..sroa_idx = getelementptr inbounds nuw i8, ptr %252, i64 24
+  store double %11, ptr %.sroa.5364.0..sroa_idx, align 8
   store double %230, ptr %252, align 8, !tbaa !23, !alias.scope !59
   br label %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE4pushIJS0_IdRS1_EEEEPS2_DpOT_.exit139
 
@@ -1073,10 +1073,10 @@ _ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.thread6.i234: ; preds =
   %304 = getelementptr inbounds nuw %struct.hb_pair_t, ptr %300, i64 %303
   %305 = getelementptr inbounds nuw i8, ptr %304, i64 8
   store double %7, ptr %305, align 8
-  %.sroa.4361.0..sroa_idx = getelementptr inbounds nuw i8, ptr %304, i64 16
-  store double %7, ptr %.sroa.4361.0..sroa_idx, align 8
-  %.sroa.5362.0..sroa_idx = getelementptr inbounds nuw i8, ptr %304, i64 24
-  store double %9, ptr %.sroa.5362.0..sroa_idx, align 8
+  %.sroa.4360.0..sroa_idx = getelementptr inbounds nuw i8, ptr %304, i64 16
+  store double %7, ptr %.sroa.4360.0..sroa_idx, align 8
+  %.sroa.5361.0..sroa_idx = getelementptr inbounds nuw i8, ptr %304, i64 24
+  store double %9, ptr %.sroa.5361.0..sroa_idx, align 8
   store double %282, ptr %304, align 8, !tbaa !23, !alias.scope !62
   br label %.loopexit
 
@@ -1149,16 +1149,16 @@ _ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.thread6.i252: ; preds =
   %332 = getelementptr inbounds nuw %struct.hb_pair_t, ptr %328, i64 %331
   %333 = getelementptr inbounds nuw i8, ptr %332, i64 8
   store double %7, ptr %333, align 8
-  %.sroa.4358.0..sroa_idx = getelementptr inbounds nuw i8, ptr %332, i64 16
-  store double %.0320, ptr %.sroa.4358.0..sroa_idx, align 8
-  %.sroa.5359.0..sroa_idx = getelementptr inbounds nuw i8, ptr %332, i64 24
-  store double %9, ptr %.sroa.5359.0..sroa_idx, align 8
+  %.sroa.4357.0..sroa_idx = getelementptr inbounds nuw i8, ptr %332, i64 16
+  store double %.0320, ptr %.sroa.4357.0..sroa_idx, align 8
+  %.sroa.5358.0..sroa_idx = getelementptr inbounds nuw i8, ptr %332, i64 24
+  store double %9, ptr %.sroa.5358.0..sroa_idx, align 8
   store double %309, ptr %332, align 8, !tbaa !23, !alias.scope !65
-  %.pre383 = load i32, ptr %0, align 8, !tbaa !34
+  %.pre382 = load i32, ptr %0, align 8, !tbaa !34
   br label %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE4pushIJS0_IdRS1_EEEEPS2_DpOT_.exit253
 
 _ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE4pushIJS0_IdRS1_EEEEPS2_DpOT_.exit253: ; preds = %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.thread6.i252, %.critedge.i240
-  %334 = phi i32 [ %327, %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.thread6.i252 ], [ %.pre383, %.critedge.i240 ]
+  %334 = phi i32 [ %327, %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.thread6.i252 ], [ %.pre382, %.critedge.i240 ]
   %335 = load i32, ptr %99, align 4, !tbaa !22
   %.not.i256 = icmp slt i32 %335, %334
   br i1 %.not.i256, label %.critedge.i258, label %336

@@ -7118,124 +7118,124 @@ define void @imdct_step3_inner_s_loop_ld654(i32 noundef %0, ptr noundef captures
   %12 = shl nsw i32 %0, 4
   %13 = sext i32 %12 to i64
   %.neg = mul nsw i64 %13, -4
-  %14 = getelementptr inbounds i8, ptr %11, i64 %.neg
-  %15 = icmp sgt i32 %0, 0
-  br i1 %15, label %.lr.ph, label %._crit_edge
+  %15 = getelementptr inbounds i8, ptr %11, i64 %.neg
+  %16 = icmp sgt i32 %0, 0
+  br i1 %16, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
-  %16 = fneg float %9
-  br label %17
+  %17 = fneg float %9
+  br label %18
 
-17:                                               ; preds = %.lr.ph, %17
-  %.075 = phi ptr [ %11, %.lr.ph ], [ %105, %17 ]
-  %18 = load float, ptr %.075, align 4, !tbaa !48
-  %19 = getelementptr inbounds i8, ptr %.075, i64 -32
-  %20 = load float, ptr %19, align 4, !tbaa !48
-  %21 = fsub float %18, %20
-  %22 = getelementptr inbounds i8, ptr %.075, i64 -4
-  %23 = load float, ptr %22, align 4, !tbaa !48
-  %24 = getelementptr inbounds i8, ptr %.075, i64 -36
-  %25 = load float, ptr %24, align 4, !tbaa !48
-  %26 = fsub float %23, %25
-  %27 = getelementptr inbounds i8, ptr %.075, i64 -8
-  %28 = load float, ptr %27, align 4, !tbaa !48
-  %29 = getelementptr inbounds i8, ptr %.075, i64 -40
-  %30 = load float, ptr %29, align 4, !tbaa !48
-  %31 = fsub float %28, %30
-  %32 = getelementptr inbounds i8, ptr %.075, i64 -12
-  %33 = load float, ptr %32, align 4, !tbaa !48
-  %34 = getelementptr inbounds i8, ptr %.075, i64 -44
-  %35 = load float, ptr %34, align 4, !tbaa !48
-  %36 = fsub float %33, %35
-  %37 = fadd float %18, %20
-  %38 = fadd float %23, %25
-  %39 = fadd float %28, %30
-  %40 = fadd float %33, %35
-  %41 = fadd float %31, %36
-  %42 = fmul float %9, %41
-  %43 = fsub float %36, %31
-  %44 = fmul float %9, %43
-  %45 = getelementptr inbounds i8, ptr %.075, i64 -16
-  %46 = load float, ptr %45, align 4, !tbaa !48
-  %47 = getelementptr inbounds i8, ptr %.075, i64 -48
-  %48 = load float, ptr %47, align 4, !tbaa !48
-  %49 = fsub float %46, %48
-  %50 = getelementptr inbounds i8, ptr %.075, i64 -20
-  %51 = load float, ptr %50, align 4, !tbaa !48
-  %52 = getelementptr inbounds i8, ptr %.075, i64 -52
-  %53 = load float, ptr %52, align 4, !tbaa !48
-  %54 = fsub float %51, %53
-  %55 = getelementptr inbounds i8, ptr %.075, i64 -24
-  %56 = load float, ptr %55, align 4, !tbaa !48
-  %57 = getelementptr inbounds i8, ptr %.075, i64 -56
-  %58 = load float, ptr %57, align 4, !tbaa !48
-  %59 = fsub float %56, %58
-  %60 = getelementptr inbounds i8, ptr %.075, i64 -28
-  %61 = load float, ptr %60, align 4, !tbaa !48
-  %62 = getelementptr inbounds i8, ptr %.075, i64 -60
-  %63 = load float, ptr %62, align 4, !tbaa !48
-  %64 = fsub float %61, %63
-  %65 = fadd float %46, %48
-  %66 = fadd float %51, %53
-  %67 = fadd float %56, %58
-  %68 = fadd float %61, %63
-  %69 = fsub float %64, %59
-  %70 = fmul float %9, %69
-  %71 = fadd float %59, %64
-  %72 = fmul float %71, %16
-  %73 = fsub float %37, %65
-  %74 = fadd float %37, %65
-  %75 = fadd float %39, %67
-  %76 = fsub float %39, %67
-  %77 = fadd float %74, %75
-  store float %77, ptr %.075, align 4, !tbaa !48
-  %78 = fsub float %74, %75
-  store float %78, ptr %27, align 4, !tbaa !48
-  %79 = fsub float %40, %68
-  %80 = fadd float %73, %79
-  store float %80, ptr %45, align 4, !tbaa !48
-  %81 = fsub float %73, %79
-  store float %81, ptr %55, align 4, !tbaa !48
-  %82 = fsub float %38, %66
-  %83 = fadd float %38, %66
-  %84 = fadd float %40, %68
-  %85 = fadd float %83, %84
-  store float %85, ptr %22, align 4, !tbaa !48
-  %86 = fsub float %83, %84
-  store float %86, ptr %32, align 4, !tbaa !48
-  %87 = fsub float %82, %76
-  store float %87, ptr %50, align 4, !tbaa !48
-  %88 = fadd float %82, %76
-  store float %88, ptr %60, align 4, !tbaa !48
-  %89 = fsub float %21, %54
-  %90 = fadd float %21, %54
-  %91 = fadd float %42, %70
-  %92 = fsub float %42, %70
-  %93 = fadd float %90, %91
-  store float %93, ptr %19, align 4, !tbaa !48
-  %94 = fsub float %90, %91
-  store float %94, ptr %29, align 4, !tbaa !48
-  %95 = fsub float %44, %72
-  %96 = fadd float %89, %95
-  store float %96, ptr %47, align 4, !tbaa !48
-  %97 = fsub float %89, %95
-  store float %97, ptr %57, align 4, !tbaa !48
-  %98 = fadd float %26, %49
-  %99 = fsub float %26, %49
-  %100 = fadd float %44, %72
-  %101 = fadd float %100, %99
-  store float %101, ptr %24, align 4, !tbaa !48
-  %102 = fsub float %99, %100
-  store float %102, ptr %34, align 4, !tbaa !48
-  %103 = fsub float %98, %92
-  store float %103, ptr %52, align 4, !tbaa !48
-  %104 = fadd float %92, %98
-  store float %104, ptr %62, align 4, !tbaa !48
-  %105 = getelementptr inbounds i8, ptr %.075, i64 -64
-  %106 = icmp ugt ptr %105, %14
-  br i1 %106, label %17, label %._crit_edge, !llvm.loop !130
+18:                                               ; preds = %.lr.ph, %18
+  %.075 = phi ptr [ %11, %.lr.ph ], [ %106, %17 ]
+  %19 = load float, ptr %.075, align 4, !tbaa !48
+  %20 = getelementptr inbounds i8, ptr %.075, i64 -32
+  %21 = load float, ptr %20, align 4, !tbaa !48
+  %22 = fsub float %19, %21
+  %23 = getelementptr inbounds i8, ptr %.075, i64 -4
+  %24 = load float, ptr %23, align 4, !tbaa !48
+  %25 = getelementptr inbounds i8, ptr %.075, i64 -36
+  %26 = load float, ptr %25, align 4, !tbaa !48
+  %27 = fsub float %24, %26
+  %28 = getelementptr inbounds i8, ptr %.075, i64 -8
+  %29 = load float, ptr %28, align 4, !tbaa !48
+  %30 = getelementptr inbounds i8, ptr %.075, i64 -40
+  %31 = load float, ptr %30, align 4, !tbaa !48
+  %32 = fsub float %29, %31
+  %33 = getelementptr inbounds i8, ptr %.075, i64 -12
+  %34 = load float, ptr %33, align 4, !tbaa !48
+  %35 = getelementptr inbounds i8, ptr %.075, i64 -44
+  %36 = load float, ptr %35, align 4, !tbaa !48
+  %37 = fsub float %34, %36
+  %38 = fadd float %19, %21
+  %39 = fadd float %24, %26
+  %40 = fadd float %29, %31
+  %41 = fadd float %34, %36
+  %42 = fadd float %32, %37
+  %43 = fmul float %9, %42
+  %44 = fsub float %37, %32
+  %45 = fmul float %9, %44
+  %46 = getelementptr inbounds i8, ptr %.075, i64 -16
+  %47 = load float, ptr %46, align 4, !tbaa !48
+  %48 = getelementptr inbounds i8, ptr %.075, i64 -48
+  %49 = load float, ptr %48, align 4, !tbaa !48
+  %50 = fsub float %47, %49
+  %51 = getelementptr inbounds i8, ptr %.075, i64 -20
+  %52 = load float, ptr %51, align 4, !tbaa !48
+  %53 = getelementptr inbounds i8, ptr %.075, i64 -52
+  %54 = load float, ptr %53, align 4, !tbaa !48
+  %55 = fsub float %52, %54
+  %56 = getelementptr inbounds i8, ptr %.075, i64 -24
+  %57 = load float, ptr %56, align 4, !tbaa !48
+  %58 = getelementptr inbounds i8, ptr %.075, i64 -56
+  %59 = load float, ptr %58, align 4, !tbaa !48
+  %60 = fsub float %57, %59
+  %61 = getelementptr inbounds i8, ptr %.075, i64 -28
+  %62 = load float, ptr %61, align 4, !tbaa !48
+  %63 = getelementptr inbounds i8, ptr %.075, i64 -60
+  %64 = load float, ptr %63, align 4, !tbaa !48
+  %65 = fsub float %62, %64
+  %66 = fadd float %47, %49
+  %67 = fadd float %52, %54
+  %68 = fadd float %57, %59
+  %69 = fadd float %62, %64
+  %70 = fsub float %65, %60
+  %71 = fmul float %9, %70
+  %72 = fadd float %60, %65
+  %73 = fmul float %72, %17
+  %74 = fsub float %38, %66
+  %75 = fadd float %38, %66
+  %76 = fadd float %40, %68
+  %77 = fsub float %40, %68
+  %78 = fadd float %75, %76
+  store float %78, ptr %.075, align 4, !tbaa !48
+  %79 = fsub float %75, %76
+  store float %79, ptr %28, align 4, !tbaa !48
+  %80 = fsub float %41, %69
+  %81 = fadd float %74, %80
+  store float %81, ptr %46, align 4, !tbaa !48
+  %82 = fsub float %74, %80
+  store float %82, ptr %56, align 4, !tbaa !48
+  %83 = fsub float %39, %67
+  %84 = fadd float %39, %67
+  %85 = fadd float %41, %69
+  %86 = fadd float %84, %85
+  store float %86, ptr %23, align 4, !tbaa !48
+  %87 = fsub float %84, %85
+  store float %87, ptr %33, align 4, !tbaa !48
+  %88 = fsub float %83, %77
+  store float %88, ptr %51, align 4, !tbaa !48
+  %89 = fadd float %83, %77
+  store float %89, ptr %61, align 4, !tbaa !48
+  %90 = fsub float %22, %55
+  %91 = fadd float %22, %55
+  %92 = fadd float %43, %71
+  %93 = fsub float %43, %71
+  %94 = fadd float %91, %92
+  store float %94, ptr %20, align 4, !tbaa !48
+  %95 = fsub float %91, %92
+  store float %95, ptr %30, align 4, !tbaa !48
+  %96 = fsub float %45, %73
+  %97 = fadd float %90, %96
+  store float %97, ptr %48, align 4, !tbaa !48
+  %98 = fsub float %90, %96
+  store float %98, ptr %58, align 4, !tbaa !48
+  %99 = fadd float %27, %50
+  %100 = fsub float %27, %50
+  %101 = fadd float %45, %73
+  %102 = fadd float %101, %100
+  store float %102, ptr %25, align 4, !tbaa !48
+  %103 = fsub float %100, %101
+  store float %103, ptr %35, align 4, !tbaa !48
+  %104 = fsub float %99, %93
+  store float %104, ptr %53, align 4, !tbaa !48
+  %105 = fadd float %93, %99
+  store float %105, ptr %63, align 4, !tbaa !48
+  %106 = getelementptr inbounds i8, ptr %.075, i64 -64
+  %107 = icmp ugt ptr %106, %15
+  br i1 %107, label %18, label %._crit_edge, !llvm.loop !130
 
-._crit_edge:                                      ; preds = %17, %5
+._crit_edge:                                      ; preds = %18, %5
   ret void
 }
 
