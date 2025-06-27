@@ -3070,7 +3070,7 @@ define internal fastcc void @_ZN5arrowL31AppendLittleEndianArrayToStringILm2EEEv
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val6.val.i.i.i = load i64, ptr %6, align 8, !tbaa !155, !noalias !156
   %.not14.i.i.i = icmp eq i64 %.val6.val.i.i.i, 0
-  %.sroa.gep109 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.sroa.gep111 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br i1 %.not14.i.i.i, label %_ZSt7find_ifISt16reverse_iteratorIPKmEZN5arrowL31AppendLittleEndianArrayToStringILm2EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlmE_ET_SI_SI_T0_.exit, label %_ZSt7find_ifISt16reverse_iteratorIPKmEZN5arrowL31AppendLittleEndianArrayToStringILm2EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlmE_ET_SI_SI_T0_.exit.thread
 
 _ZSt7find_ifISt16reverse_iteratorIPKmEZN5arrowL31AppendLittleEndianArrayToStringILm2EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlmE_ET_SI_SI_T0_.exit: ; preds = %._crit_edge.i.i.i
@@ -3114,7 +3114,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit: ; preds 
   br label %123
 
 _ZSt7find_ifISt16reverse_iteratorIPKmEZN5arrowL31AppendLittleEndianArrayToStringILm2EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlmE_ET_SI_SI_T0_.exit.thread: ; preds = %._crit_edge.i.i.i, %_ZSt7find_ifISt16reverse_iteratorIPKmEZN5arrowL31AppendLittleEndianArrayToStringILm2EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlmE_ET_SI_SI_T0_.exit
-  %.sroa.phi = phi ptr [ %4, %_ZSt7find_ifISt16reverse_iteratorIPKmEZN5arrowL31AppendLittleEndianArrayToStringILm2EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlmE_ET_SI_SI_T0_.exit ], [ %.sroa.gep109, %._crit_edge.i.i.i ]
+  %.sroa.phi = phi ptr [ %4, %_ZSt7find_ifISt16reverse_iteratorIPKmEZN5arrowL31AppendLittleEndianArrayToStringILm2EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlmE_ET_SI_SI_T0_.exit ], [ %.sroa.gep111, %._crit_edge.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false), !tbaa.struct !163
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5) #25

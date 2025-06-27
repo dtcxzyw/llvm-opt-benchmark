@@ -2138,18 +2138,18 @@ define noundef double @_ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb
   br label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h1b88e4ca48b22e6bE.exit", %3
-  %.sroa.0.0 = phi double [ 0.000000e+00, %3 ], [ %7, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h1b88e4ca48b22e6bE.exit" ], [ %13, %.lr.ph ]
+  %.sroa.0.0 = phi double [ 0.000000e+00, %3 ], [ %7, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h1b88e4ca48b22e6bE.exit" ], [ %12, %.lr.ph ]
   ret double %.sroa.0.0
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.sroa.0.113 = phi double [ %13, %.lr.ph ], [ %7, %.lr.ph.preheader ]
-  %.sroa.4.012 = phi ptr [ %10, %.lr.ph ], [ %9, %.lr.ph.preheader ]
-  %10 = getelementptr inbounds i8, ptr %.sroa.4.012, i64 -8
-  %11 = load double, ptr %10, align 8, !noundef !4
-  %12 = fmul double %0, %.sroa.0.113
-  %13 = fadd double %12, %11
-  %14 = icmp eq ptr %1, %10
-  br i1 %14, label %.loopexit, label %.lr.ph
+  %.sroa.0.113 = phi double [ %12, %.lr.ph ], [ %7, %.lr.ph.preheader ]
+  %.sroa.4.012 = phi ptr [ %9, %.lr.ph ], [ %9, %.lr.ph.preheader ]
+  %9 = getelementptr inbounds i8, ptr %.sroa.4.012, i64 -8
+  %10 = load double, ptr %9, align 8, !noundef !4
+  %11 = fmul double %0, %.sroa.0.113
+  %12 = fadd double %11, %10
+  %13 = icmp eq ptr %1, %9
+  br i1 %13, label %.loopexit, label %.lr.ph
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

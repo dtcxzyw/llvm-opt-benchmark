@@ -1577,16 +1577,16 @@ define internal fastcc ptr @ole2_convert_utf(ptr noundef nonnull captures(none) 
   %or.cond213 = and i1 %.not122136, %.not123203
   br i1 %or.cond213, label %.lr.ph206, label %._crit_edge
 
-.lr.phthread-pre-split:                           ; preds = %.lr.ph206
+.lr.ph.preheader:                                 ; preds = %.lr.ph206
   %26 = add i64 %.086138204, 1
   %.pr = load i8, ptr %27, align 1, !tbaa !43
   %.not123 = icmp slt i8 %.pr, -64
-  br i1 %.not123, label %.lr.ph206, label %._crit_edge
+  br i1 %.not123, label %.lr.ph199, label %._crit_edge
 
-.lr.ph206:                                        ; preds = %.preheader128, %.lr.phthread-pre-split
-  %.087137205 = phi ptr [ %27, %.lr.phthread-pre-split ], [ %24, %.preheader128 ]
-  %.086138204 = phi i64 [ %26, %.lr.phthread-pre-split ], [ 1, %.preheader128 ]
-  %27 = getelementptr inbounds i8, ptr %.087137205, i64 -1
+.lr.ph199:                                        ; preds = %.preheader128, %.lr.phthread-pre-split
+  %.087137198 = phi ptr [ %27, %.lr.phthread-pre-split ], [ %24, %.preheader128 ]
+  %.086138197 = phi i64 [ %26, %.lr.phthread-pre-split ], [ 1, %.preheader128 ]
+  %27 = getelementptr inbounds i8, ptr %.087137198, i64 -1
   %.not122 = icmp eq ptr %27, %18
   br i1 %.not122, label %.._crit_edge.loopexit_crit_edge, label %.lr.phthread-pre-split
 
@@ -1595,8 +1595,8 @@ define internal fastcc ptr @ole2_convert_utf(ptr noundef nonnull captures(none) 
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.phthread-pre-split, %.._crit_edge.loopexit_crit_edge, %.preheader128
-  %28 = phi i8 [ %25, %.preheader128 ], [ %.pre.pre, %.._crit_edge.loopexit_crit_edge ], [ %.pr, %.lr.phthread-pre-split ]
-  %.087.lcssa = phi ptr [ %24, %.preheader128 ], [ %18, %.._crit_edge.loopexit_crit_edge ], [ %27, %.lr.phthread-pre-split ]
+  %.087.lcssa = phi i8 [ %25, %.preheader128 ], [ %.pre.pre, %.._crit_edge.loopexit_crit_edge ], [ %.pr, %.lr.phthread-pre-split ]
+  %.086.lcssa = phi ptr [ %24, %.preheader128 ], [ %18, %.._crit_edge.loopexit_crit_edge ], [ %27, %.lr.phthread-pre-split ]
   %.086.lcssa = phi i64 [ 1, %.preheader128 ], [ %2, %.._crit_edge.loopexit_crit_edge ], [ %26, %.lr.phthread-pre-split ]
   %29 = zext i8 %28 to i32
   br label %30
@@ -1692,8 +1692,8 @@ define internal fastcc ptr @ole2_convert_utf(ptr noundef nonnull captures(none) 
   %63 = shl nuw nsw i64 %2, 1
   %64 = or disjoint i64 %63, 1
   %65 = tail call ptr @cli_max_realloc(ptr noundef null, i64 noundef %64) #10
-  %.not118209 = icmp eq ptr %65, null
-  br i1 %.not118209, label %.preheader._crit_edge, label %.lr.ph
+  %.not118203 = icmp eq ptr %65, null
+  br i1 %.not118203, label %.preheader._crit_edge, label %.lr.ph
 
 66:                                               ; preds = %60
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %9) #10
@@ -1717,11 +1717,11 @@ define internal fastcc ptr @ole2_convert_utf(ptr noundef nonnull captures(none) 
   %74 = phi ptr [ %96, %.preheader ], [ %65, %.preheader.preheader ]
   %75 = phi i64 [ %94, %.preheader ], [ %63, %.preheader.preheader ]
   %76 = phi i64 [ %93, %.preheader ], [ 2, %.preheader.preheader ]
-  %.097152211 = phi i64 [ %90, %.preheader ], [ 0, %.preheader.preheader ]
-  %indvars.iv210 = phi i64 [ %indvars.iv.next, %.preheader ], [ 1, %.preheader.preheader ]
-  %77 = sub i64 %75, %.097152211
+  %.097152205 = phi i64 [ %90, %.preheader ], [ 0, %.preheader.preheader ]
+  %indvars.iv204 = phi i64 [ %indvars.iv.next, %.preheader ], [ 1, %.preheader.preheader ]
+  %77 = sub i64 %75, %.097152205
   store i64 %77, ptr %8, align 8, !tbaa !45
-  %78 = getelementptr inbounds i8, ptr %74, i64 %.097152211
+  %78 = getelementptr inbounds i8, ptr %74, i64 %.097152205
   store ptr %78, ptr %6, align 8, !tbaa !44
   %79 = call i64 @iconv(ptr noundef %61, ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef nonnull %8) #10
   %80 = tail call ptr @__errno_location() #12
@@ -1738,9 +1738,9 @@ define internal fastcc ptr @ole2_convert_utf(ptr noundef nonnull captures(none) 
 86:                                               ; preds = %83
   %87 = load i64, ptr %7, align 8, !tbaa !45
   %88 = icmp eq i64 %87, 0
-  %.not119 = icmp eq i64 %indvars.iv210, 3
-  %or.cond212 = or i1 %88, %.not119
-  br i1 %or.cond212, label %.loopexit, label %.preheader
+  %.not119 = icmp eq i64 %indvars.iv204, 3
+  %or.cond206 = or i1 %88, %.not119
+  br i1 %or.cond206, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %86
   %89 = load i64, ptr %8, align 8, !tbaa !45
@@ -1748,7 +1748,7 @@ define internal fastcc ptr @ole2_convert_utf(ptr noundef nonnull captures(none) 
   %91 = add nuw nsw i64 %76, 2
   %92 = mul nuw nsw i64 %2, %91
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.99, i64 noundef %75, i64 noundef %92) #10
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv210, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv204, 1
   %93 = shl nuw nsw i64 %indvars.iv.next, 1
   %94 = mul nuw nsw i64 %2, %93
   %95 = or disjoint i64 %94, 1
@@ -1758,12 +1758,12 @@ define internal fastcc ptr @ole2_convert_utf(ptr noundef nonnull captures(none) 
 
 .loopexit.sink.split:                             ; preds = %83, %.lr.ph
   %.str.98.sink = phi ptr [ @.str.97, %.lr.ph ], [ @.str.98, %83 ]
-  %.sink190 = phi i32 [ 4096, %.lr.ph ], [ 8192, %83 ]
+  %.sink186 = phi i32 [ 4096, %.lr.ph ], [ 8192, %83 ]
   %.196.ph = phi i64 [ %79, %.lr.ph ], [ -1, %83 ]
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull %.str.98.sink) #10
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %98 = load i32, ptr %97, align 8, !tbaa !38
-  %99 = or i32 %98, %.sink190
+  %99 = or i32 %98, %.sink186
   store i32 %99, ptr %97, align 8, !tbaa !38
   br label %.loopexit
 

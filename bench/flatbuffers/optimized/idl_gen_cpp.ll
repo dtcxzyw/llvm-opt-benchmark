@@ -58014,22 +58014,22 @@ _ZSt22__chunk_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12Inc
 
 _ZSt22__chunk_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12IncludedFileESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_less_iterEEvT_SB_T0_T1_.exit: ; preds = %.lr.ph.i
   tail call void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12IncludedFileESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_T0_(ptr nonnull %9, ptr %1)
-  %.not207 = icmp eq i64 %6, 448
-  br i1 %.not207, label %._crit_edge, label %.lr.ph
+  %.not203 = icmp eq i64 %6, 448
+  br i1 %.not203, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZSt22__chunk_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12IncludedFileESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_less_iterEEvT_SB_T0_T1_.exit
   %12 = ptrtoint ptr %8 to i64
   br label %13
 
 13:                                               ; preds = %.lr.ph, %_ZSt17__merge_sort_loopIPN11flatbuffers12IncludedFileEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEElNS3_5__ops15_Iter_less_iterEEvT_SB_T0_T1_T2_.exit
-  %.0183 = phi i64 [ 7, %.lr.ph ], [ %360, %_ZSt17__merge_sort_loopIPN11flatbuffers12IncludedFileEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEElNS3_5__ops15_Iter_less_iterEEvT_SB_T0_T1_T2_.exit ]
-  %14 = shl nsw i64 %.0183, 1
+  %.0179 = phi i64 [ 7, %.lr.ph ], [ %360, %_ZSt17__merge_sort_loopIPN11flatbuffers12IncludedFileEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEElNS3_5__ops15_Iter_less_iterEEvT_SB_T0_T1_T2_.exit ]
+  %14 = shl nsw i64 %.0179, 1
   %.not27.i = icmp slt i64 %7, %14
-  br i1 %.not27.i, label %_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12IncludedFileESt6vectorIS3_SaIS3_EEEES4_lNS0_5__ops15_Iter_less_iterEEvT_SB_T0_T1_T2_.exit, label %.lr.ph.i15.preheader
+  br i1 %.not27.i, label %_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12IncludedFileESt6vectorIS3_SaIS3_EEEES4_lNS0_5__ops15_Iter_less_iterEEvT_SB_T0_T1_T2_.exit, label %.lr.ph.i15
 
-.lr.ph.i15.preheader:                             ; preds = %13
-  %.idx = shl nsw i64 %.0183, 6
-  %.idx168 = shl nsw i64 %.0183, 7
+.lr.ph.i15:                                       ; preds = %13
+  %.idx = shl nsw i64 %.0179, 6
+  %.idx168 = shl nsw i64 %.0179, 7
   %.not = icmp eq i64 %.idx, %.idx168
   br label %.lr.ph.i15
 
@@ -58866,10 +58866,10 @@ _ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12Included
   %.sroa.019.0.lcssa.i = phi ptr [ %0, %13 ], [ %16, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12IncludedFileESt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_less_iterEET0_T_SC_SC_SC_SB_T1_.exit ]
   %.0.lcssa.i = phi ptr [ %2, %13 ], [ %.08.lcssa.i.i.i.i.i9.i, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12IncludedFileESt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_less_iterEET0_T_SC_SC_SC_SB_T1_.exit ]
   %.lcssa.i = phi i64 [ %7, %13 ], [ %357, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12IncludedFileESt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_less_iterEET0_T_SC_SC_SC_SB_T1_.exit ]
-  %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %.0183, i64 %.lcssa.i)
+  %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %.0179, i64 %.lcssa.i)
   %358 = getelementptr inbounds %"struct.flatbuffers::IncludedFile", ptr %.sroa.019.0.lcssa.i, i64 %.sroa.speculated.i
   %359 = tail call noundef ptr @_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12IncludedFileESt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_less_iterEET0_T_SC_SC_SC_SB_T1_(ptr %.sroa.019.0.lcssa.i, ptr %358, ptr %358, ptr %1, ptr noundef %.0.lcssa.i)
-  %360 = shl nsw i64 %.0183, 2
+  %360 = shl nsw i64 %.0179, 2
   %.not25.i = icmp slt i64 %7, %360
   br i1 %.not25.i, label %_ZSt17__merge_sort_loopIPN11flatbuffers12IncludedFileEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEElNS3_5__ops15_Iter_less_iterEEvT_SB_T0_T1_T2_.exit, label %.lr.ph.i17.preheader
 

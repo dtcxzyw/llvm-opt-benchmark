@@ -45842,8 +45842,8 @@ define noundef zeroext i1 @"_ZN83_$LT$rustfmt_nightly..rustfmt_diff..ModifiedLin
   br label %26
 
 .loopexit:                                        ; preds = %39, %34
-  %.not36 = icmp eq ptr %27, %11
-  br i1 %.not36, label %.loopexit29, label %26
+  %.not35 = icmp eq ptr %27, %11
+  br i1 %.not35, label %.loopexit29, label %26
 
 26:                                               ; preds = %.lr.ph34, %.loopexit
   %.sroa.0.033 = phi ptr [ %.val, %.lr.ph34 ], [ %27, %.loopexit ]

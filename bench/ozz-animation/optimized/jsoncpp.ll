@@ -21703,7 +21703,7 @@ _ZNSt8_Rb_treeIN4Json5Value8CZStringESt4pairIKS2_S1_ESt10_Select1stIS5_ESt4lessI
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8, !tbaa !81
   %.not3 = icmp eq ptr %19, null
-  br i1 %.not3, label %31, label %20
+  br i1 %.not3, label %32, label %20
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds i8, ptr %19, i64 -8
@@ -21736,7 +21736,7 @@ _ZN4Json5Value11CommentInfoD2Ev.exit:             ; preds = %.preheader, %28
   tail call void @_ZdaPvm(ptr noundef nonnull %21, i64 noundef %30) #45
   br label %31
 
-31:                                               ; preds = %.loopexit, %17
+32:                                               ; preds = %.loopexit, %17
   ret void
 }
 

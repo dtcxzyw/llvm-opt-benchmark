@@ -4184,10 +4184,10 @@ thread-pre-split:                                 ; preds = %157
   br label %.thread233.sink.split
 
 .thread233.sink.split:                            ; preds = %.thread, %162
-  %.sink257 = phi i64 [ 45, %162 ], [ 93, %.thread ]
+  %.sink256 = phi i64 [ 45, %162 ], [ 93, %.thread ]
   %163 = getelementptr inbounds nuw i8, ptr %161, i64 1
   store ptr %163, ptr %0, align 8, !tbaa !17
-  %164 = getelementptr inbounds nuw i8, ptr %142, i64 %.sink257
+  %164 = getelementptr inbounds nuw i8, ptr %142, i64 %.sink256
   %165 = load i8, ptr %164, align 1, !tbaa !36
   %166 = or i8 %165, %145
   store i8 %166, ptr %164, align 1, !tbaa !36

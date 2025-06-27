@@ -1159,7 +1159,7 @@ BackwardReferencesHashChainDistanceOnly.exit:     ; preds = %15, %30, %518, %519
   %522 = getelementptr inbounds i8, ptr %521, i64 -2
   br label %.lr.ph.i21
 
-.lr.ph.i21:                                       ; preds = %.lr.ph.i21, %.lr.ph.preheader.i20
+.lr.ph.i20:                                       ; preds = %.lr.ph.i20, %.lr.ph.preheader.i20
   %.020.i = phi ptr [ %524, %.lr.ph.i21 ], [ %521, %.lr.ph.preheader.i20 ]
   %.01719.i = phi ptr [ %527, %.lr.ph.i21 ], [ %522, %.lr.ph.preheader.i20 ]
   %523 = load i16, ptr %.01719.i, align 2, !tbaa !49
@@ -1168,10 +1168,10 @@ BackwardReferencesHashChainDistanceOnly.exit:     ; preds = %15, %30, %518, %519
   %525 = zext i16 %523 to i64
   %526 = sub nsw i64 0, %525
   %527 = getelementptr inbounds i16, ptr %.01719.i, i64 %526
-  %.not.i22 = icmp ult ptr %527, %13
-  br i1 %.not.i22, label %TraceBackwards.exit, label %.lr.ph.i21, !llvm.loop !65
+  %.not.i21 = icmp ult ptr %527, %13
+  br i1 %.not.i21, label %TraceBackwards.exit, label %.lr.ph.i20, !llvm.loop !65
 
-TraceBackwards.exit:                              ; preds = %.lr.ph.i21, %520
+TraceBackwards.exit:                              ; preds = %.lr.ph.i20, %520
   %.0.lcssa.i = phi ptr [ %521, %520 ], [ %524, %.lr.ph.i21 ]
   %528 = ptrtoint ptr %521 to i64
   %529 = ptrtoint ptr %.0.lcssa.i to i64
@@ -1183,18 +1183,18 @@ TraceBackwards.exit:                              ; preds = %.lr.ph.i21, %520
 
 533:                                              ; preds = %TraceBackwards.exit
   %534 = call i32 @VP8LColorCacheInit(ptr noundef nonnull %8, i32 noundef %3) #7
-  %.not.i24 = icmp eq i32 %534, 0
-  br i1 %.not.i24, label %BackwardReferencesHashChainFollowChosenPath.exit, label %.thread.i
+  %.not.i23 = icmp eq i32 %534, 0
+  br i1 %.not.i23, label %BackwardReferencesHashChainFollowChosenPath.exit, label %.thread.i
 
 535:                                              ; preds = %TraceBackwards.exit
   call void @VP8LClearBackwardRefs(ptr noundef %6) #7
   %536 = icmp sgt i32 %532, 0
-  br i1 %536, label %.lr.ph76.split.us.preheader.i, label %._crit_edge.i33.thread
+  br i1 %536, label %.lr.ph76.split.us.preheader.i, label %._crit_edge.i32.thread
 
-._crit_edge.i33.thread:                           ; preds = %535
+._crit_edge.i32.thread:                           ; preds = %535
   %537 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %538 = load i32, ptr %537, align 4, !tbaa !62
-  %.not52.i36 = icmp eq i32 %538, 0
+  %.not52.i35 = icmp eq i32 %538, 0
   br label %BackwardReferencesHashChainFollowChosenPath.exit
 
 .thread.i:                                        ; preds = %533
@@ -1255,18 +1255,18 @@ TraceBackwards.exit:                              ; preds = %.lr.ph.i21, %520
   %.1.us.i = add nuw nsw i32 %.04273.us.i, %545
   %indvars.iv.next86.i = add nuw nsw i64 %indvars.iv85.i, 1
   %exitcond89.not.i = icmp eq i64 %indvars.iv.next86.i, %wide.trip.count88.i
-  br i1 %exitcond89.not.i, label %._crit_edge.i33, label %.lr.ph76.split.us.i, !llvm.loop !66
+  br i1 %exitcond89.not.i, label %._crit_edge.i32, label %.lr.ph76.split.us.i, !llvm.loop !66
 
-.lr.ph76.split.i:                                 ; preds = %.loopexit.i31, %.lr.ph76.split.preheader.i
+.lr.ph76.split.i:                                 ; preds = %.loopexit.i30, %.lr.ph76.split.preheader.i
   %indvars.iv80.i = phi i64 [ 0, %.lr.ph76.split.preheader.i ], [ %indvars.iv.next81.i, %.loopexit.i31 ]
-  %.04273.i = phi i32 [ 0, %.lr.ph76.split.preheader.i ], [ %.1.i32, %.loopexit.i31 ]
+  %.04273.i = phi i32 [ 0, %.lr.ph76.split.preheader.i ], [ %.1.i31, %.loopexit.i31 ]
   %555 = getelementptr inbounds nuw i16, ptr %.0.lcssa.i, i64 %indvars.iv80.i
   %556 = load i16, ptr %555, align 2, !tbaa !49
   %557 = zext i16 %556 to i32
   %.not54.i = icmp eq i16 %556, 1
-  br i1 %.not54.i, label %568, label %.preheader.i25
+  br i1 %.not54.i, label %568, label %.preheader.i24
 
-.preheader.i25:                                   ; preds = %.lr.ph76.split.i
+.preheader.i24:                                   ; preds = %.lr.ph76.split.i
   %.val60.i = load ptr, ptr %4, align 8, !tbaa !51
   %558 = zext nneg i32 %.04273.i to i64
   %559 = getelementptr inbounds nuw i32, ptr %.val60.i, i64 %558
@@ -1280,16 +1280,16 @@ TraceBackwards.exit:                              ; preds = %.lr.ph.i21, %520
   %.sroa.0.0.insert.insert.i.i = or disjoint i64 %.sroa.22.0.insert.insert.i.i, 2
   call void @VP8LBackwardRefsCursorAdd(ptr noundef %6, i64 %.sroa.0.0.insert.insert.i.i) #7
   %.not77.i = icmp eq i16 %556, 0
-  br i1 %.not77.i, label %.loopexit.i31, label %.lr.ph.i26
+  br i1 %.not77.i, label %.loopexit.i30, label %.lr.ph.i25
 
-.lr.ph.i26:                                       ; preds = %.preheader.i25
+.lr.ph.i25:                                       ; preds = %.preheader.i24
   %.val56.i = load ptr, ptr %8, align 8, !tbaa !67
   %invariant.gep.i = getelementptr inbounds nuw i32, ptr %2, i64 %558
   br label %562
 
-562:                                              ; preds = %562, %.lr.ph.i26
-  %indvars.iv.i28 = phi i64 [ 0, %.lr.ph.i26 ], [ %indvars.iv.next.i29, %562 ]
-  %gep.i = getelementptr inbounds nuw i32, ptr %invariant.gep.i, i64 %indvars.iv.i28
+562:                                              ; preds = %562, %.lr.ph.i25
+  %indvars.iv.i27 = phi i64 [ 0, %.lr.ph.i26 ], [ %indvars.iv.next.i28, %562 ]
+  %gep.i = getelementptr inbounds nuw i32, ptr %invariant.gep.i, i64 %indvars.iv.i27
   %563 = load i32, ptr %gep.i, align 4, !tbaa !20
   %.val57.i = load i32, ptr %542, align 8, !tbaa !69
   %564 = mul i32 %563, 506832829
@@ -1297,25 +1297,25 @@ TraceBackwards.exit:                              ; preds = %.lr.ph.i21, %520
   %566 = sext i32 %565 to i64
   %567 = getelementptr inbounds i32, ptr %.val56.i, i64 %566
   store i32 %563, ptr %567, align 4, !tbaa !20
-  %indvars.iv.next.i29 = add nuw nsw i64 %indvars.iv.i28, 1
-  %exitcond.not.i30 = icmp eq i64 %indvars.iv.next.i29, %.sroa.22.0.insert.ext.i.i
-  br i1 %exitcond.not.i30, label %.loopexit.i31, label %562, !llvm.loop !70
+  %indvars.iv.next.i28 = add nuw nsw i64 %indvars.iv.i27, 1
+  %exitcond.not.i29 = icmp eq i64 %indvars.iv.next.i28, %.sroa.22.0.insert.ext.i.i
+  br i1 %exitcond.not.i29, label %.loopexit.i30, label %562, !llvm.loop !70
 
 568:                                              ; preds = %.lr.ph76.split.i
   %569 = zext nneg i32 %.04273.i to i64
   %570 = getelementptr inbounds nuw i32, ptr %2, i64 %569
   %571 = load i32, ptr %570, align 4, !tbaa !20
-  %.val.i34 = load ptr, ptr %8, align 8, !tbaa !67
+  %.val.i33 = load ptr, ptr %8, align 8, !tbaa !67
   %.val55.i = load i32, ptr %542, align 8, !tbaa !69
   %572 = mul i32 %571, 506832829
   %573 = lshr i32 %572, %.val55.i
   %574 = sext i32 %573 to i64
-  %575 = getelementptr inbounds i32, ptr %.val.i34, i64 %574
+  %575 = getelementptr inbounds i32, ptr %.val.i33, i64 %574
   %576 = load i32, ptr %575, align 4, !tbaa !20
   %577 = icmp eq i32 %576, %571
   %578 = icmp sgt i32 %573, -1
-  %or.cond.i35 = and i1 %577, %578
-  br i1 %or.cond.i35, label %580, label %.thread66.i
+  %or.cond.i34 = and i1 %577, %578
+  br i1 %or.cond.i34, label %580, label %.thread66.i
 
 .thread66.i:                                      ; preds = %568
   store i32 %571, ptr %575, align 4, !tbaa !20
@@ -1329,27 +1329,27 @@ TraceBackwards.exit:                              ; preds = %.lr.ph.i21, %520
   %.sroa.3.0.insert.shift.i65.i = shl nuw i64 %.sroa.3.0.insert.ext.i64.i, 32
   %.sroa.21.0.insert.insert.i.i = or disjoint i64 %.sroa.3.0.insert.shift.i65.i, %.sink.i
   call void @VP8LBackwardRefsCursorAdd(ptr noundef %6, i64 %.sroa.21.0.insert.insert.i.i) #7
-  br label %.loopexit.i31
+  br label %.loopexit.i30
 
-.loopexit.i31:                                    ; preds = %562, %580, %.preheader.i25
-  %.1.i32 = add nuw nsw i32 %.04273.i, %557
+.loopexit.i30:                                    ; preds = %562, %580, %.preheader.i24
+  %.1.i31 = add nuw nsw i32 %.04273.i, %557
   %indvars.iv.next81.i = add nuw nsw i64 %indvars.iv80.i, 1
   %exitcond84.not.i = icmp eq i64 %indvars.iv.next81.i, %wide.trip.count83.i
-  br i1 %exitcond84.not.i, label %._crit_edge.i33, label %.lr.ph76.split.i, !llvm.loop !66
+  br i1 %exitcond84.not.i, label %._crit_edge.i32, label %.lr.ph76.split.i, !llvm.loop !66
 
-._crit_edge.i33:                                  ; preds = %.loopexit.i31, %554
+._crit_edge.i32:                                  ; preds = %.loopexit.i30, %554
   %581 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %582 = load i32, ptr %581, align 4, !tbaa !62
   %.not52.i = icmp eq i32 %582, 0
   br i1 %16, label %BackwardReferencesHashChainFollowChosenPath.exit, label %583
 
-583:                                              ; preds = %._crit_edge.i33, %._crit_edge.thread.i
+583:                                              ; preds = %._crit_edge.i32, %._crit_edge.thread.i
   %.not5291.i = phi i1 [ %.not5290.i, %._crit_edge.thread.i ], [ %.not52.i, %._crit_edge.i33 ]
   call void @VP8LColorCacheClear(ptr noundef nonnull %8) #7
   br label %BackwardReferencesHashChainFollowChosenPath.exit
 
-BackwardReferencesHashChainFollowChosenPath.exit: ; preds = %._crit_edge.i33.thread, %533, %._crit_edge.i33, %583
-  %.04371.shrunk.i = phi i1 [ %.not5291.i, %583 ], [ %.not52.i, %._crit_edge.i33 ], [ false, %533 ], [ %.not52.i36, %._crit_edge.i33.thread ]
+BackwardReferencesHashChainFollowChosenPath.exit: ; preds = %._crit_edge.i32.thread, %533, %._crit_edge.i32, %583
+  %.04371.shrunk.i = phi i1 [ %.not5291.i, %583 ], [ %.not52.i, %._crit_edge.i33 ], [ false, %533 ], [ %.not52.i35, %._crit_edge.i33.thread ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #7
   %spec.select = zext i1 %.04371.shrunk.i to i32
   br label %584

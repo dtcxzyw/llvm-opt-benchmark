@@ -3962,14 +3962,14 @@ _ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.thread: ; preds = %_ZNSt6vectorIlSaIlE
   br i1 %12, label %16, label %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i
 
 _ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i: ; preds = %6
-  %13 = shl nuw nsw i64 %1, 3
-  %14 = add nsw i64 %13, -8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %10, i8 0, i64 %14, i1 false), !tbaa !67
+  %12 = shl nuw nsw i64 %1, 3
+  %13 = add nsw i64 %12, -8
+  tail call void @llvm.memset.p0.i64(ptr align 8 %10, i8 0, i64 %13, i1 false), !tbaa !67
   %.idx.i.i.i.i.i.i = shl nuw nsw i64 %11, 3
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i.i.i.i.i.i
   br label %16
 
-16:                                               ; preds = %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i, %6, %_ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.thread
+16: ; preds = %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i, %6, %_ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.thread
   %.0.i.i.i.i = phi ptr [ %10, %6 ], [ %15, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.thread ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.0.i.i.i.i, ptr %17, align 8, !tbaa !125

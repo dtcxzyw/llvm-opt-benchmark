@@ -1625,7 +1625,7 @@ define linkonce_odr void @_ZN12QHashPrivate4DataINS_4NodeI7QStringS2_EEED2Ev(ptr
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %36, label %5
+  br i1 %4, label %37, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 -8
@@ -1713,7 +1713,7 @@ _ZN12QHashPrivate4SpanINS_4NodeI7QStringS2_EEED2Ev.exit: ; preds = %.preheader, 
   tail call void @_ZdaPvm(ptr noundef %6, i64 noundef %35) #19
   br label %36
 
-36:                                               ; preds = %.loopexit, %1
+37:                                               ; preds = %.loopexit, %1
   ret void
 }
 

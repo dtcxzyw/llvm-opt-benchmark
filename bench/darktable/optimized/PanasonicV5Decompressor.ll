@@ -718,24 +718,24 @@ define hidden void @_ZNK8rawspeed23PanasonicV5Decompressor10decompressEv(ptr nou
   br i1 %.not.i, label %_ZNK8rawspeed23PanasonicV5Decompressor18decompressInternalIL_ZNS0_15TwelveBitPacketEEEEvv.exit, label %.lr.ph.i
 
 23:                                               ; preds = %1
-  br i1 %.not11.i, label %_ZNK8rawspeed23PanasonicV5Decompressor18decompressInternalIL_ZNS0_15TwelveBitPacketEEEEvv.exit, label %.lr.ph.i3
+  br i1 %.not11.i, label %_ZNK8rawspeed23PanasonicV5Decompressor18decompressInternalIL_ZNS0_15TwelveBitPacketEEEEvv.exit, label %.lr.ph.i2
 
-.lr.ph.i3:                                        ; preds = %23, %28
-  %.012.i4 = phi ptr [ %29, %28 ], [ %5, %23 ]
-  invoke void @_ZNK8rawspeed23PanasonicV5Decompressor12processBlockIL_ZNS0_17FourteenBitPacketEEEEvRKNS0_5BlockE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(40) %.012.i4)
+.lr.ph.i2:                                        ; preds = %23, %28
+  %.012.i3 = phi ptr [ %29, %28 ], [ %5, %23 ]
+  invoke void @_ZNK8rawspeed23PanasonicV5Decompressor12processBlockIL_ZNS0_17FourteenBitPacketEEEEvRKNS0_5BlockE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(40) %.012.i3)
           to label %28 unwind label %24
 
-24:                                               ; preds = %.lr.ph.i3
+24:                                               ; preds = %.lr.ph.i2
   %25 = landingpad { ptr, i32 }
           catch ptr null
   %26 = extractvalue { ptr, i32 } %25, 0
   %27 = tail call ptr @__cxa_begin_catch(ptr %26) #22
   unreachable
 
-28:                                               ; preds = %.lr.ph.i3
-  %29 = getelementptr inbounds nuw i8, ptr %.012.i4, i64 40
-  %.not.i5 = icmp eq ptr %29, %15
-  br i1 %.not.i5, label %_ZNK8rawspeed23PanasonicV5Decompressor18decompressInternalIL_ZNS0_15TwelveBitPacketEEEEvv.exit, label %.lr.ph.i3
+28:                                               ; preds = %.lr.ph.i2
+  %29 = getelementptr inbounds nuw i8, ptr %.012.i3, i64 40
+  %.not.i4 = icmp eq ptr %29, %15
+  br i1 %.not.i4, label %_ZNK8rawspeed23PanasonicV5Decompressor18decompressInternalIL_ZNS0_15TwelveBitPacketEEEEvv.exit, label %.lr.ph.i2
 
 _ZNK8rawspeed23PanasonicV5Decompressor18decompressInternalIL_ZNS0_15TwelveBitPacketEEEEvv.exit: ; preds = %28, %21, %23, %16
   ret void

@@ -159,32 +159,32 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i.i: ; preds = %.noexc1
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.preheader.i.i.i, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i
   %.0.i.i.i.i.i44.i.i.i = phi ptr [ %.0.i.i.i.i.i46.i.i.i, %.lr.ph.preheader.i.i.i ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i ]
   %.sroa.024.043.i.i.i = phi ptr [ %9, %.lr.ph.preheader.i.i.i ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i ]
-  %15 = getelementptr inbounds nuw i8, ptr %.sroa.024.043.i.i.i, i64 16
-  invoke void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterISt7greaterIdEEEEvT_SC_SC_T0_(ptr %.sroa.024.043.i.i.i, ptr nonnull %15, ptr %.0.i.i.i.i.i44.i.i.i)
-          to label %"_ZSt10__invoke_rIbRZN8LightGBM16CreateMulticlassERKNS0_25PredictionEarlyStopConfigEE3$_0JPKdiEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeESB_EEE5valueESB_E4typeEOSG_DpOSH_.exit" unwind label %16
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.024.043.i.i.i, i64 16
+  invoke void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterISt7greaterIdEEEEvT_SC_SC_T0_(ptr %.sroa.024.043.i.i.i, ptr nonnull %14, ptr %.0.i.i.i.i.i44.i.i.i)
+          to label %"_ZSt10__invoke_rIbRZN8LightGBM16CreateMulticlassERKNS0_25PredictionEarlyStopConfigEE3$_0JPKdiEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeESB_EEE5valueESB_E4typeEOSG_DpOSH_.exit" unwind label %15
 
-16:                                               ; preds = %._crit_edge.i.i.i
-  %17 = landingpad { ptr, i32 }
+15:                                               ; preds = %._crit_edge.i.i.i
+  %16 = landingpad { ptr, i32 }
           cleanup
   %.not.i.i.i21.i.i.i = icmp eq ptr %.sroa.024.043.i.i.i, null
-  br i1 %.not.i.i.i21.i.i.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit22.i.i.i, label %18
+  br i1 %.not.i.i.i21.i.i.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit22.i.i.i, label %17
 
-18:                                               ; preds = %16
+17:                                               ; preds = %15
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.024.043.i.i.i) #23
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit22.i.i.i
 
-_ZNSt6vectorIdSaIdEED2Ev.exit22.i.i.i:            ; preds = %18, %16
-  resume { ptr, i32 } %17
+_ZNSt6vectorIdSaIdEED2Ev.exit22.i.i.i:            ; preds = %17, %15
+  resume { ptr, i32 } %16
 
 "_ZSt10__invoke_rIbRZN8LightGBM16CreateMulticlassERKNS0_25PredictionEarlyStopConfigEE3$_0JPKdiEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeESB_EEE5valueESB_E4typeEOSG_DpOSH_.exit": ; preds = %._crit_edge.i.i.i
-  %19 = getelementptr inbounds nuw i8, ptr %.sroa.024.043.i.i.i, i64 8
-  %20 = load double, ptr %19, align 8, !tbaa !18
-  %21 = load double, ptr %.sroa.024.043.i.i.i, align 8, !tbaa !18
-  %22 = fsub double %20, %21
-  %23 = load double, ptr %0, align 8, !tbaa !23
-  %24 = fcmp ogt double %22, %23
+  %18 = getelementptr inbounds nuw i8, ptr %.sroa.024.043.i.i.i, i64 8
+  %19 = load double, ptr %18, align 8, !tbaa !18
+  %20 = load double, ptr %.sroa.024.043.i.i.i, align 8, !tbaa !18
+  %21 = fsub double %19, %20
+  %22 = load double, ptr %0, align 8, !tbaa !23
+  %23 = fcmp ogt double %21, %22
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.024.043.i.i.i) #23
-  ret i1 %24
+  ret i1 %23
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable

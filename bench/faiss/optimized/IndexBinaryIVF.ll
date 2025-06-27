@@ -27119,7 +27119,7 @@ _ZNSt6vectorIPN5faiss24RangeSearchPartialResultESaIS2_EE17_S_check_init_lenEmRKS
 
 _ZNSt12_Vector_baseIPN5faiss24RangeSearchPartialResultESaIS2_EEC2EmRKS3_.exit.thread.i: ; preds = %_ZNSt6vectorIPN5faiss24RangeSearchPartialResultESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false)
-  br label %35
+  br label %33
 
 .noexc2:                                          ; preds = %_ZNSt6vectorIPN5faiss24RangeSearchPartialResultESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i
   %26 = shl nuw nsw i64 %24, 3
@@ -27135,43 +27135,43 @@ _ZNSt12_Vector_baseIPN5faiss24RangeSearchPartialResultESaIS2_EEC2EmRKS3_.exit.th
   br i1 %32, label %35, label %_ZSt6fill_nIPPN5faiss24RangeSearchPartialResultEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i.i.i
 
 _ZSt6fill_nIPPN5faiss24RangeSearchPartialResultEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc2
-  %33 = add nsw i64 %26, -8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %30, i8 0, i64 %33, i1 false), !tbaa !1210
+  %32 = add nsw i64 %26, -8
+  tail call void @llvm.memset.p0.i64(ptr align 8 %30, i8 0, i64 %32, i1 false), !tbaa !1210
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %31, 3
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 %.idx.i.i.i.i.i.i.i
   br label %35
 
-35:                                               ; preds = %_ZSt6fill_nIPPN5faiss24RangeSearchPartialResultEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc2, %_ZNSt12_Vector_baseIPN5faiss24RangeSearchPartialResultESaIS2_EEC2EmRKS3_.exit.thread.i
+33:                                               ; preds = %_ZSt6fill_nIPPN5faiss24RangeSearchPartialResultEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc2, %_ZNSt12_Vector_baseIPN5faiss24RangeSearchPartialResultESaIS2_EEC2EmRKS3_.exit.thread.i
   %.0.i.i.i.i.i = phi ptr [ %30, %.noexc2 ], [ %34, %_ZSt6fill_nIPPN5faiss24RangeSearchPartialResultEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIPN5faiss24RangeSearchPartialResultESaIS2_EEC2EmRKS3_.exit.thread.i ]
-  %36 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  store ptr %.0.i.i.i.i.i, ptr %36, align 8, !tbaa !1212
+  %34 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  store ptr %.0.i.i.i.i.i, ptr %34, align 8, !tbaa !1212
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @4, i32 11, ptr nonnull @_ZNK5faiss14IndexBinaryIVF24range_search_preassignedElPKhiPKlPKiPNS_17RangeSearchResultE.omp_outlined, ptr nonnull %12, ptr nonnull %0, ptr nonnull %14, ptr nonnull %17, ptr nonnull %11, ptr nonnull %13, ptr nonnull %15, ptr nonnull %16, ptr nonnull %10, ptr nonnull %8, ptr nonnull %9)
-  %37 = load i64, ptr %8, align 8, !tbaa !72
-  %38 = load i64, ptr @_ZN5faiss14indexIVF_statsE, align 8, !tbaa !125
-  %39 = add i64 %38, %37
-  store i64 %39, ptr @_ZN5faiss14indexIVF_statsE, align 8, !tbaa !125
-  %40 = load i64, ptr %15, align 8, !tbaa !72
-  %41 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 8), align 8, !tbaa !126
-  %42 = add i64 %41, %40
-  store i64 %42, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 8), align 8, !tbaa !126
-  %43 = load i64, ptr %16, align 8, !tbaa !72
-  %44 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 16), align 8, !tbaa !127
-  %45 = add i64 %44, %43
-  store i64 %45, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 16), align 8, !tbaa !127
-  %46 = load ptr, ptr %17, align 8, !tbaa !1206
-  %.not.i.i.i = icmp eq ptr %46, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIPN5faiss24RangeSearchPartialResultESaIS2_EED2Ev.exit, label %47
+  %35 = load i64, ptr %8, align 8, !tbaa !72
+  %36 = load i64, ptr @_ZN5faiss14indexIVF_statsE, align 8, !tbaa !125
+  %37 = add i64 %36, %35
+  store i64 %37, ptr @_ZN5faiss14indexIVF_statsE, align 8, !tbaa !125
+  %38 = load i64, ptr %15, align 8, !tbaa !72
+  %39 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 8), align 8, !tbaa !126
+  %40 = add i64 %39, %38
+  store i64 %40, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 8), align 8, !tbaa !126
+  %41 = load i64, ptr %16, align 8, !tbaa !72
+  %42 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 16), align 8, !tbaa !127
+  %43 = add i64 %42, %41
+  store i64 %43, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 16), align 8, !tbaa !127
+  %44 = load ptr, ptr %17, align 8, !tbaa !1206
+  %.not.i.i.i = icmp eq ptr %44, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIPN5faiss24RangeSearchPartialResultESaIS2_EED2Ev.exit, label %45
 
-47:                                               ; preds = %35
-  %48 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %49 = load ptr, ptr %48, align 8, !tbaa !1209
-  %50 = ptrtoint ptr %49 to i64
-  %51 = ptrtoint ptr %46 to i64
-  %52 = sub i64 %50, %51
-  call void @_ZdlPvm(ptr noundef nonnull %46, i64 noundef %52) #31
+45:                                               ; preds = %33
+  %46 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %47 = load ptr, ptr %46, align 8, !tbaa !1209
+  %48 = ptrtoint ptr %47 to i64
+  %49 = ptrtoint ptr %44 to i64
+  %50 = sub i64 %48, %49
+  call void @_ZdlPvm(ptr noundef nonnull %44, i64 noundef %50) #31
   br label %_ZNSt6vectorIPN5faiss24RangeSearchPartialResultESaIS2_EED2Ev.exit
 
-_ZNSt6vectorIPN5faiss24RangeSearchPartialResultESaIS2_EED2Ev.exit: ; preds = %35, %47
+_ZNSt6vectorIPN5faiss24RangeSearchPartialResultESaIS2_EED2Ev.exit: ; preds = %33, %45
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #23

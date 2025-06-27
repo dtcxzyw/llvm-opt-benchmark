@@ -13236,11 +13236,11 @@ define dso_local void @_ZN11ImFontAtlas14ClearInputDataEv(ptr noundef nonnull al
   br i1 %.not29, label %._crit_edge, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %23
-  %.pre37.pre = load ptr, ptr %3, align 8, !tbaa !243
+  %.pre36.pre = load ptr, ptr %3, align 8, !tbaa !243
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %1
-  %.pre = phi ptr [ %.pre37.pre, %._crit_edge.loopexit ], [ %4, %1 ]
+  %.pre = phi ptr [ %.pre36.pre, %._crit_edge.loopexit ], [ %4, %1 ]
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %10 = load ptr, ptr %9, align 8, !tbaa !245

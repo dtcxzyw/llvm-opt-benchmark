@@ -22569,7 +22569,7 @@ _ZN4fish3env11environment8EnvStack7globals17h4d788054a084fea1E.exit.i: ; preds =
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6)
   %696 = load i64, ptr %99, align 8, !range !138, !noundef !3
   %.not149 = icmp eq i64 %696, -9223372036854775808
-  br i1 %.not149, label %.thread627, label %764
+  br i1 %.not149, label %.thread626, label %764
 
 697:                                              ; preds = %671
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %107)
@@ -22789,7 +22789,7 @@ _ZN4fish3env11environment8EnvStack7globals17h4d788054a084fea1E.exit.i: ; preds =
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %67)
   %.not150 = icmp eq i64 %.sroa.012.0.copyload, -9223372036854775808
-  br i1 %.not150, label %.thread627, label %774
+  br i1 %.not150, label %.thread626, label %774
 
 772:                                              ; preds = %769
   %773 = landingpad { ptr, i32 }
@@ -22797,7 +22797,7 @@ _ZN4fish3env11environment8EnvStack7globals17h4d788054a084fea1E.exit.i: ; preds =
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #33, !noalias !2198
   unreachable
 
-.thread627:                                       ; preds = %695, %771
+.thread626:                                       ; preds = %695, %771
   store i64 0, ptr %98, align 8
   %.sroa.461.0..sroa_idx = getelementptr inbounds nuw i8, ptr %98, i64 8
   store ptr inttoptr (i64 4 to ptr), ptr %.sroa.461.0..sroa_idx, align 8
@@ -22823,7 +22823,7 @@ _ZN4fish3env11environment8EnvStack7globals17h4d788054a084fea1E.exit.i: ; preds =
   %779 = invoke noundef i32 @_ZN4fish9wchar_ext4WExt7char_at17h53b13c46d20d2ec5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %98, i64 noundef 0)
           to label %784 unwind label %782
 
-780:                                              ; preds = %.thread627, %784, %774, %791
+780:                                              ; preds = %.thread626, %784, %774, %791
   invoke void @_ZN4fish3env11environment8EnvStack19set_pwd_from_getcwd17h76e1c62eb972a799E(ptr noundef nonnull align 8 @_ZN4fish3env11environment8EnvStack7globals7GLOBALS17h560cc48aab51a6a2E)
           to label %807 unwind label %782
 
@@ -57016,7 +57016,7 @@ _ZN4fish7history7History3imp17h56c8a7baae77ec39E.exit: ; preds = %2
           cleanup
   br label %.body.i
 
-.loopexit.split-lp59.i:                           ; preds = %.invoke111.i
+.loopexit.split-lp59.i:                           ; preds = %.invoke110.i
   %lpad.loopexit.split-lp61.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
@@ -57044,15 +57044,15 @@ _ZN4fish7history7History3imp17h56c8a7baae77ec39E.exit: ; preds = %2
 
 86:                                               ; preds = %.noexc13.i
   %87 = load i64, ptr %67, align 8, !noalias !5770
-  br label %.invoke111.i
+  br label %.invoke110.i
 
-.invoke111.i:                                     ; preds = %103, %86
+.invoke110.i:                                     ; preds = %103, %86
   %88 = phi i64 [ %85, %86 ], [ %102, %103 ]
   %89 = phi i64 [ %87, %86 ], [ %104, %103 ]
   invoke void @_ZN5alloc7raw_vec12handle_error17h84144ef81c430b40E(i64 noundef %88, i64 %89, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.eb71500b7c601d0c05b6c58f9f119b67.172) #32
           to label %.cont112.i unwind label %.loopexit.split-lp59.i, !noalias !5766
 
-.cont112.i:                                       ; preds = %.invoke111.i
+.cont111.i:                                       ; preds = %.invoke110.i
   unreachable
 
 90:                                               ; preds = %.noexc13.i
@@ -57092,7 +57092,7 @@ _ZN4fish7history7History3imp17h56c8a7baae77ec39E.exit: ; preds = %2
 
 103:                                              ; preds = %.noexc17.i
   %104 = load i64, ptr %69, align 8, !noalias !5780
-  br label %.invoke111.i
+  br label %.invoke110.i
 
 105:                                              ; preds = %.noexc17.i
   %106 = load ptr, ptr %69, align 8, !noalias !5780, !nonnull !3, !noundef !3
