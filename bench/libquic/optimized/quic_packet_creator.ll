@@ -2112,54 +2112,54 @@ define void @_ZN3net17QuicPacketCreator12CopyToBufferENS_12QuicIOVectorEmmPc(ptr
   br label %.lr.ph76
 
 .thread:                                          ; preds = %34, %18
-  %31 = tail call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
+  %29 = tail call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
   br label %.critedge43
 
 .lr.ph76:                                         ; preds = %.lr.ph76.preheader, %34
   %indvars.iv80 = phi i64 [ %29, %.lr.ph76.preheader ], [ %indvars.iv.next81, %34 ]
-  %32 = phi ptr [ %27, %.lr.ph76.preheader ], [ %40, %34 ]
-  %33 = phi i64 [ %28, %.lr.ph76.preheader ], [ %39, %34 ]
+  %30 = phi ptr [ %27, %.lr.ph76.preheader ], [ %40, %34 ]
+  %31 = phi i64 [ %28, %.lr.ph76.preheader ], [ %39, %34 ]
   %exitcond84.not = icmp eq i64 %indvars.iv80, %wide.trip.count83
   br i1 %exitcond84.not, label %41, label %34
 
-34:                                               ; preds = %.lr.ph76
+34:; preds = %.lr.ph76
   %indvars.iv.next81 = add nsw i64 %indvars.iv80, 1
   %35 = getelementptr inbounds %struct.iovec, ptr %19, i64 %indvars.iv.next81
   %36 = load ptr, ptr %35, align 8, !tbaa !151
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %38 = load i64, ptr %37, align 8, !tbaa !102
-  %.sroa.speculated58 = tail call i64 @llvm.umin.i64(i64 %38, i64 %33)
+  %.sroa.speculated58 = tail call i64 @llvm.umin.i64(i64 %38, i64 %31)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %32, ptr align 1 %36, i64 %.sroa.speculated58, i1 false)
   %39 = sub i64 %33, %.sroa.speculated58
   %40 = getelementptr inbounds nuw i8, ptr %32, i64 %.sroa.speculated58
   %.not78 = icmp ugt i64 %33, %38
   br i1 %.not78, label %.lr.ph76, label %.thread, !llvm.loop !152
 
-41:                                               ; preds = %.lr.ph76
-  %42 = tail call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
-  br i1 %42, label %43, label %.critedge43
+40:                                               ; preds = %.lr.ph76
+  %41 = tail call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
+  br i1 %41, label %42, label %.critedge43
 
-43:                                               ; preds = %41
+42:                                               ; preds = %40
   call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %5) #21
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %5, ptr noundef nonnull @.str, i32 noundef 290, i32 noundef 2)
-  %44 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %45 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %44, ptr noundef nonnull @.str.10, i64 noundef 39)
-          to label %.critedge42 unwind label %46
+  %43 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %44 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %43, ptr noundef nonnull @.str.10, i64 noundef 39)
+          to label %.critedge42 unwind label %45
 
-.critedge42:                                      ; preds = %43
+.critedge42:                                      ; preds = %42
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %5) #21
   call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %5) #21
   br label %.critedge43
 
-.critedge43:                                      ; preds = %13, %.critedge42, %41, %.thread, %.critedge
+.critedge43:                                      ; preds = %13, %.critedge42, %40, %.thread, %.critedge
   ret void
 
-46:                                               ; preds = %43
-  %47 = landingpad { ptr, i32 }
+45:                                               ; preds = %42
+  %46 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %5) #21
   call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %5) #21
-  resume { ptr, i32 } %47
+  resume { ptr, i32 } %46
 }
 
 declare void @_ZN3net15QuicStreamFrameC1EjbmtSt10unique_ptrIA_cNS_19StreamBufferDeleterEE(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef, i1 noundef zeroext, i64 noundef, i16 noundef zeroext, ptr noundef) unnamed_addr #1

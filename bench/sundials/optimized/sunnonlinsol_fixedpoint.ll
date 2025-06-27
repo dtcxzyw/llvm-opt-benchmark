@@ -592,7 +592,7 @@ define i32 @SUNNonlinSolSolve_FixedPoint(ptr noundef %0, ptr readnone captures(n
   store double %229, ptr %230, align 8, !tbaa !51
   %231 = getelementptr inbounds nuw ptr, ptr %47, i64 %wide.trip.count108.i
   store ptr %53, ptr %231, align 8, !tbaa !50
-  %.244.i = add nuw i32 %spec.select.i, 2
+  %232 = add nuw i32 %spec.select.i, 2
   %232 = sext i32 %.244.i to i64
   %233 = zext nneg i32 %191 to i64
   br label %.lr.ph48.i

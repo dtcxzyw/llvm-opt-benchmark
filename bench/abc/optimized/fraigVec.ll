@@ -645,21 +645,21 @@ define void @Fraig_NodeVecRemove(ptr noundef captures(none) %0, ptr noundef read
   br label %19
 
 19:                                               ; preds = %.lr.ph25, %19
-  %indvars.iv31 = phi i64 [ %17, %.lr.ph25 ], [ %indvars.iv.next32, %19 ]
-  %indvars.iv29 = phi i64 [ %18, %.lr.ph25 ], [ %indvars.iv.next30, %19 ]
+  %indvars.iv28 = phi i64 [ %17, %.lr.ph25 ], [ %indvars.iv.next29, %19 ]
+  %.1.in22 = phi i64 [ %18, %.lr.ph25 ], [ %indvars.iv.next30, %19 ]
   %20 = getelementptr inbounds ptr, ptr %16, i64 %indvars.iv29
   %21 = load ptr, ptr %20, align 8, !tbaa !12
   %22 = getelementptr inbounds ptr, ptr %16, i64 %indvars.iv31
   store ptr %21, ptr %22, align 8, !tbaa !12
-  %indvars.iv.next30 = add nsw i64 %indvars.iv29, 1
-  %indvars.iv.next32 = add nsw i64 %indvars.iv31, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next30 to i32
-  %exitcond36.not = icmp eq i32 %4, %lftr.wideiv
-  br i1 %exitcond36.not, label %._crit_edge26, label %19, !llvm.loop !25
+  %indvars.iv.next30 = add nsw i64 %.1.in22, 1
+  %indvars.iv.next29 = add nsw i64 %indvars.iv28, 1
+  %24 = trunc i64 %indvars.iv.next30 to i32
+  %25 = icmp eq i32 %4, %24
+  br i1 %25, label %._crit_edge26, label %19, !llvm.loop !25
 
 ._crit_edge26:                                    ; preds = %19, %._crit_edge
-  %23 = add nsw i32 %4, -1
-  store i32 %23, ptr %3, align 4, !tbaa !3
+  %27 = add nsw i32 %4, -1
+  store i32 %27, ptr %3, align 4, !tbaa !3
   ret void
 }
 

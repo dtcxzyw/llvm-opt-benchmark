@@ -85,30 +85,30 @@ Vec_FltStart.exit:                                ; preds = %6, %2
   br i1 %.not90, label %.critedge4, label %.lr.ph94.preheader
 
 .lr.ph94.preheader:                               ; preds = %.preheader
-  %wide.trip.count115 = zext i32 %11 to i64
+  %wide.trip.count116 = zext i32 %11 to i64
   br label %.lr.ph94
 
 .lr.ph94:                                         ; preds = %.lr.ph94.preheader, %.loopexit81
-  %indvars.iv112 = phi i64 [ 2, %.lr.ph94.preheader ], [ %indvars.iv.next113, %.loopexit81 ]
+  %indvars.iv113 = phi i64 [ 2, %.lr.ph94.preheader ], [ %indvars.iv.next114, %.loopexit81 ]
   %.06293 = phi i32 [ 1, %.lr.ph94.preheader ], [ %.163, %.loopexit81 ]
   %.06791 = phi float [ %33, %.lr.ph94.preheader ], [ %.168, %.loopexit81 ]
-  %35 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv112
+  %35 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv113
   %36 = load float, ptr %35, align 4, !tbaa !23
   %37 = fcmp oeq float %36, 0.000000e+00
   br i1 %37, label %.loopexit81, label %38
 
 38:                                               ; preds = %.lr.ph94
   %39 = fsub float %36, %.06791
-  %40 = trunc nuw nsw i64 %indvars.iv112 to i32
+  %40 = trunc nuw nsw i64 %indvars.iv113 to i32
   %41 = sub nsw i32 %40, %.06293
   %42 = sitofp i32 %41 to float
   %43 = fdiv float %39, %42
   %.06187 = add nuw nsw i32 %.06293, 1
   %44 = sext i32 %.06187 to i64
-  %45 = icmp sgt i64 %indvars.iv112, %44
-  br i1 %45, label %.lr.ph89, label %.loopexit81
+  %45 = icmp sgt i64 %indvars.iv113, %44
+  br i1 %45, label %.lr.ph89.preheader, label %.loopexit81
 
-.lr.ph89:                                         ; preds = %38, %.lr.ph89
+.lr.ph89.preheader:                               ; preds = %38, %.lr.ph89
   %indvars.iv108 = phi i64 [ %indvars.iv.next109, %.lr.ph89 ], [ %44, %38 ]
   %46 = trunc i64 %indvars.iv108 to i32
   %47 = sub i32 %46, %.06293
@@ -124,40 +124,40 @@ Vec_FltStart.exit:                                ; preds = %6, %2
 .loopexit81:                                      ; preds = %.lr.ph89, %38, %.lr.ph94
   %.168 = phi float [ %.06791, %.lr.ph94 ], [ %36, %38 ], [ %36, %.lr.ph89 ]
   %.163 = phi i32 [ %.06293, %.lr.ph94 ], [ %40, %38 ], [ %40, %.lr.ph89 ]
-  %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
-  %exitcond116.not = icmp eq i64 %indvars.iv.next113, %wide.trip.count115
-  br i1 %exitcond116.not, label %.critedge4, label %.lr.ph94, !llvm.loop !26
+  %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
+  %exitcond117.not = icmp eq i64 %indvars.iv.next114, %wide.trip.count116
+  br i1 %exitcond117.not, label %.critedge4, label %.lr.ph94, !llvm.loop !26
 
 .critedge4:                                       ; preds = %.loopexit81, %.preheader
   %.067.lcssa = phi float [ %33, %.preheader ], [ %.168, %.loopexit81 ]
   %.2.lcssa = phi i32 [ 2, %.preheader ], [ %11, %.loopexit81 ]
   %.062.lcssa = phi i32 [ 1, %.preheader ], [ %.163, %.loopexit81 ]
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %53 = load float, ptr %52, align 8, !tbaa !19
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %55 = load float, ptr %54, align 4, !tbaa !27
-  %56 = fmul float %53, %55
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %54 = load float, ptr %53, align 8, !tbaa !19
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %56 = load float, ptr %55, align 4, !tbaa !27
+  %57 = fmul float %54, %56
   %.198 = add nsw i32 %.062.lcssa, 1
-  %57 = icmp slt i32 %.198, %.2.lcssa
-  br i1 %57, label %.lr.ph100.preheader, label %.loopexit
+  %58 = icmp slt i32 %.198, %.2.lcssa
+  br i1 %58, label %.lr.ph100.preheader, label %.loopexit
 
 .lr.ph100.preheader:                              ; preds = %.critedge4
-  %58 = zext nneg i32 %.062.lcssa to i64
-  %59 = add nuw nsw i64 %58, 1
-  %wide.trip.count120 = zext i32 %.2.lcssa to i64
+  %59 = zext nneg i32 %.062.lcssa to i64
+  %60 = add nuw nsw i64 %59, 1
+  %wide.trip.count121 = zext i32 %.2.lcssa to i64
   br label %.lr.ph100
 
 .lr.ph100:                                        ; preds = %.lr.ph100.preheader, %.lr.ph100
-  %indvars.iv117 = phi i64 [ %59, %.lr.ph100.preheader ], [ %indvars.iv.next118, %.lr.ph100 ]
-  %60 = trunc i64 %indvars.iv117 to i32
-  %61 = sub i32 %60, %.062.lcssa
-  %62 = sitofp i32 %61 to float
-  %63 = tail call float @llvm.fmuladd.f32(float %56, float %62, float %.067.lcssa)
-  %64 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv117
-  store float %63, ptr %64, align 4, !tbaa !23
-  %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1
-  %exitcond121.not = icmp eq i64 %indvars.iv.next118, %wide.trip.count120
-  br i1 %exitcond121.not, label %.loopexit, label %.lr.ph100, !llvm.loop !28
+  %indvars.iv118 = phi i64 [ %60, %.lr.ph100.preheader ], [ %indvars.iv.next119, %.lr.ph100 ]
+  %61 = trunc i64 %indvars.iv118 to i32
+  %62 = sub i32 %61, %.062.lcssa
+  %63 = sitofp i32 %62 to float
+  %64 = tail call float @llvm.fmuladd.f32(float %57, float %63, float %.067.lcssa)
+  %65 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv118
+  store float %64, ptr %65, align 4, !tbaa !23
+  %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
+  %exitcond122.not = icmp eq i64 %indvars.iv.next119, %wide.trip.count121
+  br i1 %exitcond122.not, label %.loopexit, label %.lr.ph100, !llvm.loop !28
 
 .loopexit:                                        ; preds = %.lr.ph100, %.critedge4, %.critedge2
   ret ptr %12

@@ -130,9 +130,9 @@ char_is_letter.exit.thread.i:                     ; preds = %char_is_letter.exit
   %.0.i = phi i8 [ %switch.load, %switch.lookup ], [ %spec.select, %char_is_letter.exit.i ]
   tail call void @scratch_buffer_append_char(i8 noundef signext %.0.i) #6
   %indvars.iv.next42.i = add nsw i64 %indvars.iv41.i, 1
-  %lftr.wideiv.i = trunc i64 %indvars.iv.next42.i to i32
-  %exitcond44.not.i = icmp eq i32 %.028.lcssa.i, %lftr.wideiv.i
-  br i1 %exitcond44.not.i, label %filename_to_module_in_buffer.exit.thread, label %.lr.ph39.i, !llvm.loop !9
+  %28 = trunc i64 %indvars.iv.next42.i to i32
+  %29 = icmp eq i32 %.028.lcssa.i, %28
+  br i1 %29, label %filename_to_module_in_buffer.exit.thread, label %.lr.ph39.i, !llvm.loop !9
 
 filename_to_module_in_buffer.exit.thread20:       ; preds = %._crit_edge.i
   tail call void (ptr, ptr, ...) @sema_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.1, ptr noundef nonnull %8) #6
@@ -140,31 +140,31 @@ filename_to_module_in_buffer.exit.thread20:       ; preds = %._crit_edge.i
 
 filename_to_module_in_buffer.exit.thread:         ; preds = %char_is_letter.exit.thread.i, %19
   store i32 64, ptr %2, align 4
-  %28 = load i32, ptr getelementptr inbounds nuw (i8, ptr @scratch_buffer, i64 65536), align 4
-  %.not.i = icmp eq i32 %28, 0
+  %30 = load i32, ptr getelementptr inbounds nuw (i8, ptr @scratch_buffer, i64 65536), align 4
+  %.not.i = icmp eq i32 %30, 0
   br i1 %.not.i, label %fnv1a.exit, label %.lr.ph.preheader.i13
 
 .lr.ph.preheader.i13:                             ; preds = %filename_to_module_in_buffer.exit.thread
-  %wide.trip.count.i14 = zext i32 %28 to i64
+  %wide.trip.count.i14 = zext i32 %30 to i64
   br label %.lr.ph.i15
 
 .lr.ph.i15:                                       ; preds = %.lr.ph.i15, %.lr.ph.preheader.i13
   %indvars.iv.i16 = phi i64 [ 0, %.lr.ph.preheader.i13 ], [ %indvars.iv.next.i17, %.lr.ph.i15 ]
-  %.061.i = phi i32 [ -2128831035, %.lr.ph.preheader.i13 ], [ %33, %.lr.ph.i15 ]
-  %29 = getelementptr inbounds nuw i8, ptr @scratch_buffer, i64 %indvars.iv.i16
-  %30 = load i8, ptr %29, align 1
-  %31 = sext i8 %30 to i32
-  %32 = xor i32 %.061.i, %31
-  %33 = mul i32 %32, 16777619
+  %.061.i = phi i32 [ -2128831035, %.lr.ph.preheader.i13 ], [ %35, %.lr.ph.i15 ]
+  %31 = getelementptr inbounds nuw i8, ptr @scratch_buffer, i64 %indvars.iv.i16
+  %32 = load i8, ptr %31, align 1
+  %33 = sext i8 %32 to i32
+  %34 = xor i32 %.061.i, %33
+  %35 = mul i32 %34, 16777619
   %indvars.iv.next.i17 = add nuw nsw i64 %indvars.iv.i16, 1
   %exitcond.not.i18 = icmp eq i64 %indvars.iv.next.i17, %wide.trip.count.i14
   br i1 %exitcond.not.i18, label %fnv1a.exit, label %.lr.ph.i15, !llvm.loop !10
 
 fnv1a.exit:                                       ; preds = %.lr.ph.i15, %filename_to_module_in_buffer.exit.thread
-  %.06.lcssa.i = phi i32 [ -2128831035, %filename_to_module_in_buffer.exit.thread ], [ %33, %.lr.ph.i15 ]
-  %34 = call ptr @symtab_add(ptr noundef nonnull @scratch_buffer, i32 noundef %28, i32 noundef %.06.lcssa.i, ptr noundef nonnull %2) #6
-  %35 = load i32, ptr %2, align 4
-  %.not = icmp eq i32 %35, 64
+  %.06.lcssa.i = phi i32 [ -2128831035, %filename_to_module_in_buffer.exit.thread ], [ %35, %.lr.ph.i15 ]
+  %36 = call ptr @symtab_add(ptr noundef nonnull @scratch_buffer, i32 noundef %30, i32 noundef %.06.lcssa.i, ptr noundef nonnull %2) #6
+  %37 = load i32, ptr %2, align 4
+  %.not = icmp eq i32 %37, 64
   br i1 %.not, label %38, label %36
 
 36:                                               ; preds = %fnv1a.exit
@@ -184,7 +184,7 @@ fnv1a.exit:                                       ; preds = %.lr.ph.i15, %filena
   %44 = call fastcc zeroext i1 @create_module_or_check_name(ptr noundef %43, ptr noundef nonnull %39, ptr noundef null)
   br label %45
 
-45:                                               ; preds = %38, %36, %filename_to_module_in_buffer.exit.thread20
+45:; preds = %38, %36, %filename_to_module_in_buffer.exit.thread20
   %.0 = phi i1 [ false, %36 ], [ %44, %38 ], [ false, %filename_to_module_in_buffer.exit.thread20 ]
   ret i1 %.0
 }

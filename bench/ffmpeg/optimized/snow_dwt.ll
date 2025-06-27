@@ -3497,7 +3497,7 @@ define internal fastcc range(i32 0, 4194304) i32 @w_c(ptr noundef readonly captu
 
 .preheader.lr.ph.us:                              ; preds = %.preheader.lr.ph.us.preheader, %._crit_edge10.us
   %indvars.iv33 = phi i64 [ %73, %.preheader.lr.ph.us.preheader ], [ %indvars.iv.next34, %._crit_edge10.us ]
-  %.112.us = phi i32 [ %.07416, %.preheader.lr.ph.us.preheader ], [ %90, %._crit_edge10.us ]
+  %.112.us = phi i32 [ %.07416, %.preheader.lr.ph.us.preheader ], [ %88, %._crit_edge10.us ]
   %74 = trunc nuw nsw i64 %indvars.iv33 to i32
   %75 = and i32 %74, 1
   %.not84.us = icmp eq i32 %75, 0
@@ -3511,47 +3511,47 @@ define internal fastcc range(i32 0, 4194304) i32 @w_c(ptr noundef readonly captu
   %82 = sext i32 %79 to i64
   br label %.preheader.us
 
-83:                                               ; preds = %84
+81:                                               ; preds = %82
   %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
   %exitcond32.not = icmp eq i64 %indvars.iv.next29, %wide.trip.count31
   br i1 %exitcond32.not, label %._crit_edge10.us, label %.preheader.us, !llvm.loop !70
 
-84:                                               ; preds = %.preheader.us, %84
+82:                                               ; preds = %.preheader.us, %82
   %indvars.iv23 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next24, %84 ]
-  %.37.us = phi i32 [ %.29.us, %.preheader.us ], [ %90, %84 ]
-  %85 = add nsw i64 %92, %indvars.iv23
-  %86 = getelementptr inbounds [1024 x i32], ptr %7, i64 0, i64 %85
-  %87 = load i32, ptr %86, align 4, !tbaa !26
-  %88 = mul nsw i32 %81, %87
-  %89 = call i32 @llvm.abs.i32(i32 %88, i1 true)
-  %90 = add nuw nsw i32 %89, %.37.us
+  %.37.us = phi i32 [ %.29.us, %.preheader.us ], [ %88, %84 ]
+  %83 = add nsw i64 %90, %indvars.iv23
+  %84 = getelementptr inbounds [1024 x i32], ptr %7, i64 0, i64 %83
+  %85 = load i32, ptr %84, align 4, !tbaa !26
+  %86 = mul nsw i32 %81, %85
+  %87 = call i32 @llvm.abs.i32(i32 %86, i1 true)
+  %88 = add nuw nsw i32 %87, %.37.us
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
   %exitcond27.not = icmp eq i64 %indvars.iv.next24, %wide.trip.count31
-  br i1 %exitcond27.not, label %83, label %84, !llvm.loop !71
+  br i1 %exitcond27.not, label %81, label %82, !llvm.loop !71
 
-.preheader.us:                                    ; preds = %.preheader.lr.ph.us, %83
+.preheader.us:                                    ; preds = %.preheader.lr.ph.us, %81
   %indvars.iv28 = phi i64 [ 0, %.preheader.lr.ph.us ], [ %indvars.iv.next29, %83 ]
-  %.29.us = phi i32 [ %.112.us, %.preheader.lr.ph.us ], [ %90, %83 ]
-  %91 = mul nsw i64 %indvars.iv28, %72
-  %92 = add nsw i64 %91, %82
-  br label %84
+  %.29.us = phi i32 [ %.112.us, %.preheader.lr.ph.us ], [ %88, %83 ]
+  %89 = mul nsw i64 %indvars.iv28, %72
+  %90 = add nsw i64 %89, %82
+  br label %82
 
-._crit_edge10.us:                                 ; preds = %83
+._crit_edge10.us:                                 ; preds = %81
   %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
   %exitcond36.not = icmp eq i64 %indvars.iv.next34, 4
   br i1 %exitcond36.not, label %.split14.us, label %.preheader.lr.ph.us, !llvm.loop !72
 
 .split14.us:                                      ; preds = %._crit_edge10.us, %66
-  %.us-phi = phi i32 [ %.07416, %66 ], [ %90, %._crit_edge10.us ]
+  %.us-phi = phi i32 [ %.07416, %66 ], [ %88, %._crit_edge10.us ]
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
   %exitcond41.not = icmp eq i64 %indvars.iv.next38, %65
-  br i1 %exitcond41.not, label %93, label %66, !llvm.loop !73
+  br i1 %exitcond41.not, label %91, label %66, !llvm.loop !73
 
-93:                                               ; preds = %.split14.us
-  %94 = lshr i32 %.us-phi, 9
+91:                                               ; preds = %.split14.us
+  %92 = lshr i32 %.us-phi, 9
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %8) #12
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %7) #12
-  ret i32 %94
+  ret i32 %92
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable

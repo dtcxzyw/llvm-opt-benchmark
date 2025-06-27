@@ -1344,9 +1344,9 @@ define internal fastcc range(i32 -1, 2) i32 @cmp_abs(ptr noundef readonly captur
   br i1 %exitcond93.not, label %.critedge2.thread, label %23, !llvm.loop !17
 
 .critedge2.thread:                                ; preds = %17, %28
-  %.043.lcssa118.ph = phi i32 [ %.043.lcssa, %28 ], [ %10, %17 ]
+  %.043.lcssa116.ph = phi i32 [ %.043.lcssa, %28 ], [ %10, %17 ]
   %.042.lcssa.ph = phi i32 [ %21, %28 ], [ 0, %17 ]
-  %.pre124 = load i32, ptr %0, align 8
+  %.pre122 = load i32, ptr %0, align 8
   br label %.preheader53
 
 .critedge2:                                       ; preds = %23, %.critedge
@@ -1357,14 +1357,14 @@ define internal fastcc range(i32 -1, 2) i32 @cmp_abs(ptr noundef readonly captur
   br i1 %29, label %.preheader53, label %.critedge4
 
 .preheader53:                                     ; preds = %.critedge2.thread, %.critedge2
-  %.pre127 = phi i32 [ %.pre124, %.critedge2.thread ], [ %.pre, %.critedge2 ]
-  %.042.lcssa126 = phi i32 [ %.042.lcssa.ph, %.critedge2.thread ], [ %.042.lcssa, %.critedge2 ]
-  %.043.lcssa118125 = phi i32 [ %.043.lcssa118.ph, %.critedge2.thread ], [ %.043.lcssa, %.critedge2 ]
+  %.pre125 = phi i32 [ %.pre122, %.critedge2.thread ], [ %.pre, %.critedge2 ]
+  %.042.lcssa124 = phi i32 [ %.042.lcssa.ph, %.critedge2.thread ], [ %.042.lcssa, %.critedge2 ]
+  %.043.lcssa116123 = phi i32 [ %.043.lcssa116.ph, %.critedge2.thread ], [ %.043.lcssa, %.critedge2 ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %32 = sext i32 %.043.lcssa118125 to i64
-  %33 = sext i32 %.042.lcssa126 to i64
-  %smax98 = tail call i32 @llvm.smax.i32(i32 %.043.lcssa118125, i32 %.pre127)
+  %32 = sext i32 %.043.lcssa116123 to i64
+  %33 = sext i32 %.042.lcssa124 to i64
+  %smax98 = tail call i32 @llvm.smax.i32(i32 %.043.lcssa116123, i32 %.pre125)
   %wide.trip.count102 = sext i32 %smax98 to i64
   br label %34
 
@@ -1372,15 +1372,15 @@ define internal fastcc range(i32 -1, 2) i32 @cmp_abs(ptr noundef readonly captur
   %indvars.iv96 = phi i64 [ %33, %.preheader53 ], [ %indvars.iv.next97, %39 ]
   %indvars.iv94 = phi i64 [ %32, %.preheader53 ], [ %indvars.iv.next95, %39 ]
   %exitcond103.not = icmp eq i64 %indvars.iv94, %wide.trip.count102
-  br i1 %exitcond103.not, label %.critedge4.loopexit.split.loop.exit, label %35
+  br i1 %exitcond103.not, label %.preheader, label %35
 
-35:                                               ; preds = %34
+.critedge4:                                       ; preds = %34
   %36 = load i32, ptr %1, align 8
   %37 = sext i32 %36 to i64
   %38 = icmp slt i64 %indvars.iv96, %37
   br i1 %38, label %39, label %.critedge4.loopexit.split.loop.exit136
 
-39:                                               ; preds = %35
+39:   ; preds = %35
   %40 = load ptr, ptr %30, align 8
   %indvars.iv.next95 = add nsw i64 %indvars.iv94, 1
   %41 = getelementptr inbounds i8, ptr %40, i64 %indvars.iv94
@@ -1392,21 +1392,21 @@ define internal fastcc range(i32 -1, 2) i32 @cmp_abs(ptr noundef readonly captur
   %.not49 = icmp eq i8 %42, %45
   br i1 %.not49, label %34, label %46, !llvm.loop !18
 
-46:                                               ; preds = %39
+52:                                               ; preds = %39
   %47 = icmp ugt i8 %42, %45
   %. = select i1 %47, i32 1, i32 -1
   br label %.loopexit
 
-.critedge4.loopexit.split.loop.exit:              ; preds = %34
+.preheader:                                       ; preds = %34
   %48 = trunc nsw i64 %indvars.iv96 to i32
   br label %.critedge4
 
-.critedge4.loopexit.split.loop.exit136:           ; preds = %35
+.critedge4.loopexit.split.loop.exit136:; preds = %.critedge4
   %49 = trunc nsw i64 %indvars.iv96 to i32
   %50 = trunc nsw i64 %indvars.iv94 to i32
   br label %.critedge4
 
-.critedge4:                                       ; preds = %.critedge4.loopexit.split.loop.exit, %.critedge4.loopexit.split.loop.exit136, %.critedge2
+.critedge4:; preds = %.preheader, %.critedge4.loopexit.split.loop.exit136, %.critedge2
   %.pre128 = phi i32 [ %.pre, %.critedge2 ], [ %.pre127, %.critedge4.loopexit.split.loop.exit136 ], [ %.pre127, %.critedge4.loopexit.split.loop.exit ]
   %.144 = phi i32 [ %.043.lcssa, %.critedge2 ], [ %50, %.critedge4.loopexit.split.loop.exit136 ], [ %smax98, %.critedge4.loopexit.split.loop.exit ]
   %.1 = phi i32 [ %.042.lcssa, %.critedge2 ], [ %49, %.critedge4.loopexit.split.loop.exit136 ], [ %48, %.critedge4.loopexit.split.loop.exit ]
@@ -1416,12 +1416,12 @@ define internal fastcc range(i32 -1, 2) i32 @cmp_abs(ptr noundef readonly captur
   %wide.trip.count108 = sext i32 %smax107 to i64
   br label %53
 
-53:                                               ; preds = %57, %.critedge4
+53:; preds = %57, %.critedge4
   %indvars.iv104 = phi i64 [ %indvars.iv.next105, %57 ], [ %52, %.critedge4 ]
   %exitcond109.not = icmp eq i64 %indvars.iv104, %wide.trip.count108
   br i1 %exitcond109.not, label %.preheader, label %57
 
-.preheader:                                       ; preds = %53
+.preheader:; preds = %53
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %55 = load i32, ptr %1, align 8
   %56 = sext i32 %.1 to i64

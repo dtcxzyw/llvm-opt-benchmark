@@ -616,19 +616,19 @@ if.then.i.i48:                                    ; preds = %if.then5.i
 
 _ZNSt6vectorIjN8facebook5velox12StlAllocatorIjEEE6resizeEm.exit: ; preds = %if.then.i, %if.else.i, %if.then5.i, %if.then.i.i48
   %cmp7889 = icmp sgt i32 %pos.3.lcssa, 0
-  br i1 %cmp7889, label %for.body.preheader, label %_ZNSt6vectorIjSaIjEED2Ev.exit55
+  br i1 %cmp7889, label %for.body, label %_ZNSt6vectorIjSaIjEED2Ev.exit55
 
-for.body.preheader:                               ; preds = %_ZNSt6vectorIjN8facebook5velox12StlAllocatorIjEEE6resizeEm.exit
+for.body:                                         ; preds = %_ZNSt6vectorIjN8facebook5velox12StlAllocatorIjEEE6resizeEm.exit
   %wide.trip.count = and i64 %pos.3.lcssa.in, 2147483647
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv106 = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next107, %for.body ]
   %add.ptr.i50 = getelementptr inbounds nuw i32, ptr %merged.sroa.0.0, i64 %indvars.iv106
-  %12 = load i32, ptr %add.ptr.i50, align 4
-  %13 = load ptr, ptr %add.ptr.i, align 8
-  %add.ptr2.i52 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv106
-  store i32 %12, ptr %add.ptr2.i52, align 4
+  %13 = load i32, ptr %add.ptr.i50, align 4
+  %14 = load ptr, ptr %add.ptr.i, align 8
+  %add.ptr2.i52 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv106
+  store i32 %13, ptr %add.ptr2.i52, align 4
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next107, %wide.trip.count
   br i1 %exitcond.not, label %_ZNSt6vectorIjSaIjEED2Ev.exit55, label %for.body, !llvm.loop !10
@@ -638,10 +638,10 @@ _ZNSt6vectorIjSaIjEED2Ev.exit55:                  ; preds = %for.body, %_ZNSt6ve
   ret void
 
 eh.resume:                                        ; preds = %if.then.i
-  %14 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %merged.sroa.0.0) #26
-  resume { ptr, i32 } %14
+  resume { ptr, i32 } %15
 }
 
 ; Function Attrs: mustprogress uwtable

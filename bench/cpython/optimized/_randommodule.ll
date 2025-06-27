@@ -589,13 +589,13 @@ define internal fastcc i32 @genrand_uint32(ptr noundef captures(none) %0) unname
   %26 = load i32, ptr %25, align 4, !tbaa !29
   %27 = and i32 %26, 2147483646
   %28 = or disjoint i32 %27, %24
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv47
-  %29 = load i32, ptr %gep, align 4, !tbaa !29
-  %30 = lshr exact i32 %28, 1
-  %31 = and i32 %26, 1
-  %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr [2 x i32], ptr @genrand_uint32.mag01, i64 0, i64 %32
-  %34 = load i32, ptr %33, align 4, !tbaa !29
+  %29 = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv47
+  %30 = load i32, ptr %29, align 4, !tbaa !29
+  %31 = lshr exact i32 %28, 1
+  %32 = and i32 %26, 1
+  %33 = zext nneg i32 %32 to i64
+  %34 = getelementptr [2 x i32], ptr @genrand_uint32.mag01, i64 0, i64 %33
+  %35 = load i32, ptr %34, align 4, !tbaa !29
   %35 = xor i32 %34, %29
   %36 = xor i32 %35, %30
   store i32 %36, ptr %23, align 4, !tbaa !29
@@ -603,19 +603,19 @@ define internal fastcc i32 @genrand_uint32(ptr noundef captures(none) %0) unname
   br i1 %exitcond50.not, label %._crit_edge, label %.lr.ph, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %37 = getelementptr i8, ptr %0, i64 2512
-  %38 = load i32, ptr %37, align 4, !tbaa !29
-  %39 = and i32 %38, -2147483648
-  %40 = load i32, ptr %2, align 4, !tbaa !29
-  %41 = and i32 %40, 2147483646
-  %42 = or disjoint i32 %41, %39
-  %43 = getelementptr i8, ptr %0, i64 1604
-  %44 = load i32, ptr %43, align 4, !tbaa !29
-  %45 = lshr exact i32 %42, 1
-  %46 = and i32 %40, 1
-  %47 = zext nneg i32 %46 to i64
-  %48 = getelementptr [2 x i32], ptr @genrand_uint32.mag01, i64 0, i64 %47
-  %49 = load i32, ptr %48, align 4, !tbaa !29
+  %38 = getelementptr i8, ptr %0, i64 2512
+  %39 = load i32, ptr %38, align 4, !tbaa !29
+  %40 = and i32 %39, -2147483648
+  %41 = load i32, ptr %2, align 4, !tbaa !29
+  %42 = and i32 %41, 2147483646
+  %43 = or disjoint i32 %42, %40
+  %44 = getelementptr i8, ptr %0, i64 1604
+  %45 = load i32, ptr %44, align 4, !tbaa !29
+  %46 = lshr exact i32 %43, 1
+  %47 = and i32 %41, 1
+  %48 = zext nneg i32 %47 to i64
+  %49 = getelementptr [2 x i32], ptr @genrand_uint32.mag01, i64 0, i64 %48
+  %50 = load i32, ptr %49, align 4, !tbaa !29
   %50 = xor i32 %49, %44
   %51 = xor i32 %50, %45
   store i32 %51, ptr %37, align 4, !tbaa !29

@@ -34367,7 +34367,7 @@ for.cond.preheader.i:                             ; preds = %for.cond.preheader.
   br i1 %cmp3592.i, label %for.body.preheader.i, label %for.cond42.preheader.i
 
 for.body.preheader.i:                             ; preds = %for.cond.preheader.i
-  %.pre108.i = load i32, ptr %63, align 4
+  %.pre109.i = load i32, ptr %63, align 4
   br label %for.body.i
 
 if.end32.i:                                       ; preds = %if.end32.i, %if.end32.preheader.i
@@ -34398,11 +34398,11 @@ for.cond42.preheader.i:                           ; preds = %for.body.i, %for.co
   br i1 %cmp4496.i, label %for.body45.preheader.i, label %_ZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction18mergeSingleMapKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE33EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEvRKSt6vectorIiSaIiEESM_SF_PmSN_PiSO_Ri.exit
 
 for.body45.preheader.i:                           ; preds = %for.cond42.preheader.i
-  %.pre109.i = load i32, ptr %63, align 4
+  %.pre110.i = load i32, ptr %63, align 4
   br label %for.body45.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
-  %77 = phi i32 [ %.pre108.i, %for.body.preheader.i ], [ %inc40.i, %for.body.i ]
+  %77 = phi i32 [ %.pre109.i, %for.body.preheader.i ], [ %inc40.i, %for.body.i ]
   %indvars.iv102.i = phi i64 [ %leftIndex.0.lcssa.i, %for.body.preheader.i ], [ %indvars.iv.next103.i, %for.body.i ]
   %78 = load ptr, ptr %56, align 8
   %add.ptr.i66.i = getelementptr inbounds i32, ptr %78, i64 %indvars.iv102.i
@@ -34425,11 +34425,11 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %inc40.i = add nsw i32 %83, 1
   store i32 %inc40.i, ptr %63, align 4
   %indvars.iv.next103.i = add nuw nsw i64 %indvars.iv102.i, 1
-  %exitcond68.not = icmp eq i64 %indvars.iv.next103.i, %sub.ptr.div.i.i
-  br i1 %exitcond68.not, label %for.cond42.preheader.i, label %for.body.i, !llvm.loop !315
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next103.i, %sub.ptr.div.i.i
+  br i1 %exitcond.not.i, label %for.cond42.preheader.i, label %for.body.i, !llvm.loop !315
 
 for.body45.i:                                     ; preds = %for.body45.i, %for.body45.preheader.i
-  %84 = phi i32 [ %.pre109.i, %for.body45.preheader.i ], [ %inc50.i, %for.body45.i ]
+  %84 = phi i32 [ %.pre110.i, %for.body45.preheader.i ], [ %inc50.i, %for.body45.i ]
   %indvars.iv105.i = phi i64 [ %leftIndex.0.lcssa.i, %for.body45.preheader.i ], [ %indvars.iv.next106.i, %for.body45.i ]
   %rem.i.i74.i = and i32 %84, 7
   %idxprom.i.i75.i = zext nneg i32 %rem.i.i74.i to i64
@@ -34452,8 +34452,8 @@ for.body45.i:                                     ; preds = %for.body45.i, %for.
   %inc50.i = add nsw i32 %90, 1
   store i32 %inc50.i, ptr %63, align 4
   %indvars.iv.next106.i = add nuw nsw i64 %indvars.iv105.i, 1
-  %exitcond69.not = icmp eq i64 %indvars.iv.next106.i, %sub.ptr.div.i50.i
-  br i1 %exitcond69.not, label %_ZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction18mergeSingleMapKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE33EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEvRKSt6vectorIiSaIiEESM_SF_PmSN_PiSO_Ri.exit, label %for.body45.i, !llvm.loop !316
+  %exitcond108.not.i = icmp eq i64 %indvars.iv.next106.i, %sub.ptr.div.i50.i
+  br i1 %exitcond108.not.i, label %_ZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction18mergeSingleMapKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE33EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEvRKSt6vectorIiSaIiEESM_SF_PmSN_PiSO_Ri.exit, label %for.body45.i, !llvm.loop !316
 
 _ZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction18mergeSingleMapKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE33EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEvRKSt6vectorIiSaIiEESM_SF_PmSN_PiSO_Ri.exit: ; preds = %for.body45.i, %for.cond42.preheader.i
   %91 = load ptr, ptr %26, align 8
@@ -34937,7 +34937,7 @@ for.cond.preheader.i:                             ; preds = %for.cond.preheader.
   br i1 %cmp3513.i, label %for.body.preheader.i, label %for.cond42.preheader.i
 
 for.body.preheader.i:                             ; preds = %for.cond.preheader.i
-  %.pre29.i = load i32, ptr %63, align 4
+  %.pre30.i = load i32, ptr %63, align 4
   br label %for.body.i
 
 if.end32.i:                                       ; preds = %if.end32.i, %if.end32.preheader.i
@@ -34968,11 +34968,11 @@ for.cond42.preheader.i:                           ; preds = %for.body.i, %for.co
   br i1 %cmp4417.i, label %for.body45.preheader.i, label %_ZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction18mergeSingleMapKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE33EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEvRKSt6vectorIiSaIiEESM_SF_PmSN_PiSO_Ri.exit
 
 for.body45.preheader.i:                           ; preds = %for.cond42.preheader.i
-  %.pre30.i = load i32, ptr %63, align 4
+  %.pre31.i = load i32, ptr %63, align 4
   br label %for.body45.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
-  %77 = phi i32 [ %.pre29.i, %for.body.preheader.i ], [ %inc40.i, %for.body.i ]
+  %77 = phi i32 [ %.pre30.i, %for.body.preheader.i ], [ %inc40.i, %for.body.i ]
   %indvars.iv23.i = phi i64 [ %leftIndex.0.lcssa.i, %for.body.preheader.i ], [ %indvars.iv.next24.i, %for.body.i ]
   %78 = load ptr, ptr %56, align 8
   %add.ptr.i65.i = getelementptr inbounds i32, ptr %78, i64 %indvars.iv23.i
@@ -34995,11 +34995,11 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %inc40.i = add nsw i32 %83, 1
   store i32 %inc40.i, ptr %63, align 4
   %indvars.iv.next24.i = add nuw nsw i64 %indvars.iv23.i, 1
-  %exitcond68.not = icmp eq i64 %indvars.iv.next24.i, %sub.ptr.div.i.i
-  br i1 %exitcond68.not, label %for.cond42.preheader.i, label %for.body.i, !llvm.loop !319
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next24.i, %sub.ptr.div.i.i
+  br i1 %exitcond.not.i, label %for.cond42.preheader.i, label %for.body.i, !llvm.loop !319
 
 for.body45.i:                                     ; preds = %for.body45.i, %for.body45.preheader.i
-  %84 = phi i32 [ %.pre30.i, %for.body45.preheader.i ], [ %inc50.i, %for.body45.i ]
+  %84 = phi i32 [ %.pre31.i, %for.body45.preheader.i ], [ %inc50.i, %for.body45.i ]
   %indvars.iv26.i = phi i64 [ %leftIndex.0.lcssa.i, %for.body45.preheader.i ], [ %indvars.iv.next27.i, %for.body45.i ]
   %rem.i.i73.i = and i32 %84, 7
   %idxprom.i.i74.i = zext nneg i32 %rem.i.i73.i to i64
@@ -35022,8 +35022,8 @@ for.body45.i:                                     ; preds = %for.body45.i, %for.
   %inc50.i = add nsw i32 %90, 1
   store i32 %inc50.i, ptr %63, align 4
   %indvars.iv.next27.i = add nuw nsw i64 %indvars.iv26.i, 1
-  %exitcond69.not = icmp eq i64 %indvars.iv.next27.i, %sub.ptr.div.i49.i
-  br i1 %exitcond69.not, label %_ZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction18mergeSingleMapKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE33EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEvRKSt6vectorIiSaIiEESM_SF_PmSN_PiSO_Ri.exit, label %for.body45.i, !llvm.loop !320
+  %exitcond29.not.i = icmp eq i64 %indvars.iv.next27.i, %sub.ptr.div.i49.i
+  br i1 %exitcond29.not.i, label %_ZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction18mergeSingleMapKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE33EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEvRKSt6vectorIiSaIiEESM_SF_PmSN_PiSO_Ri.exit, label %for.body45.i, !llvm.loop !320
 
 _ZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction18mergeSingleMapKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE33EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEvRKSt6vectorIiSaIiEESM_SF_PmSN_PiSO_Ri.exit: ; preds = %for.body45.i, %for.cond42.preheader.i
   %91 = load ptr, ptr %26, align 8

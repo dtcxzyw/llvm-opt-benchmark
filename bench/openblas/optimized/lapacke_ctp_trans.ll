@@ -50,7 +50,7 @@ define void @LAPACKE_ctp_trans(i32 noundef %0, i8 noundef signext %1, i8 noundef
   %25 = or disjoint i32 %24, 1
   %26 = add nuw i32 %3, 1
   %27 = sub nuw i32 %26, %.
-  %wide.trip.count90 = zext i32 %27 to i64
+  %wide.trip.count91 = zext i32 %27 to i64
   br label %.lr.ph
 
 .preheader:                                       ; preds = %21
@@ -63,15 +63,15 @@ define void @LAPACKE_ctp_trans(i32 noundef %0, i8 noundef signext %1, i8 noundef
   %invariant.op81 = or disjoint i32 %30, 1
   %31 = zext i1 %.not66 to i64
   %wide.trip.count = zext i32 %3 to i64
-  br label %51
+  br label %49
 
 .loopexit70:                                      ; preds = %36
-  %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
-  %exitcond91.not = icmp eq i64 %indvars.iv.next88, %wide.trip.count90
-  br i1 %exitcond91.not, label %.loopexit, label %.lr.ph, !llvm.loop !3
+  %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
+  %exitcond92.not = icmp eq i64 %indvars.iv.next89, %wide.trip.count91
+  br i1 %exitcond92.not, label %.loopexit, label %.lr.ph, !llvm.loop !3
 
 .lr.ph:                                           ; preds = %.loopexit70, %.preheader69.lr.ph
-  %indvars.iv87 = phi i64 [ 1, %.preheader69.lr.ph ], [ %indvars.iv.next88, %.loopexit70 ]
+  %indvars.iv88 = phi i64 [ 1, %.preheader69.lr.ph ], [ %indvars.iv.next89, %.loopexit70 ]
   %.05975 = phi i32 [ %., %.preheader69.lr.ph ], [ %32, %.loopexit70 ]
   %32 = add nuw nsw i32 %.05975, 1
   %33 = mul nsw i32 %32, %.05975
@@ -104,27 +104,27 @@ define void @LAPACKE_ctp_trans(i32 noundef %0, i8 noundef signext %1, i8 noundef
   %exitcond.not = icmp eq i64 %indvars.iv.next, %indvars.iv87
   br i1 %exitcond.not, label %.loopexit70, label %36, !llvm.loop !5
 
-51:                                               ; preds = %.lr.ph80, %._crit_edge
-  %indvars.iv92 = phi i64 [ %31, %.lr.ph80 ], [ %indvars.iv.next93, %._crit_edge ]
+49:                                               ; preds = %.lr.ph80, %._crit_edge
+  %indvars.iv93 = phi i64 [ %31, %.lr.ph80 ], [ %indvars.iv.next94, %._crit_edge ]
   %.160.neg79 = phi i32 [ 0, %.lr.ph80 ], [ %.160.neg, %._crit_edge ]
   %.16078 = phi i32 [ 0, %.lr.ph80 ], [ %72, %._crit_edge ]
-  %52 = add nuw nsw i32 %.16078, %.
-  %53 = icmp slt i32 %52, %3
-  br i1 %53, label %.lr.ph77, label %._crit_edge
+  %50 = add nuw nsw i32 %.16078, %.
+  %51 = icmp slt i32 %50, %3
+  br i1 %51, label %.lr.ph77, label %._crit_edge
 
-.lr.ph77:                                         ; preds = %51
+.lr.ph77:                                         ; preds = %49
   %.reass.reass = add i32 %.160.neg79, %invariant.op81
-  %54 = mul nsw i32 %.reass.reass, %.16078
-  %55 = sdiv i32 %54, 2
-  %56 = add i32 %55, %.160.neg79
-  br label %57
+  %52 = mul nsw i32 %.reass.reass, %.16078
+  %53 = sdiv i32 %52, 2
+  %54 = add i32 %53, %.160.neg79
+  br label %55
 
-57:                                               ; preds = %.lr.ph77, %57
-  %indvars.iv94 = phi i64 [ %indvars.iv92, %.lr.ph77 ], [ %indvars.iv.next95, %57 ]
-  %58 = trunc nuw nsw i64 %indvars.iv94 to i32
-  %59 = add i32 %56, %58
-  %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds { float, float }, ptr %4, i64 %60
+55:                                               ; preds = %.lr.ph77, %55
+  %indvars.iv95 = phi i64 [ %indvars.iv93, %.lr.ph77 ], [ %indvars.iv.next95, %57 ]
+  %56 = trunc nuw nsw i64 %indvars.iv95 to i32
+  %57 = add i32 %54, %56
+  %58 = sext i32 %57 to i64
+  %59 = getelementptr inbounds { float, float }, ptr %4, i64 %58
   %62 = load float, ptr %61, align 4
   %63 = getelementptr inbounds nuw i8, ptr %61, i64 4
   %64 = load float, ptr %63, align 4
@@ -139,14 +139,14 @@ define void @LAPACKE_ctp_trans(i32 noundef %0, i8 noundef signext %1, i8 noundef
   store float %62, ptr %70, align 4
   store float %64, ptr %71, align 4
   %exitcond97.not = icmp eq i64 %indvars.iv.next95, %wide.trip.count
-  br i1 %exitcond97.not, label %._crit_edge, label %57, !llvm.loop !6
+  br i1 %exitcond97.not, label %._crit_edge, label %55, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %57, %51
   %72 = add nuw nsw i32 %.16078, 1
   %.160.neg = xor i32 %.16078, -1
-  %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
-  %exitcond98.not = icmp eq i32 %72, %28
-  br i1 %exitcond98.not, label %.loopexit, label %51, !llvm.loop !7
+  %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
+  %exitcond99.not = icmp eq i32 %72, %28
+  br i1 %exitcond99.not, label %.loopexit, label %49, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.loopexit70, %._crit_edge, %.preheader71, %.preheader, %16, %19, %9, %6
   ret void

@@ -3492,10 +3492,10 @@ define void @_Z26llama_kv_cache_view_updateP19llama_kv_cache_viewRK14llama_kv_ca
   br i1 %76, label %.lr.ph123, label %._crit_edge124, !llvm.loop !177
 
 ._crit_edge124:                                   ; preds = %.lr.ph123, %._crit_edge.._crit_edge124_crit_edge
-  %.pre-phi = phi i64 [ %.pre155, %._crit_edge.._crit_edge124_crit_edge ], [ %75, %.lr.ph123 ]
+  %.lcssa = phi i64 [ %.pre155, %._crit_edge.._crit_edge124_crit_edge ], [ %75, %.lr.ph123 ]
   %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, 1
   %77 = getelementptr inbounds nuw i8, ptr %.0133, i64 4
-  %78 = getelementptr inbounds i32, ptr %.081132, i64 %.pre-phi
+  %78 = getelementptr inbounds i32, ptr %.081132, i64 %.lcssa
   %79 = load i32, ptr %4, align 4, !tbaa !50
   %80 = sext i32 %79 to i64
   %81 = icmp slt i64 %indvars.iv.next150, %80
@@ -3521,28 +3521,28 @@ define void @_Z26llama_kv_cache_view_updateP19llama_kv_cache_viewRK14llama_kv_ca
   br label %._crit_edge136.thread
 
 ._crit_edge136.thread:                            ; preds = %28, %94, %82, %._crit_edge136
-  %.094.lcssa162 = phi i32 [ %44, %94 ], [ %44, %82 ], [ %44, %._crit_edge136 ], [ 0, %28 ]
-  %.095.lcssa161 = phi i32 [ %spec.select109, %94 ], [ %spec.select109, %82 ], [ %spec.select109, %._crit_edge136 ], [ 0, %28 ]
+  %.094.lcssa161 = phi i32 [ %44, %94 ], [ %44, %82 ], [ %44, %._crit_edge136 ], [ 0, %28 ]
+  %.095.lcssa160 = phi i32 [ %spec.select109, %94 ], [ %spec.select109, %82 ], [ %spec.select109, %._crit_edge136 ], [ 0, %28 ]
   %.391 = phi i32 [ %96, %94 ], [ %.290, %82 ], [ %.290, %._crit_edge136 ], [ 0, %28 ]
   %.387 = phi i32 [ %.193, %94 ], [ %.286, %82 ], [ %.286, %._crit_edge136 ], [ -1, %28 ]
-  %97 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %.391, ptr %97, align 8, !tbaa !171
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %.387, ptr %98, align 4, !tbaa !172
-  %99 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %.094.lcssa162, ptr %99, align 8, !tbaa !169
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %.095.lcssa161, ptr %100, align 4, !tbaa !170
-  %101 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %102 = load i32, ptr %101, align 8, !tbaa !51
-  %.not103 = icmp eq i32 %.095.lcssa161, %102
-  br i1 %.not103, label %104, label %103
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %.391, ptr %98, align 8, !tbaa !171
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 %.387, ptr %99, align 4, !tbaa !172
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %.094.lcssa161, ptr %100, align 8, !tbaa !169
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 %.095.lcssa160, ptr %101, align 4, !tbaa !170
+  %102 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %103 = load i32, ptr %102, align 8, !tbaa !51
+  %.not103 = icmp eq i32 %.095.lcssa160, %103
+  br i1 %.not103, label %105, label %104
 
-103:                                              ; preds = %._crit_edge136.thread
-  tail call void (i32, ptr, ...) @_Z18llama_log_internal14ggml_log_levelPKcz(i32 noundef 4, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__._Z26llama_kv_cache_view_updateP19llama_kv_cache_viewRK14llama_kv_cache, i32 noundef %102, i32 noundef %.095.lcssa161)
-  br label %104
+104:                                              ; preds = %._crit_edge136.thread
+  tail call void (i32, ptr, ...) @_Z18llama_log_internal14ggml_log_levelPKcz(i32 noundef 4, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__._Z26llama_kv_cache_view_updateP19llama_kv_cache_viewRK14llama_kv_cache, i32 noundef %103, i32 noundef %.095.lcssa160)
+  br label %105
 
-104:                                              ; preds = %103, %._crit_edge136.thread
+105:                                              ; preds = %104, %._crit_edge136.thread
   ret void
 }
 

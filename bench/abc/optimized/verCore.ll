@@ -3012,8 +3012,8 @@ Ver_ParseFreeBundle.exit384.i:                    ; preds = %188, %183
 321:                                              ; preds = %316
   %322 = trunc i64 %317 to i32
   %.not409.i = icmp eq i64 %indvars.iv551.i, 1
-  %brmerge644.i = or i1 %296, %.not409.i
-  br i1 %brmerge644.i, label %.thread406.i, label %.lr.ph456.i
+  %brmerge643.i = or i1 %296, %.not409.i
+  br i1 %brmerge643.i, label %.thread406.i, label %.lr.ph456.i
 
 .lr.ph456.i:                                      ; preds = %321
   %.val338.i = load ptr, ptr %196, align 8, !tbaa !23

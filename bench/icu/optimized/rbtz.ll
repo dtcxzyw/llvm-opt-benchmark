@@ -2889,7 +2889,7 @@ define noundef i32 @_ZNK6icu_7717RuleBasedTimeZone20countTransitionRulesER10UErr
 define void @_ZNK6icu_7717RuleBasedTimeZone16getTimeZoneRulesERPKNS_19InitialTimeZoneRuleEPPKNS_12TimeZoneRuleERiR10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(105) %0, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %1, ptr noundef writeonly captures(none) %2, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %4) unnamed_addr #1 align 2 {
   %6 = load i32, ptr %4, align 4, !tbaa !21
   %7 = icmp slt i32 %6, 1
-  br i1 %7, label %8, label %46
+  br i1 %7, label %8, label %45
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -2959,18 +2959,18 @@ define void @_ZNK6icu_7717RuleBasedTimeZone16getTimeZoneRulesERPKNS_19InitialTim
   %42 = icmp slt i64 %indvars.iv.next43, %41
   %43 = icmp slt i32 %37, %33
   %44 = select i1 %42, i1 %43, i1 false
-  br i1 %44, label %.lr.ph36, label %.loopexit.loopexit, !llvm.loop !56
+  br i1 %44, label %.lr.ph36, label %.loopexit, !llvm.loop !56
 
-.loopexit.loopexit:                               ; preds = %.lr.ph36
+.loopexit:                                        ; preds = %.lr.ph36
   %45 = trunc nsw i64 %indvars.iv.next43 to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %31, %.loopexit31
   %.2 = phi i32 [ %.0, %.loopexit31 ], [ %.0, %31 ], [ %45, %.loopexit.loopexit ]
   store i32 %.2, ptr %3, align 4, !tbaa !48
-  br label %46
+  br label %45
 
-46:                                               ; preds = %5, %.loopexit
+45:                                               ; preds = %5, %.loopexit
   ret void
 }
 

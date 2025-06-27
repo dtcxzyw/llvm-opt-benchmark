@@ -362,7 +362,7 @@ for.body:                                         ; preds = %entry, %for.body
   %exitcond.not = icmp eq i64 %indvars.iv.next, 100
   br i1 %exitcond.not, label %for.cond4.preheader, label %for.body, !llvm.loop !28
 
-for.cond18.preheader:                             ; preds = %for.body6, %for.cond4.preheader
+for.cond18.preheader.loopexit:                    ; preds = %for.body6, %for.cond4.preheader
   %j.1.lcssa = phi i32 [ 100, %for.cond4.preheader ], [ %n, %for.body6 ]
   %invariant.gep49 = getelementptr i8, ptr %1, i64 -800
   %invariant.gep51 = getelementptr i8, ptr %1, i64 -296
@@ -383,7 +383,7 @@ for.body6:                                        ; preds = %for.body6.lr.ph, %f
   store double %sub.i, ptr %add.ptr.i29, align 8, !tbaa !18
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %exitcond66.not = icmp eq i64 %indvars.iv.next64, %wide.trip.count
-  br i1 %exitcond66.not, label %for.cond18.preheader, label %for.body6, !llvm.loop !29
+  br i1 %exitcond66.not, label %for.cond18.preheader.loopexit, label %for.body6, !llvm.loop !29
 
 for.body37.lr.ph:                                 ; preds = %for.body20
   %invariant.gep60 = getelementptr i8, ptr %0, i64 -296
@@ -396,10 +396,10 @@ for.body20:                                       ; preds = %for.cond18.preheade
   %indvars.iv67 = phi i64 [ %3, %for.cond18.preheader ], [ %indvars.iv.next68, %for.body20 ]
   %indvars.iv75 = add nuw i32 %indvars.iv75.in, 1
   %gep50 = getelementptr double, ptr %invariant.gep49, i64 %indvars.iv67
-  %7 = load double, ptr %gep50, align 8, !tbaa !18
+  %6 = load double, ptr %gep50, align 8, !tbaa !18
   %gep52 = getelementptr double, ptr %invariant.gep51, i64 %indvars.iv67
-  %8 = load double, ptr %gep52, align 8, !tbaa !18
-  %add.i32 = fadd double %7, %8
+  %7 = load double, ptr %gep52, align 8, !tbaa !18
+  %add.i32 = fadd double %6, %7
   %conv.i33 = fptosi double %add.i32 to i32
   %conv3.i34 = sitofp i32 %conv.i33 to double
   %sub.i35 = fsub double %add.i32, %conv3.i34
@@ -414,10 +414,10 @@ for.body37:                                       ; preds = %for.body37.lr.ph, %
   %indvars.iv79 = phi i64 [ 37, %for.body37.lr.ph ], [ %indvars.iv.next80, %for.body37 ]
   %indvars.iv77 = phi i64 [ %6, %for.body37.lr.ph ], [ %indvars.iv.next78, %for.body37 ]
   %gep59 = getelementptr double, ptr %invariant.gep49, i64 %indvars.iv77
-  %9 = load double, ptr %gep59, align 8, !tbaa !18
+  %8 = load double, ptr %gep59, align 8, !tbaa !18
   %gep61 = getelementptr double, ptr %invariant.gep60, i64 %indvars.iv79
-  %10 = load double, ptr %gep61, align 8, !tbaa !18
-  %add.i39 = fadd double %9, %10
+  %9 = load double, ptr %gep61, align 8, !tbaa !18
+  %add.i39 = fadd double %8, %9
   %conv.i40 = fptosi double %add.i39 to i32
   %conv3.i41 = sitofp i32 %conv.i40 to double
   %sub.i42 = fsub double %add.i39, %conv3.i41

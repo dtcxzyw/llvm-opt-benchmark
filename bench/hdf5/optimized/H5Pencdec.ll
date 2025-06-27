@@ -535,7 +535,7 @@ define noundef i32 @H5P__encode_uint64_t(ptr noundef readonly captures(none) %0,
   %7 = trunc nuw i8 %6 to i1
   %8 = xor i1 %7, true
   %9 = select i1 %5, i1 true, i1 %8
-  br i1 %9, label %10, label %28, !prof !12
+  br i1 %9, label %10, label %27, !prof !12
 
 10:                                               ; preds = %3
   %11 = load ptr, ptr %1, align 8, !tbaa !13
@@ -551,31 +551,31 @@ define noundef i32 @H5P__encode_uint64_t(ptr noundef readonly captures(none) %0,
   %16 = load ptr, ptr %1, align 8, !tbaa !13
   br label %17
 
-17:                                               ; preds = %12, %17
-  %.021 = phi ptr [ %16, %12 ], [ %19, %17 ]
-  %.01520 = phi i64 [ 0, %12 ], [ %20, %17 ]
+17: ; preds = %12, %17
+  %.01520 = phi ptr [ %16, %12 ], [ %19, %17 ]
+  %.01719 = phi i64 [ 0, %12 ], [ %20, %17 ]
   %.01719 = phi i64 [ %15, %12 ], [ %21, %17 ]
   %18 = trunc i64 %.01719 to i8
   %19 = getelementptr inbounds nuw i8, ptr %.021, i64 1
-  store i8 %18, ptr %.021, align 1, !tbaa !7
-  %20 = add nuw nsw i64 %.01520, 1
+  store i8 %18, ptr %.01520, align 1, !tbaa !7
+  %20 = add nuw nsw i64 %.01719, 1
   %21 = lshr i64 %.01719, 8
   %exitcond.not = icmp eq i64 %20, 8
   br i1 %exitcond.not, label %22, label %17, !llvm.loop !22
 
-22:                                               ; preds = %17
+22:; preds = %17
   %23 = load ptr, ptr %1, align 8, !tbaa !13
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr %24, ptr %1, align 8, !tbaa !13
   br label %25
 
-25:                                               ; preds = %22, %10
+25:; preds = %22, %10
   %26 = load i64, ptr %2, align 8, !tbaa !3
   %27 = add i64 %26, 9
   store i64 %27, ptr %2, align 8, !tbaa !3
   br label %28
 
-28:                                               ; preds = %25, %3
+27:                                               ; preds = %25, %3
   ret i32 0
 }
 

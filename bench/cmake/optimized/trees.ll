@@ -1954,19 +1954,19 @@ gen_bitlen.exit:                                  ; preds = %.outer.split.us.i, 
   %383 = zext i16 %381 to i32
   br label %384
 
-384:                                              ; preds = %384, %377
-  %.07.i.i = phi i32 [ %383, %377 ], [ %387, %384 ]
-  %.06.i.i = phi i32 [ %378, %377 ], [ %389, %384 ]
+384: ; preds = %384, %377
+  %.06.i.i = phi i32 [ %383, %377 ], [ %387, %384 ]
+  %.0.i.i = phi i32 [ %378, %377 ], [ %389, %384 ]
   %.0.i.i = phi i32 [ 0, %377 ], [ %388, %384 ]
   %385 = and i32 %.07.i.i, 1
   %386 = or disjoint i32 %.0.i.i, %385
   %387 = lshr i32 %.07.i.i, 1
   %388 = shl i32 %386, 1
   %389 = add nsw i32 %.06.i.i, -1
-  %390 = icmp samesign ugt i32 %.06.i.i, 1
+  %390 = icmp samesign ugt i32 %.0.i.i, 1
   br i1 %390, label %384, label %bi_reverse.exit.i, !llvm.loop !74
 
-bi_reverse.exit.i:                                ; preds = %384
+bi_reverse.exit.i:; preds = %384
   %391 = trunc i32 %386 to i16
   store i16 %391, ptr %373, align 2, !tbaa !26
   br label %392

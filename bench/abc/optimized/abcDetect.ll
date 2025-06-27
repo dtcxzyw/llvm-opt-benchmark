@@ -5970,12 +5970,12 @@ Vec_IntPushTwo.exit:                              ; preds = %Vec_IntPush.exit.i,
   %.val230366 = phi ptr [ %.val230, %229 ], [ %.val230367, %.critedge14.loopexit ]
   %.0167.lcssa = phi ptr [ %230, %229 ], [ %.1168, %.critedge14.loopexit ]
   %.0165.lcssa = phi i32 [ %232, %229 ], [ %.1166, %.critedge14.loopexit ]
-  %371 = getelementptr i8, ptr %.0167.lcssa, i64 4
-  store i32 %.0165.lcssa, ptr %371, align 4, !tbaa !37
+  %373 = getelementptr i8, ptr %.0167.lcssa, i64 4
+  store i32 %.0165.lcssa, ptr %373, align 4, !tbaa !37
   %indvars.iv.next362 = add nsw i64 %indvars.iv361, 1
-  %372 = sext i32 %.val228 to i64
-  %373 = icmp slt i64 %indvars.iv.next362, %372
-  br i1 %373, label %229, label %.critedge12, !llvm.loop !156
+  %374 = sext i32 %.val228 to i64
+  %375 = icmp slt i64 %indvars.iv.next362, %374
+  br i1 %375, label %229, label %.critedge12, !llvm.loop !156
 
 .critedge12:                                      ; preds = %.critedge14, %.critedge8.preheader
   ret void

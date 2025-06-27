@@ -996,7 +996,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 define range(i32 0, 2) i32 @tls_parse_ctos_use_srtp(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2, ptr noundef readnone captures(none) %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = tail call ptr @SSL_get_srtp_profiles(ptr noundef %0) #12
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %61, label %8
+  br i1 %7, label %59, label %8
 
 8:                                                ; preds = %5
   %9 = getelementptr i8, ptr %1, i64 8
@@ -1037,7 +1037,7 @@ define range(i32 0, 2) i32 @tls_parse_ctos_use_srtp(ptr noundef %0, ptr noundef 
   %31 = tail call i32 @OPENSSL_sk_num(ptr noundef %29) #12
   br label %32
 
-32:                                               ; preds = %.loopexit, %26
+46:                                               ; preds = %.loopexit, %26
   %.sroa.5.0 = phi i64 [ %24, %26 ], [ %41, %.loopexit ]
   %.sroa.0.0 = phi ptr [ %17, %26 ], [ %40, %.loopexit ]
   %.026 = phi i32 [ %31, %26 ], [ %.2, %.loopexit ]
@@ -1078,41 +1078,41 @@ PACKET_get_net_2.exit39:                          ; preds = %32
 
 .loopexit:                                        ; preds = %48, %PACKET_get_net_2.exit39, %47
   %.2 = phi i32 [ %.02571, %47 ], [ %.026, %PACKET_get_net_2.exit39 ], [ %.026, %48 ]
-  br label %32, !llvm.loop !109
+  br label %46, !llvm.loop !109
 
-50:                                               ; preds = %32
+._crit_edge:                                      ; preds = %32
   %.val.i.i40 = load i64, ptr %9, align 8, !tbaa !3
   %.not.i.i = icmp eq i64 %.val.i.i40, 0
-  br i1 %.not.i.i, label %.sink.split, label %51
+  br i1 %.not.i.i, label %.sink.split, label %49
 
-51:                                               ; preds = %50
-  %52 = load ptr, ptr %1, align 8, !tbaa !10
-  %53 = load i8, ptr %52, align 1, !tbaa !11
-  %54 = getelementptr inbounds nuw i8, ptr %52, i64 1
-  store ptr %54, ptr %1, align 8, !tbaa !10
-  %55 = add i64 %.val.i.i40, -1
-  store i64 %55, ptr %9, align 8, !tbaa !3
-  %56 = zext i8 %53 to i64
-  %57 = icmp ult i64 %55, %56
-  br i1 %57, label %.sink.split, label %58
+49:                                               ; preds = %._crit_edge
+  %50 = load ptr, ptr %1, align 8, !tbaa !10
+  %51 = load i8, ptr %50, align 1, !tbaa !11
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 1
+  store ptr %52, ptr %1, align 8, !tbaa !10
+  %53 = add i64 %.val.i.i40, -1
+  store i64 %53, ptr %9, align 8, !tbaa !3
+  %54 = zext i8 %51 to i64
+  %55 = icmp ult i64 %53, %54
+  br i1 %55, label %.sink.split, label %56
 
-58:                                               ; preds = %51
-  %59 = getelementptr inbounds nuw i8, ptr %54, i64 %56
-  store ptr %59, ptr %1, align 8, !tbaa !10
-  %60 = sub nuw i64 %55, %56
-  store i64 %60, ptr %9, align 8, !tbaa !3
-  %.not32 = icmp eq i64 %55, %56
-  br i1 %.not32, label %61, label %.sink.split
+56:                                               ; preds = %49
+  %57 = getelementptr inbounds nuw i8, ptr %52, i64 %54
+  store ptr %57, ptr %1, align 8, !tbaa !10
+  %58 = sub nuw i64 %53, %54
+  store i64 %58, ptr %9, align 8, !tbaa !3
+  %.not32 = icmp eq i64 %53, %54
+  br i1 %.not32, label %59, label %.sink.split
 
-.sink.split:                                      ; preds = %32, %58, %51, %50, %11, %8, %20
-  %.sink76 = phi i32 [ 497, %20 ], [ 497, %8 ], [ 497, %11 ], [ 534, %50 ], [ 540, %51 ], [ 540, %58 ], [ 509, %32 ]
+.sink.split:                                      ; preds = %46, %56, %49, %._crit_edge, %11, %8, %20
+  %.sink80 = phi i32 [ 497, %20 ], [ 497, %8 ], [ 497, %11 ], [ 534, %50 ], [ 540, %51 ], [ 540, %58 ], [ 509, %32 ]
   %.sink = phi i32 [ 353, %20 ], [ 353, %8 ], [ 353, %11 ], [ 353, %50 ], [ 352, %51 ], [ 352, %58 ], [ 353, %32 ]
   tail call void @ERR_new() #12
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink76, ptr noundef nonnull @__func__.tls_parse_ctos_use_srtp) #12
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink80, ptr noundef nonnull @__func__.tls_parse_ctos_use_srtp) #12
   tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef %0, i32 noundef 50, i32 noundef %.sink, ptr noundef null) #12
-  br label %61
+  br label %59
 
-61:                                               ; preds = %.sink.split, %58, %5
+59:                                               ; preds = %.sink.split, %56, %5
   %.0 = phi i32 [ 1, %5 ], [ 1, %58 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
