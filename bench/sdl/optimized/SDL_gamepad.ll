@@ -5342,8 +5342,8 @@ SDL_GetGamepadFaceStyleForGamepadType.exit:       ; preds = %2, %2, %2
 
 SDL_GetGamepadButtonLabelForFaceStyle.exit.sink.split: ; preds = %7, %5
   %switch.table.SDL_GetGamepadButtonLabelForType_REAL.1.sink = phi ptr [ @switch.table.SDL_GetGamepadButtonLabel_REAL, %5 ], [ @switch.table.SDL_GetGamepadButtonLabel_REAL.2, %7 ]
-  %10 = sext i32 %1 to i64
-  %switch.gep10 = getelementptr inbounds [4 x i32], ptr %switch.table.SDL_GetGamepadButtonLabelForType_REAL.1.sink, i64 0, i64 %10
+  %10 = zext i32 %1 to i64
+  %switch.gep10 = getelementptr inbounds nuw [4 x i32], ptr %switch.table.SDL_GetGamepadButtonLabelForType_REAL.1.sink, i64 0, i64 %10
   %switch.load11 = load i32, ptr %switch.gep10, align 4
   br label %SDL_GetGamepadButtonLabelForFaceStyle.exit
 

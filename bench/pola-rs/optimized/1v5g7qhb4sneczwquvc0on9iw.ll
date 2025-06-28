@@ -38834,8 +38834,8 @@ default.unreachable:                              ; preds = %"_ZN4core3ptr165dro
 switch.lookup:                                    ; preds = %142, %141, %140
   %.sroa.03.0.i = phi ptr [ %_ZN11polars_time12chunkedarray6string5infer29transform_tzaware_datetime_ns17heb91613613fe6f08E._ZN11polars_time12chunkedarray6string5infer21transform_datetime_ns17h10003f5aceb48a3cE.i, %140 ], [ %_ZN11polars_time12chunkedarray6string5infer29transform_tzaware_datetime_us17ha21a2400b5a501cfE._ZN11polars_time12chunkedarray6string5infer21transform_datetime_us17h30db192b6743d3bbE.i, %141 ], [ %_ZN11polars_time12chunkedarray6string5infer29transform_tzaware_datetime_ms17hede2169b0802c713E._ZN11polars_time12chunkedarray6string5infer21transform_datetime_ms17hc829810aa7e3864cE.i, %142 ]
   %switch.tableidx = add nsw i8 %77, -2
-  %143 = sext i8 %switch.tableidx to i64
-  %switch.gep192 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray6string5infer11to_datetime17h533fcc4d1363fa47E.178, i64 0, i64 %143
+  %143 = zext i8 %switch.tableidx to i64
+  %switch.gep192 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray6string5infer11to_datetime17h533fcc4d1363fa47E.178, i64 0, i64 %143
   %switch.load193 = load ptr, ptr %switch.gep192, align 8
   %.sroa.612.0.i = load i64, ptr %switch.load193, align 8, !noalias !3209, !noundef !3
   %.not14.i = icmp eq i64 %.sroa.612.0.i, 0
@@ -38849,8 +38849,8 @@ switch.lookup:                                    ; preds = %142, %141, %140
   unreachable
 
 145:                                              ; preds = %switch.lookup
-  %146 = sext i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray6string5infer11to_datetime17h533fcc4d1363fa47E, i64 0, i64 %146
+  %146 = zext i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray6string5infer11to_datetime17h533fcc4d1363fa47E, i64 0, i64 %146
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.sroa.010.0.i = load ptr, ptr %switch.load, align 8, !noalias !3209, !nonnull !3, !align !205, !noundef !3
   %147 = load ptr, ptr %.sroa.010.0.i, align 8, !noalias !3209, !nonnull !3, !align !453, !noundef !3

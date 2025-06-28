@@ -2012,11 +2012,11 @@ switch.lookup:
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.3, ptr %12, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !90
-  %13 = sext i8 %.0.val to i64
-  %switch.gep = getelementptr inbounds [16 x ptr], ptr @"switch.table._ZN82_$LT$cranelift_codegen..isa..x64..inst..args..CC$u20$as$u20$core..fmt..Display$GT$3fmt17hc969b42963cf454cE", i64 0, i64 %13
+  %13 = zext i8 %.0.val to i64
+  %switch.gep = getelementptr inbounds nuw [16 x ptr], ptr @"switch.table._ZN82_$LT$cranelift_codegen..isa..x64..inst..args..CC$u20$as$u20$core..fmt..Display$GT$3fmt17hc969b42963cf454cE", i64 0, i64 %13
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %14 = sext i8 %.0.val to i64
-  %switch.gep1 = getelementptr inbounds [16 x i64], ptr @"switch.table._ZN82_$LT$cranelift_codegen..isa..x64..inst..args..CC$u20$as$u20$core..fmt..Display$GT$3fmt17hc969b42963cf454cE.116", i64 0, i64 %14
+  %14 = zext i8 %.0.val to i64
+  %switch.gep1 = getelementptr inbounds nuw [16 x i64], ptr @"switch.table._ZN82_$LT$cranelift_codegen..isa..x64..inst..args..CC$u20$as$u20$core..fmt..Display$GT$3fmt17hc969b42963cf454cE.116", i64 0, i64 %14
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %switch.load, ptr %4, align 8, !noalias !90
@@ -2539,11 +2539,11 @@ switch.lookup:
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.3, ptr %12, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !103
-  %13 = sext i8 %.0.val to i64
-  %switch.gep = getelementptr inbounds [7 x ptr], ptr @"switch.table._ZN93_$LT$cranelift_codegen..isa..x64..inst..args..AluRmiROpcode$u20$as$u20$core..fmt..Display$GT$3fmt17he84e9ff88c460bd8E", i64 0, i64 %13
+  %13 = zext i8 %.0.val to i64
+  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @"switch.table._ZN93_$LT$cranelift_codegen..isa..x64..inst..args..AluRmiROpcode$u20$as$u20$core..fmt..Display$GT$3fmt17he84e9ff88c460bd8E", i64 0, i64 %13
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %14 = sext i8 %.0.val to i64
-  %switch.gep1 = getelementptr inbounds [7 x i64], ptr @"switch.table._ZN93_$LT$cranelift_codegen..isa..x64..inst..args..AluRmiROpcode$u20$as$u20$core..fmt..Display$GT$3fmt17he84e9ff88c460bd8E.113", i64 0, i64 %14
+  %14 = zext i8 %.0.val to i64
+  %switch.gep1 = getelementptr inbounds nuw [7 x i64], ptr @"switch.table._ZN93_$LT$cranelift_codegen..isa..x64..inst..args..AluRmiROpcode$u20$as$u20$core..fmt..Display$GT$3fmt17he84e9ff88c460bd8E.113", i64 0, i64 %14
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %switch.load, ptr %4, align 8, !noalias !103
@@ -2694,8 +2694,8 @@ switch.lookup:
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.3, ptr %12, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !116
-  %13 = sext i8 %.0.val to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @"switch.table._ZN89_$LT$cranelift_codegen..isa..x64..inst..args..ShiftKind$u20$as$u20$core..fmt..Display$GT$3fmt17h7d6ae14eb0225714E", i64 0, i64 %13
+  %13 = zext i8 %.0.val to i64
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @"switch.table._ZN89_$LT$cranelift_codegen..isa..x64..inst..args..ShiftKind$u20$as$u20$core..fmt..Display$GT$3fmt17h7d6ae14eb0225714E", i64 0, i64 %13
   %switch.load = load ptr, ptr %switch.gep, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %switch.load, ptr %4, align 8, !noalias !116
@@ -2846,8 +2846,8 @@ switch.lookup:
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.3, ptr %12, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !129
-  %13 = sext i8 %.0.val to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @"switch.table._ZN87_$LT$cranelift_codegen..isa..x64..inst..args..ExtMode$u20$as$u20$core..fmt..Display$GT$3fmt17ha5ee800c1636cb01E", i64 0, i64 %13
+  %13 = zext i8 %.0.val to i64
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @"switch.table._ZN87_$LT$cranelift_codegen..isa..x64..inst..args..ExtMode$u20$as$u20$core..fmt..Display$GT$3fmt17ha5ee800c1636cb01E", i64 0, i64 %13
   %switch.load = load ptr, ptr %switch.gep, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %switch.load, ptr %4, align 8, !noalias !129
@@ -16024,11 +16024,11 @@ switch.lookup:
   %switch.gep = getelementptr inbounds nuw [256 x ptr], ptr @"switch.table._ZN87_$LT$cranelift_codegen..isa..x64..inst..args..SseOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17ha3ba5b964ff8fbdaE", i64 0, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   %7 = zext i8 %switch.tableidx to i64
-  %switch.gep3 = getelementptr inbounds nuw [256 x i64], ptr @"switch.table._ZN87_$LT$cranelift_codegen..isa..x64..inst..args..SseOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17ha3ba5b964ff8fbdaE.114", i64 0, i64 %7
-  %switch.load4 = load i64, ptr %switch.gep3, align 8
+  %switch.gep2 = getelementptr inbounds nuw [256 x i64], ptr @"switch.table._ZN87_$LT$cranelift_codegen..isa..x64..inst..args..SseOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17ha3ba5b964ff8fbdaE.114", i64 0, i64 %7
+  %switch.load3 = load i64, ptr %switch.gep2, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %switch.load, ptr %4, align 8
-  store i64 %switch.load4, ptr %8, align 8
+  store i64 %switch.load3, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   store ptr %4, ptr %2, align 8
@@ -16586,8 +16586,8 @@ switch.lookup:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef range(i8 2, 16) i8 @_ZN17cranelift_codegen3isa3x644inst4args2CC10from_intcc17h207d38cc0d64ff10E(i8 noundef %0) unnamed_addr #11 {
 switch.lookup:
-  %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds [10 x i8], ptr @switch.table._ZN17cranelift_codegen3isa3x644inst4args2CC10from_intcc17h207d38cc0d64ff10E, i64 0, i64 %1
+  %1 = zext i8 %0 to i64
+  %switch.gep = getelementptr inbounds nuw [10 x i8], ptr @switch.table._ZN17cranelift_codegen3isa3x644inst4args2CC10from_intcc17h207d38cc0d64ff10E, i64 0, i64 %1
   %switch.load = load i8, ptr %switch.gep, align 1
   ret i8 %switch.load
 }
@@ -54724,10 +54724,10 @@ switch.lookup:
   %switch.gep = getelementptr inbounds nuw [256 x ptr], ptr @switch.table._ZN17cranelift_codegen2ir12instructions11opcode_name17h17a1313bad5b635bE, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = zext i8 %switch.tableidx to i64
-  %switch.gep2 = getelementptr inbounds nuw [256 x i64], ptr @switch.table._ZN17cranelift_codegen2ir12instructions11opcode_name17h17a1313bad5b635bE.128, i64 0, i64 %2
-  %switch.load3 = load i64, ptr %switch.gep2, align 8
+  %switch.gep1 = getelementptr inbounds nuw [256 x i64], ptr @switch.table._ZN17cranelift_codegen2ir12instructions11opcode_name17h17a1313bad5b635bE.128, i64 0, i64 %2
+  %switch.load2 = load i64, ptr %switch.gep1, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
-  %4 = insertvalue { ptr, i64 } %3, i64 %switch.load3, 1
+  %4 = insertvalue { ptr, i64 } %3, i64 %switch.load2, 1
   ret { ptr, i64 } %4
 }
 

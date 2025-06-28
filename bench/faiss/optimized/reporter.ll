@@ -636,8 +636,8 @@ switch.lookup:
   %2 = load double, ptr %1, align 8, !tbaa !89
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %4 = load i32, ptr %3, align 8, !tbaa !90
-  %5 = sext i32 %4 to i64
-  %switch.gep = getelementptr inbounds [4 x double], ptr @switch.table._ZNK9benchmark17BenchmarkReporter3Run18GetAdjustedCPUTimeEv, i64 0, i64 %5
+  %5 = zext i32 %4 to i64
+  %switch.gep = getelementptr inbounds nuw [4 x double], ptr @switch.table._ZNK9benchmark17BenchmarkReporter3Run18GetAdjustedCPUTimeEv, i64 0, i64 %5
   %switch.load = load double, ptr %switch.gep, align 8
   %6 = fmul double %2, %switch.load
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 392
@@ -656,8 +656,8 @@ switch.lookup:
   %2 = load double, ptr %1, align 8, !tbaa !92
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %4 = load i32, ptr %3, align 8, !tbaa !90
-  %5 = sext i32 %4 to i64
-  %switch.gep = getelementptr inbounds [4 x double], ptr @switch.table._ZNK9benchmark17BenchmarkReporter3Run18GetAdjustedCPUTimeEv, i64 0, i64 %5
+  %5 = zext i32 %4 to i64
+  %switch.gep = getelementptr inbounds nuw [4 x double], ptr @switch.table._ZNK9benchmark17BenchmarkReporter3Run18GetAdjustedCPUTimeEv, i64 0, i64 %5
   %switch.load = load double, ptr %switch.gep, align 8
   %6 = fmul double %2, %switch.load
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 392

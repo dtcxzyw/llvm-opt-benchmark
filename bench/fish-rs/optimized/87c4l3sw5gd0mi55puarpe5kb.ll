@@ -29754,11 +29754,11 @@ define noundef range(i8 1, 15) i8 @"_ZN80_$LT$fish..parse_constants..ParseTokenT
 define { ptr, i64 } @_ZN4fish15parse_constants14ParseTokenType7to_wstr17h1c913efc40479f09E(i8 noundef range(i8 1, 15) %0) unnamed_addr #18 {
 switch.lookup:
   %switch.tableidx = add nsw i8 %0, -1
-  %1 = sext i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [14 x i64], ptr @switch.table._ZN4fish15parse_constants14ParseTokenType7to_wstr17h1c913efc40479f09E, i64 0, i64 %1
+  %1 = zext i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [14 x i64], ptr @switch.table._ZN4fish15parse_constants14ParseTokenType7to_wstr17h1c913efc40479f09E, i64 0, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
-  %2 = sext i8 %switch.tableidx to i64
-  %switch.gep2 = getelementptr inbounds [14 x ptr], ptr @switch.table._ZN4fish15parse_constants14ParseTokenType7to_wstr17h1c913efc40479f09E.343, i64 0, i64 %2
+  %2 = zext i8 %switch.tableidx to i64
+  %switch.gep2 = getelementptr inbounds nuw [14 x ptr], ptr @switch.table._ZN4fish15parse_constants14ParseTokenType7to_wstr17h1c913efc40479f09E.343, i64 0, i64 %2
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load, 1
@@ -30752,11 +30752,11 @@ switch.lookup:                                    ; preds = %3
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %24)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %23)
   %switch.tableidx = add nsw i8 %2, -1
-  %28 = sext i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [18 x i64], ptr @switch.table._ZN4fish15parse_constants39token_type_user_presentable_description17h93449c91118e47bfE, i64 0, i64 %28
+  %28 = zext i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [18 x i64], ptr @switch.table._ZN4fish15parse_constants39token_type_user_presentable_description17h93449c91118e47bfE, i64 0, i64 %28
   %switch.load = load i64, ptr %switch.gep, align 8
-  %29 = sext i8 %switch.tableidx to i64
-  %switch.gep93 = getelementptr inbounds [18 x ptr], ptr @switch.table._ZN4fish15parse_constants39token_type_user_presentable_description17h93449c91118e47bfE.346, i64 0, i64 %29
+  %29 = zext i8 %switch.tableidx to i64
+  %switch.gep93 = getelementptr inbounds nuw [18 x ptr], ptr @switch.table._ZN4fish15parse_constants39token_type_user_presentable_description17h93449c91118e47bfE.346, i64 0, i64 %29
   %switch.load94 = load ptr, ptr %switch.gep93, align 8
   invoke void @"_ZN76_$LT$$RF$widestring..utfstr..Utf32Str$u20$as$u20$fish_printf..arg..ToArg$GT$6to_arg17he7abdcfd71ad5500E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %23, ptr noalias noundef nonnull readonly align 4 %switch.load94, i64 noundef %switch.load)
           to label %186 unwind label %184

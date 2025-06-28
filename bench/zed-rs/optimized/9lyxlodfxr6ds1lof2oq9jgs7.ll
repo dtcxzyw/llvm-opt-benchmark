@@ -6964,14 +6964,14 @@ define hidden void @"_ZN8sum_tree16SumTree$LT$T$GT$17insert_or_replace17hd9e6825
   %.sroa.10129.0.copyload = load i8, ptr %.sroa.10129.0..sroa_idx, align 1
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %17), !noalias !1929
   call void @llvm.experimental.noalias.scope.decl(metadata !1934)
-  %113 = sext i8 %.sroa.9126.0.copyload to i64
-  %switch.gep = getelementptr inbounds [4 x i64], ptr @"switch.table._ZN8sum_tree16SumTree$LT$T$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17h7c96e57cc2f781f8E.llvm.10664376490798366725", i64 0, i64 %113
+  %113 = zext i8 %.sroa.9126.0.copyload to i64
+  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN8sum_tree16SumTree$LT$T$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17h7c96e57cc2f781f8E.llvm.10664376490798366725", i64 0, i64 %113
   %switch.load = load i64, ptr %switch.gep, align 8
-  %114 = sext i8 %.sroa.9126.0.copyload to i64
-  %switch.gep135 = getelementptr inbounds [4 x i64], ptr @"switch.table._ZN8sum_tree16SumTree$LT$T$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17h7c96e57cc2f781f8E.llvm.10664376490798366725.68", i64 0, i64 %114
+  %114 = zext i8 %.sroa.9126.0.copyload to i64
+  %switch.gep135 = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN8sum_tree16SumTree$LT$T$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17h7c96e57cc2f781f8E.llvm.10664376490798366725.68", i64 0, i64 %114
   %switch.load136 = load i64, ptr %switch.gep135, align 8
-  %115 = sext i8 %.sroa.9126.0.copyload to i64
-  %switch.gep137 = getelementptr inbounds [4 x i64], ptr @"switch.table._ZN8sum_tree16SumTree$LT$T$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17h7c96e57cc2f781f8E.llvm.10664376490798366725.69", i64 0, i64 %115
+  %115 = zext i8 %.sroa.9126.0.copyload to i64
+  %switch.gep137 = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN8sum_tree16SumTree$LT$T$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17h7c96e57cc2f781f8E.llvm.10664376490798366725.69", i64 0, i64 %115
   %switch.load138 = load i64, ptr %switch.gep137, align 8
   %116 = icmp ne ptr %.sroa.4106.0.copyload, null
   call void @llvm.assume(i1 %116)

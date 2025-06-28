@@ -74808,8 +74808,8 @@ switch.lookup:                                    ; preds = %_ZN4llvm7PHINode11a
   %247 = load ptr, ptr %30, align 8, !tbaa !232
   %248 = call noundef ptr @_ZN4llvm13IRBuilderBase18CreateAlignedStoreEPNS_5ValueES2_NS_10MaybeAlignEb(ptr noundef nonnull align 8 dereferenceable(128) %70, ptr noundef %247, ptr noundef nonnull %181, i16 0, i1 noundef zeroext false)
   %switch.tableidx = add nsw i32 %6, -2
-  %249 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table._ZN4llvm15OpenMPIRBuilder19createAtomicCompareERKNS0_19LocationDescriptionERNS0_13AtomicOpValueES5_S5_PNS_5ValueES7_NS_14AtomicOrderingENS_3omp18OMPAtomicCompareOpEbbb, i64 0, i64 %249
+  %249 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN4llvm15OpenMPIRBuilder19createAtomicCompareERKNS0_19LocationDescriptionERNS0_13AtomicOpValueES5_S5_PNS_5ValueES7_NS_14AtomicOrderingENS_3omp18OMPAtomicCompareOpEbbb, i64 0, i64 %249
   %switch.load = load i32, ptr %switch.gep, align 4
   %250 = call { ptr, ptr } @_ZN4llvm10AtomicInfo32EmitAtomicCompareExchangeLibcallEPNS_5ValueES2_NS_14AtomicOrderingES3_(ptr noundef nonnull align 8 dereferenceable(43) %24, ptr noundef %112, ptr noundef nonnull %181, i32 noundef %6, i32 noundef %switch.load) #29
   %251 = extractvalue { ptr, ptr } %250, 0
@@ -75374,8 +75374,8 @@ switch.lookup325:                                 ; preds = %502
   %517 = call noundef ptr @_ZN4llvm13IRBuilderBase17CreateAlignedLoadEPNS_4TypeEPNS_5ValueENS_10MaybeAlignEbRKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %342, ptr noundef %341, ptr noundef nonnull %425, i16 0, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(34) %41)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %41) #29
   %switch.tableidx326 = add nsw i32 %6, -2
-  %518 = sext i32 %switch.tableidx326 to i64
-  %switch.gep327 = getelementptr inbounds [6 x i32], ptr @switch.table._ZN4llvm15OpenMPIRBuilder19createAtomicCompareERKNS0_19LocationDescriptionERNS0_13AtomicOpValueES5_S5_PNS_5ValueES7_NS_14AtomicOrderingENS_3omp18OMPAtomicCompareOpEbbb, i64 0, i64 %518
+  %518 = zext i32 %switch.tableidx326 to i64
+  %switch.gep327 = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN4llvm15OpenMPIRBuilder19createAtomicCompareERKNS0_19LocationDescriptionERNS0_13AtomicOpValueES5_S5_PNS_5ValueES7_NS_14AtomicOrderingENS_3omp18OMPAtomicCompareOpEbbb, i64 0, i64 %518
   %switch.load328 = load i32, ptr %switch.gep327, align 4
   %519 = call noundef ptr @_ZN4llvm13IRBuilderBase19CreateAtomicCmpXchgEPNS_5ValueES2_S2_NS_10MaybeAlignENS_14AtomicOrderingES4_h(ptr noundef nonnull align 8 dereferenceable(128) %342, ptr noundef nonnull %3, ptr noundef nonnull %437, ptr noundef %517, i16 0, i32 noundef %6, i32 noundef %switch.load328, i8 noundef zeroext 1)
   %520 = getelementptr inbounds nuw i8, ptr %519, i64 2
@@ -76386,8 +76386,8 @@ _ZN4llvm8ExpectedISt4pairIPNS_5ValueES3_EED2Ev.exit: ; preds = %56, %49
 define dso_local void @_ZN4llvm15OpenMPIRBuilder19createAtomicCompareERKNS0_19LocationDescriptionERNS0_13AtomicOpValueES5_S5_PNS_5ValueES7_NS_14AtomicOrderingENS_3omp18OMPAtomicCompareOpEbbb(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::IRBuilderBase::InsertPoint") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(3104) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(18) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(18) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(18) %5, ptr noundef %6, ptr noundef %7, i32 noundef %8, i32 noundef %9, i1 noundef zeroext %10, i1 noundef zeroext %11, i1 noundef zeroext %12) local_unnamed_addr #1 align 2 {
 switch.lookup:
   %switch.tableidx = add nsw i32 %8, -2
-  %13 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table._ZN4llvm15OpenMPIRBuilder19createAtomicCompareERKNS0_19LocationDescriptionERNS0_13AtomicOpValueES5_S5_PNS_5ValueES7_NS_14AtomicOrderingENS_3omp18OMPAtomicCompareOpEbbb, i64 0, i64 %13
+  %13 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN4llvm15OpenMPIRBuilder19createAtomicCompareERKNS0_19LocationDescriptionERNS0_13AtomicOpValueES5_S5_PNS_5ValueES7_NS_14AtomicOrderingENS_3omp18OMPAtomicCompareOpEbbb, i64 0, i64 %13
   %switch.load = load i32, ptr %switch.gep, align 4
   tail call void @_ZN4llvm15OpenMPIRBuilder19createAtomicCompareERKNS0_19LocationDescriptionERNS0_13AtomicOpValueES5_S5_PNS_5ValueES7_NS_14AtomicOrderingENS_3omp18OMPAtomicCompareOpEbbbS8_(ptr dead_on_unwind writable sret(%"class.llvm::IRBuilderBase::InsertPoint") align 8 %0, ptr noundef nonnull align 8 dereferenceable(3104) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(18) %3, ptr noundef nonnull align 8 dereferenceable(18) %4, ptr noundef nonnull align 8 dereferenceable(18) %5, ptr noundef %6, ptr noundef %7, i32 noundef %8, i32 noundef %9, i1 noundef zeroext %10, i1 noundef zeroext %11, i1 noundef zeroext %12, i32 noundef %switch.load)
   ret void

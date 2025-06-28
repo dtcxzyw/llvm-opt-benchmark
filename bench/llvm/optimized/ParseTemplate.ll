@@ -2175,8 +2175,8 @@ _ZN5clang15ParsingDeclSpecC2ERNS_6ParserEPNS_21ParsingDeclRAIIObjectE.exit: ; pr
   call void @_ZN5clang13AttributePool8takePoolERS0_(ptr noundef nonnull align 8 dereferenceable(72) %98, ptr noundef nonnull align 8 dereferenceable(72) %81) #18
   store i32 0, ptr %84, align 8, !tbaa !317
   %139 = call noundef i32 @_ZN5clang6Parser39getDeclSpecContextFromDeclaratorContextENS_17DeclaratorContextE(ptr noundef nonnull align 8 dereferenceable(2936) %0, i32 noundef %1) #18
-  %140 = sext i32 %139 to i64
-  %switch.gep = getelementptr inbounds [14 x i32], ptr @switch.table._ZN5clang6Parser29ParseDeclarationAfterTemplateENS_17DeclaratorContextERNS0_18ParsedTemplateInfoERNS_21ParsingDeclRAIIObjectERNS_14SourceLocationERNS_16ParsedAttributesENS_15AccessSpecifierE, i64 0, i64 %140
+  %140 = zext i32 %139 to i64
+  %switch.gep = getelementptr inbounds nuw [14 x i32], ptr @switch.table._ZN5clang6Parser29ParseDeclarationAfterTemplateENS_17DeclaratorContextERNS0_18ParsedTemplateInfoERNS_21ParsingDeclRAIIObjectERNS_14SourceLocationERNS_16ParsedAttributesENS_15AccessSpecifierE, i64 0, i64 %140
   %switch.load = load i32, ptr %switch.gep, align 4
   call void @_ZN5clang6Parser26ParseDeclarationSpecifiersERNS_8DeclSpecERNS0_18ParsedTemplateInfoENS_15AccessSpecifierENS0_15DeclSpecContextEPNS0_18LateParsedAttrListENS_23ImplicitTypenameContextE(ptr noundef nonnull align 8 dereferenceable(2936) %0, ptr noundef nonnull align 8 dereferenceable(360) %12, ptr noundef nonnull align 8 dereferenceable(25) %2, i32 noundef %6, i32 noundef %139, ptr noundef null, i32 noundef %switch.load) #18
   %141 = load i16, ptr %16, align 8, !tbaa !96

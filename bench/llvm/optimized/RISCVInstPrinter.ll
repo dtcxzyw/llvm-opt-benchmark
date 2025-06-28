@@ -1122,10 +1122,9 @@ _ZN4llvm7RISCVZCL15getStackAdjBaseEjb.exit:
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %16 = load i64, ptr %15, align 8, !tbaa !32
   %switch.table._ZN4llvm16RISCVInstPrinter13printStackAdjEPKNS_6MCInstEjRKNS_15MCSubtargetInfoERNS_11raw_ostreamEb.switch.table._ZN4llvm16RISCVInstPrinter13printStackAdjEPKNS_6MCInstEjRKNS_15MCSubtargetInfoERNS_11raw_ostreamEb.1 = select i1 %.not, ptr @switch.table._ZN4llvm16RISCVInstPrinter13printStackAdjEPKNS_6MCInstEjRKNS_15MCSubtargetInfoERNS_11raw_ostreamEb, ptr @switch.table._ZN4llvm16RISCVInstPrinter13printStackAdjEPKNS_6MCInstEjRKNS_15MCSubtargetInfoERNS_11raw_ostreamEb.1
-  %switch.tableidx14 = shl i64 %16, 32
-  %sext = add i64 %switch.tableidx14, -17179869184
-  %17 = ashr exact i64 %sext, 32
-  %switch.gep15 = getelementptr inbounds [12 x i64], ptr %switch.table._ZN4llvm16RISCVInstPrinter13printStackAdjEPKNS_6MCInstEjRKNS_15MCSubtargetInfoERNS_11raw_ostreamEb.switch.table._ZN4llvm16RISCVInstPrinter13printStackAdjEPKNS_6MCInstEjRKNS_15MCSubtargetInfoERNS_11raw_ostreamEb.1, i64 0, i64 %17
+  %switch.tableidx14 = add i64 %16, 4294967292
+  %17 = and i64 %switch.tableidx14, 4294967295
+  %switch.gep15 = getelementptr inbounds nuw [12 x i64], ptr %switch.table._ZN4llvm16RISCVInstPrinter13printStackAdjEPKNS_6MCInstEjRKNS_15MCSubtargetInfoERNS_11raw_ostreamEb.switch.table._ZN4llvm16RISCVInstPrinter13printStackAdjEPKNS_6MCInstEjRKNS_15MCSubtargetInfoERNS_11raw_ostreamEb.1, i64 0, i64 %17
   %switch.load16 = load i64, ptr %switch.gep15, align 8
   %18 = add nsw i64 %switch.load16, %11
   %19 = sub nsw i64 0, %18
@@ -1719,9 +1718,8 @@ define dso_local void @_ZN4llvm16RISCVInstPrinter11printFRMArgEPKNS_6MCInstEjRKN
 
 switch.lookup:                                    ; preds = %30, %28
   %.0.i.i = phi ptr [ %29, %28 ], [ %4, %30 ]
-  %sext = shl i64 %10, 32
-  %33 = ashr exact i64 %sext, 32
-  %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table._ZN4llvm16RISCVInstPrinter11printFRMArgEPKNS_6MCInstEjRKNS_15MCSubtargetInfoERNS_11raw_ostreamE, i64 0, i64 %33
+  %33 = and i64 %10, 4294967295
+  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN4llvm16RISCVInstPrinter11printFRMArgEPKNS_6MCInstEjRKNS_15MCSubtargetInfoERNS_11raw_ostreamE, i64 0, i64 %33
   %switch.load = load ptr, ptr %switch.gep, align 8
   %34 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
   %35 = load ptr, ptr %34, align 8, !tbaa !22
@@ -1783,10 +1781,9 @@ define dso_local void @_ZN4llvm16RISCVInstPrinter17printFRMArgLegacyEPKNS_6MCIns
 
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %22, %24
   %.0.i.i = phi ptr [ %23, %22 ], [ %4, %24 ]
-  %switch.tableidx = shl i64 %10, 32
-  %sext = add i64 %switch.tableidx, -4294967296
-  %27 = ashr exact i64 %sext, 32
-  %switch.gep = getelementptr inbounds [7 x ptr], ptr @switch.table._ZN4llvm16RISCVInstPrinter17printFRMArgLegacyEPKNS_6MCInstEjRKNS_15MCSubtargetInfoERNS_11raw_ostreamE, i64 0, i64 %27
+  %switch.tableidx = add i64 %10, 4294967295
+  %27 = and i64 %switch.tableidx, 4294967295
+  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table._ZN4llvm16RISCVInstPrinter17printFRMArgLegacyEPKNS_6MCInstEjRKNS_15MCSubtargetInfoERNS_11raw_ostreamE, i64 0, i64 %27
   %switch.load = load ptr, ptr %switch.gep, align 8
   %28 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
   %29 = load ptr, ptr %28, align 8, !tbaa !22

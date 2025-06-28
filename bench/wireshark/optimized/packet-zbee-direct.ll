@@ -2059,11 +2059,11 @@ switch.lookup:
   store ptr %2, ptr %6, align 8
   %7 = tail call i32 @tvb_captured_length(ptr noundef %0)
   %switch.tableidx = add nsw i32 %4, -9
-  %8 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.dissect_zb_direct_secur_common, i64 0, i64 %8
+  %8 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.dissect_zb_direct_secur_common, i64 0, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %9 = sext i32 %switch.tableidx to i64
-  %switch.gep1 = getelementptr inbounds [3 x ptr], ptr @switch.table.dissect_zb_direct_secur_common.4, i64 0, i64 %9
+  %9 = zext i32 %switch.tableidx to i64
+  %switch.gep1 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.dissect_zb_direct_secur_common.4, i64 0, i64 %9
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %10 = call fastcc i32 @dissect_zb_direct_common(ptr noundef nonnull %5, ptr noundef %1, ptr noundef nonnull %6, ptr noundef nonnull @serv_secur_uuid, ptr noundef nonnull %switch.load)
   %11 = load ptr, ptr %6, align 8

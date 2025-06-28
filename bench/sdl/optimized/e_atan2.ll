@@ -33,7 +33,7 @@ define hidden double @SDL_uclibc_atan2(double noundef %0, double noundef %1) loc
 
 16:                                               ; preds = %11, %2
   %17 = fadd double %0, %1
-  br label %68
+  br label %67
 
 18:                                               ; preds = %11
   %19 = add nsw i32 %.sroa.04.4.extract.trunc, -1072693248
@@ -43,7 +43,7 @@ define hidden double @SDL_uclibc_atan2(double noundef %0, double noundef %1) loc
 
 22:                                               ; preds = %18
   %23 = tail call double @SDL_uclibc_atan(double noundef %0) #3
-  br label %68
+  br label %67
 
 24:                                               ; preds = %18
   %25 = lshr i32 %.sroa.03.4.extract.trunc, 31
@@ -56,19 +56,19 @@ define hidden double @SDL_uclibc_atan2(double noundef %0, double noundef %1) loc
 
 31:                                               ; preds = %24
   switch i32 %28, label %default.unreachable52 [
-    i32 0, label %68
-    i32 1, label %68
+    i32 0, label %67
+    i32 1, label %67
     i32 2, label %32
     i32 3, label %33
   ]
 
 32:                                               ; preds = %31
-  br label %68
+  br label %67
 
 33:                                               ; preds = %31
-  br label %68
+  br label %67
 
-default.unreachable52:                            ; preds = %57, %31
+default.unreachable52:                            ; preds = %58, %31
   unreachable
 
 34:                                               ; preds = %24
@@ -78,78 +78,77 @@ default.unreachable52:                            ; preds = %57, %31
 
 37:                                               ; preds = %34
   %38 = tail call double @llvm.copysign.f64(double 0x3FF921FB54442D18, double %0)
-  br label %68
+  br label %67
 
 39:                                               ; preds = %34
   %40 = icmp eq i32 %4, 2146435072
   %41 = icmp eq i32 %6, 2146435072
-  br i1 %40, label %42, label %43
+  br i1 %40, label %42, label %44
 
 42:                                               ; preds = %39
+  %43 = zext nneg i32 %28 to i64
   br i1 %41, label %switch.lookup, label %switch.lookup53
 
-43:                                               ; preds = %39
-  br i1 %41, label %44, label %46
+44:                                               ; preds = %39
+  br i1 %41, label %45, label %47
 
-44:                                               ; preds = %43
-  %45 = tail call double @llvm.copysign.f64(double 0x3FF921FB54442D18, double %0)
-  br label %68
+45:                                               ; preds = %44
+  %46 = tail call double @llvm.copysign.f64(double 0x3FF921FB54442D18, double %0)
+  br label %67
 
-46:                                               ; preds = %43
-  %47 = sub nsw i32 %6, %4
-  %48 = ashr i32 %47, 20
-  %49 = icmp sgt i32 %48, 60
-  br i1 %49, label %57, label %50
+47:                                               ; preds = %44
+  %48 = sub nsw i32 %6, %4
+  %49 = ashr i32 %48, 20
+  %50 = icmp sgt i32 %49, 60
+  br i1 %50, label %58, label %51
 
-50:                                               ; preds = %46
-  %51 = icmp slt i64 %3, 0
-  %52 = icmp slt i32 %48, -60
-  %or.cond = and i1 %51, %52
-  br i1 %or.cond, label %57, label %53
+51:                                               ; preds = %47
+  %52 = icmp slt i64 %3, 0
+  %53 = icmp slt i32 %49, -60
+  %or.cond = and i1 %52, %53
+  br i1 %or.cond, label %58, label %54
 
-53:                                               ; preds = %50
-  %54 = fdiv double %0, %1
-  %55 = tail call double @SDL_uclibc_fabs(double noundef %54) #3
-  %56 = tail call double @SDL_uclibc_atan(double noundef %55) #3
-  br label %57
+54:                                               ; preds = %51
+  %55 = fdiv double %0, %1
+  %56 = tail call double @SDL_uclibc_fabs(double noundef %55) #3
+  %57 = tail call double @SDL_uclibc_atan(double noundef %56) #3
+  br label %58
 
-57:                                               ; preds = %50, %46, %53
-  %.049 = phi double [ %56, %53 ], [ 0x3FF921FB54442D18, %46 ], [ 0.000000e+00, %50 ]
+58:                                               ; preds = %51, %47, %54
+  %.049 = phi double [ %57, %54 ], [ 0x3FF921FB54442D18, %47 ], [ 0.000000e+00, %51 ]
   switch i32 %28, label %default.unreachable52 [
-    i32 0, label %68
-    i32 1, label %58
-    i32 2, label %60
-    i32 3, label %63
+    i32 0, label %67
+    i32 1, label %59
+    i32 2, label %61
+    i32 3, label %64
   ]
 
-58:                                               ; preds = %57
-  %59 = fneg double %.049
-  br label %68
+59:                                               ; preds = %58
+  %60 = fneg double %.049
+  br label %67
 
-60:                                               ; preds = %57
-  %61 = fadd double %.049, 0xBCA1A62633145C07
-  %62 = fsub double 0x400921FB54442D18, %61
-  br label %68
+61:                                               ; preds = %58
+  %62 = fadd double %.049, 0xBCA1A62633145C07
+  %63 = fsub double 0x400921FB54442D18, %62
+  br label %67
 
-63:                                               ; preds = %57
-  %64 = fadd double %.049, 0xBCA1A62633145C07
-  %65 = fadd double %64, 0xC00921FB54442D18
-  br label %68
+64:                                               ; preds = %58
+  %65 = fadd double %.049, 0xBCA1A62633145C07
+  %66 = fadd double %65, 0xC00921FB54442D18
+  br label %67
 
 switch.lookup:                                    ; preds = %42
-  %66 = zext nneg i32 %28 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x double], ptr @switch.table.SDL_uclibc_atan2, i64 0, i64 %66
+  %switch.gep = getelementptr inbounds nuw [4 x double], ptr @switch.table.SDL_uclibc_atan2, i64 0, i64 %43
   %switch.load = load double, ptr %switch.gep, align 8
-  br label %68
+  br label %67
 
 switch.lookup53:                                  ; preds = %42
-  %67 = zext nneg i32 %28 to i64
-  %switch.gep54 = getelementptr inbounds nuw [4 x double], ptr @switch.table.SDL_uclibc_atan2.1, i64 0, i64 %67
+  %switch.gep54 = getelementptr inbounds nuw [4 x double], ptr @switch.table.SDL_uclibc_atan2.1, i64 0, i64 %43
   %switch.load55 = load double, ptr %switch.gep54, align 8
-  br label %68
+  br label %67
 
-68:                                               ; preds = %switch.lookup53, %switch.lookup, %57, %31, %31, %63, %60, %58, %44, %37, %33, %32, %22, %16
-  %.0 = phi double [ %17, %16 ], [ %23, %22 ], [ %38, %37 ], [ %45, %44 ], [ %65, %63 ], [ %59, %58 ], [ %62, %60 ], [ 0x400921FB54442D18, %32 ], [ 0xC00921FB54442D18, %33 ], [ %0, %31 ], [ %0, %31 ], [ %.049, %57 ], [ %switch.load, %switch.lookup ], [ %switch.load55, %switch.lookup53 ]
+67:                                               ; preds = %switch.lookup53, %switch.lookup, %58, %31, %31, %64, %61, %59, %45, %37, %33, %32, %22, %16
+  %.0 = phi double [ %17, %16 ], [ %23, %22 ], [ %38, %37 ], [ %46, %45 ], [ %66, %64 ], [ %60, %59 ], [ %63, %61 ], [ 0x400921FB54442D18, %32 ], [ 0xC00921FB54442D18, %33 ], [ %0, %31 ], [ %0, %31 ], [ %.049, %58 ], [ %switch.load, %switch.lookup ], [ %switch.load55, %switch.lookup53 ]
   ret double %.0
 }
 

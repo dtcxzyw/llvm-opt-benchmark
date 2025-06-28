@@ -1713,8 +1713,8 @@ Cec_GiaSplitClean.exit:                           ; preds = %.critedge.i, %.crit
 
 switch.lookup:                                    ; preds = %Cec_GiaSplitClean.exit
   %switch.tableidx = add nsw i32 %spec.select244252, 1
-  %421 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.Cec_GiaSplitTestInt, i64 0, i64 %421
+  %421 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.Cec_GiaSplitTestInt, i64 0, i64 %421
   %switch.load = load ptr, ptr %switch.gep, align 8
   %422 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %switch.load)
   %423 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %.0105198243254)
@@ -2849,8 +2849,8 @@ Cec_GiaSplitClean.exit:                           ; preds = %.critedge.i, %.crit
 
 switch.lookup:                                    ; preds = %Cec_GiaSplitClean.exit
   %switch.tableidx = add nsw i32 %.6154356360370380, 1
-  %421 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.Cec_GiaSplitTestInt, i64 0, i64 %421
+  %421 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.Cec_GiaSplitTestInt, i64 0, i64 %421
   %switch.load = load ptr, ptr %switch.gep, align 8
   %422 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %switch.load)
   %423 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %.7355361368382)

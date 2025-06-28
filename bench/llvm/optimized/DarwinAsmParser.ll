@@ -7082,10 +7082,9 @@ _ZL17isSDKVersionTokenRKN4llvm8AsmTokenE.exit.thread.i: ; preds = %_ZL17isSDKVer
   br label %133
 
 switch.lookup:                                    ; preds = %_ZL17isSDKVersionTokenRKN4llvm8AsmTokenE.exit.thread.i
-  %switch.tableidx = shl i64 %.sroa.30.12.i, 32
-  %sext = add nsw i64 %switch.tableidx, -4294967296
-  %121 = ashr exact i64 %sext, 32
-  %switch.gep = getelementptr inbounds [11 x i32], ptr @switch.table._ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_17parseBuildVersionES5_S6_EEEEbPS0_S5_S6_, i64 0, i64 %121
+  %switch.tableidx = add nuw nsw i64 %.sroa.30.12.i, 4294967295
+  %121 = and i64 %switch.tableidx, 4294967295
+  %switch.gep = getelementptr inbounds nuw [11 x i32], ptr @switch.table._ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_17parseBuildVersionES5_S6_EEEEbPS0_S5_S6_, i64 0, i64 %121
   %switch.load = load i32, ptr %switch.gep, align 4
   %.sroa.01.0.copyload.i = load ptr, ptr %8, align 8, !tbaa !15
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.26.0..sroa_idx.i, align 8, !tbaa !35

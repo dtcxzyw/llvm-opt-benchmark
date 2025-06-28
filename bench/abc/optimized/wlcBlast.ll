@@ -13768,8 +13768,8 @@ Wlc_ObjFaninId.exit3191:                          ; preds = %1612, %Wlc_ObjHasAr
 
 switch.lookup:                                    ; preds = %1630
   %switch.tableidx = add nsw i32 %554, -1
-  %1632 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table.Wlc_NtkBitBlast, i64 0, i64 %1632
+  %1632 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [16 x ptr], ptr @switch.table.Wlc_NtkBitBlast, i64 0, i64 %1632
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %Wlc_NtkMuxTreeString.exit
 

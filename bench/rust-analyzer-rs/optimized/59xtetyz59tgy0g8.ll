@@ -641,9 +641,9 @@ define hidden noundef i128 @_ZN15ra_ap_rustc_abi5Niche9available17h7f542a6735421
   switch i8 %trunc.i, label %7 [
     i8 0, label %switch.lookup
     i8 1, label %_ZN15ra_ap_rustc_abi4Size4bits17hd304254189ad847eE.llvm.6424288313766077374.exit2
-    i8 2, label %10
-    i8 3, label %11
-    i8 4, label %12
+    i8 2, label %9
+    i8 3, label %10
+    i8 4, label %11
     i8 5, label %_ZN15ra_ap_rustc_abi9Primitive4size17h0af1a03105ad0dc5E.llvm.6424288313766077374.exit
   ]
 
@@ -651,10 +651,13 @@ define hidden noundef i128 @_ZN15ra_ap_rustc_abi5Niche9available17h7f542a6735421
   unreachable
 
 switch.lookup:                                    ; preds = %2
-  %8 = shl i64 %.sroa.0.0.copyload, 48
-  %9 = ashr i64 %8, 56
-  %switch.gep = getelementptr inbounds [5 x i64], ptr @switch.table._ZN15ra_ap_rustc_abi5Niche9available17h7f542a67354214adE, i64 0, i64 %9
+  %.sroa.4.0.extract.shift.i = lshr i64 %.sroa.0.0.copyload, 8
+  %8 = and i64 %.sroa.4.0.extract.shift.i, 255
+  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN15ra_ap_rustc_abi5Niche9available17h7f542a67354214adE, i64 0, i64 %8
   %switch.load = load i64, ptr %switch.gep, align 8
+  br label %_ZN15ra_ap_rustc_abi4Size4bits17hd304254189ad847eE.llvm.6424288313766077374.exit2
+
+9:                                                ; preds = %2
   br label %_ZN15ra_ap_rustc_abi4Size4bits17hd304254189ad847eE.llvm.6424288313766077374.exit2
 
 10:                                               ; preds = %2
@@ -663,37 +666,34 @@ switch.lookup:                                    ; preds = %2
 11:                                               ; preds = %2
   br label %_ZN15ra_ap_rustc_abi4Size4bits17hd304254189ad847eE.llvm.6424288313766077374.exit2
 
-12:                                               ; preds = %2
-  br label %_ZN15ra_ap_rustc_abi4Size4bits17hd304254189ad847eE.llvm.6424288313766077374.exit2
-
 _ZN15ra_ap_rustc_abi9Primitive4size17h0af1a03105ad0dc5E.llvm.6424288313766077374.exit: ; preds = %2
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %14 = load i64, ptr %13, align 8, !alias.scope !251, !noundef !212
-  %15 = icmp ugt i64 %14, 2305843009213693951
-  br i1 %15, label %16, label %_ZN15ra_ap_rustc_abi4Size4bits17hd304254189ad847eE.llvm.6424288313766077374.exit
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %13 = load i64, ptr %12, align 8, !alias.scope !251, !noundef !212
+  %14 = icmp ugt i64 %13, 2305843009213693951
+  br i1 %14, label %15, label %_ZN15ra_ap_rustc_abi4Size4bits17hd304254189ad847eE.llvm.6424288313766077374.exit
 
-16:                                               ; preds = %_ZN15ra_ap_rustc_abi9Primitive4size17h0af1a03105ad0dc5E.llvm.6424288313766077374.exit
-  tail call void @_ZN15ra_ap_rustc_abi4Size4bits8overflow17haac9eaa2b74b64e3E(i64 noundef %14) #35
+15:                                               ; preds = %_ZN15ra_ap_rustc_abi9Primitive4size17h0af1a03105ad0dc5E.llvm.6424288313766077374.exit
+  tail call void @_ZN15ra_ap_rustc_abi4Size4bits8overflow17haac9eaa2b74b64e3E(i64 noundef %13) #35
   unreachable
 
 _ZN15ra_ap_rustc_abi4Size4bits17hd304254189ad847eE.llvm.6424288313766077374.exit: ; preds = %_ZN15ra_ap_rustc_abi9Primitive4size17h0af1a03105ad0dc5E.llvm.6424288313766077374.exit
-  %.neg6 = mul nsw i64 %14, -8
-  %17 = icmp samesign ult i64 %14, 17
-  br i1 %17, label %_ZN15ra_ap_rustc_abi4Size4bits17hd304254189ad847eE.llvm.6424288313766077374.exit2, label %18
+  %.neg6 = mul nsw i64 %13, -8
+  %16 = icmp samesign ult i64 %13, 17
+  br i1 %16, label %_ZN15ra_ap_rustc_abi4Size4bits17hd304254189ad847eE.llvm.6424288313766077374.exit2, label %17
 
-18:                                               ; preds = %_ZN15ra_ap_rustc_abi4Size4bits17hd304254189ad847eE.llvm.6424288313766077374.exit
+17:                                               ; preds = %_ZN15ra_ap_rustc_abi4Size4bits17hd304254189ad847eE.llvm.6424288313766077374.exit
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.d7fdd12e8222bef38308d17493fce316.7.llvm.6424288313766077374, i64 noundef 36, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d7fdd12e8222bef38308d17493fce316.8.llvm.6424288313766077374) #35
   unreachable
 
-_ZN15ra_ap_rustc_abi4Size4bits17hd304254189ad847eE.llvm.6424288313766077374.exit2: ; preds = %switch.lookup, %10, %11, %12, %2, %_ZN15ra_ap_rustc_abi4Size4bits17hd304254189ad847eE.llvm.6424288313766077374.exit
-  %.neg7 = phi i64 [ %.neg6, %_ZN15ra_ap_rustc_abi4Size4bits17hd304254189ad847eE.llvm.6424288313766077374.exit ], [ -32, %10 ], [ -64, %11 ], [ -128, %12 ], [ -16, %2 ], [ %switch.load, %switch.lookup ]
-  %19 = and i64 %.neg7, 120
-  %20 = zext nneg i64 %19 to i128
-  %21 = lshr i128 -1, %20
+_ZN15ra_ap_rustc_abi4Size4bits17hd304254189ad847eE.llvm.6424288313766077374.exit2: ; preds = %switch.lookup, %9, %10, %11, %2, %_ZN15ra_ap_rustc_abi4Size4bits17hd304254189ad847eE.llvm.6424288313766077374.exit
+  %.neg7 = phi i64 [ %.neg6, %_ZN15ra_ap_rustc_abi4Size4bits17hd304254189ad847eE.llvm.6424288313766077374.exit ], [ -32, %9 ], [ -64, %10 ], [ -128, %11 ], [ -16, %2 ], [ %switch.load, %switch.lookup ]
+  %18 = and i64 %.neg7, 120
+  %19 = zext nneg i64 %18 to i128
+  %20 = lshr i128 -1, %19
   %.neg = xor i128 %6, -1
-  %22 = add i128 %4, %.neg
-  %23 = and i128 %21, %22
-  ret i128 %23
+  %21 = add i128 %4, %.neg
+  %22 = and i128 %20, %21
+  ret i128 %22
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -704,20 +704,23 @@ define hidden noundef i64 @_ZN15ra_ap_rustc_abi6Scalar4size17h1d60abdac8603995E(
   switch i8 %trunc.i, label %3 [
     i8 0, label %switch.lookup
     i8 1, label %_ZN15ra_ap_rustc_abi9Primitive4size17h0af1a03105ad0dc5E.llvm.6424288313766077374.exit
-    i8 2, label %6
-    i8 3, label %7
-    i8 4, label %8
-    i8 5, label %9
+    i8 2, label %5
+    i8 3, label %6
+    i8 4, label %7
+    i8 5, label %8
   ]
 
 3:                                                ; preds = %2
   unreachable
 
 switch.lookup:                                    ; preds = %2
-  %4 = shl i64 %.sroa.0.0, 48
-  %5 = ashr i64 %4, 56
-  %switch.gep = getelementptr inbounds [5 x i64], ptr @switch.table._ZN15ra_ap_rustc_abi9Primitive4size17h0af1a03105ad0dc5E.llvm.6424288313766077374, i64 0, i64 %5
+  %.sroa.4.0.extract.shift.i = lshr i64 %.sroa.0.0, 8
+  %4 = and i64 %.sroa.4.0.extract.shift.i, 255
+  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN15ra_ap_rustc_abi9Primitive4size17h0af1a03105ad0dc5E.llvm.6424288313766077374, i64 0, i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
+  br label %_ZN15ra_ap_rustc_abi9Primitive4size17h0af1a03105ad0dc5E.llvm.6424288313766077374.exit
+
+5:                                                ; preds = %2
   br label %_ZN15ra_ap_rustc_abi9Primitive4size17h0af1a03105ad0dc5E.llvm.6424288313766077374.exit
 
 6:                                                ; preds = %2
@@ -727,23 +730,20 @@ switch.lookup:                                    ; preds = %2
   br label %_ZN15ra_ap_rustc_abi9Primitive4size17h0af1a03105ad0dc5E.llvm.6424288313766077374.exit
 
 8:                                                ; preds = %2
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %10 = load i64, ptr %9, align 8, !alias.scope !254, !noundef !212
   br label %_ZN15ra_ap_rustc_abi9Primitive4size17h0af1a03105ad0dc5E.llvm.6424288313766077374.exit
 
-9:                                                ; preds = %2
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %11 = load i64, ptr %10, align 8, !alias.scope !254, !noundef !212
-  br label %_ZN15ra_ap_rustc_abi9Primitive4size17h0af1a03105ad0dc5E.llvm.6424288313766077374.exit
-
-_ZN15ra_ap_rustc_abi9Primitive4size17h0af1a03105ad0dc5E.llvm.6424288313766077374.exit: ; preds = %switch.lookup, %2, %6, %7, %8, %9
-  %.0.i = phi i64 [ 4, %6 ], [ 8, %7 ], [ 16, %8 ], [ %11, %9 ], [ 2, %2 ], [ %switch.load, %switch.lookup ]
+_ZN15ra_ap_rustc_abi9Primitive4size17h0af1a03105ad0dc5E.llvm.6424288313766077374.exit: ; preds = %switch.lookup, %2, %5, %6, %7, %8
+  %.0.i = phi i64 [ 4, %5 ], [ 8, %6 ], [ 16, %7 ], [ %10, %8 ], [ 2, %2 ], [ %switch.load, %switch.lookup ]
   ret i64 %.0.i
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef range(i64 1, 17) i64 @_ZN15ra_ap_rustc_abi7Integer4size17h77ec4c8a7cbc1d5dE.llvm.6424288313766077374(i8 noundef %0) unnamed_addr #3 {
 switch.lookup:
-  %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds [5 x i64], ptr @switch.table._ZN15ra_ap_rustc_abi9Primitive4size17h0af1a03105ad0dc5E.llvm.6424288313766077374, i64 0, i64 %1
+  %1 = zext i8 %0 to i64
+  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN15ra_ap_rustc_abi9Primitive4size17h0af1a03105ad0dc5E.llvm.6424288313766077374, i64 0, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   ret i64 %switch.load
 }
@@ -754,20 +754,23 @@ define hidden noundef i64 @_ZN15ra_ap_rustc_abi9Primitive4size17h0af1a03105ad0dc
   switch i8 %trunc, label %3 [
     i8 0, label %switch.lookup
     i8 1, label %_ZN15ra_ap_rustc_abi7Integer4size17h77ec4c8a7cbc1d5dE.llvm.6424288313766077374.exit
-    i8 2, label %6
-    i8 3, label %7
-    i8 4, label %8
-    i8 5, label %9
+    i8 2, label %5
+    i8 3, label %6
+    i8 4, label %7
+    i8 5, label %8
   ]
 
 3:                                                ; preds = %2
   unreachable
 
 switch.lookup:                                    ; preds = %2
-  %4 = shl i64 %0, 48
-  %5 = ashr i64 %4, 56
-  %switch.gep = getelementptr inbounds [5 x i64], ptr @switch.table._ZN15ra_ap_rustc_abi9Primitive4size17h0af1a03105ad0dc5E.llvm.6424288313766077374, i64 0, i64 %5
+  %.sroa.4.0.extract.shift = lshr i64 %0, 8
+  %4 = and i64 %.sroa.4.0.extract.shift, 255
+  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN15ra_ap_rustc_abi9Primitive4size17h0af1a03105ad0dc5E.llvm.6424288313766077374, i64 0, i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
+  br label %_ZN15ra_ap_rustc_abi7Integer4size17h77ec4c8a7cbc1d5dE.llvm.6424288313766077374.exit
+
+5:                                                ; preds = %2
   br label %_ZN15ra_ap_rustc_abi7Integer4size17h77ec4c8a7cbc1d5dE.llvm.6424288313766077374.exit
 
 6:                                                ; preds = %2
@@ -777,15 +780,12 @@ switch.lookup:                                    ; preds = %2
   br label %_ZN15ra_ap_rustc_abi7Integer4size17h77ec4c8a7cbc1d5dE.llvm.6424288313766077374.exit
 
 8:                                                ; preds = %2
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %10 = load i64, ptr %9, align 8, !noundef !212
   br label %_ZN15ra_ap_rustc_abi7Integer4size17h77ec4c8a7cbc1d5dE.llvm.6424288313766077374.exit
 
-9:                                                ; preds = %2
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %11 = load i64, ptr %10, align 8, !noundef !212
-  br label %_ZN15ra_ap_rustc_abi7Integer4size17h77ec4c8a7cbc1d5dE.llvm.6424288313766077374.exit
-
-_ZN15ra_ap_rustc_abi7Integer4size17h77ec4c8a7cbc1d5dE.llvm.6424288313766077374.exit: ; preds = %switch.lookup, %2, %9, %8, %7, %6
-  %.0 = phi i64 [ 4, %6 ], [ 8, %7 ], [ 16, %8 ], [ %11, %9 ], [ 2, %2 ], [ %switch.load, %switch.lookup ]
+_ZN15ra_ap_rustc_abi7Integer4size17h77ec4c8a7cbc1d5dE.llvm.6424288313766077374.exit: ; preds = %switch.lookup, %2, %8, %7, %6, %5
+  %.0 = phi i64 [ 4, %5 ], [ 8, %6 ], [ 16, %7 ], [ %10, %8 ], [ 2, %2 ], [ %switch.load, %switch.lookup ]
   ret i64 %.0
 }
 
@@ -31496,8 +31496,8 @@ switch.lookup:                                    ; preds = %55
   %.sroa.5261.0..sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 14
   %.sroa.5261.0.copyload = load i16, ptr %.sroa.5261.0..sroa_idx, align 2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %32)
-  %146 = sext i32 %.sroa.0393.0.copyload to i64
-  %switch.gep = getelementptr inbounds [3 x i32], ptr @"switch.table._ZN83_$LT$syntax..ast..generated..nodes..TupleField$u20$as$u20$hir..semantics..ToDef$GT$6to_def17he8b192c24241a002E", i64 0, i64 %146
+  %146 = zext i32 %.sroa.0393.0.copyload to i64
+  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @"switch.table._ZN83_$LT$syntax..ast..generated..nodes..TupleField$u20$as$u20$hir..semantics..ToDef$GT$6to_def17he8b192c24241a002E", i64 0, i64 %146
   %switch.load = load i32, ptr %switch.gep, align 4
   %147 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !10548
   %148 = tail call noundef align 4 dereferenceable_or_null(28) ptr @__rust_alloc(i64 noundef 28, i64 noundef 4) #38, !noalias !10548

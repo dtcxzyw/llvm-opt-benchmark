@@ -17610,13 +17610,11 @@ switch.lookup:                                    ; preds = %_ZNSt7__cxx1112basi
   %190 = trunc nuw nsw i64 %.049129.i to i32
   store i32 %190, ptr %21, align 4, !tbaa !629, !noalias !596
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %22) #28, !noalias !596
-  %sext = shl i64 %.049129.i, 32
-  %191 = ashr exact i64 %sext, 32
-  %switch.gep = getelementptr inbounds [28 x ptr], ptr @switch.table._ZN5vcpkg15read_build_infoERKNS_18ReadOnlyFilesystemERKNS_4PathE, i64 0, i64 %191
+  %191 = and i64 %.049129.i, 4294967295
+  %switch.gep = getelementptr inbounds nuw [28 x ptr], ptr @switch.table._ZN5vcpkg15read_build_infoERKNS_18ReadOnlyFilesystemERKNS_4PathE, i64 0, i64 %191
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %sext19 = shl i64 %.049129.i, 32
-  %192 = ashr exact i64 %sext19, 32
-  %switch.gep17 = getelementptr inbounds [28 x i64], ptr @switch.table._ZN5vcpkg15read_build_infoERKNS_18ReadOnlyFilesystemERKNS_4PathE.62, i64 0, i64 %192
+  %192 = and i64 %.049129.i, 4294967295
+  %switch.gep17 = getelementptr inbounds nuw [28 x i64], ptr @switch.table._ZN5vcpkg15read_build_infoERKNS_18ReadOnlyFilesystemERKNS_4PathE.62, i64 0, i64 %192
   %switch.load18 = load i64, ptr %switch.gep17, align 8
   invoke void @_ZN5vcpkg15ParagraphParser23optional_field_or_emptyB5cxx11ENS_13StringLiteralE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %22, ptr noundef nonnull align 8 dereferenceable(64) %8, ptr nonnull %switch.load, i64 %switch.load18)
           to label %193 unwind label %196

@@ -726,8 +726,8 @@ deint_vaapi_mode_name.exit:                       ; preds = %._crit_edge72, %swi
 
 switch.lookup81:                                  ; preds = %._crit_edge
   %switch.tableidx82 = add nsw i32 %17, -1
-  %37 = sext i32 %switch.tableidx82 to i64
-  %switch.gep83 = getelementptr inbounds [4 x ptr], ptr @switch.table.deint_vaapi_build_filter_params.1, i64 0, i64 %37
+  %37 = zext i32 %switch.tableidx82 to i64
+  %switch.gep83 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.deint_vaapi_build_filter_params.1, i64 0, i64 %37
   %switch.load84 = load ptr, ptr %switch.gep83, align 8
   br label %deint_vaapi_mode_name.exit67
 

@@ -4161,8 +4161,8 @@ define hidden void @_ZN19pyo3_macros_backend6method6FnSpec5parse17hdd172ccc207a6
 switch.lookup:                                    ; preds = %427
   %433 = extractvalue { ptr, ptr } %429, 0
   %434 = extractvalue { ptr, ptr } %429, 1
-  %435 = sext i32 %.sroa.12.0..sroa.12.0..sroa.12.0..sroa.12.0..sroa.0166.0.copyload to i64
-  %switch.gep = getelementptr inbounds [9 x i64], ptr @switch.table._ZN19pyo3_macros_backend6method6FnSpec5parse17hdd172ccc207a6767E, i64 0, i64 %435
+  %435 = zext i32 %.sroa.12.0..sroa.12.0..sroa.12.0..sroa.12.0..sroa.0166.0.copyload to i64
+  %switch.gep = getelementptr inbounds nuw [9 x i64], ptr @switch.table._ZN19pyo3_macros_backend6method6FnSpec5parse17hdd172ccc207a6767E, i64 0, i64 %435
   %switch.load = load i64, ptr %switch.gep, align 8
   store ptr %433, ptr %88, align 8
   %.sroa.224.0..sroa_idx = getelementptr inbounds nuw i8, ptr %88, i64 8

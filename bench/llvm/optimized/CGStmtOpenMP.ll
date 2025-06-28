@@ -44469,8 +44469,8 @@ _ZN5clang7CodeGen15CodeGenFunction12LexicalScopeC2ERS1_NS_11SourceRangeE.exit: ;
 
 switch.lookup:                                    ; preds = %309
   %switch.tableidx = add nsw i32 %.1, -2
-  %312 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table._ZN5clang7CodeGen15CodeGenFunction22EmitOMPAtomicDirectiveERKNS_18OMPAtomicDirectiveE, i64 0, i64 %312
+  %312 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN5clang7CodeGen15CodeGenFunction22EmitOMPAtomicDirectiveERKNS_18OMPAtomicDirectiveE, i64 0, i64 %312
   %switch.load = load i32, ptr %switch.gep, align 4
   %313 = and i64 %.sroa.488.0.copyload.i, 4
   %314 = icmp ne i64 %313, 0
@@ -45283,8 +45283,8 @@ switch.lookup327:                                 ; preds = %_ZN5clang7CodeGen15
   %624 = lshr i32 %.val.i, 19
   %625 = and i32 %624, 63
   %switch.tableidx328 = add nsw i32 %625, -10
-  %626 = sext i32 %switch.tableidx328 to i64
-  %switch.gep329 = getelementptr inbounds [5 x i32], ptr @switch.table._ZN5clang7CodeGen15CodeGenFunction22EmitOMPAtomicDirectiveERKNS_18OMPAtomicDirectiveE.539, i64 0, i64 %626
+  %626 = zext i32 %switch.tableidx328 to i64
+  %switch.gep329 = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZN5clang7CodeGen15CodeGenFunction22EmitOMPAtomicDirectiveERKNS_18OMPAtomicDirectiveE.539, i64 0, i64 %626
   %switch.load330 = load i32, ptr %switch.gep329, align 4
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %5) #22
   call void @_ZN5clang7CodeGen15CodeGenFunction10EmitLValueEPKNS_4ExprENS0_14KnownNonNull_tE(ptr dead_on_unwind nonnull writable sret(%"class.clang::CodeGen::LValue") align 8 %5, ptr noundef nonnull align 8 dereferenceable(6496) %0, ptr noundef %275, i32 noundef 0) #22

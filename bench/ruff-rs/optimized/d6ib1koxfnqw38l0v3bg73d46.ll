@@ -19039,9 +19039,9 @@ switch.lookup:
   %switch.gep = getelementptr inbounds nuw [256 x i64], ptr @"switch.table._ZN78_$LT$ruff_linter..codes..Pylint$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17ha022f1b2d047b914E", i64 0, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext i8 %switch.tableidx to i64
-  %switch.gep3 = getelementptr inbounds nuw [256 x ptr], ptr @"switch.table._ZN78_$LT$ruff_linter..codes..Pylint$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17ha022f1b2d047b914E.159", i64 0, i64 %3
-  %switch.load4 = load ptr, ptr %switch.gep3, align 8
-  %4 = insertvalue { ptr, i64 } poison, ptr %switch.load4, 0
+  %switch.gep2 = getelementptr inbounds nuw [256 x ptr], ptr @"switch.table._ZN78_$LT$ruff_linter..codes..Pylint$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17ha022f1b2d047b914E.159", i64 0, i64 %3
+  %switch.load3 = load ptr, ptr %switch.gep2, align 8
+  %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
   ret { ptr, i64 } %5
 }
@@ -19055,9 +19055,9 @@ switch.lookup:
   %switch.gep = getelementptr inbounds nuw [256 x i64], ptr @"switch.table._ZN78_$LT$ruff_linter..codes..Pylint$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17ha022f1b2d047b914E", i64 0, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext i8 %switch.tableidx to i64
-  %switch.gep3 = getelementptr inbounds nuw [256 x ptr], ptr @"switch.table._ZN78_$LT$ruff_linter..codes..Pylint$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17ha022f1b2d047b914E.159", i64 0, i64 %3
-  %switch.load4 = load ptr, ptr %switch.gep3, align 8
-  %4 = insertvalue { ptr, i64 } poison, ptr %switch.load4, 0
+  %switch.gep2 = getelementptr inbounds nuw [256 x ptr], ptr @"switch.table._ZN78_$LT$ruff_linter..codes..Pylint$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17ha022f1b2d047b914E.159", i64 0, i64 %3
+  %switch.load3 = load ptr, ptr %switch.gep2, align 8
+  %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
   ret { ptr, i64 } %5
 }

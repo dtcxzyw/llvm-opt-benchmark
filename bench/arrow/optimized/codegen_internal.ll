@@ -5069,8 +5069,8 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
 
 switch.lookup:                                    ; preds = %89
   %switch.tableidx = add nsw i32 %93, -2
-  %94 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [8 x i32], ptr @switch.table._ZN5arrow7compute8internal15CastDecimalArgsEPNS_10TypeHolderEm, i64 0, i64 %94
+  %94 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN5arrow7compute8internal15CastDecimalArgsEPNS_10TypeHolderEm, i64 0, i64 %94
   %switch.load = load i32, ptr %switch.gep, align 4
   %95 = add nuw nsw i32 %switch.load, %.2.ph
   %.sroa.speculated132 = tail call i32 @llvm.smax.i32(i32 %90, i32 %95)

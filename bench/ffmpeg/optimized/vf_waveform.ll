@@ -1336,7 +1336,7 @@ switch.lookup:                                    ; preds = %1
   br label %153
 
 153:                                              ; preds = %.sink.split257, %144, %150
-  switch i32 %35, label %204 [
+  switch i32 %35, label %193 [
     i32 4, label %154
     i32 5, label %154
     i32 0, label %154
@@ -1350,7 +1350,7 @@ switch.lookup:                                    ; preds = %1
 154:                                              ; preds = %153, %153, %153
   %155 = getelementptr inbounds nuw i8, ptr %5, i64 380
   %156 = load i32, ptr %155, align 4, !tbaa !107
-  switch i32 %156, label %204 [
+  switch i32 %156, label %193 [
     i32 0, label %157
     i32 1, label %159
     i32 2, label %161
@@ -1363,7 +1363,7 @@ switch.lookup:                                    ; preds = %1
   %switch.shifted = lshr i8 23, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
   %or.cond370 = select i1 %158, i1 %switch.lobit, i1 false
-  br i1 %or.cond370, label %switch.lookup268, label %204
+  br i1 %or.cond370, label %.sink.split259, label %193
 
 159:                                              ; preds = %154
   %switch.tableidx272 = add i32 %15, -8
@@ -1372,7 +1372,7 @@ switch.lookup:                                    ; preds = %1
   %switch.shifted276 = lshr i8 23, %switch.maskindex275
   %switch.lobit277 = trunc i8 %switch.shifted276 to i1
   %or.cond371 = select i1 %160, i1 %switch.lobit277, i1 false
-  br i1 %or.cond371, label %switch.lookup274, label %204
+  br i1 %or.cond371, label %.sink.split259, label %193
 
 161:                                              ; preds = %154
   %switch.tableidx281 = add i32 %15, -8
@@ -1381,12 +1381,12 @@ switch.lookup:                                    ; preds = %1
   %switch.shifted285 = lshr i8 23, %switch.maskindex284
   %switch.lobit286 = trunc i8 %switch.shifted285 to i1
   %or.cond372 = select i1 %162, i1 %switch.lobit286, i1 false
-  br i1 %or.cond372, label %switch.lookup283, label %204
+  br i1 %or.cond372, label %.sink.split259, label %193
 
 163:                                              ; preds = %153
   %164 = getelementptr inbounds nuw i8, ptr %5, i64 380
   %165 = load i32, ptr %164, align 4, !tbaa !107
-  switch i32 %165, label %204 [
+  switch i32 %165, label %193 [
     i32 0, label %166
     i32 1, label %168
     i32 2, label %170
@@ -1399,7 +1399,7 @@ switch.lookup:                                    ; preds = %1
   %switch.shifted294 = lshr i8 23, %switch.maskindex293
   %switch.lobit295 = trunc i8 %switch.shifted294 to i1
   %or.cond373 = select i1 %167, i1 %switch.lobit295, i1 false
-  br i1 %or.cond373, label %switch.lookup292, label %204
+  br i1 %or.cond373, label %.sink.split259, label %193
 
 168:                                              ; preds = %163
   %switch.tableidx299 = add i32 %15, -8
@@ -1408,7 +1408,7 @@ switch.lookup:                                    ; preds = %1
   %switch.shifted303 = lshr i8 23, %switch.maskindex302
   %switch.lobit304 = trunc i8 %switch.shifted303 to i1
   %or.cond374 = select i1 %169, i1 %switch.lobit304, i1 false
-  br i1 %or.cond374, label %switch.lookup301, label %204
+  br i1 %or.cond374, label %.sink.split259, label %193
 
 170:                                              ; preds = %163
   %switch.tableidx308 = add i32 %15, -8
@@ -1417,12 +1417,12 @@ switch.lookup:                                    ; preds = %1
   %switch.shifted312 = lshr i8 23, %switch.maskindex311
   %switch.lobit313 = trunc i8 %switch.shifted312 to i1
   %or.cond375 = select i1 %171, i1 %switch.lobit313, i1 false
-  br i1 %or.cond375, label %switch.lookup310, label %204
+  br i1 %or.cond375, label %.sink.split259, label %193
 
 172:                                              ; preds = %153, %153, %153
   %173 = getelementptr inbounds nuw i8, ptr %5, i64 380
   %174 = load i32, ptr %173, align 4, !tbaa !107
-  switch i32 %174, label %204 [
+  switch i32 %174, label %193 [
     i32 0, label %175
     i32 1, label %177
     i32 2, label %179
@@ -1435,7 +1435,7 @@ switch.lookup:                                    ; preds = %1
   %switch.shifted321 = lshr i8 23, %switch.maskindex320
   %switch.lobit322 = trunc i8 %switch.shifted321 to i1
   %or.cond376 = select i1 %176, i1 %switch.lobit322, i1 false
-  br i1 %or.cond376, label %switch.lookup319, label %204
+  br i1 %or.cond376, label %.sink.split259, label %193
 
 177:                                              ; preds = %172
   %switch.tableidx326 = add i32 %15, -8
@@ -1444,7 +1444,7 @@ switch.lookup:                                    ; preds = %1
   %switch.shifted330 = lshr i8 23, %switch.maskindex329
   %switch.lobit331 = trunc i8 %switch.shifted330 to i1
   %or.cond377 = select i1 %178, i1 %switch.lobit331, i1 false
-  br i1 %or.cond377, label %switch.lookup328, label %204
+  br i1 %or.cond377, label %.sink.split259, label %193
 
 179:                                              ; preds = %172
   %switch.tableidx335 = add i32 %15, -8
@@ -1453,12 +1453,12 @@ switch.lookup:                                    ; preds = %1
   %switch.shifted339 = lshr i8 23, %switch.maskindex338
   %switch.lobit340 = trunc i8 %switch.shifted339 to i1
   %or.cond378 = select i1 %180, i1 %switch.lobit340, i1 false
-  br i1 %or.cond378, label %switch.lookup337, label %204
+  br i1 %or.cond378, label %.sink.split259, label %193
 
 181:                                              ; preds = %153
   %182 = getelementptr inbounds nuw i8, ptr %5, i64 380
   %183 = load i32, ptr %182, align 4, !tbaa !107
-  switch i32 %183, label %204 [
+  switch i32 %183, label %193 [
     i32 0, label %184
     i32 1, label %186
     i32 2, label %188
@@ -1471,7 +1471,7 @@ switch.lookup:                                    ; preds = %1
   %switch.shifted348 = lshr i8 23, %switch.maskindex347
   %switch.lobit349 = trunc i8 %switch.shifted348 to i1
   %or.cond379 = select i1 %185, i1 %switch.lobit349, i1 false
-  br i1 %or.cond379, label %switch.lookup346, label %204
+  br i1 %or.cond379, label %.sink.split259, label %193
 
 186:                                              ; preds = %181
   %switch.tableidx353 = add i32 %15, -8
@@ -1480,7 +1480,7 @@ switch.lookup:                                    ; preds = %1
   %switch.shifted357 = lshr i8 23, %switch.maskindex356
   %switch.lobit358 = trunc i8 %switch.shifted357 to i1
   %or.cond380 = select i1 %187, i1 %switch.lobit358, i1 false
-  br i1 %or.cond380, label %switch.lookup355, label %204
+  br i1 %or.cond380, label %.sink.split259, label %193
 
 188:                                              ; preds = %181
   %switch.tableidx362 = add i32 %15, -8
@@ -1489,101 +1489,44 @@ switch.lookup:                                    ; preds = %1
   %switch.shifted366 = lshr i8 23, %switch.maskindex365
   %switch.lobit367 = trunc i8 %switch.shifted366 to i1
   %or.cond381 = select i1 %189, i1 %switch.lobit367, i1 false
-  br i1 %or.cond381, label %switch.lookup364, label %204
+  br i1 %or.cond381, label %.sink.split259, label %193
 
-switch.lookup268:                                 ; preds = %157
-  %190 = zext nneg i32 %switch.tableidx267 to i64
-  %switch.gep269 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.config_input.1, i64 0, i64 %190
-  br label %.sink.split259
+.sink.split259:                                   ; preds = %188, %186, %184, %179, %177, %175, %170, %168, %166, %161, %159, %157
+  %switch.tableidx362.sink = phi i32 [ %switch.tableidx267, %157 ], [ %switch.tableidx272, %159 ], [ %switch.tableidx281, %161 ], [ %switch.tableidx290, %166 ], [ %switch.tableidx299, %168 ], [ %switch.tableidx308, %170 ], [ %switch.tableidx317, %175 ], [ %switch.tableidx326, %177 ], [ %switch.tableidx335, %179 ], [ %switch.tableidx344, %184 ], [ %switch.tableidx353, %186 ], [ %switch.tableidx362, %188 ]
+  %switch.table.config_input.12.sink = phi ptr [ @switch.table.config_input.1, %157 ], [ @switch.table.config_input.5, %159 ], [ @switch.table.config_input.6, %161 ], [ @switch.table.config_input.4, %166 ], [ @switch.table.config_input.5, %168 ], [ @switch.table.config_input.6, %170 ], [ @switch.table.config_input.7, %175 ], [ @switch.table.config_input.8, %177 ], [ @switch.table.config_input.9, %179 ], [ @switch.table.config_input.10, %184 ], [ @switch.table.config_input.11, %186 ], [ @switch.table.config_input.12, %188 ]
+  %.sink260 = phi i32 [ 3, %157 ], [ 5, %159 ], [ 5, %161 ], [ 5, %166 ], [ 5, %168 ], [ 5, %170 ], [ 3, %175 ], [ 5, %177 ], [ 7, %179 ], [ 3, %184 ], [ 5, %186 ], [ 7, %188 ]
+  %190 = zext i32 %switch.tableidx362.sink to i64
+  %switch.gep368 = getelementptr inbounds nuw [5 x ptr], ptr %switch.table.config_input.12.sink, i64 0, i64 %190
+  %switch.load369 = load ptr, ptr %switch.gep368, align 8
+  %191 = getelementptr inbounds nuw i8, ptr %5, i64 424
+  store ptr %switch.load369, ptr %191, align 8, !tbaa !108
+  %192 = getelementptr inbounds nuw i8, ptr %5, i64 432
+  store i32 %.sink260, ptr %192, align 8, !tbaa !109
+  br label %193
 
-switch.lookup274:                                 ; preds = %159
-  %191 = zext nneg i32 %switch.tableidx272 to i64
-  %switch.gep278 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.config_input.5, i64 0, i64 %191
-  br label %.sink.split259
-
-switch.lookup283:                                 ; preds = %161
-  %192 = zext nneg i32 %switch.tableidx281 to i64
-  %switch.gep287 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.config_input.6, i64 0, i64 %192
-  br label %.sink.split259
-
-switch.lookup292:                                 ; preds = %166
-  %193 = zext nneg i32 %switch.tableidx290 to i64
-  %switch.gep296 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.config_input.4, i64 0, i64 %193
-  br label %.sink.split259
-
-switch.lookup301:                                 ; preds = %168
-  %194 = zext nneg i32 %switch.tableidx299 to i64
-  %switch.gep305 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.config_input.5, i64 0, i64 %194
-  br label %.sink.split259
-
-switch.lookup310:                                 ; preds = %170
-  %195 = zext nneg i32 %switch.tableidx308 to i64
-  %switch.gep314 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.config_input.6, i64 0, i64 %195
-  br label %.sink.split259
-
-switch.lookup319:                                 ; preds = %175
-  %196 = zext nneg i32 %switch.tableidx317 to i64
-  %switch.gep323 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.config_input.7, i64 0, i64 %196
-  br label %.sink.split259
-
-switch.lookup328:                                 ; preds = %177
-  %197 = zext nneg i32 %switch.tableidx326 to i64
-  %switch.gep332 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.config_input.8, i64 0, i64 %197
-  br label %.sink.split259
-
-switch.lookup337:                                 ; preds = %179
-  %198 = zext nneg i32 %switch.tableidx335 to i64
-  %switch.gep341 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.config_input.9, i64 0, i64 %198
-  br label %.sink.split259
-
-switch.lookup346:                                 ; preds = %184
-  %199 = zext nneg i32 %switch.tableidx344 to i64
-  %switch.gep350 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.config_input.10, i64 0, i64 %199
-  br label %.sink.split259
-
-switch.lookup355:                                 ; preds = %186
-  %200 = zext nneg i32 %switch.tableidx353 to i64
-  %switch.gep359 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.config_input.11, i64 0, i64 %200
-  br label %.sink.split259
-
-switch.lookup364:                                 ; preds = %188
-  %201 = zext nneg i32 %switch.tableidx362 to i64
-  %switch.gep368 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.config_input.12, i64 0, i64 %201
-  br label %.sink.split259
-
-.sink.split259:                                   ; preds = %switch.lookup364, %switch.lookup355, %switch.lookup346, %switch.lookup337, %switch.lookup328, %switch.lookup319, %switch.lookup310, %switch.lookup301, %switch.lookup292, %switch.lookup283, %switch.lookup274, %switch.lookup268
-  %flat_digital12.sink.in = phi ptr [ %switch.gep269, %switch.lookup268 ], [ %switch.gep278, %switch.lookup274 ], [ %switch.gep287, %switch.lookup283 ], [ %switch.gep296, %switch.lookup292 ], [ %switch.gep305, %switch.lookup301 ], [ %switch.gep314, %switch.lookup310 ], [ %switch.gep323, %switch.lookup319 ], [ %switch.gep332, %switch.lookup328 ], [ %switch.gep341, %switch.lookup337 ], [ %switch.gep350, %switch.lookup346 ], [ %switch.gep359, %switch.lookup355 ], [ %switch.gep368, %switch.lookup364 ]
-  %.sink260 = phi i32 [ 3, %switch.lookup268 ], [ 5, %switch.lookup274 ], [ 5, %switch.lookup283 ], [ 5, %switch.lookup292 ], [ 5, %switch.lookup301 ], [ 5, %switch.lookup310 ], [ 3, %switch.lookup319 ], [ 5, %switch.lookup328 ], [ 7, %switch.lookup337 ], [ 3, %switch.lookup346 ], [ 5, %switch.lookup355 ], [ 7, %switch.lookup364 ]
-  %flat_digital12.sink = load ptr, ptr %flat_digital12.sink.in, align 8
-  %202 = getelementptr inbounds nuw i8, ptr %5, i64 424
-  store ptr %flat_digital12.sink, ptr %202, align 8, !tbaa !108
-  %203 = getelementptr inbounds nuw i8, ptr %5, i64 432
-  store i32 %.sink260, ptr %203, align 8, !tbaa !109
-  br label %204
-
-204:                                              ; preds = %188, %186, %184, %179, %177, %175, %170, %168, %166, %161, %159, %157, %.sink.split259, %181, %172, %163, %154, %153
-  %205 = getelementptr inbounds nuw i8, ptr %5, i64 376
-  %206 = add nsw i32 %15, -8
-  %207 = shl i32 %.sink, %206
-  store i32 %207, ptr %205, align 8, !tbaa !64
-  %208 = load i32, ptr %6, align 4, !tbaa !100
-  switch i32 %208, label %211 [
-    i32 111, label %209
-    i32 71, label %209
-    i32 73, label %209
-    i32 75, label %209
-    i32 135, label %209
+193:                                              ; preds = %188, %186, %184, %179, %177, %175, %170, %168, %166, %161, %159, %157, %.sink.split259, %181, %172, %163, %154, %153
+  %194 = getelementptr inbounds nuw i8, ptr %5, i64 376
+  %195 = add nsw i32 %15, -8
+  %196 = shl i32 %.sink, %195
+  store i32 %196, ptr %194, align 8, !tbaa !64
+  %197 = load i32, ptr %6, align 4, !tbaa !100
+  switch i32 %197, label %200 [
+    i32 111, label %198
+    i32 71, label %198
+    i32 73, label %198
+    i32 75, label %198
+    i32 135, label %198
   ]
 
-209:                                              ; preds = %204, %204, %204, %204, %204
-  %210 = getelementptr inbounds nuw i8, ptr %5, i64 436
-  store i32 1, ptr %210, align 4, !tbaa !92
-  br label %211
+198:                                              ; preds = %193, %193, %193, %193, %193
+  %199 = getelementptr inbounds nuw i8, ptr %5, i64 436
+  store i32 1, ptr %199, align 4, !tbaa !92
+  br label %200
 
-211:                                              ; preds = %204, %209
-  %.sink263 = phi i32 [ -16777216, %209 ], [ -8421632, %204 ]
-  %212 = getelementptr inbounds nuw i8, ptr %5, i64 28
-  store i32 %.sink263, ptr %212, align 4
+200:                                              ; preds = %193, %198
+  %.sink263 = phi i32 [ -16777216, %198 ], [ -8421632, %193 ]
+  %201 = getelementptr inbounds nuw i8, ptr %5, i64 28
+  store i32 %.sink263, ptr %201, align 4
   ret i32 0
 }
 

@@ -4637,13 +4637,11 @@ define hidden noalias noundef ptr @display_access_items(ptr noundef %0, i32 noun
   ]
 
 switch.lookup:                                    ; preds = %55, %55, %55
-  %sext = shl i64 %indvars.iv, 32
-  %56 = ashr exact i64 %sext, 32
-  %switch.gep = getelementptr inbounds [9 x ptr], ptr @switch.table.dissect_access_reply, i64 0, i64 %56
+  %56 = and i64 %indvars.iv, 4294967295
+  %switch.gep = getelementptr inbounds nuw [9 x ptr], ptr @switch.table.dissect_access_reply, i64 0, i64 %56
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %sext113 = shl i64 %indvars.iv, 32
-  %57 = ashr exact i64 %sext113, 32
-  %switch.gep111 = getelementptr inbounds [9 x ptr], ptr @switch.table.dissect_access_reply.22, i64 0, i64 %57
+  %57 = and i64 %indvars.iv, 4294967295
+  %switch.gep111 = getelementptr inbounds nuw [9 x ptr], ptr @switch.table.dissect_access_reply.22, i64 0, i64 %57
   %switch.load112 = load ptr, ptr %switch.gep111, align 8
   %58 = load i32, ptr %switch.load, align 4
   %59 = load i32, ptr %switch.load112, align 4
@@ -4799,9 +4797,8 @@ display_access_items.exit:                        ; preds = %40
   br i1 %.not.i81, label %54, label %switch.lookup
 
 switch.lookup:                                    ; preds = %47
-  %sext = shl i64 %indvars.iv.i80, 32
-  %51 = ashr exact i64 %sext, 32
-  %switch.gep = getelementptr inbounds [9 x ptr], ptr @switch.table.dissect_access_reply, i64 0, i64 %51
+  %51 = and i64 %indvars.iv.i80, 4294967295
+  %switch.gep = getelementptr inbounds nuw [9 x ptr], ptr @switch.table.dissect_access_reply, i64 0, i64 %51
   %switch.load = load ptr, ptr %switch.gep, align 8
   %52 = load i32, ptr %switch.load, align 4
   %53 = tail call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %52, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef 0)
@@ -4853,9 +4850,8 @@ display_access_items.exit84:                      ; preds = %54, %.thread104, %2
   br i1 %.not.i86, label %78, label %switch.lookup115
 
 switch.lookup115:                                 ; preds = %71
-  %sext118 = shl i64 %indvars.iv.i85, 32
-  %75 = ashr exact i64 %sext118, 32
-  %switch.gep116 = getelementptr inbounds [9 x ptr], ptr @switch.table.dissect_access_reply.22, i64 0, i64 %75
+  %75 = and i64 %indvars.iv.i85, 4294967295
+  %switch.gep116 = getelementptr inbounds nuw [9 x ptr], ptr @switch.table.dissect_access_reply.22, i64 0, i64 %75
   %switch.load117 = load ptr, ptr %switch.gep116, align 8
   %76 = load i32, ptr %switch.load117, align 4
   %77 = tail call ptr @proto_tree_add_item(ptr noundef %70, i32 noundef %76, ptr noundef %0, i32 noundef %.0112, i32 noundef 4, i32 noundef 0)

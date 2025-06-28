@@ -369,8 +369,8 @@ switch.lookup:                                    ; preds = %83
   %88 = sext i32 %.val33 to i64
   %89 = mul nsw i64 %88, %87
   %switch.tableidx = add nsw i32 %15, -257
-  %90 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [7 x float], ptr @switch.table.process, i64 0, i64 %90
+  %90 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [7 x float], ptr @switch.table.process, i64 0, i64 %90
   %switch.load = load float, ptr %switch.gep, align 4
   %.not.i = icmp eq i64 %89, 0
   br i1 %.not.i, label %_process_posterize.exit, label %.lr.ph.i.preheader

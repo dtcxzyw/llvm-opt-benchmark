@@ -63234,8 +63234,8 @@ _ZNK4llvm18TargetLoweringBase24isOperationLegalOrCustomEjNS_3EVTEb.exit.thread24
 _ZNK4llvm3EVT9isIntegerEv.exit.thread:            ; preds = %130, %134
   %136 = load ptr, ptr %95, align 8, !tbaa !63
   %switch.tableidx = add nsw i32 %93, -380
-  %137 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [9 x i32], ptr @switch.table._ZN4llvm16DAGTypeLegalizer20WidenVecOp_VECREDUCEEPNS_6SDNodeE, i64 0, i64 %137
+  %137 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZN4llvm16DAGTypeLegalizer20WidenVecOp_VECREDUCEEPNS_6SDNodeE, i64 0, i64 %137
   %switch.load = load i32, ptr %switch.gep, align 4
   store ptr %.fca.0.extract130, ptr %10, align 8, !tbaa !29
   %.sroa.6.0..sroa_idx115 = getelementptr inbounds nuw i8, ptr %10, i64 8

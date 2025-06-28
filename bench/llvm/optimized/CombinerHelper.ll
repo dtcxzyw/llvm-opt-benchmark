@@ -7603,8 +7603,8 @@ switch.lookup:
   %15 = load i16, ptr %14, align 4, !tbaa !228
   %16 = icmp eq i16 %15, 99
   %switch.tableidx = add nsw i16 %15, -93
-  %17 = sext i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table._ZNK4llvm14CombinerHelper28applyCombineIndexedLoadStoreERNS_12MachineInstrERNS_25IndexedLoadStoreMatchInfoE, i64 0, i64 %17
+  %17 = zext i16 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZNK4llvm14CombinerHelper28applyCombineIndexedLoadStoreERNS_12MachineInstrERNS_25IndexedLoadStoreMatchInfoE, i64 0, i64 %17
   %switch.load = load i32, ptr %switch.gep, align 4
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %19 = load i8, ptr %18, align 4, !tbaa !402, !range !50, !noundef !51

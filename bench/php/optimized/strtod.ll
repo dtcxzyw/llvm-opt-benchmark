@@ -145,11 +145,11 @@ lexbor_diyfp_normalize.exit.i:                    ; preds = %.lr.ph.i.i90.i, %.p
 
 switch.lookup:                                    ; preds = %72
   %switch.tableidx = add nsw i32 %73, -1
-  %75 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table.lexbor_strtod_internal, i64 0, i64 %75
+  %75 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table.lexbor_strtod_internal, i64 0, i64 %75
   %switch.load = load i32, ptr %switch.gep, align 4
-  %76 = sext i32 %switch.tableidx to i64
-  %switch.gep73 = getelementptr inbounds [7 x i64], ptr @switch.table.lexbor_strtod_internal.1, i64 0, i64 %76
+  %76 = zext i32 %switch.tableidx to i64
+  %switch.gep73 = getelementptr inbounds nuw [7 x i64], ptr @switch.table.lexbor_strtod_internal.1, i64 0, i64 %76
   %switch.load74 = load i64, ptr %switch.gep73, align 8
   br label %lexbor_strtod_adjust_pow10.exit.i
 

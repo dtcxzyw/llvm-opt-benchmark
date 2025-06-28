@@ -1719,8 +1719,8 @@ _ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit.thread: ; preds
 switch.lookup:                                    ; preds = %365
   %368 = getelementptr inbounds nuw i8, ptr %49, i64 360
   %369 = load i32, ptr %368, align 4, !tbaa !862
-  %370 = sext i32 %369 to i64
-  %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table._ZN5clang7CodeGen11CGDebugInfo17CreateCompileUnitEv, i64 0, i64 %370
+  %370 = zext i32 %369 to i64
+  %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZN5clang7CodeGen11CGDebugInfo17CreateCompileUnitEv, i64 0, i64 %370
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNK5clang11ObjCRuntime12isNonFragileEv.exit
 

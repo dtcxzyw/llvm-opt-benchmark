@@ -19040,8 +19040,8 @@ switch.lookup:                                    ; preds = %1
 define dso_local noundef range(i32 0, 5) i32 @_ZN5clang15TypeWithKeyword25getTagTypeKindForTypeSpecEj(i32 noundef %0) local_unnamed_addr #14 align 2 {
 switch.lookup:
   %switch.tableidx = add nsw i32 %0, -23
-  %1 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table._ZN5clang15TypeWithKeyword25getTagTypeKindForTypeSpecEj, i64 0, i64 %1
+  %1 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZN5clang15TypeWithKeyword25getTagTypeKindForTypeSpecEj, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -19066,11 +19066,11 @@ define dso_local noundef zeroext i1 @_ZN5clang15TypeWithKeyword20KeywordIsTagTyp
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local { ptr, i64 } @_ZN5clang15TypeWithKeyword14getKeywordNameENS_21ElaboratedTypeKeywordE(i32 noundef %0) local_unnamed_addr #14 align 2 {
 switch.lookup:
-  %1 = sext i32 %0 to i64
-  %switch.gep = getelementptr inbounds [7 x ptr], ptr @switch.table._ZN5clang15TypeWithKeyword14getKeywordNameENS_21ElaboratedTypeKeywordE, i64 0, i64 %1
+  %1 = zext i32 %0 to i64
+  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table._ZN5clang15TypeWithKeyword14getKeywordNameENS_21ElaboratedTypeKeywordE, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %2 = sext i32 %0 to i64
-  %switch.gep3 = getelementptr inbounds [7 x i64], ptr @switch.table._ZN5clang15TypeWithKeyword14getKeywordNameENS_21ElaboratedTypeKeywordE.122, i64 0, i64 %2
+  %2 = zext i32 %0 to i64
+  %switch.gep3 = getelementptr inbounds nuw [7 x i64], ptr @switch.table._ZN5clang15TypeWithKeyword14getKeywordNameENS_21ElaboratedTypeKeywordE.122, i64 0, i64 %2
   %switch.load4 = load i64, ptr %switch.gep3, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load4, 1
@@ -19323,8 +19323,8 @@ define dso_local noundef nonnull ptr @_ZNK5clang4Type16getTypeClassNameEv(ptr no
 switch.lookup:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %2 = load i8, ptr %1, align 16
-  %3 = sext i8 %2 to i64
-  %switch.gep = getelementptr inbounds [58 x ptr], ptr @switch.table._ZNK5clang4Type16getTypeClassNameEv, i64 0, i64 %3
+  %3 = zext i8 %2 to i64
+  %switch.gep = getelementptr inbounds nuw [58 x ptr], ptr @switch.table._ZNK5clang4Type16getTypeClassNameEv, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -21544,11 +21544,11 @@ _ZNK5clang8QualType18getUnqualifiedTypeEv.exit:   ; preds = %.thread._crit_edge,
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local { ptr, i64 } @_ZN5clang12FunctionType18getNameForCallConvENS_11CallingConvE(i32 noundef %0) local_unnamed_addr #14 align 2 {
 switch.lookup:
-  %1 = sext i32 %0 to i64
-  %switch.gep = getelementptr inbounds [24 x i64], ptr @switch.table._ZN5clang12FunctionType18getNameForCallConvENS_11CallingConvE, i64 0, i64 %1
+  %1 = zext i32 %0 to i64
+  %switch.gep = getelementptr inbounds nuw [24 x i64], ptr @switch.table._ZN5clang12FunctionType18getNameForCallConvENS_11CallingConvE, i64 0, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
-  %2 = sext i32 %0 to i64
-  %switch.gep1 = getelementptr inbounds [24 x ptr], ptr @switch.table._ZN5clang12FunctionType18getNameForCallConvENS_11CallingConvE.123, i64 0, i64 %2
+  %2 = zext i32 %0 to i64
+  %switch.gep1 = getelementptr inbounds nuw [24 x ptr], ptr @switch.table._ZN5clang12FunctionType18getNameForCallConvENS_11CallingConvE.123, i64 0, i64 %2
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load, 1
@@ -30703,11 +30703,11 @@ switch.lookup:
 define dso_local { ptr, i64 } @_ZNK5clang14FunctionEffect4nameEv(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0) local_unnamed_addr #0 align 2 {
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !tbaa !631
-  %2 = sext i8 %1 to i64
-  %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table._ZN4llvm10interleaveIN5clang21FunctionEffectKindSet8iteratorEZNS_15interleaveCommaIS2_NS_11raw_ostreamENS1_14FunctionEffectEEEvRKT_RT0_EUlRKS6_E_ZNS_10interleaveIS2_SE_S5_S6_EEvS9_RT1_SA_RKNS_9StringRefEEUlvE_vEEvS7_S7_SA_SG_.133, i64 0, i64 %2
+  %2 = zext i8 %1 to i64
+  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN4llvm10interleaveIN5clang21FunctionEffectKindSet8iteratorEZNS_15interleaveCommaIS2_NS_11raw_ostreamENS1_14FunctionEffectEEEvRKT_RT0_EUlRKS6_E_ZNS_10interleaveIS2_SE_S5_S6_EEvS9_RT1_SA_RKNS_9StringRefEEUlvE_vEEvS7_S7_SA_SG_.133, i64 0, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
-  %3 = sext i8 %1 to i64
-  %switch.gep1 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN4llvm10interleaveIN5clang21FunctionEffectKindSet8iteratorEZNS_15interleaveCommaIS2_NS_11raw_ostreamENS1_14FunctionEffectEEEvRKT_RT0_EUlRKS6_E_ZNS_10interleaveIS2_SE_S5_S6_EEvS9_RT1_SA_RKNS_9StringRefEEUlvE_vEEvS7_S7_SA_SG_.134, i64 0, i64 %3
+  %3 = zext i8 %1 to i64
+  %switch.gep1 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN4llvm10interleaveIN5clang21FunctionEffectKindSet8iteratorEZNS_15interleaveCommaIS2_NS_11raw_ostreamENS1_14FunctionEffectEEEvRKT_RT0_EUlRKS6_E_ZNS_10interleaveIS2_SE_S5_S6_EEvS9_RT1_SA_RKNS_9StringRefEEUlvE_vEEvS7_S7_SA_SG_.134, i64 0, i64 %3
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load, 1
@@ -31793,11 +31793,11 @@ _ZN5clang17FunctionEffectSet6insertERKNS_18FunctionEffectsRefERN4llvm11SmallVect
 define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN5clanglsERN4llvm11raw_ostreamERKNS_27FunctionEffectWithConditionE(ptr noundef nonnull returned align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #2 {
 switch.lookup:
   %2 = load i8, ptr %1, align 8, !tbaa !631
-  %3 = sext i8 %2 to i64
-  %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table._ZN4llvm10interleaveIN5clang21FunctionEffectKindSet8iteratorEZNS_15interleaveCommaIS2_NS_11raw_ostreamENS1_14FunctionEffectEEEvRKT_RT0_EUlRKS6_E_ZNS_10interleaveIS2_SE_S5_S6_EEvS9_RT1_SA_RKNS_9StringRefEEUlvE_vEEvS7_S7_SA_SG_.133, i64 0, i64 %3
+  %3 = zext i8 %2 to i64
+  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN4llvm10interleaveIN5clang21FunctionEffectKindSet8iteratorEZNS_15interleaveCommaIS2_NS_11raw_ostreamENS1_14FunctionEffectEEEvRKT_RT0_EUlRKS6_E_ZNS_10interleaveIS2_SE_S5_S6_EEvS9_RT1_SA_RKNS_9StringRefEEUlvE_vEEvS7_S7_SA_SG_.133, i64 0, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
-  %4 = sext i8 %2 to i64
-  %switch.gep13 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN4llvm10interleaveIN5clang21FunctionEffectKindSet8iteratorEZNS_15interleaveCommaIS2_NS_11raw_ostreamENS1_14FunctionEffectEEEvRKT_RT0_EUlRKS6_E_ZNS_10interleaveIS2_SE_S5_S6_EEvS9_RT1_SA_RKNS_9StringRefEEUlvE_vEEvS7_S7_SA_SG_.134, i64 0, i64 %4
+  %4 = zext i8 %2 to i64
+  %switch.gep13 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN4llvm10interleaveIN5clang21FunctionEffectKindSet8iteratorEZNS_15interleaveCommaIS2_NS_11raw_ostreamENS1_14FunctionEffectEEEvRKT_RT0_EUlRKS6_E_ZNS_10interleaveIS2_SE_S5_S6_EEvS9_RT1_SA_RKNS_9StringRefEEUlvE_vEEvS7_S7_SA_SG_.134, i64 0, i64 %4
   %switch.load14 = load ptr, ptr %switch.gep13, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !746
@@ -32110,11 +32110,11 @@ define dso_local void @_ZN5clang18FunctionEffectsRef6createEN4llvm8ArrayRefINS_1
 define dso_local void @_ZNK5clang27FunctionEffectWithCondition11descriptionB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #2 align 2 {
 switch.lookup:
   %2 = load i8, ptr %1, align 8, !tbaa !631
-  %3 = sext i8 %2 to i64
-  %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table._ZN4llvm10interleaveIN5clang21FunctionEffectKindSet8iteratorEZNS_15interleaveCommaIS2_NS_11raw_ostreamENS1_14FunctionEffectEEEvRKT_RT0_EUlRKS6_E_ZNS_10interleaveIS2_SE_S5_S6_EEvS9_RT1_SA_RKNS_9StringRefEEUlvE_vEEvS7_S7_SA_SG_.133, i64 0, i64 %3
+  %3 = zext i8 %2 to i64
+  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN4llvm10interleaveIN5clang21FunctionEffectKindSet8iteratorEZNS_15interleaveCommaIS2_NS_11raw_ostreamENS1_14FunctionEffectEEEvRKT_RT0_EUlRKS6_E_ZNS_10interleaveIS2_SE_S5_S6_EEvS9_RT1_SA_RKNS_9StringRefEEUlvE_vEEvS7_S7_SA_SG_.133, i64 0, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
-  %4 = sext i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN4llvm10interleaveIN5clang21FunctionEffectKindSet8iteratorEZNS_15interleaveCommaIS2_NS_11raw_ostreamENS1_14FunctionEffectEEEvRKT_RT0_EUlRKS6_E_ZNS_10interleaveIS2_SE_S5_S6_EEvS9_RT1_SA_RKNS_9StringRefEEUlvE_vEEvS7_S7_SA_SG_.134, i64 0, i64 %4
+  %4 = zext i8 %2 to i64
+  %switch.gep2 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN4llvm10interleaveIN5clang21FunctionEffectKindSet8iteratorEZNS_15interleaveCommaIS2_NS_11raw_ostreamENS1_14FunctionEffectEEEvRKT_RT0_EUlRKS6_E_ZNS_10interleaveIS2_SE_S5_S6_EEvS9_RT1_SA_RKNS_9StringRefEEUlvE_vEEvS7_S7_SA_SG_.134, i64 0, i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %5, ptr %0, align 8, !tbaa !764, !alias.scope !765
@@ -41877,13 +41877,11 @@ define linkonce_odr hidden void @_ZN4llvm10interleaveIN5clang21FunctionEffectKin
   br i1 %7, label %.loopexit, label %switch.lookup
 
 switch.lookup:                                    ; preds = %6
-  %sext = shl i64 %1, 56
-  %8 = ashr exact i64 %sext, 56
-  %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table._ZN4llvm10interleaveIN5clang21FunctionEffectKindSet8iteratorEZNS_15interleaveCommaIS2_NS_11raw_ostreamENS1_14FunctionEffectEEEvRKT_RT0_EUlRKS6_E_ZNS_10interleaveIS2_SE_S5_S6_EEvS9_RT1_SA_RKNS_9StringRefEEUlvE_vEEvS7_S7_SA_SG_.133, i64 0, i64 %8
+  %8 = and i64 %1, 255
+  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN4llvm10interleaveIN5clang21FunctionEffectKindSet8iteratorEZNS_15interleaveCommaIS2_NS_11raw_ostreamENS1_14FunctionEffectEEEvRKT_RT0_EUlRKS6_E_ZNS_10interleaveIS2_SE_S5_S6_EEvS9_RT1_SA_RKNS_9StringRefEEUlvE_vEEvS7_S7_SA_SG_.133, i64 0, i64 %8
   %switch.load = load i64, ptr %switch.gep, align 8
-  %sext38 = shl i64 %1, 56
-  %9 = ashr exact i64 %sext38, 56
-  %switch.gep31 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN4llvm10interleaveIN5clang21FunctionEffectKindSet8iteratorEZNS_15interleaveCommaIS2_NS_11raw_ostreamENS1_14FunctionEffectEEEvRKT_RT0_EUlRKS6_E_ZNS_10interleaveIS2_SE_S5_S6_EEvS9_RT1_SA_RKNS_9StringRefEEUlvE_vEEvS7_S7_SA_SG_.134, i64 0, i64 %9
+  %9 = and i64 %1, 255
+  %switch.gep31 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN4llvm10interleaveIN5clang21FunctionEffectKindSet8iteratorEZNS_15interleaveCommaIS2_NS_11raw_ostreamENS1_14FunctionEffectEEEvRKT_RT0_EUlRKS6_E_ZNS_10interleaveIS2_SE_S5_S6_EEvS9_RT1_SA_RKNS_9StringRefEEUlvE_vEEvS7_S7_SA_SG_.134, i64 0, i64 %9
   %switch.load32 = load ptr, ptr %switch.gep31, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %11 = load ptr, ptr %10, align 8, !tbaa !746
@@ -41969,13 +41967,11 @@ _ZN5clang21FunctionEffectKindSet8iteratorppEv.exit: ; preds = %_ZNKSt6bitsetILm4
   br label %_ZZN4llvm10interleaveIN5clang21FunctionEffectKindSetEZNS_15interleaveCommaIS2_NS_11raw_ostreamENS1_14FunctionEffectEEEvRKT_RT0_EUlRKS5_E_S4_S5_EEvS8_RT1_S9_RKNS_9StringRefEENKUlvE_clEv.exit
 
 _ZZN4llvm10interleaveIN5clang21FunctionEffectKindSetEZNS_15interleaveCommaIS2_NS_11raw_ostreamENS1_14FunctionEffectEEEvRKT_RT0_EUlRKS5_E_S4_S5_EEvS8_RT1_S9_RKNS_9StringRefEENKUlvE_clEv.exit: ; preds = %42, %44, %45
-  %sext39 = shl i64 %.sroa.3.030, 56
-  %48 = ashr exact i64 %sext39, 56
-  %switch.gep34 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN4llvm10interleaveIN5clang21FunctionEffectKindSet8iteratorEZNS_15interleaveCommaIS2_NS_11raw_ostreamENS1_14FunctionEffectEEEvRKT_RT0_EUlRKS6_E_ZNS_10interleaveIS2_SE_S5_S6_EEvS9_RT1_SA_RKNS_9StringRefEEUlvE_vEEvS7_S7_SA_SG_.133, i64 0, i64 %48
+  %48 = and i64 %.sroa.3.030, 255
+  %switch.gep34 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN4llvm10interleaveIN5clang21FunctionEffectKindSet8iteratorEZNS_15interleaveCommaIS2_NS_11raw_ostreamENS1_14FunctionEffectEEEvRKT_RT0_EUlRKS6_E_ZNS_10interleaveIS2_SE_S5_S6_EEvS9_RT1_SA_RKNS_9StringRefEEUlvE_vEEvS7_S7_SA_SG_.133, i64 0, i64 %48
   %switch.load35 = load i64, ptr %switch.gep34, align 8
-  %sext40 = shl i64 %.sroa.3.030, 56
-  %49 = ashr exact i64 %sext40, 56
-  %switch.gep36 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN4llvm10interleaveIN5clang21FunctionEffectKindSet8iteratorEZNS_15interleaveCommaIS2_NS_11raw_ostreamENS1_14FunctionEffectEEEvRKT_RT0_EUlRKS6_E_ZNS_10interleaveIS2_SE_S5_S6_EEvS9_RT1_SA_RKNS_9StringRefEEUlvE_vEEvS7_S7_SA_SG_.134, i64 0, i64 %49
+  %49 = and i64 %.sroa.3.030, 255
+  %switch.gep36 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN4llvm10interleaveIN5clang21FunctionEffectKindSet8iteratorEZNS_15interleaveCommaIS2_NS_11raw_ostreamENS1_14FunctionEffectEEEvRKT_RT0_EUlRKS6_E_ZNS_10interleaveIS2_SE_S5_S6_EEvS9_RT1_SA_RKNS_9StringRefEEUlvE_vEEvS7_S7_SA_SG_.134, i64 0, i64 %49
   %switch.load37 = load ptr, ptr %switch.gep36, align 8
   %50 = load ptr, ptr %10, align 8, !tbaa !746
   %51 = load ptr, ptr %12, align 8, !tbaa !750

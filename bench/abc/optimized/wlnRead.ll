@@ -9396,10 +9396,9 @@ Abc_UtilStrsav.exit:                              ; preds = %2, %18
   br i1 %30, label %switch.lookup, label %Rtl_Num2Name.exit.i
 
 switch.lookup:                                    ; preds = %29
-  %switch.tableidx = shl nuw nsw i64 %indvars.iv.i, 32
-  %sext = add nsw i64 %switch.tableidx, -4294967296
-  %31 = ashr exact i64 %sext, 32
-  %switch.gep = getelementptr inbounds [14 x ptr], ptr @switch.table.Rtl_LibReadFile, i64 0, i64 %31
+  %switch.tableidx = add nuw nsw i64 %indvars.iv.i, 4294967295
+  %31 = and i64 %switch.tableidx, 4294967295
+  %switch.gep = getelementptr inbounds nuw [14 x ptr], ptr @switch.table.Rtl_LibReadFile, i64 0, i64 %31
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %Rtl_Num2Name.exit.i
 

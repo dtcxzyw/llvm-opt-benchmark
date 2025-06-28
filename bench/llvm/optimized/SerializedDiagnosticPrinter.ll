@@ -11397,8 +11397,8 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit: ; preds = %8, %25
   %31 = load i32, ptr %22, align 8, !tbaa !91
   %32 = add i32 %31, 1
   store i32 %32, ptr %22, align 8, !tbaa !91
-  %33 = sext i32 %4 to i64
-  %switch.gep = getelementptr inbounds [6 x i64], ptr @switch.table._ZN12_GLOBAL__N_112SDiagsWriter21EmitDiagnosticMessageEN5clang13FullSourceLocENS1_11PresumedLocENS1_17DiagnosticsEngine5LevelEN4llvm9StringRefENS6_12PointerUnionIJPKNS1_10DiagnosticEPKNS1_16StoredDiagnosticEEEE, i64 0, i64 %33
+  %33 = zext i32 %4 to i64
+  %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZN12_GLOBAL__N_112SDiagsWriter21EmitDiagnosticMessageEN5clang13FullSourceLocENS1_11PresumedLocENS1_17DiagnosticsEngine5LevelEN4llvm9StringRefENS6_12PointerUnionIJPKNS1_10DiagnosticEPKNS1_16StoredDiagnosticEEEE, i64 0, i64 %33
   %switch.load = load i64, ptr %switch.gep, align 8
   %34 = load i32, ptr %23, align 4, !tbaa !92
   %.not.i.i.not.i26 = icmp ult i32 %32, %34

@@ -351,7 +351,7 @@ define internal fastcc void @dissect_pw_satop(ptr noundef %0, ptr noundef %1, pt
   %.1174212218 = phi i32 [ %.1174212, %71 ], [ %.1174212, %72 ], [ %.1174212217, %76 ], [ %.1174212, %70 ], [ %.1174212, %73 ]
   %79 = phi i1 [ false, %71 ], [ false, %72 ], [ %77, %76 ], [ false, %70 ], [ false, %73 ]
   %80 = phi i1 [ true, %71 ], [ true, %72 ], [ false, %76 ], [ true, %70 ], [ true, %73 ]
-  %.0181 = phi i64 [ 1, %71 ], [ 2, %72 ], [ -1, %76 ], [ 0, %70 ], [ 3, %73 ]
+  %.0181 = phi i64 [ 1, %71 ], [ 2, %72 ], [ 4294967295, %76 ], [ 0, %70 ], [ 3, %73 ]
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %82 = load ptr, ptr %81, align 8
   tail call void @col_set_str(ptr noundef %82, i32 noundef 35, ptr noundef nonnull @shortname)
@@ -513,7 +513,7 @@ define internal fastcc void @dissect_pw_satop(ptr noundef %0, ptr noundef %1, pt
   br i1 %80, label %switch.lookup, label %164
 
 switch.lookup:                                    ; preds = %158
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.dissect_pw_satop, i64 0, i64 %.0181
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.dissect_pw_satop, i64 0, i64 %.0181
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %164
 

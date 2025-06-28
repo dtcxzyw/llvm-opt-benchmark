@@ -490,11 +490,11 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang10ext
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local { ptr, i64 } @_ZN5clang10extractapi20DeclarationFragments21getFragmentKindStringENS1_12FragmentKindE(i32 noundef %0) local_unnamed_addr #2 align 2 {
 switch.lookup:
-  %1 = sext i32 %0 to i64
-  %switch.gep = getelementptr inbounds [11 x i64], ptr @switch.table._ZN5clang10extractapi20DeclarationFragments21getFragmentKindStringENS1_12FragmentKindE, i64 0, i64 %1
+  %1 = zext i32 %0 to i64
+  %switch.gep = getelementptr inbounds nuw [11 x i64], ptr @switch.table._ZN5clang10extractapi20DeclarationFragments21getFragmentKindStringENS1_12FragmentKindE, i64 0, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
-  %2 = sext i32 %0 to i64
-  %switch.gep1 = getelementptr inbounds [11 x ptr], ptr @switch.table._ZN5clang10extractapi20DeclarationFragments21getFragmentKindStringENS1_12FragmentKindE.1, i64 0, i64 %2
+  %2 = zext i32 %0 to i64
+  %switch.gep1 = getelementptr inbounds nuw [11 x ptr], ptr @switch.table._ZN5clang10extractapi20DeclarationFragments21getFragmentKindStringENS1_12FragmentKindE.1, i64 0, i64 %2
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load, 1

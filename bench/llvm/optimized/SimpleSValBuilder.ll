@@ -1316,8 +1316,8 @@ _ZN4llvm5APIntD2Ev.exit511:                       ; preds = %402, %405, %408
 
 switch.lookup:                                    ; preds = %417
   %switch.tableidx = add nsw i32 %419, -10
-  %420 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table._ZN12_GLOBAL__N_117SimpleSValBuilder11evalBinOpNNEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEENS3_18BinaryOperatorKindENS4_6NonLocES9_NS3_8QualTypeE, i64 0, i64 %420
+  %420 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN12_GLOBAL__N_117SimpleSValBuilder11evalBinOpNNEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEENS3_18BinaryOperatorKindENS4_6NonLocES9_NS3_8QualTypeE, i64 0, i64 %420
   %switch.load = load i32, ptr %switch.gep, align 4
   %421 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i512, i64 40
   %422 = load ptr, ptr %421, align 8, !tbaa !127
@@ -2165,8 +2165,8 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit: ; preds = %
 
 switch.lookup:                                    ; preds = %85
   %switch.tableidx = add nsw i32 %2, -10
-  %88 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table._ZL20doRearrangeUncheckedN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEENS1_18BinaryOperatorKindEPKNS2_7SymExprENS_6APSIntES9_SA_, i64 0, i64 %88
+  %88 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZL20doRearrangeUncheckedN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEENS1_18BinaryOperatorKindEPKNS2_7SymExprENS_6APSIntES9_SA_, i64 0, i64 %88
   %switch.load = load i32, ptr %switch.gep, align 4
   %89 = call { ptr, i8 } @_ZN5clang4ento11SValBuilder10makeNonLocEPKNS0_7SymExprENS_18BinaryOperatorKindENS0_9APSIntPtrENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(412) %0, ptr noundef nonnull %82, i32 noundef %switch.load, ptr %45, i64 %6) #18
   %.fca.0.extract254 = extractvalue { ptr, i8 } %89, 0
@@ -6042,8 +6042,8 @@ switch.lookup:                                    ; preds = %_ZNK4llvm6APSIntgtE
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24) #18
   %75 = load i32, ptr %14, align 4, !tbaa !694
   %switch.tableidx = add nsw i32 %75, -10
-  %76 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table._ZL20doRearrangeUncheckedN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEENS1_18BinaryOperatorKindEPKNS2_7SymExprENS_6APSIntES9_SA_, i64 0, i64 %76
+  %76 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZL20doRearrangeUncheckedN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEENS1_18BinaryOperatorKindEPKNS2_7SymExprENS_6APSIntES9_SA_, i64 0, i64 %76
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %22, align 4, !tbaa !694
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)

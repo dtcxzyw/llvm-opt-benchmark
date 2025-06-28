@@ -5004,11 +5004,11 @@ switch.lookup:                                    ; preds = %2
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
   %switch.tableidx = add nsw i8 %23, -1
-  %30 = sext i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [9 x i64], ptr @switch.table._ZN12indexed_docs9providers7rustdoc4item11RustdocItem8url_path17hc47f392148b46e43E, i64 0, i64 %30
+  %30 = zext i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [9 x i64], ptr @switch.table._ZN12indexed_docs9providers7rustdoc4item11RustdocItem8url_path17hc47f392148b46e43E, i64 0, i64 %30
   %switch.load = load i64, ptr %switch.gep, align 8
-  %31 = sext i8 %switch.tableidx to i64
-  %switch.gep24 = getelementptr inbounds [9 x ptr], ptr @switch.table._ZN12indexed_docs9providers7rustdoc4item11RustdocItem8url_path17hc47f392148b46e43E.36, i64 0, i64 %31
+  %31 = zext i8 %switch.tableidx to i64
+  %switch.gep24 = getelementptr inbounds nuw [9 x ptr], ptr @switch.table._ZN12indexed_docs9providers7rustdoc4item11RustdocItem8url_path17hc47f392148b46e43E.36, i64 0, i64 %31
   %switch.load25 = load ptr, ptr %switch.gep24, align 8
   store ptr %switch.load25, ptr %12, align 8
   %32 = getelementptr inbounds nuw i8, ptr %12, i64 8

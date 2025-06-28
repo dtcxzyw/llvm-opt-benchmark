@@ -251,8 +251,8 @@ php_sxe_get_first_node_non_destructive.exit.thread: ; preds = %27, %29
 
 switch.lookup:                                    ; preds = %31
   %switch.tableidx = add nsw i32 %26, -1
-  %33 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x i64], ptr @switch.table.sxe_get_prop_hash, i64 0, i64 %33
+  %33 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table.sxe_get_prop_hash, i64 0, i64 %33
   %switch.load = load i64, ptr %switch.gep, align 8
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 %switch.load
   %35 = load ptr, ptr %34, align 8, !tbaa !57
@@ -844,8 +844,8 @@ php_sxe_get_first_node_non_destructive.exit.thread: ; preds = %23, %25
 
 switch.lookup:                                    ; preds = %27
   %switch.tableidx = add i32 %22, -1
-  %29 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x i64], ptr @switch.table.sxe_get_prop_hash, i64 0, i64 %29
+  %29 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table.sxe_get_prop_hash, i64 0, i64 %29
   %switch.load = load i64, ptr %switch.gep, align 8
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 %switch.load
   %31 = load ptr, ptr %30, align 8, !tbaa !57
@@ -1033,8 +1033,8 @@ php_sxe_get_first_node_non_destructive.exit.thread: ; preds = %24, %26
 
 switch.lookup:                                    ; preds = %28
   %switch.tableidx = add i32 %23, -1
-  %30 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x i64], ptr @switch.table.sxe_get_prop_hash, i64 0, i64 %30
+  %30 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table.sxe_get_prop_hash, i64 0, i64 %30
   %switch.load = load i64, ptr %switch.gep, align 8
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 %switch.load
   %32 = load ptr, ptr %31, align 8, !tbaa !57
@@ -1429,8 +1429,8 @@ php_sxe_get_first_node_non_destructive.exit.thread: ; preds = %26, %28
 
 switch.lookup:                                    ; preds = %30
   %switch.tableidx = add i32 %25, -1
-  %32 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x i64], ptr @switch.table.sxe_get_prop_hash, i64 0, i64 %32
+  %32 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table.sxe_get_prop_hash, i64 0, i64 %32
   %switch.load = load i64, ptr %switch.gep, align 8
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 %switch.load
   %34 = load ptr, ptr %33, align 8, !tbaa !57
@@ -1517,8 +1517,8 @@ php_sxe_get_first_node_non_destructive.exit.thread: ; preds = %18, %20
 
 switch.lookup:                                    ; preds = %22
   %switch.tableidx = add i32 %17, -1
-  %24 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x i64], ptr @switch.table.sxe_get_prop_hash, i64 0, i64 %24
+  %24 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table.sxe_get_prop_hash, i64 0, i64 %24
   %switch.load = load i64, ptr %switch.gep, align 8
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 %switch.load
   %26 = load ptr, ptr %25, align 8, !tbaa !57
@@ -1638,8 +1638,8 @@ php_sxe_get_first_node_non_destructive.exit.thread: ; preds = %23, %25
 
 switch.lookup:                                    ; preds = %27
   %switch.tableidx = add i32 %22, -1
-  %29 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x i64], ptr @switch.table.sxe_get_prop_hash, i64 0, i64 %29
+  %29 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table.sxe_get_prop_hash, i64 0, i64 %29
   %switch.load = load i64, ptr %switch.gep, align 8
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 %switch.load
   %31 = load ptr, ptr %30, align 8, !tbaa !57
@@ -1990,8 +1990,8 @@ php_sxe_get_first_node_non_destructive.exit.thread: ; preds = %34, %36
 
 switch.lookup:                                    ; preds = %38
   %switch.tableidx = add i32 %33, -1
-  %40 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x i64], ptr @switch.table.sxe_get_prop_hash, i64 0, i64 %40
+  %40 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table.sxe_get_prop_hash, i64 0, i64 %40
   %switch.load = load i64, ptr %switch.gep, align 8
   %41 = getelementptr inbounds nuw i8, ptr %37, i64 %switch.load
   %42 = load ptr, ptr %41, align 8, !tbaa !57
@@ -2185,8 +2185,8 @@ define internal fastcc range(i32 -1, 1) i32 @sxe_object_cast_ex(ptr noundef %0, 
 
 switch.lookup:                                    ; preds = %13
   %switch.tableidx = add nsw i32 %7, -1
-  %15 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x i64], ptr @switch.table.sxe_get_prop_hash, i64 0, i64 %15
+  %15 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table.sxe_get_prop_hash, i64 0, i64 %15
   %switch.load = load i64, ptr %switch.gep, align 8
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 %switch.load
   %17 = load ptr, ptr %16, align 8, !tbaa !57
@@ -2387,8 +2387,8 @@ match_ns.exit.i:                                  ; preds = %.thread.i.i49, %81
 
 switch.lookup108:                                 ; preds = %98
   %switch.tableidx109 = add nsw i32 %93, -1
-  %100 = sext i32 %switch.tableidx109 to i64
-  %switch.gep110 = getelementptr inbounds [3 x i64], ptr @switch.table.sxe_get_prop_hash, i64 0, i64 %100
+  %100 = zext i32 %switch.tableidx109 to i64
+  %switch.gep110 = getelementptr inbounds nuw [3 x i64], ptr @switch.table.sxe_get_prop_hash, i64 0, i64 %100
   %switch.load111 = load i64, ptr %switch.gep110, align 8
   %101 = getelementptr inbounds nuw i8, ptr %97, i64 %switch.load111
   %102 = load ptr, ptr %101, align 8, !tbaa !57
@@ -2683,8 +2683,8 @@ php_sxe_get_first_node_non_destructive.exit60.thread: ; preds = %229, %230
 
 switch.lookup112:                                 ; preds = %232
   %switch.tableidx113 = add nsw i32 %7, -1
-  %234 = sext i32 %switch.tableidx113 to i64
-  %switch.gep114 = getelementptr inbounds [3 x i64], ptr @switch.table.sxe_get_prop_hash, i64 0, i64 %234
+  %234 = zext i32 %switch.tableidx113 to i64
+  %switch.gep114 = getelementptr inbounds nuw [3 x i64], ptr @switch.table.sxe_get_prop_hash, i64 0, i64 %234
   %switch.load115 = load i64, ptr %switch.gep114, align 8
   %235 = getelementptr inbounds nuw i8, ptr %231, i64 %switch.load115
   %236 = load ptr, ptr %235, align 8, !tbaa !57
@@ -4644,8 +4644,8 @@ define hidden ptr @simplexml_export_node(ptr noundef readonly captures(none) %0)
 
 switch.lookup:                                    ; preds = %15
   %switch.tableidx = add i32 %10, -1
-  %17 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x i64], ptr @switch.table.sxe_get_prop_hash, i64 0, i64 %17
+  %17 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table.sxe_get_prop_hash, i64 0, i64 %17
   %switch.load = load i64, ptr %switch.gep, align 8
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 %switch.load
   %19 = load ptr, ptr %18, align 8, !tbaa !57
@@ -9069,8 +9069,8 @@ php_sxe_get_first_node_non_destructive.exit165.thread: ; preds = %109, %111
 
 switch.lookup:                                    ; preds = %113
   %switch.tableidx = add nsw i32 %108, -1
-  %115 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x i64], ptr @switch.table.sxe_get_prop_hash, i64 0, i64 %115
+  %115 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table.sxe_get_prop_hash, i64 0, i64 %115
   %switch.load = load i64, ptr %switch.gep, align 8
   %116 = getelementptr inbounds nuw i8, ptr %112, i64 %switch.load
   %117 = load ptr, ptr %116, align 8, !tbaa !57

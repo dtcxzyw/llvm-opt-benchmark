@@ -33017,11 +33017,11 @@ switch.lookup:
   %10 = alloca [24 x i8], align 8
   %11 = alloca [24 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
-  %12 = sext i8 %.0.val to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN9uv_python9discovery20DiscoveryPreferences7sources17h959004be554c4062E, i64 0, i64 %12
+  %12 = zext i8 %.0.val to i64
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN9uv_python9discovery20DiscoveryPreferences7sources17h959004be554c4062E, i64 0, i64 %12
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %13 = sext i8 %.0.val to i64
-  %switch.gep7 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN9uv_python9discovery20DiscoveryPreferences7sources17h959004be554c4062E.122, i64 0, i64 %13
+  %13 = zext i8 %.0.val to i64
+  %switch.gep7 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN9uv_python9discovery20DiscoveryPreferences7sources17h959004be554c4062E.122, i64 0, i64 %13
   %switch.load8 = load i64, ptr %switch.gep7, align 8
   %14 = getelementptr inbounds nuw i8, ptr %switch.load, i64 %switch.load8
   call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17hae9f8f698907ab6fE.llvm.18252320659372257865"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %11, ptr noundef nonnull %switch.load, ptr noundef nonnull %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.44d703a18610d6f5d328225d45bcf954.149)

@@ -1301,7 +1301,7 @@ define internal fastcc range(i32 -22, 1) i32 @config_filter(ptr noundef %0, i32 
   %505 = load i32, ptr %504, align 4, !tbaa !70
   %switch.tableidx511 = add i32 %505, -6
   %506 = icmp ult i32 %switch.tableidx511, 4
-  br i1 %506, label %switch.lookup510, label %507
+  br i1 %506, label %switch.lookup, label %507
 
 507:                                              ; preds = %503
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28, i32 noundef 1082) #14
@@ -1313,7 +1313,7 @@ define internal fastcc range(i32 -22, 1) i32 @config_filter(ptr noundef %0, i32 
   %510 = load i32, ptr %509, align 4, !tbaa !70
   %switch.tableidx516 = add i32 %510, -6
   %511 = icmp ult i32 %switch.tableidx516, 4
-  br i1 %511, label %switch.lookup515, label %512
+  br i1 %511, label %switch.lookup, label %512
 
 512:                                              ; preds = %508
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28, i32 noundef 1099) #14
@@ -1325,7 +1325,7 @@ define internal fastcc range(i32 -22, 1) i32 @config_filter(ptr noundef %0, i32 
   %515 = load i32, ptr %514, align 4, !tbaa !70
   %switch.tableidx521 = add i32 %515, -6
   %516 = icmp ult i32 %switch.tableidx521, 4
-  br i1 %516, label %switch.lookup520, label %517
+  br i1 %516, label %switch.lookup, label %517
 
 517:                                              ; preds = %513
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28, i32 noundef 1116) #14
@@ -1337,7 +1337,7 @@ define internal fastcc range(i32 -22, 1) i32 @config_filter(ptr noundef %0, i32 
   %520 = load i32, ptr %519, align 4, !tbaa !70
   %switch.tableidx526 = add i32 %520, -6
   %521 = icmp ult i32 %switch.tableidx526, 4
-  br i1 %521, label %switch.lookup525, label %522
+  br i1 %521, label %switch.lookup, label %522
 
 522:                                              ; preds = %518
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28, i32 noundef 1133) #14
@@ -1349,7 +1349,7 @@ define internal fastcc range(i32 -22, 1) i32 @config_filter(ptr noundef %0, i32 
   %525 = load i32, ptr %524, align 4, !tbaa !70
   %switch.tableidx531 = add i32 %525, -6
   %526 = icmp ult i32 %switch.tableidx531, 4
-  br i1 %526, label %switch.lookup530, label %527
+  br i1 %526, label %switch.lookup, label %527
 
 527:                                              ; preds = %523
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28, i32 noundef 1150) #14
@@ -1361,7 +1361,7 @@ define internal fastcc range(i32 -22, 1) i32 @config_filter(ptr noundef %0, i32 
   %530 = load i32, ptr %529, align 4, !tbaa !70
   %switch.tableidx536 = add i32 %530, -6
   %531 = icmp ult i32 %switch.tableidx536, 4
-  br i1 %531, label %switch.lookup535, label %532
+  br i1 %531, label %switch.lookup, label %532
 
 532:                                              ; preds = %528
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28, i32 noundef 1167) #14
@@ -1373,389 +1373,357 @@ define internal fastcc range(i32 -22, 1) i32 @config_filter(ptr noundef %0, i32 
   tail call void @abort() #15
   unreachable
 
-switch.lookup:                                    ; preds = %498
-  %534 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.config_filter, i64 0, i64 %534
-  br label %541
-
-switch.lookup510:                                 ; preds = %503
-  %535 = zext nneg i32 %switch.tableidx511 to i64
-  %switch.gep512 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.config_filter.1, i64 0, i64 %535
-  br label %541
-
-switch.lookup515:                                 ; preds = %508
-  %536 = zext nneg i32 %switch.tableidx516 to i64
-  %switch.gep517 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.config_filter.2, i64 0, i64 %536
-  br label %541
-
-switch.lookup520:                                 ; preds = %513
-  %537 = zext nneg i32 %switch.tableidx521 to i64
-  %switch.gep522 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.config_filter.3, i64 0, i64 %537
-  br label %541
-
-switch.lookup525:                                 ; preds = %518
-  %538 = zext nneg i32 %switch.tableidx526 to i64
-  %switch.gep527 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.config_filter.4, i64 0, i64 %538
-  br label %541
-
-switch.lookup530:                                 ; preds = %523
-  %539 = zext nneg i32 %switch.tableidx531 to i64
-  %switch.gep532 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.config_filter.5, i64 0, i64 %539
-  br label %541
-
-switch.lookup535:                                 ; preds = %528
-  %540 = zext nneg i32 %switch.tableidx536 to i64
-  %switch.gep537 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.config_filter.6, i64 0, i64 %540
-  br label %541
-
-541:                                              ; preds = %switch.lookup535, %switch.lookup530, %switch.lookup525, %switch.lookup520, %switch.lookup515, %switch.lookup510, %switch.lookup
-  %switch.tableidx536.sink = phi i32 [ %530, %switch.lookup535 ], [ %525, %switch.lookup530 ], [ %520, %switch.lookup525 ], [ %515, %switch.lookup520 ], [ %510, %switch.lookup515 ], [ %505, %switch.lookup510 ], [ %500, %switch.lookup ]
-  %biquad_zdf_s16.sink.in = phi ptr [ %switch.gep537, %switch.lookup535 ], [ %switch.gep532, %switch.lookup530 ], [ %switch.gep527, %switch.lookup525 ], [ %switch.gep522, %switch.lookup520 ], [ %switch.gep517, %switch.lookup515 ], [ %switch.gep512, %switch.lookup510 ], [ %switch.gep, %switch.lookup ]
-  %biquad_zdf_s16.sink = load ptr, ptr %biquad_zdf_s16.sink.in, align 8
-  %542 = getelementptr inbounds nuw i8, ptr %5, i64 304
-  store ptr %biquad_zdf_s16.sink, ptr %542, align 8, !tbaa !71
-  %543 = tail call i32 @av_get_bytes_per_sample(i32 noundef %switch.tableidx536.sink) #14
-  %544 = getelementptr inbounds nuw i8, ptr %5, i64 280
-  store i32 %543, ptr %544, align 8, !tbaa !72
-  %545 = load i32, ptr %496, align 8, !tbaa !69
-  switch i32 %545, label %._crit_edge499 [
-    i32 4, label %546
-    i32 5, label %559
-    i32 6, label %569
+switch.lookup:                                    ; preds = %528, %523, %518, %513, %508, %503, %498
+  %switch.tableidx536.sink540 = phi i32 [ %switch.tableidx, %498 ], [ %switch.tableidx511, %503 ], [ %switch.tableidx516, %508 ], [ %switch.tableidx521, %513 ], [ %switch.tableidx526, %518 ], [ %switch.tableidx531, %523 ], [ %switch.tableidx536, %528 ]
+  %switch.table.config_filter.6.sink = phi ptr [ @switch.table.config_filter, %498 ], [ @switch.table.config_filter.1, %503 ], [ @switch.table.config_filter.2, %508 ], [ @switch.table.config_filter.3, %513 ], [ @switch.table.config_filter.4, %518 ], [ @switch.table.config_filter.5, %523 ], [ @switch.table.config_filter.6, %528 ]
+  %534 = zext nneg i32 %switch.tableidx536.sink540 to i64
+  %switch.gep537 = getelementptr inbounds nuw [4 x ptr], ptr %switch.table.config_filter.6.sink, i64 0, i64 %534
+  %switch.load538 = load ptr, ptr %switch.gep537, align 8
+  %switch.offset539 = add nuw nsw i32 %switch.tableidx536.sink540, 6
+  %535 = getelementptr inbounds nuw i8, ptr %5, i64 304
+  store ptr %switch.load538, ptr %535, align 8, !tbaa !71
+  %536 = tail call i32 @av_get_bytes_per_sample(i32 noundef %switch.offset539) #14
+  %537 = getelementptr inbounds nuw i8, ptr %5, i64 280
+  store i32 %536, ptr %537, align 8, !tbaa !72
+  %538 = load i32, ptr %496, align 8, !tbaa !69
+  switch i32 %538, label %._crit_edge499 [
+    i32 4, label %539
+    i32 5, label %552
+    i32 6, label %562
   ]
 
-._crit_edge499:                                   ; preds = %541
+._crit_edge499:                                   ; preds = %switch.lookup
   %.pre500 = load double, ptr %394, align 8, !tbaa !53
   %.pre501 = load double, ptr %395, align 8, !tbaa !53
   %.pre502 = load double, ptr %396, align 8, !tbaa !53
   %.pre503 = load double, ptr %397, align 8, !tbaa !53
   %.pre504 = load double, ptr %398, align 8, !tbaa !53
-  br label %751
+  br label %744
 
-546:                                              ; preds = %541
-  %547 = load double, ptr %395, align 8, !tbaa !53
-  %548 = load double, ptr %394, align 8, !tbaa !53
-  %549 = fadd nsz double %547, 1.000000e+00
-  %550 = fdiv nsz double %548, %549
-  %551 = load double, ptr %398, align 8, !tbaa !53
-  %552 = load double, ptr %397, align 8, !tbaa !53
-  %553 = fneg nsz double %551
-  %554 = tail call nsz double @llvm.fmuladd.f64(double %553, double %548, double %552)
-  %555 = load double, ptr %396, align 8, !tbaa !53
-  %556 = fneg nsz double %554
-  %557 = tail call nsz double @llvm.fmuladd.f64(double %556, double %550, double %555)
-  %558 = tail call nsz double @llvm.fmuladd.f64(double %553, double %547, double %557)
-  store double %550, ptr %394, align 8, !tbaa !53
-  store double %558, ptr %396, align 8, !tbaa !53
-  store double %554, ptr %397, align 8, !tbaa !53
-  br label %751
+539:                                              ; preds = %switch.lookup
+  %540 = load double, ptr %395, align 8, !tbaa !53
+  %541 = load double, ptr %394, align 8, !tbaa !53
+  %542 = fadd nsz double %540, 1.000000e+00
+  %543 = fdiv nsz double %541, %542
+  %544 = load double, ptr %398, align 8, !tbaa !53
+  %545 = load double, ptr %397, align 8, !tbaa !53
+  %546 = fneg nsz double %544
+  %547 = tail call nsz double @llvm.fmuladd.f64(double %546, double %541, double %545)
+  %548 = load double, ptr %396, align 8, !tbaa !53
+  %549 = fneg nsz double %547
+  %550 = tail call nsz double @llvm.fmuladd.f64(double %549, double %543, double %548)
+  %551 = tail call nsz double @llvm.fmuladd.f64(double %546, double %540, double %550)
+  store double %543, ptr %394, align 8, !tbaa !53
+  store double %551, ptr %396, align 8, !tbaa !53
+  store double %547, ptr %397, align 8, !tbaa !53
+  br label %744
 
-559:                                              ; preds = %541
-  %560 = load double, ptr %394, align 8, !tbaa !53
-  %561 = fneg nsz double %560
-  %562 = load double, ptr %395, align 8, !tbaa !53
-  %563 = fneg nsz double %562
-  %564 = load double, ptr %397, align 8, !tbaa !53
-  %565 = load double, ptr %396, align 8, !tbaa !53
-  %566 = tail call nsz double @llvm.fmuladd.f64(double %561, double %565, double %564)
-  %567 = load double, ptr %398, align 8, !tbaa !53
-  %568 = tail call nsz double @llvm.fmuladd.f64(double %563, double %565, double %567)
-  store double %561, ptr %394, align 8, !tbaa !53
-  store double %563, ptr %395, align 8, !tbaa !53
-  store double %566, ptr %396, align 8, !tbaa !53
-  store double %568, ptr %397, align 8, !tbaa !53
-  store double %565, ptr %398, align 8, !tbaa !53
-  br label %751
+552:                                              ; preds = %switch.lookup
+  %553 = load double, ptr %394, align 8, !tbaa !53
+  %554 = fneg nsz double %553
+  %555 = load double, ptr %395, align 8, !tbaa !53
+  %556 = fneg nsz double %555
+  %557 = load double, ptr %397, align 8, !tbaa !53
+  %558 = load double, ptr %396, align 8, !tbaa !53
+  %559 = tail call nsz double @llvm.fmuladd.f64(double %554, double %558, double %557)
+  %560 = load double, ptr %398, align 8, !tbaa !53
+  %561 = tail call nsz double @llvm.fmuladd.f64(double %556, double %558, double %560)
+  store double %554, ptr %394, align 8, !tbaa !53
+  store double %556, ptr %395, align 8, !tbaa !53
+  store double %559, ptr %396, align 8, !tbaa !53
+  store double %561, ptr %397, align 8, !tbaa !53
+  store double %558, ptr %398, align 8, !tbaa !53
+  br label %744
 
-569:                                              ; preds = %541
-  %570 = load i32, ptr %23, align 8, !tbaa !49
-  %571 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  %572 = load double, ptr %571, align 8, !tbaa !50
-  %573 = load double, ptr %20, align 8, !tbaa !48
-  %574 = load double, ptr %9, align 8, !tbaa !47
-  %575 = sitofp i32 %570 to double
-  %576 = load i32, ptr %43, align 4, !tbaa !52
-  switch i32 %576, label %603 [
+562:                                              ; preds = %switch.lookup
+  %563 = load i32, ptr %23, align 8, !tbaa !49
+  %564 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  %565 = load double, ptr %564, align 8, !tbaa !50
+  %566 = load double, ptr %20, align 8, !tbaa !48
+  %567 = load double, ptr %9, align 8, !tbaa !47
+  %568 = sitofp i32 %563 to double
+  %569 = load i32, ptr %43, align 4, !tbaa !52
+  switch i32 %569, label %596 [
     i32 0, label %convert_width2qfactor.exit.i
     i32 3, label %convert_width2qfactor.exit.i
-    i32 1, label %577
-    i32 5, label %579
-    i32 2, label %582
-    i32 4, label %592
+    i32 1, label %570
+    i32 5, label %572
+    i32 2, label %575
+    i32 4, label %585
   ]
 
-577:                                              ; preds = %569
-  %578 = fdiv nsz double %573, %572
+570:                                              ; preds = %562
+  %571 = fdiv nsz double %566, %565
   br label %convert_width2qfactor.exit.i
 
-579:                                              ; preds = %569
-  %580 = fmul nsz double %572, 1.000000e+03
-  %581 = fdiv nsz double %573, %580
+572:                                              ; preds = %562
+  %573 = fmul nsz double %565, 1.000000e+03
+  %574 = fdiv nsz double %566, %573
   br label %convert_width2qfactor.exit.i
 
-582:                                              ; preds = %569
-  %583 = fmul nsz double %573, 0x401921FB54442D18
-  %584 = fdiv nsz double %583, %575
-  %585 = fmul nsz double %572, 0x3FD62E42FEFA39EF
-  %586 = fmul nsz double %585, %584
-  %587 = tail call nsz double @llvm.sin.f64(double %584)
-  %588 = fdiv nsz double %586, %587
-  %589 = tail call nsz double @llvm.sinh.f64(double %588)
-  %590 = fmul nsz double %589, 2.000000e+00
-  %591 = fdiv nsz double 1.000000e+00, %590
+575:                                              ; preds = %562
+  %576 = fmul nsz double %566, 0x401921FB54442D18
+  %577 = fdiv nsz double %576, %568
+  %578 = fmul nsz double %565, 0x3FD62E42FEFA39EF
+  %579 = fmul nsz double %578, %577
+  %580 = tail call nsz double @llvm.sin.f64(double %577)
+  %581 = fdiv nsz double %579, %580
+  %582 = tail call nsz double @llvm.sinh.f64(double %581)
+  %583 = fmul nsz double %582, 2.000000e+00
+  %584 = fdiv nsz double 1.000000e+00, %583
   br label %convert_width2qfactor.exit.i
 
-592:                                              ; preds = %569
-  %593 = fdiv nsz double %574, 4.000000e+01
-  %594 = fmul nsz double %593, 0x400A934F0979A371
-  %595 = tail call nsz double @llvm.exp2.f64(double %594)
-  %596 = fdiv nsz double 1.000000e+00, %595
-  %597 = fadd nsz double %595, %596
-  %598 = fdiv nsz double 1.000000e+00, %572
-  %599 = fadd nsz double %598, -1.000000e+00
-  %600 = tail call nsz double @llvm.fmuladd.f64(double %597, double %599, double 2.000000e+00)
-  %601 = tail call nsz double @llvm.sqrt.f64(double %600)
-  %602 = fdiv nsz double 1.000000e+00, %601
+585:                                              ; preds = %562
+  %586 = fdiv nsz double %567, 4.000000e+01
+  %587 = fmul nsz double %586, 0x400A934F0979A371
+  %588 = tail call nsz double @llvm.exp2.f64(double %587)
+  %589 = fdiv nsz double 1.000000e+00, %588
+  %590 = fadd nsz double %588, %589
+  %591 = fdiv nsz double 1.000000e+00, %565
+  %592 = fadd nsz double %591, -1.000000e+00
+  %593 = tail call nsz double @llvm.fmuladd.f64(double %590, double %592, double 2.000000e+00)
+  %594 = tail call nsz double @llvm.sqrt.f64(double %593)
+  %595 = fdiv nsz double 1.000000e+00, %594
   br label %convert_width2qfactor.exit.i
 
-603:                                              ; preds = %569
+596:                                              ; preds = %562
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28, i32 noundef 665) #14
   tail call void @abort() #15
   unreachable
 
-convert_width2qfactor.exit.i:                     ; preds = %592, %582, %579, %577, %569, %569
-  %.0.i.i = phi nsz double [ %578, %577 ], [ %581, %579 ], [ %591, %582 ], [ %602, %592 ], [ %572, %569 ], [ %572, %569 ]
-  %604 = load i32, ptr %11, align 8, !tbaa !20
-  switch i32 %604, label %750 [
-    i32 0, label %605
-    i32 1, label %618
-    i32 2, label %634
-    i32 9, label %634
-    i32 11, label %652
-    i32 3, label %673
-    i32 10, label %673
-    i32 4, label %694
-    i32 5, label %707
-    i32 8, label %718
-    i32 7, label %728
-    i32 6, label %739
+convert_width2qfactor.exit.i:                     ; preds = %585, %575, %572, %570, %562, %562
+  %.0.i.i = phi nsz double [ %571, %570 ], [ %574, %572 ], [ %584, %575 ], [ %595, %585 ], [ %565, %562 ], [ %565, %562 ]
+  %597 = load i32, ptr %11, align 8, !tbaa !20
+  switch i32 %597, label %743 [
+    i32 0, label %598
+    i32 1, label %611
+    i32 2, label %627
+    i32 9, label %627
+    i32 11, label %645
+    i32 3, label %666
+    i32 10, label %666
+    i32 4, label %687
+    i32 5, label %700
+    i32 8, label %711
+    i32 7, label %721
+    i32 6, label %732
   ]
 
-605:                                              ; preds = %convert_width2qfactor.exit.i
-  %606 = getelementptr inbounds nuw i8, ptr %5, i64 184
-  %607 = load double, ptr %606, align 8, !tbaa !53
-  %608 = getelementptr inbounds nuw i8, ptr %5, i64 192
-  %609 = load double, ptr %608, align 8, !tbaa !53
-  %610 = getelementptr inbounds nuw i8, ptr %5, i64 200
-  %611 = load double, ptr %610, align 8, !tbaa !53
-  %612 = getelementptr inbounds nuw i8, ptr %5, i64 208
-  %613 = load double, ptr %612, align 8, !tbaa !53
-  %614 = getelementptr inbounds nuw i8, ptr %5, i64 216
-  %615 = load double, ptr %614, align 8, !tbaa !53
-  %616 = getelementptr inbounds nuw i8, ptr %5, i64 224
-  %617 = load double, ptr %616, align 8, !tbaa !53
+598:                                              ; preds = %convert_width2qfactor.exit.i
+  %599 = getelementptr inbounds nuw i8, ptr %5, i64 184
+  %600 = load double, ptr %599, align 8, !tbaa !53
+  %601 = getelementptr inbounds nuw i8, ptr %5, i64 192
+  %602 = load double, ptr %601, align 8, !tbaa !53
+  %603 = getelementptr inbounds nuw i8, ptr %5, i64 200
+  %604 = load double, ptr %603, align 8, !tbaa !53
+  %605 = getelementptr inbounds nuw i8, ptr %5, i64 208
+  %606 = load double, ptr %605, align 8, !tbaa !53
+  %607 = getelementptr inbounds nuw i8, ptr %5, i64 216
+  %608 = load double, ptr %607, align 8, !tbaa !53
+  %609 = getelementptr inbounds nuw i8, ptr %5, i64 224
+  %610 = load double, ptr %609, align 8, !tbaa !53
   br label %convert_dir2zdf.exit
 
-618:                                              ; preds = %convert_width2qfactor.exit.i
-  %619 = fdiv nsz double %574, 4.000000e+01
-  %620 = fmul nsz double %619, 0x400A934F0979A371
-  %621 = tail call nsz double @llvm.exp2.f64(double %620)
-  %622 = fmul nsz double %573, 0x400921FB54442D18
-  %623 = fdiv nsz double %622, %575
-  %624 = tail call nsz double @llvm.tan.f64(double %623)
-  %625 = fmul nsz double %621, %.0.i.i
-  %626 = fdiv nsz double 1.000000e+00, %625
-  %627 = fadd nsz double %624, %626
-  %628 = tail call nsz double @llvm.fmuladd.f64(double %624, double %627, double 1.000000e+00)
-  %629 = fdiv nsz double 1.000000e+00, %628
-  %630 = fmul nsz double %624, %629
-  %631 = fmul nsz double %624, %630
-  %632 = tail call nsz double @llvm.fmuladd.f64(double %621, double %621, double -1.000000e+00)
-  %633 = fmul nsz double %632, %626
+611:                                              ; preds = %convert_width2qfactor.exit.i
+  %612 = fdiv nsz double %567, 4.000000e+01
+  %613 = fmul nsz double %612, 0x400A934F0979A371
+  %614 = tail call nsz double @llvm.exp2.f64(double %613)
+  %615 = fmul nsz double %566, 0x400921FB54442D18
+  %616 = fdiv nsz double %615, %568
+  %617 = tail call nsz double @llvm.tan.f64(double %616)
+  %618 = fmul nsz double %614, %.0.i.i
+  %619 = fdiv nsz double 1.000000e+00, %618
+  %620 = fadd nsz double %617, %619
+  %621 = tail call nsz double @llvm.fmuladd.f64(double %617, double %620, double 1.000000e+00)
+  %622 = fdiv nsz double 1.000000e+00, %621
+  %623 = fmul nsz double %617, %622
+  %624 = fmul nsz double %617, %623
+  %625 = tail call nsz double @llvm.fmuladd.f64(double %614, double %614, double -1.000000e+00)
+  %626 = fmul nsz double %625, %619
   br label %convert_dir2zdf.exit
 
-634:                                              ; preds = %convert_width2qfactor.exit.i, %convert_width2qfactor.exit.i
-  %635 = fdiv nsz double %574, 4.000000e+01
-  %636 = fmul nsz double %635, 0x400A934F0979A371
-  %637 = tail call nsz double @llvm.exp2.f64(double %636)
-  %638 = fmul nsz double %573, 0x400921FB54442D18
-  %639 = fdiv nsz double %638, %575
-  %640 = tail call nsz double @llvm.tan.f64(double %639)
-  %641 = tail call nsz double @llvm.sqrt.f64(double %637)
-  %642 = fdiv nsz double %640, %641
-  %643 = fdiv nsz double 1.000000e+00, %.0.i.i
-  %644 = fadd nsz double %642, %643
-  %645 = tail call nsz double @llvm.fmuladd.f64(double %642, double %644, double 1.000000e+00)
-  %646 = fdiv nsz double 1.000000e+00, %645
-  %647 = fmul nsz double %642, %646
-  %648 = fmul nsz double %642, %647
-  %649 = fadd nsz double %637, -1.000000e+00
-  %650 = fmul nsz double %649, %643
-  %651 = tail call nsz double @llvm.fmuladd.f64(double %637, double %637, double -1.000000e+00)
+627:                                              ; preds = %convert_width2qfactor.exit.i, %convert_width2qfactor.exit.i
+  %628 = fdiv nsz double %567, 4.000000e+01
+  %629 = fmul nsz double %628, 0x400A934F0979A371
+  %630 = tail call nsz double @llvm.exp2.f64(double %629)
+  %631 = fmul nsz double %566, 0x400921FB54442D18
+  %632 = fdiv nsz double %631, %568
+  %633 = tail call nsz double @llvm.tan.f64(double %632)
+  %634 = tail call nsz double @llvm.sqrt.f64(double %630)
+  %635 = fdiv nsz double %633, %634
+  %636 = fdiv nsz double 1.000000e+00, %.0.i.i
+  %637 = fadd nsz double %635, %636
+  %638 = tail call nsz double @llvm.fmuladd.f64(double %635, double %637, double 1.000000e+00)
+  %639 = fdiv nsz double 1.000000e+00, %638
+  %640 = fmul nsz double %635, %639
+  %641 = fmul nsz double %635, %640
+  %642 = fadd nsz double %630, -1.000000e+00
+  %643 = fmul nsz double %642, %636
+  %644 = tail call nsz double @llvm.fmuladd.f64(double %630, double %630, double -1.000000e+00)
   br label %convert_dir2zdf.exit
 
-652:                                              ; preds = %convert_width2qfactor.exit.i
-  %653 = fdiv nsz double %574, 2.000000e+01
-  %654 = fmul nsz double %653, 0x400A934F0979A371
-  %655 = tail call nsz double @llvm.exp2.f64(double %654)
-  %656 = fmul nsz double %573, 0x400921FB54442D18
-  %657 = fdiv nsz double %656, %575
-  %658 = tail call nsz double @llvm.tan.f64(double %657)
-  %659 = tail call nsz double @llvm.sqrt.f64(double %655)
-  %660 = fdiv nsz double %658, %659
-  %661 = fdiv nsz double 1.000000e+00, %.0.i.i
-  %662 = fadd nsz double %660, %661
-  %663 = tail call nsz double @llvm.fmuladd.f64(double %660, double %662, double 1.000000e+00)
-  %664 = fdiv nsz double 1.000000e+00, %663
-  %665 = fmul nsz double %660, %664
-  %666 = fmul nsz double %660, %665
-  %667 = fdiv nsz double 1.000000e+00, %655
-  %668 = fadd nsz double %655, -1.000000e+00
-  %669 = fmul nsz double %668, %661
-  %670 = fdiv nsz double %669, %655
-  %671 = tail call nsz double @llvm.fmuladd.f64(double %655, double %655, double -1.000000e+00)
-  %672 = fdiv nsz double %671, %655
+645:                                              ; preds = %convert_width2qfactor.exit.i
+  %646 = fdiv nsz double %567, 2.000000e+01
+  %647 = fmul nsz double %646, 0x400A934F0979A371
+  %648 = tail call nsz double @llvm.exp2.f64(double %647)
+  %649 = fmul nsz double %566, 0x400921FB54442D18
+  %650 = fdiv nsz double %649, %568
+  %651 = tail call nsz double @llvm.tan.f64(double %650)
+  %652 = tail call nsz double @llvm.sqrt.f64(double %648)
+  %653 = fdiv nsz double %651, %652
+  %654 = fdiv nsz double 1.000000e+00, %.0.i.i
+  %655 = fadd nsz double %653, %654
+  %656 = tail call nsz double @llvm.fmuladd.f64(double %653, double %655, double 1.000000e+00)
+  %657 = fdiv nsz double 1.000000e+00, %656
+  %658 = fmul nsz double %653, %657
+  %659 = fmul nsz double %653, %658
+  %660 = fdiv nsz double 1.000000e+00, %648
+  %661 = fadd nsz double %648, -1.000000e+00
+  %662 = fmul nsz double %661, %654
+  %663 = fdiv nsz double %662, %648
+  %664 = tail call nsz double @llvm.fmuladd.f64(double %648, double %648, double -1.000000e+00)
+  %665 = fdiv nsz double %664, %648
   br label %convert_dir2zdf.exit
 
-673:                                              ; preds = %convert_width2qfactor.exit.i, %convert_width2qfactor.exit.i
-  %674 = fdiv nsz double %574, 4.000000e+01
-  %675 = fmul nsz double %674, 0x400A934F0979A371
-  %676 = tail call nsz double @llvm.exp2.f64(double %675)
-  %677 = fmul nsz double %573, 0x400921FB54442D18
-  %678 = fdiv nsz double %677, %575
-  %679 = tail call nsz double @llvm.tan.f64(double %678)
-  %680 = tail call nsz double @llvm.sqrt.f64(double %676)
-  %681 = fmul nsz double %679, %680
-  %682 = fdiv nsz double 1.000000e+00, %.0.i.i
-  %683 = fadd nsz double %681, %682
-  %684 = tail call nsz double @llvm.fmuladd.f64(double %681, double %683, double 1.000000e+00)
-  %685 = fdiv nsz double 1.000000e+00, %684
-  %686 = fmul nsz double %681, %685
-  %687 = fmul nsz double %681, %686
-  %688 = fmul nsz double %676, %676
-  %689 = fsub nsz double 1.000000e+00, %676
-  %690 = fmul nsz double %689, %682
-  %691 = fmul nsz double %676, %690
-  %692 = fneg nsz double %676
-  %693 = tail call nsz double @llvm.fmuladd.f64(double %692, double %676, double 1.000000e+00)
+666:                                              ; preds = %convert_width2qfactor.exit.i, %convert_width2qfactor.exit.i
+  %667 = fdiv nsz double %567, 4.000000e+01
+  %668 = fmul nsz double %667, 0x400A934F0979A371
+  %669 = tail call nsz double @llvm.exp2.f64(double %668)
+  %670 = fmul nsz double %566, 0x400921FB54442D18
+  %671 = fdiv nsz double %670, %568
+  %672 = tail call nsz double @llvm.tan.f64(double %671)
+  %673 = tail call nsz double @llvm.sqrt.f64(double %669)
+  %674 = fmul nsz double %672, %673
+  %675 = fdiv nsz double 1.000000e+00, %.0.i.i
+  %676 = fadd nsz double %674, %675
+  %677 = tail call nsz double @llvm.fmuladd.f64(double %674, double %676, double 1.000000e+00)
+  %678 = fdiv nsz double 1.000000e+00, %677
+  %679 = fmul nsz double %674, %678
+  %680 = fmul nsz double %674, %679
+  %681 = fmul nsz double %669, %669
+  %682 = fsub nsz double 1.000000e+00, %669
+  %683 = fmul nsz double %682, %675
+  %684 = fmul nsz double %669, %683
+  %685 = fneg nsz double %669
+  %686 = tail call nsz double @llvm.fmuladd.f64(double %685, double %669, double 1.000000e+00)
   br label %convert_dir2zdf.exit
 
-694:                                              ; preds = %convert_width2qfactor.exit.i
-  %695 = fmul nsz double %573, 0x400921FB54442D18
-  %696 = fdiv nsz double %695, %575
-  %697 = tail call nsz double @llvm.tan.f64(double %696)
-  %698 = fdiv nsz double 1.000000e+00, %.0.i.i
-  %699 = fadd nsz double %697, %698
-  %700 = tail call nsz double @llvm.fmuladd.f64(double %697, double %699, double 1.000000e+00)
-  %701 = fdiv nsz double 1.000000e+00, %700
-  %702 = fmul nsz double %697, %701
-  %703 = fmul nsz double %697, %702
-  %704 = getelementptr inbounds nuw i8, ptr %5, i64 20
-  %705 = load i32, ptr %704, align 4, !tbaa !55
-  %.not.i = icmp eq i32 %705, 0
-  %706 = select nsz i1 %.not.i, double %698, double 1.000000e+00
+687:                                              ; preds = %convert_width2qfactor.exit.i
+  %688 = fmul nsz double %566, 0x400921FB54442D18
+  %689 = fdiv nsz double %688, %568
+  %690 = tail call nsz double @llvm.tan.f64(double %689)
+  %691 = fdiv nsz double 1.000000e+00, %.0.i.i
+  %692 = fadd nsz double %690, %691
+  %693 = tail call nsz double @llvm.fmuladd.f64(double %690, double %692, double 1.000000e+00)
+  %694 = fdiv nsz double 1.000000e+00, %693
+  %695 = fmul nsz double %690, %694
+  %696 = fmul nsz double %690, %695
+  %697 = getelementptr inbounds nuw i8, ptr %5, i64 20
+  %698 = load i32, ptr %697, align 4, !tbaa !55
+  %.not.i = icmp eq i32 %698, 0
+  %699 = select nsz i1 %.not.i, double %691, double 1.000000e+00
   br label %convert_dir2zdf.exit
 
-707:                                              ; preds = %convert_width2qfactor.exit.i
-  %708 = fmul nsz double %573, 0x400921FB54442D18
-  %709 = fdiv nsz double %708, %575
-  %710 = tail call nsz double @llvm.tan.f64(double %709)
-  %711 = fdiv nsz double 1.000000e+00, %.0.i.i
-  %712 = fadd nsz double %710, %711
-  %713 = tail call nsz double @llvm.fmuladd.f64(double %710, double %712, double 1.000000e+00)
-  %714 = fdiv nsz double 1.000000e+00, %713
-  %715 = fmul nsz double %710, %714
-  %716 = fmul nsz double %710, %715
-  %717 = fneg nsz double %711
+700:                                              ; preds = %convert_width2qfactor.exit.i
+  %701 = fmul nsz double %566, 0x400921FB54442D18
+  %702 = fdiv nsz double %701, %568
+  %703 = tail call nsz double @llvm.tan.f64(double %702)
+  %704 = fdiv nsz double 1.000000e+00, %.0.i.i
+  %705 = fadd nsz double %703, %704
+  %706 = tail call nsz double @llvm.fmuladd.f64(double %703, double %705, double 1.000000e+00)
+  %707 = fdiv nsz double 1.000000e+00, %706
+  %708 = fmul nsz double %703, %707
+  %709 = fmul nsz double %703, %708
+  %710 = fneg nsz double %704
   br label %convert_dir2zdf.exit
 
-718:                                              ; preds = %convert_width2qfactor.exit.i
-  %719 = fmul nsz double %573, 0x400921FB54442D18
-  %720 = fdiv nsz double %719, %575
-  %721 = tail call nsz double @llvm.tan.f64(double %720)
-  %722 = fdiv nsz double 1.000000e+00, %.0.i.i
-  %723 = fadd nsz double %721, %722
-  %724 = tail call nsz double @llvm.fmuladd.f64(double %721, double %723, double 1.000000e+00)
-  %725 = fdiv nsz double 1.000000e+00, %724
-  %726 = fmul nsz double %721, %725
-  %727 = fmul nsz double %721, %726
+711:                                              ; preds = %convert_width2qfactor.exit.i
+  %712 = fmul nsz double %566, 0x400921FB54442D18
+  %713 = fdiv nsz double %712, %568
+  %714 = tail call nsz double @llvm.tan.f64(double %713)
+  %715 = fdiv nsz double 1.000000e+00, %.0.i.i
+  %716 = fadd nsz double %714, %715
+  %717 = tail call nsz double @llvm.fmuladd.f64(double %714, double %716, double 1.000000e+00)
+  %718 = fdiv nsz double 1.000000e+00, %717
+  %719 = fmul nsz double %714, %718
+  %720 = fmul nsz double %714, %719
   br label %convert_dir2zdf.exit
 
-728:                                              ; preds = %convert_width2qfactor.exit.i
-  %729 = fmul nsz double %573, 0x400921FB54442D18
-  %730 = fdiv nsz double %729, %575
-  %731 = tail call nsz double @llvm.tan.f64(double %730)
-  %732 = fdiv nsz double 1.000000e+00, %.0.i.i
-  %733 = fadd nsz double %731, %732
-  %734 = tail call nsz double @llvm.fmuladd.f64(double %731, double %733, double 1.000000e+00)
-  %735 = fdiv nsz double 1.000000e+00, %734
-  %736 = fmul nsz double %731, %735
-  %737 = fmul nsz double %731, %736
-  %738 = fneg nsz double %732
+721:                                              ; preds = %convert_width2qfactor.exit.i
+  %722 = fmul nsz double %566, 0x400921FB54442D18
+  %723 = fdiv nsz double %722, %568
+  %724 = tail call nsz double @llvm.tan.f64(double %723)
+  %725 = fdiv nsz double 1.000000e+00, %.0.i.i
+  %726 = fadd nsz double %724, %725
+  %727 = tail call nsz double @llvm.fmuladd.f64(double %724, double %726, double 1.000000e+00)
+  %728 = fdiv nsz double 1.000000e+00, %727
+  %729 = fmul nsz double %724, %728
+  %730 = fmul nsz double %724, %729
+  %731 = fneg nsz double %725
   br label %convert_dir2zdf.exit
 
-739:                                              ; preds = %convert_width2qfactor.exit.i
-  %740 = fmul nsz double %573, 0x400921FB54442D18
-  %741 = fdiv nsz double %740, %575
-  %742 = tail call nsz double @llvm.tan.f64(double %741)
-  %743 = fdiv nsz double 1.000000e+00, %.0.i.i
-  %744 = fadd nsz double %742, %743
-  %745 = tail call nsz double @llvm.fmuladd.f64(double %742, double %744, double 1.000000e+00)
-  %746 = fdiv nsz double 1.000000e+00, %745
-  %747 = fmul nsz double %742, %746
-  %748 = fmul nsz double %742, %747
-  %749 = fmul nsz double %743, -2.000000e+00
+732:                                              ; preds = %convert_width2qfactor.exit.i
+  %733 = fmul nsz double %566, 0x400921FB54442D18
+  %734 = fdiv nsz double %733, %568
+  %735 = tail call nsz double @llvm.tan.f64(double %734)
+  %736 = fdiv nsz double 1.000000e+00, %.0.i.i
+  %737 = fadd nsz double %735, %736
+  %738 = tail call nsz double @llvm.fmuladd.f64(double %735, double %737, double 1.000000e+00)
+  %739 = fdiv nsz double 1.000000e+00, %738
+  %740 = fmul nsz double %735, %739
+  %741 = fmul nsz double %735, %740
+  %742 = fmul nsz double %736, -2.000000e+00
   br label %convert_dir2zdf.exit
 
-750:                                              ; preds = %convert_width2qfactor.exit.i
+743:                                              ; preds = %convert_width2qfactor.exit.i
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28, i32 noundef 785) #14
   tail call void @abort() #15
   unreachable
 
-convert_dir2zdf.exit:                             ; preds = %605, %618, %634, %652, %673, %694, %707, %718, %728, %739
-  %.sroa.42.0.i = phi nsz double [ %611, %605 ], [ %631, %618 ], [ %648, %634 ], [ %666, %652 ], [ %687, %673 ], [ %703, %694 ], [ %716, %707 ], [ %727, %718 ], [ %737, %728 ], [ %748, %739 ]
-  %.sroa.22.0.i = phi nsz double [ %609, %605 ], [ %630, %618 ], [ %647, %634 ], [ %665, %652 ], [ %686, %673 ], [ %702, %694 ], [ %715, %707 ], [ %726, %718 ], [ %736, %728 ], [ %747, %739 ]
-  %.sroa.01.0.i = phi nsz double [ %607, %605 ], [ %629, %618 ], [ %646, %634 ], [ %664, %652 ], [ %685, %673 ], [ %701, %694 ], [ %714, %707 ], [ %725, %718 ], [ %735, %728 ], [ %746, %739 ]
-  %.sroa.24.0.i = phi nsz double [ %617, %605 ], [ 0.000000e+00, %618 ], [ %651, %634 ], [ %672, %652 ], [ %693, %673 ], [ 0.000000e+00, %694 ], [ 0.000000e+00, %707 ], [ 1.000000e+00, %718 ], [ -1.000000e+00, %728 ], [ 0.000000e+00, %739 ]
-  %.sroa.13.0.i = phi nsz double [ %615, %605 ], [ %633, %618 ], [ %650, %634 ], [ %670, %652 ], [ %691, %673 ], [ %706, %694 ], [ %717, %707 ], [ 0.000000e+00, %718 ], [ %738, %728 ], [ %749, %739 ]
-  %.sroa.0.0.i = phi nsz double [ %613, %605 ], [ 1.000000e+00, %618 ], [ 1.000000e+00, %634 ], [ %667, %652 ], [ %688, %673 ], [ 0.000000e+00, %694 ], [ 1.000000e+00, %707 ], [ 0.000000e+00, %718 ], [ 1.000000e+00, %728 ], [ 1.000000e+00, %739 ]
+convert_dir2zdf.exit:                             ; preds = %598, %611, %627, %645, %666, %687, %700, %711, %721, %732
+  %.sroa.42.0.i = phi nsz double [ %604, %598 ], [ %624, %611 ], [ %641, %627 ], [ %659, %645 ], [ %680, %666 ], [ %696, %687 ], [ %709, %700 ], [ %720, %711 ], [ %730, %721 ], [ %741, %732 ]
+  %.sroa.22.0.i = phi nsz double [ %602, %598 ], [ %623, %611 ], [ %640, %627 ], [ %658, %645 ], [ %679, %666 ], [ %695, %687 ], [ %708, %700 ], [ %719, %711 ], [ %729, %721 ], [ %740, %732 ]
+  %.sroa.01.0.i = phi nsz double [ %600, %598 ], [ %622, %611 ], [ %639, %627 ], [ %657, %645 ], [ %678, %666 ], [ %694, %687 ], [ %707, %700 ], [ %718, %711 ], [ %728, %721 ], [ %739, %732 ]
+  %.sroa.24.0.i = phi nsz double [ %610, %598 ], [ 0.000000e+00, %611 ], [ %644, %627 ], [ %665, %645 ], [ %686, %666 ], [ 0.000000e+00, %687 ], [ 0.000000e+00, %700 ], [ 1.000000e+00, %711 ], [ -1.000000e+00, %721 ], [ 0.000000e+00, %732 ]
+  %.sroa.13.0.i = phi nsz double [ %608, %598 ], [ %626, %611 ], [ %643, %627 ], [ %663, %645 ], [ %684, %666 ], [ %699, %687 ], [ %710, %700 ], [ 0.000000e+00, %711 ], [ %731, %721 ], [ %742, %732 ]
+  %.sroa.0.0.i = phi nsz double [ %606, %598 ], [ 1.000000e+00, %611 ], [ 1.000000e+00, %627 ], [ %660, %645 ], [ %681, %666 ], [ 0.000000e+00, %687 ], [ 1.000000e+00, %700 ], [ 0.000000e+00, %711 ], [ 1.000000e+00, %721 ], [ 1.000000e+00, %732 ]
   store double %.sroa.01.0.i, ptr %393, align 8, !tbaa !53
   store double %.sroa.22.0.i, ptr %394, align 8, !tbaa !53
   store double %.sroa.42.0.i, ptr %395, align 8, !tbaa !53
   store double %.sroa.0.0.i, ptr %396, align 8, !tbaa !53
   store double %.sroa.13.0.i, ptr %397, align 8, !tbaa !53
   store double %.sroa.24.0.i, ptr %398, align 8, !tbaa !53
-  br label %751
+  br label %744
 
-751:                                              ; preds = %._crit_edge499, %559, %convert_dir2zdf.exit, %546
-  %752 = phi double [ %.pre504, %._crit_edge499 ], [ %565, %559 ], [ %.sroa.24.0.i, %convert_dir2zdf.exit ], [ %551, %546 ]
-  %753 = phi double [ %.pre503, %._crit_edge499 ], [ %568, %559 ], [ %.sroa.13.0.i, %convert_dir2zdf.exit ], [ %554, %546 ]
-  %754 = phi double [ %.pre502, %._crit_edge499 ], [ %566, %559 ], [ %.sroa.0.0.i, %convert_dir2zdf.exit ], [ %558, %546 ]
-  %755 = phi double [ %.pre501, %._crit_edge499 ], [ %563, %559 ], [ %.sroa.42.0.i, %convert_dir2zdf.exit ], [ %547, %546 ]
-  %756 = phi double [ %.pre500, %._crit_edge499 ], [ %561, %559 ], [ %.sroa.22.0.i, %convert_dir2zdf.exit ], [ %550, %546 ]
-  %757 = load double, ptr %393, align 8, !tbaa !53
-  %758 = fptrunc nsz double %757 to float
-  %759 = getelementptr inbounds nuw i8, ptr %5, i64 160
-  store float %758, ptr %759, align 8, !tbaa !73
-  %760 = fptrunc nsz double %756 to float
-  %761 = getelementptr inbounds nuw i8, ptr %5, i64 164
-  store float %760, ptr %761, align 4, !tbaa !73
-  %762 = fptrunc nsz double %755 to float
-  %763 = getelementptr inbounds nuw i8, ptr %5, i64 168
-  store float %762, ptr %763, align 8, !tbaa !73
-  %764 = fptrunc nsz double %754 to float
-  %765 = getelementptr inbounds nuw i8, ptr %5, i64 172
-  store float %764, ptr %765, align 4, !tbaa !73
-  %766 = fptrunc nsz double %753 to float
-  %767 = getelementptr inbounds nuw i8, ptr %5, i64 176
-  store float %766, ptr %767, align 4, !tbaa !73
-  %768 = fptrunc nsz double %752 to float
-  %769 = getelementptr inbounds nuw i8, ptr %5, i64 180
-  store float %768, ptr %769, align 4, !tbaa !73
+744:                                              ; preds = %._crit_edge499, %552, %convert_dir2zdf.exit, %539
+  %745 = phi double [ %.pre504, %._crit_edge499 ], [ %558, %552 ], [ %.sroa.24.0.i, %convert_dir2zdf.exit ], [ %544, %539 ]
+  %746 = phi double [ %.pre503, %._crit_edge499 ], [ %561, %552 ], [ %.sroa.13.0.i, %convert_dir2zdf.exit ], [ %547, %539 ]
+  %747 = phi double [ %.pre502, %._crit_edge499 ], [ %559, %552 ], [ %.sroa.0.0.i, %convert_dir2zdf.exit ], [ %551, %539 ]
+  %748 = phi double [ %.pre501, %._crit_edge499 ], [ %556, %552 ], [ %.sroa.42.0.i, %convert_dir2zdf.exit ], [ %540, %539 ]
+  %749 = phi double [ %.pre500, %._crit_edge499 ], [ %554, %552 ], [ %.sroa.22.0.i, %convert_dir2zdf.exit ], [ %543, %539 ]
+  %750 = load double, ptr %393, align 8, !tbaa !53
+  %751 = fptrunc nsz double %750 to float
+  %752 = getelementptr inbounds nuw i8, ptr %5, i64 160
+  store float %751, ptr %752, align 8, !tbaa !73
+  %753 = fptrunc nsz double %749 to float
+  %754 = getelementptr inbounds nuw i8, ptr %5, i64 164
+  store float %753, ptr %754, align 4, !tbaa !73
+  %755 = fptrunc nsz double %748 to float
+  %756 = getelementptr inbounds nuw i8, ptr %5, i64 168
+  store float %755, ptr %756, align 8, !tbaa !73
+  %757 = fptrunc nsz double %747 to float
+  %758 = getelementptr inbounds nuw i8, ptr %5, i64 172
+  store float %757, ptr %758, align 4, !tbaa !73
+  %759 = fptrunc nsz double %746 to float
+  %760 = getelementptr inbounds nuw i8, ptr %5, i64 176
+  store float %759, ptr %760, align 4, !tbaa !73
+  %761 = fptrunc nsz double %745 to float
+  %762 = getelementptr inbounds nuw i8, ptr %5, i64 180
+  store float %761, ptr %762, align 4, !tbaa !73
   br label %.loopexit
 
-.loopexit:                                        ; preds = %482, %443, %.thread, %41, %466, %751, %40
-  %.0456 = phi i32 [ 0, %40 ], [ 0, %751 ], [ -12, %443 ], [ -12, %466 ], [ -22, %41 ], [ -12, %.thread ], [ -12, %482 ]
+.loopexit:                                        ; preds = %482, %443, %.thread, %41, %466, %744, %40
+  %.0456 = phi i32 [ 0, %40 ], [ 0, %744 ], [ -12, %443 ], [ -12, %466 ], [ -22, %41 ], [ -12, %.thread ], [ -12, %482 ]
   ret i32 %.0456
 }
 

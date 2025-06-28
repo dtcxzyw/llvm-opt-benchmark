@@ -40241,8 +40241,8 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8ConstantELb1EE9push_backES2_.exit40: ; pr
 
 switch.lookup:                                    ; preds = %91
   %switch.tableidx = add nsw i32 %.030, -2
-  %99 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table._ZN12_GLOBAL__N_117ScalarExprEmitter14EmitBinOpCheckEN4llvm8ArrayRefISt4pairIPNS1_5ValueEN5clang13SanitizerKind16SanitizerOrdinalEEEERKNS_9BinOpInfoE, i64 0, i64 %99
+  %99 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZN12_GLOBAL__N_117ScalarExprEmitter14EmitBinOpCheckEN4llvm8ArrayRefISt4pairIPNS1_5ValueEN5clang13SanitizerKind16SanitizerOrdinalEEEERKNS_9BinOpInfoE, i64 0, i64 %99
   %switch.load = load i32, ptr %switch.gep, align 4
   %100 = load ptr, ptr %0, align 8, !tbaa !638
   %101 = getelementptr inbounds nuw i8, ptr %3, i64 16

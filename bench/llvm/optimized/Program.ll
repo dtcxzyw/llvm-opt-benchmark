@@ -371,8 +371,8 @@ switch.lookup:
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i32, ptr %11, align 4, !tbaa !23
   %switch.tableidx = add nsw i32 %8, -1
-  %13 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table._ZN5clang6interp7Program18createGlobalStringEPKNS_13StringLiteralEPKNS_4ExprE, i64 0, i64 %13
+  %13 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN5clang6interp7Program18createGlobalStringEPKNS_13StringLiteralEPKNS_4ExprE, i64 0, i64 %13
   %switch.load = load i32, ptr %switch.gep, align 4
   %.not = icmp eq ptr %2, null
   %spec.select = select i1 %.not, ptr %1, ptr %2

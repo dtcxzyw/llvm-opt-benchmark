@@ -3568,8 +3568,8 @@ switch.lookup:
   %15 = load i32, ptr %14, align 8, !tbaa !69
   %16 = add i32 %15, -2
   %17 = tail call i32 @llvm.fshl.i32(i32 %16, i32 %16, i32 31)
-  %18 = sext i32 %17 to i64
-  %switch.gep = getelementptr inbounds [8 x i32], ptr @switch.table._ZN5clang20NumericLiteralParser18GetFixedPointValueERN4llvm5APIntEj, i64 0, i64 %18
+  %18 = zext i32 %17 to i64
+  %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN5clang20NumericLiteralParser18GetFixedPointValueERN4llvm5APIntEj, i64 0, i64 %18
   %switch.load = load i32, ptr %switch.gep, align 4
   %19 = icmp ugt i32 %switch.load, %13
   br i1 %19, label %.preheader, label %55
@@ -4143,8 +4143,8 @@ switch.lookup:                                    ; preds = %29
   %38 = trunc i64 %37 to i32
   %39 = add i32 %27, -2
   %40 = tail call i32 @llvm.fshl.i32(i32 %39, i32 %39, i32 31)
-  %41 = sext i32 %40 to i64
-  %switch.gep = getelementptr inbounds [8 x i32], ptr @switch.table._ZN5clang20NumericLiteralParser18GetFixedPointValueERN4llvm5APIntEj, i64 0, i64 %41
+  %41 = zext i32 %40 to i64
+  %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN5clang20NumericLiteralParser18GetFixedPointValueERN4llvm5APIntEj, i64 0, i64 %41
   %switch.load = load i32, ptr %switch.gep, align 4
   %42 = icmp ule i32 %switch.load, %38
   br i1 %42, label %51, label %43
@@ -9698,8 +9698,8 @@ define dso_local void @_ZN5clang19StringLiteralParser4initEN4llvm8ArrayRefINS_5T
 switch.lookup:                                    ; preds = %75
   %77 = load i32, ptr %.0336, align 8, !tbaa !451
   %switch.tableidx = add nsw i16 %73, -9
-  %78 = sext i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [11 x i32], ptr @switch.table._ZN5clang19StringLiteralParser4initEN4llvm8ArrayRefINS_5TokenEEE, i64 0, i64 %78
+  %78 = zext i16 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [11 x i32], ptr @switch.table._ZN5clang19StringLiteralParser4initEN4llvm8ArrayRefINS_5TokenEEE, i64 0, i64 %78
   %switch.load = load i32, ptr %switch.gep, align 4
   %79 = load ptr, ptr %0, align 8, !tbaa !452
   %80 = load ptr, ptr %37, align 8, !tbaa !453
@@ -9714,8 +9714,8 @@ switch.lookup:                                    ; preds = %75
   %85 = call noundef ptr @_ZNK5clang13SourceManager16getCharacterDataENS_14SourceLocationEPb(ptr noundef nonnull align 8 dereferenceable(696) %84, i32 %83, ptr noundef null) #19
   %86 = load i16, ptr %72, align 8, !tbaa !36
   %switch.tableidx396 = add nsw i16 %86, -9
-  %87 = sext i16 %switch.tableidx396 to i64
-  %switch.gep397 = getelementptr inbounds [11 x i64], ptr @switch.table._ZN5clang19StringLiteralParser4initEN4llvm8ArrayRefINS_5TokenEEE.7, i64 0, i64 %87
+  %87 = zext i16 %switch.tableidx396 to i64
+  %switch.gep397 = getelementptr inbounds nuw [11 x i64], ptr @switch.table._ZN5clang19StringLiteralParser4initEN4llvm8ArrayRefINS_5TokenEEE.7, i64 0, i64 %87
   %switch.load398 = load i64, ptr %switch.gep397, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %11) #19
   %88 = load ptr, ptr %36, align 8, !tbaa !437

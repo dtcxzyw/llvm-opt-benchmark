@@ -33238,11 +33238,11 @@ default.unreachable12:                            ; preds = %1
   br label %28
 
 switch.lookup:                                    ; preds = %"_ZN6syntax3ast8expr_ext56_$LT$impl$u20$syntax..ast..generated..nodes..BinExpr$GT$7op_kind17h2450c3baa4babd9fE.exit"
-  %26 = sext i8 %.sroa.2.0.copyload.i to i64
-  %switch.gep = getelementptr inbounds [10 x i8], ptr @"switch.table._ZN6syntax3ast4prec53_$LT$impl$u20$syntax..ast..generated..nodes..Expr$GT$13binding_power17h185c880a6d3fffc0E", i64 0, i64 %26
+  %26 = zext i8 %.sroa.2.0.copyload.i to i64
+  %switch.gep = getelementptr inbounds nuw [10 x i8], ptr @"switch.table._ZN6syntax3ast4prec53_$LT$impl$u20$syntax..ast..generated..nodes..Expr$GT$13binding_power17h185c880a6d3fffc0E", i64 0, i64 %26
   %switch.load = load i8, ptr %switch.gep, align 1
-  %27 = sext i8 %.sroa.2.0.copyload.i to i64
-  %switch.gep13 = getelementptr inbounds [10 x i8], ptr @"switch.table._ZN6syntax3ast4prec53_$LT$impl$u20$syntax..ast..generated..nodes..Expr$GT$13binding_power17h185c880a6d3fffc0E.191", i64 0, i64 %27
+  %27 = zext i8 %.sroa.2.0.copyload.i to i64
+  %switch.gep13 = getelementptr inbounds nuw [10 x i8], ptr @"switch.table._ZN6syntax3ast4prec53_$LT$impl$u20$syntax..ast..generated..nodes..Expr$GT$13binding_power17h185c880a6d3fffc0E.191", i64 0, i64 %27
   %switch.load14 = load i8, ptr %switch.gep13, align 1
   br label %28
 

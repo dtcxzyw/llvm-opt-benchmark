@@ -687,9 +687,8 @@ define dso_local range(i32 -1, 1) i32 @copy_objects(ptr noundef %0, ptr noundef 
 switch.lookup:                                    ; preds = %325
   %329 = zext i32 %.0213424 to i64
   %330 = getelementptr inbounds nuw [5 x i32], ptr %11, i64 0, i64 %329
-  %sext = shl i64 %indvars.iv, 32
-  %331 = ashr exact i64 %sext, 32
-  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table.copy_objects, i64 0, i64 %331
+  %331 = and i64 %indvars.iv, 4294967295
+  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table.copy_objects, i64 0, i64 %331
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %330, align 4, !tbaa !22
   %332 = getelementptr inbounds nuw [5 x i32], ptr %12, i64 0, i64 %329

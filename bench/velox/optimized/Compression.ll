@@ -80,9 +80,8 @@ $_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairI
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8facebook5velox6common22compressionKindToCodecENS1_15CompressionKindE(ptr noalias sret(%"class.std::unique_ptr") align 8 %agg.result, i64 noundef %kind) local_unnamed_addr #0 {
 entry:
-  %sext = shl i64 %kind, 32
-  %0 = ashr exact i64 %sext, 32
-  %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table._ZN8facebook5velox6common22compressionKindToCodecENS1_15CompressionKindE, i64 0, i64 %0
+  %0 = and i64 %kind, 4294967295
+  %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZN8facebook5velox6common22compressionKindToCodecENS1_15CompressionKindE, i64 0, i64 %0
   %switch.load = load i32, ptr %switch.gep, align 4
   tail call void @_ZN5folly2io8getCodecENS0_9CodecTypeEi(ptr sret(%"class.std::unique_ptr") align 8 %agg.result, i32 noundef %switch.load, i32 noundef -2)
   ret void
@@ -94,8 +93,8 @@ declare void @_ZN5folly2io8getCodecENS0_9CodecTypeEi(ptr sret(%"class.std::uniqu
 define noundef range(i64 0, 7) i64 @_ZN8facebook5velox6common26codecTypeToCompressionKindEN5folly2io9CodecTypeE(i32 noundef %type) local_unnamed_addr #2 {
 entry:
   %switch.tableidx = add nsw i32 %type, -1
-  %0 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [9 x i64], ptr @switch.table._ZN8facebook5velox6common26codecTypeToCompressionKindEN5folly2io9CodecTypeE, i64 0, i64 %0
+  %0 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [9 x i64], ptr @switch.table._ZN8facebook5velox6common26codecTypeToCompressionKindEN5folly2io9CodecTypeE, i64 0, i64 %0
   %switch.load = load i64, ptr %switch.gep, align 8
   ret i64 %switch.load
 }

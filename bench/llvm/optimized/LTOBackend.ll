@@ -4623,8 +4623,8 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analysi
   br label %switch.lookup
 
 switch.lookup:                                    ; preds = %710, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i
-  %721 = sext i32 %109 to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN4llvm3lto3optERKNS0_6ConfigEPNS_13TargetMachineEjRNS_6ModuleEbPNS_18ModuleSummaryIndexEPKS8_RKSt6vectorIhSaIhEE, i64 0, i64 %721
+  %721 = zext i32 %109 to i64
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN4llvm3lto3optERKNS0_6ConfigEPNS_13TargetMachineEjRNS_6ModuleEbPNS_18ModuleSummaryIndexEPKS8_RKSt6vectorIhSaIhEE, i64 0, i64 %721
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.sroa.9.0.in.in.i = load i64, ptr %switch.load, align 4
   %722 = getelementptr inbounds nuw i8, ptr %0, i64 592

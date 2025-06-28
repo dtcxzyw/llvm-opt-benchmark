@@ -5336,8 +5336,8 @@ _ZNK8facebook5velox4type6Parser26yy_syntax_error_arguments_ERKNS2_7contextEPNS2_
 switch.lookup:                                    ; preds = %_ZNK8facebook5velox4type6Parser26yy_syntax_error_arguments_ERKNS2_7contextEPNS2_11symbol_kind16symbol_kind_typeEi.exit
   %switch.tableidx = add nsw i32 %yycount.2.i, -1
   %switch.offset = add nuw nsw i32 %yycount.2.i, 1
-  %17 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK8facebook5velox4type6Parser15yysyntax_error_B5cxx11ERKNS2_7contextE, i64 0, i64 %17
+  %17 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZNK8facebook5velox4type6Parser15yysyntax_error_B5cxx11ERKNS2_7contextE, i64 0, i64 %17
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %sw.epilog
 

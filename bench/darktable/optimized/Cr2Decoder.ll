@@ -2517,9 +2517,8 @@ _ZN8rawspeed12_GLOBAL__N_121deduceColorDataFormatEPKNS_9TiffEntryE.exit: ; preds
 switch.lookup:                                    ; preds = %_ZN8rawspeed12_GLOBAL__N_121deduceColorDataFormatEPKNS_9TiffEntryE.exit
   %.sroa.083.4..sroa_idx132 = getelementptr inbounds nuw i8, ptr %.sroa.083, i64 4
   %.sroa.083.4..sroa.083.4..sroa.083.4..sroa.083.4..sroa.681.0.copyload = load i64, ptr %.sroa.083.4..sroa_idx132, align 4
-  %sext = shl i64 %.sroa.071.i.0..sroa.071.i.0..sroa.071.i.0..sroa.071.0..sroa.071.0..sroa.071.0..fca.0.load.i, 56
-  %24 = ashr exact i64 %sext, 56
-  %switch.gep = getelementptr inbounds [8 x i32], ptr @switch.table._ZNK8rawspeed10Cr2Decoder20decodeCanonColorDataEv, i64 0, i64 %24
+  %24 = and i64 %.sroa.071.i.0..sroa.071.i.0..sroa.071.i.0..sroa.071.0..sroa.071.0..sroa.071.0..fca.0.load.i, 255
+  %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZNK8rawspeed10Cr2Decoder20decodeCanonColorDataEv, i64 0, i64 %24
   %switch.load = load i32, ptr %switch.gep, align 4
   %25 = tail call noundef zeroext i16 @_ZNK8rawspeed9TiffEntry6getU16Ej(ptr noundef nonnull align 8 dereferenceable(48) %4, i32 noundef %switch.load)
   %26 = uitofp i16 %25 to float

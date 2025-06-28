@@ -12728,8 +12728,8 @@ _ZN5clang10ColorScopeD2Ev.exit:                   ; preds = %28, %_ZN4llvm11raw_
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN5clanglsERN4llvm11raw_ostreamENS_17OpenACCClauseKindE(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 noundef zeroext %1) local_unnamed_addr #5 comdat {
 switch.lookup:
-  %2 = sext i8 %1 to i64
-  %switch.gep = getelementptr inbounds [51 x ptr], ptr @switch.table._ZN5clanglsERN4llvm11raw_ostreamENS_17OpenACCClauseKindE, i64 0, i64 %2
+  %2 = zext i8 %1 to i64
+  %switch.gep = getelementptr inbounds nuw [51 x ptr], ptr @switch.table._ZN5clanglsERN4llvm11raw_ostreamENS_17OpenACCClauseKindE, i64 0, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   %3 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #22
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -43337,11 +43337,11 @@ define linkonce_odr hidden { ptr, i64 } @_ZNK5clang10AtomicExpr13getOpAsStringEv
 switch.lookup:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %2 = load i32, ptr %1, align 4, !tbaa !1144
-  %3 = sext i32 %2 to i64
-  %switch.gep = getelementptr inbounds [89 x i64], ptr @switch.table._ZNK5clang10AtomicExpr13getOpAsStringEv, i64 0, i64 %3
+  %3 = zext i32 %2 to i64
+  %switch.gep = getelementptr inbounds nuw [89 x i64], ptr @switch.table._ZNK5clang10AtomicExpr13getOpAsStringEv, i64 0, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
-  %4 = sext i32 %2 to i64
-  %switch.gep1 = getelementptr inbounds [89 x ptr], ptr @switch.table._ZNK5clang10AtomicExpr13getOpAsStringEv.231, i64 0, i64 %4
+  %4 = zext i32 %2 to i64
+  %switch.gep1 = getelementptr inbounds nuw [89 x ptr], ptr @switch.table._ZNK5clang10AtomicExpr13getOpAsStringEv.231, i64 0, i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load, 1

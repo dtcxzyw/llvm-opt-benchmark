@@ -1040,9 +1040,8 @@ switch.lookup:                                    ; preds = %344, %_ZSt10accumul
   %354 = load i64, ptr %349, align 8
   %gep380 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @_ZSt4cout, i64 16), i64 %354
   store i64 17, ptr %gep380, align 8, !tbaa !19
-  %sext = shl i64 %indvars.iv429, 32
-  %355 = ashr exact i64 %sext, 32
-  %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table._Z13benchmarkName13BenchmarkType, i64 0, i64 %355
+  %355 = and i64 %indvars.iv429, 4294967295
+  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._Z13benchmarkName13BenchmarkType, i64 0, i64 %355
   %switch.load = load ptr, ptr %switch.gep, align 8
   %356 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #21
   %357 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull %switch.load, i64 noundef %356)

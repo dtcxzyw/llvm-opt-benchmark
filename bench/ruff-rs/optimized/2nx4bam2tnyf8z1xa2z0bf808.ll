@@ -35531,8 +35531,8 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i104: ; preds =
   br label %383
 
 switch.lookup:                                    ; preds = %126
-  %390 = sext i8 %.sroa.5.0.i.ph214 to i64
-  %switch.gep = getelementptr inbounds [13 x i8], ptr @"switch.table._ZN18ruff_python_parser6parser10expression52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$43parse_binary_expression_or_higher_recursive17h70d2e8fe02e6995aE", i64 0, i64 %390
+  %390 = zext i8 %.sroa.5.0.i.ph214 to i64
+  %switch.gep = getelementptr inbounds nuw [13 x i8], ptr @"switch.table._ZN18ruff_python_parser6parser10expression52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$43parse_binary_expression_or_higher_recursive17h70d2e8fe02e6995aE", i64 0, i64 %390
   %switch.load = load i8, ptr %switch.gep, align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5701)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %34)

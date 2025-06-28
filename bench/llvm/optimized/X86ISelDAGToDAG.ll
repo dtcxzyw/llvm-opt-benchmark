@@ -2741,8 +2741,8 @@ _ZNK4llvm3EVT8isVectorEv.exit:                    ; preds = %705
 
 switch.lookup:                                    ; preds = %708, %_ZNK4llvm3EVT8isVectorEv.exit
   %switch.tableidx = add nsw i32 %363, -190
-  %711 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table._ZN12_GLOBAL__N_115X86DAGToDAGISel17PreprocessISelDAGEv, i64 0, i64 %711
+  %711 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN12_GLOBAL__N_115X86DAGToDAGISel17PreprocessISelDAGEv, i64 0, i64 %711
   %switch.load = load i32, ptr %switch.gep, align 4
   %712 = load ptr, ptr %107, align 8, !tbaa !341
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %72) #25
@@ -3120,8 +3120,8 @@ _ZNK4llvm3EVT32changeVectorElementTypeToIntegerEv.exit: ; preds = %_ZN4llvm5SDLo
   %.fca.1.extract191 = extractvalue { ptr, i32 } %859, 1
   %860 = load i32, ptr %174, align 8, !tbaa !471
   %switch.tableidx1502 = add nsw i32 %860, -501
-  %861 = sext i32 %switch.tableidx1502 to i64
-  %switch.gep1503 = getelementptr inbounds [4 x i32], ptr @switch.table._ZN12_GLOBAL__N_115X86DAGToDAGISel17PreprocessISelDAGEv.52, i64 0, i64 %861
+  %861 = zext i32 %switch.tableidx1502 to i64
+  %switch.gep1503 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN12_GLOBAL__N_115X86DAGToDAGISel17PreprocessISelDAGEv.52, i64 0, i64 %861
   %switch.load1504 = load i32, ptr %switch.gep1503, align 4
   %862 = load ptr, ptr %107, align 8, !tbaa !341
   store ptr %.fca.0.extract200, ptr %84, align 8, !tbaa !463
@@ -5406,10 +5406,9 @@ switch.lookup:                                    ; preds = %291
   %302 = load ptr, ptr %301, align 8, !tbaa !669
   %303 = getelementptr inbounds nuw i8, ptr %302, i64 100
   store i32 2, ptr %303, align 4, !tbaa !670
-  %switch.tableidx = shl i64 %.0.i.i.i.i, 32
-  %sext3452 = add i64 %switch.tableidx, -62758062129152
-  %304 = ashr exact i64 %sext3452, 32
-  %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table._ZN12_GLOBAL__N_115X86DAGToDAGISel6SelectEPN4llvm6SDNodeE, i64 0, i64 %304
+  %switch.tableidx = add i64 %.0.i.i.i.i, 4294952684
+  %304 = and i64 %switch.tableidx, 4294967295
+  %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZN12_GLOBAL__N_115X86DAGToDAGISel6SelectEPN4llvm6SDNodeE, i64 0, i64 %304
   %switch.load = load i32, ptr %switch.gep, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %29)
   %305 = getelementptr inbounds nuw i8, ptr %246, i64 160
@@ -5853,10 +5852,9 @@ switch.lookup3444:                                ; preds = %489
   %500 = load ptr, ptr %499, align 8, !tbaa !669
   %501 = getelementptr inbounds nuw i8, ptr %500, i64 100
   store i32 1, ptr %501, align 4, !tbaa !670
-  %switch.tableidx3445 = shl i64 %.0.i.i.i.i1897, 32
-  %sext = add i64 %switch.tableidx3445, -62508954025984
-  %502 = ashr exact i64 %sext, 32
-  %switch.gep3446 = getelementptr inbounds [15 x i32], ptr @switch.table._ZN12_GLOBAL__N_115X86DAGToDAGISel6SelectEPN4llvm6SDNodeE.53, i64 0, i64 %502
+  %switch.tableidx3445 = add i64 %.0.i.i.i.i1897, 4294952742
+  %502 = and i64 %switch.tableidx3445, 4294967295
+  %switch.gep3446 = getelementptr inbounds nuw [15 x i32], ptr @switch.table._ZN12_GLOBAL__N_115X86DAGToDAGISel6SelectEPN4llvm6SDNodeE.53, i64 0, i64 %502
   %switch.load3447 = load i32, ptr %switch.gep3446, align 4
   %503 = getelementptr inbounds nuw i8, ptr %328, i64 80
   %504 = load ptr, ptr %503, align 8, !tbaa !456
@@ -10555,8 +10553,8 @@ _ZN4llvm5SDLocC2ERKS0_.exit2114:                  ; preds = %2360, %2381
 
 switch.lookup3448:                                ; preds = %2459
   %switch.tableidx3449 = add nsw i32 %.fr, -950
-  %2465 = sext i32 %switch.tableidx3449 to i64
-  %switch.gep3450 = getelementptr inbounds [4 x i32], ptr @switch.table._ZN12_GLOBAL__N_115X86DAGToDAGISel6SelectEPN4llvm6SDNodeE.54, i64 0, i64 %2465
+  %2465 = zext i32 %switch.tableidx3449 to i64
+  %switch.gep3450 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN12_GLOBAL__N_115X86DAGToDAGISel6SelectEPN4llvm6SDNodeE.54, i64 0, i64 %2465
   %switch.load3451 = load i32, ptr %switch.gep3450, align 4
   %2466 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %2467 = load ptr, ptr %2466, align 8, !tbaa !603
@@ -27201,8 +27199,8 @@ _ZNK4llvm3EVTneES0_.exit:                         ; preds = %2
 
 switch.lookup:                                    ; preds = %64
   %switch.tableidx = add nsw i16 %.sroa.0.0.copyload.i, -5
-  %65 = sext i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table._ZN12_GLOBAL__N_115X86DAGToDAGISel27foldLoadStoreIntoMemOperandEPN4llvm6SDNodeE, i64 0, i64 %65
+  %65 = zext i16 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN12_GLOBAL__N_115X86DAGToDAGISel27foldLoadStoreIntoMemOperandEPN4llvm6SDNodeE, i64 0, i64 %65
   %switch.load = load i32, ptr %switch.gep, align 4
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %12) #25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) %12, ptr noundef nonnull align 8 dereferenceable(12) %7, i64 12, i1 false), !tbaa.struct !607
@@ -27292,8 +27290,8 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %_ZN4llvm5SDLocC2EPK
   %104 = xor i1 %103, %97
   %switch.table._ZN12_GLOBAL__N_115X86DAGToDAGISel27foldLoadStoreIntoMemOperandEPN4llvm6SDNodeE.55.switch.table._ZN12_GLOBAL__N_115X86DAGToDAGISel27foldLoadStoreIntoMemOperandEPN4llvm6SDNodeE.56 = select i1 %104, ptr @switch.table._ZN12_GLOBAL__N_115X86DAGToDAGISel27foldLoadStoreIntoMemOperandEPN4llvm6SDNodeE.55, ptr @switch.table._ZN12_GLOBAL__N_115X86DAGToDAGISel27foldLoadStoreIntoMemOperandEPN4llvm6SDNodeE.56
   %switch.tableidx295 = add nsw i16 %.sroa.0.0.copyload.i, -5
-  %105 = sext i16 %switch.tableidx295 to i64
-  %switch.gep296 = getelementptr inbounds [4 x i32], ptr %switch.table._ZN12_GLOBAL__N_115X86DAGToDAGISel27foldLoadStoreIntoMemOperandEPN4llvm6SDNodeE.55.switch.table._ZN12_GLOBAL__N_115X86DAGToDAGISel27foldLoadStoreIntoMemOperandEPN4llvm6SDNodeE.56, i64 0, i64 %105
+  %105 = zext i16 %switch.tableidx295 to i64
+  %switch.gep296 = getelementptr inbounds nuw [4 x i32], ptr %switch.table._ZN12_GLOBAL__N_115X86DAGToDAGISel27foldLoadStoreIntoMemOperandEPN4llvm6SDNodeE.55.switch.table._ZN12_GLOBAL__N_115X86DAGToDAGISel27foldLoadStoreIntoMemOperandEPN4llvm6SDNodeE.56, i64 0, i64 %105
   %switch.load297 = load i32, ptr %switch.gep296, align 4
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %16) #25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) %16, ptr noundef nonnull align 8 dereferenceable(12) %7, i64 12, i1 false), !tbaa.struct !607
@@ -27346,8 +27344,8 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit137:           ; preds = %"_ZZN12_GLOBAL__N_1
 
 .thread:                                          ; preds = %101, %93, %90
   %switch.tableidx327 = add nsw i32 %35, -645
-  %125 = sext i32 %switch.tableidx327 to i64
-  %switch.gep328 = getelementptr inbounds [9 x ptr], ptr @switch.table._ZN12_GLOBAL__N_115X86DAGToDAGISel27foldLoadStoreIntoMemOperandEPN4llvm6SDNodeE.64, i64 0, i64 %125
+  %125 = zext i32 %switch.tableidx327 to i64
+  %switch.gep328 = getelementptr inbounds nuw [9 x ptr], ptr @switch.table._ZN12_GLOBAL__N_115X86DAGToDAGISel27foldLoadStoreIntoMemOperandEPN4llvm6SDNodeE.64, i64 0, i64 %125
   %switch.load329 = load ptr, ptr %switch.gep328, align 8
   br label %"_ZZN12_GLOBAL__N_115X86DAGToDAGISel27foldLoadStoreIntoMemOperandEPN4llvm6SDNodeEENK3$_1clEj.exit"
 
@@ -27366,8 +27364,8 @@ switch.lookup322:                                 ; preds = %63
 "_ZZN12_GLOBAL__N_115X86DAGToDAGISel27foldLoadStoreIntoMemOperandEPN4llvm6SDNodeEENK3$_1clEj.exit": ; preds = %63, %.thread, %switch.lookup322, %switch.lookup318, %switch.lookup314, %switch.lookup310
   %switch.table._ZN12_GLOBAL__N_115X86DAGToDAGISel27foldLoadStoreIntoMemOperandEPN4llvm6SDNodeE.63.sink = phi ptr [ @switch.table._ZN12_GLOBAL__N_115X86DAGToDAGISel27foldLoadStoreIntoMemOperandEPN4llvm6SDNodeE.63, %switch.lookup322 ], [ @switch.table._ZN12_GLOBAL__N_115X86DAGToDAGISel27foldLoadStoreIntoMemOperandEPN4llvm6SDNodeE.62, %switch.lookup318 ], [ @switch.table._ZN12_GLOBAL__N_115X86DAGToDAGISel27foldLoadStoreIntoMemOperandEPN4llvm6SDNodeE.61, %switch.lookup314 ], [ @switch.table._ZN12_GLOBAL__N_115X86DAGToDAGISel27foldLoadStoreIntoMemOperandEPN4llvm6SDNodeE.60, %switch.lookup310 ], [ %switch.load329, %.thread ], [ @switch.table._ZN12_GLOBAL__N_115X86DAGToDAGISel27foldLoadStoreIntoMemOperandEPN4llvm6SDNodeE.58, %63 ]
   %switch.tableidx323 = add nsw i16 %.sroa.0.0.copyload.i, -5
-  %126 = sext i16 %switch.tableidx323 to i64
-  %switch.gep324 = getelementptr inbounds [4 x i32], ptr %switch.table._ZN12_GLOBAL__N_115X86DAGToDAGISel27foldLoadStoreIntoMemOperandEPN4llvm6SDNodeE.63.sink, i64 0, i64 %126
+  %126 = zext i16 %switch.tableidx323 to i64
+  %switch.gep324 = getelementptr inbounds nuw [4 x i32], ptr %switch.table._ZN12_GLOBAL__N_115X86DAGToDAGISel27foldLoadStoreIntoMemOperandEPN4llvm6SDNodeE.63.sink, i64 0, i64 %126
   %switch.load325 = load i32, ptr %switch.gep324, align 4
   %127 = xor i32 %.0106, 1
   %128 = getelementptr inbounds nuw i8, ptr %.sroa.0219.0.copyload, i64 40

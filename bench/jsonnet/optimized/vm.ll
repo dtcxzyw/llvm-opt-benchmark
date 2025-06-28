@@ -59554,8 +59554,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit137: ; preds = %_Z
 
 switch.lookup172:                                 ; preds = %359
   %switch.tableidx = add i32 %2, -1
-  %361 = sext i32 %switch.tableidx to i64
-  %switch.gep173 = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN8nlohmann6detail6parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEEEE17exception_messageENS0_5lexerISC_E10token_typeERKSA_.755, i64 0, i64 %361
+  %361 = zext i32 %switch.tableidx to i64
+  %switch.gep173 = getelementptr inbounds nuw [16 x ptr], ptr @switch.table._ZN8nlohmann6detail6parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEEEE17exception_messageENS0_5lexerISC_E10token_typeERKSA_.755, i64 0, i64 %361
   %switch.load174 = load ptr, ptr %switch.gep173, align 8
   br label %_ZN8nlohmann6detail5lexerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEEEE15token_type_nameENSD_10token_typeE.exit139
 

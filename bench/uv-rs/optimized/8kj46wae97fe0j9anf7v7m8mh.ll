@@ -612,8 +612,8 @@ define void @_ZN24uv_distribution_filename11source_dist18SourceDistFilename26par
 
 switch.lookup:                                    ; preds = %3
   %16 = extractvalue { i1, i8 } %14, 1
-  %17 = sext i8 %16 to i64
-  %switch.gep = getelementptr inbounds [12 x i64], ptr @switch.table._ZN24uv_distribution_filename11source_dist18SourceDistFilename26parsed_normalized_filename17hd93b9762b88ceb24E, i64 0, i64 %17
+  %17 = zext i8 %16 to i64
+  %switch.gep = getelementptr inbounds nuw [12 x i64], ptr @switch.table._ZN24uv_distribution_filename11source_dist18SourceDistFilename26parsed_normalized_filename17hd93b9762b88ceb24E, i64 0, i64 %17
   %switch.load = load i64, ptr %switch.gep, align 8
   %.not = icmp ugt i64 %2, %switch.load
   br i1 %.not, label %switch.lookup151, label %35
@@ -649,8 +649,8 @@ switch.lookup:                                    ; preds = %3
   br label %102
 
 switch.lookup151:                                 ; preds = %switch.lookup
-  %27 = sext i8 %16 to i64
-  %switch.gep152 = getelementptr inbounds [12 x i64], ptr @switch.table._ZN24uv_distribution_filename11source_dist18SourceDistFilename26parsed_normalized_filename17hd93b9762b88ceb24E.7, i64 0, i64 %27
+  %27 = zext i8 %16 to i64
+  %switch.gep152 = getelementptr inbounds nuw [12 x i64], ptr @switch.table._ZN24uv_distribution_filename11source_dist18SourceDistFilename26parsed_normalized_filename17hd93b9762b88ceb24E.7, i64 0, i64 %27
   %switch.load153 = load i64, ptr %switch.gep152, align 8
   %28 = add i64 %switch.load153, %2
   %29 = icmp eq i64 %28, 0

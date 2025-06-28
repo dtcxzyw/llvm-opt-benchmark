@@ -23776,9 +23776,9 @@ switch.lookup:
   %switch.gep = getelementptr inbounds nuw [256 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17he7c223dc4f5a04d6E", i64 0, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext i8 %switch.tableidx to i64
-  %switch.gep2 = getelementptr inbounds nuw [256 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17he7c223dc4f5a04d6E.358", i64 0, i64 %4
-  %switch.load3 = load ptr, ptr %switch.gep2, align 8
-  %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
+  %switch.gep1 = getelementptr inbounds nuw [256 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17he7c223dc4f5a04d6E.358", i64 0, i64 %4
+  %switch.load2 = load ptr, ptr %switch.gep1, align 8
+  %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
 }
 
@@ -66561,8 +66561,8 @@ _ZN13rust_analyzer3lsp8to_proto8position17h77c0bfa2aee7bd15E.exit3: ; preds = %_
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef range(i32 2, 27) i32 @_ZN13rust_analyzer3lsp8to_proto11symbol_kind17h07ae2d933eb6ed7eE(i8 noundef %0) unnamed_addr #15 {
 switch.lookup:
-  %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds [29 x i32], ptr @switch.table._ZN13rust_analyzer3lsp8to_proto11symbol_kind17h07ae2d933eb6ed7eE, i64 0, i64 %1
+  %1 = zext i8 %0 to i64
+  %switch.gep = getelementptr inbounds nuw [29 x i32], ptr @switch.table._ZN13rust_analyzer3lsp8to_proto11symbol_kind17h07ae2d933eb6ed7eE, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -66570,8 +66570,8 @@ switch.lookup:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef range(i32 2, 27) i32 @_ZN13rust_analyzer3lsp8to_proto19structure_node_kind17hba88022535877dd5E(i8 noundef %0) unnamed_addr #15 {
 switch.lookup:
-  %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds [30 x i32], ptr @switch.table._ZN13rust_analyzer3lsp8to_proto19structure_node_kind17hba88022535877dd5E, i64 0, i64 %1
+  %1 = zext i8 %0 to i64
+  %switch.gep = getelementptr inbounds nuw [30 x i32], ptr @switch.table._ZN13rust_analyzer3lsp8to_proto19structure_node_kind17hba88022535877dd5E, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -66593,8 +66593,8 @@ define hidden { i32, i32 } @_ZN13rust_analyzer3lsp8to_proto23document_highlight_
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef range(i32 1, 5) i32 @_ZN13rust_analyzer3lsp8to_proto19diagnostic_severity17h4e97ee3ab5294914E(i8 noundef %0) unnamed_addr #15 {
 switch.lookup:
-  %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table._ZN13rust_analyzer3lsp8to_proto19diagnostic_severity17h4e97ee3ab5294914E, i64 0, i64 %1
+  %1 = zext i8 %0 to i64
+  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN13rust_analyzer3lsp8to_proto19diagnostic_severity17h4e97ee3ab5294914E, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }

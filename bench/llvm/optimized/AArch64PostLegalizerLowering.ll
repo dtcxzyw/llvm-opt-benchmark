@@ -7147,11 +7147,11 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i290: ; preds = %196
   %.sroa.626.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1969, i64 16
   store i64 %.sroa.04.0.i.i.i291, ptr %.sroa.626.0..sroa_idx.i.i, align 16, !tbaa !16, !noalias !617
   store ptr %1969, ptr %51, align 8, !tbaa !66, !alias.scope !617
-  %1970 = sext i32 %1957 to i64
-  %switch.gep = getelementptr inbounds [13 x ptr], ptr @switch.table._ZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEE.139, i64 0, i64 %1970
+  %1970 = zext i32 %1957 to i64
+  %switch.gep = getelementptr inbounds nuw [13 x ptr], ptr @switch.table._ZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEE.139, i64 0, i64 %1970
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %1971 = sext i32 %1957 to i64
-  %switch.gep672 = getelementptr inbounds [13 x ptr], ptr @switch.table._ZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEE.140, i64 0, i64 %1971
+  %1971 = zext i32 %1957 to i64
+  %switch.gep672 = getelementptr inbounds nuw [13 x ptr], ptr @switch.table._ZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEE.140, i64 0, i64 %1971
   %switch.load673 = load ptr, ptr %switch.gep672, align 8
   %1972 = getelementptr inbounds nuw i8, ptr %51, i64 24
   %1973 = getelementptr inbounds nuw i8, ptr %51, i64 16
@@ -7194,11 +7194,11 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i62.i: ; preds = %1981
   %.sroa.626.0..sroa_idx.i66.i = getelementptr inbounds nuw i8, ptr %1986, i64 16
   store i64 %.sroa.04.0.i.i63.i, ptr %.sroa.626.0..sroa_idx.i66.i, align 16, !tbaa !16, !noalias !622
   store ptr %1986, ptr %52, align 8, !tbaa !66, !alias.scope !622
-  %1987 = sext i32 %1974 to i64
-  %switch.gep674 = getelementptr inbounds [13 x ptr], ptr @switch.table._ZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEE.139, i64 0, i64 %1987
+  %1987 = zext i32 %1974 to i64
+  %switch.gep674 = getelementptr inbounds nuw [13 x ptr], ptr @switch.table._ZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEE.139, i64 0, i64 %1987
   %switch.load675 = load ptr, ptr %switch.gep674, align 8
-  %1988 = sext i32 %1974 to i64
-  %switch.gep676 = getelementptr inbounds [13 x ptr], ptr @switch.table._ZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEE.140, i64 0, i64 %1988
+  %1988 = zext i32 %1974 to i64
+  %switch.gep676 = getelementptr inbounds nuw [13 x ptr], ptr @switch.table._ZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEE.140, i64 0, i64 %1988
   %switch.load677 = load ptr, ptr %switch.gep676, align 8
   %1989 = getelementptr inbounds nuw i8, ptr %52, i64 24
   %1990 = getelementptr inbounds nuw i8, ptr %52, i64 16

@@ -415,8 +415,8 @@ _ZL16convert_int_realiP15t_compare_value.exit:    ; preds = %122, %116
 
 switch.lookup:                                    ; preds = %136
   %switch.tableidx = add nsw i32 %.0.i63.ph, -1
-  %144 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table._ZL16convert_real_intiP15t_compare_value14e_comparison_tb, i64 0, i64 %144
+  %144 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZL16convert_real_intiP15t_compare_value14e_comparison_tb, i64 0, i64 %144
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZL23reverse_comparison_type14e_comparison_t.exit
 

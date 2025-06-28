@@ -1968,8 +1968,8 @@ define dso_local void @_ZN5clang15BackendConsumer21DiagnosticHandlerImplERKN4llv
 
 .sink.split:                                      ; preds = %37, %23, %21, %17
   %switch.table._ZN5clang15BackendConsumer21DiagnosticHandlerImplERKN4llvm14DiagnosticInfoE.36.sink = phi ptr [ @switch.table._ZN5clang15BackendConsumer21DiagnosticHandlerImplERKN4llvm14DiagnosticInfoE, %17 ], [ @switch.table._ZN5clang15BackendConsumer21DiagnosticHandlerImplERKN4llvm14DiagnosticInfoE.34, %21 ], [ @switch.table._ZN5clang15BackendConsumer21DiagnosticHandlerImplERKN4llvm14DiagnosticInfoE.35, %23 ], [ @switch.table._ZN5clang15BackendConsumer21DiagnosticHandlerImplERKN4llvm14DiagnosticInfoE.36, %37 ]
-  %39 = sext i8 %9 to i64
-  %switch.gep43 = getelementptr inbounds [4 x i32], ptr %switch.table._ZN5clang15BackendConsumer21DiagnosticHandlerImplERKN4llvm14DiagnosticInfoE.36.sink, i64 0, i64 %39
+  %39 = zext i8 %9 to i64
+  %switch.gep43 = getelementptr inbounds nuw [4 x i32], ptr %switch.table._ZN5clang15BackendConsumer21DiagnosticHandlerImplERKN4llvm14DiagnosticInfoE.36.sink, i64 0, i64 %39
   %switch.load44 = load i32, ptr %switch.gep43, align 4
   br label %40
 

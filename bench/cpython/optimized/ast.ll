@@ -1777,12 +1777,12 @@ expr_context_name.exit:                           ; preds = %48
 switch.lookup:                                    ; preds = %51
   %53 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
   %switch.tableidx = add nsw i32 %2, -1
-  %54 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.validate_expr.4, i64 0, i64 %54
+  %54 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.validate_expr.4, i64 0, i64 %54
   %switch.load = load ptr, ptr %switch.gep, align 8
   %switch.tableidx223 = add nsw i32 %.0, -1
-  %55 = sext i32 %switch.tableidx223 to i64
-  %switch.gep224 = getelementptr inbounds [3 x ptr], ptr @switch.table.validate_expr.4, i64 0, i64 %55
+  %55 = zext i32 %switch.tableidx223 to i64
+  %switch.gep224 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.validate_expr.4, i64 0, i64 %55
   %switch.load225 = load ptr, ptr %switch.gep224, align 8
   %56 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %53, ptr noundef nonnull @.str.61, ptr noundef nonnull %switch.load, ptr noundef nonnull %switch.load225) #5
   br label %279

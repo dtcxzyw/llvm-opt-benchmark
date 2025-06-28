@@ -16868,7 +16868,7 @@ add_ff_action_fast_bss_transition.exit:           ; preds = %276, %284, %291, %3
     i8 3, label %386
     i8 4, label %switch.lookup
     i8 5, label %switch.lookup307
-    i8 6, label %switch.lookup319
+    i8 6, label %switch.lookup317
     i8 7, label %525
     i8 8, label %530
   ]
@@ -16981,8 +16981,8 @@ switch.lookup:                                    ; preds = %319
   %393 = lshr i32 %391, 7
   %394 = and i32 %393, 3
   %395 = zext nneg i32 %394 to i64
-  %switch.gep338 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.add_ff_action.234, i64 0, i64 %395
-  %switch.load339 = load i32, ptr %switch.gep338, align 4
+  %switch.gep332 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.add_ff_action.234, i64 0, i64 %395
+  %switch.load333 = load i32, ptr %switch.gep332, align 4
   %396 = trunc i16 %390 to i8
   %397 = lshr i8 %396, 2
   %398 = and i8 %397, 3
@@ -17033,7 +17033,7 @@ add_mimo_csi_matrices_report.exit.i.sink.split:   ; preds = %._crit_edge.i.i
 add_mimo_csi_matrices_report.exit.i:              ; preds = %._crit_edge.i.i, %add_mimo_csi_matrices_report.exit.i.sink.split
   %.0.i.i.i = phi i32 [ %switch.load306, %add_mimo_csi_matrices_report.exit.i.sink.split ], [ 0, %._crit_edge.i.i ]
   %421 = mul nuw nsw i32 %.sroa.2.0.insert.ext.i.i, %.sroa.0.0.insert.ext.i.i
-  %422 = mul nuw nsw i32 %421, %switch.load339
+  %422 = mul nuw nsw i32 %421, %switch.load333
   %423 = add nuw nsw i32 %422, 3
   %424 = mul nuw nsw i32 %.0.i.i.i, %423
   %425 = add nuw nsw i32 %424, 7
@@ -17053,8 +17053,8 @@ switch.lookup307:                                 ; preds = %319
   %433 = lshr i32 %431, 7
   %434 = and i32 %433, 3
   %435 = zext nneg i32 %434 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.add_ff_action.234, i64 0, i64 %435
-  %switch.load = load i32, ptr %switch.gep, align 4
+  %switch.gep335 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.add_ff_action.234, i64 0, i64 %435
+  %switch.load336 = load i32, ptr %switch.gep335, align 4
   %436 = trunc i16 %430 to i8
   %437 = and i8 %436, 3
   %438 = add nuw nsw i8 %437, 1
@@ -17088,24 +17088,24 @@ switch.lookup307:                                 ; preds = %319
   %455 = lshr i8 %436, 2
   %456 = and i8 %455, 3
   %457 = add nuw nsw i8 %456, 1
-  %switch.tableidx316 = add nsw i8 %switch.masked310, -1
-  %458 = icmp ult i8 %switch.tableidx316, 4
+  %switch.tableidx314 = add nsw i8 %switch.masked310, -1
+  %458 = icmp ult i8 %switch.tableidx314, 4
   br i1 %458, label %add_mimo_beamforming_feedback_report.exit.i.sink.split, label %add_mimo_beamforming_feedback_report.exit.i
 
 add_mimo_beamforming_feedback_report.exit.i.sink.split: ; preds = %._crit_edge.i127.i
   %459 = and i8 %436, 16
   %.not28.i131.i = icmp eq i8 %459, 0
   %switch.table.add_ff_action.228.switch.table.add_ff_action.227 = select i1 %.not28.i131.i, ptr @switch.table.add_ff_action.230, ptr @switch.table.add_ff_action.229
-  %460 = zext nneg i8 %switch.tableidx316 to i64
-  %switch.gep317 = getelementptr inbounds nuw [4 x i32], ptr %switch.table.add_ff_action.228.switch.table.add_ff_action.227, i64 0, i64 %460
-  %switch.load318 = load i32, ptr %switch.gep317, align 4
+  %460 = zext nneg i8 %switch.tableidx314 to i64
+  %switch.gep315 = getelementptr inbounds nuw [4 x i32], ptr %switch.table.add_ff_action.228.switch.table.add_ff_action.227, i64 0, i64 %460
+  %switch.load316 = load i32, ptr %switch.gep315, align 4
   br label %add_mimo_beamforming_feedback_report.exit.i
 
 add_mimo_beamforming_feedback_report.exit.i:      ; preds = %._crit_edge.i127.i, %add_mimo_beamforming_feedback_report.exit.i.sink.split
-  %.0.i.i132.i = phi i32 [ %switch.load318, %add_mimo_beamforming_feedback_report.exit.i.sink.split ], [ 0, %._crit_edge.i127.i ]
+  %.0.i.i132.i = phi i32 [ %switch.load316, %add_mimo_beamforming_feedback_report.exit.i.sink.split ], [ 0, %._crit_edge.i127.i ]
   %narrow = mul nuw nsw i8 %457, %438
   %461 = zext nneg i8 %narrow to i32
-  %462 = mul nuw nsw i32 %switch.load, %461
+  %462 = mul nuw nsw i32 %switch.load336, %461
   %463 = mul nuw nsw i32 %462, %.0.i.i132.i
   %464 = add nuw nsw i32 %463, 7
   %465 = lshr i32 %464, 3
@@ -17114,13 +17114,13 @@ add_mimo_beamforming_feedback_report.exit.i:      ; preds = %._crit_edge.i127.i,
   %468 = add i32 %465, %453
   br label %add_ff_action_ht.exit
 
-switch.lookup319:                                 ; preds = %319
+switch.lookup317:                                 ; preds = %319
   %469 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %1, i32 noundef %325)
   %470 = lshr i16 %469, 2
   %471 = and i16 %470, 24
-  %switch.shiftamt320 = zext nneg i16 %471 to i32
-  %switch.downshift321 = lshr i32 17039873, %switch.shiftamt320
-  %switch.masked322 = trunc i32 %switch.downshift321 to i8
+  %switch.shiftamt318 = zext nneg i16 %471 to i32
+  %switch.downshift319 = lshr i32 17039873, %switch.shiftamt318
+  %switch.masked320 = trunc i32 %switch.downshift319 to i8
   %472 = trunc i16 %469 to i8
   %473 = and i8 %472, 3
   %474 = add nuw nsw i8 %473, 1
@@ -17138,9 +17138,9 @@ switch.lookup319:                                 ; preds = %319
   %485 = tail call ptr @proto_tree_add_subtree(ptr noundef %0, ptr noundef %1, i32 noundef %482, i32 noundef %483, i32 noundef %484, ptr noundef null, ptr noundef nonnull @.str.7710)
   br label %.lr.ph.i158.i
 
-.lr.ph.i158.i:                                    ; preds = %.lr.ph.i158.i, %switch.lookup319
-  %.03038.i.i = phi i32 [ %493, %.lr.ph.i158.i ], [ %482, %switch.lookup319 ]
-  %.03137.i.i = phi i32 [ %494, %.lr.ph.i158.i ], [ 1, %switch.lookup319 ]
+.lr.ph.i158.i:                                    ; preds = %.lr.ph.i158.i, %switch.lookup317
+  %.03038.i.i = phi i32 [ %493, %.lr.ph.i158.i ], [ %482, %switch.lookup317 ]
+  %.03137.i.i = phi i32 [ %494, %.lr.ph.i158.i ], [ 1, %switch.lookup317 ]
   %486 = tail call signext i8 @tvb_get_int8(ptr noundef %1, i32 noundef %.03038.i.i)
   %487 = sext i8 %486 to i32
   %switch.selectcmp.i.i = icmp eq i8 %486, 127
@@ -17206,21 +17206,21 @@ switch.lookup319:                                 ; preds = %319
 
 get_mimo_na.exit.i.i:                             ; preds = %511, %510, %509, %507, %505, %504, %502, %500, %._crit_edge.i160.i
   %.0.i.i164.i = phi i32 [ 2, %._crit_edge.i160.i ], [ 2, %500 ], [ 4, %502 ], [ 6, %504 ], [ 6, %505 ], [ 6, %507 ], [ 10, %509 ], [ 12, %510 ], [ %..i.i.i, %511 ]
-  %switch.tableidx328 = add nsw i8 %switch.masked322, -1
-  %513 = icmp ult i8 %switch.tableidx328, 4
+  %switch.tableidx324 = add nsw i8 %switch.masked320, -1
+  %513 = icmp ult i8 %switch.tableidx324, 4
   br i1 %513, label %add_mimo_compressed_beamforming_feedback_report.exit.i.sink.split, label %add_mimo_compressed_beamforming_feedback_report.exit.i
 
 add_mimo_compressed_beamforming_feedback_report.exit.i.sink.split: ; preds = %get_mimo_na.exit.i.i
   %514 = and i8 %472, 16
   %.not35.i.i = icmp eq i8 %514, 0
   %switch.table.add_ff_action.230.switch.table.add_ff_action.229 = select i1 %.not35.i.i, ptr @switch.table.add_ff_action.230, ptr @switch.table.add_ff_action.229
-  %515 = zext nneg i8 %switch.tableidx328 to i64
-  %switch.gep329 = getelementptr inbounds nuw [4 x i32], ptr %switch.table.add_ff_action.230.switch.table.add_ff_action.229, i64 0, i64 %515
-  %switch.load330 = load i32, ptr %switch.gep329, align 4
+  %515 = zext nneg i8 %switch.tableidx324 to i64
+  %switch.gep325 = getelementptr inbounds nuw [4 x i32], ptr %switch.table.add_ff_action.230.switch.table.add_ff_action.229, i64 0, i64 %515
+  %switch.load326 = load i32, ptr %switch.gep325, align 4
   br label %add_mimo_compressed_beamforming_feedback_report.exit.i
 
 add_mimo_compressed_beamforming_feedback_report.exit.i: ; preds = %get_mimo_na.exit.i.i, %add_mimo_compressed_beamforming_feedback_report.exit.i.sink.split
-  %.0.i34.i.i = phi i32 [ %switch.load330, %add_mimo_compressed_beamforming_feedback_report.exit.i.sink.split ], [ 0, %get_mimo_na.exit.i.i ]
+  %.0.i34.i.i = phi i32 [ %switch.load326, %add_mimo_compressed_beamforming_feedback_report.exit.i.sink.split ], [ 0, %get_mimo_na.exit.i.i ]
   %sh.diff.i = lshr i16 %469, 8
   %516 = and i16 %sh.diff.i, 6
   %narrow9.i = add nuw nsw i16 %516, 4
@@ -18754,13 +18754,13 @@ add_ff_action_unprotected_dmg.exit:               ; preds = %1416, %1424, %1436
   %.0114.i.i = select i1 %.not123.i.i161, i32 %.131.i.i, i32 %.129.i.i
   %1493 = and i32 %.fr.i.i, 768
   %1494 = icmp eq i32 %1493, 768
-  br i1 %1494, label %1495, label %switch.lookup331
+  br i1 %1494, label %1495, label %switch.lookup327
 
 1495:                                             ; preds = %1482
   %1496 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %1466, ptr noundef nonnull @ei_ieee80211_inv_val, ptr noundef nonnull @.str.7725)
   br label %.sink.split.i154
 
-switch.lookup331:                                 ; preds = %1482
+switch.lookup327:                                 ; preds = %1482
   %1497 = load i32, ptr @ett_ff_vhtmimo_beamforming_report_feedback_matrices, align 4
   %1498 = tail call ptr @proto_tree_add_subtree(ptr noundef %1468, ptr noundef %1, i32 noundef %1480, i32 noundef -1, i32 noundef %1497, ptr noundef null, ptr noundef nonnull @.str.7726)
   %1499 = zext nneg i8 %1487 to i64
@@ -18768,12 +18768,12 @@ switch.lookup331:                                 ; preds = %1482
   %1501 = getelementptr [4 x [3 x i32]], ptr @add_ff_vht_compressed_beamforming_report.ns_arr, i64 0, i64 %1499, i64 %1500
   %1502 = load i32, ptr %1501, align 4
   %1503 = zext nneg i8 %1487 to i64
-  %switch.gep332 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.add_ff_action.232, i64 0, i64 %1503
-  %switch.load333 = load i32, ptr %switch.gep332, align 4
+  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.add_ff_action.232, i64 0, i64 %1503
+  %switch.load = load i32, ptr %switch.gep, align 4
   %1504 = icmp sgt i32 %1502, 0
   br i1 %1504, label %.lr.ph.i.i165, label %._crit_edge.i.i162
 
-.lr.ph.i.i165:                                    ; preds = %switch.lookup331
+.lr.ph.i.i165:                                    ; preds = %switch.lookup327
   %1505 = shl i32 %1480, 3
   %1506 = icmp eq i8 %1490, 0
   %1507 = getelementptr i8, ptr %2, i64 408
@@ -18786,7 +18786,7 @@ switch.lookup331:                                 ; preds = %1482
 .lr.ph.split.us.split.i.i:                        ; preds = %.lr.ph.i.i165, %vht_compressed_skip_scidx.exit.us.i.i
   %.0105144.us.i.i = phi i32 [ %1526, %vht_compressed_skip_scidx.exit.us.i.i ], [ %1505, %.lr.ph.i.i165 ]
   %.1143.us.i.i = phi i32 [ %1527, %vht_compressed_skip_scidx.exit.us.i.i ], [ %1480, %.lr.ph.i.i165 ]
-  %.1117142.us.i.i = phi i32 [ %1524, %vht_compressed_skip_scidx.exit.us.i.i ], [ %switch.load333, %.lr.ph.i.i165 ]
+  %.1117142.us.i.i = phi i32 [ %1524, %vht_compressed_skip_scidx.exit.us.i.i ], [ %switch.load, %.lr.ph.i.i165 ]
   %.1121141.us.i.i = phi i32 [ %1528, %vht_compressed_skip_scidx.exit.us.i.i ], [ 0, %.lr.ph.i.i165 ]
   switch i8 %1487, label %default.unreachable [
     i8 0, label %1521
@@ -18898,7 +18898,7 @@ vht_compressed_skip_scidx.exit.us.i.i:            ; preds = %1522, %1521, %1519,
 .lr.ph.split.split.i.i:                           ; preds = %vht_compressed_skip_scidx.exit.i.i, %.lr.ph.split.split.i.preheader.i
   %.0105144.i.i = phi i32 [ %1543, %vht_compressed_skip_scidx.exit.i.i ], [ %1505, %.lr.ph.split.split.i.preheader.i ]
   %.1143.i.i = phi i32 [ %1544, %vht_compressed_skip_scidx.exit.i.i ], [ %1480, %.lr.ph.split.split.i.preheader.i ]
-  %.1117142.i.i = phi i32 [ %1541, %vht_compressed_skip_scidx.exit.i.i ], [ %switch.load333, %.lr.ph.split.split.i.preheader.i ]
+  %.1117142.i.i = phi i32 [ %1541, %vht_compressed_skip_scidx.exit.i.i ], [ %switch.load, %.lr.ph.split.split.i.preheader.i ]
   %.1121141.i.i = phi i32 [ %1545, %vht_compressed_skip_scidx.exit.i.i ], [ 0, %.lr.ph.split.split.i.preheader.i ]
   br i1 %switch.not.i.i, label %1529, label %vht_compressed_skip_scidx.exit.i.i
 
@@ -18982,8 +18982,8 @@ vht_compressed_skip_scidx.exit.i.i:               ; preds = %.fold.split.i.i.i, 
   %exitcond164.not.i.i = icmp eq i32 %1545, %1502
   br i1 %exitcond164.not.i.i, label %._crit_edge.i.i162, label %.lr.ph.split.split.i.i, !llvm.loop !23
 
-._crit_edge.i.i162:                               ; preds = %vht_compressed_skip_scidx.exit.i.i, %vht_compressed_skip_scidx.exit.us.i.i, %switch.lookup331
-  %.1.lcssa.i.i163 = phi i32 [ %1480, %switch.lookup331 ], [ %1527, %vht_compressed_skip_scidx.exit.us.i.i ], [ %1544, %vht_compressed_skip_scidx.exit.i.i ]
+._crit_edge.i.i162:                               ; preds = %vht_compressed_skip_scidx.exit.i.i, %vht_compressed_skip_scidx.exit.us.i.i, %switch.lookup327
+  %.1.lcssa.i.i163 = phi i32 [ %1480, %switch.lookup327 ], [ %1527, %vht_compressed_skip_scidx.exit.us.i.i ], [ %1544, %vht_compressed_skip_scidx.exit.i.i ]
   %1546 = sub i32 %.1.lcssa.i.i163, %1480
   tail call void @proto_item_set_len(ptr noundef %1498, i32 noundef %1546)
   br i1 %.not123.i.i161, label %.sink.split.i154, label %1547
@@ -19000,17 +19000,17 @@ vht_compressed_skip_scidx.exit.i.i:               ; preds = %.fold.split.i.i.i, 
 1553:                                             ; preds = %1547
   %1554 = sdiv i32 %1551, 8
   %1555 = add nsw i32 %1554, 1
-  br label %switch.lookup334
+  br label %switch.lookup328
 
 1556:                                             ; preds = %1547
   %1557 = ashr exact i32 %1551, 3
-  br label %switch.lookup334
+  br label %switch.lookup328
 
-switch.lookup334:                                 ; preds = %1553, %1556
+switch.lookup328:                                 ; preds = %1553, %1556
   %.0109.i.i = phi i32 [ %1555, %1553 ], [ %1557, %1556 ]
   %1558 = zext nneg i8 %1487 to i64
-  %switch.gep335 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.add_ff_action.232, i64 0, i64 %1558
-  %switch.load336 = load i32, ptr %switch.gep335, align 4
+  %switch.gep329 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.add_ff_action.232, i64 0, i64 %1558
+  %switch.load330 = load i32, ptr %switch.gep329, align 4
   %1559 = load i32, ptr @hf_ieee80211_vht_mu_exclusive_beamforming_report, align 4
   %1560 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %1559, ptr noundef %1, i32 noundef %.1.lcssa.i.i163, i32 noundef %.0109.i.i, i32 noundef 0)
   %1561 = load i32, ptr @ett_ff_vhtmu_exclusive_beamforming_report_matrices, align 4
@@ -19018,11 +19018,11 @@ switch.lookup334:                                 ; preds = %1553, %1556
   %.not126148.i.i = icmp slt i32 %1549, 1
   br i1 %.not126148.i.i, label %.sink.split.i154, label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %switch.lookup334, %vht_exclusive_skip_scidx.exit.i.i
-  %.3152.i.i = phi i32 [ %1568, %vht_exclusive_skip_scidx.exit.i.i ], [ %.1.lcssa.i.i163, %switch.lookup334 ]
-  %.1108151.i.i = phi i32 [ %.0.i136.i.i, %vht_exclusive_skip_scidx.exit.i.i ], [ %switch.load336, %switch.lookup334 ]
-  %.0111150.i.i = phi i32 [ %1610, %vht_exclusive_skip_scidx.exit.i.i ], [ 1, %switch.lookup334 ]
-  %.0112149.i.i = phi i8 [ %1569, %vht_exclusive_skip_scidx.exit.i.i ], [ 1, %switch.lookup334 ]
+.preheader.i.i:                                   ; preds = %switch.lookup328, %vht_exclusive_skip_scidx.exit.i.i
+  %.3152.i.i = phi i32 [ %1568, %vht_exclusive_skip_scidx.exit.i.i ], [ %.1.lcssa.i.i163, %switch.lookup328 ]
+  %.1108151.i.i = phi i32 [ %.0.i136.i.i, %vht_exclusive_skip_scidx.exit.i.i ], [ %switch.load330, %switch.lookup328 ]
+  %.0111150.i.i = phi i32 [ %1610, %vht_exclusive_skip_scidx.exit.i.i ], [ 1, %switch.lookup328 ]
+  %.0112149.i.i = phi i8 [ %1569, %vht_exclusive_skip_scidx.exit.i.i ], [ 1, %switch.lookup328 ]
   br label %1563
 
 1563:                                             ; preds = %1563, %.preheader.i.i
@@ -19274,8 +19274,8 @@ vht_exclusive_skip_scidx.exit.i.i:                ; preds = %1608, %1607, %1606,
   %1672 = tail call ptr @expert_add_info(ptr noundef %2, ptr noundef %1671, ptr noundef nonnull @ei_ieee80211_vht_action)
   br label %.sink.split.i154
 
-.sink.split.i154:                                 ; preds = %1668, %vht_exclusive_skip_scidx.exit.i.i, %1669, %switch.lookup334, %._crit_edge.i.i162, %1495
-  %.sink126.i = phi i32 [ %1456, %1669 ], [ %1480, %1495 ], [ %.1.lcssa.i.i163, %._crit_edge.i.i162 ], [ %.1.lcssa.i.i163, %switch.lookup334 ], [ %1568, %vht_exclusive_skip_scidx.exit.i.i ], [ %1632, %1668 ]
+.sink.split.i154:                                 ; preds = %1668, %vht_exclusive_skip_scidx.exit.i.i, %1669, %switch.lookup328, %._crit_edge.i.i162, %1495
+  %.sink126.i = phi i32 [ %1456, %1669 ], [ %1480, %1495 ], [ %.1.lcssa.i.i163, %._crit_edge.i.i162 ], [ %.1.lcssa.i.i163, %switch.lookup328 ], [ %1568, %vht_exclusive_skip_scidx.exit.i.i ], [ %1632, %1668 ]
   %1673 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %.sink126.i)
   %1674 = add i32 %1673, %.sink126.i
   br label %add_ff_action_vht.exit
@@ -23224,8 +23224,8 @@ default.unreachable:                              ; preds = %2
 
 .sink.split.sink.split:                           ; preds = %8, %6, %4
   %switch.table.s1g_raw_type_options_custom.236.sink = phi ptr [ @switch.table.s1g_raw_type_options_custom, %4 ], [ @switch.table.s1g_raw_type_options_custom.235, %6 ], [ @switch.table.s1g_raw_type_options_custom.236, %8 ]
-  %10 = sext i8 %1 to i64
-  %switch.gep32 = getelementptr inbounds [4 x ptr], ptr %switch.table.s1g_raw_type_options_custom.236.sink, i64 0, i64 %10
+  %10 = zext i8 %1 to i64
+  %switch.gep32 = getelementptr inbounds nuw [4 x ptr], ptr %switch.table.s1g_raw_type_options_custom.236.sink, i64 0, i64 %10
   %switch.load33 = load ptr, ptr %switch.gep32, align 8
   br label %.sink.split
 

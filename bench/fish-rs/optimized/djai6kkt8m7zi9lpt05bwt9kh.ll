@@ -21970,11 +21970,11 @@ define internal fastcc noundef zeroext i1 @_ZN4fish8builtins6status13StatusCmdOp
 switch.lookup:                                    ; preds = %19
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   %switch.tableidx = add nsw i8 %12, -1
-  %22 = sext i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [24 x i64], ptr @switch.table._ZN4fish8builtins6status9StatusCmd7to_wstr17h68ec77238ea1e16fE, i64 0, i64 %22
+  %22 = zext i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [24 x i64], ptr @switch.table._ZN4fish8builtins6status9StatusCmd7to_wstr17h68ec77238ea1e16fE, i64 0, i64 %22
   %switch.load = load i64, ptr %switch.gep, align 8
-  %23 = sext i8 %switch.tableidx to i64
-  %switch.gep5 = getelementptr inbounds [24 x ptr], ptr @switch.table._ZN4fish8builtins6status9StatusCmd7to_wstr17h68ec77238ea1e16fE.211, i64 0, i64 %23
+  %23 = zext i8 %switch.tableidx to i64
+  %switch.gep5 = getelementptr inbounds nuw [24 x ptr], ptr @switch.table._ZN4fish8builtins6status9StatusCmd7to_wstr17h68ec77238ea1e16fE.211, i64 0, i64 %23
   %switch.load6 = load ptr, ptr %switch.gep5, align 8
   invoke void @"_ZN76_$LT$$RF$widestring..utfstr..Utf32Str$u20$as$u20$fish_printf..arg..ToArg$GT$6to_arg17he7abdcfd71ad5500E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 4 %switch.load6, i64 noundef %switch.load)
           to label %switch.lookup7 unwind label %25
@@ -21992,11 +21992,11 @@ switch.lookup:                                    ; preds = %19
 switch.lookup7:                                   ; preds = %switch.lookup
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   %switch.tableidx8 = add nsw i8 %1, -1
-  %27 = sext i8 %switch.tableidx8 to i64
-  %switch.gep9 = getelementptr inbounds [24 x i64], ptr @switch.table._ZN4fish8builtins6status9StatusCmd7to_wstr17h68ec77238ea1e16fE, i64 0, i64 %27
+  %27 = zext i8 %switch.tableidx8 to i64
+  %switch.gep9 = getelementptr inbounds nuw [24 x i64], ptr @switch.table._ZN4fish8builtins6status9StatusCmd7to_wstr17h68ec77238ea1e16fE, i64 0, i64 %27
   %switch.load10 = load i64, ptr %switch.gep9, align 8
-  %28 = sext i8 %switch.tableidx8 to i64
-  %switch.gep11 = getelementptr inbounds [24 x ptr], ptr @switch.table._ZN4fish8builtins6status9StatusCmd7to_wstr17h68ec77238ea1e16fE.211, i64 0, i64 %28
+  %28 = zext i8 %switch.tableidx8 to i64
+  %switch.gep11 = getelementptr inbounds nuw [24 x ptr], ptr @switch.table._ZN4fish8builtins6status9StatusCmd7to_wstr17h68ec77238ea1e16fE.211, i64 0, i64 %28
   %switch.load12 = load ptr, ptr %switch.gep11, align 8
   invoke void @"_ZN76_$LT$$RF$widestring..utfstr..Utf32Str$u20$as$u20$fish_printf..arg..ToArg$GT$6to_arg17he7abdcfd71ad5500E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %4, ptr noalias noundef nonnull readonly align 4 %switch.load12, i64 noundef %switch.load10)
           to label %31 unwind label %29
@@ -26067,8 +26067,8 @@ default.unreachable:                              ; preds = %3
   br label %_ZN4fish8builtins4test16test_expressions22unary_primary_evaluate17hdc5fe08a10066a80E.exit
 
 switch.lookup:                                    ; preds = %3
-  %58 = sext i8 %10 to i64
-  %switch.gep = getelementptr inbounds [3 x i32], ptr @"switch.table._ZN123_$LT$fish..builtins..test..test_expressions..UnaryPrimary$u20$as$u20$fish..builtins..test..test_expressions..Expression$GT$8evaluate17h5d7cc7cf80a3b028E", i64 0, i64 %58
+  %58 = zext i8 %10 to i64
+  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @"switch.table._ZN123_$LT$fish..builtins..test..test_expressions..UnaryPrimary$u20$as$u20$fish..builtins..test..test_expressions..Expression$GT$8evaluate17h5d7cc7cf80a3b028E", i64 0, i64 %58
   %switch.load = load i32, ptr %switch.gep, align 4
   %59 = tail call noundef i32 @_ZN4fish5wutil7waccess17hbb3ac5e36835e214E(ptr noalias noundef nonnull readonly align 4 %12, i64 noundef %14, i32 noundef %switch.load), !noalias !1791
   %60 = icmp eq i32 %59, 0
@@ -62752,11 +62752,11 @@ define { ptr, ptr } @"_ZN63_$LT$fish..autoload..Asset$u20$as$u20$rust_embed..Rus
 define internal fastcc { ptr, i64 } @_ZN4fish8builtins6status9StatusCmd7to_wstr17h68ec77238ea1e16fE(i8 noundef range(i8 1, 25) %0) unnamed_addr #5 {
 switch.lookup:
   %switch.tableidx = add nsw i8 %0, -1
-  %1 = sext i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [24 x i64], ptr @switch.table._ZN4fish8builtins6status9StatusCmd7to_wstr17h68ec77238ea1e16fE, i64 0, i64 %1
+  %1 = zext i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [24 x i64], ptr @switch.table._ZN4fish8builtins6status9StatusCmd7to_wstr17h68ec77238ea1e16fE, i64 0, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
-  %2 = sext i8 %switch.tableidx to i64
-  %switch.gep2 = getelementptr inbounds [24 x ptr], ptr @switch.table._ZN4fish8builtins6status9StatusCmd7to_wstr17h68ec77238ea1e16fE.211, i64 0, i64 %2
+  %2 = zext i8 %switch.tableidx to i64
+  %switch.gep2 = getelementptr inbounds nuw [24 x ptr], ptr @switch.table._ZN4fish8builtins6status9StatusCmd7to_wstr17h68ec77238ea1e16fE.211, i64 0, i64 %2
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load, 1

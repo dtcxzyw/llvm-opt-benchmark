@@ -37200,11 +37200,11 @@ define internal { ptr, i64 } @_ZNK12_GLOBAL__N_116itanium_demangle27ExpandedSpec
 switch.lookup:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %2 = load i32, ptr %1, align 4, !tbaa !346
-  %3 = sext i32 %2 to i64
-  %switch.gep = getelementptr inbounds [6 x i64], ptr @switch.table._ZNK12_GLOBAL__N_116itanium_demangle27ExpandedSpecialSubstitution11getBaseNameEv, i64 0, i64 %3
+  %3 = zext i32 %2 to i64
+  %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZNK12_GLOBAL__N_116itanium_demangle27ExpandedSpecialSubstitution11getBaseNameEv, i64 0, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
-  %4 = sext i32 %2 to i64
-  %switch.gep1 = getelementptr inbounds [6 x ptr], ptr @switch.table._ZNK12_GLOBAL__N_116itanium_demangle27ExpandedSpecialSubstitution11getBaseNameEv.415, i64 0, i64 %4
+  %4 = zext i32 %2 to i64
+  %switch.gep1 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZNK12_GLOBAL__N_116itanium_demangle27ExpandedSpecialSubstitution11getBaseNameEv.415, i64 0, i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load, 1

@@ -90476,8 +90476,8 @@ _ZN6hir_ty3mir5lower11MirLowerCtx8set_goto17hf1d1537fc878dc13E.exit: ; preds = %
   br label %730
 
 switch.lookup:                                    ; preds = %2007
-  %2010 = sext i8 %.sroa.0887.0.copyload to i64
-  %switch.gep = getelementptr inbounds [10 x i8], ptr @switch.table._ZN6hir_ty3mir5lower11MirLowerCtx34lower_expr_to_place_without_adjust17hbb9127372fc2352cE.366, i64 0, i64 %2010
+  %2010 = zext i8 %.sroa.0887.0.copyload to i64
+  %switch.gep = getelementptr inbounds nuw [10 x i8], ptr @switch.table._ZN6hir_ty3mir5lower11MirLowerCtx34lower_expr_to_place_without_adjust17hbb9127372fc2352cE.366, i64 0, i64 %2010
   %switch.load = load i8, ptr %switch.gep, align 1
   %.sroa.94111.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 36
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %21), !noalias !23722
@@ -90791,8 +90791,8 @@ switch.lookup:                                    ; preds = %2007
   br label %2085
 
 switch.lookup4658:                                ; preds = %2076
-  %2084 = sext i8 %.sroa.0887.0.copyload to i64
-  %switch.gep4659 = getelementptr inbounds [10 x i8], ptr @switch.table._ZN6hir_ty3mir5lower11MirLowerCtx34lower_expr_to_place_without_adjust17hbb9127372fc2352cE.366, i64 0, i64 %2084
+  %2084 = zext i8 %.sroa.0887.0.copyload to i64
+  %switch.gep4659 = getelementptr inbounds nuw [10 x i8], ptr @switch.table._ZN6hir_ty3mir5lower11MirLowerCtx34lower_expr_to_place_without_adjust17hbb9127372fc2352cE.366, i64 0, i64 %2084
   %switch.load4660 = load i8, ptr %switch.gep4659, align 1
   br label %2085
 

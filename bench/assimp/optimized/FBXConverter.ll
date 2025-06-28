@@ -14099,9 +14099,8 @@ define hidden noundef zeroext i1 @_ZN6Assimp3FBX12FBXConverter31NeedsComplexTran
 switch.lookup:                                    ; preds = %9
   %13 = icmp eq i64 %.03063, 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #28
-  %sext = shl i64 %.03063, 32
-  %14 = ashr exact i64 %sext, 32
-  %switch.gep = getelementptr inbounds [17 x ptr], ptr @switch.table._ZN6Assimp3FBX12FBXConverter22GenerateNodeAnimationsERSt6vectorIP10aiNodeAnimSaIS4_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS2_IPKNS0_18AnimationCurveNodeESaISI_EERKSt3mapISI_PKNS0_14AnimationLayerESt4lessISI_ESaISt4pairIKSI_SQ_EEEllRdS10_, i64 0, i64 %14
+  %14 = and i64 %.03063, 4294967295
+  %switch.gep = getelementptr inbounds nuw [17 x ptr], ptr @switch.table._ZN6Assimp3FBX12FBXConverter22GenerateNodeAnimationsERSt6vectorIP10aiNodeAnimSaIS4_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS2_IPKNS0_18AnimationCurveNodeESaISI_EERKSt3mapISI_PKNS0_14AnimationLayerESt4lessISI_ESaISt4pairIKSI_SQ_EEEllRdS10_, i64 0, i64 %14
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %7, ptr %4, align 8
   %15 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #28
@@ -38595,9 +38594,8 @@ _ZN6Assimp12LogFunctionsINS_11FBXImporterEE7LogWarnIJRA46_KcRKNSt7__cxx1112basic
 
 switch.lookup:                                    ; preds = %95
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17) #28
-  %sext = shl i64 %.0122302, 32
-  %100 = ashr exact i64 %sext, 32
-  %switch.gep = getelementptr inbounds [17 x ptr], ptr @switch.table._ZN6Assimp3FBX12FBXConverter22GenerateNodeAnimationsERSt6vectorIP10aiNodeAnimSaIS4_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS2_IPKNS0_18AnimationCurveNodeESaISI_EERKSt3mapISI_PKNS0_14AnimationLayerESt4lessISI_ESaISt4pairIKSI_SQ_EEEllRdS10_, i64 0, i64 %100
+  %100 = and i64 %.0122302, 4294967295
+  %switch.gep = getelementptr inbounds nuw [17 x ptr], ptr @switch.table._ZN6Assimp3FBX12FBXConverter22GenerateNodeAnimationsERSt6vectorIP10aiNodeAnimSaIS4_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS2_IPKNS0_18AnimationCurveNodeESaISI_EERKSt3mapISI_PKNS0_14AnimationLayerESt4lessISI_ESaISt4pairIKSI_SQ_EEEllRdS10_, i64 0, i64 %100
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %35, ptr %17, align 8
   %101 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #28

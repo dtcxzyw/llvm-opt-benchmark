@@ -1318,8 +1318,8 @@ switch.lookup:                                    ; preds = %34, %_ZNK4absl8Time
   %57 = add nsw i64 %56, 6
   %58 = getelementptr inbounds nuw [13 x i32], ptr @__const._ZN4absl13time_internal4cctz6detail11get_weekdayERKNS2_10civil_timeINS2_10second_tagEEE.k_weekday_by_mon_off, i64 0, i64 %57
   %59 = load i32, ptr %58, align 4, !tbaa !33
-  %60 = sext i32 %59 to i64
-  %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table._ZN4absl4ToTMENS_4TimeENS_8TimeZoneE, i64 0, i64 %60
+  %60 = zext i32 %59 to i64
+  %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZN4absl4ToTMENS_4TimeENS_8TimeZoneE, i64 0, i64 %60
   %switch.load = load i32, ptr %switch.gep, align 4
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %switch.load, ptr %61, align 8, !tbaa !109

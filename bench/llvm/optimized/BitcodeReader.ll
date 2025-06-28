@@ -31558,8 +31558,8 @@ _ZN4llvm5ErrorD2Ev.exit1977:                      ; preds = %_ZN12_GLOBAL__N_113
 
 switch.lookup:                                    ; preds = %_ZN4llvm5ErrorD2Ev.exit1977
   %switch.tableidx = add nsw i32 %.0.i1970.ph, -2
-  %3595 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table._ZN12_GLOBAL__N_113BitcodeReader17parseFunctionBodyEPN4llvm8FunctionE, i64 0, i64 %3595
+  %3595 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN12_GLOBAL__N_113BitcodeReader17parseFunctionBodyEPN4llvm8FunctionE, i64 0, i64 %3595
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %3606
 

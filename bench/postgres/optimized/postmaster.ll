@@ -1627,12 +1627,12 @@ define internal fastcc void @UpdatePMState(i32 noundef range(i32 1, 12) %0) unna
 
 switch.lookup:                                    ; preds = %1
   %3 = load i32, ptr @pmState, align 4
-  %4 = sext i32 %3 to i64
-  %switch.gep = getelementptr inbounds [12 x ptr], ptr @switch.table.HandleFatalError.20, i64 0, i64 %4
+  %4 = zext i32 %3 to i64
+  %switch.gep = getelementptr inbounds nuw [12 x ptr], ptr @switch.table.HandleFatalError.20, i64 0, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   %switch.tableidx = add nsw i32 %0, -1
-  %5 = sext i32 %switch.tableidx to i64
-  %switch.gep6 = getelementptr inbounds [11 x ptr], ptr @switch.table.UpdatePMState.2, i64 0, i64 %5
+  %5 = zext i32 %switch.tableidx to i64
+  %switch.gep6 = getelementptr inbounds nuw [11 x ptr], ptr @switch.table.UpdatePMState.2, i64 0, i64 %5
   %switch.load7 = load ptr, ptr %switch.gep6, align 8
   %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.127, ptr noundef nonnull %switch.load, ptr noundef nonnull %switch.load7) #18
   tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 3220, ptr noundef nonnull @__func__.UpdatePMState) #18
@@ -2580,8 +2580,8 @@ LaunchMissingBackgroundProcesses.exit:            ; preds = %314, %315
 
 switch.lookup:                                    ; preds = %345
   %347 = load i32, ptr @pmState, align 4
-  %348 = sext i32 %347 to i64
-  %switch.gep = getelementptr inbounds [12 x ptr], ptr @switch.table.HandleFatalError.20, i64 0, i64 %348
+  %348 = zext i32 %347 to i64
+  %switch.gep = getelementptr inbounds nuw [12 x ptr], ptr @switch.table.HandleFatalError.20, i64 0, i64 %348
   %switch.load = load ptr, ptr %switch.gep, align 8
   %349 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.127, ptr noundef nonnull %switch.load, ptr noundef nonnull @.str.133) #18
   call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 3220, ptr noundef nonnull @__func__.UpdatePMState) #18
@@ -2639,8 +2639,8 @@ UpdatePMState.exit.i:                             ; preds = %switch.lookup, %345
 .sink.split.sink.split.i:                         ; preds = %368, %360
   %switch.table.ServerLoop.4.sink = phi ptr [ @switch.table.HandleFatalError.20, %360 ], [ @switch.table.HandleFatalError.20, %368 ]
   %370 = load i32, ptr @pmState, align 4
-  %371 = sext i32 %370 to i64
-  %switch.gep16 = getelementptr inbounds [12 x ptr], ptr %switch.table.ServerLoop.4.sink, i64 0, i64 %371
+  %371 = zext i32 %370 to i64
+  %switch.gep16 = getelementptr inbounds nuw [12 x ptr], ptr %switch.table.ServerLoop.4.sink, i64 0, i64 %371
   %switch.load17 = load ptr, ptr %switch.gep16, align 8
   %372 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.127, ptr noundef nonnull %switch.load17, ptr noundef nonnull @.str.133) #18
   call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 3220, ptr noundef nonnull @__func__.UpdatePMState) #18
@@ -2705,18 +2705,18 @@ SignalChildren.exit.i.i:                          ; preds = %select.unfold.i.i.i
 
 TerminateChildren.exit.i:                         ; preds = %389, %SignalChildren.exit.i.i
   %390 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #18
-  br i1 %390, label %switch.lookup19, label %UpdatePMState.exit22.i
+  br i1 %390, label %switch.lookup20, label %UpdatePMState.exit22.i
 
-switch.lookup19:                                  ; preds = %TerminateChildren.exit.i
+switch.lookup20:                                  ; preds = %TerminateChildren.exit.i
   %391 = load i32, ptr @pmState, align 4
-  %392 = sext i32 %391 to i64
-  %switch.gep20 = getelementptr inbounds [12 x ptr], ptr @switch.table.HandleFatalError.20, i64 0, i64 %392
-  %switch.load21 = load ptr, ptr %switch.gep20, align 8
-  %393 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.127, ptr noundef nonnull %switch.load21, ptr noundef nonnull @.str.134) #18
+  %392 = zext i32 %391 to i64
+  %switch.gep21 = getelementptr inbounds nuw [12 x ptr], ptr @switch.table.HandleFatalError.20, i64 0, i64 %392
+  %switch.load22 = load ptr, ptr %switch.gep21, align 8
+  %393 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.127, ptr noundef nonnull %switch.load22, ptr noundef nonnull @.str.134) #18
   call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 3220, ptr noundef nonnull @__func__.UpdatePMState) #18
   br label %UpdatePMState.exit22.i
 
-UpdatePMState.exit22.i:                           ; preds = %switch.lookup19, %TerminateChildren.exit.i
+UpdatePMState.exit22.i:                           ; preds = %switch.lookup20, %TerminateChildren.exit.i
   store i32 6, ptr @pmState, align 4
   %394 = call i64 @time(ptr noundef null) #18
   store i64 %394, ptr @AbortStartTime, align 8
@@ -2889,18 +2889,18 @@ process_pm_reload_request.exit:                   ; preds = %441, %439, %437, %4
 464:                                              ; preds = %461
   store i32 0, ptr @StartupStatus, align 4
   %465 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #18
-  br i1 %465, label %switch.lookup22, label %UpdatePMState.exit.i69
+  br i1 %465, label %switch.lookup23, label %UpdatePMState.exit.i69
 
-switch.lookup22:                                  ; preds = %464
+switch.lookup23:                                  ; preds = %464
   %466 = load i32, ptr @pmState, align 4
-  %467 = sext i32 %466 to i64
-  %switch.gep23 = getelementptr inbounds [12 x ptr], ptr @switch.table.HandleFatalError.20, i64 0, i64 %467
-  %switch.load24 = load ptr, ptr %switch.gep23, align 8
-  %468 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.127, ptr noundef nonnull %switch.load24, ptr noundef nonnull @.str.134) #18
+  %467 = zext i32 %466 to i64
+  %switch.gep24 = getelementptr inbounds nuw [12 x ptr], ptr @switch.table.HandleFatalError.20, i64 0, i64 %467
+  %switch.load25 = load ptr, ptr %switch.gep24, align 8
+  %468 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.127, ptr noundef nonnull %switch.load25, ptr noundef nonnull @.str.134) #18
   call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 3220, ptr noundef nonnull @__func__.UpdatePMState) #18
   br label %UpdatePMState.exit.i69
 
-UpdatePMState.exit.i69:                           ; preds = %switch.lookup22, %464
+UpdatePMState.exit.i69:                           ; preds = %switch.lookup23, %464
   store i32 6, ptr @pmState, align 4
   br label %HandleChildCrash.exit.i, !llvm.loop !16
 
@@ -2949,18 +2949,18 @@ select.unfold.i.i.i65:                            ; preds = %480, %.lr.ph.split.
 
 TerminateChildren.exit.i67:                       ; preds = %select.unfold.i.i.i65, %474
   %484 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #18
-  br i1 %484, label %switch.lookup25, label %UpdatePMState.exit79.i
+  br i1 %484, label %switch.lookup26, label %UpdatePMState.exit79.i
 
-switch.lookup25:                                  ; preds = %TerminateChildren.exit.i67
+switch.lookup26:                                  ; preds = %TerminateChildren.exit.i67
   %485 = load i32, ptr @pmState, align 4
-  %486 = sext i32 %485 to i64
-  %switch.gep26 = getelementptr inbounds [12 x ptr], ptr @switch.table.HandleFatalError.20, i64 0, i64 %486
-  %switch.load27 = load ptr, ptr %switch.gep26, align 8
-  %487 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.127, ptr noundef nonnull %switch.load27, ptr noundef nonnull @.str.134) #18
+  %486 = zext i32 %485 to i64
+  %switch.gep27 = getelementptr inbounds nuw [12 x ptr], ptr @switch.table.HandleFatalError.20, i64 0, i64 %486
+  %switch.load28 = load ptr, ptr %switch.gep27, align 8
+  %487 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.127, ptr noundef nonnull %switch.load28, ptr noundef nonnull @.str.134) #18
   call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 3220, ptr noundef nonnull @__func__.UpdatePMState) #18
   br label %UpdatePMState.exit79.i
 
-UpdatePMState.exit79.i:                           ; preds = %switch.lookup25, %TerminateChildren.exit.i67
+UpdatePMState.exit79.i:                           ; preds = %switch.lookup26, %TerminateChildren.exit.i67
   store i32 6, ptr @pmState, align 4
   br label %HandleChildCrash.exit.i, !llvm.loop !16
 
@@ -3053,18 +3053,18 @@ LogChildExit.exit317:                             ; preds = %.thread.i314, %507,
 
 523:                                              ; preds = %521
   %524 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #18
-  br i1 %524, label %switch.lookup28, label %UpdatePMState.exit83.i
+  br i1 %524, label %switch.lookup29, label %UpdatePMState.exit83.i
 
-switch.lookup28:                                  ; preds = %523
+switch.lookup29:                                  ; preds = %523
   %525 = load i32, ptr @pmState, align 4
-  %526 = sext i32 %525 to i64
-  %switch.gep29 = getelementptr inbounds [12 x ptr], ptr @switch.table.HandleFatalError.20, i64 0, i64 %526
-  %switch.load30 = load ptr, ptr %switch.gep29, align 8
-  %527 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.127, ptr noundef nonnull %switch.load30, ptr noundef nonnull @.str.134) #18
+  %526 = zext i32 %525 to i64
+  %switch.gep30 = getelementptr inbounds nuw [12 x ptr], ptr @switch.table.HandleFatalError.20, i64 0, i64 %526
+  %switch.load31 = load ptr, ptr %switch.gep30, align 8
+  %527 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.127, ptr noundef nonnull %switch.load31, ptr noundef nonnull @.str.134) #18
   call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 3220, ptr noundef nonnull @__func__.UpdatePMState) #18
   br label %UpdatePMState.exit83.i
 
-UpdatePMState.exit83.i:                           ; preds = %switch.lookup28, %523
+UpdatePMState.exit83.i:                           ; preds = %switch.lookup29, %523
   store i32 6, ptr @pmState, align 4
   %.pre154.i = load i32, ptr @Shutdown, align 4
   br label %529
@@ -3158,18 +3158,18 @@ LogChildExit.exit305:                             ; preds = %.thread.i302, %548,
   store i1 false, ptr @FatalError, align 1
   store i64 0, ptr @AbortStartTime, align 8
   %561 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #18
-  br i1 %561, label %switch.lookup31, label %UpdatePMState.exit87.i
+  br i1 %561, label %switch.lookup32, label %UpdatePMState.exit87.i
 
-switch.lookup31:                                  ; preds = %560
+switch.lookup32:                                  ; preds = %560
   %562 = load i32, ptr @pmState, align 4
-  %563 = sext i32 %562 to i64
-  %switch.gep32 = getelementptr inbounds [12 x ptr], ptr @switch.table.HandleFatalError.20, i64 0, i64 %563
-  %switch.load33 = load ptr, ptr %switch.gep32, align 8
-  %564 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.127, ptr noundef nonnull %switch.load33, ptr noundef nonnull @.str.132) #18
+  %563 = zext i32 %562 to i64
+  %switch.gep33 = getelementptr inbounds nuw [12 x ptr], ptr @switch.table.HandleFatalError.20, i64 0, i64 %563
+  %switch.load34 = load ptr, ptr %switch.gep33, align 8
+  %564 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.127, ptr noundef nonnull %switch.load34, ptr noundef nonnull @.str.132) #18
   call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 3220, ptr noundef nonnull @__func__.UpdatePMState) #18
   br label %UpdatePMState.exit87.i
 
-UpdatePMState.exit87.i:                           ; preds = %switch.lookup31, %560
+UpdatePMState.exit87.i:                           ; preds = %switch.lookup32, %560
   store i32 4, ptr @pmState, align 4
   store i1 false, ptr @connsAllowed, align 1
   store i1 false, ptr @StartWorkerNeeded, align 1
@@ -3297,18 +3297,18 @@ LogChildExit.exit293:                             ; preds = %.thread.i290, %594,
 
 617:                                              ; preds = %611
   %618 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #18
-  br i1 %618, label %switch.lookup34, label %UpdatePMState.exit94.i
+  br i1 %618, label %switch.lookup35, label %UpdatePMState.exit94.i
 
-switch.lookup34:                                  ; preds = %617
+switch.lookup35:                                  ; preds = %617
   %619 = load i32, ptr @pmState, align 4
-  %620 = sext i32 %619 to i64
-  %switch.gep35 = getelementptr inbounds [12 x ptr], ptr @switch.table.HandleFatalError.20, i64 0, i64 %620
-  %switch.load36 = load ptr, ptr %switch.gep35, align 8
-  %621 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.127, ptr noundef nonnull %switch.load36, ptr noundef nonnull @.str.137) #18
+  %620 = zext i32 %619 to i64
+  %switch.gep36 = getelementptr inbounds nuw [12 x ptr], ptr @switch.table.HandleFatalError.20, i64 0, i64 %620
+  %switch.load37 = load ptr, ptr %switch.gep36, align 8
+  %621 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.127, ptr noundef nonnull %switch.load37, ptr noundef nonnull @.str.137) #18
   call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 3220, ptr noundef nonnull @__func__.UpdatePMState) #18
   br label %UpdatePMState.exit94.i
 
-UpdatePMState.exit94.i:                           ; preds = %switch.lookup34, %617
+UpdatePMState.exit94.i:                           ; preds = %switch.lookup35, %617
   store i32 10, ptr @pmState, align 4
   %622 = load ptr, ptr @pm_wait_set, align 8
   %.not.i95.i = icmp eq ptr %622, null
@@ -4511,18 +4511,18 @@ StartChildProcess.exit333:                        ; preds = %1087, %1090, %1078,
 
 1098:                                             ; preds = %1097, %1094
   %1099 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #18
-  br i1 %1099, label %switch.lookup37, label %UpdatePMState.exit.i87
+  br i1 %1099, label %switch.lookup38, label %UpdatePMState.exit.i87
 
-switch.lookup37:                                  ; preds = %1098
+switch.lookup38:                                  ; preds = %1098
   %1100 = load i32, ptr @pmState, align 4
-  %1101 = sext i32 %1100 to i64
-  %switch.gep38 = getelementptr inbounds [12 x ptr], ptr @switch.table.HandleFatalError.20, i64 0, i64 %1101
-  %switch.load39 = load ptr, ptr %switch.gep38, align 8
-  %1102 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.127, ptr noundef nonnull %switch.load39, ptr noundef nonnull @.str.130) #18
+  %1101 = zext i32 %1100 to i64
+  %switch.gep39 = getelementptr inbounds nuw [12 x ptr], ptr @switch.table.HandleFatalError.20, i64 0, i64 %1101
+  %switch.load40 = load ptr, ptr %switch.gep39, align 8
+  %1102 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.127, ptr noundef nonnull %switch.load40, ptr noundef nonnull @.str.130) #18
   call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 3220, ptr noundef nonnull @__func__.UpdatePMState) #18
   br label %UpdatePMState.exit.i87
 
-UpdatePMState.exit.i87:                           ; preds = %switch.lookup37, %1098
+UpdatePMState.exit.i87:                           ; preds = %switch.lookup38, %1098
   store i32 2, ptr @pmState, align 4
   br label %1103
 
@@ -4548,18 +4548,18 @@ UpdatePMState.exit.i87:                           ; preds = %switch.lookup37, %1
 1113:                                             ; preds = %1111, %1109
   call void @AddToDataDirLockFile(i32 noundef 8, ptr noundef nonnull @.str.91) #18
   %1114 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #18
-  br i1 %1114, label %switch.lookup40, label %UpdatePMState.exit30.i
+  br i1 %1114, label %switch.lookup41, label %UpdatePMState.exit30.i
 
-switch.lookup40:                                  ; preds = %1113
+switch.lookup41:                                  ; preds = %1113
   %1115 = load i32, ptr @pmState, align 4
-  %1116 = sext i32 %1115 to i64
-  %switch.gep41 = getelementptr inbounds [12 x ptr], ptr @switch.table.HandleFatalError.20, i64 0, i64 %1116
-  %switch.load42 = load ptr, ptr %switch.gep41, align 8
-  %1117 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.127, ptr noundef nonnull %switch.load42, ptr noundef nonnull @.str.131) #18
+  %1116 = zext i32 %1115 to i64
+  %switch.gep42 = getelementptr inbounds nuw [12 x ptr], ptr @switch.table.HandleFatalError.20, i64 0, i64 %1116
+  %switch.load43 = load ptr, ptr %switch.gep42, align 8
+  %1117 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.127, ptr noundef nonnull %switch.load43, ptr noundef nonnull @.str.131) #18
   call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 3220, ptr noundef nonnull @__func__.UpdatePMState) #18
   br label %UpdatePMState.exit30.i
 
-UpdatePMState.exit30.i:                           ; preds = %switch.lookup40, %1113
+UpdatePMState.exit30.i:                           ; preds = %switch.lookup41, %1113
   store i32 3, ptr @pmState, align 4
   store i1 false, ptr @connsAllowed, align 1
   store i1 false, ptr @StartWorkerNeeded, align 1
@@ -4856,18 +4856,18 @@ select.unfold.us.i.i:                             ; preds = %1250, %1248, %1245,
 
 SignalChildren.exit.i84:                          ; preds = %select.unfold.us.i.i, %signal_child.exit323
   %1255 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #18
-  br i1 %1255, label %switch.lookup43, label %UpdatePMState.exit35.i
+  br i1 %1255, label %switch.lookup44, label %UpdatePMState.exit35.i
 
-switch.lookup43:                                  ; preds = %SignalChildren.exit.i84
+switch.lookup44:                                  ; preds = %SignalChildren.exit.i84
   %1256 = load i32, ptr @pmState, align 4
-  %1257 = sext i32 %1256 to i64
-  %switch.gep44 = getelementptr inbounds [12 x ptr], ptr @switch.table.HandleFatalError.20, i64 0, i64 %1257
-  %switch.load45 = load ptr, ptr %switch.gep44, align 8
-  %1258 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.127, ptr noundef nonnull %switch.load45, ptr noundef nonnull @.str.136) #18
+  %1257 = zext i32 %1256 to i64
+  %switch.gep45 = getelementptr inbounds nuw [12 x ptr], ptr @switch.table.HandleFatalError.20, i64 0, i64 %1257
+  %switch.load46 = load ptr, ptr %switch.gep45, align 8
+  %1258 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.127, ptr noundef nonnull %switch.load46, ptr noundef nonnull @.str.136) #18
   call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 3220, ptr noundef nonnull @__func__.UpdatePMState) #18
   br label %UpdatePMState.exit35.i
 
-UpdatePMState.exit35.i:                           ; preds = %switch.lookup43, %SignalChildren.exit.i84
+UpdatePMState.exit35.i:                           ; preds = %switch.lookup44, %SignalChildren.exit.i84
   store i32 8, ptr @pmState, align 4
   br label %1268
 
@@ -5431,8 +5431,8 @@ define internal fastcc void @signal_child(ptr noundef readonly captures(none) %0
 
 switch.lookup:                                    ; preds = %2
   %switch.tableidx = add nsw i32 %1, -1
-  %5 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [15 x ptr], ptr @switch.table.signal_child, i64 0, i64 %5
+  %5 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [15 x ptr], ptr @switch.table.signal_child, i64 0, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
@@ -5530,8 +5530,8 @@ define internal fastcc void @PostmasterStateMachine() unnamed_addr #2 {
 
 switch.lookup:                                    ; preds = %11
   %13 = load i32, ptr @pmState, align 4
-  %14 = sext i32 %13 to i64
-  %switch.gep = getelementptr inbounds [12 x ptr], ptr @switch.table.HandleFatalError.20, i64 0, i64 %14
+  %14 = zext i32 %13 to i64
+  %switch.gep = getelementptr inbounds nuw [12 x ptr], ptr @switch.table.HandleFatalError.20, i64 0, i64 %14
   %switch.load = load ptr, ptr %switch.gep, align 8
   %15 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.127, ptr noundef nonnull %switch.load, ptr noundef nonnull @.str.133) #18
   tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 3220, ptr noundef nonnull @__func__.UpdatePMState) #18
@@ -5723,8 +5723,8 @@ SignalChildren.exit:                              ; preds = %select.unfold.i, %s
 
 switch.lookup148:                                 ; preds = %SignalChildren.exit
   %86 = load i32, ptr @pmState, align 4
-  %87 = sext i32 %86 to i64
-  %switch.gep149 = getelementptr inbounds [12 x ptr], ptr @switch.table.HandleFatalError.20, i64 0, i64 %87
+  %87 = zext i32 %86 to i64
+  %switch.gep149 = getelementptr inbounds nuw [12 x ptr], ptr @switch.table.HandleFatalError.20, i64 0, i64 %87
   %switch.load150 = load ptr, ptr %switch.gep149, align 8
   %88 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.127, ptr noundef nonnull %switch.load150, ptr noundef nonnull @.str.134) #18
   tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 3220, ptr noundef nonnull @__func__.UpdatePMState) #18
@@ -5752,8 +5752,8 @@ UpdatePMState.exit55:                             ; preds = %SignalChildren.exit
 
 switch.lookup151:                                 ; preds = %95
   %97 = load i32, ptr @pmState, align 4
-  %98 = sext i32 %97 to i64
-  %switch.gep152 = getelementptr inbounds [12 x ptr], ptr @switch.table.HandleFatalError.20, i64 0, i64 %98
+  %98 = zext i32 %97 to i64
+  %switch.gep152 = getelementptr inbounds nuw [12 x ptr], ptr @switch.table.HandleFatalError.20, i64 0, i64 %98
   %switch.load153 = load ptr, ptr %switch.gep152, align 8
   %99 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.127, ptr noundef nonnull %switch.load153, ptr noundef nonnull @.str.137) #18
   tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 3220, ptr noundef nonnull @__func__.UpdatePMState) #18
@@ -5818,8 +5818,8 @@ select.unfold.i72:                                ; preds = %108, %.lr.ph.split.
 
 switch.lookup154:                                 ; preds = %.thread
   %119 = load i32, ptr @pmState, align 4
-  %120 = sext i32 %119 to i64
-  %switch.gep155 = getelementptr inbounds [12 x ptr], ptr @switch.table.HandleFatalError.20, i64 0, i64 %120
+  %120 = zext i32 %119 to i64
+  %switch.gep155 = getelementptr inbounds nuw [12 x ptr], ptr @switch.table.HandleFatalError.20, i64 0, i64 %120
   %switch.load156 = load ptr, ptr %switch.gep155, align 8
   %121 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.127, ptr noundef nonnull %switch.load156, ptr noundef nonnull @.str.135) #18
   tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 3220, ptr noundef nonnull @__func__.UpdatePMState) #18
@@ -5869,8 +5869,8 @@ btmask_all_except_n.exit:                         ; preds = %127
 
 switch.lookup157:                                 ; preds = %135
   %137 = load i32, ptr @pmState, align 4
-  %138 = sext i32 %137 to i64
-  %switch.gep158 = getelementptr inbounds [12 x ptr], ptr @switch.table.HandleFatalError.20, i64 0, i64 %138
+  %138 = zext i32 %137 to i64
+  %switch.gep158 = getelementptr inbounds nuw [12 x ptr], ptr @switch.table.HandleFatalError.20, i64 0, i64 %138
   %switch.load159 = load ptr, ptr %switch.gep158, align 8
   %139 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.127, ptr noundef nonnull %switch.load159, ptr noundef nonnull @.str.138) #18
   tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 3220, ptr noundef nonnull @__func__.UpdatePMState) #18
@@ -5910,8 +5910,8 @@ btmask_all_except_n.exit92.thread-pre-split111_crit_edge: ; preds = %btmask_all_
 
 switch.lookup160:                                 ; preds = %147
   %149 = load i32, ptr @pmState, align 4
-  %150 = sext i32 %149 to i64
-  %switch.gep161 = getelementptr inbounds [12 x ptr], ptr @switch.table.HandleFatalError.20, i64 0, i64 %150
+  %150 = zext i32 %149 to i64
+  %switch.gep161 = getelementptr inbounds nuw [12 x ptr], ptr @switch.table.HandleFatalError.20, i64 0, i64 %150
   %switch.load162 = load ptr, ptr %switch.gep161, align 8
   %151 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.127, ptr noundef nonnull %switch.load162, ptr noundef nonnull @.str.139) #18
   tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 3220, ptr noundef nonnull @__func__.UpdatePMState) #18
@@ -6026,8 +6026,8 @@ switch.lookup160:                                 ; preds = %147
 
 switch.lookup163:                                 ; preds = %190
   %193 = load i32, ptr @pmState, align 4
-  %194 = sext i32 %193 to i64
-  %switch.gep164 = getelementptr inbounds [12 x ptr], ptr @switch.table.HandleFatalError.20, i64 0, i64 %194
+  %194 = zext i32 %193 to i64
+  %switch.gep164 = getelementptr inbounds nuw [12 x ptr], ptr @switch.table.HandleFatalError.20, i64 0, i64 %194
   %switch.load165 = load ptr, ptr %switch.gep164, align 8
   %195 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.127, ptr noundef nonnull %switch.load165, ptr noundef nonnull @.str.129) #18
   tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 3220, ptr noundef nonnull @__func__.UpdatePMState) #18
@@ -6293,8 +6293,8 @@ ConfigurePostmasterWaitSet.exit:                  ; preds = %22, %24
   %.str.134.sink = phi ptr [ @.str.134, %20 ], [ @.str.137, %ConfigurePostmasterWaitSet.exit ]
   %.sink.ph = phi i32 [ 6, %20 ], [ 10, %ConfigurePostmasterWaitSet.exit ]
   %29 = load i32, ptr @pmState, align 4
-  %30 = sext i32 %29 to i64
-  %switch.gep = getelementptr inbounds [12 x ptr], ptr %switch.table.HandleFatalError.sink, i64 0, i64 %30
+  %30 = zext i32 %29 to i64
+  %switch.gep = getelementptr inbounds nuw [12 x ptr], ptr %switch.table.HandleFatalError.sink, i64 0, i64 %30
   %switch.load = load ptr, ptr %switch.gep, align 8
   %31 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.127, ptr noundef nonnull %switch.load, ptr noundef nonnull %.str.134.sink) #18
   tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 3220, ptr noundef nonnull @__func__.UpdatePMState) #18

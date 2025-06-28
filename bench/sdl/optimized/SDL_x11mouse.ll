@@ -61,9 +61,8 @@ define hidden void @X11_InitMouse(ptr noundef readnone captures(none) %0) local_
 switch.lookup:                                    ; preds = %1, %switch.lookup
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %switch.lookup ]
   %11 = getelementptr inbounds nuw [10 x ptr], ptr @sys_cursors, i64 0, i64 %indvars.iv
-  %sext = shl i64 %indvars.iv, 32
-  %12 = ashr exact i64 %sext, 32
-  %switch.gep = getelementptr inbounds [10 x i32], ptr @switch.table.X11_InitMouse, i64 0, i64 %12
+  %12 = and i64 %indvars.iv, 4294967295
+  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table.X11_InitMouse, i64 0, i64 %12
   %switch.load = load i32, ptr %switch.gep, align 4
   %13 = tail call ptr @X11_CreateSystemCursor(i32 noundef %switch.load)
   store ptr %13, ptr %11, align 8

@@ -29320,8 +29320,8 @@ define hidden void @"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$
 switch.lookup:                                    ; preds = %31, %42
   %51 = phi i64 [ %47, %42 ], [ %36, %31 ]
   %.0.i.i = phi i8 [ %49, %42 ], [ %..i.i.i, %31 ]
-  %52 = sext i8 %.0.i.i to i64
-  %switch.gep = getelementptr inbounds [10 x i64], ptr @"switch.table._ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h5ee9209658ada30aE", i64 0, i64 %52
+  %52 = zext i8 %.0.i.i to i64
+  %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @"switch.table._ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h5ee9209658ada30aE", i64 0, i64 %52
   %switch.load = load i64, ptr %switch.gep, align 8
   %53 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %51, i64 %switch.load)
   %54 = extractvalue { i64, i1 } %53, 1
@@ -30061,8 +30061,8 @@ define hidden void @"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$
 switch.lookup:                                    ; preds = %31, %42
   %51 = phi i64 [ %47, %42 ], [ %36, %31 ]
   %.0.i.i = phi i8 [ %49, %42 ], [ %..i.i.i, %31 ]
-  %52 = sext i8 %.0.i.i to i64
-  %switch.gep = getelementptr inbounds [10 x i64], ptr @"switch.table._ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h5ee9209658ada30aE", i64 0, i64 %52
+  %52 = zext i8 %.0.i.i to i64
+  %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @"switch.table._ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h5ee9209658ada30aE", i64 0, i64 %52
   %switch.load = load i64, ptr %switch.gep, align 8
   %53 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %51, i64 %switch.load)
   %54 = extractvalue { i64, i1 } %53, 1

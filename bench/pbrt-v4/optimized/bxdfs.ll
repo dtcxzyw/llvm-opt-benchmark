@@ -14009,8 +14009,8 @@ _ZNSt6vectorImSaImEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPmmmET_
   %.sroa.0148.1 = phi ptr [ %156, %.noexc125 ], [ %156, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %151 ]
   %.0.i.i.i.i.i = phi ptr [ %158, %.noexc125 ], [ %157, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %151 ]
   %switch.tableidx = add nsw i8 %147, -1
-  %161 = sext i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [11 x i64], ptr @switch.table._ZN4pbrt6TensorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, i64 0, i64 %161
+  %161 = zext i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [11 x i64], ptr @switch.table._ZN4pbrt6TensorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, i64 0, i64 %161
   %switch.load = load i64, ptr %switch.gep, align 8
   br i1 %.not.i.i.i.i, label %._crit_edge, label %.lr.ph
 

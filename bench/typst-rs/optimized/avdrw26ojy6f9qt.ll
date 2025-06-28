@@ -2971,10 +2971,10 @@ switch.lookup:
   %switch.gep = getelementptr inbounds nuw [256 x ptr], ptr @switch.table._ZN12typst_syntax4kind10SyntaxKind4name17h2c6fe99778272aeaE, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = zext i8 %switch.tableidx to i64
-  %switch.gep2 = getelementptr inbounds nuw [256 x i64], ptr @switch.table._ZN12typst_syntax4kind10SyntaxKind4name17h2c6fe99778272aeaE.48, i64 0, i64 %2
-  %switch.load3 = load i64, ptr %switch.gep2, align 8
+  %switch.gep1 = getelementptr inbounds nuw [256 x i64], ptr @switch.table._ZN12typst_syntax4kind10SyntaxKind4name17h2c6fe99778272aeaE.48, i64 0, i64 %2
+  %switch.load2 = load i64, ptr %switch.gep1, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
-  %4 = insertvalue { ptr, i64 } %3, i64 %switch.load3, 1
+  %4 = insertvalue { ptr, i64 } %3, i64 %switch.load2, 1
   ret { ptr, i64 } %4
 }
 

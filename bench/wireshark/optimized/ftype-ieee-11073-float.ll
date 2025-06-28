@@ -308,8 +308,8 @@ define internal noalias ptr @sfloat_ieee_11073_val_to_repr(ptr noundef %0, ptr n
 
 switch.lookup:                                    ; preds = %4
   %switch.tableidx = add nsw i16 %8, -2046
-  %10 = sext i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table.float_ieee_11073_val_to_repr, i64 0, i64 %10
+  %10 = zext i16 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.float_ieee_11073_val_to_repr, i64 0, i64 %10
   %switch.load = load ptr, ptr %switch.gep, align 8
   %11 = tail call noalias ptr @wmem_strdup(ptr noundef %0, ptr noundef nonnull %switch.load)
   br label %113
@@ -1161,8 +1161,8 @@ define internal noalias ptr @float_ieee_11073_val_to_repr(ptr noundef %0, ptr no
 
 switch.lookup:                                    ; preds = %4
   %switch.tableidx = add nsw i32 %8, -8388606
-  %10 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table.float_ieee_11073_val_to_repr, i64 0, i64 %10
+  %10 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.float_ieee_11073_val_to_repr, i64 0, i64 %10
   %switch.load = load ptr, ptr %switch.gep, align 8
   %11 = tail call noalias ptr @wmem_strdup(ptr noundef %0, ptr noundef nonnull %switch.load)
   br label %105

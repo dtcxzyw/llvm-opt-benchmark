@@ -7612,8 +7612,8 @@ declare { i16, ptr } @_ZN4llvm23getApproximateEVTForLLTENS_3LLTERNS_11LLVMContex
 define dso_local noundef range(i32 0, 298) i32 @_ZNK4llvm18TargetLoweringBase22InstructionOpcodeToISDEj(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(412423) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
 switch.lookup:
   %switch.tableidx = add nsw i32 %1, -1
-  %2 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [67 x i32], ptr @switch.table._ZNK4llvm18TargetLoweringBase22InstructionOpcodeToISDEj, i64 0, i64 %2
+  %2 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [67 x i32], ptr @switch.table._ZNK4llvm18TargetLoweringBase22InstructionOpcodeToISDEj, i64 0, i64 %2
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }

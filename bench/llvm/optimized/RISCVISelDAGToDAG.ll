@@ -4784,8 +4784,8 @@ _ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit: ; preds = %62,
 
 switch.lookup:                                    ; preds = %82
   %switch.tableidx = add nsw i32 %11, -186
-  %87 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table._ZN4llvm17RISCVDAGToDAGISel20tryShrinkShlLogicImmEPNS_6SDNodeE, i64 0, i64 %87
+  %87 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN4llvm17RISCVDAGToDAGISel20tryShrinkShlLogicImmEPNS_6SDNodeE, i64 0, i64 %87
   %switch.load = load i32, ptr %switch.gep, align 4
   %88 = select i1 %.043, i32 12905, i32 12904
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -8530,11 +8530,11 @@ switch.lookup:                                    ; preds = %1502, %1499, %1496,
   %.01608 = phi i32 [ %1486, %1484 ], [ %1489, %1487 ], [ %1492, %1490 ], [ %1495, %1493 ], [ %1498, %1496 ], [ %1501, %1499 ], [ %1504, %1502 ]
   %.01605 = phi i32 [ %1485, %1484 ], [ %1488, %1487 ], [ %1491, %1490 ], [ %1494, %1493 ], [ %1497, %1496 ], [ %1500, %1499 ], [ %1503, %1502 ]
   %1505 = call noundef zeroext i8 @_ZN4llvm19RISCVTargetLowering7getLMULENS_3MVTE(i16 %.sroa.0.0.copyload.i.i) #28
-  %1506 = sext i8 %1505 to i64
-  %switch.gep = getelementptr inbounds [8 x i32], ptr @switch.table._ZN4llvm17RISCVDAGToDAGISel6SelectEPNS_6SDNodeE, i64 0, i64 %1506
+  %1506 = zext i8 %1505 to i64
+  %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN4llvm17RISCVDAGToDAGISel6SelectEPNS_6SDNodeE, i64 0, i64 %1506
   %switch.load = load i32, ptr %switch.gep, align 4
-  %1507 = sext i8 %1505 to i64
-  %switch.gep3021 = getelementptr inbounds [8 x i32], ptr @switch.table._ZN4llvm17RISCVDAGToDAGISel6SelectEPNS_6SDNodeE.83, i64 0, i64 %1507
+  %1507 = zext i8 %1505 to i64
+  %switch.gep3021 = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN4llvm17RISCVDAGToDAGISel6SelectEPNS_6SDNodeE.83, i64 0, i64 %1507
   %switch.load3022 = load i32, ptr %switch.gep3021, align 4
   %1508 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %1509 = load ptr, ptr %1508, align 8, !tbaa !65
@@ -8866,14 +8866,14 @@ switch.lookup3023:                                ; preds = %1651, %1647, %1643,
   %.01618 = phi i32 [ %1629, %1627 ], [ %1633, %1631 ], [ %1637, %1635 ], [ %1641, %1639 ], [ %1645, %1643 ], [ %1649, %1647 ], [ %1653, %1651 ]
   %.01617 = phi i32 [ %1628, %1627 ], [ %1632, %1631 ], [ %1636, %1635 ], [ %1640, %1639 ], [ %1644, %1643 ], [ %1648, %1647 ], [ %1652, %1651 ]
   %1655 = call noundef zeroext i8 @_ZN4llvm19RISCVTargetLowering7getLMULENS_3MVTE(i16 %.sroa.0.0.copyload.i.i) #28
-  %1656 = sext i8 %1655 to i64
-  %switch.gep3024 = getelementptr inbounds [8 x i32], ptr @switch.table._ZN4llvm17RISCVDAGToDAGISel6SelectEPNS_6SDNodeE.84, i64 0, i64 %1656
+  %1656 = zext i8 %1655 to i64
+  %switch.gep3024 = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN4llvm17RISCVDAGToDAGISel6SelectEPNS_6SDNodeE.84, i64 0, i64 %1656
   %switch.load3025 = load i32, ptr %switch.gep3024, align 4
-  %1657 = sext i8 %1655 to i64
-  %switch.gep3026 = getelementptr inbounds [8 x i32], ptr @switch.table._ZN4llvm17RISCVDAGToDAGISel6SelectEPNS_6SDNodeE.85, i64 0, i64 %1657
+  %1657 = zext i8 %1655 to i64
+  %switch.gep3026 = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN4llvm17RISCVDAGToDAGISel6SelectEPNS_6SDNodeE.85, i64 0, i64 %1657
   %switch.load3027 = load i32, ptr %switch.gep3026, align 4
-  %1658 = sext i8 %1655 to i64
-  %switch.gep3028 = getelementptr inbounds [8 x i32], ptr @switch.table._ZN4llvm17RISCVDAGToDAGISel6SelectEPNS_6SDNodeE.86, i64 0, i64 %1658
+  %1658 = zext i8 %1655 to i64
+  %switch.gep3028 = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN4llvm17RISCVDAGToDAGISel6SelectEPNS_6SDNodeE.86, i64 0, i64 %1658
   %switch.load3029 = load i32, ptr %switch.gep3028, align 4
   %1659 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %1660 = load ptr, ptr %1659, align 8, !tbaa !65
@@ -10899,8 +10899,8 @@ _ZN4llvm5APInt6setBitEj.exit:                     ; preds = %14, %18
 define internal fastcc noundef range(i32 2, 9) i32 @_ZL12getSegInstNFj(i32 noundef %0) unnamed_addr #10 {
 switch.lookup:
   %switch.tableidx = add nsw i32 %0, -10939
-  %1 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [307 x i32], ptr @switch.table._ZL12getSegInstNFj, i64 0, i64 %1
+  %1 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [307 x i32], ptr @switch.table._ZL12getSegInstNFj, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -11946,11 +11946,11 @@ declare void @_ZN4llvm18report_fatal_errorERKNS_5TwineEb(ptr noundef nonnull ali
 define linkonce_odr hidden { ptr, i64 } @_ZN4llvm9InlineAsm20getMemConstraintNameENS0_14ConstraintCodeE(i32 noundef %0) local_unnamed_addr #1 comdat align 2 {
 switch.lookup:
   %switch.tableidx = add nsw i32 %0, -1
-  %1 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [28 x i64], ptr @switch.table._ZN4llvm9InlineAsm20getMemConstraintNameENS0_14ConstraintCodeE, i64 0, i64 %1
+  %1 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [28 x i64], ptr @switch.table._ZN4llvm9InlineAsm20getMemConstraintNameENS0_14ConstraintCodeE, i64 0, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
-  %2 = sext i32 %switch.tableidx to i64
-  %switch.gep1 = getelementptr inbounds [28 x ptr], ptr @switch.table._ZN4llvm9InlineAsm20getMemConstraintNameENS0_14ConstraintCodeE.87, i64 0, i64 %2
+  %2 = zext i32 %switch.tableidx to i64
+  %switch.gep1 = getelementptr inbounds nuw [28 x ptr], ptr @switch.table._ZN4llvm9InlineAsm20getMemConstraintNameENS0_14ConstraintCodeE.87, i64 0, i64 %2
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load, 1
@@ -27621,8 +27621,8 @@ switch.lookup:                                    ; preds = %4
   %652 = getelementptr inbounds nuw i8, ptr %651, i64 88
   %653 = load i32, ptr %652, align 8, !tbaa !598
   %switch.tableidx = add nsw i32 %653, -11
-  %654 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [12 x i64], ptr @switch.table._ZN4llvm17RISCVDAGToDAGISel14RunSDNodeXFormENS_7SDValueEj, i64 0, i64 %654
+  %654 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [12 x i64], ptr @switch.table._ZN4llvm17RISCVDAGToDAGISel14RunSDNodeXFormENS_7SDValueEj, i64 0, i64 %654
   %switch.load = load i64, ptr %switch.gep, align 8
   %655 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %656 = load ptr, ptr %655, align 8, !tbaa !65

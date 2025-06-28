@@ -2885,15 +2885,15 @@ define linkonce_odr hidden void @_ZN5boost6locale8impl_icu13calendar_impl12adjus
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #29
   store i32 0, ptr %5, align 4, !tbaa !58
-  switch i32 %2, label %32 [
+  switch i32 %2, label %24 [
     i32 0, label %6
-    i32 1, label %19
+    i32 1, label %13
   ]
 
 6:                                                ; preds = %4
   %switch.tableidx = add i32 %1, -1
   %7 = icmp ult i32 %switch.tableidx, 16
-  br i1 %7, label %switch.lookup, label %8
+  br i1 %7, label %.sink.split, label %8
 
 8:                                                ; preds = %6
   %9 = tail call ptr @__cxa_allocate_exception(i64 16) #29
@@ -2904,9 +2904,9 @@ define linkonce_odr hidden void @_ZN5boost6locale8impl_icu13calendar_impl12adjus
   tail call void @__cxa_throw(ptr nonnull %9, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #30
   unreachable
 
-common.resume:                                    ; preds = %24, %11
-  %.sink = phi ptr [ %22, %24 ], [ %9, %11 ]
-  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %12, %11 ]
+common.resume:                                    ; preds = %18, %11
+  %.sink = phi ptr [ %16, %18 ], [ %9, %11 ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %12, %11 ]
   tail call void @__cxa_free_exception(ptr nonnull %.sink) #29
   resume { ptr, i32 } %common.resume.op
 
@@ -2915,50 +2915,41 @@ common.resume:                                    ; preds = %24, %11
           cleanup
   br label %common.resume
 
-switch.lookup:                                    ; preds = %6
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %14 = load ptr, ptr %13, align 8, !tbaa !56
-  %15 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [16 x i32], ptr @switch.table._ZN5boost6locale8impl_icu13calendar_impl12adjust_valueENS0_6period5marks11period_markENS0_17abstract_calendar11update_typeEi.1, i64 0, i64 %15
-  %switch.load = load i32, ptr %switch.gep, align 4
-  %16 = load ptr, ptr %14, align 8, !tbaa !20
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 56
-  %18 = load ptr, ptr %17, align 8
-  call void %18(ptr noundef nonnull align 8 dereferenceable(610) %14, i32 noundef %switch.load, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %5)
-  br label %32
-
-19:                                               ; preds = %4
+13:                                               ; preds = %4
   %switch.tableidx8 = add i32 %1, -1
-  %20 = icmp ult i32 %switch.tableidx8, 16
-  br i1 %20, label %switch.lookup7, label %21
+  %14 = icmp ult i32 %switch.tableidx8, 16
+  br i1 %14, label %.sink.split, label %15
 
-21:                                               ; preds = %19
-  %22 = tail call ptr @__cxa_allocate_exception(i64 16) #29
-  invoke void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull @.str.20)
-          to label %23 unwind label %24
+15:                                               ; preds = %13
+  %16 = tail call ptr @__cxa_allocate_exception(i64 16) #29
+  invoke void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull @.str.20)
+          to label %17 unwind label %18
 
-23:                                               ; preds = %21
-  tail call void @__cxa_throw(ptr nonnull %22, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #30
+17:                                               ; preds = %15
+  tail call void @__cxa_throw(ptr nonnull %16, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #30
   unreachable
 
-24:                                               ; preds = %21
-  %25 = landingpad { ptr, i32 }
+18:                                               ; preds = %15
+  %19 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-switch.lookup7:                                   ; preds = %19
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %27 = load ptr, ptr %26, align 8, !tbaa !56
-  %28 = zext nneg i32 %switch.tableidx8 to i64
-  %switch.gep9 = getelementptr inbounds nuw [16 x i32], ptr @switch.table._ZN5boost6locale8impl_icu13calendar_impl12adjust_valueENS0_6period5marks11period_markENS0_17abstract_calendar11update_typeEi.1, i64 0, i64 %28
+.sink.split:                                      ; preds = %13, %6
+  %switch.tableidx8.sink = phi i32 [ %switch.tableidx, %6 ], [ %switch.tableidx8, %13 ]
+  %switch.table._ZN5boost6locale8impl_icu13calendar_impl12adjust_valueENS0_6period5marks11period_markENS0_17abstract_calendar11update_typeEi.1.sink = phi ptr [ @switch.table._ZN5boost6locale8impl_icu13calendar_impl12adjust_valueENS0_6period5marks11period_markENS0_17abstract_calendar11update_typeEi.1, %6 ], [ @switch.table._ZN5boost6locale8impl_icu13calendar_impl12adjust_valueENS0_6period5marks11period_markENS0_17abstract_calendar11update_typeEi.1, %13 ]
+  %.sink15 = phi i64 [ 56, %6 ], [ 72, %13 ]
+  %.sink16.in = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %.sink16 = load ptr, ptr %.sink16.in, align 8, !tbaa !56
+  %20 = zext nneg i32 %switch.tableidx8.sink to i64
+  %switch.gep9 = getelementptr inbounds nuw [16 x i32], ptr %switch.table._ZN5boost6locale8impl_icu13calendar_impl12adjust_valueENS0_6period5marks11period_markENS0_17abstract_calendar11update_typeEi.1.sink, i64 0, i64 %20
   %switch.load10 = load i32, ptr %switch.gep9, align 4
-  %29 = load ptr, ptr %27, align 8, !tbaa !20
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 72
-  %31 = load ptr, ptr %30, align 8
-  call void %31(ptr noundef nonnull align 8 dereferenceable(610) %27, i32 noundef %switch.load10, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %5)
-  br label %32
+  %21 = load ptr, ptr %.sink16, align 8, !tbaa !20
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 %.sink15
+  %23 = load ptr, ptr %22, align 8
+  call void %23(ptr noundef nonnull align 8 dereferenceable(610) %.sink16, i32 noundef %switch.load10, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  br label %24
 
-32:                                               ; preds = %switch.lookup7, %switch.lookup, %4
+24:                                               ; preds = %.sink.split, %4
   call fastcc void @_ZN5boost6locale8impl_icuL18check_and_throw_dtER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4) %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #29
   ret void

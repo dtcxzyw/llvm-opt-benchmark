@@ -31790,11 +31790,11 @@ define void @"_ZN113_$LT$polars_arrow..io..avro..read..nested..DynMutableStructA
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef double @_ZN12polars_arrow20temporal_conversions14timeunit_scale17hba3a6bb66159b6a5E(i8 noundef range(i8 0, 4) %0, i8 noundef range(i8 0, 4) %1) unnamed_addr #4 {
 switch.lookup11:
-  %2 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12polars_arrow20temporal_conversions14timeunit_scale17hba3a6bb66159b6a5E.272, i64 0, i64 %2
+  %2 = zext nneg i8 %1 to i64
+  %3 = zext nneg i8 %0 to i64
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12polars_arrow20temporal_conversions14timeunit_scale17hba3a6bb66159b6a5E.272, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %3 = zext nneg i8 %1 to i64
-  %switch.gep9 = getelementptr inbounds nuw [4 x double], ptr %switch.load, i64 0, i64 %3
+  %switch.gep9 = getelementptr inbounds nuw [4 x double], ptr %switch.load, i64 0, i64 %2
   %switch.load10 = load double, ptr %switch.gep9, align 8
   ret double %switch.load10
 }

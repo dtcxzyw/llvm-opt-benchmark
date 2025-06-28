@@ -2267,10 +2267,9 @@ define dso_local range(i32 0, 21) i32 @LLVMGetTypeKind(ptr noundef readonly capt
 switch.lookup:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load i32, ptr %1, align 8
-  %trunc = zext i32 %2 to i64
-  %sext = shl i64 %trunc, 56
-  %3 = ashr exact i64 %sext, 56
-  %switch.gep = getelementptr inbounds [21 x i32], ptr @switch.table.LLVMGetTypeKind, i64 0, i64 %3
+  %3 = and i32 %2, 255
+  %4 = zext nneg i32 %3 to i64
+  %switch.gep = getelementptr inbounds nuw [21 x i32], ptr @switch.table.LLVMGetTypeKind, i64 0, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -7729,8 +7728,8 @@ define dso_local noundef range(i32 1, 69) i32 @LLVMGetConstOpcode(ptr noundef re
 define internal fastcc noundef range(i32 1, 69) i32 @_ZL17map_to_llvmopcodei(i32 noundef %0) unnamed_addr #11 {
 switch.lookup:
   %switch.tableidx = add nsw i32 %0, -1
-  %1 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [67 x i32], ptr @switch.table._ZL17map_to_llvmopcodei, i64 0, i64 %1
+  %1 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [67 x i32], ptr @switch.table._ZL17map_to_llvmopcodei, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -16199,8 +16198,8 @@ _ZN4llvm5TwineC2EPKc.exit:                        ; preds = %5, %9
 define internal fastcc noundef range(i32 1, 68) i32 @_ZL19map_from_llvmopcode10LLVMOpcode(i32 noundef %0) unnamed_addr #11 {
 switch.lookup:
   %switch.tableidx = add nsw i32 %0, -1
-  %1 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [68 x i32], ptr @switch.table._ZL19map_from_llvmopcode10LLVMOpcode, i64 0, i64 %1
+  %1 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [68 x i32], ptr @switch.table._ZL19map_from_llvmopcode10LLVMOpcode, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }

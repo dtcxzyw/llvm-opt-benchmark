@@ -1293,8 +1293,8 @@ switch.lookup:                                    ; preds = %79, %75
   %81 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #16
   %82 = call ptr @LLVMGetHostCPUFeatures() #16, !noalias !22
   %83 = load atomic i8, ptr %45 monotonic, align 8
-  %84 = sext i8 %83 to i64
-  %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table._ZN8WasmEdge4LLVM8Compiler7compileERKNS_3AST6ModuleE, i64 0, i64 %84
+  %84 = zext i8 %83 to i64
+  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN8WasmEdge4LLVM8Compiler7compileERKNS_3AST6ModuleE, i64 0, i64 %84
   %switch.load = load i32, ptr %switch.gep, align 4
   %85 = load ptr, ptr %13, align 8, !noalias !25
   %86 = call ptr @LLVMCreateTargetMachine(ptr noundef %85, ptr noundef %63, ptr noundef %81, ptr noundef %82, i32 noundef %switch.load, i32 noundef 2, i32 noundef 0) #16, !noalias !25
@@ -1305,8 +1305,8 @@ switch.lookup:                                    ; preds = %79, %75
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #16
   %88 = call ptr @LLVMCreatePassBuilderOptions() #16, !noalias !28
   %89 = load atomic i8, ptr %45 monotonic, align 8
-  %90 = sext i8 %89 to i64
-  %switch.gep86 = getelementptr inbounds [6 x ptr], ptr @switch.table._ZN8WasmEdge4LLVM8Compiler7compileERKNS_3AST6ModuleE.220, i64 0, i64 %90
+  %90 = zext i8 %89 to i64
+  %switch.gep86 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN8WasmEdge4LLVM8Compiler7compileERKNS_3AST6ModuleE.220, i64 0, i64 %90
   %switch.load87 = load ptr, ptr %switch.gep86, align 8
   %91 = load ptr, ptr %36, align 8, !noalias !31
   %92 = load ptr, ptr %61, align 8, !noalias !31
@@ -9976,8 +9976,8 @@ switch.lookup:                                    ; preds = %1547
   %1550 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %1551 = load i8, ptr %1550, align 1
   %switch.tableidx = add nsw i8 %1551, -106
-  %1552 = sext i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [10 x i64], ptr @switch.table._ZZN12_GLOBAL__N_116FunctionCompiler7compileEN5cxx204spanIKN8WasmEdge3AST11InstructionELm18446744073709551615EEEENKUlRS6_E_clES8_, i64 0, i64 %1552
+  %1552 = zext i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @switch.table._ZZN12_GLOBAL__N_116FunctionCompiler7compileEN5cxx204spanIKN8WasmEdge3AST11InstructionELm18446744073709551615EEEENKUlRS6_E_clES8_, i64 0, i64 %1552
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %1553
 

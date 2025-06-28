@@ -374,11 +374,11 @@ $_ZN4llvm8DenseMapINS_12VersionTupleENS_6Triple11SubArchTypeENS_12DenseMapInfoIS
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local { ptr, i64 } @_ZN4llvm6Triple15getArchTypeNameENS0_8ArchTypeE(i32 noundef %0) local_unnamed_addr #0 align 2 {
 switch.lookup:
-  %1 = sext i32 %0 to i64
-  %switch.gep = getelementptr inbounds [60 x i64], ptr @switch.table._ZN4llvm6Triple15getArchTypeNameENS0_8ArchTypeE, i64 0, i64 %1
+  %1 = zext i32 %0 to i64
+  %switch.gep = getelementptr inbounds nuw [60 x i64], ptr @switch.table._ZN4llvm6Triple15getArchTypeNameENS0_8ArchTypeE, i64 0, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
-  %2 = sext i32 %0 to i64
-  %switch.gep1 = getelementptr inbounds [60 x ptr], ptr @switch.table._ZN4llvm6Triple15getArchTypeNameENS0_8ArchTypeE.2, i64 0, i64 %2
+  %2 = zext i32 %0 to i64
+  %switch.gep1 = getelementptr inbounds nuw [60 x ptr], ptr @switch.table._ZN4llvm6Triple15getArchTypeNameENS0_8ArchTypeE.2, i64 0, i64 %2
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load, 1
@@ -514,11 +514,11 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local { ptr, i64 } @_ZN4llvm6Triple17getVendorTypeNameENS0_10VendorTypeE(i32 noundef %0) local_unnamed_addr #0 align 2 {
 switch.lookup:
-  %1 = sext i32 %0 to i64
-  %switch.gep = getelementptr inbounds [15 x i64], ptr @switch.table._ZN4llvm6Triple9setVendorENS0_10VendorTypeE, i64 0, i64 %1
+  %1 = zext i32 %0 to i64
+  %switch.gep = getelementptr inbounds nuw [15 x i64], ptr @switch.table._ZN4llvm6Triple9setVendorENS0_10VendorTypeE, i64 0, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
-  %2 = sext i32 %0 to i64
-  %switch.gep1 = getelementptr inbounds [15 x ptr], ptr @switch.table._ZN4llvm6Triple9setVendorENS0_10VendorTypeE.12, i64 0, i64 %2
+  %2 = zext i32 %0 to i64
+  %switch.gep1 = getelementptr inbounds nuw [15 x ptr], ptr @switch.table._ZN4llvm6Triple9setVendorENS0_10VendorTypeE.12, i64 0, i64 %2
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load, 1
@@ -528,11 +528,11 @@ switch.lookup:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local { ptr, i64 } @_ZN4llvm6Triple13getOSTypeNameENS0_6OSTypeE(i32 noundef %0) local_unnamed_addr #0 align 2 {
 switch.lookup:
-  %1 = sext i32 %0 to i64
-  %switch.gep = getelementptr inbounds [41 x i64], ptr @switch.table._ZN4llvm6Triple5setOSENS0_6OSTypeE, i64 0, i64 %1
+  %1 = zext i32 %0 to i64
+  %switch.gep = getelementptr inbounds nuw [41 x i64], ptr @switch.table._ZN4llvm6Triple5setOSENS0_6OSTypeE, i64 0, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
-  %2 = sext i32 %0 to i64
-  %switch.gep1 = getelementptr inbounds [41 x ptr], ptr @switch.table._ZN4llvm6Triple5setOSENS0_6OSTypeE.13, i64 0, i64 %2
+  %2 = zext i32 %0 to i64
+  %switch.gep1 = getelementptr inbounds nuw [41 x ptr], ptr @switch.table._ZN4llvm6Triple5setOSENS0_6OSTypeE.13, i64 0, i64 %2
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load, 1
@@ -542,11 +542,11 @@ switch.lookup:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local { ptr, i64 } @_ZN4llvm6Triple22getEnvironmentTypeNameENS0_15EnvironmentTypeE(i32 noundef %0) local_unnamed_addr #0 align 2 {
 switch.lookup:
-  %1 = sext i32 %0 to i64
-  %switch.gep = getelementptr inbounds [51 x i64], ptr @switch.table._ZN4llvm6Triple14setEnvironmentENS0_15EnvironmentTypeE.15, i64 0, i64 %1
+  %1 = zext i32 %0 to i64
+  %switch.gep = getelementptr inbounds nuw [51 x i64], ptr @switch.table._ZN4llvm6Triple14setEnvironmentENS0_15EnvironmentTypeE.15, i64 0, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
-  %2 = sext i32 %0 to i64
-  %switch.gep1 = getelementptr inbounds [51 x ptr], ptr @switch.table._ZN4llvm6Triple14setEnvironmentENS0_15EnvironmentTypeE.16, i64 0, i64 %2
+  %2 = zext i32 %0 to i64
+  %switch.gep1 = getelementptr inbounds nuw [51 x ptr], ptr @switch.table._ZN4llvm6Triple14setEnvironmentENS0_15EnvironmentTypeE.16, i64 0, i64 %2
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load, 1
@@ -556,11 +556,11 @@ switch.lookup:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local { ptr, i64 } @_ZN4llvm6Triple23getObjectFormatTypeNameENS0_16ObjectFormatTypeE(i32 noundef %0) local_unnamed_addr #0 align 2 {
 switch.lookup:
-  %1 = sext i32 %0 to i64
-  %switch.gep = getelementptr inbounds [9 x i64], ptr @switch.table._ZN4llvm6Triple15setObjectFormatENS0_16ObjectFormatTypeE.22, i64 0, i64 %1
+  %1 = zext i32 %0 to i64
+  %switch.gep = getelementptr inbounds nuw [9 x i64], ptr @switch.table._ZN4llvm6Triple15setObjectFormatENS0_16ObjectFormatTypeE.22, i64 0, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
-  %2 = sext i32 %0 to i64
-  %switch.gep1 = getelementptr inbounds [9 x ptr], ptr @switch.table._ZN4llvm6Triple15setObjectFormatENS0_16ObjectFormatTypeE.23, i64 0, i64 %2
+  %2 = zext i32 %0 to i64
+  %switch.gep1 = getelementptr inbounds nuw [9 x ptr], ptr @switch.table._ZN4llvm6Triple15setObjectFormatENS0_16ObjectFormatTypeE.23, i64 0, i64 %2
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load, 1
@@ -2403,7 +2403,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit468:     ; preds = %_ZNK4llvm9StringRef
 _ZNK4llvm9StringRef11starts_withES0_.exit.thread: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit468, %_ZNK4llvm9StringRef11starts_withES0_.exit465, %_ZNK4llvm9StringRef11starts_withES0_.exit
   %172 = call noundef i32 @_ZN4llvm3ARM12parseArchISAENS_9StringRefE(ptr nonnull %0, i64 %1) #16
   %173 = call noundef i32 @_ZN4llvm3ARM15parseArchEndianENS_9StringRefE(ptr nonnull %0, i64 %1) #16
-  switch i32 %173, label %180 [
+  switch i32 %173, label %179 [
     i32 1, label %174
     i32 2, label %176
   ]
@@ -2411,71 +2411,67 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread: ; preds = %_ZNK4llvm9StringRef
 174:                                              ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread
   %switch.tableidx = add i32 %172, -1
   %175 = icmp ult i32 %switch.tableidx, 3
-  br i1 %175, label %switch.lookup, label %180
+  br i1 %175, label %.sink.split, label %179
 
 176:                                              ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread
   %switch.tableidx1188 = add i32 %172, -1
   %177 = icmp ult i32 %switch.tableidx1188, 3
-  br i1 %177, label %switch.lookup1187, label %180
+  br i1 %177, label %.sink.split, label %179
 
-switch.lookup:                                    ; preds = %174
-  %178 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZL9parseArchN4llvm9StringRefE, i64 0, i64 %178
-  %switch.load = load i32, ptr %switch.gep, align 4
-  br label %180
-
-switch.lookup1187:                                ; preds = %176
-  %179 = zext nneg i32 %switch.tableidx1188 to i64
-  %switch.gep1189 = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZL9parseArchN4llvm9StringRefE.8, i64 0, i64 %179
+.sink.split:                                      ; preds = %176, %174
+  %switch.tableidx1188.sink = phi i32 [ %switch.tableidx, %174 ], [ %switch.tableidx1188, %176 ]
+  %switch.table._ZL9parseArchN4llvm9StringRefE.8.sink = phi ptr [ @switch.table._ZL9parseArchN4llvm9StringRefE, %174 ], [ @switch.table._ZL9parseArchN4llvm9StringRefE.8, %176 ]
+  %178 = zext nneg i32 %switch.tableidx1188.sink to i64
+  %switch.gep1189 = getelementptr inbounds nuw [3 x i32], ptr %switch.table._ZL9parseArchN4llvm9StringRefE.8.sink, i64 0, i64 %178
   %switch.load1190 = load i32, ptr %switch.gep1189, align 4
-  br label %180
+  br label %179
 
-180:                                              ; preds = %switch.lookup1187, %176, %switch.lookup, %174, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread
-  %.019.i = phi i32 [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread ], [ 0, %174 ], [ 0, %176 ], [ %switch.load, %switch.lookup ], [ %switch.load1190, %switch.lookup1187 ]
-  %181 = call { ptr, i64 } @_ZN4llvm3ARM20getCanonicalArchNameENS_9StringRefE(ptr nonnull %0, i64 %1) #16
-  %182 = extractvalue { ptr, i64 } %181, 0
-  %183 = extractvalue { ptr, i64 } %181, 1
-  %184 = icmp eq i64 %183, 0
-  br i1 %184, label %_ZL12parseARMArchN4llvm9StringRefE.exit, label %185
+179:                                              ; preds = %.sink.split, %176, %174, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread
+  %.019.i = phi i32 [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread ], [ 0, %174 ], [ 0, %176 ], [ %switch.load1190, %.sink.split ]
+  %180 = call { ptr, i64 } @_ZN4llvm3ARM20getCanonicalArchNameENS_9StringRefE(ptr nonnull %0, i64 %1) #16
+  %181 = extractvalue { ptr, i64 } %180, 0
+  %182 = extractvalue { ptr, i64 } %180, 1
+  %183 = icmp eq i64 %182, 0
+  br i1 %183, label %_ZL12parseARMArchN4llvm9StringRefE.exit, label %184
 
-185:                                              ; preds = %180
-  %186 = icmp ne i32 %172, 2
-  %cond.i = icmp eq i64 %183, 1
-  %or.cond35.i = or i1 %186, %cond.i
+184:                                              ; preds = %179
+  %185 = icmp ne i32 %172, 2
+  %cond.i = icmp eq i64 %182, 1
+  %or.cond35.i = or i1 %185, %cond.i
   br i1 %or.cond35.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit22.thread34.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i469
 
-_ZNK4llvm9StringRef11starts_withES0_.exit.i469:   ; preds = %185
-  %bcmp.i.i470 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %182, ptr noundef nonnull dereferenceable(2) @.str.263, i64 2)
-  %187 = icmp eq i32 %bcmp.i.i470, 0
-  br i1 %187, label %_ZL12parseARMArchN4llvm9StringRefE.exit, label %_ZNK4llvm9StringRef11starts_withES0_.exit22.i
+_ZNK4llvm9StringRef11starts_withES0_.exit.i469:   ; preds = %184
+  %bcmp.i.i470 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %181, ptr noundef nonnull dereferenceable(2) @.str.263, i64 2)
+  %186 = icmp eq i32 %bcmp.i.i470, 0
+  br i1 %186, label %_ZL12parseARMArchN4llvm9StringRefE.exit, label %_ZNK4llvm9StringRef11starts_withES0_.exit22.i
 
 _ZNK4llvm9StringRef11starts_withES0_.exit22.i:    ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i469
-  %bcmp.i21.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %182, ptr noundef nonnull dereferenceable(2) @.str.264, i64 2)
-  %188 = icmp eq i32 %bcmp.i21.i, 0
-  br i1 %188, label %_ZL12parseARMArchN4llvm9StringRefE.exit, label %_ZNK4llvm9StringRef11starts_withES0_.exit22.thread34.i
+  %bcmp.i21.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %181, ptr noundef nonnull dereferenceable(2) @.str.264, i64 2)
+  %187 = icmp eq i32 %bcmp.i21.i, 0
+  br i1 %187, label %_ZL12parseARMArchN4llvm9StringRefE.exit, label %_ZNK4llvm9StringRef11starts_withES0_.exit22.thread34.i
 
-_ZNK4llvm9StringRef11starts_withES0_.exit22.thread34.i: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit22.i, %185
-  %189 = call noundef i32 @_ZN4llvm3ARM16parseArchProfileENS_9StringRefE(ptr %182, i64 %183) #16
-  %190 = call noundef i32 @_ZN4llvm3ARM16parseArchVersionENS_9StringRefE(ptr %182, i64 %183) #16
-  %191 = icmp eq i32 %189, 3
-  %192 = icmp eq i32 %190, 6
-  %or.cond.i471 = and i1 %191, %192
-  %193 = icmp eq i32 %173, 2
-  %..i = select i1 %193, i32 36, i32 35
+_ZNK4llvm9StringRef11starts_withES0_.exit22.thread34.i: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit22.i, %184
+  %188 = call noundef i32 @_ZN4llvm3ARM16parseArchProfileENS_9StringRefE(ptr %181, i64 %182) #16
+  %189 = call noundef i32 @_ZN4llvm3ARM16parseArchVersionENS_9StringRefE(ptr %181, i64 %182) #16
+  %190 = icmp eq i32 %188, 3
+  %191 = icmp eq i32 %189, 6
+  %or.cond.i471 = and i1 %190, %191
+  %192 = icmp eq i32 %173, 2
+  %..i = select i1 %192, i32 36, i32 35
   %.1.i = select i1 %or.cond.i471, i32 %..i, i32 %.019.i
   br label %_ZL12parseARMArchN4llvm9StringRefE.exit
 
 _ZNK4llvm9StringRef11starts_withES0_.exit475:     ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit468, %_ZNK4llvm9StringRef11starts_withES0_.exit465.thread845, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread844
   %bcmp.i474 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %0, ptr noundef nonnull dereferenceable(3) @.str.83, i64 3)
-  %194 = icmp eq i32 %bcmp.i474, 0
-  br i1 %194, label %_ZNK4llvm9StringRef11starts_withES0_.exit475.thread, label %_ZL12parseARMArchN4llvm9StringRefE.exit
+  %193 = icmp eq i32 %bcmp.i474, 0
+  br i1 %193, label %_ZNK4llvm9StringRef11starts_withES0_.exit475.thread, label %_ZL12parseARMArchN4llvm9StringRefE.exit
 
 _ZNK4llvm9StringRef11starts_withES0_.exit475.thread: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit475
-  %195 = call fastcc noundef i32 @_ZL12parseBPFArchN4llvm9StringRefE(ptr nonnull %0, i64 %1)
+  %194 = call fastcc noundef i32 @_ZL12parseBPFArchN4llvm9StringRefE(ptr nonnull %0, i64 %1)
   br label %_ZL12parseARMArchN4llvm9StringRefE.exit
 
-_ZL12parseARMArchN4llvm9StringRefE.exit:          ; preds = %168, %_ZNK4llvm9StringRef11starts_withES0_.exit22.thread34.i, %_ZNK4llvm9StringRef11starts_withES0_.exit22.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i469, %180, %_ZN4llvm12StringSwitchINS_6Triple8ArchTypeES2_E4CaseENS_13StringLiteralES2_.exit462, %_ZNK4llvm9StringRef11starts_withES0_.exit475, %_ZNK4llvm9StringRef11starts_withES0_.exit475.thread
-  %.0 = phi i32 [ %195, %_ZNK4llvm9StringRef11starts_withES0_.exit475.thread ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit475 ], [ %167, %_ZN4llvm12StringSwitchINS_6Triple8ArchTypeES2_E4CaseENS_13StringLiteralES2_.exit462 ], [ %.1.i, %_ZNK4llvm9StringRef11starts_withES0_.exit22.thread34.i ], [ 0, %180 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit22.i ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i469 ], [ 0, %168 ]
+_ZL12parseARMArchN4llvm9StringRefE.exit:          ; preds = %168, %_ZNK4llvm9StringRef11starts_withES0_.exit22.thread34.i, %_ZNK4llvm9StringRef11starts_withES0_.exit22.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i469, %179, %_ZN4llvm12StringSwitchINS_6Triple8ArchTypeES2_E4CaseENS_13StringLiteralES2_.exit462, %_ZNK4llvm9StringRef11starts_withES0_.exit475, %_ZNK4llvm9StringRef11starts_withES0_.exit475.thread
+  %.0 = phi i32 [ %194, %_ZNK4llvm9StringRef11starts_withES0_.exit475.thread ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit475 ], [ %167, %_ZN4llvm12StringSwitchINS_6Triple8ArchTypeES2_E4CaseENS_13StringLiteralES2_.exit462 ], [ %.1.i, %_ZNK4llvm9StringRef11starts_withES0_.exit22.thread34.i ], [ 0, %179 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit22.i ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i469 ], [ 0, %168 ]
   ret i32 %.0
 }
 
@@ -5684,11 +5680,11 @@ _ZN4llvm15SmallVectorImplINS_9StringRefEE7reserveEm.exit.i.i224: ; preds = %313
 
 _ZN4llvm15SmallVectorImplINS_9StringRefEE6resizeEm.exit231: ; preds = %308, %.sink.split.i.i228
   %switch.tableidx = add nsw i32 %.2157, -2
-  %320 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [7 x i64], ptr @switch.table._ZN4llvm6Triple9normalizeB5cxx11ENS_9StringRefENS0_13CanonicalFormE, i64 0, i64 %320
+  %320 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [7 x i64], ptr @switch.table._ZN4llvm6Triple9normalizeB5cxx11ENS_9StringRefENS0_13CanonicalFormE, i64 0, i64 %320
   %switch.load = load i64, ptr %switch.gep, align 8
-  %321 = sext i32 %switch.tableidx to i64
-  %switch.gep560 = getelementptr inbounds [7 x ptr], ptr @switch.table._ZN4llvm6Triple9normalizeB5cxx11ENS_9StringRefENS0_13CanonicalFormE.9, i64 0, i64 %321
+  %321 = zext i32 %switch.tableidx to i64
+  %switch.gep560 = getelementptr inbounds nuw [7 x ptr], ptr @switch.table._ZN4llvm6Triple9normalizeB5cxx11ENS_9StringRefENS0_13CanonicalFormE.9, i64 0, i64 %321
   %switch.load561 = load ptr, ptr %switch.gep560, align 8
   %322 = load ptr, ptr %7, align 8, !tbaa !3
   %323 = getelementptr inbounds nuw i8, ptr %322, i64 64
@@ -6244,15 +6240,15 @@ _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %1
 _ZN4llvmeqENS_9StringRefES0_.exit.thread16:       ; preds = %1, %_ZN4llvmeqENS_9StringRefES0_.exit
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load i32, ptr %10, align 8, !tbaa !33
-  %12 = sext i32 %11 to i64
-  %switch.gep = getelementptr inbounds [51 x i64], ptr @switch.table._ZN4llvm6Triple14setEnvironmentENS0_15EnvironmentTypeE.15, i64 0, i64 %12
+  %12 = zext i32 %11 to i64
+  %switch.gep = getelementptr inbounds nuw [51 x i64], ptr @switch.table._ZN4llvm6Triple14setEnvironmentENS0_15EnvironmentTypeE.15, i64 0, i64 %12
   %switch.load = load i64, ptr %switch.gep, align 8
   %.not.i.i = icmp ult i64 %8, %switch.load
   br i1 %.not.i.i, label %_ZN4llvm9StringRef13consume_frontES0_.exit, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i:      ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread16
-  %13 = sext i32 %11 to i64
-  %switch.gep19 = getelementptr inbounds [51 x ptr], ptr @switch.table._ZN4llvm6Triple14setEnvironmentENS0_15EnvironmentTypeE.16, i64 0, i64 %13
+  %13 = zext i32 %11 to i64
+  %switch.gep19 = getelementptr inbounds nuw [51 x ptr], ptr @switch.table._ZN4llvm6Triple14setEnvironmentENS0_15EnvironmentTypeE.16, i64 0, i64 %13
   %switch.load20 = load ptr, ptr %switch.gep19, align 8
   %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %switch.load20, i64 %switch.load)
   %14 = icmp eq i32 %bcmp.i.i, 0
@@ -6394,15 +6390,15 @@ switch.lookup:
   %4 = extractvalue { ptr, i64 } %2, 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4, !tbaa !32
-  %7 = sext i32 %6 to i64
-  %switch.gep = getelementptr inbounds [41 x i64], ptr @switch.table._ZN4llvm6Triple5setOSENS0_6OSTypeE, i64 0, i64 %7
+  %7 = zext i32 %6 to i64
+  %switch.gep = getelementptr inbounds nuw [41 x i64], ptr @switch.table._ZN4llvm6Triple5setOSENS0_6OSTypeE, i64 0, i64 %7
   %switch.load = load i64, ptr %switch.gep, align 8
   %.not.i = icmp ult i64 %4, %switch.load
   br i1 %.not.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit
 
 _ZNK4llvm9StringRef11starts_withES0_.exit:        ; preds = %switch.lookup
-  %8 = sext i32 %6 to i64
-  %switch.gep31 = getelementptr inbounds [41 x ptr], ptr @switch.table._ZN4llvm6Triple5setOSENS0_6OSTypeE.13, i64 0, i64 %8
+  %8 = zext i32 %6 to i64
+  %switch.gep31 = getelementptr inbounds nuw [41 x ptr], ptr @switch.table._ZN4llvm6Triple5setOSENS0_6OSTypeE.13, i64 0, i64 %8
   %switch.load32 = load ptr, ptr %switch.gep31, align 8
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %switch.load32, i64 %switch.load)
   %9 = icmp eq i32 %bcmp.i, 0
@@ -7385,11 +7381,11 @@ _ZN4llvm11SmallVectorIcLj64EED2Ev.exit:           ; preds = %_ZN4llvm11SmallStri
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm6Triple9setVendorENS0_10VendorTypeE(ptr noundef nonnull align 8 captures(address) dereferenceable(56) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
 switch.lookup:
-  %2 = sext i32 %1 to i64
-  %switch.gep = getelementptr inbounds [15 x i64], ptr @switch.table._ZN4llvm6Triple9setVendorENS0_10VendorTypeE, i64 0, i64 %2
+  %2 = zext i32 %1 to i64
+  %switch.gep = getelementptr inbounds nuw [15 x i64], ptr @switch.table._ZN4llvm6Triple9setVendorENS0_10VendorTypeE, i64 0, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
-  %3 = sext i32 %1 to i64
-  %switch.gep1 = getelementptr inbounds [15 x ptr], ptr @switch.table._ZN4llvm6Triple9setVendorENS0_10VendorTypeE.12, i64 0, i64 %3
+  %3 = zext i32 %1 to i64
+  %switch.gep1 = getelementptr inbounds nuw [15 x ptr], ptr @switch.table._ZN4llvm6Triple9setVendorENS0_10VendorTypeE.12, i64 0, i64 %3
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   tail call void @_ZN4llvm6Triple13setVendorNameENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr nonnull %switch.load2, i64 %switch.load)
   ret void
@@ -7524,11 +7520,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit33:                ; preds = %_ZNK4llvm9StringRef
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm6Triple5setOSENS0_6OSTypeE(ptr noundef nonnull align 8 captures(address) dereferenceable(56) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
 switch.lookup:
-  %2 = sext i32 %1 to i64
-  %switch.gep = getelementptr inbounds [41 x i64], ptr @switch.table._ZN4llvm6Triple5setOSENS0_6OSTypeE, i64 0, i64 %2
+  %2 = zext i32 %1 to i64
+  %switch.gep = getelementptr inbounds nuw [41 x i64], ptr @switch.table._ZN4llvm6Triple5setOSENS0_6OSTypeE, i64 0, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
-  %3 = sext i32 %1 to i64
-  %switch.gep1 = getelementptr inbounds [41 x ptr], ptr @switch.table._ZN4llvm6Triple5setOSENS0_6OSTypeE.13, i64 0, i64 %3
+  %3 = zext i32 %1 to i64
+  %switch.gep1 = getelementptr inbounds nuw [41 x ptr], ptr @switch.table._ZN4llvm6Triple5setOSENS0_6OSTypeE.13, i64 0, i64 %3
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   tail call void @_ZN4llvm6Triple9setOSNameENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr nonnull %switch.load2, i64 %switch.load)
   ret void
@@ -7809,81 +7805,80 @@ define dso_local void @_ZN4llvm6Triple14setEnvironmentENS0_15EnvironmentTypeE(pt
   %.val2 = load i32, ptr %9, align 4
   %10 = tail call fastcc noundef i32 @_ZL16getDefaultFormatRKN4llvm6TripleE(i32 %.val, i32 %.val2)
   %11 = icmp eq i32 %7, %10
+  %12 = zext i32 %1 to i64
   br i1 %11, label %switch.lookup, label %switch.lookup37
 
 switch.lookup:                                    ; preds = %2
-  %12 = sext i32 %1 to i64
-  %switch.gep = getelementptr inbounds [51 x i64], ptr @switch.table._ZN4llvm6Triple14setEnvironmentENS0_15EnvironmentTypeE.15, i64 0, i64 %12
+  %13 = zext i32 %1 to i64
+  %switch.gep = getelementptr inbounds nuw [51 x i64], ptr @switch.table._ZN4llvm6Triple14setEnvironmentENS0_15EnvironmentTypeE.15, i64 0, i64 %13
   %switch.load = load i64, ptr %switch.gep, align 8
-  %13 = sext i32 %1 to i64
-  %switch.gep35 = getelementptr inbounds [51 x ptr], ptr @switch.table._ZN4llvm6Triple14setEnvironmentENS0_15EnvironmentTypeE.16, i64 0, i64 %13
+  %switch.gep35 = getelementptr inbounds nuw [51 x ptr], ptr @switch.table._ZN4llvm6Triple14setEnvironmentENS0_15EnvironmentTypeE.16, i64 0, i64 %12
   %switch.load36 = load ptr, ptr %switch.gep35, align 8
   tail call void @_ZN4llvm6Triple18setEnvironmentNameENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr nonnull %switch.load36, i64 %switch.load)
-  br label %34
+  br label %33
 
 switch.lookup37:                                  ; preds = %2
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #16
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #16
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #16
-  %14 = sext i32 %1 to i64
-  %switch.gep38 = getelementptr inbounds [51 x i64], ptr @switch.table._ZN4llvm6Triple14setEnvironmentENS0_15EnvironmentTypeE.15, i64 0, i64 %14
+  %switch.gep38 = getelementptr inbounds nuw [51 x i64], ptr @switch.table._ZN4llvm6Triple14setEnvironmentENS0_15EnvironmentTypeE.15, i64 0, i64 %12
   %switch.load39 = load i64, ptr %switch.gep38, align 8
-  %15 = sext i32 %1 to i64
-  %switch.gep40 = getelementptr inbounds [51 x ptr], ptr @switch.table._ZN4llvm6Triple14setEnvironmentENS0_15EnvironmentTypeE.16, i64 0, i64 %15
+  %14 = zext i32 %1 to i64
+  %switch.gep40 = getelementptr inbounds nuw [51 x ptr], ptr @switch.table._ZN4llvm6Triple14setEnvironmentENS0_15EnvironmentTypeE.16, i64 0, i64 %14
   %switch.load41 = load ptr, ptr %switch.gep40, align 8
   store ptr %switch.load41, ptr %5, align 8, !alias.scope !375
   %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %switch.load39, ptr %.sroa.23.0..sroa_idx.i.i.i, align 8, !tbaa !52, !alias.scope !375
-  %16 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr @.str.221, ptr %16, align 8, !alias.scope !375
-  %17 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i8 5, ptr %17, align 8, !tbaa !47, !alias.scope !375
-  %18 = getelementptr inbounds nuw i8, ptr %5, i64 33
-  store i8 3, ptr %18, align 1, !tbaa !51, !alias.scope !375
-  %19 = sext i32 %7 to i64
-  %switch.gep43 = getelementptr inbounds [9 x i64], ptr @switch.table._ZN4llvm6Triple15setObjectFormatENS0_16ObjectFormatTypeE.22, i64 0, i64 %19
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr @.str.221, ptr %15, align 8, !alias.scope !375
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  store i8 5, ptr %16, align 8, !tbaa !47, !alias.scope !375
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 33
+  store i8 3, ptr %17, align 1, !tbaa !51, !alias.scope !375
+  %18 = zext i32 %7 to i64
+  %switch.gep43 = getelementptr inbounds nuw [9 x i64], ptr @switch.table._ZN4llvm6Triple15setObjectFormatENS0_16ObjectFormatTypeE.22, i64 0, i64 %18
   %switch.load44 = load i64, ptr %switch.gep43, align 8
-  %20 = sext i32 %7 to i64
-  %switch.gep45 = getelementptr inbounds [9 x ptr], ptr @switch.table._ZN4llvm6Triple15setObjectFormatENS0_16ObjectFormatTypeE.23, i64 0, i64 %20
+  %19 = zext i32 %7 to i64
+  %switch.gep45 = getelementptr inbounds nuw [9 x ptr], ptr @switch.table._ZN4llvm6Triple15setObjectFormatENS0_16ObjectFormatTypeE.23, i64 0, i64 %19
   %switch.load46 = load ptr, ptr %switch.gep45, align 8
   store ptr %5, ptr %4, align 8, !alias.scope !380
-  %21 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %switch.load46, ptr %21, align 8, !alias.scope !380
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr %switch.load46, ptr %20, align 8, !alias.scope !380
   %.sroa.2.0..sroa_idx.i.i.i24 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %switch.load44, ptr %.sroa.2.0..sroa_idx.i.i.i24, align 8, !tbaa !52, !alias.scope !380
-  %22 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store i8 2, ptr %22, align 8, !tbaa !47, !alias.scope !380
-  %23 = getelementptr inbounds nuw i8, ptr %4, i64 33
-  store i8 5, ptr %23, align 1, !tbaa !51, !alias.scope !380
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store i8 2, ptr %21, align 8, !tbaa !47, !alias.scope !380
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 33
+  store i8 5, ptr %22, align 1, !tbaa !51, !alias.scope !380
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 8 dereferenceable(34) %4) #16
-  %24 = load ptr, ptr %3, align 8, !tbaa !11
-  %25 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %26 = load i64, ptr %25, align 8, !tbaa !18
-  call void @_ZN4llvm6Triple18setEnvironmentNameENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr %24, i64 %26)
-  %27 = load ptr, ptr %3, align 8, !tbaa !11
-  %28 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %29 = icmp eq ptr %27, %28
-  br i1 %29, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+  %23 = load ptr, ptr %3, align 8, !tbaa !11
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %25 = load i64, ptr %24, align 8, !tbaa !18
+  call void @_ZN4llvm6Triple18setEnvironmentNameENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr %23, i64 %25)
+  %26 = load ptr, ptr %3, align 8, !tbaa !11
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %28 = icmp eq ptr %26, %27
+  br i1 %28, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %switch.lookup37
-  %30 = load i64, ptr %25, align 8, !tbaa !18
-  %31 = icmp ult i64 %30, 16
-  call void @llvm.assume(i1 %31)
+  %29 = load i64, ptr %24, align 8, !tbaa !18
+  %30 = icmp ult i64 %29, 16
+  call void @llvm.assume(i1 %30)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %switch.lookup37
-  %32 = load i64, ptr %28, align 8, !tbaa !52
-  %33 = add i64 %32, 1
-  call void @_ZdlPvm(ptr noundef %27, i64 noundef %33) #17
+  %31 = load i64, ptr %27, align 8, !tbaa !52
+  %32 = add i64 %31, 1
+  call void @_ZdlPvm(ptr noundef %26, i64 noundef %32) #17
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #16
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #16
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #16
-  br label %34
+  br label %33
 
-34:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %switch.lookup
+33:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %switch.lookup
   ret void
 }
 
@@ -8038,11 +8033,11 @@ define dso_local void @_ZN4llvm6Triple15setObjectFormatENS0_16ObjectFormatTypeE(
   br i1 %8, label %switch.lookup, label %switch.lookup36
 
 switch.lookup:                                    ; preds = %2
-  %9 = sext i32 %1 to i64
-  %switch.gep = getelementptr inbounds [9 x i64], ptr @switch.table._ZN4llvm6Triple15setObjectFormatENS0_16ObjectFormatTypeE.22, i64 0, i64 %9
+  %9 = zext i32 %1 to i64
+  %switch.gep = getelementptr inbounds nuw [9 x i64], ptr @switch.table._ZN4llvm6Triple15setObjectFormatENS0_16ObjectFormatTypeE.22, i64 0, i64 %9
   %switch.load = load i64, ptr %switch.gep, align 8
-  %10 = sext i32 %1 to i64
-  %switch.gep34 = getelementptr inbounds [9 x ptr], ptr @switch.table._ZN4llvm6Triple15setObjectFormatENS0_16ObjectFormatTypeE.23, i64 0, i64 %10
+  %10 = zext i32 %1 to i64
+  %switch.gep34 = getelementptr inbounds nuw [9 x ptr], ptr @switch.table._ZN4llvm6Triple15setObjectFormatENS0_16ObjectFormatTypeE.23, i64 0, i64 %10
   %switch.load35 = load ptr, ptr %switch.gep34, align 8
   tail call void @_ZN4llvm6Triple18setEnvironmentNameENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr nonnull %switch.load35, i64 %switch.load)
   br label %31
@@ -8052,11 +8047,11 @@ switch.lookup36:                                  ; preds = %2
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #16
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #16
   %switch.tableidx = add nsw i32 %7, -1
-  %11 = sext i32 %switch.tableidx to i64
-  %switch.gep37 = getelementptr inbounds [50 x i64], ptr @switch.table._ZN4llvm6Triple15setObjectFormatENS0_16ObjectFormatTypeE.20, i64 0, i64 %11
+  %11 = zext i32 %switch.tableidx to i64
+  %switch.gep37 = getelementptr inbounds nuw [50 x i64], ptr @switch.table._ZN4llvm6Triple15setObjectFormatENS0_16ObjectFormatTypeE.20, i64 0, i64 %11
   %switch.load38 = load i64, ptr %switch.gep37, align 8
-  %12 = sext i32 %switch.tableidx to i64
-  %switch.gep39 = getelementptr inbounds [50 x ptr], ptr @switch.table._ZN4llvm6Triple15setObjectFormatENS0_16ObjectFormatTypeE.21, i64 0, i64 %12
+  %12 = zext i32 %switch.tableidx to i64
+  %switch.gep39 = getelementptr inbounds nuw [50 x ptr], ptr @switch.table._ZN4llvm6Triple15setObjectFormatENS0_16ObjectFormatTypeE.21, i64 0, i64 %12
   %switch.load40 = load ptr, ptr %switch.gep39, align 8
   store ptr %switch.load40, ptr %5, align 8, !alias.scope !431
   %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -8067,11 +8062,11 @@ switch.lookup36:                                  ; preds = %2
   store i8 5, ptr %14, align 8, !tbaa !47, !alias.scope !431
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 33
   store i8 3, ptr %15, align 1, !tbaa !51, !alias.scope !431
-  %16 = sext i32 %1 to i64
-  %switch.gep42 = getelementptr inbounds [9 x i64], ptr @switch.table._ZN4llvm6Triple15setObjectFormatENS0_16ObjectFormatTypeE.22, i64 0, i64 %16
+  %16 = zext i32 %1 to i64
+  %switch.gep42 = getelementptr inbounds nuw [9 x i64], ptr @switch.table._ZN4llvm6Triple15setObjectFormatENS0_16ObjectFormatTypeE.22, i64 0, i64 %16
   %switch.load43 = load i64, ptr %switch.gep42, align 8
-  %17 = sext i32 %1 to i64
-  %switch.gep44 = getelementptr inbounds [9 x ptr], ptr @switch.table._ZN4llvm6Triple15setObjectFormatENS0_16ObjectFormatTypeE.23, i64 0, i64 %17
+  %17 = zext i32 %1 to i64
+  %switch.gep44 = getelementptr inbounds nuw [9 x ptr], ptr @switch.table._ZN4llvm6Triple15setObjectFormatENS0_16ObjectFormatTypeE.23, i64 0, i64 %17
   %switch.load45 = load ptr, ptr %switch.gep44, align 8
   store ptr %5, ptr %4, align 8, !alias.scope !436
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -8232,8 +8227,8 @@ _ZN4llvmplERKNS_5TwineES2_.exit35:                ; preds = %3, %29
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef range(i32 0, 65) i32 @_ZN4llvm6Triple22getArchPointerBitWidthENS0_8ArchTypeE(i32 noundef %0) local_unnamed_addr #0 align 2 {
 switch.lookup:
-  %1 = sext i32 %0 to i64
-  %switch.gep = getelementptr inbounds [60 x i32], ptr @switch.table._ZN4llvm6Triple22getArchPointerBitWidthENS0_8ArchTypeE, i64 0, i64 %1
+  %1 = zext i32 %0 to i64
+  %switch.gep = getelementptr inbounds nuw [60 x i32], ptr @switch.table._ZN4llvm6Triple22getArchPointerBitWidthENS0_8ArchTypeE, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }

@@ -3520,8 +3520,8 @@ define dso_local noundef range(i32 0, 3) i32 @_ZNK5clang4Sema18FunctionEffectDif
 switch.lookup:                                    ; preds = %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = load i32, ptr %7, align 4, !tbaa !901
-  %9 = sext i32 %8 to i64
-  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table._ZNK5clang4Sema18FunctionEffectDiff28shouldDiagnoseMethodOverrideERKNS_13CXXMethodDeclERKNS_18FunctionEffectsRefES4_S7_, i64 0, i64 %9
+  %9 = zext i32 %8 to i64
+  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZNK5clang4Sema18FunctionEffectDiff28shouldDiagnoseMethodOverrideERKNS_13CXXMethodDeclERKNS_18FunctionEffectsRefES4_S7_, i64 0, i64 %9
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %10
 
@@ -14705,9 +14705,8 @@ _ZNK5clang21FunctionEffectKindSet5beginEv.exit:   ; preds = %_ZNKSt6bitsetILm4EE
 
 .lr.ph:                                           ; preds = %_ZNK5clang21FunctionEffectKindSet5beginEv.exit, %_ZN5clang21FunctionEffectKindSet8iteratorppEv.exit
   %.sroa.411.018 = phi i64 [ %.sroa.411.2, %_ZN5clang21FunctionEffectKindSet8iteratorppEv.exit ], [ %.sroa.2.0.i, %_ZNK5clang21FunctionEffectKindSet5beginEv.exit ]
-  %sext = shl i64 %.sroa.411.018, 56
-  %14 = ashr exact i64 %sext, 56
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table._ZN12_GLOBAL__N_18Analyzer22FunctionBodyASTVisitor25diagnoseLanguageConstructEN5clang14FunctionEffect7FlagBitENS_11ViolationIDENS2_14SourceLocationEPKNS2_4DeclE.158, i64 0, i64 %14
+  %14 = and i64 %.sroa.411.018, 255
+  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN12_GLOBAL__N_18Analyzer22FunctionBodyASTVisitor25diagnoseLanguageConstructEN5clang14FunctionEffect7FlagBitENS_11ViolationIDENS2_14SourceLocationEPKNS2_4DeclE.158, i64 0, i64 %14
   %switch.load = load i32, ptr %switch.gep, align 4
   %15 = and i32 %switch.load, %1
   %.not = icmp eq i32 %15, 0
@@ -14835,9 +14834,8 @@ _ZNK5clang21FunctionEffectKindSet5beginEv.exit34: ; preds = %_ZNKSt6bitsetILm4EE
 
 switch.lookup:                                    ; preds = %.lr.ph21, %_ZN5clang21FunctionEffectKindSet8iteratorppEv.exit47
   %.sroa.4.020 = phi i64 [ %.sroa.2.0.i28, %.lr.ph21 ], [ %.sroa.4.2, %_ZN5clang21FunctionEffectKindSet8iteratorppEv.exit47 ]
-  %sext56 = shl i64 %.sroa.4.020, 56
-  %66 = ashr exact i64 %sext56, 56
-  %switch.gep54 = getelementptr inbounds [4 x i32], ptr @switch.table._ZN12_GLOBAL__N_18Analyzer22FunctionBodyASTVisitor25diagnoseLanguageConstructEN5clang14FunctionEffect7FlagBitENS_11ViolationIDENS2_14SourceLocationEPKNS2_4DeclE.158, i64 0, i64 %66
+  %66 = and i64 %.sroa.4.020, 255
+  %switch.gep54 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN12_GLOBAL__N_18Analyzer22FunctionBodyASTVisitor25diagnoseLanguageConstructEN5clang14FunctionEffect7FlagBitENS_11ViolationIDENS2_14SourceLocationEPKNS2_4DeclE.158, i64 0, i64 %66
   %switch.load55 = load i32, ptr %switch.gep54, align 4
   %67 = and i32 %switch.load55, %1
   %.not19 = icmp eq i32 %67, 0

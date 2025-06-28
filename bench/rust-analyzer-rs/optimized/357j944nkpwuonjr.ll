@@ -89598,8 +89598,8 @@ _ZN13rust_analyzer8handlers7request22resource_ops_supported17h0c9802aea165f18eE.
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11), !noalias !15166
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10), !noalias !15166
   %146 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %147 = sext i8 %switch.idx.cast to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN13rust_analyzer8handlers7request22resource_ops_supported17h0c9802aea165f18eE, i64 0, i64 %147
+  %147 = zext i8 %switch.idx.cast to i64
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN13rust_analyzer8handlers7request22resource_ops_supported17h0c9802aea165f18eE, i64 0, i64 %147
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %switch.load, ptr %10, align 8, !noalias !15166
   store i64 6, ptr %146, align 8, !noalias !15166
@@ -91775,8 +91775,8 @@ _ZN13rust_analyzer8handlers7request22resource_ops_supported17h0c9802aea165f18eE.
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !15570
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !15570
   %336 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %337 = sext i8 %switch.idx.cast to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN13rust_analyzer8handlers7request22resource_ops_supported17h0c9802aea165f18eE, i64 0, i64 %337
+  %337 = zext i8 %switch.idx.cast to i64
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN13rust_analyzer8handlers7request22resource_ops_supported17h0c9802aea165f18eE, i64 0, i64 %337
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %switch.load, ptr %7, align 8, !noalias !15570
   store i64 6, ptr %336, align 8, !noalias !15570

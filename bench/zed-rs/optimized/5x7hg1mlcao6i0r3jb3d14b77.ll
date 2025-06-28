@@ -42675,9 +42675,9 @@ switch.lookup:
   %.val6 = load i8, ptr %4, align 1
   %5 = trunc nuw i8 %.val5 to i1
   %..i = or i8 %.val6, 2
-  %6 = sext i8 %..i to i64
+  %6 = zext i8 %..i to i64
   %7 = select i1 %5, i64 0, i64 %6
-  %switch.gep = getelementptr inbounds [4 x i64], ptr @"switch.table._ZN95_$LT$image..codecs..bmp..decoder..BmpDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$16read_image_boxed17h94e1111e380fc1b1E", i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN95_$LT$image..codecs..bmp..decoder..BmpDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$16read_image_boxed17h94e1111e380fc1b1E", i64 0, i64 %7
   %switch.load = load i64, ptr %switch.gep, align 8
   %8 = zext i32 %.val to i64
   %9 = zext i32 %.val4 to i64
@@ -42904,8 +42904,8 @@ define hidden { i8, i8 } @_ZN5image5image12ImageDecoder19original_color_type17ha
 
 switch.lookup:                                    ; preds = %13, %8
   %.sroa.0.0.i = phi i8 [ %12, %8 ], [ %..i, %13 ]
-  %16 = sext i8 %.sroa.0.0.i to i64
-  %switch.gep = getelementptr inbounds [10 x i8], ptr @switch.table._ZN5image5image12ImageDecoder19original_color_type17hae34501078fbd2a9E, i64 0, i64 %16
+  %16 = zext i8 %.sroa.0.0.i to i64
+  %switch.gep = getelementptr inbounds nuw [10 x i8], ptr @switch.table._ZN5image5image12ImageDecoder19original_color_type17hae34501078fbd2a9E, i64 0, i64 %16
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h3c91dbe16ee15890E.exit.thread"
 
@@ -64491,9 +64491,9 @@ switch.lookup:
   %.val6.i.i = load i8, ptr %12, align 1, !alias.scope !13125, !noalias !13128
   %13 = trunc nuw i8 %.val5.i.i to i1
   %..i.i.i = or i8 %.val6.i.i, 2
-  %14 = sext i8 %..i.i.i to i64
+  %14 = zext i8 %..i.i.i to i64
   %15 = select i1 %13, i64 0, i64 %14
-  %switch.gep = getelementptr inbounds [4 x i64], ptr @"switch.table._ZN95_$LT$image..codecs..bmp..decoder..BmpDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$16read_image_boxed17h94e1111e380fc1b1E", i64 0, i64 %15
+  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN95_$LT$image..codecs..bmp..decoder..BmpDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$16read_image_boxed17h94e1111e380fc1b1E", i64 0, i64 %15
   %switch.load = load i64, ptr %switch.gep, align 8
   %16 = zext i32 %.val.i.i to i64
   %17 = zext i32 %.val4.i.i to i64
@@ -64715,8 +64715,8 @@ define hidden void @"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$
 switch.lookup:                                    ; preds = %43, %51
   %57 = phi i64 [ %48, %43 ], [ %39, %51 ]
   %.sroa.0.0.i4.i.i = phi i8 [ %50, %43 ], [ %..i.i.i, %51 ]
-  %58 = sext i8 %.sroa.0.0.i4.i.i to i64
-  %switch.gep = getelementptr inbounds [10 x i64], ptr @"switch.table._ZN95_$LT$image..codecs..tga..decoder..TgaDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$16read_image_boxed17h72ede5e363b15e00E.302", i64 0, i64 %58
+  %58 = zext i8 %.sroa.0.0.i4.i.i to i64
+  %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @"switch.table._ZN95_$LT$image..codecs..tga..decoder..TgaDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$16read_image_boxed17h72ede5e363b15e00E.302", i64 0, i64 %58
   %switch.load = load i64, ptr %switch.gep, align 8
   %59 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %57, i64 %switch.load)
   %60 = extractvalue { i64, i1 } %59, 0

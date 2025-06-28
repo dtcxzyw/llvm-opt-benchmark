@@ -6511,8 +6511,8 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZNKSt7__cxx1112bas
 
 switch.lookup:                                    ; preds = %44, %44, %44
   %56 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #27
-  %57 = sext i32 %51 to i64
-  %switch.gep = getelementptr inbounds [10 x ptr], ptr @switch.table._ZNK4llvm5dwarf10CFIProgram11Instruction18getOperandAsSignedERKS1_j, i64 0, i64 %57
+  %57 = zext i32 %51 to i64
+  %switch.gep = getelementptr inbounds nuw [10 x ptr], ptr @switch.table._ZNK4llvm5dwarf10CFIProgram11Instruction18getOperandAsSignedERKS1_j, i64 0, i64 %57
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #24, !noalias !372
   %58 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -6982,8 +6982,8 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZNKSt7__cxx1112bas
 
 switch.lookup:                                    ; preds = %48, %48, %48
   %60 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #27
-  %61 = sext i32 %55 to i64
-  %switch.gep = getelementptr inbounds [10 x ptr], ptr @switch.table._ZNK4llvm5dwarf10CFIProgram11Instruction18getOperandAsSignedERKS1_j, i64 0, i64 %61
+  %61 = zext i32 %55 to i64
+  %switch.gep = getelementptr inbounds nuw [10 x ptr], ptr @switch.table._ZNK4llvm5dwarf10CFIProgram11Instruction18getOperandAsSignedERKS1_j, i64 0, i64 %61
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14) #24, !noalias !429
   %62 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -7053,8 +7053,8 @@ _ZN4llvm5ErrorD2Ev.exit17:                        ; preds = %_ZNKSt7__cxx1112bas
 switch.lookup57:                                  ; preds = %48, %48, %48
   %85 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #27
   %switch.tableidx = add nsw i32 %55, -2
-  %86 = sext i32 %switch.tableidx to i64
-  %switch.gep58 = getelementptr inbounds [7 x ptr], ptr @switch.table._ZNK4llvm5dwarf10CFIProgram11Instruction18getOperandAsSignedERKS1_j.4, i64 0, i64 %86
+  %86 = zext i32 %switch.tableidx to i64
+  %switch.gep58 = getelementptr inbounds nuw [7 x ptr], ptr @switch.table._ZNK4llvm5dwarf10CFIProgram11Instruction18getOperandAsSignedERKS1_j.4, i64 0, i64 %86
   %switch.load59 = load ptr, ptr %switch.gep58, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #24, !noalias !443
   %87 = getelementptr inbounds nuw i8, ptr %10, i64 16

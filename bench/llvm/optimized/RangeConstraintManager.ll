@@ -22766,8 +22766,8 @@ switch.lookup:                                    ; preds = %_ZN4llvm18Intrusive
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #25
   %212 = load i32, ptr %14, align 4, !tbaa !939
   %switch.tableidx = add nsw i32 %212, -10
-  %213 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table._ZN12_GLOBAL__N_121SymbolicRangeInferrer5inferEPKN5clang4ento7SymExprE, i64 0, i64 %213
+  %213 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN12_GLOBAL__N_121SymbolicRangeInferrer5inferEPKN5clang4ento7SymExprE, i64 0, i64 %213
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %16, align 4, !tbaa !939
   %214 = call noundef ptr @_ZN5clang4ento13SymbolManager7acquireINS0_17BinarySymExprImplIPKNS0_7SymExprES6_LNS4_4KindE3EEEJRS6_RKNS_18BinaryOperatorKindES9_RNS_8QualTypeEEEEPKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(72) %199, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 4 dereferenceable(4) %16, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %13)
@@ -22839,8 +22839,8 @@ _ZNK4llvm6APSInteqEl.exit.i.i:                    ; preds = %237, %234, %230
 switch.lookup44:                                  ; preds = %_ZNK4llvm6APSInteqEl.exit.i.i
   %239 = load i32, ptr %14, align 4, !tbaa !939
   %switch.tableidx45 = add nsw i32 %239, -10
-  %240 = sext i32 %switch.tableidx45 to i64
-  %switch.gep46 = getelementptr inbounds [6 x i32], ptr @switch.table._ZN12_GLOBAL__N_121SymbolicRangeInferrer5inferEPKN5clang4ento7SymExprE.820, i64 0, i64 %240
+  %240 = zext i32 %switch.tableidx45 to i64
+  %switch.gep46 = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN12_GLOBAL__N_121SymbolicRangeInferrer5inferEPKN5clang4ento7SymExprE.820, i64 0, i64 %240
   %switch.load47 = load i32, ptr %switch.gep46, align 4
   store i32 %switch.load47, ptr %14, align 4, !tbaa !939
   br label %.critedge.i.i

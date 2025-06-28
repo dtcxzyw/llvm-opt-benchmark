@@ -18734,8 +18734,8 @@ _ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit942: ; preds = %_ZN4llv
   br i1 %or.cond2029, label %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit960.thread, label %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit952
 
 _ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit960.thread: ; preds = %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit942
-  %235 = sext i32 %233 to i64
-  %switch.gep = getelementptr inbounds [7 x i16], ptr @switch.table._ZL10HasFeatureRKN5clang12PreprocessorEN4llvm9StringRefE.43, i64 0, i64 %235
+  %235 = zext i32 %233 to i64
+  %switch.gep = getelementptr inbounds nuw [7 x i16], ptr @switch.table._ZL10HasFeatureRKN5clang12PreprocessorEN4llvm9StringRefE.43, i64 0, i64 %235
   %switch.load = load i16, ptr %switch.gep, align 2
   %bcmp.i.i.i948 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(19) %.sroa.01131.01147257925952618263926682692, ptr noundef nonnull dereferenceable(19) @.str.151, i64 19)
   %236 = icmp eq i32 %bcmp.i.i.i948, 0
@@ -18834,8 +18834,8 @@ switch.lookup:                                    ; preds = %_ZN4llvm12StringSwi
   br i1 %or.cond2045, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i1017, label %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit1022
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i1017:        ; preds = %switch.lookup
-  %248 = sext i32 %233 to i64
-  %switch.gep2985 = getelementptr inbounds [7 x i16], ptr @switch.table._ZL10HasFeatureRKN5clang12PreprocessorEN4llvm9StringRefE.43, i64 0, i64 %248
+  %248 = zext i32 %233 to i64
+  %switch.gep2985 = getelementptr inbounds nuw [7 x i16], ptr @switch.table._ZL10HasFeatureRKN5clang12PreprocessorEN4llvm9StringRefE.43, i64 0, i64 %248
   %switch.load2986 = load i16, ptr %switch.gep2985, align 2
   %bcmp.i.i.i1018 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(17) %.sroa.01131.01147257925952618263926682692, ptr noundef nonnull dereferenceable(17) @.str.159, i64 17)
   %249 = icmp eq i32 %bcmp.i.i.i1018, 0

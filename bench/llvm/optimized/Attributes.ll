@@ -13424,8 +13424,8 @@ define dso_local noundef i32 @_ZN5clang12hasAttributeENS_19AttributeCommonInfo6S
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef nonnull ptr @_ZN5clang4attr27getSubjectMatchRuleSpellingENS0_16SubjectMatchRuleE(i32 noundef %0) local_unnamed_addr #4 {
 switch.lookup:
-  %1 = sext i32 %0 to i64
-  %switch.gep = getelementptr inbounds [25 x ptr], ptr @switch.table._ZN5clang4attr27getSubjectMatchRuleSpellingENS0_16SubjectMatchRuleE, i64 0, i64 %1
+  %1 = zext i32 %0 to i64
+  %switch.gep = getelementptr inbounds nuw [25 x ptr], ptr @switch.table._ZN5clang4attr27getSubjectMatchRuleSpellingENS0_16SubjectMatchRuleE, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }

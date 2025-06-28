@@ -24391,8 +24391,8 @@ _ZNK17arith_recognizers6is_modEPK4expr.exit.i:    ; preds = %198
 
 .invoke113.sink.split:                            ; preds = %.critedge, %223
   %switch.table._ZN14arith_rewriter8is_boundEP4exprS1_NS_7op_kindER7obj_refIS0_11ast_managerE.4.sink = phi ptr [ @switch.table._ZN14arith_rewriter8is_boundEP4exprS1_NS_7op_kindER7obj_refIS0_11ast_managerE, %223 ], [ @switch.table._ZN14arith_rewriter8is_boundEP4exprS1_NS_7op_kindER7obj_refIS0_11ast_managerE.4, %.critedge ]
-  %244 = sext i32 %.242 to i64
-  %switch.gep118 = getelementptr inbounds [3 x i64], ptr %switch.table._ZN14arith_rewriter8is_boundEP4exprS1_NS_7op_kindER7obj_refIS0_11ast_managerE.4.sink, i64 0, i64 %244
+  %244 = zext i32 %.242 to i64
+  %switch.gep118 = getelementptr inbounds nuw [3 x i64], ptr %switch.table._ZN14arith_rewriter8is_boundEP4exprS1_NS_7op_kindER7obj_refIS0_11ast_managerE.4.sink, i64 0, i64 %244
   %switch.load119 = load i64, ptr %switch.gep118, align 8
   br label %.invoke113
 

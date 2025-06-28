@@ -2469,8 +2469,8 @@ define hidden range(i32 -1, 2) i32 @pm_string_query_local(ptr noundef %0, i64 no
 switch.lookup:
   %3 = tail call i32 @pm_slice_type(ptr noundef %0, i64 noundef %1, ptr noundef %2)
   %switch.tableidx = add nsw i32 %3, 1
-  %4 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table.pm_string_query_local, i64 0, i64 %4
+  %4 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table.pm_string_query_local, i64 0, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -2480,8 +2480,8 @@ define hidden range(i32 -1, 2) i32 @pm_string_query_constant(ptr noundef %0, i64
 switch.lookup:
   %3 = tail call i32 @pm_slice_type(ptr noundef %0, i64 noundef %1, ptr noundef %2)
   %switch.tableidx = add nsw i32 %3, 1
-  %4 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table.pm_string_query_constant, i64 0, i64 %4
+  %4 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table.pm_string_query_constant, i64 0, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -34537,8 +34537,8 @@ define internal fastcc void @parse_rescues(ptr noundef %0, i64 noundef %1, ptr n
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %switch.tableidx = add nsw i32 %4, -1
-  %20 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table.parse_rescues, i64 0, i64 %20
+  %20 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table.parse_rescues, i64 0, i64 %20
   br label %21
 
 21:                                               ; preds = %.lr.ph, %107
@@ -34913,8 +34913,8 @@ switch.lookup264:                                 ; preds = %accept2.exit163
   %134 = shl i32 %133, 1
   store i32 %134, ptr %132, align 4, !tbaa !7
   %switch.tableidx265 = add nsw i32 %4, -1
-  %135 = sext i32 %switch.tableidx265 to i64
-  %switch.gep266 = getelementptr inbounds [7 x i32], ptr @switch.table.parse_rescues.123, i64 0, i64 %135
+  %135 = zext i32 %switch.tableidx265 to i64
+  %switch.gep266 = getelementptr inbounds nuw [7 x i32], ptr @switch.table.parse_rescues.123, i64 0, i64 %135
   %switch.load267 = load i32, ptr %switch.gep266, align 4
   %136 = add i16 %5, 1
   %137 = tail call fastcc ptr @parse_statements(ptr noundef nonnull %0, i32 noundef %switch.load267, i16 noundef zeroext %136)
@@ -35041,8 +35041,8 @@ switch.lookup268:                                 ; preds = %accept2.exit177
   %174 = shl i32 %173, 1
   store i32 %174, ptr %172, align 4, !tbaa !7
   %switch.tableidx269 = add nsw i32 %4, -1
-  %175 = sext i32 %switch.tableidx269 to i64
-  %switch.gep270 = getelementptr inbounds [7 x i32], ptr @switch.table.parse_rescues.124, i64 0, i64 %175
+  %175 = zext i32 %switch.tableidx269 to i64
+  %switch.gep270 = getelementptr inbounds nuw [7 x i32], ptr @switch.table.parse_rescues.124, i64 0, i64 %175
   %switch.load271 = load i32, ptr %switch.gep270, align 4
   %176 = add i16 %5, 1
   %177 = call fastcc ptr @parse_statements(ptr noundef nonnull %0, i32 noundef %switch.load271, i16 noundef zeroext %176)
@@ -44703,8 +44703,8 @@ define internal fastcc noundef nonnull ptr @context_human(i32 noundef range(i32 
 
 switch.lookup:                                    ; preds = %1
   %switch.tableidx = add i32 %0, -1
-  %3 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [53 x ptr], ptr @switch.table.context_human, i64 0, i64 %3
+  %3 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [53 x ptr], ptr @switch.table.context_human, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 

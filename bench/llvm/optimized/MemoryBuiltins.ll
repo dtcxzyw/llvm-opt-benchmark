@@ -376,11 +376,11 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #3
 define dso_local { ptr, i64 } @_Z26mangledNameForMallocFamilyRK12MallocFamily(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #4 {
 switch.lookup:
   %1 = load i32, ptr %0, align 4, !tbaa !54
-  %2 = sext i32 %1 to i64
-  %switch.gep = getelementptr inbounds [9 x i64], ptr @switch.table._ZN4llvm19getAllocationFamilyEPKNS_5ValueEPKNS_17TargetLibraryInfoE.44, i64 0, i64 %2
+  %2 = zext i32 %1 to i64
+  %switch.gep = getelementptr inbounds nuw [9 x i64], ptr @switch.table._ZN4llvm19getAllocationFamilyEPKNS_5ValueEPKNS_17TargetLibraryInfoE.44, i64 0, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
-  %3 = sext i32 %1 to i64
-  %switch.gep1 = getelementptr inbounds [9 x ptr], ptr @switch.table._ZN4llvm19getAllocationFamilyEPKNS_5ValueEPKNS_17TargetLibraryInfoE.43, i64 0, i64 %3
+  %3 = zext i32 %1 to i64
+  %switch.gep1 = getelementptr inbounds nuw [9 x ptr], ptr @switch.table._ZN4llvm19getAllocationFamilyEPKNS_5ValueEPKNS_17TargetLibraryInfoE.43, i64 0, i64 %3
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load, 1
@@ -1549,7 +1549,7 @@ define dso_local void @_ZN4llvm19getAllocationFamilyEPKNS_5ValueEPKNS_17TargetLi
   %9 = alloca %"class.llvm::Attribute", align 8
   %10 = tail call fastcc noundef ptr @_ZL17getCalledFunctionPKN4llvm5ValueE(ptr noundef %1)
   %.not = icmp eq ptr %10, null
-  br i1 %.not, label %62, label %11
+  br i1 %.not, label %60, label %11
 
 11:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #22
@@ -1594,68 +1594,64 @@ _ZNK4llvm17TargetLibraryInfo3hasENS_7LibFuncE.exit: ; preds = %15
   %36 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %37 = load i8, ptr %36, align 4, !tbaa !59, !range !52, !noundef !53
   %38 = trunc nuw i8 %37 to i1
-  br i1 %38, label %.critedge, label %43
+  br i1 %38, label %.critedge, label %41
 
 .critedge:                                        ; preds = %35
   %39 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %40 = load i32, ptr %39, align 4, !tbaa !54
-  %41 = sext i32 %40 to i64
-  %switch.gep = getelementptr inbounds [9 x ptr], ptr @switch.table._ZN4llvm19getAllocationFamilyEPKNS_5ValueEPKNS_17TargetLibraryInfoE.43, i64 0, i64 %41
-  %42 = sext i32 %40 to i64
-  %switch.gep67 = getelementptr inbounds [9 x i64], ptr @switch.table._ZN4llvm19getAllocationFamilyEPKNS_5ValueEPKNS_17TargetLibraryInfoE.44, i64 0, i64 %42
   br label %_Z26mangledNameForMallocFamilyRK12MallocFamily.exit
 
-43:                                               ; preds = %35
-  %44 = load i32, ptr %7, align 4, !tbaa !118
+41:                                               ; preds = %35
+  %42 = load i32, ptr %7, align 4, !tbaa !118
   br label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %52, %43
-  %.057.i.i.i.i.i = phi i64 [ %53, %52 ], [ 7, %43 ]
-  %.02956.i.i.i.i.idx.i = phi i64 [ %.02956.i.i.i.i.add9.i, %52 ], [ 0, %43 ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %50, %41
+  %.057.i.i.i.i.i = phi i64 [ %51, %50 ], [ 7, %41 ]
+  %.02956.i.i.i.i.idx.i = phi i64 [ %.02956.i.i.i.i.add9.i, %50 ], [ 0, %41 ]
   %.02956.i.i.i.i.ptr.i = getelementptr inbounds nuw i8, ptr @_ZL10FreeFnData, i64 %.02956.i.i.i.i.idx.i
   %.029.val.i.i.i.i.i = load i32, ptr %.02956.i.i.i.i.ptr.i, align 16, !tbaa !107
-  %45 = icmp eq i32 %.029.val.i.i.i.i.i, %44
-  br i1 %45, label %"_ZN4llvm7find_ifIRA29_KSt4pairINS_7LibFuncE9FreeFnsTyEZ30getFreeFunctionDataForFunctionPKNS_8FunctionES2_E3$_0EEDaOT_T0_.exit.thread13.i", label %46
+  %43 = icmp eq i32 %.029.val.i.i.i.i.i, %42
+  br i1 %43, label %"_ZN4llvm7find_ifIRA29_KSt4pairINS_7LibFuncE9FreeFnsTyEZ30getFreeFunctionDataForFunctionPKNS_8FunctionES2_E3$_0EEDaOT_T0_.exit.thread13.i", label %44
 
-46:                                               ; preds = %.lr.ph.i.i.i.i.i
+44:                                               ; preds = %.lr.ph.i.i.i.i.i
   %.ptr11.i = getelementptr inbounds nuw i8, ptr %.02956.i.i.i.i.ptr.i, i64 12
   %.val31.i.i.i.i.i = load i32, ptr %.ptr11.i, align 4, !tbaa !107
-  %47 = icmp eq i32 %.val31.i.i.i.i.i, %44
-  br i1 %47, label %"_ZN4llvm7find_ifIRA29_KSt4pairINS_7LibFuncE9FreeFnsTyEZ30getFreeFunctionDataForFunctionPKNS_8FunctionES2_E3$_0EEDaOT_T0_.exit.i", label %48
+  %45 = icmp eq i32 %.val31.i.i.i.i.i, %42
+  br i1 %45, label %"_ZN4llvm7find_ifIRA29_KSt4pairINS_7LibFuncE9FreeFnsTyEZ30getFreeFunctionDataForFunctionPKNS_8FunctionES2_E3$_0EEDaOT_T0_.exit.i", label %46
 
-48:                                               ; preds = %46
+46:                                               ; preds = %44
   %.02956.i.i.i.i.add7.i = add nuw nsw i64 %.02956.i.i.i.i.idx.i, 24
   %.ptr10.i = getelementptr inbounds nuw i8, ptr @_ZL10FreeFnData, i64 %.02956.i.i.i.i.add7.i
   %.val33.i.i.i.i.i = load i32, ptr %.ptr10.i, align 8, !tbaa !107
-  %49 = icmp eq i32 %.val33.i.i.i.i.i, %44
-  br i1 %49, label %"_ZN4llvm7find_ifIRA29_KSt4pairINS_7LibFuncE9FreeFnsTyEZ30getFreeFunctionDataForFunctionPKNS_8FunctionES2_E3$_0EEDaOT_T0_.exit.thread13.i", label %50
+  %47 = icmp eq i32 %.val33.i.i.i.i.i, %42
+  br i1 %47, label %"_ZN4llvm7find_ifIRA29_KSt4pairINS_7LibFuncE9FreeFnsTyEZ30getFreeFunctionDataForFunctionPKNS_8FunctionES2_E3$_0EEDaOT_T0_.exit.thread13.i", label %48
 
-50:                                               ; preds = %48
+48:                                               ; preds = %46
   %.02956.i.i.i.i.add.i = add nuw nsw i64 %.02956.i.i.i.i.idx.i, 36
   %.ptr.i = getelementptr inbounds nuw i8, ptr @_ZL10FreeFnData, i64 %.02956.i.i.i.i.add.i
   %.val35.i.i.i.i.i = load i32, ptr %.ptr.i, align 4, !tbaa !107
-  %51 = icmp eq i32 %.val35.i.i.i.i.i, %44
-  br i1 %51, label %"_ZN4llvm7find_ifIRA29_KSt4pairINS_7LibFuncE9FreeFnsTyEZ30getFreeFunctionDataForFunctionPKNS_8FunctionES2_E3$_0EEDaOT_T0_.exit.thread13.i", label %52
+  %49 = icmp eq i32 %.val35.i.i.i.i.i, %42
+  br i1 %49, label %"_ZN4llvm7find_ifIRA29_KSt4pairINS_7LibFuncE9FreeFnsTyEZ30getFreeFunctionDataForFunctionPKNS_8FunctionES2_E3$_0EEDaOT_T0_.exit.thread13.i", label %50
 
-52:                                               ; preds = %50
+50:                                               ; preds = %48
   %.02956.i.i.i.i.add9.i = add nuw nsw i64 %.02956.i.i.i.i.idx.i, 48
-  %53 = add nsw i64 %.057.i.i.i.i.i, -1
-  %54 = icmp samesign ugt i64 %.057.i.i.i.i.i, 1
-  br i1 %54, label %.lr.ph.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i, !llvm.loop !111
+  %51 = add nsw i64 %.057.i.i.i.i.i, -1
+  %52 = icmp samesign ugt i64 %.057.i.i.i.i.i, 1
+  br i1 %52, label %.lr.ph.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i, !llvm.loop !111
 
-._crit_edge.loopexit.i.i.i.i.i:                   ; preds = %52
-  %55 = icmp eq i32 %44, 29
-  br i1 %55, label %switch.lookup69, label %.thread
+._crit_edge.loopexit.i.i.i.i.i:                   ; preds = %50
+  %53 = icmp eq i32 %42, 29
+  br i1 %53, label %switch.lookup69, label %.thread
 
-"_ZN4llvm7find_ifIRA29_KSt4pairINS_7LibFuncE9FreeFnsTyEZ30getFreeFunctionDataForFunctionPKNS_8FunctionES2_E3$_0EEDaOT_T0_.exit.thread13.i": ; preds = %50, %48, %.lr.ph.i.i.i.i.i
-  %.028.i.i.i.i.idx.ph.i = phi i64 [ %.02956.i.i.i.i.add.i, %50 ], [ %.02956.i.i.i.i.add7.i, %48 ], [ %.02956.i.i.i.i.idx.i, %.lr.ph.i.i.i.i.i ]
+"_ZN4llvm7find_ifIRA29_KSt4pairINS_7LibFuncE9FreeFnsTyEZ30getFreeFunctionDataForFunctionPKNS_8FunctionES2_E3$_0EEDaOT_T0_.exit.thread13.i": ; preds = %48, %46, %.lr.ph.i.i.i.i.i
+  %.028.i.i.i.i.idx.ph.i = phi i64 [ %.02956.i.i.i.i.add.i, %48 ], [ %.02956.i.i.i.i.add7.i, %46 ], [ %.02956.i.i.i.i.idx.i, %.lr.ph.i.i.i.i.i ]
   %.028.i.i.i.i.ptr15.i = getelementptr inbounds nuw i8, ptr @_ZL10FreeFnData, i64 %.028.i.i.i.i.idx.ph.i
   br label %switch.lookup69
 
-"_ZN4llvm7find_ifIRA29_KSt4pairINS_7LibFuncE9FreeFnsTyEZ30getFreeFunctionDataForFunctionPKNS_8FunctionES2_E3$_0EEDaOT_T0_.exit.i": ; preds = %46
+"_ZN4llvm7find_ifIRA29_KSt4pairINS_7LibFuncE9FreeFnsTyEZ30getFreeFunctionDataForFunctionPKNS_8FunctionES2_E3$_0EEDaOT_T0_.exit.i": ; preds = %44
   %.ptr11.i.le = getelementptr inbounds nuw i8, ptr %.02956.i.i.i.i.ptr.i, i64 12
-  %56 = icmp eq i64 %.02956.i.i.i.i.idx.i, 336
-  br i1 %56, label %.thread, label %switch.lookup69
+  %54 = icmp eq i64 %.02956.i.i.i.i.idx.i, 336
+  br i1 %54, label %.thread, label %switch.lookup69
 
 .thread:                                          ; preds = %._crit_edge.loopexit.i.i.i.i.i, %"_ZN4llvm7find_ifIRA29_KSt4pairINS_7LibFuncE9FreeFnsTyEZ30getFreeFunctionDataForFunctionPKNS_8FunctionES2_E3$_0EEDaOT_T0_.exit.i"
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %8) #22
@@ -1663,63 +1659,66 @@ _ZNK4llvm17TargetLibraryInfo3hasENS_7LibFuncE.exit: ; preds = %15
 
 switch.lookup69:                                  ; preds = %"_ZN4llvm7find_ifIRA29_KSt4pairINS_7LibFuncE9FreeFnsTyEZ30getFreeFunctionDataForFunctionPKNS_8FunctionES2_E3$_0EEDaOT_T0_.exit.i", %"_ZN4llvm7find_ifIRA29_KSt4pairINS_7LibFuncE9FreeFnsTyEZ30getFreeFunctionDataForFunctionPKNS_8FunctionES2_E3$_0EEDaOT_T0_.exit.thread13.i", %._crit_edge.loopexit.i.i.i.i.i
   %.028.i.i.i.i6.i = phi ptr [ %.ptr11.i.le, %"_ZN4llvm7find_ifIRA29_KSt4pairINS_7LibFuncE9FreeFnsTyEZ30getFreeFunctionDataForFunctionPKNS_8FunctionES2_E3$_0EEDaOT_T0_.exit.i" ], [ getelementptr inbounds nuw (i8, ptr @_ZL10FreeFnData, i64 336), %._crit_edge.loopexit.i.i.i.i.i ], [ %.028.i.i.i.i.ptr15.i, %"_ZN4llvm7find_ifIRA29_KSt4pairINS_7LibFuncE9FreeFnsTyEZ30getFreeFunctionDataForFunctionPKNS_8FunctionES2_E3$_0EEDaOT_T0_.exit.thread13.i" ]
-  %57 = getelementptr inbounds nuw i8, ptr %.028.i.i.i.i6.i, i64 4
-  %58 = load i64, ptr %57, align 4
-  %59 = ashr i64 %58, 32
-  %switch.gep70 = getelementptr inbounds [9 x ptr], ptr @switch.table._ZN4llvm19getAllocationFamilyEPKNS_5ValueEPKNS_17TargetLibraryInfoE.43, i64 0, i64 %59
-  %60 = ashr i64 %58, 32
-  %switch.gep72 = getelementptr inbounds [9 x i64], ptr @switch.table._ZN4llvm19getAllocationFamilyEPKNS_5ValueEPKNS_17TargetLibraryInfoE.44, i64 0, i64 %60
+  %55 = getelementptr inbounds nuw i8, ptr %.028.i.i.i.i6.i, i64 4
+  %56 = load i64, ptr %55, align 4
+  %.sroa.034.4.extract.shift = lshr i64 %56, 32
+  %.sroa.034.4.extract.trunc = trunc nuw i64 %.sroa.034.4.extract.shift to i32
   br label %_Z26mangledNameForMallocFamilyRK12MallocFamily.exit
 
 .critedge19:                                      ; preds = %15, %.thread, %_ZNK4llvm17TargetLibraryInfo3hasENS_7LibFuncE.exit, %12, %11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #22
-  br label %62
+  br label %60
 
 _Z26mangledNameForMallocFamilyRK12MallocFamily.exit: ; preds = %switch.lookup69, %.critedge
-  %.sroa.0.0.i.sink.in = phi ptr [ %switch.gep, %.critedge ], [ %switch.gep70, %switch.lookup69 ]
-  %.sroa.10.0.i.sink.in = phi ptr [ %switch.gep67, %.critedge ], [ %switch.gep72, %switch.lookup69 ]
-  %.sroa.10.0.i.sink = load i64, ptr %.sroa.10.0.i.sink.in, align 8
-  %.sroa.0.0.i.sink = load ptr, ptr %.sroa.0.0.i.sink.in, align 8
-  store ptr %.sroa.0.0.i.sink, ptr %0, align 8, !tbaa !44
+  %.sroa.034.4.extract.trunc.sink74 = phi i32 [ %.sroa.034.4.extract.trunc, %switch.lookup69 ], [ %40, %.critedge ]
+  %switch.table._ZN4llvm19getAllocationFamilyEPKNS_5ValueEPKNS_17TargetLibraryInfoE.43.sink = phi ptr [ @switch.table._ZN4llvm19getAllocationFamilyEPKNS_5ValueEPKNS_17TargetLibraryInfoE.43, %switch.lookup69 ], [ @switch.table._ZN4llvm19getAllocationFamilyEPKNS_5ValueEPKNS_17TargetLibraryInfoE.43, %.critedge ]
+  %switch.table._ZN4llvm19getAllocationFamilyEPKNS_5ValueEPKNS_17TargetLibraryInfoE.44.sink = phi ptr [ @switch.table._ZN4llvm19getAllocationFamilyEPKNS_5ValueEPKNS_17TargetLibraryInfoE.44, %switch.lookup69 ], [ @switch.table._ZN4llvm19getAllocationFamilyEPKNS_5ValueEPKNS_17TargetLibraryInfoE.44, %.critedge ]
+  %57 = zext i32 %.sroa.034.4.extract.trunc.sink74 to i64
+  %switch.gep70 = getelementptr inbounds nuw [9 x ptr], ptr %switch.table._ZN4llvm19getAllocationFamilyEPKNS_5ValueEPKNS_17TargetLibraryInfoE.43.sink, i64 0, i64 %57
+  %switch.load71 = load ptr, ptr %switch.gep70, align 8
+  %58 = zext i32 %.sroa.034.4.extract.trunc.sink74 to i64
+  %switch.gep72 = getelementptr inbounds nuw [9 x i64], ptr %switch.table._ZN4llvm19getAllocationFamilyEPKNS_5ValueEPKNS_17TargetLibraryInfoE.44.sink, i64 0, i64 %58
+  %switch.load73 = load i64, ptr %switch.gep72, align 8
+  store ptr %switch.load71, ptr %0, align 8, !tbaa !44
   %.sroa.437.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.10.0.i.sink, ptr %.sroa.437.0..sroa_idx, align 8, !tbaa !45
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 1, ptr %61, align 8, !tbaa !119
+  store i64 %switch.load73, ptr %.sroa.437.0..sroa_idx, align 8, !tbaa !45
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i8 1, ptr %59, align 8, !tbaa !119
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %8) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #22
-  br label %80
+  br label %78
 
-62:                                               ; preds = %.critedge19, %3
-  %63 = load i8, ptr %1, align 8, !tbaa !61
-  %64 = icmp ugt i8 %63, 28
-  br i1 %64, label %65, label %_ZL16checkFnAllocKindPKN4llvm5ValueENS_11AllocFnKindE.exit.thread
+60:                                               ; preds = %.critedge19, %3
+  %61 = load i8, ptr %1, align 8, !tbaa !61
+  %62 = icmp ugt i8 %61, 28
+  br i1 %62, label %63, label %_ZL16checkFnAllocKindPKN4llvm5ValueENS_11AllocFnKindE.exit.thread
 
-65:                                               ; preds = %62
-  switch i8 %63, label %_ZL16checkFnAllocKindPKN4llvm5ValueENS_11AllocFnKindE.exit.thread [
+63:                                               ; preds = %60
+  switch i8 %61, label %_ZL16checkFnAllocKindPKN4llvm5ValueENS_11AllocFnKindE.exit.thread [
     i8 85, label %_ZN4llvm8dyn_castINS_8CallBaseEKNS_5ValueEEEDcPT0_.exit.i.i
     i8 34, label %_ZN4llvm8dyn_castINS_8CallBaseEKNS_5ValueEEEDcPT0_.exit.i.i
     i8 40, label %_ZN4llvm8dyn_castINS_8CallBaseEKNS_5ValueEEEDcPT0_.exit.i.i
   ]
 
-_ZN4llvm8dyn_castINS_8CallBaseEKNS_5ValueEEEDcPT0_.exit.i.i: ; preds = %65, %65, %65
+_ZN4llvm8dyn_castINS_8CallBaseEKNS_5ValueEEEDcPT0_.exit.i.i: ; preds = %63, %63, %63
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #22
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #22
-  %66 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %66, align 8, !tbaa !65
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %64, align 8, !tbaa !65
   store ptr %.sroa.0.0.copyload.i.i.i.i, ptr %5, align 8
-  %67 = call ptr @_ZNK4llvm13AttributeList19getAttributeAtIndexEjNS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef -1, i32 noundef 87) #22
+  %65 = call ptr @_ZNK4llvm13AttributeList19getAttributeAtIndexEjNS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef -1, i32 noundef 87) #22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22
-  %.not.i.i.i = icmp eq ptr %67, null
+  %.not.i.i.i = icmp eq ptr %65, null
   br i1 %.not.i.i.i, label %_ZNK4llvm8CallBase9getFnAttrENS_9Attribute8AttrKindE.exit.i.i, label %_ZNK4llvm8CallBase9getFnAttrENS_9Attribute8AttrKindE.exit.thread.i.i
 
 _ZNK4llvm8CallBase9getFnAttrENS_9Attribute8AttrKindE.exit.thread.i.i: ; preds = %_ZN4llvm8dyn_castINS_8CallBaseEKNS_5ValueEEEDcPT0_.exit.i.i
-  store ptr %67, ptr %6, align 8
+  store ptr %65, ptr %6, align 8
   br label %_ZL16checkFnAllocKindPKN4llvm5ValueENS_11AllocFnKindE.exit
 
 _ZNK4llvm8CallBase9getFnAttrENS_9Attribute8AttrKindE.exit.i.i: ; preds = %_ZN4llvm8dyn_castINS_8CallBaseEKNS_5ValueEEEDcPT0_.exit.i.i
-  %68 = call ptr @_ZNK4llvm8CallBase25getFnAttrOnCalledFunctionINS_9Attribute8AttrKindEEES2_T_(ptr noundef nonnull align 8 dereferenceable(88) %1, i32 noundef 87) #22
-  store ptr %68, ptr %6, align 8
-  %.not.i.i30 = icmp eq ptr %68, null
+  %66 = call ptr @_ZNK4llvm8CallBase25getFnAttrOnCalledFunctionINS_9Attribute8AttrKindEEES2_T_(ptr noundef nonnull align 8 dereferenceable(88) %1, i32 noundef 87) #22
+  store ptr %66, ptr %6, align 8
+  %.not.i.i30 = icmp eq ptr %66, null
   br i1 %.not.i.i30, label %_ZL16checkFnAllocKindPKN4llvm5ValueENS_11AllocFnKindE.exit.thread46, label %_ZL16checkFnAllocKindPKN4llvm5ValueENS_11AllocFnKindE.exit
 
 _ZL16checkFnAllocKindPKN4llvm5ValueENS_11AllocFnKindE.exit.thread46: ; preds = %_ZNK4llvm8CallBase9getFnAttrENS_9Attribute8AttrKindE.exit.i.i
@@ -1727,54 +1726,54 @@ _ZL16checkFnAllocKindPKN4llvm5ValueENS_11AllocFnKindE.exit.thread46: ; preds = %
   br label %_ZL16checkFnAllocKindPKN4llvm5ValueENS_11AllocFnKindE.exit.thread
 
 _ZL16checkFnAllocKindPKN4llvm5ValueENS_11AllocFnKindE.exit: ; preds = %_ZNK4llvm8CallBase9getFnAttrENS_9Attribute8AttrKindE.exit.thread.i.i, %_ZNK4llvm8CallBase9getFnAttrENS_9Attribute8AttrKindE.exit.i.i
-  %69 = call noundef i64 @_ZNK4llvm9Attribute13getValueAsIntEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #22
+  %67 = call noundef i64 @_ZNK4llvm9Attribute13getValueAsIntEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
-  %70 = and i64 %69, 7
-  %.not52 = icmp eq i64 %70, 0
-  br i1 %.not52, label %_ZL16checkFnAllocKindPKN4llvm5ValueENS_11AllocFnKindE.exit.thread, label %71
+  %68 = and i64 %67, 7
+  %.not52 = icmp eq i64 %68, 0
+  br i1 %.not52, label %_ZL16checkFnAllocKindPKN4llvm5ValueENS_11AllocFnKindE.exit.thread, label %69
 
-71:                                               ; preds = %_ZL16checkFnAllocKindPKN4llvm5ValueENS_11AllocFnKindE.exit
+69:                                               ; preds = %_ZL16checkFnAllocKindPKN4llvm5ValueENS_11AllocFnKindE.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #22
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
-  %.sroa.0.0.copyload.i.i = load ptr, ptr %66, align 8, !tbaa !65
+  %.sroa.0.0.copyload.i.i = load ptr, ptr %64, align 8, !tbaa !65
   store ptr %.sroa.0.0.copyload.i.i, ptr %4, align 8
-  %72 = call ptr @_ZNK4llvm13AttributeList19getAttributeAtIndexEjNS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef -1, ptr nonnull @.str.11, i64 12) #22
+  %70 = call ptr @_ZNK4llvm13AttributeList19getAttributeAtIndexEjNS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef -1, ptr nonnull @.str.11, i64 12) #22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
-  %.not.i = icmp eq ptr %72, null
+  %.not.i = icmp eq ptr %70, null
   br i1 %.not.i, label %_ZNK4llvm8CallBase9getFnAttrENS_9StringRefE.exit, label %_ZNK4llvm8CallBase9getFnAttrENS_9StringRefE.exit.thread
 
-_ZNK4llvm8CallBase9getFnAttrENS_9StringRefE.exit.thread: ; preds = %71
-  store ptr %72, ptr %9, align 8
-  br label %74
+_ZNK4llvm8CallBase9getFnAttrENS_9StringRefE.exit.thread: ; preds = %69
+  store ptr %70, ptr %9, align 8
+  br label %72
 
-_ZNK4llvm8CallBase9getFnAttrENS_9StringRefE.exit: ; preds = %71
-  %73 = call ptr @_ZNK4llvm8CallBase25getFnAttrOnCalledFunctionINS_9StringRefEEENS_9AttributeET_(ptr noundef nonnull align 8 dereferenceable(88) %1, ptr nonnull @.str.11, i64 12) #22
-  store ptr %73, ptr %9, align 8
-  %.not53 = icmp eq ptr %73, null
-  br i1 %.not53, label %.thread49, label %74
+_ZNK4llvm8CallBase9getFnAttrENS_9StringRefE.exit: ; preds = %69
+  %71 = call ptr @_ZNK4llvm8CallBase25getFnAttrOnCalledFunctionINS_9StringRefEEENS_9AttributeET_(ptr noundef nonnull align 8 dereferenceable(88) %1, ptr nonnull @.str.11, i64 12) #22
+  store ptr %71, ptr %9, align 8
+  %.not53 = icmp eq ptr %71, null
+  br i1 %.not53, label %.thread49, label %72
 
 .thread49:                                        ; preds = %_ZNK4llvm8CallBase9getFnAttrENS_9StringRefE.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #22
   br label %_ZL16checkFnAllocKindPKN4llvm5ValueENS_11AllocFnKindE.exit.thread
 
-74:                                               ; preds = %_ZNK4llvm8CallBase9getFnAttrENS_9StringRefE.exit, %_ZNK4llvm8CallBase9getFnAttrENS_9StringRefE.exit.thread
-  %75 = call { ptr, i64 } @_ZNK4llvm9Attribute16getValueAsStringEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #22
-  %76 = extractvalue { ptr, i64 } %75, 0
-  %77 = extractvalue { ptr, i64 } %75, 1
-  store ptr %76, ptr %0, align 8, !tbaa !44
+72:                                               ; preds = %_ZNK4llvm8CallBase9getFnAttrENS_9StringRefE.exit, %_ZNK4llvm8CallBase9getFnAttrENS_9StringRefE.exit.thread
+  %73 = call { ptr, i64 } @_ZNK4llvm9Attribute16getValueAsStringEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #22
+  %74 = extractvalue { ptr, i64 } %73, 0
+  %75 = extractvalue { ptr, i64 } %73, 1
+  store ptr %74, ptr %0, align 8, !tbaa !44
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %77, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !45
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 1, ptr %78, align 8, !tbaa !119
+  store i64 %75, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !45
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i8 1, ptr %76, align 8, !tbaa !119
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #22
-  br label %80
+  br label %78
 
-_ZL16checkFnAllocKindPKN4llvm5ValueENS_11AllocFnKindE.exit.thread: ; preds = %62, %65, %.thread49, %_ZL16checkFnAllocKindPKN4llvm5ValueENS_11AllocFnKindE.exit.thread46, %_ZL16checkFnAllocKindPKN4llvm5ValueENS_11AllocFnKindE.exit
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 0, ptr %79, align 8, !tbaa !119
-  br label %80
+_ZL16checkFnAllocKindPKN4llvm5ValueENS_11AllocFnKindE.exit.thread: ; preds = %60, %63, %.thread49, %_ZL16checkFnAllocKindPKN4llvm5ValueENS_11AllocFnKindE.exit.thread46, %_ZL16checkFnAllocKindPKN4llvm5ValueENS_11AllocFnKindE.exit
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i8 0, ptr %77, align 8, !tbaa !119
+  br label %78
 
-80:                                               ; preds = %74, %_Z26mangledNameForMallocFamilyRK12MallocFamily.exit, %_ZL16checkFnAllocKindPKN4llvm5ValueENS_11AllocFnKindE.exit.thread
+78:                                               ; preds = %72, %_Z26mangledNameForMallocFamilyRK12MallocFamily.exit, %_ZL16checkFnAllocKindPKN4llvm5ValueENS_11AllocFnKindE.exit.thread
   ret void
 }
 

@@ -27101,8 +27101,8 @@ define dso_local void @_ZN10btSoftBody16solveConstraintsEv(ptr noundef nonnull a
   %174 = load ptr, ptr %152, align 8, !tbaa !120
   %175 = getelementptr inbounds nuw i32, ptr %174, i64 %indvars.iv187
   %176 = load i32, ptr %175, align 4, !tbaa !325
-  %177 = sext i32 %176 to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN10btSoftBody11staticSolveEi, i64 0, i64 %177
+  %177 = zext i32 %176 to i64
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN10btSoftBody11staticSolveEi, i64 0, i64 %177
   %switch.load = load ptr, ptr %switch.gep, align 8
   tail call void %switch.load(ptr noundef nonnull %0, float noundef 1.000000e+00, float noundef %168), !callees !822
   %indvars.iv.next188 = add nuw nsw i64 %indvars.iv187, 1
@@ -27226,8 +27226,8 @@ define dso_local void @_ZN10btSoftBody16solveConstraintsEv(ptr noundef nonnull a
   %239 = load ptr, ptr %220, align 8, !tbaa !120
   %240 = getelementptr inbounds nuw i32, ptr %239, i64 %indvars.iv200
   %241 = load i32, ptr %240, align 4, !tbaa !325
-  %242 = sext i32 %241 to i64
-  %switch.gep217 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN10btSoftBody11staticSolveEi, i64 0, i64 %242
+  %242 = zext i32 %241 to i64
+  %switch.gep217 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN10btSoftBody11staticSolveEi, i64 0, i64 %242
   %switch.load218 = load ptr, ptr %switch.gep217, align 8
   tail call void %switch.load218(ptr noundef nonnull %0, float noundef 1.000000e+00, float noundef 0.000000e+00), !callees !822
   %indvars.iv.next201 = add nuw nsw i64 %indvars.iv200, 1
@@ -27827,8 +27827,8 @@ define dso_local void @_ZN10btSoftBody11staticSolveEi(ptr noundef nonnull align 
   %12 = load ptr, ptr %5, align 8, !tbaa !120
   %13 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4, !tbaa !325
-  %15 = sext i32 %14 to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN10btSoftBody11staticSolveEi, i64 0, i64 %15
+  %15 = zext i32 %14 to i64
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN10btSoftBody11staticSolveEi, i64 0, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
   tail call void %switch.load(ptr noundef nonnull %0, float noundef 1.000000e+00, float noundef 0.000000e+00), !callees !822
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

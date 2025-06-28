@@ -1394,8 +1394,8 @@ define internal fastcc void @dissect_tiff_array_uint(ptr noundef %0, ptr noundef
 
 switch.lookup:                                    ; preds = %14
   %switch.tableidx = add nsw i16 %4, -1
-  %18 = sext i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_tiff_array_uint, i64 0, i64 %18
+  %18 = zext i16 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.dissect_tiff_array_uint, i64 0, i64 %18
   %switch.load = load i32, ptr %switch.gep, align 4
   %19 = mul i32 %switch.load, %5
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #3

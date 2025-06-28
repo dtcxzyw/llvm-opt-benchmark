@@ -116926,11 +116926,11 @@ define internal noundef zeroext i1 @"_ZN73_$LT$typst..layout..columns..ColbreakE
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define { ptr, i64 } @_ZN5typst6layout9container1_6Fields6to_str17h73e360393d616e3cE(i8 noundef %0) unnamed_addr #6 {
 switch.lookup:
-  %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds [10 x ptr], ptr @"switch.table._ZN74_$LT$typst..layout..container.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h4d9c9e31fedce741E", i64 0, i64 %1
+  %1 = zext i8 %0 to i64
+  %switch.gep = getelementptr inbounds nuw [10 x ptr], ptr @"switch.table._ZN74_$LT$typst..layout..container.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h4d9c9e31fedce741E", i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %2 = sext i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds [10 x i64], ptr @"switch.table._ZN74_$LT$typst..layout..container.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h4d9c9e31fedce741E.355", i64 0, i64 %2
+  %2 = zext i8 %0 to i64
+  %switch.gep1 = getelementptr inbounds nuw [10 x i64], ptr @"switch.table._ZN74_$LT$typst..layout..container.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h4d9c9e31fedce741E.355", i64 0, i64 %2
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load2, 1
@@ -124927,11 +124927,11 @@ define hidden { i64, double } @"_ZN5typst6layout9container94_$LT$impl$u20$typst.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define { ptr, i64 } @_ZN5typst6layout9container1_6Fields6to_str17hdfcec9324cfdc930E(i8 noundef %0) unnamed_addr #6 {
 switch.lookup:
-  %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds [13 x ptr], ptr @"switch.table._ZN74_$LT$typst..layout..container.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17hc4a4d16b7ace7ac4E", i64 0, i64 %1
+  %1 = zext i8 %0 to i64
+  %switch.gep = getelementptr inbounds nuw [13 x ptr], ptr @"switch.table._ZN74_$LT$typst..layout..container.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17hc4a4d16b7ace7ac4E", i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %2 = sext i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds [13 x i64], ptr @"switch.table._ZN74_$LT$typst..layout..container.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17hc4a4d16b7ace7ac4E.357", i64 0, i64 %2
+  %2 = zext i8 %0 to i64
+  %switch.gep1 = getelementptr inbounds nuw [13 x i64], ptr @"switch.table._ZN74_$LT$typst..layout..container.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17hc4a4d16b7ace7ac4E.357", i64 0, i64 %2
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load2, 1

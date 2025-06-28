@@ -18129,8 +18129,8 @@ switch.lookup:                                    ; preds = %16
 
 20:                                               ; preds = %switch.lookup
   %switch.tableidx = add nsw i16 %1, -2
-  %21 = sext i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [12 x i32], ptr @switch.table._ZN12_GLOBAL__N_115AArch64FastISel9emitStoreEN4llvm3MVTEjNS0_7AddressEPNS1_17MachineMemOperandE, i64 0, i64 %21
+  %21 = zext i16 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [12 x i32], ptr @switch.table._ZN12_GLOBAL__N_115AArch64FastISel9emitStoreEN4llvm3MVTEjNS0_7AddressEPNS1_17MachineMemOperandE, i64 0, i64 %21
   %switch.load = load i32, ptr %switch.gep, align 4
   %22 = add nsw i32 %switch.load, -1
   %23 = zext nneg i32 %22 to i64
@@ -19028,8 +19028,8 @@ switch.lookup:                                    ; preds = %13
 
 17:                                               ; preds = %switch.lookup
   %switch.tableidx = add nsw i16 %1, -2
-  %18 = sext i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [12 x i32], ptr @switch.table._ZN12_GLOBAL__N_115AArch64FastISel9emitStoreEN4llvm3MVTEjNS0_7AddressEPNS1_17MachineMemOperandE, i64 0, i64 %18
+  %18 = zext i16 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [12 x i32], ptr @switch.table._ZN12_GLOBAL__N_115AArch64FastISel9emitStoreEN4llvm3MVTEjNS0_7AddressEPNS1_17MachineMemOperandE, i64 0, i64 %18
   %switch.load = load i32, ptr %switch.gep, align 4
   %19 = add nsw i32 %switch.load, -1
   %20 = zext nneg i32 %19 to i64

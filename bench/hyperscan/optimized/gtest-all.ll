@@ -23338,8 +23338,8 @@ define hidden void @_ZN7testing8internal13ColoredPrintfENS0_10GTestColorEPKcz(i3
 
 switch.lookup:                                    ; preds = %24
   %switch.tableidx = add i32 %0, -1
-  %26 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN7testing8internal13ColoredPrintfENS0_10GTestColorEPKcz, i64 0, i64 %26
+  %26 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN7testing8internal13ColoredPrintfENS0_10GTestColorEPKcz, i64 0, i64 %26
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN7testing8internal16GetAnsiColorCodeENS0_10GTestColorE.exit
 

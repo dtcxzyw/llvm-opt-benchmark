@@ -6726,9 +6726,9 @@ switch.lookup:
   %switch.gep = getelementptr inbounds nuw [256 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h59653a312db00902E", i64 0, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext i8 %switch.tableidx to i64
-  %switch.gep2 = getelementptr inbounds nuw [256 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h59653a312db00902E.326", i64 0, i64 %4
-  %switch.load3 = load ptr, ptr %switch.gep2, align 8
-  %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
+  %switch.gep1 = getelementptr inbounds nuw [256 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h59653a312db00902E.326", i64 0, i64 %4
+  %switch.load2 = load ptr, ptr %switch.gep1, align 8
+  %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
 }
 
@@ -11680,11 +11680,11 @@ _ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit33: ; preds = %32
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define internal fastcc { ptr, i64 } @"_ZN76_$LT$ruff_linter..codes..Rule$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h2ef283377083eb43E"(i16 %.0.val) unnamed_addr #9 {
 switch.lookup:
-  %0 = sext i16 %.0.val to i64
-  %switch.gep = getelementptr inbounds [921 x i64], ptr @"switch.table._ZN76_$LT$ruff_linter..codes..Rule$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h2ef283377083eb43E", i64 0, i64 %0
+  %0 = zext i16 %.0.val to i64
+  %switch.gep = getelementptr inbounds nuw [921 x i64], ptr @"switch.table._ZN76_$LT$ruff_linter..codes..Rule$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h2ef283377083eb43E", i64 0, i64 %0
   %switch.load = load i64, ptr %switch.gep, align 8
-  %1 = sext i16 %.0.val to i64
-  %switch.gep1 = getelementptr inbounds [921 x ptr], ptr @"switch.table._ZN76_$LT$ruff_linter..codes..Rule$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h2ef283377083eb43E.327", i64 0, i64 %1
+  %1 = zext i16 %.0.val to i64
+  %switch.gep1 = getelementptr inbounds nuw [921 x ptr], ptr @"switch.table._ZN76_$LT$ruff_linter..codes..Rule$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h2ef283377083eb43E.327", i64 0, i64 %1
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %2 = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %3 = insertvalue { ptr, i64 } %2, i64 %switch.load, 1

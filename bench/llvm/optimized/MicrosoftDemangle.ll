@@ -3872,8 +3872,8 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
 switch.lookup:                                    ; preds = %143, %138
   %145 = call fastcc noundef i32 @_ZL17guessCharByteSizePKhjm(ptr noundef %4, i32 noundef %139, i64 noundef %.sroa.0.0.i)
   %switch.tableidx = add nsw i32 %145, -1
-  %146 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table._ZN4llvm11ms_demangle9Demangler21demangleStringLiteralERSt17basic_string_viewIcSt11char_traitsIcEE, i64 0, i64 %146
+  %146 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN4llvm11ms_demangle9Demangler21demangleStringLiteralERSt17basic_string_viewIcSt11char_traitsIcEE, i64 0, i64 %146
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %31, align 4, !tbaa !116
   %.lhs.trunc = trunc nuw i64 %indvars.iv142 to i8
@@ -5559,8 +5559,8 @@ switch.lookup:                                    ; preds = %3
   %8 = zext nneg i8 %1 to i64
   %.v = select i1 %or.cond, i64 -48, i64 -55
   %9 = add nsw i64 %.v, %8
-  %10 = sext i32 %2 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN4llvm11ms_demangle9Demangler30translateIntrinsicFunctionCodeEcNS0_27FunctionIdentifierCodeGroupE, i64 0, i64 %10
+  %10 = zext i32 %2 to i64
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4llvm11ms_demangle9Demangler30translateIntrinsicFunctionCodeEcNS0_27FunctionIdentifierCodeGroupE, i64 0, i64 %10
   %switch.load = load ptr, ptr %switch.gep, align 8
   %11 = getelementptr inbounds [36 x i8], ptr %switch.load, i64 0, i64 %9
   %.1 = load i8, ptr %11, align 1, !tbaa !127

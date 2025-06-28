@@ -2264,8 +2264,8 @@ switch.lookup:                                    ; preds = %4, %4, %4, %4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %9 = load i32, ptr %8, align 4, !tbaa !126
   %switch.tableidx = add nsw i32 %9, -1
-  %10 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.zend_wrong_string_offset_error, i64 0, i64 %10
+  %10 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.zend_wrong_string_offset_error, i64 0, i64 %10
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %12
 

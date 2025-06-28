@@ -21959,8 +21959,8 @@ _PyUnicode_AsLatin1String.exit:                   ; preds = %5, %_PyUnicode_DATA
 define dso_local range(i32 -1, 1) i32 @_PyUnicodeWriter_PrepareKindInternal(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
 switch.lookup:
   %switch.tableidx = add nsw i32 %1, -1
-  %2 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table._PyUnicodeWriter_PrepareKindInternal, i64 0, i64 %2
+  %2 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._PyUnicodeWriter_PrepareKindInternal, i64 0, i64 %2
   %switch.load = load i32, ptr %switch.gep, align 4
   %3 = tail call i32 @_PyUnicodeWriter_PrepareInternal(ptr noundef %0, i64 noundef 0, i32 noundef %switch.load)
   ret i32 %3

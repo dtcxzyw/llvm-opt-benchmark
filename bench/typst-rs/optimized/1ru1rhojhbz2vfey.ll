@@ -68550,8 +68550,8 @@ define hidden void @"_ZN96_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u
 
 switch.lookup:                                    ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13552)
-  %5 = sext i8 %1 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @"switch.table._ZN96_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17haa6c14baef1f9db1E", i64 0, i64 %5
+  %5 = zext i8 %1 to i64
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN96_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17haa6c14baef1f9db1E", i64 0, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13555)
   call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %3), !noalias !13558
@@ -69079,8 +69079,8 @@ define hidden void @"_ZN96_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u
 
 switch.lookup:                                    ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13642)
-  %5 = sext i8 %1 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @"switch.table._ZN96_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17heb8bd3992bc8a67dE", i64 0, i64 %5
+  %5 = zext i8 %1 to i64
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN96_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17heb8bd3992bc8a67dE", i64 0, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   %switch.idx.cast = zext i8 %1 to i64
   %switch.offset = add nuw nsw i64 %switch.idx.cast, 4
@@ -80709,11 +80709,11 @@ define hidden void @"_ZN5typst11foundations4none95_$LT$impl$u20$typst..foundatio
 
 switch.lookup:                                    ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15821)
-  %5 = sext i8 %1 to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @"switch.table._ZN5typst11foundations4none95_$LT$impl$u20$typst..foundations..cast..IntoValue$u20$for$u20$core..option..Option$LT$T$GT$$GT$10into_value17h61597f4083cfc329E", i64 0, i64 %5
+  %5 = zext i8 %1 to i64
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @"switch.table._ZN5typst11foundations4none95_$LT$impl$u20$typst..foundations..cast..IntoValue$u20$for$u20$core..option..Option$LT$T$GT$$GT$10into_value17h61597f4083cfc329E", i64 0, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %6 = sext i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds [5 x i64], ptr @"switch.table._ZN5typst11foundations4none95_$LT$impl$u20$typst..foundations..cast..IntoValue$u20$for$u20$core..option..Option$LT$T$GT$$GT$10into_value17h61597f4083cfc329E.528", i64 0, i64 %6
+  %6 = zext i8 %1 to i64
+  %switch.gep2 = getelementptr inbounds nuw [5 x i64], ptr @"switch.table._ZN5typst11foundations4none95_$LT$impl$u20$typst..foundations..cast..IntoValue$u20$for$u20$core..option..Option$LT$T$GT$$GT$10into_value17h61597f4083cfc329E.528", i64 0, i64 %6
   %switch.load3 = load i64, ptr %switch.gep2, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15824)
   call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %3), !noalias !15827
@@ -93935,8 +93935,8 @@ define noundef double @_ZN5typst6layout3abs3Abs3raw17h9c9860891736cbb5E(double n
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef double @_ZN5typst6layout3abs3Abs9with_unit17he1c3205cf673858fE(double noundef %0, i8 noundef %1) unnamed_addr #2 {
 switch.lookup:
-  %2 = sext i8 %1 to i64
-  %switch.gep = getelementptr inbounds [4 x double], ptr @switch.table._ZN5typst6layout3abs7AbsUnit9raw_scale17hb23d6c3d0026c236E.llvm.13383457361836014260, i64 0, i64 %2
+  %2 = zext i8 %1 to i64
+  %switch.gep = getelementptr inbounds nuw [4 x double], ptr @switch.table._ZN5typst6layout3abs7AbsUnit9raw_scale17hb23d6c3d0026c236E.llvm.13383457361836014260, i64 0, i64 %2
   %switch.load = load double, ptr %switch.gep, align 8
   %3 = fmul double %0, %switch.load
   %.0.i.inv.i = fcmp ord double %3, 0.000000e+00
@@ -93983,8 +93983,8 @@ define noundef double @_ZN5typst6layout3abs3Abs6to_raw17h5852c1581d7c8b39E(doubl
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef double @_ZN5typst6layout3abs3Abs7to_unit17hd6477d52ad93be5eE(double noundef %0, i8 noundef %1) unnamed_addr #2 {
 switch.lookup:
-  %2 = sext i8 %1 to i64
-  %switch.gep = getelementptr inbounds [4 x double], ptr @switch.table._ZN5typst6layout3abs7AbsUnit9raw_scale17hb23d6c3d0026c236E.llvm.13383457361836014260, i64 0, i64 %2
+  %2 = zext i8 %1 to i64
+  %switch.gep = getelementptr inbounds nuw [4 x double], ptr @switch.table._ZN5typst6layout3abs7AbsUnit9raw_scale17hb23d6c3d0026c236E.llvm.13383457361836014260, i64 0, i64 %2
   %switch.load = load double, ptr %switch.gep, align 8
   %3 = fdiv double %0, %switch.load
   ret double %3
@@ -94270,8 +94270,8 @@ define noundef double @"_ZN76_$LT$typst..layout..abs..Abs$u20$as$u20$typst..foun
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef double @_ZN5typst6layout3abs7AbsUnit9raw_scale17hb23d6c3d0026c236E.llvm.13383457361836014260(i8 noundef %0) unnamed_addr #2 {
 switch.lookup:
-  %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds [4 x double], ptr @switch.table._ZN5typst6layout3abs7AbsUnit9raw_scale17hb23d6c3d0026c236E.llvm.13383457361836014260, i64 0, i64 %1
+  %1 = zext i8 %0 to i64
+  %switch.gep = getelementptr inbounds nuw [4 x double], ptr @switch.table._ZN5typst6layout3abs7AbsUnit9raw_scale17hb23d6c3d0026c236E.llvm.13383457361836014260, i64 0, i64 %1
   %switch.load = load double, ptr %switch.gep, align 8
   ret double %switch.load
 }
@@ -130210,11 +130210,11 @@ _ZN4core3cmp9PartialEq2ne17h60d9bcdda25a175aE.llvm.13383457361836014260.exit.i.i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define { ptr, i64 } @_ZN5typst6layout4grid1_6Fields6to_str17h64a41c5202caa18cE(i8 noundef %0) unnamed_addr #2 {
 switch.lookup:
-  %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds [9 x ptr], ptr @"switch.table._ZN69_$LT$typst..layout..grid.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h87e001db371f70b0E", i64 0, i64 %1
+  %1 = zext i8 %0 to i64
+  %switch.gep = getelementptr inbounds nuw [9 x ptr], ptr @"switch.table._ZN69_$LT$typst..layout..grid.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h87e001db371f70b0E", i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %2 = sext i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds [9 x i64], ptr @"switch.table._ZN69_$LT$typst..layout..grid.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h87e001db371f70b0E.530", i64 0, i64 %2
+  %2 = zext i8 %0 to i64
+  %switch.gep1 = getelementptr inbounds nuw [9 x i64], ptr @"switch.table._ZN69_$LT$typst..layout..grid.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h87e001db371f70b0E.530", i64 0, i64 %2
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load2, 1
@@ -142193,11 +142193,11 @@ define void @"_ZN5typst6layout4grid1_97_$LT$impl$u20$typst..foundations..cast..I
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define { ptr, i64 } @_ZN5typst6layout4grid1_6Fields6to_str17hedaeb740fed396f2E(i8 noundef %0) unnamed_addr #2 {
 switch.lookup:
-  %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @"switch.table._ZN69_$LT$typst..layout..grid.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h7890ea0112fd30a1E", i64 0, i64 %1
+  %1 = zext i8 %0 to i64
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @"switch.table._ZN69_$LT$typst..layout..grid.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h7890ea0112fd30a1E", i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %2 = sext i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds [5 x i64], ptr @"switch.table._ZN69_$LT$typst..layout..grid.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h060e9fb9a2493c40E.534", i64 0, i64 %2
+  %2 = zext i8 %0 to i64
+  %switch.gep1 = getelementptr inbounds nuw [5 x i64], ptr @"switch.table._ZN69_$LT$typst..layout..grid.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h060e9fb9a2493c40E.534", i64 0, i64 %2
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load2, 1
@@ -146200,11 +146200,11 @@ define void @"_ZN5typst6layout4grid1_96_$LT$impl$u20$typst..foundations..cast..I
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define { ptr, i64 } @_ZN5typst6layout4grid1_6Fields6to_str17h40948d7a0d9e63c6E(i8 noundef %0) unnamed_addr #2 {
 switch.lookup:
-  %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @"switch.table._ZN69_$LT$typst..layout..grid.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h060e9fb9a2493c40E", i64 0, i64 %1
+  %1 = zext i8 %0 to i64
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @"switch.table._ZN69_$LT$typst..layout..grid.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h060e9fb9a2493c40E", i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %2 = sext i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds [5 x i64], ptr @"switch.table._ZN69_$LT$typst..layout..grid.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h060e9fb9a2493c40E.534", i64 0, i64 %2
+  %2 = zext i8 %0 to i64
+  %switch.gep1 = getelementptr inbounds nuw [5 x i64], ptr @"switch.table._ZN69_$LT$typst..layout..grid.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h060e9fb9a2493c40E.534", i64 0, i64 %2
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load2, 1
@@ -150228,11 +150228,11 @@ define void @"_ZN5typst6layout4grid1_96_$LT$impl$u20$typst..foundations..cast..I
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define { ptr, i64 } @_ZN5typst6layout4grid1_6Fields6to_str17hf0ea9299af0b86abE(i8 noundef %0) unnamed_addr #2 {
 switch.lookup:
-  %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds [10 x ptr], ptr @"switch.table._ZN69_$LT$typst..layout..grid.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17hcbc60c3a491d262dE", i64 0, i64 %1
+  %1 = zext i8 %0 to i64
+  %switch.gep = getelementptr inbounds nuw [10 x ptr], ptr @"switch.table._ZN69_$LT$typst..layout..grid.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17hcbc60c3a491d262dE", i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %2 = sext i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds [10 x i64], ptr @"switch.table._ZN69_$LT$typst..layout..grid.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17hcbc60c3a491d262dE.536", i64 0, i64 %2
+  %2 = zext i8 %0 to i64
+  %switch.gep1 = getelementptr inbounds nuw [10 x i64], ptr @"switch.table._ZN69_$LT$typst..layout..grid.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17hcbc60c3a491d262dE.536", i64 0, i64 %2
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load2, 1
@@ -158434,11 +158434,11 @@ define hidden void @"_ZN70_$LT$typst..layout..spacing..Spacing$u20$as$u20$core..
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define { ptr, i64 } @_ZN5typst4math6cancel1_6Fields6to_str17h08816fa6be316931E(i8 noundef %0) unnamed_addr #2 {
 switch.lookup:
-  %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds [6 x ptr], ptr @"switch.table._ZN69_$LT$typst..math..cancel.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h025464348456c737E", i64 0, i64 %1
+  %1 = zext i8 %0 to i64
+  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @"switch.table._ZN69_$LT$typst..math..cancel.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h025464348456c737E", i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %2 = sext i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds [6 x i64], ptr @"switch.table._ZN69_$LT$typst..math..cancel.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h025464348456c737E.538", i64 0, i64 %2
+  %2 = zext i8 %0 to i64
+  %switch.gep1 = getelementptr inbounds nuw [6 x i64], ptr @"switch.table._ZN69_$LT$typst..math..cancel.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h025464348456c737E.538", i64 0, i64 %2
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load2, 1
@@ -164182,11 +164182,11 @@ common.resume:                                    ; preds = %.body, %17
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define { ptr, i64 } @_ZN5typst5model12bibliography1_6Fields6to_str17h5aedf2dc8d2e091eE(i8 noundef %0) unnamed_addr #2 {
 switch.lookup:
-  %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds [7 x ptr], ptr @"switch.table._ZN76_$LT$typst..model..bibliography.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17hd138327a16ef7c81E", i64 0, i64 %1
+  %1 = zext i8 %0 to i64
+  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @"switch.table._ZN76_$LT$typst..model..bibliography.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17hd138327a16ef7c81E", i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %2 = sext i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds [7 x i64], ptr @"switch.table._ZN76_$LT$typst..model..bibliography.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17hd138327a16ef7c81E.543", i64 0, i64 %2
+  %2 = zext i8 %0 to i64
+  %switch.gep1 = getelementptr inbounds nuw [7 x i64], ptr @"switch.table._ZN76_$LT$typst..model..bibliography.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17hd138327a16ef7c81E.543", i64 0, i64 %2
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load2, 1
@@ -168562,11 +168562,11 @@ common.resume:                                    ; preds = %7, %12
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define { ptr, i64 } @_ZN5typst5model4cite1_6Fields6to_str17h0d92883c6578e9b6E(i8 noundef %0) unnamed_addr #2 {
 switch.lookup:
-  %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds [6 x ptr], ptr @"switch.table._ZN68_$LT$typst..model..cite.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17hfa2f736ae363de91E", i64 0, i64 %1
+  %1 = zext i8 %0 to i64
+  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @"switch.table._ZN68_$LT$typst..model..cite.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17hfa2f736ae363de91E", i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %2 = sext i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds [6 x i64], ptr @"switch.table._ZN68_$LT$typst..model..cite.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17hfa2f736ae363de91E.545", i64 0, i64 %2
+  %2 = zext i8 %0 to i64
+  %switch.gep1 = getelementptr inbounds nuw [6 x i64], ptr @"switch.table._ZN68_$LT$typst..model..cite.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17hfa2f736ae363de91E.545", i64 0, i64 %2
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load2, 1
@@ -173019,11 +173019,11 @@ define internal noundef zeroext i1 @"_ZN66_$LT$typst..model..cite..CiteGroup$u20
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define { ptr, i64 } @_ZN5typst5model8document1_6Fields6to_str17h370113d65079cf42E(i8 noundef %0) unnamed_addr #2 {
 switch.lookup:
-  %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @"switch.table._ZN72_$LT$typst..model..document.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h0afc413b6d480af2E", i64 0, i64 %1
+  %1 = zext i8 %0 to i64
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @"switch.table._ZN72_$LT$typst..model..document.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h0afc413b6d480af2E", i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %2 = sext i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds [5 x i64], ptr @"switch.table._ZN72_$LT$typst..model..document.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h0afc413b6d480af2E.548", i64 0, i64 %2
+  %2 = zext i8 %0 to i64
+  %switch.gep1 = getelementptr inbounds nuw [5 x i64], ptr @"switch.table._ZN72_$LT$typst..model..document.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h0afc413b6d480af2E.548", i64 0, i64 %2
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load2, 1
@@ -175807,11 +175807,11 @@ default.unreachable4:                             ; preds = %16, %2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define { ptr, i64 } @_ZN5typst5model5quote1_6Fields6to_str17h5c21f3e04f4e9c30E(i8 noundef %0) unnamed_addr #2 {
 switch.lookup:
-  %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @"switch.table._ZN69_$LT$typst..model..quote.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17hcb148bb0caf38f16E", i64 0, i64 %1
+  %1 = zext i8 %0 to i64
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @"switch.table._ZN69_$LT$typst..model..quote.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17hcb148bb0caf38f16E", i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %2 = sext i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds [5 x i64], ptr @"switch.table._ZN69_$LT$typst..model..quote.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17hcb148bb0caf38f16E.550", i64 0, i64 %2
+  %2 = zext i8 %0 to i64
+  %switch.gep1 = getelementptr inbounds nuw [5 x i64], ptr @"switch.table._ZN69_$LT$typst..model..quote.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17hcb148bb0caf38f16E.550", i64 0, i64 %2
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load2, 1
@@ -180520,11 +180520,11 @@ default.unreachable1:                             ; preds = %2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define { ptr, i64 } @_ZN5typst9visualize4path1_6Fields6to_str17hc306dda8bc8b9d40E(i8 noundef %0) unnamed_addr #2 {
 switch.lookup:
-  %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @"switch.table._ZN72_$LT$typst..visualize..path.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17ha110e95fd1027066E", i64 0, i64 %1
+  %1 = zext i8 %0 to i64
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @"switch.table._ZN72_$LT$typst..visualize..path.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17ha110e95fd1027066E", i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %2 = sext i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds [4 x i64], ptr @"switch.table._ZN72_$LT$typst..visualize..path.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17ha110e95fd1027066E.552", i64 0, i64 %2
+  %2 = zext i8 %0 to i64
+  %switch.gep1 = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN72_$LT$typst..visualize..path.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17ha110e95fd1027066E.552", i64 0, i64 %2
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load2, 1
@@ -189019,11 +189019,11 @@ define noundef zeroext i1 @"_ZN86_$LT$typst..model..cite..CitationForm$u20$as$u2
 define void @"_ZN88_$LT$typst..model..cite..CitationForm$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17h144137f85823c366E"(ptr noalias noundef writeonly sret({ i8, [31 x i8] }) align 8 captures(none) dereferenceable(32) %0, i8 noundef %1) unnamed_addr #0 {
 switch.lookup:
   %2 = alloca { i8, [16 x i8] }, align 1
-  %3 = sext i8 %1 to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @"switch.table._ZN88_$LT$typst..model..cite..CitationForm$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17h144137f85823c366E", i64 0, i64 %3
+  %3 = zext i8 %1 to i64
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @"switch.table._ZN88_$LT$typst..model..cite..CitationForm$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17h144137f85823c366E", i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %4 = sext i8 %1 to i64
-  %switch.gep1 = getelementptr inbounds [5 x i64], ptr @"switch.table._ZN88_$LT$typst..model..cite..CitationForm$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17h144137f85823c366E.553", i64 0, i64 %4
+  %4 = zext i8 %1 to i64
+  %switch.gep1 = getelementptr inbounds nuw [5 x i64], ptr @"switch.table._ZN88_$LT$typst..model..cite..CitationForm$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17h144137f85823c366E.553", i64 0, i64 %4
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !42231)
   call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %2), !noalias !42234

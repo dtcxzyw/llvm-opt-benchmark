@@ -9047,8 +9047,8 @@ if.then.i:                                        ; preds = %sw.bb.i
   %cmp.not.i.i = icmp eq ptr %this.val7.i, null
   %spec.select.i.i = select i1 %cmp.not.i.i, ptr @.str.183, ptr %this.val7.i
   %switch.tableidx = add nsw i32 %0, 5
-  %4 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table._ZN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEE10CheckErrorEv, i64 0, i64 %4
+  %4 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEE10CheckErrorEv, i64 0, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %spec.select.i.i, ptr %err, align 8, !alias.scope !66
   %code3.i.i.i = getelementptr inbounds nuw i8, ptr %err, i64 8
@@ -9094,8 +9094,8 @@ sw.default.i:                                     ; preds = %entry
 
 switch.lookup:                                    ; preds = %sw.default.i
   %switch.tableidx5 = add nsw i32 %0, 6
-  %10 = sext i32 %switch.tableidx5 to i64
-  %switch.gep6 = getelementptr inbounds [6 x ptr], ptr @switch.table._ZN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEE10CheckErrorEv.28, i64 0, i64 %10
+  %10 = zext i32 %switch.tableidx5 to i64
+  %switch.gep6 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEE10CheckErrorEv.28, i64 0, i64 %10
   %switch.load7 = load ptr, ptr %switch.gep6, align 8
   br label %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit52.i
 

@@ -2132,20 +2132,20 @@ define dso_local noundef range(i32 0, 5) i32 @_ZN4Luau7combineENS_8RelationES0_(
   unreachable
 
 switch.lookup:                                    ; preds = %2
-  %7 = sext i32 %1 to i64
-  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table._ZN4Luau7combineENS_8RelationES0_, i64 0, i64 %7
+  %7 = zext i32 %1 to i64
+  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZN4Luau7combineENS_8RelationES0_, i64 0, i64 %7
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %10
 
 switch.lookup11:                                  ; preds = %2
-  %8 = sext i32 %1 to i64
-  %switch.gep12 = getelementptr inbounds [5 x i32], ptr @switch.table._ZN4Luau7combineENS_8RelationES0_.7, i64 0, i64 %8
+  %8 = zext i32 %1 to i64
+  %switch.gep12 = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZN4Luau7combineENS_8RelationES0_.7, i64 0, i64 %8
   %switch.load13 = load i32, ptr %switch.gep12, align 4
   br label %10
 
 switch.lookup14:                                  ; preds = %2
-  %9 = sext i32 %1 to i64
-  %switch.gep15 = getelementptr inbounds [5 x i32], ptr @switch.table._ZN4Luau7combineENS_8RelationES0_.8, i64 0, i64 %9
+  %9 = zext i32 %1 to i64
+  %switch.gep15 = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZN4Luau7combineENS_8RelationES0_.8, i64 0, i64 %9
   %switch.load16 = load i32, ptr %switch.gep15, align 4
   br label %10
 
@@ -2157,8 +2157,8 @@ switch.lookup14:                                  ; preds = %2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef range(i32 0, 4) i32 @_ZN4Luau6invertENS_8RelationE(i32 noundef %0) local_unnamed_addr #4 {
 switch.lookup:
-  %1 = sext i32 %0 to i64
-  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table._ZN4Luau6invertENS_8RelationE, i64 0, i64 %1
+  %1 = zext i32 %0 to i64
+  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZN4Luau6invertENS_8RelationE, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }

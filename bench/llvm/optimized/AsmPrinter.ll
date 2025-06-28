@@ -21154,11 +21154,11 @@ switch.lookup:                                    ; preds = %.critedge90, %_ZN4l
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #34
   %205 = getelementptr inbounds nuw i8, ptr %203, i64 312
   %206 = load i32, ptr %205, align 8, !tbaa !1452
-  %207 = sext i32 %206 to i64
-  %switch.gep = getelementptr inbounds [8 x i64], ptr @switch.table._ZNK4llvm10AsmPrinter12GetCPISymbolEj, i64 0, i64 %207
+  %207 = zext i32 %206 to i64
+  %switch.gep = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZNK4llvm10AsmPrinter12GetCPISymbolEj, i64 0, i64 %207
   %switch.load = load i64, ptr %switch.gep, align 8
-  %208 = sext i32 %206 to i64
-  %switch.gep92 = getelementptr inbounds [8 x ptr], ptr @switch.table._ZNK4llvm10AsmPrinter12GetCPISymbolEj.77, i64 0, i64 %208
+  %208 = zext i32 %206 to i64
+  %switch.gep92 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZNK4llvm10AsmPrinter12GetCPISymbolEj.77, i64 0, i64 %208
   %switch.load93 = load ptr, ptr %switch.gep92, align 8
   %209 = load ptr, ptr %20, align 8, !tbaa !381
   %210 = getelementptr inbounds nuw i8, ptr %209, i64 336
@@ -21297,11 +21297,11 @@ switch.lookup:
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #34
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 312
   %15 = load i32, ptr %14, align 8, !tbaa !1452
-  %16 = sext i32 %15 to i64
-  %switch.gep = getelementptr inbounds [8 x i64], ptr @switch.table._ZNK4llvm10AsmPrinter12GetCPISymbolEj, i64 0, i64 %16
+  %16 = zext i32 %15 to i64
+  %switch.gep = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZNK4llvm10AsmPrinter12GetCPISymbolEj, i64 0, i64 %16
   %switch.load = load i64, ptr %switch.gep, align 8
-  %17 = sext i32 %15 to i64
-  %switch.gep90 = getelementptr inbounds [8 x ptr], ptr @switch.table._ZNK4llvm10AsmPrinter12GetCPISymbolEj.77, i64 0, i64 %17
+  %17 = zext i32 %15 to i64
+  %switch.gep90 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZNK4llvm10AsmPrinter12GetCPISymbolEj.77, i64 0, i64 %17
   %switch.load91 = load ptr, ptr %switch.gep90, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %19 = load ptr, ptr %18, align 8, !tbaa !381
@@ -21460,11 +21460,11 @@ switch.lookup:                                    ; preds = %51
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #34
   %65 = getelementptr inbounds nuw i8, ptr %62, i64 312
   %66 = load i32, ptr %65, align 8, !tbaa !1452
-  %67 = sext i32 %66 to i64
-  %switch.gep = getelementptr inbounds [8 x i64], ptr @switch.table._ZNK4llvm10AsmPrinter12GetCPISymbolEj, i64 0, i64 %67
+  %67 = zext i32 %66 to i64
+  %switch.gep = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZNK4llvm10AsmPrinter12GetCPISymbolEj, i64 0, i64 %67
   %switch.load = load i64, ptr %switch.gep, align 8
-  %68 = sext i32 %66 to i64
-  %switch.gep20 = getelementptr inbounds [8 x ptr], ptr @switch.table._ZNK4llvm10AsmPrinter12GetCPISymbolEj.77, i64 0, i64 %68
+  %68 = zext i32 %66 to i64
+  %switch.gep20 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZNK4llvm10AsmPrinter12GetCPISymbolEj.77, i64 0, i64 %68
   %switch.load21 = load ptr, ptr %switch.gep20, align 8
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %70 = load ptr, ptr %69, align 8, !tbaa !381
@@ -24087,11 +24087,11 @@ _ZNK4llvm8MCSymbol11isUndefinedEb.exit.thread78:  ; preds = %51, %_ZNK4llvm8MCSy
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #34
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 312
   %76 = load i32, ptr %75, align 8, !tbaa !1452
-  %77 = sext i32 %76 to i64
-  %switch.gep = getelementptr inbounds [8 x i64], ptr @switch.table._ZNK4llvm10AsmPrinter12GetCPISymbolEj, i64 0, i64 %77
+  %77 = zext i32 %76 to i64
+  %switch.gep = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZNK4llvm10AsmPrinter12GetCPISymbolEj, i64 0, i64 %77
   %switch.load = load i64, ptr %switch.gep, align 8
-  %78 = sext i32 %76 to i64
-  %switch.gep106 = getelementptr inbounds [8 x ptr], ptr @switch.table._ZNK4llvm10AsmPrinter12GetCPISymbolEj.77, i64 0, i64 %78
+  %78 = zext i32 %76 to i64
+  %switch.gep106 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZNK4llvm10AsmPrinter12GetCPISymbolEj.77, i64 0, i64 %78
   %switch.load107 = load ptr, ptr %switch.gep106, align 8
   store ptr %switch.load107, ptr %7, align 8, !alias.scope !1580
   %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8

@@ -879,8 +879,8 @@ _ZNSt6vectorIN4llvm9StringRefESaIS1_EE9push_backEOS1_.exit119: ; preds = %98
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %107, ptr noundef nonnull align 8 dereferenceable(32) %105, i64 32, i1 false), !alias.scope !59
   call void @_ZdlPvm(ptr noundef nonnull %105, i64 noundef 32) #17
   %.sroa.13.2 = getelementptr inbounds nuw i8, ptr %107, i64 48
-  %109 = sext i32 %3 to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table._ZN4llvm12DisplayGraphENS_9StringRefEbNS_12GraphProgram4NameE.2, i64 0, i64 %109
+  %109 = zext i32 %3 to i64
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN4llvm12DisplayGraphENS_9StringRefEbNS_12GraphProgram4NameE.2, i64 0, i64 %109
   %switch.load = load ptr, ptr %switch.gep, align 8
   %110 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #16
   store ptr %switch.load, ptr %.sroa.13.2, align 8, !tbaa !17
@@ -944,8 +944,8 @@ _ZNSt6vectorIN4llvm9StringRefESaIS1_EED2Ev.exit138: ; preds = %121, %123
 switch.lookup:                                    ; preds = %137, %133
   %140 = phi ptr [ %139, %137 ], [ %136, %133 ]
   %141 = phi ptr [ %138, %137 ], [ %135, %133 ]
-  %142 = sext i32 %3 to i64
-  %switch.gep540 = getelementptr inbounds [5 x ptr], ptr @switch.table._ZN4llvm12DisplayGraphENS_9StringRefEbNS_12GraphProgram4NameE.2, i64 0, i64 %142
+  %142 = zext i32 %3 to i64
+  %switch.gep540 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN4llvm12DisplayGraphENS_9StringRefEbNS_12GraphProgram4NameE.2, i64 0, i64 %142
   %switch.load541 = load ptr, ptr %switch.gep540, align 8
   %143 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load541) #16
   %144 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112GraphSession14TryFindProgramEN4llvm9StringRefERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr nonnull %switch.load541, i64 %143, ptr noundef nonnull align 8 dereferenceable(32) %11)

@@ -19575,8 +19575,8 @@ switch.lookup:
   %8 = load i8, ptr %7, align 8
   %9 = and i8 %8, -2
   store i8 %9, ptr %7, align 8
-  %10 = sext i8 %6 to i64
-  %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table._ZNK4llvm6object14WasmObjectFile13getSymbolTypeENS0_11DataRefImplE, i64 0, i64 %10
+  %10 = zext i8 %6 to i64
+  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZNK4llvm6object14WasmObjectFile13getSymbolTypeENS0_11DataRefImplE, i64 0, i64 %10
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %0, align 8, !tbaa !1383
   ret void

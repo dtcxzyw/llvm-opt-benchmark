@@ -25910,8 +25910,9 @@ _ZN5image5error13DecodingError3new17h8953fd5d1843aebbE.exit: ; preds = %7
   ret void
 
 switch.lookup:                                    ; preds = %2
-  %18 = sext i8 %.sroa.43.0.extract.trunc to i64
-  %switch.gep = getelementptr inbounds [10 x i8], ptr @"switch.table._ZN5image4flat100_$LT$impl$u20$core..convert..From$LT$image..flat..Error$GT$$u20$for$u20$image..error..ImageError$GT$4from17h5f50fe40016feeaeE", i64 0, i64 %18
+  %.sroa.43.0.extract.trunc.mask = and i24 %.sroa.43.0.extract.shift, 255
+  %18 = zext nneg i24 %.sroa.43.0.extract.trunc.mask to i64
+  %switch.gep = getelementptr inbounds nuw [10 x i8], ptr @"switch.table._ZN5image4flat100_$LT$impl$u20$core..convert..From$LT$image..flat..Error$GT$$u20$for$u20$image..error..ImageError$GT$4from17h5f50fe40016feeaeE", i64 0, i64 %18
   %switch.load = load i8, ptr %switch.gep, align 1
   store i8 3, ptr %0, align 8
   %.sroa.425.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32

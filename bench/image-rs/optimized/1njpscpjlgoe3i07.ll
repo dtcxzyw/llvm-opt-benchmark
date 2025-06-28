@@ -25307,8 +25307,8 @@ switch.lookup:                                    ; preds = %176
   %.sroa.4.sroa.13.sroa.6.0..sroa.4.sroa.13.0..sroa.4.0..sroa_idx.sroa_idx.sroa_idx.val = load i32, ptr %.sroa.4.sroa.13.sroa.6.0..sroa.4.sroa.13.0..sroa.4.0..sroa_idx.sroa_idx.sroa_idx, align 8
   %.sroa.4.sroa.10.0..sroa.4.0..sroa_idx.sroa_idx.val = load i32, ptr %.sroa.4.sroa.10.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   %.0.i3.i = select i1 %switch.not.i.i, i32 %.sroa.4.sroa.13.sroa.6.0..sroa.4.sroa.13.0..sroa.4.0..sroa_idx.sroa_idx.sroa_idx.val, i32 %.sroa.4.sroa.10.0..sroa.4.0..sroa_idx.sroa_idx.val
-  %181 = sext i8 %.sroa.58.0 to i64
-  %switch.gep = getelementptr inbounds [6 x i64], ptr @switch.table._ZN5image5image12ImageDecoder11total_bytes17hd6a458d65f001f1bE, i64 0, i64 %181
+  %181 = zext i8 %.sroa.58.0 to i64
+  %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZN5image5image12ImageDecoder11total_bytes17hd6a458d65f001f1bE, i64 0, i64 %181
   %switch.load = load i64, ptr %switch.gep, align 8
   %182 = zext i32 %.0.i.i to i64
   %183 = zext i32 %.0.i3.i to i64
@@ -27618,8 +27618,8 @@ switch.lookup:                                    ; preds = %489
   %.sroa.4.sroa.13.0..sroa.4.0..sroa_idx.sroa_idx.val = load i32, ptr %.sroa.4.sroa.13.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   %.sroa.4.sroa.9.0..sroa.4.0..sroa_idx.sroa_idx.val = load i32, ptr %.sroa.4.sroa.9.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   %.0.i3.i = select i1 %switch.not.i.i, i32 %.sroa.4.sroa.13.0..sroa.4.0..sroa_idx.sroa_idx.val, i32 %.sroa.4.sroa.9.0..sroa.4.0..sroa_idx.sroa_idx.val
-  %496 = sext i8 %.sroa.66.0 to i64
-  %switch.gep = getelementptr inbounds [6 x i64], ptr @switch.table._ZN5image5image12ImageDecoder11total_bytes17hd6a458d65f001f1bE, i64 0, i64 %496
+  %496 = zext i8 %.sroa.66.0 to i64
+  %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZN5image5image12ImageDecoder11total_bytes17hd6a458d65f001f1bE, i64 0, i64 %496
   %switch.load = load i64, ptr %switch.gep, align 8
   %497 = zext i32 %.0.i.i to i64
   %498 = zext i32 %.0.i3.i to i64
@@ -33342,11 +33342,11 @@ switch.lookup:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define { ptr, i64 } @_ZN5image5image11ImageFormat14extensions_str17h9f4884680d107906E(i8 noundef %0) unnamed_addr #17 {
 switch.lookup:
-  %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds [15 x ptr], ptr @switch.table._ZN5image5image11ImageFormat14extensions_str17h9f4884680d107906E, i64 0, i64 %1
+  %1 = zext i8 %0 to i64
+  %switch.gep = getelementptr inbounds nuw [15 x ptr], ptr @switch.table._ZN5image5image11ImageFormat14extensions_str17h9f4884680d107906E, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %2 = sext i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds [15 x i64], ptr @switch.table._ZN5image5image11ImageFormat14extensions_str17h9f4884680d107906E.121, i64 0, i64 %2
+  %2 = zext i8 %0 to i64
+  %switch.gep1 = getelementptr inbounds nuw [15 x i64], ptr @switch.table._ZN5image5image11ImageFormat14extensions_str17h9f4884680d107906E.121, i64 0, i64 %2
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load2, 1

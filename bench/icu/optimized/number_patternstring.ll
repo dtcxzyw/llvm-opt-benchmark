@@ -5747,8 +5747,8 @@ define noundef range(i32 0, 3) i32 @_ZN6icu_776number4impl18PatternStringUtils18
 
 .sink.split:                                      ; preds = %9, %7, %5, %3
   %switch.table._ZN6icu_776number4impl18PatternStringUtils18resolveSignDisplayE18UNumberSignDisplayNS1_6SignumE.3.sink = phi ptr [ @switch.table._ZN6icu_776number4impl18PatternStringUtils18resolveSignDisplayE18UNumberSignDisplayNS1_6SignumE, %3 ], [ @switch.table._ZN6icu_776number4impl18PatternStringUtils18resolveSignDisplayE18UNumberSignDisplayNS1_6SignumE.1, %5 ], [ @switch.table._ZN6icu_776number4impl18PatternStringUtils18resolveSignDisplayE18UNumberSignDisplayNS1_6SignumE.2, %7 ], [ @switch.table._ZN6icu_776number4impl18PatternStringUtils18resolveSignDisplayE18UNumberSignDisplayNS1_6SignumE.3, %9 ]
-  %12 = sext i32 %1 to i64
-  %switch.gep13 = getelementptr inbounds [4 x i32], ptr %switch.table._ZN6icu_776number4impl18PatternStringUtils18resolveSignDisplayE18UNumberSignDisplayNS1_6SignumE.3.sink, i64 0, i64 %12
+  %12 = zext i32 %1 to i64
+  %switch.gep13 = getelementptr inbounds nuw [4 x i32], ptr %switch.table._ZN6icu_776number4impl18PatternStringUtils18resolveSignDisplayE18UNumberSignDisplayNS1_6SignumE.3.sink, i64 0, i64 %12
   %switch.load14 = load i32, ptr %switch.gep13, align 4
   br label %13
 

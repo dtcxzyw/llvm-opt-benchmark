@@ -6731,11 +6731,11 @@ _ZNK4llvm12InfoByHwModeINS_3MVTEE8isSimpleEv.exit: ; preds = %9
 _ZNK4llvm12InfoByHwModeINS_3MVTEE8isSimpleEv.exit.thread: ; preds = %9, %_ZNK4llvm12InfoByHwModeINS_3MVTEE8isSimpleEv.exit, %18, %21, %2
   %.sroa.0.0 = phi i16 [ 0, %2 ], [ %20, %18 ], [ 0, %_ZNK4llvm12InfoByHwModeINS_3MVTEE8isSimpleEv.exit ], [ 0, %21 ], [ 0, %9 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #19
-  %24 = sext i32 %8 to i64
-  %switch.gep = getelementptr inbounds [13 x i64], ptr @switch.table._ZL18emitTypeConstraintRN4llvm11raw_ostreamENS_16SDTypeConstraintE, i64 0, i64 %24
+  %24 = zext i32 %8 to i64
+  %switch.gep = getelementptr inbounds nuw [13 x i64], ptr @switch.table._ZL18emitTypeConstraintRN4llvm11raw_ostreamENS_16SDTypeConstraintE, i64 0, i64 %24
   %switch.load = load i64, ptr %switch.gep, align 8
-  %25 = sext i32 %8 to i64
-  %switch.gep4 = getelementptr inbounds [13 x ptr], ptr @switch.table._ZL18emitTypeConstraintRN4llvm11raw_ostreamENS_16SDTypeConstraintE.12, i64 0, i64 %25
+  %25 = zext i32 %8 to i64
+  %switch.gep4 = getelementptr inbounds nuw [13 x ptr], ptr @switch.table._ZL18emitTypeConstraintRN4llvm11raw_ostreamENS_16SDTypeConstraintE.12, i64 0, i64 %25
   %switch.load5 = load ptr, ptr %switch.gep4, align 8
   store ptr %switch.load5, ptr %4, align 8
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 8

@@ -16145,9 +16145,8 @@ define dso_local ptr @genClusterInfoString() local_unnamed_addr #3 {
 
 switch.lookup:                                    ; preds = %52
   %58 = add nsw i64 %56, %.03975
-  %sext = shl i64 %indvars.iv81, 32
-  %59 = ashr exact i64 %sext, 32
-  %switch.gep = getelementptr inbounds [11 x ptr], ptr @switch.table.genClusterInfoString.17, i64 0, i64 %59
+  %59 = and i64 %indvars.iv81, 4294967295
+  %switch.gep = getelementptr inbounds nuw [11 x ptr], ptr @switch.table.genClusterInfoString.17, i64 0, i64 %59
   %switch.load = load ptr, ptr %switch.gep, align 8
   %60 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %.04174, ptr noundef nonnull @.str.195, ptr noundef nonnull %switch.load, i64 noundef %56) #33
   %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7920), align 8, !tbaa !56
@@ -16182,9 +16181,8 @@ switch.lookup:                                    ; preds = %52
 
 switch.lookup92:                                  ; preds = %69
   %75 = add nsw i64 %73, %.03878
-  %sext95 = shl i64 %indvars.iv85, 32
-  %76 = ashr exact i64 %sext95, 32
-  %switch.gep93 = getelementptr inbounds [11 x ptr], ptr @switch.table.genClusterInfoString.17, i64 0, i64 %76
+  %76 = and i64 %indvars.iv85, 4294967295
+  %switch.gep93 = getelementptr inbounds nuw [11 x ptr], ptr @switch.table.genClusterInfoString.17, i64 0, i64 %76
   %switch.load94 = load ptr, ptr %switch.gep93, align 8
   %77 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %.277, ptr noundef nonnull @.str.197, ptr noundef nonnull %switch.load94, i64 noundef %73) #33
   %.pre90 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7920), align 8, !tbaa !56

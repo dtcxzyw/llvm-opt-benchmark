@@ -17089,8 +17089,8 @@ define void @"_ZN73_$LT$theme..registry..ThemeRegistry$u20$as$u20$core..default.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef float @_ZN5theme8settings9UiDensity13spacing_ratio17h8fdb46d5bea9d5cbE(i8 noundef %0) unnamed_addr #2 {
 switch.lookup:
-  %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds [3 x float], ptr @switch.table._ZN5theme8settings9UiDensity13spacing_ratio17h8fdb46d5bea9d5cbE, i64 0, i64 %1
+  %1 = zext i8 %0 to i64
+  %switch.gep = getelementptr inbounds nuw [3 x float], ptr @switch.table._ZN5theme8settings9UiDensity13spacing_ratio17h8fdb46d5bea9d5cbE, i64 0, i64 %1
   %switch.load = load float, ptr %switch.gep, align 4
   ret float %switch.load
 }

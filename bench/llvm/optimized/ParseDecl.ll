@@ -851,8 +851,8 @@ _ZN5clang6Parser39getDeclSpecContextFromDeclaratorContextENS_17DeclaratorContext
 
 switch.lookup:                                    ; preds = %36, %_ZN5clang6Parser39getDeclSpecContextFromDeclaratorContextENS_17DeclaratorContextE.exit
   %switch.tableidx = add nsw i32 %22, -1
-  %44 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [13 x i32], ptr @switch.table._ZN5clang6Parser13ParseTypeNameEPNS_11SourceRangeENS_17DeclaratorContextENS_15AccessSpecifierEPPNS_4DeclEPNS_16ParsedAttributesE, i64 0, i64 %44
+  %44 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [13 x i32], ptr @switch.table._ZN5clang6Parser13ParseTypeNameEPNS_11SourceRangeENS_17DeclaratorContextENS_15AccessSpecifierEPPNS_4DeclEPNS_16ParsedAttributesE, i64 0, i64 %44
   %switch.load = load i32, ptr %switch.gep, align 4
   call void @_ZN5clang6Parser27ParseSpecifierQualifierListERNS_8DeclSpecENS_23ImplicitTypenameContextENS_15AccessSpecifierENS0_15DeclSpecContextE(ptr noundef nonnull align 8 dereferenceable(2936) %0, ptr noundef nonnull align 8 dereferenceable(360) %8, i32 noundef %switch.load, i32 noundef %3, i32 noundef %22)
   %.not28 = icmp eq ptr %4, null
@@ -1130,8 +1130,8 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef range(i32 0, 14) i32 @_ZN5clang6Parser39getDeclSpecContextFromDeclaratorContextENS_17DeclaratorContextE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(2936) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
 switch.lookup:
-  %2 = sext i32 %1 to i64
-  %switch.gep = getelementptr inbounds [28 x i32], ptr @switch.table._ZN5clang6Parser22ParseSimpleDeclarationENS_17DeclaratorContextERNS_14SourceLocationERNS_16ParsedAttributesES5_bPNS0_12ForRangeInitEPS2_, i64 0, i64 %2
+  %2 = zext i32 %1 to i64
+  %switch.gep = getelementptr inbounds nuw [28 x i32], ptr @switch.table._ZN5clang6Parser22ParseSimpleDeclarationENS_17DeclaratorContextERNS_14SourceLocationERNS_16ParsedAttributesES5_bPNS0_12ForRangeInitEPS2_, i64 0, i64 %2
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -3321,8 +3321,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang24BalancedDelimiterTrack
 
 switch.lookup:                                    ; preds = %1
   %switch.tableidx = add nsw i16 %5, -20
-  %9 = sext i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [5 x i64], ptr @switch.table._ZN5clang24BalancedDelimiterTracker11consumeOpenEv, i64 0, i64 %9
+  %9 = zext i16 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN5clang24BalancedDelimiterTracker11consumeOpenEv, i64 0, i64 %9
   %switch.load = load i64, ptr %switch.gep, align 8
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 %switch.load
   %11 = load i16, ptr %10, align 2, !tbaa !1131
@@ -20146,11 +20146,11 @@ switch.lookup:
   store i32 0, ptr %10, align 8, !tbaa !1248
   %58 = getelementptr inbounds nuw i8, ptr %10, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %58, i8 0, i64 16, i1 false)
-  %59 = sext i32 %1 to i64
-  %switch.gep = getelementptr inbounds [28 x i32], ptr @switch.table._ZN5clang6Parser22ParseSimpleDeclarationENS_17DeclaratorContextERNS_14SourceLocationERNS_16ParsedAttributesES5_bPNS0_12ForRangeInitEPS2_, i64 0, i64 %59
+  %59 = zext i32 %1 to i64
+  %switch.gep = getelementptr inbounds nuw [28 x i32], ptr @switch.table._ZN5clang6Parser22ParseSimpleDeclarationENS_17DeclaratorContextERNS_14SourceLocationERNS_16ParsedAttributesES5_bPNS0_12ForRangeInitEPS2_, i64 0, i64 %59
   %switch.load = load i32, ptr %switch.gep, align 4
-  %60 = sext i32 %1 to i64
-  %switch.gep30 = getelementptr inbounds [28 x i32], ptr @switch.table._ZN5clang6Parser22ParseSimpleDeclarationENS_17DeclaratorContextERNS_14SourceLocationERNS_16ParsedAttributesES5_bPNS0_12ForRangeInitEPS2_.42, i64 0, i64 %60
+  %60 = zext i32 %1 to i64
+  %switch.gep30 = getelementptr inbounds nuw [28 x i32], ptr @switch.table._ZN5clang6Parser22ParseSimpleDeclarationENS_17DeclaratorContextERNS_14SourceLocationERNS_16ParsedAttributesES5_bPNS0_12ForRangeInitEPS2_.42, i64 0, i64 %60
   %switch.load31 = load i32, ptr %switch.gep30, align 4
   call void @_ZN5clang6Parser26ParseDeclarationSpecifiersERNS_8DeclSpecERNS0_18ParsedTemplateInfoENS_15AccessSpecifierENS0_15DeclSpecContextEPNS0_18LateParsedAttrListENS_23ImplicitTypenameContextE(ptr noundef nonnull align 8 dereferenceable(2936) %0, ptr noundef nonnull align 8 dereferenceable(360) %9, ptr noundef nonnull align 8 dereferenceable(25) %10, i32 noundef 3, i32 noundef %switch.load, ptr noundef null, i32 noundef %switch.load31)
   %61 = call noundef zeroext i1 @_ZNK5clang8DeclSpec16hasTagDefinitionEv(ptr noundef nonnull align 8 dereferenceable(360) %9) #26
@@ -20801,8 +20801,8 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %_ZNSt7__cxx1112basi
   store i32 0, ptr %9, align 8, !tbaa !1248
   %222 = getelementptr inbounds nuw i8, ptr %9, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %222, i8 0, i64 16, i1 false)
-  %223 = sext i32 %3 to i64
-  %switch.gep = getelementptr inbounds [14 x i32], ptr @switch.table._ZN5clang6Parser37DiagnoseMissingSemiAfterTagDefinitionERNS_8DeclSpecENS_15AccessSpecifierENS0_15DeclSpecContextEPNS0_18LateParsedAttrListE, i64 0, i64 %223
+  %223 = zext i32 %3 to i64
+  %switch.gep = getelementptr inbounds nuw [14 x i32], ptr @switch.table._ZN5clang6Parser37DiagnoseMissingSemiAfterTagDefinitionERNS_8DeclSpecENS_15AccessSpecifierENS0_15DeclSpecContextEPNS0_18LateParsedAttrListE, i64 0, i64 %223
   %switch.load = load i32, ptr %switch.gep, align 4
   call void @_ZN5clang6Parser26ParseDeclarationSpecifiersERNS_8DeclSpecERNS0_18ParsedTemplateInfoENS_15AccessSpecifierENS0_15DeclSpecContextEPNS0_18LateParsedAttrListENS_23ImplicitTypenameContextE(ptr noundef nonnull align 8 dereferenceable(2936) %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(25) %9, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %switch.load)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #26

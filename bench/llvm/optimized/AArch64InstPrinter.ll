@@ -5483,9 +5483,8 @@ switch.lookup:
   %7 = load ptr, ptr %5, align 8, !tbaa !26
   %8 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %7, i64 %6, i32 1
   %9 = load i64, ptr %8, align 8, !tbaa !30
-  %sext = shl i64 %9, 32
-  %10 = ashr exact i64 %sext, 32
-  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN4llvm18AArch64InstPrinter20printInverseCondCodeEPKNS_6MCInstEjRKNS_15MCSubtargetInfoERNS_11raw_ostreamE, i64 0, i64 %10
+  %10 = and i64 %9, 4294967295
+  %switch.gep = getelementptr inbounds nuw [16 x ptr], ptr @switch.table._ZN4llvm18AArch64InstPrinter20printInverseCondCodeEPKNS_6MCInstEjRKNS_15MCSubtargetInfoERNS_11raw_ostreamE, i64 0, i64 %10
   %switch.load = load ptr, ptr %switch.gep, align 8
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %12 = load ptr, ptr %11, align 8, !tbaa !20
@@ -14595,8 +14594,8 @@ _ZN4llvm13MCInstPrinter10WithMarkuplsIA2_cEERS1_RKT_.exit: ; preds = %61, %63
 _ZN4llvm11raw_ostreamlsEPKc.exit29:               ; preds = %79, %81
   %.0.i.i28 = phi ptr [ %80, %79 ], [ %4, %81 ]
   %switch.tableidx = add nsw i32 %.0.i.i46, -5
-  %84 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table._ZN4llvm18AArch64InstPrinter16printArithExtendEPKNS_6MCInstEjRKNS_15MCSubtargetInfoERNS_11raw_ostreamE, i64 0, i64 %84
+  %84 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN4llvm18AArch64InstPrinter16printArithExtendEPKNS_6MCInstEjRKNS_15MCSubtargetInfoERNS_11raw_ostreamE, i64 0, i64 %84
   %switch.load = load ptr, ptr %switch.gep, align 8
   %85 = getelementptr inbounds nuw i8, ptr %.0.i.i28, i64 24
   %86 = load ptr, ptr %85, align 8, !tbaa !20
@@ -16648,10 +16647,9 @@ switch.lookup:
   %7 = load ptr, ptr %5, align 8, !tbaa !26
   %8 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %7, i64 %6, i32 1
   %9 = load i64, ptr %8, align 8, !tbaa !30
-  %10 = shl i64 %9, 32
-  %sext = ashr exact i64 %10, 32
-  %11 = xor i64 %sext, 1
-  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN4llvm18AArch64InstPrinter20printInverseCondCodeEPKNS_6MCInstEjRKNS_15MCSubtargetInfoERNS_11raw_ostreamE, i64 0, i64 %11
+  %10 = and i64 %9, 4294967295
+  %11 = xor i64 %10, 1
+  %switch.gep = getelementptr inbounds nuw [16 x ptr], ptr @switch.table._ZN4llvm18AArch64InstPrinter20printInverseCondCodeEPKNS_6MCInstEjRKNS_15MCSubtargetInfoERNS_11raw_ostreamE, i64 0, i64 %11
   %switch.load = load ptr, ptr %switch.gep, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %13 = load ptr, ptr %12, align 8, !tbaa !20
@@ -27917,8 +27915,8 @@ define internal fastcc i32 @_ZL21getNextVectorRegisterN4llvm10MCRegisterEj(i32 %
   %.sroa.080.084 = phi i32 [ %switch.load, %.lr.ph ], [ %0, %2 ]
   %3 = add nsw i32 %.in, -1
   %switch.tableidx = add nsw i32 %.sroa.080.084, -112
-  %4 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [188 x i32], ptr @switch.table._ZL21getNextVectorRegisterN4llvm10MCRegisterEj, i64 0, i64 %4
+  %4 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [188 x i32], ptr @switch.table._ZL21getNextVectorRegisterN4llvm10MCRegisterEj, i64 0, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !402

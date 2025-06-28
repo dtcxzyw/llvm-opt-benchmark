@@ -4938,8 +4938,8 @@ _ZNK4llvm3EVTneES0_.exit.thread:                  ; preds = %132, %_ZNK4llvm3EVT
 define dso_local noundef range(i32 180, 184) i32 @_ZN4llvm3ISD22getInverseMinMaxOpcodeEj(i32 noundef %0) local_unnamed_addr #0 {
 switch.lookup:
   %switch.tableidx = add nsw i32 %0, -180
-  %1 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table._ZN4llvm3ISD22getInverseMinMaxOpcodeEj, i64 0, i64 %1
+  %1 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN4llvm3ISD22getInverseMinMaxOpcodeEj, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -5590,12 +5590,12 @@ define dso_local noundef range(i32 0, -16) i32 @_ZN4llvm3ISD19getSetCCOrOperatio
 
 _ZNK4llvm3EVT9isIntegerEv.exit.thread:            ; preds = %7, %11
   %switch.tableidx = add nsw i32 %0, -10
-  %13 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [13 x i32], ptr @switch.table._ZN4llvm3ISD20getSetCCAndOperationENS0_8CondCodeES1_NS_3EVTE.127, i64 0, i64 %13
+  %13 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [13 x i32], ptr @switch.table._ZN4llvm3ISD20getSetCCAndOperationENS0_8CondCodeES1_NS_3EVTE.127, i64 0, i64 %13
   %switch.load = load i32, ptr %switch.gep, align 4
   %switch.tableidx17 = add nsw i32 %1, -10
-  %14 = sext i32 %switch.tableidx17 to i64
-  %switch.gep18 = getelementptr inbounds [13 x i32], ptr @switch.table._ZN4llvm3ISD20getSetCCAndOperationENS0_8CondCodeES1_NS_3EVTE.127, i64 0, i64 %14
+  %14 = zext i32 %switch.tableidx17 to i64
+  %switch.gep18 = getelementptr inbounds nuw [13 x i32], ptr @switch.table._ZN4llvm3ISD20getSetCCAndOperationENS0_8CondCodeES1_NS_3EVTE.127, i64 0, i64 %14
   %switch.load19 = load i32, ptr %switch.gep18, align 4
   %15 = or i32 %switch.load19, %switch.load
   %16 = icmp eq i32 %15, 3
@@ -5643,12 +5643,12 @@ define dso_local noundef i32 @_ZN4llvm3ISD20getSetCCAndOperationENS0_8CondCodeES
 
 _ZNK4llvm3EVT9isIntegerEv.exit.thread:            ; preds = %7, %11
   %switch.tableidx = add nsw i32 %0, -10
-  %13 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [13 x i32], ptr @switch.table._ZN4llvm3ISD20getSetCCAndOperationENS0_8CondCodeES1_NS_3EVTE.127, i64 0, i64 %13
+  %13 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [13 x i32], ptr @switch.table._ZN4llvm3ISD20getSetCCAndOperationENS0_8CondCodeES1_NS_3EVTE.127, i64 0, i64 %13
   %switch.load = load i32, ptr %switch.gep, align 4
   %switch.tableidx17 = add nsw i32 %1, -10
-  %14 = sext i32 %switch.tableidx17 to i64
-  %switch.gep18 = getelementptr inbounds [13 x i32], ptr @switch.table._ZN4llvm3ISD20getSetCCAndOperationENS0_8CondCodeES1_NS_3EVTE.127, i64 0, i64 %14
+  %14 = zext i32 %switch.tableidx17 to i64
+  %switch.gep18 = getelementptr inbounds nuw [13 x i32], ptr @switch.table._ZN4llvm3ISD20getSetCCAndOperationENS0_8CondCodeES1_NS_3EVTE.127, i64 0, i64 %14
   %switch.load19 = load i32, ptr %switch.gep18, align 4
   %15 = or i32 %switch.load19, %switch.load
   %16 = icmp eq i32 %15, 3
@@ -45557,8 +45557,8 @@ _ZNK4llvm5APInt13getActiveBitsEv.exit.i26:        ; preds = %_ZNK4llvm9KnownBits
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #34
   call void @_ZN4llvm13ConstantRange13fromKnownBitsERKNS_9KnownBitsEb(ptr dead_on_unwind nonnull writable sret(%"class.llvm::ConstantRange") align 8 %13, ptr noundef nonnull align 8 dereferenceable(32) %8, i1 noundef zeroext false) #34
   %90 = call noundef i32 @_ZNK4llvm13ConstantRange22unsignedAddMayOverflowERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %13) #34
-  %91 = sext i32 %90 to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table._ZNK4llvm12SelectionDAG29computeOverflowForUnsignedMulENS_7SDValueES1_, i64 0, i64 %91
+  %91 = zext i32 %90 to i64
+  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZNK4llvm12SelectionDAG29computeOverflowForUnsignedMulENS_7SDValueES1_, i64 0, i64 %91
   %switch.load = load i32, ptr %switch.gep, align 4
   %92 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %93 = load i32, ptr %92, align 8, !tbaa !109
@@ -45757,8 +45757,8 @@ switch.lookup:                                    ; preds = %25, %_ZN4llvm14isNu
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #34
   call void @_ZN4llvm13ConstantRange13fromKnownBitsERKNS_9KnownBitsEb(ptr dead_on_unwind nonnull writable sret(%"class.llvm::ConstantRange") align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %7, i1 noundef zeroext true) #34
   %28 = call noundef i32 @_ZNK4llvm13ConstantRange20signedSubMayOverflowERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9) #34
-  %29 = sext i32 %28 to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table._ZNK4llvm12SelectionDAG29computeOverflowForUnsignedMulENS_7SDValueES1_, i64 0, i64 %29
+  %29 = zext i32 %28 to i64
+  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZNK4llvm12SelectionDAG29computeOverflowForUnsignedMulENS_7SDValueES1_, i64 0, i64 %29
   %switch.load = load i32, ptr %switch.gep, align 4
   %30 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %31 = load i32, ptr %30, align 8, !tbaa !109
@@ -45939,8 +45939,8 @@ _ZN4llvm14isNullConstantENS_7SDValueE.exit.thread: ; preds = %5, %18, %_ZN4llvm1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #34
   call void @_ZN4llvm13ConstantRange13fromKnownBitsERKNS_9KnownBitsEb(ptr dead_on_unwind nonnull writable sret(%"class.llvm::ConstantRange") align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %7, i1 noundef zeroext false) #34
   %23 = call noundef i32 @_ZNK4llvm13ConstantRange22unsignedSubMayOverflowERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9) #34
-  %24 = sext i32 %23 to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table._ZNK4llvm12SelectionDAG29computeOverflowForUnsignedMulENS_7SDValueES1_, i64 0, i64 %24
+  %24 = zext i32 %23 to i64
+  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZNK4llvm12SelectionDAG29computeOverflowForUnsignedMulENS_7SDValueES1_, i64 0, i64 %24
   %switch.load = load i32, ptr %switch.gep, align 4
   %25 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %26 = load i32, ptr %25, align 8, !tbaa !109
@@ -46141,8 +46141,8 @@ _ZN4llvm13isOneConstantENS_7SDValueE.exit.thread: ; preds = %5, %_ZN4llvm14isNul
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #34
   call void @_ZN4llvm13ConstantRange13fromKnownBitsERKNS_9KnownBitsEb(ptr dead_on_unwind nonnull writable sret(%"class.llvm::ConstantRange") align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %7, i1 noundef zeroext false) #34
   %29 = call noundef i32 @_ZNK4llvm13ConstantRange22unsignedMulMayOverflowERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9) #34
-  %30 = sext i32 %29 to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table._ZNK4llvm12SelectionDAG29computeOverflowForUnsignedMulENS_7SDValueES1_, i64 0, i64 %30
+  %30 = zext i32 %29 to i64
+  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZNK4llvm12SelectionDAG29computeOverflowForUnsignedMulENS_7SDValueES1_, i64 0, i64 %30
   %switch.load = load i32, ptr %switch.gep, align 4
   %31 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %32 = load i32, ptr %31, align 8, !tbaa !109
@@ -86410,8 +86410,8 @@ switch.lookup:
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load i32, ptr %7, align 8, !tbaa !96
   %switch.tableidx = add nsw i32 %8, -101
-  %9 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [48 x i32], ptr @switch.table._ZN4llvm12SelectionDAG18mutateStrictFPToFPEPNS_6SDNodeE, i64 0, i64 %9
+  %9 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [48 x i32], ptr @switch.table._ZN4llvm12SelectionDAG18mutateStrictFPToFPEPNS_6SDNodeE, i64 0, i64 %9
   %switch.load = load i32, ptr %switch.gep, align 4
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %11 = load ptr, ptr %10, align 8, !tbaa !102

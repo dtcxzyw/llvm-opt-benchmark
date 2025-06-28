@@ -1122,8 +1122,8 @@ define linkonce_odr hidden void @_ZN14AccessInternal15RuntimeDispatchILm270400EP
 
 _ZN14AccessInternal15BarrierResolverILm270400EPFvP7oopDescS2_mELNS_11BarrierTypeE9EE15resolve_barrierEv.exit: ; preds = %13, %10
   %switch.table._ZN14AccessInternal15RuntimeDispatchILm270400EP7oopDescLNS_11BarrierTypeE9EE10clone_initES2_S2_m.11.sink = phi ptr [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm270400EP7oopDescLNS_11BarrierTypeE9EE10clone_initES2_S2_m, %10 ], [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm270400EP7oopDescLNS_11BarrierTypeE9EE10clone_initES2_S2_m.11, %13 ]
-  %16 = sext i32 %switch.tableidx to i64
-  %switch.gep6 = getelementptr inbounds [6 x ptr], ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm270400EP7oopDescLNS_11BarrierTypeE9EE10clone_initES2_S2_m.11.sink, i64 0, i64 %16
+  %16 = zext i32 %switch.tableidx to i64
+  %switch.gep6 = getelementptr inbounds nuw [6 x ptr], ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm270400EP7oopDescLNS_11BarrierTypeE9EE10clone_initES2_S2_m.11.sink, i64 0, i64 %16
   %switch.load7 = load ptr, ptr %switch.gep6, align 8
   store ptr %switch.load7, ptr @_ZN14AccessInternal15RuntimeDispatchILm270400EP7oopDescLNS_11BarrierTypeE9EE11_clone_funcE, align 8
   tail call void %switch.load7(ptr noundef %0, ptr noundef %1, i64 noundef %2) #8
@@ -2128,8 +2128,8 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal15RuntimeDispatchILm3
 
 _ZN14AccessInternal15BarrierResolverILm331846EPFP7oopDescPvELNS_11BarrierTypeE2EE15resolve_barrierEv.exit: ; preds = %11, %8
   %switch.table._ZN14AccessInternal15RuntimeDispatchILm331846EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.12.sink = phi ptr [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm331846EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv, %8 ], [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm331846EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.12, %11 ]
-  %14 = sext i32 %switch.tableidx to i64
-  %switch.gep5 = getelementptr inbounds [6 x ptr], ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm331846EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.12.sink, i64 0, i64 %14
+  %14 = zext i32 %switch.tableidx to i64
+  %switch.gep5 = getelementptr inbounds nuw [6 x ptr], ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm331846EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.12.sink, i64 0, i64 %14
   %switch.load6 = load ptr, ptr %switch.gep5, align 8
   store ptr %switch.load6, ptr @_ZN14AccessInternal15RuntimeDispatchILm331846EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
   %15 = tail call noundef ptr %switch.load6(ptr noundef %0) #8
@@ -2935,8 +2935,8 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal15RuntimeDispatchILm2
 
 _ZN14AccessInternal15BarrierResolverILm299078EPFP7oopDescPvELNS_11BarrierTypeE2EE15resolve_barrierEv.exit: ; preds = %11, %8
   %switch.table._ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.13.sink = phi ptr [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv, %8 ], [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.13, %11 ]
-  %14 = sext i32 %switch.tableidx to i64
-  %switch.gep5 = getelementptr inbounds [6 x ptr], ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.13.sink, i64 0, i64 %14
+  %14 = zext i32 %switch.tableidx to i64
+  %switch.gep5 = getelementptr inbounds nuw [6 x ptr], ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.13.sink, i64 0, i64 %14
   %switch.load6 = load ptr, ptr %switch.gep5, align 8
   store ptr %switch.load6, ptr @_ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
   %15 = tail call noundef ptr %switch.load6(ptr noundef %0) #8

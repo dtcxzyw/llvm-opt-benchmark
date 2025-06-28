@@ -5797,8 +5797,8 @@ _ZN4core7unicode12unicode_data11white_space6lookup17hd45bc17fb77ea212E.llvm.1001
 switch.lookup:                                    ; preds = %328
   %423 = getelementptr inbounds nuw i8, ptr %56, i64 1
   %424 = load i8, ptr %423, align 1, !range !978, !noundef !8
-  %425 = sext i8 %307 to i64
-  %switch.gep = getelementptr inbounds [11 x i8], ptr @switch.table._ZN9uv_pep5086marker5parse27parse_inverted_version_expr17h55e1e11719d767a9E, i64 0, i64 %425
+  %425 = zext i8 %307 to i64
+  %switch.gep = getelementptr inbounds nuw [11 x i8], ptr @switch.table._ZN9uv_pep5086marker5parse27parse_inverted_version_expr17h55e1e11719d767a9E, i64 0, i64 %425
   %switch.load = load i8, ptr %switch.gep, align 1
   store i8 2, ptr %41, align 8
   %.sroa.445.0..sroa_idx = getelementptr inbounds nuw i8, ptr %41, i64 1

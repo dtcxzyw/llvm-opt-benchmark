@@ -1118,9 +1118,9 @@ switch.lookup:
   %switch.gep = getelementptr inbounds nuw [256 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfce0db9a72f0de15E", i64 0, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext i8 %switch.tableidx to i64
-  %switch.gep2 = getelementptr inbounds nuw [256 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfce0db9a72f0de15E.132", i64 0, i64 %4
-  %switch.load3 = load ptr, ptr %switch.gep2, align 8
-  %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
+  %switch.gep1 = getelementptr inbounds nuw [256 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfce0db9a72f0de15E.132", i64 0, i64 %4
+  %switch.load2 = load ptr, ptr %switch.gep1, align 8
+  %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
 }
 
@@ -20798,8 +20798,8 @@ default.unreachable1:                             ; preds = %2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define { i32, i32 } @"_ZN3hir7from_id96_$LT$impl$u20$core..convert..From$LT$hir..DefWithBody$GT$$u20$for$u20$hir_def..DefWithBodyId$GT$4from17h34f5dcb8c3d8bf8eE"(i32 noundef %0, i32 noundef %1) unnamed_addr #12 {
 switch.lookup:
-  %2 = sext i32 %0 to i64
-  %switch.gep = getelementptr inbounds [5 x i32], ptr @"switch.table._ZN3hir7from_id96_$LT$impl$u20$core..convert..From$LT$hir..DefWithBody$GT$$u20$for$u20$hir_def..DefWithBodyId$GT$4from17h34f5dcb8c3d8bf8eE", i64 0, i64 %2
+  %2 = zext i32 %0 to i64
+  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @"switch.table._ZN3hir7from_id96_$LT$impl$u20$core..convert..From$LT$hir..DefWithBody$GT$$u20$for$u20$hir_def..DefWithBodyId$GT$4from17h34f5dcb8c3d8bf8eE", i64 0, i64 %2
   %switch.load = load i32, ptr %switch.gep, align 4
   %3 = insertvalue { i32, i32 } poison, i32 %switch.load, 0
   %4 = insertvalue { i32, i32 } %3, i32 %1, 1
@@ -20886,8 +20886,8 @@ define i64 @"_ZN3hir7from_id87_$LT$impl$u20$core..convert..From$LT$hir..Adt$GT$$
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define { i32, i32 } @"_ZN3hir7from_id91_$LT$impl$u20$core..convert..From$LT$hir..VariantDef$GT$$u20$for$u20$hir_def..VariantId$GT$4from17hce35f7b41f1105bdE"(i32 noundef %0, i32 noundef %1) unnamed_addr #12 {
 switch.lookup:
-  %2 = sext i32 %0 to i64
-  %switch.gep = getelementptr inbounds [3 x i32], ptr @"switch.table._ZN3hir7from_id84_$LT$impl$u20$core..convert..From$LT$hir..Field$GT$$u20$for$u20$hir_def..FieldId$GT$4from17hb783860643586ac2E", i64 0, i64 %2
+  %2 = zext i32 %0 to i64
+  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @"switch.table._ZN3hir7from_id84_$LT$impl$u20$core..convert..From$LT$hir..Field$GT$$u20$for$u20$hir_def..FieldId$GT$4from17hb783860643586ac2E", i64 0, i64 %2
   %switch.load = load i32, ptr %switch.gep, align 4
   %3 = insertvalue { i32, i32 } poison, i32 %switch.load, 0
   %4 = insertvalue { i32, i32 } %3, i32 %1, 1

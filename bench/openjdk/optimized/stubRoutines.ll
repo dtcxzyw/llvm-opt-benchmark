@@ -1459,8 +1459,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14AccessInternal15RuntimeDispa
 
 _ZN14AccessInternal15BarrierResolverILm2383942EPFbP12arrayOopDescmPP12HeapWordImplS2_mS5_mELNS_11BarrierTypeE8EE15resolve_barrierEv.exit: ; preds = %17, %14
   %switch.table._ZN14AccessInternal15RuntimeDispatchILm2383942EP12HeapWordImplLNS_11BarrierTypeE8EE14arraycopy_initEP12arrayOopDescmPS2_S6_mS7_m.2.sink = phi ptr [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm2383942EP12HeapWordImplLNS_11BarrierTypeE8EE14arraycopy_initEP12arrayOopDescmPS2_S6_mS7_m, %14 ], [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm2383942EP12HeapWordImplLNS_11BarrierTypeE8EE14arraycopy_initEP12arrayOopDescmPS2_S6_mS7_m.2, %17 ]
-  %20 = sext i32 %switch.tableidx to i64
-  %switch.gep10 = getelementptr inbounds [6 x ptr], ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm2383942EP12HeapWordImplLNS_11BarrierTypeE8EE14arraycopy_initEP12arrayOopDescmPS2_S6_mS7_m.2.sink, i64 0, i64 %20
+  %20 = zext i32 %switch.tableidx to i64
+  %switch.gep10 = getelementptr inbounds nuw [6 x ptr], ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm2383942EP12HeapWordImplLNS_11BarrierTypeE8EE14arraycopy_initEP12arrayOopDescmPS2_S6_mS7_m.2.sink, i64 0, i64 %20
   %switch.load11 = load ptr, ptr %switch.gep10, align 8
   store ptr %switch.load11, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP12HeapWordImplLNS_11BarrierTypeE8EE15_arraycopy_funcE, align 8
   %21 = tail call noundef zeroext i1 %switch.load11(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6) #13
@@ -2850,8 +2850,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14AccessInternal15RuntimeDispa
 
 _ZN14AccessInternal15BarrierResolverILm6578246EPFbP12arrayOopDescmPP12HeapWordImplS2_mS5_mELNS_11BarrierTypeE8EE15resolve_barrierEv.exit: ; preds = %17, %14
   %switch.table._ZN14AccessInternal15RuntimeDispatchILm6578246EP12HeapWordImplLNS_11BarrierTypeE8EE14arraycopy_initEP12arrayOopDescmPS2_S6_mS7_m.3.sink = phi ptr [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm6578246EP12HeapWordImplLNS_11BarrierTypeE8EE14arraycopy_initEP12arrayOopDescmPS2_S6_mS7_m, %14 ], [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm6578246EP12HeapWordImplLNS_11BarrierTypeE8EE14arraycopy_initEP12arrayOopDescmPS2_S6_mS7_m.3, %17 ]
-  %20 = sext i32 %switch.tableidx to i64
-  %switch.gep10 = getelementptr inbounds [6 x ptr], ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm6578246EP12HeapWordImplLNS_11BarrierTypeE8EE14arraycopy_initEP12arrayOopDescmPS2_S6_mS7_m.3.sink, i64 0, i64 %20
+  %20 = zext i32 %switch.tableidx to i64
+  %switch.gep10 = getelementptr inbounds nuw [6 x ptr], ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm6578246EP12HeapWordImplLNS_11BarrierTypeE8EE14arraycopy_initEP12arrayOopDescmPS2_S6_mS7_m.3.sink, i64 0, i64 %20
   %switch.load11 = load ptr, ptr %switch.gep10, align 8
   store ptr %switch.load11, ptr @_ZN14AccessInternal15RuntimeDispatchILm6578246EP12HeapWordImplLNS_11BarrierTypeE8EE15_arraycopy_funcE, align 8
   %21 = tail call noundef zeroext i1 %switch.load11(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6) #13
@@ -3215,8 +3215,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14AccessInternal15RuntimeDispa
 
 _ZN14AccessInternal15BarrierResolverILm69492806EPFbP12arrayOopDescmPP12HeapWordImplS2_mS5_mELNS_11BarrierTypeE8EE15resolve_barrierEv.exit: ; preds = %17, %14
   %switch.table._ZN14AccessInternal15RuntimeDispatchILm69492806EP12HeapWordImplLNS_11BarrierTypeE8EE14arraycopy_initEP12arrayOopDescmPS2_S6_mS7_m.4.sink = phi ptr [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm69492806EP12HeapWordImplLNS_11BarrierTypeE8EE14arraycopy_initEP12arrayOopDescmPS2_S6_mS7_m, %14 ], [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm69492806EP12HeapWordImplLNS_11BarrierTypeE8EE14arraycopy_initEP12arrayOopDescmPS2_S6_mS7_m.4, %17 ]
-  %20 = sext i32 %switch.tableidx to i64
-  %switch.gep10 = getelementptr inbounds [6 x ptr], ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm69492806EP12HeapWordImplLNS_11BarrierTypeE8EE14arraycopy_initEP12arrayOopDescmPS2_S6_mS7_m.4.sink, i64 0, i64 %20
+  %20 = zext i32 %switch.tableidx to i64
+  %switch.gep10 = getelementptr inbounds nuw [6 x ptr], ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm69492806EP12HeapWordImplLNS_11BarrierTypeE8EE14arraycopy_initEP12arrayOopDescmPS2_S6_mS7_m.4.sink, i64 0, i64 %20
   %switch.load11 = load ptr, ptr %switch.gep10, align 8
   store ptr %switch.load11, ptr @_ZN14AccessInternal15RuntimeDispatchILm69492806EP12HeapWordImplLNS_11BarrierTypeE8EE15_arraycopy_funcE, align 8
   %21 = tail call noundef zeroext i1 %switch.load11(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6) #13
@@ -3586,8 +3586,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14AccessInternal15RuntimeDispa
 
 _ZN14AccessInternal15BarrierResolverILm73687110EPFbP12arrayOopDescmPP12HeapWordImplS2_mS5_mELNS_11BarrierTypeE8EE15resolve_barrierEv.exit: ; preds = %17, %14
   %switch.table._ZN14AccessInternal15RuntimeDispatchILm73687110EP12HeapWordImplLNS_11BarrierTypeE8EE14arraycopy_initEP12arrayOopDescmPS2_S6_mS7_m.5.sink = phi ptr [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm73687110EP12HeapWordImplLNS_11BarrierTypeE8EE14arraycopy_initEP12arrayOopDescmPS2_S6_mS7_m, %14 ], [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm73687110EP12HeapWordImplLNS_11BarrierTypeE8EE14arraycopy_initEP12arrayOopDescmPS2_S6_mS7_m.5, %17 ]
-  %20 = sext i32 %switch.tableidx to i64
-  %switch.gep10 = getelementptr inbounds [6 x ptr], ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm73687110EP12HeapWordImplLNS_11BarrierTypeE8EE14arraycopy_initEP12arrayOopDescmPS2_S6_mS7_m.5.sink, i64 0, i64 %20
+  %20 = zext i32 %switch.tableidx to i64
+  %switch.gep10 = getelementptr inbounds nuw [6 x ptr], ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm73687110EP12HeapWordImplLNS_11BarrierTypeE8EE14arraycopy_initEP12arrayOopDescmPS2_S6_mS7_m.5.sink, i64 0, i64 %20
   %switch.load11 = load ptr, ptr %switch.gep10, align 8
   store ptr %switch.load11, ptr @_ZN14AccessInternal15RuntimeDispatchILm73687110EP12HeapWordImplLNS_11BarrierTypeE8EE15_arraycopy_funcE, align 8
   %21 = tail call noundef zeroext i1 %switch.load11(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6) #13

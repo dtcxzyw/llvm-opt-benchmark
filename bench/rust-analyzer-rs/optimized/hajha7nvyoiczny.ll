@@ -130115,8 +130115,8 @@ switch.lookup:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef range(i8 0, 10) i8 @"_ZN97_$LT$hir_ty..mir..BinOp$u20$as$u20$core..convert..From$LT$syntax..ast..operators..ArithOp$GT$$GT$4from17hc8fa55783e42a167E"(i8 noundef %0) unnamed_addr #4 {
 switch.lookup:
-  %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds [10 x i8], ptr @"switch.table._ZN97_$LT$hir_ty..mir..BinOp$u20$as$u20$core..convert..From$LT$syntax..ast..operators..ArithOp$GT$$GT$4from17hc8fa55783e42a167E", i64 0, i64 %1
+  %1 = zext i8 %0 to i64
+  %switch.gep = getelementptr inbounds nuw [10 x i8], ptr @"switch.table._ZN97_$LT$hir_ty..mir..BinOp$u20$as$u20$core..convert..From$LT$syntax..ast..operators..ArithOp$GT$$GT$4from17hc8fa55783e42a167E", i64 0, i64 %1
   %switch.load = load i8, ptr %switch.gep, align 1
   ret i8 %switch.load
 }
@@ -130678,11 +130678,11 @@ define { i32, i32 } @"_ZN111_$LT$hir_ty..mir..MirSpan$u20$as$u20$core..convert..
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define { ptr, i64 } @_ZN6hir_ty9primitive16int_ty_to_string17h220d2d9076600067E(i8 noundef %0) unnamed_addr #4 {
 switch.lookup:
-  %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table._ZN6hir_ty9primitive16int_ty_to_string17h220d2d9076600067E, i64 0, i64 %1
+  %1 = zext i8 %0 to i64
+  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN6hir_ty9primitive16int_ty_to_string17h220d2d9076600067E, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %2 = sext i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds [6 x i64], ptr @switch.table._ZN6hir_ty9primitive17uint_ty_to_string17ha501e8be8245c5fdE.343, i64 0, i64 %2
+  %2 = zext i8 %0 to i64
+  %switch.gep1 = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZN6hir_ty9primitive17uint_ty_to_string17ha501e8be8245c5fdE.343, i64 0, i64 %2
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load2, 1
@@ -130692,11 +130692,11 @@ switch.lookup:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define { ptr, i64 } @_ZN6hir_ty9primitive17uint_ty_to_string17ha501e8be8245c5fdE(i8 noundef %0) unnamed_addr #4 {
 switch.lookup:
-  %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table._ZN6hir_ty9primitive17uint_ty_to_string17ha501e8be8245c5fdE, i64 0, i64 %1
+  %1 = zext i8 %0 to i64
+  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN6hir_ty9primitive17uint_ty_to_string17ha501e8be8245c5fdE, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %2 = sext i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds [6 x i64], ptr @switch.table._ZN6hir_ty9primitive17uint_ty_to_string17ha501e8be8245c5fdE.343, i64 0, i64 %2
+  %2 = zext i8 %0 to i64
+  %switch.gep1 = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZN6hir_ty9primitive17uint_ty_to_string17ha501e8be8245c5fdE.343, i64 0, i64 %2
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load2, 1

@@ -15776,8 +15776,8 @@ switch.lookup:
   %4 = alloca %"class.llvm::MachineOperand", align 8
   %5 = alloca %"class.llvm::MachineOperand", align 8
   %switch.tableidx = add nsw i32 %2, -142
-  %6 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table._ZN4llvm12IRTranslator36translateConvergenceControlIntrinsicERKNS_8CallInstEjRNS_16MachineIRBuilderE, i64 0, i64 %6
+  %6 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN4llvm12IRTranslator36translateConvergenceControlIntrinsicERKNS_8CallInstEjRNS_16MachineIRBuilderE, i64 0, i64 %6
   %switch.load = load i32, ptr %switch.gep, align 4
   %7 = tail call { ptr, ptr } @_ZN4llvm16MachineIRBuilder18buildInstrNoInsertEj(ptr noundef nonnull align 8 dereferenceable(88) %3, i32 noundef %switch.load) #28
   %8 = extractvalue { ptr, ptr } %7, 0

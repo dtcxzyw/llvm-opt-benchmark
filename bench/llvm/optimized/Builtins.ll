@@ -1940,8 +1940,8 @@ $_ZN5clang7Builtin14TargetFeatures14getAndFeaturesEN4llvm9StringRefE = comdat an
 define dso_local noundef ptr @_ZNK5clang10HeaderDesc7getNameEv(ptr noundef nonnull readonly align 2 captures(none) dereferenceable(2) %0) local_unnamed_addr #0 align 2 {
 switch.lookup:
   %1 = load i16, ptr %0, align 2, !tbaa !3
-  %2 = sext i16 %1 to i64
-  %switch.gep = getelementptr inbounds [28 x ptr], ptr @switch.table._ZNK5clang10HeaderDesc7getNameEv, i64 0, i64 %2
+  %2 = zext i16 %1 to i64
+  %switch.gep = getelementptr inbounds nuw [28 x ptr], ptr @switch.table._ZNK5clang10HeaderDesc7getNameEv, i64 0, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }

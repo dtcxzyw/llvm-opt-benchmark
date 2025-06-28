@@ -1136,11 +1136,11 @@ define hidden void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..funct
           to label %15 unwind label %13, !noalias !139
 
 switch.lookup:                                    ; preds = %3
-  %9 = sext i8 %2 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @"switch.table._ZN86_$LT$ockam_abac..resource..ResourceType$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7432ba4b2eaedca1E.28", i64 0, i64 %9
+  %9 = zext i8 %2 to i64
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN86_$LT$ockam_abac..resource..ResourceType$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7432ba4b2eaedca1E.28", i64 0, i64 %9
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %10 = sext i8 %2 to i64
-  %switch.gep1 = getelementptr inbounds [3 x i64], ptr @"switch.table._ZN86_$LT$ockam_abac..resource..ResourceType$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7432ba4b2eaedca1E", i64 0, i64 %10
+  %10 = zext i8 %2 to i64
+  %switch.gep1 = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN86_$LT$ockam_abac..resource..ResourceType$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7432ba4b2eaedca1E", i64 0, i64 %10
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %11 = invoke noundef zeroext i1 @"_ZN42_$LT$str$u20$as$u20$core..fmt..Display$GT$3fmt17hc2aaa223287dde65E"(ptr noalias noundef nonnull readonly align 1 %switch.load, i64 noundef %switch.load2, ptr noalias noundef nonnull align 8 dereferenceable(64) %5)
           to label %"_ZN73_$LT$ockam_abac..resource..ResourceType$u20$as$u20$core..fmt..Display$GT$3fmt17h39bcde56c49f46f2E.exit.i.i" unwind label %7, !noalias !139
@@ -9110,11 +9110,11 @@ define hidden void @"_ZN10ockam_abac8resource12ResourceType26join_enum_values_as
           to label %15 unwind label %13, !noalias !1220
 
 switch.lookup:                                    ; preds = %3
-  %9 = sext i8 %2 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @"switch.table._ZN86_$LT$ockam_abac..resource..ResourceType$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7432ba4b2eaedca1E.28", i64 0, i64 %9
+  %9 = zext i8 %2 to i64
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN86_$LT$ockam_abac..resource..ResourceType$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7432ba4b2eaedca1E.28", i64 0, i64 %9
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %10 = sext i8 %2 to i64
-  %switch.gep1 = getelementptr inbounds [3 x i64], ptr @"switch.table._ZN86_$LT$ockam_abac..resource..ResourceType$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7432ba4b2eaedca1E", i64 0, i64 %10
+  %10 = zext i8 %2 to i64
+  %switch.gep1 = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN86_$LT$ockam_abac..resource..ResourceType$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7432ba4b2eaedca1E", i64 0, i64 %10
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %11 = invoke noundef zeroext i1 @"_ZN42_$LT$str$u20$as$u20$core..fmt..Display$GT$3fmt17hc2aaa223287dde65E"(ptr noalias noundef nonnull readonly align 1 %switch.load, i64 noundef %switch.load2, ptr noalias noundef nonnull align 8 dereferenceable(64) %5)
           to label %"_ZN73_$LT$ockam_abac..resource..ResourceType$u20$as$u20$core..fmt..Display$GT$3fmt17h39bcde56c49f46f2E.exit.i" unwind label %7, !noalias !1220

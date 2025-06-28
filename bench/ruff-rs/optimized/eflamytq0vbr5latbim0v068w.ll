@@ -27751,11 +27751,11 @@ default.unreachable23:                            ; preds = %28, %26
 switch.lookup:                                    ; preds = %23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
   store ptr %20, ptr %16, align 8
-  %76 = sext i8 %.pr to i64
-  %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table._ZN18ty_python_semantic5types5infer20TypeInferenceBuilder22infer_unary_expression17hec8cfa2a0d74b895E, i64 0, i64 %76
+  %76 = zext i8 %.pr to i64
+  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN18ty_python_semantic5types5infer20TypeInferenceBuilder22infer_unary_expression17hec8cfa2a0d74b895E, i64 0, i64 %76
   %switch.load = load i64, ptr %switch.gep, align 8
-  %77 = sext i8 %.pr to i64
-  %switch.gep24 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN18ty_python_semantic5types5infer20TypeInferenceBuilder22infer_unary_expression17hec8cfa2a0d74b895E.172, i64 0, i64 %77
+  %77 = zext i8 %.pr to i64
+  %switch.gep24 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN18ty_python_semantic5types5infer20TypeInferenceBuilder22infer_unary_expression17hec8cfa2a0d74b895E.172, i64 0, i64 %77
   %switch.load25 = load ptr, ptr %switch.gep24, align 8
   call void @llvm.lifetime.start.p0(i64 328, ptr nonnull %15)
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 256
@@ -33857,8 +33857,8 @@ switch.lookup:                                    ; preds = %.thread245
   %374 = add i32 %.sroa.01.0.extract.trunc.i, -2
   %375 = icmp ult i32 %374, 42
   %narrow.i = select i1 %375, i32 %374, i32 21
-  %376 = sext i32 %narrow.i to i64
-  %switch.gep = getelementptr inbounds [42 x i8], ptr @switch.table._ZN18ty_python_semantic5types14known_instance17KnownInstanceType12to_meta_type17hf9bbb76bc2072571E, i64 0, i64 %376
+  %376 = zext i32 %narrow.i to i64
+  %switch.gep = getelementptr inbounds nuw [42 x i8], ptr @switch.table._ZN18ty_python_semantic5types14known_instance17KnownInstanceType12to_meta_type17hf9bbb76bc2072571E, i64 0, i64 %376
   %switch.load = load i8, ptr %switch.gep, align 1
   %377 = tail call noundef zeroext i1 @_ZN18ty_python_semantic5types5class10KnownClass15is_special_form17h0d182cf22a07e166E(i8 noundef %switch.load)
   br i1 %377, label %411, label %369
@@ -39708,8 +39708,8 @@ switch.lookup:
   %4 = add i32 %.sroa.01.0.extract.trunc.i, -2
   %5 = icmp ult i32 %4, 42
   %narrow.i = select i1 %5, i32 %4, i32 21
-  %6 = sext i32 %narrow.i to i64
-  %switch.gep = getelementptr inbounds [42 x i8], ptr @switch.table._ZN18ty_python_semantic5types14known_instance17KnownInstanceType12to_meta_type17hf9bbb76bc2072571E, i64 0, i64 %6
+  %6 = zext i32 %narrow.i to i64
+  %switch.gep = getelementptr inbounds nuw [42 x i8], ptr @switch.table._ZN18ty_python_semantic5types14known_instance17KnownInstanceType12to_meta_type17hf9bbb76bc2072571E, i64 0, i64 %6
   %switch.load = load i8, ptr %switch.gep, align 1
   tail call void @_ZN18ty_python_semantic5types5class10KnownClass11to_instance17hf8f29522b6fd2a75E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %0, i8 noundef %switch.load, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3)
   ret void
@@ -39722,8 +39722,8 @@ switch.lookup:
   %5 = add i32 %.sroa.01.0.extract.trunc.i, -2
   %6 = icmp ult i32 %5, 42
   %narrow.i = select i1 %6, i32 %5, i32 21
-  %7 = sext i32 %narrow.i to i64
-  %switch.gep = getelementptr inbounds [42 x i8], ptr @switch.table._ZN18ty_python_semantic5types14known_instance17KnownInstanceType12to_meta_type17hf9bbb76bc2072571E, i64 0, i64 %7
+  %7 = zext i32 %narrow.i to i64
+  %switch.gep = getelementptr inbounds nuw [42 x i8], ptr @switch.table._ZN18ty_python_semantic5types14known_instance17KnownInstanceType12to_meta_type17hf9bbb76bc2072571E, i64 0, i64 %7
   %switch.load = load i8, ptr %switch.gep, align 1
   %8 = tail call noundef zeroext i1 @_ZN18ty_python_semantic5types5class10KnownClass14is_subclass_of17hc06e629038160be6E(i8 noundef %switch.load, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2, i32 noundef %3, i32 noundef %4)
   ret i1 %8
@@ -40084,8 +40084,8 @@ switch.lookup:
   %4 = add i32 %.sroa.01.0.extract.trunc.i, -2
   %5 = icmp ult i32 %4, 42
   %narrow.i = select i1 %5, i32 %4, i32 21
-  %6 = sext i32 %narrow.i to i64
-  %switch.gep = getelementptr inbounds [42 x i8], ptr @switch.table._ZN18ty_python_semantic5types14known_instance17KnownInstanceType12to_meta_type17hf9bbb76bc2072571E, i64 0, i64 %6
+  %6 = zext i32 %narrow.i to i64
+  %switch.gep = getelementptr inbounds nuw [42 x i8], ptr @switch.table._ZN18ty_python_semantic5types14known_instance17KnownInstanceType12to_meta_type17hf9bbb76bc2072571E, i64 0, i64 %6
   %switch.load = load i8, ptr %switch.gep, align 1
   tail call void @_ZN18ty_python_semantic5types5class10KnownClass16to_class_literal17h89fca9714805caf9E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %0, i8 noundef %switch.load, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3)
   ret void

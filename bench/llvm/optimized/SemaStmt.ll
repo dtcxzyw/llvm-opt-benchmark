@@ -28331,11 +28331,11 @@ switch.lookup:                                    ; preds = %271
   call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %12, ptr noundef nonnull align 8 dereferenceable(8) %273, i32 %1, i32 noundef 4650, i1 noundef zeroext false) #27
   %274 = getelementptr inbounds nuw i8, ptr %67, i64 1560
   %275 = load i16, ptr %274, align 8, !tbaa !1837
-  %276 = sext i16 %275 to i64
-  %switch.gep = getelementptr inbounds [3 x i64], ptr @switch.table._ZN5clang4Sema23ActOnCapScopeReturnStmtENS_14SourceLocationEPNS_4ExprERNS0_15NamedReturnInfoEb, i64 0, i64 %276
+  %276 = zext i16 %275 to i64
+  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN5clang4Sema23ActOnCapScopeReturnStmtENS_14SourceLocationEPNS_4ExprERNS0_15NamedReturnInfoEb, i64 0, i64 %276
   %switch.load = load i64, ptr %switch.gep, align 8
-  %277 = sext i16 %275 to i64
-  %switch.gep266 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN5clang4Sema23ActOnCapScopeReturnStmtENS_14SourceLocationEPNS_4ExprERNS0_15NamedReturnInfoEb.354, i64 0, i64 %277
+  %277 = zext i16 %275 to i64
+  %switch.gep266 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN5clang4Sema23ActOnCapScopeReturnStmtENS_14SourceLocationEPNS_4ExprERNS0_15NamedReturnInfoEb.354, i64 0, i64 %277
   %switch.load267 = load ptr, ptr %switch.gep266, align 8
   %278 = getelementptr inbounds nuw i8, ptr %12, i64 120
   %279 = load i8, ptr %278, align 8, !tbaa !737, !range !677, !noundef !678

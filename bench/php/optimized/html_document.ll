@@ -644,8 +644,8 @@ lxb_encoding_encode_finish.exit.i:                ; preds = %136, %132
 
 switch.lookup:                                    ; preds = %153
   %switch.tableidx = add nsw i32 %149, -1
-  %155 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.zim_Dom_HTMLDocument_createFromString, i64 0, i64 %155
+  %155 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.zim_Dom_HTMLDocument_createFromString, i64 0, i64 %155
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %dom_lexbor_libxml2_bridge_status_code_to_string.exit
 

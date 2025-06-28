@@ -130,11 +130,11 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %10, %12
   %.0.i = phi ptr [ %11, %10 ], [ %1, %12 ]
   %14 = load i32, ptr %4, align 8, !tbaa !36
   %switch.tableidx = add nsw i32 %14, -1
-  %15 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [17 x i64], ptr @switch.table._ZN4llvm11RISCVMCExpr18getVariantKindNameENS0_11VariantKindE, i64 0, i64 %15
+  %15 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [17 x i64], ptr @switch.table._ZN4llvm11RISCVMCExpr18getVariantKindNameENS0_11VariantKindE, i64 0, i64 %15
   %switch.load = load i64, ptr %switch.gep, align 8
-  %16 = sext i32 %switch.tableidx to i64
-  %switch.gep18 = getelementptr inbounds [17 x ptr], ptr @switch.table._ZN4llvm11RISCVMCExpr18getVariantKindNameENS0_11VariantKindE.3, i64 0, i64 %16
+  %16 = zext i32 %switch.tableidx to i64
+  %switch.gep18 = getelementptr inbounds nuw [17 x ptr], ptr @switch.table._ZN4llvm11RISCVMCExpr18getVariantKindNameENS0_11VariantKindE.3, i64 0, i64 %16
   %switch.load19 = load ptr, ptr %switch.gep18, align 8
   %17 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !42
@@ -214,11 +214,11 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 define dso_local { ptr, i64 } @_ZN4llvm11RISCVMCExpr18getVariantKindNameENS0_11VariantKindE(i32 noundef %0) local_unnamed_addr #2 align 2 {
 switch.lookup:
   %switch.tableidx = add nsw i32 %0, -1
-  %1 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [17 x i64], ptr @switch.table._ZN4llvm11RISCVMCExpr18getVariantKindNameENS0_11VariantKindE, i64 0, i64 %1
+  %1 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [17 x i64], ptr @switch.table._ZN4llvm11RISCVMCExpr18getVariantKindNameENS0_11VariantKindE, i64 0, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
-  %2 = sext i32 %switch.tableidx to i64
-  %switch.gep1 = getelementptr inbounds [17 x ptr], ptr @switch.table._ZN4llvm11RISCVMCExpr18getVariantKindNameENS0_11VariantKindE.3, i64 0, i64 %2
+  %2 = zext i32 %switch.tableidx to i64
+  %switch.gep1 = getelementptr inbounds nuw [17 x ptr], ptr @switch.table._ZN4llvm11RISCVMCExpr18getVariantKindNameENS0_11VariantKindE.3, i64 0, i64 %2
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load, 1

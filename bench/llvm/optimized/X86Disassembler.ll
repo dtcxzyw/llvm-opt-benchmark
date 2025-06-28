@@ -4021,8 +4021,8 @@ switch.lookup:                                    ; preds = %3
   br label %32
 
 switch.lookup17:                                  ; preds = %12
-  %28 = sext i32 %9 to i64
-  %switch.gep18 = getelementptr inbounds [12 x ptr], ptr @switch.table._ZL28getInstructionIDWithAttrMaskPtPN4llvm15X86Disassembler19InternalInstructionEt.9, i64 0, i64 %28
+  %28 = zext i32 %9 to i64
+  %switch.gep18 = getelementptr inbounds nuw [12 x ptr], ptr @switch.table._ZL28getInstructionIDWithAttrMaskPtPN4llvm15X86Disassembler19InternalInstructionEt.9, i64 0, i64 %28
   %switch.load19 = load ptr, ptr %switch.gep18, align 8
   %29 = getelementptr inbounds nuw [219 x %struct.OpcodeDecision], ptr %switch.load19, i64 0, i64 %13
   %.sink45.i.in = getelementptr inbounds nuw [256 x %struct.ModRMDecision], ptr %29, i64 0, i64 %17, i32 1
@@ -4761,8 +4761,8 @@ define internal fastcc noundef zeroext i1 @_ZL17translateRMMemoryRN4llvm6MCInstE
 
 switch.lookup:                                    ; preds = %10
   %switch.tableidx = add i32 %9, -1
-  %12 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [64 x i64], ptr @switch.table._ZL17translateRMMemoryRN4llvm6MCInstERNS_15X86Disassembler19InternalInstructionEPKNS_14MCDisassemblerEb, i64 0, i64 %12
+  %12 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [64 x i64], ptr @switch.table._ZL17translateRMMemoryRN4llvm6MCInstERNS_15X86Disassembler19InternalInstructionEPKNS_14MCDisassemblerEb, i64 0, i64 %12
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %13
 

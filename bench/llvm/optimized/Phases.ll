@@ -15,8 +15,8 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef nonnull ptr @_ZN5clang6driver6phases12getPhaseNameENS1_2IDE(i32 noundef %0) local_unnamed_addr #0 {
 switch.lookup:
-  %1 = sext i32 %0 to i64
-  %switch.gep = getelementptr inbounds [7 x ptr], ptr @switch.table._ZN5clang6driver6phases12getPhaseNameENS1_2IDE, i64 0, i64 %1
+  %1 = zext i32 %0 to i64
+  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table._ZN5clang6driver6phases12getPhaseNameENS1_2IDE, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }

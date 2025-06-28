@@ -6903,8 +6903,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit15: ; preds = %_ZN
 
 switch.lookup28:                                  ; preds = %142
   %switch.tableidx = add i32 %2, -1
-  %144 = sext i32 %switch.tableidx to i64
-  %switch.gep29 = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN8nlohmann16json_abi_v3_11_36detail6parserINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIPKcEEE17exception_messageENS1_10lexer_baseISF_E10token_typeERKSB_.2, i64 0, i64 %144
+  %144 = zext i32 %switch.tableidx to i64
+  %switch.gep29 = getelementptr inbounds nuw [16 x ptr], ptr @switch.table._ZN8nlohmann16json_abi_v3_11_36detail6parserINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIPKcEEE17exception_messageENS1_10lexer_baseISF_E10token_typeERKSB_.2, i64 0, i64 %144
   %switch.load30 = load ptr, ptr %switch.gep29, align 8
   br label %_ZN8nlohmann16json_abi_v3_11_36detail10lexer_baseINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEE15token_type_nameENSG_10token_typeE.exit17
 

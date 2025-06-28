@@ -14230,8 +14230,8 @@ define hidden noundef align 8 dereferenceable(96) ptr @"_ZN84_$LT$gpui..app..ent
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @"_ZN2ui10components6button11button_like128_$LT$impl$u20$core..convert..From$LT$ui..components..button..button_like..TintColor$GT$$u20$for$u20$ui..styles..color..Color$GT$4from17h55eef2808b318dd1E"(ptr dead_on_unwind noalias noundef writable writeonly sret([20 x i8]) align 4 captures(none) dereferenceable(20) %0, i8 noundef %1) unnamed_addr #17 {
 switch.lookup:
-  %2 = sext i8 %1 to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @"switch.table._ZN2ui10components6button11button_like130_$LT$impl$u20$core..convert..From$LT$ui..components..button..button_like..ButtonStyle$GT$$u20$for$u20$ui..styles..color..Color$GT$4from17h6eb5e43acf21098cE", i64 0, i64 %2
+  %2 = zext i8 %1 to i64
+  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @"switch.table._ZN2ui10components6button11button_like130_$LT$impl$u20$core..convert..From$LT$ui..components..button..button_like..ButtonStyle$GT$$u20$for$u20$ui..styles..color..Color$GT$4from17h6eb5e43acf21098cE", i64 0, i64 %2
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %0, align 4
   ret void
@@ -14246,8 +14246,8 @@ define void @"_ZN2ui10components6button11button_like130_$LT$impl$u20$core..conve
   br i1 %6, label %switch.lookup, label %"_ZN2ui10components6button11button_like128_$LT$impl$u20$core..convert..From$LT$ui..components..button..button_like..TintColor$GT$$u20$for$u20$ui..styles..color..Color$GT$4from17h55eef2808b318dd1E.exit"
 
 switch.lookup:                                    ; preds = %2
-  %7 = sext i8 %1 to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @"switch.table._ZN2ui10components6button11button_like130_$LT$impl$u20$core..convert..From$LT$ui..components..button..button_like..ButtonStyle$GT$$u20$for$u20$ui..styles..color..Color$GT$4from17h6eb5e43acf21098cE", i64 0, i64 %7
+  %7 = zext i8 %1 to i64
+  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @"switch.table._ZN2ui10components6button11button_like130_$LT$impl$u20$core..convert..From$LT$ui..components..button..button_like..ButtonStyle$GT$$u20$for$u20$ui..styles..color..Color$GT$4from17h6eb5e43acf21098cE", i64 0, i64 %7
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %"_ZN2ui10components6button11button_like128_$LT$impl$u20$core..convert..From$LT$ui..components..button..button_like..TintColor$GT$$u20$for$u20$ui..styles..color..Color$GT$4from17h55eef2808b318dd1E.exit"
 

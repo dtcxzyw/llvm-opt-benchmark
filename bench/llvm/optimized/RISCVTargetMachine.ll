@@ -8190,8 +8190,8 @@ _ZNK4llvm12RISCVTTIImpl23getRegisterClassForTypeEbPNS_4TypeE.exit: ; preds = %3,
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNK4llvm19TargetTransformInfo5ModelINS_12RISCVTTIImplEE20getRegisterClassNameEj(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1) unnamed_addr #1 comdat align 2 {
 switch.lookup:
-  %2 = sext i32 %1 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZNK4llvm19TargetTransformInfo5ModelINS_12RISCVTTIImplEE20getRegisterClassNameEj, i64 0, i64 %2
+  %2 = zext i32 %1 to i64
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZNK4llvm19TargetTransformInfo5ModelINS_12RISCVTTIImplEE20getRegisterClassNameEj, i64 0, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }

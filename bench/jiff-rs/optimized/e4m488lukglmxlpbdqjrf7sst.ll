@@ -2443,8 +2443,8 @@ define void @_ZN4jiff3fmt7rfc282215DateTimePrinter27timestamp_to_rfc9110_string1
 define { ptr, i64 } @_ZN4jiff3fmt7rfc282214weekday_abbrev17h5942adfb489a7c42E(i8 noundef range(i8 1, 8) %0) unnamed_addr #5 {
 switch.lookup:
   %switch.tableidx = add nsw i8 %0, -1
-  %1 = sext i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [7 x ptr], ptr @switch.table._ZN4jiff3fmt7rfc282214weekday_abbrev17h5942adfb489a7c42E, i64 0, i64 %1
+  %1 = zext i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table._ZN4jiff3fmt7rfc282214weekday_abbrev17h5942adfb489a7c42E, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %3 = insertvalue { ptr, i64 } %2, i64 3, 1

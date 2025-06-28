@@ -118873,8 +118873,8 @@ _ZNK4llvm6APSInteqERKS0_.exit:                    ; preds = %48, %52
 switch.lookup:                                    ; preds = %42
   %55 = tail call noundef i32 @_ZN4llvm6APSInt13compareValuesERKS0_S2_(ptr noundef nonnull align 8 dereferenceable(13) %1, ptr noundef nonnull align 8 dereferenceable(13) %3)
   %switch.tableidx = add nsw i32 %55, 1
-  %56 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table._ZNK12_GLOBAL__N_113PromotedRange7compareERKN4llvm6APSIntE, i64 0, i64 %56
+  %56 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZNK12_GLOBAL__N_113PromotedRange7compareERKN4llvm6APSIntE, i64 0, i64 %56
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNK4llvm5APInt10isMaxValueEv.exit.thread
 

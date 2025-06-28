@@ -82573,8 +82573,8 @@ switch.lookup:                                    ; preds = %4
   %13 = extractvalue { i64, ptr } %10, 1
   %14 = icmp ne ptr %13, null
   tail call void @llvm.assume(i1 %14)
-  %15 = sext i8 %3 to i64
-  %switch.gep = getelementptr inbounds [11 x i32], ptr @switch.table._ZN13rust_analyzer3cli4scip14new_descriptor17h41e746ef7bbc2c39E.325, i64 0, i64 %15
+  %15 = zext i8 %3 to i64
+  %switch.gep = getelementptr inbounds nuw [11 x i32], ptr @switch.table._ZN13rust_analyzer3cli4scip14new_descriptor17h41e746ef7bbc2c39E.325, i64 0, i64 %15
   %switch.load = load i32, ptr %switch.gep, align 4
   %16 = extractvalue { i64, ptr } %10, 0
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
@@ -82665,8 +82665,8 @@ switch.lookup:                                    ; preds = %"_ZN52_$LT$char$u20
   %30 = extractvalue { i64, ptr } %27, 1
   %31 = icmp ne ptr %30, null
   tail call void @llvm.assume(i1 %31)
-  %32 = sext i8 %3 to i64
-  %switch.gep = getelementptr inbounds [11 x i32], ptr @switch.table._ZN13rust_analyzer3cli4scip14new_descriptor17h41e746ef7bbc2c39E.325, i64 0, i64 %32
+  %32 = zext i8 %3 to i64
+  %switch.gep = getelementptr inbounds nuw [11 x i32], ptr @switch.table._ZN13rust_analyzer3cli4scip14new_descriptor17h41e746ef7bbc2c39E.325, i64 0, i64 %32
   %switch.load = load i32, ptr %switch.gep, align 4
   %33 = extractvalue { i64, ptr } %27, 0
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !noalias !19021
@@ -82745,8 +82745,8 @@ switch.lookup17:                                  ; preds = %.noexc
   %51 = extractvalue { i64, ptr } %48, 1
   %52 = icmp ne ptr %51, null
   call void @llvm.assume(i1 %52)
-  %53 = sext i8 %3 to i64
-  %switch.gep18 = getelementptr inbounds [11 x i32], ptr @switch.table._ZN13rust_analyzer3cli4scip14new_descriptor17h41e746ef7bbc2c39E.325, i64 0, i64 %53
+  %53 = zext i8 %3 to i64
+  %switch.gep18 = getelementptr inbounds nuw [11 x i32], ptr @switch.table._ZN13rust_analyzer3cli4scip14new_descriptor17h41e746ef7bbc2c39E.325, i64 0, i64 %53
   %switch.load19 = load i32, ptr %switch.gep18, align 4
   %54 = extractvalue { i64, ptr } %48, 0
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !noalias !19039

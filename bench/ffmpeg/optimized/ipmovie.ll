@@ -303,10 +303,9 @@ define internal range(i32 -1094995529, 1) i32 @ipmovie_read_packet(ptr noundef r
 
 switch.lookup:                                    ; preds = %12
   %narrow = add nuw nsw i32 %.0, 3
-  %switch.tableidx = zext nneg i32 %narrow to i64
-  %sext = shl i64 %switch.tableidx, 48
-  %18 = ashr exact i64 %sext, 48
-  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table.ipmovie_read_packet, i64 0, i64 %18
+  %18 = and i32 %narrow, 65535
+  %19 = zext nneg i32 %18 to i64
+  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table.ipmovie_read_packet, i64 0, i64 %19
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.loopexit
 

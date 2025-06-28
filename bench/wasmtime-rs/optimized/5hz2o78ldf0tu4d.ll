@@ -21706,8 +21706,8 @@ define hidden void @_ZN17cranelift_codegen8machinst17MachInstEmitState12on_new_b
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef range(i8 0, 10) i8 @"_ZN102_$LT$cranelift_codegen..ir..condcodes..IntCC$u20$as$u20$cranelift_codegen..ir..condcodes..CondCode$GT$10complement17h6ba3481be0621387E"(i8 noundef %0) unnamed_addr #15 {
 switch.lookup:
-  %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds [10 x i8], ptr @"switch.table._ZN102_$LT$cranelift_codegen..ir..condcodes..IntCC$u20$as$u20$cranelift_codegen..ir..condcodes..CondCode$GT$10complement17h6ba3481be0621387E", i64 0, i64 %1
+  %1 = zext i8 %0 to i64
+  %switch.gep = getelementptr inbounds nuw [10 x i8], ptr @"switch.table._ZN102_$LT$cranelift_codegen..ir..condcodes..IntCC$u20$as$u20$cranelift_codegen..ir..condcodes..CondCode$GT$10complement17h6ba3481be0621387E", i64 0, i64 %1
   %switch.load = load i8, ptr %switch.gep, align 1
   ret i8 %switch.load
 }
@@ -21715,8 +21715,8 @@ switch.lookup:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef range(i8 0, 10) i8 @"_ZN102_$LT$cranelift_codegen..ir..condcodes..IntCC$u20$as$u20$cranelift_codegen..ir..condcodes..CondCode$GT$9swap_args17he5acc091d2695b4bE"(i8 noundef %0) unnamed_addr #15 {
 switch.lookup:
-  %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds [10 x i8], ptr @"switch.table._ZN102_$LT$cranelift_codegen..ir..condcodes..IntCC$u20$as$u20$cranelift_codegen..ir..condcodes..CondCode$GT$9swap_args17he5acc091d2695b4bE", i64 0, i64 %1
+  %1 = zext i8 %0 to i64
+  %switch.gep = getelementptr inbounds nuw [10 x i8], ptr @"switch.table._ZN102_$LT$cranelift_codegen..ir..condcodes..IntCC$u20$as$u20$cranelift_codegen..ir..condcodes..CondCode$GT$9swap_args17he5acc091d2695b4bE", i64 0, i64 %1
   %switch.load = load i8, ptr %switch.gep, align 1
   ret i8 %switch.load
 }
@@ -21753,11 +21753,11 @@ define noundef range(i8 6, 2) i8 @_ZN17cranelift_codegen2ir9condcodes5IntCC8unsi
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define { ptr, i64 } @_ZN17cranelift_codegen2ir9condcodes5IntCC13to_static_str17h3222c27946bd6d1aE(i8 noundef %0) unnamed_addr #15 {
 switch.lookup:
-  %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds [10 x ptr], ptr @"switch.table._ZN78_$LT$cranelift_codegen..ir..condcodes..IntCC$u20$as$u20$core..fmt..Display$GT$3fmt17h2d96095c197121faE", i64 0, i64 %1
+  %1 = zext i8 %0 to i64
+  %switch.gep = getelementptr inbounds nuw [10 x ptr], ptr @"switch.table._ZN78_$LT$cranelift_codegen..ir..condcodes..IntCC$u20$as$u20$core..fmt..Display$GT$3fmt17h2d96095c197121faE", i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %2 = sext i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds [10 x i64], ptr @"switch.table._ZN78_$LT$cranelift_codegen..ir..condcodes..IntCC$u20$as$u20$core..fmt..Display$GT$3fmt17h2d96095c197121faE.62", i64 0, i64 %2
+  %2 = zext i8 %0 to i64
+  %switch.gep1 = getelementptr inbounds nuw [10 x i64], ptr @"switch.table._ZN78_$LT$cranelift_codegen..ir..condcodes..IntCC$u20$as$u20$core..fmt..Display$GT$3fmt17h2d96095c197121faE.62", i64 0, i64 %2
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load2, 1
@@ -21853,8 +21853,8 @@ define { ptr, i64 } @_ZN17cranelift_codegen2ir9condcodes7FloatCC3all17hb5a8d70ad
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef range(i8 0, 14) i8 @"_ZN104_$LT$cranelift_codegen..ir..condcodes..FloatCC$u20$as$u20$cranelift_codegen..ir..condcodes..CondCode$GT$10complement17h1efff6d86e2d26e9E"(i8 noundef %0) unnamed_addr #15 {
 switch.lookup:
-  %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds [14 x i8], ptr @"switch.table._ZN104_$LT$cranelift_codegen..ir..condcodes..FloatCC$u20$as$u20$cranelift_codegen..ir..condcodes..CondCode$GT$10complement17h1efff6d86e2d26e9E", i64 0, i64 %1
+  %1 = zext i8 %0 to i64
+  %switch.gep = getelementptr inbounds nuw [14 x i8], ptr @"switch.table._ZN104_$LT$cranelift_codegen..ir..condcodes..FloatCC$u20$as$u20$cranelift_codegen..ir..condcodes..CondCode$GT$10complement17h1efff6d86e2d26e9E", i64 0, i64 %1
   %switch.load = load i8, ptr %switch.gep, align 1
   ret i8 %switch.load
 }
@@ -21862,8 +21862,8 @@ switch.lookup:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef range(i8 0, 14) i8 @"_ZN104_$LT$cranelift_codegen..ir..condcodes..FloatCC$u20$as$u20$cranelift_codegen..ir..condcodes..CondCode$GT$9swap_args17h19d7023992a0fcbdE"(i8 noundef %0) unnamed_addr #15 {
 switch.lookup:
-  %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds [14 x i8], ptr @"switch.table._ZN104_$LT$cranelift_codegen..ir..condcodes..FloatCC$u20$as$u20$cranelift_codegen..ir..condcodes..CondCode$GT$9swap_args17h19d7023992a0fcbdE", i64 0, i64 %1
+  %1 = zext i8 %0 to i64
+  %switch.gep = getelementptr inbounds nuw [14 x i8], ptr @"switch.table._ZN104_$LT$cranelift_codegen..ir..condcodes..FloatCC$u20$as$u20$cranelift_codegen..ir..condcodes..CondCode$GT$9swap_args17h19d7023992a0fcbdE", i64 0, i64 %1
   %switch.load = load i8, ptr %switch.gep, align 1
   ret i8 %switch.load
 }
@@ -42395,7 +42395,7 @@ default.unreachable4:                             ; preds = %1
 12:                                               ; preds = %1
   %13 = and i8 %0, 63
   %14 = icmp samesign ult i8 %13, 16
-  br i1 %14, label %switch.lookup7, label %29
+  br i1 %14, label %switch.lookup, label %26
 
 15:                                               ; preds = %1
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.1a7877b4d25764724cd66411c116da83.222.llvm.6092180546091225645, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1a7877b4d25764724cd66411c116da83.731) #36
@@ -42419,45 +42419,36 @@ default.unreachable4:                             ; preds = %1
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1a7877b4d25764724cd66411c116da83.713) #36
   unreachable
 
-switch.lookup:                                    ; preds = %9
-  %22 = zext nneg i8 %10 to i64
-  %switch.gep = getelementptr inbounds nuw [16 x i64], ptr @switch.table._ZN17cranelift_codegen3isa3x644inst4regs12realreg_name17h9e19fdf70217ea00E.llvm.6092180546091225645, i64 0, i64 %22
-  %23 = zext nneg i8 %10 to i64
-  %switch.gep5 = getelementptr inbounds nuw [16 x ptr], ptr @switch.table._ZN17cranelift_codegen3isa3x644inst4regs12realreg_name17h9e19fdf70217ea00E.llvm.6092180546091225645.97, i64 0, i64 %23
-  br label %26
-
-switch.lookup7:                                   ; preds = %12
-  %24 = zext nneg i8 %13 to i64
-  %switch.gep8 = getelementptr inbounds nuw [16 x i64], ptr @switch.table._ZN17cranelift_codegen3isa3x644inst4regs12realreg_name17h9e19fdf70217ea00E.llvm.6092180546091225645.98, i64 0, i64 %24
-  %25 = zext nneg i8 %13 to i64
-  %switch.gep10 = getelementptr inbounds nuw [16 x ptr], ptr @switch.table._ZN17cranelift_codegen3isa3x644inst4regs12realreg_name17h9e19fdf70217ea00E.llvm.6092180546091225645.99, i64 0, i64 %25
-  br label %26
-
-26:                                               ; preds = %switch.lookup7, %switch.lookup
-  %.sroa.33.0.in = phi ptr [ %switch.gep, %switch.lookup ], [ %switch.gep8, %switch.lookup7 ]
-  %.sroa.0.0.in = phi ptr [ %switch.gep5, %switch.lookup ], [ %switch.gep10, %switch.lookup7 ]
-  %.sroa.0.0 = load ptr, ptr %.sroa.0.0.in, align 8
-  %.sroa.33.0 = load i64, ptr %.sroa.33.0.in, align 8
+switch.lookup:                                    ; preds = %12, %9
+  %.sink13 = phi i8 [ %10, %9 ], [ %13, %12 ]
+  %switch.table._ZN17cranelift_codegen3isa3x644inst4regs12realreg_name17h9e19fdf70217ea00E.llvm.6092180546091225645.98.sink = phi ptr [ @switch.table._ZN17cranelift_codegen3isa3x644inst4regs12realreg_name17h9e19fdf70217ea00E.llvm.6092180546091225645, %9 ], [ @switch.table._ZN17cranelift_codegen3isa3x644inst4regs12realreg_name17h9e19fdf70217ea00E.llvm.6092180546091225645.98, %12 ]
+  %switch.table._ZN17cranelift_codegen3isa3x644inst4regs12realreg_name17h9e19fdf70217ea00E.llvm.6092180546091225645.99.sink = phi ptr [ @switch.table._ZN17cranelift_codegen3isa3x644inst4regs12realreg_name17h9e19fdf70217ea00E.llvm.6092180546091225645.97, %9 ], [ @switch.table._ZN17cranelift_codegen3isa3x644inst4regs12realreg_name17h9e19fdf70217ea00E.llvm.6092180546091225645.99, %12 ]
+  %22 = zext nneg i8 %.sink13 to i64
+  %switch.gep8 = getelementptr inbounds nuw [16 x i64], ptr %switch.table._ZN17cranelift_codegen3isa3x644inst4regs12realreg_name17h9e19fdf70217ea00E.llvm.6092180546091225645.98.sink, i64 0, i64 %22
+  %switch.load9 = load i64, ptr %switch.gep8, align 8
+  %23 = zext nneg i8 %.sink13 to i64
+  %switch.gep10 = getelementptr inbounds nuw [16 x ptr], ptr %switch.table._ZN17cranelift_codegen3isa3x644inst4regs12realreg_name17h9e19fdf70217ea00E.llvm.6092180546091225645.99.sink, i64 0, i64 %23
+  %switch.load11 = load ptr, ptr %switch.gep10, align 8
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
-  %27 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %28 = insertvalue { ptr, i64 } %27, i64 %.sroa.33.0, 1
-  ret { ptr, i64 } %28
+  %24 = insertvalue { ptr, i64 } poison, ptr %switch.load11, 0
+  %25 = insertvalue { ptr, i64 } %24, i64 %switch.load9, 1
+  ret { ptr, i64 } %25
 
-29:                                               ; preds = %12
+26:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   store ptr %6, ptr %2, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr @"_ZN52_$LT$regalloc2..PReg$u20$as$u20$core..fmt..Debug$GT$3fmt17h31d4166e38a26204E", ptr %30, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store ptr @"_ZN52_$LT$regalloc2..PReg$u20$as$u20$core..fmt..Debug$GT$3fmt17h31d4166e38a26204E", ptr %27, align 8
   store ptr @anon.1a7877b4d25764724cd66411c116da83.711, ptr %3, align 8, !alias.scope !6171, !noalias !6174
-  %31 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i64 1, ptr %28, align 8, !alias.scope !6171, !noalias !6174
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store ptr null, ptr %29, align 8, !alias.scope !6171, !noalias !6174
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr %2, ptr %30, align 8, !alias.scope !6171, !noalias !6174
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 1, ptr %31, align 8, !alias.scope !6171, !noalias !6174
-  %32 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store ptr null, ptr %32, align 8, !alias.scope !6171, !noalias !6174
-  %33 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %2, ptr %33, align 8, !alias.scope !6171, !noalias !6174
-  %34 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i64 1, ptr %34, align 8, !alias.scope !6171, !noalias !6174
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1a7877b4d25764724cd66411c116da83.730) #36
   unreachable
 }

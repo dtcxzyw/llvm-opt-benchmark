@@ -1867,9 +1867,8 @@ define linkonce_odr hidden void @_ZN24G1HeapRegionTypeConstant9serializeER19JfrC
 switch.lookup:                                    ; preds = %2, %switch.lookup
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %switch.lookup ]
   tail call void @_ZN19JfrCheckpointWriter9write_keyEm(ptr noundef nonnull align 8 dereferenceable(73) %1, i64 noundef %indvars.iv) #11
-  %sext = shl i64 %indvars.iv, 32
-  %3 = ashr exact i64 %sext, 32
-  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table._ZN24G1HeapRegionTypeConstant9serializeER19JfrCheckpointWriter, i64 0, i64 %3
+  %3 = and i64 %indvars.iv, 4294967295
+  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN24G1HeapRegionTypeConstant9serializeER19JfrCheckpointWriter, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   tail call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE10write_utf8EPKc(ptr noundef nonnull align 8 dereferenceable(41) %1, ptr noundef nonnull %switch.load)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

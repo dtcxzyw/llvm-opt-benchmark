@@ -27655,8 +27655,8 @@ define void @_ZN7glslang9TBuiltIns20addSamplingFunctionsENS_8TSamplerERKNSt7__cx
   %113 = getelementptr inbounds [5 x ptr], ptr %41, i64 0, i64 %112
   %114 = trunc nuw i8 %.3147 to i1
   %switch.tableidx = add nsw i32 %108, -1
-  %115 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table._ZN7glslang9TBuiltIns20addSamplingFunctionsENS_8TSamplerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEi8EProfile, i64 0, i64 %115
+  %115 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN7glslang9TBuiltIns20addSamplingFunctionsENS_8TSamplerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEi8EProfile, i64 0, i64 %115
   br label %116
 
 116:                                              ; preds = %.critedge195, %.loopexit

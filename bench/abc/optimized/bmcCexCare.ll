@@ -2052,10 +2052,9 @@ Vec_IntFree.exit273:                              ; preds = %Vec_IntFree.exit, %
   br i1 %319, label %switch.lookup, label %322
 
 switch.lookup:                                    ; preds = %318
-  %switch.tableidx = shl nuw nsw i64 %indvars.iv, 32
-  %sext = add nsw i64 %switch.tableidx, -4294967296
-  %320 = ashr exact i64 %sext, 32
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.Bmc_CexCareMinimizeAig, i64 0, i64 %320
+  %switch.tableidx = add nuw nsw i64 %indvars.iv, 4294967295
+  %320 = and i64 %switch.tableidx, 4294967295
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.Bmc_CexCareMinimizeAig, i64 0, i64 %320
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %.sink.split
 

@@ -23505,7 +23505,7 @@ _ZN7hir_def9item_tree8ItemTree4data17h7e30fd18c89f4472E.llvm.2681043041644741927
   br label %"_ZN115_$LT$hir_def..item_tree..ItemTree$u20$as$u20$core..ops..index..Index$LT$hir_def..item_tree..RawVisibilityId$GT$$GT$5index17hf44681196a7f7ba9E.exit"
 
 switch.lookup:                                    ; preds = %2
-  %switch.tableidx = add nsw i32 %1, 4
+  %switch.tableidx = add i32 %1, 4
   %23 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @"switch.table._ZN7hir_def7nameres9collector12ModCollector7collect28_$u7b$$u7b$closure$u7d$$u7d$17hc5cd4ea54195f7f3E.219", i64 0, i64 %23
   %switch.load = load ptr, ptr %switch.gep, align 8

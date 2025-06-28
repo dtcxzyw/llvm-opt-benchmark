@@ -16837,8 +16837,8 @@ _ZNK5clang4Decl13getASTContextEv.exit:            ; preds = %18, %._crit_edge.i.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef range(i32 0, 8193) i32 @_ZN5clang4Decl29getIdentifierNamespaceForKindENS0_4KindE(i32 noundef %0) local_unnamed_addr #10 align 2 {
 switch.lookup:
-  %1 = sext i32 %0 to i64
-  %switch.gep = getelementptr inbounds [87 x i32], ptr @switch.table._ZN5clang4Decl29getIdentifierNamespaceForKindENS0_4KindE, i64 0, i64 %1
+  %1 = zext i32 %0 to i64
+  %switch.gep = getelementptr inbounds nuw [87 x i32], ptr @switch.table._ZN5clang4Decl29getIdentifierNamespaceForKindENS0_4KindE, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }

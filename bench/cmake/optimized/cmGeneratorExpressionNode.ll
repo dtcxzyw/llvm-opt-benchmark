@@ -20137,11 +20137,11 @@ switch.lookup:                                    ; preds = %9
   store i64 0, ptr %21, align 8, !tbaa !28
   store i8 0, ptr %20, align 8, !tbaa !13
   %switch.tableidx = add nsw i32 %7, -1
-  %22 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN12_GLOBAL__N_120CheckGenExParametersEP28cmGeneratorExpressionContextPK26GeneratorExpressionContentSt17basic_string_viewIcSt11char_traitsIcEES8_mib, i64 0, i64 %22
+  %22 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN12_GLOBAL__N_120CheckGenExParametersEP28cmGeneratorExpressionContextPK26GeneratorExpressionContentSt17basic_string_viewIcSt11char_traitsIcEES8_mib, i64 0, i64 %22
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %23 = sext i32 %switch.tableidx to i64
-  %switch.gep50 = getelementptr inbounds [3 x i64], ptr @switch.table._ZN12_GLOBAL__N_120CheckGenExParametersEP28cmGeneratorExpressionContextPK26GeneratorExpressionContentSt17basic_string_viewIcSt11char_traitsIcEES8_mib.518, i64 0, i64 %23
+  %23 = zext i32 %switch.tableidx to i64
+  %switch.gep50 = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN12_GLOBAL__N_120CheckGenExParametersEP28cmGeneratorExpressionContextPK26GeneratorExpressionContentSt17basic_string_viewIcSt11char_traitsIcEES8_mib.518, i64 0, i64 %23
   %switch.load51 = load i64, ptr %switch.gep50, align 8
   %24 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %14, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %switch.load, i64 noundef %switch.load51)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %25

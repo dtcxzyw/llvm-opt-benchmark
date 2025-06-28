@@ -39209,8 +39209,8 @@ _ZN12_GLOBAL__N_19ScopeRAIIILNS_9ScopeKindE0EED2Ev.exit663.thread: ; preds = %17
 
 switch.lookup:                                    ; preds = %_ZN12_GLOBAL__N_19ScopeRAIIILNS_9ScopeKindE0EEC2ERNS_8EvalInfoE.exit666, %_ZN12_GLOBAL__N_19ScopeRAIIILNS_9ScopeKindE0EEC2ERNS_8EvalInfoE.exit666, %_ZN12_GLOBAL__N_19ScopeRAIIILNS_9ScopeKindE0EE7cleanupERNS_8EvalInfoEbj.exit1672.thread
   %.sroa.61061.0 = phi i32 [ %144, %_ZN12_GLOBAL__N_19ScopeRAIIILNS_9ScopeKindE0EEC2ERNS_8EvalInfoE.exit666 ], [ %144, %_ZN12_GLOBAL__N_19ScopeRAIIILNS_9ScopeKindE0EEC2ERNS_8EvalInfoE.exit666 ], [ -1, %_ZN12_GLOBAL__N_19ScopeRAIIILNS_9ScopeKindE0EE7cleanupERNS_8EvalInfoEbj.exit1672.thread ]
-  %180 = sext i32 %165 to i64
-  %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table._ZL16EvaluateLoopBodyRN12_GLOBAL__N_110StmtResultERNS_8EvalInfoEPKN5clang4StmtEPKNS4_10SwitchCaseE, i64 0, i64 %180
+  %180 = zext i32 %165 to i64
+  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZL16EvaluateLoopBodyRN12_GLOBAL__N_110StmtResultERNS_8EvalInfoEPKN5clang4StmtEPKNS4_10SwitchCaseE, i64 0, i64 %180
   %switch.load = load i32, ptr %switch.gep, align 4
   %.not.i662 = icmp eq i32 %.sroa.61061.0, -1
   br i1 %.not.i662, label %_ZN12_GLOBAL__N_19ScopeRAIIILNS_9ScopeKindE0EED2Ev.exit663, label %181
@@ -40454,8 +40454,8 @@ select.unfold1219.critedge:                       ; preds = %754
 
 switch.lookup1985:                                ; preds = %_ZN12_GLOBAL__N_19ScopeRAIIILNS_9ScopeKindE0EEC2ERNS_8EvalInfoE.exit678, %_ZN12_GLOBAL__N_19ScopeRAIIILNS_9ScopeKindE0EEC2ERNS_8EvalInfoE.exit678, %select.unfold1219.critedge
   %.sroa.61075.0 = phi i32 [ %732, %_ZN12_GLOBAL__N_19ScopeRAIIILNS_9ScopeKindE0EEC2ERNS_8EvalInfoE.exit678 ], [ %732, %_ZN12_GLOBAL__N_19ScopeRAIIILNS_9ScopeKindE0EEC2ERNS_8EvalInfoE.exit678 ], [ -1, %select.unfold1219.critedge ]
-  %759 = sext i32 %749 to i64
-  %switch.gep1986 = getelementptr inbounds [6 x i32], ptr @switch.table._ZL16EvaluateLoopBodyRN12_GLOBAL__N_110StmtResultERNS_8EvalInfoEPKN5clang4StmtEPKNS4_10SwitchCaseE, i64 0, i64 %759
+  %759 = zext i32 %749 to i64
+  %switch.gep1986 = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZL16EvaluateLoopBodyRN12_GLOBAL__N_110StmtResultERNS_8EvalInfoEPKN5clang4StmtEPKNS4_10SwitchCaseE, i64 0, i64 %759
   %switch.load1987 = load i32, ptr %switch.gep1986, align 4
   %.not.i674 = icmp eq i32 %.sroa.61075.0, -1
   br i1 %.not.i674, label %_ZN12_GLOBAL__N_19ScopeRAIIILNS_9ScopeKindE0EED2Ev.exit675, label %760
@@ -40876,8 +40876,8 @@ _ZN5clang7APValueD2Ev.exit:                       ; preds = %_ZL26EvaluateAsBool
   br i1 %931, label %826, label %.thread1259, !llvm.loop !1154
 
 .thread1259.loopexit.split.loop.exit2084:         ; preds = %_ZN12_GLOBAL__N_19ScopeRAIIILNS_9ScopeKindE0EED2Ev.exit706
-  %932 = sext i32 %848 to i64
-  %switch.gep1989.le = getelementptr inbounds [6 x i32], ptr @switch.table._ZL16EvaluateLoopBodyRN12_GLOBAL__N_110StmtResultERNS_8EvalInfoEPKN5clang4StmtEPKNS4_10SwitchCaseE, i64 0, i64 %932
+  %932 = zext i32 %848 to i64
+  %switch.gep1989.le = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZL16EvaluateLoopBodyRN12_GLOBAL__N_110StmtResultERNS_8EvalInfoEPKN5clang4StmtEPKNS4_10SwitchCaseE, i64 0, i64 %932
   %switch.load1990.le = load i32, ptr %switch.gep1989.le, align 4
   br label %.thread1259
 
@@ -41187,8 +41187,8 @@ select.unfold1278.critedge:                       ; preds = %1078
 
 switch.lookup1991:                                ; preds = %_ZN12_GLOBAL__N_19ScopeRAIIILNS_9ScopeKindE0EEC2ERNS_8EvalInfoE.exit722, %_ZN12_GLOBAL__N_19ScopeRAIIILNS_9ScopeKindE0EEC2ERNS_8EvalInfoE.exit722, %select.unfold1278.critedge
   %.sroa.61096.0 = phi i32 [ %1055, %_ZN12_GLOBAL__N_19ScopeRAIIILNS_9ScopeKindE0EEC2ERNS_8EvalInfoE.exit722 ], [ %1055, %_ZN12_GLOBAL__N_19ScopeRAIIILNS_9ScopeKindE0EEC2ERNS_8EvalInfoE.exit722 ], [ -1, %select.unfold1278.critedge ]
-  %1087 = sext i32 %1073 to i64
-  %switch.gep1992 = getelementptr inbounds [6 x i32], ptr @switch.table._ZL16EvaluateLoopBodyRN12_GLOBAL__N_110StmtResultERNS_8EvalInfoEPKN5clang4StmtEPKNS4_10SwitchCaseE, i64 0, i64 %1087
+  %1087 = zext i32 %1073 to i64
+  %switch.gep1992 = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZL16EvaluateLoopBodyRN12_GLOBAL__N_110StmtResultERNS_8EvalInfoEPKN5clang4StmtEPKNS4_10SwitchCaseE, i64 0, i64 %1087
   %switch.load1993 = load i32, ptr %switch.gep1992, align 4
   %.not.i718 = icmp eq i32 %.sroa.61096.0, -1
   br i1 %.not.i718, label %_ZN12_GLOBAL__N_19ScopeRAIIILNS_9ScopeKindE0EED2Ev.exit719, label %1088
@@ -45570,8 +45570,8 @@ select.unfold.critedge:                           ; preds = %34
 
 switch.lookup:                                    ; preds = %_ZN12_GLOBAL__N_19ScopeRAIIILNS_9ScopeKindE0EEC2ERNS_8EvalInfoE.exit, %_ZN12_GLOBAL__N_19ScopeRAIIILNS_9ScopeKindE0EEC2ERNS_8EvalInfoE.exit, %select.unfold.critedge
   %.sroa.6.0 = phi i32 [ %7, %_ZN12_GLOBAL__N_19ScopeRAIIILNS_9ScopeKindE0EEC2ERNS_8EvalInfoE.exit ], [ %7, %_ZN12_GLOBAL__N_19ScopeRAIIILNS_9ScopeKindE0EEC2ERNS_8EvalInfoE.exit ], [ -1, %select.unfold.critedge ]
-  %39 = sext i32 %28 to i64
-  %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table._ZL16EvaluateLoopBodyRN12_GLOBAL__N_110StmtResultERNS_8EvalInfoEPKN5clang4StmtEPKNS4_10SwitchCaseE, i64 0, i64 %39
+  %39 = zext i32 %28 to i64
+  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZL16EvaluateLoopBodyRN12_GLOBAL__N_110StmtResultERNS_8EvalInfoEPKN5clang4StmtEPKNS4_10SwitchCaseE, i64 0, i64 %39
   %switch.load = load i32, ptr %switch.gep, align 4
   %.not.i = icmp eq i32 %.sroa.6.0, -1
   br i1 %.not.i, label %_ZN12_GLOBAL__N_19ScopeRAIIILNS_9ScopeKindE0EED2Ev.exit, label %40

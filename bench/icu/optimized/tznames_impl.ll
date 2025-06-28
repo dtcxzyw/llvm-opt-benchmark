@@ -4356,9 +4356,8 @@ switch.lookup:                                    ; preds = %31
   store ptr %20, ptr %34, align 8, !tbaa !82
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store ptr null, ptr %35, align 8, !tbaa !81
-  %sext = shl i64 %indvars.iv.i, 32
-  %36 = ashr exact i64 %sext, 32
-  %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table._ZN6icu_7717TimeZoneNamesImpl19addAllNamesIntoTrieER10UErrorCode.1, i64 0, i64 %36
+  %36 = and i64 %indvars.iv.i, 4294967295
+  %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZN6icu_7717TimeZoneNamesImpl19addAllNamesIntoTrieER10UErrorCode.1, i64 0, i64 %36
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %32, align 8, !tbaa !78
   call void @_ZN6icu_7711TextTrieMap3putEPKDsPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull %30, ptr noundef nonnull %32, ptr noundef nonnull align 4 dereferenceable(4) %1)
@@ -4442,9 +4441,8 @@ switch.lookup50:                                  ; preds = %67
   store ptr null, ptr %70, align 8, !tbaa !82
   %71 = getelementptr inbounds nuw i8, ptr %68, i64 8
   store ptr %56, ptr %71, align 8, !tbaa !81
-  %sext53 = shl i64 %indvars.iv.i27, 32
-  %72 = ashr exact i64 %sext53, 32
-  %switch.gep51 = getelementptr inbounds [7 x i32], ptr @switch.table._ZN6icu_7717TimeZoneNamesImpl19addAllNamesIntoTrieER10UErrorCode.1, i64 0, i64 %72
+  %72 = and i64 %indvars.iv.i27, 4294967295
+  %switch.gep51 = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZN6icu_7717TimeZoneNamesImpl19addAllNamesIntoTrieER10UErrorCode.1, i64 0, i64 %72
   %switch.load52 = load i32, ptr %switch.gep51, align 4
   store i32 %switch.load52, ptr %68, align 8, !tbaa !78
   call void @_ZN6icu_7711TextTrieMap3putEPKDsPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %46, ptr noundef nonnull %66, ptr noundef nonnull %68, ptr noundef nonnull align 4 dereferenceable(4) %1)

@@ -18069,8 +18069,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit416: ; preds = %_Z
   store i8 0, ptr %128, align 1, !tbaa !13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #36
   %switch.tableidx = add nsw i32 %100, -1
-  %129 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [12 x ptr], ptr @switch.table._ZN11flatbuffers6Parser16ParseSingleValueEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_5ValueEb, i64 0, i64 %129
+  %129 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [12 x ptr], ptr @switch.table._ZN11flatbuffers6Parser16ParseSingleValueEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_5ValueEb, i64 0, i64 %129
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !504)
   %130 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #36, !noalias !504

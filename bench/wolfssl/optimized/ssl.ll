@@ -11500,7 +11500,7 @@ switch.lookup:                                    ; preds = %4
   br label %13
 
 switch.lookup5:                                   ; preds = %8
-  %switch.tableidx = add nsw i8 %10, 4
+  %switch.tableidx = add i8 %10, 4
   %12 = zext nneg i8 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.wolfSSL_version, i64 0, i64 %12
   %switch.load = load i32, ptr %switch.gep, align 4

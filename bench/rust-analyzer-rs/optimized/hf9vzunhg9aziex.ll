@@ -4373,8 +4373,8 @@ _ZN23pulldown_cmark_to_cmark25cmark_resume_with_options7padding17hf3ff195cc03226
 switch.lookup1128:                                ; preds = %.loopexit985
   %360 = load i8, ptr %182, align 1, !range !515, !noundef !11
   %switch.tableidx1129 = add nsw i8 %360, -1
-  %361 = sext i8 %switch.tableidx1129 to i64
-  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table._ZN23pulldown_cmark_to_cmark25cmark_resume_with_options17hde9e6efbcfbb00a8E, i64 0, i64 %361
+  %361 = zext i8 %switch.tableidx1129 to i64
+  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN23pulldown_cmark_to_cmark25cmark_resume_with_options17hde9e6efbcfbb00a8E, i64 0, i64 %361
   %switch.load = load ptr, ptr %switch.gep, align 8
   %switch.offset = zext nneg i8 %360 to i64
   %362 = invoke noundef zeroext i1 @"_ZN50_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write$GT$9write_str17hf862a6a4a03ab35cE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %93, ptr noalias noundef nonnull readonly align 1 %switch.load, i64 noundef %switch.offset)
@@ -7978,8 +7978,8 @@ _ZN23pulldown_cmark_to_cmark25cmark_resume_with_options7padding17hf3ff195cc03226
 switch.lookup1119:                                ; preds = %.loopexit990
   %374 = load i8, ptr %182, align 1, !range !515, !noundef !11
   %switch.tableidx1120 = add nsw i8 %374, -1
-  %375 = sext i8 %switch.tableidx1120 to i64
-  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table._ZN23pulldown_cmark_to_cmark25cmark_resume_with_options17hde9e6efbcfbb00a8E, i64 0, i64 %375
+  %375 = zext i8 %switch.tableidx1120 to i64
+  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN23pulldown_cmark_to_cmark25cmark_resume_with_options17hde9e6efbcfbb00a8E, i64 0, i64 %375
   %switch.load = load ptr, ptr %switch.gep, align 8
   %switch.offset = zext nneg i8 %374 to i64
   %376 = invoke noundef zeroext i1 @"_ZN50_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write$GT$9write_str17hf862a6a4a03ab35cE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %93, ptr noalias noundef nonnull readonly align 1 %switch.load, i64 noundef %switch.offset)

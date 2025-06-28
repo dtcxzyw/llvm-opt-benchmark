@@ -94058,8 +94058,8 @@ define noundef range(i8 0, 14) i8 @_ZN5typst5model10numbering_13NumberingKind9fr
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef range(i32 42, 44033) i32 @_ZN5typst5model10numbering_13NumberingKind7to_char17h278b798d82c2c96bE(i8 noundef %0) unnamed_addr #25 {
 switch.lookup:
-  %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds [13 x i32], ptr @switch.table._ZN5typst5model10numbering_13NumberingKind7to_char17h278b798d82c2c96bE, i64 0, i64 %1
+  %1 = zext i8 %0 to i64
+  %switch.gep = getelementptr inbounds nuw [13 x i32], ptr @switch.table._ZN5typst5model10numbering_13NumberingKind7to_char17h278b798d82c2c96bE, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }

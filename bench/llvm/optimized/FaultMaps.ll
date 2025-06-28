@@ -449,8 +449,8 @@ declare void @_ZN4llvm10MCStreamer9emitValueEPKNS_6MCExprEjNS_5SMLocE(ptr nounde
 define dso_local noundef nonnull ptr @_ZN4llvm9FaultMaps17faultTypeToStringENS0_9FaultKindE(i32 noundef %0) local_unnamed_addr #5 align 2 {
 switch.lookup:
   %switch.tableidx = add nsw i32 %0, -1
-  %1 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN4llvm9FaultMaps17faultTypeToStringENS0_9FaultKindE, i64 0, i64 %1
+  %1 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4llvm9FaultMaps17faultTypeToStringENS0_9FaultKindE, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }

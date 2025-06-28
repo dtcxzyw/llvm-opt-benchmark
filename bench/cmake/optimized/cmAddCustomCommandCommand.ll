@@ -5681,8 +5681,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit914: ; preds = %_Z
           to label %switch.lookup unwind label %2028
 
 switch.lookup:                                    ; preds = %2032
-  %2034 = sext i32 %.0319.lcssa to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._Z25cmAddCustomCommandCommandRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EER17cmExecutionStatus, i64 0, i64 %2034
+  %2034 = zext i32 %.0319.lcssa to i64
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._Z25cmAddCustomCommandCommandRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EER17cmExecutionStatus, i64 0, i64 %2034
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2035 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %126, ptr noundef nonnull %switch.load)
           to label %2036 unwind label %2028

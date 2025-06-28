@@ -8289,8 +8289,8 @@ _ZNK5clang14DeclaratorDecl16getOuterLocStartEv.exit: ; preds = %_ZL13typeIsPostf
 define dso_local noundef nonnull ptr @_ZN5clang7VarDecl30getStorageClassSpecifierStringENS_12StorageClassE(i32 noundef %0) local_unnamed_addr #8 align 2 {
 switch.lookup:
   %switch.tableidx = add nsw i32 %0, -1
-  %1 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table._ZN5clang7VarDecl30getStorageClassSpecifierStringENS_12StorageClassE, i64 0, i64 %1
+  %1 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN5clang7VarDecl30getStorageClassSpecifierStringENS_12StorageClassE, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -28490,8 +28490,8 @@ _ZL21getVisibilityFromAttrIN5clang14VisibilityAttrEENS0_10VisibilityEPKT_.exit.s
   %switch.table._ZL15getVisibilityOfPKN5clang9NamedDeclENS0_22ExplicitVisibilityKindE.43.sink = phi ptr [ @switch.table._ZL15getVisibilityOfPKN5clang9NamedDeclENS0_22ExplicitVisibilityKindE.43, %21 ], [ @switch.table._ZL15getVisibilityOfPKN5clang9NamedDeclENS0_22ExplicitVisibilityKindE.43, %48 ], [ @switch.table._ZL15getVisibilityOfPKN5clang9NamedDeclENS0_22ExplicitVisibilityKindE.43, %.lr.ph.i.i.i.i20 ], [ @switch.table._ZL15getVisibilityOfPKN5clang9NamedDeclENS0_22ExplicitVisibilityKindE.43, %.lr.ph.i.i.i.i ]
   %59 = getelementptr i8, ptr %.sink48, i64 36
   %.val13 = load i32, ptr %59, align 4, !tbaa !390
-  %60 = sext i32 %.val13 to i64
-  %switch.gep46 = getelementptr inbounds [3 x i64], ptr %switch.table._ZL15getVisibilityOfPKN5clang9NamedDeclENS0_22ExplicitVisibilityKindE.43.sink, i64 0, i64 %60
+  %60 = zext i32 %.val13 to i64
+  %switch.gep46 = getelementptr inbounds nuw [3 x i64], ptr %switch.table._ZL15getVisibilityOfPKN5clang9NamedDeclENS0_22ExplicitVisibilityKindE.43.sink, i64 0, i64 %60
   %switch.load47 = load i64, ptr %switch.gep46, align 8
   br label %_ZL21getVisibilityFromAttrIN5clang14VisibilityAttrEENS0_10VisibilityEPKT_.exit
 

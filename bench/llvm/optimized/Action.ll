@@ -171,8 +171,8 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef nonnull ptr @_ZN5clang6driver6Action12getClassNameENS1_11ActionClassE(i32 noundef %0) local_unnamed_addr #2 align 2 {
 switch.lookup:
-  %1 = sext i32 %0 to i64
-  %switch.gep = getelementptr inbounds [22 x ptr], ptr @switch.table._ZN5clang6driver6Action12getClassNameENS1_11ActionClassE, i64 0, i64 %1
+  %1 = zext i32 %0 to i64
+  %switch.gep = getelementptr inbounds nuw [22 x ptr], ptr @switch.table._ZN5clang6driver6Action12getClassNameENS1_11ActionClassE, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }

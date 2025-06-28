@@ -15571,10 +15571,10 @@ _ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit: ; preds = %.preheader.i.i, %4,
 14:                                               ; preds = %_ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit
   %15 = and i32 %1, 2147483647
   %16 = icmp samesign ult i32 %15, 3
-  br i1 %16, label %switch.lookup, label %17
+  %17 = zext nneg i32 %15 to i64
+  br i1 %16, label %switch.lookup, label %18
 
-17:                                               ; preds = %14
-  %18 = zext nneg i32 %15 to i64
+18:                                               ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %20 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %19, ptr nonnull @.str.64, ptr nonnull @.str.65, i32 430, ptr null)
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -15584,13 +15584,13 @@ _ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit: ; preds = %.preheader.i.i, %4,
   %25 = ptrtoint ptr %23 to i64
   %26 = sub i64 %24, %25
   %27 = ashr exact i64 %26, 3
-  %28 = icmp ugt i64 %27, %18
+  %28 = icmp ugt i64 %27, %17
   br i1 %28, label %29, label %_ZN19VerilatedContextImp10fdToFpListEj.exit.thread8
 
-29:                                               ; preds = %17
+29:                                               ; preds = %18
   %30 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %19, ptr nonnull @.str.64, ptr nonnull @.str.65, i32 430, ptr null)
   %31 = load ptr, ptr %30, align 8, !noalias !116
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %18
+  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %17
   br label %_ZN19VerilatedContextImp10fdToFpListEj.exit.thread
 
 33:                                               ; preds = %_ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit
@@ -15647,8 +15647,7 @@ _ZN15VerilatedFpList9push_backEP8_IO_FILE.exit22.i: ; preds = %47, %43, %41
   br i1 %or.cond.i, label %41, label %_ZN19VerilatedContextImp10fdToFpListEj.exit.loopexit, !llvm.loop !107
 
 switch.lookup:                                    ; preds = %14
-  %55 = zext nneg i32 %15 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN19VerilatedContextImp6fdTellEj, i64 0, i64 %55
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN19VerilatedContextImp6fdTellEj, i64 0, i64 %17
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN19VerilatedContextImp10fdToFpListEj.exit.thread
 
@@ -15656,26 +15655,26 @@ _ZN19VerilatedContextImp10fdToFpListEj.exit.thread: ; preds = %switch.lookup, %2
   %.sink.i.in = phi ptr [ %32, %29 ], [ %switch.load, %switch.lookup ]
   %.sink.i = load ptr, ptr %.sink.i.in, align 8, !noalias !116
   store ptr %.sink.i, ptr %5, align 8, !alias.scope !116
-  br label %57
+  br label %56
 
 _ZN19VerilatedContextImp10fdToFpListEj.exit.loopexit: ; preds = %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit22.i
   %.pre = load i64, ptr %40, align 8
   br label %_ZN19VerilatedContextImp10fdToFpListEj.exit
 
 _ZN19VerilatedContextImp10fdToFpListEj.exit:      ; preds = %_ZN19VerilatedContextImp10fdToFpListEj.exit.loopexit, %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit21.i
-  %56 = phi i64 [ %.pre, %_ZN19VerilatedContextImp10fdToFpListEj.exit.loopexit ], [ %38, %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit21.i ]
-  %.not = icmp eq i64 %56, 1
-  br i1 %.not, label %57, label %_ZN19VerilatedContextImp10fdToFpListEj.exit.thread8
+  %55 = phi i64 [ %.pre, %_ZN19VerilatedContextImp10fdToFpListEj.exit.loopexit ], [ %38, %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit21.i ]
+  %.not = icmp eq i64 %55, 1
+  br i1 %.not, label %56, label %_ZN19VerilatedContextImp10fdToFpListEj.exit.thread8
 
-57:                                               ; preds = %_ZN19VerilatedContextImp10fdToFpListEj.exit.thread, %_ZN19VerilatedContextImp10fdToFpListEj.exit
-  %58 = load ptr, ptr %5, align 8
-  %59 = zext i32 %2 to i64
-  %60 = tail call i32 @fseek(ptr noundef %58, i64 noundef %59, i32 noundef %3)
+56:                                               ; preds = %_ZN19VerilatedContextImp10fdToFpListEj.exit.thread, %_ZN19VerilatedContextImp10fdToFpListEj.exit
+  %57 = load ptr, ptr %5, align 8
+  %58 = zext i32 %2 to i64
+  %59 = tail call i32 @fseek(ptr noundef %57, i64 noundef %58, i32 noundef %3)
   br label %_ZN19VerilatedContextImp10fdToFpListEj.exit.thread8
 
-_ZN19VerilatedContextImp10fdToFpListEj.exit.thread8: ; preds = %17, %_ZN19VerilatedContextImp10fdToFpListEj.exit, %57
-  %.0 = phi i32 [ %60, %57 ], [ -1, %_ZN19VerilatedContextImp10fdToFpListEj.exit ], [ -1, %17 ]
-  %61 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %6) #24
+_ZN19VerilatedContextImp10fdToFpListEj.exit.thread8: ; preds = %18, %_ZN19VerilatedContextImp10fdToFpListEj.exit, %56
+  %.0 = phi i32 [ %59, %56 ], [ -1, %_ZN19VerilatedContextImp10fdToFpListEj.exit ], [ -1, %18 ]
+  %60 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %6) #24
   ret i32 %.0
 }
 
@@ -15769,10 +15768,10 @@ _ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit: ; preds = %.preheader.i.i, %2,
 12:                                               ; preds = %_ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit
   %13 = and i32 %1, 2147483647
   %14 = icmp samesign ult i32 %13, 3
-  br i1 %14, label %switch.lookup, label %15
+  %15 = zext nneg i32 %13 to i64
+  br i1 %14, label %switch.lookup, label %16
 
-15:                                               ; preds = %12
-  %16 = zext nneg i32 %13 to i64
+16:                                               ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %18 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %17, ptr nonnull @.str.64, ptr nonnull @.str.65, i32 430, ptr null)
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -15782,13 +15781,13 @@ _ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit: ; preds = %.preheader.i.i, %2,
   %23 = ptrtoint ptr %21 to i64
   %24 = sub i64 %22, %23
   %25 = ashr exact i64 %24, 3
-  %26 = icmp ugt i64 %25, %16
+  %26 = icmp ugt i64 %25, %15
   br i1 %26, label %27, label %_ZN19VerilatedContextImp10fdToFpListEj.exit.thread6
 
-27:                                               ; preds = %15
+27:                                               ; preds = %16
   %28 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %17, ptr nonnull @.str.64, ptr nonnull @.str.65, i32 430, ptr null)
   %29 = load ptr, ptr %28, align 8, !noalias !119
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %16
+  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %15
   br label %_ZN19VerilatedContextImp10fdToFpListEj.exit.thread
 
 31:                                               ; preds = %_ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit
@@ -15845,8 +15844,7 @@ _ZN15VerilatedFpList9push_backEP8_IO_FILE.exit22.i: ; preds = %45, %41, %39
   br i1 %or.cond.i, label %39, label %_ZN19VerilatedContextImp10fdToFpListEj.exit.loopexit, !llvm.loop !107
 
 switch.lookup:                                    ; preds = %12
-  %53 = zext nneg i32 %13 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN19VerilatedContextImp6fdTellEj, i64 0, i64 %53
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN19VerilatedContextImp6fdTellEj, i64 0, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN19VerilatedContextImp10fdToFpListEj.exit.thread
 
@@ -15854,26 +15852,26 @@ _ZN19VerilatedContextImp10fdToFpListEj.exit.thread: ; preds = %switch.lookup, %2
   %.sink.i.in = phi ptr [ %30, %27 ], [ %switch.load, %switch.lookup ]
   %.sink.i = load ptr, ptr %.sink.i.in, align 8, !noalias !119
   store ptr %.sink.i, ptr %3, align 8, !alias.scope !119
-  br label %55
+  br label %54
 
 _ZN19VerilatedContextImp10fdToFpListEj.exit.loopexit: ; preds = %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit22.i
   %.pre = load i64, ptr %38, align 8
   br label %_ZN19VerilatedContextImp10fdToFpListEj.exit
 
 _ZN19VerilatedContextImp10fdToFpListEj.exit:      ; preds = %_ZN19VerilatedContextImp10fdToFpListEj.exit.loopexit, %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit21.i
-  %54 = phi i64 [ %.pre, %_ZN19VerilatedContextImp10fdToFpListEj.exit.loopexit ], [ %36, %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit21.i ]
-  %.not = icmp eq i64 %54, 1
-  br i1 %.not, label %55, label %_ZN19VerilatedContextImp10fdToFpListEj.exit.thread6
+  %53 = phi i64 [ %.pre, %_ZN19VerilatedContextImp10fdToFpListEj.exit.loopexit ], [ %36, %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit21.i ]
+  %.not = icmp eq i64 %53, 1
+  br i1 %.not, label %54, label %_ZN19VerilatedContextImp10fdToFpListEj.exit.thread6
 
-55:                                               ; preds = %_ZN19VerilatedContextImp10fdToFpListEj.exit.thread, %_ZN19VerilatedContextImp10fdToFpListEj.exit
-  %56 = load ptr, ptr %3, align 8
-  %57 = tail call i64 @ftell(ptr noundef %56)
-  %58 = trunc i64 %57 to i32
+54:                                               ; preds = %_ZN19VerilatedContextImp10fdToFpListEj.exit.thread, %_ZN19VerilatedContextImp10fdToFpListEj.exit
+  %55 = load ptr, ptr %3, align 8
+  %56 = tail call i64 @ftell(ptr noundef %55)
+  %57 = trunc i64 %56 to i32
   br label %_ZN19VerilatedContextImp10fdToFpListEj.exit.thread6
 
-_ZN19VerilatedContextImp10fdToFpListEj.exit.thread6: ; preds = %15, %_ZN19VerilatedContextImp10fdToFpListEj.exit, %55
-  %.0 = phi i32 [ %58, %55 ], [ -1, %_ZN19VerilatedContextImp10fdToFpListEj.exit ], [ -1, %15 ]
-  %59 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %4) #24
+_ZN19VerilatedContextImp10fdToFpListEj.exit.thread6: ; preds = %16, %_ZN19VerilatedContextImp10fdToFpListEj.exit, %54
+  %.0 = phi i32 [ %57, %54 ], [ -1, %_ZN19VerilatedContextImp10fdToFpListEj.exit ], [ -1, %16 ]
+  %58 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %4) #24
   ret i32 %.0
 }
 
@@ -20744,8 +20742,8 @@ switch.lookup:                                    ; preds = %84
   %.zext110 = and i32 %88, 63
   %.pre.i68 = tail call align 16 ptr @llvm.threadlocal.address.p0(ptr align 16 @_ZZL10memhFormatiE5t_buf)
   %switch.tableidx = add nsw i32 %.zext110, -4
-  %89 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN10VlWriteMem5printEmbPKv, i64 0, i64 %89
+  %89 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN10VlWriteMem5printEmbPKv, i64 0, i64 %89
   %switch.load = load ptr, ptr %switch.gep, align 8
   %90 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %.pre.i68, i64 noundef 32, ptr noundef nonnull %switch.load) #24
   %91 = load i32, ptr %15, align 4

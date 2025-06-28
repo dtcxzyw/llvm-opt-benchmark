@@ -16760,8 +16760,8 @@ switch.lookup:
   %2 = inttoptr i64 %1 to ptr
   %3 = load ptr, ptr %2, align 16, !tbaa !1614
   %4 = tail call noundef i32 @_ZNK5clang4Type17getScalarTypeKindEv(ptr noundef nonnull align 16 dereferenceable(24) %3) #28
-  %5 = sext i32 %4 to i64
-  %switch.gep = getelementptr inbounds [10 x i32], ptr @switch.table._ZN5clang4Sema27ScalarTypeToBooleanCastKindENS_8QualTypeE, i64 0, i64 %5
+  %5 = zext i32 %4 to i64
+  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZN5clang4Sema27ScalarTypeToBooleanCastKindENS_8QualTypeE, i64 0, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }

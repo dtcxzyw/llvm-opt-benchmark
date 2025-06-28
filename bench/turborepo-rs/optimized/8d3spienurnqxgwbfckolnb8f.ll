@@ -349,7 +349,7 @@ define hidden void @_RNvNtCs8mTrBI1stz4_15turborepo_vt1008tui_term13fill_buf_cel
   %13 = landingpad { ptr, i32 }
           cleanup
   invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6StringECs8mTrBI1stz4_15turborepo_vt100(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #19
-          to label %common.resume unwind label %66
+          to label %common.resume unwind label %68
 
 14:                                               ; preds = %2
   invoke void @_RNvXsn_NtCs68wO5nsWeTG_5alloc3vecINtB5_3VechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs6X0o37rPFRg_11compact_str(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
@@ -374,100 +374,98 @@ common.resume:                                    ; preds = %12, %15
 _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6StringECs8mTrBI1stz4_15turborepo_vt100.exit: ; preds = %14
   call void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs6X0o37rPFRg_11compact_str(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  %trunc.i = zext i32 %.sroa.0.0.copyload.i to i64
-  %sext = shl i64 %trunc.i, 56
-  %19 = ashr exact i64 %sext, 56
-  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table._RNvXs1_NtCs8mTrBI1stz4_15turborepo_vt1008tui_termNtB5_5ColorINtNtCs1LoaDTb72WA_4core7convert4FromNtNtB7_5attrs5ColorE4from, i64 0, i64 %19
+  %19 = and i32 %.sroa.0.0.copyload.i, 255
+  %20 = zext nneg i32 %19 to i64
+  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._RNvXs1_NtCs8mTrBI1stz4_15turborepo_vt1008tui_termNtB5_5ColorINtNtCs1LoaDTb72WA_4core7convert4FromNtNtB7_5attrs5ColorE4from, i64 0, i64 %20
   %switch.load = load i32, ptr %switch.gep, align 4
-  %trunc.i24 = zext i32 %.sroa.0.0.copyload.i23 to i64
-  %sext33 = shl i64 %trunc.i24, 56
-  %20 = ashr exact i64 %sext33, 56
-  %switch.gep31 = getelementptr inbounds [3 x i32], ptr @switch.table._RNvXs1_NtCs8mTrBI1stz4_15turborepo_vt1008tui_termNtB5_5ColorINtNtCs1LoaDTb72WA_4core7convert4FromNtNtB7_5attrs5ColorE4from, i64 0, i64 %20
+  %21 = and i32 %.sroa.0.0.copyload.i23, 255
+  %22 = zext nneg i32 %21 to i64
+  %switch.gep31 = getelementptr inbounds nuw [3 x i32], ptr @switch.table._RNvXs1_NtCs8mTrBI1stz4_15turborepo_vt1008tui_termNtB5_5ColorINtNtCs1LoaDTb72WA_4core7convert4FromNtNtB7_5attrs5ColorE4from, i64 0, i64 %22
   %switch.load32 = load i32, ptr %switch.gep31, align 4
   call void @_RNvMs1_NtCsbYUTfhIhMOk_7ratatui5styleNtB5_5Style5reset(ptr noalias noundef nonnull sret([16 x i8]) align 2 captures(none) dereferenceable(16) %3)
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 33
-  %22 = load i8, ptr %21, align 1, !alias.scope !46, !noundef !7
-  %23 = and i8 %22, 1
-  %.not = icmp eq i8 %23, 0
-  br i1 %.not, label %24, label %26
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 33
+  %24 = load i8, ptr %23, align 1, !alias.scope !46, !noundef !7
+  %25 = and i8 %24, 1
+  %.not = icmp eq i8 %25, 0
+  br i1 %.not, label %26, label %28
 
-24:                                               ; preds = %26, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6StringECs8mTrBI1stz4_15turborepo_vt100.exit
-  %25 = and i8 %22, 2
-  %.not29 = icmp eq i8 %25, 0
-  br i1 %.not29, label %33, label %35
+26:                                               ; preds = %28, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6StringECs8mTrBI1stz4_15turborepo_vt100.exit
+  %27 = and i8 %24, 2
+  %.not29 = icmp eq i8 %27, 0
+  br i1 %.not29, label %35, label %37
 
-26:                                               ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6StringECs8mTrBI1stz4_15turborepo_vt100.exit
-  %27 = getelementptr inbounds nuw i8, ptr %3, i64 14
-  %28 = load i16, ptr %27, align 2, !noundef !7
-  %29 = and i16 %28, -2
-  store i16 %29, ptr %27, align 2
-  %30 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %31 = load i16, ptr %30, align 2, !noundef !7
-  %32 = or i16 %31, 1
-  store i16 %32, ptr %30, align 2
-  br label %24
+28:                                               ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6StringECs8mTrBI1stz4_15turborepo_vt100.exit
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 14
+  %30 = load i16, ptr %29, align 2, !noundef !7
+  %31 = and i16 %30, -2
+  store i16 %31, ptr %29, align 2
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %33 = load i16, ptr %32, align 2, !noundef !7
+  %34 = or i16 %33, 1
+  store i16 %34, ptr %32, align 2
+  br label %26
 
-33:                                               ; preds = %35, %24
-  %34 = and i8 %22, 4
-  %.not30 = icmp eq i8 %34, 0
-  br i1 %.not30, label %42, label %48
+35:                                               ; preds = %37, %26
+  %36 = and i8 %24, 4
+  %.not30 = icmp eq i8 %36, 0
+  br i1 %.not30, label %44, label %50
 
-35:                                               ; preds = %24
-  %36 = getelementptr inbounds nuw i8, ptr %3, i64 14
-  %37 = load i16, ptr %36, align 2, !noundef !7
-  %38 = and i16 %37, -5
-  store i16 %38, ptr %36, align 2
-  %39 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %40 = load i16, ptr %39, align 2, !noundef !7
-  %41 = or i16 %40, 4
-  store i16 %41, ptr %39, align 2
-  br label %33
+37:                                               ; preds = %26
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 14
+  %39 = load i16, ptr %38, align 2, !noundef !7
+  %40 = and i16 %39, -5
+  store i16 %40, ptr %38, align 2
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %42 = load i16, ptr %41, align 2, !noundef !7
+  %43 = or i16 %42, 4
+  store i16 %43, ptr %41, align 2
+  br label %35
 
-42:                                               ; preds = %48, %33
-  %43 = and i8 %22, 8
-  %44 = icmp ne i8 %43, 0
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %46 = load i8, ptr %45, align 4, !range !51, !alias.scope !52
-  %47 = trunc nuw i8 %46 to i1
-  %.sroa.0.0.i = select i1 %44, i1 true, i1 %47
-  br i1 %.sroa.0.0.i, label %59, label %55
+44:                                               ; preds = %50, %35
+  %45 = and i8 %24, 8
+  %46 = icmp ne i8 %45, 0
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %48 = load i8, ptr %47, align 4, !range !51, !alias.scope !52
+  %49 = trunc nuw i8 %48 to i1
+  %.sroa.0.0.i = select i1 %46, i1 true, i1 %49
+  br i1 %.sroa.0.0.i, label %61, label %57
 
-48:                                               ; preds = %33
-  %49 = getelementptr inbounds nuw i8, ptr %3, i64 14
-  %50 = load i16, ptr %49, align 2, !noundef !7
-  %51 = and i16 %50, -9
-  store i16 %51, ptr %49, align 2
-  %52 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %53 = load i16, ptr %52, align 2, !noundef !7
-  %54 = or i16 %53, 8
-  store i16 %54, ptr %52, align 2
-  br label %42
+50:                                               ; preds = %35
+  %51 = getelementptr inbounds nuw i8, ptr %3, i64 14
+  %52 = load i16, ptr %51, align 2, !noundef !7
+  %53 = and i16 %52, -9
+  store i16 %53, ptr %51, align 2
+  %54 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %55 = load i16, ptr %54, align 2, !noundef !7
+  %56 = or i16 %55, 8
+  store i16 %56, ptr %54, align 2
+  br label %44
 
-55:                                               ; preds = %59, %42
+57:                                               ; preds = %61, %44
   %.sroa.46.0.insert.insert.i26 = and i32 %.sroa.0.0.copyload.i23, -256
   %.sroa.05.0.insert.insert.i27 = or disjoint i32 %switch.load32, %.sroa.46.0.insert.insert.i26
   %.sroa.46.0.insert.insert.i = and i32 %.sroa.0.0.copyload.i, -256
   %.sroa.05.0.insert.insert.i = or disjoint i32 %switch.load, %.sroa.46.0.insert.insert.i
-  %56 = call noundef align 8 dereferenceable(40) ptr @_RINvMNtNtCsbYUTfhIhMOk_7ratatui6buffer4cellNtB3_4Cell9set_styleNtNtB7_5style5StyleEB7_(ptr noalias noundef nonnull align 8 dereferenceable(40) %1, ptr noalias noundef nonnull align 2 captures(none) dereferenceable(16) %3)
-  %57 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i32 %.sroa.05.0.insert.insert.i, ptr %57, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  store i32 %.sroa.05.0.insert.insert.i27, ptr %58, align 4
+  %58 = call noundef align 8 dereferenceable(40) ptr @_RINvMNtNtCsbYUTfhIhMOk_7ratatui6buffer4cellNtB3_4Cell9set_styleNtNtB7_5style5StyleEB7_(ptr noalias noundef nonnull align 8 dereferenceable(40) %1, ptr noalias noundef nonnull align 2 captures(none) dereferenceable(16) %3)
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store i32 %.sroa.05.0.insert.insert.i, ptr %59, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  store i32 %.sroa.05.0.insert.insert.i27, ptr %60, align 4
   ret void
 
-59:                                               ; preds = %42
-  %60 = getelementptr inbounds nuw i8, ptr %3, i64 14
-  %61 = load i16, ptr %60, align 2, !noundef !7
-  %62 = and i16 %61, -65
-  store i16 %62, ptr %60, align 2
-  %63 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %64 = load i16, ptr %63, align 2, !noundef !7
-  %65 = or i16 %64, 64
-  store i16 %65, ptr %63, align 2
-  br label %55
+61:                                               ; preds = %44
+  %62 = getelementptr inbounds nuw i8, ptr %3, i64 14
+  %63 = load i16, ptr %62, align 2, !noundef !7
+  %64 = and i16 %63, -65
+  store i16 %64, ptr %62, align 2
+  %65 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %66 = load i16, ptr %65, align 2, !noundef !7
+  %67 = or i16 %66, 64
+  store i16 %67, ptr %65, align 2
+  br label %57
 
-66:                                               ; preds = %12
-  %67 = landingpad { ptr, i32 }
+68:                                               ; preds = %12
+  %69 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h1bb225b6f4388944E() #20
   unreachable
@@ -476,10 +474,9 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6Str
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define range(i32 0, -224) i32 @_RNvXs1_NtCs8mTrBI1stz4_15turborepo_vt1008tui_termNtB5_5ColorINtNtCs1LoaDTb72WA_4core7convert4FromNtNtB7_5attrs5ColorE4from(i32 %0) unnamed_addr #9 {
 switch.lookup:
-  %trunc = zext i32 %0 to i64
-  %sext = shl i64 %trunc, 56
-  %1 = ashr exact i64 %sext, 56
-  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table._RNvXs1_NtCs8mTrBI1stz4_15turborepo_vt1008tui_termNtB5_5ColorINtNtCs1LoaDTb72WA_4core7convert4FromNtNtB7_5attrs5ColorE4from, i64 0, i64 %1
+  %1 = and i32 %0, 255
+  %2 = zext nneg i32 %1 to i64
+  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._RNvXs1_NtCs8mTrBI1stz4_15turborepo_vt1008tui_termNtB5_5ColorINtNtCs1LoaDTb72WA_4core7convert4FromNtNtB7_5attrs5ColorE4from, i64 0, i64 %2
   %switch.load = load i32, ptr %switch.gep, align 4
   %.sroa.46.0.insert.insert = and i32 %0, -256
   %.sroa.05.0.insert.insert = or disjoint i32 %switch.load, %.sroa.46.0.insert.insert

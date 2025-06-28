@@ -3604,8 +3604,8 @@ switch.lookup:                                    ; preds = %12
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 68
   %15 = load i16, ptr %14, align 4, !tbaa !221
   %switch.tableidx = add nsw i16 %15, -350
-  %16 = sext i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x i64], ptr @switch.table._ZNK4llvm12X86InstrInfo13reMaterializeERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEENS_8RegisterEjRKS4_RKNS_18TargetRegisterInfoE, i64 0, i64 %16
+  %16 = zext i16 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZNK4llvm12X86InstrInfo13reMaterializeERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEENS_8RegisterEjRKS4_RKNS_18TargetRegisterInfoE, i64 0, i64 %16
   %switch.load = load i64, ptr %switch.gep, align 8
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 56
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #32
@@ -9288,9 +9288,8 @@ _ZNK4llvm8Function10hasOptSizeEv.exit.thread:     ; preds = %55, %_ZNK4llvm8Func
   %330 = load i64, ptr %329, align 8, !tbaa !240
   %331 = getelementptr inbounds nuw i8, ptr %319, i64 32
   %332 = load ptr, ptr %331, align 8, !tbaa !239
-  %sext202 = shl i64 %330, 32
-  %333 = ashr exact i64 %sext202, 32
-  %switch.gep200 = getelementptr inbounds [18 x i64], ptr @switch.table._ZNK4llvm12X86InstrInfo22reverseBranchConditionERNS_15SmallVectorImplINS_14MachineOperandEEE, i64 0, i64 %333
+  %333 = and i64 %330, 4294967295
+  %switch.gep200 = getelementptr inbounds nuw [18 x i64], ptr @switch.table._ZNK4llvm12X86InstrInfo22reverseBranchConditionERNS_15SmallVectorImplINS_14MachineOperandEEE, i64 0, i64 %333
   %switch.load201 = load i64, ptr %switch.gep200, align 8
   %334 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %332, i64 %328, i32 3
   store i64 %switch.load201, ptr %334, align 8, !tbaa !240
@@ -9451,8 +9450,8 @@ declare void @_ZN4llvm12MachineInstr10addOperandERKNS_14MachineOperandE(ptr noun
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef range(i32 0, 8) i32 @_ZN4llvm3X8618getSwappedVPCMPImmEj(i32 noundef %0) local_unnamed_addr #5 {
 switch.lookup:
-  %1 = sext i32 %0 to i64
-  %switch.gep = getelementptr inbounds [8 x i32], ptr @switch.table._ZN4llvm3X8618getSwappedVPCMPImmEj, i64 0, i64 %1
+  %1 = zext i32 %0 to i64
+  %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN4llvm3X8618getSwappedVPCMPImmEj, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -9460,8 +9459,8 @@ switch.lookup:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef range(i32 0, 8) i32 @_ZN4llvm3X8618getSwappedVPCOMImmEj(i32 noundef %0) local_unnamed_addr #5 {
 switch.lookup:
-  %1 = sext i32 %0 to i64
-  %switch.gep = getelementptr inbounds [8 x i32], ptr @switch.table._ZN4llvm3X8618getSwappedVPCOMImmEj, i64 0, i64 %1
+  %1 = zext i32 %0 to i64
+  %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN4llvm3X8618getSwappedVPCOMImmEj, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -9481,8 +9480,8 @@ define dso_local noundef i32 @_ZN4llvm3X8617getSwappedVCMPImmEj(i32 noundef %0) 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef range(i32 0, 18) i32 @_ZN4llvm3X8626GetOppositeBranchConditionENS0_8CondCodeE(i32 noundef %0) local_unnamed_addr #5 {
 switch.lookup:
-  %1 = sext i32 %0 to i64
-  %switch.gep = getelementptr inbounds [18 x i32], ptr @switch.table._ZN4llvm3X8626GetOppositeBranchConditionENS0_8CondCodeE, i64 0, i64 %1
+  %1 = zext i32 %0 to i64
+  %switch.gep = getelementptr inbounds nuw [18 x i32], ptr @switch.table._ZN4llvm3X8626GetOppositeBranchConditionENS0_8CondCodeE, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -11438,8 +11437,8 @@ _ZN4llvm3X8613getCondFromMIERKNS_12MachineInstrE.exit: ; preds = %15, %10, %6
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef range(i32 0, 9) i32 @_ZN4llvm3X8628getCCMPCondFlagsFromCondCodeENS0_8CondCodeE(i32 noundef %0) local_unnamed_addr #5 {
 switch.lookup:
-  %1 = sext i32 %0 to i64
-  %switch.gep = getelementptr inbounds [16 x i32], ptr @switch.table._ZN4llvm3X8628getCCMPCondFlagsFromCondCodeENS0_8CondCodeE, i64 0, i64 %1
+  %1 = zext i32 %0 to i64
+  %switch.gep = getelementptr inbounds nuw [16 x i32], ptr @switch.table._ZN4llvm3X8628getCCMPCondFlagsFromCondCodeENS0_8CondCodeE, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -11585,8 +11584,8 @@ define dso_local noundef range(i32 1209, 1221) i32 @_ZN4llvm3X8613getCMovOpcodeE
 define dso_local noundef range(i32 0, 7) i32 @_ZN4llvm3X8618getVPCMPImmForCondENS_3ISD8CondCodeE(i32 noundef %0) local_unnamed_addr #5 {
 switch.lookup:
   %switch.tableidx = add nsw i32 %0, -10
-  %1 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [13 x i32], ptr @switch.table._ZN4llvm3X8618getVPCMPImmForCondENS_3ISD8CondCodeE, i64 0, i64 %1
+  %1 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [13 x i32], ptr @switch.table._ZN4llvm3X8618getVPCMPImmForCondENS_3ISD8CondCodeE, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -30002,9 +30001,8 @@ switch.lookup:
   %2 = load ptr, ptr %1, align 8, !tbaa !45
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load i64, ptr %3, align 8, !tbaa !240
-  %sext = shl i64 %4, 32
-  %5 = ashr exact i64 %sext, 32
-  %switch.gep = getelementptr inbounds [18 x i64], ptr @switch.table._ZNK4llvm12X86InstrInfo22reverseBranchConditionERNS_15SmallVectorImplINS_14MachineOperandEEE, i64 0, i64 %5
+  %5 = and i64 %4, 4294967295
+  %switch.gep = getelementptr inbounds nuw [18 x i64], ptr @switch.table._ZNK4llvm12X86InstrInfo22reverseBranchConditionERNS_15SmallVectorImplINS_14MachineOperandEEE, i64 0, i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
   store i64 %switch.load, ptr %3, align 8, !tbaa !240
   ret i1 false

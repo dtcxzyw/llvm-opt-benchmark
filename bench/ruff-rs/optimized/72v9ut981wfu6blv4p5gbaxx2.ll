@@ -606,11 +606,11 @@ define noundef i8 @"_ZN81_$LT$ruff_source_file..newlines..LineEnding$u20$as$u20$
 define { ptr, i64 } @_ZN16ruff_source_file8newlines10LineEnding6as_str17h4208c09727745c53E(ptr readonly align 1 captures(none) %0) unnamed_addr #4 {
 switch.lookup:
   %1 = load i8, ptr %0, align 1
-  %2 = sext i8 %1 to i64
-  %switch.gep = getelementptr inbounds [3 x i64], ptr @"switch.table._ZN82_$LT$ruff_source_file..newlines..LineEnding$u20$as$u20$core..ops..deref..Deref$GT$5deref17hfe8a17f81da8333aE", i64 0, i64 %2
+  %2 = zext i8 %1 to i64
+  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN82_$LT$ruff_source_file..newlines..LineEnding$u20$as$u20$core..ops..deref..Deref$GT$5deref17hfe8a17f81da8333aE", i64 0, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
-  %3 = sext i8 %1 to i64
-  %switch.gep1 = getelementptr inbounds [3 x ptr], ptr @"switch.table._ZN82_$LT$ruff_source_file..newlines..LineEnding$u20$as$u20$core..ops..deref..Deref$GT$5deref17hfe8a17f81da8333aE.3", i64 0, i64 %3
+  %3 = zext i8 %1 to i64
+  %switch.gep1 = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN82_$LT$ruff_source_file..newlines..LineEnding$u20$as$u20$core..ops..deref..Deref$GT$5deref17hfe8a17f81da8333aE.3", i64 0, i64 %3
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -638,11 +638,11 @@ define i32 @_ZN16ruff_source_file8newlines10LineEnding8text_len17h584999e3505a35
 define { ptr, i64 } @"_ZN82_$LT$ruff_source_file..newlines..LineEnding$u20$as$u20$core..ops..deref..Deref$GT$5deref17hfe8a17f81da8333aE"(ptr readonly align 1 captures(none) %0) unnamed_addr #4 {
 switch.lookup:
   %1 = load i8, ptr %0, align 1
-  %2 = sext i8 %1 to i64
-  %switch.gep = getelementptr inbounds [3 x i64], ptr @"switch.table._ZN82_$LT$ruff_source_file..newlines..LineEnding$u20$as$u20$core..ops..deref..Deref$GT$5deref17hfe8a17f81da8333aE", i64 0, i64 %2
+  %2 = zext i8 %1 to i64
+  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN82_$LT$ruff_source_file..newlines..LineEnding$u20$as$u20$core..ops..deref..Deref$GT$5deref17hfe8a17f81da8333aE", i64 0, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
-  %3 = sext i8 %1 to i64
-  %switch.gep1 = getelementptr inbounds [3 x ptr], ptr @"switch.table._ZN82_$LT$ruff_source_file..newlines..LineEnding$u20$as$u20$core..ops..deref..Deref$GT$5deref17hfe8a17f81da8333aE.3", i64 0, i64 %3
+  %3 = zext i8 %1 to i64
+  %switch.gep1 = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN82_$LT$ruff_source_file..newlines..LineEnding$u20$as$u20$core..ops..deref..Deref$GT$5deref17hfe8a17f81da8333aE.3", i64 0, i64 %3
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1

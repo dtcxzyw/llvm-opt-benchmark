@@ -910,8 +910,8 @@ define internal ptr @mmap__repr__method(ptr noundef readonly captures(none) %0) 
 switch.lookup:                                    ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %11 = load i32, ptr %10, align 8, !tbaa !41
-  %12 = sext i32 %11 to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.mmap__repr__method, i64 0, i64 %12
+  %12 = zext i32 %11 to i64
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.mmap__repr__method, i64 0, i64 %12
   %switch.load = load ptr, ptr %switch.gep, align 8
   %13 = getelementptr i8, ptr %0, i64 8
   %.val11 = load ptr, ptr %13, align 8, !tbaa !42

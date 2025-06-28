@@ -754,8 +754,8 @@ define hidden noundef nonnull ptr @_ZNK26ShenandoahRegionPartitions25partition_m
   br i1 %7, label %6, label %switch.lookup, !llvm.loop !12
 
 switch.lookup:                                    ; preds = %6
-  %14 = sext i8 %spec.select.i to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN17ShenandoahFreeSet15try_allocate_inEP20ShenandoahHeapRegionR22ShenandoahAllocRequestRb.4, i64 0, i64 %14
+  %14 = zext i8 %spec.select.i to i64
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN17ShenandoahFreeSet15try_allocate_inEP20ShenandoahHeapRegionR22ShenandoahAllocRequestRb.4, i64 0, i64 %14
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -2028,8 +2028,8 @@ switch.lookup121:                                 ; preds = %64
   br i1 %76, label %75, label %switch.lookup124, !llvm.loop !12
 
 switch.lookup124:                                 ; preds = %75
-  %83 = sext i8 %spec.select.i.i to i64
-  %switch.gep125 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN17ShenandoahFreeSet15try_allocate_inEP20ShenandoahHeapRegionR22ShenandoahAllocRequestRb.4, i64 0, i64 %83
+  %83 = zext i8 %spec.select.i.i to i64
+  %switch.gep125 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN17ShenandoahFreeSet15try_allocate_inEP20ShenandoahHeapRegionR22ShenandoahAllocRequestRb.4, i64 0, i64 %83
   %switch.load126 = load ptr, ptr %switch.gep125, align 8
   %84 = load ptr, ptr %48, align 8
   %85 = ptrtoint ptr %84 to i64
@@ -2112,8 +2112,8 @@ switch.lookup127:                                 ; preds = %105
   br i1 %116, label %115, label %switch.lookup130, !llvm.loop !12
 
 switch.lookup130:                                 ; preds = %115
-  %123 = sext i8 %spec.select.i.i86 to i64
-  %switch.gep131 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN17ShenandoahFreeSet15try_allocate_inEP20ShenandoahHeapRegionR22ShenandoahAllocRequestRb.4, i64 0, i64 %123
+  %123 = zext i8 %spec.select.i.i86 to i64
+  %switch.gep131 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN17ShenandoahFreeSet15try_allocate_inEP20ShenandoahHeapRegionR22ShenandoahAllocRequestRb.4, i64 0, i64 %123
   %switch.load132 = load ptr, ptr %switch.gep131, align 8
   %124 = load ptr, ptr %96, align 8
   %125 = ptrtoint ptr %124 to i64

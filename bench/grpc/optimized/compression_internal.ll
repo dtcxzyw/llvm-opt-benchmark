@@ -1365,9 +1365,8 @@ _ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.exit26.i.i: ; 
 
 switch.lookup:                                    ; preds = %16, %_ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.exit26.i.i
   %.2.i.i = phi ptr [ %.0823.i.i, %16 ], [ %27, %_ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.exit26.i.i ]
-  %sext = shl i64 %.01622.i.i, 32
-  %28 = ashr exact i64 %sext, 32
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._GLOBAL__sub_I_compression_internal.cc, i64 0, i64 %28
+  %28 = and i64 %.01622.i.i, 4294967295
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._GLOBAL__sub_I_compression_internal.cc, i64 0, i64 %28
   %switch.load = load ptr, ptr %switch.gep, align 8
   %29 = load i8, ptr %switch.load, align 1, !tbaa !6
   %.not2018.i.i = icmp eq i8 %29, 0

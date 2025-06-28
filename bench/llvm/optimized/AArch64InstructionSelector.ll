@@ -6682,8 +6682,8 @@ switch.lookup:                                    ; preds = %1319, %1317
   %1325 = load i32, ptr %1324, align 8, !tbaa !296
   %1326 = call noundef i32 @_ZN4llvm7CmpInst19getInversePredicateENS0_9PredicateE(i32 noundef %1325) #25
   %switch.tableidx = add nsw i32 %1326, -32
-  %1327 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [10 x i32], ptr @switch.table._ZNK12_GLOBAL__N_126AArch64InstructionSelector18emitConjunctionRecEN4llvm8RegisterERNS1_9AArch64CC8CondCodeEbS2_S4_RNS1_16MachineIRBuilderE, i64 0, i64 %1327
+  %1327 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZNK12_GLOBAL__N_126AArch64InstructionSelector18emitConjunctionRecEN4llvm8RegisterERNS1_9AArch64CC8CondCodeEbS2_S4_RNS1_16MachineIRBuilderE, i64 0, i64 %1327
   %switch.load = load i32, ptr %switch.gep, align 4
   call void @_ZN4llvm16MachineIRBuilder19setInstrAndDebugLocERNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(88) %197, ptr noundef nonnull align 8 dereferenceable(70) %1)
   %1328 = load ptr, ptr %1321, align 8, !tbaa !513
@@ -10324,8 +10324,8 @@ switch.lookup1705:                                ; preds = %3088
   %3090 = load i32, ptr %3089, align 8, !tbaa !296
   %3091 = call noundef i32 @_ZN4llvm7CmpInst19getInversePredicateENS0_9PredicateE(i32 noundef %3090) #25
   %switch.tableidx1706 = add nsw i32 %3091, -32
-  %3092 = sext i32 %switch.tableidx1706 to i64
-  %switch.gep1707 = getelementptr inbounds [10 x i32], ptr @switch.table._ZNK12_GLOBAL__N_126AArch64InstructionSelector18emitConjunctionRecEN4llvm8RegisterERNS1_9AArch64CC8CondCodeEbS2_S4_RNS1_16MachineIRBuilderE, i64 0, i64 %3092
+  %3092 = zext i32 %switch.tableidx1706 to i64
+  %switch.gep1707 = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZNK12_GLOBAL__N_126AArch64InstructionSelector18emitConjunctionRecEN4llvm8RegisterERNS1_9AArch64CC8CondCodeEbS2_S4_RNS1_16MachineIRBuilderE, i64 0, i64 %3092
   %switch.load1708 = load i32, ptr %switch.gep1707, align 4
   %3093 = load ptr, ptr %1519, align 8, !tbaa !513
   %3094 = getelementptr inbounds nuw i8, ptr %3093, i64 64
@@ -22152,8 +22152,8 @@ _ZNK12_GLOBAL__N_126AArch64InstructionSelector28tryOptCompareBranchFedByICmpERN4
   %368 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %369 = load i32, ptr %368, align 8, !tbaa !296
   %switch.tableidx = add nsw i32 %369, -32
-  %370 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [10 x i64], ptr @switch.table._ZN12_GLOBAL__N_126AArch64InstructionSelector19selectCompareBranchERN4llvm12MachineInstrERNS1_15MachineFunctionERNS1_19MachineRegisterInfoE, i64 0, i64 %370
+  %370 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @switch.table._ZN12_GLOBAL__N_126AArch64InstructionSelector19selectCompareBranchERN4llvm12MachineInstrERNS1_15MachineFunctionERNS1_19MachineRegisterInfoE, i64 0, i64 %370
   %switch.load = load i64, ptr %switch.gep, align 8
   %371 = load ptr, ptr %72, align 8, !tbaa !3
   %372 = getelementptr inbounds nuw i8, ptr %371, i64 32
@@ -26599,7 +26599,7 @@ define internal fastcc noundef i32 @_ZL15selectFPConvOpcjN4llvm3LLTES0_(i32 noun
   %8 = and i64 %2, 1
   %9 = icmp ne i64 %8, 0
   %or.cond = select i1 %7, i1 %9, i1 false
-  br i1 %or.cond, label %_ZNK4llvm3LLT13getSizeInBitsEv.exit34, label %30
+  br i1 %or.cond, label %_ZNK4llvm3LLT13getSizeInBitsEv.exit34, label %27
 
 _ZNK4llvm3LLT13getSizeInBitsEv.exit34:            ; preds = %3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #25
@@ -26624,13 +26624,13 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit34:            ; preds = %3
   %14 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %5) #25
   %15 = trunc i64 %14 to i32
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
-  switch i32 %12, label %30 [
+  switch i32 %12, label %27 [
     i32 32, label %16
     i32 64, label %21
   ]
 
 16:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit34
-  switch i32 %15, label %30 [
+  switch i32 %15, label %27 [
     i32 32, label %17
     i32 64, label %19
   ]
@@ -26638,15 +26638,15 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit34:            ; preds = %3
 17:                                               ; preds = %16
   %switch.tableidx = add i32 %0, -198
   %18 = icmp ult i32 %switch.tableidx, 4
-  br i1 %18, label %switch.lookup, label %30
+  br i1 %18, label %.sink.split, label %27
 
 19:                                               ; preds = %16
   %switch.tableidx40 = add i32 %0, -198
   %20 = icmp ult i32 %switch.tableidx40, 4
-  br i1 %20, label %switch.lookup39, label %30
+  br i1 %20, label %.sink.split, label %27
 
 21:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit34
-  switch i32 %15, label %30 [
+  switch i32 %15, label %27 [
     i32 32, label %22
     i32 64, label %24
   ]
@@ -26654,39 +26654,23 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit34:            ; preds = %3
 22:                                               ; preds = %21
   %switch.tableidx44 = add i32 %0, -198
   %23 = icmp ult i32 %switch.tableidx44, 4
-  br i1 %23, label %switch.lookup43, label %30
+  br i1 %23, label %.sink.split, label %27
 
 24:                                               ; preds = %21
   %switch.tableidx48 = add i32 %0, -198
   %25 = icmp ult i32 %switch.tableidx48, 4
-  br i1 %25, label %switch.lookup47, label %30
+  br i1 %25, label %.sink.split, label %27
 
-switch.lookup:                                    ; preds = %17
-  %26 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZL15selectFPConvOpcjN4llvm3LLTES0_, i64 0, i64 %26
-  %switch.load = load i32, ptr %switch.gep, align 4
-  br label %30
-
-switch.lookup39:                                  ; preds = %19
-  %27 = zext nneg i32 %switch.tableidx40 to i64
-  %switch.gep41 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZL15selectFPConvOpcjN4llvm3LLTES0_.408, i64 0, i64 %27
-  %switch.load42 = load i32, ptr %switch.gep41, align 4
-  br label %30
-
-switch.lookup43:                                  ; preds = %22
-  %28 = zext nneg i32 %switch.tableidx44 to i64
-  %switch.gep45 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZL15selectFPConvOpcjN4llvm3LLTES0_.409, i64 0, i64 %28
-  %switch.load46 = load i32, ptr %switch.gep45, align 4
-  br label %30
-
-switch.lookup47:                                  ; preds = %24
-  %29 = zext nneg i32 %switch.tableidx48 to i64
-  %switch.gep49 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZL15selectFPConvOpcjN4llvm3LLTES0_.410, i64 0, i64 %29
+.sink.split:                                      ; preds = %24, %22, %19, %17
+  %switch.tableidx48.sink = phi i32 [ %switch.tableidx, %17 ], [ %switch.tableidx40, %19 ], [ %switch.tableidx44, %22 ], [ %switch.tableidx48, %24 ]
+  %switch.table._ZL15selectFPConvOpcjN4llvm3LLTES0_.410.sink = phi ptr [ @switch.table._ZL15selectFPConvOpcjN4llvm3LLTES0_, %17 ], [ @switch.table._ZL15selectFPConvOpcjN4llvm3LLTES0_.408, %19 ], [ @switch.table._ZL15selectFPConvOpcjN4llvm3LLTES0_.409, %22 ], [ @switch.table._ZL15selectFPConvOpcjN4llvm3LLTES0_.410, %24 ]
+  %26 = zext nneg i32 %switch.tableidx48.sink to i64
+  %switch.gep49 = getelementptr inbounds nuw [4 x i32], ptr %switch.table._ZL15selectFPConvOpcjN4llvm3LLTES0_.410.sink, i64 0, i64 %26
   %switch.load50 = load i32, ptr %switch.gep49, align 4
-  br label %30
+  br label %27
 
-30:                                               ; preds = %24, %switch.lookup47, %22, %switch.lookup43, %19, %switch.lookup39, %17, %switch.lookup, %16, %21, %_ZNK4llvm3LLT13getSizeInBitsEv.exit34, %3
-  %.0 = phi i32 [ %0, %3 ], [ %0, %16 ], [ %0, %21 ], [ %0, %_ZNK4llvm3LLT13getSizeInBitsEv.exit34 ], [ %switch.load, %switch.lookup ], [ %0, %17 ], [ %switch.load42, %switch.lookup39 ], [ %0, %19 ], [ %switch.load46, %switch.lookup43 ], [ %0, %22 ], [ %switch.load50, %switch.lookup47 ], [ %0, %24 ]
+27:                                               ; preds = %.sink.split, %24, %22, %19, %17, %16, %21, %_ZNK4llvm3LLT13getSizeInBitsEv.exit34, %3
+  %.0 = phi i32 [ %0, %3 ], [ %0, %16 ], [ %0, %21 ], [ %0, %_ZNK4llvm3LLT13getSizeInBitsEv.exit34 ], [ %0, %17 ], [ %0, %19 ], [ %0, %22 ], [ %0, %24 ], [ %switch.load50, %.sink.split ]
   ret i32 %.0
 }
 
@@ -26849,8 +26833,8 @@ switch.lookup:                                    ; preds = %71
   %75 = getelementptr inbounds nuw i8, ptr %73, i64 48
   %76 = load i32, ptr %75, align 8, !tbaa !296
   %switch.tableidx = add nsw i32 %76, -32
-  %77 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [10 x i32], ptr @switch.table._ZNK12_GLOBAL__N_126AArch64InstructionSelector18emitConjunctionRecEN4llvm8RegisterERNS1_9AArch64CC8CondCodeEbS2_S4_RNS1_16MachineIRBuilderE, i64 0, i64 %77
+  %77 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZNK12_GLOBAL__N_126AArch64InstructionSelector18emitConjunctionRecEN4llvm8RegisterERNS1_9AArch64CC8CondCodeEbS2_S4_RNS1_16MachineIRBuilderE, i64 0, i64 %77
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %6, align 4, !tbaa !1109
   %78 = getelementptr inbounds nuw i8, ptr %73, i64 64
@@ -48135,8 +48119,8 @@ define internal fastcc noundef ptr @_ZNK12_GLOBAL__N_126AArch64InstructionSelect
 
 switch.lookup:                                    ; preds = %30
   %switch.tableidx = add nsw i32 %.0, -32
-  %33 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [10 x i32], ptr @switch.table._ZNK12_GLOBAL__N_126AArch64InstructionSelector18emitConjunctionRecEN4llvm8RegisterERNS1_9AArch64CC8CondCodeEbS2_S4_RNS1_16MachineIRBuilderE, i64 0, i64 %33
+  %33 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZNK12_GLOBAL__N_126AArch64InstructionSelector18emitConjunctionRecEN4llvm8RegisterERNS1_9AArch64CC8CondCodeEbS2_S4_RNS1_16MachineIRBuilderE, i64 0, i64 %33
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %2, align 4, !tbaa !1109
   br label %_ZL24changeFPCCToANDAArch64CCN4llvm7CmpInst9PredicateERNS_9AArch64CC8CondCodeES4_.exit.thread
@@ -48791,8 +48775,8 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit92:            ; preds = %199, %201
 switch.lookup:                                    ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit92, %210, %211, %_ZNK4llvm3LLT13getSizeInBitsEv.exit, %_ZNK4llvm3LLT13getSizeInBitsEv.exit77, %_ZNK4llvm3LLT13getSizeInBitsEv.exit62
   %.040 = phi i32 [ %148, %_ZNK4llvm3LLT13getSizeInBitsEv.exit ], [ %172, %_ZNK4llvm3LLT13getSizeInBitsEv.exit62 ], [ %191, %_ZNK4llvm3LLT13getSizeInBitsEv.exit77 ], [ 2648, %210 ], [ 2643, %211 ], [ 2647, %_ZNK4llvm3LLT13getSizeInBitsEv.exit92 ]
   %212 = xor i32 %5, 1
-  %213 = sext i32 %212 to i64
-  %switch.gep = getelementptr inbounds [14 x i64], ptr @switch.table._ZNK12_GLOBAL__N_126AArch64InstructionSelector25emitConditionalComparisonEN4llvm8RegisterES2_NS1_7CmpInst9PredicateENS1_9AArch64CC8CondCodeES6_RNS1_16MachineIRBuilderE, i64 0, i64 %213
+  %213 = zext i32 %212 to i64
+  %switch.gep = getelementptr inbounds nuw [14 x i64], ptr @switch.table._ZNK12_GLOBAL__N_126AArch64InstructionSelector25emitConditionalComparisonEN4llvm8RegisterES2_NS1_7CmpInst9PredicateENS1_9AArch64CC8CondCodeES6_RNS1_16MachineIRBuilderE, i64 0, i64 %213
   %switch.load = load i64, ptr %switch.gep, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19) #25
   store i32 %1, ptr %19, align 8, !tbaa !299

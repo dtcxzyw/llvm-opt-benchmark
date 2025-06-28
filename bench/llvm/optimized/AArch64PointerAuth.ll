@@ -142,8 +142,8 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef range(i32 0, 21) i32 @_ZN4llvm12AArch64PAuth21getCheckerSizeInBytesENS0_15AuthCheckMethodE(i32 noundef %0) local_unnamed_addr #3 {
 switch.lookup:
-  %1 = sext i32 %0 to i64
-  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table._ZN4llvm12AArch64PAuth21getCheckerSizeInBytesENS0_15AuthCheckMethodE, i64 0, i64 %1
+  %1 = zext i32 %0 to i64
+  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZN4llvm12AArch64PAuth21getCheckerSizeInBytesENS0_15AuthCheckMethodE, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }

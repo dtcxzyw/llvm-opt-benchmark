@@ -70073,8 +70073,8 @@ _ZN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintC2ERKS1_.exit
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %27 = load i32, ptr %26, align 8, !tbaa !1589
   %switch.tableidx = add nsw i32 %27, -10
-  %28 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table._ZNK12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraint6negateEv, i64 0, i64 %28
+  %28 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZNK12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraint6negateEv, i64 0, i64 %28
   %switch.load = load i32, ptr %switch.gep, align 4
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i32 %switch.load, ptr %29, align 8, !tbaa !1589

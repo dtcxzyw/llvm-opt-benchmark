@@ -11641,8 +11641,8 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE22TraverseTypeConstra
 define weak_odr noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26TraverseConceptRequirementEPNS_8concepts11RequirementE(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
 switch.lookup:
   %2 = load i32, ptr %1, align 4, !tbaa !470
-  %3 = sext i32 %2 to i64
-  %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table._ZN5clang30DynamicRecursiveASTVisitorBaseILb1EE26TraverseConceptRequirementEPKNS_8concepts11RequirementE, i64 0, i64 %3
+  %3 = zext i32 %2 to i64
+  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN5clang30DynamicRecursiveASTVisitorBaseILb1EE26TraverseConceptRequirementEPKNS_8concepts11RequirementE, i64 0, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = load ptr, ptr %0, align 8, !tbaa !376
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 %switch.load
@@ -87064,8 +87064,8 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE22TraverseTypeConstra
 define weak_odr noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb1EE26TraverseConceptRequirementEPKNS_8concepts11RequirementE(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
 switch.lookup:
   %2 = load i32, ptr %1, align 4, !tbaa !470
-  %3 = sext i32 %2 to i64
-  %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table._ZN5clang30DynamicRecursiveASTVisitorBaseILb1EE26TraverseConceptRequirementEPKNS_8concepts11RequirementE, i64 0, i64 %3
+  %3 = zext i32 %2 to i64
+  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN5clang30DynamicRecursiveASTVisitorBaseILb1EE26TraverseConceptRequirementEPKNS_8concepts11RequirementE, i64 0, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = load ptr, ptr %0, align 8, !tbaa !376
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 %switch.load

@@ -17879,8 +17879,8 @@ define internal fastcc void @setup_method_cfunc_struct(ptr noundef writeonly cap
 
 call_cfunc_invoker_func.exit:                     ; preds = %14, %12
   %switch.table.setup_method_cfunc_struct.112.sink = phi ptr [ @switch.table.setup_method_cfunc_struct, %12 ], [ @switch.table.setup_method_cfunc_struct.112, %14 ]
-  %16 = sext i32 %switch.tableidx6 to i64
-  %switch.gep7 = getelementptr inbounds [18 x ptr], ptr %switch.table.setup_method_cfunc_struct.112.sink, i64 0, i64 %16
+  %16 = zext i32 %switch.tableidx6 to i64
+  %switch.gep7 = getelementptr inbounds nuw [18 x ptr], ptr %switch.table.setup_method_cfunc_struct.112.sink, i64 0, i64 %16
   %switch.load8 = load ptr, ptr %switch.gep7, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %switch.load8, ptr %17, align 8, !tbaa !372

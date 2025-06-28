@@ -1125,8 +1125,8 @@ define dso_local noundef ptr @_ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3om
 
 switch.lookup34:                                  ; preds = %2
   %switch.tableidx = add nsw i32 %1, -2
-  %3 = sext i32 %switch.tableidx to i64
-  %switch.gep35 = getelementptr inbounds [6 x ptr], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.2, i64 0, i64 %3
+  %3 = zext i32 %switch.tableidx to i64
+  %switch.gep35 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.2, i64 0, i64 %3
   %switch.load36 = load ptr, ptr %switch.gep35, align 8
   br label %31
 
@@ -1159,116 +1159,116 @@ switch.lookup34:                                  ; preds = %2
   unreachable
 
 switch.lookup:                                    ; preds = %2
-  %12 = sext i32 %1 to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj, i64 0, i64 %12
+  %12 = zext i32 %1 to i64
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj, i64 0, i64 %12
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %31
 
 switch.lookup37:                                  ; preds = %2
-  %13 = sext i32 %1 to i64
-  %switch.gep38 = getelementptr inbounds [10 x ptr], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.3, i64 0, i64 %13
+  %13 = zext i32 %1 to i64
+  %switch.gep38 = getelementptr inbounds nuw [10 x ptr], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.3, i64 0, i64 %13
   %switch.load39 = load ptr, ptr %switch.gep38, align 8
   br label %31
 
 switch.lookup40:                                  ; preds = %2
-  %14 = sext i32 %1 to i64
-  %switch.gep41 = getelementptr inbounds [11 x ptr], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.15, i64 0, i64 %14
+  %14 = zext i32 %1 to i64
+  %switch.gep41 = getelementptr inbounds nuw [11 x ptr], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.15, i64 0, i64 %14
   %switch.load42 = load ptr, ptr %switch.gep41, align 8
   br label %31
 
 switch.lookup43:                                  ; preds = %2
-  %15 = sext i32 %1 to i64
-  %switch.gep44 = getelementptr inbounds [5 x ptr], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.5, i64 0, i64 %15
+  %15 = zext i32 %1 to i64
+  %switch.gep44 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.5, i64 0, i64 %15
   %switch.load45 = load ptr, ptr %switch.gep44, align 8
   br label %31
 
 switch.lookup46:                                  ; preds = %2
-  %16 = sext i32 %1 to i64
-  %switch.gep47 = getelementptr inbounds [5 x ptr], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.6, i64 0, i64 %16
+  %16 = zext i32 %1 to i64
+  %switch.gep47 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.6, i64 0, i64 %16
   %switch.load48 = load ptr, ptr %switch.gep47, align 8
   br label %31
 
 switch.lookup49:                                  ; preds = %2
-  %17 = sext i32 %1 to i64
-  %switch.gep50 = getelementptr inbounds [14 x ptr], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.7, i64 0, i64 %17
+  %17 = zext i32 %1 to i64
+  %switch.gep50 = getelementptr inbounds nuw [14 x ptr], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.7, i64 0, i64 %17
   %switch.load51 = load ptr, ptr %switch.gep50, align 8
   br label %31
 
 switch.lookup52:                                  ; preds = %2, %2
-  %18 = sext i32 %1 to i64
-  %switch.gep53 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.8, i64 0, i64 %18
+  %18 = zext i32 %1 to i64
+  %switch.gep53 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.8, i64 0, i64 %18
   %switch.load54 = load ptr, ptr %switch.gep53, align 8
   br label %31
 
 switch.lookup55:                                  ; preds = %2
-  %19 = sext i32 %1 to i64
-  %switch.gep56 = getelementptr inbounds [14 x ptr], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.9, i64 0, i64 %19
+  %19 = zext i32 %1 to i64
+  %switch.gep56 = getelementptr inbounds nuw [14 x ptr], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.9, i64 0, i64 %19
   %switch.load57 = load ptr, ptr %switch.gep56, align 8
   br label %31
 
 switch.lookup58:                                  ; preds = %2
-  %20 = sext i32 %1 to i64
-  %switch.gep59 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.10, i64 0, i64 %20
+  %20 = zext i32 %1 to i64
+  %switch.gep59 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.10, i64 0, i64 %20
   %switch.load60 = load ptr, ptr %switch.gep59, align 8
   br label %31
 
 switch.lookup61:                                  ; preds = %2
-  %21 = sext i32 %1 to i64
-  %switch.gep62 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.11, i64 0, i64 %21
+  %21 = zext i32 %1 to i64
+  %switch.gep62 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.11, i64 0, i64 %21
   %switch.load63 = load ptr, ptr %switch.gep62, align 8
   br label %31
 
 switch.lookup64:                                  ; preds = %2
-  %22 = sext i32 %1 to i64
-  %switch.gep65 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.12, i64 0, i64 %22
+  %22 = zext i32 %1 to i64
+  %switch.gep65 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.12, i64 0, i64 %22
   %switch.load66 = load ptr, ptr %switch.gep65, align 8
   br label %31
 
 switch.lookup67:                                  ; preds = %2
-  %23 = sext i32 %1 to i64
-  %switch.gep68 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.13, i64 0, i64 %23
+  %23 = zext i32 %1 to i64
+  %switch.gep68 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.13, i64 0, i64 %23
   %switch.load69 = load ptr, ptr %switch.gep68, align 8
   br label %31
 
 switch.lookup70:                                  ; preds = %2
-  %24 = sext i32 %1 to i64
-  %switch.gep71 = getelementptr inbounds [5 x ptr], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.14, i64 0, i64 %24
+  %24 = zext i32 %1 to i64
+  %switch.gep71 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.14, i64 0, i64 %24
   %switch.load72 = load ptr, ptr %switch.gep71, align 8
   br label %31
 
 switch.lookup73:                                  ; preds = %2
-  %25 = sext i32 %1 to i64
-  %switch.gep74 = getelementptr inbounds [11 x ptr], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.15, i64 0, i64 %25
+  %25 = zext i32 %1 to i64
+  %switch.gep74 = getelementptr inbounds nuw [11 x ptr], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.15, i64 0, i64 %25
   %switch.load75 = load ptr, ptr %switch.gep74, align 8
   br label %31
 
 switch.lookup76:                                  ; preds = %2
-  %26 = sext i32 %1 to i64
-  %switch.gep77 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.16, i64 0, i64 %26
+  %26 = zext i32 %1 to i64
+  %switch.gep77 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.16, i64 0, i64 %26
   %switch.load78 = load ptr, ptr %switch.gep77, align 8
   br label %31
 
 switch.lookup79:                                  ; preds = %2
-  %27 = sext i32 %1 to i64
-  %switch.gep80 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.17, i64 0, i64 %27
+  %27 = zext i32 %1 to i64
+  %switch.gep80 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.17, i64 0, i64 %27
   %switch.load81 = load ptr, ptr %switch.gep80, align 8
   br label %31
 
 switch.lookup82:                                  ; preds = %2
-  %28 = sext i32 %1 to i64
-  %switch.gep83 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.18, i64 0, i64 %28
+  %28 = zext i32 %1 to i64
+  %switch.gep83 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.18, i64 0, i64 %28
   %switch.load84 = load ptr, ptr %switch.gep83, align 8
   br label %31
 
 switch.lookup85:                                  ; preds = %2
-  %29 = sext i32 %1 to i64
-  %switch.gep86 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.19, i64 0, i64 %29
+  %29 = zext i32 %1 to i64
+  %switch.gep86 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.19, i64 0, i64 %29
   %switch.load87 = load ptr, ptr %switch.gep86, align 8
   br label %31
 
 switch.lookup88:                                  ; preds = %2
-  %30 = sext i32 %1 to i64
-  %switch.gep89 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.20, i64 0, i64 %30
+  %30 = zext i32 %1 to i64
+  %switch.gep89 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.20, i64 0, i64 %30
   %switch.load90 = load ptr, ptr %switch.gep89, align 8
   br label %31
 

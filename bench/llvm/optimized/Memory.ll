@@ -51,9 +51,7 @@ define dso_local void @_ZN4llvm3sys6Memory20allocateMappedMemoryEmPKNS0_11Memory
   br i1 %8, label %tailrecurse.us, label %tailrecurse.preheader
 
 tailrecurse.preheader:                            ; preds = %5
-  %sext = shl nuw i64 %trunc.i, 56
-  %13 = ashr exact i64 %sext, 56
-  %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table._ZN4llvm3sys6Memory19protectMappedMemoryERKNS0_11MemoryBlockEj, i64 0, i64 %13
+  %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZN4llvm3sys6Memory19protectMappedMemoryERKNS0_11MemoryBlockEj, i64 0, i64 %trunc.i
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %tailrecurse
 
@@ -61,116 +59,116 @@ tailrecurse.us:                                   ; preds = %5
   store i32 0, ptr %4, align 8, !tbaa !3
   store ptr %7, ptr %.sroa.445.0..sroa_idx, align 8, !tbaa !7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %0, i8 0, i64 20, i1 false)
-  br label %64
+  br label %63
 
-tailrecurse:                                      ; preds = %tailrecurse.preheader, %44
-  %.tr47 = phi ptr [ null, %44 ], [ %2, %tailrecurse.preheader ]
+tailrecurse:                                      ; preds = %tailrecurse.preheader, %43
+  %.tr47 = phi ptr [ null, %43 ], [ %2, %tailrecurse.preheader ]
   store i32 0, ptr %4, align 8, !tbaa !3
   store ptr %7, ptr %.sroa.445.0..sroa_idx, align 8, !tbaa !7
   %.not = icmp eq ptr %.tr47, null
-  br i1 %.not, label %20, label %14
+  br i1 %.not, label %19, label %13
 
-14:                                               ; preds = %tailrecurse
-  %15 = load ptr, ptr %.tr47, align 8, !tbaa !10
-  %16 = ptrtoint ptr %15 to i64
-  %17 = getelementptr inbounds nuw i8, ptr %.tr47, i64 8
-  %18 = load i64, ptr %17, align 8, !tbaa !13
-  %19 = add i64 %18, %16
-  br label %20
+13:                                               ; preds = %tailrecurse
+  %14 = load ptr, ptr %.tr47, align 8, !tbaa !10
+  %15 = ptrtoint ptr %14 to i64
+  %16 = getelementptr inbounds nuw i8, ptr %.tr47, i64 8
+  %17 = load i64, ptr %16, align 8, !tbaa !13
+  %18 = add i64 %17, %15
+  br label %19
 
-20:                                               ; preds = %tailrecurse, %14
-  %21 = phi i64 [ %19, %14 ], [ 0, %tailrecurse ]
-  %22 = load atomic i8, ptr @_ZGVZN4llvm3sys6Memory20allocateMappedMemoryEmPKNS0_11MemoryBlockEjRSt10error_codeE8PageSize acquire, align 8
-  %23 = icmp eq i8 %22, 0
-  br i1 %23, label %24, label %30, !prof !14
+19:                                               ; preds = %tailrecurse, %13
+  %20 = phi i64 [ %18, %13 ], [ 0, %tailrecurse ]
+  %21 = load atomic i8, ptr @_ZGVZN4llvm3sys6Memory20allocateMappedMemoryEmPKNS0_11MemoryBlockEjRSt10error_codeE8PageSize acquire, align 8
+  %22 = icmp eq i8 %21, 0
+  br i1 %22, label %23, label %29, !prof !14
 
-24:                                               ; preds = %20
-  %25 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4llvm3sys6Memory20allocateMappedMemoryEmPKNS0_11MemoryBlockEjRSt10error_codeE8PageSize) #16
-  %.not38 = icmp eq i32 %25, 0
-  br i1 %.not38, label %30, label %26
+23:                                               ; preds = %19
+  %24 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4llvm3sys6Memory20allocateMappedMemoryEmPKNS0_11MemoryBlockEjRSt10error_codeE8PageSize) #16
+  %.not38 = icmp eq i32 %24, 0
+  br i1 %.not38, label %29, label %25
 
-26:                                               ; preds = %24
-  %27 = tail call noundef i32 @_ZN4llvm3sys7Process19getPageSizeEstimateEv()
-  %28 = zext i32 %27 to i64
-  store i64 %28, ptr @_ZZN4llvm3sys6Memory20allocateMappedMemoryEmPKNS0_11MemoryBlockEjRSt10error_codeE8PageSize, align 8, !tbaa !15
-  %29 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZZN4llvm3sys6Memory20allocateMappedMemoryEmPKNS0_11MemoryBlockEjRSt10error_codeE8PageSize)
+25:                                               ; preds = %23
+  %26 = tail call noundef i32 @_ZN4llvm3sys7Process19getPageSizeEstimateEv()
+  %27 = zext i32 %26 to i64
+  store i64 %27, ptr @_ZZN4llvm3sys6Memory20allocateMappedMemoryEmPKNS0_11MemoryBlockEjRSt10error_codeE8PageSize, align 8, !tbaa !15
+  %28 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZZN4llvm3sys6Memory20allocateMappedMemoryEmPKNS0_11MemoryBlockEjRSt10error_codeE8PageSize)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4llvm3sys6Memory20allocateMappedMemoryEmPKNS0_11MemoryBlockEjRSt10error_codeE8PageSize) #16
-  br label %30
+  br label %29
 
-30:                                               ; preds = %26, %24, %20
-  %31 = load i64, ptr @_ZZN4llvm3sys6Memory20allocateMappedMemoryEmPKNS0_11MemoryBlockEjRSt10error_codeE8PageSize, align 8, !tbaa !15
-  %32 = add i64 %12, %31
-  %33 = udiv i64 %32, %31
-  %.not39 = icmp eq i64 %21, 0
-  br i1 %.not39, label %39, label %34
+29:                                               ; preds = %25, %23, %19
+  %30 = load i64, ptr @_ZZN4llvm3sys6Memory20allocateMappedMemoryEmPKNS0_11MemoryBlockEjRSt10error_codeE8PageSize, align 8, !tbaa !15
+  %31 = add i64 %12, %30
+  %32 = udiv i64 %31, %30
+  %.not39 = icmp eq i64 %20, 0
+  br i1 %.not39, label %38, label %33
 
-34:                                               ; preds = %30
-  %35 = urem i64 %21, %31
-  %.not40 = icmp eq i64 %35, 0
-  br i1 %.not40, label %39, label %36
+33:                                               ; preds = %29
+  %34 = urem i64 %20, %30
+  %.not40 = icmp eq i64 %34, 0
+  br i1 %.not40, label %38, label %35
 
-36:                                               ; preds = %34
-  %37 = add i64 %31, %21
-  %38 = sub i64 %37, %35
-  br label %39
+35:                                               ; preds = %33
+  %36 = add i64 %30, %20
+  %37 = sub i64 %36, %34
+  br label %38
 
-39:                                               ; preds = %36, %34, %30
-  %.0 = phi i64 [ %38, %36 ], [ %21, %34 ], [ 0, %30 ]
-  %40 = inttoptr i64 %.0 to ptr
-  %41 = mul i64 %33, %31
-  %42 = tail call ptr @mmap(ptr noundef %40, i64 noundef %41, i32 noundef %switch.load, i32 noundef 34, i32 noundef -1, i64 noundef 0) #16
-  %43 = icmp eq ptr %42, inttoptr (i64 -1 to ptr)
-  br i1 %43, label %44, label %49
+38:                                               ; preds = %35, %33, %29
+  %.0 = phi i64 [ %37, %35 ], [ %20, %33 ], [ 0, %29 ]
+  %39 = inttoptr i64 %.0 to ptr
+  %40 = mul i64 %32, %30
+  %41 = tail call ptr @mmap(ptr noundef %39, i64 noundef %40, i32 noundef %switch.load, i32 noundef 34, i32 noundef -1, i64 noundef 0) #16
+  %42 = icmp eq ptr %41, inttoptr (i64 -1 to ptr)
+  br i1 %42, label %43, label %48
 
-44:                                               ; preds = %39
-  br i1 %.not, label %45, label %tailrecurse
+43:                                               ; preds = %38
+  br i1 %.not, label %44, label %tailrecurse
 
-45:                                               ; preds = %44
-  %46 = tail call ptr @__errno_location() #15
-  %47 = load i32, ptr %46, align 4, !tbaa !3
-  %48 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #15
-  store i32 %47, ptr %4, align 8, !tbaa !3
-  store ptr %48, ptr %.sroa.445.0..sroa_idx, align 8, !tbaa !7
+44:                                               ; preds = %43
+  %45 = tail call ptr @__errno_location() #15
+  %46 = load i32, ptr %45, align 4, !tbaa !3
+  %47 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #15
+  store i32 %46, ptr %4, align 8, !tbaa !3
+  store ptr %47, ptr %.sroa.445.0..sroa_idx, align 8, !tbaa !7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %0, i8 0, i64 20, i1 false)
-  br label %64
+  br label %63
 
-49:                                               ; preds = %39
+48:                                               ; preds = %38
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #16
-  store ptr %42, ptr %6, align 8, !tbaa !10
-  %50 = load i64, ptr @_ZZN4llvm3sys6Memory20allocateMappedMemoryEmPKNS0_11MemoryBlockEjRSt10error_codeE8PageSize, align 8, !tbaa !15
-  %51 = mul i64 %50, %33
-  %52 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %51, ptr %52, align 8, !tbaa !13
-  %53 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i32 %3, ptr %53, align 8, !tbaa !16
-  %54 = and i32 %3, 67108864
-  %.not41 = icmp eq i32 %54, 0
-  br i1 %.not41, label %62, label %55
+  store ptr %41, ptr %6, align 8, !tbaa !10
+  %49 = load i64, ptr @_ZZN4llvm3sys6Memory20allocateMappedMemoryEmPKNS0_11MemoryBlockEjRSt10error_codeE8PageSize, align 8, !tbaa !15
+  %50 = mul i64 %49, %32
+  %51 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 %50, ptr %51, align 8, !tbaa !13
+  %52 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i32 %3, ptr %52, align 8, !tbaa !16
+  %53 = and i32 %3, 67108864
+  %.not41 = icmp eq i32 %53, 0
+  br i1 %.not41, label %61, label %54
 
-55:                                               ; preds = %49
-  %56 = call { i32, ptr } @_ZN4llvm3sys6Memory19protectMappedMemoryERKNS0_11MemoryBlockEj(ptr noundef nonnull align 8 dereferenceable(20) %6, i32 noundef %3)
-  %57 = extractvalue { i32, ptr } %56, 0
-  %58 = extractvalue { i32, ptr } %56, 1
-  store i32 %57, ptr %4, align 8, !tbaa !3
-  store ptr %58, ptr %.sroa.445.0..sroa_idx, align 8, !tbaa !7
-  %59 = icmp ne ptr %58, %7
-  %60 = icmp ne i32 %57, 0
-  %.not3.i = select i1 %59, i1 true, i1 %60
-  br i1 %.not3.i, label %61, label %62
+54:                                               ; preds = %48
+  %55 = call { i32, ptr } @_ZN4llvm3sys6Memory19protectMappedMemoryERKNS0_11MemoryBlockEj(ptr noundef nonnull align 8 dereferenceable(20) %6, i32 noundef %3)
+  %56 = extractvalue { i32, ptr } %55, 0
+  %57 = extractvalue { i32, ptr } %55, 1
+  store i32 %56, ptr %4, align 8, !tbaa !3
+  store ptr %57, ptr %.sroa.445.0..sroa_idx, align 8, !tbaa !7
+  %58 = icmp ne ptr %57, %7
+  %59 = icmp ne i32 %56, 0
+  %.not3.i = select i1 %58, i1 true, i1 %59
+  br i1 %.not3.i, label %60, label %61
 
-61:                                               ; preds = %55
+60:                                               ; preds = %54
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %0, i8 0, i64 20, i1 false)
-  br label %63
+  br label %62
 
-62:                                               ; preds = %55, %49
+61:                                               ; preds = %54, %48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !tbaa.struct !17
+  br label %62
+
+62:                                               ; preds = %61, %60
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #16
   br label %63
 
-63:                                               ; preds = %62, %61
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #16
-  br label %64
-
-64:                                               ; preds = %45, %63, %tailrecurse.us
+63:                                               ; preds = %44, %62, %tailrecurse.us
   ret void
 }
 
@@ -300,7 +298,7 @@ define dso_local { i32, ptr } @_ZN4llvm3sys6Memory19protectMappedMemoryERKNS0_11
 
 21:                                               ; preds = %17, %14
   %22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #15
-  br label %58
+  br label %57
 
 23:                                               ; preds = %17
   %.not16 = icmp eq i32 %1, 0
@@ -308,61 +306,59 @@ define dso_local { i32, ptr } @_ZN4llvm3sys6Memory19protectMappedMemoryERKNS0_11
 
 24:                                               ; preds = %23
   %25 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #15
-  br label %58
+  br label %57
 
 switch.lookup:                                    ; preds = %23
   %26 = and i32 %1, 117440512
   %27 = add nsw i32 %26, -16777216
   %28 = lshr exact i32 %27, 24
   %trunc.i = zext nneg i32 %28 to i64
-  %sext = shl nuw i64 %trunc.i, 56
-  %29 = ashr exact i64 %sext, 56
-  %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table._ZN4llvm3sys6Memory19protectMappedMemoryERKNS0_11MemoryBlockEj, i64 0, i64 %29
+  %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZN4llvm3sys6Memory19protectMappedMemoryERKNS0_11MemoryBlockEj, i64 0, i64 %trunc.i
   %switch.load = load i32, ptr %switch.gep, align 4
-  %30 = load i8, ptr @_ZZN4llvm3sys6Memory19protectMappedMemoryERKNS0_11MemoryBlockEjE8PageSize, align 1, !tbaa !28
-  %31 = zext nneg i8 %30 to i64
-  %32 = shl nuw i64 1, %31
-  %33 = sub i64 0, %32
-  %34 = getelementptr inbounds i8, ptr %15, i64 %33
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 1
-  %36 = ptrtoint ptr %35 to i64
-  %37 = add i64 %32, -1
-  %38 = add i64 %37, %36
-  %39 = and i64 %38, %33
-  %40 = getelementptr inbounds nuw i8, ptr %15, i64 %19
-  %41 = ptrtoint ptr %40 to i64
-  %42 = add i64 %37, %41
-  %43 = and i64 %42, %33
-  %44 = inttoptr i64 %39 to ptr
-  %45 = sub i64 %43, %39
-  %46 = tail call i32 @mprotect(ptr noundef %44, i64 noundef %45, i32 noundef %switch.load) #16
-  %.not18 = icmp eq i32 %46, 0
-  br i1 %.not18, label %51, label %47
+  %29 = load i8, ptr @_ZZN4llvm3sys6Memory19protectMappedMemoryERKNS0_11MemoryBlockEjE8PageSize, align 1, !tbaa !28
+  %30 = zext nneg i8 %29 to i64
+  %31 = shl nuw i64 1, %30
+  %32 = sub i64 0, %31
+  %33 = getelementptr inbounds i8, ptr %15, i64 %32
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 1
+  %35 = ptrtoint ptr %34 to i64
+  %36 = add i64 %31, -1
+  %37 = add i64 %36, %35
+  %38 = and i64 %37, %32
+  %39 = getelementptr inbounds nuw i8, ptr %15, i64 %19
+  %40 = ptrtoint ptr %39 to i64
+  %41 = add i64 %36, %40
+  %42 = and i64 %41, %32
+  %43 = inttoptr i64 %38 to ptr
+  %44 = sub i64 %42, %38
+  %45 = tail call i32 @mprotect(ptr noundef %43, i64 noundef %44, i32 noundef %switch.load) #16
+  %.not18 = icmp eq i32 %45, 0
+  br i1 %.not18, label %50, label %46
 
-47:                                               ; preds = %switch.lookup
-  %48 = tail call ptr @__errno_location() #15
-  %49 = load i32, ptr %48, align 4, !tbaa !3
-  %50 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #15
-  br label %58
+46:                                               ; preds = %switch.lookup
+  %47 = tail call ptr @__errno_location() #15
+  %48 = load i32, ptr %47, align 4, !tbaa !3
+  %49 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #15
+  br label %57
 
-51:                                               ; preds = %switch.lookup
-  %52 = and i32 %1, 67108864
-  %.not17 = icmp eq i32 %52, 0
-  br i1 %.not17, label %56, label %53
+50:                                               ; preds = %switch.lookup
+  %51 = and i32 %1, 67108864
+  %.not17 = icmp eq i32 %51, 0
+  br i1 %.not17, label %55, label %52
 
-53:                                               ; preds = %51
-  %54 = load ptr, ptr %0, align 8, !tbaa !10
-  %55 = load i64, ptr %18, align 8, !tbaa !13
-  tail call void @_ZN4llvm3sys27ValgrindDiscardTranslationsEPKvm(ptr noundef %54, i64 noundef %55) #16
-  br label %56
+52:                                               ; preds = %50
+  %53 = load ptr, ptr %0, align 8, !tbaa !10
+  %54 = load i64, ptr %18, align 8, !tbaa !13
+  tail call void @_ZN4llvm3sys27ValgrindDiscardTranslationsEPKvm(ptr noundef %53, i64 noundef %54) #16
+  br label %55
 
-56:                                               ; preds = %53, %51
-  %57 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #15
-  br label %58
+55:                                               ; preds = %52, %50
+  %56 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #15
+  br label %57
 
-58:                                               ; preds = %47, %56, %24, %21
-  %.sroa.5.0 = phi ptr [ %22, %21 ], [ %25, %24 ], [ %57, %56 ], [ %50, %47 ]
-  %.sroa.0.0 = phi i32 [ 0, %21 ], [ 22, %24 ], [ 0, %56 ], [ %49, %47 ]
+57:                                               ; preds = %46, %55, %24, %21
+  %.sroa.5.0 = phi ptr [ %22, %21 ], [ %25, %24 ], [ %56, %55 ], [ %49, %46 ]
+  %.sroa.0.0 = phi i32 [ 0, %21 ], [ 22, %24 ], [ 0, %55 ], [ %48, %46 ]
   %.fca.0.insert = insertvalue { i32, ptr } poison, i32 %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, ptr } %.fca.0.insert, ptr %.sroa.5.0, 1
   ret { i32, ptr } %.fca.1.insert

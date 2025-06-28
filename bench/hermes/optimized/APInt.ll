@@ -19210,8 +19210,8 @@ entry:
 if.then:                                          ; preds = %entry
   %0 = add i32 %Radix, -2
   %1 = tail call i32 @llvm.fshl.i32(i32 %0, i32 %0, i32 31)
-  %2 = sext i32 %1 to i64
-  %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table._ZNK4llvh5APInt8toStringERNS_15SmallVectorImplIcEEjbb, i64 0, i64 %2
+  %2 = zext i32 %1 to i64
+  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZNK4llvh5APInt8toStringERNS_15SmallVectorImplIcEEjbb, i64 0, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %if.end
 

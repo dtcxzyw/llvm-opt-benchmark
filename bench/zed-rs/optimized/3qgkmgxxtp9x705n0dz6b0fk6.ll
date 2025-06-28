@@ -99949,8 +99949,8 @@ _ZN4gpui8platform5linux7wayland6serial13SerialTracker3get17hd5e5117f3e322c47E.ll
   br i1 %58, label %17, label %60
 
 switch.lookup:                                    ; preds = %_ZN4gpui8platform5linux7wayland6serial13SerialTracker3get17hd5e5117f3e322c47E.llvm.5405220595630156345.exit
-  %59 = sext i8 %1 to i64
-  %switch.gep = getelementptr inbounds [21 x i32], ptr @"switch.table._ZN118_$LT$gpui..platform..linux..wayland..client..WaylandClient$u20$as$u20$gpui..platform..linux..platform..LinuxClient$GT$16set_cursor_style17hef69eb17ea4870eaE", i64 0, i64 %59
+  %59 = zext i8 %1 to i64
+  %switch.gep = getelementptr inbounds nuw [21 x i32], ptr @"switch.table._ZN118_$LT$gpui..platform..linux..wayland..client..WaylandClient$u20$as$u20$gpui..platform..linux..platform..LinuxClient$GT$16set_cursor_style17hef69eb17ea4870eaE", i64 0, i64 %59
   %switch.load = load i32, ptr %switch.gep, align 4
   invoke void @_ZN17wayland_protocols2wp12cursor_shape2v19generated6client25wp_cursor_shape_device_v121WpCursorShapeDeviceV19set_shape17hc6d9121c1ed4a4efE(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %52, i32 noundef %.sroa.0.0.i, i32 noundef %switch.load)
           to label %17 unwind label %10
@@ -100042,11 +100042,11 @@ switch.lookup:                                    ; preds = %_ZN4gpui8platform5l
   store ptr %.sroa.512.0.i, ptr %.sroa.1036.0..sroa_idx, align 8
   %.sroa.1137.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 56
   store i32 %78, ptr %.sroa.1137.0..sroa_idx, align 8
-  %99 = sext i8 %1 to i64
-  %switch.gep43 = getelementptr inbounds [21 x i64], ptr @"switch.table._ZN110_$LT$gpui..platform..linux..x11..client..X11Client$u20$as$u20$gpui..platform..linux..platform..LinuxClient$GT$16set_cursor_style17h6ab0500258f49399E", i64 0, i64 %99
+  %99 = zext i8 %1 to i64
+  %switch.gep43 = getelementptr inbounds nuw [21 x i64], ptr @"switch.table._ZN110_$LT$gpui..platform..linux..x11..client..X11Client$u20$as$u20$gpui..platform..linux..platform..LinuxClient$GT$16set_cursor_style17h6ab0500258f49399E", i64 0, i64 %99
   %switch.load44 = load i64, ptr %switch.gep43, align 8
-  %100 = sext i8 %1 to i64
-  %switch.gep45 = getelementptr inbounds [21 x ptr], ptr @"switch.table._ZN110_$LT$gpui..platform..linux..x11..client..X11Client$u20$as$u20$gpui..platform..linux..platform..LinuxClient$GT$16set_cursor_style17h6ab0500258f49399E.387", i64 0, i64 %100
+  %100 = zext i8 %1 to i64
+  %switch.gep45 = getelementptr inbounds nuw [21 x ptr], ptr @"switch.table._ZN110_$LT$gpui..platform..linux..x11..client..X11Client$u20$as$u20$gpui..platform..linux..platform..LinuxClient$GT$16set_cursor_style17h6ab0500258f49399E.387", i64 0, i64 %100
   %switch.load46 = load ptr, ptr %switch.gep45, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !27132
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17hbef4938395f72a6fE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, i64 noundef %switch.load44, i1 noundef zeroext false)
@@ -133709,11 +133709,11 @@ _ZN9hashbrown3raw13RawTableInner10find_inner17h1d7ee280cc3bcfc4E.llvm.5405220595
 
 select.unfold:                                    ; preds = %._crit_edge.i.i31, %65
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %11)
-  %98 = sext i8 %1 to i64
-  %switch.gep = getelementptr inbounds [21 x i64], ptr @"switch.table._ZN110_$LT$gpui..platform..linux..x11..client..X11Client$u20$as$u20$gpui..platform..linux..platform..LinuxClient$GT$16set_cursor_style17h6ab0500258f49399E", i64 0, i64 %98
+  %98 = zext i8 %1 to i64
+  %switch.gep = getelementptr inbounds nuw [21 x i64], ptr @"switch.table._ZN110_$LT$gpui..platform..linux..x11..client..X11Client$u20$as$u20$gpui..platform..linux..platform..LinuxClient$GT$16set_cursor_style17h6ab0500258f49399E", i64 0, i64 %98
   %switch.load = load i64, ptr %switch.gep, align 8
-  %99 = sext i8 %1 to i64
-  %switch.gep142 = getelementptr inbounds [21 x ptr], ptr @"switch.table._ZN110_$LT$gpui..platform..linux..x11..client..X11Client$u20$as$u20$gpui..platform..linux..platform..LinuxClient$GT$16set_cursor_style17h6ab0500258f49399E.387", i64 0, i64 %99
+  %99 = zext i8 %1 to i64
+  %switch.gep142 = getelementptr inbounds nuw [21 x ptr], ptr @"switch.table._ZN110_$LT$gpui..platform..linux..x11..client..X11Client$u20$as$u20$gpui..platform..linux..platform..LinuxClient$GT$16set_cursor_style17h6ab0500258f49399E.387", i64 0, i64 %99
   %switch.load143 = load ptr, ptr %switch.gep142, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !35738
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17hbef4938395f72a6fE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, i64 noundef %switch.load, i1 noundef zeroext false)

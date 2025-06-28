@@ -2711,13 +2711,11 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i:               ; preds = %847, %845
 _ZN4llvm11raw_ostreamlsEPKc.exit10.i:             ; preds = %869, %867
   %.0.i.i9.i = phi ptr [ %868, %867 ], [ %2, %869 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #22
-  %sext = shl i64 %indvars.iv.i, 32
-  %872 = ashr exact i64 %sext, 32
-  %switch.gep = getelementptr inbounds [38 x i64], ptr @switch.table._ZN4llvm16EmitMatcherTableEPNS_7MatcherERKNS_18CodeGenDAGPatternsERNS_11raw_ostreamE, i64 0, i64 %872
+  %872 = and i64 %indvars.iv.i, 4294967295
+  %switch.gep = getelementptr inbounds nuw [38 x i64], ptr @switch.table._ZN4llvm16EmitMatcherTableEPNS_7MatcherERKNS_18CodeGenDAGPatternsERNS_11raw_ostreamE, i64 0, i64 %872
   %switch.load = load i64, ptr %switch.gep, align 8
-  %sext435 = shl i64 %indvars.iv.i, 32
-  %873 = ashr exact i64 %sext435, 32
-  %switch.gep433 = getelementptr inbounds [38 x ptr], ptr @switch.table._ZN4llvm16EmitMatcherTableEPNS_7MatcherERKNS_18CodeGenDAGPatternsERNS_11raw_ostreamE.75, i64 0, i64 %873
+  %873 = and i64 %indvars.iv.i, 4294967295
+  %switch.gep433 = getelementptr inbounds nuw [38 x ptr], ptr @switch.table._ZN4llvm16EmitMatcherTableEPNS_7MatcherERKNS_18CodeGenDAGPatternsERNS_11raw_ostreamE.75, i64 0, i64 %873
   %switch.load434 = load ptr, ptr %switch.gep433, align 8
   store ptr %switch.load434, ptr %6, align 8, !tbaa !44, !alias.scope !153
   store i64 %switch.load, ptr %.sroa.2.0..sroa_idx.i.i.i154, align 8, !tbaa !45, !alias.scope !153

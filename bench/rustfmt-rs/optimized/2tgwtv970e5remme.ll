@@ -27500,11 +27500,11 @@ define void @"_ZN76_$LT$rustc_ast..ast..Expr$u20$as$u20$rustfmt_nightly..pairs..
 switch.lookup:                                    ; preds = %126
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %132, i64 12
   %.sroa.3.0.copyload = load i8, ptr %.sroa.3.0..sroa_idx, align 4
-  %138 = sext i8 %.sroa.3.0.copyload to i64
-  %switch.gep = getelementptr inbounds [18 x i64], ptr @"switch.table._ZN76_$LT$rustc_ast..ast..Expr$u20$as$u20$rustfmt_nightly..pairs..FlattenPair$GT$7flatten17ha5afb19ac35ee215E", i64 0, i64 %138
+  %138 = zext i8 %.sroa.3.0.copyload to i64
+  %switch.gep = getelementptr inbounds nuw [18 x i64], ptr @"switch.table._ZN76_$LT$rustc_ast..ast..Expr$u20$as$u20$rustfmt_nightly..pairs..FlattenPair$GT$7flatten17ha5afb19ac35ee215E", i64 0, i64 %138
   %switch.load = load i64, ptr %switch.gep, align 8
-  %139 = sext i8 %.sroa.3.0.copyload to i64
-  %switch.gep43 = getelementptr inbounds [18 x ptr], ptr @"switch.table._ZN76_$LT$rustc_ast..ast..Expr$u20$as$u20$rustfmt_nightly..pairs..FlattenPair$GT$7flatten17ha5afb19ac35ee215E.120", i64 0, i64 %139
+  %139 = zext i8 %.sroa.3.0.copyload to i64
+  %switch.gep43 = getelementptr inbounds nuw [18 x ptr], ptr @"switch.table._ZN76_$LT$rustc_ast..ast..Expr$u20$as$u20$rustfmt_nightly..pairs..FlattenPair$GT$7flatten17ha5afb19ac35ee215E.120", i64 0, i64 %139
   %switch.load44 = load ptr, ptr %switch.gep43, align 8
   %140 = load i64, ptr %27, align 8, !alias.scope !5096, !noalias !5099, !noundef !10
   %141 = load i64, ptr %14, align 8, !alias.scope !5096, !noalias !5099, !noundef !10
@@ -34480,11 +34480,11 @@ switch.lookup:                                    ; preds = %_ZN5alloc6string6St
   %62 = phi i64 [ %61, %_ZN5alloc6string6String4push17hf2ea2cbd99291858E.exit ], [ %.sroa.4.0, %48 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19)
   %63 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %64 = sext i32 %.sroa.014.0.copyload to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @"switch.table._ZN15rustfmt_nightly5types92_$LT$impl$u20$rustfmt_nightly..rewrite..Rewrite$u20$for$u20$rustc_ast..ast..GenericBound$GT$7rewrite17hb4ef8bb4a03e0036E", i64 0, i64 %64
+  %64 = zext i32 %.sroa.014.0.copyload to i64
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN15rustfmt_nightly5types92_$LT$impl$u20$rustfmt_nightly..rewrite..Rewrite$u20$for$u20$rustc_ast..ast..GenericBound$GT$7rewrite17hb4ef8bb4a03e0036E", i64 0, i64 %64
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %65 = sext i32 %.sroa.014.0.copyload to i64
-  %switch.gep72 = getelementptr inbounds [3 x i64], ptr @"switch.table._ZN15rustfmt_nightly5types92_$LT$impl$u20$rustfmt_nightly..rewrite..Rewrite$u20$for$u20$rustc_ast..ast..GenericBound$GT$7rewrite17hb4ef8bb4a03e0036E.121", i64 0, i64 %65
+  %65 = zext i32 %.sroa.014.0.copyload to i64
+  %switch.gep72 = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN15rustfmt_nightly5types92_$LT$impl$u20$rustfmt_nightly..rewrite..Rewrite$u20$for$u20$rustc_ast..ast..GenericBound$GT$7rewrite17hb4ef8bb4a03e0036E.121", i64 0, i64 %65
   %switch.load73 = load i64, ptr %switch.gep72, align 8
   store ptr %switch.load, ptr %19, align 8
   store i64 %switch.load73, ptr %63, align 8

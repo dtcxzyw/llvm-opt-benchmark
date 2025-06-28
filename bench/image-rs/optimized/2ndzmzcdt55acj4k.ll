@@ -23038,11 +23038,11 @@ define hidden void @_ZN5image8imageops6sample6resize17h18cb09a905e5d3a2E(ptr noa
   store ptr inttoptr (i64 1 to ptr), ptr %9, align 8
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %20 = sext i8 %4 to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table._ZN5image8imageops6sample6resize17hddda5a5e88d0ad15E, i64 0, i64 %20
+  %20 = zext i8 %4 to i64
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN5image8imageops6sample6resize17hddda5a5e88d0ad15E, i64 0, i64 %20
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %21 = sext i8 %4 to i64
-  %switch.gep7 = getelementptr inbounds [5 x float], ptr @switch.table._ZN5image8imageops6sample6resize17hddda5a5e88d0ad15E.108, i64 0, i64 %21
+  %21 = zext i8 %4 to i64
+  %switch.gep7 = getelementptr inbounds nuw [5 x float], ptr @switch.table._ZN5image8imageops6sample6resize17hddda5a5e88d0ad15E.108, i64 0, i64 %21
   %switch.load8 = load float, ptr %switch.gep7, align 4
   store ptr %switch.load, ptr %18, align 8
   store float %switch.load8, ptr %19, align 8
@@ -23220,11 +23220,11 @@ define hidden void @_ZN5image8imageops6sample6resize17h38246cdb4938ae42E(ptr noa
   store ptr inttoptr (i64 1 to ptr), ptr %9, align 8
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %20 = sext i8 %4 to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table._ZN5image8imageops6sample6resize17hddda5a5e88d0ad15E, i64 0, i64 %20
+  %20 = zext i8 %4 to i64
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN5image8imageops6sample6resize17hddda5a5e88d0ad15E, i64 0, i64 %20
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %21 = sext i8 %4 to i64
-  %switch.gep7 = getelementptr inbounds [5 x float], ptr @switch.table._ZN5image8imageops6sample6resize17hddda5a5e88d0ad15E.108, i64 0, i64 %21
+  %21 = zext i8 %4 to i64
+  %switch.gep7 = getelementptr inbounds nuw [5 x float], ptr @switch.table._ZN5image8imageops6sample6resize17hddda5a5e88d0ad15E.108, i64 0, i64 %21
   %switch.load8 = load float, ptr %switch.gep7, align 4
   store ptr %switch.load, ptr %18, align 8
   store float %switch.load8, ptr %19, align 8
@@ -23409,11 +23409,11 @@ define hidden void @_ZN5image8imageops6sample6resize17h3bd4bb4b6846062dE(ptr noa
   store ptr inttoptr (i64 1 to ptr), ptr %9, align 8
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %20 = sext i8 %4 to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table._ZN5image8imageops6sample6resize17hddda5a5e88d0ad15E, i64 0, i64 %20
+  %20 = zext i8 %4 to i64
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN5image8imageops6sample6resize17hddda5a5e88d0ad15E, i64 0, i64 %20
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %21 = sext i8 %4 to i64
-  %switch.gep7 = getelementptr inbounds [5 x float], ptr @switch.table._ZN5image8imageops6sample6resize17hddda5a5e88d0ad15E.108, i64 0, i64 %21
+  %21 = zext i8 %4 to i64
+  %switch.gep7 = getelementptr inbounds nuw [5 x float], ptr @switch.table._ZN5image8imageops6sample6resize17hddda5a5e88d0ad15E.108, i64 0, i64 %21
   %switch.load8 = load float, ptr %switch.gep7, align 4
   store ptr %switch.load, ptr %18, align 8
   store float %switch.load8, ptr %19, align 8
@@ -23598,11 +23598,11 @@ define hidden void @_ZN5image8imageops6sample6resize17h48915728c0c37a5fE(ptr noa
   store ptr inttoptr (i64 1 to ptr), ptr %9, align 8
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %20 = sext i8 %4 to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table._ZN5image8imageops6sample6resize17hddda5a5e88d0ad15E, i64 0, i64 %20
+  %20 = zext i8 %4 to i64
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN5image8imageops6sample6resize17hddda5a5e88d0ad15E, i64 0, i64 %20
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %21 = sext i8 %4 to i64
-  %switch.gep7 = getelementptr inbounds [5 x float], ptr @switch.table._ZN5image8imageops6sample6resize17hddda5a5e88d0ad15E.108, i64 0, i64 %21
+  %21 = zext i8 %4 to i64
+  %switch.gep7 = getelementptr inbounds nuw [5 x float], ptr @switch.table._ZN5image8imageops6sample6resize17hddda5a5e88d0ad15E.108, i64 0, i64 %21
   %switch.load8 = load float, ptr %switch.gep7, align 4
   store ptr %switch.load, ptr %18, align 8
   store float %switch.load8, ptr %19, align 8
@@ -23780,11 +23780,11 @@ define hidden void @_ZN5image8imageops6sample6resize17h67e0d7909031f46cE(ptr noa
   store ptr inttoptr (i64 1 to ptr), ptr %9, align 8
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %20 = sext i8 %4 to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table._ZN5image8imageops6sample6resize17hddda5a5e88d0ad15E, i64 0, i64 %20
+  %20 = zext i8 %4 to i64
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN5image8imageops6sample6resize17hddda5a5e88d0ad15E, i64 0, i64 %20
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %21 = sext i8 %4 to i64
-  %switch.gep7 = getelementptr inbounds [5 x float], ptr @switch.table._ZN5image8imageops6sample6resize17hddda5a5e88d0ad15E.108, i64 0, i64 %21
+  %21 = zext i8 %4 to i64
+  %switch.gep7 = getelementptr inbounds nuw [5 x float], ptr @switch.table._ZN5image8imageops6sample6resize17hddda5a5e88d0ad15E.108, i64 0, i64 %21
   %switch.load8 = load float, ptr %switch.gep7, align 4
   store ptr %switch.load, ptr %18, align 8
   store float %switch.load8, ptr %19, align 8
@@ -23962,11 +23962,11 @@ define hidden void @_ZN5image8imageops6sample6resize17h68200b414841aa12E(ptr noa
   store ptr inttoptr (i64 1 to ptr), ptr %9, align 8
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %20 = sext i8 %4 to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table._ZN5image8imageops6sample6resize17hddda5a5e88d0ad15E, i64 0, i64 %20
+  %20 = zext i8 %4 to i64
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN5image8imageops6sample6resize17hddda5a5e88d0ad15E, i64 0, i64 %20
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %21 = sext i8 %4 to i64
-  %switch.gep7 = getelementptr inbounds [5 x float], ptr @switch.table._ZN5image8imageops6sample6resize17hddda5a5e88d0ad15E.108, i64 0, i64 %21
+  %21 = zext i8 %4 to i64
+  %switch.gep7 = getelementptr inbounds nuw [5 x float], ptr @switch.table._ZN5image8imageops6sample6resize17hddda5a5e88d0ad15E.108, i64 0, i64 %21
   %switch.load8 = load float, ptr %switch.gep7, align 4
   store ptr %switch.load, ptr %18, align 8
   store float %switch.load8, ptr %19, align 8
@@ -24144,11 +24144,11 @@ define hidden void @_ZN5image8imageops6sample6resize17h8fd6268b97527027E(ptr noa
   store ptr inttoptr (i64 1 to ptr), ptr %9, align 8
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %20 = sext i8 %4 to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table._ZN5image8imageops6sample6resize17hddda5a5e88d0ad15E, i64 0, i64 %20
+  %20 = zext i8 %4 to i64
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN5image8imageops6sample6resize17hddda5a5e88d0ad15E, i64 0, i64 %20
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %21 = sext i8 %4 to i64
-  %switch.gep7 = getelementptr inbounds [5 x float], ptr @switch.table._ZN5image8imageops6sample6resize17hddda5a5e88d0ad15E.108, i64 0, i64 %21
+  %21 = zext i8 %4 to i64
+  %switch.gep7 = getelementptr inbounds nuw [5 x float], ptr @switch.table._ZN5image8imageops6sample6resize17hddda5a5e88d0ad15E.108, i64 0, i64 %21
   %switch.load8 = load float, ptr %switch.gep7, align 4
   store ptr %switch.load, ptr %18, align 8
   store float %switch.load8, ptr %19, align 8
@@ -24333,11 +24333,11 @@ define hidden void @_ZN5image8imageops6sample6resize17h91dfde002a15b155E(ptr noa
   store ptr inttoptr (i64 1 to ptr), ptr %9, align 8
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %20 = sext i8 %4 to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table._ZN5image8imageops6sample6resize17hddda5a5e88d0ad15E, i64 0, i64 %20
+  %20 = zext i8 %4 to i64
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN5image8imageops6sample6resize17hddda5a5e88d0ad15E, i64 0, i64 %20
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %21 = sext i8 %4 to i64
-  %switch.gep7 = getelementptr inbounds [5 x float], ptr @switch.table._ZN5image8imageops6sample6resize17hddda5a5e88d0ad15E.108, i64 0, i64 %21
+  %21 = zext i8 %4 to i64
+  %switch.gep7 = getelementptr inbounds nuw [5 x float], ptr @switch.table._ZN5image8imageops6sample6resize17hddda5a5e88d0ad15E.108, i64 0, i64 %21
   %switch.load8 = load float, ptr %switch.gep7, align 4
   store ptr %switch.load, ptr %18, align 8
   store float %switch.load8, ptr %19, align 8
@@ -24515,11 +24515,11 @@ define hidden void @_ZN5image8imageops6sample6resize17hab7dccdd8880f76eE(ptr noa
   store ptr inttoptr (i64 1 to ptr), ptr %9, align 8
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %20 = sext i8 %4 to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table._ZN5image8imageops6sample6resize17hddda5a5e88d0ad15E, i64 0, i64 %20
+  %20 = zext i8 %4 to i64
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN5image8imageops6sample6resize17hddda5a5e88d0ad15E, i64 0, i64 %20
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %21 = sext i8 %4 to i64
-  %switch.gep7 = getelementptr inbounds [5 x float], ptr @switch.table._ZN5image8imageops6sample6resize17hddda5a5e88d0ad15E.108, i64 0, i64 %21
+  %21 = zext i8 %4 to i64
+  %switch.gep7 = getelementptr inbounds nuw [5 x float], ptr @switch.table._ZN5image8imageops6sample6resize17hddda5a5e88d0ad15E.108, i64 0, i64 %21
   %switch.load8 = load float, ptr %switch.gep7, align 4
   store ptr %switch.load, ptr %18, align 8
   store float %switch.load8, ptr %19, align 8
@@ -24704,11 +24704,11 @@ define hidden void @_ZN5image8imageops6sample6resize17hddda5a5e88d0ad15E(ptr noa
   store ptr inttoptr (i64 1 to ptr), ptr %9, align 8
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %20 = sext i8 %4 to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table._ZN5image8imageops6sample6resize17hddda5a5e88d0ad15E, i64 0, i64 %20
+  %20 = zext i8 %4 to i64
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN5image8imageops6sample6resize17hddda5a5e88d0ad15E, i64 0, i64 %20
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %21 = sext i8 %4 to i64
-  %switch.gep7 = getelementptr inbounds [5 x float], ptr @switch.table._ZN5image8imageops6sample6resize17hddda5a5e88d0ad15E.108, i64 0, i64 %21
+  %21 = zext i8 %4 to i64
+  %switch.gep7 = getelementptr inbounds nuw [5 x float], ptr @switch.table._ZN5image8imageops6sample6resize17hddda5a5e88d0ad15E.108, i64 0, i64 %21
   %switch.load8 = load float, ptr %switch.gep7, align 4
   store ptr %switch.load, ptr %18, align 8
   store float %switch.load8, ptr %19, align 8
@@ -32080,8 +32080,8 @@ define void @_ZN5image6codecs4webp9transform7iwht4x417h0d981d6f6d8159feE(ptr noa
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef range(i8 1, 17) i8 @_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E(i8 noundef %0) unnamed_addr #7 {
 switch.lookup:
-  %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds [10 x i8], ptr @switch.table._ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E, i64 0, i64 %1
+  %1 = zext i8 %0 to i64
+  %switch.gep = getelementptr inbounds nuw [10 x i8], ptr @switch.table._ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E, i64 0, i64 %1
   %switch.load = load i8, ptr %switch.gep, align 1
   ret i8 %switch.load
 }
@@ -32105,8 +32105,8 @@ switch.lookup:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef range(i16 8, 129) i16 @_ZN5image5color9ColorType14bits_per_pixel17h4f95918665485d51E(i8 noundef %0) unnamed_addr #7 {
 switch.lookup:
-  %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds [10 x i16], ptr @switch.table._ZN5image5color9ColorType14bits_per_pixel17h4f95918665485d51E, i64 0, i64 %1
+  %1 = zext i8 %0 to i64
+  %switch.gep = getelementptr inbounds nuw [10 x i16], ptr @switch.table._ZN5image5color9ColorType14bits_per_pixel17h4f95918665485d51E, i64 0, i64 %1
   %switch.load = load i16, ptr %switch.gep, align 2
   ret i16 %switch.load
 }
@@ -32114,8 +32114,8 @@ switch.lookup:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef range(i8 1, 5) i8 @_ZN5image5color9ColorType13channel_count17h091181b88688e861E(i8 noundef %0) unnamed_addr #7 {
 switch.lookup:
-  %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds [10 x i8], ptr @switch.table._ZN5image5color9ColorType13channel_count17h091181b88688e861E, i64 0, i64 %1
+  %1 = zext i8 %0 to i64
+  %switch.gep = getelementptr inbounds nuw [10 x i8], ptr @switch.table._ZN5image5color9ColorType13channel_count17h091181b88688e861E, i64 0, i64 %1
   %switch.load = load i8, ptr %switch.gep, align 1
   ret i8 %switch.load
 }
@@ -32123,8 +32123,8 @@ switch.lookup:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef range(i8 1, 5) i8 @_ZN5image5color17ExtendedColorType13channel_count17h2c1e63fafcc5e7e4E(i8 noundef %0, i8 %1) unnamed_addr #7 {
 switch.lookup:
-  %2 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds [27 x i8], ptr @switch.table._ZN5image5color17ExtendedColorType13channel_count17h2c1e63fafcc5e7e4E, i64 0, i64 %2
+  %2 = zext i8 %0 to i64
+  %switch.gep = getelementptr inbounds nuw [27 x i8], ptr @switch.table._ZN5image5color17ExtendedColorType13channel_count17h2c1e63fafcc5e7e4E, i64 0, i64 %2
   %switch.load = load i8, ptr %switch.gep, align 1
   ret i8 %switch.load
 }
@@ -32132,8 +32132,8 @@ switch.lookup:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define { i8, i8 } @"_ZN102_$LT$image..color..ExtendedColorType$u20$as$u20$core..convert..From$LT$image..color..ColorType$GT$$GT$4from17h48c483a11b2d5c57E"(i8 noundef %0) unnamed_addr #7 {
 switch.lookup:
-  %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds [10 x i8], ptr @"switch.table._ZN102_$LT$image..color..ExtendedColorType$u20$as$u20$core..convert..From$LT$image..color..ColorType$GT$$GT$4from17h48c483a11b2d5c57E", i64 0, i64 %1
+  %1 = zext i8 %0 to i64
+  %switch.gep = getelementptr inbounds nuw [10 x i8], ptr @"switch.table._ZN102_$LT$image..color..ExtendedColorType$u20$as$u20$core..convert..From$LT$image..color..ColorType$GT$$GT$4from17h48c483a11b2d5c57E", i64 0, i64 %1
   %switch.load = load i8, ptr %switch.gep, align 1
   %2 = insertvalue { i8, i8 } poison, i8 %switch.load, 0
   %3 = insertvalue { i8, i8 } %2, i8 undef, 1

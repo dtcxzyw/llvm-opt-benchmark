@@ -1250,8 +1250,8 @@ switch.lookup:
   %4 = alloca i32, align 4
   %5 = tail call noundef i32 @_ZN10open_spiel9dou_dizhu18GetNumCardsPerRankEi(i32 noundef %0)
   %switch.tableidx = add nsw i32 %5, -1
-  %6 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table._ZN10open_spiel9dou_dizhu23SearchSingleRankActionsEPSt6vectorIlSaIlEEN4absl7debian24SpanIKiEEi, i64 0, i64 %6
+  %6 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN10open_spiel9dou_dizhu23SearchSingleRankActionsEPSt6vectorIlSaIlEEN4absl7debian24SpanIKiEEi, i64 0, i64 %6
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %0, ptr %1, align 4
   store i32 %switch.load, ptr %2, align 4
@@ -2226,11 +2226,11 @@ common.resume:                                    ; preds = %22, %17
 
 switch.lookup:                                    ; preds = %1
   %switch.tableidx = add nsw i32 %8, -1
-  %18 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table._ZN10open_spiel9dou_dizhu23ChainOnlyHandToActionIdEN4absl7debian24SpanIKiEE.2, i64 0, i64 %18
+  %18 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN10open_spiel9dou_dizhu23ChainOnlyHandToActionIdEN4absl7debian24SpanIKiEE.2, i64 0, i64 %18
   %switch.load = load i32, ptr %switch.gep, align 4
-  %19 = sext i32 %switch.tableidx to i64
-  %switch.gep39 = getelementptr inbounds [3 x i32], ptr @switch.table._ZN10open_spiel9dou_dizhu23ChainOnlyHandToActionIdEN4absl7debian24SpanIKiEE, i64 0, i64 %19
+  %19 = zext i32 %switch.tableidx to i64
+  %switch.gep39 = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN10open_spiel9dou_dizhu23ChainOnlyHandToActionIdEN4absl7debian24SpanIKiEE, i64 0, i64 %19
   %switch.load40 = load i32, ptr %switch.gep39, align 4
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)

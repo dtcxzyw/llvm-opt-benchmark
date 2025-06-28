@@ -2700,10 +2700,9 @@ define range(i32 0, 2) i32 @Cudd_StdPreReordHook(ptr noundef %0, ptr noundef %1,
   br i1 %14, label %85, label %switch.lookup
 
 switch.lookup:                                    ; preds = %11
-  %switch.tableidx = shl i64 %4, 32
-  %sext = add i64 %switch.tableidx, -21474836480
-  %15 = ashr exact i64 %sext, 32
-  %switch.gep = getelementptr inbounds [15 x ptr], ptr @switch.table.Cudd_StdPreReordHook, i64 0, i64 %15
+  %switch.tableidx = add i64 %4, 4294967291
+  %15 = and i64 %switch.tableidx, 4294967295
+  %switch.gep = getelementptr inbounds nuw [15 x ptr], ptr @switch.table.Cudd_StdPreReordHook, i64 0, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %25
 

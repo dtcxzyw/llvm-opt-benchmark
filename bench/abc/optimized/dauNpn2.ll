@@ -4035,8 +4035,8 @@ define range(i32 -1, 2) i32 @Dtt_Check(i32 noundef %0, i32 noundef %1, i32 nound
   br i1 %16, label %switch.lookup, label %18
 
 switch.lookup:                                    ; preds = %13
-  %17 = sext i32 %12 to i64
-  %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table.Dtt_Check, i64 0, i64 %17
+  %17 = zext i32 %12 to i64
+  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table.Dtt_Check, i64 0, i64 %17
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %3, align 4, !tbaa !40
   br label %Dtt_ProcessType.exit
@@ -4054,8 +4054,8 @@ switch.lookup:                                    ; preds = %13
 
 switch.lookup71:                                  ; preds = %22
   %switch.tableidx = add nsw i32 %12, -1
-  %25 = sext i32 %switch.tableidx to i64
-  %switch.gep72 = getelementptr inbounds [6 x i32], ptr @switch.table.Dtt_Check.16, i64 0, i64 %25
+  %25 = zext i32 %switch.tableidx to i64
+  %switch.gep72 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.Dtt_Check.16, i64 0, i64 %25
   %switch.load73 = load i32, ptr %switch.gep72, align 4
   store i32 %switch.load73, ptr %3, align 4, !tbaa !40
   br label %Dtt_ProcessType.exit
@@ -4119,8 +4119,8 @@ switch.lookup71:                                  ; preds = %22
 
 switch.lookup74:                                  ; preds = %48
   %switch.tableidx75 = add nsw i32 %12, -3
-  %52 = sext i32 %switch.tableidx75 to i64
-  %switch.gep76 = getelementptr inbounds [6 x i32], ptr @switch.table.Dtt_Check.17, i64 0, i64 %52
+  %52 = zext i32 %switch.tableidx75 to i64
+  %switch.gep76 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.Dtt_Check.17, i64 0, i64 %52
   %switch.load77 = load i32, ptr %switch.gep76, align 4
   store i32 %switch.load77, ptr %3, align 4, !tbaa !40
   br label %Dtt_ProcessType.exit
@@ -4139,8 +4139,8 @@ switch.lookup74:                                  ; preds = %48
 
 switch.lookup78:                                  ; preds = %57
   %switch.tableidx79 = add nsw i32 %12, -4
-  %61 = sext i32 %switch.tableidx79 to i64
-  %switch.gep80 = getelementptr inbounds [6 x i32], ptr @switch.table.Dtt_Check.18, i64 0, i64 %61
+  %61 = zext i32 %switch.tableidx79 to i64
+  %switch.gep80 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.Dtt_Check.18, i64 0, i64 %61
   %switch.load81 = load i32, ptr %switch.gep80, align 4
   store i32 %switch.load81, ptr %3, align 4, !tbaa !40
   br label %Dtt_ProcessType.exit

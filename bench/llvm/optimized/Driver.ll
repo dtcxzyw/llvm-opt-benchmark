@@ -17241,8 +17241,8 @@ switch.lookup:                                    ; preds = %32, %29
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #35
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %35 = load i32, ptr %34, align 8, !tbaa !158
-  %36 = sext i32 %35 to i64
-  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table._ZN5clang6driver6Driver26getExecutableForDriverModeENS1_10DriverModeE, i64 0, i64 %36
+  %36 = zext i32 %35 to i64
+  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN5clang6driver6Driver26getExecutableForDriverModeENS1_10DriverModeE, i64 0, i64 %36
   %switch.load = load ptr, ptr %switch.gep, align 8
   %37 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %37, ptr %9, align 8, !tbaa !19
@@ -18220,8 +18220,8 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef nonnull ptr @_ZN5clang6driver6Driver26getExecutableForDriverModeENS1_10DriverModeE(i32 noundef %0) local_unnamed_addr #11 align 2 {
 switch.lookup:
-  %1 = sext i32 %0 to i64
-  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table._ZN5clang6driver6Driver26getExecutableForDriverModeENS1_10DriverModeE, i64 0, i64 %1
+  %1 = zext i32 %0 to i64
+  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN5clang6driver6Driver26getExecutableForDriverModeENS1_10DriverModeE, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }

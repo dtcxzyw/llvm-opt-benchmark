@@ -1426,8 +1426,8 @@ _ZN3syn4expr10precedence10Precedence2of17h3991decb90ba0367E.exit131: ; preds = %
 
 switch.lookup382:                                 ; preds = %115
   %.sroa.0.0.copyload.i = load i32, ptr %49, align 8
-  %118 = sext i32 %.sroa.0.0.copyload.i to i64
-  %switch.gep383 = getelementptr inbounds [28 x i8], ptr @switch.table._ZN3syn4expr7parsing10parse_expr17h169c8e9fb8cdfdf8E.10, i64 0, i64 %118
+  %118 = zext i32 %.sroa.0.0.copyload.i to i64
+  %switch.gep383 = getelementptr inbounds nuw [28 x i8], ptr @switch.table._ZN3syn4expr7parsing10parse_expr17h169c8e9fb8cdfdf8E.10, i64 0, i64 %118
   %switch.load384 = load i8, ptr %switch.gep383, align 1
   br label %"_ZN4core3ptr83drop_in_place$LT$core..result..Result$LT$syn..op..BinOp$C$syn..error..Error$GT$$GT$17hef667b0bea1f10f4E.exit.i"
 

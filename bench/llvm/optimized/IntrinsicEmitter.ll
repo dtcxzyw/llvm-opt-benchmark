@@ -4041,11 +4041,11 @@ _ZNSt8_Rb_treeIN4llvm11SmallVectorINS0_16CodeGenIntrinsic12ArgAttributeELj0EEESt
 switch.lookup:                                    ; preds = %.lr.ph.i83
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %31) #19
   %switch.tableidx = add nsw i32 %1478, -1
-  %1492 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [10 x i64], ptr @switch.table._ZN12_GLOBAL__N_116IntrinsicEmitter3runERN4llvm11raw_ostreamEb, i64 0, i64 %1492
+  %1492 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @switch.table._ZN12_GLOBAL__N_116IntrinsicEmitter3runERN4llvm11raw_ostreamEb, i64 0, i64 %1492
   %switch.load = load i64, ptr %switch.gep, align 8
-  %1493 = sext i32 %switch.tableidx to i64
-  %switch.gep223 = getelementptr inbounds [10 x ptr], ptr @switch.table._ZN12_GLOBAL__N_116IntrinsicEmitter3runERN4llvm11raw_ostreamEb.88, i64 0, i64 %1493
+  %1493 = zext i32 %switch.tableidx to i64
+  %switch.gep223 = getelementptr inbounds nuw [10 x ptr], ptr @switch.table._ZN12_GLOBAL__N_116IntrinsicEmitter3runERN4llvm11raw_ostreamEb.88, i64 0, i64 %1493
   %switch.load224 = load ptr, ptr %switch.gep223, align 8
   store ptr %switch.load224, ptr %31, align 8
   store i64 %switch.load, ptr %1210, align 8

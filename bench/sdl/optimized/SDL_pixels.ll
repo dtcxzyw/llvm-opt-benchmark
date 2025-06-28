@@ -1329,25 +1329,25 @@ define hidden noundef ptr @SDL_GetYCbCRtoRGBConversionMatrix(i32 noundef %0, i32
   %7 = lshr i32 %0, 24
   %8 = and i32 %7, 15
   %9 = icmp samesign ult i32 %8, 3
-  br i1 %9, label %switch.lookup, label %SDL_GetBT601ConversionMatrix.exit
+  br i1 %9, label %SDL_GetBT601ConversionMatrix.exit.sink.split, label %SDL_GetBT601ConversionMatrix.exit
 
 10:                                               ; preds = %4
   %11 = lshr i32 %0, 24
   %12 = and i32 %11, 15
   %13 = icmp samesign ult i32 %12, 3
-  br i1 %13, label %switch.lookup17, label %SDL_GetBT601ConversionMatrix.exit
+  br i1 %13, label %SDL_GetBT601ConversionMatrix.exit.sink.split, label %SDL_GetBT601ConversionMatrix.exit
 
 14:                                               ; preds = %4
   %15 = lshr i32 %0, 24
   %16 = and i32 %15, 15
   %17 = icmp samesign ult i32 %16, 3
-  br i1 %17, label %switch.lookup20, label %SDL_GetBT601ConversionMatrix.exit
+  br i1 %17, label %SDL_GetBT601ConversionMatrix.exit.sink.split, label %SDL_GetBT601ConversionMatrix.exit
 
 18:                                               ; preds = %4
   switch i32 %3, label %SDL_GetBT601ConversionMatrix.exit [
     i32 8, label %19
-    i32 10, label %26
-    i32 16, label %26
+    i32 10, label %24
+    i32 16, label %24
   ]
 
 19:                                               ; preds = %18
@@ -1355,58 +1355,25 @@ define hidden noundef ptr @SDL_GetYCbCRtoRGBConversionMatrix(i32 noundef %0, i32
   %21 = lshr i32 %0, 24
   %22 = and i32 %21, 15
   %23 = icmp samesign ult i32 %22, 3
-  br i1 %20, label %24, label %25
+  %switch.table.SDL_GetYCbCRtoRGBConversionMatrix.6.switch.table.SDL_GetYCbCRtoRGBConversionMatrix.7 = select i1 %20, ptr @switch.table.SDL_GetYCbCRtoRGBConversionMatrix.6, ptr @switch.table.SDL_GetYCbCRtoRGBConversionMatrix.7
+  br i1 %23, label %SDL_GetBT601ConversionMatrix.exit.sink.split, label %SDL_GetBT601ConversionMatrix.exit
 
-24:                                               ; preds = %19
-  br i1 %23, label %switch.lookup23, label %SDL_GetBT601ConversionMatrix.exit
+24:                                               ; preds = %18, %18
+  %25 = lshr i32 %0, 24
+  %26 = and i32 %25, 15
+  %27 = icmp samesign ult i32 %26, 3
+  br i1 %27, label %SDL_GetBT601ConversionMatrix.exit.sink.split, label %SDL_GetBT601ConversionMatrix.exit
 
-25:                                               ; preds = %19
-  br i1 %23, label %switch.lookup26, label %SDL_GetBT601ConversionMatrix.exit
-
-26:                                               ; preds = %18, %18
-  %27 = lshr i32 %0, 24
-  %28 = and i32 %27, 15
-  %29 = icmp samesign ult i32 %28, 3
-  br i1 %29, label %switch.lookup29, label %SDL_GetBT601ConversionMatrix.exit
-
-switch.lookup:                                    ; preds = %6
-  %30 = zext nneg i32 %8 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.SDL_GetYCbCRtoRGBConversionMatrix.6, i64 0, i64 %30
-  %switch.load = load ptr, ptr %switch.gep, align 8
-  br label %SDL_GetBT601ConversionMatrix.exit
-
-switch.lookup17:                                  ; preds = %10
-  %31 = zext nneg i32 %12 to i64
-  %switch.gep18 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.SDL_GetYCbCRtoRGBConversionMatrix.7, i64 0, i64 %31
-  %switch.load19 = load ptr, ptr %switch.gep18, align 8
-  br label %SDL_GetBT601ConversionMatrix.exit
-
-switch.lookup20:                                  ; preds = %14
-  %32 = zext nneg i32 %16 to i64
-  %switch.gep21 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.SDL_GetYCbCRtoRGBConversionMatrix.8, i64 0, i64 %32
-  %switch.load22 = load ptr, ptr %switch.gep21, align 8
-  br label %SDL_GetBT601ConversionMatrix.exit
-
-switch.lookup23:                                  ; preds = %24
-  %33 = zext nneg i32 %22 to i64
-  %switch.gep24 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.SDL_GetYCbCRtoRGBConversionMatrix.6, i64 0, i64 %33
-  %switch.load25 = load ptr, ptr %switch.gep24, align 8
-  br label %SDL_GetBT601ConversionMatrix.exit
-
-switch.lookup26:                                  ; preds = %25
-  %34 = zext nneg i32 %22 to i64
-  %switch.gep27 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.SDL_GetYCbCRtoRGBConversionMatrix.7, i64 0, i64 %34
-  %switch.load28 = load ptr, ptr %switch.gep27, align 8
-  br label %SDL_GetBT601ConversionMatrix.exit
-
-switch.lookup29:                                  ; preds = %26
-  %35 = zext nneg i32 %28 to i64
-  %switch.gep30 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.SDL_GetYCbCRtoRGBConversionMatrix.8, i64 0, i64 %35
+SDL_GetBT601ConversionMatrix.exit.sink.split:     ; preds = %19, %24, %14, %10, %6
+  %.sink32 = phi i32 [ %8, %6 ], [ %12, %10 ], [ %16, %14 ], [ %26, %24 ], [ %22, %19 ]
+  %switch.table.SDL_GetYCbCRtoRGBConversionMatrix.8.sink = phi ptr [ @switch.table.SDL_GetYCbCRtoRGBConversionMatrix.6, %6 ], [ @switch.table.SDL_GetYCbCRtoRGBConversionMatrix.7, %10 ], [ @switch.table.SDL_GetYCbCRtoRGBConversionMatrix.8, %14 ], [ @switch.table.SDL_GetYCbCRtoRGBConversionMatrix.8, %24 ], [ %switch.table.SDL_GetYCbCRtoRGBConversionMatrix.6.switch.table.SDL_GetYCbCRtoRGBConversionMatrix.7, %19 ]
+  %28 = zext nneg i32 %.sink32 to i64
+  %switch.gep30 = getelementptr inbounds nuw [3 x ptr], ptr %switch.table.SDL_GetYCbCRtoRGBConversionMatrix.8.sink, i64 0, i64 %28
   %switch.load31 = load ptr, ptr %switch.gep30, align 8
   br label %SDL_GetBT601ConversionMatrix.exit
 
-SDL_GetBT601ConversionMatrix.exit:                ; preds = %26, %switch.lookup29, %25, %switch.lookup26, %24, %switch.lookup23, %14, %switch.lookup20, %10, %switch.lookup17, %6, %switch.lookup, %18, %4
-  %.0 = phi ptr [ null, %4 ], [ null, %18 ], [ %switch.load, %switch.lookup ], [ null, %6 ], [ %switch.load19, %switch.lookup17 ], [ null, %10 ], [ %switch.load22, %switch.lookup20 ], [ null, %14 ], [ %switch.load25, %switch.lookup23 ], [ null, %24 ], [ %switch.load28, %switch.lookup26 ], [ null, %25 ], [ %switch.load31, %switch.lookup29 ], [ null, %26 ]
+SDL_GetBT601ConversionMatrix.exit:                ; preds = %19, %SDL_GetBT601ConversionMatrix.exit.sink.split, %24, %14, %10, %6, %18, %4
+  %.0 = phi ptr [ null, %4 ], [ null, %18 ], [ null, %6 ], [ null, %10 ], [ null, %14 ], [ null, %24 ], [ %switch.load31, %SDL_GetBT601ConversionMatrix.exit.sink.split ], [ null, %19 ]
   ret ptr %.0
 }
 

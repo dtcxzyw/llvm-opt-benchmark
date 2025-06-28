@@ -6237,11 +6237,11 @@ define hidden { i64, i64 } @"_ZN5gimli6common26UnitSectionOffset$LT$T$GT$20as_de
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden { ptr, i64 } @_ZN5gimli6common9SectionId4name17h79ee0cdda66ab332E.llvm.8882213390170994431(i8 noundef %0) unnamed_addr #15 {
 switch.lookup:
-  %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds [22 x ptr], ptr @"switch.table._ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$15write_offset_at17hb6d4a78ac35e87a9E", i64 0, i64 %1
+  %1 = zext i8 %0 to i64
+  %switch.gep = getelementptr inbounds nuw [22 x ptr], ptr @"switch.table._ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$15write_offset_at17hb6d4a78ac35e87a9E", i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %2 = sext i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds [22 x i64], ptr @"switch.table._ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$15write_offset_at17hb6d4a78ac35e87a9E.111", i64 0, i64 %2
+  %2 = zext i8 %0 to i64
+  %switch.gep1 = getelementptr inbounds nuw [22 x i64], ptr @"switch.table._ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$15write_offset_at17hb6d4a78ac35e87a9E.111", i64 0, i64 %2
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load2, 1
@@ -16445,11 +16445,11 @@ define i64 @"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterReloca
 switch.lookup:
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i64, ptr %4, align 8, !alias.scope !4111, !noundef !4
-  %6 = sext i8 %2 to i64
-  %switch.gep = getelementptr inbounds [22 x ptr], ptr @"switch.table._ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$15write_offset_at17hb6d4a78ac35e87a9E", i64 0, i64 %6
+  %6 = zext i8 %2 to i64
+  %switch.gep = getelementptr inbounds nuw [22 x ptr], ptr @"switch.table._ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$15write_offset_at17hb6d4a78ac35e87a9E", i64 0, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %7 = sext i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds [22 x i64], ptr @"switch.table._ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$15write_offset_at17hb6d4a78ac35e87a9E.111", i64 0, i64 %7
+  %7 = zext i8 %2 to i64
+  %switch.gep2 = getelementptr inbounds nuw [22 x i64], ptr @"switch.table._ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$15write_offset_at17hb6d4a78ac35e87a9E.111", i64 0, i64 %7
   %switch.load3 = load i64, ptr %switch.gep2, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8, !alias.scope !4114, !noalias !4117, !noundef !4
@@ -16488,11 +16488,11 @@ switch.lookup:
 ; Function Attrs: nonlazybind uwtable
 define i64 @"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$15write_offset_at17hb6d4a78ac35e87a9E"(ptr noalias noundef align 8 dereferenceable(56) %0, i64 noundef %1, i64 noundef %2, i8 noundef %3, i8 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
 switch.lookup:
-  %5 = sext i8 %3 to i64
-  %switch.gep = getelementptr inbounds [22 x ptr], ptr @"switch.table._ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$15write_offset_at17hb6d4a78ac35e87a9E", i64 0, i64 %5
+  %5 = zext i8 %3 to i64
+  %switch.gep = getelementptr inbounds nuw [22 x ptr], ptr @"switch.table._ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$15write_offset_at17hb6d4a78ac35e87a9E", i64 0, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %6 = sext i8 %3 to i64
-  %switch.gep2 = getelementptr inbounds [22 x i64], ptr @"switch.table._ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$15write_offset_at17hb6d4a78ac35e87a9E.111", i64 0, i64 %6
+  %6 = zext i8 %3 to i64
+  %switch.gep2 = getelementptr inbounds nuw [22 x i64], ptr @"switch.table._ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$15write_offset_at17hb6d4a78ac35e87a9E.111", i64 0, i64 %6
   %switch.load3 = load i64, ptr %switch.gep2, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8, !alias.scope !4119, !noalias !4122, !noundef !4

@@ -39400,13 +39400,11 @@ define hidden { ptr, i64 } @_ZN18ty_python_semantic5types10class_base9ClassBase4
   unreachable
 
 switch.lookup:                                    ; preds = %3
-  %sext = shl i64 %.sroa.4.0.extract.shift, 56
-  %7 = ashr exact i64 %sext, 56
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN18ty_python_semantic5types10class_base9ClassBase4name17h6903ebee52d438d5E, i64 0, i64 %7
+  %7 = and i64 %.sroa.4.0.extract.shift, 255
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN18ty_python_semantic5types10class_base9ClassBase4name17h6903ebee52d438d5E, i64 0, i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %sext7 = shl i64 %.sroa.4.0.extract.shift, 56
-  %8 = ashr exact i64 %sext7, 56
-  %switch.gep5 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN18ty_python_semantic5types10class_base9ClassBase4name17h6903ebee52d438d5E.283, i64 0, i64 %8
+  %8 = and i64 %.sroa.4.0.extract.shift, 255
+  %switch.gep5 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN18ty_python_semantic5types10class_base9ClassBase4name17h6903ebee52d438d5E.283, i64 0, i64 %8
   %switch.load6 = load i64, ptr %switch.gep5, align 8
   br label %15
 

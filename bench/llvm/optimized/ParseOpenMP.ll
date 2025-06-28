@@ -2743,8 +2743,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang24BalancedDelimiterTrack
 
 switch.lookup:                                    ; preds = %1
   %switch.tableidx = add nsw i16 %5, -20
-  %9 = sext i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [5 x i64], ptr @switch.table._ZN5clang6Parser43ParseOpenMPDeclarativeOrExecutableDirectiveENS0_17ParsedStmtContextEb, i64 0, i64 %9
+  %9 = zext i16 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN5clang6Parser43ParseOpenMPDeclarativeOrExecutableDirectiveENS0_17ParsedStmtContextEb, i64 0, i64 %9
   %switch.load = load i64, ptr %switch.gep, align 8
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 %switch.load
   %11 = load i16, ptr %10, align 2, !tbaa !782
@@ -19804,8 +19804,8 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit452:         ; preds = %_ZNSt7__cxx1112basi
 
 switch.lookup:                                    ; preds = %1249
   %switch.tableidx = add nsw i16 %1254, -20
-  %1258 = sext i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [5 x i64], ptr @switch.table._ZN5clang6Parser43ParseOpenMPDeclarativeOrExecutableDirectiveENS0_17ParsedStmtContextEb, i64 0, i64 %1258
+  %1258 = zext i16 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN5clang6Parser43ParseOpenMPDeclarativeOrExecutableDirectiveENS0_17ParsedStmtContextEb, i64 0, i64 %1258
   %switch.load = load i64, ptr %switch.gep, align 8
   %1259 = getelementptr inbounds nuw i8, ptr %1253, i64 %switch.load
   %1260 = load i16, ptr %1259, align 2, !tbaa !782
@@ -31668,8 +31668,8 @@ _ZN4llvm3omp16VariantMatchInfoC2Ev.exit:          ; preds = %.lr.ph.i.i.i.i
 
 switch.lookup:                                    ; preds = %.lr.ph394
   %switch.tableidx = add nsw i16 %459, -20
-  %463 = sext i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [5 x i64], ptr @switch.table._ZN5clang6Parser43ParseOpenMPDeclarativeOrExecutableDirectiveENS0_17ParsedStmtContextEb, i64 0, i64 %463
+  %463 = zext i16 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN5clang6Parser43ParseOpenMPDeclarativeOrExecutableDirectiveENS0_17ParsedStmtContextEb, i64 0, i64 %463
   %switch.load = load i64, ptr %switch.gep, align 8
   %464 = getelementptr inbounds nuw i8, ptr %458, i64 %switch.load
   %465 = load i16, ptr %464, align 2, !tbaa !782

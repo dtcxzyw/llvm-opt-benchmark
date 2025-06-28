@@ -17949,8 +17949,8 @@ define hidden void @"_ZN4just8justfile8Justfile10run_recipe28_$u7b$$u7b$closure$
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden { ptr, i64 } @_ZN4just14parameter_kind13ParameterKind6prefix17h6d03e8301e11a792E(i8 noundef %0) unnamed_addr #27 {
 switch.lookup:
-  %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN4just14parameter_kind13ParameterKind6prefix17h6d03e8301e11a792E, i64 0, i64 %1
+  %1 = zext i8 %0 to i64
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4just14parameter_kind13ParameterKind6prefix17h6d03e8301e11a792E, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %3 = insertvalue { ptr, i64 } %2, i64 1, 1

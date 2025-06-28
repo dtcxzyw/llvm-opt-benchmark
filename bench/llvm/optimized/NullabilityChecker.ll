@@ -1374,8 +1374,8 @@ _ZNK4llvm20iterator_facade_baseINS_20ImutAVLValueIteratorINS_12ImmutableMapIPKN5
   br label %switch.lookup
 
 switch.lookup:                                    ; preds = %145, %143
-  %148 = sext i8 %.sroa.4.0.copyload to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_118NullabilityChecker21NullabilityBugVisitor9VisitNodeEPKN5clang4ento12ExplodedNodeERNS3_18BugReporterContextERNS3_22PathSensitiveBugReportE, i64 0, i64 %148
+  %148 = zext i8 %.sroa.4.0.copyload to i64
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_118NullabilityChecker21NullabilityBugVisitor9VisitNodeEPKN5clang4ento12ExplodedNodeERNS3_18BugReporterContextERNS3_22PathSensitiveBugReportE, i64 0, i64 %148
   %switch.load = load ptr, ptr %switch.gep, align 8
   %149 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #22
   %150 = load ptr, ptr %116, align 8, !tbaa !231
@@ -5329,8 +5329,8 @@ _ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_114NullabilityMapEEENS0_17Progra
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #22
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #22
   %.val = load i8, ptr %.1.i.i14.i, align 8, !tbaa !262
-  %63 = sext i8 %.val to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_118NullabilityChecker21NullabilityBugVisitor9VisitNodeEPKN5clang4ento12ExplodedNodeERNS3_18BugReporterContextERNS3_22PathSensitiveBugReportE, i64 0, i64 %63
+  %63 = zext i8 %.val to i64
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_118NullabilityChecker21NullabilityBugVisitor9VisitNodeEPKN5clang4ento12ExplodedNodeERNS3_18BugReporterContextERNS3_22PathSensitiveBugReportE, i64 0, i64 %63
   %switch.load = load ptr, ptr %switch.gep, align 8
   %64 = load i8, ptr %switch.load, align 1, !tbaa !270
   %.not.i = icmp eq i8 %64, 0

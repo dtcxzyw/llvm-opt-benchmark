@@ -271,8 +271,8 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal15RuntimeDispatchILm2
 
 _ZN14AccessInternal15BarrierResolverILm2384902EPFP7oopDescS2_lS2_S2_ELNS_11BarrierTypeE5EE15resolve_barrierEv.exit: ; preds = %14, %11
   %switch.table._ZN14AccessInternal15RuntimeDispatchILm2384902EP7oopDescLNS_11BarrierTypeE5EE22atomic_cmpxchg_at_initES2_lS2_S2_.1.sink = phi ptr [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm2384902EP7oopDescLNS_11BarrierTypeE5EE22atomic_cmpxchg_at_initES2_lS2_S2_, %11 ], [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm2384902EP7oopDescLNS_11BarrierTypeE5EE22atomic_cmpxchg_at_initES2_lS2_S2_.1, %14 ]
-  %17 = sext i32 %switch.tableidx to i64
-  %switch.gep7 = getelementptr inbounds [6 x ptr], ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm2384902EP7oopDescLNS_11BarrierTypeE5EE22atomic_cmpxchg_at_initES2_lS2_S2_.1.sink, i64 0, i64 %17
+  %17 = zext i32 %switch.tableidx to i64
+  %switch.gep7 = getelementptr inbounds nuw [6 x ptr], ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm2384902EP7oopDescLNS_11BarrierTypeE5EE22atomic_cmpxchg_at_initES2_lS2_S2_.1.sink, i64 0, i64 %17
   %switch.load8 = load ptr, ptr %switch.gep7, align 8
   store ptr %switch.load8, ptr @_ZN14AccessInternal15RuntimeDispatchILm2384902EP7oopDescLNS_11BarrierTypeE5EE23_atomic_cmpxchg_at_funcE, align 8
   %18 = tail call noundef ptr %switch.load8(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) #6

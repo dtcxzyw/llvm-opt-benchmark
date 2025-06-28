@@ -11734,53 +11734,52 @@ switch.lookup104:                                 ; preds = %122
   %136 = and i32 %135, -2
   %spec.select.i = icmp eq i32 %136, 2
   %137 = load ptr, ptr %123, align 8
-  %138 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %139 = load ptr, ptr %138, align 8
-  %140 = getelementptr inbounds nuw i8, ptr %139, i64 8
-  %141 = load ptr, ptr %140, align 8
+  %138 = zext nneg i32 %.091 to i64
+  %139 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %140 = load ptr, ptr %139, align 8
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 8
   %142 = load ptr, ptr %141, align 8
+  %143 = load ptr, ptr %142, align 8
   br i1 %spec.select.i, label %switch.lookup107, label %switch.lookup110
 
 switch.lookup107:                                 ; preds = %switch.lookup104
-  %143 = zext nneg i32 %.091 to i64
-  %switch.gep108 = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN12LIRGenerator5do_IfEP2If.3, i64 0, i64 %143
+  %switch.gep108 = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN12LIRGenerator5do_IfEP2If.3, i64 0, i64 %138
   %switch.load109 = load i32, ptr %switch.gep108, align 4
   %144 = load i32, ptr %10, align 8
   %145 = and i32 %144, 2048
   %.not.i = icmp eq i32 %145, 0
   %146 = zext i1 %.not.i to i64
-  %147 = getelementptr inbounds nuw ptr, ptr %141, i64 %146
+  %147 = getelementptr inbounds nuw ptr, ptr %142, i64 %146
   %148 = load ptr, ptr %147, align 8
-  call void @_ZN8LIR_List6branchE13LIR_ConditionP10BlockBeginS2_(ptr noundef nonnull align 8 dereferenceable(32) %137, i32 noundef %switch.load109, ptr noundef %142, ptr noundef %148)
-  br label %150
+  call void @_ZN8LIR_List6branchE13LIR_ConditionP10BlockBeginS2_(ptr noundef nonnull align 8 dereferenceable(32) %137, i32 noundef %switch.load109, ptr noundef %143, ptr noundef %148)
+  br label %149
 
 switch.lookup110:                                 ; preds = %switch.lookup104
-  %149 = zext nneg i32 %.091 to i64
-  %switch.gep111 = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN12LIRGenerator5do_IfEP2If.3, i64 0, i64 %149
+  %switch.gep111 = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN12LIRGenerator5do_IfEP2If.3, i64 0, i64 %138
   %switch.load112 = load i32, ptr %switch.gep111, align 4
-  call void @_ZN8LIR_List6branchE13LIR_ConditionP10BlockBegin(ptr noundef nonnull align 8 dereferenceable(32) %137, i32 noundef %switch.load112, ptr noundef %142)
-  br label %150
+  call void @_ZN8LIR_List6branchE13LIR_ConditionP10BlockBegin(ptr noundef nonnull align 8 dereferenceable(32) %137, i32 noundef %switch.load112, ptr noundef %143)
+  br label %149
 
-150:                                              ; preds = %switch.lookup110, %switch.lookup107
-  %151 = load ptr, ptr %123, align 8
-  %152 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %153 = load ptr, ptr %152, align 8
-  %.not.i.i80 = icmp eq ptr %153, null
-  br i1 %.not.i.i80, label %_ZNK8BlockEnd11default_suxEv.exit, label %154
+149:                                              ; preds = %switch.lookup110, %switch.lookup107
+  %150 = load ptr, ptr %123, align 8
+  %151 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %152 = load ptr, ptr %151, align 8
+  %.not.i.i80 = icmp eq ptr %152, null
+  br i1 %.not.i.i80, label %_ZNK8BlockEnd11default_suxEv.exit, label %153
 
-154:                                              ; preds = %150
-  %155 = load i32, ptr %153, align 4
-  %156 = add nsw i32 %155, -1
-  %157 = sext i32 %156 to i64
+153:                                              ; preds = %149
+  %154 = load i32, ptr %152, align 4
+  %155 = add nsw i32 %154, -1
+  %156 = sext i32 %155 to i64
   br label %_ZNK8BlockEnd11default_suxEv.exit
 
-_ZNK8BlockEnd11default_suxEv.exit:                ; preds = %150, %154
-  %158 = phi i64 [ %157, %154 ], [ -1, %150 ]
-  %159 = getelementptr inbounds nuw i8, ptr %153, i64 8
-  %160 = load ptr, ptr %159, align 8
-  %161 = getelementptr inbounds ptr, ptr %160, i64 %158
-  %162 = load ptr, ptr %161, align 8
-  call void @_ZN8LIR_List4jumpEP10BlockBegin(ptr noundef nonnull align 8 dereferenceable(32) %151, ptr noundef %162)
+_ZNK8BlockEnd11default_suxEv.exit:                ; preds = %149, %153
+  %157 = phi i64 [ %156, %153 ], [ -1, %149 ]
+  %158 = getelementptr inbounds nuw i8, ptr %152, i64 8
+  %159 = load ptr, ptr %158, align 8
+  %160 = getelementptr inbounds ptr, ptr %159, i64 %157
+  %161 = load ptr, ptr %160, align 8
+  call void @_ZN8LIR_List4jumpEP10BlockBegin(ptr noundef nonnull align 8 dereferenceable(32) %150, ptr noundef %161)
   ret void
 }
 

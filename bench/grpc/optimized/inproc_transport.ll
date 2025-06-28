@@ -5972,8 +5972,8 @@ switch.lookup:
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %8, align 8, !tbaa !129
   %9 = load i16, ptr %5, align 2, !tbaa !238
-  %10 = sext i16 %9 to i64
-  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table._ZZN9grpc_core16dump_args_detail8DumpArgs9AddDumperIKNS_9CallState23ClientToServerPullStateEEEiPT_ENKUlRNS1_10CustomSinkEE_clES9_, i64 0, i64 %10
+  %10 = zext i16 %9 to i64
+  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZZN9grpc_core16dump_args_detail8DumpArgs9AddDumperIKNS_9CallState23ClientToServerPullStateEEEiPT_ENKUlRNS1_10CustomSinkEE_clES9_, i64 0, i64 %10
   %switch.load = load ptr, ptr %switch.gep, align 8
   %11 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #35
   invoke void @_ZN4absl12lts_2024072216strings_internal13StringifySink6AppendESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 %11, ptr nonnull %switch.load)

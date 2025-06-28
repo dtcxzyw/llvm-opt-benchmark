@@ -27684,8 +27684,8 @@ hfinfo_number_vals_format.exit.thread:            ; preds = %30
 switch.lookup:                                    ; preds = %50
   call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %7) #39
   %switch.tableidx = add nsw i32 %17, -13
-  %51 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table.fill_label_number, i64 0, i64 %51
+  %51 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.fill_label_number, i64 0, i64 %51
   %switch.load = load i32, ptr %switch.gep, align 4
   %52 = call i32 @port_with_resolution_to_str_buf(ptr noundef nonnull %7, i64 noundef 240, i32 noundef %switch.load, i32 noundef %.0)
   call fastcc void @label_fill(ptr noundef %1, i64 noundef 0, ptr noundef %8, ptr noundef nonnull %7, ptr noundef %2)

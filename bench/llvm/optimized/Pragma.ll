@@ -9462,8 +9462,8 @@ switch.lookup:                                    ; preds = %14, %4
   store i8 0, ptr %100, align 8, !tbaa !15
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %103 = load i32, ptr %102, align 8, !tbaa !578
-  %104 = sext i32 %103 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN12_GLOBAL__N_120PragmaMessageHandler12HandlePragmaERN5clang12PreprocessorENS1_16PragmaIntroducerERNS1_5TokenE, i64 0, i64 %104
+  %104 = zext i32 %103 to i64
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN12_GLOBAL__N_120PragmaMessageHandler12HandlePragmaERN5clang12PreprocessorENS1_16PragmaIntroducerERNS1_5TokenE, i64 0, i64 %104
   %switch.load = load ptr, ptr %switch.gep, align 8
   %105 = call noundef zeroext i1 @_ZN5clang12Preprocessor22FinishLexStringLiteralERNS_5TokenERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcb(ptr noundef nonnull align 8 dereferenceable(3288) %1, ptr noundef nonnull align 8 dereferenceable(20) %3, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull %switch.load, i1 noundef zeroext true) #22
   br i1 %105, label %106, label %325

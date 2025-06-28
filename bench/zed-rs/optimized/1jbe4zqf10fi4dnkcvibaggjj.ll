@@ -16771,8 +16771,8 @@ switch.lookup:
   store ptr %2, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %3, ptr %6, align 8
-  %7 = sext i8 %1 to i64
-  %switch.gep = getelementptr inbounds [3 x i64], ptr @switch.table._ZN6search14project_search17ProjectSearchView17set_search_editor17hba4c37110b153ae5E, i64 0, i64 %7
+  %7 = zext i8 %1 to i64
+  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN6search14project_search17ProjectSearchView17set_search_editor17hba4c37110b153ae5E, i64 0, i64 %7
   %switch.load = load i64, ptr %switch.gep, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
   call void @"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..VisualContext$GT$11update_view17h37933f3ecc74a6edE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5)

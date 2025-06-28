@@ -353,9 +353,8 @@ switch.lookup:                                    ; preds = %22, %38
   %28 = load i64, ptr %27, align 8
   %29 = getelementptr inbounds nuw [4 x i64], ptr %24, i64 0, i64 %indvars.iv
   %30 = load i64, ptr %29, align 8
-  %sext = shl i64 %indvars.iv, 32
-  %31 = ashr exact i64 %sext, 32
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN9metaspace17MetaspaceReporter12print_reportEP12outputStreammi, i64 0, i64 %31
+  %31 = and i64 %indvars.iv, 4294967295
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN9metaspace17MetaspaceReporter12print_reportEP12outputStreammi, i64 0, i64 %31
   %switch.load = load ptr, ptr %switch.gep, align 8
   %32 = call noundef ptr @_ZN9metaspace14loaders_pluralEm(i64 noundef %28) #3
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.17, ptr noundef nonnull %switch.load, i64 noundef %28, ptr noundef %32) #3

@@ -11035,11 +11035,11 @@ switch.lookup:                                    ; preds = %88
   store i64 %switch.load, ptr %96, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %54)
   %switch.tableidx = add nsw i8 %77, -1
-  %97 = sext i8 %switch.tableidx to i64
-  %switch.gep242 = getelementptr inbounds [9 x i64], ptr @switch.table._ZN4jiff4span9SpanRound5round17hc81a0b16db2a59a8E.69, i64 0, i64 %97
+  %97 = zext i8 %switch.tableidx to i64
+  %switch.gep242 = getelementptr inbounds nuw [9 x i64], ptr @switch.table._ZN4jiff4span9SpanRound5round17hc81a0b16db2a59a8E.69, i64 0, i64 %97
   %switch.load243 = load i64, ptr %switch.gep242, align 8
-  %98 = sext i8 %switch.tableidx to i64
-  %switch.gep244 = getelementptr inbounds [9 x ptr], ptr @switch.table._ZN4jiff4span9SpanRound5round17hc81a0b16db2a59a8E.70, i64 0, i64 %98
+  %98 = zext i8 %switch.tableidx to i64
+  %switch.gep244 = getelementptr inbounds nuw [9 x ptr], ptr @switch.table._ZN4jiff4span9SpanRound5round17hc81a0b16db2a59a8E.70, i64 0, i64 %98
   %switch.load245 = load ptr, ptr %switch.gep244, align 8
   store ptr %switch.load245, ptr %54, align 8
   %99 = getelementptr inbounds nuw i8, ptr %54, i64 8
@@ -15143,11 +15143,11 @@ _ZN4jiff4span8Relative13to_nanosecond17h0bcd28e332e21d47E.exit: ; preds = %297, 
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9), !noalias !1021
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !1021
   %switch.tableidx = add nsw i8 %4, -6
-  %345 = sext i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table._ZN4jiff5zoned5Zoned5until17h9ce5a846a9338ca3E, i64 0, i64 %345
+  %345 = zext i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN4jiff5zoned5Zoned5until17h9ce5a846a9338ca3E, i64 0, i64 %345
   %switch.load = load i64, ptr %switch.gep, align 8
-  %346 = sext i8 %switch.tableidx to i64
-  %switch.gep122 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN4jiff5zoned5Zoned5until17h9ce5a846a9338ca3E.84, i64 0, i64 %346
+  %346 = zext i8 %switch.tableidx to i64
+  %switch.gep122 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN4jiff5zoned5Zoned5until17h9ce5a846a9338ca3E.84, i64 0, i64 %346
   %switch.load123 = load ptr, ptr %switch.gep122, align 8
   store ptr %switch.load123, ptr %8, align 8, !noalias !1021
   %347 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -17340,11 +17340,11 @@ switch.lookup:                                    ; preds = %"_ZN96_$LT$core..re
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7), !noalias !1218
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !1218
   %switch.tableidx = add nsw i8 %.us-phi223, -7
-  %483 = sext i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x i64], ptr @switch.table._ZN4jiff4span5Nudge6bubble17hcd7ce88b7fd59762E, i64 0, i64 %483
+  %483 = zext i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN4jiff4span5Nudge6bubble17hcd7ce88b7fd59762E, i64 0, i64 %483
   %switch.load = load i64, ptr %switch.gep, align 8
-  %484 = sext i8 %switch.tableidx to i64
-  %switch.gep352 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN4jiff4span5Nudge6bubble17hcd7ce88b7fd59762E.80, i64 0, i64 %484
+  %484 = zext i8 %switch.tableidx to i64
+  %switch.gep352 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4jiff4span5Nudge6bubble17hcd7ce88b7fd59762E.80, i64 0, i64 %484
   %switch.load353 = load ptr, ptr %switch.gep352, align 8
   store ptr %switch.load353, ptr %6, align 8, !noalias !1218
   store i64 %switch.load, ptr %245, align 8, !noalias !1218
@@ -19770,11 +19770,11 @@ switch.lookup:                                    ; preds = %68
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %42), !noalias !1360
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %41), !noalias !1360
   %switch.tableidx = add nsw i8 %2, -6
-  %137 = sext i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table._ZN4jiff5zoned5Zoned5until17h9ce5a846a9338ca3E, i64 0, i64 %137
+  %137 = zext i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN4jiff5zoned5Zoned5until17h9ce5a846a9338ca3E, i64 0, i64 %137
   %switch.load = load i64, ptr %switch.gep, align 8
-  %138 = sext i8 %switch.tableidx to i64
-  %switch.gep237 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN4jiff5zoned5Zoned5until17h9ce5a846a9338ca3E.84, i64 0, i64 %138
+  %138 = zext i8 %switch.tableidx to i64
+  %switch.gep237 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN4jiff5zoned5Zoned5until17h9ce5a846a9338ca3E.84, i64 0, i64 %138
   %switch.load238 = load ptr, ptr %switch.gep237, align 8
   store ptr %switch.load238, ptr %41, align 8, !noalias !1360
   %139 = getelementptr inbounds nuw i8, ptr %41, i64 8

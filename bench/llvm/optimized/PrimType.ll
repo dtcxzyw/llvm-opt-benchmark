@@ -10,8 +10,8 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef range(i64 1, 73) i64 @_ZN5clang6interp8primSizeENS0_8PrimTypeE(i32 noundef %0) local_unnamed_addr #0 {
 switch.lookup:
-  %1 = sext i32 %0 to i64
-  %switch.gep = getelementptr inbounds [16 x i64], ptr @switch.table._ZN5clang6interp8primSizeENS0_8PrimTypeE, i64 0, i64 %1
+  %1 = zext i32 %0 to i64
+  %switch.gep = getelementptr inbounds nuw [16 x i64], ptr @switch.table._ZN5clang6interp8primSizeENS0_8PrimTypeE, i64 0, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   ret i64 %switch.load
 }

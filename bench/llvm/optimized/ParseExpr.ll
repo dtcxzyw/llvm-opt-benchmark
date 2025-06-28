@@ -14995,8 +14995,8 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit124:         ; preds = %_ZNSt7__cxx1112basi
 
 switch.lookup:                                    ; preds = %558
   %switch.tableidx332 = add nsw i16 %37, -190
-  %641 = sext i16 %switch.tableidx332 to i64
-  %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table._ZN5clang6Parser29ParseBuiltinPrimaryExpressionEv, i64 0, i64 %641
+  %641 = zext i16 %switch.tableidx332 to i64
+  %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZN5clang6Parser29ParseBuiltinPrimaryExpressionEv, i64 0, i64 %641
   %switch.load = load i32, ptr %switch.gep, align 4
   %642 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %643 = load ptr, ptr %642, align 8, !tbaa !347

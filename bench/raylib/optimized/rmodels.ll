@@ -7187,8 +7187,8 @@ cgltf_component_size.exit:                        ; preds = %50, %switch.lookup
   %248 = getelementptr inbounds nuw i8, ptr %241, i64 40
   %249 = load i64, ptr %248, align 8
   %switch.tableidx793 = add nsw i32 %244, -2
-  %250 = sext i32 %switch.tableidx793 to i64
-  %switch.gep794 = getelementptr inbounds [4 x i64], ptr @switch.table.cgltf_validate.28, i64 0, i64 %250
+  %250 = zext i32 %switch.tableidx793 to i64
+  %switch.gep794 = getelementptr inbounds nuw [4 x i64], ptr @switch.table.cgltf_validate.28, i64 0, i64 %250
   %switch.load795 = load i64, ptr %switch.gep794, align 8
   %.not414 = icmp eq i64 %249, %switch.load795
   br i1 %.not414, label %.critedge441, label %.thread495

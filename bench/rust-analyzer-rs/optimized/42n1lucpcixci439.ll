@@ -50,11 +50,11 @@ define internal fastcc void @"_ZN4core3ptr68drop_in_place$LT$core..option..Optio
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN9toolchain4Tool5proxy17h058d0cd7a7b7eb85E(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %0, i8 noundef %1) unnamed_addr #0 {
 switch.lookup:
-  %2 = sext i8 %1 to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN9toolchain4Tool4name17ha6d4fd0230798ce3E, i64 0, i64 %2
+  %2 = zext i8 %1 to i64
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN9toolchain4Tool4name17ha6d4fd0230798ce3E, i64 0, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %3 = sext i8 %1 to i64
-  %switch.gep1 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN9toolchain4Tool4name17ha6d4fd0230798ce3E.12, i64 0, i64 %3
+  %3 = zext i8 %1 to i64
+  %switch.gep1 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN9toolchain4Tool4name17ha6d4fd0230798ce3E.12, i64 0, i64 %3
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   tail call void @_ZN9toolchain11cargo_proxy17h9fa4f94eaa271414E(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %switch.load, i64 noundef %switch.load2)
   ret void
@@ -65,11 +65,11 @@ define void @_ZN9toolchain4Tool12prefer_proxy17h675cd8215e2fca89E(ptr noalias no
 switch.lookup:
   %2 = alloca { i64, [2 x i64] }, align 8
   %.sroa.6.i = alloca [2 x i64], align 8
-  %3 = sext i8 %1 to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN9toolchain4Tool4name17ha6d4fd0230798ce3E, i64 0, i64 %3
+  %3 = zext i8 %1 to i64
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN9toolchain4Tool4name17ha6d4fd0230798ce3E, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %4 = sext i8 %1 to i64
-  %switch.gep5 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN9toolchain4Tool4name17ha6d4fd0230798ce3E.12, i64 0, i64 %4
+  %4 = zext i8 %1 to i64
+  %switch.gep5 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN9toolchain4Tool4name17ha6d4fd0230798ce3E.12, i64 0, i64 %4
   %switch.load6 = load i64, ptr %switch.gep5, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24)
@@ -126,11 +126,11 @@ define void @_ZN9toolchain4Tool4path17h2dfd2c7258ba8dc8E(ptr noalias noundef wri
 switch.lookup:
   %2 = alloca { i64, [2 x i64] }, align 8
   %.sroa.6.i = alloca [2 x i64], align 8
-  %3 = sext i8 %1 to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN9toolchain4Tool4name17ha6d4fd0230798ce3E, i64 0, i64 %3
+  %3 = zext i8 %1 to i64
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN9toolchain4Tool4name17ha6d4fd0230798ce3E, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %4 = sext i8 %1 to i64
-  %switch.gep5 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN9toolchain4Tool4name17ha6d4fd0230798ce3E.12, i64 0, i64 %4
+  %4 = zext i8 %1 to i64
+  %switch.gep5 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN9toolchain4Tool4name17ha6d4fd0230798ce3E.12, i64 0, i64 %4
   %switch.load6 = load i64, ptr %switch.gep5, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !45)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !48)
@@ -187,11 +187,11 @@ define void @_ZN9toolchain4Tool7path_in17hba3025b6addcf4e3E(ptr noalias noundef 
 switch.lookup:
   %4 = alloca { { { { { { i64, ptr, {} }, i64 } } } } }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
-  %5 = sext i8 %1 to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN9toolchain4Tool4name17ha6d4fd0230798ce3E, i64 0, i64 %5
+  %5 = zext i8 %1 to i64
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN9toolchain4Tool4name17ha6d4fd0230798ce3E, i64 0, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %6 = sext i8 %1 to i64
-  %switch.gep1 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN9toolchain4Tool4name17ha6d4fd0230798ce3E.12, i64 0, i64 %6
+  %6 = zext i8 %1 to i64
+  %switch.gep1 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN9toolchain4Tool4name17ha6d4fd0230798ce3E.12, i64 0, i64 %6
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %7 = tail call { ptr, i64 } @"_ZN6camino78_$LT$impl$u20$core..convert..AsRef$LT$camino..Utf8Path$GT$$u20$for$u20$str$GT$6as_ref17h02821cf3bf4b2a93E"(ptr noalias noundef nonnull readonly align 1 %switch.load, i64 noundef %switch.load2), !noalias !69
   %8 = extractvalue { ptr, i64 } %7, 0
@@ -205,11 +205,11 @@ switch.lookup:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define { ptr, i64 } @_ZN9toolchain4Tool4name17ha6d4fd0230798ce3E(i8 noundef %0) unnamed_addr #1 {
 switch.lookup:
-  %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN9toolchain4Tool4name17ha6d4fd0230798ce3E, i64 0, i64 %1
+  %1 = zext i8 %0 to i64
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN9toolchain4Tool4name17ha6d4fd0230798ce3E, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %2 = sext i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN9toolchain4Tool4name17ha6d4fd0230798ce3E.12, i64 0, i64 %2
+  %2 = zext i8 %0 to i64
+  %switch.gep1 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN9toolchain4Tool4name17ha6d4fd0230798ce3E.12, i64 0, i64 %2
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load2, 1

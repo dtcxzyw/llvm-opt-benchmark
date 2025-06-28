@@ -5130,8 +5130,8 @@ declare noundef i32 @_ZN4llvm15ScalarEvolution18getLoopDispositionEPKNS_4SCEVEPK
 define dso_local noundef range(i32 13, 55) i32 @_ZN4llvm33getArithmeticReductionInstructionEj(i32 noundef %0) local_unnamed_addr #7 {
 switch.lookup:
   %switch.tableidx = add nsw i32 %0, -379
-  %1 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [15 x i32], ptr @switch.table._ZN4llvm33getArithmeticReductionInstructionEj, i64 0, i64 %1
+  %1 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [15 x i32], ptr @switch.table._ZN4llvm33getArithmeticReductionInstructionEj, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -5140,8 +5140,8 @@ switch.lookup:
 define dso_local noundef range(i32 235, 365) i32 @_ZN4llvm29getMinMaxReductionIntrinsicOpEj(i32 noundef %0) local_unnamed_addr #7 {
 switch.lookup:
   %switch.tableidx = add nsw i32 %0, -382
-  %1 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [11 x i32], ptr @switch.table._ZN4llvm29getMinMaxReductionIntrinsicOpEj, i64 0, i64 %1
+  %1 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [11 x i32], ptr @switch.table._ZN4llvm29getMinMaxReductionIntrinsicOpEj, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -5150,8 +5150,8 @@ switch.lookup:
 define dso_local noundef range(i32 235, 365) i32 @_ZN4llvm29getMinMaxReductionIntrinsicOpENS_9RecurKindE(i32 noundef %0) local_unnamed_addr #7 {
 switch.lookup:
   %switch.tableidx = add nsw i32 %0, -6
-  %1 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [10 x i32], ptr @switch.table._ZN4llvm14createMinMaxOpERNS_13IRBuilderBaseENS_9RecurKindEPNS_5ValueES4_, i64 0, i64 %1
+  %1 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZN4llvm14createMinMaxOpERNS_13IRBuilderBaseENS_9RecurKindEPNS_5ValueES4_, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -5177,8 +5177,8 @@ switch.lookup:                                    ; preds = %1
 define dso_local noundef range(i32 2, 41) i32 @_ZN4llvm27getMinMaxReductionPredicateENS_9RecurKindE(i32 noundef %0) local_unnamed_addr #7 {
 switch.lookup:
   %switch.tableidx = add nsw i32 %0, -6
-  %1 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [8 x i32], ptr @switch.table._ZN4llvm27getMinMaxReductionPredicateENS_9RecurKindE, i64 0, i64 %1
+  %1 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN4llvm27getMinMaxReductionPredicateENS_9RecurKindE, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -5217,8 +5217,8 @@ _ZNK4llvm4Type18isIntOrIntVectorTyEv.exit:        ; preds = %4, %15
 
 switch.lookup:                                    ; preds = %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit
   %switch.tableidx = add nsw i32 %1, -6
-  %22 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [10 x i32], ptr @switch.table._ZN4llvm14createMinMaxOpERNS_13IRBuilderBaseENS_9RecurKindEPNS_5ValueES4_, i64 0, i64 %22
+  %22 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZN4llvm14createMinMaxOpERNS_13IRBuilderBaseENS_9RecurKindEPNS_5ValueES4_, i64 0, i64 %22
   %switch.load = load i32, ptr %switch.gep, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #21
   store ptr %2, ptr %5, align 8, !tbaa !374
@@ -6229,8 +6229,8 @@ declare noundef ptr @_ZN4llvm10ConstantFP3getEPNS_4TypeERKNS_7APFloatE(ptr nound
 define dso_local noundef ptr @_ZN4llvm21getRecurrenceIdentityENS_9RecurKindEPNS_4TypeENS_13FastMathFlagsE(i32 noundef %0, ptr noundef %1, i32 %2) local_unnamed_addr #0 {
 switch.lookup:
   %switch.tableidx = add nsw i32 %0, -1
-  %3 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [16 x i32], ptr @switch.table._ZN4llvm21getRecurrenceIdentityENS_9RecurKindEPNS_4TypeENS_13FastMathFlagsE, i64 0, i64 %3
+  %3 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [16 x i32], ptr @switch.table._ZN4llvm21getRecurrenceIdentityENS_9RecurKindEPNS_4TypeENS_13FastMathFlagsE, i64 0, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   %4 = tail call noundef ptr @_ZN4llvm20getReductionIdentityEjPNS_4TypeENS_13FastMathFlagsE(i32 noundef %switch.load, ptr noundef %1, i32 %2)
   ret ptr %4
@@ -6264,8 +6264,8 @@ define dso_local noundef ptr @_ZN4llvm21createSimpleReductionERNS_13IRBuilderBas
 
 switch.lookup:                                    ; preds = %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3
   %switch.tableidx = add nsw i32 %2, -1
-  %9 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [15 x i32], ptr @switch.table._ZN4llvm21createSimpleReductionERNS_13IRBuilderBaseEPNS_5ValueENS_9RecurKindE, i64 0, i64 %9
+  %9 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [15 x i32], ptr @switch.table._ZN4llvm21createSimpleReductionERNS_13IRBuilderBaseEPNS_5ValueENS_9RecurKindE, i64 0, i64 %9
   %switch.load = load i32, ptr %switch.gep, align 4
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #21
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -6278,8 +6278,8 @@ switch.lookup20:                                  ; preds = %3, %3
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %.sroa.0.0.copyload.i = load i32, ptr %12, align 8, !tbaa !368
   %switch.tableidx21 = add nsw i32 %2, -10
-  %13 = sext i32 %switch.tableidx21 to i64
-  %switch.gep22 = getelementptr inbounds [7 x i32], ptr @switch.table._ZN4llvm21createSimpleReductionERNS_13IRBuilderBaseEPNS_5ValueENS_9RecurKindE.58, i64 0, i64 %13
+  %13 = zext i32 %switch.tableidx21 to i64
+  %switch.gep22 = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZN4llvm21createSimpleReductionERNS_13IRBuilderBaseEPNS_5ValueENS_9RecurKindE.58, i64 0, i64 %13
   %switch.load23 = load i32, ptr %switch.gep22, align 4
   %14 = tail call noundef ptr @_ZN4llvm20getReductionIdentityEjPNS_4TypeENS_13FastMathFlagsE(i32 noundef %switch.load23, ptr noundef %8, i32 %.sroa.0.0.copyload.i)
   %15 = tail call noundef ptr @_ZN4llvm13IRBuilderBase16CreateFAddReduceEPNS_5ValueES2_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef %14, ptr noundef nonnull %1) #21

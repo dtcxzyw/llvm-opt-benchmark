@@ -625,8 +625,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i:     ; preds = %1
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i8, ptr %5, align 16
-  %7 = sext i8 %6 to i64
-  %switch.gep = getelementptr inbounds [59 x i32], ptr @switch.table._ZN5clang7TypeLoc22getFullDataSizeForTypeENS_8QualTypeE, i64 0, i64 %7
+  %7 = zext i8 %6 to i64
+  %switch.gep = getelementptr inbounds nuw [59 x i32], ptr @switch.table._ZN5clang7TypeLoc22getFullDataSizeForTypeENS_8QualTypeE, i64 0, i64 %7
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN5clang14TypeLocVisitorIN12_GLOBAL__N_111TypeAlignerEjE5VisitENS_7TypeLocE.exit
 
@@ -660,8 +660,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i:   ; preds = %.lr.ph
   %5 = load ptr, ptr %.sroa.015.024, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i8, ptr %6, align 16
-  %8 = sext i8 %7 to i64
-  %switch.gep = getelementptr inbounds [59 x i32], ptr @switch.table._ZN5clang7TypeLoc22getFullDataSizeForTypeENS_8QualTypeE, i64 0, i64 %8
+  %8 = zext i8 %7 to i64
+  %switch.gep = getelementptr inbounds nuw [59 x i32], ptr @switch.table._ZN5clang7TypeLoc22getFullDataSizeForTypeENS_8QualTypeE, i64 0, i64 %8
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN5clang7TypeLoc24getLocalAlignmentForTypeENS_8QualTypeE.exit
 
@@ -1023,8 +1023,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i: ; preds = %_ZNK5clang7Type
   %14 = load ptr, ptr %13, align 16, !tbaa !3
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load i8, ptr %15, align 16
-  %17 = sext i8 %16 to i64
-  %switch.gep = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %17
+  %17 = zext i8 %16 to i64
+  %switch.gep = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %17
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZN12_GLOBAL__N_17NextLoc21VisitQualifiedTypeLocEN5clang16QualifiedTypeLocE.exit
 
@@ -1284,8 +1284,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i: ; preds = %_ZNK5clang7TypeLo
   %22 = load ptr, ptr %21, align 16, !tbaa !3
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load i8, ptr %23, align 16
-  %25 = sext i8 %24 to i64
-  %switch.gep = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %25
+  %25 = zext i8 %24 to i64
+  %switch.gep = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %25
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK5clang16QualifiedTypeLoc14getNextTypeLocEv.exit
 
@@ -1317,8 +1317,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i: ; preds = %35
   %39 = load ptr, ptr %38, align 8, !tbaa !3
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %41 = load i8, ptr %40, align 16
-  %42 = sext i8 %41 to i64
-  %switch.gep1750 = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %42
+  %42 = zext i8 %41 to i64
+  %switch.gep1750 = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %42
   %switch.load1751 = load i64, ptr %switch.gep1750, align 8
   br label %_ZNK5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_15AdjustedTypeLocENS_12AdjustedTypeENS_15AdjustedLocInfoEE14getNextTypeLocEv.exit
 
@@ -1350,8 +1350,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i428: ; preds = %52
   %56 = load ptr, ptr %55, align 8, !tbaa !3
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %58 = load i8, ptr %57, align 16
-  %59 = sext i8 %58 to i64
-  %switch.gep1752 = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %59
+  %59 = zext i8 %58 to i64
+  %switch.gep1752 = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %59
   %switch.load1753 = load i64, ptr %switch.gep1752, align 8
   br label %_ZNK5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_15AdjustedTypeLocENS_12AdjustedTypeENS_15AdjustedLocInfoEE14getNextTypeLocEv.exit429
 
@@ -1388,8 +1388,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i442: ; preds = %69
   %75 = load ptr, ptr %74, align 8, !tbaa !3
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %77 = load i8, ptr %76, align 16
-  %78 = sext i8 %77 to i64
-  %switch.gep1754 = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %78
+  %78 = zext i8 %77 to i64
+  %switch.gep1754 = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %78
   %switch.load1755 = load i64, ptr %switch.gep1754, align 8
   br label %_ZNK5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_12ArrayTypeLocENS_9ArrayTypeENS_12ArrayLocInfoEE14getNextTypeLocEv.exit
 
@@ -1427,8 +1427,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i455: ; preds = %89
   %95 = load ptr, ptr %94, align 8, !tbaa !3
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 16
   %97 = load i8, ptr %96, align 16
-  %98 = sext i8 %97 to i64
-  %switch.gep1756 = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %98
+  %98 = zext i8 %97 to i64
+  %switch.gep1756 = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %98
   %switch.load1757 = load i64, ptr %switch.gep1756, align 8
   br label %_ZNK5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_12ArrayTypeLocENS_9ArrayTypeENS_12ArrayLocInfoEE14getNextTypeLocEv.exit456
 
@@ -1468,8 +1468,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i469: ; preds = %109
   %117 = load ptr, ptr %116, align 8, !tbaa !3
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 16
   %119 = load i8, ptr %118, align 16
-  %120 = sext i8 %119 to i64
-  %switch.gep1758 = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %120
+  %120 = zext i8 %119 to i64
+  %switch.gep1758 = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %120
   %switch.load1759 = load i64, ptr %switch.gep1758, align 8
   br label %_ZNK5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_12ArrayTypeLocENS_9ArrayTypeENS_12ArrayLocInfoEE14getNextTypeLocEv.exit470
 
@@ -1507,8 +1507,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i483: ; preds = %131
   %137 = load ptr, ptr %136, align 8, !tbaa !3
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 16
   %139 = load i8, ptr %138, align 16
-  %140 = sext i8 %139 to i64
-  %switch.gep1760 = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %140
+  %140 = zext i8 %139 to i64
+  %switch.gep1760 = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %140
   %switch.load1761 = load i64, ptr %switch.gep1760, align 8
   br label %_ZNK5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_12ArrayTypeLocENS_9ArrayTypeENS_12ArrayLocInfoEE14getNextTypeLocEv.exit484
 
@@ -1546,8 +1546,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i497: ; preds = %151
   %157 = load ptr, ptr %156, align 8, !tbaa !3
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 16
   %159 = load i8, ptr %158, align 16
-  %160 = sext i8 %159 to i64
-  %switch.gep1762 = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %160
+  %160 = zext i8 %159 to i64
+  %switch.gep1762 = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %160
   %switch.load1763 = load i64, ptr %switch.gep1762, align 8
   br label %_ZNK5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_12ArrayTypeLocENS_9ArrayTypeENS_12ArrayLocInfoEE14getNextTypeLocEv.exit498
 
@@ -1585,8 +1585,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i511: ; preds = %171
   %177 = load ptr, ptr %176, align 8, !tbaa !3
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 16
   %179 = load i8, ptr %178, align 16
-  %180 = sext i8 %179 to i64
-  %switch.gep1764 = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %180
+  %180 = zext i8 %179 to i64
+  %switch.gep1764 = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %180
   %switch.load1765 = load i64, ptr %switch.gep1764, align 8
   br label %_ZNK5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_13AtomicTypeLocENS_10AtomicTypeENS_17AtomicTypeLocInfoEE14getNextTypeLocEv.exit
 
@@ -1620,8 +1620,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i524: ; preds = %191
   %195 = load ptr, ptr %194, align 8, !tbaa !3
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 16
   %197 = load i8, ptr %196, align 16
-  %198 = sext i8 %197 to i64
-  %switch.gep1766 = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %198
+  %198 = zext i8 %197 to i64
+  %switch.gep1766 = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %198
   %switch.load1767 = load i64, ptr %switch.gep1766, align 8
   br label %_ZNK5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_17AttributedTypeLocENS_14AttributedTypeENS_17AttributedLocInfoEE14getNextTypeLocEv.exit
 
@@ -1654,8 +1654,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i537: ; preds = %209
   %213 = load ptr, ptr %212, align 8, !tbaa !3
   %214 = getelementptr inbounds nuw i8, ptr %213, i64 16
   %215 = load i8, ptr %214, align 16
-  %216 = sext i8 %215 to i64
-  %switch.gep1768 = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %216
+  %216 = zext i8 %215 to i64
+  %switch.gep1768 = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %216
   %switch.load1769 = load i64, ptr %switch.gep1768, align 8
   br label %_ZNK5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_23BTFTagAttributedTypeLocENS_20BTFTagAttributedTypeENS_23BTFTagAttributedLocInfoEE14getNextTypeLocEv.exit
 
@@ -1693,8 +1693,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i555: ; preds = %228
   %232 = load ptr, ptr %231, align 8, !tbaa !3
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 16
   %234 = load i8, ptr %233, align 16
-  %235 = sext i8 %234 to i64
-  %switch.gep1770 = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %235
+  %235 = zext i8 %234 to i64
+  %switch.gep1770 = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %235
   %switch.load1771 = load i64, ptr %switch.gep1770, align 8
   br label %_ZNK5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_19BlockPointerTypeLocENS_16BlockPointerTypeENS_18PointerLikeLocInfoEE14getNextTypeLocEv.exit
 
@@ -1727,8 +1727,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i568: ; preds = %246
   %250 = load ptr, ptr %249, align 8, !tbaa !3
   %251 = getelementptr inbounds nuw i8, ptr %250, i64 16
   %252 = load i8, ptr %251, align 16
-  %253 = sext i8 %252 to i64
-  %switch.gep1772 = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %253
+  %253 = zext i8 %252 to i64
+  %switch.gep1772 = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %253
   %switch.load1773 = load i64, ptr %switch.gep1772, align 8
   br label %_ZNK5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_23BoundsAttributedTypeLocENS_20BoundsAttributedTypeENS_23BoundsAttributedLocInfoEE14getNextTypeLocEv.exit
 
@@ -1832,8 +1832,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i606: ; preds = %286
   %294 = load ptr, ptr %293, align 8, !tbaa !3
   %295 = getelementptr inbounds nuw i8, ptr %294, i64 16
   %296 = load i8, ptr %295, align 16
-  %297 = sext i8 %296 to i64
-  %switch.gep1774 = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %297
+  %297 = zext i8 %296 to i64
+  %switch.gep1774 = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %297
   %switch.load1775 = load i64, ptr %switch.gep1774, align 8
   br label %_ZNK5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_28DependentAddressSpaceTypeLocENS_25DependentAddressSpaceTypeENS_28DependentAddressSpaceLocInfoEE14getNextTypeLocEv.exit
 
@@ -1899,8 +1899,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i629: ; preds = %321
   %325 = load ptr, ptr %324, align 8, !tbaa !3
   %326 = getelementptr inbounds nuw i8, ptr %325, i64 16
   %327 = load i8, ptr %326, align 16
-  %328 = sext i8 %327 to i64
-  %switch.gep1776 = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %328
+  %328 = zext i8 %327 to i64
+  %switch.gep1776 = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %328
   %switch.load1777 = load i64, ptr %switch.gep1776, align 8
   br label %_ZNK5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_30DependentSizedExtVectorTypeLocENS_27DependentSizedExtVectorTypeENS_17VectorTypeLocInfoEE14getNextTypeLocEv.exit
 
@@ -1989,8 +1989,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i650: ; preds = %363
   %367 = load ptr, ptr %366, align 8, !tbaa !3
   %368 = getelementptr inbounds nuw i8, ptr %367, i64 16
   %369 = load i8, ptr %368, align 16
-  %370 = sext i8 %369 to i64
-  %switch.gep1778 = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %370
+  %370 = zext i8 %369 to i64
+  %switch.gep1778 = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %370
   %switch.load1779 = load i64, ptr %switch.gep1778, align 8
   br label %_ZNK5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_22DependentVectorTypeLocENS_19DependentVectorTypeENS_17VectorTypeLocInfoEE14getNextTypeLocEv.exit
 
@@ -2086,8 +2086,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i668: ; preds = %_ZNK5cla
   %406 = load ptr, ptr %405, align 8, !tbaa !3
   %407 = getelementptr inbounds nuw i8, ptr %406, i64 16
   %408 = load i8, ptr %407, align 16
-  %409 = sext i8 %408 to i64
-  %switch.gep1780 = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %409
+  %409 = zext i8 %408 to i64
+  %switch.gep1780 = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %409
   %switch.load1781 = load i64, ptr %switch.gep1780, align 8
   br label %_ZNK5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_17ElaboratedTypeLocENS_14ElaboratedTypeENS_17ElaboratedLocInfoEE14getNextTypeLocEv.exit
 
@@ -2206,8 +2206,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i685: ; preds = %_ZNK5cla
   %457 = load ptr, ptr %456, align 8, !tbaa !3
   %458 = getelementptr inbounds nuw i8, ptr %457, i64 16
   %459 = load i8, ptr %458, align 16
-  %460 = sext i8 %459 to i64
-  %switch.gep1782 = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %460
+  %460 = zext i8 %459 to i64
+  %switch.gep1782 = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %460
   %switch.load1783 = load i64, ptr %switch.gep1782, align 8
   br label %_ZNK5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_15FunctionTypeLocENS_12FunctionTypeENS_15FunctionLocInfoEE14getNextTypeLocEv.exit
 
@@ -2326,8 +2326,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i718: ; preds = %_ZNK5cla
   %508 = load ptr, ptr %507, align 8, !tbaa !3
   %509 = getelementptr inbounds nuw i8, ptr %508, i64 16
   %510 = load i8, ptr %509, align 16
-  %511 = sext i8 %510 to i64
-  %switch.gep1784 = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %511
+  %511 = zext i8 %510 to i64
+  %switch.gep1784 = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %511
   %switch.load1785 = load i64, ptr %switch.gep1784, align 8
   br label %_ZNK5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_15FunctionTypeLocENS_12FunctionTypeENS_15FunctionLocInfoEE14getNextTypeLocEv.exit721
 
@@ -2361,8 +2361,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i734: ; preds = %522
   %526 = load ptr, ptr %525, align 8, !tbaa !3
   %527 = getelementptr inbounds nuw i8, ptr %526, i64 16
   %528 = load i8, ptr %527, align 16
-  %529 = sext i8 %528 to i64
-  %switch.gep1786 = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %529
+  %529 = zext i8 %528 to i64
+  %switch.gep1786 = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %529
   %switch.load1787 = load i64, ptr %switch.gep1786, align 8
   br label %_ZNK5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_29HLSLAttributedResourceTypeLocENS_26HLSLAttributedResourceTypeENS_29HLSLAttributedResourceLocInfoEE14getNextTypeLocEv.exit
 
@@ -2400,8 +2400,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i752: ; preds = %541
   %545 = load ptr, ptr %544, align 8, !tbaa !3
   %546 = getelementptr inbounds nuw i8, ptr %545, i64 16
   %547 = load i8, ptr %546, align 16
-  %548 = sext i8 %547 to i64
-  %switch.gep1788 = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %548
+  %548 = zext i8 %547 to i64
+  %switch.gep1788 = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %548
   %switch.load1789 = load i64, ptr %switch.gep1788, align 8
   br label %_ZNK5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_21MacroQualifiedTypeLocENS_18MacroQualifiedTypeENS_21MacroQualifiedLocInfoEE14getNextTypeLocEv.exit
 
@@ -2453,8 +2453,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i779: ; preds = %565
   %570 = load ptr, ptr %569, align 8, !tbaa !3
   %571 = getelementptr inbounds nuw i8, ptr %570, i64 16
   %572 = load i8, ptr %571, align 16
-  %573 = sext i8 %572 to i64
-  %switch.gep1790 = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %573
+  %573 = zext i8 %572 to i64
+  %switch.gep1790 = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %573
   %switch.load1791 = load i64, ptr %switch.gep1790, align 8
   br label %_ZNK5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_20MemberPointerTypeLocENS_17MemberPointerTypeENS_20MemberPointerLocInfoEE14getNextTypeLocEv.exit
 
@@ -2488,8 +2488,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i792: ; preds = %584
   %588 = load ptr, ptr %587, align 8, !tbaa !3
   %589 = getelementptr inbounds nuw i8, ptr %588, i64 16
   %590 = load i8, ptr %589, align 16
-  %591 = sext i8 %590 to i64
-  %switch.gep1792 = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %591
+  %591 = zext i8 %590 to i64
+  %switch.gep1792 = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %591
   %switch.load1793 = load i64, ptr %switch.gep1792, align 8
   br label %_ZNK5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_24ObjCObjectPointerTypeLocENS_21ObjCObjectPointerTypeENS_18PointerLikeLocInfoEE14getNextTypeLocEv.exit
 
@@ -2585,8 +2585,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i809: ; preds = %_ZN5clan
   %632 = load ptr, ptr %631, align 8, !tbaa !3
   %633 = getelementptr inbounds nuw i8, ptr %632, i64 16
   %634 = load i8, ptr %633, align 16
-  %635 = sext i8 %634 to i64
-  %switch.gep1794 = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %635
+  %635 = zext i8 %634 to i64
+  %switch.gep1794 = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %635
   %switch.load1795 = load i64, ptr %switch.gep1794, align 8
   br label %_ZNK5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_17ObjCObjectTypeLocENS_14ObjCObjectTypeENS_21ObjCObjectTypeLocInfoEE14getNextTypeLocEv.exit
 
@@ -2666,8 +2666,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i836: ; preds = %668
   %672 = load ptr, ptr %671, align 8, !tbaa !3
   %673 = getelementptr inbounds nuw i8, ptr %672, i64 16
   %674 = load i8, ptr %673, align 16
-  %675 = sext i8 %674 to i64
-  %switch.gep1796 = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %675
+  %675 = zext i8 %674 to i64
+  %switch.gep1796 = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %675
   %switch.load1797 = load i64, ptr %switch.gep1796, align 8
   br label %_ZNK5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_20PackExpansionTypeLocENS_17PackExpansionTypeENS_24PackExpansionTypeLocInfoEE14getNextTypeLocEv.exit
 
@@ -2701,8 +2701,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i849: ; preds = %686
   %690 = load ptr, ptr %689, align 8, !tbaa !3
   %691 = getelementptr inbounds nuw i8, ptr %690, i64 16
   %692 = load i8, ptr %691, align 16
-  %693 = sext i8 %692 to i64
-  %switch.gep1798 = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %693
+  %693 = zext i8 %692 to i64
+  %switch.gep1798 = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %693
   %switch.load1799 = load i64, ptr %switch.gep1798, align 8
   br label %_ZNK5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_19PackIndexingTypeLocENS_16PackIndexingTypeENS_23PackIndexingTypeLocInfoEE14getNextTypeLocEv.exit
 
@@ -2738,8 +2738,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i862: ; preds = %704
   %709 = load ptr, ptr %708, align 8, !tbaa !3
   %710 = getelementptr inbounds nuw i8, ptr %709, i64 16
   %711 = load i8, ptr %710, align 16
-  %712 = sext i8 %711 to i64
-  %switch.gep1800 = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %712
+  %712 = zext i8 %711 to i64
+  %switch.gep1800 = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %712
   %switch.load1801 = load i64, ptr %switch.gep1800, align 8
   br label %_ZNK5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_12ParenTypeLocENS_9ParenTypeENS_12ParenLocInfoEE14getNextTypeLocEv.exit
 
@@ -2773,8 +2773,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i875: ; preds = %723
   %727 = load ptr, ptr %726, align 8, !tbaa !3
   %728 = getelementptr inbounds nuw i8, ptr %727, i64 16
   %729 = load i8, ptr %728, align 16
-  %730 = sext i8 %729 to i64
-  %switch.gep1802 = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %730
+  %730 = zext i8 %729 to i64
+  %switch.gep1802 = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %730
   %switch.load1803 = load i64, ptr %switch.gep1802, align 8
   br label %_ZNK5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_11PipeTypeLocENS_8PipeTypeENS_15PipeTypeLocInfoEE14getNextTypeLocEv.exit
 
@@ -2808,8 +2808,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i888: ; preds = %741
   %745 = load ptr, ptr %744, align 8, !tbaa !3
   %746 = getelementptr inbounds nuw i8, ptr %745, i64 16
   %747 = load i8, ptr %746, align 16
-  %748 = sext i8 %747 to i64
-  %switch.gep1804 = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %748
+  %748 = zext i8 %747 to i64
+  %switch.gep1804 = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %748
   %switch.load1805 = load i64, ptr %switch.gep1804, align 8
   br label %_ZNK5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_14PointerTypeLocENS_11PointerTypeENS_18PointerLikeLocInfoEE14getNextTypeLocEv.exit
 
@@ -2843,8 +2843,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i901: ; preds = %759
   %763 = load ptr, ptr %762, align 8, !tbaa !3
   %764 = getelementptr inbounds nuw i8, ptr %763, i64 16
   %765 = load i8, ptr %764, align 16
-  %766 = sext i8 %765 to i64
-  %switch.gep1806 = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %766
+  %766 = zext i8 %765 to i64
+  %switch.gep1806 = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %766
   %switch.load1807 = load i64, ptr %switch.gep1806, align 8
   br label %_ZNK5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_16ReferenceTypeLocENS_13ReferenceTypeENS_18PointerLikeLocInfoEE14getNextTypeLocEv.exit
 
@@ -2878,8 +2878,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i914: ; preds = %777
   %781 = load ptr, ptr %780, align 8, !tbaa !3
   %782 = getelementptr inbounds nuw i8, ptr %781, i64 16
   %783 = load i8, ptr %782, align 16
-  %784 = sext i8 %783 to i64
-  %switch.gep1808 = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %784
+  %784 = zext i8 %783 to i64
+  %switch.gep1808 = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %784
   %switch.load1809 = load i64, ptr %switch.gep1808, align 8
   br label %_ZNK5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_16ReferenceTypeLocENS_13ReferenceTypeENS_18PointerLikeLocInfoEE14getNextTypeLocEv.exit915
 
@@ -2995,8 +2995,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i989: ; preds = %827
   %831 = load ptr, ptr %830, align 8, !tbaa !3
   %832 = getelementptr inbounds nuw i8, ptr %831, i64 16
   %833 = load i8, ptr %832, align 16
-  %834 = sext i8 %833 to i64
-  %switch.gep1810 = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %834
+  %834 = zext i8 %833 to i64
+  %switch.gep1810 = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %834
   %switch.load1811 = load i64, ptr %switch.gep1810, align 8
   br label %_ZNK5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_13VectorTypeLocENS_10VectorTypeENS_17VectorTypeLocInfoEE14getNextTypeLocEv.exit
 
@@ -3030,8 +3030,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i1002: ; preds = %845
   %849 = load ptr, ptr %848, align 8, !tbaa !3
   %850 = getelementptr inbounds nuw i8, ptr %849, i64 16
   %851 = load i8, ptr %850, align 16
-  %852 = sext i8 %851 to i64
-  %switch.gep1812 = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %852
+  %852 = zext i8 %851 to i64
+  %switch.gep1812 = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %852
   %switch.load1813 = load i64, ptr %switch.gep1812, align 8
   br label %_ZNK5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_13VectorTypeLocENS_10VectorTypeENS_17VectorTypeLocInfoEE14getNextTypeLocEv.exit1003
 
@@ -4459,8 +4459,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i: ; preds = %9
   %13 = load ptr, ptr %12, align 8, !tbaa !3
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load i8, ptr %14, align 16
-  %16 = sext i8 %15 to i64
-  %switch.gep = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %16
+  %16 = zext i8 %15 to i64
+  %switch.gep = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %16
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %17
 
@@ -4570,8 +4570,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i.i.i: ; preds = %14
   %18 = load ptr, ptr %17, align 8, !tbaa !3
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load i8, ptr %19, align 16
-  %21 = sext i8 %20 to i64
-  %switch.gep = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %21
+  %21 = zext i8 %20 to i64
+  %switch.gep = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %21
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %22
 
@@ -4629,8 +4629,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i: ; preds = %40
   %44 = load ptr, ptr %43, align 8, !tbaa !3
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load i8, ptr %45, align 16
-  %47 = sext i8 %46 to i64
-  %switch.gep40 = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %47
+  %47 = zext i8 %46 to i64
+  %switch.gep40 = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %47
   %switch.load41 = load i64, ptr %switch.gep40, align 8
   br label %_ZNK5clang17AttributedTypeLoc14getModifiedLocEv.exit
 
@@ -4990,8 +4990,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i: ; preds = %tailrecurse.i
   %15 = load ptr, ptr %14, align 16, !tbaa !3
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load i8, ptr %16, align 16
-  %18 = sext i8 %17 to i64
-  %switch.gep = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %18
+  %18 = zext i8 %17 to i64
+  %switch.gep = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %18
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK5clang16QualifiedTypeLoc17getUnqualifiedLocEv.exit.i
 
@@ -5396,8 +5396,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i: ; preds = %7
   %11 = load ptr, ptr %10, align 8, !tbaa !3
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load i8, ptr %12, align 16
-  %14 = sext i8 %13 to i64
-  %switch.gep = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %14
+  %14 = zext i8 %13 to i64
+  %switch.gep = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %14
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK5clang12ParenTypeLoc11getInnerLocEv.exit
 
@@ -5422,8 +5422,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i39: ; preds = %18
   %22 = load ptr, ptr %21, align 8, !tbaa !3
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load i8, ptr %23, align 16
-  %25 = sext i8 %24 to i64
-  %switch.gep252 = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %25
+  %25 = zext i8 %24 to i64
+  %switch.gep252 = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %25
   %switch.load253 = load i64, ptr %switch.gep252, align 8
   br label %_ZNK5clang17AttributedTypeLoc14getModifiedLocEv.exit
 
@@ -5448,8 +5448,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i54: ; preds = %29
   %33 = load ptr, ptr %32, align 8, !tbaa !3
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load i8, ptr %34, align 16
-  %36 = sext i8 %35 to i64
-  %switch.gep254 = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %36
+  %36 = zext i8 %35 to i64
+  %switch.gep254 = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %36
   %switch.load255 = load i64, ptr %switch.gep254, align 8
   br label %_ZNK5clang23BTFTagAttributedTypeLoc13getWrappedLocEv.exit
 
@@ -5474,8 +5474,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i69: ; preds = %40
   %44 = load ptr, ptr %43, align 8, !tbaa !3
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load i8, ptr %45, align 16
-  %47 = sext i8 %46 to i64
-  %switch.gep256 = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %47
+  %47 = zext i8 %46 to i64
+  %switch.gep256 = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %47
   %switch.load257 = load i64, ptr %switch.gep256, align 8
   br label %_ZNK5clang29HLSLAttributedResourceTypeLoc13getWrappedLocEv.exit
 
@@ -5517,8 +5517,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i84: ; preds = %_ZNK5clan
   %62 = load ptr, ptr %61, align 8, !tbaa !3
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load i8, ptr %63, align 16
-  %65 = sext i8 %64 to i64
-  %switch.gep258 = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %65
+  %65 = zext i8 %64 to i64
+  %switch.gep258 = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %65
   %switch.load259 = load i64, ptr %switch.gep258, align 8
   br label %_ZNK5clang17ElaboratedTypeLoc15getNamedTypeLocEv.exit
 
@@ -5547,8 +5547,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i99: ; preds = %69
   %73 = load ptr, ptr %72, align 8, !tbaa !3
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %75 = load i8, ptr %74, align 16
-  %76 = sext i8 %75 to i64
-  %switch.gep260 = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %76
+  %76 = zext i8 %75 to i64
+  %switch.gep260 = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %76
   %switch.load261 = load i64, ptr %switch.gep260, align 8
   br label %_ZNK5clang15AdjustedTypeLoc14getOriginalLocEv.exit
 
@@ -5576,8 +5576,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i114: ; preds = %80
   %84 = load ptr, ptr %83, align 8, !tbaa !3
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %86 = load i8, ptr %85, align 16
-  %87 = sext i8 %86 to i64
-  %switch.gep262 = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %87
+  %87 = zext i8 %86 to i64
+  %switch.gep262 = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %87
   %switch.load263 = load i64, ptr %switch.gep262, align 8
   br label %.thread184
 
@@ -5675,8 +5675,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i: ; preds = %7
   %11 = load ptr, ptr %10, align 8, !tbaa !3
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load i8, ptr %12, align 16
-  %14 = sext i8 %13 to i64
-  %switch.gep = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %14
+  %14 = zext i8 %13 to i64
+  %switch.gep = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %14
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK5clang12ParenTypeLoc11getInnerLocEv.exit
 
@@ -5701,8 +5701,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i39: ; preds = %18
   %22 = load ptr, ptr %21, align 8, !tbaa !3
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load i8, ptr %23, align 16
-  %25 = sext i8 %24 to i64
-  %switch.gep252 = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %25
+  %25 = zext i8 %24 to i64
+  %switch.gep252 = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %25
   %switch.load253 = load i64, ptr %switch.gep252, align 8
   br label %_ZNK5clang17AttributedTypeLoc14getModifiedLocEv.exit
 
@@ -5727,8 +5727,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i54: ; preds = %29
   %33 = load ptr, ptr %32, align 8, !tbaa !3
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load i8, ptr %34, align 16
-  %36 = sext i8 %35 to i64
-  %switch.gep254 = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %36
+  %36 = zext i8 %35 to i64
+  %switch.gep254 = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %36
   %switch.load255 = load i64, ptr %switch.gep254, align 8
   br label %_ZNK5clang23BTFTagAttributedTypeLoc13getWrappedLocEv.exit
 
@@ -5753,8 +5753,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i69: ; preds = %40
   %44 = load ptr, ptr %43, align 8, !tbaa !3
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load i8, ptr %45, align 16
-  %47 = sext i8 %46 to i64
-  %switch.gep256 = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %47
+  %47 = zext i8 %46 to i64
+  %switch.gep256 = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %47
   %switch.load257 = load i64, ptr %switch.gep256, align 8
   br label %_ZNK5clang29HLSLAttributedResourceTypeLoc13getWrappedLocEv.exit
 
@@ -5796,8 +5796,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i84: ; preds = %_ZNK5clan
   %62 = load ptr, ptr %61, align 8, !tbaa !3
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load i8, ptr %63, align 16
-  %65 = sext i8 %64 to i64
-  %switch.gep258 = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %65
+  %65 = zext i8 %64 to i64
+  %switch.gep258 = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %65
   %switch.load259 = load i64, ptr %switch.gep258, align 8
   br label %_ZNK5clang17ElaboratedTypeLoc15getNamedTypeLocEv.exit
 
@@ -5826,8 +5826,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i99: ; preds = %69
   %73 = load ptr, ptr %72, align 8, !tbaa !3
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %75 = load i8, ptr %74, align 16
-  %76 = sext i8 %75 to i64
-  %switch.gep260 = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %76
+  %76 = zext i8 %75 to i64
+  %switch.gep260 = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %76
   %switch.load261 = load i64, ptr %switch.gep260, align 8
   br label %_ZNK5clang15AdjustedTypeLoc14getOriginalLocEv.exit
 
@@ -5855,8 +5855,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i114: ; preds = %80
   %84 = load ptr, ptr %83, align 8, !tbaa !3
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %86 = load i8, ptr %85, align 16
-  %87 = sext i8 %86 to i64
-  %switch.gep262 = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %87
+  %87 = zext i8 %86 to i64
+  %switch.gep262 = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %87
   %switch.load263 = load i64, ptr %switch.gep262, align 8
   br label %.thread184
 
@@ -6194,8 +6194,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i: ; preds = %1
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i8, ptr %5, align 16
-  %7 = sext i8 %6 to i64
-  %switch.gep = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %7
+  %7 = zext i8 %6 to i64
+  %switch.gep = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %7
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK5clang21MacroQualifiedTypeLoc11getInnerLocEv.exit
 
@@ -6271,8 +6271,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i: ; preds = %2
   %6 = load ptr, ptr %5, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i8, ptr %7, align 16
-  %9 = sext i8 %8 to i64
-  %switch.gep = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %9
+  %9 = zext i8 %8 to i64
+  %switch.gep = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %9
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_15AdjustedTypeLocENS_12AdjustedTypeENS_15AdjustedLocInfoEE14getNextTypeLocEv.exit
 
@@ -6307,8 +6307,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i: ; preds = %2
   %6 = load ptr, ptr %5, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i8, ptr %7, align 16
-  %9 = sext i8 %8 to i64
-  %switch.gep = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %9
+  %9 = zext i8 %8 to i64
+  %switch.gep = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %9
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_15AdjustedTypeLocENS_12AdjustedTypeENS_15AdjustedLocInfoEE14getNextTypeLocEv.exit
 
@@ -6343,8 +6343,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i: ; preds = %2
   %6 = load ptr, ptr %5, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i8, ptr %7, align 16
-  %9 = sext i8 %8 to i64
-  %switch.gep = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %9
+  %9 = zext i8 %8 to i64
+  %switch.gep = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %9
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_12ArrayTypeLocENS_9ArrayTypeENS_12ArrayLocInfoEE14getNextTypeLocEv.exit
 
@@ -6380,8 +6380,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i: ; preds = %2
   %6 = load ptr, ptr %5, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i8, ptr %7, align 16
-  %9 = sext i8 %8 to i64
-  %switch.gep = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %9
+  %9 = zext i8 %8 to i64
+  %switch.gep = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %9
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_12ArrayTypeLocENS_9ArrayTypeENS_12ArrayLocInfoEE14getNextTypeLocEv.exit
 
@@ -6417,8 +6417,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i: ; preds = %2
   %6 = load ptr, ptr %5, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i8, ptr %7, align 16
-  %9 = sext i8 %8 to i64
-  %switch.gep = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %9
+  %9 = zext i8 %8 to i64
+  %switch.gep = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %9
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_12ArrayTypeLocENS_9ArrayTypeENS_12ArrayLocInfoEE14getNextTypeLocEv.exit
 
@@ -6454,8 +6454,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i: ; preds = %2
   %6 = load ptr, ptr %5, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i8, ptr %7, align 16
-  %9 = sext i8 %8 to i64
-  %switch.gep = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %9
+  %9 = zext i8 %8 to i64
+  %switch.gep = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %9
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_12ArrayTypeLocENS_9ArrayTypeENS_12ArrayLocInfoEE14getNextTypeLocEv.exit
 
@@ -6491,8 +6491,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i: ; preds = %2
   %6 = load ptr, ptr %5, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i8, ptr %7, align 16
-  %9 = sext i8 %8 to i64
-  %switch.gep = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %9
+  %9 = zext i8 %8 to i64
+  %switch.gep = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %9
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_12ArrayTypeLocENS_9ArrayTypeENS_12ArrayLocInfoEE14getNextTypeLocEv.exit
 
@@ -6528,8 +6528,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i: ; preds = %2
   %6 = load ptr, ptr %5, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i8, ptr %7, align 16
-  %9 = sext i8 %8 to i64
-  %switch.gep = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %9
+  %9 = zext i8 %8 to i64
+  %switch.gep = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %9
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_13AtomicTypeLocENS_10AtomicTypeENS_17AtomicTypeLocInfoEE14getNextTypeLocEv.exit
 
@@ -6565,8 +6565,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i: ; preds = %2
   %6 = load ptr, ptr %5, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i8, ptr %7, align 16
-  %9 = sext i8 %8 to i64
-  %switch.gep = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %9
+  %9 = zext i8 %8 to i64
+  %switch.gep = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %9
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_17AttributedTypeLocENS_14AttributedTypeENS_17AttributedLocInfoEE14getNextTypeLocEv.exit
 
@@ -6602,8 +6602,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i: ; preds = %2
   %6 = load ptr, ptr %5, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i8, ptr %7, align 16
-  %9 = sext i8 %8 to i64
-  %switch.gep = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %9
+  %9 = zext i8 %8 to i64
+  %switch.gep = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %9
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_23BTFTagAttributedTypeLocENS_20BTFTagAttributedTypeENS_23BTFTagAttributedLocInfoEE14getNextTypeLocEv.exit
 
@@ -6639,8 +6639,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i: ; preds = %2
   %6 = load ptr, ptr %5, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i8, ptr %7, align 16
-  %9 = sext i8 %8 to i64
-  %switch.gep = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %9
+  %9 = zext i8 %8 to i64
+  %switch.gep = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %9
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_19BlockPointerTypeLocENS_16BlockPointerTypeENS_18PointerLikeLocInfoEE14getNextTypeLocEv.exit
 
@@ -6676,8 +6676,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i: ; preds = %2
   %6 = load ptr, ptr %5, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i8, ptr %7, align 16
-  %9 = sext i8 %8 to i64
-  %switch.gep = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %9
+  %9 = zext i8 %8 to i64
+  %switch.gep = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %9
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_23BoundsAttributedTypeLocENS_20BoundsAttributedTypeENS_23BoundsAttributedLocInfoEE14getNextTypeLocEv.exit
 
@@ -6712,8 +6712,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i: ; preds = %2
   %6 = load ptr, ptr %5, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i8, ptr %7, align 16
-  %9 = sext i8 %8 to i64
-  %switch.gep = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %9
+  %9 = zext i8 %8 to i64
+  %switch.gep = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %9
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_28DependentAddressSpaceTypeLocENS_25DependentAddressSpaceTypeENS_28DependentAddressSpaceLocInfoEE14getNextTypeLocEv.exit
 
@@ -6749,8 +6749,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i: ; preds = %2
   %6 = load ptr, ptr %5, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i8, ptr %7, align 16
-  %9 = sext i8 %8 to i64
-  %switch.gep = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %9
+  %9 = zext i8 %8 to i64
+  %switch.gep = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %9
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_30DependentSizedExtVectorTypeLocENS_27DependentSizedExtVectorTypeENS_17VectorTypeLocInfoEE14getNextTypeLocEv.exit
 
@@ -6786,8 +6786,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i: ; preds = %2
   %6 = load ptr, ptr %5, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i8, ptr %7, align 16
-  %9 = sext i8 %8 to i64
-  %switch.gep = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %9
+  %9 = zext i8 %8 to i64
+  %switch.gep = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %9
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_22DependentVectorTypeLocENS_19DependentVectorTypeENS_17VectorTypeLocInfoEE14getNextTypeLocEv.exit
 
@@ -6840,8 +6840,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i: ; preds = %_ZNK5clang1
   %13 = load ptr, ptr %12, align 8, !tbaa !3
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load i8, ptr %14, align 16
-  %16 = sext i8 %15 to i64
-  %switch.gep = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %16
+  %16 = zext i8 %15 to i64
+  %switch.gep = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %16
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_17ElaboratedTypeLocENS_14ElaboratedTypeENS_17ElaboratedLocInfoEE14getNextTypeLocEv.exit
 
@@ -6911,8 +6911,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i: ; preds = %_ZNK5clang1
   %20 = load ptr, ptr %19, align 8, !tbaa !3
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load i8, ptr %21, align 16
-  %23 = sext i8 %22 to i64
-  %switch.gep = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %23
+  %23 = zext i8 %22 to i64
+  %switch.gep = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %23
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_15FunctionTypeLocENS_12FunctionTypeENS_15FunctionLocInfoEE14getNextTypeLocEv.exit
 
@@ -6982,8 +6982,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i: ; preds = %_ZNK5clang1
   %20 = load ptr, ptr %19, align 8, !tbaa !3
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load i8, ptr %21, align 16
-  %23 = sext i8 %22 to i64
-  %switch.gep = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %23
+  %23 = zext i8 %22 to i64
+  %switch.gep = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %23
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_15FunctionTypeLocENS_12FunctionTypeENS_15FunctionLocInfoEE14getNextTypeLocEv.exit
 
@@ -7019,8 +7019,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i: ; preds = %2
   %6 = load ptr, ptr %5, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i8, ptr %7, align 16
-  %9 = sext i8 %8 to i64
-  %switch.gep = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %9
+  %9 = zext i8 %8 to i64
+  %switch.gep = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %9
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_29HLSLAttributedResourceTypeLocENS_26HLSLAttributedResourceTypeENS_29HLSLAttributedResourceLocInfoEE14getNextTypeLocEv.exit
 
@@ -7056,8 +7056,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i: ; preds = %2
   %6 = load ptr, ptr %5, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i8, ptr %7, align 16
-  %9 = sext i8 %8 to i64
-  %switch.gep = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %9
+  %9 = zext i8 %8 to i64
+  %switch.gep = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %9
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_21MacroQualifiedTypeLocENS_18MacroQualifiedTypeENS_21MacroQualifiedLocInfoEE14getNextTypeLocEv.exit
 
@@ -7093,8 +7093,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i: ; preds = %2
   %6 = load ptr, ptr %5, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i8, ptr %7, align 16
-  %9 = sext i8 %8 to i64
-  %switch.gep = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %9
+  %9 = zext i8 %8 to i64
+  %switch.gep = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %9
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_20MemberPointerTypeLocENS_17MemberPointerTypeENS_20MemberPointerLocInfoEE14getNextTypeLocEv.exit
 
@@ -7130,8 +7130,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i: ; preds = %2
   %6 = load ptr, ptr %5, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i8, ptr %7, align 16
-  %9 = sext i8 %8 to i64
-  %switch.gep = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %9
+  %9 = zext i8 %8 to i64
+  %switch.gep = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %9
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_24ObjCObjectPointerTypeLocENS_21ObjCObjectPointerTypeENS_18PointerLikeLocInfoEE14getNextTypeLocEv.exit
 
@@ -7169,8 +7169,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i: ; preds = %2
   %8 = load ptr, ptr %7, align 8, !tbaa !3
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load i8, ptr %9, align 16
-  %11 = sext i8 %10 to i64
-  %switch.gep = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %11
+  %11 = zext i8 %10 to i64
+  %switch.gep = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %11
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_17ObjCObjectTypeLocENS_14ObjCObjectTypeENS_21ObjCObjectTypeLocInfoEE14getNextTypeLocEv.exit
 
@@ -7215,8 +7215,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i: ; preds = %2
   %6 = load ptr, ptr %5, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i8, ptr %7, align 16
-  %9 = sext i8 %8 to i64
-  %switch.gep = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %9
+  %9 = zext i8 %8 to i64
+  %switch.gep = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %9
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_20PackExpansionTypeLocENS_17PackExpansionTypeENS_24PackExpansionTypeLocInfoEE14getNextTypeLocEv.exit
 
@@ -7252,8 +7252,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i: ; preds = %2
   %6 = load ptr, ptr %5, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i8, ptr %7, align 16
-  %9 = sext i8 %8 to i64
-  %switch.gep = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %9
+  %9 = zext i8 %8 to i64
+  %switch.gep = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %9
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_19PackIndexingTypeLocENS_16PackIndexingTypeENS_23PackIndexingTypeLocInfoEE14getNextTypeLocEv.exit
 
@@ -7289,8 +7289,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i: ; preds = %2
   %6 = load ptr, ptr %5, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i8, ptr %7, align 16
-  %9 = sext i8 %8 to i64
-  %switch.gep = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %9
+  %9 = zext i8 %8 to i64
+  %switch.gep = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %9
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_12ParenTypeLocENS_9ParenTypeENS_12ParenLocInfoEE14getNextTypeLocEv.exit
 
@@ -7326,8 +7326,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i: ; preds = %2
   %6 = load ptr, ptr %5, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i8, ptr %7, align 16
-  %9 = sext i8 %8 to i64
-  %switch.gep = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %9
+  %9 = zext i8 %8 to i64
+  %switch.gep = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %9
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_11PipeTypeLocENS_8PipeTypeENS_15PipeTypeLocInfoEE14getNextTypeLocEv.exit
 
@@ -7363,8 +7363,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i: ; preds = %2
   %6 = load ptr, ptr %5, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i8, ptr %7, align 16
-  %9 = sext i8 %8 to i64
-  %switch.gep = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %9
+  %9 = zext i8 %8 to i64
+  %switch.gep = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %9
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_14PointerTypeLocENS_11PointerTypeENS_18PointerLikeLocInfoEE14getNextTypeLocEv.exit
 
@@ -7400,8 +7400,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i: ; preds = %2
   %6 = load ptr, ptr %5, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i8, ptr %7, align 16
-  %9 = sext i8 %8 to i64
-  %switch.gep = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %9
+  %9 = zext i8 %8 to i64
+  %switch.gep = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %9
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_16ReferenceTypeLocENS_13ReferenceTypeENS_18PointerLikeLocInfoEE14getNextTypeLocEv.exit
 
@@ -7437,8 +7437,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i: ; preds = %2
   %6 = load ptr, ptr %5, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i8, ptr %7, align 16
-  %9 = sext i8 %8 to i64
-  %switch.gep = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %9
+  %9 = zext i8 %8 to i64
+  %switch.gep = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %9
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_16ReferenceTypeLocENS_13ReferenceTypeENS_18PointerLikeLocInfoEE14getNextTypeLocEv.exit
 
@@ -7474,8 +7474,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i: ; preds = %2
   %6 = load ptr, ptr %5, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i8, ptr %7, align 16
-  %9 = sext i8 %8 to i64
-  %switch.gep = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %9
+  %9 = zext i8 %8 to i64
+  %switch.gep = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %9
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_13VectorTypeLocENS_10VectorTypeENS_17VectorTypeLocInfoEE14getNextTypeLocEv.exit
 
@@ -7511,8 +7511,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i: ; preds = %2
   %6 = load ptr, ptr %5, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i8, ptr %7, align 16
-  %9 = sext i8 %8 to i64
-  %switch.gep = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %9
+  %9 = zext i8 %8 to i64
+  %switch.gep = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %9
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_13VectorTypeLocENS_10VectorTypeENS_17VectorTypeLocInfoEE14getNextTypeLocEv.exit
 
@@ -7546,8 +7546,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i: ; preds = %1
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i8, ptr %5, align 16
-  %7 = sext i8 %6 to i64
-  %switch.gep = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %7
+  %7 = zext i8 %6 to i64
+  %switch.gep = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %7
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK5clang15AdjustedTypeLoc14getOriginalLocEv.exit
 
@@ -7579,8 +7579,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i: ; preds = %1
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i8, ptr %5, align 16
-  %7 = sext i8 %6 to i64
-  %switch.gep = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %7
+  %7 = zext i8 %6 to i64
+  %switch.gep = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %7
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK5clang15AdjustedTypeLoc14getOriginalLocEv.exit
 
@@ -7612,8 +7612,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i: ; preds = %1
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i8, ptr %5, align 16
-  %7 = sext i8 %6 to i64
-  %switch.gep = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %7
+  %7 = zext i8 %6 to i64
+  %switch.gep = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %7
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK5clang12ArrayTypeLoc13getElementLocEv.exit
 
@@ -7646,8 +7646,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i: ; preds = %1
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i8, ptr %5, align 16
-  %7 = sext i8 %6 to i64
-  %switch.gep = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %7
+  %7 = zext i8 %6 to i64
+  %switch.gep = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %7
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK5clang12ArrayTypeLoc13getElementLocEv.exit
 
@@ -7680,8 +7680,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i: ; preds = %1
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i8, ptr %5, align 16
-  %7 = sext i8 %6 to i64
-  %switch.gep = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %7
+  %7 = zext i8 %6 to i64
+  %switch.gep = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %7
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK5clang12ArrayTypeLoc13getElementLocEv.exit
 
@@ -7714,8 +7714,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i: ; preds = %1
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i8, ptr %5, align 16
-  %7 = sext i8 %6 to i64
-  %switch.gep = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %7
+  %7 = zext i8 %6 to i64
+  %switch.gep = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %7
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK5clang12ArrayTypeLoc13getElementLocEv.exit
 
@@ -7748,8 +7748,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i: ; preds = %1
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i8, ptr %5, align 16
-  %7 = sext i8 %6 to i64
-  %switch.gep = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %7
+  %7 = zext i8 %6 to i64
+  %switch.gep = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %7
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK5clang17AttributedTypeLoc14getModifiedLocEv.exit
 
@@ -7782,8 +7782,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i: ; preds = %1
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i8, ptr %5, align 16
-  %7 = sext i8 %6 to i64
-  %switch.gep = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %7
+  %7 = zext i8 %6 to i64
+  %switch.gep = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %7
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK5clang23BTFTagAttributedTypeLoc13getWrappedLocEv.exit
 
@@ -7816,8 +7816,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i: ; preds = %1
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i8, ptr %5, align 16
-  %7 = sext i8 %6 to i64
-  %switch.gep = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %7
+  %7 = zext i8 %6 to i64
+  %switch.gep = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %7
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK5clang18PointerLikeTypeLocINS_19BlockPointerTypeLocENS_16BlockPointerTypeENS_18PointerLikeLocInfoEE13getPointeeLocEv.exit
 
@@ -7869,8 +7869,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i: ; preds = %_ZNK5clang1
   %13 = load ptr, ptr %12, align 8, !tbaa !3
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load i8, ptr %14, align 16
-  %16 = sext i8 %15 to i64
-  %switch.gep = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %16
+  %16 = zext i8 %15 to i64
+  %switch.gep = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %16
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK5clang17ElaboratedTypeLoc15getNamedTypeLocEv.exit
 
@@ -7939,8 +7939,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i: ; preds = %_ZNK5clang1
   %20 = load ptr, ptr %19, align 8, !tbaa !3
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load i8, ptr %21, align 16
-  %23 = sext i8 %22 to i64
-  %switch.gep = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %23
+  %23 = zext i8 %22 to i64
+  %switch.gep = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %23
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK5clang15FunctionTypeLoc12getReturnLocEv.exit
 
@@ -8009,8 +8009,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i: ; preds = %_ZNK5clang1
   %20 = load ptr, ptr %19, align 8, !tbaa !3
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load i8, ptr %21, align 16
-  %23 = sext i8 %22 to i64
-  %switch.gep = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %23
+  %23 = zext i8 %22 to i64
+  %switch.gep = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %23
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK5clang15FunctionTypeLoc12getReturnLocEv.exit
 
@@ -8043,8 +8043,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i: ; preds = %1
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i8, ptr %5, align 16
-  %7 = sext i8 %6 to i64
-  %switch.gep = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %7
+  %7 = zext i8 %6 to i64
+  %switch.gep = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %7
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK5clang29HLSLAttributedResourceTypeLoc13getWrappedLocEv.exit
 
@@ -8077,8 +8077,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i: ; preds = %1
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i8, ptr %5, align 16
-  %7 = sext i8 %6 to i64
-  %switch.gep = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %7
+  %7 = zext i8 %6 to i64
+  %switch.gep = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %7
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK5clang21MacroQualifiedTypeLoc11getInnerLocEv.exit
 
@@ -8111,8 +8111,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i: ; preds = %1
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i8, ptr %5, align 16
-  %7 = sext i8 %6 to i64
-  %switch.gep = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %7
+  %7 = zext i8 %6 to i64
+  %switch.gep = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %7
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK5clang18PointerLikeTypeLocINS_20MemberPointerTypeLocENS_17MemberPointerTypeENS_20MemberPointerLocInfoEE13getPointeeLocEv.exit
 
@@ -8145,8 +8145,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i: ; preds = %1
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i8, ptr %5, align 16
-  %7 = sext i8 %6 to i64
-  %switch.gep = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %7
+  %7 = zext i8 %6 to i64
+  %switch.gep = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %7
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK5clang20PackExpansionTypeLoc13getPatternLocEv.exit
 
@@ -8179,8 +8179,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i: ; preds = %1
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i8, ptr %5, align 16
-  %7 = sext i8 %6 to i64
-  %switch.gep = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %7
+  %7 = zext i8 %6 to i64
+  %switch.gep = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %7
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK5clang12ParenTypeLoc11getInnerLocEv.exit
 
@@ -8213,8 +8213,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i: ; preds = %1
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i8, ptr %5, align 16
-  %7 = sext i8 %6 to i64
-  %switch.gep = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %7
+  %7 = zext i8 %6 to i64
+  %switch.gep = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %7
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK5clang18PointerLikeTypeLocINS_14PointerTypeLocENS_11PointerTypeENS_18PointerLikeLocInfoEE13getPointeeLocEv.exit
 
@@ -8247,8 +8247,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i: ; preds = %1
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i8, ptr %5, align 16
-  %7 = sext i8 %6 to i64
-  %switch.gep = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %7
+  %7 = zext i8 %6 to i64
+  %switch.gep = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %7
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK5clang18PointerLikeTypeLocINS_16ReferenceTypeLocENS_13ReferenceTypeENS_18PointerLikeLocInfoEE13getPointeeLocEv.exit
 
@@ -8281,8 +8281,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i: ; preds = %1
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i8, ptr %5, align 16
-  %7 = sext i8 %6 to i64
-  %switch.gep = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %7
+  %7 = zext i8 %6 to i64
+  %switch.gep = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %7
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK5clang18PointerLikeTypeLocINS_16ReferenceTypeLocENS_13ReferenceTypeENS_18PointerLikeLocInfoEE13getPointeeLocEv.exit
 
@@ -8315,8 +8315,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i.i.i.i.i.i.i: ; preds = %1
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i8, ptr %5, align 16
-  %7 = sext i8 %6 to i64
-  %switch.gep = getelementptr inbounds [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %7
+  %7 = zext i8 %6 to i64
+  %switch.gep = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN12_GLOBAL__N_130GetContainedAutoTypeLocVisitor17VisitArrayTypeLocEN5clang12ArrayTypeLocE, i64 0, i64 %7
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK5clang12ArrayTypeLoc13getElementLocEv.exit
 

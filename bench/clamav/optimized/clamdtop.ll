@@ -3550,8 +3550,8 @@ declare ptr @optparse(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 no
 define internal fastcc void @exit_program(i32 noundef range(i32 1, 6) %0, ptr noundef %1, i32 noundef range(i32 226, 1466) %2) unnamed_addr #15 {
 switch.lookup:
   %switch.tableidx = add nsw i32 %0, -1
-  %3 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table.exit_program, i64 0, i64 %3
+  %3 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.exit_program, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %switch.load, ptr @exit_reason, align 8, !tbaa !18
   store ptr %1, ptr @exit_func, align 8, !tbaa !18

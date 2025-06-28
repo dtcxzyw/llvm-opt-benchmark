@@ -23946,14 +23946,14 @@ switch.lookup:                                    ; preds = %VULKAN_INTERNAL_Def
 
 switch.lookup9:                                   ; preds = %.sink.split.i
   %switch.tableidx10 = add nsw i32 %2, -1
-  %42 = sext i32 %switch.tableidx10 to i64
-  %switch.gep11 = getelementptr inbounds [8 x i32], ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionFromDefaultUsage.38, i64 0, i64 %42
+  %42 = zext i32 %switch.tableidx10 to i64
+  %switch.gep11 = getelementptr inbounds nuw [8 x i32], ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionFromDefaultUsage.38, i64 0, i64 %42
   %switch.load12 = load i32, ptr %switch.gep11, align 4
-  %43 = sext i32 %switch.tableidx10 to i64
-  %switch.gep13 = getelementptr inbounds [8 x i32], ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionFromDefaultUsage.39, i64 0, i64 %43
+  %43 = zext i32 %switch.tableidx10 to i64
+  %switch.gep13 = getelementptr inbounds nuw [8 x i32], ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionFromDefaultUsage.39, i64 0, i64 %43
   %switch.load14 = load i32, ptr %switch.gep13, align 4
-  %44 = sext i32 %switch.tableidx10 to i64
-  %switch.gep15 = getelementptr inbounds [8 x i32], ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionFromDefaultUsage.40, i64 0, i64 %44
+  %44 = zext i32 %switch.tableidx10 to i64
+  %switch.gep15 = getelementptr inbounds nuw [8 x i32], ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionFromDefaultUsage.40, i64 0, i64 %44
   %switch.load16 = load i32, ptr %switch.gep15, align 4
   br label %VULKAN_INTERNAL_TextureSubresourceMemoryBarrier.exit
 

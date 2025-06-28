@@ -10786,11 +10786,11 @@ _ZN4llvm13AtomicRMWInst4InitENS0_5BinOpEPNS_5ValueES3_NS_5AlignENS_14AtomicOrder
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local { ptr, i64 } @_ZN4llvm13AtomicRMWInst16getOperationNameENS0_5BinOpE(i32 noundef %0) local_unnamed_addr #12 align 2 {
 switch.lookup:
-  %1 = sext i32 %0 to i64
-  %switch.gep = getelementptr inbounds [20 x i64], ptr @switch.table._ZN4llvm13AtomicRMWInst16getOperationNameENS0_5BinOpE, i64 0, i64 %1
+  %1 = zext i32 %0 to i64
+  %switch.gep = getelementptr inbounds nuw [20 x i64], ptr @switch.table._ZN4llvm13AtomicRMWInst16getOperationNameENS0_5BinOpE, i64 0, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
-  %2 = sext i32 %0 to i64
-  %switch.gep1 = getelementptr inbounds [20 x ptr], ptr @switch.table._ZN4llvm13AtomicRMWInst16getOperationNameENS0_5BinOpE.29, i64 0, i64 %2
+  %2 = zext i32 %0 to i64
+  %switch.gep1 = getelementptr inbounds nuw [20 x ptr], ptr @switch.table._ZN4llvm13AtomicRMWInst16getOperationNameENS0_5BinOpE.29, i64 0, i64 %2
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load, 1
@@ -19546,8 +19546,8 @@ declare noundef zeroext i1 @_ZNK4llvm11Instruction9hasNoNaNsEv(ptr noundef nonnu
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef range(i32 0, 42) i32 @_ZN4llvm7CmpInst19getInversePredicateENS0_9PredicateE(i32 noundef %0) local_unnamed_addr #12 align 2 {
 switch.lookup:
-  %1 = sext i32 %0 to i64
-  %switch.gep = getelementptr inbounds [42 x i32], ptr @switch.table._ZN4llvm7CmpInst19getInversePredicateENS0_9PredicateE, i64 0, i64 %1
+  %1 = zext i32 %0 to i64
+  %switch.gep = getelementptr inbounds nuw [42 x i32], ptr @switch.table._ZN4llvm7CmpInst19getInversePredicateENS0_9PredicateE, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -19620,8 +19620,8 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %14, %16
 define dso_local noundef range(i32 32, 42) i32 @_ZN4llvm8ICmpInst18getSignedPredicateENS_7CmpInst9PredicateE(i32 noundef %0) local_unnamed_addr #12 align 2 {
 switch.lookup:
   %switch.tableidx = add nsw i32 %0, -32
-  %1 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [10 x i32], ptr @switch.table._ZNK4llvm12CmpPredicate27getPreferredSignedPredicateEv, i64 0, i64 %1
+  %1 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZNK4llvm12CmpPredicate27getPreferredSignedPredicateEv, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -19630,8 +19630,8 @@ switch.lookup:
 define dso_local noundef range(i32 32, 38) i32 @_ZN4llvm8ICmpInst20getUnsignedPredicateENS_7CmpInst9PredicateE(i32 noundef %0) local_unnamed_addr #12 align 2 {
 switch.lookup:
   %switch.tableidx = add nsw i32 %0, -32
-  %1 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [10 x i32], ptr @switch.table._ZN4llvm8ICmpInst20getUnsignedPredicateENS_7CmpInst9PredicateE, i64 0, i64 %1
+  %1 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZN4llvm8ICmpInst20getUnsignedPredicateENS_7CmpInst9PredicateE, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -19639,8 +19639,8 @@ switch.lookup:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef range(i32 0, 42) i32 @_ZN4llvm7CmpInst19getSwappedPredicateENS0_9PredicateE(i32 noundef %0) local_unnamed_addr #12 align 2 {
 switch.lookup:
-  %1 = sext i32 %0 to i64
-  %switch.gep = getelementptr inbounds [42 x i32], ptr @switch.table._ZN4llvm7CmpInst19getSwappedPredicateENS0_9PredicateE, i64 0, i64 %1
+  %1 = zext i32 %0 to i64
+  %switch.gep = getelementptr inbounds nuw [42 x i32], ptr @switch.table._ZN4llvm7CmpInst19getSwappedPredicateENS0_9PredicateE, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -19719,7 +19719,7 @@ define dso_local noundef i32 @_ZN4llvm7CmpInst29getFlippedStrictnessPredicateENS
   %switch.shifted = lshr i32 983091, %3
   %switch.lobit = trunc i32 %switch.shifted to i1
   %or.cond = select i1 %4, i1 %switch.lobit, i1 false
-  br i1 %or.cond, label %switch.lookup, label %_ZN4llvm7CmpInst17isStrictPredicateENS0_9PredicateE.exit
+  br i1 %or.cond, label %_ZN4llvm7CmpInst21getNonStrictPredicateENS0_9PredicateE.exit.sink.split, label %_ZN4llvm7CmpInst17isStrictPredicateENS0_9PredicateE.exit
 
 _ZN4llvm7CmpInst17isStrictPredicateENS0_9PredicateE.exit: ; preds = %1
   %5 = add i32 %0, -3
@@ -19728,22 +19728,18 @@ _ZN4llvm7CmpInst17isStrictPredicateENS0_9PredicateE.exit: ; preds = %1
   %switch.shifted12 = lshr i32 983091, %6
   %switch.lobit13 = trunc i32 %switch.shifted12 to i1
   %or.cond16 = select i1 %7, i1 %switch.lobit13, i1 false
-  br i1 %or.cond16, label %switch.lookup11, label %_ZN4llvm7CmpInst21getNonStrictPredicateENS0_9PredicateE.exit
+  br i1 %or.cond16, label %_ZN4llvm7CmpInst21getNonStrictPredicateENS0_9PredicateE.exit.sink.split, label %_ZN4llvm7CmpInst21getNonStrictPredicateENS0_9PredicateE.exit
 
-switch.lookup:                                    ; preds = %1
-  %8 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds nuw [20 x i32], ptr @switch.table._ZN4llvm7CmpInst29getFlippedStrictnessPredicateENS0_9PredicateE, i64 0, i64 %8
-  %switch.load = load i32, ptr %switch.gep, align 4
-  br label %_ZN4llvm7CmpInst21getNonStrictPredicateENS0_9PredicateE.exit
-
-switch.lookup11:                                  ; preds = %_ZN4llvm7CmpInst17isStrictPredicateENS0_9PredicateE.exit
-  %9 = zext nneg i32 %6 to i64
-  %switch.gep14 = getelementptr inbounds nuw [20 x i32], ptr @switch.table._ZN4llvm7CmpInst29getFlippedStrictnessPredicateENS0_9PredicateE.32, i64 0, i64 %9
+_ZN4llvm7CmpInst21getNonStrictPredicateENS0_9PredicateE.exit.sink.split: ; preds = %_ZN4llvm7CmpInst17isStrictPredicateENS0_9PredicateE.exit, %1
+  %.sink17 = phi i32 [ %3, %1 ], [ %6, %_ZN4llvm7CmpInst17isStrictPredicateENS0_9PredicateE.exit ]
+  %switch.table._ZN4llvm7CmpInst29getFlippedStrictnessPredicateENS0_9PredicateE.32.sink = phi ptr [ @switch.table._ZN4llvm7CmpInst29getFlippedStrictnessPredicateENS0_9PredicateE, %1 ], [ @switch.table._ZN4llvm7CmpInst29getFlippedStrictnessPredicateENS0_9PredicateE.32, %_ZN4llvm7CmpInst17isStrictPredicateENS0_9PredicateE.exit ]
+  %8 = zext i32 %.sink17 to i64
+  %switch.gep14 = getelementptr inbounds nuw [20 x i32], ptr %switch.table._ZN4llvm7CmpInst29getFlippedStrictnessPredicateENS0_9PredicateE.32.sink, i64 0, i64 %8
   %switch.load15 = load i32, ptr %switch.gep14, align 4
   br label %_ZN4llvm7CmpInst21getNonStrictPredicateENS0_9PredicateE.exit
 
-_ZN4llvm7CmpInst21getNonStrictPredicateENS0_9PredicateE.exit: ; preds = %_ZN4llvm7CmpInst17isStrictPredicateENS0_9PredicateE.exit, %switch.lookup11, %switch.lookup
-  %.0 = phi i32 [ %switch.load, %switch.lookup ], [ %switch.load15, %switch.lookup11 ], [ %0, %_ZN4llvm7CmpInst17isStrictPredicateENS0_9PredicateE.exit ]
+_ZN4llvm7CmpInst21getNonStrictPredicateENS0_9PredicateE.exit: ; preds = %_ZN4llvm7CmpInst21getNonStrictPredicateENS0_9PredicateE.exit.sink.split, %_ZN4llvm7CmpInst17isStrictPredicateENS0_9PredicateE.exit
+  %.0 = phi i32 [ %0, %_ZN4llvm7CmpInst17isStrictPredicateENS0_9PredicateE.exit ], [ %switch.load15, %_ZN4llvm7CmpInst21getNonStrictPredicateENS0_9PredicateE.exit.sink.split ]
   ret i32 %.0
 }
 
@@ -20135,9 +20131,8 @@ define dso_local range(i16 0, 258) i16 @_ZN4llvm8ICmpInst22isImpliedByMatchingCm
   br i1 %3, label %7, label %switch.lookup
 
 switch.lookup:                                    ; preds = %2
-  %sext = shl i64 %1, 32
-  %4 = ashr exact i64 %sext, 32
-  %switch.gep = getelementptr inbounds [42 x i64], ptr @switch.table._ZN4llvm8ICmpInst22isImpliedByMatchingCmpENS_12CmpPredicateES1_, i64 0, i64 %4
+  %4 = and i64 %1, 4294967295
+  %switch.gep = getelementptr inbounds nuw [42 x i64], ptr @switch.table._ZN4llvm8ICmpInst22isImpliedByMatchingCmpENS_12CmpPredicateES1_, i64 0, i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   %.sroa.22.0.insert.ext.i.i = and i64 %1, 4294967296
   %.sroa.01.0.insert.insert.i.i = or disjoint i64 %switch.load, %.sroa.22.0.insert.ext.i.i
@@ -20423,8 +20418,8 @@ define dso_local noundef i32 @_ZNK4llvm12CmpPredicate27getPreferredSignedPredica
 
 switch.lookup:                                    ; preds = %1
   %switch.tableidx = add nsw i32 %5, -32
-  %6 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [10 x i32], ptr @switch.table._ZNK4llvm12CmpPredicate27getPreferredSignedPredicateEv, i64 0, i64 %6
+  %6 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZNK4llvm12CmpPredicate27getPreferredSignedPredicateEv, i64 0, i64 %6
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN4llvm8ICmpInst18getSignedPredicateENS_7CmpInst9PredicateE.exit
 

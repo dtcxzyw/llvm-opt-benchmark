@@ -9464,11 +9464,11 @@ switch.lookup11:
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 3572
   %7 = load i8, ptr %6, align 4, !range !2000, !noundef !19
-  %8 = zext nneg i8 %7 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN2ui6styles7spacing7Spacing13spacing_ratio17hf9a649e6a2594914E.46, i64 0, i64 %8
+  %8 = zext i8 %0 to i64
+  %9 = zext nneg i8 %7 to i64
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN2ui6styles7spacing7Spacing13spacing_ratio17hf9a649e6a2594914E.46, i64 0, i64 %9
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %9 = sext i8 %0 to i64
-  %switch.gep9 = getelementptr inbounds [8 x float], ptr %switch.load, i64 0, i64 %9
+  %switch.gep9 = getelementptr inbounds nuw [8 x float], ptr %switch.load, i64 0, i64 %8
   %switch.load10 = load float, ptr %switch.gep9, align 4
   ret float %switch.load10
 }

@@ -21103,8 +21103,8 @@ _ZN4llvm7APFloat7makeNaNEbbPKNS_5APIntE.exit:     ; preds = %9, %10
 define linkonce_odr hidden noundef signext i8 @_ZN4llvm4nvvm26GetFPToIntegerRoundingModeEj(i32 noundef %0) local_unnamed_addr #3 comdat {
 switch.lookup:
   %switch.tableidx = add nsw i32 %0, -8302
-  %1 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [95 x i8], ptr @switch.table._ZN4llvm4nvvm26GetFPToIntegerRoundingModeEj, i64 0, i64 %1
+  %1 = zext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [95 x i8], ptr @switch.table._ZN4llvm4nvvm26GetFPToIntegerRoundingModeEj, i64 0, i64 %1
   %switch.load = load i8, ptr %switch.gep, align 1
   ret i8 %switch.load
 }

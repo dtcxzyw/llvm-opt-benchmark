@@ -36854,33 +36854,27 @@ define noundef range(i32 1, 7) i32 @_ZN13QCPAxisTicker15getSubTickCountEd(ptr re
   %.013 = add i32 %15, %10
   %switch.tableidx = add i32 %.013, -1
   %16 = icmp ult i32 %switch.tableidx, 9
-  br i1 %16, label %switch.lookup, label %25
+  br i1 %16, label %.sink.split, label %23
 
 17:                                               ; preds = %2
   %18 = fadd double %8, -5.000000e-01
   %19 = tail call double @llvm.fabs.f64(double %18)
   %20 = fcmp olt double %19, 1.000000e-02
-  br i1 %20, label %21, label %25
-
-21:                                               ; preds = %17
   %switch.tableidx17 = add i32 %10, -1
-  %22 = icmp ult i32 %switch.tableidx17, 9
-  br i1 %22, label %switch.lookup16, label %25
+  %21 = icmp ult i32 %switch.tableidx17, 9
+  %or.cond20 = select i1 %20, i1 %21, i1 false
+  br i1 %or.cond20, label %.sink.split, label %23
 
-switch.lookup:                                    ; preds = %14
-  %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZN15QCPAxisTickerPi15getSubTickCountEd, i64 0, i64 %23
-  %switch.load = load i32, ptr %switch.gep, align 4
-  br label %25
-
-switch.lookup16:                                  ; preds = %21
-  %24 = zext nneg i32 %switch.tableidx17 to i64
-  %switch.gep18 = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZN15QCPAxisTickerPi15getSubTickCountEd.5, i64 0, i64 %24
+.sink.split:                                      ; preds = %17, %14
+  %switch.tableidx17.sink = phi i32 [ %switch.tableidx, %14 ], [ %switch.tableidx17, %17 ]
+  %switch.table._ZN13QCPAxisTicker15getSubTickCountEd.2.sink = phi ptr [ @switch.table._ZN15QCPAxisTickerPi15getSubTickCountEd, %14 ], [ @switch.table._ZN15QCPAxisTickerPi15getSubTickCountEd.5, %17 ]
+  %22 = zext i32 %switch.tableidx17.sink to i64
+  %switch.gep18 = getelementptr inbounds nuw [9 x i32], ptr %switch.table._ZN13QCPAxisTicker15getSubTickCountEd.2.sink, i64 0, i64 %22
   %switch.load19 = load i32, ptr %switch.gep18, align 4
-  br label %25
+  br label %23
 
-25:                                               ; preds = %switch.lookup16, %21, %switch.lookup, %14, %17
-  %.0 = phi i32 [ 1, %14 ], [ 1, %21 ], [ 1, %17 ], [ %switch.load, %switch.lookup ], [ %switch.load19, %switch.lookup16 ]
+23:                                               ; preds = %.sink.split, %14, %17
+  %.0 = phi i32 [ 1, %14 ], [ 1, %17 ], [ %switch.load19, %.sink.split ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #52
   ret i32 %.0
 }
@@ -38238,79 +38232,73 @@ define noundef range(i32 1, 7) i32 @_ZN21QCPAxisTickerDateTime15getSubTickCountE
   %.013.i = add i32 %15, %10
   %switch.tableidx = add i32 %.013.i, -1
   %16 = icmp ult i32 %switch.tableidx, 9
-  br i1 %16, label %switch.lookup, label %_ZN13QCPAxisTicker15getSubTickCountEd.exit
+  br i1 %16, label %_ZN13QCPAxisTicker15getSubTickCountEd.exit.sink.split, label %_ZN13QCPAxisTicker15getSubTickCountEd.exit
 
 17:                                               ; preds = %2
   %18 = fadd double %8, -5.000000e-01
   %19 = tail call double @llvm.fabs.f64(double %18)
   %20 = fcmp olt double %19, 1.000000e-02
-  br i1 %20, label %21, label %_ZN13QCPAxisTicker15getSubTickCountEd.exit
-
-21:                                               ; preds = %17
   %switch.tableidx4 = add i32 %10, -1
-  %22 = icmp ult i32 %switch.tableidx4, 9
-  br i1 %22, label %switch.lookup3, label %_ZN13QCPAxisTicker15getSubTickCountEd.exit
+  %21 = icmp ult i32 %switch.tableidx4, 9
+  %or.cond = select i1 %20, i1 %21, i1 false
+  br i1 %or.cond, label %_ZN13QCPAxisTicker15getSubTickCountEd.exit.sink.split, label %_ZN13QCPAxisTicker15getSubTickCountEd.exit
 
-switch.lookup:                                    ; preds = %14
-  %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZN15QCPAxisTickerPi15getSubTickCountEd, i64 0, i64 %23
-  %switch.load = load i32, ptr %switch.gep, align 4
-  br label %_ZN13QCPAxisTicker15getSubTickCountEd.exit
-
-switch.lookup3:                                   ; preds = %21
-  %24 = zext nneg i32 %switch.tableidx4 to i64
-  %switch.gep5 = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZN15QCPAxisTickerPi15getSubTickCountEd.5, i64 0, i64 %24
+_ZN13QCPAxisTicker15getSubTickCountEd.exit.sink.split: ; preds = %17, %14
+  %switch.tableidx4.sink = phi i32 [ %switch.tableidx, %14 ], [ %switch.tableidx4, %17 ]
+  %switch.table._ZN21QCPAxisTickerDateTime15getSubTickCountEd.3.sink = phi ptr [ @switch.table._ZN15QCPAxisTickerPi15getSubTickCountEd, %14 ], [ @switch.table._ZN15QCPAxisTickerPi15getSubTickCountEd.5, %17 ]
+  %22 = zext i32 %switch.tableidx4.sink to i64
+  %switch.gep5 = getelementptr inbounds nuw [9 x i32], ptr %switch.table._ZN21QCPAxisTickerDateTime15getSubTickCountEd.3.sink, i64 0, i64 %22
   %switch.load6 = load i32, ptr %switch.gep5, align 4
   br label %_ZN13QCPAxisTicker15getSubTickCountEd.exit
 
-_ZN13QCPAxisTicker15getSubTickCountEd.exit:       ; preds = %switch.lookup3, %21, %switch.lookup, %14, %17
-  %.0.i = phi i32 [ 1, %14 ], [ 1, %21 ], [ 1, %17 ], [ %switch.load, %switch.lookup ], [ %switch.load6, %switch.lookup3 ]
+_ZN13QCPAxisTicker15getSubTickCountEd.exit:       ; preds = %_ZN13QCPAxisTicker15getSubTickCountEd.exit.sink.split, %14, %17
+  %.0.i = phi i32 [ 1, %14 ], [ 1, %17 ], [ %switch.load6, %_ZN13QCPAxisTicker15getSubTickCountEd.exit.sink.split ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #52
-  %25 = tail call double @llvm.copysign.f64(double 5.000000e-01, double %1)
-  %26 = fadd double %1, %25
-  %27 = fptosi double %26 to i32
-  switch i32 %27, label %34 [
-    i32 300, label %28
-    i32 600, label %29
-    i32 900, label %30
-    i32 1800, label %29
-    i32 3600, label %31
-    i32 7200, label %31
-    i32 10800, label %30
-    i32 21600, label %29
-    i32 43200, label %31
-    i32 86400, label %31
-    i32 172800, label %29
-    i32 432000, label %28
-    i32 604800, label %32
-    i32 1209600, label %29
-    i32 2629800, label %31
-    i32 5259600, label %29
-    i32 7889400, label %30
-    i32 15778800, label %33
-    i32 31557600, label %31
+  %23 = tail call double @llvm.copysign.f64(double 5.000000e-01, double %1)
+  %24 = fadd double %1, %23
+  %25 = fptosi double %24 to i32
+  switch i32 %25, label %32 [
+    i32 300, label %26
+    i32 600, label %27
+    i32 900, label %28
+    i32 1800, label %27
+    i32 3600, label %29
+    i32 7200, label %29
+    i32 10800, label %28
+    i32 21600, label %27
+    i32 43200, label %29
+    i32 86400, label %29
+    i32 172800, label %27
+    i32 432000, label %26
+    i32 604800, label %30
+    i32 1209600, label %27
+    i32 2629800, label %29
+    i32 5259600, label %27
+    i32 7889400, label %28
+    i32 15778800, label %31
+    i32 31557600, label %29
   ]
 
-28:                                               ; preds = %_ZN13QCPAxisTicker15getSubTickCountEd.exit, %_ZN13QCPAxisTicker15getSubTickCountEd.exit
-  br label %34
+26:                                               ; preds = %_ZN13QCPAxisTicker15getSubTickCountEd.exit, %_ZN13QCPAxisTicker15getSubTickCountEd.exit
+  br label %32
+
+27:                                               ; preds = %_ZN13QCPAxisTicker15getSubTickCountEd.exit, %_ZN13QCPAxisTicker15getSubTickCountEd.exit, %_ZN13QCPAxisTicker15getSubTickCountEd.exit, %_ZN13QCPAxisTicker15getSubTickCountEd.exit, %_ZN13QCPAxisTicker15getSubTickCountEd.exit, %_ZN13QCPAxisTicker15getSubTickCountEd.exit
+  br label %32
+
+28:                                               ; preds = %_ZN13QCPAxisTicker15getSubTickCountEd.exit, %_ZN13QCPAxisTicker15getSubTickCountEd.exit, %_ZN13QCPAxisTicker15getSubTickCountEd.exit
+  br label %32
 
 29:                                               ; preds = %_ZN13QCPAxisTicker15getSubTickCountEd.exit, %_ZN13QCPAxisTicker15getSubTickCountEd.exit, %_ZN13QCPAxisTicker15getSubTickCountEd.exit, %_ZN13QCPAxisTicker15getSubTickCountEd.exit, %_ZN13QCPAxisTicker15getSubTickCountEd.exit, %_ZN13QCPAxisTicker15getSubTickCountEd.exit
-  br label %34
+  br label %32
 
-30:                                               ; preds = %_ZN13QCPAxisTicker15getSubTickCountEd.exit, %_ZN13QCPAxisTicker15getSubTickCountEd.exit, %_ZN13QCPAxisTicker15getSubTickCountEd.exit
-  br label %34
+30:                                               ; preds = %_ZN13QCPAxisTicker15getSubTickCountEd.exit
+  br label %32
 
-31:                                               ; preds = %_ZN13QCPAxisTicker15getSubTickCountEd.exit, %_ZN13QCPAxisTicker15getSubTickCountEd.exit, %_ZN13QCPAxisTicker15getSubTickCountEd.exit, %_ZN13QCPAxisTicker15getSubTickCountEd.exit, %_ZN13QCPAxisTicker15getSubTickCountEd.exit, %_ZN13QCPAxisTicker15getSubTickCountEd.exit
-  br label %34
+31:                                               ; preds = %_ZN13QCPAxisTicker15getSubTickCountEd.exit
+  br label %32
 
-32:                                               ; preds = %_ZN13QCPAxisTicker15getSubTickCountEd.exit
-  br label %34
-
-33:                                               ; preds = %_ZN13QCPAxisTicker15getSubTickCountEd.exit
-  br label %34
-
-34:                                               ; preds = %33, %32, %31, %30, %29, %28, %_ZN13QCPAxisTicker15getSubTickCountEd.exit
-  %.0 = phi i32 [ %.0.i, %_ZN13QCPAxisTicker15getSubTickCountEd.exit ], [ 4, %28 ], [ 1, %29 ], [ 2, %30 ], [ 3, %31 ], [ 6, %32 ], [ 5, %33 ]
+32:                                               ; preds = %31, %30, %29, %28, %27, %26, %_ZN13QCPAxisTicker15getSubTickCountEd.exit
+  %.0 = phi i32 [ %.0.i, %_ZN13QCPAxisTicker15getSubTickCountEd.exit ], [ 4, %26 ], [ 1, %27 ], [ 2, %28 ], [ 3, %29 ], [ 6, %30 ], [ 5, %31 ]
   ret i32 %.0
 }
 
@@ -40389,64 +40377,58 @@ define noundef range(i32 1, 7) i32 @_ZN17QCPAxisTickerTime15getSubTickCountEd(pt
   %.013.i = add i32 %15, %10
   %switch.tableidx = add i32 %.013.i, -1
   %16 = icmp ult i32 %switch.tableidx, 9
-  br i1 %16, label %switch.lookup, label %_ZN13QCPAxisTicker15getSubTickCountEd.exit
+  br i1 %16, label %_ZN13QCPAxisTicker15getSubTickCountEd.exit.sink.split, label %_ZN13QCPAxisTicker15getSubTickCountEd.exit
 
 17:                                               ; preds = %2
   %18 = fadd double %8, -5.000000e-01
   %19 = tail call double @llvm.fabs.f64(double %18)
   %20 = fcmp olt double %19, 1.000000e-02
-  br i1 %20, label %21, label %_ZN13QCPAxisTicker15getSubTickCountEd.exit
-
-21:                                               ; preds = %17
   %switch.tableidx4 = add i32 %10, -1
-  %22 = icmp ult i32 %switch.tableidx4, 9
-  br i1 %22, label %switch.lookup3, label %_ZN13QCPAxisTicker15getSubTickCountEd.exit
+  %21 = icmp ult i32 %switch.tableidx4, 9
+  %or.cond = select i1 %20, i1 %21, i1 false
+  br i1 %or.cond, label %_ZN13QCPAxisTicker15getSubTickCountEd.exit.sink.split, label %_ZN13QCPAxisTicker15getSubTickCountEd.exit
 
-switch.lookup:                                    ; preds = %14
-  %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZN15QCPAxisTickerPi15getSubTickCountEd, i64 0, i64 %23
-  %switch.load = load i32, ptr %switch.gep, align 4
-  br label %_ZN13QCPAxisTicker15getSubTickCountEd.exit
-
-switch.lookup3:                                   ; preds = %21
-  %24 = zext nneg i32 %switch.tableidx4 to i64
-  %switch.gep5 = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZN15QCPAxisTickerPi15getSubTickCountEd.5, i64 0, i64 %24
+_ZN13QCPAxisTicker15getSubTickCountEd.exit.sink.split: ; preds = %17, %14
+  %switch.tableidx4.sink = phi i32 [ %switch.tableidx, %14 ], [ %switch.tableidx4, %17 ]
+  %switch.table._ZN17QCPAxisTickerTime15getSubTickCountEd.4.sink = phi ptr [ @switch.table._ZN15QCPAxisTickerPi15getSubTickCountEd, %14 ], [ @switch.table._ZN15QCPAxisTickerPi15getSubTickCountEd.5, %17 ]
+  %22 = zext i32 %switch.tableidx4.sink to i64
+  %switch.gep5 = getelementptr inbounds nuw [9 x i32], ptr %switch.table._ZN17QCPAxisTickerTime15getSubTickCountEd.4.sink, i64 0, i64 %22
   %switch.load6 = load i32, ptr %switch.gep5, align 4
   br label %_ZN13QCPAxisTicker15getSubTickCountEd.exit
 
-_ZN13QCPAxisTicker15getSubTickCountEd.exit:       ; preds = %switch.lookup3, %21, %switch.lookup, %14, %17
-  %.0.i = phi i32 [ 1, %14 ], [ 1, %21 ], [ 1, %17 ], [ %switch.load, %switch.lookup ], [ %switch.load6, %switch.lookup3 ]
+_ZN13QCPAxisTicker15getSubTickCountEd.exit:       ; preds = %_ZN13QCPAxisTicker15getSubTickCountEd.exit.sink.split, %14, %17
+  %.0.i = phi i32 [ 1, %14 ], [ 1, %17 ], [ %switch.load6, %_ZN13QCPAxisTicker15getSubTickCountEd.exit.sink.split ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #52
-  %25 = tail call double @llvm.copysign.f64(double 5.000000e-01, double %1)
-  %26 = fadd double %1, %25
-  %27 = fptosi double %26 to i32
-  switch i32 %27, label %32 [
-    i32 300, label %28
-    i32 600, label %29
-    i32 900, label %30
-    i32 1800, label %29
-    i32 3600, label %31
-    i32 7200, label %31
-    i32 10800, label %30
-    i32 21600, label %29
-    i32 43200, label %31
-    i32 86400, label %31
+  %23 = tail call double @llvm.copysign.f64(double 5.000000e-01, double %1)
+  %24 = fadd double %1, %23
+  %25 = fptosi double %24 to i32
+  switch i32 %25, label %30 [
+    i32 300, label %26
+    i32 600, label %27
+    i32 900, label %28
+    i32 1800, label %27
+    i32 3600, label %29
+    i32 7200, label %29
+    i32 10800, label %28
+    i32 21600, label %27
+    i32 43200, label %29
+    i32 86400, label %29
   ]
 
-28:                                               ; preds = %_ZN13QCPAxisTicker15getSubTickCountEd.exit
-  br label %32
+26:                                               ; preds = %_ZN13QCPAxisTicker15getSubTickCountEd.exit
+  br label %30
 
-29:                                               ; preds = %_ZN13QCPAxisTicker15getSubTickCountEd.exit, %_ZN13QCPAxisTicker15getSubTickCountEd.exit, %_ZN13QCPAxisTicker15getSubTickCountEd.exit
-  br label %32
+27:                                               ; preds = %_ZN13QCPAxisTicker15getSubTickCountEd.exit, %_ZN13QCPAxisTicker15getSubTickCountEd.exit, %_ZN13QCPAxisTicker15getSubTickCountEd.exit
+  br label %30
 
-30:                                               ; preds = %_ZN13QCPAxisTicker15getSubTickCountEd.exit, %_ZN13QCPAxisTicker15getSubTickCountEd.exit
-  br label %32
+28:                                               ; preds = %_ZN13QCPAxisTicker15getSubTickCountEd.exit, %_ZN13QCPAxisTicker15getSubTickCountEd.exit
+  br label %30
 
-31:                                               ; preds = %_ZN13QCPAxisTicker15getSubTickCountEd.exit, %_ZN13QCPAxisTicker15getSubTickCountEd.exit, %_ZN13QCPAxisTicker15getSubTickCountEd.exit, %_ZN13QCPAxisTicker15getSubTickCountEd.exit
-  br label %32
+29:                                               ; preds = %_ZN13QCPAxisTicker15getSubTickCountEd.exit, %_ZN13QCPAxisTicker15getSubTickCountEd.exit, %_ZN13QCPAxisTicker15getSubTickCountEd.exit, %_ZN13QCPAxisTicker15getSubTickCountEd.exit
+  br label %30
 
-32:                                               ; preds = %31, %30, %29, %28, %_ZN13QCPAxisTicker15getSubTickCountEd.exit
-  %.0 = phi i32 [ %.0.i, %_ZN13QCPAxisTicker15getSubTickCountEd.exit ], [ 4, %28 ], [ 1, %29 ], [ 2, %30 ], [ 3, %31 ]
+30:                                               ; preds = %29, %28, %27, %26, %_ZN13QCPAxisTicker15getSubTickCountEd.exit
+  %.0 = phi i32 [ %.0.i, %_ZN13QCPAxisTicker15getSubTickCountEd.exit ], [ 4, %26 ], [ 1, %27 ], [ 2, %28 ], [ 3, %29 ]
   ret i32 %.0
 }
 
@@ -42339,33 +42321,27 @@ define noundef range(i32 1, 7) i32 @_ZN15QCPAxisTickerPi15getSubTickCountEd(ptr 
   %.013.i = add i32 %18, %13
   %switch.tableidx = add i32 %.013.i, -1
   %19 = icmp ult i32 %switch.tableidx, 9
-  br i1 %19, label %switch.lookup, label %_ZN13QCPAxisTicker15getSubTickCountEd.exit
+  br i1 %19, label %_ZN13QCPAxisTicker15getSubTickCountEd.exit.sink.split, label %_ZN13QCPAxisTicker15getSubTickCountEd.exit
 
 20:                                               ; preds = %2
   %21 = fadd double %11, -5.000000e-01
   %22 = tail call double @llvm.fabs.f64(double %21)
   %23 = fcmp olt double %22, 1.000000e-02
-  br i1 %23, label %24, label %_ZN13QCPAxisTicker15getSubTickCountEd.exit
-
-24:                                               ; preds = %20
   %switch.tableidx3 = add i32 %13, -1
-  %25 = icmp ult i32 %switch.tableidx3, 9
-  br i1 %25, label %switch.lookup2, label %_ZN13QCPAxisTicker15getSubTickCountEd.exit
+  %24 = icmp ult i32 %switch.tableidx3, 9
+  %or.cond = select i1 %23, i1 %24, i1 false
+  br i1 %or.cond, label %_ZN13QCPAxisTicker15getSubTickCountEd.exit.sink.split, label %_ZN13QCPAxisTicker15getSubTickCountEd.exit
 
-switch.lookup:                                    ; preds = %17
-  %26 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZN15QCPAxisTickerPi15getSubTickCountEd, i64 0, i64 %26
-  %switch.load = load i32, ptr %switch.gep, align 4
-  br label %_ZN13QCPAxisTicker15getSubTickCountEd.exit
-
-switch.lookup2:                                   ; preds = %24
-  %27 = zext nneg i32 %switch.tableidx3 to i64
-  %switch.gep4 = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZN15QCPAxisTickerPi15getSubTickCountEd.5, i64 0, i64 %27
+_ZN13QCPAxisTicker15getSubTickCountEd.exit.sink.split: ; preds = %20, %17
+  %switch.tableidx3.sink = phi i32 [ %switch.tableidx, %17 ], [ %switch.tableidx3, %20 ]
+  %switch.table._ZN15QCPAxisTickerPi15getSubTickCountEd.5.sink = phi ptr [ @switch.table._ZN15QCPAxisTickerPi15getSubTickCountEd, %17 ], [ @switch.table._ZN15QCPAxisTickerPi15getSubTickCountEd.5, %20 ]
+  %25 = zext i32 %switch.tableidx3.sink to i64
+  %switch.gep4 = getelementptr inbounds nuw [9 x i32], ptr %switch.table._ZN15QCPAxisTickerPi15getSubTickCountEd.5.sink, i64 0, i64 %25
   %switch.load5 = load i32, ptr %switch.gep4, align 4
   br label %_ZN13QCPAxisTicker15getSubTickCountEd.exit
 
-_ZN13QCPAxisTicker15getSubTickCountEd.exit:       ; preds = %switch.lookup2, %24, %switch.lookup, %17, %20
-  %.0.i = phi i32 [ 1, %17 ], [ 1, %24 ], [ 1, %20 ], [ %switch.load, %switch.lookup ], [ %switch.load5, %switch.lookup2 ]
+_ZN13QCPAxisTicker15getSubTickCountEd.exit:       ; preds = %_ZN13QCPAxisTicker15getSubTickCountEd.exit.sink.split, %17, %20
+  %.0.i = phi i32 [ 1, %17 ], [ 1, %20 ], [ %switch.load5, %_ZN13QCPAxisTicker15getSubTickCountEd.exit.sink.split ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #52
   ret i32 %.0.i
 }

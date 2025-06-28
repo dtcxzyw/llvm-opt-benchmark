@@ -25771,11 +25771,11 @@ common.ret:                                       ; preds = %190, %"_ZN4core3ptr
   store i8 %storemerge, ptr %7, align 4
   ret void
 
-"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$wasi_common..file..FileEntry$GT$$GT$17h3d1411b1e743f61dE.exit": ; preds = %216, %223, %"_ZN11wasi_common9snapshots9preview_1135_$LT$impl$u20$core..convert..From$LT$$RF$wasi_common..file..FdStat$GT$$u20$for$u20$wasi_common..snapshots..preview_1..types..Fdstat$GT$4from17h7913f987a2e00dc3E.exit", %209, %70, %62, %"_ZN4core3ptr71drop_in_place$LT$alloc..sync..Arc$LT$wasi_common..dir..DirEntry$GT$$GT$17h96e8fb9e6fa2d487E.exit32", %"_ZN118_$LT$wasi_common..snapshots..preview_1..types..Error$u20$as$u20$wasi_common..snapshots..preview_1..error..ErrorExt$GT$4badf17hf5b17ea7ccab41f4E.exit"
-  %.sroa.063.0 = phi i64 [ %71, %70 ], [ %41, %"_ZN4core3ptr71drop_in_place$LT$alloc..sync..Arc$LT$wasi_common..dir..DirEntry$GT$$GT$17h96e8fb9e6fa2d487E.exit32" ], [ %63, %62 ], [ %33, %"_ZN118_$LT$wasi_common..snapshots..preview_1..types..Error$u20$as$u20$wasi_common..snapshots..preview_1..error..ErrorExt$GT$4badf17hf5b17ea7ccab41f4E.exit" ], [ %.116.i, %209 ], [ %.116.i, %"_ZN11wasi_common9snapshots9preview_1135_$LT$impl$u20$core..convert..From$LT$$RF$wasi_common..file..FdStat$GT$$u20$for$u20$wasi_common..snapshots..preview_1..types..Fdstat$GT$4from17h7913f987a2e00dc3E.exit" ], [ %218, %223 ], [ %218, %216 ]
-  %.sroa.764.0 = phi i64 [ undef, %70 ], [ %50, %"_ZN4core3ptr71drop_in_place$LT$alloc..sync..Arc$LT$wasi_common..dir..DirEntry$GT$$GT$17h96e8fb9e6fa2d487E.exit32" ], [ undef, %62 ], [ undef, %"_ZN118_$LT$wasi_common..snapshots..preview_1..types..Error$u20$as$u20$wasi_common..snapshots..preview_1..error..ErrorExt$GT$4badf17hf5b17ea7ccab41f4E.exit" ], [ 0, %209 ], [ 0, %"_ZN11wasi_common9snapshots9preview_1135_$LT$impl$u20$core..convert..From$LT$$RF$wasi_common..file..FdStat$GT$$u20$for$u20$wasi_common..snapshots..preview_1..types..Fdstat$GT$4from17h7913f987a2e00dc3E.exit" ], [ undef, %223 ], [ undef, %216 ]
-  %.sroa.965.0 = phi i16 [ undef, %70 ], [ 0, %"_ZN4core3ptr71drop_in_place$LT$alloc..sync..Arc$LT$wasi_common..dir..DirEntry$GT$$GT$17h96e8fb9e6fa2d487E.exit32" ], [ undef, %62 ], [ undef, %"_ZN118_$LT$wasi_common..snapshots..preview_1..types..Error$u20$as$u20$wasi_common..snapshots..preview_1..error..ErrorExt$GT$4badf17hf5b17ea7ccab41f4E.exit" ], [ %202, %209 ], [ %202, %"_ZN11wasi_common9snapshots9preview_1135_$LT$impl$u20$core..convert..From$LT$$RF$wasi_common..file..FdStat$GT$$u20$for$u20$wasi_common..snapshots..preview_1..types..Fdstat$GT$4from17h7913f987a2e00dc3E.exit" ], [ undef, %223 ], [ undef, %216 ]
-  %.sroa.11.0 = phi i8 [ 8, %70 ], [ 3, %"_ZN4core3ptr71drop_in_place$LT$alloc..sync..Arc$LT$wasi_common..dir..DirEntry$GT$$GT$17h96e8fb9e6fa2d487E.exit32" ], [ 8, %62 ], [ 8, %"_ZN118_$LT$wasi_common..snapshots..preview_1..types..Error$u20$as$u20$wasi_common..snapshots..preview_1..error..ErrorExt$GT$4badf17hf5b17ea7ccab41f4E.exit" ], [ %switch.load, %209 ], [ %switch.load, %"_ZN11wasi_common9snapshots9preview_1135_$LT$impl$u20$core..convert..From$LT$$RF$wasi_common..file..FdStat$GT$$u20$for$u20$wasi_common..snapshots..preview_1..types..Fdstat$GT$4from17h7913f987a2e00dc3E.exit" ], [ 8, %223 ], [ 8, %216 ]
+"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$wasi_common..file..FileEntry$GT$$GT$17h3d1411b1e743f61dE.exit": ; preds = %215, %222, %"_ZN11wasi_common9snapshots9preview_1135_$LT$impl$u20$core..convert..From$LT$$RF$wasi_common..file..FdStat$GT$$u20$for$u20$wasi_common..snapshots..preview_1..types..Fdstat$GT$4from17h7913f987a2e00dc3E.exit", %208, %70, %62, %"_ZN4core3ptr71drop_in_place$LT$alloc..sync..Arc$LT$wasi_common..dir..DirEntry$GT$$GT$17h96e8fb9e6fa2d487E.exit32", %"_ZN118_$LT$wasi_common..snapshots..preview_1..types..Error$u20$as$u20$wasi_common..snapshots..preview_1..error..ErrorExt$GT$4badf17hf5b17ea7ccab41f4E.exit"
+  %.sroa.063.0 = phi i64 [ %71, %70 ], [ %41, %"_ZN4core3ptr71drop_in_place$LT$alloc..sync..Arc$LT$wasi_common..dir..DirEntry$GT$$GT$17h96e8fb9e6fa2d487E.exit32" ], [ %63, %62 ], [ %33, %"_ZN118_$LT$wasi_common..snapshots..preview_1..types..Error$u20$as$u20$wasi_common..snapshots..preview_1..error..ErrorExt$GT$4badf17hf5b17ea7ccab41f4E.exit" ], [ %.116.i, %208 ], [ %.116.i, %"_ZN11wasi_common9snapshots9preview_1135_$LT$impl$u20$core..convert..From$LT$$RF$wasi_common..file..FdStat$GT$$u20$for$u20$wasi_common..snapshots..preview_1..types..Fdstat$GT$4from17h7913f987a2e00dc3E.exit" ], [ %217, %222 ], [ %217, %215 ]
+  %.sroa.764.0 = phi i64 [ undef, %70 ], [ %50, %"_ZN4core3ptr71drop_in_place$LT$alloc..sync..Arc$LT$wasi_common..dir..DirEntry$GT$$GT$17h96e8fb9e6fa2d487E.exit32" ], [ undef, %62 ], [ undef, %"_ZN118_$LT$wasi_common..snapshots..preview_1..types..Error$u20$as$u20$wasi_common..snapshots..preview_1..error..ErrorExt$GT$4badf17hf5b17ea7ccab41f4E.exit" ], [ 0, %208 ], [ 0, %"_ZN11wasi_common9snapshots9preview_1135_$LT$impl$u20$core..convert..From$LT$$RF$wasi_common..file..FdStat$GT$$u20$for$u20$wasi_common..snapshots..preview_1..types..Fdstat$GT$4from17h7913f987a2e00dc3E.exit" ], [ undef, %222 ], [ undef, %215 ]
+  %.sroa.965.0 = phi i16 [ undef, %70 ], [ 0, %"_ZN4core3ptr71drop_in_place$LT$alloc..sync..Arc$LT$wasi_common..dir..DirEntry$GT$$GT$17h96e8fb9e6fa2d487E.exit32" ], [ undef, %62 ], [ undef, %"_ZN118_$LT$wasi_common..snapshots..preview_1..types..Error$u20$as$u20$wasi_common..snapshots..preview_1..error..ErrorExt$GT$4badf17hf5b17ea7ccab41f4E.exit" ], [ %201, %208 ], [ %201, %"_ZN11wasi_common9snapshots9preview_1135_$LT$impl$u20$core..convert..From$LT$$RF$wasi_common..file..FdStat$GT$$u20$for$u20$wasi_common..snapshots..preview_1..types..Fdstat$GT$4from17h7913f987a2e00dc3E.exit" ], [ undef, %222 ], [ undef, %215 ]
+  %.sroa.11.0 = phi i8 [ 8, %70 ], [ 3, %"_ZN4core3ptr71drop_in_place$LT$alloc..sync..Arc$LT$wasi_common..dir..DirEntry$GT$$GT$17h96e8fb9e6fa2d487E.exit32" ], [ 8, %62 ], [ 8, %"_ZN118_$LT$wasi_common..snapshots..preview_1..types..Error$u20$as$u20$wasi_common..snapshots..preview_1..error..ErrorExt$GT$4badf17hf5b17ea7ccab41f4E.exit" ], [ %switch.load, %208 ], [ %switch.load, %"_ZN11wasi_common9snapshots9preview_1135_$LT$impl$u20$core..convert..From$LT$$RF$wasi_common..file..FdStat$GT$$u20$for$u20$wasi_common..snapshots..preview_1..types..Fdstat$GT$4from17h7913f987a2e00dc3E.exit" ], [ 8, %222 ], [ 8, %215 ]
   store i64 %.sroa.063.0, ptr %0, align 8
   %.sroa.764.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.764.0, ptr %.sroa.764.0..sroa_idx, align 8
@@ -25792,7 +25792,7 @@ common.ret:                                       ; preds = %190, %"_ZN4core3ptr
   %16 = invoke noundef zeroext i1 @_ZN11wasi_common5table5Table2is17h355426a434615287E(ptr noundef nonnull align 8 %15, i32 noundef %13)
           to label %19 unwind label %17
 
-17:                                               ; preds = %223, %209, %10
+17:                                               ; preds = %222, %208, %10
   %18 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$wasi_common..file..FileEntry$GT$$GT$17h3d1411b1e743f61dE.exit38"
@@ -25908,7 +25908,7 @@ common.ret:                                       ; preds = %190, %"_ZN4core3ptr
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$wasi_common..file..FileEntry$GT$$GT$17h3d1411b1e743f61dE.exit"
 
-60:                                               ; preds = %215, %46, %.body
+60:                                               ; preds = %214, %46, %.body
   %61 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #21
@@ -25948,8 +25948,8 @@ common.ret:                                       ; preds = %190, %"_ZN4core3ptr
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 32
   br label %82
 
-"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$wasi_common..file..FileEntry$GT$$GT$17h3d1411b1e743f61dE.exit38": ; preds = %210, %215, %64, %24, %31, %"_ZN4core3ptr71drop_in_place$LT$alloc..sync..Arc$LT$wasi_common..dir..DirEntry$GT$$GT$17h96e8fb9e6fa2d487E.exit", %17
-  %.pn23 = phi { ptr, i32 } [ %18, %17 ], [ %.pn11, %"_ZN4core3ptr71drop_in_place$LT$alloc..sync..Arc$LT$wasi_common..dir..DirEntry$GT$$GT$17h96e8fb9e6fa2d487E.exit" ], [ %32, %31 ], [ %25, %24 ], [ %65, %64 ], [ %.pn21, %215 ], [ %.pn21, %210 ]
+"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$wasi_common..file..FileEntry$GT$$GT$17h3d1411b1e743f61dE.exit38": ; preds = %209, %214, %64, %24, %31, %"_ZN4core3ptr71drop_in_place$LT$alloc..sync..Arc$LT$wasi_common..dir..DirEntry$GT$$GT$17h96e8fb9e6fa2d487E.exit", %17
+  %.pn23 = phi { ptr, i32 } [ %18, %17 ], [ %.pn11, %"_ZN4core3ptr71drop_in_place$LT$alloc..sync..Arc$LT$wasi_common..dir..DirEntry$GT$$GT$17h96e8fb9e6fa2d487E.exit" ], [ %32, %31 ], [ %25, %24 ], [ %65, %64 ], [ %.pn21, %214 ], [ %.pn21, %209 ]
   store i8 2, ptr %7, align 4
   resume { ptr, i32 } %.pn23
 
@@ -26259,81 +26259,81 @@ common.ret:                                       ; preds = %190, %"_ZN4core3ptr
 192:                                              ; preds = %187
   %193 = landingpad { ptr, i32 }
           cleanup
-  br label %210
+  br label %209
 
 194:                                              ; preds = %187
-  br i1 %.sroa.053.0.ph, label %216, label %switch.lookup
+  br i1 %.sroa.053.0.ph, label %215, label %switch.lookup
 
 switch.lookup:                                    ; preds = %194
   %195 = ptrtoint ptr %.sroa.1055.0.ph to i64
-  %196 = shl i64 %195, 24
-  %197 = ashr i64 %196, 56
-  %switch.gep = getelementptr inbounds [9 x i8], ptr @"switch.table._ZN11wasi_common9snapshots9preview_1135_$LT$impl$u20$wasi_common..snapshots..preview_1..wasi_snapshot_preview1..WasiSnapshotPreview1$u20$for$u20$wasi_common..ctx..WasiCtx$GT$10fd_readdir28_$u7b$$u7b$closure$u7d$$u7d$17h491e9c1a062ef55fE", i64 0, i64 %197
+  %.sroa.458.8.extract.shift = lshr i64 %195, 32
+  %196 = and i64 %.sroa.458.8.extract.shift, 255
+  %switch.gep = getelementptr inbounds nuw [9 x i8], ptr @"switch.table._ZN11wasi_common9snapshots9preview_1135_$LT$impl$u20$wasi_common..snapshots..preview_1..wasi_snapshot_preview1..WasiSnapshotPreview1$u20$for$u20$wasi_common..ctx..WasiCtx$GT$10fd_readdir28_$u7b$$u7b$closure$u7d$$u7d$17h491e9c1a062ef55fE", i64 0, i64 %196
   %switch.load = load i8, ptr %switch.gep, align 1
-  %198 = shl i64 %195, 1
-  %199 = and i64 %198, 2
-  %200 = shl i64 %195, 5
-  %201 = and i64 %200, 64
-  %.116.i = or disjoint i64 %199, %201
-  %202 = invoke noundef i16 @"_ZN11wasi_common9snapshots9preview_1133_$LT$impl$u20$core..convert..From$LT$wasi_common..file..FdFlags$GT$$u20$for$u20$wasi_common..snapshots..preview_1..types..Fdflags$GT$4from17h30c7afd965d49455E"(i32 noundef %.sroa.954.0.ph)
-          to label %"_ZN11wasi_common9snapshots9preview_1135_$LT$impl$u20$core..convert..From$LT$$RF$wasi_common..file..FdStat$GT$$u20$for$u20$wasi_common..snapshots..preview_1..types..Fdstat$GT$4from17h7913f987a2e00dc3E.exit" unwind label %203
+  %197 = shl i64 %195, 1
+  %198 = and i64 %197, 2
+  %199 = shl i64 %195, 5
+  %200 = and i64 %199, 64
+  %.116.i = or disjoint i64 %198, %200
+  %201 = invoke noundef i16 @"_ZN11wasi_common9snapshots9preview_1133_$LT$impl$u20$core..convert..From$LT$wasi_common..file..FdFlags$GT$$u20$for$u20$wasi_common..snapshots..preview_1..types..Fdflags$GT$4from17h30c7afd965d49455E"(i32 noundef %.sroa.954.0.ph)
+          to label %"_ZN11wasi_common9snapshots9preview_1135_$LT$impl$u20$core..convert..From$LT$$RF$wasi_common..file..FdStat$GT$$u20$for$u20$wasi_common..snapshots..preview_1..types..Fdstat$GT$4from17h7913f987a2e00dc3E.exit" unwind label %202
 
-203:                                              ; preds = %switch.lookup
-  %204 = landingpad { ptr, i32 }
+202:                                              ; preds = %switch.lookup
+  %203 = landingpad { ptr, i32 }
           cleanup
-  br label %210
+  br label %209
 
 "_ZN11wasi_common9snapshots9preview_1135_$LT$impl$u20$core..convert..From$LT$$RF$wasi_common..file..FdStat$GT$$u20$for$u20$wasi_common..snapshots..preview_1..types..Fdstat$GT$4from17h7913f987a2e00dc3E.exit": ; preds = %switch.lookup
-  %205 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %204 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4354)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4357)
-  %206 = load ptr, ptr %205, align 8, !alias.scope !4360, !nonnull !5, !noundef !5
-  %207 = atomicrmw sub ptr %206, i64 1 release, align 8, !noalias !4360
-  %208 = icmp eq i64 %207, 1
-  br i1 %208, label %209, label %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$wasi_common..file..FileEntry$GT$$GT$17h3d1411b1e743f61dE.exit"
+  %205 = load ptr, ptr %204, align 8, !alias.scope !4360, !nonnull !5, !noundef !5
+  %206 = atomicrmw sub ptr %205, i64 1 release, align 8, !noalias !4360
+  %207 = icmp eq i64 %206, 1
+  br i1 %207, label %208, label %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$wasi_common..file..FileEntry$GT$$GT$17h3d1411b1e743f61dE.exit"
 
-209:                                              ; preds = %"_ZN11wasi_common9snapshots9preview_1135_$LT$impl$u20$core..convert..From$LT$$RF$wasi_common..file..FdStat$GT$$u20$for$u20$wasi_common..snapshots..preview_1..types..Fdstat$GT$4from17h7913f987a2e00dc3E.exit"
+208:                                              ; preds = %"_ZN11wasi_common9snapshots9preview_1135_$LT$impl$u20$core..convert..From$LT$$RF$wasi_common..file..FdStat$GT$$u20$for$u20$wasi_common..snapshots..preview_1..types..Fdstat$GT$4from17h7913f987a2e00dc3E.exit"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h5f67c1255ab6586dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %205)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h5f67c1255ab6586dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %204)
           to label %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$wasi_common..file..FileEntry$GT$$GT$17h3d1411b1e743f61dE.exit" unwind label %17
 
-210:                                              ; preds = %192, %.body, %203
-  %.pn21 = phi { ptr, i32 } [ %204, %203 ], [ %193, %192 ], [ %.pn17, %.body ]
-  %211 = getelementptr inbounds nuw i8, ptr %1, i64 8
+209:                                              ; preds = %192, %.body, %202
+  %.pn21 = phi { ptr, i32 } [ %203, %202 ], [ %193, %192 ], [ %.pn17, %.body ]
+  %210 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4361)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4364)
-  %212 = load ptr, ptr %211, align 8, !alias.scope !4367, !nonnull !5, !noundef !5
-  %213 = atomicrmw sub ptr %212, i64 1 release, align 8, !noalias !4367
-  %214 = icmp eq i64 %213, 1
-  br i1 %214, label %215, label %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$wasi_common..file..FileEntry$GT$$GT$17h3d1411b1e743f61dE.exit38"
+  %211 = load ptr, ptr %210, align 8, !alias.scope !4367, !nonnull !5, !noundef !5
+  %212 = atomicrmw sub ptr %211, i64 1 release, align 8, !noalias !4367
+  %213 = icmp eq i64 %212, 1
+  br i1 %213, label %214, label %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$wasi_common..file..FileEntry$GT$$GT$17h3d1411b1e743f61dE.exit38"
 
-215:                                              ; preds = %210
+214:                                              ; preds = %209
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h5f67c1255ab6586dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %211)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h5f67c1255ab6586dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %210)
           to label %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$wasi_common..file..FileEntry$GT$$GT$17h3d1411b1e743f61dE.exit38" unwind label %60
 
-216:                                              ; preds = %194
-  %217 = icmp ne ptr %.sroa.1055.0.ph, null
-  tail call void @llvm.assume(i1 %217)
-  %218 = ptrtoint ptr %.sroa.1055.0.ph to i64
-  %219 = getelementptr inbounds nuw i8, ptr %1, i64 8
+215:                                              ; preds = %194
+  %216 = icmp ne ptr %.sroa.1055.0.ph, null
+  tail call void @llvm.assume(i1 %216)
+  %217 = ptrtoint ptr %.sroa.1055.0.ph to i64
+  %218 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4368)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4371)
-  %220 = load ptr, ptr %219, align 8, !alias.scope !4374, !nonnull !5, !noundef !5
-  %221 = atomicrmw sub ptr %220, i64 1 release, align 8, !noalias !4374
-  %222 = icmp eq i64 %221, 1
-  br i1 %222, label %223, label %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$wasi_common..file..FileEntry$GT$$GT$17h3d1411b1e743f61dE.exit"
+  %219 = load ptr, ptr %218, align 8, !alias.scope !4374, !nonnull !5, !noundef !5
+  %220 = atomicrmw sub ptr %219, i64 1 release, align 8, !noalias !4374
+  %221 = icmp eq i64 %220, 1
+  br i1 %221, label %222, label %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$wasi_common..file..FileEntry$GT$$GT$17h3d1411b1e743f61dE.exit"
 
-223:                                              ; preds = %216
+222:                                              ; preds = %215
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h5f67c1255ab6586dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %219)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h5f67c1255ab6586dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %218)
           to label %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$wasi_common..file..FileEntry$GT$$GT$17h3d1411b1e743f61dE.exit" unwind label %17
 
 .body:                                            ; preds = %185, %.body.i
-  %224 = phi ptr [ %80, %185 ], [ %101, %.body.i ]
+  %223 = phi ptr [ %80, %185 ], [ %101, %.body.i ]
   %.pn17 = phi { ptr, i32 } [ %186, %185 ], [ %.pn14.pn.i, %.body.i ]
-  invoke fastcc void @"_ZN4core3ptr90drop_in_place$LT$wasi_common..file..FileEntry..get_fdstat..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc409eac4b16ce39aE"(ptr noundef nonnull align 8 %224) #20
-          to label %210 unwind label %60
+  invoke fastcc void @"_ZN4core3ptr90drop_in_place$LT$wasi_common..file..FileEntry..get_fdstat..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc409eac4b16ce39aE"(ptr noundef nonnull align 8 %223) #20
+          to label %209 unwind label %60
 }
 
 ; Function Attrs: nonlazybind uwtable

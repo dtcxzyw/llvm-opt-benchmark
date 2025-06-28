@@ -1552,9 +1552,8 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev19GradingRGBCurveImpl8validateEv(pt
           to label %switch.lookup unwind label %39
 
 switch.lookup:                                    ; preds = %20
-  %sext = shl i64 %indvars.iv, 32
-  %22 = ashr exact i64 %sext, 32
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK19OpenColorIO_v2_5dev19GradingRGBCurveImpl8validateEv, i64 0, i64 %22
+  %22 = and i64 %indvars.iv, 4294967295
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZNK19OpenColorIO_v2_5dev19GradingRGBCurveImpl8validateEv, i64 0, i64 %22
   %switch.load = load ptr, ptr %switch.gep, align 8
   %23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %switch.load)
           to label %24 unwind label %39
