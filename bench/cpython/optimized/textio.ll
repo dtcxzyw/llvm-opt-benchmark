@@ -1221,7 +1221,7 @@ PyUnicode_MAX_CHAR_VALUE.exit:                    ; preds = %40, %44
   %.0.i233 = phi i32 [ 127, %40 ], [ %switch.select6.i, %44 ]
   %46 = tail call ptr @PyUnicode_New(i64 noundef %41, i32 noundef %.0.i233) #11
   %47 = icmp eq ptr %46, null
-  br i1 %47, label %299, label %48
+  br i1 %47, label %300, label %48
 
 48:                                               ; preds = %PyUnicode_MAX_CHAR_VALUE.exit
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 34
@@ -1400,7 +1400,7 @@ PyUnicode_READ_CHAR.exit:                         ; preds = %_PyUnicode_DATA.exi
 109:                                              ; preds = %PyUnicode_READ_CHAR.exit
   %110 = tail call ptr @PyUnicode_Substring(ptr noundef nonnull %.1176, i64 noundef 0, i64 noundef %80) #11
   %111 = icmp eq ptr %110, null
-  br i1 %111, label %299, label %112
+  br i1 %111, label %300, label %112
 
 112:                                              ; preds = %109
   %113 = load i32, ptr %.1176, align 8, !tbaa !15
@@ -1687,7 +1687,7 @@ _PyUnicode_DATA.exit272:                          ; preds = %210, %212
 
 .thread333:                                       ; preds = %_PyUnicode_DATA.exit272
   %218 = tail call ptr @PyErr_NoMemory() #11
-  br label %299
+  br label %300
 
 .preheader339:                                    ; preds = %_PyUnicode_DATA.exit272, %PyUnicode_WRITE.exit279
   %.7 = phi i32 [ %.8, %PyUnicode_WRITE.exit279 ], [ %123, %_PyUnicode_DATA.exit272 ]
@@ -1915,23 +1915,23 @@ PyUnicode_WRITE.exit279:                          ; preds = %285, %283, %280, %P
   store i8 %298, ptr %34, align 8
   br label %Py_DECREF.exit226
 
-299:                                              ; preds = %.thread333, %109, %PyUnicode_MAX_CHAR_VALUE.exit
+300:                                              ; preds = %.thread333, %109, %PyUnicode_MAX_CHAR_VALUE.exit
   %.3 = phi ptr [ %.0175282, %PyUnicode_MAX_CHAR_VALUE.exit ], [ %.1176, %109 ], [ %.4177, %.thread333 ]
-  %300 = load i32, ptr %.3, align 8, !tbaa !15
-  %.not.i225 = icmp sgt i32 %300, -1
-  br i1 %.not.i225, label %301, label %Py_DECREF.exit226
+  %301 = load i32, ptr %.3, align 8, !tbaa !15
+  %.not.i225 = icmp sgt i32 %301, -1
+  br i1 %.not.i225, label %302, label %Py_DECREF.exit226
 
-301:                                              ; preds = %299
-  %302 = add nsw i32 %300, -1
-  store i32 %302, ptr %.3, align 8, !tbaa !15
-  %303 = icmp eq i32 %302, 0
-  br i1 %303, label %304, label %Py_DECREF.exit226
+302:                                              ; preds = %300
+  %303 = add nsw i32 %301, -1
+  store i32 %303, ptr %.3, align 8, !tbaa !15
+  %304 = icmp eq i32 %303, 0
+  br i1 %304, label %305, label %Py_DECREF.exit226
 
-304:                                              ; preds = %301
+305:                                              ; preds = %302
   tail call void @_Py_Dealloc(ptr noundef nonnull %.3) #11
   br label %Py_DECREF.exit226
 
-Py_DECREF.exit226:                                ; preds = %293, %_PyUnicode_DATA.exit255, %32, %29, %23, %_Py_NewRef.exit, %304, %301, %299, %.thread328, %7
+Py_DECREF.exit226:                                ; preds = %293, %_PyUnicode_DATA.exit255, %32, %29, %23, %_Py_NewRef.exit, %305, %302, %300, %.thread328, %7
   %.0 = phi ptr [ null, %7 ], [ %.7180, %.thread328 ], [ null, %299 ], [ null, %301 ], [ null, %304 ], [ null, %_Py_NewRef.exit ], [ null, %23 ], [ null, %29 ], [ null, %32 ], [ %.4177, %_PyUnicode_DATA.exit255 ], [ null, %293 ]
   ret ptr %.0
 }

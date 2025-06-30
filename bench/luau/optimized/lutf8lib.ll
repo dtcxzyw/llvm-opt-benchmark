@@ -355,7 +355,7 @@ define internal noundef i32 @_ZL7utfcharP9lua_State(ptr noundef %0) #0 {
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #4
   %4 = tail call noundef i32 @_Z10lua_gettopP9lua_State(ptr noundef %0)
   %5 = icmp eq i32 %4, 1
-  br i1 %5, label %6, label %34
+  br i1 %5, label %6, label %33
 
 6:                                                ; preds = %1
   %7 = tail call noundef i32 @_Z17luaL_checkintegerP9lua_Statei(ptr noundef %0, i32 noundef 1)
@@ -407,61 +407,61 @@ _ZL11buffutfcharP9lua_StateiPcPPKc.exit:          ; preds = %9, %21
   %29 = getelementptr inbounds i8, ptr %2, i64 %.sink26.i.i
   store i8 %.sink.i.i, ptr %29, align 1, !tbaa !8
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %narrow.i = sub nsw i32 0, %.014.i.i
+  %31 = sub nsw i32 0, %.014.i.i
   %31 = sext i32 %narrow.i to i64
   %32 = getelementptr inbounds i8, ptr %30, i64 %31
   %33 = sext i32 %.014.i.i to i64
   call void @_Z15lua_pushlstringP9lua_StatePKcm(ptr noundef %0, ptr noundef nonnull %32, i64 noundef %33)
   br label %64
 
-34:                                               ; preds = %1
+33:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 544, ptr nonnull %3) #4
   call void @_Z13luaL_buffinitP9lua_StateP11luaL_Strbuf(ptr noundef %0, ptr noundef nonnull %3)
   %.not30 = icmp slt i32 %4, 1
   br i1 %.not30, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %34
-  %35 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  br label %36
+.lr.ph:                                           ; preds = %33
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  br label %35
 
-._crit_edge:                                      ; preds = %_ZL11buffutfcharP9lua_StateiPcPPKc.exit24, %34
+._crit_edge:                                      ; preds = %_ZL11buffutfcharP9lua_StateiPcPPKc.exit24, %33
   call void @_Z15luaL_pushresultP11luaL_Strbuf(ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(i64 544, ptr nonnull %3) #4
-  br label %64
+  br label %62
 
-36:                                               ; preds = %.lr.ph, %_ZL11buffutfcharP9lua_StateiPcPPKc.exit24
+35:                                               ; preds = %.lr.ph, %_ZL11buffutfcharP9lua_StateiPcPPKc.exit24
   %.031 = phi i32 [ 1, %.lr.ph ], [ %63, %_ZL11buffutfcharP9lua_StateiPcPPKc.exit24 ]
-  %37 = call noundef i32 @_Z17luaL_checkintegerP9lua_Statei(ptr noundef %0, i32 noundef %.031)
-  %or.cond.i12 = icmp ult i32 %37, 1114112
-  br i1 %or.cond.i12, label %39, label %38
+  %36 = call noundef i32 @_Z17luaL_checkintegerP9lua_Statei(ptr noundef %0, i32 noundef %.031)
+  %or.cond.i12 = icmp ult i32 %36, 1114112
+  br i1 %or.cond.i12, label %38, label %37
 
-38:                                               ; preds = %36
+37:                                               ; preds = %35
   call void @_Z14luaL_argerrorLP9lua_StateiPKc(ptr noundef %0, i32 noundef %.031, ptr noundef nonnull @.str.13) #5
   unreachable
 
-39:                                               ; preds = %36
-  %40 = zext nneg i32 %37 to i64
-  %41 = icmp samesign ult i32 %37, 128
-  br i1 %41, label %_ZL11buffutfcharP9lua_StateiPcPPKc.exit24, label %.preheader.i.i13
+38:                                               ; preds = %35
+  %39 = zext nneg i32 %36 to i64
+  %40 = icmp samesign ult i32 %36, 128
+  br i1 %40, label %_ZL11buffutfcharP9lua_StateiPcPPKc.exit24, label %.preheader.i.i13
 
-.preheader.i.i13:                                 ; preds = %39, %.preheader.i.i13
+.preheader.i.i13:                                 ; preds = %38, %.preheader.i.i13
   %indvars.iv.i.i14 = phi i64 [ %indvars.iv.next.i.i17, %.preheader.i.i13 ], [ 1, %39 ]
-  %.015.i.i15 = phi i64 [ %47, %.preheader.i.i13 ], [ %40, %39 ]
-  %.0.i.i16 = phi i32 [ %48, %.preheader.i.i13 ], [ 63, %39 ]
-  %42 = trunc i64 %.015.i.i15 to i8
-  %43 = and i8 %42, 63
-  %44 = or disjoint i8 %43, -128
+  %.015.i.i15 = phi i64 [ %46, %.preheader.i.i13 ], [ %39, %39 ]
+  %.0.i.i16 = phi i32 [ %47, %.preheader.i.i13 ], [ 63, %39 ]
+  %41 = trunc i64 %.015.i.i15 to i8
+  %42 = and i8 %41, 63
+  %43 = or disjoint i8 %42, -128
   %indvars.iv.next.i.i17 = add nuw nsw i64 %indvars.iv.i.i14, 1
-  %45 = sub nsw i64 8, %indvars.iv.i.i14
-  %46 = getelementptr inbounds i8, ptr %2, i64 %45
-  store i8 %44, ptr %46, align 1, !tbaa !8
-  %47 = lshr i64 %.015.i.i15, 6
-  %48 = lshr i32 %.0.i.i16, 1
-  %49 = zext nneg i32 %48 to i64
-  %50 = icmp samesign ugt i64 %47, %49
-  br i1 %50, label %.preheader.i.i13, label %51, !llvm.loop !19
+  %44 = sub nsw i64 8, %indvars.iv.i.i14
+  %45 = getelementptr inbounds i8, ptr %2, i64 %44
+  store i8 %43, ptr %45, align 1, !tbaa !8
+  %46 = lshr i64 %.015.i.i15, 6
+  %47 = lshr i32 %.0.i.i16, 1
+  %48 = zext nneg i32 %47 to i64
+  %49 = icmp samesign ugt i64 %46, %48
+  br i1 %49, label %.preheader.i.i13, label %50, !llvm.loop !19
 
-51:                                               ; preds = %.preheader.i.i13
+50:                                               ; preds = %.preheader.i.i13
   %52 = trunc nsw i64 %indvars.iv.next.i.i17 to i32
   %53 = xor i32 %48, -1
   %54 = shl nsw i32 %53, 1
@@ -474,21 +474,21 @@ _ZL11buffutfcharP9lua_StateiPcPPKc.exit:          ; preds = %9, %21
 
 _ZL11buffutfcharP9lua_StateiPcPPKc.exit24:        ; preds = %39, %51
   %.sink26.i.i19 = phi i64 [ %58, %51 ], [ 7, %39 ]
-  %.sink.in.i.i20 = phi i64 [ %56, %51 ], [ %40, %39 ]
-  %.014.i.i21 = phi i32 [ %52, %51 ], [ 1, %39 ]
+  %.sink26.i.i19 = phi i64 [ %56, %51 ], [ %40, %39 ]
+  %.sink.in.i.i20 = phi i32 [ %52, %51 ], [ 1, %39 ]
   %.sink.i.i22 = trunc i64 %.sink.in.i.i20 to i8
-  %59 = getelementptr inbounds i8, ptr %2, i64 %.sink26.i.i19
-  store i8 %.sink.i.i22, ptr %59, align 1, !tbaa !8
-  %narrow.i23 = sub nsw i32 0, %.014.i.i21
+  %58 = getelementptr inbounds i8, ptr %2, i64 %.sink26.i.i19
+  store i8 %.sink.i.i22, ptr %58, align 1, !tbaa !8
+  %59 = sub nsw i32 0, %.014.i.i21
   %60 = sext i32 %narrow.i23 to i64
   %61 = getelementptr inbounds i8, ptr %35, i64 %60
   %62 = sext i32 %.014.i.i21 to i64
   call void @_Z15luaL_addlstringP11luaL_StrbufPKcm(ptr noundef nonnull %3, ptr noundef nonnull %61, i64 noundef %62)
   %63 = add nuw i32 %.031, 1
   %exitcond.not = icmp eq i32 %.031, %4
-  br i1 %exitcond.not, label %._crit_edge, label %36, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge, label %35, !llvm.loop !20
 
-64:                                               ; preds = %._crit_edge, %_ZL11buffutfcharP9lua_StateiPcPPKc.exit
+62:                                               ; preds = %._crit_edge, %_ZL11buffutfcharP9lua_StateiPcPPKc.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #4
   ret i32 1
 }

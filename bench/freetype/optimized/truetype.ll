@@ -19810,7 +19810,7 @@ define internal fastcc void @tt_interpolate_deltas(ptr noundef readonly captures
 
 7:                                                ; preds = %.preheader, %.critedge56
   %.048 = phi i32 [ %.2, %.critedge56 ], [ 0, %.preheader ]
-  %.0 = phi i16 [ %111, %.critedge56 ], [ 0, %.preheader ]
+  %.0 = phi i16 [ %110, %.critedge56 ], [ 0, %.preheader ]
   %8 = load ptr, ptr %6, align 8, !tbaa !720
   %9 = sext i16 %.0 to i64
   %10 = getelementptr inbounds i16, ptr %8, i64 %9
@@ -19976,7 +19976,7 @@ tt_delta_interpolate.exit:                        ; preds = %..loopexit_crit_edg
 .critedge._crit_edge:                             ; preds = %tt_delta_interpolate.exit
   %77 = trunc nsw i64 %indvars.iv.next84 to i32
   %78 = icmp eq i32 %.150, %18
-  br i1 %78, label %.critedge._crit_edge.thread, label %106
+  br i1 %78, label %.critedge._crit_edge.thread, label %105
 
 .critedge._crit_edge.thread:                      ; preds = %.critedge.preheader, %.critedge._crit_edge
   %.3.lcssa88 = phi i32 [ %77, %.critedge._crit_edge ], [ %.368, %.critedge.preheader ]
@@ -20015,14 +20015,14 @@ tt_delta_interpolate.exit:                        ; preds = %..loopexit_crit_edg
 
 .lr.ph.i58:                                       ; preds = %.lr.ph.i58, %.lr.ph.preheader.i
   %indvars.iv.i59 = phi i64 [ %93, %.lr.ph.preheader.i ], [ %indvars.iv.next.i60, %.lr.ph.i58 ]
-  %94 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %1, i64 %indvars.iv.i59
-  %95 = load i64, ptr %94, align 8, !tbaa !263
-  %96 = add nsw i64 %95, %84
-  store i64 %96, ptr %94, align 8, !tbaa !263
-  %97 = getelementptr inbounds nuw i8, ptr %94, i64 8
-  %98 = load i64, ptr %97, align 8, !tbaa !330
-  %99 = add nsw i64 %98, %89
-  store i64 %99, ptr %97, align 8, !tbaa !330
+  %93 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %1, i64 %indvars.iv.i59
+  %94 = load i64, ptr %93, align 8, !tbaa !263
+  %95 = add nsw i64 %94, %84
+  store i64 %95, ptr %93, align 8, !tbaa !263
+  %96 = getelementptr inbounds nuw i8, ptr %93, i64 8
+  %97 = load i64, ptr %96, align 8, !tbaa !330
+  %98 = add nsw i64 %97, %89
+  store i64 %98, ptr %96, align 8, !tbaa !330
   %indvars.iv.next.i60 = add nuw nsw i64 %indvars.iv.i59, 1
   %exitcond.not.i61 = icmp eq i64 %indvars.iv.next.i60, %wide.trip.count.i
   br i1 %exitcond.not.i61, label %.preheader.i, label %.lr.ph.i58, !llvm.loop !792
@@ -20030,36 +20030,36 @@ tt_delta_interpolate.exit:                        ; preds = %..loopexit_crit_edg
 .lr.ph34.i:                                       ; preds = %.lr.ph34.i, %.lr.ph34.preheader.i
   %indvars.iv36.i = phi i64 [ %79, %.lr.ph34.preheader.i ], [ %indvars.iv.next37.i, %.lr.ph34.i ]
   %indvars.iv.next37.i = add nsw i64 %indvars.iv36.i, 1
-  %100 = getelementptr inbounds %struct.FT_Vector_, ptr %1, i64 %indvars.iv.next37.i
-  %101 = load i64, ptr %100, align 8, !tbaa !263
-  %102 = add nsw i64 %101, %84
-  store i64 %102, ptr %100, align 8, !tbaa !263
-  %103 = getelementptr inbounds nuw i8, ptr %100, i64 8
-  %104 = load i64, ptr %103, align 8, !tbaa !330
-  %105 = add nsw i64 %104, %89
-  store i64 %105, ptr %103, align 8, !tbaa !330
+  %99 = getelementptr inbounds %struct.FT_Vector_, ptr %1, i64 %indvars.iv.next37.i
+  %100 = load i64, ptr %99, align 8, !tbaa !263
+  %101 = add nsw i64 %100, %84
+  store i64 %101, ptr %99, align 8, !tbaa !263
+  %102 = getelementptr inbounds nuw i8, ptr %99, i64 8
+  %103 = load i64, ptr %102, align 8, !tbaa !330
+  %104 = add nsw i64 %103, %89
+  store i64 %104, ptr %102, align 8, !tbaa !330
   %exitcond40.not.i = icmp eq i64 %indvars.iv.next37.i, %wide.trip.count39.i
   br i1 %exitcond40.not.i, label %.critedge56, label %.lr.ph34.i, !llvm.loop !793
 
-106:                                              ; preds = %.critedge._crit_edge
-  %107 = add nsw i32 %.150, 1
-  tail call fastcc void @tt_delta_interpolate(i32 noundef %107, i32 noundef %12, i32 noundef %.150, i32 noundef %18, ptr noundef %2, ptr noundef %1)
-  %108 = icmp sgt i64 %indvars.iv, 0
-  br i1 %108, label %109, label %.critedge56
+105:                                              ; preds = %.critedge._crit_edge
+  %106 = add nsw i32 %.150, 1
+  tail call fastcc void @tt_delta_interpolate(i32 noundef %106, i32 noundef %12, i32 noundef %.150, i32 noundef %18, ptr noundef %2, ptr noundef %1)
+  %107 = icmp sgt i64 %indvars.iv, 0
+  br i1 %107, label %108, label %.critedge56
 
-109:                                              ; preds = %106
-  %110 = add nsw i32 %18, -1
-  tail call fastcc void @tt_delta_interpolate(i32 noundef %.048, i32 noundef %110, i32 noundef %.150, i32 noundef %18, ptr noundef %2, ptr noundef %1)
+108:                                              ; preds = %105
+  %109 = add nsw i32 %18, -1
+  tail call fastcc void @tt_delta_interpolate(i32 noundef %.048, i32 noundef %109, i32 noundef %.150, i32 noundef %18, ptr noundef %2, ptr noundef %1)
   br label %.critedge56
 
-.critedge56:                                      ; preds = %20, %.lr.ph34.i, %7, %.preheader.i, %.critedge._crit_edge.thread, %109, %106
+.critedge56:                                      ; preds = %20, %.lr.ph34.i, %7, %.preheader.i, %.critedge._crit_edge.thread, %108, %105
   %.2 = phi i32 [ %77, %109 ], [ %77, %106 ], [ %.3.lcssa88, %.critedge._crit_edge.thread ], [ %.3.lcssa88, %.preheader.i ], [ %.048, %7 ], [ %.3.lcssa88, %.lr.ph34.i ], [ %15, %20 ]
-  %111 = add i16 %.0, 1
-  %112 = sext i16 %111 to i32
-  %113 = load i16, ptr %0, align 8, !tbaa !709
-  %114 = zext i16 %113 to i32
-  %115 = icmp slt i32 %112, %114
-  br i1 %115, label %7, label %.loopexit, !llvm.loop !794
+  %110 = add i16 %.0, 1
+  %111 = sext i16 %110 to i32
+  %112 = load i16, ptr %0, align 8, !tbaa !709
+  %113 = zext i16 %112 to i32
+  %114 = icmp slt i32 %111, %113
+  br i1 %114, label %7, label %.loopexit, !llvm.loop !794
 
 .loopexit:                                        ; preds = %.critedge56, %4
   ret void

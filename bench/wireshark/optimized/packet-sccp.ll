@@ -831,7 +831,7 @@ define hidden zeroext i1 @looks_like_valid_sccp(i32 noundef %0, ptr noundef %1, 
 .thread:                                          ; preds = %35
   %39 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %.3317)
   %40 = icmp eq i8 %39, 0
-  br i1 %40, label %.critedge, label %.thread385
+  br i1 %40, label %.critedge, label %.thread383
 
 41:                                               ; preds = %36
   %42 = zext nneg i8 %.0329 to i32
@@ -840,7 +840,7 @@ define hidden zeroext i1 @looks_like_valid_sccp(i32 noundef %0, ptr noundef %1, 
   %45 = icmp eq i16 %44, 0
   br i1 %45, label %.critedge, label %50
 
-.thread385:                                       ; preds = %.thread
+.thread383:                                       ; preds = %.thread
   %46 = zext nneg i8 %.0329 to i32
   %47 = add nuw nsw i32 %.3317, %46
   %48 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %47)
@@ -856,7 +856,7 @@ define hidden zeroext i1 @looks_like_valid_sccp(i32 noundef %0, ptr noundef %1, 
   %56 = zext i16 %55 to i32
   br label %64
 
-57:                                               ; preds = %.thread385
+57:                                               ; preds = %.thread383
   %58 = zext i8 %48 to i32
   %59 = zext i8 %39 to i32
   %60 = add nuw nsw i32 %47, %58
@@ -881,9 +881,9 @@ define hidden zeroext i1 @looks_like_valid_sccp(i32 noundef %0, ptr noundef %1, 
   br i1 %or.cond, label %77, label %73
 
 73:                                               ; preds = %70
-  br i1 %or.cond7, label %.thread390, label %.thread396
+  br i1 %or.cond7, label %.thread388, label %.thread394
 
-.thread390:                                       ; preds = %73
+.thread388:                                       ; preds = %73
   %74 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %1, i32 noundef %72)
   %75 = zext i16 %74 to i32
   %76 = add nuw nsw i32 %72, 2
@@ -893,21 +893,21 @@ define hidden zeroext i1 @looks_like_valid_sccp(i32 noundef %0, ptr noundef %1, 
   %78 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %72)
   %79 = zext i8 %78 to i32
   %80 = add nuw nsw i32 %72, 1
-  br i1 %or.cond7, label %81, label %.thread396
+  br i1 %or.cond7, label %81, label %.thread394
 
-81:                                               ; preds = %.thread390, %77
-  %.4318395 = phi i32 [ %76, %.thread390 ], [ %80, %77 ]
-  %.0331393 = phi i32 [ %75, %.thread390 ], [ %79, %77 ]
+81:                                               ; preds = %.thread388, %77
+  %.4318393 = phi i32 [ %76, %.thread390 ], [ %80, %77 ]
+  %.0331391 = phi i32 [ %75, %.thread390 ], [ %79, %77 ]
   %82 = add nuw nsw i32 %68, 1
   %83 = add nuw nsw i32 %66, 1
   %84 = add nuw nsw i32 %71, 1
-  %.not362 = icmp eq i32 %.0331393, 0
-  %85 = add nuw nsw i32 %.0331393, 1
+  %.not362 = icmp eq i32 %.0331391, 0
+  %85 = add nuw nsw i32 %.0331391, 1
   %spec.select = select i1 %.not362, i32 0, i32 %85
-  br label %.thread396
+  br label %.thread394
 
-.thread396:                                       ; preds = %73, %81, %77
-  %.4318394 = phi i32 [ %80, %77 ], [ %.4318395, %81 ], [ %72, %73 ]
+.thread394:                                       ; preds = %73, %81, %77
+  %.4318392 = phi i32 [ %80, %77 ], [ %.4318393, %81 ], [ %72, %73 ]
   %.1335 = phi i32 [ %71, %77 ], [ %84, %81 ], [ %71, %73 ]
   %.1332 = phi i32 [ %79, %77 ], [ %spec.select, %81 ], [ 0, %73 ]
   %.1327 = phi i32 [ %66, %77 ], [ %83, %81 ], [ %66, %73 ]
@@ -919,7 +919,7 @@ define hidden zeroext i1 @looks_like_valid_sccp(i32 noundef %0, ptr noundef %1, 
   %or.cond371 = select i1 %or.cond370, i1 true, i1 %88
   br i1 %or.cond371, label %.critedge, label %89
 
-89:                                               ; preds = %.thread396
+89:                                               ; preds = %.thread394
   %90 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %.1321)
   %91 = zext i8 %90 to i32
   %92 = add nuw nsw i32 %.1321, %91
@@ -971,7 +971,7 @@ define hidden zeroext i1 @looks_like_valid_sccp(i32 noundef %0, ptr noundef %1, 
 
 120:                                              ; preds = %117
   %121 = zext i8 %118 to i32
-  br label %.thread410.thread424
+  br label %.thread408.thread422
 
 122:                                              ; preds = %10
   %123 = icmp ult i32 %4, 9
@@ -989,11 +989,11 @@ define hidden zeroext i1 @looks_like_valid_sccp(i32 noundef %0, ptr noundef %1, 
 
 129:                                              ; preds = %126
   %130 = icmp eq i8 %127, 0
-  br i1 %130, label %131, label %.thread410.thread424
+  br i1 %130, label %131, label %.thread408.thread422
 
 131:                                              ; preds = %129
   %.not358 = icmp eq i32 %4, 9
-  br i1 %.not358, label %.thread410.thread, label %.critedge
+  br i1 %.not358, label %.thread408.thread, label %.critedge
 
 132:                                              ; preds = %10
   %133 = icmp eq i32 %4, 5
@@ -1013,11 +1013,11 @@ define hidden zeroext i1 @looks_like_valid_sccp(i32 noundef %0, ptr noundef %1, 
 
 141:                                              ; preds = %138
   %142 = icmp eq i8 %139, 0
-  br i1 %142, label %143, label %.thread410.thread424
+  br i1 %142, label %143, label %.thread408.thread422
 
 143:                                              ; preds = %141
   %.not356 = icmp eq i32 %4, 6
-  br i1 %.not356, label %.thread410.thread, label %.critedge
+  br i1 %.not356, label %.thread408.thread, label %.critedge
 
 144:                                              ; preds = %10
   %145 = icmp ult i32 %4, 9
@@ -1037,15 +1037,15 @@ define hidden zeroext i1 @looks_like_valid_sccp(i32 noundef %0, ptr noundef %1, 
 
 153:                                              ; preds = %150
   %154 = icmp eq i8 %151, 0
-  br i1 %154, label %155, label %.thread410.thread424
+  br i1 %154, label %155, label %.thread408.thread422
 
 155:                                              ; preds = %153
   %.not354 = icmp eq i32 %4, 9
-  br i1 %.not354, label %.thread410.thread, label %.critedge
+  br i1 %.not354, label %.thread408.thread, label %.critedge
 
 156:                                              ; preds = %10
   %.not352 = icmp eq i32 %4, 7
-  br i1 %.not352, label %.thread410.thread, label %.critedge
+  br i1 %.not352, label %.thread408.thread, label %.critedge
 
 157:                                              ; preds = %10
   %.not350 = icmp eq i32 %4, 5
@@ -1056,7 +1056,7 @@ define hidden zeroext i1 @looks_like_valid_sccp(i32 noundef %0, ptr noundef %1, 
   %160 = zext i8 %159 to i32
   %161 = tail call ptr @try_val_to_str(i32 noundef %160, ptr noundef nonnull @sccp_error_cause_values)
   %.not351 = icmp eq ptr %161, null
-  br i1 %.not351, label %.critedge, label %.thread410.thread
+  br i1 %.not351, label %.critedge, label %.thread408.thread
 
 162:                                              ; preds = %10
   %163 = icmp ult i32 %4, 8
@@ -1079,7 +1079,7 @@ define hidden zeroext i1 @looks_like_valid_sccp(i32 noundef %0, ptr noundef %1, 
   %173 = zext i8 %172 to i32
   %174 = add nuw nsw i32 %173, 7
   %.not349 = icmp eq i32 %174, %4
-  br i1 %.not349, label %.thread410.thread, label %.critedge
+  br i1 %.not349, label %.thread408.thread, label %.critedge
 
 175:                                              ; preds = %10
   %176 = icmp ult i32 %4, 11
@@ -1088,7 +1088,7 @@ define hidden zeroext i1 @looks_like_valid_sccp(i32 noundef %0, ptr noundef %1, 
 177:                                              ; preds = %175
   %178 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef 7)
   %.not347 = icmp eq i8 %178, 2
-  br i1 %.not347, label %.thread410.thread, label %.critedge
+  br i1 %.not347, label %.thread408.thread, label %.critedge
 
 179:                                              ; preds = %10
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.89, ptr noundef nonnull @.str.90, i32 noundef 1386) #10
@@ -1121,31 +1121,31 @@ switch.edge372:                                   ; preds = %189
   %193 = add nuw nsw i32 %.1327, 1
   %194 = tail call ptr @tvb_new_subset_length(ptr noundef %1, i32 noundef %193, i32 noundef %192)
   %195 = icmp ugt i8 %7, 20
-  %switch.cast433 = zext nneg i8 %7 to i21
-  %switch.downshift435 = lshr i21 129535, %switch.cast433
-  %switch.masked436 = trunc i21 %switch.downshift435 to i1
-  %196 = select i1 %195, i1 true, i1 %switch.masked436
+  %switch.cast431 = zext nneg i8 %7 to i21
+  %switch.downshift433 = lshr i21 129535, %switch.cast431
+  %switch.masked434 = trunc i21 %switch.downshift433 to i1
+  %196 = select i1 %195, i1 true, i1 %switch.masked434
   %197 = tail call fastcc zeroext i1 @sccp_called_calling_looks_valid(ptr noundef %194, i8 noundef zeroext %2, i1 noundef zeroext %196)
-  br i1 %197, label %.thread410, label %.critedge
+  br i1 %197, label %.thread408, label %.critedge
 
-.thread410.thread:                                ; preds = %177, %171, %158, %156, %155, %143, %131
+.thread408.thread:                                ; preds = %177, %171, %158, %156, %155, %143, %131
   br label %.critedge
 
-.thread410:                                       ; preds = %switch.edge372
+.thread408:                                       ; preds = %switch.edge372
   %.not365 = icmp eq i32 %.1332, 0
-  br i1 %.not365, label %.critedge, label %.thread410.thread424
+  br i1 %.not365, label %.critedge, label %.thread408.thread422
 
-.thread410.thread424:                             ; preds = %120, %129, %141, %153, %.thread410
-  %.5319409416431 = phi i32 [ %.4318394, %.thread410 ], [ 7, %120 ], [ 9, %129 ], [ 6, %141 ], [ 9, %153 ]
-  %.1330407417430 = phi i8 [ %.0329, %.thread410 ], [ 1, %120 ], [ 1, %129 ], [ 1, %141 ], [ 1, %153 ]
-  %.2333406418429 = phi i32 [ %.1332, %.thread410 ], [ %121, %120 ], [ 1, %129 ], [ 1, %141 ], [ 1, %153 ]
-  %198 = zext nneg i8 %.1330407417430 to i32
-  %199 = sub nuw nsw i32 %.5319409416431, %198
-  %200 = add nuw nsw i32 %199, %.2333406418429
+.thread408.thread422:                             ; preds = %120, %129, %141, %153, %.thread408
+  %.5319407414429 = phi i32 [ %.4318392, %.thread410 ], [ 7, %120 ], [ 9, %129 ], [ 6, %141 ], [ 9, %153 ]
+  %.1330405415428 = phi i8 [ %.0329, %.thread410 ], [ 1, %120 ], [ 1, %129 ], [ 1, %141 ], [ 1, %153 ]
+  %.2333404416427 = phi i32 [ %.1332, %.thread410 ], [ %121, %120 ], [ 1, %129 ], [ 1, %141 ], [ 1, %153 ]
+  %198 = zext nneg i8 %.1330405415428 to i32
+  %199 = sub nuw nsw i32 %.5319407414429, %198
+  %200 = add nuw nsw i32 %199, %.2333404416427
   %201 = icmp ugt i32 %200, %4
   br i1 %201, label %.critedge, label %202
 
-202:                                              ; preds = %.thread410.thread424
+202:                                              ; preds = %.thread408.thread422
   %203 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %200)
   %204 = zext i8 %203 to i32
   %205 = tail call ptr @try_val_to_str(i32 noundef %204, ptr noundef nonnull @sccp_parameter_values)
@@ -1153,25 +1153,25 @@ switch.edge372:                                   ; preds = %189
   br i1 %.not366, label %.critedge, label %206
 
 206:                                              ; preds = %202
-  %.not367 = icmp ne i8 %203, 0
+  %cond = icmp ne i8 %203, 0
   %.not368.not = icmp ult i32 %200, %4
   %or.cond376 = and i1 %.not368.not, %.not367
   %207 = add nuw nsw i32 %200, 1
   br i1 %or.cond376, label %208, label %._crit_edge
 
-208:                                              ; preds = %206
+208:; preds = %206
   %209 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %207)
   %210 = zext i8 %209 to i32
-  %211 = add nuw nsw i32 %.5319409416431, %210
+  %211 = add nuw nsw i32 %.5319407414429, %210
   %212 = icmp ugt i32 %211, %4
   br i1 %212, label %.critedge, label %._crit_edge
 
-._crit_edge:                                      ; preds = %206, %208
-  %.not369 = icmp eq i32 %207, %4
-  %or.cond377 = select i1 %.not367, i1 true, i1 %.not369
+._crit_edge:; preds = %206, %208
+  %.not369.old = icmp eq i32 %207, %4
+  %or.cond377 = select i1 %cond, i1 true, i1 %.not369.old
   br label %.critedge
 
-.critedge:                                        ; preds = %.thread410.thread, %.thread385, %.thread, %._crit_edge, %189, %180, %.thread410, %.thread410.thread424, %202, %208, %10, %10, %10, %10, %10, %10, %177, %175, %171, %166, %164, %162, %158, %157, %156, %155, %150, %146, %144, %143, %138, %134, %132, %131, %126, %124, %122, %117, %114, %112, %110, %105, %100, %94, %89, %.thread396, %64, %41, %36, %26, %19, %16, %11, %6, %3, %switch.edge, %switch.edge372
+.critedge:                                        ; preds = %.thread408.thread, %.thread383, %.thread, %._crit_edge, %189, %180, %.thread410, %.thread410.thread424, %202, %208, %10, %10, %10, %10, %10, %10, %177, %175, %171, %166, %164, %162, %158, %157, %156, %155, %150, %146, %144, %143, %138, %134, %132, %131, %126, %124, %122, %117, %114, %112, %110, %105, %100, %94, %89, %.thread394, %64, %41, %36, %26, %19, %16, %11, %6, %3, %switch.edge, %switch.edge372
   %.0 = phi i1 [ false, %switch.edge372 ], [ false, %switch.edge ], [ false, %3 ], [ false, %6 ], [ false, %11 ], [ false, %16 ], [ false, %19 ], [ false, %26 ], [ false, %36 ], [ false, %41 ], [ false, %64 ], [ false, %.thread396 ], [ false, %89 ], [ false, %94 ], [ false, %100 ], [ false, %105 ], [ false, %110 ], [ false, %112 ], [ false, %114 ], [ false, %117 ], [ false, %122 ], [ false, %124 ], [ false, %126 ], [ false, %131 ], [ false, %132 ], [ false, %134 ], [ false, %138 ], [ false, %143 ], [ false, %144 ], [ false, %146 ], [ false, %150 ], [ false, %155 ], [ false, %156 ], [ false, %157 ], [ false, %158 ], [ false, %162 ], [ false, %164 ], [ false, %166 ], [ false, %171 ], [ false, %175 ], [ false, %177 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %208 ], [ false, %202 ], [ false, %.thread410.thread424 ], [ true, %.thread410 ], [ false, %180 ], [ false, %189 ], [ %or.cond377, %._crit_edge ], [ false, %.thread ], [ false, %.thread385 ], [ true, %.thread410.thread ]
   ret i1 %.0
 }

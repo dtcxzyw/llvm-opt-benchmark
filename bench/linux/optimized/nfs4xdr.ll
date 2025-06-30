@@ -12806,13 +12806,13 @@ define internal fastcc void @encode_getattr(ptr noundef %0, ptr noundef readonly
   %67 = icmp eq i64 %66, 0
   br i1 %67, label %.loopexit, label %.preheader, !llvm.loop !60
 
-.critedge:                                        ; preds = %.loopexit19
+.loopexit:                                        ; preds = %.loopexit19
   tail call void asm sideeffect "1524: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1524b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1524) #12, !srcloc !61
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.71, i32 1000, i32 2307, i64 12) #12, !srcloc !62
   tail call void asm sideeffect "1525: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1525b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1525) #12, !srcloc !63
-  br label %.loopexit
+  br label %69
 
-.loopexit:                                        ; preds = %.preheader, %56, %.critedge
+69:                                               ; preds = %.preheader, %56, %.loopexit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #12
   ret void
 }

@@ -882,7 +882,7 @@ define weak_odr dso_local void @_ZN4pbrt7InverseILi2EEEN4pstd8optionalINS_12Squa
   store i64 0, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #27
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false), !tbaa !4
-  %indvars.iv167.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %indvars.iv167.sroa.gep184 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %indvars.iv167.sroa.gep186 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %indvars.iv167.sroa.gep187 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %indvars.iv155.sroa.gep188 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -891,7 +891,7 @@ define weak_odr dso_local void @_ZN4pbrt7InverseILi2EEEN4pstd8optionalINS_12Squa
   %indvars.iv170.sroa.gep193 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %.preheader123
 
-.preheader123:                                    ; preds = %.preheader123.preheader, %59
+.preheader123:                                    ; preds = %.preheader123.preheader, %60
   %.not150 = phi i1 [ true, %.preheader123.preheader ], [ false, %59 ]
   %indvars.iv170.sroa.phi = phi ptr [ %3, %.preheader123.preheader ], [ %indvars.iv170.sroa.gep190, %59 ]
   %indvars.iv170.sroa.phi191 = phi ptr [ %2, %.preheader123.preheader ], [ %indvars.iv170.sroa.gep193, %59 ]
@@ -1007,53 +1007,53 @@ define weak_odr dso_local void @_ZN4pbrt7InverseILi2EEEN4pstd8optionalINS_12Squa
   br label %.preheader120
 
 .preheader120:                                    ; preds = %.preheader120.preheader.critedge, %.loopexit118
-  %48 = phi i1 [ false, %.loopexit118 ], [ true, %.preheader120.preheader.critedge ]
-  %indvars.iv167.sroa.phi = phi ptr [ %indvars.iv167.sroa.gep, %.loopexit118 ], [ %5, %.preheader120.preheader.critedge ]
+  %49 = phi i1 [ false, %.loopexit118 ], [ true, %.preheader120.preheader.critedge ]
+  %indvars.iv167.sroa.phi = phi ptr [ %indvars.iv167.sroa.gep184, %.loopexit118 ], [ %5, %.preheader120.preheader.critedge ]
   %indvars.iv167.sroa.phi185 = phi ptr [ %indvars.iv167.sroa.gep186, %.loopexit118 ], [ %indvars.iv167.sroa.gep187, %.preheader120.preheader.critedge ]
   %indvars.iv167 = phi i64 [ 1, %.loopexit118 ], [ 0, %.preheader120.preheader.critedge ]
   %.not109 = icmp eq i64 %indvars.iv167, %22
   br i1 %.not109, label %.loopexit118, label %.loopexit118.loopexit.critedge
 
 .loopexit118.loopexit.critedge:                   ; preds = %.preheader120
-  %49 = getelementptr inbounds nuw [2 x [2 x float]], ptr %5, i64 0, i64 %indvars.iv167, i64 %22
-  %50 = load float, ptr %49, align 4, !tbaa !4
-  store float 0.000000e+00, ptr %49, align 4, !tbaa !4
-  %51 = load float, ptr %46, align 8, !tbaa !4
-  %52 = fneg float %51
-  %53 = load float, ptr %indvars.iv167.sroa.phi, align 4, !tbaa !4
-  %54 = tail call noundef float @llvm.fma.f32(float %52, float %50, float %53)
-  store float %54, ptr %indvars.iv167.sroa.phi, align 4, !tbaa !4
-  %55 = load float, ptr %47, align 4, !tbaa !4
-  %56 = fneg float %55
-  %57 = load float, ptr %indvars.iv167.sroa.phi185, align 4, !tbaa !4
-  %58 = tail call noundef float @llvm.fma.f32(float %56, float %50, float %57)
-  store float %58, ptr %indvars.iv167.sroa.phi185, align 4, !tbaa !4
+  %50 = getelementptr inbounds nuw [2 x [2 x float]], ptr %5, i64 0, i64 %indvars.iv167, i64 %22
+  %51 = load float, ptr %50, align 4, !tbaa !4
+  store float 0.000000e+00, ptr %50, align 4, !tbaa !4
+  %52 = load float, ptr %46, align 8, !tbaa !4
+  %53 = fneg float %52
+  %54 = load float, ptr %indvars.iv167.sroa.phi, align 4, !tbaa !4
+  %55 = tail call noundef float @llvm.fma.f32(float %53, float %51, float %54)
+  store float %55, ptr %indvars.iv167.sroa.phi, align 4, !tbaa !4
+  %56 = load float, ptr %47, align 4, !tbaa !4
+  %57 = fneg float %56
+  %58 = load float, ptr %indvars.iv167.sroa.phi185, align 4, !tbaa !4
+  %59 = tail call noundef float @llvm.fma.f32(float %57, float %51, float %58)
+  store float %59, ptr %indvars.iv167.sroa.phi185, align 4, !tbaa !4
   br label %.loopexit118
 
 .loopexit118:                                     ; preds = %.loopexit118.loopexit.critedge, %.preheader120
-  br i1 %48, label %.preheader120, label %59, !llvm.loop !40
+  br i1 %49, label %.preheader120, label %60, !llvm.loop !40
 
-59:                                               ; preds = %.loopexit118
+60:                                               ; preds = %.loopexit118
   br i1 %.not150, label %.preheader123, label %.critedge113.preheader, !llvm.loop !41
 
-60:                                               ; preds = %.critedge113
+61:                                               ; preds = %.critedge113
   call void @_ZN4pbrt12SquareMatrixILi2EEC1EPA2_Kf(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull %5)
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 1, ptr %61, align 4, !tbaa !42
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i8 1, ptr %62, align 4, !tbaa !42
   br label %.critedge112
 
-.critedge113.preheader:                           ; preds = %59, %.critedge113
+.critedge113.preheader:                           ; preds = %60, %.critedge113
   %indvars.iv176 = phi i64 [ %indvars.iv.next177, %.critedge113 ], [ 1, %59 ]
-  %62 = getelementptr inbounds nuw [2 x i32], ptr %3, i64 0, i64 %indvars.iv176
-  %63 = load i32, ptr %62, align 4, !tbaa !8
-  %64 = getelementptr inbounds nuw [2 x i32], ptr %2, i64 0, i64 %indvars.iv176
-  %65 = load i32, ptr %64, align 4, !tbaa !8
-  %.not110 = icmp eq i32 %63, %65
+  %63 = getelementptr inbounds nuw [2 x i32], ptr %3, i64 0, i64 %indvars.iv176
+  %64 = load i32, ptr %63, align 4, !tbaa !8
+  %65 = getelementptr inbounds nuw [2 x i32], ptr %2, i64 0, i64 %indvars.iv176
+  %66 = load i32, ptr %65, align 4, !tbaa !8
+  %.not110 = icmp eq i32 %64, %66
   br i1 %.not110, label %.critedge113, label %.preheader
 
 .preheader:                                       ; preds = %.critedge113.preheader
-  %66 = sext i32 %63 to i64
-  %67 = sext i32 %65 to i64
+  %67 = sext i32 %64 to i64
+  %68 = sext i32 %66 to i64
   %68 = getelementptr inbounds [2 x [2 x float]], ptr %5, i64 0, i64 0, i64 %66
   %69 = getelementptr inbounds [2 x [2 x float]], ptr %5, i64 0, i64 0, i64 %67
   %70 = load float, ptr %68, align 4, !tbaa !4
@@ -1071,9 +1071,9 @@ define weak_odr dso_local void @_ZN4pbrt7InverseILi2EEEN4pstd8optionalINS_12Squa
 .critedge113:                                     ; preds = %.preheader, %.critedge113.preheader
   %indvars.iv.next177 = add nsw i64 %indvars.iv176, -1
   %.not179 = icmp eq i64 %indvars.iv176, 0
-  br i1 %.not179, label %60, label %.critedge113.preheader, !llvm.loop !45
+  br i1 %.not179, label %61, label %.critedge113.preheader, !llvm.loop !45
 
-.critedge112:                                     ; preds = %38, %21, %60
+.critedge112:                                     ; preds = %38, %21, %61
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #27

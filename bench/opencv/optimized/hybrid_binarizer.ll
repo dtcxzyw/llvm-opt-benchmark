@@ -484,37 +484,37 @@ define hidden noundef i32 @_ZN5zxing15HybridBinarizer10initBlocksEv(ptr noundef 
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !35
   %10 = icmp sgt i32 %6, 0
-  br i1 %10, label %.lr.ph121, label %._crit_edge122
+  br i1 %10, label %.lr.ph122, label %._crit_edge123
 
-.lr.ph121:                                        ; preds = %1
+.lr.ph122:                                        ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = icmp sgt i32 %4, 0
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  br i1 %12, label %.lr.ph.us.preheader, label %._crit_edge122
+  br i1 %12, label %.lr.ph.us.preheader, label %._crit_edge123
 
-.lr.ph.us.preheader:                              ; preds = %.lr.ph121
+.lr.ph.us.preheader:                              ; preds = %.lr.ph122
   %15 = zext nneg i32 %4 to i64
-  %wide.trip.count140 = zext nneg i32 %6 to i64
+  %wide.trip.count141 = zext nneg i32 %6 to i64
   %wide.trip.count = zext nneg i32 %4 to i64
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
-  %indvars.iv137 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next138, %._crit_edge.us ]
-  %16 = trunc nuw nsw i64 %indvars.iv137 to i32
+  %indvars.iv138 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next139, %._crit_edge.us ]
+  %16 = trunc nuw nsw i64 %indvars.iv138 to i32
   %17 = shl i32 %16, 3
   %18 = load i32, ptr %11, align 8, !tbaa !28
   %19 = add nsw i32 %18, -8
   %spec.select.us = tail call i32 @llvm.smin.i32(i32 %17, i32 %19)
-  %20 = mul nuw nsw i64 %indvars.iv137, %15
-  %21 = icmp ne i64 %indvars.iv137, 0
-  %22 = add nsw i64 %indvars.iv137, -1
+  %20 = mul nuw nsw i64 %indvars.iv138, %15
+  %21 = icmp ne i64 %indvars.iv138, 0
+  %22 = add nsw i64 %indvars.iv138, -1
   %23 = mul nsw i64 %22, %15
   br label %24
 
 24:                                               ; preds = %.lr.ph.us, %_ZN5zxing15HybridBinarizer17getBlockThresholdEiiiiiiii.exit.us
-  %indvars.iv133 = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next134, %_ZN5zxing15HybridBinarizer17getBlockThresholdEiiiiiiii.exit.us ]
-  %25 = trunc nuw nsw i64 %indvars.iv133 to i32
+  %indvars.iv134 = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next135, %_ZN5zxing15HybridBinarizer17getBlockThresholdEiiiiiiii.exit.us ]
+  %25 = trunc nuw nsw i64 %indvars.iv134 to i32
   %26 = shl i32 %25, 3
   %27 = load i32, ptr %13, align 4, !tbaa !23
   %28 = add nsw i32 %27, -8
@@ -525,8 +525,8 @@ define hidden noundef i32 @_ZN5zxing15HybridBinarizer10initBlocksEv(ptr noundef 
   br label %.preheader100.us
 
 .loopexit99.us.thread:                            ; preds = %.loopexit99.us, %.loopexit.us, %.preheader98.us
-  %.4.us148 = phi i32 [ %85, %.preheader98.us ], [ %80, %.loopexit.us ], [ %85, %.loopexit99.us ]
-  %32 = add nuw nsw i64 %indvars.iv133, %20
+  %.4.us149 = phi i32 [ %85, %.preheader98.us ], [ %80, %.loopexit.us ], [ %85, %.loopexit99.us ]
+  %32 = add nuw nsw i64 %indvars.iv134, %20
   %33 = load ptr, ptr %14, align 8, !tbaa !20
   %34 = getelementptr i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8, !tbaa !39
@@ -535,20 +535,20 @@ define hidden noundef i32 @_ZN5zxing15HybridBinarizer10initBlocksEv(ptr noundef 
   store i32 %spec.select97.us, ptr %37, align 4, !tbaa !42
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store i32 %.279.us, ptr %38, align 4, !tbaa !44
-  store i32 %.4.us148, ptr %36, align 4, !tbaa !45
-  %39 = ashr i32 %.4.us148, 6
+  store i32 %.4.us149, ptr %36, align 4, !tbaa !45
+  %39 = ashr i32 %.4.us149, 6
   br i1 %69, label %_ZN5zxing15HybridBinarizer17getBlockThresholdEiiiiiiii.exit.us, label %40
 
 40:                                               ; preds = %.loopexit99.us.thread
   %41 = lshr i32 %spec.select97.us, 1
-  %42 = icmp ne i64 %indvars.iv133, 0
+  %42 = icmp ne i64 %indvars.iv134, 0
   %or.cond.i.us = and i1 %21, %42
   br i1 %or.cond.i.us, label %43, label %_ZN5zxing15HybridBinarizer17getBlockThresholdEiiiiiiii.exit.us
 
 43:                                               ; preds = %40
   %44 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %45 = load i32, ptr %44, align 8, !tbaa !9
-  %46 = add nsw i64 %indvars.iv133, %23
+  %46 = add nsw i64 %indvars.iv134, %23
   %47 = getelementptr inbounds nuw %"struct.zxing::BINARIZER_BLOCK", ptr %35, i64 %46, i32 3
   %48 = load i32, ptr %47, align 4, !tbaa !46
   %49 = getelementptr i8, ptr %36, i64 -4
@@ -573,23 +573,23 @@ define hidden noundef i32 @_ZN5zxing15HybridBinarizer10initBlocksEv(ptr noundef 
   tail call void %63(ptr noundef nonnull align 8 dereferenceable(12) %33) #10
   %.pre.pre = load ptr, ptr %14, align 8, !tbaa !20
   %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre.pre, i64 16
-  %.pre142.pre = load ptr, ptr %.phi.trans.insert.phi.trans.insert, align 8, !tbaa !39
+  %.pre143.pre = load ptr, ptr %.phi.trans.insert.phi.trans.insert, align 8, !tbaa !39
   br label %_ZN5zxing8ArrayRefINS_15BINARIZER_BLOCKEED2Ev.exit.i.us
 
 _ZN5zxing8ArrayRefINS_15BINARIZER_BLOCKEED2Ev.exit.i.us: ; preds = %60, %43
-  %.pre142 = phi ptr [ %.pre142.pre, %60 ], [ %35, %43 ]
+  %.pre143 = phi ptr [ %.pre143.pre, %60 ], [ %35, %43 ]
   %64 = icmp slt i32 %spec.select97.us, %57
   %spec.select.i.us = select i1 %64, i32 %57, i32 %41
   br label %_ZN5zxing15HybridBinarizer17getBlockThresholdEiiiiiiii.exit.us
 
 _ZN5zxing15HybridBinarizer17getBlockThresholdEiiiiiiii.exit.us: ; preds = %_ZN5zxing8ArrayRefINS_15BINARIZER_BLOCKEED2Ev.exit.i.us, %40, %.loopexit99.us.thread
-  %65 = phi ptr [ %.pre142, %_ZN5zxing8ArrayRefINS_15BINARIZER_BLOCKEED2Ev.exit.i.us ], [ %35, %40 ], [ %35, %.loopexit99.us.thread ]
+  %65 = phi ptr [ %.pre143, %_ZN5zxing8ArrayRefINS_15BINARIZER_BLOCKEED2Ev.exit.i.us ], [ %35, %40 ], [ %35, %.loopexit99.us.thread ]
   %.0.i.us = phi i32 [ %spec.select.i.us, %_ZN5zxing8ArrayRefINS_15BINARIZER_BLOCKEED2Ev.exit.i.us ], [ %41, %40 ], [ %39, %.loopexit99.us.thread ]
   %66 = getelementptr inbounds nuw %"struct.zxing::BINARIZER_BLOCK", ptr %65, i64 %32, i32 3
   store i32 %.0.i.us, ptr %66, align 4, !tbaa !46
-  %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
-  %exitcond136.not = icmp eq i64 %indvars.iv.next134, %wide.trip.count
-  br i1 %exitcond136.not, label %._crit_edge.us, label %24, !llvm.loop !47
+  %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
+  %exitcond137.not = icmp eq i64 %indvars.iv.next135, %wide.trip.count
+  br i1 %exitcond137.not, label %._crit_edge.us, label %24, !llvm.loop !47
 
 67:                                               ; preds = %82
   %68 = sub nsw i32 %.279.us, %spec.select97.us
@@ -597,31 +597,31 @@ _ZN5zxing15HybridBinarizer17getBlockThresholdEiiiiiiii.exit.us: ; preds = %_ZN5z
   br i1 %69, label %.preheader98.us, label %.loopexit99.us
 
 .loopexit99.us:                                   ; preds = %67
-  %70 = add nuw nsw i32 %.074116.us, 1
-  %71 = add nsw i32 %.073117.us, %27
-  %72 = icmp samesign ult i32 %.074116.us, 7
+  %70 = add nuw nsw i32 %.074117.us, 1
+  %71 = add nsw i32 %.073118.us, %27
+  %72 = icmp samesign ult i32 %.074117.us, 7
   br i1 %72, label %.preheader100.us, label %.loopexit99.us.thread, !llvm.loop !49
 
 73:                                               ; preds = %.preheader.us, %73
-  %indvars.iv126 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next127, %73 ]
+  %indvars.iv127 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next128, %73 ]
   %.3105.us = phi i32 [ %.285109.us, %.preheader.us ], [ %80, %73 ]
-  %gep161 = getelementptr i8, ptr %invariant.gep160, i64 %indvars.iv126
-  %74 = load i8, ptr %gep161, align 1, !tbaa !50
+  %gep162 = getelementptr i8, ptr %invariant.gep161, i64 %indvars.iv127
+  %74 = load i8, ptr %gep162, align 1, !tbaa !50
   %75 = zext i8 %74 to i32
   %76 = add nsw i32 %.3105.us, %75
-  %77 = getelementptr i8, ptr %gep161, i64 1
+  %77 = getelementptr i8, ptr %gep162, i64 1
   %78 = load i8, ptr %77, align 1, !tbaa !50
   %79 = zext i8 %78 to i32
   %80 = add nsw i32 %76, %79
-  %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 2
-  %81 = icmp samesign ult i64 %indvars.iv126, 6
+  %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 2
+  %81 = icmp samesign ult i64 %indvars.iv127, 6
   br i1 %81, label %73, label %.loopexit.us, !llvm.loop !51
 
 82:                                               ; preds = %.preheader100.us, %82
   %indvars.iv = phi i64 [ 0, %.preheader100.us ], [ %indvars.iv.next, %82 ]
-  %.178103.us = phi i32 [ %.077115.us, %.preheader100.us ], [ %.279.us, %82 ]
-  %.181102.us = phi i32 [ %.080114.us, %.preheader100.us ], [ %spec.select97.us, %82 ]
-  %.184101.us = phi i32 [ %.083113.us, %.preheader100.us ], [ %85, %82 ]
+  %.178103.us = phi i32 [ %.077116.us, %.preheader100.us ], [ %.279.us, %82 ]
+  %.181102.us = phi i32 [ %.080115.us, %.preheader100.us ], [ %spec.select97.us, %82 ]
+  %.184101.us = phi i32 [ %.083114.us, %.preheader100.us ], [ %85, %82 ]
   %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv
   %83 = load i8, ptr %gep, align 1, !tbaa !50
   %84 = zext i8 %83 to i32
@@ -633,43 +633,43 @@ _ZN5zxing15HybridBinarizer17getBlockThresholdEiiiiiiii.exit.us: ; preds = %_ZN5z
   br i1 %exitcond.not, label %67, label %82, !llvm.loop !52
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %.loopexit.us
-  %indvars.iv129 = phi i64 [ %87, %.preheader.us.preheader ], [ %indvars.iv.next130, %.loopexit.us ]
-  %.175111.us.in = phi i32 [ %.074116.us, %.preheader.us.preheader ], [ %.175111.us, %.loopexit.us ]
+  %indvars.iv130 = phi i64 [ %87, %.preheader.us.preheader ], [ %indvars.iv.next130, %.loopexit.us ]
+  %.175111.us = phi i32 [ %.074117.us, %.preheader.us.preheader ], [ %.175111.us, %.loopexit.us ]
   %.285109.us = phi i32 [ %85, %.preheader.us.preheader ], [ %80, %.loopexit.us ]
-  %invariant.gep160 = getelementptr i8, ptr %9, i64 %indvars.iv129
+  %invariant.gep161 = getelementptr i8, ptr %9, i64 %indvars.iv130
   br label %73
 
 .loopexit.us:                                     ; preds = %73
-  %.175111.us = add nuw nsw i32 %.175111.us.in, 1
-  %indvars.iv.next130 = add nsw i64 %indvars.iv129, %31
-  %exitcond132.not = icmp eq i32 %.175111.us, 7
-  br i1 %exitcond132.not, label %.loopexit99.us.thread, label %.preheader.us, !llvm.loop !53
+  %indvars.iv.next131 = add nuw nsw i32 %indvars.iv.next131, 1
+  %.175.us = add nsw i64 %indvars.iv129, %31
+  %exitcond133.not = icmp eq i32 %.175111.us, 7
+  br i1 %exitcond133.not, label %.loopexit99.us.thread, label %.preheader.us, !llvm.loop !53
 
 .preheader98.us:                                  ; preds = %67
-  %86 = icmp samesign ult i32 %.074116.us, 7
+  %86 = icmp samesign ult i32 %.074117.us, 7
   br i1 %86, label %.preheader.us.preheader, label %.loopexit99.us.thread
 
 .preheader.us.preheader:                          ; preds = %.preheader98.us
-  %.1107.us = add i32 %.073117.us, %27
+  %.175108.us = add i32 %.073117.us, %27
   %87 = sext i32 %.1107.us to i64
   br label %.preheader.us
 
 .preheader100.us:                                 ; preds = %.loopexit99.us, %24
-  %.073117.us = phi i32 [ %30, %24 ], [ %71, %.loopexit99.us ]
-  %.074116.us = phi i32 [ 0, %24 ], [ %70, %.loopexit99.us ]
-  %.077115.us = phi i32 [ 0, %24 ], [ %.279.us, %.loopexit99.us ]
-  %.080114.us = phi i32 [ 255, %24 ], [ %spec.select97.us, %.loopexit99.us ]
-  %.083113.us = phi i32 [ 0, %24 ], [ %85, %.loopexit99.us ]
-  %88 = sext i32 %.073117.us to i64
+  %.073118.us = phi i32 [ %30, %24 ], [ %71, %.loopexit99.us ]
+  %.074117.us = phi i32 [ 0, %24 ], [ %70, %.loopexit99.us ]
+  %.077116.us = phi i32 [ 0, %24 ], [ %.279.us, %.loopexit99.us ]
+  %.080115.us = phi i32 [ 255, %24 ], [ %spec.select97.us, %.loopexit99.us ]
+  %.083114.us = phi i32 [ 0, %24 ], [ %85, %.loopexit99.us ]
+  %88 = sext i32 %.073118.us to i64
   %invariant.gep = getelementptr i8, ptr %9, i64 %88
   br label %82
 
 ._crit_edge.us:                                   ; preds = %_ZN5zxing15HybridBinarizer17getBlockThresholdEiiiiiiii.exit.us
-  %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
-  %exitcond141.not = icmp eq i64 %indvars.iv.next138, %wide.trip.count140
-  br i1 %exitcond141.not, label %._crit_edge122, label %.lr.ph.us, !llvm.loop !54
+  %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, 1
+  %exitcond142.not = icmp eq i64 %indvars.iv.next139, %wide.trip.count141
+  br i1 %exitcond142.not, label %._crit_edge123, label %.lr.ph.us, !llvm.loop !54
 
-._crit_edge122:                                   ; preds = %._crit_edge.us, %.lr.ph121, %1
+._crit_edge123:                                   ; preds = %._crit_edge.us, %.lr.ph122, %1
   ret i32 1
 }
 

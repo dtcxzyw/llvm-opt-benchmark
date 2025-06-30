@@ -1275,21 +1275,21 @@ define void @stbvox_make_mesh_for_block(ptr noundef captures(none) %0, i24 %1, i
   %83 = or disjoint i8 %82, %.0
   br label %84
 
-84:                                               ; preds = %78, %74
+84:; preds = %78, %74
   %.sroa.0.2 = phi i8 [ %77, %74 ], [ %83, %78 ]
   %85 = and i8 %.sroa.0.2, -49
   %86 = sext i32 %6 to i64
   %87 = getelementptr inbounds i8, ptr %12, i64 %86
   %88 = load i8, ptr %87, align 1, !tbaa !3
   %89 = icmp eq i8 %88, 0
-  br i1 %89, label %90, label %92
+  br i1 %89, label %87, label %92
 
-90:                                               ; preds = %84
+87:                                               ; preds = %84
   %91 = getelementptr inbounds nuw i8, ptr %3, i64 16
   tail call void @stbvox_make_mesh_for_face(ptr noundef nonnull %0, i8 %85, i32 noundef 1, i32 noundef %2, i24 poison, i32 noundef %16, ptr noundef nonnull %91, i8 noundef zeroext %.0151, i32 noundef 1)
   br label %92
 
-92:                                               ; preds = %90, %84
+92:; preds = %90, %84
   %93 = sub nsw i32 0, %6
   %94 = sext i32 %93 to i64
   %95 = getelementptr inbounds i8, ptr %12, i64 %94
@@ -1297,12 +1297,12 @@ define void @stbvox_make_mesh_for_block(ptr noundef captures(none) %0, i24 %1, i
   %97 = icmp eq i8 %96, 0
   br i1 %97, label %98, label %100
 
-98:                                               ; preds = %92
+101:                                              ; preds = %92
   %99 = getelementptr inbounds nuw i8, ptr %3, i64 48
   tail call void @stbvox_make_mesh_for_face(ptr noundef nonnull %0, i8 %85, i32 noundef 3, i32 noundef %2, i24 poison, i32 noundef %16, ptr noundef nonnull %99, i8 noundef zeroext %.0151, i32 noundef 3)
   br label %100
 
-100:                                              ; preds = %98, %92
+109:                                              ; preds = %101, %92
   %101 = sext i32 %8 to i64
   %102 = getelementptr inbounds i8, ptr %12, i64 %101
   %103 = load i8, ptr %102, align 1, !tbaa !3

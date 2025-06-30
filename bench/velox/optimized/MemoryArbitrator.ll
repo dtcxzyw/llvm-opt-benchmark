@@ -2981,16 +2981,16 @@ entry:
   %22 = load i64, ptr %numReleases, align 8
   %numReleases172 = getelementptr inbounds nuw i8, ptr %other, i64 104
   %23 = load i64, ptr %numReleases172, align 8
-  %cmp173 = icmp ult i64 %22, %23
+  %cmp173.not = icmp ult i64 %22, %23
   %cmp179 = icmp ugt i64 %22, %23
   %.gtCount.10 = select i1 %cmp179, i32 1, i32 %gtCount.10
-  %gtCount.11 = select i1 %cmp173, i32 %gtCount.10, i32 %.gtCount.10
+  %gtCount.11 = select i1 %cmp173.not, i32 %gtCount.10, i32 %.gtCount.10
   %cmp187 = icmp ne i32 %gtCount.11, 0
   %24 = or i32 %ltCount.9, %inc159
   %cmp18892 = icmp ne i32 %24, 0
   %cmp188 = select i1 %cmp173, i1 true, i1 %cmp18892
-  %25 = select i1 %cmp187, i1 %cmp188, i1 false
-  br i1 %25, label %if.then190, label %if.end191
+  %26 = select i1 %cmp187, i1 %cmp188, i1 false
+  br i1 %26, label %if.then190, label %if.end191
 
 if.then190:                                       ; preds = %entry
   tail call void @llvm.trap()

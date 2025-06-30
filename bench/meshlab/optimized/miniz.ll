@@ -14857,11 +14857,11 @@ define internal fastcc i32 @mz_zip_writer_create_zip64_extra_data(ptr noundef no
   %.2 = phi i8 [ %83, %59 ], [ %.1, %58 ]
   store i8 %.2, ptr %6, align 1
   store i8 0, ptr %7, align 1
-  %85 = ptrtoint ptr %.296 to i64
-  %86 = ptrtoint ptr %0 to i64
-  %87 = sub i64 %85, %86
-  %88 = trunc i64 %87 to i32
-  ret i32 %88
+  %86 = ptrtoint ptr %.296 to i64
+  %87 = ptrtoint ptr %0 to i64
+  %88 = sub i64 %86, %87
+  %89 = trunc i64 %88 to i32
+  ret i32 %89
 }
 
 ; Function Attrs: nounwind uwtable

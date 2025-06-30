@@ -1532,40 +1532,40 @@ define hidden noundef range(i32 -2147483647, 256) i32 @_ZN5zxing24GlobalHistogra
   %43 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %43, ptr %42, align 4, !tbaa !24
   %44 = icmp sgt i32 %10, %.0114164
-  %spec.select142 = select i1 %44, i32 %43, i32 %.0116163
-  %spec.select143 = tail call i32 @llvm.smax.i32(i32 %10, i32 %.0114164)
+  %spec.select144 = select i1 %44, i32 %43, i32 %.0116163
+  %spec.select145 = tail call i32 @llvm.smax.i32(i32 %10, i32 %.0114164)
   br label %45
 
 45:                                               ; preds = %39, %23, %36, %33, %30, %28
   %.1124 = phi i32 [ %24, %23 ], [ %.0123162, %36 ], [ %.0123162, %33 ], [ %.0123162, %30 ], [ %.0123162, %28 ], [ %.0123162, %39 ]
-  %.1117 = phi i32 [ %.0116163, %23 ], [ %.0116163, %36 ], [ %.0116163, %33 ], [ %.0116163, %30 ], [ %.0116163, %28 ], [ %spec.select142, %39 ]
-  %.1115 = phi i32 [ %.0114164, %23 ], [ %.0114164, %36 ], [ %.0114164, %33 ], [ %.0114164, %30 ], [ %.0114164, %28 ], [ %spec.select143, %39 ]
+  %.1117 = phi i32 [ %.0116163, %23 ], [ %.0116163, %36 ], [ %.0116163, %33 ], [ %.0116163, %30 ], [ %.0116163, %28 ], [ %spec.select144, %39 ]
+  %.1115 = phi i32 [ %.0114164, %23 ], [ %.0114164, %36 ], [ %.0114164, %33 ], [ %.0114164, %30 ], [ %.0114164, %28 ], [ %spec.select145, %39 ]
   %.1112 = phi i32 [ %.0111165, %23 ], [ %.0111165, %36 ], [ %.0111165, %33 ], [ %.0111165, %30 ], [ %.0111165, %28 ], [ %40, %39 ]
   %exitcond.not = icmp eq i64 %indvars.iv.next, 29
   br i1 %exitcond.not, label %.preheader150, label %9, !llvm.loop !65
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
-  %indvars.iv193 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next194, %.lr.ph ]
-  %46 = getelementptr inbounds nuw [32 x i32], ptr %3, i64 0, i64 %indvars.iv193
+  %indvars.iv204 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next205, %.lr.ph ]
+  %46 = getelementptr inbounds nuw [32 x i32], ptr %3, i64 0, i64 %indvars.iv204
   %47 = load i32, ptr %46, align 4, !tbaa !24
   %48 = icmp sgt i32 %47, 17
-  %indvars.iv.next194 = add nuw nsw i64 %indvars.iv193, 1
-  %exitcond197.not = icmp eq i64 %indvars.iv.next194, %wide.trip.count
-  %or.cond223 = select i1 %48, i1 true, i1 %exitcond197.not
-  br i1 %or.cond223, label %.lr.ph174.preheader, label %.lr.ph, !llvm.loop !66
+  %indvars.iv.next205 = add nuw nsw i64 %indvars.iv204, 1
+  %exitcond208.not = icmp eq i64 %indvars.iv.next205, %wide.trip.count
+  %or.cond248 = select i1 %48, i1 true, i1 %exitcond208.not
+  br i1 %or.cond248, label %.lr.ph174.preheader, label %.lr.ph, !llvm.loop !66
 
 .lr.ph174.preheader:                              ; preds = %.lr.ph
-  %wide.trip.count202 = zext nneg i32 %.1112 to i64
+  %wide.trip.count213 = zext nneg i32 %.1112 to i64
   br label %.lr.ph174
 
 49:                                               ; preds = %.lr.ph174
-  %indvars.iv.next199 = add nuw nsw i64 %indvars.iv198, 1
-  %exitcond203.not = icmp eq i64 %indvars.iv.next199, %wide.trip.count202
-  br i1 %exitcond203.not, label %.thread, label %.lr.ph174, !llvm.loop !67
+  %indvars.iv.next210 = add nuw nsw i64 %indvars.iv209, 1
+  %exitcond214.not = icmp eq i64 %indvars.iv.next210, %wide.trip.count213
+  br i1 %exitcond214.not, label %.thread, label %.lr.ph174, !llvm.loop !67
 
 .lr.ph174:                                        ; preds = %.lr.ph174.preheader, %49
-  %indvars.iv198 = phi i64 [ 0, %.lr.ph174.preheader ], [ %indvars.iv.next199, %49 ]
-  %50 = getelementptr inbounds nuw [32 x i32], ptr %3, i64 0, i64 %indvars.iv198
+  %indvars.iv209 = phi i64 [ 0, %.lr.ph174.preheader ], [ %indvars.iv.next210, %49 ]
+  %50 = getelementptr inbounds nuw [32 x i32], ptr %3, i64 0, i64 %indvars.iv209
   %51 = load i32, ptr %50, align 4, !tbaa !24
   %52 = icmp slt i32 %51, 17
   br i1 %52, label %53, label %49
@@ -1579,20 +1579,20 @@ define hidden noundef range(i32 -2147483647, 256) i32 @_ZN5zxing24GlobalHistogra
 .thread.thread:                                   ; preds = %.preheader150, %.thread, %53
   %54 = add nsw i32 %.1117, 30
   %55 = icmp sgt i32 %.1124, 0
-  br i1 %55, label %.lr.ph176.preheader, label %.loopexit
+  br i1 %55, label %.lr.ph183.preheader, label %.loopexit
 
-.lr.ph176.preheader:                              ; preds = %.thread.thread
-  %wide.trip.count208 = zext nneg i32 %.1124 to i64
-  br label %.lr.ph176
+.lr.ph183.preheader:                              ; preds = %.thread.thread
+  %wide.trip.count224 = zext nneg i32 %.1124 to i64
+  br label %.lr.ph183
 
-56:                                               ; preds = %.lr.ph176
-  %indvars.iv.next205 = add nuw nsw i64 %indvars.iv204, 1
-  %exitcond209.not = icmp eq i64 %indvars.iv.next205, %wide.trip.count208
-  br i1 %exitcond209.not, label %.loopexit, label %.lr.ph176, !llvm.loop !68
+56:                                               ; preds = %.lr.ph183
+  %indvars.iv.next221 = add nuw nsw i64 %indvars.iv220, 1
+  %exitcond225.not = icmp eq i64 %indvars.iv.next221, %wide.trip.count224
+  br i1 %exitcond225.not, label %.loopexit, label %.lr.ph183, !llvm.loop !68
 
-.lr.ph176:                                        ; preds = %.lr.ph176.preheader, %56
-  %indvars.iv204 = phi i64 [ 0, %.lr.ph176.preheader ], [ %indvars.iv.next205, %56 ]
-  %57 = getelementptr inbounds nuw [32 x i32], ptr %4, i64 0, i64 %indvars.iv204
+.lr.ph183:                                        ; preds = %.lr.ph183.preheader, %56
+  %indvars.iv220 = phi i64 [ 0, %.lr.ph176.preheader ], [ %indvars.iv.next221, %56 ]
+  %57 = getelementptr inbounds nuw [32 x i32], ptr %4, i64 0, i64 %indvars.iv220
   %58 = load i32, ptr %57, align 4, !tbaa !24
   %59 = icmp sgt i32 %58, %54
   %60 = icmp slt i32 %58, 17
@@ -1610,27 +1610,27 @@ define hidden noundef range(i32 -2147483647, 256) i32 @_ZN5zxing24GlobalHistogra
 65:                                               ; preds = %63
   %66 = add nsw i32 %.1117, 30
   %.not139180 = icmp sgt i32 %.1124, 0
-  br i1 %.not139180, label %.lr.ph183.preheader, label %.loopexit
+  br i1 %.not139180, label %.lr.ph178, label %.loopexit
 
-.lr.ph183.preheader:                              ; preds = %65
+.lr.ph178:                                        ; preds = %65
   %wide.trip.count214 = zext nneg i32 %.1124 to i64
   br label %.lr.ph183
 
-67:                                               ; preds = %.lr.ph183
+67: ; preds = %.lr.ph183
   %indvars.iv.next211 = add nuw nsw i64 %indvars.iv210, 1
-  %exitcond215.not = icmp eq i64 %indvars.iv.next211, %wide.trip.count214
-  br i1 %exitcond215.not, label %.loopexit, label %.lr.ph183, !llvm.loop !69
+  %67 = icmp eq i64 %indvars.iv.next211, %wide.trip.count214
+  br i1 %67, label %.loopexit, label %.lr.ph183, !llvm.loop !69
 
-.lr.ph183:                                        ; preds = %.lr.ph183.preheader, %67
+.lr.ph183:; preds = %.lr.ph178, %67
   %indvars.iv210 = phi i64 [ 0, %.lr.ph183.preheader ], [ %indvars.iv.next211, %67 ]
   %68 = getelementptr inbounds nuw [32 x i32], ptr %4, i64 0, i64 %indvars.iv210
   %69 = load i32, ptr %68, align 4, !tbaa !24
-  %70 = icmp sgt i32 %69, %66
+  %exitcond219.not = icmp sgt i32 %69, %66
   %71 = icmp slt i32 %69, 253
   %or.cond140 = and i1 %70, %71
   br i1 %or.cond140, label %.loopexit, label %67
 
-.loopexit:                                        ; preds = %.lr.ph176, %56, %.lr.ph183, %67, %61, %.thread, %65, %63, %.thread.thread
+.loopexit:; preds = %.lr.ph176, %56, %.lr.ph183, %67, %61, %.thread, %65, %63, %.thread.thread
   %.2 = phi i32 [ 255, %.thread.thread ], [ 255, %63 ], [ 0, %65 ], [ 0, %.thread ], [ 0, %61 ], [ %69, %.lr.ph183 ], [ 0, %67 ], [ %58, %.lr.ph176 ], [ 255, %56 ]
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #15
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #15

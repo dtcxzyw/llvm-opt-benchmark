@@ -4392,8 +4392,8 @@ define dso_local i32 @php_idate(i8 noundef signext %0, i64 noundef %1, i1 nounde
   %41 = sdiv i32 %38, 3600
   %42 = tail call i32 @llvm.abs.i32(i32 %41, i1 true)
   %43 = srem i32 %38, 3600
-  %.lhs.trunc = trunc nsw i32 %43 to i16
-  %44 = sdiv i16 %.lhs.trunc, 60
+  %.lhs.trunc85 = trunc nsw i32 %43 to i16
+  %44 = sdiv i16 %.lhs.trunc85, 60
   %45 = tail call i16 @llvm.abs.i16(i16 %44, i1 true)
   %46 = zext nneg i16 %45 to i32
   %47 = tail call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef %36, i64 noundef 9, ptr noundef nonnull @.str.13, i32 noundef %40, i32 noundef %42, i32 noundef %46) #25

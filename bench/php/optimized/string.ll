@@ -19062,8 +19062,8 @@ define dso_local i64 @php_strip_tags_ex(ptr noundef %0, i64 noundef %1, ptr noun
   %.2245.add306 = add nuw nsw i64 %.2245.idx.in509, 2
   %174 = icmp samesign ult i64 %.2245.add306, %1
   %.not611 = icmp eq i32 %.4511, 0
-  %or.cond909 = select i1 %174, i1 %.not611, i1 false
-  br i1 %or.cond909, label %.lr.ph579.split, label %.loopexit
+  %or.cond908 = select i1 %174, i1 %.not611, i1 false
+  br i1 %or.cond908, label %.lr.ph579.split, label %.loopexit
 
 175:                                              ; preds = %.lr.ph514, %.lr.ph514
   %176 = icmp ugt i64 %.2245.idx.in509, 5
@@ -19129,14 +19129,14 @@ define dso_local i64 @php_strip_tags_ex(ptr noundef %0, i64 noundef %1, ptr noun
   %exitcond.not = icmp eq i64 %.2245.idx, %1
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph514
 
-.lr.ph579.split:                                  ; preds = %173, %206
+.lr.ph579.split:                                  ; preds = %173, %207
   %.4247.idx577 = phi i64 [ %.4247.add305, %206 ], [ %.2245.add306, %173 ]
   %.4247.ptr578 = getelementptr inbounds nuw i8, ptr %6, i64 %.4247.idx577
   %196 = load i8, ptr %.4247.ptr578, align 1, !tbaa !10
-  %.not763 = icmp eq i8 %196, 62
+  %197 = icmp eq i8 %196, 62
   br i1 %.not763, label %197, label %206
 
-197:                                              ; preds = %.lr.ph579.split
+206:                                              ; preds = %.lr.ph579.split
   %198 = getelementptr inbounds i8, ptr %.4247.ptr578, i64 -1
   %199 = load i8, ptr %198, align 1, !tbaa !10
   %200 = icmp eq i8 %199, 45
@@ -19152,44 +19152,44 @@ define dso_local i64 @php_strip_tags_ex(ptr noundef %0, i64 noundef %1, ptr noun
   %.4247.add = add nuw nsw i64 %.4247.idx577, 1
   br label %.outer372.backedge
 
-206:                                              ; preds = %197, %201, %.lr.ph579.split
+207:                                              ; preds = %197, %201, %.lr.ph579.split
   %.4247.add305 = add nuw nsw i64 %.4247.idx577, 1
-  %207 = icmp samesign ult i64 %.4247.add305, %1
-  br i1 %207, label %.lr.ph579.split, label %.loopexit
+  %208 = icmp samesign ult i64 %.4247.add305, %1
+  br i1 %208, label %.lr.ph579.split, label %.loopexit
 
-.loopexit:                                        ; preds = %.outer372.backedge, %37, %173, %45, %.outer, %206, %.outer364, %.preheader358, %195, %.preheader, %.critedge348, %.critedge350, %11
+.loopexit:                                        ; preds = %.outer372.backedge, %37, %173, %45, %.outer, %207, %.outer364, %.preheader358, %195, %.preheader, %.critedge348, %.critedge350, %11
   %.0261375 = phi ptr [ %0, %11 ], [ %.0261500, %.critedge350 ], [ %.0261500, %.critedge348 ], [ %.0261500, %.preheader ], [ %.0261500, %195 ], [ %.0261500, %.preheader358 ], [ %.0261500, %.outer364 ], [ %.0261500, %206 ], [ %.0261500, %.outer ], [ %.1262, %45 ], [ %.0261500, %173 ], [ %.0261500, %37 ], [ %.0261.ph.be, %.outer372.backedge ]
   %.2250 = phi ptr [ %.0248, %11 ], [ %.5253.ph564, %.critedge350 ], [ %.5253.ph564, %.critedge348 ], [ %.5253.ph564, %.preheader ], [ %.5253.ph564, %195 ], [ %.5253.ph564, %.preheader358 ], [ %.5253.ph564, %.outer364 ], [ %.5253.ph564, %206 ], [ %.6254, %.outer ], [ %.1249.ph605, %45 ], [ %.5253.ph564, %173 ], [ %.3251, %37 ], [ %.1249.ph.be, %.outer372.backedge ]
-  %208 = getelementptr inbounds nuw i8, ptr %0, i64 %1
-  %209 = icmp ult ptr %.0261375, %208
-  br i1 %209, label %210, label %211
+  %209 = getelementptr inbounds nuw i8, ptr %0, i64 %1
+  %210 = icmp ult ptr %.0261375, %209
+  br i1 %210, label %211, label %212
 
-210:                                              ; preds = %.loopexit
+211:                                              ; preds = %.loopexit
   store i8 0, ptr %.0261375, align 1, !tbaa !10
-  br label %211
+  br label %212
 
-211:                                              ; preds = %210, %.loopexit
+212:                                              ; preds = %211, %.loopexit
   tail call void @_efree(ptr noundef %6) #28
   %.not345 = icmp eq ptr %.2250, null
-  br i1 %.not345, label %213, label %212
+  br i1 %.not345, label %214, label %213
 
-212:                                              ; preds = %211
+213:                                              ; preds = %212
   tail call void @_efree(ptr noundef nonnull %.2250) #28
-  br label %213
+  br label %214
 
-213:                                              ; preds = %212, %211
+214:                                              ; preds = %213, %212
   %.not346 = icmp eq ptr %.0229, null
-  br i1 %.not346, label %215, label %214
+  br i1 %.not346, label %216, label %215
 
-214:                                              ; preds = %213
+215:                                              ; preds = %214
   tail call void @_efree(ptr noundef nonnull %.0229) #28
-  br label %215
+  br label %216
 
-215:                                              ; preds = %214, %213
-  %216 = ptrtoint ptr %.0261375 to i64
-  %217 = ptrtoint ptr %0 to i64
-  %218 = sub i64 %216, %217
-  ret i64 %218
+216:                                              ; preds = %215, %214
+  %217 = ptrtoint ptr %.0261375 to i64
+  %218 = ptrtoint ptr %0 to i64
+  %219 = sub i64 %217, %218
+  ret i64 %219
 }
 
 ; Function Attrs: nounwind uwtable

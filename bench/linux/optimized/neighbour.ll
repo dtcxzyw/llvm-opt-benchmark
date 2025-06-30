@@ -9755,8 +9755,8 @@ define internal i32 @neightbl_dump_info(ptr noundef %0, ptr noundef captures(non
   br label %.thread
 
 .thread:                                          ; preds = %44, %42, %38, %28, %.thread25
-  %337 = phi i32 [ %336, %.thread25 ], [ -22, %28 ], [ -22, %38 ], [ -22, %42 ], [ -22, %44 ]
-  ret i32 %337
+  %338 = phi i32 [ %336, %.thread25 ], [ -22, %28 ], [ -22, %38 ], [ -22, %42 ], [ -22, %44 ]
+  ret i32 %338
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

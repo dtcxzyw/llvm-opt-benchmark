@@ -1695,49 +1695,49 @@ define internal fastcc void @timekeeping_update(ptr noundef initializes((40, 48)
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %51, ptr %52, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !82
-  %53 = load i32, ptr @tk_fast_mono, align 64
-  %54 = add i32 %53, 1
-  store i32 %54, ptr @tk_fast_mono, align 64
+  %52 = load i32, ptr @tk_fast_mono, align 64
+  %53 = add i32 %52, 1
+  store i32 %53, ptr @tk_fast_mono, align 64
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !83
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) getelementptr inbounds nuw (i8, ptr @tk_fast_mono, i64 8), ptr noundef align 8 dereferenceable(56) %0, i64 56, i1 false)
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !82
-  %55 = load i32, ptr @tk_fast_mono, align 64
-  %56 = add i32 %55, 1
-  store i32 %56, ptr @tk_fast_mono, align 64
+  %54 = load i32, ptr @tk_fast_mono, align 64
+  %55 = add i32 %54, 1
+  store i32 %55, ptr @tk_fast_mono, align 64
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !83
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(56) getelementptr inbounds nuw (i8, ptr @tk_fast_mono, i64 64), ptr noundef nonnull align 8 dereferenceable(56) getelementptr inbounds nuw (i8, ptr @tk_fast_mono, i64 8), i64 56, i1 false)
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !82
-  %58 = load i32, ptr @tk_fast_raw, align 64
-  %59 = add i32 %58, 1
-  store i32 %59, ptr @tk_fast_raw, align 64
+  %57 = load i32, ptr @tk_fast_raw, align 64
+  %58 = add i32 %57, 1
+  store i32 %58, ptr @tk_fast_raw, align 64
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !83
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) getelementptr inbounds nuw (i8, ptr @tk_fast_raw, i64 8), ptr noundef nonnull align 8 dereferenceable(56) %57, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) getelementptr inbounds nuw (i8, ptr @tk_fast_raw, i64 8), ptr noundef nonnull align 8 dereferenceable(56) %56, i64 56, i1 false)
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !82
-  %60 = load i32, ptr @tk_fast_raw, align 64
-  %61 = add i32 %60, 1
-  store i32 %61, ptr @tk_fast_raw, align 64
+  %59 = load i32, ptr @tk_fast_raw, align 64
+  %60 = add i32 %59, 1
+  store i32 %60, ptr @tk_fast_raw, align 64
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !83
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(56) getelementptr inbounds nuw (i8, ptr @tk_fast_raw, i64 64), ptr noundef nonnull align 8 dereferenceable(56) getelementptr inbounds nuw (i8, ptr @tk_fast_raw, i64 8), i64 56, i1 false)
-  br i1 %44, label %66, label %62
+  br i1 %44, label %65, label %61
 
-62:                                               ; preds = %15
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 172
-  %64 = load i32, ptr %63, align 4
-  %65 = add i32 %64, 1
-  store i32 %65, ptr %63, align 4
-  br label %66
+61:                                               ; preds = %15
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 172
+  %63 = load i32, ptr %62, align 4
+  %64 = add i32 %63, 1
+  store i32 %64, ptr %62, align 4
+  br label %65
 
-66:                                               ; preds = %62, %15
-  %67 = and i32 %1, 2
-  %68 = icmp eq i32 %67, 0
-  br i1 %68, label %70, label %69
+65:                                               ; preds = %61, %15
+  %66 = and i32 %1, 2
+  %67 = icmp eq i32 %66, 0
+  br i1 %67, label %69, label %68
 
-69:                                               ; preds = %66
+68:                                               ; preds = %65
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) @shadow_timekeeper, ptr noundef nonnull align 8 dereferenceable(280) getelementptr inbounds nuw (i8, ptr @tk_core, i64 8), i64 280, i1 false)
-  br label %70
+  br label %69
 
-70:                                               ; preds = %69, %66
+69:                                               ; preds = %68, %65
   ret void
 }
 

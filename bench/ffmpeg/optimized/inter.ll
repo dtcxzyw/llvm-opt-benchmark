@@ -2831,7 +2831,7 @@ scaled_ref_pos_and_step.exit:                     ; preds = %inter_filter_scaled
   tail call void %209(ptr noundef %1, i64 noundef %2, ptr noundef %210, i64 noundef %211, i32 noundef %212, i32 noundef %147, i32 noundef %156, i32 noundef %158, i32 noundef %160, i32 noundef %8, i32 noundef %192, i32 noundef %200, i32 noundef %204, ptr noundef nonnull %.0.i7991, ptr noundef nonnull %.0.i5792, i32 noundef %7) #6
   br label %222
 
-213:                                              ; preds = %174, %170, %scaled_ref_pos_and_step.exit
+213:; preds = %174, %170, %scaled_ref_pos_and_step.exit
   %214 = getelementptr inbounds nuw i8, ptr %15, i64 20416
   %215 = zext i1 %32 to i64
   %216 = sext i32 %42 to i64

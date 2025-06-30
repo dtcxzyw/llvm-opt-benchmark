@@ -165,13 +165,13 @@ switch.lookup:                                    ; preds = %10
   %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.mlib_ImageAffine_alltypes, i64 0, i64 %14
   %switch.load = load i32, ptr %switch.gep, align 4
   %15 = zext nneg i32 %3 to i64
-  %switch.gep111 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.mlib_ImageAffine_alltypes.4, i64 0, i64 %15
-  %switch.load112 = load i32, ptr %switch.gep111, align 4
+  %switch.gep112 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.mlib_ImageAffine_alltypes.4, i64 0, i64 %15
+  %switch.load113 = load i32, ptr %switch.gep112, align 4
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr null, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 112
   store i32 %3, ptr %17, align 16
-  %18 = call i32 @mlib_AffineEdges(ptr noundef nonnull %6, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %7, i32 noundef 600, i32 noundef %switch.load, i32 noundef %switch.load, i32 noundef %switch.load112, i32 noundef %switch.load112, i32 noundef %4, ptr noundef %2, i32 noundef 16, i32 noundef 16) #2
+  %18 = call i32 @mlib_AffineEdges(ptr noundef nonnull %6, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %7, i32 noundef 600, i32 noundef %switch.load, i32 noundef %switch.load, i32 noundef %switch.load113, i32 noundef %switch.load113, i32 noundef %4, ptr noundef %2, i32 noundef 16, i32 noundef 16) #2
   %.not89 = icmp eq i32 %18, 0
   br i1 %.not89, label %19, label %108
 
@@ -235,22 +235,22 @@ switch.lookup:                                    ; preds = %10
   br i1 %49, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %27, %.lr.ph
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ %43, %27 ]
+  %.2106 = phi i64 [ %51, %.lr.ph ], [ %43, %27 ]
   %.074105 = phi i32 [ %50, %.lr.ph ], [ %.val98, %27 ]
   %50 = ashr i32 %.074105, 1
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %51 = zext i32 %50 to i64
-  %52 = lshr i64 %41, %indvars.iv.next
+  %51 = add nuw nsw i64 %.2106, 1
+  %52 = zext i32 %50 to i64
+  %52 = lshr i64 %41, %51
   %53 = or i64 %52, %51
   %54 = and i64 %53, 1
   %55 = icmp eq i64 %54, 0
-  %56 = trunc nuw i64 %indvars.iv to i32
-  %57 = icmp slt i32 %56, 2
-  %58 = and i1 %57, %55
-  br i1 %58, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !6
+  %56 = trunc nuw i64 %.2106 to i32
+  %58 = icmp slt i32 %56, 2
+  %59 = and i1 %58, %55
+  br i1 %59, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
-._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %59 = trunc nuw i64 %indvars.iv.next to i32
+._crit_edge:                                      ; preds = %.lr.ph
+  %59 = trunc nuw i64 %51 to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %27
@@ -307,7 +307,7 @@ default.unreachable:                              ; preds = %25
   store ptr %20, ptr %86, align 8
   %87 = getelementptr inbounds nuw i8, ptr %8, i64 112
   store i32 %3, ptr %87, align 16
-  %88 = call i32 @mlib_AffineEdges(ptr noundef nonnull %8, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %9, i32 noundef 600, i32 noundef %switch.load, i32 noundef %switch.load, i32 noundef %switch.load112, i32 noundef %switch.load112, i32 noundef -1, ptr noundef %2, i32 noundef 16, i32 noundef 16) #2
+  %88 = call i32 @mlib_AffineEdges(ptr noundef nonnull %8, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %9, i32 noundef 600, i32 noundef %switch.load, i32 noundef %switch.load, i32 noundef %switch.load113, i32 noundef %switch.load113, i32 noundef -1, ptr noundef %2, i32 noundef 16, i32 noundef 16) #2
   %.not92 = icmp eq i32 %88, 0
   br i1 %.not92, label %92, label %89
 

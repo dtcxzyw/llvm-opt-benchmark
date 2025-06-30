@@ -8416,54 +8416,54 @@ define internal fastcc i64 @prep_io(i32 noundef %0, i32 noundef range(i32 0, 262
   %.019.i = phi ptr [ %21, %20 ], [ null, %16 ]
   %magicptr.i = ptrtoint ptr %.019.i to i64
   switch i64 %magicptr.i, label %23 [
-    i64 4, label %25
-    i64 0, label %25
+    i64 4, label %26
+    i64 0, label %26
   ]
 
 23:                                               ; preds = %22
   %24 = icmp eq ptr %.019.i, %.018.i
   br i1 %24, label %25, label %rb_io_ext_int_to_encs.exit
 
-25:                                               ; preds = %23, %22, %22
+26:                                               ; preds = %23, %22, %22
   %.not25.i = icmp eq ptr %.019.i, %.018.i
   %or.cond26.i = select i1 %.not15, i1 true, i1 %.not25.i
-  %26 = select i1 %or.cond26.i, ptr %.018.i, ptr null
+  %27 = select i1 %or.cond26.i, ptr %.018.i, ptr null
   br label %rb_io_ext_int_to_encs.exit
 
-rb_io_ext_int_to_encs.exit:                       ; preds = %23, %25
-  %storemerge22.i = phi ptr [ %26, %25 ], [ %.019.i, %23 ]
+rb_io_ext_int_to_encs.exit:                       ; preds = %23, %26
+  %storemerge22.i = phi ptr [ %27, %25 ], [ %.019.i, %23 ]
   %storemerge.i = phi ptr [ null, %25 ], [ %.018.i, %23 ]
   store ptr %storemerge22.i, ptr %5, align 8, !tbaa !119
   store ptr %storemerge.i, ptr %17, align 8, !tbaa !119
-  %27 = lshr i32 %1, 4
-  %28 = and i32 %27, 256
-  %29 = and i32 %1, 5
-  %.not21 = icmp eq i32 %29, 1
-  %30 = select i1 %.not21, i32 %28, i32 0
-  %31 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i32 %30, ptr %31, align 8, !tbaa !126
-  %32 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i64 4, ptr %32, align 8, !tbaa !127
-  %33 = call i64 @rb_io_open_descriptor(i64 noundef %2, i32 noundef %0, i32 noundef %1, i64 noundef %.0, i64 noundef 4, ptr noundef nonnull %5)
-  %34 = inttoptr i64 %33 to ptr
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  %36 = load ptr, ptr %35, align 8, !tbaa !29
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  %38 = load i32, ptr %37, align 8, !tbaa !7
-  %39 = call i32 @isatty(i32 noundef %38) #28
-  %.not.i18 = icmp eq i32 %39, 0
-  br i1 %.not.i18, label %io_check_tty.exit, label %40
+  %28 = lshr i32 %1, 4
+  %29 = and i32 %28, 256
+  %30 = and i32 %1, 5
+  %.not21 = icmp eq i32 %30, 1
+  %31 = select i1 %.not21, i32 %29, i32 0
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store i32 %31, ptr %32, align 8, !tbaa !126
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store i64 4, ptr %33, align 8, !tbaa !127
+  %34 = call i64 @rb_io_open_descriptor(i64 noundef %2, i32 noundef %0, i32 noundef %1, i64 noundef %.0, i64 noundef 4, ptr noundef nonnull %5)
+  %35 = inttoptr i64 %34 to ptr
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  %37 = load ptr, ptr %36, align 8, !tbaa !29
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
+  %39 = load i32, ptr %38, align 8, !tbaa !7
+  %40 = call i32 @isatty(i32 noundef %39) #28
+  %.not.i18 = icmp eq i32 %40, 0
+  br i1 %.not.i18, label %io_check_tty.exit, label %41
 
-40:                                               ; preds = %rb_io_ext_int_to_encs.exit
-  %41 = getelementptr inbounds nuw i8, ptr %36, i64 20
-  %42 = load i32, ptr %41, align 4, !tbaa !34
-  %43 = or i32 %42, 48
-  store i32 %43, ptr %41, align 4, !tbaa !34
+41:                                               ; preds = %rb_io_ext_int_to_encs.exit
+  %42 = getelementptr inbounds nuw i8, ptr %37, i64 20
+  %43 = load i32, ptr %42, align 4, !tbaa !34
+  %44 = or i32 %43, 48
+  store i32 %44, ptr %42, align 4, !tbaa !34
   br label %io_check_tty.exit
 
-io_check_tty.exit:                                ; preds = %rb_io_ext_int_to_encs.exit, %40
+io_check_tty.exit:                                ; preds = %rb_io_ext_int_to_encs.exit, %41
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #28
-  ret i64 %33
+  ret i64 %34
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

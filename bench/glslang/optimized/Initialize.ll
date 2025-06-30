@@ -73182,7 +73182,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2E
 
 .lr.ph:                                           ; preds = %32, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE7compareEPKc.exit.thread
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE7compareEPKc.exit.thread ], [ 0, %32 ]
-  %49 = phi ptr [ %79, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE7compareEPKc.exit.thread ], [ %42, %32 ]
+  %49 = phi ptr [ %78, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE7compareEPKc.exit.thread ], [ %42, %32 ]
   %50 = getelementptr inbounds nuw %"struct.glslang::TTypeLoc", ptr %49, i64 %indvars.iv
   %51 = load ptr, ptr %50, align 8
   %52 = load ptr, ptr %51, align 8
@@ -73229,8 +73229,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE7c
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE7compareEPKc.exit.thread: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE7compareEPKc.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %78 = load ptr, ptr %40, align 8
-  %79 = load ptr, ptr %39, align 8
+  %77 = load ptr, ptr %40, align 8
+  %78 = load ptr, ptr %39, align 8
   %80 = ptrtoint ptr %78 to i64
   %81 = ptrtoint ptr %79 to i64
   %82 = sub i64 %80, %81

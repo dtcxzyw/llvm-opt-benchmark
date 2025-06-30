@@ -24944,7 +24944,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mov_parse_auxiliary_info(p
   store i32 0, ptr %5, align 4, !tbaa !83
   %6 = load i32, ptr %3, align 8, !tbaa !351
   %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %7, label %69
+  br i1 %.not, label %7, label %70
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -24958,11 +24958,11 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mov_parse_auxiliary_info(p
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !4
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %14, i32 noundef 16, ptr noundef nonnull @.str.259) #16
-  br label %69
+  br label %70
 
 15:                                               ; preds = %7
   %16 = icmp ugt i64 %9, 268435454
-  br i1 %16, label %69, label %17
+  br i1 %16, label %70, label %17
 
 17:                                               ; preds = %15
   %18 = tail call i64 @avio_seek(ptr noundef %2, i64 noundef 0, i32 noundef 1) #16
@@ -24970,7 +24970,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mov_parse_auxiliary_info(p
   %20 = load i32, ptr %19, align 8, !tbaa !137
   %21 = and i32 %20, 1
   %.not65 = icmp eq i32 %21, 0
-  br i1 %.not65, label %.thread78, label %22
+  br i1 %.not65, label %34, label %22
 
 22:                                               ; preds = %17
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 40
@@ -24980,9 +24980,9 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mov_parse_auxiliary_info(p
   %27 = load ptr, ptr %23, align 8, !tbaa !574
   %28 = load i64, ptr %27, align 8, !tbaa !176
   %.not66 = icmp eq i64 %26, %28
-  br i1 %.not66, label %.preheader81, label %.thread78
+  br i1 %.not66, label %.preheader, label %34
 
-.preheader81:                                     ; preds = %22
+.preheader:                                       ; preds = %22
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -24990,14 +24990,14 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mov_parse_auxiliary_info(p
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 1616
   br label %37
 
-.thread78:                                        ; preds = %17, %22
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %35 = load ptr, ptr %34, align 8, !tbaa !4
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %35, i32 noundef 32, ptr noundef nonnull @.str.260) #16
+34:                                               ; preds = %17, %22
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %36 = load ptr, ptr %35, align 8, !tbaa !4
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %36, i32 noundef 32, ptr noundef nonnull @.str.260) #16
   %36 = tail call i64 @avio_seek(ptr noundef nonnull %2, i64 noundef %18, i32 noundef 0) #16
   br label %69
 
-37:                                               ; preds = %.preheader81, %52
+37:                                               ; preds = %.preheader, %52
   %.156 = phi i64 [ %40, %52 ], [ 0, %.preheader81 ]
   %exitcond.not = icmp eq i64 %.156, %9
   %.pre = load i32, ptr %29, align 8, !tbaa !47
@@ -25015,7 +25015,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mov_parse_auxiliary_info(p
   %43 = shl nuw nsw i64 %., 3
   %44 = call ptr @av_fast_realloc(ptr noundef %42, ptr noundef nonnull %5, i64 noundef %43) #16
   %.not69 = icmp eq ptr %44, null
-  br i1 %.not69, label %.preheader, label %45
+  br i1 %.not69, label %.thread78, label %45
 
 45:                                               ; preds = %39
   store ptr %44, ptr %30, align 8, !tbaa !353
@@ -25038,35 +25038,35 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mov_parse_auxiliary_info(p
   %56 = zext i1 %55 to i32
   %57 = call fastcc i32 @mov_read_sample_encryption_info(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %1, ptr noundef nonnull %46, i32 noundef %56)
   %58 = icmp slt i32 %57, 0
-  br i1 %58, label %.preheader, label %37, !llvm.loop !759
+  br i1 %58, label %.thread78, label %37, !llvm.loop !759
 
 .critedge:                                        ; preds = %37
-  br i1 %.not68, label %.thread, label %.critedge.thread
+  br i1 %.not68, label %61, label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %38, %.critedge
-  %.156.lcssa90 = phi i64 [ %9, %.critedge ], [ %.156, %38 ]
+  %.156.lcssa89 = phi i64 [ %9, %.critedge ], [ %.156, %38 ]
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %60 = load ptr, ptr %59, align 8, !tbaa !4
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %60, i32 noundef 16, ptr noundef nonnull @.str.261) #16
-  br label %.preheader
+  br label %.thread78
 
-.thread:                                          ; preds = %.critedge
-  %61 = trunc nuw nsw i64 %9 to i32
-  store i32 %61, ptr %3, align 8, !tbaa !351
+61:                                               ; preds = %.critedge
+  %62 = trunc nuw nsw i64 %9 to i32
+  store i32 %62, ptr %3, align 8, !tbaa !351
   %62 = call i64 @avio_seek(ptr noundef nonnull %2, i64 noundef %18, i32 noundef 0) #16
   br label %69
 
-.preheader:                                       ; preds = %39, %52, %.critedge.thread
+.thread78:                                        ; preds = %39, %52, %.critedge61
   %.15687.ph = phi i64 [ %.156.lcssa90, %.critedge.thread ], [ %.156, %52 ], [ %.156, %39 ]
   %.054.ph = phi i32 [ -1094995529, %.critedge.thread ], [ -12, %39 ], [ %57, %52 ]
   %63 = call i64 @avio_seek(ptr noundef nonnull %2, i64 noundef %18, i32 noundef 0) #16
   %.not7184 = icmp eq i64 %.15687.ph, 0
   br i1 %.not7184, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.25785 = phi i64 [ %68, %.lr.ph ], [ %.15687.ph, %.preheader ]
+.thread:                                          ; preds = %35, %.thread
+  %.15686 = phi i64 [ %68, %.lr.ph ], [ %.15687.ph, %.preheader ]
   %64 = load ptr, ptr %30, align 8, !tbaa !353
-  %65 = getelementptr ptr, ptr %64, i64 %.25785
+  %65 = getelementptr ptr, ptr %64, i64 %.15686
   %66 = getelementptr i8, ptr %65, i64 -8
   %67 = load ptr, ptr %66, align 8, !tbaa !354
   call void @av_encryption_info_free(ptr noundef %67) #16
@@ -25074,11 +25074,11 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mov_parse_auxiliary_info(p
   %.not71 = icmp eq i64 %68, 0
   br i1 %.not71, label %._crit_edge, label %.lr.ph, !llvm.loop !760
 
-._crit_edge:                                      ; preds = %.lr.ph, %.preheader
+._crit_edge:                                      ; preds = %.lr.ph, %.thread78
   call void @av_freep(ptr noundef nonnull %30) #16
-  br label %69
+  br label %70
 
-69:                                               ; preds = %.thread, %.thread78, %._crit_edge, %15, %4, %12
+70:                                               ; preds = %.thread, %34, %._crit_edge, %15, %4, %12
   %.0 = phi i32 [ -1163346256, %12 ], [ 0, %4 ], [ -12, %15 ], [ %.054.ph, %._crit_edge ], [ 0, %.thread ], [ 0, %.thread78 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #16
   ret i32 %.0

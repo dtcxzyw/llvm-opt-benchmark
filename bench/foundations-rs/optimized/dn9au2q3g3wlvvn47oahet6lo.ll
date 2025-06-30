@@ -2885,7 +2885,7 @@ define hidden noundef ptr @_ZN17tikv_jemalloc_ctl11stats_print11stats_print17he4
           cleanup
   %18 = load ptr, ptr %5, align 8, !alias.scope !194, !noundef !4
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17heb08c325478a65a0E.exit", label %20
+  br i1 %19, label %53, label %20
 
 20:                                               ; preds = %16
   invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h39ce46b790451054E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5)
@@ -2974,7 +2974,7 @@ define hidden noundef ptr @_ZN17tikv_jemalloc_ctl11stats_print11stats_print17he4
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #28
   unreachable
 
-"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17heb08c325478a65a0E.exit": ; preds = %16, %20
+53:                                               ; preds = %16, %20
   resume { ptr, i32 } %17
 }
 

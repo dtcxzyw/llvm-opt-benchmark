@@ -1089,7 +1089,7 @@ define hidden range(i64 0, 4294967296) i64 @bufferevent_get_ssl_error(ptr nounde
   %4 = load ptr, ptr %3, align 8
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %4, ptr noundef nonnull dereferenceable(3) @.str, i64 3)
   %.not = icmp eq i32 %bcmp, 0
-  br i1 %.not, label %32, label %5
+  br i1 %.not, label %31, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 448
@@ -1109,7 +1109,7 @@ define hidden range(i64 0, 4294967296) i64 @bufferevent_get_ssl_error(ptr nounde
   %.not18 = icmp eq i8 %14, 0
   br i1 %.not18, label %27, label %15
 
-15:                                               ; preds = %11
+16:                                               ; preds = %11
   %16 = lshr i8 %13, 2
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %18 = add nuw nsw i8 %16, 3
@@ -1124,18 +1124,18 @@ define hidden range(i64 0, 4294967296) i64 @bufferevent_get_ssl_error(ptr nounde
   %26 = zext i32 %25 to i64
   br label %27
 
-27:                                               ; preds = %11, %15
+26:                                               ; preds = %11, %16
   %.013 = phi i64 [ %26, %15 ], [ 0, %11 ]
-  %28 = load ptr, ptr %6, align 8
-  %.not19 = icmp eq ptr %28, null
-  br i1 %.not19, label %32, label %29
+  %27 = load ptr, ptr %6, align 8
+  %.not19 = icmp eq ptr %27, null
+  br i1 %.not19, label %31, label %28
 
-29:                                               ; preds = %27
-  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @evthread_lock_fns_, i64 32), align 8
-  %31 = tail call i32 %30(i32 noundef 0, ptr noundef nonnull %28) #7
-  br label %32
+28:                                               ; preds = %26
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @evthread_lock_fns_, i64 32), align 8
+  %30 = tail call i32 %30(i32 noundef 0, ptr noundef nonnull %27) #7
+  br label %31
 
-32:                                               ; preds = %27, %29, %1
+31:                                               ; preds = %26, %28, %1
   %.0 = phi i64 [ 0, %1 ], [ %.013, %29 ], [ %.013, %27 ]
   ret i64 %.0
 }

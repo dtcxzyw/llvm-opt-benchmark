@@ -13815,48 +13815,48 @@ declare i32 @wc_Chacha_Process(ptr noundef, ptr noundef, ptr noundef, i32 nounde
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @Poly1305TagOld(ptr noundef readonly captures(none) %0, ptr noundef nonnull %1, i32 noundef range(i32 0, -2147483648) %2, ptr noundef %3, ptr noundef nonnull %4, i16 noundef zeroext %5, ptr noundef nonnull %6) unnamed_addr #5 {
-  %8 = alloca [8 x i8], align 8
-  %9 = zext i16 %5 to i32
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 720
-  %11 = load i16, ptr %10, align 2, !tbaa !352
-  %12 = zext i16 %11 to i32
-  %13 = sub nsw i32 %9, %12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #27
-  %14 = icmp slt i32 %13, 0
-  br i1 %14, label %41, label %15
+  %7 = alloca [8 x i8], align 8
+  %8 = zext i16 %5 to i32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 720
+  %10 = load i16, ptr %9, align 2, !tbaa !352
+  %11 = zext i16 %10 to i32
+  %12 = sub nsw i32 %8, %11
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #27
+  %13 = icmp slt i32 %12, 0
+  br i1 %13, label %41, label %15
 
-15:                                               ; preds = %7
+21:                                               ; preds = %7
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 1208
-  %17 = load ptr, ptr %16, align 8, !tbaa !89
-  %18 = tail call i32 @wc_Poly1305SetKey(ptr noundef %17, ptr noundef nonnull %4, i32 noundef 32) #27
-  %.not = icmp eq i32 %18, 0
-  br i1 %.not, label %19, label %41
+  %22 = load ptr, ptr %16, align 8, !tbaa !89
+  %18 = tail call i32 @wc_Poly1305SetKey(ptr noundef %22, ptr noundef nonnull %4, i32 noundef 32) #27
+  %.not36 = icmp eq i32 %18, 0
+  br i1 %.not36, label %24, label %41
 
-19:                                               ; preds = %15
+24:                                               ; preds = %21
   %20 = load ptr, ptr %16, align 8, !tbaa !89
   %21 = tail call i32 @wc_Poly1305Update(ptr noundef %20, ptr noundef nonnull %1, i32 noundef %2) #27
   %.not35 = icmp eq i32 %21, 0
   br i1 %.not35, label %22, label %41
 
-22:                                               ; preds = %19
+27:                                               ; preds = %24
   store i64 0, ptr %8, align 8
   %23 = trunc i32 %2 to i8
   store i8 %23, ptr %8, align 8, !tbaa !45
   %24 = load ptr, ptr %16, align 8, !tbaa !89
-  %25 = call i32 @wc_Poly1305Update(ptr noundef %24, ptr noundef nonnull %8, i32 noundef 8) #27
+  %25 = call i32 @wc_Poly1305Update(ptr noundef %24, ptr noundef nonnull %7, i32 noundef 8) #27
   %.not36 = icmp eq i32 %25, 0
   br i1 %.not36, label %26, label %41
 
-26:                                               ; preds = %22
+36:                                               ; preds = %27
   store i64 0, ptr %8, align 8
   %27 = load ptr, ptr %16, align 8, !tbaa !89
   %28 = call i32 @wc_Poly1305Update(ptr noundef %27, ptr noundef %3, i32 noundef %13) #27
   %.not37 = icmp eq i32 %28, 0
   br i1 %.not37, label %29, label %41
 
-29:                                               ; preds = %26
+39:                                               ; preds = %26
   %30 = trunc i32 %13 to i8
-  store i8 %30, ptr %8, align 8, !tbaa !45
+  store i8 %30, ptr %7, align 8, !tbaa !45
   %31 = lshr i32 %13, 8
   %32 = trunc nuw i32 %31 to i8
   %33 = getelementptr inbounds nuw i8, ptr %8, i64 1

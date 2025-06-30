@@ -1257,8 +1257,8 @@ leastsquares.exit.i:                              ; preds = %._crit_edge93.i.i, 
   br i1 %exitcond68.not.i.i, label %calc_lsq_max_fit_error.exit.i, label %.preheader.us.i290.i, !llvm.loop !71
 
 calc_lsq_max_fit_error.exit.i:                    ; preds = %._crit_edge.us.i294.i
-  %.not78.i = icmp sgt i32 %.3.us.i.i, %.0164210.i
-  br i1 %.not78.i, label %.preheader.us.i299.i, label %calc_lsq_max_fit_error.exit311.i
+  %.not78.not.i = icmp sgt i32 %.3.us.i.i, %.0164210.i
+  br i1 %.not78.not.i, label %.preheader.us.i299.i, label %calc_lsq_max_fit_error.exit311.i
 
 calc_lsq_max_fit_error.exit.thread.i:             ; preds = %559
   %spec.select.i46 = tail call i32 @llvm.smax.i32(i32 %.0164210.i, i32 0)
@@ -1439,9 +1439,9 @@ get_block_info.exit319.i..preheader.preheader.i_crit_edge: ; preds = %get_block_
   br label %put_bits.exit331.i
 
 put_bits.exit331.i:                               ; preds = %688, %680, %670
-  %.sink375.i = phi i32 [ -16, %670 ], [ 16, %688 ], [ 16, %680 ]
+  %.sink377.i = phi i32 [ -16, %670 ], [ 16, %688 ], [ 16, %680 ]
   %.026.i.i329.i = phi i32 [ %672, %670 ], [ %668, %688 ], [ %668, %680 ]
-  %689 = add nsw i32 %.sink375.i, %663
+  %689 = add nsw i32 %.sink377.i, %663
   store i32 %.026.i.i329.i, ptr %25, align 8, !tbaa !42
   store i32 %689, ptr %36, align 4, !tbaa !41
   %indvars.iv.next276.i = add nuw nsw i64 %indvars.iv275.i, 1
@@ -1490,9 +1490,9 @@ put_bits.exit331.i:                               ; preds = %688, %680, %670
   br label %put_bits.exit335.i
 
 put_bits.exit335.i:                               ; preds = %709, %704, %695
-  %.sink376.i = phi i32 [ -16, %695 ], [ 16, %709 ], [ 16, %704 ]
+  %.sink378.i = phi i32 [ -16, %695 ], [ 16, %709 ], [ 16, %704 ]
   %.026.i.i333.i = phi i32 [ %696, %695 ], [ 0, %709 ], [ 0, %704 ]
-  %710 = add nsw i32 %.sink376.i, %692
+  %710 = add nsw i32 %.sink378.i, %692
   store i32 %.026.i.i333.i, ptr %25, align 8, !tbaa !42
   store i32 %710, ptr %36, align 4, !tbaa !41
   %711 = add i32 %.0155212.i, 1
@@ -1544,9 +1544,9 @@ put_bits.exit335.i:                               ; preds = %709, %704, %695
   br label %put_bits.exit339.i
 
 put_bits.exit339.i:                               ; preds = %732, %727, %718
-  %.sink377.i = phi i32 [ -16, %718 ], [ 16, %732 ], [ 16, %727 ]
+  %.sink379.i = phi i32 [ -16, %718 ], [ 16, %732 ], [ 16, %727 ]
   %.026.i.i337.i = phi i32 [ %719, %718 ], [ 0, %732 ], [ 0, %727 ]
-  %733 = add nsw i32 %.sink377.i, %715
+  %733 = add nsw i32 %.sink379.i, %715
   store i32 %.026.i.i337.i, ptr %25, align 8, !tbaa !42
   store i32 %733, ptr %36, align 4, !tbaa !41
   %734 = add nuw nsw i32 %.0216.i, 1

@@ -3589,7 +3589,7 @@ define internal fastcc i32 @pdf_scan_contents(i32 noundef range(i32 0, -21474836
   %18 = call ptr @cli_strerror(i32 noundef %17, ptr noundef nonnull %7, i64 noundef 128) #23
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.220, ptr noundef nonnull %4, ptr noundef %18) #23
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #23
-  br label %69
+  br label %71
 
 19:                                               ; preds = %2
   %20 = call i32 @text_normalize_init(ptr noundef nonnull %3, ptr noundef nonnull %5, i64 noundef 8192) #23
@@ -3613,11 +3613,11 @@ define internal fastcc i32 @pdf_scan_contents(i32 noundef range(i32 0, -21474836
     i32 2, label %35
   ]
 
-26:                                               ; preds = %24
+25:                                               ; preds = %24
   %27 = icmp eq i8 %25, 91
   br i1 %27, label %43, label %28
 
-28:                                               ; preds = %26
+28:                                               ; preds = %25
   %29 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) %.027.i, i32 noundef 10, i64 noundef %.028.i) #27
   %.not33.not.i = icmp eq ptr %29, null
   %30 = ptrtoint ptr %29 to i64
@@ -3635,22 +3635,22 @@ define internal fastcc i32 @pdf_scan_contents(i32 noundef range(i32 0, -21474836
   %36 = icmp eq i8 %25, 41
   br i1 %36, label %43, label %37
 
-37:                                               ; preds = %35
+37:; preds = %35
   %38 = call i64 @text_normalize_buffer(ptr noundef nonnull %3, ptr noundef nonnull %.027.i, i64 noundef 1) #23
   %.not.i = icmp eq i64 %38, 1
   br i1 %.not.i, label %43, label %39
 
-39:                                               ; preds = %37
+39:; preds = %37
   %40 = load ptr, ptr %3, align 8, !tbaa !104
   %41 = load i64, ptr %23, align 8, !tbaa !106
   %42 = call i64 @cli_writen(i32 noundef range(i32 0, -2147483648) %13, ptr noundef %40, i64 noundef %41) #23
   call void @text_normalize_reset(ptr noundef nonnull %3) #23
   br label %43
 
-default.unreachable:                              ; preds = %24
+45:                                               ; preds = %24
   unreachable
 
-43:                                               ; preds = %33, %35, %26, %39, %37, %28
+43:; preds = %33, %35, %26, %39, %37, %28
   %.2 = phi i32 [ 0, %28 ], [ 2, %37 ], [ 2, %39 ], [ 1, %26 ], [ 1, %35 ], [ %spec.select, %33 ]
   %.129.i = phi i64 [ %.3.i, %28 ], [ %.028.i, %37 ], [ %.028.i, %39 ], [ %.028.i, %26 ], [ %.028.i, %35 ], [ %.028.i, %33 ]
   %.1.i = phi ptr [ %29, %28 ], [ %.027.i, %37 ], [ %.027.i, %39 ], [ %.027.i, %26 ], [ %.027.i, %35 ], [ %.027.i, %33 ]
@@ -3661,48 +3661,48 @@ default.unreachable:                              ; preds = %24
 
 .backedge:                                        ; preds = %43, %process.exit
   %.1.be = phi i32 [ %.2, %43 ], [ %.3, %process.exit ]
-  %.028.i.be = phi i64 [ %45, %43 ], [ %46, %process.exit ]
+  %.028.i.be = phi i64 [ %45, %43 ], [ %48, %process.exit ]
   %.027.i.be = phi ptr [ %44, %43 ], [ %6, %process.exit ]
   br label %24
 
 process.exit:                                     ; preds = %28, %43
   %.3 = phi i32 [ %.2, %43 ], [ 0, %28 ]
-  %46 = call i64 @cli_readn(i32 noundef %0, ptr noundef nonnull %6, i64 noundef 8192) #23
-  %47 = add i64 %46, 1
-  %or.cond = icmp ult i64 %47, 2
+  %48 = call i64 @cli_readn(i32 noundef %0, ptr noundef nonnull %6, i64 noundef 8192) #23
+  %49 = add i64 %48, 1
+  %or.cond = icmp ult i64 %49, 2
   br i1 %or.cond, label %._crit_edge, label %.backedge
 
 ._crit_edge:                                      ; preds = %process.exit, %19
-  %48 = load ptr, ptr %3, align 8, !tbaa !104
-  %49 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %50 = load i64, ptr %49, align 8, !tbaa !106
-  %51 = call i64 @cli_writen(i32 noundef %13, ptr noundef %48, i64 noundef %50) #23
-  %52 = call i64 @lseek(i32 noundef %13, i64 noundef 0, i32 noundef 0) #23
-  %53 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %54 = load ptr, ptr %53, align 8, !tbaa !63
-  %55 = call i32 @cli_magic_scan_desc(i32 noundef %13, ptr noundef nonnull %4, ptr noundef %54, ptr noundef null, i32 noundef 0) #23
-  %56 = call i32 @close(i32 noundef %13) #23
-  %57 = load ptr, ptr %53, align 8, !tbaa !63
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 48
-  %59 = load ptr, ptr %58, align 8, !tbaa !81
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 40
-  %61 = load i32, ptr %60, align 8, !tbaa !82
-  %62 = icmp eq i32 %61, 0
-  %63 = load i64, ptr %49, align 8
-  %64 = icmp eq i64 %63, 0
-  %or.cond4 = select i1 %62, i1 true, i1 %64
-  br i1 %or.cond4, label %65, label %69
+  %50 = load ptr, ptr %3, align 8, !tbaa !104
+  %51 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %52 = load i64, ptr %51, align 8, !tbaa !106
+  %53 = call i64 @cli_writen(i32 noundef %13, ptr noundef %50, i64 noundef %52) #23
+  %54 = call i64 @lseek(i32 noundef %13, i64 noundef 0, i32 noundef 0) #23
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %56 = load ptr, ptr %55, align 8, !tbaa !63
+  %57 = call i32 @cli_magic_scan_desc(i32 noundef %13, ptr noundef nonnull %4, ptr noundef %56, ptr noundef null, i32 noundef 0) #23
+  %58 = call i32 @close(i32 noundef %13) #23
+  %59 = load ptr, ptr %55, align 8, !tbaa !63
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 48
+  %61 = load ptr, ptr %60, align 8, !tbaa !81
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 40
+  %63 = load i32, ptr %62, align 8, !tbaa !82
+  %64 = icmp eq i32 %63, 0
+  %65 = load i64, ptr %51, align 8
+  %66 = icmp eq i64 %65, 0
+  %or.cond4 = select i1 %64, i1 true, i1 %66
+  br i1 %or.cond4, label %67, label %71
 
-65:                                               ; preds = %._crit_edge
-  %66 = call i32 @cli_unlink(ptr noundef nonnull %4) #23
-  %67 = icmp ne i32 %66, 0
-  %68 = icmp ne i32 %55, 1
-  %or.cond6 = select i1 %67, i1 %68, i1 false
-  %spec.store.select = select i1 %or.cond6, i32 10, i32 %55
-  br label %69
+67:                                               ; preds = %._crit_edge
+  %68 = call i32 @cli_unlink(ptr noundef nonnull %4) #23
+  %69 = icmp ne i32 %68, 0
+  %70 = icmp ne i32 %57, 1
+  %or.cond6 = select i1 %69, i1 %70, i1 false
+  %spec.store.select = select i1 %or.cond6, i32 10, i32 %57
+  br label %71
 
-69:                                               ; preds = %._crit_edge, %65, %15
-  %.023 = phi i32 [ 17, %15 ], [ %spec.store.select, %65 ], [ %55, %._crit_edge ]
+71:                                               ; preds = %._crit_edge, %67, %15
+  %.023 = phi i32 [ 17, %15 ], [ %spec.store.select, %65 ], [ %57, %._crit_edge ]
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %6) #23
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %5) #23
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4) #23

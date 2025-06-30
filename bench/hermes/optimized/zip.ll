@@ -16150,14 +16150,14 @@ while.end74.i:                                    ; preds = %while.end74.loopexi
   br i1 %cmp.i.i, label %zip_files_move.exit.i, label %while.cond.preheader.i.i
 
 while.cond.preheader.i.i:                         ; preds = %while.end74.i
-  %cmp121.i.i = icmp sgt i64 %move_length.1.lcssa.i, 0
-  br i1 %cmp121.i.i, label %while.body.i.i, label %if.then16.i.i
+  %cmp120.i.i = icmp sgt i64 %move_length.1.lcssa.i, 0
+  br i1 %cmp120.i.i, label %while.body.i.i, label %if.then16.i.i
 
 while.body.i.i:                                   ; preds = %while.cond.preheader.i.i, %if.end13.i.i
   %moved_length.025.i.i = phi i64 [ %add15.i.i, %if.end13.i.i ], [ 0, %while.cond.preheader.i.i ]
   %length.addr.024.i.i = phi i64 [ %sub.i.i27, %if.end13.i.i ], [ %move_length.1.lcssa.i, %while.cond.preheader.i.i ]
   %read_num.addr.023.i.i = phi i64 [ %add14.i.i, %if.end13.i.i ], [ %read_num.2.lcssa.i, %while.cond.preheader.i.i ]
-  %writen_num.addr.022.i.i = phi i64 [ %add.i.i, %if.end13.i.i ], [ %writen_num.1.lcssa.i, %while.cond.preheader.i.i ]
+  %writen_num.addr.021.i.i = phi i64 [ %add.i.i, %if.end13.i.i ], [ %writen_num.1.lcssa.i, %while.cond.preheader.i.i ]
   %52 = call i64 @llvm.umin.i64(i64 %length.addr.024.i.i, i64 4096)
   %call.i.i.i = call i32 @fseeko(ptr noundef %51, i64 noundef %read_num.addr.023.i.i, i32 noundef 0)
   %tobool.not.i.i.i = icmp eq i32 %call.i.i.i, 0
@@ -16169,21 +16169,21 @@ if.end3.i.i.i:                                    ; preds = %while.body.i.i
   br i1 %cmp5.not.i.i.i, label %if.end8.i.i.i, label %return.sink.split.i.i.i
 
 if.end8.i.i.i:                                    ; preds = %if.end3.i.i.i
-  %call9.i.i.i = call i32 @fseeko(ptr noundef %51, i64 noundef %writen_num.addr.022.i.i, i32 noundef 0)
+  %call9.i.i.i = call i32 @fseeko(ptr noundef %51, i64 noundef %writen_num.addr.021.i.i, i32 noundef 0)
   %tobool10.not.i.i.i = icmp eq i32 %call9.i.i.i, 0
   br i1 %tobool10.not.i.i.i, label %if.end13.i.i.i, label %return.sink.split.i.i.i
 
 if.end13.i.i.i:                                   ; preds = %if.end8.i.i.i
   %call14.i.i.i = call i64 @fwrite(ptr noundef nonnull %call.i.i26, i64 noundef 1, i64 noundef range(i64 1, -9223372036854775808) %52, ptr noundef %51)
   %cmp15.not.i.i.i = icmp eq i64 %call14.i.i.i, %52
-  br i1 %cmp15.not.i.i.i, label %if.end13.i.i, label %return.sink.split.i.i.i
+  br i1 %cmp15.not.i.i.i, label %zip_file_move.exit.i.i, label %return.sink.split.i.i.i
 
 return.sink.split.i.i.i:                          ; preds = %if.end13.i.i.i, %if.end8.i.i.i, %if.end3.i.i.i, %while.body.i.i
   %retval.0.ph.i.i.i = phi i64 [ -27, %while.body.i.i ], [ -28, %if.end3.i.i.i ], [ -27, %if.end8.i.i.i ], [ -29, %if.end13.i.i.i ]
   %call17.i.i.i = call i32 @fclose(ptr noundef %51)
   br label %if.then16.i.i
 
-if.end13.i.i:                                     ; preds = %if.end13.i.i.i
+zip_file_move.exit.i.i:                           ; preds = %if.end13.i.i.i
   %add.i.i = add i64 %writen_num.addr.022.i.i, %52
   %add14.i.i = add i64 %52, %read_num.addr.023.i.i
   %sub.i.i27 = sub nsw i64 %length.addr.024.i.i, %52
@@ -16216,8 +16216,8 @@ if.end87.i:                                       ; preds = %zip_files_move.exit
 while.end90.i:                                    ; preds = %if.end87.i, %while.cond.preheader.i
   %deleted_length.0.lcssa.i = phi i64 [ 0, %while.cond.preheader.i ], [ %deleted_length.1.lcssa.i, %if.end87.i ]
   %deleted_entry_num.0.lcssa.i = phi i32 [ 0, %while.cond.preheader.i ], [ %deleted_entry_num.1.lcssa.i, %if.end87.i ]
-  %53 = load i64, ptr %zip, align 8
-  %sub92.i = sub i64 %53, %deleted_length.0.lcssa.i
+  %54 = load i64, ptr %zip, align 8
+  %sub92.i = sub i64 %54, %deleted_length.0.lcssa.i
   store i64 %sub92.i, ptr %zip, align 8
   %sub93.i = sub nsw i32 %0, %deleted_entry_num.0.lcssa.i
   store i32 %sub93.i, ptr %m_total_files.i, align 8
@@ -16299,8 +16299,8 @@ if.end13:                                         ; preds = %if.end, %if.end, %i
   %dirlen.0 = phi i64 [ %call, %if.end ], [ %add, %if.then11 ], [ %call, %if.end ]
   %m_total_files.i = getelementptr inbounds nuw i8, ptr %zip_archive, i64 16
   %1 = load i32, ptr %m_total_files.i, align 8
-  %cmp1553.not = icmp eq i32 %1, 0
-  br i1 %cmp1553.not, label %out, label %for.body.lr.ph
+  %cmp1552.not = icmp eq i32 %1, 0
+  br i1 %cmp1552.not, label %out, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end13
   %m_filename = getelementptr inbounds nuw i8, ptr %info, i64 68
@@ -16314,12 +16314,12 @@ for.body.lr.ph:                                   ; preds = %if.end13
   %m_time.i = getelementptr inbounds nuw i8, ptr %file_stat.i, i64 16
   %modtime.i.i = getelementptr inbounds nuw i8, ptr %t.i.i, i64 8
   %tobool92.not = icmp eq ptr %on_extract, null
-  %call1763 = call i32 @mz_zip_reader_file_stat(ptr noundef nonnull %zip_archive, i32 noundef 0, ptr noundef nonnull %info)
-  %tobool.not64 = icmp eq i32 %call1763, 0
-  br i1 %tobool.not64, label %out, label %if.end19
+  %call1762 = call i32 @mz_zip_reader_file_stat(ptr noundef nonnull %zip_archive, i32 noundef 0, ptr noundef nonnull %info)
+  %tobool.not63 = icmp eq i32 %call1762, 0
+  br i1 %tobool.not63, label %out, label %if.end19
 
 if.end19:                                         ; preds = %for.body.lr.ph, %for.body.backedge
-  %i.05465 = phi i32 [ %i.054.be, %for.body.backedge ], [ 0, %for.body.lr.ph ]
+  %i.05364 = phi i32 [ %i.053.be, %for.body.backedge ], [ 0, %for.body.lr.ph ]
   %call25 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %m_filename) #34
   %cmp3.i = icmp eq i64 %call25, 0
   br i1 %cmp3.i, label %out, label %while.cond.i
@@ -16499,7 +16499,7 @@ if.then51:                                        ; preds = %land.lhs.true
   br i1 %cmp52, label %out, label %lor.lhs.false54
 
 lor.lhs.false54:                                  ; preds = %if.then51
-  %call56 = call i32 @mz_zip_reader_extract_to_mem_no_alloc(ptr noundef nonnull %zip_archive, i32 noundef %i.05465, ptr noundef nonnull %symlink_to, i64 noundef 32767, i32 noundef 0, ptr noundef null, i64 noundef 0)
+  %call56 = call i32 @mz_zip_reader_extract_to_mem_no_alloc(ptr noundef nonnull %zip_archive, i32 noundef %i.05364, ptr noundef nonnull %symlink_to, i64 noundef 32767, i32 noundef 0, ptr noundef null, i64 noundef 0)
   %tobool57.not = icmp eq i32 %call56, 0
   br i1 %tobool57.not, label %out, label %if.end59
 
@@ -16517,7 +16517,7 @@ if.else:                                          ; preds = %if.end40, %land.lhs
 
 lor.lhs.false2.i.i:                               ; preds = %if.else
   %28 = load i32, ptr %m_total_files.i, align 8
-  %cmp.i.not.i = icmp ult i32 %i.05465, %28
+  %cmp.i.not.i = icmp ult i32 %i.05364, %28
   br i1 %cmp.i.not.i, label %lor.lhs.false3.i.i, label %if.then71
 
 lor.lhs.false3.i.i:                               ; preds = %lor.lhs.false2.i.i
@@ -16529,7 +16529,7 @@ mz_zip_reader_get_cdh.exit.i:                     ; preds = %lor.lhs.false3.i.i
   %30 = load ptr, ptr %27, align 8
   %m_central_dir_offsets.i.i = getelementptr inbounds nuw i8, ptr %27, i64 32
   %31 = load ptr, ptr %m_central_dir_offsets.i.i, align 8
-  %idxprom.i.i = zext i32 %i.05465 to i64
+  %idxprom.i.i = zext i32 %i.05364 to i64
   %arrayidx.i.i = getelementptr inbounds nuw i32, ptr %31, i64 %idxprom.i.i
   %32 = load i32, ptr %arrayidx.i.i, align 4
   %idxprom8.i.i = zext i32 %32 to i64
@@ -16561,7 +16561,7 @@ mz_zip_reader_is_file_a_directory.exit:           ; preds = %if.end.i, %if.then2
 
 if.then71:                                        ; preds = %if.else, %lor.lhs.false2.i.i, %lor.lhs.false3.i.i, %mz_zip_reader_get_cdh.exit.i, %mz_zip_reader_is_file_a_directory.exit
   call void @llvm.lifetime.start.p0(i64 584, ptr nonnull %file_stat.i)
-  %call.i27 = call i32 @mz_zip_reader_file_stat(ptr noundef nonnull readonly %zip_archive, i32 noundef %i.05465, ptr noundef nonnull %file_stat.i)
+  %call.i27 = call i32 @mz_zip_reader_file_stat(ptr noundef nonnull readonly %zip_archive, i32 noundef %i.05364, ptr noundef nonnull %file_stat.i)
   %tobool.not.i28 = icmp eq i32 %call.i27, 0
   br i1 %tobool.not.i28, label %mz_zip_reader_extract_to_file.exit.thread, label %if.end.i29
 
@@ -16571,7 +16571,7 @@ if.end.i29:                                       ; preds = %if.then71
   br i1 %tobool2.not.i, label %mz_zip_reader_extract_to_file.exit.thread, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end.i29
-  %call5.i = call i32 @mz_zip_reader_extract_to_callback(ptr noundef nonnull readonly %zip_archive, i32 noundef %i.05465, ptr noundef nonnull @mz_zip_file_write_callback, ptr noundef nonnull %call1.i, i32 noundef 0)
+  %call5.i = call i32 @mz_zip_reader_extract_to_callback(ptr noundef nonnull readonly %zip_archive, i32 noundef %i.05364, ptr noundef nonnull @mz_zip_file_write_callback, ptr noundef nonnull %call1.i, i32 noundef 0)
   %call6.i = call i32 @fclose(ptr noundef nonnull %call1.i)
   %cmp.i30 = icmp eq i32 %call6.i, -1
   %tobool9.not.i = icmp eq i32 %call5.i, 0
@@ -16609,19 +16609,19 @@ if.end91:                                         ; preds = %if.end77, %if.then8
 if.then93:                                        ; preds = %if.end91
   %call95 = call i32 %on_extract(ptr noundef nonnull %path, ptr noundef %arg) #31
   %cmp96 = icmp sgt i32 %call95, -1
-  %inc101 = add i32 %i.05465, 1
+  %inc101 = add i32 %i.05364, 1
   %cmp15 = icmp ult i32 %inc101, %1
   %or.cond = and i1 %cmp96, %cmp15
   br i1 %or.cond, label %for.body.backedge, label %out
 
 for.inc:                                          ; preds = %if.end91
-  %inc101.old = add i32 %i.05465, 1
+  %inc101.old = add i32 %i.05364, 1
   %cmp15.old = icmp ult i32 %inc101.old, %1
   br i1 %cmp15.old, label %for.body.backedge, label %out
 
 for.body.backedge:                                ; preds = %for.inc, %if.then93
-  %i.054.be = phi i32 [ %inc101.old, %for.inc ], [ %inc101, %if.then93 ]
-  %call17 = call i32 @mz_zip_reader_file_stat(ptr noundef nonnull %zip_archive, i32 noundef %i.054.be, ptr noundef nonnull %info)
+  %i.053.be = phi i32 [ %inc101.old, %for.inc ], [ %inc101, %if.then93 ]
+  %call17 = call i32 @mz_zip_reader_file_stat(ptr noundef nonnull %zip_archive, i32 noundef %i.053.be, ptr noundef nonnull %info)
   %tobool.not = icmp eq i32 %call17, 0
   br i1 %tobool.not, label %out, label %if.end19, !llvm.loop !128
 
