@@ -47,7 +47,7 @@ define hidden noundef ptr @_Z36pj_projection_specific_setup_gstmercP8PJconsts(pt
 
 4:                                                ; preds = %1
   %5 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef %0, i32 noundef 4096)
-  br label %68
+  br label %67
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -103,27 +103,26 @@ define hidden noundef ptr @_Z36pj_projection_specific_setup_gstmercP8PJconsts(pt
   %52 = fmul double %48, %51
   %53 = load double, ptr %12, align 8, !tbaa !45
   %54 = tail call double @sin(double noundef %53) #6, !tbaa !46
-  %55 = tail call double @sin(double noundef %53) #6, !tbaa !46
-  %56 = fneg double %54
-  %57 = fmul double %49, %56
-  %58 = tail call double @llvm.fmuladd.f64(double %57, double %55, double 1.000000e+00)
-  %59 = fdiv double %52, %58
-  %60 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store double %59, ptr %60, align 8, !tbaa !53
-  %61 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store double 0.000000e+00, ptr %61, align 8, !tbaa !54
-  %62 = fneg double %59
-  %63 = load double, ptr %25, align 8, !tbaa !48
-  %64 = fmul double %63, %62
-  %65 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  store double %64, ptr %65, align 8, !tbaa !55
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store ptr @_ZL17gstmerc_s_inverse5PJ_XYP8PJconsts, ptr %66, align 8, !tbaa !56
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store ptr @_ZL17gstmerc_s_forward5PJ_LPP8PJconsts, ptr %67, align 8, !tbaa !57
-  br label %68
+  %55 = fneg double %54
+  %56 = fmul double %49, %55
+  %57 = tail call double @llvm.fmuladd.f64(double %56, double %54, double 1.000000e+00)
+  %58 = fdiv double %52, %57
+  %59 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  store double %58, ptr %59, align 8, !tbaa !53
+  %60 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  store double 0.000000e+00, ptr %60, align 8, !tbaa !54
+  %61 = fneg double %58
+  %62 = load double, ptr %25, align 8, !tbaa !48
+  %63 = fmul double %62, %61
+  %64 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  store double %63, ptr %64, align 8, !tbaa !55
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  store ptr @_ZL17gstmerc_s_inverse5PJ_XYP8PJconsts, ptr %65, align 8, !tbaa !56
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  store ptr @_ZL17gstmerc_s_forward5PJ_LPP8PJconsts, ptr %66, align 8, !tbaa !57
+  br label %67
 
-68:                                               ; preds = %6, %4
+67:                                               ; preds = %6, %4
   %.0 = phi ptr [ %5, %4 ], [ %0, %6 ]
   ret ptr %.0
 }

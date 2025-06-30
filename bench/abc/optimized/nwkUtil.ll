@@ -1449,8 +1449,8 @@ Vec_IntStart.exit160:                             ; preds = %Vec_IntAlloc.exit.t
   %wide.trip.count203 = zext nneg i32 %38 to i64
   br label %171
 
-171:                                              ; preds = %.lr.ph194, %217
-  %indvars.iv200 = phi i64 [ 0, %.lr.ph194 ], [ %indvars.iv.next201, %217 ]
+171:                                              ; preds = %.lr.ph194, %215
+  %indvars.iv200 = phi i64 [ 0, %.lr.ph194 ], [ %indvars.iv.next201, %215 ]
   %172 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv200
   %173 = load i32, ptr %172, align 4, !tbaa !57
   %174 = icmp eq i32 %173, 0
@@ -1461,7 +1461,7 @@ Vec_IntStart.exit160:                             ; preds = %Vec_IntAlloc.exit.t
   %177 = getelementptr inbounds nuw i32, ptr %176, i64 %indvars.iv200
   %178 = load i32, ptr %177, align 4, !tbaa !57
   %179 = icmp eq i32 %178, 0
-  br i1 %179, label %217, label %180
+  br i1 %179, label %215, label %180
 
 180:                                              ; preds = %175, %171
   %181 = icmp samesign ult i64 %indvars.iv200, 10
@@ -1470,7 +1470,7 @@ Vec_IntStart.exit160:                             ; preds = %Vec_IntAlloc.exit.t
 
 183:                                              ; preds = %180
   %184 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.25, i32 noundef %182)
-  br label %199
+  br label %197
 
 185:                                              ; preds = %180
   %186 = udiv i32 %182, 10
@@ -1479,49 +1479,47 @@ Vec_IntStart.exit160:                             ; preds = %Vec_IntAlloc.exit.t
   %189 = fptosi double %188 to i32
   %190 = urem i32 %182, 10
   %191 = mul nsw i32 %190, %189
-  %192 = call double @pow(double noundef 1.000000e+01, double noundef %187) #17, !tbaa !57
-  %193 = fptosi double %192 to i32
-  %194 = add nuw nsw i32 %190, 1
-  %195 = mul nsw i32 %194, %193
-  %196 = add nsw i32 %195, -1
-  %197 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) @.str.26, i32 noundef %191, i32 noundef %196) #17
-  %198 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.27, ptr noundef nonnull %2)
-  br label %199
+  %192 = add nuw nsw i32 %190, 1
+  %193 = mul nsw i32 %192, %189
+  %194 = add nsw i32 %193, -1
+  %195 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) @.str.26, i32 noundef %191, i32 noundef %194) #17
+  %196 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.27, ptr noundef nonnull %2)
+  br label %197
 
-199:                                              ; preds = %185, %183
-  %200 = load i32, ptr %172, align 4, !tbaa !57
-  %201 = icmp eq i32 %200, 0
-  br i1 %201, label %202, label %204
+197:                                              ; preds = %185, %183
+  %198 = load i32, ptr %172, align 4, !tbaa !57
+  %199 = icmp eq i32 %198, 0
+  br i1 %199, label %200, label %202
 
-202:                                              ; preds = %199
-  %203 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.28)
-  br label %206
+200:                                              ; preds = %197
+  %201 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.28)
+  br label %204
 
-204:                                              ; preds = %199
-  %205 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.29, i32 noundef %200)
-  br label %206
+202:                                              ; preds = %197
+  %203 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.29, i32 noundef %198)
+  br label %204
 
-206:                                              ; preds = %204, %202
-  %207 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.30)
-  %208 = load ptr, ptr %170, align 8, !tbaa !55
-  %209 = getelementptr inbounds nuw i32, ptr %208, i64 %indvars.iv200
-  %210 = load i32, ptr %209, align 4, !tbaa !57
-  %211 = icmp eq i32 %210, 0
-  br i1 %211, label %212, label %214
+204:                                              ; preds = %202, %200
+  %205 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.30)
+  %206 = load ptr, ptr %170, align 8, !tbaa !55
+  %207 = getelementptr inbounds nuw i32, ptr %206, i64 %indvars.iv200
+  %208 = load i32, ptr %207, align 4, !tbaa !57
+  %209 = icmp eq i32 %208, 0
+  br i1 %209, label %210, label %212
 
-212:                                              ; preds = %206
-  %213 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.28)
-  br label %216
+210:                                              ; preds = %204
+  %211 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.28)
+  br label %214
 
-214:                                              ; preds = %206
-  %215 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.29, i32 noundef %210)
-  br label %216
+212:                                              ; preds = %204
+  %213 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.29, i32 noundef %208)
+  br label %214
 
-216:                                              ; preds = %214, %212
+214:                                              ; preds = %212, %210
   %putchar = call i32 @putchar(i32 10)
-  br label %217
+  br label %215
 
-217:                                              ; preds = %175, %216
+215:                                              ; preds = %175, %214
   %indvars.iv.next201 = add nuw nsw i64 %indvars.iv200, 1
   %exitcond204.not = icmp eq i64 %indvars.iv.next201, %wide.trip.count203
   br i1 %exitcond204.not, label %._crit_edge.thread, label %171, !llvm.loop !66
@@ -1530,28 +1528,28 @@ Vec_IntStart.exit160:                             ; preds = %Vec_IntAlloc.exit.t
   %.not.i161 = icmp eq ptr %56, null
   br i1 %.not.i161, label %Vec_IntFree.exit, label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %217, %._crit_edge
+._crit_edge.thread:                               ; preds = %215, %._crit_edge
   call void @free(ptr noundef nonnull %56) #17
   br label %Vec_IntFree.exit
 
 Vec_IntFree.exit:                                 ; preds = %._crit_edge, %._crit_edge.thread
-  %218 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  %219 = load ptr, ptr %218, align 8, !tbaa !55
-  %.not.i162 = icmp eq ptr %219, null
-  br i1 %.not.i162, label %Vec_IntFree.exit163, label %220
+  %216 = getelementptr inbounds nuw i8, ptr %57, i64 8
+  %217 = load ptr, ptr %216, align 8, !tbaa !55
+  %.not.i162 = icmp eq ptr %217, null
+  br i1 %.not.i162, label %Vec_IntFree.exit163, label %218
 
-220:                                              ; preds = %Vec_IntFree.exit
-  call void @free(ptr noundef nonnull %219) #17
+218:                                              ; preds = %Vec_IntFree.exit
+  call void @free(ptr noundef nonnull %217) #17
   br label %Vec_IntFree.exit163
 
-Vec_IntFree.exit163:                              ; preds = %Vec_IntFree.exit, %220
+Vec_IntFree.exit163:                              ; preds = %Vec_IntFree.exit, %218
   call void @free(ptr noundef nonnull %57) #17
-  %221 = getelementptr i8, ptr %0, i64 52
-  %.val144 = load i32, ptr %221, align 4, !tbaa !57
-  %222 = sitofp i32 %.val144 to double
-  %223 = fdiv double %.0105.lcssa243251, %222
-  %224 = fdiv double %.0103.lcssa244250, %222
-  %225 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.31, i32 noundef %.0109.lcssa241253, double noundef %223, i32 noundef %.0107.lcssa242252, double noundef %224)
+  %219 = getelementptr i8, ptr %0, i64 52
+  %.val144 = load i32, ptr %219, align 4, !tbaa !57
+  %220 = sitofp i32 %.val144 to double
+  %221 = fdiv double %.0105.lcssa243251, %220
+  %222 = fdiv double %.0103.lcssa244250, %220
+  %223 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.31, i32 noundef %.0109.lcssa241253, double noundef %221, i32 noundef %.0107.lcssa242252, double noundef %222)
   call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %2) #17
   ret void
 }

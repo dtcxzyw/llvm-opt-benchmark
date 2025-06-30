@@ -54019,33 +54019,30 @@ define void @_ZN6open3d7utility15RotationMatrixXEd(ptr dead_on_unwind noalias wr
   store double %9, ptr %10, align 8, !tbaa !8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double 0.000000e+00, ptr %11, align 8, !tbaa !8
-  %12 = tail call double @sin(double noundef %1) #5, !tbaa !4
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store double %12, ptr %13, align 8, !tbaa !8
-  %14 = tail call double @cos(double noundef %1) #5, !tbaa !4
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store double %14, ptr %15, align 8, !tbaa !8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store double %8, ptr %12, align 8, !tbaa !8
+  %13 = tail call double @cos(double noundef %1) #5, !tbaa !4
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store double %13, ptr %14, align 8, !tbaa !8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind ssp willreturn memory(argmem: write, errnomem: write) uwtable
 define void @_ZN6open3d7utility15RotationMatrixYEd(ptr dead_on_unwind noalias writable writeonly sret(%"class.Eigen::Matrix.213") align 8 captures(none) initializes((0, 72)) %0, double noundef %1) local_unnamed_addr #38 personality ptr @__gxx_personality_v0 {
-.thread101:
-  %2 = tail call double @cos(double noundef %1) #5, !tbaa !4
-  store double %2, ptr %0, align 8, !tbaa !8, !noalias !1333
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store double 0.000000e+00, ptr %3, align 8, !tbaa !8
-  %4 = tail call double @sin(double noundef %1) #5, !tbaa !4
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store double %4, ptr %5, align 8, !tbaa !8
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double 0.000000e+00, ptr %6, align 8, !tbaa !8
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store double 1.000000e+00, ptr %7, align 8, !tbaa !8
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store double 0.000000e+00, ptr %8, align 8, !tbaa !8
-  %9 = tail call double @sin(double noundef %1) #5, !tbaa !4
-  %10 = fneg double %9
+  %3 = tail call double @cos(double noundef %1) #5, !tbaa !4
+  store double %3, ptr %0, align 8, !tbaa !8, !noalias !1333
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store double 0.000000e+00, ptr %4, align 8, !tbaa !8
+  %5 = tail call double @sin(double noundef %1) #5, !tbaa !4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store double %5, ptr %6, align 8, !tbaa !8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store double 0.000000e+00, ptr %7, align 8, !tbaa !8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store double 1.000000e+00, ptr %8, align 8, !tbaa !8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store double 0.000000e+00, ptr %9, align 8, !tbaa !8
+  %10 = fneg double %5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %10, ptr %11, align 8, !tbaa !8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -54058,18 +54055,16 @@ define void @_ZN6open3d7utility15RotationMatrixYEd(ptr dead_on_unwind noalias wr
 
 ; Function Attrs: mustprogress nofree norecurse nounwind ssp willreturn memory(argmem: write, errnomem: write) uwtable
 define void @_ZN6open3d7utility15RotationMatrixZEd(ptr dead_on_unwind noalias writable writeonly sret(%"class.Eigen::Matrix.213") align 8 captures(none) initializes((0, 72)) %0, double noundef %1) local_unnamed_addr #38 personality ptr @__gxx_personality_v0 {
-.thread106:
-  %2 = tail call double @cos(double noundef %1) #5, !tbaa !4
-  store double %2, ptr %0, align 8, !tbaa !8, !noalias !1336
-  %3 = tail call double @sin(double noundef %1) #5, !tbaa !4
-  %4 = fneg double %3
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store double %4, ptr %5, align 8, !tbaa !8
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store double 0.000000e+00, ptr %6, align 8, !tbaa !8
-  %7 = tail call double @sin(double noundef %1) #5, !tbaa !4
+  %3 = tail call double @cos(double noundef %1) #5, !tbaa !4
+  store double %3, ptr %0, align 8, !tbaa !8, !noalias !1336
+  %4 = tail call double @sin(double noundef %1) #5, !tbaa !4
+  %5 = fneg double %4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store double %5, ptr %6, align 8, !tbaa !8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store double 0.000000e+00, ptr %7, align 8, !tbaa !8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %7, ptr %8, align 8, !tbaa !8
+  store double %4, ptr %8, align 8, !tbaa !8
   %9 = tail call double @cos(double noundef %1) #5, !tbaa !4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store double %9, ptr %10, align 8, !tbaa !8

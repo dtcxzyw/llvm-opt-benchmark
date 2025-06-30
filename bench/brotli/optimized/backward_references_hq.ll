@@ -4450,123 +4450,120 @@ BrotliInitZopfliNodes.exit:                       ; preds = %.lr.ph.i328, %698
 750:                                              ; preds = %._crit_edge.i.i
   %751 = uitofp i64 %744 to double
   %752 = call double @log2(double noundef %751) #13, !tbaa !3
-  %753 = call double @log2(double noundef %751) #13, !tbaa !3
   br label %FastLog2.exit39.i.i
 
 FastLog2.exit39.i.i:                              ; preds = %750, %747
   %.in.i = phi double [ %749, %747 ], [ %752, %750 ]
-  %.0.i38.i.i = phi double [ %749, %747 ], [ %753, %750 ]
-  %754 = fptrunc double %.in.i to float
-  %755 = fptrunc double %.0.i38.i.i to float
-  %756 = fadd float %755, 2.000000e+00
+  %753 = fptrunc double %.in.i to float
+  %754 = fadd float %753, 2.000000e+00
   br label %.lr.ph49.i.i
 
-.lr.ph49.i.i:                                     ; preds = %776, %FastLog2.exit39.i.i
-  %.248.i.i = phi i64 [ %777, %776 ], [ 0, %FastLog2.exit39.i.i ]
-  %757 = getelementptr inbounds nuw i32, ptr %684, i64 %.248.i.i
-  %758 = load i32, ptr %757, align 4, !tbaa !3
-  %759 = icmp eq i32 %758, 0
-  br i1 %759, label %760, label %762
+.lr.ph49.i.i:                                     ; preds = %774, %FastLog2.exit39.i.i
+  %.248.i.i = phi i64 [ %775, %774 ], [ 0, %FastLog2.exit39.i.i ]
+  %755 = getelementptr inbounds nuw i32, ptr %684, i64 %.248.i.i
+  %756 = load i32, ptr %755, align 4, !tbaa !3
+  %757 = icmp eq i32 %756, 0
+  br i1 %757, label %758, label %760
+
+758:                                              ; preds = %.lr.ph49.i.i
+  %759 = getelementptr inbounds nuw float, ptr %688, i64 %.248.i.i
+  store float %754, ptr %759, align 4, !tbaa !151
+  br label %774
 
 760:                                              ; preds = %.lr.ph49.i.i
-  %761 = getelementptr inbounds nuw float, ptr %688, i64 %.248.i.i
-  store float %756, ptr %761, align 4, !tbaa !151
-  br label %776
+  %761 = icmp ult i32 %756, 256
+  br i1 %761, label %762, label %766
 
-762:                                              ; preds = %.lr.ph49.i.i
-  %763 = icmp ult i32 %758, 256
-  br i1 %763, label %764, label %768
-
-764:                                              ; preds = %762
-  %765 = zext nneg i32 %758 to i64
-  %766 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %765
-  %767 = load double, ptr %766, align 8, !tbaa !164
+762:                                              ; preds = %760
+  %763 = zext nneg i32 %756 to i64
+  %764 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %763
+  %765 = load double, ptr %764, align 8, !tbaa !164
   br label %FastLog2.exit.i.i
 
-768:                                              ; preds = %762
-  %769 = uitofp i32 %758 to double
-  %770 = call double @log2(double noundef %769) #13, !tbaa !3
+766:                                              ; preds = %760
+  %767 = uitofp i32 %756 to double
+  %768 = call double @log2(double noundef %767) #13, !tbaa !3
   br label %FastLog2.exit.i.i
 
-FastLog2.exit.i.i:                                ; preds = %768, %764
-  %.0.i.i.i = phi double [ %767, %764 ], [ %770, %768 ]
-  %771 = fptrunc double %.0.i.i.i to float
-  %772 = fsub float %754, %771
-  %773 = getelementptr inbounds nuw float, ptr %688, i64 %.248.i.i
-  store float %772, ptr %773, align 4, !tbaa !151
-  %774 = fcmp olt float %772, 1.000000e+00
-  br i1 %774, label %775, label %776
+FastLog2.exit.i.i:                                ; preds = %766, %762
+  %.0.i.i.i = phi double [ %765, %762 ], [ %768, %766 ]
+  %769 = fptrunc double %.0.i.i.i to float
+  %770 = fsub float %753, %769
+  %771 = getelementptr inbounds nuw float, ptr %688, i64 %.248.i.i
+  store float %770, ptr %771, align 4, !tbaa !151
+  %772 = fcmp olt float %770, 1.000000e+00
+  br i1 %772, label %773, label %774
 
-775:                                              ; preds = %FastLog2.exit.i.i
-  store float 1.000000e+00, ptr %773, align 4, !tbaa !151
-  br label %776
+773:                                              ; preds = %FastLog2.exit.i.i
+  store float 1.000000e+00, ptr %771, align 4, !tbaa !151
+  br label %774
 
-776:                                              ; preds = %775, %FastLog2.exit.i.i, %760
-  %777 = add nuw nsw i64 %.248.i.i, 1
-  %exitcond54.not.i.i = icmp eq i64 %777, 256
+774:                                              ; preds = %773, %FastLog2.exit.i.i, %758
+  %775 = add nuw nsw i64 %.248.i.i, 1
+  %exitcond54.not.i.i = icmp eq i64 %775, 256
   br i1 %exitcond54.not.i.i, label %SetCost.exit.i, label %.lr.ph49.i.i, !llvm.loop !247
 
-SetCost.exit.i:                                   ; preds = %776
+SetCost.exit.i:                                   ; preds = %774
   call fastcc void @SetCost(ptr noundef nonnull %685, i64 noundef 704, i32 noundef 0, ptr noundef nonnull %648)
-  %778 = load i32, ptr %683, align 8, !tbaa !54
-  %779 = zext i32 %778 to i64
-  %780 = load ptr, ptr %682, align 8, !tbaa !53
-  call fastcc void @SetCost(ptr noundef nonnull %686, i64 noundef %779, i32 noundef 0, ptr noundef %780)
-  br label %781
+  %776 = load i32, ptr %683, align 8, !tbaa !54
+  %777 = zext i32 %776 to i64
+  %778 = load ptr, ptr %682, align 8, !tbaa !53
+  call fastcc void @SetCost(ptr noundef nonnull %686, i64 noundef %777, i32 noundef 0, ptr noundef %778)
+  br label %779
 
-781:                                              ; preds = %781, %SetCost.exit.i
-  %.07082.i = phi float [ 0x47DFF933C0000000, %SetCost.exit.i ], [ %785, %781 ]
-  %.181.i = phi i64 [ 0, %SetCost.exit.i ], [ %786, %781 ]
-  %782 = getelementptr inbounds nuw float, ptr %648, i64 %.181.i
-  %783 = load float, ptr %782, align 4, !tbaa !151
-  %784 = fcmp olt float %.07082.i, %783
-  %785 = select i1 %784, float %.07082.i, float %783
-  %786 = add nuw nsw i64 %.181.i, 1
-  %exitcond92.not.i = icmp eq i64 %786, 704
-  br i1 %exitcond92.not.i, label %787, label %781, !llvm.loop !248
+779:                                              ; preds = %779, %SetCost.exit.i
+  %.07082.i = phi float [ 0x47DFF933C0000000, %SetCost.exit.i ], [ %783, %779 ]
+  %.181.i = phi i64 [ 0, %SetCost.exit.i ], [ %784, %779 ]
+  %780 = getelementptr inbounds nuw float, ptr %648, i64 %.181.i
+  %781 = load float, ptr %780, align 4, !tbaa !151
+  %782 = fcmp olt float %.07082.i, %781
+  %783 = select i1 %782, float %.07082.i, float %781
+  %784 = add nuw nsw i64 %.181.i, 1
+  %exitcond92.not.i = icmp eq i64 %784, 704
+  br i1 %exitcond92.not.i, label %785, label %779, !llvm.loop !248
 
-787:                                              ; preds = %781
-  store float %785, ptr %689, align 8, !tbaa !168
-  %788 = load ptr, ptr %673, align 8, !tbaa !51
-  %789 = load i64, ptr %669, align 8, !tbaa !47
-  store float 0.000000e+00, ptr %788, align 4, !tbaa !151
-  %.not89.i = icmp eq i64 %789, 0
+785:                                              ; preds = %779
+  store float %783, ptr %689, align 8, !tbaa !168
+  %786 = load ptr, ptr %673, align 8, !tbaa !51
+  %787 = load i64, ptr %669, align 8, !tbaa !47
+  store float 0.000000e+00, ptr %786, align 4, !tbaa !151
+  %.not89.i = icmp eq i64 %787, 0
   br i1 %.not89.i, label %ZopfliCostModelSetFromCommands.exit, label %.lr.ph86.i
 
-.lr.ph86.i:                                       ; preds = %787, %.lr.ph86.i
-  %790 = phi float [ %799, %.lr.ph86.i ], [ 0.000000e+00, %787 ]
-  %.06984.i = phi float [ %803, %.lr.ph86.i ], [ 0.000000e+00, %787 ]
-  %.283.i333 = phi i64 [ %800, %.lr.ph86.i ], [ 0, %787 ]
-  %791 = add i64 %.283.i333, %2
-  %792 = and i64 %791, %4
-  %793 = getelementptr inbounds nuw i8, ptr %3, i64 %792
-  %794 = load i8, ptr %793, align 1, !tbaa !7
-  %795 = zext i8 %794 to i64
-  %796 = getelementptr inbounds nuw [256 x float], ptr %688, i64 0, i64 %795
-  %797 = load float, ptr %796, align 4, !tbaa !151
-  %798 = fadd float %.06984.i, %797
-  %799 = fadd float %790, %798
-  %800 = add nuw i64 %.283.i333, 1
-  %801 = getelementptr inbounds nuw float, ptr %788, i64 %800
-  store float %799, ptr %801, align 4, !tbaa !151
-  %802 = fsub float %799, %790
-  %803 = fsub float %798, %802
-  %exitcond93.not.i = icmp eq i64 %800, %789
+.lr.ph86.i:                                       ; preds = %785, %.lr.ph86.i
+  %788 = phi float [ %797, %.lr.ph86.i ], [ 0.000000e+00, %785 ]
+  %.06984.i = phi float [ %801, %.lr.ph86.i ], [ 0.000000e+00, %785 ]
+  %.283.i333 = phi i64 [ %798, %.lr.ph86.i ], [ 0, %785 ]
+  %789 = add i64 %.283.i333, %2
+  %790 = and i64 %789, %4
+  %791 = getelementptr inbounds nuw i8, ptr %3, i64 %790
+  %792 = load i8, ptr %791, align 1, !tbaa !7
+  %793 = zext i8 %792 to i64
+  %794 = getelementptr inbounds nuw [256 x float], ptr %688, i64 0, i64 %793
+  %795 = load float, ptr %794, align 4, !tbaa !151
+  %796 = fadd float %.06984.i, %795
+  %797 = fadd float %788, %796
+  %798 = add nuw i64 %.283.i333, 1
+  %799 = getelementptr inbounds nuw float, ptr %786, i64 %798
+  store float %797, ptr %799, align 4, !tbaa !151
+  %800 = fsub float %797, %788
+  %801 = fsub float %796, %800
+  %exitcond93.not.i = icmp eq i64 %798, %787
   br i1 %exitcond93.not.i, label %ZopfliCostModelSetFromCommands.exit, label %.lr.ph86.i, !llvm.loop !249
 
-ZopfliCostModelSetFromCommands.exit:              ; preds = %.lr.ph86.i, %787, %702
+ZopfliCostModelSetFromCommands.exit:              ; preds = %.lr.ph86.i, %785, %702
   store i64 %651, ptr %11, align 8, !tbaa !34
   store i64 %649, ptr %12, align 8, !tbaa !34
   store i64 %650, ptr %9, align 8, !tbaa !34
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef nonnull align 16 dereferenceable(16) %18, i64 16, i1 false)
-  %804 = load i64, ptr %19, align 8, !tbaa !30
-  %805 = load i32, ptr %21, align 8, !tbaa !10
-  %806 = zext nneg i32 %805 to i64
-  %807 = shl nuw i64 1, %806
-  %808 = add i64 %807, -16
-  %809 = load i32, ptr %690, align 4, !tbaa !44
-  %810 = icmp slt i32 %809, 11
-  %811 = select i1 %810, i64 150, i64 325
+  %802 = load i64, ptr %19, align 8, !tbaa !30
+  %803 = load i32, ptr %21, align 8, !tbaa !10
+  %804 = zext nneg i32 %803 to i64
+  %805 = shl nuw i64 1, %804
+  %806 = add i64 %805, -16
+  %807 = load i32, ptr %690, align 4, !tbaa !44
+  %808 = icmp slt i32 %807, 11
+  %809 = select i1 %808, i64 150, i64 325
   call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %16) #13
   store i32 0, ptr %671, align 4, !tbaa !31
   store float 0.000000e+00, ptr %691, align 4, !tbaa !7
@@ -4574,288 +4571,288 @@ ZopfliCostModelSetFromCommands.exit:              ; preds = %.lr.ph86.i, %787, %
   br i1 %645, label %.lr.ph78.i, label %._crit_edge.i334
 
 .lr.ph78.i:                                       ; preds = %ZopfliCostModelSetFromCommands.exit
-  %812 = add i64 %693, %804
-  %.reass633 = add i64 %807, %invariant.op
-  br label %813
+  %810 = add i64 %693, %802
+  %.reass633 = add i64 %805, %invariant.op
+  br label %811
 
-813:                                              ; preds = %913, %.lr.ph78.i
-  %.05377.i = phi i64 [ 0, %.lr.ph78.i ], [ %914, %913 ]
-  %.05576.i = phi i64 [ 0, %.lr.ph78.i ], [ %.156.i, %913 ]
-  %814 = getelementptr inbounds nuw i32, ptr %647, i64 %.05377.i
-  %815 = load i32, ptr %814, align 4, !tbaa !3
-  %816 = zext i32 %815 to i64
-  %817 = getelementptr inbounds nuw %struct.BackwardMatch, ptr %.0207.lcssa, i64 %.05576.i
-  %818 = call fastcc i64 @UpdateNodes(i64 noundef %1, i64 noundef %2, i64 noundef %.05377.i, ptr noundef %3, i64 noundef %4, ptr noundef readonly %6, i64 noundef %808, ptr noundef nonnull readonly %8, i64 noundef %816, ptr noundef readonly %817, ptr noundef readonly %648, ptr noundef %16, ptr noundef nonnull %671)
-  %819 = icmp ult i64 %818, 16384
-  %spec.store.select.i = select i1 %819, i64 0, i64 %818
-  %820 = load i32, ptr %814, align 4, !tbaa !3
-  %821 = zext i32 %820 to i64
-  %822 = add i64 %.05576.i, %821
-  %823 = icmp eq i32 %820, 1
-  br i1 %823, label %824, label %831
+811:                                              ; preds = %911, %.lr.ph78.i
+  %.05377.i = phi i64 [ 0, %.lr.ph78.i ], [ %912, %911 ]
+  %.05576.i = phi i64 [ 0, %.lr.ph78.i ], [ %.156.i, %911 ]
+  %812 = getelementptr inbounds nuw i32, ptr %647, i64 %.05377.i
+  %813 = load i32, ptr %812, align 4, !tbaa !3
+  %814 = zext i32 %813 to i64
+  %815 = getelementptr inbounds nuw %struct.BackwardMatch, ptr %.0207.lcssa, i64 %.05576.i
+  %816 = call fastcc i64 @UpdateNodes(i64 noundef %1, i64 noundef %2, i64 noundef %.05377.i, ptr noundef %3, i64 noundef %4, ptr noundef readonly %6, i64 noundef %806, ptr noundef nonnull readonly %8, i64 noundef %814, ptr noundef readonly %815, ptr noundef readonly %648, ptr noundef %16, ptr noundef nonnull %671)
+  %817 = icmp ult i64 %816, 16384
+  %spec.store.select.i = select i1 %817, i64 0, i64 %816
+  %818 = load i32, ptr %812, align 4, !tbaa !3
+  %819 = zext i32 %818 to i64
+  %820 = add i64 %.05576.i, %819
+  %821 = icmp eq i32 %818, 1
+  br i1 %821, label %822, label %829
 
-824:                                              ; preds = %813
-  %gep75.i = getelementptr %struct.BackwardMatch, ptr %invariant.gep74.i, i64 %822
-  %825 = load i32, ptr %gep75.i, align 4, !tbaa !70
-  %826 = lshr i32 %825, 5
-  %827 = zext nneg i32 %826 to i64
-  %828 = icmp samesign ult i64 %811, %827
-  br i1 %828, label %829, label %831
+822:                                              ; preds = %811
+  %gep75.i = getelementptr %struct.BackwardMatch, ptr %invariant.gep74.i, i64 %820
+  %823 = load i32, ptr %gep75.i, align 4, !tbaa !70
+  %824 = lshr i32 %823, 5
+  %825 = zext nneg i32 %824 to i64
+  %826 = icmp samesign ult i64 %809, %825
+  br i1 %826, label %827, label %829
 
-829:                                              ; preds = %824
-  %830 = call i64 @llvm.umax.i64(i64 %827, i64 %spec.store.select.i)
-  br label %831
+827:                                              ; preds = %822
+  %828 = call i64 @llvm.umax.i64(i64 %825, i64 %spec.store.select.i)
+  br label %829
 
-831:                                              ; preds = %829, %824, %813
-  %.0.i338 = phi i64 [ %830, %829 ], [ %spec.store.select.i, %824 ], [ %spec.store.select.i, %813 ]
-  %832 = icmp ugt i64 %.0.i338, 1
-  br i1 %832, label %.lr.ph.preheader.i, label %913
+829:                                              ; preds = %827, %822, %811
+  %.0.i338 = phi i64 [ %828, %827 ], [ %spec.store.select.i, %822 ], [ %spec.store.select.i, %811 ]
+  %830 = icmp ugt i64 %.0.i338, 1
+  br i1 %830, label %.lr.ph.preheader.i, label %911
 
-.lr.ph.preheader.i:                               ; preds = %831
+.lr.ph.preheader.i:                               ; preds = %829
   %.promoted.i = load i64, ptr %692, align 8
   %.163.i = add i64 %.0.i338, -1
   br label %.lr.ph.i339
 
 .lr.ph.i339:                                      ; preds = %EvaluateNode.exit.i, %.lr.ph.preheader.i
   %.167.i = phi i64 [ %.1.i343, %EvaluateNode.exit.i ], [ %.163.i, %.lr.ph.preheader.i ]
-  %.266.i = phi i64 [ %834, %EvaluateNode.exit.i ], [ %.05377.i, %.lr.ph.preheader.i ]
-  %.25765.i = phi i64 [ %912, %EvaluateNode.exit.i ], [ %822, %.lr.ph.preheader.i ]
-  %833 = phi i64 [ %908, %EvaluateNode.exit.i ], [ %.promoted.i, %.lr.ph.preheader.i ]
-  %834 = add i64 %.266.i, 1
-  %835 = add i64 %.266.i, 4
-  %.not60.i = icmp ult i64 %835, %1
-  br i1 %.not60.i, label %836, label %.loopexit.i
+  %.266.i = phi i64 [ %832, %EvaluateNode.exit.i ], [ %.05377.i, %.lr.ph.preheader.i ]
+  %.25765.i = phi i64 [ %910, %EvaluateNode.exit.i ], [ %820, %.lr.ph.preheader.i ]
+  %831 = phi i64 [ %906, %EvaluateNode.exit.i ], [ %.promoted.i, %.lr.ph.preheader.i ]
+  %832 = add i64 %.266.i, 1
+  %833 = add i64 %.266.i, 4
+  %.not60.i = icmp ult i64 %833, %1
+  br i1 %.not60.i, label %834, label %.loopexit.i
 
-836:                                              ; preds = %.lr.ph.i339
-  %837 = getelementptr inbounds nuw %struct.ZopfliNode, ptr %671, i64 %834, i32 3
-  %838 = load float, ptr %837, align 4, !tbaa !7
-  %839 = getelementptr inbounds nuw %struct.ZopfliNode, ptr %671, i64 %834
-  %840 = load i32, ptr %839, align 4, !tbaa !31
-  %841 = and i32 %840, 33554431
-  %842 = getelementptr inbounds nuw i8, ptr %839, i64 8
-  %843 = load i32, ptr %842, align 4, !tbaa !33
-  %844 = and i32 %843, 134217727
-  %845 = getelementptr inbounds nuw i8, ptr %839, i64 4
-  %846 = load i32, ptr %845, align 4, !tbaa !35
-  %847 = icmp eq i64 %834, 0
-  br i1 %847, label %ComputeDistanceShortcut.exit.i.i, label %848
+834:                                              ; preds = %.lr.ph.i339
+  %835 = getelementptr inbounds nuw %struct.ZopfliNode, ptr %671, i64 %832, i32 3
+  %836 = load float, ptr %835, align 4, !tbaa !7
+  %837 = getelementptr inbounds nuw %struct.ZopfliNode, ptr %671, i64 %832
+  %838 = load i32, ptr %837, align 4, !tbaa !31
+  %839 = and i32 %838, 33554431
+  %840 = getelementptr inbounds nuw i8, ptr %837, i64 8
+  %841 = load i32, ptr %840, align 4, !tbaa !33
+  %842 = and i32 %841, 134217727
+  %843 = getelementptr inbounds nuw i8, ptr %837, i64 4
+  %844 = load i32, ptr %843, align 4, !tbaa !35
+  %845 = icmp eq i64 %832, 0
+  br i1 %845, label %ComputeDistanceShortcut.exit.i.i, label %846
 
-848:                                              ; preds = %836
-  %849 = zext i32 %846 to i64
-  %850 = zext nneg i32 %841 to i64
-  %851 = add nuw nsw i64 %849, %850
-  %852 = add i64 %812, %834
-  %.not.i.i.i340 = icmp ugt i64 %851, %852
-  %.not23.i.i.i = icmp ult i64 %.reass633, %849
+846:                                              ; preds = %834
+  %847 = zext i32 %844 to i64
+  %848 = zext nneg i32 %839 to i64
+  %849 = add nuw nsw i64 %847, %848
+  %850 = add i64 %810, %832
+  %.not.i.i.i340 = icmp ugt i64 %849, %850
+  %.not23.i.i.i = icmp ult i64 %.reass633, %847
   %or.cond.i.i.i = or i1 %.not23.i.i.i, %.not.i.i.i340
-  br i1 %or.cond.i.i.i, label %860, label %ZopfliNodeDistanceCode.exit.i.i.i
+  br i1 %or.cond.i.i.i, label %858, label %ZopfliNodeDistanceCode.exit.i.i.i
 
-ZopfliNodeDistanceCode.exit.i.i.i:                ; preds = %848
-  %853 = icmp ult i32 %843, 134217728
-  %854 = add i32 %846, 15
-  %855 = lshr i32 %843, 27
-  %856 = add nsw i32 %855, -1
-  %857 = select i1 %853, i32 %854, i32 %856
-  %.not24.i.i.i = icmp eq i32 %857, 0
-  br i1 %.not24.i.i.i, label %860, label %858
+ZopfliNodeDistanceCode.exit.i.i.i:                ; preds = %846
+  %851 = icmp ult i32 %841, 134217728
+  %852 = add i32 %844, 15
+  %853 = lshr i32 %841, 27
+  %854 = add nsw i32 %853, -1
+  %855 = select i1 %851, i32 %852, i32 %854
+  %.not24.i.i.i = icmp eq i32 %855, 0
+  br i1 %.not24.i.i.i, label %858, label %856
 
-858:                                              ; preds = %ZopfliNodeDistanceCode.exit.i.i.i
-  %859 = trunc i64 %834 to i32
+856:                                              ; preds = %ZopfliNodeDistanceCode.exit.i.i.i
+  %857 = trunc i64 %832 to i32
   br label %ComputeDistanceShortcut.exit.i.i
 
-860:                                              ; preds = %ZopfliNodeDistanceCode.exit.i.i.i, %848
-  %narrow.i.i.i = add nuw nsw i32 %844, %841
-  %861 = zext nneg i32 %narrow.i.i.i to i64
-  %862 = sub i64 %834, %861
-  %863 = getelementptr inbounds nuw %struct.ZopfliNode, ptr %671, i64 %862, i32 3
-  %864 = load i32, ptr %863, align 4, !tbaa !7
+858:                                              ; preds = %ZopfliNodeDistanceCode.exit.i.i.i, %846
+  %narrow.i.i.i = add nuw nsw i32 %842, %839
+  %859 = zext nneg i32 %narrow.i.i.i to i64
+  %860 = sub i64 %832, %859
+  %861 = getelementptr inbounds nuw %struct.ZopfliNode, ptr %671, i64 %860, i32 3
+  %862 = load i32, ptr %861, align 4, !tbaa !7
   br label %ComputeDistanceShortcut.exit.i.i
 
-ComputeDistanceShortcut.exit.i.i:                 ; preds = %860, %858, %836
-  %.0.i.i.i341 = phi i32 [ %859, %858 ], [ %864, %860 ], [ 0, %836 ]
-  store i32 %.0.i.i.i341, ptr %837, align 4, !tbaa !7
-  %865 = load ptr, ptr %673, align 8, !tbaa !51
-  %866 = getelementptr inbounds nuw float, ptr %865, i64 %834
-  %867 = load float, ptr %866, align 4, !tbaa !151
-  %868 = load float, ptr %865, align 4, !tbaa !151
-  %869 = fsub float %867, %868
-  %870 = fcmp ugt float %838, %869
-  br i1 %870, label %EvaluateNode.exit.i, label %871
+ComputeDistanceShortcut.exit.i.i:                 ; preds = %858, %856, %834
+  %.0.i.i.i341 = phi i32 [ %857, %856 ], [ %862, %858 ], [ 0, %834 ]
+  store i32 %.0.i.i.i341, ptr %835, align 4, !tbaa !7
+  %863 = load ptr, ptr %673, align 8, !tbaa !51
+  %864 = getelementptr inbounds nuw float, ptr %863, i64 %832
+  %865 = load float, ptr %864, align 4, !tbaa !151
+  %866 = load float, ptr %863, align 4, !tbaa !151
+  %867 = fsub float %865, %866
+  %868 = fcmp ugt float %836, %867
+  br i1 %868, label %EvaluateNode.exit.i, label %869
 
-871:                                              ; preds = %ComputeDistanceShortcut.exit.i.i
+869:                                              ; preds = %ComputeDistanceShortcut.exit.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15) #13
-  store i64 %834, ptr %15, align 8, !tbaa !152
-  store float %838, ptr %694, align 4, !tbaa !154
-  %872 = fsub float %838, %869
-  store float %872, ptr %695, align 8, !tbaa !155
+  store i64 %832, ptr %15, align 8, !tbaa !152
+  store float %836, ptr %694, align 4, !tbaa !154
+  %870 = fsub float %836, %867
+  store float %870, ptr %695, align 8, !tbaa !155
   %.not.i20.i.i = icmp eq i32 %.0.i.i.i341, 0
   br i1 %.not.i20.i.i, label %.lr.ph29.preheader.i.i.i, label %.lr.ph.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %.lr.ph.i.i.i
-  br i1 %886, label %.lr.ph29.preheader.i.i.i, label %ComputeDistanceCache.exit.i.i
+  br i1 %884, label %.lr.ph29.preheader.i.i.i, label %ComputeDistanceCache.exit.i.i
 
-.lr.ph29.preheader.i.i.i:                         ; preds = %.preheader.i.i.i, %871
-  %.021.lcssa35.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %.preheader.i.i.i ], [ 0, %871 ]
-  %873 = shl nuw nsw i64 %.021.lcssa35.i.i.i, 2
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %873
-  %874 = sub nuw nsw i64 16, %873
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %gep.i, ptr nonnull readonly align 4 %8, i64 %874, i1 false), !tbaa !3
+.lr.ph29.preheader.i.i.i:                         ; preds = %.preheader.i.i.i, %869
+  %.021.lcssa35.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %.preheader.i.i.i ], [ 0, %869 ]
+  %871 = shl nuw nsw i64 %.021.lcssa35.i.i.i, 2
+  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %871
+  %872 = sub nuw nsw i64 16, %871
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %gep.i, ptr nonnull readonly align 4 %8, i64 %872, i1 false), !tbaa !3
   br label %ComputeDistanceCache.exit.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %871, %.lr.ph.i.i.i
-  %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %.lr.ph.i.i.i ], [ 0, %871 ]
-  %.022.in26.i.i.i = phi i32 [ %.022.in.i.i.i, %.lr.ph.i.i.i ], [ %.0.i.i.i341, %871 ]
+.lr.ph.i.i.i:                                     ; preds = %869, %.lr.ph.i.i.i
+  %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %.lr.ph.i.i.i ], [ 0, %869 ]
+  %.022.in26.i.i.i = phi i32 [ %.022.in.i.i.i, %.lr.ph.i.i.i ], [ %.0.i.i.i341, %869 ]
   %.022.i.i.i342 = zext i32 %.022.in26.i.i.i to i64
-  %875 = getelementptr inbounds nuw %struct.ZopfliNode, ptr %671, i64 %.022.i.i.i342
-  %876 = getelementptr inbounds nuw i8, ptr %875, i64 8
-  %877 = load i32, ptr %876, align 4, !tbaa !33
-  %878 = and i32 %877, 134217727
-  %879 = load i32, ptr %875, align 4, !tbaa !31
-  %880 = and i32 %879, 33554431
-  %881 = getelementptr inbounds nuw i8, ptr %875, i64 4
-  %882 = load i32, ptr %881, align 4, !tbaa !35
+  %873 = getelementptr inbounds nuw %struct.ZopfliNode, ptr %671, i64 %.022.i.i.i342
+  %874 = getelementptr inbounds nuw i8, ptr %873, i64 8
+  %875 = load i32, ptr %874, align 4, !tbaa !33
+  %876 = and i32 %875, 134217727
+  %877 = load i32, ptr %873, align 4, !tbaa !31
+  %878 = and i32 %877, 33554431
+  %879 = getelementptr inbounds nuw i8, ptr %873, i64 4
+  %880 = load i32, ptr %879, align 4, !tbaa !35
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %883 = getelementptr inbounds nuw i32, ptr %invariant.gep.i, i64 %indvars.iv.i.i.i
-  store i32 %882, ptr %883, align 4, !tbaa !3
-  %narrow.i21.i.i = add nuw nsw i32 %880, %878
-  %884 = zext nneg i32 %narrow.i21.i.i to i64
-  %885 = sub nsw i64 %.022.i.i.i342, %884
-  %.022.in.in.i.i.i = getelementptr inbounds nuw %struct.ZopfliNode, ptr %671, i64 %885, i32 3
+  %881 = getelementptr inbounds nuw i32, ptr %invariant.gep.i, i64 %indvars.iv.i.i.i
+  store i32 %880, ptr %881, align 4, !tbaa !3
+  %narrow.i21.i.i = add nuw nsw i32 %878, %876
+  %882 = zext nneg i32 %narrow.i21.i.i to i64
+  %883 = sub nsw i64 %.022.i.i.i342, %882
+  %.022.in.in.i.i.i = getelementptr inbounds nuw %struct.ZopfliNode, ptr %671, i64 %883, i32 3
   %.022.in.i.i.i = load i32, ptr %.022.in.in.i.i.i, align 4, !tbaa !7
-  %886 = icmp samesign ult i64 %indvars.iv.i.i.i, 3
-  %887 = icmp ne i32 %.022.in.i.i.i, 0
-  %888 = select i1 %886, i1 %887, i1 false
-  br i1 %888, label %.lr.ph.i.i.i, label %.preheader.i.i.i, !llvm.loop !156
+  %884 = icmp samesign ult i64 %indvars.iv.i.i.i, 3
+  %885 = icmp ne i32 %.022.in.i.i.i, 0
+  %886 = select i1 %884, i1 %885, i1 false
+  br i1 %886, label %.lr.ph.i.i.i, label %.preheader.i.i.i, !llvm.loop !156
 
 ComputeDistanceCache.exit.i.i:                    ; preds = %.lr.ph29.preheader.i.i.i, %.preheader.i.i.i
-  %889 = add i64 %833, 1
-  %890 = and i64 %833, 7
-  %891 = xor i64 %890, 7
-  %892 = call i64 @llvm.umin.i64(i64 %889, i64 8)
-  %893 = getelementptr inbounds nuw %struct.PosData, ptr %16, i64 %891
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %893, ptr noundef nonnull readonly align 8 dereferenceable(32) %15, i64 32, i1 false), !tbaa.struct !157
-  %894 = icmp ugt i64 %889, 1
-  br i1 %894, label %.lr.ph.i22.i.i, label %StartPosQueuePush.exit.i.i
+  %887 = add i64 %831, 1
+  %888 = and i64 %831, 7
+  %889 = xor i64 %888, 7
+  %890 = call i64 @llvm.umin.i64(i64 %887, i64 8)
+  %891 = getelementptr inbounds nuw %struct.PosData, ptr %16, i64 %889
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %891, ptr noundef nonnull readonly align 8 dereferenceable(32) %15, i64 32, i1 false), !tbaa.struct !157
+  %892 = icmp ugt i64 %887, 1
+  br i1 %892, label %.lr.ph.i22.i.i, label %StartPosQueuePush.exit.i.i
 
-.lr.ph.i22.i.i:                                   ; preds = %ComputeDistanceCache.exit.i.i, %906
-  %.023.i.i.i = phi i64 [ %899, %906 ], [ %891, %ComputeDistanceCache.exit.i.i ]
-  %.02122.i.i.i = phi i64 [ %907, %906 ], [ 1, %ComputeDistanceCache.exit.i.i ]
-  %895 = and i64 %.023.i.i.i, 7
-  %896 = getelementptr inbounds nuw %struct.PosData, ptr %16, i64 %895
-  %897 = getelementptr inbounds nuw i8, ptr %896, i64 24
-  %898 = load float, ptr %897, align 8, !tbaa !155
-  %899 = add nuw nsw i64 %.023.i.i.i, 1
-  %900 = and i64 %899, 7
-  %901 = getelementptr inbounds nuw %struct.PosData, ptr %16, i64 %900
-  %902 = getelementptr inbounds nuw i8, ptr %901, i64 24
-  %903 = load float, ptr %902, align 8, !tbaa !155
-  %904 = fcmp ogt float %898, %903
-  br i1 %904, label %905, label %906
+.lr.ph.i22.i.i:                                   ; preds = %ComputeDistanceCache.exit.i.i, %904
+  %.023.i.i.i = phi i64 [ %897, %904 ], [ %889, %ComputeDistanceCache.exit.i.i ]
+  %.02122.i.i.i = phi i64 [ %905, %904 ], [ 1, %ComputeDistanceCache.exit.i.i ]
+  %893 = and i64 %.023.i.i.i, 7
+  %894 = getelementptr inbounds nuw %struct.PosData, ptr %16, i64 %893
+  %895 = getelementptr inbounds nuw i8, ptr %894, i64 24
+  %896 = load float, ptr %895, align 8, !tbaa !155
+  %897 = add nuw nsw i64 %.023.i.i.i, 1
+  %898 = and i64 %897, 7
+  %899 = getelementptr inbounds nuw %struct.PosData, ptr %16, i64 %898
+  %900 = getelementptr inbounds nuw i8, ptr %899, i64 24
+  %901 = load float, ptr %900, align 8, !tbaa !155
+  %902 = fcmp ogt float %896, %901
+  br i1 %902, label %903, label %904
 
-905:                                              ; preds = %.lr.ph.i22.i.i
+903:                                              ; preds = %.lr.ph.i22.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %896, i64 32, i1 false), !tbaa.struct !157
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %896, ptr noundef nonnull align 8 dereferenceable(32) %901, i64 32, i1 false), !tbaa.struct !157
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %901, ptr noundef nonnull align 8 dereferenceable(32) %14, i64 32, i1 false), !tbaa.struct !157
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %894, i64 32, i1 false), !tbaa.struct !157
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %894, ptr noundef nonnull align 8 dereferenceable(32) %899, i64 32, i1 false), !tbaa.struct !157
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %899, ptr noundef nonnull align 8 dereferenceable(32) %14, i64 32, i1 false), !tbaa.struct !157
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
-  br label %906
+  br label %904
 
-906:                                              ; preds = %905, %.lr.ph.i22.i.i
-  %907 = add nuw nsw i64 %.02122.i.i.i, 1
-  %exitcond.not.i23.i.i = icmp eq i64 %907, %892
+904:                                              ; preds = %903, %.lr.ph.i22.i.i
+  %905 = add nuw nsw i64 %.02122.i.i.i, 1
+  %exitcond.not.i23.i.i = icmp eq i64 %905, %890
   br i1 %exitcond.not.i23.i.i, label %StartPosQueuePush.exit.i.i, label %.lr.ph.i22.i.i, !llvm.loop !158
 
-StartPosQueuePush.exit.i.i:                       ; preds = %906, %ComputeDistanceCache.exit.i.i
+StartPosQueuePush.exit.i.i:                       ; preds = %904, %ComputeDistanceCache.exit.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #13
   br label %EvaluateNode.exit.i
 
 EvaluateNode.exit.i:                              ; preds = %StartPosQueuePush.exit.i.i, %ComputeDistanceShortcut.exit.i.i
-  %908 = phi i64 [ %833, %ComputeDistanceShortcut.exit.i.i ], [ %889, %StartPosQueuePush.exit.i.i ]
-  %909 = getelementptr inbounds nuw i32, ptr %647, i64 %834
-  %910 = load i32, ptr %909, align 4, !tbaa !3
-  %911 = zext i32 %910 to i64
-  %912 = add i64 %.25765.i, %911
+  %906 = phi i64 [ %831, %ComputeDistanceShortcut.exit.i.i ], [ %887, %StartPosQueuePush.exit.i.i ]
+  %907 = getelementptr inbounds nuw i32, ptr %647, i64 %832
+  %908 = load i32, ptr %907, align 4, !tbaa !3
+  %909 = zext i32 %908 to i64
+  %910 = add i64 %.25765.i, %909
   %.1.i343 = add i64 %.167.i, -1
   %.not.i344 = icmp eq i64 %.1.i343, 0
   br i1 %.not.i344, label %.loopexit.i, label %.lr.ph.i339, !llvm.loop !250
 
 .loopexit.i:                                      ; preds = %EvaluateNode.exit.i, %.lr.ph.i339
-  %.lcssa62.i = phi i64 [ %908, %EvaluateNode.exit.i ], [ %833, %.lr.ph.i339 ]
-  %.257.lcssa.i = phi i64 [ %912, %EvaluateNode.exit.i ], [ %.25765.i, %.lr.ph.i339 ]
+  %.lcssa62.i = phi i64 [ %906, %EvaluateNode.exit.i ], [ %831, %.lr.ph.i339 ]
+  %.257.lcssa.i = phi i64 [ %910, %EvaluateNode.exit.i ], [ %.25765.i, %.lr.ph.i339 ]
   store i64 %.lcssa62.i, ptr %692, align 8
-  br label %913
+  br label %911
 
-913:                                              ; preds = %.loopexit.i, %831
-  %.156.i = phi i64 [ %822, %831 ], [ %.257.lcssa.i, %.loopexit.i ]
-  %.154.i = phi i64 [ %.05377.i, %831 ], [ %834, %.loopexit.i ]
-  %914 = add i64 %.154.i, 1
+911:                                              ; preds = %.loopexit.i, %829
+  %.156.i = phi i64 [ %820, %829 ], [ %.257.lcssa.i, %.loopexit.i ]
+  %.154.i = phi i64 [ %.05377.i, %829 ], [ %832, %.loopexit.i ]
+  %912 = add i64 %.154.i, 1
   %.reass.i = add i64 %.154.i, 4
-  %915 = icmp ult i64 %.reass.i, %1
-  br i1 %915, label %813, label %._crit_edge.i334, !llvm.loop !251
+  %913 = icmp ult i64 %.reass.i, %1
+  br i1 %913, label %811, label %._crit_edge.i334, !llvm.loop !251
 
-._crit_edge.i334:                                 ; preds = %913, %ZopfliCostModelSetFromCommands.exit
-  %916 = load i32, ptr %697, align 4, !tbaa !33
-  %917 = and i32 %916, 134217727
-  %918 = icmp eq i32 %917, 0
-  br i1 %918, label %.lr.ph.i.i337, label %.critedge.i.i335
+._crit_edge.i334:                                 ; preds = %911, %ZopfliCostModelSetFromCommands.exit
+  %914 = load i32, ptr %697, align 4, !tbaa !33
+  %915 = and i32 %914, 134217727
+  %916 = icmp eq i32 %915, 0
+  br i1 %916, label %.lr.ph.i.i337, label %.critedge.i.i335
 
-.lr.ph.i.i337:                                    ; preds = %._crit_edge.i334, %922
-  %919 = phi ptr [ %924, %922 ], [ %696, %._crit_edge.i334 ]
-  %.018.i.i = phi i64 [ %923, %922 ], [ %1, %._crit_edge.i334 ]
-  %920 = load i32, ptr %919, align 4, !tbaa !31
-  %921 = icmp eq i32 %920, 1
-  br i1 %921, label %922, label %.critedge.i.i335
+.lr.ph.i.i337:                                    ; preds = %._crit_edge.i334, %920
+  %917 = phi ptr [ %922, %920 ], [ %696, %._crit_edge.i334 ]
+  %.018.i.i = phi i64 [ %921, %920 ], [ %1, %._crit_edge.i334 ]
+  %918 = load i32, ptr %917, align 4, !tbaa !31
+  %919 = icmp eq i32 %918, 1
+  br i1 %919, label %920, label %.critedge.i.i335
 
-922:                                              ; preds = %.lr.ph.i.i337
-  %923 = add i64 %.018.i.i, -1
-  %924 = getelementptr inbounds nuw %struct.ZopfliNode, ptr %671, i64 %923
-  %925 = getelementptr inbounds nuw i8, ptr %924, i64 8
-  %926 = load i32, ptr %925, align 4, !tbaa !33
-  %927 = and i32 %926, 134217727
-  %928 = icmp eq i32 %927, 0
-  br i1 %928, label %.lr.ph.i.i337, label %.critedge.i.i335, !llvm.loop !161
+920:                                              ; preds = %.lr.ph.i.i337
+  %921 = add i64 %.018.i.i, -1
+  %922 = getelementptr inbounds nuw %struct.ZopfliNode, ptr %671, i64 %921
+  %923 = getelementptr inbounds nuw i8, ptr %922, i64 8
+  %924 = load i32, ptr %923, align 4, !tbaa !33
+  %925 = and i32 %924, 134217727
+  %926 = icmp eq i32 %925, 0
+  br i1 %926, label %.lr.ph.i.i337, label %.critedge.i.i335, !llvm.loop !161
 
-.critedge.i.i335:                                 ; preds = %922, %.lr.ph.i.i337, %._crit_edge.i334
-  %.0.lcssa.i.i = phi i64 [ %1, %._crit_edge.i334 ], [ %923, %922 ], [ %.018.i.i, %.lr.ph.i.i337 ]
-  %.lcssa.i.i = phi ptr [ %696, %._crit_edge.i334 ], [ %924, %922 ], [ %919, %.lr.ph.i.i337 ]
-  %929 = getelementptr inbounds nuw i8, ptr %.lcssa.i.i, i64 12
-  store i32 -1, ptr %929, align 4, !tbaa !7
+.critedge.i.i335:                                 ; preds = %920, %.lr.ph.i.i337, %._crit_edge.i334
+  %.0.lcssa.i.i = phi i64 [ %1, %._crit_edge.i334 ], [ %921, %920 ], [ %.018.i.i, %.lr.ph.i.i337 ]
+  %.lcssa.i.i = phi ptr [ %696, %._crit_edge.i334 ], [ %922, %920 ], [ %917, %.lr.ph.i.i337 ]
+  %927 = getelementptr inbounds nuw i8, ptr %.lcssa.i.i, i64 12
+  store i32 -1, ptr %927, align 4, !tbaa !7
   %.not23.i.i = icmp eq i64 %.0.lcssa.i.i, 0
   br i1 %.not23.i.i, label %ZopfliIterate.exit, label %.lr.ph26.i.i
 
 .lr.ph26.i.i:                                     ; preds = %.critedge.i.i335, %.lr.ph26.i.i
-  %.125.i.i = phi i64 [ %938, %.lr.ph26.i.i ], [ %.0.lcssa.i.i, %.critedge.i.i335 ]
-  %.01724.i.i = phi i64 [ %940, %.lr.ph26.i.i ], [ 0, %.critedge.i.i335 ]
-  %930 = getelementptr inbounds nuw %struct.ZopfliNode, ptr %671, i64 %.125.i.i
-  %931 = load i32, ptr %930, align 4, !tbaa !31
-  %932 = and i32 %931, 33554431
-  %933 = getelementptr inbounds nuw i8, ptr %930, i64 8
-  %934 = load i32, ptr %933, align 4, !tbaa !33
-  %935 = and i32 %934, 134217727
-  %936 = add nuw nsw i32 %935, %932
-  %937 = zext nneg i32 %936 to i64
-  %938 = sub i64 %.125.i.i, %937
-  %939 = getelementptr inbounds nuw %struct.ZopfliNode, ptr %671, i64 %938, i32 3
-  store i32 %936, ptr %939, align 4, !tbaa !7
-  %940 = add i64 %.01724.i.i, 1
-  %.not.i.i336 = icmp eq i64 %938, 0
+  %.125.i.i = phi i64 [ %936, %.lr.ph26.i.i ], [ %.0.lcssa.i.i, %.critedge.i.i335 ]
+  %.01724.i.i = phi i64 [ %938, %.lr.ph26.i.i ], [ 0, %.critedge.i.i335 ]
+  %928 = getelementptr inbounds nuw %struct.ZopfliNode, ptr %671, i64 %.125.i.i
+  %929 = load i32, ptr %928, align 4, !tbaa !31
+  %930 = and i32 %929, 33554431
+  %931 = getelementptr inbounds nuw i8, ptr %928, i64 8
+  %932 = load i32, ptr %931, align 4, !tbaa !33
+  %933 = and i32 %932, 134217727
+  %934 = add nuw nsw i32 %933, %930
+  %935 = zext nneg i32 %934 to i64
+  %936 = sub i64 %.125.i.i, %935
+  %937 = getelementptr inbounds nuw %struct.ZopfliNode, ptr %671, i64 %936, i32 3
+  store i32 %934, ptr %937, align 4, !tbaa !7
+  %938 = add i64 %.01724.i.i, 1
+  %.not.i.i336 = icmp eq i64 %936, 0
   br i1 %.not.i.i336, label %ZopfliIterate.exit, label %.lr.ph26.i.i, !llvm.loop !162
 
 ZopfliIterate.exit:                               ; preds = %.lr.ph26.i.i, %.critedge.i.i335
-  %.017.lcssa.i.i = phi i64 [ 0, %.critedge.i.i335 ], [ %940, %.lr.ph26.i.i ]
+  %.017.lcssa.i.i = phi i64 [ 0, %.critedge.i.i335 ], [ %938, %.lr.ph26.i.i ]
   call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %16) #13
-  %941 = load i64, ptr %11, align 8, !tbaa !34
-  %942 = add i64 %941, %.017.lcssa.i.i
-  store i64 %942, ptr %11, align 8, !tbaa !34
+  %939 = load i64, ptr %11, align 8, !tbaa !34
+  %940 = add i64 %939, %.017.lcssa.i.i
+  store i64 %940, ptr %11, align 8, !tbaa !34
   call void @BrotliZopfliCreateCommands(i64 noundef %1, i64 noundef %2, ptr noundef nonnull %671, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef %6, ptr noundef %10, ptr noundef nonnull %12)
-  br i1 %699, label %698, label %943, !llvm.loop !252
+  br i1 %699, label %698, label %941, !llvm.loop !252
 
-943:                                              ; preds = %ZopfliIterate.exit
-  %944 = load ptr, ptr %673, align 8, !tbaa !51
-  call void @BrotliFree(ptr noundef %0, ptr noundef %944) #13
+941:                                              ; preds = %ZopfliIterate.exit
+  %942 = load ptr, ptr %673, align 8, !tbaa !51
+  call void @BrotliFree(ptr noundef %0, ptr noundef %942) #13
   store ptr null, ptr %673, align 8, !tbaa !51
-  %945 = load ptr, ptr %682, align 8, !tbaa !53
-  call void @BrotliFree(ptr noundef %0, ptr noundef %945) #13
+  %943 = load ptr, ptr %682, align 8, !tbaa !53
+  call void @BrotliFree(ptr noundef %0, ptr noundef %943) #13
   store ptr null, ptr %682, align 8, !tbaa !53
   call void @BrotliFree(ptr noundef %0, ptr noundef %648) #13
   call void @BrotliFree(ptr noundef %0, ptr noundef nonnull %671) #13

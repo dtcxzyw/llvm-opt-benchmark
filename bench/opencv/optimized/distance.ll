@@ -254,191 +254,189 @@ define hidden noundef double @_ZN2cv3ccm15deltaCIEDE2000_ERKNS_3VecIdLi3EEES4_RK
   %10 = fmul double %9, 5.000000e-01
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !6
-  %square114 = fmul double %12, %12
+  %square113 = fmul double %12, %12
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load double, ptr %13, align 8, !tbaa !6
-  %square115 = fmul double %14, %14
-  %15 = fadd double %square114, %square115
-  %sqrt124 = tail call double @llvm.sqrt.f64(double %15)
+  %square114 = fmul double %14, %14
+  %15 = fadd double %square113, %square114
+  %sqrt123 = tail call double @llvm.sqrt.f64(double %15)
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load double, ptr %16, align 8, !tbaa !6
-  %square116 = fmul double %17, %17
+  %square115 = fmul double %17, %17
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %19 = load double, ptr %18, align 8, !tbaa !6
-  %square117 = fmul double %19, %19
-  %20 = fadd double %square116, %square117
-  %sqrt123 = tail call double @llvm.sqrt.f64(double %20)
-  %21 = fadd double %sqrt124, %sqrt123
+  %square116 = fmul double %19, %19
+  %20 = fadd double %square115, %square116
+  %sqrt122 = tail call double @llvm.sqrt.f64(double %20)
+  %21 = fadd double %sqrt123, %sqrt122
   %22 = fmul double %21, 5.000000e-01
   %23 = tail call noundef double @pow(double noundef %22, double noundef 7.000000e+00) #16, !tbaa !13
-  %24 = tail call noundef double @pow(double noundef %22, double noundef 7.000000e+00) #16, !tbaa !13
-  %25 = fadd double %24, 0x41F6BCC41E900000
-  %26 = fdiv double %23, %25
-  %27 = tail call double @sqrt(double noundef %26) #16, !tbaa !13
-  %28 = fmul double %12, 5.000000e-01
-  %29 = fsub double 1.000000e+00, %27
-  %30 = tail call double @llvm.fmuladd.f64(double %28, double %29, double %12)
-  %31 = fmul double %17, 5.000000e-01
-  %32 = tail call double @llvm.fmuladd.f64(double %31, double %29, double %17)
-  %square118 = fmul double %30, %30
-  %33 = fadd double %square115, %square118
-  %sqrt122 = tail call double @llvm.sqrt.f64(double %33)
-  %square120 = fmul double %32, %32
-  %34 = fadd double %square117, %square120
-  %sqrt = tail call double @llvm.sqrt.f64(double %34)
-  %35 = fadd double %sqrt122, %sqrt
-  %36 = fmul double %35, 5.000000e-01
-  %37 = fsub double %sqrt, %sqrt122
-  %38 = fcmp oeq double %33, 0.000000e+00
-  br i1 %38, label %44, label %39
+  %24 = fadd double %23, 0x41F6BCC41E900000
+  %25 = fdiv double %23, %24
+  %26 = tail call double @sqrt(double noundef %25) #16, !tbaa !13
+  %27 = fmul double %12, 5.000000e-01
+  %28 = fsub double 1.000000e+00, %26
+  %29 = tail call double @llvm.fmuladd.f64(double %27, double %28, double %12)
+  %30 = fmul double %17, 5.000000e-01
+  %31 = tail call double @llvm.fmuladd.f64(double %30, double %28, double %17)
+  %square117 = fmul double %29, %29
+  %32 = fadd double %square114, %square117
+  %sqrt121 = tail call double @llvm.sqrt.f64(double %32)
+  %square119 = fmul double %31, %31
+  %33 = fadd double %square116, %square119
+  %sqrt = tail call double @llvm.sqrt.f64(double %33)
+  %34 = fadd double %sqrt121, %sqrt
+  %35 = fmul double %34, 5.000000e-01
+  %36 = fsub double %sqrt, %sqrt121
+  %37 = fcmp oeq double %32, 0.000000e+00
+  br i1 %37, label %43, label %38
 
-39:                                               ; preds = %5
-  %40 = tail call double @atan2(double noundef %14, double noundef %30) #16, !tbaa !13
-  %41 = fcmp olt double %40, 0.000000e+00
-  br i1 %41, label %42, label %44
+38:                                               ; preds = %5
+  %39 = tail call double @atan2(double noundef %14, double noundef %29) #16, !tbaa !13
+  %40 = fcmp olt double %39, 0.000000e+00
+  br i1 %40, label %41, label %43
 
-42:                                               ; preds = %39
-  %43 = fadd double %40, 0x401921FB54442D18
-  br label %44
+41:                                               ; preds = %38
+  %42 = fadd double %39, 0x401921FB54442D18
+  br label %43
 
-44:                                               ; preds = %5, %39, %42
-  %.0 = phi double [ %43, %42 ], [ %40, %39 ], [ 0.000000e+00, %5 ]
-  %45 = fcmp oeq double %34, 0.000000e+00
-  br i1 %45, label %51, label %46
+43:                                               ; preds = %5, %38, %41
+  %.0 = phi double [ %42, %41 ], [ %39, %38 ], [ 0.000000e+00, %5 ]
+  %44 = fcmp oeq double %33, 0.000000e+00
+  br i1 %44, label %50, label %45
 
-46:                                               ; preds = %44
-  %47 = tail call double @atan2(double noundef %19, double noundef %32) #16, !tbaa !13
-  %48 = fcmp olt double %47, 0.000000e+00
-  br i1 %48, label %49, label %51
+45:                                               ; preds = %43
+  %46 = tail call double @atan2(double noundef %19, double noundef %31) #16, !tbaa !13
+  %47 = fcmp olt double %46, 0.000000e+00
+  br i1 %47, label %48, label %50
 
-49:                                               ; preds = %46
-  %50 = fadd double %47, 0x401921FB54442D18
-  br label %51
+48:                                               ; preds = %45
+  %49 = fadd double %46, 0x401921FB54442D18
+  br label %50
 
-51:                                               ; preds = %44, %46, %49
-  %.095 = phi double [ %50, %49 ], [ %47, %46 ], [ 0.000000e+00, %44 ]
-  %52 = fsub double %.095, %.0
-  %53 = tail call noundef double @llvm.fabs.f64(double %52)
-  %54 = fcmp ugt double %53, 0x400921FB54442D18
-  br i1 %54, label %55, label %61
+50:                                               ; preds = %43, %45, %48
+  %.095 = phi double [ %49, %48 ], [ %46, %45 ], [ 0.000000e+00, %43 ]
+  %51 = fsub double %.095, %.0
+  %52 = tail call noundef double @llvm.fabs.f64(double %51)
+  %53 = fcmp ugt double %52, 0x400921FB54442D18
+  br i1 %53, label %54, label %60
 
-55:                                               ; preds = %51
-  %56 = fcmp ugt double %.095, %.0
-  br i1 %56, label %59, label %57
+54:                                               ; preds = %50
+  %55 = fcmp ugt double %.095, %.0
+  br i1 %55, label %58, label %56
 
-57:                                               ; preds = %55
-  %58 = fadd double %52, 0x401921FB54442D18
-  br label %61
+56:                                               ; preds = %54
+  %57 = fadd double %51, 0x401921FB54442D18
+  br label %60
 
-59:                                               ; preds = %55
-  %60 = fadd double %52, 0xC01921FB54442D18
-  br label %61
+58:                                               ; preds = %54
+  %59 = fadd double %51, 0xC01921FB54442D18
+  br label %60
 
-61:                                               ; preds = %51, %57, %59
-  %.096 = phi double [ %58, %57 ], [ %60, %59 ], [ %52, %51 ]
-  %or.cond = or i1 %38, %45
-  br i1 %or.cond, label %62, label %64
+60:                                               ; preds = %50, %56, %58
+  %.096 = phi double [ %57, %56 ], [ %59, %58 ], [ %51, %50 ]
+  %or.cond = or i1 %37, %44
+  br i1 %or.cond, label %61, label %63
 
-62:                                               ; preds = %61
-  %63 = fadd double %.0, %.095
-  br label %79
+61:                                               ; preds = %60
+  %62 = fadd double %.0, %.095
+  br label %78
 
-64:                                               ; preds = %61
-  %65 = fsub double %.0, %.095
-  %66 = tail call noundef double @llvm.fabs.f64(double %65)
-  %67 = fcmp ugt double %66, 0x400921FB54442D18
-  %68 = fadd double %.0, %.095
-  br i1 %67, label %71, label %69
+63:                                               ; preds = %60
+  %64 = fsub double %.0, %.095
+  %65 = tail call noundef double @llvm.fabs.f64(double %64)
+  %66 = fcmp ugt double %65, 0x400921FB54442D18
+  %67 = fadd double %.0, %.095
+  br i1 %66, label %70, label %68
 
-69:                                               ; preds = %64
-  %70 = fmul double %68, 5.000000e-01
-  br label %79
+68:                                               ; preds = %63
+  %69 = fmul double %67, 5.000000e-01
+  br label %78
 
-71:                                               ; preds = %64
-  %72 = fcmp olt double %68, 0x401921FB54442D18
-  br i1 %72, label %73, label %76
+70:                                               ; preds = %63
+  %71 = fcmp olt double %67, 0x401921FB54442D18
+  br i1 %71, label %72, label %75
 
-73:                                               ; preds = %71
-  %74 = fadd double %68, 0x401921FB54442D18
-  %75 = fmul double %74, 5.000000e-01
-  br label %79
+72:                                               ; preds = %70
+  %73 = fadd double %67, 0x401921FB54442D18
+  %74 = fmul double %73, 5.000000e-01
+  br label %78
 
-76:                                               ; preds = %71
-  %77 = fadd double %68, 0xC01921FB54442D18
-  %78 = fmul double %77, 5.000000e-01
-  br label %79
+75:                                               ; preds = %70
+  %76 = fadd double %67, 0xC01921FB54442D18
+  %77 = fmul double %76, 5.000000e-01
+  br label %78
 
-79:                                               ; preds = %69, %76, %73, %62
-  %.097 = phi double [ %63, %62 ], [ %70, %69 ], [ %75, %73 ], [ %78, %76 ]
-  %80 = fmul double %sqrt122, %sqrt
-  %81 = tail call double @sqrt(double noundef %80) #16, !tbaa !13
-  %82 = fmul double %81, 2.000000e+00
-  %83 = fmul double %.096, 5.000000e-01
-  %84 = tail call double @sin(double noundef %83) #16, !tbaa !13
-  %85 = fmul double %82, %84
-  %86 = fadd double %.097, 0xBFE0C152382D7365
-  %87 = tail call double @cos(double noundef %86) #16, !tbaa !13
-  %88 = tail call double @llvm.fmuladd.f64(double %87, double -1.700000e-01, double 1.000000e+00)
-  %89 = fmul double %.097, 2.000000e+00
-  %90 = tail call double @cos(double noundef %89) #16, !tbaa !13
-  %91 = tail call double @llvm.fmuladd.f64(double %90, double 2.400000e-01, double %88)
-  %92 = tail call double @llvm.fmuladd.f64(double %.097, double 3.000000e+00, double 0x3FBACEE9F37BEBD5)
-  %93 = tail call double @cos(double noundef %92) #16, !tbaa !13
-  %94 = tail call double @llvm.fmuladd.f64(double %93, double 3.200000e-01, double %91)
-  %95 = tail call double @llvm.fmuladd.f64(double %.097, double 4.000000e+00, double 0xBFF197C987C952C4)
-  %96 = tail call double @cos(double noundef %95) #16, !tbaa !13
-  %97 = tail call double @llvm.fmuladd.f64(double %96, double -2.000000e-01, double %94)
-  %98 = tail call double @llvm.fmuladd.f64(double %36, double 4.500000e-02, double 1.000000e+00)
-  %99 = fmul double %36, 1.500000e-02
-  %100 = tail call double @llvm.fmuladd.f64(double %99, double %97, double 1.000000e+00)
-  %101 = fadd double %10, -5.000000e+01
-  %square = fmul double %101, %101
-  %102 = fmul double %square, 1.500000e-02
-  %103 = fadd double %square, 2.000000e+01
-  %sqrt125 = tail call double @llvm.sqrt.f64(double %103)
-  %104 = fdiv double %102, %sqrt125
-  %105 = fadd double %104, 1.000000e+00
-  %106 = tail call double @pow(double noundef %36, double noundef 7.000000e+00) #16, !tbaa !13
-  %107 = tail call double @pow(double noundef %36, double noundef 7.000000e+00) #16, !tbaa !13
-  %108 = fadd double %107, 0x41F6BCC41E900000
-  %109 = fdiv double %106, %108
-  %110 = tail call double @sqrt(double noundef %109) #16, !tbaa !13
-  %111 = fmul double %110, 2.000000e+00
-  %112 = fadd double %.097, 0xC01332D8E05EBEE4
-  %113 = fdiv double %112, 0x3FDBECDE5DA115A9
-  %114 = fneg double %113
-  %115 = fmul double %113, %114
-  %116 = tail call double @exp(double noundef %115) #16, !tbaa !13
-  %117 = fmul double %116, 0x3FF0C152382D7365
-  %118 = tail call double @sin(double noundef %117) #16, !tbaa !13
-  %119 = fneg double %118
-  %120 = fmul double %111, %119
-  %121 = load double, ptr %2, align 8, !tbaa !6
-  %122 = fmul double %105, %121
-  %123 = fdiv double %8, %122
-  %square106 = fmul double %123, %123
-  %124 = load double, ptr %3, align 8, !tbaa !6
-  %125 = fmul double %98, %124
-  %126 = fdiv double %37, %125
-  %square107 = fmul double %126, %126
-  %127 = fadd double %square106, %square107
-  %128 = load double, ptr %4, align 8, !tbaa !6
-  %129 = fmul double %100, %128
-  %130 = fdiv double %85, %129
-  %square108 = fmul double %130, %130
-  %131 = fadd double %127, %square108
-  %132 = fmul double %120, %126
-  %133 = tail call double @llvm.fmuladd.f64(double %132, double %130, double %131)
-  %134 = fcmp ogt double %133, 0.000000e+00
-  br i1 %134, label %135, label %137
+78:                                               ; preds = %68, %75, %72, %61
+  %.097 = phi double [ %62, %61 ], [ %69, %68 ], [ %74, %72 ], [ %77, %75 ]
+  %79 = fmul double %sqrt121, %sqrt
+  %80 = tail call double @sqrt(double noundef %79) #16, !tbaa !13
+  %81 = fmul double %80, 2.000000e+00
+  %82 = fmul double %.096, 5.000000e-01
+  %83 = tail call double @sin(double noundef %82) #16, !tbaa !13
+  %84 = fmul double %81, %83
+  %85 = fadd double %.097, 0xBFE0C152382D7365
+  %86 = tail call double @cos(double noundef %85) #16, !tbaa !13
+  %87 = tail call double @llvm.fmuladd.f64(double %86, double -1.700000e-01, double 1.000000e+00)
+  %88 = fmul double %.097, 2.000000e+00
+  %89 = tail call double @cos(double noundef %88) #16, !tbaa !13
+  %90 = tail call double @llvm.fmuladd.f64(double %89, double 2.400000e-01, double %87)
+  %91 = tail call double @llvm.fmuladd.f64(double %.097, double 3.000000e+00, double 0x3FBACEE9F37BEBD5)
+  %92 = tail call double @cos(double noundef %91) #16, !tbaa !13
+  %93 = tail call double @llvm.fmuladd.f64(double %92, double 3.200000e-01, double %90)
+  %94 = tail call double @llvm.fmuladd.f64(double %.097, double 4.000000e+00, double 0xBFF197C987C952C4)
+  %95 = tail call double @cos(double noundef %94) #16, !tbaa !13
+  %96 = tail call double @llvm.fmuladd.f64(double %95, double -2.000000e-01, double %93)
+  %97 = tail call double @llvm.fmuladd.f64(double %35, double 4.500000e-02, double 1.000000e+00)
+  %98 = fmul double %35, 1.500000e-02
+  %99 = tail call double @llvm.fmuladd.f64(double %98, double %96, double 1.000000e+00)
+  %100 = fadd double %10, -5.000000e+01
+  %square = fmul double %100, %100
+  %101 = fmul double %square, 1.500000e-02
+  %102 = fadd double %square, 2.000000e+01
+  %sqrt124 = tail call double @llvm.sqrt.f64(double %102)
+  %103 = fdiv double %101, %sqrt124
+  %104 = fadd double %103, 1.000000e+00
+  %105 = tail call double @pow(double noundef %35, double noundef 7.000000e+00) #16, !tbaa !13
+  %106 = fadd double %105, 0x41F6BCC41E900000
+  %107 = fdiv double %105, %106
+  %108 = tail call double @sqrt(double noundef %107) #16, !tbaa !13
+  %109 = fmul double %108, 2.000000e+00
+  %110 = fadd double %.097, 0xC01332D8E05EBEE4
+  %111 = fdiv double %110, 0x3FDBECDE5DA115A9
+  %112 = fneg double %111
+  %113 = fmul double %111, %112
+  %114 = tail call double @exp(double noundef %113) #16, !tbaa !13
+  %115 = fmul double %114, 0x3FF0C152382D7365
+  %116 = tail call double @sin(double noundef %115) #16, !tbaa !13
+  %117 = fneg double %116
+  %118 = fmul double %109, %117
+  %119 = load double, ptr %2, align 8, !tbaa !6
+  %120 = fmul double %104, %119
+  %121 = fdiv double %8, %120
+  %square105 = fmul double %121, %121
+  %122 = load double, ptr %3, align 8, !tbaa !6
+  %123 = fmul double %97, %122
+  %124 = fdiv double %36, %123
+  %square106 = fmul double %124, %124
+  %125 = fadd double %square105, %square106
+  %126 = load double, ptr %4, align 8, !tbaa !6
+  %127 = fmul double %99, %126
+  %128 = fdiv double %84, %127
+  %square107 = fmul double %128, %128
+  %129 = fadd double %125, %square107
+  %130 = fmul double %118, %124
+  %131 = tail call double @llvm.fmuladd.f64(double %130, double %128, double %129)
+  %132 = fcmp ogt double %131, 0.000000e+00
+  br i1 %132, label %133, label %135
 
-135:                                              ; preds = %79
-  %136 = tail call double @sqrt(double noundef %133) #16, !tbaa !13
-  br label %137
+133:                                              ; preds = %78
+  %134 = tail call double @sqrt(double noundef %131) #16, !tbaa !13
+  br label %135
 
-137:                                              ; preds = %79, %135
-  %138 = phi double [ %136, %135 ], [ 0.000000e+00, %79 ]
-  ret double %138
+135:                                              ; preds = %78, %133
+  %136 = phi double [ %134, %133 ], [ 0.000000e+00, %78 ]
+  ret double %136
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)

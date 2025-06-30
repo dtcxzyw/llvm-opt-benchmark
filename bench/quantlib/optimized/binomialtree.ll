@@ -1276,9 +1276,8 @@ _ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv.exit: ; preds = %_Z
   %mul12 = fmul double %add11, %mul7
   %up_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   store double %mul12, ptr %up_, align 8, !tbaa !66
-  %call19 = tail call double @sqrt(double noundef %sub) #18, !tbaa !46
-  %sub20 = fsub double %add, %call19
-  %mul21 = fmul double %mul7, %sub20
+  %sub20 = fsub double %add, %call10
+  %mul21 = fmul double %sub20, %mul7
   %down_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   store double %mul21, ptr %down_, align 8, !tbaa !68
   %sub23 = fsub double %mul, %mul21

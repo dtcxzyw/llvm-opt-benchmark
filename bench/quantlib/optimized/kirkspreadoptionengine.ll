@@ -2162,9 +2162,8 @@ invoke.cont228:                                   ; preds = %invoke.cont207
   %call219 = call double @sqrt(double noundef %call209) #26, !tbaa !80
   %mul220 = fmul double %call165, %call219
   %div221 = fdiv double %94, %mul220
-  %call222 = call double @sqrt(double noundef %call209) #26, !tbaa !80
   %neg224 = fneg double %call165
-  %95 = call double @llvm.fmuladd.f64(double %neg224, double %call222, double %div221)
+  %95 = call double @llvm.fmuladd.f64(double %neg224, double %call219, double %div221)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %cum) #26
   store double 0.000000e+00, ptr %cum, align 8, !tbaa !82
   %sigma_.i212 = getelementptr inbounds nuw i8, ptr %cum, i64 8

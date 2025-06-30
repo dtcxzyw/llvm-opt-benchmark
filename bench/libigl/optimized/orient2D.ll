@@ -1032,8 +1032,8 @@ define linkonce_odr dso_local noundef i32 @_ZNK4CGAL8internal25Static_filters_pr
   %89 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %88) #25, !srcloc !38
   %90 = bitcast <2 x double> %89 to <2 x i64>
   %91 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %78) #33, !srcloc !39
-  %92 = shufflevector <2 x double> %91, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %93 = fneg <2 x double> %92
+  %92 = fneg <2 x double> %91
+  %93 = shufflevector <2 x double> %92, <2 x double> poison, <2 x i32> <i32 1, i32 0>
   %94 = xor <2 x i64> %90, <i64 -9223372036854775808, i64 0>
   %95 = bitcast <2 x i64> %94 to <2 x double>
   %96 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %95) #25, !srcloc !38
@@ -1041,16 +1041,16 @@ define linkonce_odr dso_local noundef i32 @_ZNK4CGAL8internal25Static_filters_pr
   %98 = fmul <2 x double> %91, %96
   %99 = fmul <2 x double> %91, %97
   %100 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %99, <2 x double> splat (double 0x7FF0000000000000))
-  %101 = fmul <2 x double> %96, %93
-  %102 = fmul <2 x double> %97, %93
+  %101 = fmul <2 x double> %93, %96
+  %102 = fmul <2 x double> %93, %97
   %103 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %102, <2 x double> splat (double 0x7FF0000000000000))
   %104 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %98, <2 x double> %100)
   %105 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %101, <2 x double> %103)
   %106 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %104, <2 x double> %105)
   %107 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %106) #25, !srcloc !38
   %108 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %86) #33, !srcloc !39
-  %109 = shufflevector <2 x double> %108, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %110 = fneg <2 x double> %109
+  %109 = fneg <2 x double> %108
+  %110 = shufflevector <2 x double> %109, <2 x double> poison, <2 x i32> <i32 1, i32 0>
   %111 = xor <2 x i64> %83, <i64 -9223372036854775808, i64 0>
   %112 = bitcast <2 x i64> %111 to <2 x double>
   %113 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %112) #25, !srcloc !38
@@ -1058,8 +1058,8 @@ define linkonce_odr dso_local noundef i32 @_ZNK4CGAL8internal25Static_filters_pr
   %115 = fmul <2 x double> %108, %113
   %116 = fmul <2 x double> %108, %114
   %117 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %116, <2 x double> splat (double 0x7FF0000000000000))
-  %118 = fmul <2 x double> %113, %110
-  %119 = fmul <2 x double> %114, %110
+  %118 = fmul <2 x double> %110, %113
+  %119 = fmul <2 x double> %110, %114
   %120 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %119, <2 x double> splat (double 0x7FF0000000000000))
   %121 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %115, <2 x double> %117)
   %122 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %118, <2 x double> %120)

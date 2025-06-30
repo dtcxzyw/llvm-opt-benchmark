@@ -14793,8 +14793,7 @@ if.then:                                          ; preds = %_ZN8QuantLib6detail
   br i1 %tobool.i.not, label %if.then7, label %if.else
 
 if.then7:                                         ; preds = %if.then
-  %call12 = tail call double @pow(double noundef %15, double noundef %sub) #28, !tbaa !192
-  %div = fdiv double 0x3FA9999B4718C345, %call12
+  %div = fdiv double 0x3FA9999B4718C345, %call3
   store double %div, ptr %0, align 8, !tbaa !81
   br label %if.end30
 

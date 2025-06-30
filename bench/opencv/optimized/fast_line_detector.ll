@@ -2313,25 +2313,24 @@ define hidden void @_ZN2cv8ximgproc20FastLineDetectorImpl10mergeLinesERK7SEGMENT
   %111 = select i1 %110, double %109, double %86
   %112 = fcmp olt double %78, %111
   %.sroa.speculated = select i1 %112, double %111, double %78
-  %113 = tail call double @cos(double noundef %.0) #28, !tbaa !110
-  %114 = tail call double @llvm.fmuladd.f64(double %.sroa.speculated126, double %113, double %70)
-  %115 = tail call double @sin(double noundef %.0) #28, !tbaa !110
-  %116 = tail call double @llvm.fmuladd.f64(double %.sroa.speculated126, double %115, double %63)
-  %117 = tail call double @cos(double noundef %.0) #28, !tbaa !110
-  %118 = tail call double @llvm.fmuladd.f64(double %.sroa.speculated, double %117, double %70)
-  %119 = tail call double @sin(double noundef %.0) #28, !tbaa !110
-  %120 = tail call double @llvm.fmuladd.f64(double %.sroa.speculated, double %119, double %63)
-  %121 = fptrunc double %114 to float
-  store float %121, ptr %3, align 4, !tbaa !119
-  %122 = fptrunc double %116 to float
-  %123 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store float %122, ptr %123, align 4, !tbaa !122
-  %124 = fptrunc double %118 to float
-  %125 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store float %124, ptr %125, align 4, !tbaa !121
-  %126 = fptrunc double %120 to float
-  %127 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store float %126, ptr %127, align 4, !tbaa !123
+  %113 = tail call double @llvm.fmuladd.f64(double %.sroa.speculated126, double %100, double %70)
+  %114 = tail call double @sin(double noundef %.0) #28, !tbaa !110
+  %115 = tail call double @llvm.fmuladd.f64(double %.sroa.speculated126, double %114, double %63)
+  %116 = tail call double @cos(double noundef %.0) #28, !tbaa !110
+  %117 = tail call double @llvm.fmuladd.f64(double %.sroa.speculated, double %116, double %70)
+  %118 = tail call double @sin(double noundef %.0) #28, !tbaa !110
+  %119 = tail call double @llvm.fmuladd.f64(double %.sroa.speculated, double %118, double %63)
+  %120 = fptrunc double %113 to float
+  store float %120, ptr %3, align 4, !tbaa !119
+  %121 = fptrunc double %115 to float
+  %122 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store float %121, ptr %122, align 4, !tbaa !122
+  %123 = fptrunc double %117 to float
+  %124 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store float %123, ptr %124, align 4, !tbaa !121
+  %125 = fptrunc double %119 to float
+  %126 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  store float %125, ptr %126, align 4, !tbaa !123
   ret void
 }
 

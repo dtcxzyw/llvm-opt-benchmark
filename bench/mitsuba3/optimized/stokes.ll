@@ -621,9 +621,9 @@ define weak_odr void @_ZNK7mitsuba16StokesIntegratorIfN5drjit6MatrixINS_8Spectru
   %71 = shufflevector <4 x float> %70, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 0, i32 3>
   %72 = shufflevector <4 x float> %69, <4 x float> poison, <4 x i32> <i32 2, i32 0, i32 1, i32 3>
   %73 = shufflevector <4 x float> %70, <4 x float> poison, <4 x i32> <i32 2, i32 0, i32 1, i32 3>
-  %74 = shufflevector <4 x float> %69, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 0, i32 3>
-  %75 = fneg contract <4 x float> %74
-  %76 = fmul contract <4 x float> %73, %75
+  %74 = fneg contract <4 x float> %69
+  %75 = shufflevector <4 x float> %74, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 0, i32 3>
+  %76 = fmul contract <4 x float> %75, %73
   %77 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %71, <4 x float> %72, <4 x float> %76)
   %78 = fneg <4 x float> %70
   %79 = fmul contract <4 x float> %62, %62
@@ -693,8 +693,8 @@ define weak_odr void @_ZNK7mitsuba16StokesIntegratorIfN5drjit6MatrixINS_8Spectru
   %137 = shufflevector <4 x float> %62, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 0, i32 3>
   %138 = shufflevector <4 x float> %77, <4 x float> poison, <4 x i32> <i32 2, i32 0, i32 1, i32 3>
   %139 = shufflevector <4 x float> %62, <4 x float> poison, <4 x i32> <i32 2, i32 0, i32 1, i32 3>
-  %140 = shufflevector <4 x float> %77, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 0, i32 3>
-  %141 = fneg contract <4 x float> %140
+  %140 = fneg contract <4 x float> %77
+  %141 = shufflevector <4 x float> %140, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 0, i32 3>
   %142 = fmul contract <4 x float> %139, %141
   %143 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %137, <4 x float> %138, <4 x float> %142)
   %144 = call contract <4 x float> @llvm.x86.sse41.dpps(<4 x float> %78, <4 x float> %143, i8 113)

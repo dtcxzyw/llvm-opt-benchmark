@@ -9202,10 +9202,9 @@ _ZN21MapblockMeshGenerator14getSpecialTileEiP8TileSpecb.exit: ; preds = %if.then
   %cond221 = select nsz i1 %75, float 0x4011851EC0000000, float 0x4013E147A0000000
   %76 = load <2 x i8>, ptr %arrayidx115.2, align 4, !tbaa !64
   %77 = icmp eq <2 x i8> %76, zeroinitializer
-  %78 = select <2 x i1> %77, <2 x float> splat (float 0x4011851EC0000000), <2 x float> splat (float 0x4013E147A0000000)
+  %78 = select nsz <2 x i1> %77, <2 x float> splat (float 0xC011851EC0000000), <2 x float> splat (float 0xC013E147A0000000)
   %79 = shufflevector <2 x float> %78, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  %80 = fneg nsz <2 x float> %79
-  store <2 x float> %80, ptr %agg.tmp201, align 8, !tbaa !49
+  store <2 x float> %79, ptr %agg.tmp201, align 8, !tbaa !49
   %Z.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp201, i64 8
   store float %fneg212, ptr %Z.i.i, align 8, !tbaa !50
   %MaxEdge.i = getelementptr inbounds nuw i8, ptr %agg.tmp201, i64 12

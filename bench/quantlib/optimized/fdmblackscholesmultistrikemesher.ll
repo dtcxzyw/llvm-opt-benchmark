@@ -1013,14 +1013,11 @@ invoke.cont199:                                   ; preds = %.noexc178
 land.lhs.true:                                    ; preds = %invoke.cont199
   %call203 = tail call double @log(double noundef %106) #20, !tbaa !31
   %cmp204 = fcmp ult double %call203, %.sroa.speculated274
-  br i1 %cmp204, label %if.else, label %land.rhs
+  %cmp207 = fcmp ugt double %call203, %.sroa.speculated
+  %or.cond = select i1 %cmp204, i1 true, i1 %cmp207
+  br i1 %or.cond, label %if.else, label %if.then209
 
-land.rhs:                                         ; preds = %land.lhs.true
-  %call206 = tail call double @log(double noundef %106) #20, !tbaa !31
-  %cmp207 = fcmp ugt double %call206, %.sroa.speculated
-  br i1 %cmp207, label %if.else, label %if.then209
-
-if.then209:                                       ; preds = %land.rhs
+if.then209:                                       ; preds = %land.lhs.true
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp210) #20
   %call213 = invoke noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #24
           to label %invoke.cont212 unwind label %lpad211
@@ -1123,7 +1120,7 @@ ehcleanup230:                                     ; preds = %lpad218.body, %clea
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp210) #20
   br label %ehcleanup264
 
-if.else:                                          ; preds = %land.lhs.true, %invoke.cont199, %land.rhs
+if.else:                                          ; preds = %land.lhs.true, %invoke.cont199
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp231) #20
   %call234 = invoke noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #24
           to label %invoke.cont233 unwind label %lpad232

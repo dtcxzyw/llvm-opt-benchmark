@@ -2735,8 +2735,7 @@ invoke.cont468:                                   ; preds = %for.body438, %_ZN8Q
   %add476 = fadd double %sub474, %div475
   %call477 = call double @sqrt(double noundef %223) #27, !tbaa !85
   %div478 = fdiv double %add476, %call477
-  %call479 = call double @sqrt(double noundef %223) #27, !tbaa !85
-  %sub480 = fsub double %div478, %call479
+  %sub480 = fsub double %div478, %call477
   %225 = load ptr, ptr %payoff, align 8, !tbaa !92
   %cmp.not.i374 = icmp eq ptr %225, null
   br i1 %cmp.not.i374, label %cond.false.i375, label %invoke.cont482, !prof !80

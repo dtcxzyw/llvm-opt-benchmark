@@ -4695,8 +4695,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   %lambdaPrime = getelementptr inbounds nuw i8, ptr %this, i64 200
   %mul56 = fmul double %cond, 2.000000e+00
   %mul58 = fmul double %cond, %mul56
-  %call68 = tail call double @sqrt(double noundef %add) #33, !tbaa !61
-  %mul69 = fmul double %mul, %call68
+  %mul69 = fmul double %mul, %call52
   %div70 = fdiv double %mul58, %mul69
   store double %div70, ptr %lambdaPrime, align 8, !tbaa !162
   %alpha = getelementptr inbounds nuw i8, ptr %this, i64 208

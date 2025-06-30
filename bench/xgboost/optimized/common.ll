@@ -338,13 +338,13 @@ define void @_ZN7xgboost6common12HumanMemUnitB5cxx11Em(ptr dead_on_unwind noalia
   br label %.critedge
 
 14:                                               ; preds = %.critedge
-  %.023.add = add nuw nsw i64 %.023.idx61, 24
+  %.023.add = add nuw nsw i64 %.023.idx59, 24
   %.not = icmp eq i64 %.023.add, 72
   br i1 %.not, label %49, label %.critedge
 
 .critedge:                                        ; preds = %2, %14
-  %.023.idx61 = phi i64 [ 0, %2 ], [ %.023.add, %14 ]
-  %.023.ptr = getelementptr inbounds nuw i8, ptr %4, i64 %.023.idx61
+  %.023.idx59 = phi i64 [ 0, %2 ], [ %.023.add, %14 ]
+  %.023.ptr = getelementptr inbounds nuw i8, ptr %4, i64 %.023.idx59
   %.sroa.051.0.copyload = load i32, ptr %.023.ptr, align 8
   %.sroa.752.0..023.sroa_idx = getelementptr inbounds nuw i8, ptr %.023.ptr, i64 8
   %.sroa.752.0.copyload = load ptr, ptr %.sroa.752.0..023.sroa_idx, align 8
@@ -358,8 +358,7 @@ define void @_ZN7xgboost6common12HumanMemUnitB5cxx11Em(ptr dead_on_unwind noalia
 
 17:                                               ; preds = %.critedge
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %exp260 = call double @exp2(double %mul)
-  %19 = fdiv double %5, %exp260
+  %19 = fdiv double %5, %exp2
   %20 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %18, double noundef %19)
           to label %_ZNSolsEd.exit unwind label %.loopexit.split-lp
 

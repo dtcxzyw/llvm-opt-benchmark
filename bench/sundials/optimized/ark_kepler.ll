@@ -336,7 +336,7 @@ check_retval.exit101:                             ; preds = %132
   %135 = load ptr, ptr %5, align 8, !tbaa !4
   call fastcc void @SolveProblem(ptr noundef %3, ptr noundef %4, ptr noundef %135)
   %.pre = load ptr, ptr %4, align 8, !tbaa !26
-  br label %246
+  br label %241
 
 136:                                              ; preds = %132
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #14
@@ -382,16 +382,16 @@ check_retval.exit101:                             ; preds = %132
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond.not, label %.preheader, label %147
 
-152:                                              ; preds = %.preheader, %208
-  %indvars.iv279 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next280, %208 ]
-  %.082209 = phi double [ 0.000000e+00, %.preheader ], [ %171, %208 ]
-  %.083208 = phi double [ 0.000000e+00, %.preheader ], [ %173, %208 ]
-  %.084207 = phi double [ 0.000000e+00, %.preheader ], [ %188, %208 ]
-  %.085206 = phi double [ 0.000000e+00, %.preheader ], [ %185, %208 ]
-  %.086205 = phi double [ 0.000000e+00, %.preheader ], [ %183, %208 ]
-  %.087204 = phi double [ 0.000000e+00, %.preheader ], [ %180, %208 ]
-  %.088203 = phi double [ 0.000000e+00, %.preheader ], [ %178, %208 ]
-  %.089202 = phi double [ 0.000000e+00, %.preheader ], [ %175, %208 ]
+152:                                              ; preds = %.preheader, %203
+  %indvars.iv279 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next280, %203 ]
+  %.082209 = phi double [ 0.000000e+00, %.preheader ], [ %171, %203 ]
+  %.083208 = phi double [ 0.000000e+00, %.preheader ], [ %173, %203 ]
+  %.084207 = phi double [ 0.000000e+00, %.preheader ], [ %183, %203 ]
+  %.085206 = phi double [ 0.000000e+00, %.preheader ], [ %181, %203 ]
+  %.086205 = phi double [ 0.000000e+00, %.preheader ], [ %179, %203 ]
+  %.087204 = phi double [ 0.000000e+00, %.preheader ], [ %177, %203 ]
+  %.088203 = phi double [ 0.000000e+00, %.preheader ], [ %175, %203 ]
+  %.089202 = phi double [ 0.000000e+00, %.preheader ], [ %174, %203 ]
   %153 = getelementptr inbounds nuw [8 x double], ptr %10, i64 0, i64 %indvars.iv279
   %154 = load double, ptr %153, align 8, !tbaa !32
   store double %154, ptr %21, align 8, !tbaa !20
@@ -423,120 +423,115 @@ check_retval.exit101:                             ; preds = %132
   %171 = fadd double %.082209, 1.000000e+00
   %172 = call double @log(double noundef %154) #14, !tbaa !33
   %173 = fadd double %.083208, %172
-  %174 = call double @log(double noundef %154) #14, !tbaa !33
-  %175 = fadd double %.089202, %174
-  %176 = call double @log(double noundef %154) #14, !tbaa !33
-  %177 = call double @log(double noundef %154) #14, !tbaa !33
-  %178 = call double @llvm.fmuladd.f64(double %176, double %177, double %.088203)
-  %179 = call double @log(double noundef %166) #14, !tbaa !33
-  %180 = fadd double %.087204, %179
-  %181 = call double @log(double noundef %166) #14, !tbaa !33
+  %174 = fadd double %.089202, %172
+  %175 = call double @llvm.fmuladd.f64(double %172, double %172, double %.088203)
+  %176 = call double @log(double noundef %166) #14, !tbaa !33
+  %177 = fadd double %.087204, %176
+  %178 = call double @log(double noundef %154) #14, !tbaa !33
+  %179 = call double @llvm.fmuladd.f64(double %176, double %178, double %.086205)
+  %180 = call double @log(double noundef %169) #14, !tbaa !33
+  %181 = fadd double %.085206, %180
   %182 = call double @log(double noundef %154) #14, !tbaa !33
-  %183 = call double @llvm.fmuladd.f64(double %181, double %182, double %.086205)
-  %184 = call double @log(double noundef %169) #14, !tbaa !33
-  %185 = fadd double %.085206, %184
-  %186 = call double @log(double noundef %169) #14, !tbaa !33
-  %187 = call double @log(double noundef %154) #14, !tbaa !33
-  %188 = call double @llvm.fmuladd.f64(double %186, double %187, double %.084207)
+  %183 = call double @llvm.fmuladd.f64(double %180, double %182, double %.084207)
   %.not96 = icmp eq i64 %indvars.iv279, 0
-  br i1 %.not96, label %208, label %189
+  br i1 %.not96, label %203, label %184
 
-189:                                              ; preds = %162
-  %190 = add nsw i64 %indvars.iv279, -1
-  %191 = getelementptr inbounds nuw [8 x double], ptr %8, i64 0, i64 %190
-  %192 = load double, ptr %191, align 8, !tbaa !32
-  %193 = fdiv double %166, %192
-  %194 = call double @log(double noundef %193) #14, !tbaa !33
-  %195 = getelementptr inbounds nuw [8 x double], ptr %10, i64 0, i64 %190
-  %196 = load double, ptr %195, align 8, !tbaa !32
-  %197 = fdiv double %154, %196
-  %198 = call double @log(double noundef %197) #14, !tbaa !33
-  %199 = fdiv double %194, %198
-  %200 = getelementptr inbounds nuw [8 x double], ptr %6, i64 0, i64 %190
-  store double %199, ptr %200, align 8, !tbaa !32
-  %201 = getelementptr inbounds nuw [8 x double], ptr %9, i64 0, i64 %190
-  %202 = load double, ptr %201, align 8, !tbaa !32
-  %203 = fdiv double %169, %202
-  %204 = call double @log(double noundef %203) #14, !tbaa !33
-  %205 = call double @log(double noundef %197) #14, !tbaa !33
-  %206 = fdiv double %204, %205
-  %207 = getelementptr inbounds nuw [8 x double], ptr %7, i64 0, i64 %190
-  store double %206, ptr %207, align 8, !tbaa !32
-  br label %208
+184:                                              ; preds = %162
+  %185 = add nsw i64 %indvars.iv279, -1
+  %186 = getelementptr inbounds nuw [8 x double], ptr %8, i64 0, i64 %185
+  %187 = load double, ptr %186, align 8, !tbaa !32
+  %188 = fdiv double %166, %187
+  %189 = call double @log(double noundef %188) #14, !tbaa !33
+  %190 = getelementptr inbounds nuw [8 x double], ptr %10, i64 0, i64 %185
+  %191 = load double, ptr %190, align 8, !tbaa !32
+  %192 = fdiv double %154, %191
+  %193 = call double @log(double noundef %192) #14, !tbaa !33
+  %194 = fdiv double %189, %193
+  %195 = getelementptr inbounds nuw [8 x double], ptr %6, i64 0, i64 %185
+  store double %194, ptr %195, align 8, !tbaa !32
+  %196 = getelementptr inbounds nuw [8 x double], ptr %9, i64 0, i64 %185
+  %197 = load double, ptr %196, align 8, !tbaa !32
+  %198 = fdiv double %169, %197
+  %199 = call double @log(double noundef %198) #14, !tbaa !33
+  %200 = call double @log(double noundef %192) #14, !tbaa !33
+  %201 = fdiv double %199, %200
+  %202 = getelementptr inbounds nuw [8 x double], ptr %7, i64 0, i64 %185
+  store double %201, ptr %202, align 8, !tbaa !32
+  br label %203
 
-208:                                              ; preds = %162, %189
+203:                                              ; preds = %162, %184
   %indvars.iv.next280 = add nuw nsw i64 %indvars.iv279, 1
   %exitcond282.not = icmp eq i64 %indvars.iv.next280, 8
-  br i1 %exitcond282.not, label %209, label %152
+  br i1 %exitcond282.not, label %204, label %152
 
-209:                                              ; preds = %208
+204:                                              ; preds = %203
   %invariant.gep.i = getelementptr i8, ptr %6, i64 -8
-  br label %210
+  br label %205
 
-210:                                              ; preds = %210, %209
-  %.0132 = phi double [ 0.000000e+00, %209 ], [ %..i, %210 ]
-  %.0129 = phi double [ 0.000000e+00, %209 ], [ %212, %210 ]
-  %indvars.iv.i = phi i64 [ 1, %209 ], [ %indvars.iv.next.i, %210 ]
+205:                                              ; preds = %205, %204
+  %.0132 = phi double [ 0.000000e+00, %204 ], [ %..i, %205 ]
+  %.0129 = phi double [ 0.000000e+00, %204 ], [ %207, %205 ]
+  %indvars.iv.i = phi i64 [ 1, %204 ], [ %indvars.iv.next.i, %205 ]
   %gep.i = getelementptr double, ptr %invariant.gep.i, i64 %indvars.iv.i
-  %211 = load double, ptr %gep.i, align 8, !tbaa !32
-  %212 = fadd double %.0129, %211
-  %213 = fcmp ogt double %.0132, %211
-  %..i = select i1 %213, double %.0132, double %211
+  %206 = load double, ptr %gep.i, align 8, !tbaa !32
+  %207 = fadd double %.0129, %206
+  %208 = fcmp ogt double %.0132, %206
+  %..i = select i1 %208, double %.0132, double %206
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %ComputeConvergence.exit, label %210
+  br i1 %exitcond.not.i, label %ComputeConvergence.exit, label %205
 
-ComputeConvergence.exit:                          ; preds = %210
-  %214 = fdiv double %212, 7.000000e+00
-  %215 = fneg double %175
-  %216 = fmul double %173, %215
-  %217 = call double @llvm.fmuladd.f64(double %171, double %178, double %216)
-  %218 = fneg double %180
-  %219 = fmul double %175, %218
-  %220 = call double @llvm.fmuladd.f64(double %171, double %183, double %219)
-  %221 = fdiv double %220, %217
-  %222 = fpext double %..i to x86_fp80
-  %223 = fpext double %214 to x86_fp80
-  %224 = fpext double %221 to x86_fp80
-  %225 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %138, x86_fp80 noundef %222, x86_fp80 noundef %223, x86_fp80 noundef %224)
+ComputeConvergence.exit:                          ; preds = %205
+  %209 = fdiv double %207, 7.000000e+00
+  %210 = fneg double %174
+  %211 = fmul double %173, %210
+  %212 = call double @llvm.fmuladd.f64(double %171, double %175, double %211)
+  %213 = fneg double %177
+  %214 = fmul double %174, %213
+  %215 = call double @llvm.fmuladd.f64(double %171, double %179, double %214)
+  %216 = fdiv double %215, %212
+  %217 = fpext double %..i to x86_fp80
+  %218 = fpext double %209 to x86_fp80
+  %219 = fpext double %216 to x86_fp80
+  %220 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %138, x86_fp80 noundef %217, x86_fp80 noundef %218, x86_fp80 noundef %219)
   %invariant.gep.i106 = getelementptr i8, ptr %7, i64 -8
-  br label %226
+  br label %221
 
-226:                                              ; preds = %226, %ComputeConvergence.exit
-  %.0131 = phi double [ 0.000000e+00, %ComputeConvergence.exit ], [ %..i109, %226 ]
-  %.1130 = phi double [ 0.000000e+00, %ComputeConvergence.exit ], [ %228, %226 ]
-  %indvars.iv.i107 = phi i64 [ 1, %ComputeConvergence.exit ], [ %indvars.iv.next.i110, %226 ]
+221:                                              ; preds = %221, %ComputeConvergence.exit
+  %.0131 = phi double [ 0.000000e+00, %ComputeConvergence.exit ], [ %..i109, %221 ]
+  %.1130 = phi double [ 0.000000e+00, %ComputeConvergence.exit ], [ %223, %221 ]
+  %indvars.iv.i107 = phi i64 [ 1, %ComputeConvergence.exit ], [ %indvars.iv.next.i110, %221 ]
   %gep.i108 = getelementptr double, ptr %invariant.gep.i106, i64 %indvars.iv.i107
-  %227 = load double, ptr %gep.i108, align 8, !tbaa !32
-  %228 = fadd double %.1130, %227
-  %229 = fcmp ogt double %.0131, %227
-  %..i109 = select i1 %229, double %.0131, double %227
+  %222 = load double, ptr %gep.i108, align 8, !tbaa !32
+  %223 = fadd double %.1130, %222
+  %224 = fcmp ogt double %.0131, %222
+  %..i109 = select i1 %224, double %.0131, double %222
   %indvars.iv.next.i110 = add nuw nsw i64 %indvars.iv.i107, 1
   %exitcond.not.i111 = icmp eq i64 %indvars.iv.next.i110, 8
-  br i1 %exitcond.not.i111, label %ComputeConvergence.exit112, label %226
+  br i1 %exitcond.not.i111, label %ComputeConvergence.exit112, label %221
 
-ComputeConvergence.exit112:                       ; preds = %226
-  %230 = sitofp i32 %138 to double
-  %231 = fdiv double %228, 7.000000e+00
-  %232 = fneg double %185
-  %233 = fmul double %175, %232
-  %234 = call double @llvm.fmuladd.f64(double %171, double %188, double %233)
-  %235 = fdiv double %234, %217
-  %236 = fpext double %..i109 to x86_fp80
-  %237 = fpext double %231 to x86_fp80
-  %238 = fpext double %235 to x86_fp80
-  %239 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %138, x86_fp80 noundef %236, x86_fp80 noundef %237, x86_fp80 noundef %238)
-  %240 = fadd double %230, -5.000000e-01
-  %241 = fcmp olt double %..i, %240
-  br i1 %241, label %.thread, label %242
+ComputeConvergence.exit112:                       ; preds = %221
+  %225 = sitofp i32 %138 to double
+  %226 = fdiv double %223, 7.000000e+00
+  %227 = fneg double %181
+  %228 = fmul double %174, %227
+  %229 = call double @llvm.fmuladd.f64(double %171, double %183, double %228)
+  %230 = fdiv double %229, %212
+  %231 = fpext double %..i109 to x86_fp80
+  %232 = fpext double %226 to x86_fp80
+  %233 = fpext double %230 to x86_fp80
+  %234 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %138, x86_fp80 noundef %231, x86_fp80 noundef %232, x86_fp80 noundef %233)
+  %235 = fadd double %225, -5.000000e-01
+  %236 = fcmp olt double %..i, %235
+  br i1 %236, label %.thread, label %237
 
-242:                                              ; preds = %ComputeConvergence.exit112
-  %243 = fcmp olt double %..i109, %240
-  br i1 %243, label %.thread, label %245
+237:                                              ; preds = %ComputeConvergence.exit112
+  %238 = fcmp olt double %..i109, %235
+  br i1 %238, label %.thread, label %240
 
-.thread:                                          ; preds = %242, %ComputeConvergence.exit112
-  %.str.6.sink = phi ptr [ @.str.6, %ComputeConvergence.exit112 ], [ @.str.7, %242 ]
-  %244 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %.str.6.sink, i32 noundef %138)
+.thread:                                          ; preds = %237, %ComputeConvergence.exit112
+  %.str.6.sink = phi ptr [ @.str.6, %ComputeConvergence.exit112 ], [ @.str.7, %237 ]
+  %239 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %.str.6.sink, i32 noundef %138)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #14
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #14
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #14
@@ -544,7 +539,7 @@ ComputeConvergence.exit112:                       ; preds = %226
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #14
   br label %ParseArgs.exit
 
-245:                                              ; preds = %242
+240:                                              ; preds = %237
   call void @N_VDestroy(ptr noundef %140) #14
   call void @N_VDestroy(ptr noundef %141) #14
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #14
@@ -552,16 +547,16 @@ ComputeConvergence.exit112:                       ; preds = %226
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #14
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #14
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #14
-  br label %246
+  br label %241
 
-246:                                              ; preds = %245, %check_retval.exit101
-  %247 = phi ptr [ %156, %245 ], [ %.pre, %check_retval.exit101 ]
-  call void @N_VDestroy(ptr noundef %247) #14
-  %248 = call i32 @SUNContext_Free(ptr noundef nonnull %5) #14
+241:                                              ; preds = %240, %check_retval.exit101
+  %242 = phi ptr [ %156, %240 ], [ %.pre, %check_retval.exit101 ]
+  call void @N_VDestroy(ptr noundef %242) #14
+  %243 = call i32 @SUNContext_Free(ptr noundef nonnull %5) #14
   br label %ParseArgs.exit
 
-ParseArgs.exit:                                   ; preds = %.thread, %111, %110, %65, %52, %check_retval.exit, %246
-  %.0 = phi i32 [ 0, %246 ], [ 1, %check_retval.exit ], [ 1, %52 ], [ 1, %65 ], [ 1, %110 ], [ 1, %111 ], [ 1, %.thread ]
+ParseArgs.exit:                                   ; preds = %.thread, %111, %110, %65, %52, %check_retval.exit, %241
+  %.0 = phi i32 [ 0, %241 ], [ 1, %check_retval.exit ], [ 1, %52 ], [ 1, %65 ], [ 1, %110 ], [ 1, %111 ], [ 1, %.thread ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #14
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3) #14

@@ -1992,7 +1992,6 @@ invoke.cont241:                                   ; preds = %cond.false.i209, %i
 invoke.cont245:                                   ; preds = %.noexc215
   %call247 = call double @sqrt(double noundef %call125) #27, !tbaa !119
   %call250 = call double @log(double noundef %cond) #27, !tbaa !119
-  %call261 = call double @log(double noundef %cond) #27, !tbaa !119
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %averageMesher) #27
   %call273 = invoke noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #31
           to label %invoke.cont284 unwind label %lpad271
@@ -2000,7 +1999,7 @@ invoke.cont245:                                   ; preds = %.noexc215
 invoke.cont284:                                   ; preds = %invoke.cont245
   %mul = fmul double %call.i216, %call247
   %mul248 = fmul double %161, %mul
-  %169 = call double @llvm.fmuladd.f64(double %mul248, double 2.500000e-01, double %call261)
+  %169 = call double @llvm.fmuladd.f64(double %mul248, double 2.500000e-01, double %call250)
   %call253 = call double @llvm.log.f64(double %call175), !tbaa !119
   %170 = call double @llvm.fmuladd.f64(double %mul248, double 1.500000e+00, double %call253)
   %cmp.i217 = fcmp olt double %169, %170

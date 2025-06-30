@@ -139,7 +139,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readonly 
 
 ParseArgs.exit:                                   ; preds = %47, %49
   tail call fastcc void @PrintHelp()
-  br label %149
+  br label %148
 
 .loopexit80.loopexit:                             ; preds = %52
   %55 = icmp eq i32 %.sroa.11.1, 0
@@ -161,7 +161,7 @@ ParseArgs.exit:                                   ; preds = %47, %49
 check_retval.exit:                                ; preds = %.loopexit80
   %60 = load ptr, ptr @stderr, align 8, !tbaa !11
   %61 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str, i32 noundef %58) #12
-  br label %149
+  br label %148
 
 62:                                               ; preds = %.loopexit80
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
@@ -181,7 +181,7 @@ check_retval.exit:                                ; preds = %.loopexit80
 check_retval.exit44:                              ; preds = %62
   %71 = load ptr, ptr @stderr, align 8, !tbaa !11
   %72 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %71, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.2, i32 noundef %69) #12
-  br label %149
+  br label %148
 
 73:                                               ; preds = %62
   %74 = call i32 @SPRKStepSetUseCompensatedSums(ptr noundef %68, i32 noundef %.sroa.8.2.ph) #10
@@ -191,7 +191,7 @@ check_retval.exit44:                              ; preds = %62
 check_retval.exit46:                              ; preds = %73
   %76 = load ptr, ptr @stderr, align 8, !tbaa !11
   %77 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %76, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.3, i32 noundef %74) #12
-  br label %149
+  br label %148
 
 78:                                               ; preds = %73
   %79 = call i32 @ARKodeSetFixedStep(ptr noundef %68, double noundef %.sroa.17.2.ph) #10
@@ -201,7 +201,7 @@ check_retval.exit46:                              ; preds = %73
 check_retval.exit48:                              ; preds = %78
   %81 = load ptr, ptr @stderr, align 8, !tbaa !11
   %82 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %81, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.4, i32 noundef %79) #12
-  br label %149
+  br label %148
 
 83:                                               ; preds = %78
   %84 = fdiv double %.sroa.14.2.ph, %.sroa.17.2.ph
@@ -215,7 +215,7 @@ check_retval.exit48:                              ; preds = %78
 check_retval.exit50:                              ; preds = %83
   %90 = load ptr, ptr @stderr, align 8, !tbaa !11
   %91 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %90, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.5, i32 noundef %88) #12
-  br label %149
+  br label %148
 
 92:                                               ; preds = %83
   store double 0.000000e+00, ptr %4, align 8, !tbaa !13
@@ -232,9 +232,9 @@ check_retval.exit50:                              ; preds = %83
   %100 = fadd double %57, 0.000000e+00
   br label %101
 
-101:                                              ; preds = %.lr.ph, %137
-  %.03183 = phi i32 [ 0, %.lr.ph ], [ %141, %137 ]
-  %.03282 = phi double [ %100, %.lr.ph ], [ %140, %137 ]
+101:                                              ; preds = %.lr.ph, %136
+  %.03183 = phi i32 [ 0, %.lr.ph ], [ %140, %136 ]
+  %.03282 = phi double [ %100, %.lr.ph ], [ %139, %136 ]
   br i1 %.sroa.11.2.ph, label %104, label %102
 
 102:                                              ; preds = %101
@@ -261,45 +261,44 @@ check_retval.exit50:                              ; preds = %83
   %121 = fmul double %120, 5.000000e-01
   %122 = fmul double %107, 5.000000e-01
   %123 = call double @cos(double noundef %122) #10, !tbaa !16
-  %124 = call double @cos(double noundef %122) #10, !tbaa !16
-  %125 = fmul double %123, %124
+  %124 = fmul double %123, %123
+  %125 = fmul double %114, %124
   %126 = fmul double %114, %125
-  %127 = fmul double %114, %126
-  %128 = call double @sin(double noundef %116) #10, !tbaa !16
-  %129 = fmul double %128, 1.800000e-02
-  %130 = call double @exp(double noundef %129) #10, !tbaa !16
-  %131 = fmul double %130, %127
-  %132 = fmul double %131, 5.000000e-01
-  %133 = fadd double %121, %132
-  %134 = fpext double %133 to x86_fp80
-  %135 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %106, ptr noundef nonnull @.str.6, x86_fp80 noundef %108, x86_fp80 noundef %110, x86_fp80 noundef %134) #10
-  %136 = icmp sgt i32 %105, -1
-  br i1 %136, label %137, label %142
+  %127 = call double @sin(double noundef %116) #10, !tbaa !16
+  %128 = fmul double %127, 1.800000e-02
+  %129 = call double @exp(double noundef %128) #10, !tbaa !16
+  %130 = fmul double %129, %126
+  %131 = fmul double %130, 5.000000e-01
+  %132 = fadd double %121, %131
+  %133 = fpext double %132 to x86_fp80
+  %134 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %106, ptr noundef nonnull @.str.6, x86_fp80 noundef %108, x86_fp80 noundef %110, x86_fp80 noundef %133) #10
+  %135 = icmp sgt i32 %105, -1
+  br i1 %135, label %136, label %141
 
-137:                                              ; preds = %104
-  %138 = fadd double %57, %.03282
-  %139 = fcmp ogt double %138, %.sroa.14.2.ph
-  %140 = select i1 %139, double %.sroa.14.2.ph, double %138
-  %141 = add nuw nsw i32 %.03183, 1
-  %exitcond.not = icmp eq i32 %141, %.sroa.5.2.ph
+136:                                              ; preds = %104
+  %137 = fadd double %57, %.03282
+  %138 = fcmp ogt double %137, %.sroa.14.2.ph
+  %139 = select i1 %138, double %.sroa.14.2.ph, double %137
+  %140 = add nuw nsw i32 %.03183, 1
+  %exitcond.not = icmp eq i32 %140, %.sroa.5.2.ph
   br i1 %exitcond.not, label %.loopexit, label %101
 
-142:                                              ; preds = %104
-  %143 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %144 = call i64 @fwrite(ptr nonnull @.str.7, i64 37, i64 1, ptr %143) #13
+141:                                              ; preds = %104
+  %142 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %143 = call i64 @fwrite(ptr nonnull @.str.7, i64 37, i64 1, ptr %142) #13
   br label %.loopexit
 
-.loopexit:                                        ; preds = %137, %92, %142
+.loopexit:                                        ; preds = %136, %92, %141
+  %144 = load ptr, ptr @stdout, align 8, !tbaa !11
+  %fputc = call i32 @fputc(i32 10, ptr %144)
   %145 = load ptr, ptr @stdout, align 8, !tbaa !11
-  %fputc = call i32 @fputc(i32 10, ptr %145)
-  %146 = load ptr, ptr @stdout, align 8, !tbaa !11
-  %147 = call i32 @ARKodePrintAllStats(ptr noundef %68, ptr noundef %146, i32 noundef 0) #10
+  %146 = call i32 @ARKodePrintAllStats(ptr noundef %68, ptr noundef %145, i32 noundef 0) #10
   call void @N_VDestroy(ptr noundef %64) #10
   call void @ARKodeFree(ptr noundef nonnull %5) #10
-  %148 = call i32 @SUNContext_Free(ptr noundef nonnull %3) #10
-  br label %149
+  %147 = call i32 @SUNContext_Free(ptr noundef nonnull %3) #10
+  br label %148
 
-149:                                              ; preds = %check_retval.exit50, %check_retval.exit48, %check_retval.exit46, %check_retval.exit44, %check_retval.exit, %ParseArgs.exit, %.loopexit
+148:                                              ; preds = %check_retval.exit50, %check_retval.exit48, %check_retval.exit46, %check_retval.exit44, %check_retval.exit, %ParseArgs.exit, %.loopexit
   %.0 = phi i32 [ 0, %.loopexit ], [ 1, %ParseArgs.exit ], [ 1, %check_retval.exit ], [ 1, %check_retval.exit44 ], [ 1, %check_retval.exit46 ], [ 1, %check_retval.exit48 ], [ 1, %check_retval.exit50 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
@@ -345,12 +344,11 @@ define internal noundef i32 @pdot(double noundef %0, ptr noundef %1, ptr noundef
   %12 = fmul double %11, 1.800000e-02
   %13 = fmul double %0, 5.000000e-01
   %14 = tail call double @cos(double noundef %13) #10, !tbaa !16
-  %15 = tail call double @cos(double noundef %13) #10, !tbaa !16
-  %16 = fmul double %14, %15
-  %17 = fmul double %9, %16
-  %18 = tail call double @llvm.fmuladd.f64(double %12, double %7, double %17)
-  %19 = fneg double %18
-  store double %19, ptr %6, align 8, !tbaa !13
+  %15 = fmul double %14, %14
+  %16 = fmul double %9, %15
+  %17 = tail call double @llvm.fmuladd.f64(double %12, double %7, double %16)
+  %18 = fneg double %17
+  store double %18, ptr %6, align 8, !tbaa !13
   ret i32 0
 }
 
@@ -383,17 +381,16 @@ define internal fastcc double @Hamiltonian(ptr noundef %0, double noundef %1) un
   %13 = fmul double %12, 5.000000e-01
   %14 = fmul double %1, 5.000000e-01
   %15 = tail call double @cos(double noundef %14) #10, !tbaa !16
-  %16 = tail call double @cos(double noundef %14) #10, !tbaa !16
-  %17 = fmul double %15, %16
+  %16 = fmul double %15, %15
+  %17 = fmul double %6, %16
   %18 = fmul double %6, %17
-  %19 = fmul double %6, %18
-  %20 = tail call double @sin(double noundef %8) #10, !tbaa !16
-  %21 = fmul double %20, 1.800000e-02
-  %22 = tail call double @exp(double noundef %21) #10, !tbaa !16
-  %23 = fmul double %22, %19
-  %24 = fmul double %23, 5.000000e-01
-  %25 = fadd double %13, %24
-  ret double %25
+  %19 = tail call double @sin(double noundef %8) #10, !tbaa !16
+  %20 = fmul double %19, 1.800000e-02
+  %21 = tail call double @exp(double noundef %20) #10, !tbaa !16
+  %22 = fmul double %21, %18
+  %23 = fmul double %22, 5.000000e-01
+  %24 = fadd double %13, %23
+  ret double %24
 }
 
 declare i32 @ARKodeSetStopTime(ptr noundef, double noundef) local_unnamed_addr #2

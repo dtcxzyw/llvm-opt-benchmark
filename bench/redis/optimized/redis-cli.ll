@@ -7276,14 +7276,13 @@ define dso_local i64 @powerLawRand(i64 noundef %0, i64 noundef %1, double nounde
   %11 = sitofp i64 %0 to double
   %12 = tail call double @pow(double noundef %11, double noundef %9) #33, !tbaa !22
   %13 = fsub double %10, %12
-  %14 = tail call double @pow(double noundef %11, double noundef %9) #33, !tbaa !22
-  %15 = tail call double @llvm.fmuladd.f64(double %13, double %7, double %14)
-  %16 = fdiv double 1.000000e+00, %9
-  %17 = tail call double @pow(double noundef %15, double noundef %16) #33, !tbaa !22
-  %18 = fptosi double %17 to i64
-  %19 = add i64 %1, %0
-  %20 = sub i64 %19, %18
-  ret i64 %20
+  %14 = tail call double @llvm.fmuladd.f64(double %13, double %7, double %12)
+  %15 = fdiv double 1.000000e+00, %9
+  %16 = tail call double @pow(double noundef %14, double noundef %15) #33, !tbaa !22
+  %17 = fptosi double %16 to i64
+  %18 = add i64 %1, %0
+  %19 = sub i64 %18, %17
+  ret i64 %19
 }
 
 ; Function Attrs: nounwind

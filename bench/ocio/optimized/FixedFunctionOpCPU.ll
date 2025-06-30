@@ -4192,29 +4192,28 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %2
   %48 = getelementptr inbounds nuw i8, ptr %25, i64 56
   %49 = load double, ptr %48, align 8, !tbaa !42
   %50 = fptrunc double %49 to float
-  %51 = tail call noundef float @logf(float noundef %27) #28, !tbaa !14
-  %52 = fdiv float %50, %51
-  store float %52, ptr %10, align 4, !tbaa !172
-  %53 = getelementptr inbounds nuw i8, ptr %25, i64 64
-  %54 = load double, ptr %53, align 8, !tbaa !42
-  %55 = fptrunc double %54 to float
-  store float %55, ptr %11, align 8, !tbaa !173
-  %56 = getelementptr inbounds nuw i8, ptr %25, i64 72
-  %57 = load double, ptr %56, align 8, !tbaa !42
-  %58 = fptrunc double %57 to float
-  store float %58, ptr %12, align 4, !tbaa !174
-  %59 = getelementptr inbounds nuw i8, ptr %25, i64 80
-  %60 = load double, ptr %59, align 8, !tbaa !42
-  %61 = fptrunc double %60 to float
-  store float %61, ptr %13, align 8, !tbaa !175
-  %62 = getelementptr inbounds nuw i8, ptr %25, i64 88
-  %63 = load double, ptr %62, align 8, !tbaa !42
-  %64 = fptrunc double %63 to float
-  store float %64, ptr %14, align 4, !tbaa !176
-  %65 = getelementptr inbounds nuw i8, ptr %25, i64 96
-  %66 = load double, ptr %65, align 8, !tbaa !42
-  %67 = fptrunc double %66 to float
-  store float %67, ptr %15, align 8, !tbaa !177
+  %51 = fdiv float %50, %37
+  store float %51, ptr %10, align 4, !tbaa !172
+  %52 = getelementptr inbounds nuw i8, ptr %25, i64 64
+  %53 = load double, ptr %52, align 8, !tbaa !42
+  %54 = fptrunc double %53 to float
+  store float %54, ptr %11, align 8, !tbaa !173
+  %55 = getelementptr inbounds nuw i8, ptr %25, i64 72
+  %56 = load double, ptr %55, align 8, !tbaa !42
+  %57 = fptrunc double %56 to float
+  store float %57, ptr %12, align 4, !tbaa !174
+  %58 = getelementptr inbounds nuw i8, ptr %25, i64 80
+  %59 = load double, ptr %58, align 8, !tbaa !42
+  %60 = fptrunc double %59 to float
+  store float %60, ptr %13, align 8, !tbaa !175
+  %61 = getelementptr inbounds nuw i8, ptr %25, i64 88
+  %62 = load double, ptr %61, align 8, !tbaa !42
+  %63 = fptrunc double %62 to float
+  store float %63, ptr %14, align 4, !tbaa !176
+  %64 = getelementptr inbounds nuw i8, ptr %25, i64 96
+  %65 = load double, ptr %64, align 8, !tbaa !42
+  %66 = fptrunc double %65 to float
+  store float %66, ptr %15, align 8, !tbaa !177
   tail call void @_ZdlPvm(ptr noundef nonnull %25, i64 noundef %23) #31
   ret void
 }

@@ -1182,8 +1182,7 @@ invoke.cont56:                                    ; preds = %call3.i161.noexc
   %call62 = call double @sqrt(double noundef %call4.i) #26, !tbaa !75
   %neg = fneg double %call14
   %39 = call double @llvm.fmuladd.f64(double %neg, double %call62, double %call27)
-  %call64 = call double @sqrt(double noundef %call4.i) #26, !tbaa !75
-  %40 = call double @llvm.fmuladd.f64(double %neg, double %call64, double %call34)
+  %40 = call double @llvm.fmuladd.f64(double %neg, double %call62, double %call34)
   %call67 = call double @sqrt(double noundef %call2.i) #26, !tbaa !75
   %41 = call double @llvm.fmuladd.f64(double %neg, double %call67, double %call9)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %CmlNormDist.i167) #26
@@ -1241,8 +1240,7 @@ invoke.cont78:                                    ; preds = %call.i.noexc182
   %mul83 = fmul double %call4.i, %fneg
   %call84 = call double @exp(double noundef %mul83) #26, !tbaa !75
   %call86 = call double @sqrt(double noundef %call4.i) #26, !tbaa !75
-  %call89 = call double @sqrt(double noundef %call4.i) #26, !tbaa !75
-  %43 = call double @llvm.fmuladd.f64(double %neg, double %call89, double %call10)
+  %43 = call double @llvm.fmuladd.f64(double %neg, double %call86, double %call10)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %NormDist.i185) #26
   store double 0.000000e+00, ptr %NormDist.i185, align 8, !tbaa !92
   %sigma_.i.i186 = getelementptr inbounds nuw i8, ptr %NormDist.i185, i64 8
@@ -1270,8 +1268,7 @@ invoke.cont92:                                    ; preds = %call.i.noexc194
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %NormDist.i185) #26
   %call97 = call double @exp(double noundef %mul83) #26, !tbaa !75
   %call99 = call double @sqrt(double noundef %call4.i) #26, !tbaa !75
-  %call102 = call double @sqrt(double noundef %call4.i) #26, !tbaa !75
-  %45 = call double @llvm.fmuladd.f64(double %neg, double %call102, double %call34)
+  %45 = call double @llvm.fmuladd.f64(double %neg, double %call99, double %call34)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %NormDist.i198) #26
   store double 0.000000e+00, ptr %NormDist.i198, align 8, !tbaa !92
   %sigma_.i.i199 = getelementptr inbounds nuw i8, ptr %NormDist.i198, i64 8
@@ -1485,8 +1482,7 @@ invoke.cont131:                                   ; preds = %call3.i235.noexc
   %call139 = call double @sqrt(double noundef %call4.i) #26, !tbaa !75
   %neg141 = fneg double %call14
   %74 = call double @llvm.fmuladd.f64(double %neg141, double %call139, double %call27)
-  %call142 = call double @sqrt(double noundef %call4.i) #26, !tbaa !75
-  %75 = call double @llvm.fmuladd.f64(double %neg141, double %call142, double %call34)
+  %75 = call double @llvm.fmuladd.f64(double %neg141, double %call139, double %call34)
   %call146 = call double @sqrt(double noundef %call2.i) #26, !tbaa !75
   %76 = call double @llvm.fmuladd.f64(double %call14, double %call146, double %fneg130)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %CmlNormDist.i245) #26
@@ -1544,8 +1540,7 @@ invoke.cont155:                                   ; preds = %call.i.noexc267
   %mul159 = fmul double %call4.i, %fneg135
   %call160 = call double @exp(double noundef %mul159) #26, !tbaa !75
   %call162 = call double @sqrt(double noundef %call4.i) #26, !tbaa !75
-  %call165 = call double @sqrt(double noundef %call4.i) #26, !tbaa !75
-  %78 = call double @llvm.fmuladd.f64(double %neg141, double %call165, double %call34)
+  %78 = call double @llvm.fmuladd.f64(double %neg141, double %call162, double %call34)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %NormDist.i271) #26
   store double 0.000000e+00, ptr %NormDist.i271, align 8, !tbaa !92
   %sigma_.i.i272 = getelementptr inbounds nuw i8, ptr %NormDist.i271, i64 8
@@ -1573,8 +1568,7 @@ invoke.cont168:                                   ; preds = %call.i.noexc280
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %NormDist.i271) #26
   %call174 = call double @exp(double noundef %mul159) #26, !tbaa !75
   %call176 = call double @sqrt(double noundef %call4.i) #26, !tbaa !75
-  %call179 = call double @sqrt(double noundef %call4.i) #26, !tbaa !75
-  %80 = call double @llvm.fmuladd.f64(double %neg141, double %call179, double %call34)
+  %80 = call double @llvm.fmuladd.f64(double %neg141, double %call176, double %call34)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %NormDist.i284) #26
   store double 0.000000e+00, ptr %NormDist.i284, align 8, !tbaa !92
   %sigma_.i.i285 = getelementptr inbounds nuw i8, ptr %NormDist.i284, i64 8

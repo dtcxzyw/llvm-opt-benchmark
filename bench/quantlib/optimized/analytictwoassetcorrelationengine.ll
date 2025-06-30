@@ -2651,8 +2651,7 @@ sw.bb:                                            ; preds = %invoke.cont310
   %call318 = call double @sqrt(double noundef %call212) #26, !tbaa !81
   %169 = call double @llvm.fmuladd.f64(double %call.i210, double %call318, double %div308)
   %mul320 = fmul double %call.i210, %call291
-  %call321 = call double @sqrt(double noundef %call212) #26, !tbaa !81
-  %170 = call double @llvm.fmuladd.f64(double %mul320, double %call321, double %div298)
+  %170 = call double @llvm.fmuladd.f64(double %mul320, double %call318, double %div298)
   %call324 = invoke noundef double @_ZNK8QuantLib41BivariateCumulativeNormalDistributionDr78clEdd(ptr noundef nonnull align 8 dereferenceable(16) %M, double noundef %169, double noundef %170)
           to label %invoke.cont323 unwind label %lpad309
 
@@ -2689,9 +2688,8 @@ invoke.cont343:                                   ; preds = %sw.bb334
   %call351 = call double @sqrt(double noundef %call212) #26, !tbaa !81
   %neg353 = fneg double %call.i210
   %175 = call double @llvm.fmuladd.f64(double %neg353, double %call351, double %fneg341)
-  %call356 = call double @sqrt(double noundef %call212) #26, !tbaa !81
   %neg358 = fmul double %call291, %neg353
-  %176 = call double @llvm.fmuladd.f64(double %neg358, double %call356, double %fneg342)
+  %176 = call double @llvm.fmuladd.f64(double %neg358, double %call351, double %fneg342)
   %call360 = invoke noundef double @_ZNK8QuantLib41BivariateCumulativeNormalDistributionDr78clEdd(ptr noundef nonnull align 8 dereferenceable(16) %M, double noundef %175, double noundef %176)
           to label %invoke.cont359 unwind label %lpad309
 

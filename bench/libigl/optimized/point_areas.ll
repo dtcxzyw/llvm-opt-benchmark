@@ -29716,8 +29716,8 @@ define linkonce_odr dso_local noundef i32 @_ZNK4CGAL8internal25Static_filters_pr
   %89 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %88) #32, !srcloc !1183
   %90 = bitcast <2 x double> %89 to <2 x i64>
   %91 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %78) #42, !srcloc !1184
-  %92 = shufflevector <2 x double> %91, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %93 = fneg <2 x double> %92
+  %92 = fneg <2 x double> %91
+  %93 = shufflevector <2 x double> %92, <2 x double> poison, <2 x i32> <i32 1, i32 0>
   %94 = xor <2 x i64> %90, <i64 -9223372036854775808, i64 0>
   %95 = bitcast <2 x i64> %94 to <2 x double>
   %96 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %95) #32, !srcloc !1183
@@ -29725,16 +29725,16 @@ define linkonce_odr dso_local noundef i32 @_ZNK4CGAL8internal25Static_filters_pr
   %98 = fmul <2 x double> %91, %96
   %99 = fmul <2 x double> %91, %97
   %100 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %99, <2 x double> splat (double 0x7FF0000000000000))
-  %101 = fmul <2 x double> %96, %93
-  %102 = fmul <2 x double> %97, %93
+  %101 = fmul <2 x double> %93, %96
+  %102 = fmul <2 x double> %93, %97
   %103 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %102, <2 x double> splat (double 0x7FF0000000000000))
   %104 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %98, <2 x double> %100)
   %105 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %101, <2 x double> %103)
   %106 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %104, <2 x double> %105)
   %107 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %106) #32, !srcloc !1183
   %108 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %86) #42, !srcloc !1184
-  %109 = shufflevector <2 x double> %108, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %110 = fneg <2 x double> %109
+  %109 = fneg <2 x double> %108
+  %110 = shufflevector <2 x double> %109, <2 x double> poison, <2 x i32> <i32 1, i32 0>
   %111 = xor <2 x i64> %83, <i64 -9223372036854775808, i64 0>
   %112 = bitcast <2 x i64> %111 to <2 x double>
   %113 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %112) #32, !srcloc !1183
@@ -29742,8 +29742,8 @@ define linkonce_odr dso_local noundef i32 @_ZNK4CGAL8internal25Static_filters_pr
   %115 = fmul <2 x double> %108, %113
   %116 = fmul <2 x double> %108, %114
   %117 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %116, <2 x double> splat (double 0x7FF0000000000000))
-  %118 = fmul <2 x double> %113, %110
-  %119 = fmul <2 x double> %114, %110
+  %118 = fmul <2 x double> %110, %113
+  %119 = fmul <2 x double> %110, %114
   %120 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %119, <2 x double> splat (double 0x7FF0000000000000))
   %121 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %115, <2 x double> %117)
   %122 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %118, <2 x double> %120)
@@ -34920,8 +34920,8 @@ define linkonce_odr dso_local i64 @_ZN4CGAL25side_of_oriented_circleC2INS_11Inte
   %53 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %52) #32, !srcloc !1183
   %54 = bitcast <2 x double> %53 to <2 x i64>
   %55 = tail call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %15) #42, !srcloc !1184
-  %56 = shufflevector <2 x double> %55, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %57 = fneg <2 x double> %56
+  %56 = fneg <2 x double> %55
+  %57 = shufflevector <2 x double> %56, <2 x double> poison, <2 x i32> <i32 1, i32 0>
   %58 = xor <2 x i64> %54, <i64 -9223372036854775808, i64 0>
   %59 = bitcast <2 x i64> %58 to <2 x double>
   %60 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %59) #32, !srcloc !1183
@@ -34929,16 +34929,16 @@ define linkonce_odr dso_local i64 @_ZN4CGAL25side_of_oriented_circleC2INS_11Inte
   %62 = fmul <2 x double> %55, %60
   %63 = fmul <2 x double> %55, %61
   %64 = tail call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %63, <2 x double> splat (double 0x7FF0000000000000))
-  %65 = fmul <2 x double> %60, %57
-  %66 = fmul <2 x double> %61, %57
+  %65 = fmul <2 x double> %57, %60
+  %66 = fmul <2 x double> %57, %61
   %67 = tail call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %66, <2 x double> splat (double 0x7FF0000000000000))
   %68 = tail call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %62, <2 x double> %64)
   %69 = tail call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %65, <2 x double> %67)
   %70 = tail call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %68, <2 x double> %69)
   %71 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %70) #32, !srcloc !1183
   %72 = tail call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %22) #42, !srcloc !1184
-  %73 = shufflevector <2 x double> %72, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %74 = fneg <2 x double> %73
+  %73 = fneg <2 x double> %72
+  %74 = shufflevector <2 x double> %73, <2 x double> poison, <2 x i32> <i32 1, i32 0>
   %75 = xor <2 x i64> %46, <i64 -9223372036854775808, i64 0>
   %76 = bitcast <2 x i64> %75 to <2 x double>
   %77 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %76) #32, !srcloc !1183
@@ -34946,8 +34946,8 @@ define linkonce_odr dso_local i64 @_ZN4CGAL25side_of_oriented_circleC2INS_11Inte
   %79 = fmul <2 x double> %72, %77
   %80 = fmul <2 x double> %72, %78
   %81 = tail call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %80, <2 x double> splat (double 0x7FF0000000000000))
-  %82 = fmul <2 x double> %77, %74
-  %83 = fmul <2 x double> %78, %74
+  %82 = fmul <2 x double> %74, %77
+  %83 = fmul <2 x double> %74, %78
   %84 = tail call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %83, <2 x double> splat (double 0x7FF0000000000000))
   %85 = tail call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %79, <2 x double> %81)
   %86 = tail call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %82, <2 x double> %84)
@@ -34967,8 +34967,8 @@ define linkonce_odr dso_local i64 @_ZN4CGAL25side_of_oriented_circleC2INS_11Inte
   %100 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %99) #32, !srcloc !1183
   %101 = bitcast <2 x double> %100 to <2 x i64>
   %102 = tail call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %45) #42, !srcloc !1184
-  %103 = shufflevector <2 x double> %102, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %104 = fneg <2 x double> %103
+  %103 = fneg <2 x double> %102
+  %104 = shufflevector <2 x double> %103, <2 x double> poison, <2 x i32> <i32 1, i32 0>
   %105 = xor <2 x i64> %101, <i64 -9223372036854775808, i64 0>
   %106 = bitcast <2 x i64> %105 to <2 x double>
   %107 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %106) #32, !srcloc !1183
@@ -34976,8 +34976,8 @@ define linkonce_odr dso_local i64 @_ZN4CGAL25side_of_oriented_circleC2INS_11Inte
   %109 = fmul <2 x double> %102, %107
   %110 = fmul <2 x double> %102, %108
   %111 = tail call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %110, <2 x double> splat (double 0x7FF0000000000000))
-  %112 = fmul <2 x double> %107, %104
-  %113 = fmul <2 x double> %108, %104
+  %112 = fmul <2 x double> %104, %107
+  %113 = fmul <2 x double> %104, %108
   %114 = tail call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %113, <2 x double> splat (double 0x7FF0000000000000))
   %115 = tail call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %109, <2 x double> %111)
   %116 = tail call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %112, <2 x double> %114)
@@ -34992,8 +34992,8 @@ define linkonce_odr dso_local i64 @_ZN4CGAL25side_of_oriented_circleC2INS_11Inte
   %125 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %124) #32, !srcloc !1183
   %126 = bitcast <2 x double> %125 to <2 x i64>
   %127 = tail call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %53) #42, !srcloc !1184
-  %128 = shufflevector <2 x double> %127, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %129 = fneg <2 x double> %128
+  %128 = fneg <2 x double> %127
+  %129 = shufflevector <2 x double> %128, <2 x double> poison, <2 x i32> <i32 1, i32 0>
   %130 = xor <2 x i64> %126, <i64 -9223372036854775808, i64 0>
   %131 = bitcast <2 x i64> %130 to <2 x double>
   %132 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %131) #32, !srcloc !1183
@@ -35001,8 +35001,8 @@ define linkonce_odr dso_local i64 @_ZN4CGAL25side_of_oriented_circleC2INS_11Inte
   %134 = fmul <2 x double> %127, %132
   %135 = fmul <2 x double> %127, %133
   %136 = tail call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %135, <2 x double> splat (double 0x7FF0000000000000))
-  %137 = fmul <2 x double> %132, %129
-  %138 = fmul <2 x double> %133, %129
+  %137 = fmul <2 x double> %129, %132
+  %138 = fmul <2 x double> %129, %133
   %139 = tail call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %138, <2 x double> splat (double 0x7FF0000000000000))
   %140 = tail call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %134, <2 x double> %136)
   %141 = tail call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %137, <2 x double> %139)
@@ -35020,8 +35020,8 @@ define linkonce_odr dso_local i64 @_ZN4CGAL25side_of_oriented_circleC2INS_11Inte
   %153 = fmul <2 x double> %55, %151
   %154 = fmul <2 x double> %55, %152
   %155 = tail call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %154, <2 x double> splat (double 0x7FF0000000000000))
-  %156 = fmul <2 x double> %151, %57
-  %157 = fmul <2 x double> %152, %57
+  %156 = fmul <2 x double> %57, %151
+  %157 = fmul <2 x double> %57, %152
   %158 = tail call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %157, <2 x double> splat (double 0x7FF0000000000000))
   %159 = tail call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %153, <2 x double> %155)
   %160 = tail call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %156, <2 x double> %158)
@@ -35034,8 +35034,8 @@ define linkonce_odr dso_local i64 @_ZN4CGAL25side_of_oriented_circleC2INS_11Inte
   %167 = fmul <2 x double> %72, %165
   %168 = fmul <2 x double> %72, %166
   %169 = tail call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %168, <2 x double> splat (double 0x7FF0000000000000))
-  %170 = fmul <2 x double> %165, %74
-  %171 = fmul <2 x double> %166, %74
+  %170 = fmul <2 x double> %74, %165
+  %171 = fmul <2 x double> %74, %166
   %172 = tail call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %171, <2 x double> splat (double 0x7FF0000000000000))
   %173 = tail call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %167, <2 x double> %169)
   %174 = tail call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %170, <2 x double> %172)
@@ -35055,8 +35055,8 @@ define linkonce_odr dso_local i64 @_ZN4CGAL25side_of_oriented_circleC2INS_11Inte
   %188 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %187) #32, !srcloc !1183
   %189 = bitcast <2 x double> %188 to <2 x i64>
   %190 = tail call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %29) #42, !srcloc !1184
-  %191 = shufflevector <2 x double> %190, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %192 = fneg <2 x double> %191
+  %191 = fneg <2 x double> %190
+  %192 = shufflevector <2 x double> %191, <2 x double> poison, <2 x i32> <i32 1, i32 0>
   %193 = xor <2 x i64> %189, <i64 -9223372036854775808, i64 0>
   %194 = bitcast <2 x i64> %193 to <2 x double>
   %195 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %194) #32, !srcloc !1183
@@ -35064,8 +35064,8 @@ define linkonce_odr dso_local i64 @_ZN4CGAL25side_of_oriented_circleC2INS_11Inte
   %197 = fmul <2 x double> %190, %195
   %198 = fmul <2 x double> %190, %196
   %199 = tail call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %198, <2 x double> splat (double 0x7FF0000000000000))
-  %200 = fmul <2 x double> %195, %192
-  %201 = fmul <2 x double> %196, %192
+  %200 = fmul <2 x double> %192, %195
+  %201 = fmul <2 x double> %192, %196
   %202 = tail call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %201, <2 x double> splat (double 0x7FF0000000000000))
   %203 = tail call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %197, <2 x double> %199)
   %204 = tail call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %200, <2 x double> %202)
@@ -35080,8 +35080,8 @@ define linkonce_odr dso_local i64 @_ZN4CGAL25side_of_oriented_circleC2INS_11Inte
   %213 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %212) #32, !srcloc !1183
   %214 = bitcast <2 x double> %213 to <2 x i64>
   %215 = tail call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %37) #42, !srcloc !1184
-  %216 = shufflevector <2 x double> %215, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %217 = fneg <2 x double> %216
+  %216 = fneg <2 x double> %215
+  %217 = shufflevector <2 x double> %216, <2 x double> poison, <2 x i32> <i32 1, i32 0>
   %218 = xor <2 x i64> %214, <i64 -9223372036854775808, i64 0>
   %219 = bitcast <2 x i64> %218 to <2 x double>
   %220 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %219) #32, !srcloc !1183
@@ -35089,8 +35089,8 @@ define linkonce_odr dso_local i64 @_ZN4CGAL25side_of_oriented_circleC2INS_11Inte
   %222 = fmul <2 x double> %215, %220
   %223 = fmul <2 x double> %215, %221
   %224 = tail call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %223, <2 x double> splat (double 0x7FF0000000000000))
-  %225 = fmul <2 x double> %220, %217
-  %226 = fmul <2 x double> %221, %217
+  %225 = fmul <2 x double> %217, %220
+  %226 = fmul <2 x double> %217, %221
   %227 = tail call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %226, <2 x double> splat (double 0x7FF0000000000000))
   %228 = tail call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %222, <2 x double> %224)
   %229 = tail call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %225, <2 x double> %227)
@@ -35102,8 +35102,8 @@ define linkonce_odr dso_local i64 @_ZN4CGAL25side_of_oriented_circleC2INS_11Inte
   %235 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %234) #32, !srcloc !1183
   %236 = bitcast <2 x double> %235 to <2 x i64>
   %237 = tail call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %93) #42, !srcloc !1184
-  %238 = shufflevector <2 x double> %237, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %239 = fneg <2 x double> %238
+  %238 = fneg <2 x double> %237
+  %239 = shufflevector <2 x double> %238, <2 x double> poison, <2 x i32> <i32 1, i32 0>
   %240 = xor <2 x i64> %236, <i64 -9223372036854775808, i64 0>
   %241 = bitcast <2 x i64> %240 to <2 x double>
   %242 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %241) #32, !srcloc !1183
@@ -35111,16 +35111,16 @@ define linkonce_odr dso_local i64 @_ZN4CGAL25side_of_oriented_circleC2INS_11Inte
   %244 = fmul <2 x double> %237, %242
   %245 = fmul <2 x double> %237, %243
   %246 = tail call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %245, <2 x double> splat (double 0x7FF0000000000000))
-  %247 = fmul <2 x double> %242, %239
-  %248 = fmul <2 x double> %243, %239
+  %247 = fmul <2 x double> %239, %242
+  %248 = fmul <2 x double> %239, %243
   %249 = tail call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %248, <2 x double> splat (double 0x7FF0000000000000))
   %250 = tail call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %244, <2 x double> %246)
   %251 = tail call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %247, <2 x double> %249)
   %252 = tail call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %250, <2 x double> %251)
   %253 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %252) #32, !srcloc !1183
   %254 = tail call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %181) #42, !srcloc !1184
-  %255 = shufflevector <2 x double> %254, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %256 = fneg <2 x double> %255
+  %255 = fneg <2 x double> %254
+  %256 = shufflevector <2 x double> %255, <2 x double> poison, <2 x i32> <i32 1, i32 0>
   %257 = xor <2 x i64> %148, <i64 -9223372036854775808, i64 0>
   %258 = bitcast <2 x i64> %257 to <2 x double>
   %259 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %258) #32, !srcloc !1183
@@ -35128,8 +35128,8 @@ define linkonce_odr dso_local i64 @_ZN4CGAL25side_of_oriented_circleC2INS_11Inte
   %261 = fmul <2 x double> %254, %259
   %262 = fmul <2 x double> %254, %260
   %263 = tail call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %262, <2 x double> splat (double 0x7FF0000000000000))
-  %264 = fmul <2 x double> %259, %256
-  %265 = fmul <2 x double> %260, %256
+  %264 = fmul <2 x double> %256, %259
+  %265 = fmul <2 x double> %256, %260
   %266 = tail call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %265, <2 x double> splat (double 0x7FF0000000000000))
   %267 = tail call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %261, <2 x double> %263)
   %268 = tail call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %264, <2 x double> %266)

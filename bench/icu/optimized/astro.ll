@@ -546,7 +546,7 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN6icu_7718CalendarAstr
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load i8, ptr %2, align 8, !tbaa !13
   %4 = icmp eq i8 %3, 0
-  br i1 %4, label %5, label %104
+  br i1 %4, label %5, label %103
 
 5:                                                ; preds = %1
   %6 = tail call noundef double @_ZN6icu_7718CalendarAstronomer15getSunLongitudeEv(ptr noundef nonnull align 8 dereferenceable(57) %0)
@@ -590,94 +590,93 @@ _ZN6icu_7718CalendarAstronomer12getJulianDayEv.exit: ; preds = %._crit_edge.i, %
   %33 = load double, ptr %32, align 8, !tbaa !11
   %34 = tail call double @sin(double noundef %33) #16, !tbaa !14
   %35 = fmul double %34, 0x3F6A90B0ABA4FC89
-  %36 = tail call double @sin(double noundef %33) #16, !tbaa !14
-  %37 = fmul double %36, 0x3F7A736889D66DD0
-  %38 = fsub double %31, %35
-  %39 = fsub double %38, %37
-  %40 = fadd double %24, %39
-  %41 = tail call double @sin(double noundef %40) #16, !tbaa !14
-  %42 = fmul double %41, 0x3FBC1905209A88DE
-  %43 = fmul double %40, 2.000000e+00
-  %44 = tail call double @sin(double noundef %43) #16, !tbaa !14
-  %45 = fmul double %44, 0x3F6E98DF535623B2
-  %46 = fadd double %19, %31
-  %47 = fadd double %46, %42
-  %48 = fsub double %47, %35
-  %49 = fadd double %45, %48
-  %50 = fsub double %49, %26
-  %51 = fmul double %50, 2.000000e+00
-  %52 = tail call double @sin(double noundef %51) #16, !tbaa !14
-  %53 = fmul double %52, 0x3F8787CEEAB4C1CA
-  %54 = fadd double %53, %49
-  %55 = tail call double @llvm.fmuladd.f64(double %15, double 0xBF4E48EB230F0FE5, double 0x40163C779EFC0D54)
-  %56 = fdiv double %55, 0x401921FB54442D18
-  %57 = tail call noundef double @uprv_floor_77(double noundef %56)
-  %58 = tail call noundef double @llvm.fmuladd.f64(double %57, double 0xC01921FB54442D18, double %55)
-  %59 = load double, ptr %32, align 8, !tbaa !11
-  %60 = tail call double @sin(double noundef %59) #16, !tbaa !14
-  %61 = tail call double @llvm.fmuladd.f64(double %60, double 0xBF66E05A695F8191, double %58)
-  %62 = fsub double %54, %61
-  %63 = tail call double @sin(double noundef %62) #16, !tbaa !14
-  %64 = tail call double @cos(double noundef %62) #16, !tbaa !14
-  %65 = fmul double %63, 0x3FEFDEFD3FC184D3
-  %66 = tail call double @atan2(double noundef %65, double noundef %64) #16, !tbaa !14
-  %67 = fadd double %61, %66
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store double %67, ptr %68, align 8, !tbaa !12
-  %69 = fmul double %63, 0x3FB6F575B9F2C24F
-  %70 = tail call double @asin(double noundef %69) #16, !tbaa !14
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %72 = load double, ptr %7, align 8, !tbaa !9
-  %73 = tail call noundef signext i8 @uprv_isNaN_77(double noundef %72)
-  %.not.i.i.i = icmp eq i8 %73, 0
-  br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %74
+  %36 = fmul double %34, 0x3F7A736889D66DD0
+  %37 = fsub double %31, %35
+  %38 = fsub double %37, %36
+  %39 = fadd double %24, %38
+  %40 = tail call double @sin(double noundef %39) #16, !tbaa !14
+  %41 = fmul double %40, 0x3FBC1905209A88DE
+  %42 = fmul double %39, 2.000000e+00
+  %43 = tail call double @sin(double noundef %42) #16, !tbaa !14
+  %44 = fmul double %43, 0x3F6E98DF535623B2
+  %45 = fadd double %19, %31
+  %46 = fadd double %45, %41
+  %47 = fsub double %46, %35
+  %48 = fadd double %44, %47
+  %49 = fsub double %48, %26
+  %50 = fmul double %49, 2.000000e+00
+  %51 = tail call double @sin(double noundef %50) #16, !tbaa !14
+  %52 = fmul double %51, 0x3F8787CEEAB4C1CA
+  %53 = fadd double %52, %48
+  %54 = tail call double @llvm.fmuladd.f64(double %15, double 0xBF4E48EB230F0FE5, double 0x40163C779EFC0D54)
+  %55 = fdiv double %54, 0x401921FB54442D18
+  %56 = tail call noundef double @uprv_floor_77(double noundef %55)
+  %57 = tail call noundef double @llvm.fmuladd.f64(double %56, double 0xC01921FB54442D18, double %54)
+  %58 = load double, ptr %32, align 8, !tbaa !11
+  %59 = tail call double @sin(double noundef %58) #16, !tbaa !14
+  %60 = tail call double @llvm.fmuladd.f64(double %59, double 0xBF66E05A695F8191, double %57)
+  %61 = fsub double %53, %60
+  %62 = tail call double @sin(double noundef %61) #16, !tbaa !14
+  %63 = tail call double @cos(double noundef %61) #16, !tbaa !14
+  %64 = fmul double %62, 0x3FEFDEFD3FC184D3
+  %65 = tail call double @atan2(double noundef %64, double noundef %63) #16, !tbaa !14
+  %66 = fadd double %60, %65
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store double %66, ptr %67, align 8, !tbaa !12
+  %68 = fmul double %62, 0x3FB6F575B9F2C24F
+  %69 = tail call double @asin(double noundef %68) #16, !tbaa !14
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %71 = load double, ptr %7, align 8, !tbaa !9
+  %72 = tail call noundef signext i8 @uprv_isNaN_77(double noundef %71)
+  %.not.i.i.i = icmp eq i8 %72, 0
+  br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %73
 
 ._crit_edge.i.i.i:                                ; preds = %_ZN6icu_7718CalendarAstronomer12getJulianDayEv.exit
   %.pre.i.i.i = load double, ptr %7, align 8, !tbaa !9
   br label %_ZN6icu_7718CalendarAstronomer20eclipticToEquatorialERNS0_10EquatorialEdd.exit
 
-74:                                               ; preds = %_ZN6icu_7718CalendarAstronomer12getJulianDayEv.exit
-  %75 = load double, ptr %0, align 8, !tbaa !3
-  %76 = fadd double %75, 0x42E7F907CA644000
-  %77 = fdiv double %76, 8.640000e+07
-  store double %77, ptr %7, align 8, !tbaa !9
+73:                                               ; preds = %_ZN6icu_7718CalendarAstronomer12getJulianDayEv.exit
+  %74 = load double, ptr %0, align 8, !tbaa !3
+  %75 = fadd double %74, 0x42E7F907CA644000
+  %76 = fdiv double %75, 8.640000e+07
+  store double %76, ptr %7, align 8, !tbaa !9
   br label %_ZN6icu_7718CalendarAstronomer20eclipticToEquatorialERNS0_10EquatorialEdd.exit
 
-_ZN6icu_7718CalendarAstronomer20eclipticToEquatorialERNS0_10EquatorialEdd.exit: ; preds = %._crit_edge.i.i.i, %74
-  %78 = phi double [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %77, %74 ]
-  %79 = fadd double %78, 0xC142B42C80000000
-  %80 = fdiv double %79, 3.652500e+04
-  %81 = tail call double @llvm.fmuladd.f64(double %80, double 0xBF8AA1EDB45C4BE9, double 0x4037707570C564F9)
-  %82 = fmul double %80, 0xBE865E9F80F29211
-  %83 = tail call double @llvm.fmuladd.f64(double %82, double %80, double %81)
-  %84 = fmul double %80, 0x3EA0DED40694CE29
-  %85 = fmul double %80, %84
-  %86 = tail call double @llvm.fmuladd.f64(double %85, double %80, double %83)
-  %87 = fmul double %86, 0x3F91DF46A2529D39
-  %88 = tail call double @sin(double noundef %87) #16, !tbaa !14
-  %89 = tail call double @cos(double noundef %87) #16, !tbaa !14
-  %90 = tail call double @sin(double noundef %67) #16, !tbaa !14
-  %91 = tail call double @cos(double noundef %67) #16, !tbaa !14
-  %92 = tail call double @sin(double noundef %70) #16, !tbaa !14
-  %93 = tail call double @cos(double noundef %70) #16, !tbaa !14
-  %94 = tail call double @tan(double noundef %70) #16, !tbaa !14
-  %95 = fneg double %88
-  %96 = fmul double %94, %95
-  %97 = tail call double @llvm.fmuladd.f64(double %90, double %89, double %96)
-  %98 = tail call double @atan2(double noundef %97, double noundef %91) #16, !tbaa !14
-  %99 = fmul double %88, %93
-  %100 = fmul double %90, %99
-  %101 = tail call double @llvm.fmuladd.f64(double %92, double %89, double %100)
-  %102 = tail call double @asin(double noundef %101) #16, !tbaa !14
-  store double %98, ptr %71, align 8, !tbaa !16
-  %103 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store double %102, ptr %103, align 8, !tbaa !17
+_ZN6icu_7718CalendarAstronomer20eclipticToEquatorialERNS0_10EquatorialEdd.exit: ; preds = %._crit_edge.i.i.i, %73
+  %77 = phi double [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %76, %73 ]
+  %78 = fadd double %77, 0xC142B42C80000000
+  %79 = fdiv double %78, 3.652500e+04
+  %80 = tail call double @llvm.fmuladd.f64(double %79, double 0xBF8AA1EDB45C4BE9, double 0x4037707570C564F9)
+  %81 = fmul double %79, 0xBE865E9F80F29211
+  %82 = tail call double @llvm.fmuladd.f64(double %81, double %79, double %80)
+  %83 = fmul double %79, 0x3EA0DED40694CE29
+  %84 = fmul double %79, %83
+  %85 = tail call double @llvm.fmuladd.f64(double %84, double %79, double %82)
+  %86 = fmul double %85, 0x3F91DF46A2529D39
+  %87 = tail call double @sin(double noundef %86) #16, !tbaa !14
+  %88 = tail call double @cos(double noundef %86) #16, !tbaa !14
+  %89 = tail call double @sin(double noundef %66) #16, !tbaa !14
+  %90 = tail call double @cos(double noundef %66) #16, !tbaa !14
+  %91 = tail call double @sin(double noundef %69) #16, !tbaa !14
+  %92 = tail call double @cos(double noundef %69) #16, !tbaa !14
+  %93 = tail call double @tan(double noundef %69) #16, !tbaa !14
+  %94 = fneg double %87
+  %95 = fmul double %93, %94
+  %96 = tail call double @llvm.fmuladd.f64(double %89, double %88, double %95)
+  %97 = tail call double @atan2(double noundef %96, double noundef %90) #16, !tbaa !14
+  %98 = fmul double %87, %92
+  %99 = fmul double %89, %98
+  %100 = tail call double @llvm.fmuladd.f64(double %91, double %88, double %99)
+  %101 = tail call double @asin(double noundef %100) #16, !tbaa !14
+  store double %97, ptr %70, align 8, !tbaa !16
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store double %101, ptr %102, align 8, !tbaa !17
   store i8 1, ptr %2, align 8, !tbaa !13
-  br label %104
+  br label %103
 
-104:                                              ; preds = %_ZN6icu_7718CalendarAstronomer20eclipticToEquatorialERNS0_10EquatorialEdd.exit, %1
-  %105 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  ret ptr %105
+103:                                              ; preds = %_ZN6icu_7718CalendarAstronomer20eclipticToEquatorialERNS0_10EquatorialEdd.exit, %1
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  ret ptr %104
 }
 
 ; Function Attrs: mustprogress uwtable

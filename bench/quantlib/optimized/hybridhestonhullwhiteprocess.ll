@@ -3072,7 +3072,6 @@ lpad291:                                          ; preds = %cond.false.i281, %i
 
 if.then341:                                       ; preds = %invoke.cont112
   %125 = load double, ptr %45, align 8, !tbaa !86
-  %call350 = call double @sqrt(double noundef %47) #26, !tbaa !73
   %126 = load double, ptr %arrayidx.i228, align 8, !tbaa !86
   %mul356 = fmul double %6, %6
   %div359 = fdiv double %mul356, %47
@@ -3095,7 +3094,7 @@ cond.false.i292:                                  ; preds = %if.then341
 invoke.cont366:                                   ; preds = %.noexc294, %if.then341
   %129 = phi ptr [ %128, %if.then341 ], [ %.pre.i293, %.noexc294 ]
   %mul347 = fmul double %6, %9
-  %div351 = fdiv double %mul347, %call350
+  %div351 = fdiv double %mul347, %call129
   %130 = fneg double %126
   %neg355 = fmul double %div351, %130
   %131 = call double @llvm.fmuladd.f64(double %6, double %125, double %neg355)

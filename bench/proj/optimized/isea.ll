@@ -726,7 +726,7 @@ switch.lookup:                                    ; preds = %156
   store double %176, ptr %6, align 8, !tbaa !88
   %177 = fadd double %168, %switch.load
   store double %177, ptr %151, align 8, !tbaa !90
-  br label %223
+  br label %222
 
 178:                                              ; preds = %_ZL14isea_transformPN12_GLOBAL__N_112pj_isea_dataEPNS_8GeoPointEPNS_7isea_ptE.exit.i
   %179 = fmul double %148, 0x3FEA90A6031F46A3
@@ -735,10 +735,10 @@ switch.lookup:                                    ; preds = %156
   store double %181, ptr %6, align 8, !tbaa !88
   %182 = fadd double %180, 0x3FD279A74590331C
   store double %182, ptr %151, align 8, !tbaa !90
-  switch i32 %154, label %223 [
-    i32 3, label %209
+  switch i32 %154, label %222 [
+    i32 3, label %208
     i32 2, label %183
-    i32 1, label %206
+    i32 1, label %205
   ]
 
 183:                                              ; preds = %178
@@ -752,138 +752,137 @@ switch.lookup:                                    ; preds = %156
   %191 = fmul double %182, %190
   %192 = tail call double @llvm.fmuladd.f64(double %181, double %189, double %191)
   %193 = fneg double %181
-  %194 = tail call double @sin(double noundef %188) #18, !tbaa !51
-  %195 = tail call double @cos(double noundef %188) #18, !tbaa !51
-  %196 = fmul double %182, %195
-  %197 = tail call double @llvm.fmuladd.f64(double %193, double %194, double %196)
+  %194 = tail call double @cos(double noundef %188) #18, !tbaa !51
+  %195 = fmul double %182, %194
+  %196 = tail call double @llvm.fmuladd.f64(double %193, double %190, double %195)
   store double %192, ptr %6, align 8, !tbaa !88
-  store double %197, ptr %151, align 8, !tbaa !90
-  br i1 %187, label %198, label %_ZL9isea_ptddiPN12_GLOBAL__N_17isea_ptE.exit.i
+  store double %196, ptr %151, align 8, !tbaa !90
+  br i1 %187, label %197, label %_ZL9isea_ptddiPN12_GLOBAL__N_17isea_ptE.exit.i
 
-198:                                              ; preds = %183
-  %199 = fadd double %192, 5.000000e-01
-  store double %199, ptr %6, align 8, !tbaa !88
-  %200 = fadd double %197, 0x3FEBB67AE8584CAA
-  store double %200, ptr %151, align 8, !tbaa !90
+197:                                              ; preds = %183
+  %198 = fadd double %192, 5.000000e-01
+  store double %198, ptr %6, align 8, !tbaa !88
+  %199 = fadd double %196, 0x3FEBB67AE8584CAA
+  store double %199, ptr %151, align 8, !tbaa !90
   br label %_ZL9isea_ptddiPN12_GLOBAL__N_17isea_ptE.exit.i
 
-_ZL9isea_ptddiPN12_GLOBAL__N_17isea_ptE.exit.i:   ; preds = %198, %183
-  %201 = sdiv i32 %96, 10
-  %202 = mul nsw i32 %201, 5
-  %203 = add nsw i32 %185, 1
-  %204 = add nsw i32 %203, %202
-  %205 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  store i32 %204, ptr %205, align 8, !tbaa !91
-  br label %223
+_ZL9isea_ptddiPN12_GLOBAL__N_17isea_ptE.exit.i:   ; preds = %197, %183
+  %200 = sdiv i32 %96, 10
+  %201 = mul nsw i32 %200, 5
+  %202 = add nsw i32 %185, 1
+  %203 = add nsw i32 %202, %201
+  %204 = getelementptr inbounds nuw i8, ptr %9, i64 40
+  store i32 %203, ptr %204, align 8, !tbaa !91
+  br label %222
 
-206:                                              ; preds = %178
-  %207 = invoke fastcc noundef i32 @_ZL9isea_ptdiPN12_GLOBAL__N_112pj_isea_dataEiPNS_7isea_ptES3_(ptr noundef nonnull %9, i32 noundef %96, ptr noundef %6, ptr noundef %5)
-          to label %.noexc unwind label %224
+205:                                              ; preds = %178
+  %206 = invoke fastcc noundef i32 @_ZL9isea_ptdiPN12_GLOBAL__N_112pj_isea_dataEiPNS_7isea_ptES3_(ptr noundef nonnull %9, i32 noundef %96, ptr noundef %6, ptr noundef %5)
+          to label %.noexc unwind label %223
 
-.noexc:                                           ; preds = %206
-  %208 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  store i32 %207, ptr %208, align 8, !tbaa !91
+.noexc:                                           ; preds = %205
+  %207 = getelementptr inbounds nuw i8, ptr %9, i64 40
+  store i32 %206, ptr %207, align 8, !tbaa !91
   br label %_ZL12isea_forwardPN12_GLOBAL__N_112pj_isea_dataEPNS_8GeoPointE.exit
 
-209:                                              ; preds = %178
+208:                                              ; preds = %178
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #18
-  %210 = invoke fastcc noundef i32 @_ZL9isea_ptdiPN12_GLOBAL__N_112pj_isea_dataEiPNS_7isea_ptES3_(ptr noundef nonnull %9, i32 noundef %96, ptr noundef nonnull readonly %6, ptr noundef %4)
-          to label %.noexc16 unwind label %224
+  %209 = invoke fastcc noundef i32 @_ZL9isea_ptdiPN12_GLOBAL__N_112pj_isea_dataEiPNS_7isea_ptES3_(ptr noundef nonnull %9, i32 noundef %96, ptr noundef nonnull readonly %6, ptr noundef %4)
+          to label %.noexc16 unwind label %223
 
-.noexc16:                                         ; preds = %209
-  %211 = load double, ptr %4, align 8, !tbaa !88
-  %212 = fcmp olt double %211, 0xC1A0000000000000
-  %213 = fcmp ogt double %211, 0x419FFFFFFC000000
-  %or.cond.i.i = or i1 %212, %213
-  br i1 %or.cond.i.i, label %214, label %_ZL8isea_hexPN12_GLOBAL__N_112pj_isea_dataEiPNS_7isea_ptES3_.exit.i
+.noexc16:                                         ; preds = %208
+  %210 = load double, ptr %4, align 8, !tbaa !88
+  %211 = fcmp olt double %210, 0xC1A0000000000000
+  %212 = fcmp ogt double %210, 0x419FFFFFFC000000
+  %or.cond.i.i = or i1 %211, %212
+  br i1 %or.cond.i.i, label %213, label %_ZL8isea_hexPN12_GLOBAL__N_112pj_isea_dataEiPNS_7isea_ptES3_.exit.i
 
-214:                                              ; preds = %.noexc16
-  %215 = tail call ptr @__cxa_allocate_exception(i64 8) #18
-  store ptr @.str.24, ptr %215, align 16, !tbaa !92
-  invoke void @__cxa_throw(ptr nonnull %215, ptr nonnull @_ZTIPKc, ptr null) #22
-          to label %.noexc17 unwind label %224
+213:                                              ; preds = %.noexc16
+  %214 = tail call ptr @__cxa_allocate_exception(i64 8) #18
+  store ptr @.str.24, ptr %214, align 16, !tbaa !92
+  invoke void @__cxa_throw(ptr nonnull %214, ptr nonnull @_ZTIPKc, ptr null) #22
+          to label %.noexc17 unwind label %223
 
-.noexc17:                                         ; preds = %214
+.noexc17:                                         ; preds = %213
   unreachable
 
 _ZL8isea_hexPN12_GLOBAL__N_112pj_isea_dataEiPNS_7isea_ptES3_.exit.i: ; preds = %.noexc16
-  %216 = fptosi double %211 to i32
-  %217 = shl nsw i32 %216, 4
-  %218 = add nsw i32 %217, %210
-  %219 = sitofp i32 %218 to double
-  store double %219, ptr %5, align 8, !tbaa !88
-  %220 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %221 = load double, ptr %220, align 8, !tbaa !90
-  %222 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store double %221, ptr %222, align 8, !tbaa !90
+  %215 = fptosi double %210 to i32
+  %216 = shl nsw i32 %215, 4
+  %217 = add nsw i32 %216, %209
+  %218 = sitofp i32 %217 to double
+  store double %218, ptr %5, align 8, !tbaa !88
+  %219 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %220 = load double, ptr %219, align 8, !tbaa !90
+  %221 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store double %220, ptr %221, align 8, !tbaa !90
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #18
   br label %_ZL12isea_forwardPN12_GLOBAL__N_112pj_isea_dataEPNS_8GeoPointE.exit
 
-223:                                              ; preds = %_ZL9isea_ptddiPN12_GLOBAL__N_17isea_ptE.exit.i, %178, %switch.lookup
+222:                                              ; preds = %_ZL9isea_ptddiPN12_GLOBAL__N_17isea_ptE.exit.i, %178, %switch.lookup
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !93
   br label %_ZL12isea_forwardPN12_GLOBAL__N_112pj_isea_dataEPNS_8GeoPointE.exit
 
-_ZL12isea_forwardPN12_GLOBAL__N_112pj_isea_dataEPNS_8GeoPointE.exit: ; preds = %.noexc, %_ZL8isea_hexPN12_GLOBAL__N_112pj_isea_dataEiPNS_7isea_ptES3_.exit.i, %223
+_ZL12isea_forwardPN12_GLOBAL__N_112pj_isea_dataEPNS_8GeoPointE.exit: ; preds = %.noexc, %_ZL8isea_hexPN12_GLOBAL__N_112pj_isea_dataEiPNS_7isea_ptES3_.exit.i, %222
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #18
   %.fca.0.load.i = load double, ptr %5, align 8
   %.fca.1.gep.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.fca.1.load.i = load double, ptr %.fca.1.gep.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  br label %240
+  br label %239
 
-224:                                              ; preds = %214, %209, %206
-  %225 = landingpad { ptr, i32 }
+223:                                              ; preds = %213, %208, %205
+  %224 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIPKc
-  %226 = extractvalue { ptr, i32 } %225, 1
-  %227 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIPKc) #18
-  %228 = icmp eq i32 %226, %227
-  br i1 %228, label %229, label %241
+  %225 = extractvalue { ptr, i32 } %224, 1
+  %226 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIPKc) #18
+  %227 = icmp eq i32 %225, %226
+  br i1 %227, label %228, label %240
 
-229:                                              ; preds = %224
-  %230 = extractvalue { ptr, i32 } %225, 0
-  %231 = tail call ptr @__cxa_begin_catch(ptr %230) #18
-  %232 = invoke i32 @proj_errno_set(ptr noundef %2, i32 noundef 2050)
-          to label %233 unwind label %235
+228:                                              ; preds = %223
+  %229 = extractvalue { ptr, i32 } %224, 0
+  %230 = tail call ptr @__cxa_begin_catch(ptr %229) #18
+  %231 = invoke i32 @proj_errno_set(ptr noundef %2, i32 noundef 2050)
+          to label %232 unwind label %234
 
-233:                                              ; preds = %229
+232:                                              ; preds = %228
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #18
   invoke void @_Z16proj_coord_errorv(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %7)
-          to label %234 unwind label %237
+          to label %233 unwind label %236
 
-234:                                              ; preds = %233
+233:                                              ; preds = %232
   %.sroa.010.0.copyload = load double, ptr %7, align 8, !tbaa !72
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.sroa.3.0.copyload = load double, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !72
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #18
   call void @__cxa_end_catch() #18
-  br label %240
-
-235:                                              ; preds = %229
-  %236 = landingpad { ptr, i32 }
-          cleanup
   br label %239
 
-237:                                              ; preds = %233
-  %238 = landingpad { ptr, i32 }
+234:                                              ; preds = %228
+  %235 = landingpad { ptr, i32 }
+          cleanup
+  br label %238
+
+236:                                              ; preds = %232
+  %237 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #18
-  br label %239
+  br label %238
 
-239:                                              ; preds = %237, %235
-  %.pn = phi { ptr, i32 } [ %238, %237 ], [ %236, %235 ]
+238:                                              ; preds = %236, %234
+  %.pn = phi { ptr, i32 } [ %237, %236 ], [ %235, %234 ]
   call void @__cxa_end_catch() #18
-  br label %241
+  br label %240
 
-240:                                              ; preds = %_ZL12isea_forwardPN12_GLOBAL__N_112pj_isea_dataEPNS_8GeoPointE.exit, %234
-  %.sroa.010.0.copyload.pn = phi double [ %.sroa.010.0.copyload, %234 ], [ %.fca.0.load.i, %_ZL12isea_forwardPN12_GLOBAL__N_112pj_isea_dataEPNS_8GeoPointE.exit ]
-  %.sroa.3.0.copyload.pn = phi double [ %.sroa.3.0.copyload, %234 ], [ %.fca.1.load.i, %_ZL12isea_forwardPN12_GLOBAL__N_112pj_isea_dataEPNS_8GeoPointE.exit ]
+239:                                              ; preds = %_ZL12isea_forwardPN12_GLOBAL__N_112pj_isea_dataEPNS_8GeoPointE.exit, %233
+  %.sroa.010.0.copyload.pn = phi double [ %.sroa.010.0.copyload, %233 ], [ %.fca.0.load.i, %_ZL12isea_forwardPN12_GLOBAL__N_112pj_isea_dataEPNS_8GeoPointE.exit ]
+  %.sroa.3.0.copyload.pn = phi double [ %.sroa.3.0.copyload, %233 ], [ %.fca.1.load.i, %_ZL12isea_forwardPN12_GLOBAL__N_112pj_isea_dataEPNS_8GeoPointE.exit ]
   %.pn18 = insertvalue { double, double } poison, double %.sroa.010.0.copyload.pn, 0
   %.fca.1.insert.merged = insertvalue { double, double } %.pn18, double %.sroa.3.0.copyload.pn, 1
   ret { double, double } %.fca.1.insert.merged
 
-241:                                              ; preds = %239, %224
-  %.merged = phi { ptr, i32 } [ %.pn, %239 ], [ %225, %224 ]
+240:                                              ; preds = %238, %223
+  %.merged = phi { ptr, i32 } [ %.pn, %238 ], [ %224, %223 ]
   resume { ptr, i32 } %.merged
 }
 
@@ -1362,270 +1361,269 @@ _ZL9isea_ptddiPN12_GLOBAL__N_17isea_ptE.exit:
   %12 = fmul double %.sroa.8.0.copyload, %11
   %13 = tail call double @llvm.fmuladd.f64(double %.sroa.0.0.copyload, double %10, double %12)
   %14 = fneg double %.sroa.0.0.copyload
-  %15 = tail call double @sin(double noundef %9) #18, !tbaa !51
-  %16 = tail call double @cos(double noundef %9) #18, !tbaa !51
-  %17 = fmul double %.sroa.8.0.copyload, %16
-  %18 = tail call double @llvm.fmuladd.f64(double %14, double %15, double %17)
-  %19 = fadd double %13, 5.000000e-01
-  %20 = fadd double %18, 0x3FEBB67AE8584CAA
-  %.sroa.8.0 = select i1 %8, double %20, double %18
-  %.sroa.0.0 = select i1 %8, double %19, double %13
-  %21 = srem i32 %1, 5
-  %22 = sdiv i32 %1, 10
-  %23 = mul nsw i32 %22, 5
-  %24 = add nsw i32 %21, 1
-  %25 = add nsw i32 %24, %23
+  %15 = tail call double @cos(double noundef %9) #18, !tbaa !51
+  %16 = fmul double %.sroa.8.0.copyload, %15
+  %17 = tail call double @llvm.fmuladd.f64(double %14, double %11, double %16)
+  %18 = fadd double %13, 5.000000e-01
+  %19 = fadd double %17, 0x3FEBB67AE8584CAA
+  %.sroa.8.0 = select i1 %8, double %19, double %17
+  %.sroa.0.0 = select i1 %8, double %18, double %13
+  %20 = srem i32 %1, 5
+  %21 = sdiv i32 %1, 10
+  %22 = mul nsw i32 %21, 5
+  %23 = add nsw i32 %20, 1
+  %24 = add nsw i32 %23, %22
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #18
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %27 = load i32, ptr %26, align 8, !tbaa !47
-  %28 = icmp eq i32 %27, 3
-  br i1 %28, label %29, label %82
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %26 = load i32, ptr %25, align 8, !tbaa !47
+  %27 = icmp eq i32 %26, 3
+  br i1 %27, label %28, label %81
 
-29:                                               ; preds = %_ZL9isea_ptddiPN12_GLOBAL__N_17isea_ptE.exit
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %31 = load i32, ptr %30, align 4, !tbaa !48
-  %32 = and i32 %31, 1
-  %.not.i = icmp eq i32 %32, 0
-  br i1 %.not.i, label %.thread.i, label %33
+28:                                               ; preds = %_ZL9isea_ptddiPN12_GLOBAL__N_17isea_ptE.exit
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %30 = load i32, ptr %29, align 4, !tbaa !48
+  %31 = and i32 %30, 1
+  %.not.i = icmp eq i32 %31, 0
+  br i1 %.not.i, label %.thread.i, label %32
 
-33:                                               ; preds = %29
+32:                                               ; preds = %28
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #18
-  %ldexp.i.i = tail call double @ldexp(double 1.000000e+00, i32 %31)
-  %34 = fadd double %ldexp.i.i, 1.000000e+00
-  %35 = fmul double %34, 5.000000e-01
-  %36 = fdiv double 0x3FEBB67AE8584CAB, %35
-  %37 = fmul double %35, 2.000000e+00
-  %38 = tail call i64 @lround(double noundef %37) #18, !tbaa !51
-  %39 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %40 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call fastcc void @_ZL7hexbin2dddPlS_(double noundef %36, double noundef %.sroa.0.0, double noundef %.sroa.8.0, ptr noundef %39, ptr noundef %40)
-  %41 = load i64, ptr %39, align 8, !tbaa !101
-  %42 = icmp sgt i64 %41, -1
-  %43 = load i64, ptr %40, align 8, !tbaa !103
-  br i1 %42, label %44, label %49
+  %ldexp.i.i = tail call double @ldexp(double 1.000000e+00, i32 %30)
+  %33 = fadd double %ldexp.i.i, 1.000000e+00
+  %34 = fmul double %33, 5.000000e-01
+  %35 = fdiv double 0x3FEBB67AE8584CAB, %34
+  %36 = fmul double %34, 2.000000e+00
+  %37 = tail call i64 @lround(double noundef %36) #18, !tbaa !51
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  call fastcc void @_ZL7hexbin2dddPlS_(double noundef %35, double noundef %.sroa.0.0, double noundef %.sroa.8.0, ptr noundef %38, ptr noundef %39)
+  %40 = load i64, ptr %38, align 8, !tbaa !101
+  %41 = icmp sgt i64 %40, -1
+  %42 = load i64, ptr %39, align 8, !tbaa !103
+  br i1 %41, label %43, label %48
 
-44:                                               ; preds = %33
-  %45 = add nuw nsw i64 %41, 1
-  %46 = lshr i64 %45, 1
-  %47 = add i64 %43, %46
-  %48 = sub i64 0, %47
+43:                                               ; preds = %32
+  %44 = add nuw nsw i64 %40, 1
+  %45 = lshr i64 %44, 1
+  %46 = add i64 %42, %45
+  %47 = sub i64 0, %46
   br label %_ZL7hex_isoPN12_GLOBAL__N_13hexE.exit.i.i
 
-49:                                               ; preds = %33
-  %.nonneg.i.i.i = sub i64 0, %41
+48:                                               ; preds = %32
+  %.nonneg.i.i.i = sub i64 0, %40
   %.neg1314.i.i.i = lshr i64 %.nonneg.i.i.i, 1
-  %50 = sub i64 %.neg1314.i.i.i, %43
+  %49 = sub i64 %.neg1314.i.i.i, %42
   br label %_ZL7hex_isoPN12_GLOBAL__N_13hexE.exit.i.i
 
-_ZL7hex_isoPN12_GLOBAL__N_13hexE.exit.i.i:        ; preds = %49, %44
-  %.sink.i.i.i = phi i64 [ %50, %49 ], [ %48, %44 ]
-  %reass.add48.i.i = shl i64 %41, 1
-  %51 = add i64 %.sink.i.i.i, %reass.add48.i.i
+_ZL7hex_isoPN12_GLOBAL__N_13hexE.exit.i.i:        ; preds = %48, %43
+  %.sink.i.i.i = phi i64 [ %49, %48 ], [ %47, %43 ]
+  %reass.add48.i.i = shl i64 %40, 1
+  %50 = add i64 %.sink.i.i.i, %reass.add48.i.i
   %reass.add.i.i = shl i64 %.sink.i.i.i, 1
-  %52 = add i64 %reass.add.i.i, %41
-  %53 = icmp slt i32 %25, 6
-  br i1 %53, label %54, label %65
+  %51 = add i64 %reass.add.i.i, %40
+  %52 = icmp slt i32 %24, 6
+  br i1 %52, label %53, label %64
 
-54:                                               ; preds = %_ZL7hex_isoPN12_GLOBAL__N_13hexE.exit.i.i
-  %55 = icmp eq i64 %51, 0
-  %56 = icmp eq i64 %52, %38
-  %or.cond.i.i = select i1 %55, i1 %56, i1 false
-  br i1 %or.cond.i.i, label %_ZL16isea_dddi_ap3oddPN12_GLOBAL__N_112pj_isea_dataEiPNS_7isea_ptES3_.exit.i, label %57
+53:                                               ; preds = %_ZL7hex_isoPN12_GLOBAL__N_13hexE.exit.i.i
+  %54 = icmp eq i64 %50, 0
+  %55 = icmp eq i64 %51, %37
+  %or.cond.i.i = select i1 %54, i1 %55, i1 false
+  br i1 %or.cond.i.i, label %_ZL16isea_dddi_ap3oddPN12_GLOBAL__N_112pj_isea_dataEiPNS_7isea_ptES3_.exit.i, label %56
 
-57:                                               ; preds = %54
-  br i1 %56, label %58, label %62
+56:                                               ; preds = %53
+  br i1 %55, label %57, label %61
 
-58:                                               ; preds = %57
-  %59 = add nsw i32 %25, 1
-  %60 = icmp eq i32 %59, 6
-  %spec.store.select.i.i = select i1 %60, i32 1, i32 %59
-  %61 = sub nsw i64 %38, %51
+57:                                               ; preds = %56
+  %58 = add nsw i32 %24, 1
+  %59 = icmp eq i32 %58, 6
+  %spec.store.select.i.i = select i1 %59, i32 1, i32 %58
+  %60 = sub nsw i64 %37, %50
   br label %_ZL16isea_dddi_ap3oddPN12_GLOBAL__N_112pj_isea_dataEiPNS_7isea_ptES3_.exit.i
 
-62:                                               ; preds = %57
-  %63 = icmp eq i64 %51, %38
-  %64 = add nsw i32 %25, 5
-  %spec.select.i.i = select i1 %63, i64 0, i64 %51
-  %spec.select46.i.i = select i1 %63, i32 %64, i32 %25
+61:                                               ; preds = %56
+  %62 = icmp eq i64 %50, %37
+  %63 = add nsw i32 %24, 5
+  %spec.select.i.i = select i1 %62, i64 0, i64 %50
+  %spec.select46.i.i = select i1 %62, i32 %63, i32 %24
   br label %_ZL16isea_dddi_ap3oddPN12_GLOBAL__N_112pj_isea_dataEiPNS_7isea_ptES3_.exit.i
 
-65:                                               ; preds = %_ZL7hex_isoPN12_GLOBAL__N_13hexE.exit.i.i
-  %66 = icmp eq i64 %52, 0
-  %67 = icmp eq i64 %51, %38
-  %or.cond47.i.i = select i1 %66, i1 %67, i1 false
-  br i1 %or.cond47.i.i, label %_ZL16isea_dddi_ap3oddPN12_GLOBAL__N_112pj_isea_dataEiPNS_7isea_ptES3_.exit.i, label %68
+64:                                               ; preds = %_ZL7hex_isoPN12_GLOBAL__N_13hexE.exit.i.i
+  %65 = icmp eq i64 %51, 0
+  %66 = icmp eq i64 %50, %37
+  %or.cond47.i.i = select i1 %65, i1 %66, i1 false
+  br i1 %or.cond47.i.i, label %_ZL16isea_dddi_ap3oddPN12_GLOBAL__N_112pj_isea_dataEiPNS_7isea_ptES3_.exit.i, label %67
 
-68:                                               ; preds = %65
-  br i1 %67, label %69, label %73
+67:                                               ; preds = %64
+  br i1 %66, label %68, label %72
 
-69:                                               ; preds = %68
-  %70 = add nuw nsw i32 %25, 1
-  %71 = icmp eq i32 %70, 11
-  %spec.store.select1.i.i = select i1 %71, i32 6, i32 %70
-  %72 = sub nsw i64 %38, %52
+68:                                               ; preds = %67
+  %69 = add nuw nsw i32 %24, 1
+  %70 = icmp eq i32 %69, 11
+  %spec.store.select1.i.i = select i1 %70, i32 6, i32 %69
+  %71 = sub nsw i64 %37, %51
   br label %_ZL16isea_dddi_ap3oddPN12_GLOBAL__N_112pj_isea_dataEiPNS_7isea_ptES3_.exit.i
 
-73:                                               ; preds = %68
-  %74 = icmp eq i64 %52, %38
-  br i1 %74, label %75, label %_ZL16isea_dddi_ap3oddPN12_GLOBAL__N_112pj_isea_dataEiPNS_7isea_ptES3_.exit.i
+72:                                               ; preds = %67
+  %73 = icmp eq i64 %51, %37
+  br i1 %73, label %74, label %_ZL16isea_dddi_ap3oddPN12_GLOBAL__N_112pj_isea_dataEiPNS_7isea_ptES3_.exit.i
 
-75:                                               ; preds = %73
-  %76 = add nsw i32 %25, -4
-  %77 = urem i32 %76, 5
+74:                                               ; preds = %72
+  %75 = add nsw i32 %24, -4
+  %76 = urem i32 %75, 5
   br label %_ZL16isea_dddi_ap3oddPN12_GLOBAL__N_112pj_isea_dataEiPNS_7isea_ptES3_.exit.i
 
-_ZL16isea_dddi_ap3oddPN12_GLOBAL__N_112pj_isea_dataEiPNS_7isea_ptES3_.exit.i: ; preds = %75, %73, %69, %65, %62, %58, %54
-  %.038.i.i = phi i64 [ 0, %58 ], [ %72, %69 ], [ %51, %75 ], [ %51, %73 ], [ 0, %54 ], [ %spec.select.i.i, %62 ], [ 0, %65 ]
-  %.037.i.i = phi i64 [ %61, %58 ], [ 0, %69 ], [ 0, %75 ], [ %52, %73 ], [ 0, %54 ], [ %52, %62 ], [ 0, %65 ]
-  %.0.i.i = phi i32 [ %spec.store.select.i.i, %58 ], [ %spec.store.select1.i.i, %69 ], [ %77, %75 ], [ %25, %73 ], [ 0, %54 ], [ %spec.select46.i.i, %62 ], [ 11, %65 ]
-  %78 = sitofp i64 %.038.i.i to double
-  store double %78, ptr %3, align 8, !tbaa !88
-  %79 = sitofp i64 %.037.i.i to double
-  %80 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store double %79, ptr %80, align 8, !tbaa !90
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %.0.i.i, ptr %81, align 8, !tbaa !91
+_ZL16isea_dddi_ap3oddPN12_GLOBAL__N_112pj_isea_dataEiPNS_7isea_ptES3_.exit.i: ; preds = %74, %72, %68, %64, %61, %57, %53
+  %.038.i.i = phi i64 [ 0, %57 ], [ %71, %68 ], [ %50, %74 ], [ %50, %72 ], [ 0, %53 ], [ %spec.select.i.i, %61 ], [ 0, %64 ]
+  %.037.i.i = phi i64 [ %60, %57 ], [ 0, %68 ], [ 0, %74 ], [ %51, %72 ], [ 0, %53 ], [ %51, %61 ], [ 0, %64 ]
+  %.0.i.i = phi i32 [ %spec.store.select.i.i, %57 ], [ %spec.store.select1.i.i, %68 ], [ %76, %74 ], [ %24, %72 ], [ 0, %53 ], [ %spec.select46.i.i, %61 ], [ 11, %64 ]
+  %77 = sitofp i64 %.038.i.i to double
+  store double %77, ptr %3, align 8, !tbaa !88
+  %78 = sitofp i64 %.037.i.i to double
+  %79 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store double %78, ptr %79, align 8, !tbaa !90
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i32 %.0.i.i, ptr %80, align 8, !tbaa !91
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #18
   br label %_ZL9isea_dddiPN12_GLOBAL__N_112pj_isea_dataEiPNS_7isea_ptES3_.exit
 
-82:                                               ; preds = %_ZL9isea_ptddiPN12_GLOBAL__N_17isea_ptE.exit
-  %83 = icmp sgt i32 %27, 0
+81:                                               ; preds = %_ZL9isea_ptddiPN12_GLOBAL__N_17isea_ptE.exit
+  %82 = icmp sgt i32 %26, 0
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 28
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4, !tbaa !48
-  br i1 %83, label %.thread.i, label %95
+  br i1 %82, label %.thread.i, label %94
 
-.thread.i:                                        ; preds = %82, %29
-  %84 = phi i32 [ %31, %29 ], [ %.pre.i, %82 ]
-  %85 = sitofp i32 %84 to double
-  %86 = fmul double %85, 5.000000e-01
-  %87 = uitofp nneg i32 %27 to double
-  %88 = tail call noundef double @pow(double noundef %87, double noundef %86) #18, !tbaa !51
-  %89 = tail call double @llvm.fabs.f64(double %88)
-  %90 = fcmp ogt double %89, 0x41DFFFFFFFC00000
-  br i1 %90, label %91, label %93
+.thread.i:                                        ; preds = %81, %28
+  %83 = phi i32 [ %30, %28 ], [ %.pre.i, %81 ]
+  %84 = sitofp i32 %83 to double
+  %85 = fmul double %84, 5.000000e-01
+  %86 = uitofp nneg i32 %26 to double
+  %87 = tail call noundef double @pow(double noundef %86, double noundef %85) #18, !tbaa !51
+  %88 = tail call double @llvm.fabs.f64(double %87)
+  %89 = fcmp ogt double %88, 0x41DFFFFFFFC00000
+  br i1 %89, label %90, label %92
 
-91:                                               ; preds = %.thread.i
-  %92 = tail call ptr @__cxa_allocate_exception(i64 8) #18
-  store ptr @.str.22, ptr %92, align 16, !tbaa !92
-  tail call void @__cxa_throw(ptr nonnull %92, ptr nonnull @_ZTIPKc, ptr null) #22
+90:                                               ; preds = %.thread.i
+  %91 = tail call ptr @__cxa_allocate_exception(i64 8) #18
+  store ptr @.str.22, ptr %91, align 16, !tbaa !92
+  tail call void @__cxa_throw(ptr nonnull %91, ptr nonnull @_ZTIPKc, ptr null) #22
   unreachable
 
-93:                                               ; preds = %.thread.i
-  %94 = tail call i64 @lround(double noundef %88) #18, !tbaa !51
-  br label %97
+92:                                               ; preds = %.thread.i
+  %93 = tail call i64 @lround(double noundef %87) #18, !tbaa !51
+  br label %96
 
-95:                                               ; preds = %82
-  %96 = sext i32 %.pre.i to i64
-  br label %97
+94:                                               ; preds = %81
+  %95 = sext i32 %.pre.i to i64
+  br label %96
 
-97:                                               ; preds = %95, %93
-  %.038.i = phi i64 [ %94, %93 ], [ %96, %95 ]
-  %98 = icmp eq i64 %.038.i, 0
-  br i1 %98, label %99, label %101
+96:                                               ; preds = %94, %92
+  %.038.i = phi i64 [ %93, %92 ], [ %95, %94 ]
+  %97 = icmp eq i64 %.038.i, 0
+  br i1 %97, label %98, label %100
 
-99:                                               ; preds = %97
-  %100 = tail call ptr @__cxa_allocate_exception(i64 8) #18
-  store ptr @.str.23, ptr %100, align 16, !tbaa !92
-  tail call void @__cxa_throw(ptr nonnull %100, ptr nonnull @_ZTIPKc, ptr null) #22
+98:                                               ; preds = %96
+  %99 = tail call ptr @__cxa_allocate_exception(i64 8) #18
+  store ptr @.str.23, ptr %99, align 16, !tbaa !92
+  tail call void @__cxa_throw(ptr nonnull %99, ptr nonnull @_ZTIPKc, ptr null) #22
   unreachable
 
-101:                                              ; preds = %97
-  %102 = sitofp i64 %.038.i to double
-  %103 = fdiv double 1.000000e+00, %102
-  %104 = fmul double %.sroa.8.0, 0x3FDFFFFFFFFFFFFF
-  %105 = tail call double @llvm.fmuladd.f64(double %.sroa.0.0, double 0x3FEBB67AE8584CAB, double %104)
-  %106 = fneg double %.sroa.0.0
-  %107 = fmul double %.sroa.8.0, 0x3FEBB67AE8584CAB
-  %108 = tail call double @llvm.fmuladd.f64(double %106, double 0x3FDFFFFFFFFFFFFF, double %107)
-  %109 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %110 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call fastcc void @_ZL7hexbin2dddPlS_(double noundef %103, double noundef %105, double noundef %108, ptr noundef %109, ptr noundef %110)
-  %111 = load i64, ptr %109, align 8, !tbaa !101
-  %112 = icmp sgt i64 %111, -1
-  %113 = load i64, ptr %110, align 8, !tbaa !103
-  br i1 %112, label %114, label %119
+100:                                              ; preds = %96
+  %101 = sitofp i64 %.038.i to double
+  %102 = fdiv double 1.000000e+00, %101
+  %103 = fmul double %.sroa.8.0, 0x3FDFFFFFFFFFFFFF
+  %104 = tail call double @llvm.fmuladd.f64(double %.sroa.0.0, double 0x3FEBB67AE8584CAB, double %103)
+  %105 = fneg double %.sroa.0.0
+  %106 = fmul double %.sroa.8.0, 0x3FEBB67AE8584CAB
+  %107 = tail call double @llvm.fmuladd.f64(double %105, double 0x3FDFFFFFFFFFFFFF, double %106)
+  %108 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  call fastcc void @_ZL7hexbin2dddPlS_(double noundef %102, double noundef %104, double noundef %107, ptr noundef %108, ptr noundef %109)
+  %110 = load i64, ptr %108, align 8, !tbaa !101
+  %111 = icmp sgt i64 %110, -1
+  %112 = load i64, ptr %109, align 8, !tbaa !103
+  br i1 %111, label %113, label %118
 
-114:                                              ; preds = %101
-  %115 = add nuw nsw i64 %111, 1
-  %116 = lshr i64 %115, 1
-  %117 = add i64 %113, %116
-  %118 = sub i64 0, %117
+113:                                              ; preds = %100
+  %114 = add nuw nsw i64 %110, 1
+  %115 = lshr i64 %114, 1
+  %116 = add i64 %112, %115
+  %117 = sub i64 0, %116
   br label %_ZL7hex_isoPN12_GLOBAL__N_13hexE.exit.i
 
-119:                                              ; preds = %101
-  %.nonneg.i.i = sub i64 0, %111
+118:                                              ; preds = %100
+  %.nonneg.i.i = sub i64 0, %110
   %.neg1314.i.i = lshr i64 %.nonneg.i.i, 1
-  %120 = sub i64 %.neg1314.i.i, %113
+  %119 = sub i64 %.neg1314.i.i, %112
   br label %_ZL7hex_isoPN12_GLOBAL__N_13hexE.exit.i
 
-_ZL7hex_isoPN12_GLOBAL__N_13hexE.exit.i:          ; preds = %119, %114
-  %121 = phi i64 [ %120, %119 ], [ %118, %114 ]
-  %122 = add i64 %121, %111
-  %123 = icmp slt i32 %25, 6
-  br i1 %123, label %124, label %133
+_ZL7hex_isoPN12_GLOBAL__N_13hexE.exit.i:          ; preds = %118, %113
+  %120 = phi i64 [ %119, %118 ], [ %117, %113 ]
+  %121 = add i64 %120, %110
+  %122 = icmp slt i32 %24, 6
+  br i1 %122, label %123, label %132
 
-124:                                              ; preds = %_ZL7hex_isoPN12_GLOBAL__N_13hexE.exit.i
-  %125 = icmp eq i64 %111, 0
-  %126 = icmp eq i64 %.038.i, %122
-  %or.cond47.i = select i1 %125, i1 %126, i1 false
-  br i1 %or.cond47.i, label %145, label %._crit_edge.i
+123:                                              ; preds = %_ZL7hex_isoPN12_GLOBAL__N_13hexE.exit.i
+  %124 = icmp eq i64 %110, 0
+  %125 = icmp eq i64 %.038.i, %121
+  %or.cond47.i = select i1 %124, i1 %125, i1 false
+  br i1 %or.cond47.i, label %144, label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %124
-  br i1 %126, label %127, label %130
+._crit_edge.i:                                    ; preds = %123
+  br i1 %125, label %126, label %129
 
-127:                                              ; preds = %._crit_edge.i
-  %128 = add nsw i32 %25, 1
-  %129 = icmp eq i32 %128, 6
-  %spec.store.select.i = select i1 %129, i32 1, i32 %128
-  %.neg.i = sub nsw i64 %.038.i, %111
-  br label %145
+126:                                              ; preds = %._crit_edge.i
+  %127 = add nsw i32 %24, 1
+  %128 = icmp eq i32 %127, 6
+  %spec.store.select.i = select i1 %128, i32 1, i32 %127
+  %.neg.i = sub nsw i64 %.038.i, %110
+  br label %144
 
-130:                                              ; preds = %._crit_edge.i
-  %131 = icmp eq i64 %111, %.038.i
-  %132 = add nsw i32 %25, 5
-  %spec.select.i = select i1 %131, i64 0, i64 %111
-  %spec.select48.i = select i1 %131, i32 %132, i32 %25
-  br label %145
+129:                                              ; preds = %._crit_edge.i
+  %130 = icmp eq i64 %110, %.038.i
+  %131 = add nsw i32 %24, 5
+  %spec.select.i = select i1 %130, i64 0, i64 %110
+  %spec.select48.i = select i1 %130, i32 %131, i32 %24
+  br label %144
 
-133:                                              ; preds = %_ZL7hex_isoPN12_GLOBAL__N_13hexE.exit.i
-  %134 = icmp eq i64 %122, 0
-  %135 = icmp eq i64 %111, %.038.i
-  %or.cond.i = and i1 %135, %134
-  br i1 %or.cond.i, label %145, label %136
+132:                                              ; preds = %_ZL7hex_isoPN12_GLOBAL__N_13hexE.exit.i
+  %133 = icmp eq i64 %121, 0
+  %134 = icmp eq i64 %110, %.038.i
+  %or.cond.i = and i1 %134, %133
+  br i1 %or.cond.i, label %144, label %135
 
-136:                                              ; preds = %133
-  br i1 %135, label %137, label %141
+135:                                              ; preds = %132
+  br i1 %134, label %136, label %140
 
-137:                                              ; preds = %136
-  %138 = add nuw nsw i32 %25, 1
-  %139 = icmp eq i32 %138, 11
-  %spec.store.select1.i = select i1 %139, i32 6, i32 %138
-  %140 = add nsw i64 %121, %.038.i
-  br label %145
+136:                                              ; preds = %135
+  %137 = add nuw nsw i32 %24, 1
+  %138 = icmp eq i32 %137, 11
+  %spec.store.select1.i = select i1 %138, i32 6, i32 %137
+  %139 = add nsw i64 %120, %.038.i
+  br label %144
 
-141:                                              ; preds = %136
-  %142 = sub nsw i64 0, %.038.i
-  %143 = icmp eq i64 %121, %142
-  %144 = add nsw i32 %25, -4
-  %spec.select = select i1 %143, i64 %111, i64 %122
-  %spec.select5 = select i1 %143, i32 %144, i32 %25
-  br label %145
+140:                                              ; preds = %135
+  %141 = sub nsw i64 0, %.038.i
+  %142 = icmp eq i64 %120, %141
+  %143 = add nsw i32 %24, -4
+  %spec.select = select i1 %142, i64 %110, i64 %121
+  %spec.select5 = select i1 %142, i32 %143, i32 %24
+  br label %144
 
-145:                                              ; preds = %141, %137, %133, %130, %127, %124
-  %.neg49.i = phi i64 [ %.neg.i, %127 ], [ %140, %137 ], [ 0, %124 ], [ %122, %130 ], [ 0, %133 ], [ %spec.select, %141 ]
-  %146 = phi i64 [ 0, %127 ], [ %140, %137 ], [ 0, %124 ], [ %spec.select.i, %130 ], [ 0, %133 ], [ %111, %141 ]
-  %.039.i = phi i32 [ %spec.store.select.i, %127 ], [ %spec.store.select1.i, %137 ], [ 0, %124 ], [ %spec.select48.i, %130 ], [ 11, %133 ], [ %spec.select5, %141 ]
-  %147 = sitofp i64 %146 to double
-  store double %147, ptr %3, align 8, !tbaa !88
-  %148 = sitofp i64 %.neg49.i to double
-  %149 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store double %148, ptr %149, align 8, !tbaa !90
-  %150 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %.039.i, ptr %150, align 8, !tbaa !91
+144:                                              ; preds = %140, %136, %132, %129, %126, %123
+  %.neg49.i = phi i64 [ %.neg.i, %126 ], [ %139, %136 ], [ 0, %123 ], [ %121, %129 ], [ 0, %132 ], [ %spec.select, %140 ]
+  %145 = phi i64 [ 0, %126 ], [ %139, %136 ], [ 0, %123 ], [ %spec.select.i, %129 ], [ 0, %132 ], [ %110, %140 ]
+  %.039.i = phi i32 [ %spec.store.select.i, %126 ], [ %spec.store.select1.i, %136 ], [ 0, %123 ], [ %spec.select48.i, %129 ], [ 11, %132 ], [ %spec.select5, %140 ]
+  %146 = sitofp i64 %145 to double
+  store double %146, ptr %3, align 8, !tbaa !88
+  %147 = sitofp i64 %.neg49.i to double
+  %148 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store double %147, ptr %148, align 8, !tbaa !90
+  %149 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i32 %.039.i, ptr %149, align 8, !tbaa !91
   br label %_ZL9isea_dddiPN12_GLOBAL__N_112pj_isea_dataEiPNS_7isea_ptES3_.exit
 
-_ZL9isea_dddiPN12_GLOBAL__N_112pj_isea_dataEiPNS_7isea_ptES3_.exit: ; preds = %_ZL16isea_dddi_ap3oddPN12_GLOBAL__N_112pj_isea_dataEiPNS_7isea_ptES3_.exit.i, %145
-  %.0.i = phi i32 [ %.0.i.i, %_ZL16isea_dddi_ap3oddPN12_GLOBAL__N_112pj_isea_dataEiPNS_7isea_ptES3_.exit.i ], [ %.039.i, %145 ]
+_ZL9isea_dddiPN12_GLOBAL__N_112pj_isea_dataEiPNS_7isea_ptES3_.exit: ; preds = %_ZL16isea_dddi_ap3oddPN12_GLOBAL__N_112pj_isea_dataEiPNS_7isea_ptES3_.exit.i, %144
+  %.0.i = phi i32 [ %.0.i.i, %_ZL16isea_dddi_ap3oddPN12_GLOBAL__N_112pj_isea_dataEiPNS_7isea_ptES3_.exit.i ], [ %.039.i, %144 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #18
   ret i32 %.0.i
 }

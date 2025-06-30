@@ -5831,8 +5831,7 @@ entry:
   %sub = fsub double 1.000000e+00, %call
   %mul6 = fmul double %mul3, %sub
   %div = fdiv double %mul, %mul6
-  %call10 = tail call double @exp(double noundef %mul5) #27, !tbaa !122
-  %mul11 = fmul double %call10, %div
+  %mul11 = fmul double %call, %div
   %v0_ = getelementptr inbounds nuw i8, ptr %this, i64 376
   %2 = load double, ptr %v0_, align 8, !tbaa !89
   %mul12 = fmul double %2, %mul11
@@ -5853,7 +5852,7 @@ entry:
   %mul28 = fmul double %varReset, %mul27
   %call29 = tail call double @sqrt(double noundef %mul28) #27, !tbaa !122
   %call30 = tail call noundef double @_ZN8QuantLib24modifiedBesselFunction_iEdd(double noundef %sub21, double noundef %call29)
-  %mul31 = fmul double %div17, %call23
+  %mul31 = fmul double %call23, %div17
   %mul32 = fmul double %mul31, %call30
   ret double %mul32
 }
@@ -12170,8 +12169,7 @@ invoke.cont3:                                     ; preds = %call6.i.noexc, %inv
   %sub.i = fsub double 1.000000e+00, %call.i
   %mul6.i = fmul double %mul3.i, %sub.i
   %div.i = fdiv double %mul.i, %mul6.i
-  %call10.i = call double @exp(double noundef %mul5.i) #27, !tbaa !122
-  %mul11.i = fmul double %call10.i, %div.i
+  %mul11.i = fmul double %call.i, %div.i
   %v0_.i = getelementptr inbounds nuw i8, ptr %15, i64 376
   %19 = load double, ptr %v0_.i, align 8, !tbaa !89
   %mul12.i = fmul double %19, %mul11.i
@@ -12235,7 +12233,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i, %i
 _ZN5boost10shared_ptrIN8QuantLib20AnalyticHestonEngineEED2Ev.exit: ; preds = %invoke.cont6, %if.then.i.i, %.noexc.i.i, %if.then.i.i.i.i
   %mul16.i = fmul double %call15.i, %div.i
   %div17.i = fmul double %mul16.i, 5.000000e-01
-  %mul31.i = fmul double %div17.i, %call23.i
+  %mul31.i = fmul double %call23.i, %div17.i
   %mul32.i = fmul double %mul31.i, %call30.i5
   %div = fdiv double %sum.0.lcssa.i, 0x400921FB54442D18
   %add8 = fadd double %div, 5.000000e-01

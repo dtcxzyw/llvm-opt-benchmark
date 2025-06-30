@@ -1961,9 +1961,8 @@ invoke.cont6:                                     ; preds = %_ZNK5boost10shared_
   %mul16 = fmul double %add15, %mul11
   %up_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   store double %mul16, ptr %up_, align 8, !tbaa !61
-  %call23 = tail call double @sqrt(double noundef %sub) #18, !tbaa !43
-  %sub24 = fsub double %add, %call23
-  %mul25 = fmul double %mul11, %sub24
+  %sub24 = fsub double %add, %call14
+  %mul25 = fmul double %sub24, %mul11
   %down_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   store double %mul25, ptr %down_, align 8, !tbaa !63
   %sub27 = fsub double %mul, %mul25
@@ -2445,9 +2444,8 @@ _ZNK8QuantLib20ExtendedBinomialTreeINS_12ExtendedTianEE9driftStepEd.exit: ; pred
   %call13 = tail call double @sqrt(double noundef %sub) #18, !tbaa !43
   %add14 = fadd double %add, %call13
   %mul15 = fmul double %add14, %mul10
-  %call22 = tail call double @sqrt(double noundef %sub) #18, !tbaa !43
-  %sub23 = fsub double %add, %call22
-  %mul24 = fmul double %mul10, %sub23
+  %sub23 = fsub double %add, %call13
+  %mul24 = fmul double %sub23, %mul10
   %12 = load double, ptr %x0_, align 8, !tbaa !58
   %sub26 = sub nsw i64 %i, %index
   %conv27 = sitofp i64 %sub26 to double
@@ -2520,9 +2518,8 @@ _ZNK8QuantLib20ExtendedBinomialTreeINS_12ExtendedTianEE9driftStepEd.exit: ; pred
   %call13 = tail call double @sqrt(double noundef %sub) #18, !tbaa !43
   %add14 = fadd double %add, %call13
   %mul15 = fmul double %add14, %mul10
-  %call22 = tail call double @sqrt(double noundef %sub) #18, !tbaa !43
-  %sub23 = fsub double %add, %call22
-  %mul24 = fmul double %mul10, %sub23
+  %sub23 = fsub double %add, %call13
+  %mul24 = fmul double %sub23, %mul10
   %sub25 = fsub double %mul8, %mul24
   %sub26 = fsub double %mul15, %mul24
   %div = fdiv double %sub25, %sub26

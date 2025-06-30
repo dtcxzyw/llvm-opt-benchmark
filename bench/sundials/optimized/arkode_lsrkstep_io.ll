@@ -774,8 +774,8 @@ define i32 @LSRKStepSetNumSSPStages(ptr noundef %0, i32 noundef %1) local_unname
 
 32:                                               ; preds = %30
   %33 = uitofp nneg i32 %1 to double
-  %sqrt17 = call double @llvm.sqrt.f64(double %33)
-  %34 = fptosi double %sqrt17 to i32
+  %sqrt = call double @llvm.sqrt.f64(double %33)
+  %34 = fptosi double %sqrt to i32
   %35 = mul nsw i32 %34, %34
   %.not16 = icmp eq i32 %35, %1
   br i1 %.not16, label %38, label %36

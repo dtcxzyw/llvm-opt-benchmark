@@ -21773,7 +21773,6 @@ _ZNSt6vectorIdSaIdEE9push_backEOd.exit38:         ; preds = %if.then.i.i12, %_ZN
   %div8.i = fdiv double %31, %mul7.i
   %32 = load double, ptr %spot_, align 8, !tbaa !318
   %33 = load double, ptr %dDiscount_, align 8, !tbaa !327
-  %call11.i = tail call double @sqrt(double noundef %30) #28, !tbaa !134
   %34 = fneg double %div8.i
   %fneg.i.i = fmul double %div8.i, %34
   %div.i.i = fmul double %fneg.i.i, 5.000000e-01
@@ -21788,7 +21787,7 @@ cond.false.i.i:                                   ; preds = %_ZNSt6vectorIdSaIdE
 _ZNK8QuantLib6detail27VannaVolgaInterpolationImplIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES8_E4vegaEd.exit: ; preds = %_ZNSt6vectorIdSaIdEE9push_backEOd.exit38, %cond.false.i.i
   %cond.i.i = phi double [ %mul2.i.i, %cond.false.i.i ], [ 0.000000e+00, %_ZNSt6vectorIdSaIdEE9push_backEOd.exit38 ]
   %mul9.i = fmul double %32, %33
-  %mul12.i = fmul double %mul9.i, %call11.i
+  %mul12.i = fmul double %call6.i, %mul9.i
   %mul14.i = fmul double %mul12.i, %cond.i.i
   %35 = load ptr, ptr %_M_finish.i.i40, align 8, !tbaa !335
   %36 = load ptr, ptr %_M_end_of_storage.i.i41, align 8, !tbaa !331
@@ -22055,7 +22054,6 @@ entry:
   %4 = load double, ptr %spot_.i, align 8, !tbaa !318
   %dDiscount_.i = getelementptr inbounds nuw i8, ptr %this, i64 128
   %5 = load double, ptr %dDiscount_.i, align 8, !tbaa !327
-  %call11.i = tail call double @sqrt(double noundef %2) #28, !tbaa !134
   %6 = fneg double %div8.i
   %fneg.i.i = fmul double %div8.i, %6
   %div.i.i = fmul double %fneg.i.i, 5.000000e-01
@@ -22092,20 +22090,19 @@ _ZNK8QuantLib6detail27VannaVolgaInterpolationImplIN9__gnu_cxx17__normal_iterator
   %call6.i23 = tail call double @sqrt(double noundef %2) #28, !tbaa !134
   %mul7.i24 = fmul double %1, %call6.i23
   %div8.i25 = fdiv double %13, %mul7.i24
-  %call11.i28 = tail call double @sqrt(double noundef %2) #28, !tbaa !134
   %14 = fneg double %div8.i25
-  %fneg.i.i29 = fmul double %div8.i25, %14
-  %div.i.i30 = fmul double %fneg.i.i29, 5.000000e-01
-  %cmp.i.i31 = fcmp ugt double %div.i.i30, -6.900000e+02
-  br i1 %cmp.i.i31, label %cond.false.i.i36, label %_ZNK8QuantLib6detail27VannaVolgaInterpolationImplIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES8_E4vegaEd.exit39
+  %fneg.i.i28 = fmul double %div8.i25, %14
+  %div.i.i29 = fmul double %fneg.i.i28, 5.000000e-01
+  %cmp.i.i30 = fcmp ugt double %div.i.i29, -6.900000e+02
+  br i1 %cmp.i.i30, label %cond.false.i.i35, label %_ZNK8QuantLib6detail27VannaVolgaInterpolationImplIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES8_E4vegaEd.exit38
 
-cond.false.i.i36:                                 ; preds = %_ZNK8QuantLib6detail27VannaVolgaInterpolationImplIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES8_E4vegaEd.exit
-  %call.i.i37 = tail call double @exp(double noundef %div.i.i30) #28, !tbaa !134
-  %mul2.i.i38 = fmul double %call.i.i37, 0x3FD9884533D43651
-  br label %_ZNK8QuantLib6detail27VannaVolgaInterpolationImplIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES8_E4vegaEd.exit39
+cond.false.i.i35:                                 ; preds = %_ZNK8QuantLib6detail27VannaVolgaInterpolationImplIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES8_E4vegaEd.exit
+  %call.i.i36 = tail call double @exp(double noundef %div.i.i29) #28, !tbaa !134
+  %mul2.i.i37 = fmul double %call.i.i36, 0x3FD9884533D43651
+  br label %_ZNK8QuantLib6detail27VannaVolgaInterpolationImplIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES8_E4vegaEd.exit38
 
-_ZNK8QuantLib6detail27VannaVolgaInterpolationImplIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES8_E4vegaEd.exit39: ; preds = %_ZNK8QuantLib6detail27VannaVolgaInterpolationImplIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES8_E4vegaEd.exit, %cond.false.i.i36
-  %cond.i.i32 = phi double [ %mul2.i.i38, %cond.false.i.i36 ], [ 0.000000e+00, %_ZNK8QuantLib6detail27VannaVolgaInterpolationImplIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES8_E4vegaEd.exit ]
+_ZNK8QuantLib6detail27VannaVolgaInterpolationImplIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES8_E4vegaEd.exit38: ; preds = %_ZNK8QuantLib6detail27VannaVolgaInterpolationImplIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES8_E4vegaEd.exit, %cond.false.i.i35
+  %cond.i.i31 = phi double [ %mul2.i.i37, %cond.false.i.i35 ], [ 0.000000e+00, %_ZNK8QuantLib6detail27VannaVolgaInterpolationImplIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES8_E4vegaEd.exit ]
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   %15 = load double, ptr %add.ptr.i, align 8, !tbaa !123
   %div31 = fdiv double %k, %12
@@ -22114,45 +22111,44 @@ _ZNK8QuantLib6detail27VannaVolgaInterpolationImplIN9__gnu_cxx17__normal_iterator
   %call44 = tail call double @log(double noundef %div15) #28, !tbaa !134
   %div49 = fdiv double %11, %10
   %call50 = tail call double @log(double noundef %div49) #28, !tbaa !134
-  %call.i48 = tail call double @log(double noundef %div.i) #28, !tbaa !134
-  %16 = tail call double @llvm.fmuladd.f64(double %mul.i, double %2, double %call.i48)
-  %call6.i53 = tail call double @sqrt(double noundef %2) #28, !tbaa !134
-  %mul7.i54 = fmul double %1, %call6.i53
-  %div8.i55 = fdiv double %16, %mul7.i54
-  %call11.i58 = tail call double @sqrt(double noundef %2) #28, !tbaa !134
-  %17 = fneg double %div8.i55
-  %fneg.i.i59 = fmul double %div8.i55, %17
-  %div.i.i60 = fmul double %fneg.i.i59, 5.000000e-01
-  %cmp.i.i61 = fcmp ugt double %div.i.i60, -6.900000e+02
-  br i1 %cmp.i.i61, label %cond.false.i.i66, label %_ZNK8QuantLib6detail27VannaVolgaInterpolationImplIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES8_E4vegaEd.exit69
+  %call.i47 = tail call double @log(double noundef %div.i) #28, !tbaa !134
+  %16 = tail call double @llvm.fmuladd.f64(double %mul.i, double %2, double %call.i47)
+  %call6.i52 = tail call double @sqrt(double noundef %2) #28, !tbaa !134
+  %mul7.i53 = fmul double %1, %call6.i52
+  %div8.i54 = fdiv double %16, %mul7.i53
+  %17 = fneg double %div8.i54
+  %fneg.i.i57 = fmul double %div8.i54, %17
+  %div.i.i58 = fmul double %fneg.i.i57, 5.000000e-01
+  %cmp.i.i59 = fcmp ugt double %div.i.i58, -6.900000e+02
+  br i1 %cmp.i.i59, label %cond.false.i.i64, label %_ZNK8QuantLib6detail27VannaVolgaInterpolationImplIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES8_E4vegaEd.exit67
 
-cond.false.i.i66:                                 ; preds = %_ZNK8QuantLib6detail27VannaVolgaInterpolationImplIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES8_E4vegaEd.exit39
-  %call.i.i67 = tail call double @exp(double noundef %div.i.i60) #28, !tbaa !134
-  %mul2.i.i68 = fmul double %call.i.i67, 0x3FD9884533D43651
-  br label %_ZNK8QuantLib6detail27VannaVolgaInterpolationImplIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES8_E4vegaEd.exit69
+cond.false.i.i64:                                 ; preds = %_ZNK8QuantLib6detail27VannaVolgaInterpolationImplIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES8_E4vegaEd.exit38
+  %call.i.i65 = tail call double @exp(double noundef %div.i.i58) #28, !tbaa !134
+  %mul2.i.i66 = fmul double %call.i.i65, 0x3FD9884533D43651
+  br label %_ZNK8QuantLib6detail27VannaVolgaInterpolationImplIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES8_E4vegaEd.exit67
 
-_ZNK8QuantLib6detail27VannaVolgaInterpolationImplIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES8_E4vegaEd.exit69: ; preds = %_ZNK8QuantLib6detail27VannaVolgaInterpolationImplIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES8_E4vegaEd.exit39, %cond.false.i.i66
-  %cond.i.i62 = phi double [ %mul2.i.i68, %cond.false.i.i66 ], [ 0.000000e+00, %_ZNK8QuantLib6detail27VannaVolgaInterpolationImplIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES8_E4vegaEd.exit39 ]
+_ZNK8QuantLib6detail27VannaVolgaInterpolationImplIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES8_E4vegaEd.exit67: ; preds = %_ZNK8QuantLib6detail27VannaVolgaInterpolationImplIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES8_E4vegaEd.exit38, %cond.false.i.i64
+  %cond.i.i60 = phi double [ %mul2.i.i66, %cond.false.i.i64 ], [ 0.000000e+00, %_ZNK8QuantLib6detail27VannaVolgaInterpolationImplIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES8_E4vegaEd.exit38 ]
   %mul9.i = fmul double %4, %5
-  %mul12.i34 = fmul double %mul9.i, %call11.i28
-  %mul14.i35 = fmul double %mul12.i34, %cond.i.i32
-  %div28 = fdiv double %mul14.i35, %15
+  %mul12.i33 = fmul double %mul9.i, %call6.i23
+  %mul14.i34 = fmul double %mul12.i33, %cond.i.i31
+  %div28 = fdiv double %mul14.i34, %15
   %mul37 = fmul double %call32, %call36
   %mul38 = fmul double %div28, %mul37
   %mul51 = fmul double %call44, %call50
   %div52 = fdiv double %mul38, %mul51
-  %mul12.i = fmul double %mul9.i, %call11.i
+  %mul12.i = fmul double %call6.i, %mul9.i
   %mul14.i = fmul double %mul12.i, %cond.i.i
   %div = fdiv double %mul14.i, %8
   %mul = fmul double %call5, %call9
   %mul10 = fmul double %div, %mul
   %mul23 = fmul double %call16, %call22
   %div24 = fdiv double %mul10, %mul23
-  %mul12.i64 = fmul double %mul9.i, %call11.i58
-  %mul14.i65 = fmul double %mul12.i64, %cond.i.i62
-  %add.ptr.i70 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %18 = load double, ptr %add.ptr.i70, align 8, !tbaa !123
-  %div56 = fdiv double %mul14.i65, %18
+  %mul12.i62 = fmul double %mul9.i, %call6.i52
+  %mul14.i63 = fmul double %mul12.i62, %cond.i.i60
+  %add.ptr.i68 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %18 = load double, ptr %add.ptr.i68, align 8, !tbaa !123
+  %div56 = fdiv double %mul14.i63, %18
   %call60 = tail call double @log(double noundef %div31) #28, !tbaa !134
   %div63 = fdiv double %k, %10
   %call64 = tail call double @log(double noundef %div63) #28, !tbaa !134
@@ -22173,16 +22169,16 @@ _ZNK8QuantLib6detail27VannaVolgaInterpolationImplIN9__gnu_cxx17__normal_iterator
   %22 = load double, ptr %21, align 8, !tbaa !123
   %sub = fsub double %20, %22
   %23 = tail call double @llvm.fmuladd.f64(double %div24, double %sub, double %call83)
-  %add.ptr.i79 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %24 = load double, ptr %add.ptr.i79, align 8, !tbaa !123
-  %add.ptr.i80 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %25 = load double, ptr %add.ptr.i80, align 8, !tbaa !123
+  %add.ptr.i77 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %24 = load double, ptr %add.ptr.i77, align 8, !tbaa !123
+  %add.ptr.i78 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %25 = load double, ptr %add.ptr.i78, align 8, !tbaa !123
   %sub91 = fsub double %24, %25
   %26 = tail call double @llvm.fmuladd.f64(double %div52, double %sub91, double %23)
-  %add.ptr.i81 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %27 = load double, ptr %add.ptr.i81, align 8, !tbaa !123
-  %add.ptr.i82 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %28 = load double, ptr %add.ptr.i82, align 8, !tbaa !123
+  %add.ptr.i79 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %27 = load double, ptr %add.ptr.i79, align 8, !tbaa !123
+  %add.ptr.i80 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %28 = load double, ptr %add.ptr.i80, align 8, !tbaa !123
   %sub97 = fsub double %27, %28
   %29 = tail call double @llvm.fmuladd.f64(double %div80, double %sub97, double %26)
   %30 = load double, ptr %fwd_.i, align 8, !tbaa !334

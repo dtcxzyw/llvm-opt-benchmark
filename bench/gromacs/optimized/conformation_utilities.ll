@@ -27,31 +27,28 @@ define void @_Z11rotate_confiPA3_fS0_fff(i32 noundef %0, ptr noundef captures(ad
   %16 = fneg float %13
   %17 = fmul float %15, %16
   %18 = tail call float @llvm.fmuladd.f32(float %14, float %11, float %17)
-  %19 = tail call noundef float @sinf(float noundef %3) #6, !tbaa !8
-  %20 = tail call noundef float @cosf(float noundef %3) #6, !tbaa !8
-  %21 = fmul float %13, %20
-  %22 = tail call float @llvm.fmuladd.f32(float %19, float %11, float %21)
-  %23 = tail call noundef float @cosf(float noundef %4) #6, !tbaa !8
-  %24 = tail call noundef float @sinf(float noundef %4) #6, !tbaa !8
-  %25 = fmul float %22, %24
-  %26 = tail call float @llvm.fmuladd.f32(float %23, float %9, float %25)
-  %27 = tail call noundef float @sinf(float noundef %4) #6, !tbaa !8
-  %28 = fneg float %27
-  %29 = tail call noundef float @cosf(float noundef %4) #6, !tbaa !8
-  %30 = fmul float %22, %29
-  %31 = tail call float @llvm.fmuladd.f32(float %28, float %9, float %30)
-  %32 = tail call noundef float @cosf(float noundef %5) #6, !tbaa !8
-  %33 = tail call noundef float @sinf(float noundef %5) #6, !tbaa !8
-  %34 = fneg float %33
-  %35 = fmul float %18, %34
-  %36 = tail call float @llvm.fmuladd.f32(float %26, float %32, float %35)
-  store float %36, ptr %8, align 4, !tbaa !4
-  %37 = tail call noundef float @sinf(float noundef %5) #6, !tbaa !8
-  %38 = tail call noundef float @cosf(float noundef %5) #6, !tbaa !8
-  %39 = fmul float %18, %38
-  %40 = tail call float @llvm.fmuladd.f32(float %26, float %37, float %39)
-  store float %40, ptr %10, align 4, !tbaa !4
-  store float %31, ptr %12, align 4, !tbaa !4
+  %19 = tail call noundef float @cosf(float noundef %3) #6, !tbaa !8
+  %20 = fmul float %13, %19
+  %21 = tail call float @llvm.fmuladd.f32(float %15, float %11, float %20)
+  %22 = tail call noundef float @cosf(float noundef %4) #6, !tbaa !8
+  %23 = tail call noundef float @sinf(float noundef %4) #6, !tbaa !8
+  %24 = fmul float %21, %23
+  %25 = tail call float @llvm.fmuladd.f32(float %22, float %9, float %24)
+  %26 = fneg float %23
+  %27 = tail call noundef float @cosf(float noundef %4) #6, !tbaa !8
+  %28 = fmul float %21, %27
+  %29 = tail call float @llvm.fmuladd.f32(float %26, float %9, float %28)
+  %30 = tail call noundef float @cosf(float noundef %5) #6, !tbaa !8
+  %31 = tail call noundef float @sinf(float noundef %5) #6, !tbaa !8
+  %32 = fneg float %31
+  %33 = fmul float %18, %32
+  %34 = tail call float @llvm.fmuladd.f32(float %25, float %30, float %33)
+  store float %34, ptr %8, align 4, !tbaa !4
+  %35 = tail call noundef float @cosf(float noundef %5) #6, !tbaa !8
+  %36 = fmul float %18, %35
+  %37 = tail call float @llvm.fmuladd.f32(float %25, float %31, float %36)
+  store float %37, ptr %10, align 4, !tbaa !4
+  store float %29, ptr %12, align 4, !tbaa !4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZL15low_rotate_confiPA3_ffff.exit, label %.lr.ph.i, !llvm.loop !10
@@ -67,42 +64,39 @@ _ZL15low_rotate_confiPA3_ffff.exit:               ; preds = %.lr.ph.i, %6
 
 .lr.ph.i15:                                       ; preds = %.lr.ph.i15, %.lr.ph.preheader.i13
   %indvars.iv.i16 = phi i64 [ 0, %.lr.ph.preheader.i13 ], [ %indvars.iv.next.i17, %.lr.ph.i15 ]
-  %41 = getelementptr inbounds nuw [3 x float], ptr %2, i64 %indvars.iv.i16
-  %42 = load float, ptr %41, align 4, !tbaa !4
-  %43 = getelementptr inbounds nuw i8, ptr %41, i64 4
-  %44 = load float, ptr %43, align 4, !tbaa !4
-  %45 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  %46 = load float, ptr %45, align 4, !tbaa !4
-  %47 = tail call noundef float @cosf(float noundef %3) #6, !tbaa !8
-  %48 = tail call noundef float @sinf(float noundef %3) #6, !tbaa !8
-  %49 = fneg float %46
-  %50 = fmul float %48, %49
-  %51 = tail call float @llvm.fmuladd.f32(float %47, float %44, float %50)
-  %52 = tail call noundef float @sinf(float noundef %3) #6, !tbaa !8
-  %53 = tail call noundef float @cosf(float noundef %3) #6, !tbaa !8
-  %54 = fmul float %46, %53
-  %55 = tail call float @llvm.fmuladd.f32(float %52, float %44, float %54)
-  %56 = tail call noundef float @cosf(float noundef %4) #6, !tbaa !8
-  %57 = tail call noundef float @sinf(float noundef %4) #6, !tbaa !8
-  %58 = fmul float %55, %57
-  %59 = tail call float @llvm.fmuladd.f32(float %56, float %42, float %58)
-  %60 = tail call noundef float @sinf(float noundef %4) #6, !tbaa !8
-  %61 = fneg float %60
-  %62 = tail call noundef float @cosf(float noundef %4) #6, !tbaa !8
-  %63 = fmul float %55, %62
-  %64 = tail call float @llvm.fmuladd.f32(float %61, float %42, float %63)
+  %38 = getelementptr inbounds nuw [3 x float], ptr %2, i64 %indvars.iv.i16
+  %39 = load float, ptr %38, align 4, !tbaa !4
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 4
+  %41 = load float, ptr %40, align 4, !tbaa !4
+  %42 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %43 = load float, ptr %42, align 4, !tbaa !4
+  %44 = tail call noundef float @cosf(float noundef %3) #6, !tbaa !8
+  %45 = tail call noundef float @sinf(float noundef %3) #6, !tbaa !8
+  %46 = fneg float %43
+  %47 = fmul float %45, %46
+  %48 = tail call float @llvm.fmuladd.f32(float %44, float %41, float %47)
+  %49 = tail call noundef float @cosf(float noundef %3) #6, !tbaa !8
+  %50 = fmul float %43, %49
+  %51 = tail call float @llvm.fmuladd.f32(float %45, float %41, float %50)
+  %52 = tail call noundef float @cosf(float noundef %4) #6, !tbaa !8
+  %53 = tail call noundef float @sinf(float noundef %4) #6, !tbaa !8
+  %54 = fmul float %51, %53
+  %55 = tail call float @llvm.fmuladd.f32(float %52, float %39, float %54)
+  %56 = fneg float %53
+  %57 = tail call noundef float @cosf(float noundef %4) #6, !tbaa !8
+  %58 = fmul float %51, %57
+  %59 = tail call float @llvm.fmuladd.f32(float %56, float %39, float %58)
+  %60 = tail call noundef float @cosf(float noundef %5) #6, !tbaa !8
+  %61 = tail call noundef float @sinf(float noundef %5) #6, !tbaa !8
+  %62 = fneg float %61
+  %63 = fmul float %48, %62
+  %64 = tail call float @llvm.fmuladd.f32(float %55, float %60, float %63)
+  store float %64, ptr %38, align 4, !tbaa !4
   %65 = tail call noundef float @cosf(float noundef %5) #6, !tbaa !8
-  %66 = tail call noundef float @sinf(float noundef %5) #6, !tbaa !8
-  %67 = fneg float %66
-  %68 = fmul float %51, %67
-  %69 = tail call float @llvm.fmuladd.f32(float %59, float %65, float %68)
-  store float %69, ptr %41, align 4, !tbaa !4
-  %70 = tail call noundef float @sinf(float noundef %5) #6, !tbaa !8
-  %71 = tail call noundef float @cosf(float noundef %5) #6, !tbaa !8
-  %72 = fmul float %51, %71
-  %73 = tail call float @llvm.fmuladd.f32(float %59, float %70, float %72)
-  store float %73, ptr %43, align 4, !tbaa !4
-  store float %64, ptr %45, align 4, !tbaa !4
+  %66 = fmul float %48, %65
+  %67 = tail call float @llvm.fmuladd.f32(float %55, float %61, float %66)
+  store float %67, ptr %40, align 4, !tbaa !4
+  store float %59, ptr %42, align 4, !tbaa !4
   %indvars.iv.next.i17 = add nuw nsw i64 %indvars.iv.i16, 1
   %exitcond.not.i18 = icmp eq i64 %indvars.iv.next.i17, %wide.trip.count.i14
   br i1 %exitcond.not.i18, label %_ZL15low_rotate_confiPA3_ffff.exit19, label %.lr.ph.i15, !llvm.loop !10

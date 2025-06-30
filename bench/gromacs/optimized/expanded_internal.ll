@@ -68,7 +68,7 @@ define noundef float @_ZN3gmx25calculateAcceptanceWeightE23LambdaWeightCalculati
   %5 = alloca %"class.gmx::ExceptionInfo", align 8
   %6 = and i32 %0, -2
   %or.cond = icmp eq i32 %6, 2
-  br i1 %or.cond, label %7, label %24
+  br i1 %or.cond, label %7, label %22
 
 7:                                                ; preds = %2
   %8 = fcmp olt float %1, 0.000000e+00
@@ -80,100 +80,98 @@ define noundef float @_ZN3gmx25calculateAcceptanceWeightE23LambdaWeightCalculati
   %12 = fadd double %11, 1.000000e+00
   %13 = fdiv double 1.000000e+00, %12
   %14 = fptrunc double %13 to float
-  br label %42
+  br label %40
 
 15:                                               ; preds = %7
   %16 = fneg float %1
   %17 = tail call noundef float @expf(float noundef %16) #17, !tbaa !4
   %18 = fpext float %17 to double
-  %19 = tail call noundef float @expf(float noundef %16) #17, !tbaa !4
-  %20 = fpext float %19 to double
-  %21 = fadd double %20, 1.000000e+00
-  %22 = fdiv double %18, %21
-  %23 = fptrunc double %22 to float
-  br label %42
+  %19 = fadd double %18, 1.000000e+00
+  %20 = fdiv double %18, %19
+  %21 = fptrunc double %20 to float
+  br label %40
 
-24:                                               ; preds = %2
-  %25 = icmp eq i32 %0, 1
-  br i1 %25, label %26, label %31
+22:                                               ; preds = %2
+  %23 = icmp eq i32 %0, 1
+  br i1 %23, label %24, label %29
+
+24:                                               ; preds = %22
+  %25 = fcmp olt float %1, 0.000000e+00
+  br i1 %25, label %40, label %26
 
 26:                                               ; preds = %24
-  %27 = fcmp olt float %1, 0.000000e+00
-  br i1 %27, label %42, label %28
+  %27 = fneg float %1
+  %28 = tail call noundef float @expf(float noundef %27) #17, !tbaa !4
+  br label %40
 
-28:                                               ; preds = %26
-  %29 = fneg float %1
-  %30 = tail call noundef float @expf(float noundef %29) #17, !tbaa !4
-  br label %42
-
-31:                                               ; preds = %24
-  %32 = tail call ptr @__cxa_allocate_exception(i64 24) #17
+29:                                               ; preds = %22
+  %30 = tail call ptr @__cxa_allocate_exception(i64 24) #17
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #17
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull @.str)
-          to label %33 unwind label %.thread
+          to label %31 unwind label %.thread
 
-33:                                               ; preds = %31
+31:                                               ; preds = %29
   invoke void @_ZN3gmx16GromacsExceptionC2ERKNS_20ExceptionInitializerE(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(56) %4)
-          to label %34 unwind label %.thread28
+          to label %32 unwind label %.thread28
 
-34:                                               ; preds = %33
+32:                                               ; preds = %31
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3gmx19NotImplementedErrorE, i64 16), ptr %3, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #17
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %5, align 8, !tbaa !8
-  %35 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr @__PRETTY_FUNCTION__._ZN3gmx25calculateAcceptanceWeightE23LambdaWeightCalculationf, ptr %35, align 8, !tbaa !10
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr @__PRETTY_FUNCTION__._ZN3gmx25calculateAcceptanceWeightE23LambdaWeightCalculationf, ptr %33, align 8, !tbaa !10
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr @.str.1, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !10
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 99, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !4
-  invoke void @_ZN3gmxlsINS_19NotImplementedErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3stdE12is_base_of_vINS_16GromacsExceptionET_EES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::NotImplementedError") align 8 %32, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %36 unwind label %39
+  invoke void @_ZN3gmxlsINS_19NotImplementedErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3stdE12is_base_of_vINS_16GromacsExceptionET_EES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::NotImplementedError") align 8 %30, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(32) %5)
+          to label %34 unwind label %37
 
-36:                                               ; preds = %34
-  invoke void @__cxa_throw(ptr %32, ptr nonnull @_ZTIN3gmx19NotImplementedErrorE, ptr nonnull @_ZN3gmx16GromacsExceptionD2Ev) #18
-          to label %44 unwind label %39
+34:                                               ; preds = %32
+  invoke void @__cxa_throw(ptr %30, ptr nonnull @_ZTIN3gmx19NotImplementedErrorE, ptr nonnull @_ZN3gmx16GromacsExceptionD2Ev) #18
+          to label %42 unwind label %37
 
-.thread:                                          ; preds = %31
-  %37 = landingpad { ptr, i32 }
+.thread:                                          ; preds = %29
+  %35 = landingpad { ptr, i32 }
           cleanup
   br label %.sink.split
 
-.thread28:                                        ; preds = %33
-  %38 = landingpad { ptr, i32 }
+.thread28:                                        ; preds = %31
+  %36 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #17
   br label %.sink.split
 
-39:                                               ; preds = %34, %36
-  %.0 = phi i1 [ false, %36 ], [ true, %34 ]
-  %40 = landingpad { ptr, i32 }
+37:                                               ; preds = %32, %34
+  %.0 = phi i1 [ false, %34 ], [ true, %32 ]
+  %38 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #17
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #17
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #17
-  br i1 %.0, label %41, label %43
+  br i1 %.0, label %39, label %41
 
 .sink.split:                                      ; preds = %.thread, %.thread28
-  %.pn.pn27.ph = phi { ptr, i32 } [ %38, %.thread28 ], [ %37, %.thread ]
+  %.pn.pn27.ph = phi { ptr, i32 } [ %36, %.thread28 ], [ %35, %.thread ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #17
+  br label %39
+
+39:                                               ; preds = %.sink.split, %37
+  %.pn.pn27 = phi { ptr, i32 } [ %38, %37 ], [ %.pn.pn27.ph, %.sink.split ]
+  call void @__cxa_free_exception(ptr %30) #17
   br label %41
 
-41:                                               ; preds = %.sink.split, %39
-  %.pn.pn27 = phi { ptr, i32 } [ %40, %39 ], [ %.pn.pn27.ph, %.sink.split ]
-  call void @__cxa_free_exception(ptr %32) #17
-  br label %43
-
-42:                                               ; preds = %26, %28, %15, %9
-  %.017 = phi float [ %14, %9 ], [ %23, %15 ], [ %30, %28 ], [ 1.000000e+00, %26 ]
+40:                                               ; preds = %24, %26, %15, %9
+  %.017 = phi float [ %14, %9 ], [ %21, %15 ], [ %28, %26 ], [ 1.000000e+00, %24 ]
   ret float %.017
 
-43:                                               ; preds = %39, %41
-  %.pn.pn26 = phi { ptr, i32 } [ %40, %39 ], [ %.pn.pn27, %41 ]
+41:                                               ; preds = %37, %39
+  %.pn.pn26 = phi { ptr, i32 } [ %38, %37 ], [ %.pn.pn27, %39 ]
   resume { ptr, i32 } %.pn.pn26
 
-44:                                               ; preds = %36
+42:                                               ; preds = %34
   unreachable
 }
 

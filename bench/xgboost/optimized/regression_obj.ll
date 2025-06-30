@@ -615,8 +615,6 @@ $_ZZNK7xgboost6common9TransformILb0EE9EvaluatorIZNS_3obj10RegLossObjINS4_11Logis
 
 $_ZN4dmlc12OMPException3RunIZNK7xgboost6common9TransformILb0EE9EvaluatorIZNS2_3obj10RegLossObjINS7_11LogisticRawEE11GetGradientERKNS2_16HostDeviceVectorIfEERKNS2_8MetaInfoEiPNS2_6linalg6TensorINS2_6detail20GradientPairInternalIfEELi2EEEEUlmNS3_4SpanIfLm18446744073709551615EEENSP_ISM_Lm18446744073709551615EEENSP_IKfLm18446744073709551615EEEST_ST_E_E9LaunchCPUIJSC_NSB_ISM_EESD_SD_SD_EEEvSU_DpPT_EUlmE_JmEEEvT_DpT0_ = comdat any
 
-$_ZZN7xgboost3obj10RegLossObjINS0_11LogisticRawEE11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEENKUlmNS_6common4SpanIfLm18446744073709551615EEENSJ_ISF_Lm18446744073709551615EEENSJ_IKfLm18446744073709551615EEESN_SN_E_clEmSK_SL_SN_SN_SN_ = comdat any
-
 $_ZNK7xgboost6common9TransformILb0EE9EvaluatorIZNKS_3obj10RegLossObjINS4_11LogisticRawEE13PredTransformEPNS_16HostDeviceVectorIfEEEUlmNS0_4SpanIfLm18446744073709551615EEEE_E4EvalIJSA_EEEvDpT_ = comdat any
 
 $_ZNK7xgboost6common9TransformILb0EE9EvaluatorIZNKS_3obj10RegLossObjINS4_11LogisticRawEE13PredTransformEPNS_16HostDeviceVectorIfEEEUlmNS0_4SpanIfLm18446744073709551615EEEE_E10LaunchCUDAILPv0EJS9_EEEvSD_DpPT0_ = comdat any
@@ -28241,100 +28239,184 @@ _ZN4dmlc12OMPExceptionD2Ev.exit68:                ; preds = %.body, %76
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr void @_ZZNK7xgboost6common9TransformILb0EE9EvaluatorIZNS_3obj10RegLossObjINS4_11LogisticRawEE11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlmNS0_4SpanIfLm18446744073709551615EEENSM_ISJ_Lm18446744073709551615EEENSM_IKfLm18446744073709551615EEESQ_SQ_E_E9LaunchCPUIJS9_NS8_ISJ_EESA_SA_SA_EEEvSR_DpPT_ENKUlmE_clEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1) local_unnamed_addr #7 comdat align 2 {
-  %3 = alloca %"class.xgboost::common::Span", align 8
-  %4 = alloca %"class.xgboost::common::Span", align 8
-  %5 = alloca %"class.xgboost::common::Span", align 8
-  %6 = load ptr, ptr %0, align 8, !tbaa !780
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !781
-  %9 = load ptr, ptr %8, align 8, !tbaa !345
-  %10 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7xgboost16HostDeviceVectorIfE10HostVectorEv(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  %11 = load ptr, ptr %10, align 8, !tbaa !364
-  %12 = tail call noundef i64 @_ZNK7xgboost16HostDeviceVectorIfE4SizeEv(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  %13 = icmp ne ptr %11, null
-  %14 = icmp eq i64 %12, 0
-  %15 = or i1 %13, %14
-  br i1 %15, label %_ZNK7xgboost6common9TransformILb0EE9EvaluatorIZNS_3obj10RegLossObjINS4_11LogisticRawEE11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlmNS0_4SpanIfLm18446744073709551615EEENSM_ISJ_Lm18446744073709551615EEENSM_IKfLm18446744073709551615EEESQ_SQ_E_E9UnpackHDVIfEENSM_IT_Lm18446744073709551615EEEPNS8_ISU_EE.exit, label %16, !prof !386
+  %3 = load ptr, ptr %0, align 8, !tbaa !780
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !781
+  %6 = load ptr, ptr %5, align 8, !tbaa !345
+  %7 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7xgboost16HostDeviceVectorIfE10HostVectorEv(ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %8 = load ptr, ptr %7, align 8, !tbaa !364
+  %9 = tail call noundef i64 @_ZNK7xgboost16HostDeviceVectorIfE4SizeEv(ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %10 = icmp ne ptr %8, null
+  %11 = icmp eq i64 %9, 0
+  %12 = or i1 %10, %11
+  br i1 %12, label %_ZNK7xgboost6common9TransformILb0EE9EvaluatorIZNS_3obj10RegLossObjINS4_11LogisticRawEE11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlmNS0_4SpanIfLm18446744073709551615EEENSM_ISJ_Lm18446744073709551615EEENSM_IKfLm18446744073709551615EEESQ_SQ_E_E9UnpackHDVIfEENSM_IT_Lm18446744073709551615EEEPNS8_ISU_EE.exit, label %13, !prof !386
 
-16:                                               ; preds = %2
+13:                                               ; preds = %2
   tail call void @_ZSt9terminatev() #40
   unreachable
 
 _ZNK7xgboost6common9TransformILb0EE9EvaluatorIZNS_3obj10RegLossObjINS4_11LogisticRawEE11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlmNS0_4SpanIfLm18446744073709551615EEENSM_ISJ_Lm18446744073709551615EEENSM_IKfLm18446744073709551615EEESQ_SQ_E_E9UnpackHDVIfEENSM_IT_Lm18446744073709551615EEEPNS8_ISU_EE.exit: ; preds = %2
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %18 = load ptr, ptr %17, align 8, !tbaa !782
-  %19 = load ptr, ptr %18, align 8, !tbaa !347
-  %20 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7xgboost16HostDeviceVectorINS_6detail20GradientPairInternalIfEEE10HostVectorEv(ptr noundef nonnull align 8 dereferenceable(8) %19)
-  %21 = load ptr, ptr %20, align 8, !tbaa !388
-  %22 = tail call noundef i64 @_ZNK7xgboost16HostDeviceVectorINS_6detail20GradientPairInternalIfEEE4SizeEv(ptr noundef nonnull align 8 dereferenceable(8) %19)
-  %23 = icmp ne ptr %21, null
-  %24 = icmp eq i64 %22, 0
-  %25 = or i1 %23, %24
-  br i1 %25, label %_ZNK7xgboost6common9TransformILb0EE9EvaluatorIZNS_3obj10RegLossObjINS4_11LogisticRawEE11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlmNS0_4SpanIfLm18446744073709551615EEENSM_ISJ_Lm18446744073709551615EEENSM_IKfLm18446744073709551615EEESQ_SQ_E_E9UnpackHDVISJ_EENSM_IT_Lm18446744073709551615EEEPNS8_ISU_EE.exit, label %26, !prof !386
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %15 = load ptr, ptr %14, align 8, !tbaa !782
+  %16 = load ptr, ptr %15, align 8, !tbaa !347
+  %17 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7xgboost16HostDeviceVectorINS_6detail20GradientPairInternalIfEEE10HostVectorEv(ptr noundef nonnull align 8 dereferenceable(8) %16)
+  %18 = load ptr, ptr %17, align 8, !tbaa !388
+  %19 = tail call noundef i64 @_ZNK7xgboost16HostDeviceVectorINS_6detail20GradientPairInternalIfEEE4SizeEv(ptr noundef nonnull align 8 dereferenceable(8) %16)
+  %20 = icmp ne ptr %18, null
+  %21 = icmp eq i64 %19, 0
+  %22 = or i1 %20, %21
+  br i1 %22, label %_ZNK7xgboost6common9TransformILb0EE9EvaluatorIZNS_3obj10RegLossObjINS4_11LogisticRawEE11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlmNS0_4SpanIfLm18446744073709551615EEENSM_ISJ_Lm18446744073709551615EEENSM_IKfLm18446744073709551615EEESQ_SQ_E_E9UnpackHDVISJ_EENSM_IT_Lm18446744073709551615EEEPNS8_ISU_EE.exit, label %23, !prof !386
 
-26:                                               ; preds = %_ZNK7xgboost6common9TransformILb0EE9EvaluatorIZNS_3obj10RegLossObjINS4_11LogisticRawEE11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlmNS0_4SpanIfLm18446744073709551615EEENSM_ISJ_Lm18446744073709551615EEENSM_IKfLm18446744073709551615EEESQ_SQ_E_E9UnpackHDVIfEENSM_IT_Lm18446744073709551615EEEPNS8_ISU_EE.exit
+23:                                               ; preds = %_ZNK7xgboost6common9TransformILb0EE9EvaluatorIZNS_3obj10RegLossObjINS4_11LogisticRawEE11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlmNS0_4SpanIfLm18446744073709551615EEENSM_ISJ_Lm18446744073709551615EEENSM_IKfLm18446744073709551615EEESQ_SQ_E_E9UnpackHDVIfEENSM_IT_Lm18446744073709551615EEEPNS8_ISU_EE.exit
   tail call void @_ZSt9terminatev() #40
   unreachable
 
 _ZNK7xgboost6common9TransformILb0EE9EvaluatorIZNS_3obj10RegLossObjINS4_11LogisticRawEE11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlmNS0_4SpanIfLm18446744073709551615EEENSM_ISJ_Lm18446744073709551615EEENSM_IKfLm18446744073709551615EEESQ_SQ_E_E9UnpackHDVISJ_EENSM_IT_Lm18446744073709551615EEEPNS8_ISU_EE.exit: ; preds = %_ZNK7xgboost6common9TransformILb0EE9EvaluatorIZNS_3obj10RegLossObjINS4_11LogisticRawEE11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlmNS0_4SpanIfLm18446744073709551615EEENSM_ISJ_Lm18446744073709551615EEENSM_IKfLm18446744073709551615EEESQ_SQ_E_E9UnpackHDVIfEENSM_IT_Lm18446744073709551615EEEPNS8_ISU_EE.exit
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %28 = load ptr, ptr %27, align 8, !tbaa !783
-  %29 = load ptr, ptr %28, align 8, !tbaa !345
-  %30 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16HostDeviceVectorIfE15ConstHostVectorEv(ptr noundef nonnull align 8 dereferenceable(8) %29)
-  %31 = load ptr, ptr %30, align 8, !tbaa !364
-  %32 = tail call noundef i64 @_ZNK7xgboost16HostDeviceVectorIfE4SizeEv(ptr noundef nonnull align 8 dereferenceable(8) %29)
-  %33 = icmp ne ptr %31, null
-  %34 = icmp eq i64 %32, 0
-  %35 = or i1 %33, %34
-  br i1 %35, label %_ZNK7xgboost6common9TransformILb0EE9EvaluatorIZNS_3obj10RegLossObjINS4_11LogisticRawEE11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlmNS0_4SpanIfLm18446744073709551615EEENSM_ISJ_Lm18446744073709551615EEENSM_IKfLm18446744073709551615EEESQ_SQ_E_E9UnpackHDVIfEENSM_IKT_Lm18446744073709551615EEEPKNS8_ISU_EE.exit, label %36, !prof !386
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %25 = load ptr, ptr %24, align 8, !tbaa !783
+  %26 = load ptr, ptr %25, align 8, !tbaa !345
+  %27 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16HostDeviceVectorIfE15ConstHostVectorEv(ptr noundef nonnull align 8 dereferenceable(8) %26)
+  %28 = load ptr, ptr %27, align 8, !tbaa !364
+  %29 = tail call noundef i64 @_ZNK7xgboost16HostDeviceVectorIfE4SizeEv(ptr noundef nonnull align 8 dereferenceable(8) %26)
+  %30 = icmp ne ptr %28, null
+  %31 = icmp eq i64 %29, 0
+  %32 = or i1 %30, %31
+  br i1 %32, label %_ZNK7xgboost6common9TransformILb0EE9EvaluatorIZNS_3obj10RegLossObjINS4_11LogisticRawEE11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlmNS0_4SpanIfLm18446744073709551615EEENSM_ISJ_Lm18446744073709551615EEENSM_IKfLm18446744073709551615EEESQ_SQ_E_E9UnpackHDVIfEENSM_IKT_Lm18446744073709551615EEEPKNS8_ISU_EE.exit, label %33, !prof !386
 
-36:                                               ; preds = %_ZNK7xgboost6common9TransformILb0EE9EvaluatorIZNS_3obj10RegLossObjINS4_11LogisticRawEE11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlmNS0_4SpanIfLm18446744073709551615EEENSM_ISJ_Lm18446744073709551615EEENSM_IKfLm18446744073709551615EEESQ_SQ_E_E9UnpackHDVISJ_EENSM_IT_Lm18446744073709551615EEEPNS8_ISU_EE.exit
+33:                                               ; preds = %_ZNK7xgboost6common9TransformILb0EE9EvaluatorIZNS_3obj10RegLossObjINS4_11LogisticRawEE11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlmNS0_4SpanIfLm18446744073709551615EEENSM_ISJ_Lm18446744073709551615EEENSM_IKfLm18446744073709551615EEESQ_SQ_E_E9UnpackHDVISJ_EENSM_IT_Lm18446744073709551615EEEPNS8_ISU_EE.exit
   tail call void @_ZSt9terminatev() #40
   unreachable
 
 _ZNK7xgboost6common9TransformILb0EE9EvaluatorIZNS_3obj10RegLossObjINS4_11LogisticRawEE11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlmNS0_4SpanIfLm18446744073709551615EEENSM_ISJ_Lm18446744073709551615EEENSM_IKfLm18446744073709551615EEESQ_SQ_E_E9UnpackHDVIfEENSM_IKT_Lm18446744073709551615EEEPKNS8_ISU_EE.exit: ; preds = %_ZNK7xgboost6common9TransformILb0EE9EvaluatorIZNS_3obj10RegLossObjINS4_11LogisticRawEE11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlmNS0_4SpanIfLm18446744073709551615EEENSM_ISJ_Lm18446744073709551615EEENSM_IKfLm18446744073709551615EEESQ_SQ_E_E9UnpackHDVISJ_EENSM_IT_Lm18446744073709551615EEEPNS8_ISU_EE.exit
-  store i64 %32, ptr %3, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %31, ptr %37, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %39 = load ptr, ptr %38, align 8, !tbaa !784
-  %40 = load ptr, ptr %39, align 8, !tbaa !345
-  %41 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16HostDeviceVectorIfE15ConstHostVectorEv(ptr noundef nonnull align 8 dereferenceable(8) %40)
-  %42 = load ptr, ptr %41, align 8, !tbaa !364
-  %43 = tail call noundef i64 @_ZNK7xgboost16HostDeviceVectorIfE4SizeEv(ptr noundef nonnull align 8 dereferenceable(8) %40)
-  %44 = icmp ne ptr %42, null
-  %45 = icmp eq i64 %43, 0
-  %46 = or i1 %44, %45
-  br i1 %46, label %_ZNK7xgboost6common9TransformILb0EE9EvaluatorIZNS_3obj10RegLossObjINS4_11LogisticRawEE11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlmNS0_4SpanIfLm18446744073709551615EEENSM_ISJ_Lm18446744073709551615EEENSM_IKfLm18446744073709551615EEESQ_SQ_E_E9UnpackHDVIfEENSM_IKT_Lm18446744073709551615EEEPKNS8_ISU_EE.exit9, label %47, !prof !386
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %35 = load ptr, ptr %34, align 8, !tbaa !784
+  %36 = load ptr, ptr %35, align 8, !tbaa !345
+  %37 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16HostDeviceVectorIfE15ConstHostVectorEv(ptr noundef nonnull align 8 dereferenceable(8) %36)
+  %38 = load ptr, ptr %37, align 8, !tbaa !364
+  %39 = tail call noundef i64 @_ZNK7xgboost16HostDeviceVectorIfE4SizeEv(ptr noundef nonnull align 8 dereferenceable(8) %36)
+  %40 = icmp ne ptr %38, null
+  %41 = icmp eq i64 %39, 0
+  %42 = or i1 %40, %41
+  br i1 %42, label %_ZNK7xgboost6common9TransformILb0EE9EvaluatorIZNS_3obj10RegLossObjINS4_11LogisticRawEE11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlmNS0_4SpanIfLm18446744073709551615EEENSM_ISJ_Lm18446744073709551615EEENSM_IKfLm18446744073709551615EEESQ_SQ_E_E9UnpackHDVIfEENSM_IKT_Lm18446744073709551615EEEPKNS8_ISU_EE.exit9, label %43, !prof !386
 
-47:                                               ; preds = %_ZNK7xgboost6common9TransformILb0EE9EvaluatorIZNS_3obj10RegLossObjINS4_11LogisticRawEE11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlmNS0_4SpanIfLm18446744073709551615EEENSM_ISJ_Lm18446744073709551615EEENSM_IKfLm18446744073709551615EEESQ_SQ_E_E9UnpackHDVIfEENSM_IKT_Lm18446744073709551615EEEPKNS8_ISU_EE.exit
+43:                                               ; preds = %_ZNK7xgboost6common9TransformILb0EE9EvaluatorIZNS_3obj10RegLossObjINS4_11LogisticRawEE11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlmNS0_4SpanIfLm18446744073709551615EEENSM_ISJ_Lm18446744073709551615EEENSM_IKfLm18446744073709551615EEESQ_SQ_E_E9UnpackHDVIfEENSM_IKT_Lm18446744073709551615EEEPKNS8_ISU_EE.exit
   tail call void @_ZSt9terminatev() #40
   unreachable
 
 _ZNK7xgboost6common9TransformILb0EE9EvaluatorIZNS_3obj10RegLossObjINS4_11LogisticRawEE11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlmNS0_4SpanIfLm18446744073709551615EEENSM_ISJ_Lm18446744073709551615EEENSM_IKfLm18446744073709551615EEESQ_SQ_E_E9UnpackHDVIfEENSM_IKT_Lm18446744073709551615EEEPKNS8_ISU_EE.exit9: ; preds = %_ZNK7xgboost6common9TransformILb0EE9EvaluatorIZNS_3obj10RegLossObjINS4_11LogisticRawEE11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlmNS0_4SpanIfLm18446744073709551615EEENSM_ISJ_Lm18446744073709551615EEENSM_IKfLm18446744073709551615EEESQ_SQ_E_E9UnpackHDVIfEENSM_IKT_Lm18446744073709551615EEEPKNS8_ISU_EE.exit
-  store i64 %43, ptr %4, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %42, ptr %48, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %50 = load ptr, ptr %49, align 8, !tbaa !785
-  %51 = load ptr, ptr %50, align 8, !tbaa !345
-  %52 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16HostDeviceVectorIfE15ConstHostVectorEv(ptr noundef nonnull align 8 dereferenceable(8) %51)
-  %53 = load ptr, ptr %52, align 8, !tbaa !364
-  %54 = tail call noundef i64 @_ZNK7xgboost16HostDeviceVectorIfE4SizeEv(ptr noundef nonnull align 8 dereferenceable(8) %51)
-  %55 = icmp ne ptr %53, null
-  %56 = icmp eq i64 %54, 0
-  %57 = or i1 %55, %56
-  br i1 %57, label %_ZNK7xgboost6common9TransformILb0EE9EvaluatorIZNS_3obj10RegLossObjINS4_11LogisticRawEE11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlmNS0_4SpanIfLm18446744073709551615EEENSM_ISJ_Lm18446744073709551615EEENSM_IKfLm18446744073709551615EEESQ_SQ_E_E9UnpackHDVIfEENSM_IKT_Lm18446744073709551615EEEPKNS8_ISU_EE.exit12, label %58, !prof !386
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %45 = load ptr, ptr %44, align 8, !tbaa !785
+  %46 = load ptr, ptr %45, align 8, !tbaa !345
+  %47 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16HostDeviceVectorIfE15ConstHostVectorEv(ptr noundef nonnull align 8 dereferenceable(8) %46)
+  %48 = load ptr, ptr %47, align 8, !tbaa !364
+  %49 = tail call noundef i64 @_ZNK7xgboost16HostDeviceVectorIfE4SizeEv(ptr noundef nonnull align 8 dereferenceable(8) %46)
+  %50 = icmp ne ptr %48, null
+  %51 = icmp eq i64 %49, 0
+  %52 = or i1 %50, %51
+  br i1 %52, label %_ZNK7xgboost6common9TransformILb0EE9EvaluatorIZNS_3obj10RegLossObjINS4_11LogisticRawEE11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlmNS0_4SpanIfLm18446744073709551615EEENSM_ISJ_Lm18446744073709551615EEENSM_IKfLm18446744073709551615EEESQ_SQ_E_E9UnpackHDVIfEENSM_IKT_Lm18446744073709551615EEEPKNS8_ISU_EE.exit12, label %53, !prof !386
 
-58:                                               ; preds = %_ZNK7xgboost6common9TransformILb0EE9EvaluatorIZNS_3obj10RegLossObjINS4_11LogisticRawEE11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlmNS0_4SpanIfLm18446744073709551615EEENSM_ISJ_Lm18446744073709551615EEENSM_IKfLm18446744073709551615EEESQ_SQ_E_E9UnpackHDVIfEENSM_IKT_Lm18446744073709551615EEEPKNS8_ISU_EE.exit9
+53:                                               ; preds = %_ZNK7xgboost6common9TransformILb0EE9EvaluatorIZNS_3obj10RegLossObjINS4_11LogisticRawEE11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlmNS0_4SpanIfLm18446744073709551615EEENSM_ISJ_Lm18446744073709551615EEENSM_IKfLm18446744073709551615EEESQ_SQ_E_E9UnpackHDVIfEENSM_IKT_Lm18446744073709551615EEEPKNS8_ISU_EE.exit9
   tail call void @_ZSt9terminatev() #40
   unreachable
 
 _ZNK7xgboost6common9TransformILb0EE9EvaluatorIZNS_3obj10RegLossObjINS4_11LogisticRawEE11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlmNS0_4SpanIfLm18446744073709551615EEENSM_ISJ_Lm18446744073709551615EEENSM_IKfLm18446744073709551615EEESQ_SQ_E_E9UnpackHDVIfEENSM_IKT_Lm18446744073709551615EEEPKNS8_ISU_EE.exit12: ; preds = %_ZNK7xgboost6common9TransformILb0EE9EvaluatorIZNS_3obj10RegLossObjINS4_11LogisticRawEE11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlmNS0_4SpanIfLm18446744073709551615EEENSM_ISJ_Lm18446744073709551615EEENSM_IKfLm18446744073709551615EEESQ_SQ_E_E9UnpackHDVIfEENSM_IKT_Lm18446744073709551615EEEPKNS8_ISU_EE.exit9
-  store i64 %54, ptr %5, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %53, ptr %59, align 8
-  tail call void @_ZZN7xgboost3obj10RegLossObjINS0_11LogisticRawEE11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEENKUlmNS_6common4SpanIfLm18446744073709551615EEENSJ_ISF_Lm18446744073709551615EEENSJ_IKfLm18446744073709551615EEESN_SN_E_clEmSK_SL_SN_SN_SN_(ptr noundef nonnull align 8 dereferenceable(20) %6, i64 noundef %1, i64 %12, ptr %11, i64 %22, ptr %21, ptr noundef nonnull byval(%"class.xgboost::common::Span") align 8 %3, ptr noundef nonnull byval(%"class.xgboost::common::Span") align 8 %4, ptr noundef nonnull byval(%"class.xgboost::common::Span") align 8 %5)
+  %54 = load i64, ptr %3, align 8, !tbaa !786
+  %55 = mul i64 %54, %1
+  %56 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %57 = add i64 %55, %54
+  %58 = load i64, ptr %56, align 8, !tbaa !15
+  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %57, i64 %58)
+  br i1 %11, label %59, label %_ZNK7xgboost6common4SpanIfLm18446744073709551615EEixEm.exit.i, !prof !113
+
+59:                                               ; preds = %_ZNK7xgboost6common9TransformILb0EE9EvaluatorIZNS_3obj10RegLossObjINS4_11LogisticRawEE11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlmNS0_4SpanIfLm18446744073709551615EEENSM_ISJ_Lm18446744073709551615EEENSM_IKfLm18446744073709551615EEESQ_SQ_E_E9UnpackHDVIfEENSM_IKT_Lm18446744073709551615EEEPKNS8_ISU_EE.exit12
+  tail call void @_ZSt9terminatev() #40
+  unreachable
+
+_ZNK7xgboost6common4SpanIfLm18446744073709551615EEixEm.exit.i: ; preds = %_ZNK7xgboost6common9TransformILb0EE9EvaluatorIZNS_3obj10RegLossObjINS4_11LogisticRawEE11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlmNS0_4SpanIfLm18446744073709551615EEENSM_ISJ_Lm18446744073709551615EEENSM_IKfLm18446744073709551615EEESQ_SQ_E_E9UnpackHDVIfEENSM_IKT_Lm18446744073709551615EEEPKNS8_ISU_EE.exit12
+  %60 = load float, ptr %8, align 4, !tbaa !77
+  %.not33.i = icmp eq i64 %9, 1
+  br i1 %.not33.i, label %61, label %_ZNK7xgboost6common4SpanIfLm18446744073709551615EEixEm.exit25.i, !prof !113
+
+61:                                               ; preds = %_ZNK7xgboost6common4SpanIfLm18446744073709551615EEixEm.exit.i
+  tail call void @_ZSt9terminatev() #40
+  unreachable
+
+_ZNK7xgboost6common4SpanIfLm18446744073709551615EEixEm.exit25.i: ; preds = %_ZNK7xgboost6common4SpanIfLm18446744073709551615EEixEm.exit.i
+  %62 = icmp ult i64 %55, %.sroa.speculated.i
+  br i1 %62, label %.lr.ph.i, label %_ZZN7xgboost3obj10RegLossObjINS0_11LogisticRawEE11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEENKUlmNS_6common4SpanIfLm18446744073709551615EEENSJ_ISF_Lm18446744073709551615EEENSJ_IKfLm18446744073709551615EEESN_SN_E_clEmSK_SL_SN_SN_SN_.exit
+
+.lr.ph.i:                                         ; preds = %_ZNK7xgboost6common4SpanIfLm18446744073709551615EEixEm.exit25.i
+  %63 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %64 = load float, ptr %63, align 4, !tbaa !77
+  %65 = fcmp une float %64, 0.000000e+00
+  %66 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  br i1 %65, label %.lr.ph.split.us.i, label %.lr.ph.split.i
+
+.lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %.lr.ph.split.us.i
+  %.034.us.i = phi i64 [ %85, %.lr.ph.split.us.i ], [ %55, %.lr.ph.i ]
+  %67 = getelementptr inbounds nuw float, ptr %28, i64 %.034.us.i
+  %68 = load float, ptr %67, align 4, !tbaa !77
+  %69 = getelementptr inbounds nuw float, ptr %38, i64 %.034.us.i
+  %70 = load float, ptr %69, align 4, !tbaa !77
+  %71 = fcmp oeq float %70, 1.000000e+00
+  %.024.us.i = select i1 %71, float %60, float 1.000000e+00
+  %72 = fneg float %68
+  %73 = fcmp ogt float %72, 0x40562CCCC0000000
+  %.sroa.speculated.i.i.us.i = select i1 %73, float 0x40562CCCC0000000, float %72
+  %74 = tail call float @expf(float noundef %.sroa.speculated.i.i.us.i) #22, !tbaa !115
+  %75 = fadd float %74, 1.000000e+00
+  %76 = fadd float %75, 0x3C9CD2B2A0000000
+  %77 = fdiv float 1.000000e+00, %76
+  %78 = fsub float %77, %70
+  %79 = fmul float %.024.us.i, %78
+  %80 = fsub float 1.000000e+00, %77
+  %81 = fmul float %77, %80
+  %82 = tail call noundef float @llvm.maxnum.f32(float %81, float 0x3C9CD2B2A0000000)
+  %83 = fmul float %.024.us.i, %82
+  %84 = getelementptr inbounds nuw %"class.xgboost::detail::GradientPairInternal", ptr %18, i64 %.034.us.i
+  store float %79, ptr %84, align 4
+  %.sroa_idx27.us.i = getelementptr inbounds nuw i8, ptr %84, i64 4
+  store float %83, ptr %.sroa_idx27.us.i, align 4
+  %85 = add nuw i64 %.034.us.i, 1
+  %86 = icmp ult i64 %85, %.sroa.speculated.i
+  br i1 %86, label %.lr.ph.split.us.i, label %_ZZN7xgboost3obj10RegLossObjINS0_11LogisticRawEE11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEENKUlmNS_6common4SpanIfLm18446744073709551615EEENSJ_ISF_Lm18446744073709551615EEENSJ_IKfLm18446744073709551615EEESN_SN_E_clEmSK_SL_SN_SN_SN_.exit, !llvm.loop !787
+
+.lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.lr.ph.split.i
+  %.034.i = phi i64 [ %111, %.lr.ph.split.i ], [ %55, %.lr.ph.i ]
+  %87 = getelementptr inbounds nuw float, ptr %28, i64 %.034.i
+  %88 = load float, ptr %87, align 4, !tbaa !77
+  %89 = load i32, ptr %66, align 8, !tbaa !788
+  %90 = zext i32 %89 to i64
+  %91 = udiv i64 %.034.i, %90
+  %92 = getelementptr inbounds nuw float, ptr %48, i64 %91
+  %93 = load float, ptr %92, align 4, !tbaa !77
+  %94 = getelementptr inbounds nuw float, ptr %38, i64 %.034.i
+  %95 = load float, ptr %94, align 4, !tbaa !77
+  %96 = fcmp oeq float %95, 1.000000e+00
+  %97 = fmul float %60, %93
+  %.024.i = select i1 %96, float %97, float %93
+  %98 = fneg float %88
+  %99 = fcmp ogt float %98, 0x40562CCCC0000000
+  %.sroa.speculated.i.i.i = select i1 %99, float 0x40562CCCC0000000, float %98
+  %100 = tail call float @expf(float noundef %.sroa.speculated.i.i.i) #22, !tbaa !115
+  %101 = fadd float %100, 1.000000e+00
+  %102 = fadd float %101, 0x3C9CD2B2A0000000
+  %103 = fdiv float 1.000000e+00, %102
+  %104 = fsub float %103, %95
+  %105 = fmul float %.024.i, %104
+  %106 = fsub float 1.000000e+00, %103
+  %107 = fmul float %103, %106
+  %108 = tail call noundef float @llvm.maxnum.f32(float %107, float 0x3C9CD2B2A0000000)
+  %109 = fmul float %.024.i, %108
+  %110 = getelementptr inbounds nuw %"class.xgboost::detail::GradientPairInternal", ptr %18, i64 %.034.i
+  store float %105, ptr %110, align 4
+  %.sroa_idx27.i = getelementptr inbounds nuw i8, ptr %110, i64 4
+  store float %109, ptr %.sroa_idx27.i, align 4
+  %111 = add nuw i64 %.034.i, 1
+  %112 = icmp ult i64 %111, %.sroa.speculated.i
+  br i1 %112, label %.lr.ph.split.i, label %_ZZN7xgboost3obj10RegLossObjINS0_11LogisticRawEE11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEENKUlmNS_6common4SpanIfLm18446744073709551615EEENSJ_ISF_Lm18446744073709551615EEENSJ_IKfLm18446744073709551615EEESN_SN_E_clEmSK_SL_SN_SN_SN_.exit, !llvm.loop !787
+
+_ZZN7xgboost3obj10RegLossObjINS0_11LogisticRawEE11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEENKUlmNS_6common4SpanIfLm18446744073709551615EEENSJ_ISF_Lm18446744073709551615EEENSJ_IKfLm18446744073709551615EEESN_SN_E_clEmSK_SL_SN_SN_SN_.exit: ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i, %_ZNK7xgboost6common4SpanIfLm18446744073709551615EEixEm.exit25.i
   ret void
 }
 
@@ -28493,123 +28575,6 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit15: ; preds = %_ZNSt15__exception_
   %46 = extractvalue { ptr, i32 } %45, 0
   call void @__clang_call_terminate(ptr %46) #40
   unreachable
-}
-
-; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr void @_ZZN7xgboost3obj10RegLossObjINS0_11LogisticRawEE11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEENKUlmNS_6common4SpanIfLm18446744073709551615EEENSJ_ISF_Lm18446744073709551615EEENSJ_IKfLm18446744073709551615EEESN_SN_E_clEmSK_SL_SN_SN_SN_(ptr noundef nonnull align 8 dereferenceable(20) %0, i64 noundef %1, i64 %2, ptr %3, i64 %4, ptr %5, ptr noundef byval(%"class.xgboost::common::Span") align 8 %6, ptr noundef byval(%"class.xgboost::common::Span") align 8 %7, ptr noundef byval(%"class.xgboost::common::Span") align 8 %8) local_unnamed_addr #7 comdat align 2 {
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !497
-  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !497
-  %14 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !497
-  %16 = load i64, ptr %0, align 8, !tbaa !786
-  %17 = mul i64 %16, %1
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %19 = add i64 %17, %16
-  %20 = load i64, ptr %18, align 8, !tbaa !15
-  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %19, i64 %20)
-  %.not = icmp eq i64 %2, 0
-  br i1 %.not, label %21, label %_ZNK7xgboost6common4SpanIfLm18446744073709551615EEixEm.exit, !prof !113
-
-21:                                               ; preds = %9
-  tail call void @_ZSt9terminatev() #40
-  unreachable
-
-_ZNK7xgboost6common4SpanIfLm18446744073709551615EEixEm.exit: ; preds = %9
-  %22 = load float, ptr %3, align 4, !tbaa !77
-  %.not33 = icmp eq i64 %2, 1
-  br i1 %.not33, label %23, label %_ZNK7xgboost6common4SpanIfLm18446744073709551615EEixEm.exit25, !prof !113
-
-23:                                               ; preds = %_ZNK7xgboost6common4SpanIfLm18446744073709551615EEixEm.exit
-  tail call void @_ZSt9terminatev() #40
-  unreachable
-
-_ZNK7xgboost6common4SpanIfLm18446744073709551615EEixEm.exit25: ; preds = %_ZNK7xgboost6common4SpanIfLm18446744073709551615EEixEm.exit
-  %24 = icmp ult i64 %17, %.sroa.speculated
-  br i1 %24, label %.lr.ph, label %._crit_edge
-
-.lr.ph:                                           ; preds = %_ZNK7xgboost6common4SpanIfLm18446744073709551615EEixEm.exit25
-  %25 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %26 = load float, ptr %25, align 4, !tbaa !77
-  %27 = fcmp une float %26, 0.000000e+00
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  br i1 %27, label %.lr.ph.split.us, label %.lr.ph.split
-
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
-  %.034.us = phi i64 [ %51, %.lr.ph.split.us ], [ %17, %.lr.ph ]
-  %29 = getelementptr inbounds nuw float, ptr %11, i64 %.034.us
-  %30 = load float, ptr %29, align 4, !tbaa !77
-  %31 = getelementptr inbounds nuw float, ptr %13, i64 %.034.us
-  %32 = load float, ptr %31, align 4, !tbaa !77
-  %33 = fcmp oeq float %32, 1.000000e+00
-  %.024.us = select i1 %33, float %22, float 1.000000e+00
-  %34 = fneg float %30
-  %35 = fcmp ogt float %34, 0x40562CCCC0000000
-  %.sroa.speculated.i.i.us = select i1 %35, float 0x40562CCCC0000000, float %34
-  %36 = tail call float @expf(float noundef %.sroa.speculated.i.i.us) #22, !tbaa !115
-  %37 = fadd float %36, 1.000000e+00
-  %38 = fadd float %37, 0x3C9CD2B2A0000000
-  %39 = fdiv float 1.000000e+00, %38
-  %40 = fsub float %39, %32
-  %41 = fmul float %.024.us, %40
-  %42 = tail call float @expf(float noundef %.sroa.speculated.i.i.us) #22, !tbaa !115
-  %43 = fadd float %42, 1.000000e+00
-  %44 = fadd float %43, 0x3C9CD2B2A0000000
-  %45 = fdiv float 1.000000e+00, %44
-  %46 = fsub float 1.000000e+00, %45
-  %47 = fmul float %45, %46
-  %48 = tail call noundef float @llvm.maxnum.f32(float %47, float 0x3C9CD2B2A0000000)
-  %49 = fmul float %.024.us, %48
-  %50 = getelementptr inbounds nuw %"class.xgboost::detail::GradientPairInternal", ptr %5, i64 %.034.us
-  store float %41, ptr %50, align 4
-  %.sroa_idx27.us = getelementptr inbounds nuw i8, ptr %50, i64 4
-  store float %49, ptr %.sroa_idx27.us, align 4
-  %51 = add nuw i64 %.034.us, 1
-  %52 = icmp ult i64 %51, %.sroa.speculated
-  br i1 %52, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !787
-
-._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %_ZNK7xgboost6common4SpanIfLm18446744073709551615EEixEm.exit25
-  ret void
-
-.lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
-  %.034 = phi i64 [ %81, %.lr.ph.split ], [ %17, %.lr.ph ]
-  %53 = getelementptr inbounds nuw float, ptr %11, i64 %.034
-  %54 = load float, ptr %53, align 4, !tbaa !77
-  %55 = load i32, ptr %28, align 8, !tbaa !788
-  %56 = zext i32 %55 to i64
-  %57 = udiv i64 %.034, %56
-  %58 = getelementptr inbounds nuw float, ptr %15, i64 %57
-  %59 = load float, ptr %58, align 4, !tbaa !77
-  %60 = getelementptr inbounds nuw float, ptr %13, i64 %.034
-  %61 = load float, ptr %60, align 4, !tbaa !77
-  %62 = fcmp oeq float %61, 1.000000e+00
-  %63 = fmul float %22, %59
-  %.024 = select i1 %62, float %63, float %59
-  %64 = fneg float %54
-  %65 = fcmp ogt float %64, 0x40562CCCC0000000
-  %.sroa.speculated.i.i = select i1 %65, float 0x40562CCCC0000000, float %64
-  %66 = tail call float @expf(float noundef %.sroa.speculated.i.i) #22, !tbaa !115
-  %67 = fadd float %66, 1.000000e+00
-  %68 = fadd float %67, 0x3C9CD2B2A0000000
-  %69 = fdiv float 1.000000e+00, %68
-  %70 = fsub float %69, %61
-  %71 = fmul float %.024, %70
-  %72 = tail call float @expf(float noundef %.sroa.speculated.i.i) #22, !tbaa !115
-  %73 = fadd float %72, 1.000000e+00
-  %74 = fadd float %73, 0x3C9CD2B2A0000000
-  %75 = fdiv float 1.000000e+00, %74
-  %76 = fsub float 1.000000e+00, %75
-  %77 = fmul float %75, %76
-  %78 = tail call noundef float @llvm.maxnum.f32(float %77, float 0x3C9CD2B2A0000000)
-  %79 = fmul float %.024, %78
-  %80 = getelementptr inbounds nuw %"class.xgboost::detail::GradientPairInternal", ptr %5, i64 %.034
-  store float %71, ptr %80, align 4
-  %.sroa_idx27 = getelementptr inbounds nuw i8, ptr %80, i64 4
-  store float %79, ptr %.sroa_idx27, align 4
-  %81 = add nuw i64 %.034, 1
-  %82 = icmp ult i64 %81, %.sroa.speculated
-  br i1 %82, label %.lr.ph.split, label %._crit_edge, !llvm.loop !787
 }
 
 ; Function Attrs: mustprogress uwtable

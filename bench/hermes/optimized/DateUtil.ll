@@ -453,18 +453,17 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 define hidden noundef double @_ZN6hermes2vm12dateFromTimeEd(double noundef %t) local_unnamed_addr #5 {
 entry:
   %call1 = tail call noundef double @_ZN6hermes2vm12yearFromTimeEd(double noundef %t)
-  %call.i = tail call noundef double @_ZN6hermes2vm12yearFromTimeEd(double noundef %t)
-  %call.i.i.i.i = tail call noundef double @fmod(double noundef %call.i, double noundef 4.000000e+00) #17
+  %call.i.i.i.i = tail call noundef double @fmod(double noundef %call1, double noundef 4.000000e+00) #17
   %cmp.i.i.i = fcmp une double %call.i.i.i.i, 0.000000e+00
   br i1 %cmp.i.i.i, label %_ZN6hermes2vm10inLeapYearEd.exit.thread, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %entry
-  %call.i3.i.i.i = tail call noundef double @fmod(double noundef %call.i, double noundef 1.000000e+02) #17
+  %call.i3.i.i.i = tail call noundef double @fmod(double noundef %call1, double noundef 1.000000e+02) #17
   %cmp2.i.i.i = fcmp une double %call.i3.i.i.i, 0.000000e+00
   br i1 %cmp2.i.i.i, label %0, label %_ZN6hermes2vmL10isLeapYearEd.exit.i.i
 
 _ZN6hermes2vmL10isLeapYearEd.exit.i.i:            ; preds = %if.end.i.i.i
-  %call.i4.i.i.i = tail call noundef double @fmod(double noundef %call.i, double noundef 4.000000e+02) #17
+  %call.i4.i.i.i = tail call noundef double @fmod(double noundef %call1, double noundef 4.000000e+02) #17
   %cmp6.i.i.i = fcmp oeq double %call.i4.i.i.i, 0.000000e+00
   br i1 %cmp6.i.i.i, label %0, label %_ZN6hermes2vm10inLeapYearEd.exit.thread
 

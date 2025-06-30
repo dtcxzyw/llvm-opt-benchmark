@@ -997,10 +997,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   ret i64 %.1
 
 24:                                               ; preds = %.lr.ph, %24
-  %.02034 = phi i64 [ 0, %.lr.ph ], [ %32, %24 ]
-  %.02133 = phi i64 [ 0, %.lr.ph ], [ %.1, %24 ]
-  %.02232 = phi float [ 0x41E0000000000000, %.lr.ph ], [ %.123, %24 ]
-  %25 = getelementptr inbounds nuw %"class.cv::Point_", ptr %6, i64 %.02034
+  %.02033 = phi i64 [ 0, %.lr.ph ], [ %32, %24 ]
+  %.02132 = phi i64 [ 0, %.lr.ph ], [ %.1, %24 ]
+  %.02231 = phi float [ 0x41E0000000000000, %.lr.ph ], [ %.123, %24 ]
+  %25 = getelementptr inbounds nuw %"class.cv::Point_", ptr %6, i64 %.02033
   %.val = load float, ptr %25, align 4, !tbaa !91
   %26 = getelementptr i8, ptr %25, i64 4
   %.val26 = load float, ptr %26, align 4, !tbaa !93
@@ -1009,10 +1009,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %29 = fmul float %28, %28
   %30 = tail call float @llvm.fmuladd.f32(float %27, float %27, float %29)
   %sqrt = tail call float @llvm.sqrt.f32(float %30)
-  %31 = fcmp olt float %sqrt, %.02232
-  %.123 = select i1 %31, float %sqrt, float %.02232
-  %.1 = select i1 %31, i64 %.02034, i64 %.02133
-  %32 = add nuw i64 %.02034, 1
+  %31 = fcmp olt float %sqrt, %.02231
+  %.123 = select i1 %31, float %sqrt, float %.02231
+  %.1 = select i1 %31, i64 %.02033, i64 %.02132
+  %32 = add nuw i64 %.02033, 1
   %exitcond.not = icmp eq i64 %32, %13
   br i1 %exitcond.not, label %._crit_edge, label %24, !llvm.loop !94
 }
@@ -1237,10 +1237,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
   br label %.body
 
 101:                                              ; preds = %101, %.lr.ph.i
-  %.02034.i = phi i64 [ 0, %.lr.ph.i ], [ %109, %101 ]
-  %.02133.i = phi i64 [ 0, %.lr.ph.i ], [ %.1.i, %101 ]
-  %.02232.i = phi float [ 0x41E0000000000000, %.lr.ph.i ], [ %.123.i, %101 ]
-  %102 = getelementptr inbounds nuw %"class.cv::Point_", ptr %82, i64 %.02034.i
+  %.02033.i = phi i64 [ 0, %.lr.ph.i ], [ %109, %101 ]
+  %.02132.i = phi i64 [ 0, %.lr.ph.i ], [ %.1.i, %101 ]
+  %.02231.i = phi float [ 0x41E0000000000000, %.lr.ph.i ], [ %.123.i, %101 ]
+  %102 = getelementptr inbounds nuw %"class.cv::Point_", ptr %82, i64 %.02033.i
   %.val.i = load float, ptr %102, align 4, !tbaa !91
   %103 = getelementptr i8, ptr %102, i64 4
   %.val26.i = load float, ptr %103, align 4, !tbaa !93
@@ -1249,10 +1249,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
   %106 = fmul float %105, %105
   %107 = call float @llvm.fmuladd.f32(float %104, float %104, float %106)
   %sqrt.i = call float @llvm.sqrt.f32(float %107)
-  %108 = fcmp olt float %sqrt.i, %.02232.i
-  %.123.i = select i1 %108, float %sqrt.i, float %.02232.i
-  %.1.i = select i1 %108, i64 %.02034.i, i64 %.02133.i
-  %109 = add nuw i64 %.02034.i, 1
+  %108 = fcmp olt float %sqrt.i, %.02231.i
+  %.123.i = select i1 %108, float %sqrt.i, float %.02231.i
+  %.1.i = select i1 %108, i64 %.02033.i, i64 %.02132.i
+  %109 = add nuw i64 %.02033.i, 1
   %exitcond.not.i = icmp eq i64 %109, %88
   br i1 %exitcond.not.i, label %110, label %101, !llvm.loop !94
 

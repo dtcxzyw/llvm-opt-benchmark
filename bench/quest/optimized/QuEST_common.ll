@@ -287,14 +287,11 @@ define void @getComplexPairFromRotation(double noundef %0, ptr noundef readonly 
   %15 = fmul double %10, %14
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store double %15, ptr %16, align 8, !tbaa !23
-  %17 = tail call double @sin(double noundef %11) #22, !tbaa !4
-  %18 = fmul double %9, %17
-  store double %18, ptr %3, align 8, !tbaa !21
-  %19 = tail call double @sin(double noundef %11) #22, !tbaa !4
-  %20 = fneg double %19
-  %21 = fmul double %8, %20
-  %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store double %21, ptr %22, align 8, !tbaa !23
+  %17 = fmul double %13, %9
+  store double %17, ptr %3, align 8, !tbaa !21
+  %18 = fmul double %8, %14
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store double %18, ptr %19, align 8, !tbaa !23
   ret void
 }
 
@@ -659,12 +656,10 @@ define void @statevec_rotateX(ptr noundef readonly byval(%struct.Qureg) align 8 
   %4 = fmul double %2, 5.000000e-01
   %5 = tail call double @cos(double noundef %4) #22, !tbaa !4
   %6 = tail call double @sin(double noundef %4) #22, !tbaa !4
-  %7 = fmul double %6, -0.000000e+00
-  %8 = tail call double @sin(double noundef %4) #22, !tbaa !4
-  %9 = fmul double %8, 0.000000e+00
-  %10 = tail call double @sin(double noundef %4) #22, !tbaa !4
-  %11 = fneg double %10
-  tail call void @statevec_compactUnitary(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, double %5, double %7, double %9, double %11) #22
+  %7 = fneg double %6
+  %8 = fmul double %6, -0.000000e+00
+  %9 = fmul double %6, 0.000000e+00
+  tail call void @statevec_compactUnitary(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, double %5, double %8, double %9, double %7) #22
   ret void
 }
 
@@ -690,12 +685,9 @@ define void @statevec_rotateAroundAxis(ptr noundef readonly byval(%struct.Qureg)
   %13 = tail call double @sin(double noundef %11) #22, !tbaa !4
   %14 = fneg double %13
   %15 = fmul double %10, %14
-  %16 = tail call double @sin(double noundef %11) #22, !tbaa !4
-  %17 = fmul double %16, %9
-  %18 = tail call double @sin(double noundef %11) #22, !tbaa !4
-  %19 = fneg double %18
-  %20 = fmul double %8, %19
-  tail call void @statevec_compactUnitary(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, double %12, double %15, double %17, double %20) #22
+  %16 = fmul double %13, %9
+  %17 = fmul double %8, %14
+  tail call void @statevec_compactUnitary(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, double %12, double %15, double %16, double %17) #22
   ret void
 }
 
@@ -705,10 +697,7 @@ define void @statevec_rotateY(ptr noundef readonly byval(%struct.Qureg) align 8 
   %5 = tail call double @cos(double noundef %4) #22, !tbaa !4
   %6 = tail call double @sin(double noundef %4) #22, !tbaa !4
   %7 = fmul double %6, -0.000000e+00
-  %8 = tail call double @sin(double noundef %4) #22, !tbaa !4
-  %9 = tail call double @sin(double noundef %4) #22, !tbaa !4
-  %10 = fmul double %9, -0.000000e+00
-  tail call void @statevec_compactUnitary(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, double %5, double %7, double %8, double %10) #22
+  tail call void @statevec_compactUnitary(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, double %5, double %7, double %6, double %7) #22
   ret void
 }
 
@@ -718,11 +707,9 @@ define void @statevec_rotateZ(ptr noundef readonly byval(%struct.Qureg) align 8 
   %5 = tail call double @cos(double noundef %4) #22, !tbaa !4
   %6 = tail call double @sin(double noundef %4) #22, !tbaa !4
   %7 = fneg double %6
-  %8 = tail call double @sin(double noundef %4) #22, !tbaa !4
-  %9 = fmul double %8, 0.000000e+00
-  %10 = tail call double @sin(double noundef %4) #22, !tbaa !4
-  %11 = fmul double %10, -0.000000e+00
-  tail call void @statevec_compactUnitary(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, double %5, double %7, double %9, double %11) #22
+  %8 = fmul double %6, 0.000000e+00
+  %9 = fmul double %6, -0.000000e+00
+  tail call void @statevec_compactUnitary(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, double %5, double %7, double %8, double %9) #22
   ret void
 }
 
@@ -745,12 +732,10 @@ define void @statevec_rotateAroundAxisConj(ptr noundef readonly byval(%struct.Qu
   %11 = fmul double %2, 5.000000e-01
   %12 = tail call double @cos(double noundef %11) #22, !tbaa !4
   %13 = tail call double @sin(double noundef %11) #22, !tbaa !4
-  %14 = tail call double @sin(double noundef %11) #22, !tbaa !4
-  %15 = fmul double %14, %9
-  %16 = tail call double @sin(double noundef %11) #22, !tbaa !4
-  %17 = fmul double %13, %10
-  %18 = fmul double %8, %16
-  tail call void @statevec_compactUnitary(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, double %12, double %17, double %15, double %18) #22
+  %14 = fmul double %13, %9
+  %15 = fmul double %13, %10
+  %16 = fmul double %13, %8
+  tail call void @statevec_compactUnitary(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, double %12, double %15, double %14, double %16) #22
   ret void
 }
 
@@ -773,12 +758,9 @@ define void @statevec_controlledRotateAroundAxis(ptr noundef readonly byval(%str
   %14 = tail call double @sin(double noundef %12) #22, !tbaa !4
   %15 = fneg double %14
   %16 = fmul double %11, %15
-  %17 = tail call double @sin(double noundef %12) #22, !tbaa !4
-  %18 = fmul double %17, %10
-  %19 = tail call double @sin(double noundef %12) #22, !tbaa !4
-  %20 = fneg double %19
-  %21 = fmul double %9, %20
-  tail call void @statevec_controlledCompactUnitary(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2, double %13, double %16, double %18, double %21) #22
+  %17 = fmul double %14, %10
+  %18 = fmul double %9, %15
+  tail call void @statevec_controlledCompactUnitary(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2, double %13, double %16, double %17, double %18) #22
   ret void
 }
 
@@ -801,12 +783,10 @@ define void @statevec_controlledRotateAroundAxisConj(ptr noundef readonly byval(
   %12 = fmul double %3, 5.000000e-01
   %13 = tail call double @cos(double noundef %12) #22, !tbaa !4
   %14 = tail call double @sin(double noundef %12) #22, !tbaa !4
-  %15 = tail call double @sin(double noundef %12) #22, !tbaa !4
-  %16 = fmul double %15, %10
-  %17 = tail call double @sin(double noundef %12) #22, !tbaa !4
-  %18 = fmul double %14, %11
-  %19 = fmul double %9, %17
-  tail call void @statevec_controlledCompactUnitary(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2, double %13, double %18, double %16, double %19) #22
+  %15 = fmul double %14, %10
+  %16 = fmul double %14, %11
+  %17 = fmul double %14, %9
+  tail call void @statevec_controlledCompactUnitary(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2, double %13, double %16, double %15, double %17) #22
   ret void
 }
 
@@ -815,12 +795,10 @@ define void @statevec_controlledRotateX(ptr noundef readonly byval(%struct.Qureg
   %5 = fmul double %3, 5.000000e-01
   %6 = tail call double @cos(double noundef %5) #22, !tbaa !4
   %7 = tail call double @sin(double noundef %5) #22, !tbaa !4
-  %8 = fmul double %7, -0.000000e+00
-  %9 = tail call double @sin(double noundef %5) #22, !tbaa !4
-  %10 = fmul double %9, 0.000000e+00
-  %11 = tail call double @sin(double noundef %5) #22, !tbaa !4
-  %12 = fneg double %11
-  tail call void @statevec_controlledCompactUnitary(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2, double %6, double %8, double %10, double %12) #22
+  %8 = fneg double %7
+  %9 = fmul double %7, -0.000000e+00
+  %10 = fmul double %7, 0.000000e+00
+  tail call void @statevec_controlledCompactUnitary(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2, double %6, double %9, double %10, double %8) #22
   ret void
 }
 
@@ -830,10 +808,7 @@ define void @statevec_controlledRotateY(ptr noundef readonly byval(%struct.Qureg
   %6 = tail call double @cos(double noundef %5) #22, !tbaa !4
   %7 = tail call double @sin(double noundef %5) #22, !tbaa !4
   %8 = fmul double %7, -0.000000e+00
-  %9 = tail call double @sin(double noundef %5) #22, !tbaa !4
-  %10 = tail call double @sin(double noundef %5) #22, !tbaa !4
-  %11 = fmul double %10, -0.000000e+00
-  tail call void @statevec_controlledCompactUnitary(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2, double %6, double %8, double %9, double %11) #22
+  tail call void @statevec_controlledCompactUnitary(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2, double %6, double %8, double %7, double %8) #22
   ret void
 }
 
@@ -843,11 +818,9 @@ define void @statevec_controlledRotateZ(ptr noundef readonly byval(%struct.Qureg
   %6 = tail call double @cos(double noundef %5) #22, !tbaa !4
   %7 = tail call double @sin(double noundef %5) #22, !tbaa !4
   %8 = fneg double %7
-  %9 = tail call double @sin(double noundef %5) #22, !tbaa !4
-  %10 = fmul double %9, 0.000000e+00
-  %11 = tail call double @sin(double noundef %5) #22, !tbaa !4
-  %12 = fmul double %11, -0.000000e+00
-  tail call void @statevec_controlledCompactUnitary(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2, double %6, double %8, double %10, double %12) #22
+  %9 = fmul double %7, 0.000000e+00
+  %10 = fmul double %7, -0.000000e+00
+  tail call void @statevec_controlledCompactUnitary(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2, double %6, double %8, double %9, double %10) #22
   ret void
 }
 

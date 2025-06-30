@@ -810,7 +810,7 @@ define hidden void @_ZN16EllipticKeyPoint7convertERKSt6vectorIN2cv8KeyPointESaIS
 
 ._ZNSt6vectorI16EllipticKeyPointSaIS0_EE6resizeEm.exit_crit_edge: ; preds = %23
   %.pre = load ptr, ptr %7, align 8, !tbaa !61
-  %.pre30 = load ptr, ptr %0, align 8, !tbaa !63
+  %.pre29 = load ptr, ptr %0, align 8, !tbaa !63
   br label %_ZNSt6vectorI16EllipticKeyPointSaIS0_EE6resizeEm.exit
 
 25:                                               ; preds = %10
@@ -827,7 +827,7 @@ define hidden void @_ZN16EllipticKeyPoint7convertERKSt6vectorIN2cv8KeyPointESaIS
   br label %_ZNSt6vectorI16EllipticKeyPointSaIS0_EE6resizeEm.exit
 
 _ZNSt6vectorI16EllipticKeyPointSaIS0_EE6resizeEm.exit: ; preds = %._ZNSt6vectorI16EllipticKeyPointSaIS0_EE6resizeEm.exit_crit_edge, %25, %27, %29
-  %30 = phi ptr [ %.pre30, %._ZNSt6vectorI16EllipticKeyPointSaIS0_EE6resizeEm.exit_crit_edge ], [ %6, %25 ], [ %6, %27 ], [ %6, %29 ]
+  %30 = phi ptr [ %.pre29, %._ZNSt6vectorI16EllipticKeyPointSaIS0_EE6resizeEm.exit_crit_edge ], [ %6, %25 ], [ %6, %27 ], [ %6, %29 ]
   %31 = phi ptr [ %.pre, %._ZNSt6vectorI16EllipticKeyPointSaIS0_EE6resizeEm.exit_crit_edge ], [ %8, %25 ], [ %8, %27 ], [ %8, %29 ]
   %.not = icmp eq ptr %31, %30
   br i1 %.not, label %.loopexit, label %.lr.ph
@@ -839,8 +839,8 @@ _ZNSt6vectorI16EllipticKeyPointSaIS0_EE6resizeEm.exit: ; preds = %._ZNSt6vectorI
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorI16EllipticKeyPointSaIS0_EE6resizeEm.exit, %75
   %34 = phi ptr [ %93, %75 ], [ %30, %_ZNSt6vectorI16EllipticKeyPointSaIS0_EE6resizeEm.exit ]
-  %.02129 = phi i64 [ %91, %75 ], [ 0, %_ZNSt6vectorI16EllipticKeyPointSaIS0_EE6resizeEm.exit ]
-  %35 = getelementptr inbounds nuw %"class.cv::KeyPoint", ptr %34, i64 %.02129
+  %.02128 = phi i64 [ %91, %75 ], [ 0, %_ZNSt6vectorI16EllipticKeyPointSaIS0_EE6resizeEm.exit ]
+  %35 = getelementptr inbounds nuw %"class.cv::KeyPoint", ptr %34, i64 %.02128
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load float, ptr %36, align 4, !tbaa !64
   %38 = fmul float %37, 5.000000e-01
@@ -932,10 +932,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %80 = fdiv double 1.000000e+00, %79
   %81 = fptrunc double %80 to float
   %82 = fdiv double %56, %58
-  %sqrt28 = call double @llvm.sqrt.f64(double %82)
-  %83 = fptrunc double %sqrt28 to float
+  %sqrt = call double @llvm.sqrt.f64(double %82)
+  %83 = fptrunc double %sqrt to float
   %84 = load ptr, ptr %1, align 8, !tbaa !60
-  %85 = getelementptr inbounds nuw %class.EllipticKeyPoint, ptr %84, i64 %.02129
+  %85 = getelementptr inbounds nuw %class.EllipticKeyPoint, ptr %84, i64 %.02128
   store i64 %57, ptr %85, align 8
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
   store double %56, ptr %86, align 8, !tbaa !3
@@ -953,7 +953,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   store float %83, ptr %.sroa.17.40..sroa_idx, align 8
   %.sroa.18.40..sroa_idx = getelementptr inbounds nuw i8, ptr %85, i64 52
   store float %83, ptr %.sroa.18.40..sroa_idx, align 4
-  %91 = add nuw i64 %.02129, 1
+  %91 = add nuw i64 %.02128, 1
   %92 = load ptr, ptr %7, align 8, !tbaa !61
   %93 = load ptr, ptr %0, align 8, !tbaa !63
   %94 = ptrtoint ptr %92 to i64

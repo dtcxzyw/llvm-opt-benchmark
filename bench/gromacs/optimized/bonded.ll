@@ -2765,8 +2765,8 @@ define internal noundef float @_ZN12_GLOBAL__N_115restraint_bondsIL18BondedKerne
 34:                                               ; preds = %23
   %35 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %6, ptr noundef %31, ptr noundef %33, ptr noundef nonnull %15)
   %.pre = load float, ptr %15, align 4, !tbaa !16
-  %.pre144 = load float, ptr %17, align 4, !tbaa !16
-  %.pre145 = load float, ptr %18, align 4, !tbaa !16
+  %.pre143 = load float, ptr %17, align 4, !tbaa !16
+  %.pre144 = load float, ptr %18, align 4, !tbaa !16
   br label %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit
 
 36:                                               ; preds = %23
@@ -2789,8 +2789,8 @@ define internal noundef float @_ZN12_GLOBAL__N_115restraint_bondsIL18BondedKerne
   br label %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit
 
 _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit: ; preds = %34, %36
-  %50 = phi float [ %.pre145, %34 ], [ %49, %36 ]
-  %51 = phi float [ %.pre144, %34 ], [ %44, %36 ]
+  %50 = phi float [ %.pre144, %34 ], [ %49, %36 ]
+  %51 = phi float [ %.pre143, %34 ], [ %44, %36 ]
   %52 = phi float [ %.pre, %34 ], [ %39, %36 ]
   %53 = fmul float %51, %51
   %54 = call float @llvm.fmuladd.f32(float %52, float %52, float %53)
@@ -6734,8 +6734,8 @@ define internal noundef float @_ZN12_GLOBAL__N_18polarizeIL18BondedKernelFlavor0
 49:                                               ; preds = %27
   %50 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %6, ptr noundef %47, ptr noundef %48, ptr noundef nonnull %15)
   %.pre = load float, ptr %15, align 4, !tbaa !16
-  %.pre46 = load float, ptr %18, align 4, !tbaa !16
-  %.pre47 = load float, ptr %19, align 4, !tbaa !16
+  %.pre43 = load float, ptr %18, align 4, !tbaa !16
+  %.pre44 = load float, ptr %19, align 4, !tbaa !16
   br label %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit
 
 51:                                               ; preds = %27
@@ -6758,8 +6758,8 @@ define internal noundef float @_ZN12_GLOBAL__N_18polarizeIL18BondedKernelFlavor0
   br label %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit
 
 _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit: ; preds = %49, %51
-  %65 = phi float [ %.pre47, %49 ], [ %64, %51 ]
-  %66 = phi float [ %.pre46, %49 ], [ %59, %51 ]
+  %65 = phi float [ %.pre44, %49 ], [ %64, %51 ]
+  %66 = phi float [ %.pre43, %49 ], [ %59, %51 ]
   %67 = phi float [ %.pre, %49 ], [ %54, %51 ]
   %68 = fmul float %66, %66
   %69 = call float @llvm.fmuladd.f32(float %67, float %67, float %68)
@@ -7308,8 +7308,8 @@ define internal noundef float @_ZN12_GLOBAL__N_115anharm_polarizeIL18BondedKerne
 53:                                               ; preds = %27
   %54 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %6, ptr noundef %51, ptr noundef %52, ptr noundef nonnull %15)
   %.pre = load float, ptr %15, align 4, !tbaa !16
-  %.pre80 = load float, ptr %18, align 4, !tbaa !16
-  %.pre81 = load float, ptr %19, align 4, !tbaa !16
+  %.pre79 = load float, ptr %18, align 4, !tbaa !16
+  %.pre80 = load float, ptr %19, align 4, !tbaa !16
   br label %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit
 
 55:                                               ; preds = %27
@@ -7332,8 +7332,8 @@ define internal noundef float @_ZN12_GLOBAL__N_115anharm_polarizeIL18BondedKerne
   br label %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit
 
 _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit: ; preds = %53, %55
-  %69 = phi float [ %.pre81, %53 ], [ %68, %55 ]
-  %70 = phi float [ %.pre80, %53 ], [ %63, %55 ]
+  %69 = phi float [ %.pre80, %53 ], [ %68, %55 ]
+  %70 = phi float [ %.pre79, %53 ], [ %63, %55 ]
   %71 = phi float [ %.pre, %53 ], [ %58, %55 ]
   %72 = fmul float %70, %70
   %73 = call float @llvm.fmuladd.f32(float %71, float %71, float %72)
@@ -7639,8 +7639,8 @@ define internal noundef float @_ZN12_GLOBAL__N_15bondsIL18BondedKernelFlavor1EEE
 34:                                               ; preds = %23
   %35 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %6, ptr noundef %31, ptr noundef %33, ptr noundef nonnull %15)
   %.pre = load float, ptr %15, align 4, !tbaa !16
-  %.pre49 = load float, ptr %16, align 4, !tbaa !16
-  %.pre50 = load float, ptr %17, align 4, !tbaa !16
+  %.pre46 = load float, ptr %16, align 4, !tbaa !16
+  %.pre47 = load float, ptr %17, align 4, !tbaa !16
   br label %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit
 
 36:                                               ; preds = %23
@@ -7663,8 +7663,8 @@ define internal noundef float @_ZN12_GLOBAL__N_15bondsIL18BondedKernelFlavor1EEE
   br label %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit
 
 _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit: ; preds = %34, %36
-  %50 = phi float [ %.pre50, %34 ], [ %49, %36 ]
-  %51 = phi float [ %.pre49, %34 ], [ %44, %36 ]
+  %50 = phi float [ %.pre47, %34 ], [ %49, %36 ]
+  %51 = phi float [ %.pre46, %34 ], [ %44, %36 ]
   %52 = phi float [ %.pre, %34 ], [ %39, %36 ]
   %53 = fmul float %51, %51
   %54 = call float @llvm.fmuladd.f32(float %52, float %52, float %53)
@@ -8609,8 +8609,8 @@ define internal noundef float @_ZN12_GLOBAL__N_115restraint_bondsIL18BondedKerne
 34:                                               ; preds = %23
   %35 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %6, ptr noundef %31, ptr noundef %33, ptr noundef nonnull %15)
   %.pre = load float, ptr %15, align 4, !tbaa !16
-  %.pre144 = load float, ptr %17, align 4, !tbaa !16
-  %.pre145 = load float, ptr %18, align 4, !tbaa !16
+  %.pre143 = load float, ptr %17, align 4, !tbaa !16
+  %.pre144 = load float, ptr %18, align 4, !tbaa !16
   br label %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit
 
 36:                                               ; preds = %23
@@ -8633,8 +8633,8 @@ define internal noundef float @_ZN12_GLOBAL__N_115restraint_bondsIL18BondedKerne
   br label %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit
 
 _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit: ; preds = %34, %36
-  %50 = phi float [ %.pre145, %34 ], [ %49, %36 ]
-  %51 = phi float [ %.pre144, %34 ], [ %44, %36 ]
+  %50 = phi float [ %.pre144, %34 ], [ %49, %36 ]
+  %51 = phi float [ %.pre143, %34 ], [ %44, %36 ]
   %52 = phi float [ %.pre, %34 ], [ %39, %36 ]
   %53 = fmul float %51, %51
   %54 = call float @llvm.fmuladd.f32(float %52, float %52, float %53)
@@ -11549,8 +11549,8 @@ define internal noundef float @_ZN12_GLOBAL__N_18polarizeIL18BondedKernelFlavor1
 49:                                               ; preds = %27
   %50 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %6, ptr noundef %47, ptr noundef %48, ptr noundef nonnull %15)
   %.pre = load float, ptr %15, align 4, !tbaa !16
-  %.pre46 = load float, ptr %18, align 4, !tbaa !16
-  %.pre47 = load float, ptr %19, align 4, !tbaa !16
+  %.pre43 = load float, ptr %18, align 4, !tbaa !16
+  %.pre44 = load float, ptr %19, align 4, !tbaa !16
   br label %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit
 
 51:                                               ; preds = %27
@@ -11573,8 +11573,8 @@ define internal noundef float @_ZN12_GLOBAL__N_18polarizeIL18BondedKernelFlavor1
   br label %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit
 
 _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit: ; preds = %49, %51
-  %65 = phi float [ %.pre47, %49 ], [ %64, %51 ]
-  %66 = phi float [ %.pre46, %49 ], [ %59, %51 ]
+  %65 = phi float [ %.pre44, %49 ], [ %64, %51 ]
+  %66 = phi float [ %.pre43, %49 ], [ %59, %51 ]
   %67 = phi float [ %.pre, %49 ], [ %54, %51 ]
   %68 = fmul float %66, %66
   %69 = call float @llvm.fmuladd.f32(float %67, float %67, float %68)
@@ -12123,8 +12123,8 @@ define internal noundef float @_ZN12_GLOBAL__N_115anharm_polarizeIL18BondedKerne
 53:                                               ; preds = %27
   %54 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %6, ptr noundef %51, ptr noundef %52, ptr noundef nonnull %15)
   %.pre = load float, ptr %15, align 4, !tbaa !16
-  %.pre80 = load float, ptr %18, align 4, !tbaa !16
-  %.pre81 = load float, ptr %19, align 4, !tbaa !16
+  %.pre79 = load float, ptr %18, align 4, !tbaa !16
+  %.pre80 = load float, ptr %19, align 4, !tbaa !16
   br label %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit
 
 55:                                               ; preds = %27
@@ -12147,8 +12147,8 @@ define internal noundef float @_ZN12_GLOBAL__N_115anharm_polarizeIL18BondedKerne
   br label %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit
 
 _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit: ; preds = %53, %55
-  %69 = phi float [ %.pre81, %53 ], [ %68, %55 ]
-  %70 = phi float [ %.pre80, %53 ], [ %63, %55 ]
+  %69 = phi float [ %.pre80, %53 ], [ %68, %55 ]
+  %70 = phi float [ %.pre79, %53 ], [ %63, %55 ]
   %71 = phi float [ %.pre, %53 ], [ %58, %55 ]
   %72 = fmul float %70, %70
   %73 = call float @llvm.fmuladd.f32(float %71, float %71, float %72)
@@ -12452,8 +12452,8 @@ define internal noundef float @_ZN12_GLOBAL__N_15bondsIL18BondedKernelFlavor2EEE
   %36 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %6, ptr noundef %32, ptr noundef %34, ptr noundef nonnull %15)
   %37 = sext i32 %36 to i64
   %.pre = load float, ptr %15, align 4, !tbaa !16
-  %.pre49 = load float, ptr %16, align 4, !tbaa !16
-  %.pre50 = load float, ptr %17, align 4, !tbaa !16
+  %.pre46 = load float, ptr %16, align 4, !tbaa !16
+  %.pre47 = load float, ptr %17, align 4, !tbaa !16
   br label %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit
 
 38:                                               ; preds = %24
@@ -12476,8 +12476,8 @@ define internal noundef float @_ZN12_GLOBAL__N_15bondsIL18BondedKernelFlavor2EEE
   br label %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit
 
 _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit: ; preds = %35, %38
-  %52 = phi float [ %.pre50, %35 ], [ %51, %38 ]
-  %53 = phi float [ %.pre49, %35 ], [ %46, %38 ]
+  %52 = phi float [ %.pre47, %35 ], [ %51, %38 ]
+  %53 = phi float [ %.pre46, %35 ], [ %46, %38 ]
   %54 = phi float [ %.pre, %35 ], [ %41, %38 ]
   %.0.i = phi i64 [ %37, %35 ], [ 22, %38 ]
   %55 = fmul float %53, %53
@@ -13498,8 +13498,8 @@ define internal noundef float @_ZN12_GLOBAL__N_115restraint_bondsIL18BondedKerne
   %36 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %6, ptr noundef %32, ptr noundef %34, ptr noundef nonnull %15)
   %37 = sext i32 %36 to i64
   %.pre = load float, ptr %15, align 4, !tbaa !16
-  %.pre144 = load float, ptr %17, align 4, !tbaa !16
-  %.pre145 = load float, ptr %18, align 4, !tbaa !16
+  %.pre143 = load float, ptr %17, align 4, !tbaa !16
+  %.pre144 = load float, ptr %18, align 4, !tbaa !16
   br label %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit
 
 38:                                               ; preds = %24
@@ -13522,8 +13522,8 @@ define internal noundef float @_ZN12_GLOBAL__N_115restraint_bondsIL18BondedKerne
   br label %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit
 
 _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit: ; preds = %35, %38
-  %52 = phi float [ %.pre145, %35 ], [ %51, %38 ]
-  %53 = phi float [ %.pre144, %35 ], [ %46, %38 ]
+  %52 = phi float [ %.pre144, %35 ], [ %51, %38 ]
+  %53 = phi float [ %.pre143, %35 ], [ %46, %38 ]
   %54 = phi float [ %.pre, %35 ], [ %41, %38 ]
   %.0.i = phi i64 [ %37, %35 ], [ 22, %38 ]
   %55 = fmul float %53, %53
@@ -17208,8 +17208,8 @@ define internal noundef float @_ZN12_GLOBAL__N_18polarizeIL18BondedKernelFlavor2
   %51 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %6, ptr noundef %48, ptr noundef %49, ptr noundef nonnull %15)
   %52 = sext i32 %51 to i64
   %.pre = load float, ptr %15, align 4, !tbaa !16
-  %.pre46 = load float, ptr %18, align 4, !tbaa !16
-  %.pre47 = load float, ptr %19, align 4, !tbaa !16
+  %.pre43 = load float, ptr %18, align 4, !tbaa !16
+  %.pre44 = load float, ptr %19, align 4, !tbaa !16
   br label %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit
 
 53:                                               ; preds = %28
@@ -17232,8 +17232,8 @@ define internal noundef float @_ZN12_GLOBAL__N_18polarizeIL18BondedKernelFlavor2
   br label %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit
 
 _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit: ; preds = %50, %53
-  %67 = phi float [ %.pre47, %50 ], [ %66, %53 ]
-  %68 = phi float [ %.pre46, %50 ], [ %61, %53 ]
+  %67 = phi float [ %.pre44, %50 ], [ %66, %53 ]
+  %68 = phi float [ %.pre43, %50 ], [ %61, %53 ]
   %69 = phi float [ %.pre, %50 ], [ %56, %53 ]
   %.0.i = phi i64 [ %52, %50 ], [ 22, %53 ]
   %70 = fmul float %68, %68
@@ -17804,8 +17804,8 @@ define internal noundef float @_ZN12_GLOBAL__N_115anharm_polarizeIL18BondedKerne
   %55 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %6, ptr noundef %52, ptr noundef %53, ptr noundef nonnull %15)
   %56 = sext i32 %55 to i64
   %.pre = load float, ptr %15, align 4, !tbaa !16
-  %.pre80 = load float, ptr %18, align 4, !tbaa !16
-  %.pre81 = load float, ptr %19, align 4, !tbaa !16
+  %.pre79 = load float, ptr %18, align 4, !tbaa !16
+  %.pre80 = load float, ptr %19, align 4, !tbaa !16
   br label %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit
 
 57:                                               ; preds = %28
@@ -17828,8 +17828,8 @@ define internal noundef float @_ZN12_GLOBAL__N_115anharm_polarizeIL18BondedKerne
   br label %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit
 
 _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit: ; preds = %54, %57
-  %71 = phi float [ %.pre81, %54 ], [ %70, %57 ]
-  %72 = phi float [ %.pre80, %54 ], [ %65, %57 ]
+  %71 = phi float [ %.pre80, %54 ], [ %70, %57 ]
+  %72 = phi float [ %.pre79, %54 ], [ %65, %57 ]
   %73 = phi float [ %.pre, %54 ], [ %60, %57 ]
   %.0.i = phi i64 [ %56, %54 ], [ 22, %57 ]
   %74 = fmul float %72, %72
@@ -18140,8 +18140,8 @@ define internal noundef float @_ZN12_GLOBAL__N_15bondsIL18BondedKernelFlavor3EEE
 34:                                               ; preds = %23
   %35 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %6, ptr noundef %31, ptr noundef %33, ptr noundef nonnull %15)
   %.pre = load float, ptr %15, align 4, !tbaa !16
-  %.pre49 = load float, ptr %16, align 4, !tbaa !16
-  %.pre50 = load float, ptr %17, align 4, !tbaa !16
+  %.pre46 = load float, ptr %16, align 4, !tbaa !16
+  %.pre47 = load float, ptr %17, align 4, !tbaa !16
   br label %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit
 
 36:                                               ; preds = %23
@@ -18164,8 +18164,8 @@ define internal noundef float @_ZN12_GLOBAL__N_15bondsIL18BondedKernelFlavor3EEE
   br label %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit
 
 _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit: ; preds = %34, %36
-  %50 = phi float [ %.pre50, %34 ], [ %49, %36 ]
-  %51 = phi float [ %.pre49, %34 ], [ %44, %36 ]
+  %50 = phi float [ %.pre47, %34 ], [ %49, %36 ]
+  %51 = phi float [ %.pre46, %34 ], [ %44, %36 ]
   %52 = phi float [ %.pre, %34 ], [ %39, %36 ]
   %53 = fmul float %51, %51
   %54 = call float @llvm.fmuladd.f32(float %52, float %52, float %53)
@@ -19110,8 +19110,8 @@ define internal noundef float @_ZN12_GLOBAL__N_115restraint_bondsIL18BondedKerne
 34:                                               ; preds = %23
   %35 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %6, ptr noundef %31, ptr noundef %33, ptr noundef nonnull %15)
   %.pre = load float, ptr %15, align 4, !tbaa !16
-  %.pre144 = load float, ptr %17, align 4, !tbaa !16
-  %.pre145 = load float, ptr %18, align 4, !tbaa !16
+  %.pre143 = load float, ptr %17, align 4, !tbaa !16
+  %.pre144 = load float, ptr %18, align 4, !tbaa !16
   br label %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit
 
 36:                                               ; preds = %23
@@ -19134,8 +19134,8 @@ define internal noundef float @_ZN12_GLOBAL__N_115restraint_bondsIL18BondedKerne
   br label %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit
 
 _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit: ; preds = %34, %36
-  %50 = phi float [ %.pre145, %34 ], [ %49, %36 ]
-  %51 = phi float [ %.pre144, %34 ], [ %44, %36 ]
+  %50 = phi float [ %.pre144, %34 ], [ %49, %36 ]
+  %51 = phi float [ %.pre143, %34 ], [ %44, %36 ]
   %52 = phi float [ %.pre, %34 ], [ %39, %36 ]
   %53 = fmul float %51, %51
   %54 = call float @llvm.fmuladd.f32(float %52, float %52, float %53)
@@ -22068,8 +22068,8 @@ define internal noundef float @_ZN12_GLOBAL__N_18polarizeIL18BondedKernelFlavor3
 49:                                               ; preds = %27
   %50 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %6, ptr noundef %47, ptr noundef %48, ptr noundef nonnull %15)
   %.pre = load float, ptr %15, align 4, !tbaa !16
-  %.pre46 = load float, ptr %18, align 4, !tbaa !16
-  %.pre47 = load float, ptr %19, align 4, !tbaa !16
+  %.pre43 = load float, ptr %18, align 4, !tbaa !16
+  %.pre44 = load float, ptr %19, align 4, !tbaa !16
   br label %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit
 
 51:                                               ; preds = %27
@@ -22092,8 +22092,8 @@ define internal noundef float @_ZN12_GLOBAL__N_18polarizeIL18BondedKernelFlavor3
   br label %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit
 
 _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit: ; preds = %49, %51
-  %65 = phi float [ %.pre47, %49 ], [ %64, %51 ]
-  %66 = phi float [ %.pre46, %49 ], [ %59, %51 ]
+  %65 = phi float [ %.pre44, %49 ], [ %64, %51 ]
+  %66 = phi float [ %.pre43, %49 ], [ %59, %51 ]
   %67 = phi float [ %.pre, %49 ], [ %54, %51 ]
   %68 = fmul float %66, %66
   %69 = call float @llvm.fmuladd.f32(float %67, float %67, float %68)
@@ -22642,8 +22642,8 @@ define internal noundef float @_ZN12_GLOBAL__N_115anharm_polarizeIL18BondedKerne
 53:                                               ; preds = %27
   %54 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %6, ptr noundef %51, ptr noundef %52, ptr noundef nonnull %15)
   %.pre = load float, ptr %15, align 4, !tbaa !16
-  %.pre80 = load float, ptr %18, align 4, !tbaa !16
-  %.pre81 = load float, ptr %19, align 4, !tbaa !16
+  %.pre79 = load float, ptr %18, align 4, !tbaa !16
+  %.pre80 = load float, ptr %19, align 4, !tbaa !16
   br label %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit
 
 55:                                               ; preds = %27
@@ -22666,8 +22666,8 @@ define internal noundef float @_ZN12_GLOBAL__N_115anharm_polarizeIL18BondedKerne
   br label %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit
 
 _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit: ; preds = %53, %55
-  %69 = phi float [ %.pre81, %53 ], [ %68, %55 ]
-  %70 = phi float [ %.pre80, %53 ], [ %63, %55 ]
+  %69 = phi float [ %.pre80, %53 ], [ %68, %55 ]
+  %70 = phi float [ %.pre79, %53 ], [ %63, %55 ]
   %71 = phi float [ %.pre, %53 ], [ %58, %55 ]
   %72 = fmul float %70, %70
   %73 = call float @llvm.fmuladd.f32(float %71, float %71, float %72)

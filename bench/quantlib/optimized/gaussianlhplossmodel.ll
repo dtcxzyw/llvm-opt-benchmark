@@ -3673,8 +3673,7 @@ _ZN5boost10shared_ptrIN8QuantLib11SimpleQuoteEED2Ev.exit: ; preds = %_ZN5boost10
   %call17 = call double @sqrt(double noundef %27) #29, !tbaa !46
   store double %call17, ptr %beta_, align 8, !tbaa !83
   %biphi_ = getelementptr inbounds nuw i8, ptr %this, i64 224
-  %call18 = call double @sqrt(double noundef %27) #29, !tbaa !46
-  %fneg = fneg double %call18
+  %fneg = fneg double %call17
   invoke void @_ZN8QuantLib43BivariateCumulativeNormalDistributionWe04DPC1Ed(ptr noundef nonnull align 8 dereferenceable(72) %biphi_, double noundef %fneg)
           to label %invoke.cont20 unwind label %lpad19
 
@@ -4399,8 +4398,7 @@ _ZN5boost10shared_ptrIN8QuantLib11SimpleQuoteEED2Ev.exit: ; preds = %_ZN5boost10
   %call15 = call double @sqrt(double noundef %24) #29, !tbaa !46
   store double %call15, ptr %beta_, align 8, !tbaa !83
   %biphi_ = getelementptr inbounds nuw i8, ptr %this, i64 224
-  %call16 = call double @sqrt(double noundef %24) #29, !tbaa !46
-  %fneg = fneg double %call16
+  %fneg = fneg double %call15
   invoke void @_ZN8QuantLib43BivariateCumulativeNormalDistributionWe04DPC1Ed(ptr noundef nonnull align 8 dereferenceable(72) %biphi_, double noundef %fneg)
           to label %invoke.cont18 unwind label %lpad17
 

@@ -10731,7 +10731,7 @@ define linkonce_odr noundef double @_ZN7xgboost6common7AFTLossINS0_18NormalDistr
   %5 = tail call double @log(double noundef %0) #21, !tbaa !134
   %6 = tail call double @log(double noundef %1) #21, !tbaa !134
   %7 = fcmp oeq double %0, %1
-  br i1 %7, label %8, label %20
+  br i1 %7, label %8, label %18
 
 8:                                                ; preds = %4
   %9 = fsub double %5, %2
@@ -10741,111 +10741,109 @@ define linkonce_odr noundef double @_ZN7xgboost6common7AFTLossINS0_18NormalDistr
   %13 = fmul double %12, 5.000000e-01
   %14 = tail call double @exp(double noundef %13) #21, !tbaa !134
   %15 = fdiv double %14, 0x40040D931FF62705
-  %16 = tail call double @exp(double noundef %13) #21, !tbaa !134
-  %17 = fdiv double %16, 0x40040D931FF62705
-  %18 = fmul double %17, %11
-  %19 = fcmp ogt double %10, 0.000000e+00
-  br label %55
+  %16 = fmul double %15, %11
+  %17 = fcmp ogt double %10, 0.000000e+00
+  br label %53
 
-20:                                               ; preds = %4
-  %21 = tail call double @llvm.fabs.f64(double %1)
-  %22 = fcmp oeq double %21, 0x7FF0000000000000
-  br i1 %22, label %36, label %23
+18:                                               ; preds = %4
+  %19 = tail call double @llvm.fabs.f64(double %1)
+  %20 = fcmp oeq double %19, 0x7FF0000000000000
+  br i1 %20, label %34, label %21
 
-23:                                               ; preds = %20
-  %24 = fsub double %6, %2
-  %25 = fdiv double %24, %3
-  %26 = fneg double %25
-  %27 = fmul double %25, %26
-  %28 = fmul double %27, 5.000000e-01
-  %29 = tail call double @exp(double noundef %28) #21, !tbaa !134
-  %30 = fdiv double %29, 0x40040D931FF62705
-  %31 = fdiv double %25, 0x3FF6A09E667F3BCD
-  %32 = tail call double @erf(double noundef %31) #21, !tbaa !134
-  %33 = fadd double %32, 1.000000e+00
-  %34 = fmul double %33, 5.000000e-01
-  %35 = fcmp ogt double %25, 0.000000e+00
-  br label %36
+21:                                               ; preds = %18
+  %22 = fsub double %6, %2
+  %23 = fdiv double %22, %3
+  %24 = fneg double %23
+  %25 = fmul double %23, %24
+  %26 = fmul double %25, 5.000000e-01
+  %27 = tail call double @exp(double noundef %26) #21, !tbaa !134
+  %28 = fdiv double %27, 0x40040D931FF62705
+  %29 = fdiv double %23, 0x3FF6A09E667F3BCD
+  %30 = tail call double @erf(double noundef %29) #21, !tbaa !134
+  %31 = fadd double %30, 1.000000e+00
+  %32 = fmul double %31, 5.000000e-01
+  %33 = fcmp ogt double %23, 0.000000e+00
+  br label %34
 
-36:                                               ; preds = %20, %23
-  %.1 = phi i8 [ 3, %23 ], [ 1, %20 ]
-  %.044 = phi i1 [ %35, %23 ], [ false, %20 ]
-  %.042 = phi double [ %30, %23 ], [ 0.000000e+00, %20 ]
-  %.040 = phi double [ %34, %23 ], [ 1.000000e+00, %20 ]
-  %37 = fcmp ugt double %0, 0.000000e+00
-  br i1 %37, label %38, label %51
+34:                                               ; preds = %18, %21
+  %.1 = phi i8 [ 3, %21 ], [ 1, %18 ]
+  %.044 = phi i1 [ %33, %21 ], [ false, %18 ]
+  %.042 = phi double [ %28, %21 ], [ 0.000000e+00, %18 ]
+  %.040 = phi double [ %32, %21 ], [ 1.000000e+00, %18 ]
+  %35 = fcmp ugt double %0, 0.000000e+00
+  br i1 %35, label %36, label %49
 
-38:                                               ; preds = %36
-  %39 = fsub double %5, %2
-  %40 = fdiv double %39, %3
-  %41 = fneg double %40
-  %42 = fmul double %40, %41
-  %43 = fmul double %42, 5.000000e-01
-  %44 = tail call double @exp(double noundef %43) #21, !tbaa !134
-  %45 = fdiv double %44, 0x40040D931FF62705
-  %46 = fdiv double %40, 0x3FF6A09E667F3BCD
-  %47 = tail call double @erf(double noundef %46) #21, !tbaa !134
-  %48 = fadd double %47, 1.000000e+00
-  %49 = fmul double %48, 5.000000e-01
-  %50 = fcmp ogt double %40, 0.000000e+00
-  br label %51
+36:                                               ; preds = %34
+  %37 = fsub double %5, %2
+  %38 = fdiv double %37, %3
+  %39 = fneg double %38
+  %40 = fmul double %38, %39
+  %41 = fmul double %40, 5.000000e-01
+  %42 = tail call double @exp(double noundef %41) #21, !tbaa !134
+  %43 = fdiv double %42, 0x40040D931FF62705
+  %44 = fdiv double %38, 0x3FF6A09E667F3BCD
+  %45 = tail call double @erf(double noundef %44) #21, !tbaa !134
+  %46 = fadd double %45, 1.000000e+00
+  %47 = fmul double %46, 5.000000e-01
+  %48 = fcmp ogt double %38, 0.000000e+00
+  br label %49
 
-51:                                               ; preds = %36, %38
-  %.2 = phi i8 [ %.1, %38 ], [ 2, %36 ]
-  %.043 = phi i1 [ %50, %38 ], [ false, %36 ]
-  %.041 = phi double [ %45, %38 ], [ 0.000000e+00, %36 ]
-  %.0 = phi double [ %49, %38 ], [ 0.000000e+00, %36 ]
-  %52 = or i1 %.044, %.043
-  %53 = fsub double %.042, %.041
-  %54 = fsub double %.040, %.0
-  br label %55
+49:                                               ; preds = %34, %36
+  %.2 = phi i8 [ %.1, %36 ], [ 2, %34 ]
+  %.043 = phi i1 [ %48, %36 ], [ false, %34 ]
+  %.041 = phi double [ %43, %36 ], [ 0.000000e+00, %34 ]
+  %.0 = phi double [ %47, %36 ], [ 0.000000e+00, %34 ]
+  %50 = or i1 %.044, %.043
+  %51 = fsub double %.042, %.041
+  %52 = fsub double %.040, %.0
+  br label %53
 
-55:                                               ; preds = %51, %8
-  %.049 = phi i8 [ 0, %8 ], [ %.2, %51 ]
-  %.048.in = phi i1 [ %19, %8 ], [ %52, %51 ]
-  %.pn = phi double [ %15, %8 ], [ %54, %51 ]
-  %.045 = phi double [ %18, %8 ], [ %53, %51 ]
+53:                                               ; preds = %49, %8
+  %.049 = phi i8 [ 0, %8 ], [ %.2, %49 ]
+  %.048.in = phi i1 [ %17, %8 ], [ %50, %49 ]
+  %.pn = phi double [ %15, %8 ], [ %52, %49 ]
+  %.045 = phi double [ %16, %8 ], [ %51, %49 ]
   %.046 = fmul double %3, %.pn
-  %56 = fdiv double %.045, %.046
-  %57 = fcmp olt double %.046, 0x3D719799812DEA11
-  %58 = tail call double @llvm.fabs.f64(double %56)
-  %or.cond = fcmp ueq double %58, 0x7FF0000000000000
-  %or.cond54 = select i1 %57, i1 %or.cond, i1 false
-  br i1 %or.cond54, label %59, label %_ZN7xgboost6common3aft21GetLimitGradAtInfPredINS0_18NormalDistributionEEEdNS0_13CensoringTypeEbd.exit
+  %54 = fdiv double %.045, %.046
+  %55 = fcmp olt double %.046, 0x3D719799812DEA11
+  %56 = tail call double @llvm.fabs.f64(double %54)
+  %or.cond = fcmp ueq double %56, 0x7FF0000000000000
+  %or.cond54 = select i1 %55, i1 %or.cond, i1 false
+  br i1 %or.cond54, label %57, label %_ZN7xgboost6common3aft21GetLimitGradAtInfPredINS0_18NormalDistributionEEEdNS0_13CensoringTypeEbd.exit
 
-59:                                               ; preds = %55
+57:                                               ; preds = %53
   switch i8 %.049, label %default.unreachable55 [
-    i8 0, label %60
-    i8 1, label %62
-    i8 2, label %64
-    i8 3, label %66
+    i8 0, label %58
+    i8 1, label %60
+    i8 2, label %62
+    i8 3, label %64
   ]
 
-60:                                               ; preds = %59
-  %61 = select i1 %.048.in, double -1.500000e+01, double 1.500000e+01
+58:                                               ; preds = %57
+  %59 = select i1 %.048.in, double -1.500000e+01, double 1.500000e+01
   br label %_ZN7xgboost6common3aft21GetLimitGradAtInfPredINS0_18NormalDistributionEEEdNS0_13CensoringTypeEbd.exit
 
-62:                                               ; preds = %59
-  %63 = select i1 %.048.in, double -1.500000e+01, double 0.000000e+00
+60:                                               ; preds = %57
+  %61 = select i1 %.048.in, double -1.500000e+01, double 0.000000e+00
   br label %_ZN7xgboost6common3aft21GetLimitGradAtInfPredINS0_18NormalDistributionEEEdNS0_13CensoringTypeEbd.exit
 
-64:                                               ; preds = %59
-  %65 = select i1 %.048.in, double 0.000000e+00, double 1.500000e+01
+62:                                               ; preds = %57
+  %63 = select i1 %.048.in, double 0.000000e+00, double 1.500000e+01
   br label %_ZN7xgboost6common3aft21GetLimitGradAtInfPredINS0_18NormalDistributionEEEdNS0_13CensoringTypeEbd.exit
 
-66:                                               ; preds = %59
-  %67 = select i1 %.048.in, double -1.500000e+01, double 1.500000e+01
+64:                                               ; preds = %57
+  %65 = select i1 %.048.in, double -1.500000e+01, double 1.500000e+01
   br label %_ZN7xgboost6common3aft21GetLimitGradAtInfPredINS0_18NormalDistributionEEEdNS0_13CensoringTypeEbd.exit
 
-default.unreachable55:                            ; preds = %59
+default.unreachable55:                            ; preds = %57
   unreachable
 
-_ZN7xgboost6common3aft21GetLimitGradAtInfPredINS0_18NormalDistributionEEEdNS0_13CensoringTypeEbd.exit: ; preds = %66, %64, %62, %60, %55
-  %.047 = phi double [ %56, %55 ], [ %61, %60 ], [ %63, %62 ], [ %65, %64 ], [ %67, %66 ]
-  %68 = fcmp olt double %.047, -1.500000e+01
-  %69 = fcmp ogt double %.047, 1.500000e+01
-  %..i = select i1 %69, double 1.500000e+01, double %.047
-  %.0.i52 = select i1 %68, double -1.500000e+01, double %..i
+_ZN7xgboost6common3aft21GetLimitGradAtInfPredINS0_18NormalDistributionEEEdNS0_13CensoringTypeEbd.exit: ; preds = %64, %62, %60, %58, %53
+  %.047 = phi double [ %54, %53 ], [ %59, %58 ], [ %61, %60 ], [ %63, %62 ], [ %65, %64 ]
+  %66 = fcmp olt double %.047, -1.500000e+01
+  %67 = fcmp ogt double %.047, 1.500000e+01
+  %..i = select i1 %67, double 1.500000e+01, double %.047
+  %.0.i52 = select i1 %66, double -1.500000e+01, double %..i
   ret double %.0.i52
 }
 
@@ -10854,7 +10852,7 @@ define linkonce_odr noundef double @_ZN7xgboost6common7AFTLossINS0_18NormalDistr
   %5 = tail call double @log(double noundef %0) #21, !tbaa !134
   %6 = tail call double @log(double noundef %1) #21, !tbaa !134
   %7 = fcmp oeq double %0, %1
-  br i1 %7, label %8, label %31
+  br i1 %7, label %8, label %27
 
 8:                                                ; preds = %4
   %9 = fsub double %5, %2
@@ -10864,130 +10862,126 @@ define linkonce_odr noundef double @_ZN7xgboost6common7AFTLossINS0_18NormalDistr
   %13 = fmul double %12, 5.000000e-01
   %14 = tail call double @exp(double noundef %13) #21, !tbaa !134
   %15 = fdiv double %14, 0x40040D931FF62705
-  %16 = tail call double @exp(double noundef %13) #21, !tbaa !134
-  %17 = fdiv double %16, 0x40040D931FF62705
-  %18 = fmul double %17, %11
-  %19 = tail call double @llvm.fmuladd.f64(double %10, double %10, double -1.000000e+00)
-  %20 = tail call double @exp(double noundef %13) #21, !tbaa !134
-  %21 = fdiv double %20, 0x40040D931FF62705
-  %22 = fmul double %19, %21
-  %23 = fneg double %18
-  %24 = fmul double %18, %23
-  %25 = tail call double @llvm.fmuladd.f64(double %15, double %22, double %24)
-  %26 = fneg double %25
-  %27 = fmul double %3, %3
-  %28 = fmul double %27, %15
-  %29 = fmul double %15, %28
-  %30 = fcmp ogt double %10, 0.000000e+00
-  br label %79
+  %16 = fmul double %15, %11
+  %17 = tail call double @llvm.fmuladd.f64(double %10, double %10, double -1.000000e+00)
+  %18 = fmul double %17, %15
+  %19 = fneg double %16
+  %20 = fmul double %16, %19
+  %21 = tail call double @llvm.fmuladd.f64(double %15, double %18, double %20)
+  %22 = fneg double %21
+  %23 = fmul double %3, %3
+  %24 = fmul double %23, %15
+  %25 = fmul double %15, %24
+  %26 = fcmp ogt double %10, 0.000000e+00
+  br label %75
 
-31:                                               ; preds = %4
-  %32 = tail call double @llvm.fabs.f64(double %1)
-  %33 = fcmp oeq double %32, 0x7FF0000000000000
-  br i1 %33, label %50, label %34
+27:                                               ; preds = %4
+  %28 = tail call double @llvm.fabs.f64(double %1)
+  %29 = fcmp oeq double %28, 0x7FF0000000000000
+  br i1 %29, label %46, label %30
 
-34:                                               ; preds = %31
-  %35 = fsub double %6, %2
-  %36 = fdiv double %35, %3
-  %37 = fneg double %36
-  %38 = fmul double %36, %37
-  %39 = fmul double %38, 5.000000e-01
-  %40 = tail call double @exp(double noundef %39) #21, !tbaa !134
-  %41 = fdiv double %40, 0x40040D931FF62705
-  %42 = fdiv double %36, 0x3FF6A09E667F3BCD
-  %43 = tail call double @erf(double noundef %42) #21, !tbaa !134
-  %44 = fadd double %43, 1.000000e+00
-  %45 = fmul double %44, 5.000000e-01
-  %46 = tail call double @exp(double noundef %39) #21, !tbaa !134
-  %47 = fdiv double %46, 0x40040D931FF62705
-  %48 = fmul double %47, %37
-  %49 = fcmp ogt double %36, 0.000000e+00
-  br label %50
+30:                                               ; preds = %27
+  %31 = fsub double %6, %2
+  %32 = fdiv double %31, %3
+  %33 = fneg double %32
+  %34 = fmul double %32, %33
+  %35 = fmul double %34, 5.000000e-01
+  %36 = tail call double @exp(double noundef %35) #21, !tbaa !134
+  %37 = fdiv double %36, 0x40040D931FF62705
+  %38 = fdiv double %32, 0x3FF6A09E667F3BCD
+  %39 = tail call double @erf(double noundef %38) #21, !tbaa !134
+  %40 = fadd double %39, 1.000000e+00
+  %41 = fmul double %40, 5.000000e-01
+  %42 = tail call double @exp(double noundef %35) #21, !tbaa !134
+  %43 = fdiv double %42, 0x40040D931FF62705
+  %44 = fmul double %43, %33
+  %45 = fcmp ogt double %32, 0.000000e+00
+  br label %46
 
-50:                                               ; preds = %31, %34
-  %.067 = phi i1 [ %49, %34 ], [ false, %31 ]
-  %.065 = phi double [ %48, %34 ], [ 0.000000e+00, %31 ]
-  %.063 = phi double [ %41, %34 ], [ 0.000000e+00, %31 ]
-  %.061 = phi double [ %45, %34 ], [ 1.000000e+00, %31 ]
-  %.1 = phi i8 [ 3, %34 ], [ 1, %31 ]
-  %51 = fcmp ugt double %0, 0.000000e+00
-  br i1 %51, label %52, label %68
+46:                                               ; preds = %27, %30
+  %.067 = phi i1 [ %45, %30 ], [ false, %27 ]
+  %.065 = phi double [ %44, %30 ], [ 0.000000e+00, %27 ]
+  %.063 = phi double [ %37, %30 ], [ 0.000000e+00, %27 ]
+  %.061 = phi double [ %41, %30 ], [ 1.000000e+00, %27 ]
+  %.1 = phi i8 [ 3, %30 ], [ 1, %27 ]
+  %47 = fcmp ugt double %0, 0.000000e+00
+  br i1 %47, label %48, label %64
 
-52:                                               ; preds = %50
-  %53 = fsub double %5, %2
-  %54 = fdiv double %53, %3
-  %55 = fneg double %54
-  %56 = fmul double %54, %55
-  %57 = fmul double %56, 5.000000e-01
-  %58 = tail call double @exp(double noundef %57) #21, !tbaa !134
-  %59 = fdiv double %58, 0x40040D931FF62705
-  %60 = fdiv double %54, 0x3FF6A09E667F3BCD
-  %61 = tail call double @erf(double noundef %60) #21, !tbaa !134
-  %62 = fadd double %61, 1.000000e+00
-  %63 = fmul double %62, 5.000000e-01
-  %64 = tail call double @exp(double noundef %57) #21, !tbaa !134
-  %65 = fdiv double %64, 0x40040D931FF62705
-  %66 = fmul double %65, %55
-  %67 = fcmp ogt double %54, 0.000000e+00
-  br label %68
+48:                                               ; preds = %46
+  %49 = fsub double %5, %2
+  %50 = fdiv double %49, %3
+  %51 = fneg double %50
+  %52 = fmul double %50, %51
+  %53 = fmul double %52, 5.000000e-01
+  %54 = tail call double @exp(double noundef %53) #21, !tbaa !134
+  %55 = fdiv double %54, 0x40040D931FF62705
+  %56 = fdiv double %50, 0x3FF6A09E667F3BCD
+  %57 = tail call double @erf(double noundef %56) #21, !tbaa !134
+  %58 = fadd double %57, 1.000000e+00
+  %59 = fmul double %58, 5.000000e-01
+  %60 = tail call double @exp(double noundef %53) #21, !tbaa !134
+  %61 = fdiv double %60, 0x40040D931FF62705
+  %62 = fmul double %61, %51
+  %63 = fcmp ogt double %50, 0.000000e+00
+  br label %64
 
-68:                                               ; preds = %50, %52
-  %.066 = phi i1 [ %67, %52 ], [ false, %50 ]
-  %.064 = phi double [ %66, %52 ], [ 0.000000e+00, %50 ]
-  %.062 = phi double [ %59, %52 ], [ 0.000000e+00, %50 ]
-  %.060 = phi double [ %63, %52 ], [ 0.000000e+00, %50 ]
-  %.2 = phi i8 [ %.1, %52 ], [ 2, %50 ]
-  %69 = fsub double %.061, %.060
-  %70 = fsub double %.063, %.062
-  %71 = fsub double %.065, %.064
-  %72 = fmul double %3, %69
-  %73 = or i1 %.067, %.066
-  %74 = fneg double %70
-  %75 = fmul double %70, %74
-  %76 = tail call double @llvm.fmuladd.f64(double %69, double %71, double %75)
-  %77 = fneg double %76
-  %78 = fmul double %72, %72
-  br label %79
+64:                                               ; preds = %46, %48
+  %.066 = phi i1 [ %63, %48 ], [ false, %46 ]
+  %.064 = phi double [ %62, %48 ], [ 0.000000e+00, %46 ]
+  %.062 = phi double [ %55, %48 ], [ 0.000000e+00, %46 ]
+  %.060 = phi double [ %59, %48 ], [ 0.000000e+00, %46 ]
+  %.2 = phi i8 [ %.1, %48 ], [ 2, %46 ]
+  %65 = fsub double %.061, %.060
+  %66 = fsub double %.063, %.062
+  %67 = fsub double %.065, %.064
+  %68 = fmul double %3, %65
+  %69 = or i1 %.067, %.066
+  %70 = fneg double %66
+  %71 = fmul double %66, %70
+  %72 = tail call double @llvm.fmuladd.f64(double %65, double %67, double %71)
+  %73 = fneg double %72
+  %74 = fmul double %68, %68
+  br label %75
 
-79:                                               ; preds = %68, %8
-  %.068.in = phi i1 [ %30, %8 ], [ %73, %68 ]
-  %.059 = phi i8 [ 0, %8 ], [ %.2, %68 ]
-  %.057 = phi double [ %29, %8 ], [ %78, %68 ]
-  %.0 = phi double [ %26, %8 ], [ %77, %68 ]
-  %80 = fdiv double %.0, %.057
-  %81 = fcmp olt double %.057, 0x3D719799812DEA11
-  %82 = tail call double @llvm.fabs.f64(double %80)
-  %or.cond = fcmp ueq double %82, 0x7FF0000000000000
-  %or.cond73 = select i1 %81, i1 %or.cond, i1 false
-  br i1 %or.cond73, label %83, label %_ZN7xgboost6common3aft21GetLimitHessAtInfPredINS0_18NormalDistributionEEEdNS0_13CensoringTypeEbd.exit
+75:                                               ; preds = %64, %8
+  %.068.in = phi i1 [ %26, %8 ], [ %69, %64 ]
+  %.059 = phi i8 [ 0, %8 ], [ %.2, %64 ]
+  %.057 = phi double [ %25, %8 ], [ %74, %64 ]
+  %.0 = phi double [ %22, %8 ], [ %73, %64 ]
+  %76 = fdiv double %.0, %.057
+  %77 = fcmp olt double %.057, 0x3D719799812DEA11
+  %78 = tail call double @llvm.fabs.f64(double %76)
+  %or.cond = fcmp ueq double %78, 0x7FF0000000000000
+  %or.cond73 = select i1 %77, i1 %or.cond, i1 false
+  br i1 %or.cond73, label %79, label %_ZN7xgboost6common3aft21GetLimitHessAtInfPredINS0_18NormalDistributionEEEdNS0_13CensoringTypeEbd.exit
 
-83:                                               ; preds = %79
-  %84 = fmul double %3, %3
-  %85 = fdiv double 1.000000e+00, %84
+79:                                               ; preds = %75
+  %80 = fmul double %3, %3
+  %81 = fdiv double 1.000000e+00, %80
   switch i8 %.059, label %default.unreachable74 [
     i8 0, label %_ZN7xgboost6common3aft21GetLimitHessAtInfPredINS0_18NormalDistributionEEEdNS0_13CensoringTypeEbd.exit
-    i8 1, label %86
-    i8 2, label %88
+    i8 1, label %82
+    i8 2, label %84
     i8 3, label %_ZN7xgboost6common3aft21GetLimitHessAtInfPredINS0_18NormalDistributionEEEdNS0_13CensoringTypeEbd.exit
   ]
 
-86:                                               ; preds = %83
-  %87 = select i1 %.068.in, double %85, double 0x3C9CD2B297D889BC
+82:                                               ; preds = %79
+  %83 = select i1 %.068.in, double %81, double 0x3C9CD2B297D889BC
   br label %_ZN7xgboost6common3aft21GetLimitHessAtInfPredINS0_18NormalDistributionEEEdNS0_13CensoringTypeEbd.exit
 
-88:                                               ; preds = %83
-  %89 = select i1 %.068.in, double 0x3C9CD2B297D889BC, double %85
+84:                                               ; preds = %79
+  %85 = select i1 %.068.in, double 0x3C9CD2B297D889BC, double %81
   br label %_ZN7xgboost6common3aft21GetLimitHessAtInfPredINS0_18NormalDistributionEEEdNS0_13CensoringTypeEbd.exit
 
-default.unreachable74:                            ; preds = %83
+default.unreachable74:                            ; preds = %79
   unreachable
 
-_ZN7xgboost6common3aft21GetLimitHessAtInfPredINS0_18NormalDistributionEEEdNS0_13CensoringTypeEbd.exit: ; preds = %83, %83, %88, %86, %79
-  %.058 = phi double [ %80, %79 ], [ %87, %86 ], [ %89, %88 ], [ %85, %83 ], [ %85, %83 ]
-  %90 = fcmp olt double %.058, 0x3C9CD2B297D889BC
-  %91 = fcmp ogt double %.058, 1.500000e+01
-  %..i = select i1 %91, double 1.500000e+01, double %.058
-  %.0.i71 = select i1 %90, double 0x3C9CD2B297D889BC, double %..i
+_ZN7xgboost6common3aft21GetLimitHessAtInfPredINS0_18NormalDistributionEEEdNS0_13CensoringTypeEbd.exit: ; preds = %79, %79, %84, %82, %75
+  %.058 = phi double [ %76, %75 ], [ %83, %82 ], [ %85, %84 ], [ %81, %79 ], [ %81, %79 ]
+  %86 = fcmp olt double %.058, 0x3C9CD2B297D889BC
+  %87 = fcmp ogt double %.058, 1.500000e+01
+  %..i = select i1 %87, double 1.500000e+01, double %.058
+  %.0.i71 = select i1 %86, double 0x3C9CD2B297D889BC, double %..i
   ret double %.0.i71
 }
 
@@ -11975,201 +11969,162 @@ define linkonce_odr noundef double @_ZN7xgboost6common7AFTLossINS0_20LogisticDis
   %5 = tail call double @log(double noundef %0) #21, !tbaa !134
   %6 = tail call double @log(double noundef %1) #21, !tbaa !134
   %7 = fcmp oeq double %0, %1
-  br i1 %7, label %8, label %43
+  br i1 %7, label %8, label %25
 
 8:                                                ; preds = %4
   %9 = fsub double %5, %2
   %10 = fdiv double %9, %3
   %11 = tail call double @exp(double noundef %10) #21, !tbaa !134
-  %12 = fadd double %11, 1.000000e+00
-  %13 = tail call double @llvm.fabs.f64(double %11)
-  %14 = fcmp oeq double %13, 0x7FF0000000000000
-  br i1 %14, label %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit, label %15
+  %12 = tail call double @llvm.fabs.f64(double %11)
+  %13 = fcmp oeq double %12, 0x7FF0000000000000
+  br i1 %13, label %_ZN7xgboost6common20LogisticDistribution7GradPDFEd.exit, label %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit.i
 
-15:                                               ; preds = %8
-  %16 = fmul double %11, %11
-  %17 = tail call double @llvm.fabs.f64(double %16)
-  %18 = fcmp oeq double %17, 0x7FF0000000000000
-  br i1 %18, label %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit, label %19
-
-19:                                               ; preds = %15
-  %20 = fmul double %12, %12
-  %21 = fdiv double %11, %20
-  br label %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit
-
-_ZN7xgboost6common20LogisticDistribution3PDFEd.exit: ; preds = %8, %15, %19
-  %.0.i = phi double [ %21, %19 ], [ 0.000000e+00, %15 ], [ 0.000000e+00, %8 ]
-  %22 = tail call double @exp(double noundef %10) #21, !tbaa !134
-  %23 = tail call double @llvm.fabs.f64(double %22)
-  %24 = fcmp oeq double %23, 0x7FF0000000000000
-  br i1 %24, label %_ZN7xgboost6common20LogisticDistribution7GradPDFEd.exit, label %25
-
-25:                                               ; preds = %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit
-  %26 = tail call double @exp(double noundef %10) #21, !tbaa !134
-  %27 = fadd double %26, 1.000000e+00
-  %28 = tail call double @llvm.fabs.f64(double %26)
-  %29 = fcmp oeq double %28, 0x7FF0000000000000
-  br i1 %29, label %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit.i, label %30
-
-30:                                               ; preds = %25
-  %31 = fmul double %26, %26
-  %32 = tail call double @llvm.fabs.f64(double %31)
-  %33 = fcmp oeq double %32, 0x7FF0000000000000
-  br i1 %33, label %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit.i, label %34
-
-34:                                               ; preds = %30
-  %35 = fmul double %27, %27
-  %36 = fdiv double %26, %35
-  br label %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit.i
-
-_ZN7xgboost6common20LogisticDistribution3PDFEd.exit.i: ; preds = %34, %30, %25
-  %.0.i.i = phi double [ %36, %34 ], [ 0.000000e+00, %30 ], [ 0.000000e+00, %25 ]
-  %37 = fsub double 1.000000e+00, %22
-  %38 = fmul double %37, %.0.i.i
-  %39 = fadd double %22, 1.000000e+00
-  %40 = fdiv double %38, %39
+_ZN7xgboost6common20LogisticDistribution3PDFEd.exit.i: ; preds = %8
+  %14 = fadd double %11, 1.000000e+00
+  %15 = fmul double %11, %11
+  %16 = tail call double @llvm.fabs.f64(double %15)
+  %17 = fcmp oeq double %16, 0x7FF0000000000000
+  %18 = fmul double %14, %14
+  %19 = fdiv double %11, %18
+  %.0.i.ph = select i1 %17, double 0.000000e+00, double %19
+  %20 = fsub double 1.000000e+00, %11
+  %21 = fmul double %20, %.0.i.ph
+  %22 = fdiv double %21, %14
   br label %_ZN7xgboost6common20LogisticDistribution7GradPDFEd.exit
 
-_ZN7xgboost6common20LogisticDistribution7GradPDFEd.exit: ; preds = %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit, %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit.i
-  %41 = phi double [ %40, %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit.i ], [ 0.000000e+00, %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit ]
-  %42 = fcmp ogt double %10, 0.000000e+00
-  br label %94
+_ZN7xgboost6common20LogisticDistribution7GradPDFEd.exit: ; preds = %8, %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit.i
+  %.0.i60 = phi double [ %.0.i.ph, %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit.i ], [ 0.000000e+00, %8 ]
+  %23 = phi double [ %22, %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit.i ], [ 0.000000e+00, %8 ]
+  %24 = fcmp ogt double %10, 0.000000e+00
+  br label %68
 
-43:                                               ; preds = %4
-  %44 = tail call double @llvm.fabs.f64(double %1)
-  %45 = fcmp oeq double %44, 0x7FF0000000000000
-  br i1 %45, label %67, label %46
+25:                                               ; preds = %4
+  %26 = tail call double @llvm.fabs.f64(double %1)
+  %27 = fcmp oeq double %26, 0x7FF0000000000000
+  br i1 %27, label %45, label %28
 
-46:                                               ; preds = %43
-  %47 = fsub double %6, %2
-  %48 = fdiv double %47, %3
-  %49 = tail call double @exp(double noundef %48) #21, !tbaa !134
-  %50 = fadd double %49, 1.000000e+00
-  %51 = tail call double @llvm.fabs.f64(double %49)
-  %52 = fcmp oeq double %51, 0x7FF0000000000000
-  br i1 %52, label %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit53, label %53
+28:                                               ; preds = %25
+  %29 = fsub double %6, %2
+  %30 = fdiv double %29, %3
+  %31 = tail call double @exp(double noundef %30) #21, !tbaa !134
+  %32 = fadd double %31, 1.000000e+00
+  %33 = tail call double @llvm.fabs.f64(double %31)
+  %34 = fcmp oeq double %33, 0x7FF0000000000000
+  br i1 %34, label %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit53, label %35
 
-53:                                               ; preds = %46
-  %54 = fmul double %49, %49
-  %55 = tail call double @llvm.fabs.f64(double %54)
-  %56 = fcmp oeq double %55, 0x7FF0000000000000
-  br i1 %56, label %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit53, label %57
+35:                                               ; preds = %28
+  %36 = fmul double %31, %31
+  %37 = tail call double @llvm.fabs.f64(double %36)
+  %38 = fcmp oeq double %37, 0x7FF0000000000000
+  br i1 %38, label %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit53, label %39
 
-57:                                               ; preds = %53
-  %58 = fmul double %50, %50
-  %59 = fdiv double %49, %58
+39:                                               ; preds = %35
+  %40 = fmul double %32, %32
+  %41 = fdiv double %31, %40
   br label %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit53
 
-_ZN7xgboost6common20LogisticDistribution3PDFEd.exit53: ; preds = %46, %53, %57
-  %.0.i52 = phi double [ %59, %57 ], [ 0.000000e+00, %53 ], [ 0.000000e+00, %46 ]
-  %60 = tail call double @exp(double noundef %48) #21, !tbaa !134
-  %61 = tail call double @llvm.fabs.f64(double %60)
-  %62 = fcmp oeq double %61, 0x7FF0000000000000
-  %63 = fadd double %60, 1.000000e+00
-  %64 = fdiv double %60, %63
-  %65 = select i1 %62, double 1.000000e+00, double %64
-  %66 = fcmp ogt double %48, 0.000000e+00
-  br label %67
+_ZN7xgboost6common20LogisticDistribution3PDFEd.exit53: ; preds = %28, %35, %39
+  %.0.i52 = phi double [ %41, %39 ], [ 0.000000e+00, %35 ], [ 0.000000e+00, %28 ]
+  %42 = fdiv double %31, %32
+  %43 = select i1 %34, double 1.000000e+00, double %42
+  %44 = fcmp ogt double %30, 0.000000e+00
+  br label %45
 
-67:                                               ; preds = %43, %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit53
-  %.1 = phi i8 [ 3, %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit53 ], [ 1, %43 ]
-  %.044 = phi i1 [ %66, %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit53 ], [ false, %43 ]
-  %.042 = phi double [ %.0.i52, %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit53 ], [ 0.000000e+00, %43 ]
-  %.040 = phi double [ %65, %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit53 ], [ 1.000000e+00, %43 ]
-  %68 = fcmp ugt double %0, 0.000000e+00
-  br i1 %68, label %69, label %90
+45:                                               ; preds = %25, %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit53
+  %.1 = phi i8 [ 3, %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit53 ], [ 1, %25 ]
+  %.044 = phi i1 [ %44, %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit53 ], [ false, %25 ]
+  %.042 = phi double [ %.0.i52, %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit53 ], [ 0.000000e+00, %25 ]
+  %.040 = phi double [ %43, %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit53 ], [ 1.000000e+00, %25 ]
+  %46 = fcmp ugt double %0, 0.000000e+00
+  br i1 %46, label %47, label %64
 
-69:                                               ; preds = %67
-  %70 = fsub double %5, %2
-  %71 = fdiv double %70, %3
-  %72 = tail call double @exp(double noundef %71) #21, !tbaa !134
-  %73 = fadd double %72, 1.000000e+00
-  %74 = tail call double @llvm.fabs.f64(double %72)
-  %75 = fcmp oeq double %74, 0x7FF0000000000000
-  br i1 %75, label %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit55, label %76
+47:                                               ; preds = %45
+  %48 = fsub double %5, %2
+  %49 = fdiv double %48, %3
+  %50 = tail call double @exp(double noundef %49) #21, !tbaa !134
+  %51 = fadd double %50, 1.000000e+00
+  %52 = tail call double @llvm.fabs.f64(double %50)
+  %53 = fcmp oeq double %52, 0x7FF0000000000000
+  br i1 %53, label %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit55, label %54
 
-76:                                               ; preds = %69
-  %77 = fmul double %72, %72
-  %78 = tail call double @llvm.fabs.f64(double %77)
-  %79 = fcmp oeq double %78, 0x7FF0000000000000
-  br i1 %79, label %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit55, label %80
+54:                                               ; preds = %47
+  %55 = fmul double %50, %50
+  %56 = tail call double @llvm.fabs.f64(double %55)
+  %57 = fcmp oeq double %56, 0x7FF0000000000000
+  br i1 %57, label %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit55, label %58
 
-80:                                               ; preds = %76
-  %81 = fmul double %73, %73
-  %82 = fdiv double %72, %81
+58:                                               ; preds = %54
+  %59 = fmul double %51, %51
+  %60 = fdiv double %50, %59
   br label %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit55
 
-_ZN7xgboost6common20LogisticDistribution3PDFEd.exit55: ; preds = %69, %76, %80
-  %.0.i54 = phi double [ %82, %80 ], [ 0.000000e+00, %76 ], [ 0.000000e+00, %69 ]
-  %83 = tail call double @exp(double noundef %71) #21, !tbaa !134
-  %84 = tail call double @llvm.fabs.f64(double %83)
-  %85 = fcmp oeq double %84, 0x7FF0000000000000
-  %86 = fadd double %83, 1.000000e+00
-  %87 = fdiv double %83, %86
-  %88 = select i1 %85, double 1.000000e+00, double %87
-  %89 = fcmp ogt double %71, 0.000000e+00
-  br label %90
+_ZN7xgboost6common20LogisticDistribution3PDFEd.exit55: ; preds = %47, %54, %58
+  %.0.i54 = phi double [ %60, %58 ], [ 0.000000e+00, %54 ], [ 0.000000e+00, %47 ]
+  %61 = fdiv double %50, %51
+  %62 = select i1 %53, double 1.000000e+00, double %61
+  %63 = fcmp ogt double %49, 0.000000e+00
+  br label %64
 
-90:                                               ; preds = %67, %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit55
-  %.2 = phi i8 [ %.1, %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit55 ], [ 2, %67 ]
-  %.043 = phi i1 [ %89, %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit55 ], [ false, %67 ]
-  %.041 = phi double [ %.0.i54, %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit55 ], [ 0.000000e+00, %67 ]
-  %.0 = phi double [ %88, %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit55 ], [ 0.000000e+00, %67 ]
-  %91 = or i1 %.044, %.043
-  %92 = fsub double %.042, %.041
-  %93 = fsub double %.040, %.0
-  br label %94
+64:                                               ; preds = %45, %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit55
+  %.2 = phi i8 [ %.1, %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit55 ], [ 2, %45 ]
+  %.043 = phi i1 [ %63, %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit55 ], [ false, %45 ]
+  %.041 = phi double [ %.0.i54, %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit55 ], [ 0.000000e+00, %45 ]
+  %.0 = phi double [ %62, %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit55 ], [ 0.000000e+00, %45 ]
+  %65 = or i1 %.044, %.043
+  %66 = fsub double %.042, %.041
+  %67 = fsub double %.040, %.0
+  br label %68
 
-94:                                               ; preds = %90, %_ZN7xgboost6common20LogisticDistribution7GradPDFEd.exit
-  %.049 = phi i8 [ 0, %_ZN7xgboost6common20LogisticDistribution7GradPDFEd.exit ], [ %.2, %90 ]
-  %.048.in = phi i1 [ %42, %_ZN7xgboost6common20LogisticDistribution7GradPDFEd.exit ], [ %91, %90 ]
-  %.pn = phi double [ %.0.i, %_ZN7xgboost6common20LogisticDistribution7GradPDFEd.exit ], [ %93, %90 ]
-  %.045 = phi double [ %41, %_ZN7xgboost6common20LogisticDistribution7GradPDFEd.exit ], [ %92, %90 ]
+68:                                               ; preds = %64, %_ZN7xgboost6common20LogisticDistribution7GradPDFEd.exit
+  %.049 = phi i8 [ 0, %_ZN7xgboost6common20LogisticDistribution7GradPDFEd.exit ], [ %.2, %64 ]
+  %.048.in = phi i1 [ %24, %_ZN7xgboost6common20LogisticDistribution7GradPDFEd.exit ], [ %65, %64 ]
+  %.pn = phi double [ %.0.i60, %_ZN7xgboost6common20LogisticDistribution7GradPDFEd.exit ], [ %67, %64 ]
+  %.045 = phi double [ %23, %_ZN7xgboost6common20LogisticDistribution7GradPDFEd.exit ], [ %66, %64 ]
   %.046 = fmul double %3, %.pn
-  %95 = fdiv double %.045, %.046
-  %96 = fcmp olt double %.046, 0x3D719799812DEA11
-  %97 = tail call double @llvm.fabs.f64(double %95)
-  %or.cond = fcmp ueq double %97, 0x7FF0000000000000
-  %or.cond59 = select i1 %96, i1 %or.cond, i1 false
-  br i1 %or.cond59, label %98, label %_ZN7xgboost6common3aft21GetLimitGradAtInfPredINS0_20LogisticDistributionEEEdNS0_13CensoringTypeEbd.exit
+  %69 = fdiv double %.045, %.046
+  %70 = fcmp olt double %.046, 0x3D719799812DEA11
+  %71 = tail call double @llvm.fabs.f64(double %69)
+  %or.cond = fcmp ueq double %71, 0x7FF0000000000000
+  %or.cond62 = select i1 %70, i1 %or.cond, i1 false
+  br i1 %or.cond62, label %72, label %_ZN7xgboost6common3aft21GetLimitGradAtInfPredINS0_20LogisticDistributionEEEdNS0_13CensoringTypeEbd.exit
 
-98:                                               ; preds = %94
-  switch i8 %.049, label %default.unreachable60 [
-    i8 0, label %99
-    i8 1, label %101
-    i8 2, label %104
-    i8 3, label %107
+72:                                               ; preds = %68
+  switch i8 %.049, label %default.unreachable63 [
+    i8 0, label %73
+    i8 1, label %75
+    i8 2, label %78
+    i8 3, label %81
   ]
 
-99:                                               ; preds = %98
+73:                                               ; preds = %72
   %.v11.i = select i1 %.048.in, double -1.000000e+00, double 1.000000e+00
-  %100 = fdiv double %.v11.i, %3
+  %74 = fdiv double %.v11.i, %3
   br label %_ZN7xgboost6common3aft21GetLimitGradAtInfPredINS0_20LogisticDistributionEEEdNS0_13CensoringTypeEbd.exit
 
-101:                                              ; preds = %98
-  %102 = fdiv double -1.000000e+00, %3
-  %103 = select i1 %.048.in, double %102, double 0.000000e+00
+75:                                               ; preds = %72
+  %76 = fdiv double -1.000000e+00, %3
+  %77 = select i1 %.048.in, double %76, double 0.000000e+00
   br label %_ZN7xgboost6common3aft21GetLimitGradAtInfPredINS0_20LogisticDistributionEEEdNS0_13CensoringTypeEbd.exit
 
-104:                                              ; preds = %98
-  %105 = fdiv double 1.000000e+00, %3
-  %106 = select i1 %.048.in, double 0.000000e+00, double %105
+78:                                               ; preds = %72
+  %79 = fdiv double 1.000000e+00, %3
+  %80 = select i1 %.048.in, double 0.000000e+00, double %79
   br label %_ZN7xgboost6common3aft21GetLimitGradAtInfPredINS0_20LogisticDistributionEEEdNS0_13CensoringTypeEbd.exit
 
-107:                                              ; preds = %98
+81:                                               ; preds = %72
   %.v.i = select i1 %.048.in, double -1.000000e+00, double 1.000000e+00
-  %108 = fdiv double %.v.i, %3
+  %82 = fdiv double %.v.i, %3
   br label %_ZN7xgboost6common3aft21GetLimitGradAtInfPredINS0_20LogisticDistributionEEEdNS0_13CensoringTypeEbd.exit
 
-default.unreachable60:                            ; preds = %98
+default.unreachable63:                            ; preds = %72
   unreachable
 
-_ZN7xgboost6common3aft21GetLimitGradAtInfPredINS0_20LogisticDistributionEEEdNS0_13CensoringTypeEbd.exit: ; preds = %107, %104, %101, %99, %94
-  %.047 = phi double [ %95, %94 ], [ %100, %99 ], [ %103, %101 ], [ %106, %104 ], [ %108, %107 ]
-  %109 = fcmp olt double %.047, -1.500000e+01
-  %110 = fcmp ogt double %.047, 1.500000e+01
-  %..i = select i1 %110, double 1.500000e+01, double %.047
-  %.0.i57 = select i1 %109, double -1.500000e+01, double %..i
+_ZN7xgboost6common3aft21GetLimitGradAtInfPredINS0_20LogisticDistributionEEEdNS0_13CensoringTypeEbd.exit: ; preds = %81, %78, %75, %73, %68
+  %.047 = phi double [ %69, %68 ], [ %74, %73 ], [ %77, %75 ], [ %80, %78 ], [ %82, %81 ]
+  %83 = fcmp olt double %.047, -1.500000e+01
+  %84 = fcmp ogt double %.047, 1.500000e+01
+  %..i = select i1 %84, double 1.500000e+01, double %.047
+  %.0.i57 = select i1 %83, double -1.500000e+01, double %..i
   ret double %.0.i57
 }
 
@@ -12178,273 +12133,135 @@ define linkonce_odr noundef double @_ZN7xgboost6common7AFTLossINS0_20LogisticDis
   %5 = tail call double @log(double noundef %0) #21, !tbaa !134
   %6 = tail call double @log(double noundef %1) #21, !tbaa !134
   %7 = fcmp oeq double %0, %1
-  br i1 %7, label %8, label %75
+  br i1 %7, label %8, label %37
 
 8:                                                ; preds = %4
   %9 = fsub double %5, %2
   %10 = fdiv double %9, %3
   %11 = tail call double @exp(double noundef %10) #21, !tbaa !134
-  %12 = fadd double %11, 1.000000e+00
-  %13 = tail call double @llvm.fabs.f64(double %11)
-  %14 = fcmp oeq double %13, 0x7FF0000000000000
-  br i1 %14, label %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit, label %15
+  %12 = tail call double @llvm.fabs.f64(double %11)
+  %13 = fcmp oeq double %12, 0x7FF0000000000000
+  br i1 %13, label %_ZN7xgboost6common20LogisticDistribution7HessPDFEd.exit, label %14
 
-15:                                               ; preds = %8
+14:                                               ; preds = %8
+  %15 = fadd double %11, 1.000000e+00
   %16 = fmul double %11, %11
   %17 = tail call double @llvm.fabs.f64(double %16)
   %18 = fcmp oeq double %17, 0x7FF0000000000000
-  br i1 %18, label %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit, label %19
+  %19 = fmul double %15, %15
+  %20 = fdiv double %11, %19
+  %.0.i.ph = select i1 %18, double 0.000000e+00, double %20
+  %21 = fsub double 1.000000e+00, %11
+  %22 = fmul double %21, %.0.i.ph
+  %23 = fdiv double %22, %15
+  br i1 %18, label %_ZN7xgboost6common20LogisticDistribution7HessPDFEd.exit, label %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit.i71
 
-19:                                               ; preds = %15
-  %20 = fmul double %12, %12
-  %21 = fdiv double %11, %20
-  br label %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit
-
-_ZN7xgboost6common20LogisticDistribution3PDFEd.exit: ; preds = %8, %15, %19
-  %.0.i = phi double [ %21, %19 ], [ 0.000000e+00, %15 ], [ 0.000000e+00, %8 ]
-  %22 = tail call double @exp(double noundef %10) #21, !tbaa !134
-  %23 = tail call double @llvm.fabs.f64(double %22)
-  %24 = fcmp oeq double %23, 0x7FF0000000000000
-  br i1 %24, label %_ZN7xgboost6common20LogisticDistribution7GradPDFEd.exit, label %25
-
-25:                                               ; preds = %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit
-  %26 = tail call double @exp(double noundef %10) #21, !tbaa !134
-  %27 = fadd double %26, 1.000000e+00
-  %28 = tail call double @llvm.fabs.f64(double %26)
-  %29 = fcmp oeq double %28, 0x7FF0000000000000
-  br i1 %29, label %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit.i, label %30
-
-30:                                               ; preds = %25
-  %31 = fmul double %26, %26
-  %32 = tail call double @llvm.fabs.f64(double %31)
-  %33 = fcmp oeq double %32, 0x7FF0000000000000
-  br i1 %33, label %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit.i, label %34
-
-34:                                               ; preds = %30
-  %35 = fmul double %27, %27
-  %36 = fdiv double %26, %35
-  br label %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit.i
-
-_ZN7xgboost6common20LogisticDistribution3PDFEd.exit.i: ; preds = %34, %30, %25
-  %.0.i.i = phi double [ %36, %34 ], [ 0.000000e+00, %30 ], [ 0.000000e+00, %25 ]
-  %37 = fsub double 1.000000e+00, %22
-  %38 = fmul double %37, %.0.i.i
-  %39 = fadd double %22, 1.000000e+00
-  %40 = fdiv double %38, %39
-  br label %_ZN7xgboost6common20LogisticDistribution7GradPDFEd.exit
-
-_ZN7xgboost6common20LogisticDistribution7GradPDFEd.exit: ; preds = %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit, %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit.i
-  %41 = phi double [ %40, %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit.i ], [ 0.000000e+00, %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit ]
-  %42 = tail call double @exp(double noundef %10) #21, !tbaa !134
-  %43 = tail call double @llvm.fabs.f64(double %42)
-  %44 = fcmp oeq double %43, 0x7FF0000000000000
-  br i1 %44, label %_ZN7xgboost6common20LogisticDistribution7HessPDFEd.exit, label %45
-
-45:                                               ; preds = %_ZN7xgboost6common20LogisticDistribution7GradPDFEd.exit
-  %46 = fmul double %42, %42
-  %47 = tail call double @llvm.fabs.f64(double %46)
-  %48 = fcmp oeq double %47, 0x7FF0000000000000
-  br i1 %48, label %_ZN7xgboost6common20LogisticDistribution7HessPDFEd.exit, label %49
-
-49:                                               ; preds = %45
-  %50 = tail call double @exp(double noundef %10) #21, !tbaa !134
-  %51 = fadd double %50, 1.000000e+00
-  %52 = tail call double @llvm.fabs.f64(double %50)
-  %53 = fcmp oeq double %52, 0x7FF0000000000000
-  br i1 %53, label %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit.i71, label %54
-
-54:                                               ; preds = %49
-  %55 = fmul double %50, %50
-  %56 = tail call double @llvm.fabs.f64(double %55)
-  %57 = fcmp oeq double %56, 0x7FF0000000000000
-  br i1 %57, label %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit.i71, label %58
-
-58:                                               ; preds = %54
-  %59 = fmul double %51, %51
-  %60 = fdiv double %50, %59
-  br label %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit.i71
-
-_ZN7xgboost6common20LogisticDistribution3PDFEd.exit.i71: ; preds = %58, %54, %49
-  %.0.i.i72 = phi double [ %60, %58 ], [ 0.000000e+00, %54 ], [ 0.000000e+00, %49 ]
-  %61 = fmul double %42, -4.000000e+00
-  %62 = tail call double @llvm.fmuladd.f64(double %42, double %42, double %61)
-  %63 = fadd double %62, 1.000000e+00
-  %64 = fmul double %63, %.0.i.i72
-  %65 = fadd double %42, 1.000000e+00
-  %66 = fmul double %65, %65
-  %67 = fdiv double %64, %66
+_ZN7xgboost6common20LogisticDistribution3PDFEd.exit.i71: ; preds = %14
+  %24 = fmul double %11, -4.000000e+00
+  %25 = tail call double @llvm.fmuladd.f64(double %11, double %11, double %24)
+  %26 = fadd double %25, 1.000000e+00
+  %27 = fmul double %20, %26
+  %28 = fdiv double %27, %19
   br label %_ZN7xgboost6common20LogisticDistribution7HessPDFEd.exit
 
-_ZN7xgboost6common20LogisticDistribution7HessPDFEd.exit: ; preds = %_ZN7xgboost6common20LogisticDistribution7GradPDFEd.exit, %45, %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit.i71
-  %.0.i73 = phi double [ %67, %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit.i71 ], [ 0.000000e+00, %45 ], [ 0.000000e+00, %_ZN7xgboost6common20LogisticDistribution7GradPDFEd.exit ]
-  %68 = fneg double %41
-  %69 = fmul double %41, %68
-  %70 = tail call double @llvm.fmuladd.f64(double %.0.i, double %.0.i73, double %69)
-  %71 = fneg double %70
-  %72 = fmul double %3, %3
-  %73 = fmul double %72, %.0.i
-  %74 = fmul double %.0.i, %73
-  br label %166
+_ZN7xgboost6common20LogisticDistribution7HessPDFEd.exit: ; preds = %8, %14, %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit.i71
+  %29 = phi double [ %23, %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit.i71 ], [ %23, %14 ], [ 0.000000e+00, %8 ]
+  %.0.i8789 = phi double [ %20, %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit.i71 ], [ 0.000000e+00, %14 ], [ 0.000000e+00, %8 ]
+  %.0.i72 = phi double [ %28, %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit.i71 ], [ 0.000000e+00, %14 ], [ 0.000000e+00, %8 ]
+  %30 = fneg double %29
+  %31 = fmul double %29, %30
+  %32 = tail call double @llvm.fmuladd.f64(double %.0.i8789, double %.0.i72, double %31)
+  %33 = fneg double %32
+  %34 = fmul double %3, %3
+  %35 = fmul double %34, %.0.i8789
+  %36 = fmul double %.0.i8789, %35
+  br label %82
 
-75:                                               ; preds = %4
-  %76 = tail call double @llvm.fabs.f64(double %1)
-  %77 = fcmp oeq double %76, 0x7FF0000000000000
-  br i1 %77, label %_ZN7xgboost6common20LogisticDistribution7GradPDFEd.exit78, label %78
+37:                                               ; preds = %4
+  %38 = tail call double @llvm.fabs.f64(double %1)
+  %39 = fcmp oeq double %38, 0x7FF0000000000000
+  br i1 %39, label %_ZN7xgboost6common20LogisticDistribution7GradPDFEd.exit77, label %40
 
-78:                                               ; preds = %75
-  %79 = fsub double %6, %2
-  %80 = fdiv double %79, %3
-  %81 = tail call double @exp(double noundef %80) #21, !tbaa !134
-  %82 = fadd double %81, 1.000000e+00
-  %83 = tail call double @llvm.fabs.f64(double %81)
-  %84 = fcmp oeq double %83, 0x7FF0000000000000
-  br i1 %84, label %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit75, label %85
+40:                                               ; preds = %37
+  %41 = fsub double %6, %2
+  %42 = fdiv double %41, %3
+  %43 = tail call double @exp(double noundef %42) #21, !tbaa !134
+  %44 = tail call double @llvm.fabs.f64(double %43)
+  %45 = fcmp oeq double %44, 0x7FF0000000000000
+  br i1 %45, label %_ZN7xgboost6common20LogisticDistribution7GradPDFEd.exit77, label %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit.i75
 
-85:                                               ; preds = %78
-  %86 = fmul double %81, %81
-  %87 = tail call double @llvm.fabs.f64(double %86)
-  %88 = fcmp oeq double %87, 0x7FF0000000000000
-  br i1 %88, label %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit75, label %89
+_ZN7xgboost6common20LogisticDistribution3PDFEd.exit.i75: ; preds = %40
+  %46 = fadd double %43, 1.000000e+00
+  %47 = fmul double %43, %43
+  %48 = tail call double @llvm.fabs.f64(double %47)
+  %49 = fcmp oeq double %48, 0x7FF0000000000000
+  %50 = fmul double %46, %46
+  %51 = fdiv double %43, %50
+  %.0.i73.ph = select i1 %49, double 0.000000e+00, double %51
+  %52 = fdiv double %43, %46
+  %53 = fsub double 1.000000e+00, %43
+  %54 = fmul double %53, %.0.i73.ph
+  %55 = fdiv double %54, %46
+  br label %_ZN7xgboost6common20LogisticDistribution7GradPDFEd.exit77
 
-89:                                               ; preds = %85
-  %90 = fmul double %82, %82
-  %91 = fdiv double %81, %90
-  br label %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit75
+_ZN7xgboost6common20LogisticDistribution7GradPDFEd.exit77: ; preds = %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit.i75, %40, %37
+  %.065 = phi double [ 0.000000e+00, %37 ], [ %55, %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit.i75 ], [ 0.000000e+00, %40 ]
+  %.063 = phi double [ 0.000000e+00, %37 ], [ %.0.i73.ph, %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit.i75 ], [ 0.000000e+00, %40 ]
+  %.061 = phi double [ 1.000000e+00, %37 ], [ %52, %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit.i75 ], [ 1.000000e+00, %40 ]
+  %56 = fcmp ugt double %0, 0.000000e+00
+  br i1 %56, label %57, label %_ZN7xgboost6common20LogisticDistribution7GradPDFEd.exit82
 
-_ZN7xgboost6common20LogisticDistribution3PDFEd.exit75: ; preds = %78, %85, %89
-  %.0.i74 = phi double [ %91, %89 ], [ 0.000000e+00, %85 ], [ 0.000000e+00, %78 ]
-  %92 = tail call double @exp(double noundef %80) #21, !tbaa !134
-  %93 = tail call double @llvm.fabs.f64(double %92)
-  %94 = fcmp oeq double %93, 0x7FF0000000000000
-  %95 = fadd double %92, 1.000000e+00
-  %96 = fdiv double %92, %95
-  %97 = select i1 %94, double 1.000000e+00, double %96
-  %98 = tail call double @exp(double noundef %80) #21, !tbaa !134
-  %99 = tail call double @llvm.fabs.f64(double %98)
-  %100 = fcmp oeq double %99, 0x7FF0000000000000
-  br i1 %100, label %_ZN7xgboost6common20LogisticDistribution7GradPDFEd.exit78, label %101
+57:                                               ; preds = %_ZN7xgboost6common20LogisticDistribution7GradPDFEd.exit77
+  %58 = fsub double %5, %2
+  %59 = fdiv double %58, %3
+  %60 = tail call double @exp(double noundef %59) #21, !tbaa !134
+  %61 = tail call double @llvm.fabs.f64(double %60)
+  %62 = fcmp oeq double %61, 0x7FF0000000000000
+  br i1 %62, label %_ZN7xgboost6common20LogisticDistribution7GradPDFEd.exit82, label %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit.i80
 
-101:                                              ; preds = %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit75
-  %102 = tail call double @exp(double noundef %80) #21, !tbaa !134
-  %103 = fadd double %102, 1.000000e+00
-  %104 = tail call double @llvm.fabs.f64(double %102)
-  %105 = fcmp oeq double %104, 0x7FF0000000000000
-  br i1 %105, label %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit.i76, label %106
+_ZN7xgboost6common20LogisticDistribution3PDFEd.exit.i80: ; preds = %57
+  %63 = fadd double %60, 1.000000e+00
+  %64 = fmul double %60, %60
+  %65 = tail call double @llvm.fabs.f64(double %64)
+  %66 = fcmp oeq double %65, 0x7FF0000000000000
+  %67 = fmul double %63, %63
+  %68 = fdiv double %60, %67
+  %.0.i78.ph = select i1 %66, double 0.000000e+00, double %68
+  %69 = fdiv double %60, %63
+  %70 = fsub double 1.000000e+00, %60
+  %71 = fmul double %70, %.0.i78.ph
+  %72 = fdiv double %71, %63
+  br label %_ZN7xgboost6common20LogisticDistribution7GradPDFEd.exit82
 
-106:                                              ; preds = %101
-  %107 = fmul double %102, %102
-  %108 = tail call double @llvm.fabs.f64(double %107)
-  %109 = fcmp oeq double %108, 0x7FF0000000000000
-  br i1 %109, label %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit.i76, label %110
+_ZN7xgboost6common20LogisticDistribution7GradPDFEd.exit82: ; preds = %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit.i80, %57, %_ZN7xgboost6common20LogisticDistribution7GradPDFEd.exit77
+  %.064 = phi double [ 0.000000e+00, %_ZN7xgboost6common20LogisticDistribution7GradPDFEd.exit77 ], [ %72, %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit.i80 ], [ 0.000000e+00, %57 ]
+  %.062 = phi double [ 0.000000e+00, %_ZN7xgboost6common20LogisticDistribution7GradPDFEd.exit77 ], [ %.0.i78.ph, %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit.i80 ], [ 0.000000e+00, %57 ]
+  %.060 = phi double [ 0.000000e+00, %_ZN7xgboost6common20LogisticDistribution7GradPDFEd.exit77 ], [ %69, %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit.i80 ], [ 1.000000e+00, %57 ]
+  %73 = fsub double %.061, %.060
+  %74 = fsub double %.063, %.062
+  %75 = fsub double %.065, %.064
+  %76 = fmul double %3, %73
+  %77 = fneg double %74
+  %78 = fmul double %74, %77
+  %79 = tail call double @llvm.fmuladd.f64(double %73, double %75, double %78)
+  %80 = fneg double %79
+  %81 = fmul double %76, %76
+  br label %82
 
-110:                                              ; preds = %106
-  %111 = fmul double %103, %103
-  %112 = fdiv double %102, %111
-  br label %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit.i76
-
-_ZN7xgboost6common20LogisticDistribution3PDFEd.exit.i76: ; preds = %110, %106, %101
-  %.0.i.i77 = phi double [ %112, %110 ], [ 0.000000e+00, %106 ], [ 0.000000e+00, %101 ]
-  %113 = fsub double 1.000000e+00, %98
-  %114 = fmul double %113, %.0.i.i77
-  %115 = fadd double %98, 1.000000e+00
-  %116 = fdiv double %114, %115
-  br label %_ZN7xgboost6common20LogisticDistribution7GradPDFEd.exit78
-
-_ZN7xgboost6common20LogisticDistribution7GradPDFEd.exit78: ; preds = %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit.i76, %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit75, %75
-  %.065 = phi double [ 0.000000e+00, %75 ], [ %116, %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit.i76 ], [ 0.000000e+00, %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit75 ]
-  %.063 = phi double [ 0.000000e+00, %75 ], [ %.0.i74, %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit.i76 ], [ %.0.i74, %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit75 ]
-  %.061 = phi double [ 1.000000e+00, %75 ], [ %97, %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit.i76 ], [ %97, %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit75 ]
-  %117 = fcmp ugt double %0, 0.000000e+00
-  br i1 %117, label %118, label %_ZN7xgboost6common20LogisticDistribution7GradPDFEd.exit83
-
-118:                                              ; preds = %_ZN7xgboost6common20LogisticDistribution7GradPDFEd.exit78
-  %119 = fsub double %5, %2
-  %120 = fdiv double %119, %3
-  %121 = tail call double @exp(double noundef %120) #21, !tbaa !134
-  %122 = fadd double %121, 1.000000e+00
-  %123 = tail call double @llvm.fabs.f64(double %121)
-  %124 = fcmp oeq double %123, 0x7FF0000000000000
-  br i1 %124, label %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit80, label %125
-
-125:                                              ; preds = %118
-  %126 = fmul double %121, %121
-  %127 = tail call double @llvm.fabs.f64(double %126)
-  %128 = fcmp oeq double %127, 0x7FF0000000000000
-  br i1 %128, label %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit80, label %129
-
-129:                                              ; preds = %125
-  %130 = fmul double %122, %122
-  %131 = fdiv double %121, %130
-  br label %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit80
-
-_ZN7xgboost6common20LogisticDistribution3PDFEd.exit80: ; preds = %118, %125, %129
-  %.0.i79 = phi double [ %131, %129 ], [ 0.000000e+00, %125 ], [ 0.000000e+00, %118 ]
-  %132 = tail call double @exp(double noundef %120) #21, !tbaa !134
-  %133 = tail call double @llvm.fabs.f64(double %132)
-  %134 = fcmp oeq double %133, 0x7FF0000000000000
-  %135 = fadd double %132, 1.000000e+00
-  %136 = fdiv double %132, %135
-  %137 = select i1 %134, double 1.000000e+00, double %136
-  %138 = tail call double @exp(double noundef %120) #21, !tbaa !134
-  %139 = tail call double @llvm.fabs.f64(double %138)
-  %140 = fcmp oeq double %139, 0x7FF0000000000000
-  br i1 %140, label %_ZN7xgboost6common20LogisticDistribution7GradPDFEd.exit83, label %141
-
-141:                                              ; preds = %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit80
-  %142 = tail call double @exp(double noundef %120) #21, !tbaa !134
-  %143 = fadd double %142, 1.000000e+00
-  %144 = tail call double @llvm.fabs.f64(double %142)
-  %145 = fcmp oeq double %144, 0x7FF0000000000000
-  br i1 %145, label %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit.i81, label %146
-
-146:                                              ; preds = %141
-  %147 = fmul double %142, %142
-  %148 = tail call double @llvm.fabs.f64(double %147)
-  %149 = fcmp oeq double %148, 0x7FF0000000000000
-  br i1 %149, label %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit.i81, label %150
-
-150:                                              ; preds = %146
-  %151 = fmul double %143, %143
-  %152 = fdiv double %142, %151
-  br label %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit.i81
-
-_ZN7xgboost6common20LogisticDistribution3PDFEd.exit.i81: ; preds = %150, %146, %141
-  %.0.i.i82 = phi double [ %152, %150 ], [ 0.000000e+00, %146 ], [ 0.000000e+00, %141 ]
-  %153 = fsub double 1.000000e+00, %138
-  %154 = fmul double %153, %.0.i.i82
-  %155 = fadd double %138, 1.000000e+00
-  %156 = fdiv double %154, %155
-  br label %_ZN7xgboost6common20LogisticDistribution7GradPDFEd.exit83
-
-_ZN7xgboost6common20LogisticDistribution7GradPDFEd.exit83: ; preds = %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit.i81, %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit80, %_ZN7xgboost6common20LogisticDistribution7GradPDFEd.exit78
-  %.064 = phi double [ 0.000000e+00, %_ZN7xgboost6common20LogisticDistribution7GradPDFEd.exit78 ], [ %156, %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit.i81 ], [ 0.000000e+00, %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit80 ]
-  %.062 = phi double [ 0.000000e+00, %_ZN7xgboost6common20LogisticDistribution7GradPDFEd.exit78 ], [ %.0.i79, %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit.i81 ], [ %.0.i79, %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit80 ]
-  %.060 = phi double [ 0.000000e+00, %_ZN7xgboost6common20LogisticDistribution7GradPDFEd.exit78 ], [ %137, %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit.i81 ], [ %137, %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit80 ]
-  %157 = fsub double %.061, %.060
-  %158 = fsub double %.063, %.062
-  %159 = fsub double %.065, %.064
-  %160 = fmul double %3, %157
-  %161 = fneg double %158
-  %162 = fmul double %158, %161
-  %163 = tail call double @llvm.fmuladd.f64(double %157, double %159, double %162)
-  %164 = fneg double %163
-  %165 = fmul double %160, %160
-  br label %166
-
-166:                                              ; preds = %_ZN7xgboost6common20LogisticDistribution7GradPDFEd.exit83, %_ZN7xgboost6common20LogisticDistribution7HessPDFEd.exit
-  %.057 = phi double [ %74, %_ZN7xgboost6common20LogisticDistribution7HessPDFEd.exit ], [ %165, %_ZN7xgboost6common20LogisticDistribution7GradPDFEd.exit83 ]
-  %.0 = phi double [ %71, %_ZN7xgboost6common20LogisticDistribution7HessPDFEd.exit ], [ %164, %_ZN7xgboost6common20LogisticDistribution7GradPDFEd.exit83 ]
-  %167 = fdiv double %.0, %.057
-  %168 = fcmp olt double %.057, 0x3D719799812DEA11
-  %169 = tail call double @llvm.fabs.f64(double %167)
-  %or.cond = fcmp ueq double %169, 0x7FF0000000000000
-  %or.cond87 = select i1 %168, i1 %or.cond, i1 false
-  %.058 = select i1 %or.cond87, double 0x3C9CD2B297D889BC, double %167
-  %170 = fcmp olt double %.058, 0x3C9CD2B297D889BC
-  %171 = fcmp ogt double %.058, 1.500000e+01
-  %..i = select i1 %171, double 1.500000e+01, double %.058
-  %.0.i85 = select i1 %170, double 0x3C9CD2B297D889BC, double %..i
-  ret double %.0.i85
+82:                                               ; preds = %_ZN7xgboost6common20LogisticDistribution7GradPDFEd.exit82, %_ZN7xgboost6common20LogisticDistribution7HessPDFEd.exit
+  %.057 = phi double [ %36, %_ZN7xgboost6common20LogisticDistribution7HessPDFEd.exit ], [ %81, %_ZN7xgboost6common20LogisticDistribution7GradPDFEd.exit82 ]
+  %.0 = phi double [ %33, %_ZN7xgboost6common20LogisticDistribution7HessPDFEd.exit ], [ %80, %_ZN7xgboost6common20LogisticDistribution7GradPDFEd.exit82 ]
+  %83 = fdiv double %.0, %.057
+  %84 = fcmp olt double %.057, 0x3D719799812DEA11
+  %85 = tail call double @llvm.fabs.f64(double %83)
+  %or.cond = fcmp ueq double %85, 0x7FF0000000000000
+  %or.cond97 = select i1 %84, i1 %or.cond, i1 false
+  %.058 = select i1 %or.cond97, double 0x3C9CD2B297D889BC, double %83
+  %86 = fcmp olt double %.058, 0x3C9CD2B297D889BC
+  %87 = fcmp ogt double %.058, 1.500000e+01
+  %..i = select i1 %87, double 1.500000e+01, double %.058
+  %.0.i84 = select i1 %86, double 0x3C9CD2B297D889BC, double %..i
+  ret double %.0.i84
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -13263,7 +13080,7 @@ define linkonce_odr noundef double @_ZN7xgboost6common7AFTLossINS0_19ExtremeDist
   %5 = tail call double @log(double noundef %0) #21, !tbaa !134
   %6 = tail call double @log(double noundef %1) #21, !tbaa !134
   %7 = fcmp oeq double %0, %1
-  br i1 %7, label %8, label %35
+  br i1 %7, label %8, label %29
 
 8:                                                ; preds = %4
   %9 = fsub double %5, %2
@@ -13284,149 +13101,139 @@ _ZN7xgboost6common19ExtremeDistribution3PDFEd.exit: ; preds = %8, %14
   %19 = tail call double @exp(double noundef %10) #21, !tbaa !134
   %20 = tail call double @llvm.fabs.f64(double %19)
   %21 = fcmp oeq double %20, 0x7FF0000000000000
-  br i1 %21, label %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit, label %22
+  br i1 %21, label %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit, label %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit.i
 
-22:                                               ; preds = %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit
-  %23 = fsub double 1.000000e+00, %19
-  %24 = tail call double @exp(double noundef %10) #21, !tbaa !134
-  %25 = tail call double @llvm.fabs.f64(double %24)
-  %26 = fcmp oeq double %25, 0x7FF0000000000000
-  br i1 %26, label %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit.i, label %27
-
-27:                                               ; preds = %22
-  %28 = fneg double %24
-  %29 = tail call double @exp(double noundef %28) #21, !tbaa !134
-  %30 = fmul double %24, %29
-  br label %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit.i
-
-_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit.i: ; preds = %27, %22
-  %31 = phi double [ %30, %27 ], [ 0.000000e+00, %22 ]
-  %32 = fmul double %23, %31
+_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit.i: ; preds = %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit
+  %22 = fsub double 1.000000e+00, %19
+  %23 = fneg double %19
+  %24 = tail call double @exp(double noundef %23) #21, !tbaa !134
+  %25 = fmul double %19, %24
+  %26 = fmul double %22, %25
   br label %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit
 
 _ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit: ; preds = %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit, %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit.i
-  %33 = phi double [ %32, %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit.i ], [ 0.000000e+00, %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit ]
-  %34 = fcmp ogt double %10, 0.000000e+00
-  br label %76
+  %27 = phi double [ %26, %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit.i ], [ 0.000000e+00, %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit ]
+  %28 = fcmp ogt double %10, 0.000000e+00
+  br label %70
 
-35:                                               ; preds = %4
-  %36 = tail call double @llvm.fabs.f64(double %1)
+29:                                               ; preds = %4
+  %30 = tail call double @llvm.fabs.f64(double %1)
+  %31 = fcmp oeq double %30, 0x7FF0000000000000
+  br i1 %31, label %48, label %32
+
+32:                                               ; preds = %29
+  %33 = fsub double %6, %2
+  %34 = fdiv double %33, %3
+  %35 = tail call double @exp(double noundef %34) #21, !tbaa !134
+  %36 = tail call double @llvm.fabs.f64(double %35)
   %37 = fcmp oeq double %36, 0x7FF0000000000000
-  br i1 %37, label %54, label %38
+  br i1 %37, label %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit52, label %38
 
-38:                                               ; preds = %35
-  %39 = fsub double %6, %2
-  %40 = fdiv double %39, %3
-  %41 = tail call double @exp(double noundef %40) #21, !tbaa !134
-  %42 = tail call double @llvm.fabs.f64(double %41)
-  %43 = fcmp oeq double %42, 0x7FF0000000000000
-  br i1 %43, label %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit52, label %44
-
-44:                                               ; preds = %38
-  %45 = fneg double %41
-  %46 = tail call double @exp(double noundef %45) #21, !tbaa !134
-  %47 = fmul double %41, %46
+38:                                               ; preds = %32
+  %39 = fneg double %35
+  %40 = tail call double @exp(double noundef %39) #21, !tbaa !134
+  %41 = fmul double %35, %40
   br label %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit52
 
-_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit52: ; preds = %38, %44
-  %48 = phi double [ %47, %44 ], [ 0.000000e+00, %38 ]
-  %49 = tail call double @exp(double noundef %40) #21, !tbaa !134
-  %50 = fneg double %49
-  %51 = tail call double @exp(double noundef %50) #21, !tbaa !134
-  %52 = fsub double 1.000000e+00, %51
-  %53 = fcmp ogt double %40, 0.000000e+00
-  br label %54
+_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit52: ; preds = %32, %38
+  %42 = phi double [ %41, %38 ], [ 0.000000e+00, %32 ]
+  %43 = tail call double @exp(double noundef %34) #21, !tbaa !134
+  %44 = fneg double %43
+  %45 = tail call double @exp(double noundef %44) #21, !tbaa !134
+  %46 = fsub double 1.000000e+00, %45
+  %47 = fcmp ogt double %34, 0.000000e+00
+  br label %48
 
-54:                                               ; preds = %35, %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit52
-  %.1 = phi i8 [ 3, %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit52 ], [ 1, %35 ]
-  %.044 = phi i1 [ %53, %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit52 ], [ false, %35 ]
-  %.042 = phi double [ %48, %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit52 ], [ 0.000000e+00, %35 ]
-  %.040 = phi double [ %52, %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit52 ], [ 1.000000e+00, %35 ]
-  %55 = fcmp ugt double %0, 0.000000e+00
-  br i1 %55, label %56, label %72
+48:                                               ; preds = %29, %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit52
+  %.1 = phi i8 [ 3, %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit52 ], [ 1, %29 ]
+  %.044 = phi i1 [ %47, %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit52 ], [ false, %29 ]
+  %.042 = phi double [ %42, %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit52 ], [ 0.000000e+00, %29 ]
+  %.040 = phi double [ %46, %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit52 ], [ 1.000000e+00, %29 ]
+  %49 = fcmp ugt double %0, 0.000000e+00
+  br i1 %49, label %50, label %66
 
-56:                                               ; preds = %54
-  %57 = fsub double %5, %2
-  %58 = fdiv double %57, %3
-  %59 = tail call double @exp(double noundef %58) #21, !tbaa !134
-  %60 = tail call double @llvm.fabs.f64(double %59)
-  %61 = fcmp oeq double %60, 0x7FF0000000000000
-  br i1 %61, label %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit53, label %62
+50:                                               ; preds = %48
+  %51 = fsub double %5, %2
+  %52 = fdiv double %51, %3
+  %53 = tail call double @exp(double noundef %52) #21, !tbaa !134
+  %54 = tail call double @llvm.fabs.f64(double %53)
+  %55 = fcmp oeq double %54, 0x7FF0000000000000
+  br i1 %55, label %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit53, label %56
 
-62:                                               ; preds = %56
-  %63 = fneg double %59
-  %64 = tail call double @exp(double noundef %63) #21, !tbaa !134
-  %65 = fmul double %59, %64
+56:                                               ; preds = %50
+  %57 = fneg double %53
+  %58 = tail call double @exp(double noundef %57) #21, !tbaa !134
+  %59 = fmul double %53, %58
   br label %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit53
 
-_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit53: ; preds = %56, %62
-  %66 = phi double [ %65, %62 ], [ 0.000000e+00, %56 ]
-  %67 = tail call double @exp(double noundef %58) #21, !tbaa !134
-  %68 = fneg double %67
-  %69 = tail call double @exp(double noundef %68) #21, !tbaa !134
-  %70 = fsub double 1.000000e+00, %69
-  %71 = fcmp ogt double %58, 0.000000e+00
-  br label %72
+_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit53: ; preds = %50, %56
+  %60 = phi double [ %59, %56 ], [ 0.000000e+00, %50 ]
+  %61 = tail call double @exp(double noundef %52) #21, !tbaa !134
+  %62 = fneg double %61
+  %63 = tail call double @exp(double noundef %62) #21, !tbaa !134
+  %64 = fsub double 1.000000e+00, %63
+  %65 = fcmp ogt double %52, 0.000000e+00
+  br label %66
 
-72:                                               ; preds = %54, %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit53
-  %.2 = phi i8 [ %.1, %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit53 ], [ 2, %54 ]
-  %.043 = phi i1 [ %71, %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit53 ], [ false, %54 ]
-  %.041 = phi double [ %66, %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit53 ], [ 0.000000e+00, %54 ]
-  %.0 = phi double [ %70, %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit53 ], [ 0.000000e+00, %54 ]
-  %73 = or i1 %.044, %.043
-  %74 = fsub double %.042, %.041
-  %75 = fsub double %.040, %.0
-  br label %76
+66:                                               ; preds = %48, %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit53
+  %.2 = phi i8 [ %.1, %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit53 ], [ 2, %48 ]
+  %.043 = phi i1 [ %65, %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit53 ], [ false, %48 ]
+  %.041 = phi double [ %60, %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit53 ], [ 0.000000e+00, %48 ]
+  %.0 = phi double [ %64, %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit53 ], [ 0.000000e+00, %48 ]
+  %67 = or i1 %.044, %.043
+  %68 = fsub double %.042, %.041
+  %69 = fsub double %.040, %.0
+  br label %70
 
-76:                                               ; preds = %72, %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit
-  %.049 = phi i8 [ 0, %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit ], [ %.2, %72 ]
-  %.048.in = phi i1 [ %34, %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit ], [ %73, %72 ]
-  %.pn = phi double [ %18, %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit ], [ %75, %72 ]
-  %.045 = phi double [ %33, %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit ], [ %74, %72 ]
+70:                                               ; preds = %66, %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit
+  %.049 = phi i8 [ 0, %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit ], [ %.2, %66 ]
+  %.048.in = phi i1 [ %28, %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit ], [ %67, %66 ]
+  %.pn = phi double [ %18, %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit ], [ %69, %66 ]
+  %.045 = phi double [ %27, %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit ], [ %68, %66 ]
   %.046 = fmul double %3, %.pn
-  %77 = fdiv double %.045, %.046
-  %78 = fcmp olt double %.046, 0x3D719799812DEA11
-  %79 = tail call double @llvm.fabs.f64(double %77)
-  %or.cond = fcmp ueq double %79, 0x7FF0000000000000
-  %or.cond56 = select i1 %78, i1 %or.cond, i1 false
-  br i1 %or.cond56, label %80, label %_ZN7xgboost6common3aft21GetLimitGradAtInfPredINS0_19ExtremeDistributionEEEdNS0_13CensoringTypeEbd.exit
+  %71 = fdiv double %.045, %.046
+  %72 = fcmp olt double %.046, 0x3D719799812DEA11
+  %73 = tail call double @llvm.fabs.f64(double %71)
+  %or.cond = fcmp ueq double %73, 0x7FF0000000000000
+  %or.cond56 = select i1 %72, i1 %or.cond, i1 false
+  br i1 %or.cond56, label %74, label %_ZN7xgboost6common3aft21GetLimitGradAtInfPredINS0_19ExtremeDistributionEEEdNS0_13CensoringTypeEbd.exit
 
-80:                                               ; preds = %76
+74:                                               ; preds = %70
   switch i8 %.049, label %default.unreachable57 [
-    i8 0, label %81
-    i8 1, label %84
-    i8 2, label %86
-    i8 3, label %89
+    i8 0, label %75
+    i8 1, label %78
+    i8 2, label %80
+    i8 3, label %83
   ]
 
-81:                                               ; preds = %80
-  %82 = fdiv double 1.000000e+00, %3
-  %83 = select i1 %.048.in, double -1.500000e+01, double %82
+75:                                               ; preds = %74
+  %76 = fdiv double 1.000000e+00, %3
+  %77 = select i1 %.048.in, double -1.500000e+01, double %76
   br label %_ZN7xgboost6common3aft21GetLimitGradAtInfPredINS0_19ExtremeDistributionEEEdNS0_13CensoringTypeEbd.exit
 
-84:                                               ; preds = %80
-  %85 = select i1 %.048.in, double -1.500000e+01, double 0.000000e+00
+78:                                               ; preds = %74
+  %79 = select i1 %.048.in, double -1.500000e+01, double 0.000000e+00
   br label %_ZN7xgboost6common3aft21GetLimitGradAtInfPredINS0_19ExtremeDistributionEEEdNS0_13CensoringTypeEbd.exit
 
-86:                                               ; preds = %80
-  %87 = fdiv double 1.000000e+00, %3
-  %88 = select i1 %.048.in, double 0.000000e+00, double %87
+80:                                               ; preds = %74
+  %81 = fdiv double 1.000000e+00, %3
+  %82 = select i1 %.048.in, double 0.000000e+00, double %81
   br label %_ZN7xgboost6common3aft21GetLimitGradAtInfPredINS0_19ExtremeDistributionEEEdNS0_13CensoringTypeEbd.exit
 
-89:                                               ; preds = %80
-  %90 = fdiv double 1.000000e+00, %3
-  %91 = select i1 %.048.in, double -1.500000e+01, double %90
+83:                                               ; preds = %74
+  %84 = fdiv double 1.000000e+00, %3
+  %85 = select i1 %.048.in, double -1.500000e+01, double %84
   br label %_ZN7xgboost6common3aft21GetLimitGradAtInfPredINS0_19ExtremeDistributionEEEdNS0_13CensoringTypeEbd.exit
 
-default.unreachable57:                            ; preds = %80
+default.unreachable57:                            ; preds = %74
   unreachable
 
-_ZN7xgboost6common3aft21GetLimitGradAtInfPredINS0_19ExtremeDistributionEEEdNS0_13CensoringTypeEbd.exit: ; preds = %89, %86, %84, %81, %76
-  %.047 = phi double [ %77, %76 ], [ %83, %81 ], [ %85, %84 ], [ %88, %86 ], [ %91, %89 ]
-  %92 = fcmp olt double %.047, -1.500000e+01
-  %93 = fcmp ogt double %.047, 1.500000e+01
-  %..i = select i1 %93, double 1.500000e+01, double %.047
-  %.0.i54 = select i1 %92, double -1.500000e+01, double %..i
+_ZN7xgboost6common3aft21GetLimitGradAtInfPredINS0_19ExtremeDistributionEEEdNS0_13CensoringTypeEbd.exit: ; preds = %83, %80, %78, %75, %70
+  %.047 = phi double [ %71, %70 ], [ %77, %75 ], [ %79, %78 ], [ %82, %80 ], [ %85, %83 ]
+  %86 = fcmp olt double %.047, -1.500000e+01
+  %87 = fcmp ogt double %.047, 1.500000e+01
+  %..i = select i1 %87, double 1.500000e+01, double %.047
+  %.0.i54 = select i1 %86, double -1.500000e+01, double %..i
   ret double %.0.i54
 }
 
@@ -13435,7 +13242,7 @@ define linkonce_odr noundef double @_ZN7xgboost6common7AFTLossINS0_19ExtremeDist
   %5 = tail call double @log(double noundef %0) #21, !tbaa !134
   %6 = tail call double @log(double noundef %1) #21, !tbaa !134
   %7 = fcmp oeq double %0, %1
-  br i1 %7, label %8, label %62
+  br i1 %7, label %8, label %50
 
 8:                                                ; preds = %4
   %9 = fsub double %5, %2
@@ -13456,236 +13263,196 @@ _ZN7xgboost6common19ExtremeDistribution3PDFEd.exit: ; preds = %8, %14
   %19 = tail call double @exp(double noundef %10) #21, !tbaa !134
   %20 = tail call double @llvm.fabs.f64(double %19)
   %21 = fcmp oeq double %20, 0x7FF0000000000000
-  br i1 %21, label %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit, label %22
+  br i1 %21, label %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit, label %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit.i
 
-22:                                               ; preds = %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit
-  %23 = fsub double 1.000000e+00, %19
-  %24 = tail call double @exp(double noundef %10) #21, !tbaa !134
-  %25 = tail call double @llvm.fabs.f64(double %24)
-  %26 = fcmp oeq double %25, 0x7FF0000000000000
-  br i1 %26, label %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit.i, label %27
-
-27:                                               ; preds = %22
-  %28 = fneg double %24
-  %29 = tail call double @exp(double noundef %28) #21, !tbaa !134
-  %30 = fmul double %24, %29
-  br label %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit.i
-
-_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit.i: ; preds = %27, %22
-  %31 = phi double [ %30, %27 ], [ 0.000000e+00, %22 ]
-  %32 = fmul double %23, %31
+_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit.i: ; preds = %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit
+  %22 = fsub double 1.000000e+00, %19
+  %23 = fneg double %19
+  %24 = tail call double @exp(double noundef %23) #21, !tbaa !134
+  %25 = fmul double %19, %24
+  %26 = fmul double %22, %25
   br label %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit
 
 _ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit: ; preds = %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit, %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit.i
-  %33 = phi double [ %32, %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit.i ], [ 0.000000e+00, %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit ]
-  %34 = tail call double @exp(double noundef %10) #21, !tbaa !134
-  %35 = tail call double @llvm.fabs.f64(double %34)
-  %36 = fcmp oeq double %35, 0x7FF0000000000000
-  br i1 %36, label %_ZN7xgboost6common19ExtremeDistribution7HessPDFEd.exit, label %37
+  %27 = phi double [ %26, %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit.i ], [ 0.000000e+00, %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit ]
+  %28 = tail call double @exp(double noundef %10) #21, !tbaa !134
+  %29 = tail call double @llvm.fabs.f64(double %28)
+  %30 = fcmp oeq double %29, 0x7FF0000000000000
+  br i1 %30, label %_ZN7xgboost6common19ExtremeDistribution7HessPDFEd.exit, label %31
 
-37:                                               ; preds = %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit
-  %38 = fmul double %34, %34
-  %39 = tail call double @llvm.fabs.f64(double %38)
-  %40 = fcmp oeq double %39, 0x7FF0000000000000
-  br i1 %40, label %_ZN7xgboost6common19ExtremeDistribution7HessPDFEd.exit, label %41
+31:                                               ; preds = %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit
+  %32 = fmul double %28, %28
+  %33 = tail call double @llvm.fabs.f64(double %32)
+  %34 = fcmp oeq double %33, 0x7FF0000000000000
+  br i1 %34, label %_ZN7xgboost6common19ExtremeDistribution7HessPDFEd.exit, label %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit.i71
 
-41:                                               ; preds = %37
-  %42 = fmul double %34, -3.000000e+00
-  %43 = tail call double @llvm.fmuladd.f64(double %34, double %34, double %42)
-  %44 = fadd double %43, 1.000000e+00
-  %45 = tail call double @exp(double noundef %10) #21, !tbaa !134
-  %46 = tail call double @llvm.fabs.f64(double %45)
-  %47 = fcmp oeq double %46, 0x7FF0000000000000
-  br i1 %47, label %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit.i71, label %48
-
-48:                                               ; preds = %41
-  %49 = fneg double %45
-  %50 = tail call double @exp(double noundef %49) #21, !tbaa !134
-  %51 = fmul double %45, %50
-  br label %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit.i71
-
-_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit.i71: ; preds = %48, %41
-  %52 = phi double [ %51, %48 ], [ 0.000000e+00, %41 ]
-  %53 = fmul double %44, %52
+_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit.i71: ; preds = %31
+  %35 = fmul double %28, -3.000000e+00
+  %36 = tail call double @llvm.fmuladd.f64(double %28, double %28, double %35)
+  %37 = fadd double %36, 1.000000e+00
+  %38 = fneg double %28
+  %39 = tail call double @exp(double noundef %38) #21, !tbaa !134
+  %40 = fmul double %28, %39
+  %41 = fmul double %37, %40
   br label %_ZN7xgboost6common19ExtremeDistribution7HessPDFEd.exit
 
-_ZN7xgboost6common19ExtremeDistribution7HessPDFEd.exit: ; preds = %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit, %37, %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit.i71
-  %.0.i = phi double [ %53, %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit.i71 ], [ 0.000000e+00, %37 ], [ 0.000000e+00, %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit ]
-  %54 = fneg double %33
-  %55 = fmul double %33, %54
-  %56 = tail call double @llvm.fmuladd.f64(double %18, double %.0.i, double %55)
-  %57 = fneg double %56
-  %58 = fmul double %3, %3
-  %59 = fmul double %58, %18
-  %60 = fmul double %18, %59
-  %61 = fcmp ogt double %10, 0.000000e+00
-  br label %140
+_ZN7xgboost6common19ExtremeDistribution7HessPDFEd.exit: ; preds = %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit, %31, %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit.i71
+  %.0.i = phi double [ %41, %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit.i71 ], [ 0.000000e+00, %31 ], [ 0.000000e+00, %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit ]
+  %42 = fneg double %27
+  %43 = fmul double %27, %42
+  %44 = tail call double @llvm.fmuladd.f64(double %18, double %.0.i, double %43)
+  %45 = fneg double %44
+  %46 = fmul double %3, %3
+  %47 = fmul double %46, %18
+  %48 = fmul double %18, %47
+  %49 = fcmp ogt double %10, 0.000000e+00
+  br label %116
 
-62:                                               ; preds = %4
-  %63 = tail call double @llvm.fabs.f64(double %1)
-  %64 = fcmp oeq double %63, 0x7FF0000000000000
-  br i1 %64, label %96, label %65
+50:                                               ; preds = %4
+  %51 = tail call double @llvm.fabs.f64(double %1)
+  %52 = fcmp oeq double %51, 0x7FF0000000000000
+  br i1 %52, label %78, label %53
 
-65:                                               ; preds = %62
-  %66 = fsub double %6, %2
-  %67 = fdiv double %66, %3
-  %68 = tail call double @exp(double noundef %67) #21, !tbaa !134
+53:                                               ; preds = %50
+  %54 = fsub double %6, %2
+  %55 = fdiv double %54, %3
+  %56 = tail call double @exp(double noundef %55) #21, !tbaa !134
+  %57 = tail call double @llvm.fabs.f64(double %56)
+  %58 = fcmp oeq double %57, 0x7FF0000000000000
+  br i1 %58, label %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit72, label %59
+
+59:                                               ; preds = %53
+  %60 = fneg double %56
+  %61 = tail call double @exp(double noundef %60) #21, !tbaa !134
+  %62 = fmul double %56, %61
+  br label %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit72
+
+_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit72: ; preds = %53, %59
+  %63 = phi double [ %62, %59 ], [ 0.000000e+00, %53 ]
+  %64 = tail call double @exp(double noundef %55) #21, !tbaa !134
+  %65 = fneg double %64
+  %66 = tail call double @exp(double noundef %65) #21, !tbaa !134
+  %67 = fsub double 1.000000e+00, %66
+  %68 = tail call double @exp(double noundef %55) #21, !tbaa !134
   %69 = tail call double @llvm.fabs.f64(double %68)
   %70 = fcmp oeq double %69, 0x7FF0000000000000
-  br i1 %70, label %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit72, label %71
+  br i1 %70, label %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit74, label %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit.i73
 
-71:                                               ; preds = %65
+_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit.i73: ; preds = %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit72
+  %71 = fsub double 1.000000e+00, %68
   %72 = fneg double %68
   %73 = tail call double @exp(double noundef %72) #21, !tbaa !134
   %74 = fmul double %68, %73
-  br label %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit72
-
-_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit72: ; preds = %65, %71
-  %75 = phi double [ %74, %71 ], [ 0.000000e+00, %65 ]
-  %76 = tail call double @exp(double noundef %67) #21, !tbaa !134
-  %77 = fneg double %76
-  %78 = tail call double @exp(double noundef %77) #21, !tbaa !134
-  %79 = fsub double 1.000000e+00, %78
-  %80 = tail call double @exp(double noundef %67) #21, !tbaa !134
-  %81 = tail call double @llvm.fabs.f64(double %80)
-  %82 = fcmp oeq double %81, 0x7FF0000000000000
-  br i1 %82, label %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit74, label %83
-
-83:                                               ; preds = %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit72
-  %84 = fsub double 1.000000e+00, %80
-  %85 = tail call double @exp(double noundef %67) #21, !tbaa !134
-  %86 = tail call double @llvm.fabs.f64(double %85)
-  %87 = fcmp oeq double %86, 0x7FF0000000000000
-  br i1 %87, label %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit.i73, label %88
-
-88:                                               ; preds = %83
-  %89 = fneg double %85
-  %90 = tail call double @exp(double noundef %89) #21, !tbaa !134
-  %91 = fmul double %85, %90
-  br label %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit.i73
-
-_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit.i73: ; preds = %88, %83
-  %92 = phi double [ %91, %88 ], [ 0.000000e+00, %83 ]
-  %93 = fmul double %84, %92
+  %75 = fmul double %71, %74
   br label %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit74
 
 _ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit74: ; preds = %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit72, %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit.i73
-  %94 = phi double [ %93, %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit.i73 ], [ 0.000000e+00, %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit72 ]
-  %95 = fcmp ogt double %67, 0.000000e+00
-  br label %96
+  %76 = phi double [ %75, %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit.i73 ], [ 0.000000e+00, %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit72 ]
+  %77 = fcmp ogt double %55, 0.000000e+00
+  br label %78
 
-96:                                               ; preds = %62, %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit74
-  %.067 = phi i1 [ %95, %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit74 ], [ false, %62 ]
-  %.065 = phi double [ %94, %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit74 ], [ 0.000000e+00, %62 ]
-  %.063 = phi double [ %75, %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit74 ], [ 0.000000e+00, %62 ]
-  %.061 = phi double [ %79, %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit74 ], [ 1.000000e+00, %62 ]
-  %.1 = phi i8 [ 3, %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit74 ], [ 1, %62 ]
-  %97 = fcmp ugt double %0, 0.000000e+00
-  br i1 %97, label %98, label %129
+78:                                               ; preds = %50, %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit74
+  %.067 = phi i1 [ %77, %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit74 ], [ false, %50 ]
+  %.065 = phi double [ %76, %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit74 ], [ 0.000000e+00, %50 ]
+  %.063 = phi double [ %63, %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit74 ], [ 0.000000e+00, %50 ]
+  %.061 = phi double [ %67, %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit74 ], [ 1.000000e+00, %50 ]
+  %.1 = phi i8 [ 3, %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit74 ], [ 1, %50 ]
+  %79 = fcmp ugt double %0, 0.000000e+00
+  br i1 %79, label %80, label %105
 
-98:                                               ; preds = %96
-  %99 = fsub double %5, %2
-  %100 = fdiv double %99, %3
-  %101 = tail call double @exp(double noundef %100) #21, !tbaa !134
-  %102 = tail call double @llvm.fabs.f64(double %101)
-  %103 = fcmp oeq double %102, 0x7FF0000000000000
-  br i1 %103, label %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit75, label %104
+80:                                               ; preds = %78
+  %81 = fsub double %5, %2
+  %82 = fdiv double %81, %3
+  %83 = tail call double @exp(double noundef %82) #21, !tbaa !134
+  %84 = tail call double @llvm.fabs.f64(double %83)
+  %85 = fcmp oeq double %84, 0x7FF0000000000000
+  br i1 %85, label %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit75, label %86
 
-104:                                              ; preds = %98
-  %105 = fneg double %101
-  %106 = tail call double @exp(double noundef %105) #21, !tbaa !134
-  %107 = fmul double %101, %106
+86:                                               ; preds = %80
+  %87 = fneg double %83
+  %88 = tail call double @exp(double noundef %87) #21, !tbaa !134
+  %89 = fmul double %83, %88
   br label %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit75
 
-_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit75: ; preds = %98, %104
-  %108 = phi double [ %107, %104 ], [ 0.000000e+00, %98 ]
-  %109 = tail call double @exp(double noundef %100) #21, !tbaa !134
-  %110 = fneg double %109
-  %111 = tail call double @exp(double noundef %110) #21, !tbaa !134
-  %112 = fsub double 1.000000e+00, %111
-  %113 = tail call double @exp(double noundef %100) #21, !tbaa !134
-  %114 = tail call double @llvm.fabs.f64(double %113)
-  %115 = fcmp oeq double %114, 0x7FF0000000000000
-  br i1 %115, label %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit77, label %116
+_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit75: ; preds = %80, %86
+  %90 = phi double [ %89, %86 ], [ 0.000000e+00, %80 ]
+  %91 = tail call double @exp(double noundef %82) #21, !tbaa !134
+  %92 = fneg double %91
+  %93 = tail call double @exp(double noundef %92) #21, !tbaa !134
+  %94 = fsub double 1.000000e+00, %93
+  %95 = tail call double @exp(double noundef %82) #21, !tbaa !134
+  %96 = tail call double @llvm.fabs.f64(double %95)
+  %97 = fcmp oeq double %96, 0x7FF0000000000000
+  br i1 %97, label %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit77, label %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit.i76
 
-116:                                              ; preds = %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit75
-  %117 = fsub double 1.000000e+00, %113
-  %118 = tail call double @exp(double noundef %100) #21, !tbaa !134
-  %119 = tail call double @llvm.fabs.f64(double %118)
-  %120 = fcmp oeq double %119, 0x7FF0000000000000
-  br i1 %120, label %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit.i76, label %121
-
-121:                                              ; preds = %116
-  %122 = fneg double %118
-  %123 = tail call double @exp(double noundef %122) #21, !tbaa !134
-  %124 = fmul double %118, %123
-  br label %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit.i76
-
-_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit.i76: ; preds = %121, %116
-  %125 = phi double [ %124, %121 ], [ 0.000000e+00, %116 ]
-  %126 = fmul double %117, %125
+_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit.i76: ; preds = %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit75
+  %98 = fsub double 1.000000e+00, %95
+  %99 = fneg double %95
+  %100 = tail call double @exp(double noundef %99) #21, !tbaa !134
+  %101 = fmul double %95, %100
+  %102 = fmul double %98, %101
   br label %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit77
 
 _ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit77: ; preds = %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit75, %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit.i76
-  %127 = phi double [ %126, %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit.i76 ], [ 0.000000e+00, %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit75 ]
-  %128 = fcmp ogt double %100, 0.000000e+00
-  br label %129
+  %103 = phi double [ %102, %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit.i76 ], [ 0.000000e+00, %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit75 ]
+  %104 = fcmp ogt double %82, 0.000000e+00
+  br label %105
 
-129:                                              ; preds = %96, %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit77
-  %.066 = phi i1 [ %128, %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit77 ], [ false, %96 ]
-  %.064 = phi double [ %127, %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit77 ], [ 0.000000e+00, %96 ]
-  %.062 = phi double [ %108, %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit77 ], [ 0.000000e+00, %96 ]
-  %.060 = phi double [ %112, %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit77 ], [ 0.000000e+00, %96 ]
-  %.2 = phi i8 [ %.1, %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit77 ], [ 2, %96 ]
-  %130 = fsub double %.061, %.060
-  %131 = fsub double %.063, %.062
-  %132 = fsub double %.065, %.064
-  %133 = fmul double %3, %130
-  %134 = or i1 %.067, %.066
-  %135 = fneg double %131
-  %136 = fmul double %131, %135
-  %137 = tail call double @llvm.fmuladd.f64(double %130, double %132, double %136)
-  %138 = fneg double %137
-  %139 = fmul double %133, %133
-  br label %140
+105:                                              ; preds = %78, %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit77
+  %.066 = phi i1 [ %104, %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit77 ], [ false, %78 ]
+  %.064 = phi double [ %103, %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit77 ], [ 0.000000e+00, %78 ]
+  %.062 = phi double [ %90, %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit77 ], [ 0.000000e+00, %78 ]
+  %.060 = phi double [ %94, %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit77 ], [ 0.000000e+00, %78 ]
+  %.2 = phi i8 [ %.1, %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit77 ], [ 2, %78 ]
+  %106 = fsub double %.061, %.060
+  %107 = fsub double %.063, %.062
+  %108 = fsub double %.065, %.064
+  %109 = fmul double %3, %106
+  %110 = or i1 %.067, %.066
+  %111 = fneg double %107
+  %112 = fmul double %107, %111
+  %113 = tail call double @llvm.fmuladd.f64(double %106, double %108, double %112)
+  %114 = fneg double %113
+  %115 = fmul double %109, %109
+  br label %116
 
-140:                                              ; preds = %129, %_ZN7xgboost6common19ExtremeDistribution7HessPDFEd.exit
-  %.068.in = phi i1 [ %61, %_ZN7xgboost6common19ExtremeDistribution7HessPDFEd.exit ], [ %134, %129 ]
-  %.059 = phi i8 [ 0, %_ZN7xgboost6common19ExtremeDistribution7HessPDFEd.exit ], [ %.2, %129 ]
-  %.057 = phi double [ %60, %_ZN7xgboost6common19ExtremeDistribution7HessPDFEd.exit ], [ %139, %129 ]
-  %.0 = phi double [ %57, %_ZN7xgboost6common19ExtremeDistribution7HessPDFEd.exit ], [ %138, %129 ]
-  %141 = fdiv double %.0, %.057
-  %142 = fcmp olt double %.057, 0x3D719799812DEA11
-  %143 = tail call double @llvm.fabs.f64(double %141)
-  %or.cond = fcmp ueq double %143, 0x7FF0000000000000
-  %or.cond81 = select i1 %142, i1 %or.cond, i1 false
-  br i1 %or.cond81, label %144, label %_ZN7xgboost6common3aft21GetLimitHessAtInfPredINS0_19ExtremeDistributionEEEdNS0_13CensoringTypeEbd.exit
+116:                                              ; preds = %105, %_ZN7xgboost6common19ExtremeDistribution7HessPDFEd.exit
+  %.068.in = phi i1 [ %49, %_ZN7xgboost6common19ExtremeDistribution7HessPDFEd.exit ], [ %110, %105 ]
+  %.059 = phi i8 [ 0, %_ZN7xgboost6common19ExtremeDistribution7HessPDFEd.exit ], [ %.2, %105 ]
+  %.057 = phi double [ %48, %_ZN7xgboost6common19ExtremeDistribution7HessPDFEd.exit ], [ %115, %105 ]
+  %.0 = phi double [ %45, %_ZN7xgboost6common19ExtremeDistribution7HessPDFEd.exit ], [ %114, %105 ]
+  %117 = fdiv double %.0, %.057
+  %118 = fcmp olt double %.057, 0x3D719799812DEA11
+  %119 = tail call double @llvm.fabs.f64(double %117)
+  %or.cond = fcmp ueq double %119, 0x7FF0000000000000
+  %or.cond81 = select i1 %118, i1 %or.cond, i1 false
+  br i1 %or.cond81, label %120, label %_ZN7xgboost6common3aft21GetLimitHessAtInfPredINS0_19ExtremeDistributionEEEdNS0_13CensoringTypeEbd.exit
 
-144:                                              ; preds = %140
+120:                                              ; preds = %116
   switch i8 %.059, label %default.unreachable82 [
-    i8 0, label %145
-    i8 1, label %145
+    i8 0, label %121
+    i8 1, label %121
     i8 2, label %_ZN7xgboost6common3aft21GetLimitHessAtInfPredINS0_19ExtremeDistributionEEEdNS0_13CensoringTypeEbd.exit
-    i8 3, label %147
+    i8 3, label %123
   ]
 
-145:                                              ; preds = %144, %144
-  %146 = select i1 %.068.in, double 1.500000e+01, double 0x3C9CD2B297D889BC
+121:                                              ; preds = %120, %120
+  %122 = select i1 %.068.in, double 1.500000e+01, double 0x3C9CD2B297D889BC
   br label %_ZN7xgboost6common3aft21GetLimitHessAtInfPredINS0_19ExtremeDistributionEEEdNS0_13CensoringTypeEbd.exit
 
-147:                                              ; preds = %144
-  %148 = select i1 %.068.in, double 1.500000e+01, double 0x3C9CD2B297D889BC
+123:                                              ; preds = %120
+  %124 = select i1 %.068.in, double 1.500000e+01, double 0x3C9CD2B297D889BC
   br label %_ZN7xgboost6common3aft21GetLimitHessAtInfPredINS0_19ExtremeDistributionEEEdNS0_13CensoringTypeEbd.exit
 
-default.unreachable82:                            ; preds = %144
+default.unreachable82:                            ; preds = %120
   unreachable
 
-_ZN7xgboost6common3aft21GetLimitHessAtInfPredINS0_19ExtremeDistributionEEEdNS0_13CensoringTypeEbd.exit: ; preds = %147, %145, %144, %140
-  %.058 = phi double [ %141, %140 ], [ %146, %145 ], [ %148, %147 ], [ 0x3C9CD2B297D889BC, %144 ]
-  %149 = fcmp olt double %.058, 0x3C9CD2B297D889BC
-  %150 = fcmp ogt double %.058, 1.500000e+01
-  %..i = select i1 %150, double 1.500000e+01, double %.058
-  %.0.i79 = select i1 %149, double 0x3C9CD2B297D889BC, double %..i
+_ZN7xgboost6common3aft21GetLimitHessAtInfPredINS0_19ExtremeDistributionEEEdNS0_13CensoringTypeEbd.exit: ; preds = %123, %121, %120, %116
+  %.058 = phi double [ %117, %116 ], [ %122, %121 ], [ %124, %123 ], [ 0x3C9CD2B297D889BC, %120 ]
+  %125 = fcmp olt double %.058, 0x3C9CD2B297D889BC
+  %126 = fcmp ogt double %.058, 1.500000e+01
+  %..i = select i1 %126, double 1.500000e+01, double %.058
+  %.0.i79 = select i1 %125, double 0x3C9CD2B297D889BC, double %..i
   ret double %.0.i79
 }
 

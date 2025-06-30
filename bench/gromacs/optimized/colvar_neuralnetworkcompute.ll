@@ -353,10 +353,9 @@ declare double @tanh(double noundef) local_unnamed_addr #14
 define internal noundef double @"_ZNSt17_Function_handlerIFddEN15neuralnetworkCV3$_1EE9_M_invokeERKSt9_Any_dataOd"(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) #12 align 2 {
   %.val = load double, ptr %1, align 8, !tbaa !21
   %3 = tail call double @tanh(double noundef %.val) #32, !tbaa !23
-  %4 = tail call double @tanh(double noundef %.val) #32, !tbaa !23
-  %5 = fneg double %3
-  %6 = tail call noundef double @llvm.fmuladd.f64(double %5, double %4, double 1.000000e+00)
-  ret double %6
+  %4 = fneg double %3
+  %5 = tail call noundef double @llvm.fmuladd.f64(double %4, double %3, double 1.000000e+00)
+  ret double %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
@@ -523,13 +522,10 @@ define internal noundef double @"_ZNSt17_Function_handlerIFddEN15neuralnetworkCV
   %.val = load double, ptr %1, align 8, !tbaa !21
   %3 = fneg double %.val
   %4 = tail call double @exp(double noundef %3) #32, !tbaa !23
-  %5 = tail call double @exp(double noundef %3) #32, !tbaa !23
-  %6 = fadd double %5, 1.000000e+00
-  %7 = tail call double @exp(double noundef %3) #32, !tbaa !23
-  %8 = fadd double %7, 1.000000e+00
-  %9 = fmul double %6, %8
-  %10 = fdiv double %4, %9
-  ret double %10
+  %5 = fadd double %4, 1.000000e+00
+  %6 = fmul double %5, %5
+  %7 = fdiv double %4, %6
+  ret double %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable

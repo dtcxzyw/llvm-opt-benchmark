@@ -1981,8 +1981,7 @@ invoke.cont102:                                   ; preds = %invoke.cont85
   %sub.i = fsub double %61, %62
   %63 = call double @llvm.fmuladd.f64(double %call.i, double %sub.i, double %fneg.i)
   %add.i = fadd double %62, %63
-  %call11.i = call double @exp(double noundef %mul.i) #29, !tbaa !108
-  %mul12.i = fmul double %call11.i, 2.000000e+00
+  %mul12.i = fmul double %call.i, 2.000000e+00
   %mul14.i = fmul double %60, %mul12.i
   %div.i = fdiv double %add.i, %mul14.i
   %sigma_.i = getelementptr inbounds nuw i8, ptr %this, i64 384
@@ -2967,8 +2966,7 @@ entry:
   %sub = fsub double %2, %3
   %4 = tail call double @llvm.fmuladd.f64(double %call, double %sub, double %fneg)
   %add = fadd double %3, %4
-  %call11 = tail call double @exp(double noundef %mul) #29, !tbaa !108
-  %mul12 = fmul double %call11, 2.000000e+00
+  %mul12 = fmul double %call, 2.000000e+00
   %mul14 = fmul double %1, %mul12
   %div = fdiv double %add, %mul14
   ret double %div
@@ -4393,8 +4391,7 @@ entry:
   %sub.i = fsub double %2, %3
   %4 = tail call double @llvm.fmuladd.f64(double %call.i, double %sub.i, double %fneg.i)
   %add.i = fadd double %3, %4
-  %call11.i = tail call double @exp(double noundef %mul.i) #29, !tbaa !108
-  %mul12.i = fmul double %call11.i, 2.000000e+00
+  %mul12.i = fmul double %call.i, 2.000000e+00
   %mul14.i = fmul double %1, %mul12.i
   %div.i = fdiv double %add.i, %mul14.i
   ret double %div.i

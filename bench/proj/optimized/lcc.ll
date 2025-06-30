@@ -233,74 +233,73 @@ define hidden noundef ptr @_Z32pj_projection_specific_setup_lccP8PJconsts(ptr no
   %114 = phi double [ %111, %106 ], [ 0.000000e+00, %92 ]
   %115 = fmul double %114, %113
   store double %115, ptr %98, align 8, !tbaa !51
-  br label %154
+  br label %153
 
 116:                                              ; preds = %57
   br i1 %60, label %117, label %thread-pre-split
 
 117:                                              ; preds = %116
-  %118 = tail call double @cos(double noundef %33) #6, !tbaa !47
-  %119 = fdiv double %42, %118
-  %120 = tail call double @log(double noundef %119) #6, !tbaa !47
-  %121 = tail call double @llvm.fmuladd.f64(double %33, double 5.000000e-01, double 0x3FE921FB54442D18)
-  %122 = tail call double @tan(double noundef %121) #6, !tbaa !47
-  %123 = tail call double @llvm.fmuladd.f64(double %31, double 5.000000e-01, double 0x3FE921FB54442D18)
-  %124 = tail call double @tan(double noundef %123) #6, !tbaa !47
-  %125 = fdiv double %122, %124
-  %126 = tail call double @log(double noundef %125) #6, !tbaa !47
-  %127 = fdiv double %120, %126
-  store double %127, ptr %41, align 8, !tbaa !48
+  %118 = fdiv double %42, %50
+  %119 = tail call double @log(double noundef %118) #6, !tbaa !47
+  %120 = tail call double @llvm.fmuladd.f64(double %33, double 5.000000e-01, double 0x3FE921FB54442D18)
+  %121 = tail call double @tan(double noundef %120) #6, !tbaa !47
+  %122 = tail call double @llvm.fmuladd.f64(double %31, double 5.000000e-01, double 0x3FE921FB54442D18)
+  %123 = tail call double @tan(double noundef %122) #6, !tbaa !47
+  %124 = fdiv double %121, %123
+  %125 = tail call double @log(double noundef %124) #6, !tbaa !47
+  %126 = fdiv double %119, %125
+  store double %126, ptr %41, align 8, !tbaa !48
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %116, %117
-  %128 = phi double [ %127, %117 ], [ %40, %116 ]
-  %129 = fcmp oeq double %128, 0.000000e+00
-  br i1 %129, label %130, label %132
+  %127 = phi double [ %126, %117 ], [ %40, %116 ]
+  %128 = fcmp oeq double %127, 0.000000e+00
+  br i1 %128, label %129, label %131
 
-130:                                              ; preds = %thread-pre-split
+129:                                              ; preds = %thread-pre-split
   tail call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.5)
-  %131 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1027)
+  %130 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1027)
   br label %.thread111
 
-132:                                              ; preds = %thread-pre-split
-  %133 = tail call double @llvm.fmuladd.f64(double %31, double 5.000000e-01, double 0x3FE921FB54442D18)
-  %134 = tail call double @tan(double noundef %133) #6, !tbaa !47
-  %135 = tail call double @pow(double noundef %134, double noundef %128) #6, !tbaa !47
-  %136 = fmul double %42, %135
-  %137 = fdiv double %136, %128
-  %138 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store double %137, ptr %138, align 8, !tbaa !52
-  %139 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  %140 = load double, ptr %139, align 8, !tbaa !46
-  %141 = tail call double @llvm.fabs.f64(double %140)
-  %142 = fadd double %141, 0xBFF921FB54442D18
-  %143 = tail call double @llvm.fabs.f64(double %142)
-  %144 = fcmp olt double %143, 1.000000e-10
-  br i1 %144, label %151, label %145
+131:                                              ; preds = %thread-pre-split
+  %132 = tail call double @llvm.fmuladd.f64(double %31, double 5.000000e-01, double 0x3FE921FB54442D18)
+  %133 = tail call double @tan(double noundef %132) #6, !tbaa !47
+  %134 = tail call double @pow(double noundef %133, double noundef %127) #6, !tbaa !47
+  %135 = fmul double %42, %134
+  %136 = fdiv double %135, %127
+  %137 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  store double %136, ptr %137, align 8, !tbaa !52
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 448
+  %139 = load double, ptr %138, align 8, !tbaa !46
+  %140 = tail call double @llvm.fabs.f64(double %139)
+  %141 = fadd double %140, 0xBFF921FB54442D18
+  %142 = tail call double @llvm.fabs.f64(double %141)
+  %143 = fcmp olt double %142, 1.000000e-10
+  br i1 %143, label %150, label %144
 
-145:                                              ; preds = %132
-  %146 = tail call double @llvm.fmuladd.f64(double %140, double 5.000000e-01, double 0x3FE921FB54442D18)
-  %147 = tail call double @tan(double noundef %146) #6, !tbaa !47
-  %148 = fneg double %128
-  %149 = tail call double @pow(double noundef %147, double noundef %148) #6, !tbaa !47
-  %150 = fmul double %137, %149
-  br label %151
+144:                                              ; preds = %131
+  %145 = tail call double @llvm.fmuladd.f64(double %139, double 5.000000e-01, double 0x3FE921FB54442D18)
+  %146 = tail call double @tan(double noundef %145) #6, !tbaa !47
+  %147 = fneg double %127
+  %148 = tail call double @pow(double noundef %146, double noundef %147) #6, !tbaa !47
+  %149 = fmul double %136, %148
+  br label %150
 
-151:                                              ; preds = %132, %145
-  %152 = phi double [ %150, %145 ], [ 0.000000e+00, %132 ]
-  %153 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store double %152, ptr %153, align 8, !tbaa !51
-  br label %154
+150:                                              ; preds = %131, %144
+  %151 = phi double [ %149, %144 ], [ 0.000000e+00, %131 ]
+  %152 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  store double %151, ptr %152, align 8, !tbaa !51
+  br label %153
 
-154:                                              ; preds = %112, %151
-  %155 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store ptr @_ZL13lcc_e_inverse5PJ_XYP8PJconsts, ptr %155, align 8, !tbaa !53
-  %156 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store ptr @_ZL13lcc_e_forward5PJ_LPP8PJconsts, ptr %156, align 8, !tbaa !54
+153:                                              ; preds = %112, %150
+  %154 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  store ptr @_ZL13lcc_e_inverse5PJ_XYP8PJconsts, ptr %154, align 8, !tbaa !53
+  %155 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  store ptr @_ZL13lcc_e_forward5PJ_LPP8PJconsts, ptr %155, align 8, !tbaa !54
   br label %.thread111
 
-.thread111:                                       ; preds = %90, %79, %154, %130, %55, %47, %37, %4
-  %.0 = phi ptr [ %5, %4 ], [ %38, %37 ], [ %48, %47 ], [ %56, %55 ], [ %0, %154 ], [ %131, %130 ], [ %91, %90 ], [ %80, %79 ]
+.thread111:                                       ; preds = %90, %79, %153, %129, %55, %47, %37, %4
+  %.0 = phi ptr [ %5, %4 ], [ %38, %37 ], [ %48, %47 ], [ %56, %55 ], [ %0, %153 ], [ %130, %129 ], [ %91, %90 ], [ %80, %79 ]
   ret ptr %.0
 }
 

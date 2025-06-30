@@ -394,8 +394,8 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
   %91 = shufflevector <4 x float> %90, <4 x float> poison, <4 x i32> zeroinitializer
   %92 = fmul contract <4 x float> %83, %91
   %93 = shufflevector <4 x float> %92, <4 x float> poison, <4 x i32> <i32 2, i32 0, i32 1, i32 3>
-  %94 = shufflevector <4 x float> %92, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 0, i32 3>
-  %95 = fneg contract <4 x float> %94
+  %94 = fneg contract <4 x float> %92
+  %95 = shufflevector <4 x float> %94, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 0, i32 3>
   %96 = fmul contract <4 x float> %78, %95
   %97 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %80, <4 x float> %93, <4 x float> %96)
   %.sroa.012.12.vec.insert.i.i = insertelement <4 x float> %92, float 0.000000e+00, i64 3

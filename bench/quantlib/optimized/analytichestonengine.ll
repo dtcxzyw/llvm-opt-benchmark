@@ -1744,9 +1744,8 @@ if.then225:                                       ; preds = %if.then220
   %add = fadd double %sub228, %div244
   %v0_245 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %89 = load double, ptr %v0_245, align 8, !tbaa !47
-  %call248 = tail call double @exp(double noundef %mul230) #35, !tbaa !50
-  %sub249 = fsub double 1.000000e+00, %call248
-  %mul250 = fmul double %89, %sub249
+  %sub249 = fsub double 1.000000e+00, %call231
+  %mul250 = fmul double %sub249, %89
   %div252 = fdiv double %mul250, %mul242
   %sub253 = fsub double %add, %div252
   br label %cleanup507
@@ -1790,9 +1789,8 @@ if.else270:                                       ; preds = %if.else217
   %sub295 = fsub double %sub273, %div294
   %v0_296 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %102 = load double, ptr %v0_296, align 8, !tbaa !47
-  %call301 = tail call double @exp(double noundef %mul277) #35, !tbaa !50
-  %sub302 = fsub double 1.000000e+00, %call301
-  %mul303 = fmul double %102, %sub302
+  %sub302 = fsub double 1.000000e+00, %call278
+  %mul303 = fmul double %sub302, %102
   %div306 = fdiv double %mul303, %mul291
   %sub307 = fsub double %sub295, %div306
   br label %cleanup507
@@ -2637,8 +2635,7 @@ _ZNK8QuantLib11HestonModel3rhoEv.exit:            ; preds = %_ZNK5boost10shared_
   %div30.i = fdiv double %73, %mul29.i
   %km_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   store double %div30.i, ptr %km_, align 8, !tbaa !93
-  %call21.i149 = tail call double @sqrt(double noundef %72) #35, !tbaa !50
-  %74 = fadd double %68, %call21.i149
+  %74 = fadd double %68, %call21.i
   %div30.i152 = fdiv double %74, %mul29.i
   %kp_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   store double %div30.i152, ptr %kp_, align 8, !tbaa !94
@@ -8105,8 +8102,7 @@ sw.bb64:                                          ; preds = %_ZNK8QuantLib11Hest
   %59 = tail call double @llvm.fmuladd.f64(double %mul85, double %term, double %call2.i.i)
   %mul103 = fmul double %call2.i.i101, 2.000000e+00
   %mul104 = fmul double %mul103, %call2.i.i113
-  %call107 = tail call double @sqrt(double noundef %55) #35, !tbaa !50
-  %div108 = fdiv double %call2.i.i139, %call107
+  %div108 = fdiv double %call2.i.i139, %call98
   %call109 = tail call double @atan(double noundef %div108) #35, !tbaa !50
   %60 = fneg double %call109
   %neg111 = fmul double %mul104, %60
@@ -17352,7 +17348,6 @@ entry:
   %fneg = fneg double %call
   %div = fdiv double %fneg, %c_inf
   %mul = fmul double %div, 1.000000e-01
-  %call.i = tail call double @log(double noundef %epsilon) #35, !tbaa !50
   %mul3 = fmul double %div, 0x3CB0000000000000
   %cmp.i = fcmp ogt double %mul3, 0.000000e+00
   br i1 %cmp.i, label %do.end.i, label %if.then.i
@@ -17526,7 +17521,7 @@ do.end.i:                                         ; preds = %entry
   %.sroa.speculated.i = select i1 %cmp.i.i, double 0x3CB0000000000000, double %mul3
   %call.i.i = tail call double @log(double noundef %div) #35, !tbaa !50
   %21 = tail call double @llvm.fmuladd.f64(double %c_inf, double %div, double %call.i.i)
-  %add.i.i = fadd double %call.i, %21
+  %add.i.i = fadd double %call, %21
   %cmp.i40.i = fcmp oeq double %add.i.i, 0.000000e+00
   %22 = tail call double @llvm.fabs.f64(double %add.i.i)
   %cmp4.i.i = fcmp olt double %22, 0x3A1B900000000000
@@ -17541,14 +17536,14 @@ _ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit.i: ; preds = %if.else.
   %sub.i = fsub double %div, %mul
   %call.i46.i = tail call double @log(double noundef %sub.i) #35, !tbaa !50
   %23 = tail call double @llvm.fmuladd.f64(double %c_inf, double %sub.i, double %call.i46.i)
-  %add.i48.i = fadd double %call.i, %23
+  %add.i48.i = fadd double %call, %23
   br label %while.body.i.preheader
 
 _ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit62.i: ; preds = %if.else.i
   %add.i = fadd double %div, %mul
   %call.i65.i = tail call double @log(double noundef %add.i) #35, !tbaa !50
   %24 = tail call double @llvm.fmuladd.f64(double %c_inf, double %add.i, double %call.i65.i)
-  %add.i67.i = fadd double %call.i, %24
+  %add.i67.i = fadd double %call, %24
   br label %while.body.i.preheader
 
 while.body.i.preheader:                           ; preds = %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit.i, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit62.i
@@ -17597,7 +17592,7 @@ if.end74.i:                                       ; preds = %if.end69.i
 while.body.lr.ph.i.i:                             ; preds = %if.end74.i
   %inc.i83.i = add nuw nsw i64 %storemerge296.i, 1
   %31 = tail call double @llvm.fmuladd.f64(double %c_inf, double %div.i, double %call.i.i82.i)
-  %add.i.i.i = fadd double %call.i, %31
+  %add.i.i.i = fadd double %call, %31
   %mul.i.i = fmul double %27, %add.i.i.i
   %cmp.i84.i = fcmp olt double %mul.i.i, 0.000000e+00
   %fxMin_.promoted.i.i = select i1 %cmp.i84.i, double %27, double %28
@@ -17775,7 +17770,7 @@ if.end122.i.i:                                    ; preds = %if.else118.i.i, %if
   %storemerge.i.i = fadd double %storemerge114.i.i, %cond.i.pn.i.i
   %call.i64.i.i = tail call double @log(double noundef %storemerge.i.i) #35, !tbaa !50
   %60 = tail call double @llvm.fmuladd.f64(double %c_inf, double %storemerge.i.i, double %call.i64.i.i)
-  %add.i66.i.i = fadd double %call.i, %60
+  %add.i66.i.i = fadd double %call, %60
   %inc126.i.i = add nuw nsw i64 %33, 1
   %exitcond = icmp eq i64 %inc126.i.i, 101
   br i1 %exitcond, label %do.body.i.i, label %while.body.i.i, !llvm.loop !278
@@ -17962,7 +17957,7 @@ _ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit100.i: ; preds = %if.en
   %84 = tail call double @llvm.fmuladd.f64(double %sub89.i, double 1.600000e+00, double %25)
   %call.i103.i = tail call double @log(double noundef %84) #35, !tbaa !50
   %85 = tail call double @llvm.fmuladd.f64(double %c_inf, double %84, double %call.i103.i)
-  %add.i105.i = fadd double %call.i, %85
+  %add.i105.i = fadd double %call, %85
   br label %if.end141.i
 
 if.else96.i:                                      ; preds = %if.end81.i
@@ -17974,7 +17969,7 @@ _ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit119.i: ; preds = %if.el
   %86 = tail call double @llvm.fmuladd.f64(double %sub104.i, double 1.600000e+00, double %26)
   %call.i122.i = tail call double @log(double noundef %86) #35, !tbaa !50
   %87 = tail call double @llvm.fmuladd.f64(double %c_inf, double %86, double %call.i122.i)
-  %add.i124.i = fadd double %call.i, %87
+  %add.i124.i = fadd double %call, %87
   br label %if.end141.i
 
 if.else111.i:                                     ; preds = %if.else96.i
@@ -17988,7 +17983,7 @@ _ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit138.i: ; preds = %if.el
   %88 = tail call double @llvm.fmuladd.f64(double %sub117.i, double 1.600000e+00, double %25)
   %call.i141.i = tail call double @log(double noundef %88) #35, !tbaa !50
   %89 = tail call double @llvm.fmuladd.f64(double %c_inf, double %88, double %call.i141.i)
-  %add.i143.i = fadd double %call.i, %89
+  %add.i143.i = fadd double %call, %89
   %inc.i = add nuw nsw i64 %storemerge296.i, 1
   br label %if.end141.i
 
@@ -17997,7 +17992,7 @@ _ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit157.i: ; preds = %if.el
   %90 = tail call double @llvm.fmuladd.f64(double %sub131.i, double 1.600000e+00, double %26)
   %call.i160.i = tail call double @log(double noundef %90) #35, !tbaa !50
   %91 = tail call double @llvm.fmuladd.f64(double %c_inf, double %90, double %call.i160.i)
-  %add.i162.i = fadd double %call.i, %91
+  %add.i162.i = fadd double %call, %91
   br label %if.end141.i
 
 if.end141.i:                                      ; preds = %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit157.i, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit138.i, %if.else111.i, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit119.i, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit100.i

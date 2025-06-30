@@ -342,7 +342,7 @@ define dso_local range(i32 -2147483648, 2) i32 @RefSol(double noundef %0, ptr no
 check_retval.exit:                                ; preds = %3
   %9 = load ptr, ptr @stderr, align 8, !tbaa !4
   %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.3) #13
-  br label %120
+  br label %117
 
 11:                                               ; preds = %3
   %12 = tail call ptr @N_VGetArrayPointer(ptr noundef nonnull %7) #12
@@ -357,7 +357,7 @@ check_retval.exit:                                ; preds = %3
 check_retval.exit85:                              ; preds = %11
   %17 = load ptr, ptr @stderr, align 8, !tbaa !4
   %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.4) #13
-  br label %120
+  br label %117
 
 19:                                               ; preds = %11
   %20 = tail call i32 @CVodeInit(ptr noundef nonnull %15, ptr noundef nonnull @fref, double noundef 0.000000e+00, ptr noundef nonnull %7) #12
@@ -367,7 +367,7 @@ check_retval.exit85:                              ; preds = %11
 check_retval.exit87:                              ; preds = %19
   %22 = load ptr, ptr @stderr, align 8, !tbaa !4
   %23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.5, i32 noundef %20) #13
-  br label %120
+  br label %117
 
 24:                                               ; preds = %19
   %25 = tail call i32 @CVodeSStolerances(ptr noundef nonnull %15, double noundef 0x3D06849B86A12B9B, double noundef 0x3D06849B86A12B9B) #12
@@ -377,7 +377,7 @@ check_retval.exit87:                              ; preds = %19
 check_retval.exit89:                              ; preds = %24
   %27 = load ptr, ptr @stderr, align 8, !tbaa !4
   %28 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.21, i32 noundef %25) #13
-  br label %120
+  br label %117
 
 29:                                               ; preds = %24
   %30 = load ptr, ptr @sunctx, align 8, !tbaa !11
@@ -388,7 +388,7 @@ check_retval.exit89:                              ; preds = %24
 check_retval.exit91:                              ; preds = %29
   %33 = load ptr, ptr @stderr, align 8, !tbaa !4
   %34 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %33, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.6) #13
-  br label %120
+  br label %117
 
 35:                                               ; preds = %29
   %36 = load ptr, ptr @sunctx, align 8, !tbaa !11
@@ -399,7 +399,7 @@ check_retval.exit91:                              ; preds = %29
 check_retval.exit93:                              ; preds = %35
   %39 = load ptr, ptr @stderr, align 8, !tbaa !4
   %40 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %39, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.7) #13
-  br label %120
+  br label %117
 
 41:                                               ; preds = %35
   %42 = tail call i32 @CVodeSetLinearSolver(ptr noundef nonnull %15, ptr noundef nonnull %37, ptr noundef nonnull %31) #12
@@ -409,7 +409,7 @@ check_retval.exit93:                              ; preds = %35
 check_retval.exit95:                              ; preds = %41
   %44 = load ptr, ptr @stderr, align 8, !tbaa !4
   %45 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %44, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.8, i32 noundef %42) #13
-  br label %120
+  br label %117
 
 46:                                               ; preds = %41
   %47 = tail call i32 @CVodeSetMaxNumSteps(ptr noundef nonnull %15, i64 noundef 100000) #12
@@ -419,7 +419,7 @@ check_retval.exit95:                              ; preds = %41
 check_retval.exit97:                              ; preds = %46
   %49 = load ptr, ptr @stderr, align 8, !tbaa !4
   %50 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %49, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.10, i32 noundef %47) #13
-  br label %120
+  br label %117
 
 51:                                               ; preds = %46
   %52 = tail call i32 @CVodeSetStopTime(ptr noundef nonnull %15, double noundef %0) #12
@@ -429,7 +429,7 @@ check_retval.exit97:                              ; preds = %46
 check_retval.exit99:                              ; preds = %51
   %54 = load ptr, ptr @stderr, align 8, !tbaa !4
   %55 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %54, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.26, i32 noundef %52) #13
-  br label %120
+  br label %117
 
 56:                                               ; preds = %51
   %57 = tail call noalias ptr @fopen(ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.24)
@@ -438,100 +438,97 @@ check_retval.exit99:                              ; preds = %51
   %60 = tail call double @cos(double noundef %58) #12, !tbaa !16
   %61 = tail call double @sin(double noundef %58) #12, !tbaa !16
   %62 = fneg double %59
-  %63 = tail call double @sin(double noundef %58) #12, !tbaa !16
-  %64 = fmul double %63, %62
-  %65 = tail call double @cos(double noundef %58) #12, !tbaa !16
-  %66 = fmul double %59, %65
-  %67 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %57, ptr noundef nonnull @.str.25, double noundef 0.000000e+00, double noundef %60, double noundef %61, double noundef %64, double noundef %66) #12
-  %68 = sitofp i32 %2 to double
-  %69 = fdiv double %0, %68
-  %70 = icmp sgt i32 %2, 0
-  br i1 %70, label %.lr.ph, label %._crit_edge
+  %63 = fmul double %61, %62
+  %64 = tail call double @cos(double noundef %58) #12, !tbaa !16
+  %65 = fmul double %59, %64
+  %66 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %57, ptr noundef nonnull @.str.25, double noundef 0.000000e+00, double noundef %60, double noundef %61, double noundef %63, double noundef %65) #12
+  %67 = sitofp i32 %2 to double
+  %68 = fdiv double %0, %67
+  %69 = icmp sgt i32 %2, 0
+  br i1 %69, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %56
-  %71 = add nsw i32 %2, -1
-  br label %72
+  %70 = add nsw i32 %2, -1
+  br label %71
 
-72:                                               ; preds = %.lr.ph, %90
-  %.071137 = phi double [ %69, %.lr.ph ], [ %.1, %90 ]
-  %.072136 = phi i32 [ 0, %.lr.ph ], [ %104, %90 ]
-  %73 = load ptr, ptr %4, align 8, !tbaa !15
-  %74 = call i32 @CVodeSetStopTime(ptr noundef %73, double noundef %.071137) #12
-  %75 = icmp slt i32 %74, 0
-  br i1 %75, label %76, label %81
+71:                                               ; preds = %.lr.ph, %89
+  %.071137 = phi double [ %68, %.lr.ph ], [ %.1, %89 ]
+  %.072136 = phi i32 [ 0, %.lr.ph ], [ %102, %89 ]
+  %72 = load ptr, ptr %4, align 8, !tbaa !15
+  %73 = call i32 @CVodeSetStopTime(ptr noundef %72, double noundef %.071137) #12
+  %74 = icmp slt i32 %73, 0
+  br i1 %74, label %75, label %80
 
-76:                                               ; preds = %72
-  %77 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %78 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %77, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.26, i32 noundef %74) #13
+75:                                               ; preds = %71
+  %76 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %77 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %76, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.26, i32 noundef %73) #13
   call void @N_VDestroy_Serial(ptr noundef nonnull %7) #12
   call void @SUNMatDestroy(ptr noundef nonnull %31) #12
-  %79 = call i32 @SUNLinSolFree(ptr noundef nonnull %37) #12
+  %78 = call i32 @SUNLinSolFree(ptr noundef nonnull %37) #12
   call void @CVodeFree(ptr noundef nonnull %4) #12
-  %80 = call i32 @fclose(ptr noundef %57)
-  br label %120
+  %79 = call i32 @fclose(ptr noundef %57)
+  br label %117
 
-81:                                               ; preds = %72
-  %82 = load ptr, ptr %4, align 8, !tbaa !15
-  %83 = call i32 @CVode(ptr noundef %82, double noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %5, i32 noundef 1) #12
-  %84 = icmp slt i32 %83, 0
-  br i1 %84, label %85, label %90
+80:                                               ; preds = %71
+  %81 = load ptr, ptr %4, align 8, !tbaa !15
+  %82 = call i32 @CVode(ptr noundef %81, double noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %5, i32 noundef 1) #12
+  %83 = icmp slt i32 %82, 0
+  br i1 %83, label %84, label %89
 
-85:                                               ; preds = %81
-  %86 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %87 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %86, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.27, i32 noundef %83) #13
+84:                                               ; preds = %80
+  %85 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %86 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %85, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.27, i32 noundef %82) #13
   call void @N_VDestroy_Serial(ptr noundef nonnull %7) #12
   call void @SUNMatDestroy(ptr noundef nonnull %31) #12
-  %88 = call i32 @SUNLinSolFree(ptr noundef nonnull %37) #12
+  %87 = call i32 @SUNLinSolFree(ptr noundef nonnull %37) #12
   call void @CVodeFree(ptr noundef nonnull %4) #12
-  %89 = call i32 @fclose(ptr noundef %57)
-  br label %120
+  %88 = call i32 @fclose(ptr noundef %57)
+  br label %117
 
-90:                                               ; preds = %81
-  %91 = load double, ptr %12, align 8, !tbaa !13
-  %92 = load double, ptr %13, align 8, !tbaa !13
-  %93 = load double, ptr %5, align 8, !tbaa !13
-  %94 = call double @cos(double noundef %91) #12, !tbaa !16
-  %95 = call double @sin(double noundef %91) #12, !tbaa !16
-  %96 = fneg double %92
-  %97 = call double @sin(double noundef %91) #12, !tbaa !16
-  %98 = fmul double %97, %96
-  %99 = call double @cos(double noundef %91) #12, !tbaa !16
-  %100 = fmul double %92, %99
-  %101 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %57, ptr noundef nonnull @.str.25, double noundef %93, double noundef %94, double noundef %95, double noundef %98, double noundef %100) #12
-  %102 = icmp slt i32 %.072136, %71
-  %103 = fadd double %69, %.071137
-  %.1 = select i1 %102, double %103, double %0
-  %104 = add nuw nsw i32 %.072136, 1
-  %exitcond.not = icmp eq i32 %104, %2
-  br i1 %exitcond.not, label %._crit_edge, label %72
+89:                                               ; preds = %80
+  %90 = load double, ptr %12, align 8, !tbaa !13
+  %91 = load double, ptr %13, align 8, !tbaa !13
+  %92 = load double, ptr %5, align 8, !tbaa !13
+  %93 = call double @cos(double noundef %90) #12, !tbaa !16
+  %94 = call double @sin(double noundef %90) #12, !tbaa !16
+  %95 = fneg double %91
+  %96 = fmul double %94, %95
+  %97 = call double @cos(double noundef %90) #12, !tbaa !16
+  %98 = fmul double %91, %97
+  %99 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %57, ptr noundef nonnull @.str.25, double noundef %92, double noundef %93, double noundef %94, double noundef %96, double noundef %98) #12
+  %100 = icmp slt i32 %.072136, %70
+  %101 = fadd double %68, %.071137
+  %.1 = select i1 %100, double %101, double %0
+  %102 = add nuw nsw i32 %.072136, 1
+  %exitcond.not = icmp eq i32 %102, %2
+  br i1 %exitcond.not, label %._crit_edge, label %71
 
-._crit_edge:                                      ; preds = %90, %56
-  %105 = call i32 @fclose(ptr noundef %57)
-  %106 = load double, ptr %12, align 8, !tbaa !13
-  %107 = load double, ptr %13, align 8, !tbaa !13
-  %108 = call ptr @N_VGetArrayPointer(ptr noundef %1) #12
-  %109 = call double @cos(double noundef %106) #12, !tbaa !16
-  store double %109, ptr %108, align 8, !tbaa !13
-  %110 = call double @sin(double noundef %106) #12, !tbaa !16
-  %111 = getelementptr inbounds nuw i8, ptr %108, i64 8
-  store double %110, ptr %111, align 8, !tbaa !13
-  %112 = fneg double %107
-  %113 = call double @sin(double noundef %106) #12, !tbaa !16
-  %114 = fmul double %113, %112
-  %115 = getelementptr inbounds nuw i8, ptr %108, i64 16
+._crit_edge:                                      ; preds = %89, %56
+  %103 = call i32 @fclose(ptr noundef %57)
+  %104 = load double, ptr %12, align 8, !tbaa !13
+  %105 = load double, ptr %13, align 8, !tbaa !13
+  %106 = call ptr @N_VGetArrayPointer(ptr noundef %1) #12
+  %107 = call double @cos(double noundef %104) #12, !tbaa !16
+  store double %107, ptr %106, align 8, !tbaa !13
+  %108 = call double @sin(double noundef %104) #12, !tbaa !16
+  %109 = getelementptr inbounds nuw i8, ptr %106, i64 8
+  store double %108, ptr %109, align 8, !tbaa !13
+  %110 = fneg double %105
+  %111 = fmul double %108, %110
+  %112 = getelementptr inbounds nuw i8, ptr %106, i64 16
+  store double %111, ptr %112, align 8, !tbaa !13
+  %113 = call double @cos(double noundef %104) #12, !tbaa !16
+  %114 = fmul double %105, %113
+  %115 = getelementptr inbounds nuw i8, ptr %106, i64 24
   store double %114, ptr %115, align 8, !tbaa !13
-  %116 = call double @cos(double noundef %106) #12, !tbaa !16
-  %117 = fmul double %107, %116
-  %118 = getelementptr inbounds nuw i8, ptr %108, i64 24
-  store double %117, ptr %118, align 8, !tbaa !13
   call void @N_VDestroy_Serial(ptr noundef nonnull %7) #12
   call void @SUNMatDestroy(ptr noundef nonnull %31) #12
-  %119 = call i32 @SUNLinSolFree(ptr noundef nonnull %37) #12
+  %116 = call i32 @SUNLinSolFree(ptr noundef nonnull %37) #12
   call void @CVodeFree(ptr noundef nonnull %4) #12
-  br label %120
+  br label %117
 
-120:                                              ; preds = %check_retval.exit99, %check_retval.exit97, %check_retval.exit95, %check_retval.exit93, %check_retval.exit91, %check_retval.exit89, %check_retval.exit87, %check_retval.exit85, %check_retval.exit, %._crit_edge, %85, %76
-  %.0 = phi i32 [ %74, %76 ], [ %83, %85 ], [ 0, %._crit_edge ], [ -1, %check_retval.exit ], [ 1, %check_retval.exit85 ], [ 1, %check_retval.exit87 ], [ 1, %check_retval.exit89 ], [ 1, %check_retval.exit91 ], [ 1, %check_retval.exit93 ], [ 1, %check_retval.exit95 ], [ 1, %check_retval.exit97 ], [ 1, %check_retval.exit99 ]
+117:                                              ; preds = %check_retval.exit99, %check_retval.exit97, %check_retval.exit95, %check_retval.exit93, %check_retval.exit91, %check_retval.exit89, %check_retval.exit87, %check_retval.exit85, %check_retval.exit, %._crit_edge, %84, %75
+  %.0 = phi i32 [ %73, %75 ], [ %82, %84 ], [ 0, %._crit_edge ], [ -1, %check_retval.exit ], [ 1, %check_retval.exit85 ], [ 1, %check_retval.exit87 ], [ 1, %check_retval.exit89 ], [ 1, %check_retval.exit91 ], [ 1, %check_retval.exit93 ], [ 1, %check_retval.exit95 ], [ 1, %check_retval.exit97 ], [ 1, %check_retval.exit99 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #12
   ret i32 %.0

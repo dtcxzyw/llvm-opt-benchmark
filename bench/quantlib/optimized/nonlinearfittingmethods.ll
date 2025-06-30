@@ -1465,9 +1465,8 @@ entry:
   %mul13 = fmul double %add12, %add10
   %div = fdiv double %mul8, %mul13
   %add14 = fadd double %4, %div
-  %call18 = tail call double @exp(double noundef %mul) #22, !tbaa !50
   %neg = fneg double %6
-  %7 = tail call double @llvm.fmuladd.f64(double %neg, double %call18, double %add14)
+  %7 = tail call double @llvm.fmuladd.f64(double %neg, double %call6, double %add14)
   %fneg20 = fneg double %7
   %mul21 = fmul double %t, %fneg20
   %call22 = tail call double @exp(double noundef %mul21) #22, !tbaa !50
@@ -1814,9 +1813,8 @@ entry:
   %mul18 = fmul double %add17, %add15
   %div = fdiv double %mul13, %mul18
   %add19 = fadd double %8, %div
-  %call23 = tail call double @exp(double noundef %mul) #22, !tbaa !50
   %neg = fneg double %10
-  %11 = tail call double @llvm.fmuladd.f64(double %neg, double %call23, double %add19)
+  %11 = tail call double @llvm.fmuladd.f64(double %neg, double %call11, double %add19)
   %arrayidx.i22 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %12 = load double, ptr %arrayidx.i22, align 8, !tbaa !49
   %fneg26 = fneg double %7
@@ -1826,8 +1824,7 @@ entry:
   %add31 = fadd double %7, 0x3CB0000000000000
   %mul34 = fmul double %add17, %add31
   %div35 = fdiv double %sub29, %mul34
-  %call38 = tail call double @exp(double noundef %mul27) #22, !tbaa !50
-  %sub39 = fsub double %div35, %call38
+  %sub39 = fsub double %div35, %call28
   %13 = tail call double @llvm.fmuladd.f64(double %12, double %sub39, double %11)
   %fneg41 = fneg double %13
   %mul42 = fmul double %t, %fneg41

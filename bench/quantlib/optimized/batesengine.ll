@@ -1772,7 +1772,6 @@ invoke.cont47:                                    ; preds = %_ZNK8QuantLib9Param
   %fneg = fneg double %call2.i.i35
   %mul = fmul double %t, %fneg
   %call18 = tail call double @exp(double noundef %mul) #25, !tbaa !51
-  %call36 = tail call double @exp(double noundef %mul) #25, !tbaa !51
   %cmp.not.i.i = icmp eq ptr %5, null
   br i1 %cmp.not.i.i, label %_ZN5boost10shared_ptrIN8QuantLib17BatesDetJumpModelEED2Ev.exit, label %if.then.i.i
 
@@ -1818,17 +1817,17 @@ _ZN5boost10shared_ptrIN8QuantLib17BatesDetJumpModelEED2Ev.exit: ; preds = %invok
   %mul25 = fmul double %t, %call2.i.i35
   %mul26 = fmul double %call2.i.i19, %mul25
   %26 = fdiv double %mul.rl.i.i, %mul26
-  %sub = fsub double 1.000000e+00, %call36
+  %sub = fsub double 1.000000e+00, %call18
   %mul.rl.i.i59 = fmul double %24, %sub
   %27 = fdiv double %mul.rl.i.i59, %mul25
-  %add.r.i.i = fadd double %26, %27
+  %add.r.i.i = fadd double %27, %26
   %.fca.0.insert.i71 = insertvalue { double, double } poison, double %add.r.i.i, 0
   %28 = extractvalue { double, double } %call, 1
   %mul.il.i.i = fmul double %28, %mul19
   %29 = fdiv double %mul.il.i.i, %mul26
   %mul.il.i.i60 = fmul double %28, %sub
   %30 = fdiv double %mul.il.i.i60, %mul25
-  %add.i.i.i = fadd double %29, %30
+  %add.i.i.i = fadd double %30, %29
   %.fca.1.insert.i72 = insertvalue { double, double } %.fca.0.insert.i71, double %add.i.i.i, 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %batesDetJumpModel) #25
   ret { double, double } %.fca.1.insert.i72
@@ -2830,7 +2829,6 @@ invoke.cont47:                                    ; preds = %_ZNK8QuantLib9Param
   %fneg = fneg double %call2.i.i35
   %mul = fmul double %t, %fneg
   %call18 = tail call double @exp(double noundef %mul) #25, !tbaa !51
-  %call36 = tail call double @exp(double noundef %mul) #25, !tbaa !51
   %cmp.not.i.i = icmp eq ptr %5, null
   br i1 %cmp.not.i.i, label %_ZN5boost10shared_ptrIN8QuantLib26BatesDoubleExpDetJumpModelEED2Ev.exit, label %if.then.i.i
 
@@ -2876,17 +2874,17 @@ _ZN5boost10shared_ptrIN8QuantLib26BatesDoubleExpDetJumpModelEED2Ev.exit: ; preds
   %mul25 = fmul double %t, %call2.i.i35
   %mul26 = fmul double %call2.i.i19, %mul25
   %26 = fdiv double %mul.rl.i.i, %mul26
-  %sub = fsub double 1.000000e+00, %call36
+  %sub = fsub double 1.000000e+00, %call18
   %mul.rl.i.i59 = fmul double %24, %sub
   %27 = fdiv double %mul.rl.i.i59, %mul25
-  %add.r.i.i = fadd double %26, %27
+  %add.r.i.i = fadd double %27, %26
   %.fca.0.insert.i71 = insertvalue { double, double } poison, double %add.r.i.i, 0
   %28 = extractvalue { double, double } %call, 1
   %mul.il.i.i = fmul double %28, %mul19
   %29 = fdiv double %mul.il.i.i, %mul26
   %mul.il.i.i60 = fmul double %28, %sub
   %30 = fdiv double %mul.il.i.i60, %mul25
-  %add.i.i.i = fadd double %29, %30
+  %add.i.i.i = fadd double %30, %29
   %.fca.1.insert.i72 = insertvalue { double, double } %.fca.0.insert.i71, double %add.i.i.i, 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %doubleExpDetJumpModel) #25
   ret { double, double } %.fca.1.insert.i72

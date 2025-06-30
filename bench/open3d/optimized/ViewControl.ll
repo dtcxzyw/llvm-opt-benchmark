@@ -4104,12 +4104,12 @@ define noundef zeroext i1 @_ZN6open3d13visualization11ViewControl34ConvertFromPi
 
 39:                                               ; preds = %30, %21, %17, %15
   invoke void @_ZN6open3d7utility6Logger11LogWarning_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str, i32 noundef 189, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d13visualization11ViewControl34ConvertFromPinholeCameraParametersERKNS_6camera23PinholeCameraParametersEb, ptr noundef nonnull @.str.10)
-          to label %201 unwind label %40
+          to label %200 unwind label %40
 
 40:                                               ; preds = %39
   %41 = landingpad { ptr, i32 }
           cleanup
-  br label %202
+  br label %201
 
 ._crit_edge:                                      ; preds = %3, %30
   %42 = phi i32 [ %13, %30 ], [ %.pre, %3 ]
@@ -4139,12 +4139,12 @@ define noundef zeroext i1 @_ZN6open3d13visualization11ViewControl34ConvertFromPi
 60:                                               ; preds = %54
   store double %51, ptr %50, align 8, !tbaa !16
   invoke void @_ZN6open3d7utility6Logger11LogWarning_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str, i32 noundef 204, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d13visualization11ViewControl34ConvertFromPinholeCameraParametersERKNS_6camera23PinholeCameraParametersEb, ptr noundef nonnull @.str.11)
-          to label %201 unwind label %61
+          to label %200 unwind label %61
 
 61:                                               ; preds = %60
   %62 = landingpad { ptr, i32 }
           cleanup
-  br label %202
+  br label %201
 
 63:                                               ; preds = %._crit_edge, %54
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 232
@@ -4300,7 +4300,7 @@ define noundef zeroext i1 @_ZN6open3d13visualization11ViewControl34ConvertFromPi
   %184 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #26
-  br label %202
+  br label %201
 
 185:                                              ; preds = %178, %140
   %186 = phi double [ %182, %178 ], [ %176, %140 ]
@@ -4308,32 +4308,31 @@ define noundef zeroext i1 @_ZN6open3d13visualization11ViewControl34ConvertFromPi
   %187 = fmul double %186, %174
   %188 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store double %187, ptr %188, align 8, !tbaa !39
-  %189 = call double @tan(double noundef %159) #26, !tbaa !38
-  %190 = fdiv double %187, %189
-  %191 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  store double %190, ptr %191, align 16, !tbaa !40
-  %192 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %.sroa.9.32.vec.insert.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %190, i64 0
-  %193 = load <2 x double>, ptr %79, align 8, !tbaa !15
-  %194 = load <2 x double>, ptr %73, align 16, !tbaa !15
-  %195 = shufflevector <2 x double> %.sroa.9.32.vec.insert.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
-  %196 = fmul <2 x double> %194, %195
-  %197 = fsub <2 x double> %193, %196
-  store <2 x double> %197, ptr %192, align 16, !tbaa !15
-  %198 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %199 = fmul double %190, %152
-  %200 = fsub double %149, %199
-  store double %200, ptr %198, align 16, !tbaa !37
+  %189 = fdiv double %187, %160
+  %190 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  store double %189, ptr %190, align 16, !tbaa !40
+  %191 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %.sroa.9.32.vec.insert.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %189, i64 0
+  %192 = load <2 x double>, ptr %79, align 8, !tbaa !15
+  %193 = load <2 x double>, ptr %73, align 16, !tbaa !15
+  %194 = shufflevector <2 x double> %.sroa.9.32.vec.insert.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
+  %195 = fmul <2 x double> %193, %194
+  %196 = fsub <2 x double> %192, %195
+  store <2 x double> %196, ptr %191, align 16, !tbaa !15
+  %197 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %198 = fmul double %189, %152
+  %199 = fsub double %149, %198
+  store double %199, ptr %197, align 16, !tbaa !37
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #26
-  br label %201
+  br label %200
 
-201:                                              ; preds = %185, %60, %39
+200:                                              ; preds = %185, %60, %39
   %.0 = phi i1 [ false, %39 ], [ true, %185 ], [ false, %60 ]
   call void @_ZN6open3d6camera22PinholeCameraIntrinsicD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %4) #26
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4) #26
   ret i1 %.0
 
-202:                                              ; preds = %40, %61, %183
+201:                                              ; preds = %40, %61, %183
   %.pn29.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %41, %40 ], [ %184, %183 ], [ %62, %61 ]
   call void @_ZN6open3d6camera22PinholeCameraIntrinsicD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %4) #26
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4) #26

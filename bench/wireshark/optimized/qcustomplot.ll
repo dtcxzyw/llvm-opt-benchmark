@@ -60940,8 +60940,8 @@ define { double, double } @_ZNK21QCPAxisPainterPrivate22getTickLabelDrawOffsetER
   switch i32 %23, label %.thread66 [
     i32 1, label %24
     i32 2, label %27
-    i32 4, label %183
-    i32 8, label %186
+    i32 4, label %177
+    i32 8, label %180
   ]
 
 24:                                               ; preds = %2
@@ -60949,7 +60949,7 @@ define { double, double } @_ZNK21QCPAxisPainterPrivate22getTickLabelDrawOffsetER
   %26 = load i32, ptr %25, align 8
   switch i32 %26, label %.thread66 [
     i32 1, label %30
-    i32 0, label %124
+    i32 0, label %118
   ]
 
 27:                                               ; preds = %2
@@ -60957,11 +60957,11 @@ define { double, double } @_ZNK21QCPAxisPainterPrivate22getTickLabelDrawOffsetER
   %29 = load i32, ptr %28, align 8
   switch i32 %29, label %.thread66 [
     i32 0, label %30
-    i32 1, label %124
+    i32 1, label %118
   ]
 
 30:                                               ; preds = %24, %27
-  br i1 %6, label %112, label %31
+  br i1 %6, label %106, label %31
 
 31:                                               ; preds = %30
   %32 = fcmp ogt double %4, 0.000000e+00
@@ -61029,308 +61029,300 @@ define { double, double } @_ZNK21QCPAxisPainterPrivate22getTickLabelDrawOffsetER
   %86 = fneg double %85
   %87 = fmul double %78, %86
   %88 = tail call double @llvm.fmuladd.f64(double %70, double %77, double %87)
-  br i1 %19, label %89, label %96
+  %89 = load i32, ptr %72, align 8
+  %90 = load i32, ptr %71, align 8
+  %91 = add i32 %89, 1
+  %92 = sub i32 %91, %90
+  %93 = sitofp i32 %92 to double
+  br i1 %19, label %94, label %96
 
-89:                                               ; preds = %67
-  %90 = load i32, ptr %72, align 8
-  %91 = load i32, ptr %71, align 8
-  %92 = add i32 %90, 1
-  %93 = sub i32 %92, %91
-  %94 = sitofp i32 %93 to double
-  %95 = fmul double %94, 5.000000e-01
+94:                                               ; preds = %67
+  %95 = fmul double %93, 5.000000e-01
   br label %.thread66
 
 96:                                               ; preds = %67
-  %97 = tail call noundef double @sin(double noundef %68) #52
-  %98 = load i32, ptr %72, align 8
-  %99 = load i32, ptr %71, align 8
+  %97 = tail call noundef double @cos(double noundef %68) #52
+  %98 = load i32, ptr %79, align 4
+  %99 = load i32, ptr %81, align 4
   %100 = add i32 %98, 1
   %101 = sub i32 %100, %99
   %102 = sitofp i32 %101 to double
-  %103 = tail call noundef double @cos(double noundef %68) #52
-  %104 = load i32, ptr %79, align 4
-  %105 = load i32, ptr %81, align 4
-  %106 = add i32 %104, 1
-  %107 = sub i32 %106, %105
-  %108 = sitofp i32 %107 to double
-  %109 = fmul double %103, %108
-  %110 = fmul double %109, -5.000000e-01
-  %111 = tail call double @llvm.fmuladd.f64(double %97, double %102, double %110)
+  %103 = fmul double %97, %102
+  %104 = fmul double %103, -5.000000e-01
+  %105 = tail call double @llvm.fmuladd.f64(double %78, double %93, double %104)
   br label %.thread66
 
-112:                                              ; preds = %30
-  %113 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %114 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %115 = load i32, ptr %114, align 8
-  %116 = load i32, ptr %113, align 8
-  %.neg84 = xor i32 %115, -1
-  %.neg83 = add i32 %116, %.neg84
-  %117 = sitofp i32 %.neg83 to double
-  %118 = getelementptr inbounds nuw i8, ptr %1, i64 132
-  %119 = load i32, ptr %118, align 4
-  %120 = getelementptr inbounds nuw i8, ptr %1, i64 124
-  %121 = load i32, ptr %120, align 4
-  %.neg86 = xor i32 %119, -1
-  %.neg85 = add i32 %121, %.neg86
-  %122 = sitofp i32 %.neg85 to double
-  %123 = fmul double %122, 5.000000e-01
+106:                                              ; preds = %30
+  %107 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  %108 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  %109 = load i32, ptr %108, align 8
+  %110 = load i32, ptr %107, align 8
+  %.neg84 = xor i32 %109, -1
+  %.neg83 = add i32 %110, %.neg84
+  %111 = sitofp i32 %.neg83 to double
+  %112 = getelementptr inbounds nuw i8, ptr %1, i64 132
+  %113 = load i32, ptr %112, align 4
+  %114 = getelementptr inbounds nuw i8, ptr %1, i64 124
+  %115 = load i32, ptr %114, align 4
+  %.neg86 = xor i32 %113, -1
+  %.neg85 = add i32 %115, %.neg86
+  %116 = sitofp i32 %.neg85 to double
+  %117 = fmul double %116, 5.000000e-01
   br label %.thread66
 
-124:                                              ; preds = %24, %27
-  br i1 %6, label %176, label %125
+118:                                              ; preds = %24, %27
+  br i1 %6, label %170, label %119
 
-125:                                              ; preds = %124
-  %126 = fcmp ogt double %4, 0.000000e+00
-  br i1 %126, label %127, label %154
+119:                                              ; preds = %118
+  %120 = fcmp ogt double %4, 0.000000e+00
+  br i1 %120, label %121, label %148
 
-127:                                              ; preds = %125
-  %128 = tail call noundef double @sin(double noundef %21) #52
-  %129 = getelementptr inbounds nuw i8, ptr %1, i64 132
-  %130 = load i32, ptr %129, align 4
-  %131 = getelementptr inbounds nuw i8, ptr %1, i64 124
-  %132 = load i32, ptr %131, align 4
-  %133 = add i32 %130, 1
-  %134 = sub i32 %133, %132
-  %135 = sitofp i32 %134 to double
-  %136 = fmul double %128, %135
-  br i1 %19, label %137, label %143
+121:                                              ; preds = %119
+  %122 = tail call noundef double @sin(double noundef %21) #52
+  %123 = getelementptr inbounds nuw i8, ptr %1, i64 132
+  %124 = load i32, ptr %123, align 4
+  %125 = getelementptr inbounds nuw i8, ptr %1, i64 124
+  %126 = load i32, ptr %125, align 4
+  %127 = add i32 %124, 1
+  %128 = sub i32 %127, %126
+  %129 = sitofp i32 %128 to double
+  %130 = fmul double %122, %129
+  br i1 %19, label %131, label %137
 
-137:                                              ; preds = %127
-  %138 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %139 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %140 = load i32, ptr %139, align 8
-  %141 = load i32, ptr %138, align 8
-  %.neg80 = xor i32 %140, -1
-  %.neg79 = add i32 %141, %.neg80
-  %142 = sitofp i32 %.neg79 to double
-  br label %152
+131:                                              ; preds = %121
+  %132 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  %133 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  %134 = load i32, ptr %133, align 8
+  %135 = load i32, ptr %132, align 8
+  %.neg80 = xor i32 %134, -1
+  %.neg79 = add i32 %135, %.neg80
+  %136 = sitofp i32 %.neg79 to double
+  br label %146
 
-143:                                              ; preds = %127
-  %144 = tail call noundef double @cos(double noundef %21) #52
-  %145 = fneg double %144
-  %146 = load i32, ptr %129, align 4
-  %147 = load i32, ptr %131, align 4
-  %148 = add i32 %146, 1
-  %149 = sub i32 %148, %147
-  %150 = sitofp i32 %149 to double
-  %151 = fmul double %145, %150
-  br label %152
+137:                                              ; preds = %121
+  %138 = tail call noundef double @cos(double noundef %21) #52
+  %139 = fneg double %138
+  %140 = load i32, ptr %123, align 4
+  %141 = load i32, ptr %125, align 4
+  %142 = add i32 %140, 1
+  %143 = sub i32 %142, %141
+  %144 = sitofp i32 %143 to double
+  %145 = fmul double %139, %144
+  br label %146
 
-152:                                              ; preds = %143, %137
-  %.in61 = phi double [ %142, %137 ], [ %151, %143 ]
-  %153 = fmul double %.in61, 5.000000e-01
+146:                                              ; preds = %137, %131
+  %.in61 = phi double [ %136, %131 ], [ %145, %137 ]
+  %147 = fmul double %.in61, 5.000000e-01
   br label %.thread66
 
-154:                                              ; preds = %125
-  br i1 %19, label %155, label %163
+148:                                              ; preds = %119
+  br i1 %19, label %149, label %157
 
-155:                                              ; preds = %154
-  %156 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %157 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %158 = load i32, ptr %157, align 8
-  %159 = load i32, ptr %156, align 8
-  %160 = add i32 %158, 1
-  %161 = sub i32 %160, %159
-  %162 = sitofp i32 %161 to double
-  br label %174
+149:                                              ; preds = %148
+  %150 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  %151 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  %152 = load i32, ptr %151, align 8
+  %153 = load i32, ptr %150, align 8
+  %154 = add i32 %152, 1
+  %155 = sub i32 %154, %153
+  %156 = sitofp i32 %155 to double
+  br label %168
 
-163:                                              ; preds = %154
-  %164 = tail call double @cos(double %21)
-  %165 = fneg double %164
-  %166 = getelementptr inbounds nuw i8, ptr %1, i64 132
-  %167 = load i32, ptr %166, align 4
-  %168 = getelementptr inbounds nuw i8, ptr %1, i64 124
-  %169 = load i32, ptr %168, align 4
-  %170 = add i32 %167, 1
-  %171 = sub i32 %170, %169
-  %172 = sitofp i32 %171 to double
-  %173 = fmul double %165, %172
-  br label %174
+157:                                              ; preds = %148
+  %158 = tail call double @cos(double %21)
+  %159 = fneg double %158
+  %160 = getelementptr inbounds nuw i8, ptr %1, i64 132
+  %161 = load i32, ptr %160, align 4
+  %162 = getelementptr inbounds nuw i8, ptr %1, i64 124
+  %163 = load i32, ptr %162, align 4
+  %164 = add i32 %161, 1
+  %165 = sub i32 %164, %163
+  %166 = sitofp i32 %165 to double
+  %167 = fmul double %159, %166
+  br label %168
 
-174:                                              ; preds = %163, %155
-  %.in = phi double [ %162, %155 ], [ %173, %163 ]
-  %175 = fmul double %.in, 5.000000e-01
+168:                                              ; preds = %157, %149
+  %.in = phi double [ %156, %149 ], [ %167, %157 ]
+  %169 = fmul double %.in, 5.000000e-01
   br label %.thread66
 
-176:                                              ; preds = %124
-  %177 = getelementptr inbounds nuw i8, ptr %1, i64 132
-  %178 = load i32, ptr %177, align 4
-  %179 = getelementptr inbounds nuw i8, ptr %1, i64 124
-  %180 = load i32, ptr %179, align 4
-  %.neg82 = xor i32 %178, -1
-  %.neg81 = add i32 %180, %.neg82
-  %181 = sitofp i32 %.neg81 to double
-  %182 = fmul double %181, 5.000000e-01
+170:                                              ; preds = %118
+  %171 = getelementptr inbounds nuw i8, ptr %1, i64 132
+  %172 = load i32, ptr %171, align 4
+  %173 = getelementptr inbounds nuw i8, ptr %1, i64 124
+  %174 = load i32, ptr %173, align 4
+  %.neg82 = xor i32 %172, -1
+  %.neg81 = add i32 %174, %.neg82
+  %175 = sitofp i32 %.neg81 to double
+  %176 = fmul double %175, 5.000000e-01
   br label %.thread66
 
-183:                                              ; preds = %2
-  %184 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %185 = load i32, ptr %184, align 8
-  switch i32 %185, label %.thread66 [
-    i32 1, label %189
-    i32 0, label %262
+177:                                              ; preds = %2
+  %178 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %179 = load i32, ptr %178, align 8
+  switch i32 %179, label %.thread66 [
+    i32 1, label %183
+    i32 0, label %255
   ]
 
-186:                                              ; preds = %2
-  %187 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %188 = load i32, ptr %187, align 8
-  switch i32 %188, label %.thread66 [
-    i32 0, label %189
-    i32 1, label %262
+180:                                              ; preds = %2
+  %181 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %182 = load i32, ptr %181, align 8
+  switch i32 %182, label %.thread66 [
+    i32 0, label %183
+    i32 1, label %255
   ]
 
-189:                                              ; preds = %183, %186
-  br i1 %6, label %250, label %190
+183:                                              ; preds = %177, %180
+  br i1 %6, label %243, label %184
 
-190:                                              ; preds = %189
-  %191 = fcmp ogt double %4, 0.000000e+00
-  br i1 %191, label %192, label %229
+184:                                              ; preds = %183
+  %185 = fcmp ogt double %4, 0.000000e+00
+  br i1 %185, label %186, label %222
 
-192:                                              ; preds = %190
-  %193 = tail call noundef double @cos(double noundef %21) #52
-  %194 = fneg double %193
-  %195 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %196 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %197 = load i32, ptr %196, align 8
-  %198 = load i32, ptr %195, align 8
-  %199 = add i32 %197, 1
-  %200 = sub i32 %199, %198
-  %201 = sitofp i32 %200 to double
-  %202 = tail call noundef double @sin(double noundef %21) #52
-  %203 = getelementptr inbounds nuw i8, ptr %1, i64 132
-  %204 = load i32, ptr %203, align 4
-  %205 = getelementptr inbounds nuw i8, ptr %1, i64 124
-  %206 = load i32, ptr %205, align 4
-  %207 = add i32 %204, 1
-  %208 = sub i32 %207, %206
-  %209 = sitofp i32 %208 to double
-  %210 = fmul double %202, %209
-  %211 = fmul double %210, 5.000000e-01
-  %212 = tail call double @llvm.fmuladd.f64(double %194, double %201, double %211)
-  %213 = tail call noundef double @sin(double noundef %21) #52
-  %214 = fneg double %213
-  %215 = load i32, ptr %196, align 8
-  %216 = load i32, ptr %195, align 8
-  %217 = add i32 %215, 1
-  %218 = sub i32 %217, %216
-  %219 = sitofp i32 %218 to double
-  %220 = tail call noundef double @cos(double noundef %21) #52
-  %221 = load i32, ptr %203, align 4
-  %222 = load i32, ptr %205, align 4
-  %223 = add i32 %221, 1
-  %224 = sub i32 %223, %222
-  %225 = sitofp i32 %224 to double
-  %226 = fneg double %225
-  %227 = fmul double %220, %226
-  %228 = tail call double @llvm.fmuladd.f64(double %214, double %219, double %227)
+186:                                              ; preds = %184
+  %187 = tail call noundef double @cos(double noundef %21) #52
+  %188 = fneg double %187
+  %189 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  %190 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  %191 = load i32, ptr %190, align 8
+  %192 = load i32, ptr %189, align 8
+  %193 = add i32 %191, 1
+  %194 = sub i32 %193, %192
+  %195 = sitofp i32 %194 to double
+  %196 = tail call noundef double @sin(double noundef %21) #52
+  %197 = getelementptr inbounds nuw i8, ptr %1, i64 132
+  %198 = load i32, ptr %197, align 4
+  %199 = getelementptr inbounds nuw i8, ptr %1, i64 124
+  %200 = load i32, ptr %199, align 4
+  %201 = add i32 %198, 1
+  %202 = sub i32 %201, %200
+  %203 = sitofp i32 %202 to double
+  %204 = fmul double %196, %203
+  %205 = fmul double %204, 5.000000e-01
+  %206 = tail call double @llvm.fmuladd.f64(double %188, double %195, double %205)
+  %207 = fneg double %196
+  %208 = load i32, ptr %190, align 8
+  %209 = load i32, ptr %189, align 8
+  %210 = add i32 %208, 1
+  %211 = sub i32 %210, %209
+  %212 = sitofp i32 %211 to double
+  %213 = tail call noundef double @cos(double noundef %21) #52
+  %214 = load i32, ptr %197, align 4
+  %215 = load i32, ptr %199, align 4
+  %216 = add i32 %214, 1
+  %217 = sub i32 %216, %215
+  %218 = sitofp i32 %217 to double
+  %219 = fneg double %218
+  %220 = fmul double %213, %219
+  %221 = tail call double @llvm.fmuladd.f64(double %207, double %212, double %220)
   br label %.thread66
 
-229:                                              ; preds = %190
-  %230 = fneg double %21
-  %231 = tail call noundef double @sin(double noundef %230) #52
-  %232 = fneg double %231
-  %233 = getelementptr inbounds nuw i8, ptr %1, i64 132
-  %234 = load i32, ptr %233, align 4
-  %235 = getelementptr inbounds nuw i8, ptr %1, i64 124
-  %236 = load i32, ptr %235, align 4
-  %237 = add i32 %234, 1
-  %238 = sub i32 %237, %236
-  %239 = sitofp i32 %238 to double
-  %240 = fmul double %232, %239
-  %241 = fmul double %240, 5.000000e-01
-  %242 = tail call noundef double @cos(double noundef %230) #52
-  %243 = fneg double %242
-  %244 = load i32, ptr %233, align 4
-  %245 = load i32, ptr %235, align 4
-  %246 = add i32 %244, 1
-  %247 = sub i32 %246, %245
-  %248 = sitofp i32 %247 to double
-  %249 = fmul double %243, %248
+222:                                              ; preds = %184
+  %223 = fneg double %21
+  %224 = tail call noundef double @sin(double noundef %223) #52
+  %225 = fneg double %224
+  %226 = getelementptr inbounds nuw i8, ptr %1, i64 132
+  %227 = load i32, ptr %226, align 4
+  %228 = getelementptr inbounds nuw i8, ptr %1, i64 124
+  %229 = load i32, ptr %228, align 4
+  %230 = add i32 %227, 1
+  %231 = sub i32 %230, %229
+  %232 = sitofp i32 %231 to double
+  %233 = fmul double %225, %232
+  %234 = fmul double %233, 5.000000e-01
+  %235 = tail call noundef double @cos(double noundef %223) #52
+  %236 = fneg double %235
+  %237 = load i32, ptr %226, align 4
+  %238 = load i32, ptr %228, align 4
+  %239 = add i32 %237, 1
+  %240 = sub i32 %239, %238
+  %241 = sitofp i32 %240 to double
+  %242 = fmul double %236, %241
   br label %.thread66
 
-250:                                              ; preds = %189
-  %251 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %252 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %253 = load i32, ptr %252, align 8
-  %254 = load i32, ptr %251, align 8
-  %.neg76 = xor i32 %253, -1
-  %.neg75 = add i32 %254, %.neg76
-  %255 = sitofp i32 %.neg75 to double
-  %256 = fmul double %255, 5.000000e-01
-  %257 = getelementptr inbounds nuw i8, ptr %1, i64 132
-  %258 = load i32, ptr %257, align 4
-  %259 = getelementptr inbounds nuw i8, ptr %1, i64 124
-  %260 = load i32, ptr %259, align 4
-  %.neg78 = xor i32 %258, -1
-  %.neg77 = add i32 %260, %.neg78
-  %261 = sitofp i32 %.neg77 to double
+243:                                              ; preds = %183
+  %244 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  %245 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  %246 = load i32, ptr %245, align 8
+  %247 = load i32, ptr %244, align 8
+  %.neg76 = xor i32 %246, -1
+  %.neg75 = add i32 %247, %.neg76
+  %248 = sitofp i32 %.neg75 to double
+  %249 = fmul double %248, 5.000000e-01
+  %250 = getelementptr inbounds nuw i8, ptr %1, i64 132
+  %251 = load i32, ptr %250, align 4
+  %252 = getelementptr inbounds nuw i8, ptr %1, i64 124
+  %253 = load i32, ptr %252, align 4
+  %.neg78 = xor i32 %251, -1
+  %.neg77 = add i32 %253, %.neg78
+  %254 = sitofp i32 %.neg77 to double
   br label %.thread66
 
-262:                                              ; preds = %183, %186
-  br i1 %6, label %305, label %263
+255:                                              ; preds = %177, %180
+  br i1 %6, label %297, label %256
 
-263:                                              ; preds = %262
-  %264 = fcmp ogt double %4, 0.000000e+00
-  br i1 %264, label %265, label %276
+256:                                              ; preds = %255
+  %257 = fcmp ogt double %4, 0.000000e+00
+  br i1 %257, label %258, label %269
 
-265:                                              ; preds = %263
-  %266 = tail call noundef double @sin(double noundef %21) #52
-  %267 = getelementptr inbounds nuw i8, ptr %1, i64 132
-  %268 = load i32, ptr %267, align 4
-  %269 = getelementptr inbounds nuw i8, ptr %1, i64 124
-  %270 = load i32, ptr %269, align 4
-  %271 = add i32 %268, 1
-  %272 = sub i32 %271, %270
-  %273 = sitofp i32 %272 to double
-  %274 = fmul double %266, %273
-  %275 = fmul double %274, 5.000000e-01
+258:                                              ; preds = %256
+  %259 = tail call noundef double @sin(double noundef %21) #52
+  %260 = getelementptr inbounds nuw i8, ptr %1, i64 132
+  %261 = load i32, ptr %260, align 4
+  %262 = getelementptr inbounds nuw i8, ptr %1, i64 124
+  %263 = load i32, ptr %262, align 4
+  %264 = add i32 %261, 1
+  %265 = sub i32 %264, %263
+  %266 = sitofp i32 %265 to double
+  %267 = fmul double %259, %266
+  %268 = fmul double %267, 5.000000e-01
   br label %.thread66
 
-276:                                              ; preds = %263
-  %277 = fneg double %21
-  %278 = tail call noundef double @cos(double noundef %277) #52
-  %279 = fneg double %278
-  %280 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %281 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %282 = load i32, ptr %281, align 8
-  %283 = load i32, ptr %280, align 8
-  %284 = add i32 %282, 1
-  %285 = sub i32 %284, %283
-  %286 = sitofp i32 %285 to double
-  %287 = tail call noundef double @sin(double noundef %277) #52
-  %288 = getelementptr inbounds nuw i8, ptr %1, i64 132
-  %289 = load i32, ptr %288, align 4
-  %290 = getelementptr inbounds nuw i8, ptr %1, i64 124
-  %291 = load i32, ptr %290, align 4
-  %292 = add i32 %289, 1
-  %293 = sub i32 %292, %291
-  %294 = sitofp i32 %293 to double
-  %295 = fmul double %287, %294
-  %296 = fmul double %295, -5.000000e-01
-  %297 = tail call double @llvm.fmuladd.f64(double %279, double %286, double %296)
-  %298 = tail call noundef double @sin(double noundef %277) #52
-  %299 = load i32, ptr %281, align 8
-  %300 = load i32, ptr %280, align 8
-  %301 = add i32 %299, 1
-  %302 = sub i32 %301, %300
-  %303 = sitofp i32 %302 to double
-  %304 = fmul double %298, %303
+269:                                              ; preds = %256
+  %270 = fneg double %21
+  %271 = tail call noundef double @cos(double noundef %270) #52
+  %272 = fneg double %271
+  %273 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  %274 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  %275 = load i32, ptr %274, align 8
+  %276 = load i32, ptr %273, align 8
+  %277 = add i32 %275, 1
+  %278 = sub i32 %277, %276
+  %279 = sitofp i32 %278 to double
+  %280 = tail call noundef double @sin(double noundef %270) #52
+  %281 = getelementptr inbounds nuw i8, ptr %1, i64 132
+  %282 = load i32, ptr %281, align 4
+  %283 = getelementptr inbounds nuw i8, ptr %1, i64 124
+  %284 = load i32, ptr %283, align 4
+  %285 = add i32 %282, 1
+  %286 = sub i32 %285, %284
+  %287 = sitofp i32 %286 to double
+  %288 = fmul double %280, %287
+  %289 = fmul double %288, -5.000000e-01
+  %290 = tail call double @llvm.fmuladd.f64(double %272, double %279, double %289)
+  %291 = load i32, ptr %274, align 8
+  %292 = load i32, ptr %273, align 8
+  %293 = add i32 %291, 1
+  %294 = sub i32 %293, %292
+  %295 = sitofp i32 %294 to double
+  %296 = fmul double %280, %295
   br label %.thread66
 
-305:                                              ; preds = %262
-  %306 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %307 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %308 = load i32, ptr %307, align 8
-  %309 = load i32, ptr %306, align 8
-  %.neg74 = xor i32 %308, -1
-  %.neg = add i32 %309, %.neg74
-  %310 = sitofp i32 %.neg to double
-  %311 = fmul double %310, 5.000000e-01
+297:                                              ; preds = %255
+  %298 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  %299 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  %300 = load i32, ptr %299, align 8
+  %301 = load i32, ptr %298, align 8
+  %.neg74 = xor i32 %300, -1
+  %.neg = add i32 %301, %.neg74
+  %302 = sitofp i32 %.neg to double
+  %303 = fmul double %302, 5.000000e-01
   br label %.thread66
 
-.thread66:                                        ; preds = %183, %186, %24, %27, %2, %89, %96, %44, %48, %152, %174, %176, %265, %276, %305, %250, %229, %192, %112
-  %.060 = phi double [ %117, %112 ], [ %136, %152 ], [ 0.000000e+00, %174 ], [ 0.000000e+00, %176 ], [ %212, %192 ], [ %241, %229 ], [ %256, %250 ], [ %275, %265 ], [ %297, %276 ], [ %311, %305 ], [ %43, %48 ], [ %43, %44 ], [ %88, %96 ], [ %88, %89 ], [ 0.000000e+00, %2 ], [ 0.000000e+00, %27 ], [ 0.000000e+00, %24 ], [ 0.000000e+00, %186 ], [ 0.000000e+00, %183 ]
-  %.0 = phi double [ %123, %112 ], [ %153, %152 ], [ %175, %174 ], [ %182, %176 ], [ %228, %192 ], [ %249, %229 ], [ %261, %250 ], [ 0.000000e+00, %265 ], [ %304, %276 ], [ 0.000000e+00, %305 ], [ %66, %48 ], [ %47, %44 ], [ %111, %96 ], [ %95, %89 ], [ 0.000000e+00, %2 ], [ 0.000000e+00, %27 ], [ 0.000000e+00, %24 ], [ 0.000000e+00, %186 ], [ 0.000000e+00, %183 ]
+.thread66:                                        ; preds = %177, %180, %24, %27, %2, %94, %96, %44, %48, %146, %168, %170, %258, %269, %297, %243, %222, %186, %106
+  %.060 = phi double [ %111, %106 ], [ %130, %146 ], [ 0.000000e+00, %168 ], [ 0.000000e+00, %170 ], [ %206, %186 ], [ %234, %222 ], [ %249, %243 ], [ %268, %258 ], [ %290, %269 ], [ %303, %297 ], [ %43, %48 ], [ %43, %44 ], [ %88, %96 ], [ %88, %94 ], [ 0.000000e+00, %2 ], [ 0.000000e+00, %27 ], [ 0.000000e+00, %24 ], [ 0.000000e+00, %180 ], [ 0.000000e+00, %177 ]
+  %.0 = phi double [ %117, %106 ], [ %147, %146 ], [ %169, %168 ], [ %176, %170 ], [ %221, %186 ], [ %242, %222 ], [ %254, %243 ], [ 0.000000e+00, %258 ], [ %296, %269 ], [ 0.000000e+00, %297 ], [ %66, %48 ], [ %47, %44 ], [ %105, %96 ], [ %95, %94 ], [ 0.000000e+00, %2 ], [ 0.000000e+00, %27 ], [ 0.000000e+00, %24 ], [ 0.000000e+00, %180 ], [ 0.000000e+00, %177 ]
   %.fca.0.insert = insertvalue { double, double } poison, double %.060, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.0, 1
   ret { double, double } %.fca.1.insert
